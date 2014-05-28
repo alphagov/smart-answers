@@ -8,16 +8,16 @@ private
   class FriendlyDateDiff
     include ActionView::Helpers::TextHelper
     attr_reader :from_date, :to_date
-    
+
     def initialize(from_date, to_date)
       @from_date = from_date
       @to_date = to_date
     end
-    
+
     def describe
       date_parts.compact.join(", ")
     end
-    
+
   private
     def date_parts
       [
@@ -26,11 +26,11 @@ private
         date_part('day', whole_days_away)
       ]
     end
-    
+
     def date_part(label, amount)
       amount > 0 ? pluralize(amount, label) : nil
     end
-  
+
     def whole_years_away
       month_difference / 12
     end
@@ -38,7 +38,7 @@ private
     def whole_months_away
       month_difference % 12
     end
-    
+
     def month_difference
       m = 0
       begin

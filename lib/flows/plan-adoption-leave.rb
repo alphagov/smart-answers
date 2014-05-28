@@ -1,13 +1,13 @@
 status :published
 satisfies_need "101018"
 
-date_question :child_match_date? do 
+date_question :child_match_date? do
   save_input_as :match_date
 
   next_node :child_arrival_date?
 end
 
-date_question :child_arrival_date? do 
+date_question :child_arrival_date? do
 	calculate :arrival_date do
     raise InvalidResponse if Date.parse(responses.last) <= Date.parse(match_date)
     responses.last
@@ -18,15 +18,15 @@ end
 
 date_question :leave_start? do
 	calculate :start_date do
-    dist = (Date.parse(arrival_date) - Date.parse(responses.last)).to_i 
+    dist = (Date.parse(arrival_date) - Date.parse(responses.last)).to_i
     raise InvalidResponse unless (1..14).include? dist
     responses.last
   end
 
   calculate :calculator do
     Calculators::PlanAdoptionLeave.new(
-      match_date: match_date, 
-      arrival_date: arrival_date, 
+      match_date: match_date,
+      arrival_date: arrival_date,
       start_date: start_date)
   end
 

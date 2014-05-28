@@ -10,7 +10,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
   setup do
     setup_for_testing_flow 'state-pension-through-partner'
   end
-  
+
   context "old1 - married" do
     setup { add_response "married" }
     should "ask when will reach pension age" do
@@ -31,7 +31,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       end
     end
   end #end married old old
-  
+
   context "widow" do
     setup { add_response "widowed" }
     should "ask when will reach pension age" do
@@ -40,11 +40,11 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
 
     context "new2 - after specific date" do
       setup { add_response "your_pension_age_after_specific_date" }
- 
+
       should "go to question gender" do
         assert_current_node :what_is_your_gender?
       end
-      
+
       context "male" do
         setup { add_response "male_gender"}
         should "go to final_outcome with impossibility_to_increase_pension phraselist" do
@@ -54,10 +54,10 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       end
     end
   end
-  
+
   context "divorced" do
-    setup do 
-      add_response "divorced" 
+    setup do
+      add_response "divorced"
       add_response "male_gender"
     end
     should "ask male or female, answer male then go to result" do
@@ -65,8 +65,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_phrase_list :result_phrase , [:impossibility_due_to_divorce, :increase_retirement_income]
     end
   end
-  
-#START OF QUICK TESTS  
+
+#START OF QUICK TESTS
 #current_rules_no_additional_pension
   context "old1 old2 old3 == current_rules_no_additional_pension" do
     setup do
@@ -78,7 +78,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_current_node :final_outcome
       assert_phrase_list :result_phrase, [:current_rules_no_additional_pension, :increase_retirement_income]
     end
-  end 
+  end
   context "new1 new2 old3, female == married_woman_no_state_pension" do
     setup do
       add_response "will_marry_on_or_after_specific_date"
@@ -139,7 +139,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_current_node :final_outcome
       assert_phrase_list :result_phrase, [:married_woman_no_state_pension, :increase_retirement_income]
     end
-  end 
+  end
   context "new1 new2 new3 == married_woman_no_state_pension" do
     setup do
       add_response "will_marry_on_or_after_specific_date"
@@ -175,7 +175,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_current_node :final_outcome
       assert_phrase_list :result_phrase, [:married_woman_and_state_pension, :increase_retirement_income]
     end
-  end 
+  end
   context "widow new2 new3 female_gender == married_woman_and_state_pension" do
     setup do
       add_response "widowed"

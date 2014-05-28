@@ -28,8 +28,8 @@ module SmartAnswer
 
       def negative?(input)
         input.to_s == "no" || (
-          input.is_a?(Hash) and 
-          input.has_key?('selection') and 
+          input.is_a?(Hash) and
+          input.has_key?('selection') and
           input['selection'].to_s == "no"
         )
       end

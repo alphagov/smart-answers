@@ -7,24 +7,24 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
   setup do
     setup_for_testing_flow "am-i-getting-minimum-wage"
   end
-  
+
   # Q1
   should "ask 'what would you like to check?'" do
     assert_current_node :what_would_you_like_to_check?
   end
-  
+
   # Current payments
   #
   context "when checking current pay" do
     setup do
       add_response :current_payment
     end
-    
+
     # Q2
     should "ask 'are you an apprentice?'" do
       assert_current_node :are_you_an_apprentice?
     end
-    
+
     context "answered 'apprentice under 19' to 'are you an apprentice?'" do
       setup do
         add_response :apprentice_under_19
@@ -33,7 +33,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_current_node :how_often_do_you_get_paid?
       end
     end
-    
+
     context "answered 'apprentice over 19' to 'are you an apprentice?'" do
       setup do
         add_response :apprentice_over_19
@@ -42,14 +42,14 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         assert_current_node :how_often_do_you_get_paid?
       end
     end
-    
+
     context "answered 'no' to 'are you an apprentice?'" do
       # Q3
-      
+
       setup do
         add_response :no
       end
-      
+
       should "ask 'how old are you?'" do
         assert_current_node :how_old_are_you?
       end
@@ -74,27 +74,27 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
 
       end
-      
+
       context "answered 19 to 'how old are you?'" do
         setup do
           add_response 19
         end
-      
+
         # Q4
         should "ask 'how often do you get paid?'" do
           assert_current_node :how_often_do_you_get_paid?
         end
-        
+
         context "answered weekly to 'how often do you get paid?'" do
           setup do
             add_response 7
           end
-          
+
           # Q5
           should "ask 'how many hours do you work?'" do
             assert_current_node :how_many_hours_do_you_work?
           end
-          
+
           context "test hours entry for hours worked" do
             should "succeed on 37.5 entered" do
               add_response "37.5"
@@ -113,7 +113,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             setup do
               add_response 42
             end
-            
+
             # Q6
             should "ask 'how much do you get paid?'" do
               assert_current_node :how_much_are_you_paid_during_pay_period?
@@ -132,22 +132,22 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               setup do
                 add_response 158.39
               end
-              
+
               # Q7
               should "ask 'how many hours overtime?'" do
                 assert_current_node :how_many_hours_overtime_do_you_work?
               end
-              
+
               context "answer '8 hours' to 'how many hours overtime?'" do
                 setup do
                   add_response 8
                 end
-                
+
                 # Q8
                 should "ask 'what rate of overtime per hour?'" do
                   assert_current_node :what_is_overtime_pay_per_hour?
                 end
-                
+
                 context "answer 3.71 to 'overtime per hour?'" do
                   setup do
                     add_response 3.71
@@ -156,39 +156,39 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   should "ask 'are you provided with accommodation?'" do
                     assert_current_node :is_provided_with_accommodation?
                   end
-                  
+
                   context "answer 'no'" do
                     setup do
                       add_response :no
                     end
-                    
+
                     should "show the results" do
                       assert_current_node :current_payment_below
                     end
                   end
-                end              
+                end
               end
-              
+
               context "answer 'no overtime' to 'how many hours overtime?'" do
                 setup do
                   add_response 0
                 end
-                
+
                 # Q9
                 should "ask 'are you provided with accommodation?'" do
                   assert_current_node :is_provided_with_accommodation?
                 end
-              
+
                 context "answer 'no' to 'are you provided with accommodation?'" do
                   setup do
                     add_response :no
                   end
-                  
+
                   should "show the results" do
                     assert_current_node :current_payment_below
                   end
                 end
-                
+
                 # Where accommodation is charged under the £4.73 threshold.
                 # No adjustment is made to basic pay.
                 #
@@ -196,35 +196,35 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   setup do
                     add_response :yes_charged
                   end
-                  
+
                   # Q10
                   should "ask 'how much do you pay for the accommodation?'" do
                     assert_current_node :current_accommodation_charge?
                   end
-                  
+
                   context "answer 4.72 to 'how much do you pay for accommodation?'" do
                     setup do
                       add_response 4.72
                     end
-                    
+
                     should "ask 'how often do you use the accommodation?'" do
                       assert_current_node :current_accommodation_usage?
                     end
-                    
+
                     context "answer 4 to 'how often do you use the accommodation?'" do
                       setup do
                         add_response 4
                       end
-                      
+
                       should "show below min. wage results" do
                         assert_current_node :current_payment_below
                       end
                     end
                   end # Accommodation
-                end # Overtime rate 
-              end # Overtime hours 
+                end # Overtime rate
+              end # Overtime hours
             end # Basic pay
-            
+
             # Again with a better basic pay to achieve > min. wage.
             #
             context "answer '300' to 'how much do you get paid?'" do
@@ -236,12 +236,12 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               should "show above min. wage results" do
                 assert_current_node :current_payment_above
               end
-            end # Basic pay          
+            end # Basic pay
           end # Basic hours
         end # Pay frequency
       end # Age
-      
-      # Scenario 8 
+
+      # Scenario 8
       context "25 year old" do
         setup do
           add_response 25
@@ -268,7 +268,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       # Scenario 8 - part 2 - living in free accommodation instead of charged
       context "25 year old" do
         setup do
-          add_response 25         # age 
+          add_response 25         # age
           add_response 7          # pay_frequency
           add_response 35         # basic_hours
           add_response 350        # amount_paid
@@ -283,7 +283,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         should "make outcome calculations" do
           assert_state_variable "total_hours", 45
           # NOTE: these are date sensitive vars - will be tested in the calculator tests
-          # assert_state_variable "minimum_hourly_rate", 6.08 # 
+          # assert_state_variable "minimum_hourly_rate", 6.08 #
           # assert_state_variable "total_hourly_rate", "10.74" # time sensitive
           assert_state_variable "above_minimum_wage", true
         end
@@ -301,21 +301,21 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       Timecop.travel('30 Sep 2013')
       add_response :past_payment
     end
-    
+
     should "ask 'which date do you want to check?'" do
       assert_current_node :past_payment_date?
     end
-    
+
     context "answer 2009-10-01" do
       setup do
         add_response "2009-10-01"
       end
-    
+
       # Q2
       should "ask 'were you an apprentice?'" do
         assert_current_node :were_you_an_apprentice?
       end
-    
+
       context "answered 'apprentice under 19' to 'are you an apprentice?'" do
         setup do
           add_response :apprentice_over_19
@@ -324,7 +324,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_current_node :does_not_apply_to_historical_apprentices
         end
       end
-    
+
       context "answered 'apprentice over 19' to 'were you an apprentice?'" do
         setup do
           add_response :apprentice_over_19
@@ -332,40 +332,40 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         should "ask 'how often did you get paid?'" do
           assert_current_node :does_not_apply_to_historical_apprentices
         end
-        
+
       end
-    
+
       context "answered 'no' to 'were you an apprentice?'" do
         # Q3
-        
+
         setup do
           add_response :no
         end
-      
+
         should "ask 'how old were you?'" do
           assert_current_node :how_old_were_you?
         end
-      
+
         context "answered 19 to 'how old were you?'" do
           setup do
             add_response 19
           end
-        
+
           # Q4
           should "ask 'how often did you get paid?'" do
             assert_current_node :how_often_did_you_get_paid?
           end
-        
+
           context "answered weekly to 'how often did you get paid?'" do
             setup do
               add_response "7"
             end
-          
+
             # Q5
             should "ask 'how many hours did you work?'" do
               assert_current_node :how_many_hours_did_you_work?
             end
-            
+
 
           context "test hours entry for hours worked" do
             should "succeed on 37.5 entered" do
@@ -385,63 +385,63 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               setup do
                 add_response 42
               end
-            
+
               # Q6
               should "ask 'how much did you get paid?'" do
                 assert_current_node :how_much_were_you_paid_during_pay_period?
               end
-            
+
               context "answered 158.39 to 'how much did you get paid?'" do
                 setup do
                   add_response 158.39
                 end
-              
+
                 # Q7
                 should "ask 'how many hours overtime?'" do
                   assert_current_node :how_many_hours_overtime_did_you_work?
                 end
-              
+
                 context "answer '8 hours' to 'how many hours overtime?'" do
                   setup do
                     add_response 8
                   end
-                  
+
                   # Q8
                   should "ask 'what rate of overtime per hour?'" do
                     assert_current_node :what_was_overtime_pay_per_hour?
                   end
-                
+
                   context "answer 3.71 to 'overtime per hour?'" do
                     # Q9
                     should "ask 'were you provided with accommodation?'" do
                       add_response 3.71
                       assert_current_node :was_provided_with_accommodation?
                     end
-                  end              
+                  end
                 end
-              
+
                 context "answer 'no overtime' to 'how many hours overtime?'" do
                   setup do
                     add_response 0
                   end
-                  
+
                   # Q9
                   should "ask 'were you provided with accommodation?'" do
                     assert_current_node :was_provided_with_accommodation?
                   end
-                
+
                   context "answer 'no' to 'were you provided with accommodation?'" do
                     setup do
                       add_response :no
                     end
-                    
+
                     should "show the results" do
                       assert_current_node :past_payment_below
                       # assert_current_node :past_payment_above
                     end
 
                   end
-                
+
                   # Where accommodation is charged under the £4.73 threshold.
                   # No adjustment is made to basic pay.
                   #
@@ -449,30 +449,30 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     setup do
                       add_response :yes_charged
                     end
-                    
+
                     # Q10
                     should "ask 'how much did you pay for the accommodation?'" do
                       assert_current_node :past_accommodation_charge?
                     end
-                    
+
                     context "answer 4.72 to 'how much did you pay for accommodation?'" do
                       setup do
                         add_response 4.72
                       end
-                      
+
                       should "ask 'how often did you use the accommodation?'" do
                         assert_current_node :past_accommodation_usage?
                       end
-                      
+
                       context "answer 4 to 'how often did you use the accommodation?'" do
                         setup do
                           add_response 4
                         end
-                        
+
                         should "show results" do
                           assert_current_node :past_payment_below
                         end
-                        
+
                         should "make outcome calculations" do
                           assert_state_variable "total_hours", 42
                           assert_state_variable "minimum_hourly_rate", "4.83"
@@ -483,8 +483,8 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     end
                   end
                 end
-              end  
-             
+              end
+
               # Again with a better basic pay to achieve < min. wage.
               #
               context "answer '200' to 'how much did you get paid?'" do
@@ -497,13 +497,13 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                   # assert_current_node :past_payment_above
                   assert_current_node :past_payment_below
                 end
-              end # Basic pay        
+              end # Basic pay
             end # Basic hours
           end # Pay frequency
         end # Age
       end # Apprentice
     end # Date in question
-    
+
     # Test for alternative historical apprentice outcome
     #
     context "answer 2010-10-01" do
@@ -511,12 +511,12 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response '2010-10-01'
         add_response :apprentice_over_19
       end
-      
+
       should "ask 'how often did you get paid?'" do
         assert_current_node :how_often_did_you_get_paid?
       end
     end
-    
+
     # Scenario 12 from spreadsheet
     context "17 year old in 2008-09" do
       setup do
@@ -563,7 +563,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_state_variable "historical_adjustment", 70.38
         end
       end
-      
+
     end
   end # Past pay
 end

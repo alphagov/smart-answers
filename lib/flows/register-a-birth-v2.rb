@@ -67,7 +67,7 @@ multiple_choice :married_couple_or_civil_partnership? do
   calculate :paternity_declaration do
     responses.last == 'no'
   end
-  
+
   next_node_if(:childs_date_of_birth?) { |response| response == 'no' and british_national_parent == 'father' }
   next_node(:where_are_you_now?)
 end
@@ -76,7 +76,7 @@ end
 date_question :childs_date_of_birth? do
   from { Date.today }
   to { 50.years.ago(Date.today) }
-  
+
   next_node_if(:homeoffice_result) { |response| Date.new(2006,07,01) > Date.parse(response) }
   next_node(:where_are_you_now?)
 end
@@ -90,7 +90,7 @@ multiple_choice :where_are_you_now? do
   calculate :another_country do
     responses.last == 'another_country'
   end
-  
+
   calculate :in_the_uk do
     responses.last == 'in_the_uk'
   end
@@ -117,7 +117,7 @@ country_select :which_country?, :exclude_countries => exclude_countries do
       registration_country_name
     end
   end
-  
+
   next_node_if(:no_embassy_result) { |response| no_embassies.include?(response) }
   next_node(:embassy_result)
 end
@@ -195,7 +195,7 @@ outcome :embassy_result do
   precalculate :postal do
     if reg_data_query.modified_card_only_countries?(registration_country)
       PhraseList.new(:post_only_pay_by_card_countries)
-    elsif reg_data_query.post_only_countries?(registration_country) 
+    elsif reg_data_query.post_only_countries?(registration_country)
       PhraseList.new(:"post_only_#{registration_country}")
     elsif postal_form_url
       PhraseList.new(:postal_form)
@@ -221,11 +221,11 @@ outcome :embassy_result do
     raise InvalidResponse unless loc
     loc
   end
-  
+
   precalculate :organisations do
     [location.fco_organisation]
   end
-  
+
   precalculate :overseas_passports_embassies do
     if organisations and organisations.any?
       service_title = 'Births and Deaths registration service'
@@ -234,7 +234,7 @@ outcome :embassy_result do
       []
     end
   end
-  
+
   precalculate :cash_only do
     if reg_data_query.cheque_only?(registration_country)
       PhraseList.new(:cheque_only)
@@ -264,7 +264,7 @@ outcome :oru_result do
   precalculate :button_data do
     {:text => "Pay now", :url => "https://pay-register-birth-abroad.service.gov.uk/start?country=#{country_of_birth}"}
   end
-  
+
   precalculate :oru_documents_variant do
     if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?(country_of_birth)
       phrases = PhraseList.new
@@ -278,11 +278,11 @@ outcome :oru_result do
       PhraseList.new(:oru_documents)
     end
   end
-  
+
   precalculate :translator_link_url do
     translator_query.links[country_of_birth]
   end
-  
+
   precalculate :translator_link do
     if translator_link_url
       PhraseList.new(:approved_translator_link)
@@ -290,7 +290,7 @@ outcome :oru_result do
       PhraseList.new(:no_translator_link)
     end
   end
-  
+
   precalculate :oru_address do
     if in_the_uk
       PhraseList.new(:oru_address_uk)

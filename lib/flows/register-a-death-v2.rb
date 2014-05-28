@@ -39,7 +39,7 @@ multiple_choice :was_death_expected? do
   calculate :death_expected do
     responses.last == 'yes'
   end
-  
+
   next_node(:uk_result)
 end
 
@@ -53,7 +53,7 @@ country_select :which_country?, :exclude_countries => exclude_countries do
   calculate :current_location_name do
     WorldLocation.all.find { |c| c.slug == current_location }.name
   end
-  
+
   calculate :current_location_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(country)
       "the #{current_location_name}"
@@ -84,11 +84,11 @@ multiple_choice :where_are_you_now? do
   calculate :another_country do
     responses.last == 'another_country'
   end
-  
+
   calculate :in_the_uk do
     responses.last == 'in_the_uk'
   end
-  
+
   next_node_if(:oru_result) do |response|
     reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.include?(country) || response == 'in_the_uk'
   end
@@ -104,7 +104,7 @@ country_select :which_country_are_you_in_now?, :exclude_countries => exclude_cou
   calculate :current_location_name do
     WorldLocation.all.find { |c| c.slug == current_location }.name
   end
-  
+
   calculate :current_location_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(country)
       "the #{current_location_name}"
@@ -139,11 +139,11 @@ outcome :oru_result do
   precalculate :button_data do
     {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=#{country}"}
   end
-  
+
   precalculate :translator_link_url do
     translator_query.links[country]
   end
-  
+
   precalculate :translator_link do
     if translator_link_url
       PhraseList.new(:approved_translator_link)
@@ -151,7 +151,7 @@ outcome :oru_result do
       PhraseList.new(:no_translator_link)
     end
   end
-  
+
   precalculate :oru_address do
     if in_the_uk
       PhraseList.new(:oru_address_uk)

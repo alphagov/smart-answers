@@ -9,7 +9,7 @@ date_question :dob_age? do
   to { Date.today }
 
   save_input_as :date_of_birth
-  
+
 	next_node do |response|
     dob = Date.parse(response)
 		if (dob < (Date.parse('2015-10-12') - 101.years))
@@ -25,7 +25,7 @@ end
 #Q2
 money_question :how_much_extra_per_week? do
 	save_input_as :money_wanted
-  
+
   calculate :integer_value do
     money = responses.last.to_f
     if (money % 1 != 0) or (money > 25 or money < 1)
@@ -41,7 +41,7 @@ date_question :date_of_lump_sum_payment? do
   to { Date.parse('01 April 2017') }
 
   save_input_as :age_at_date_of_payment
-  
+
   calculate :date_of_payment do
     Date.parse(responses.last)
   end
@@ -75,7 +75,7 @@ multiple_choice :gender? do
   end
 
   next_node do |response|
-    
+
     dob = Date.parse(date_of_birth)
     if (response == "male") and (dob > Date.parse('1951-04-06'))
       :outcome_pension_age_not_reached
@@ -87,15 +87,15 @@ end
 
 #A1
 outcome :outcome_qualified_for_top_up_calculations do
-  
-  precalculate :weekly_amount do 
+
+  precalculate :weekly_amount do
     sprintf("%.0f",money_wanted)
   end
-  
+
   precalculate :rate_at_time_of_paying do
     money = money_wanted.to_f
     total = data_query.age_and_rates(age_at_date_of_payment) * money
-    
+
     total_money = SmartAnswer::Money.new(total)
   end
 end
@@ -108,7 +108,7 @@ outcome :outcome_age_limit_reached_birth
 
 #A4
 outcome :outcome_age_limit_reached_payment do
-  
+
   precalculate :age_at_date_of_payment do
     Date.parse(age_at_date_of_payment)
   end

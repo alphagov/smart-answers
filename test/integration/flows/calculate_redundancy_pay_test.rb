@@ -353,11 +353,11 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
             assert_current_node_is_error
           end
           should "succeed on 3" do
-            add_response 3 
+            add_response 3
             assert_current_node :weekly_pay_before_tax?
           end
           should "succeed on 2" do
-            add_response 2 
+            add_response 2
             assert_current_node :weekly_pay_before_tax?
           end
         end

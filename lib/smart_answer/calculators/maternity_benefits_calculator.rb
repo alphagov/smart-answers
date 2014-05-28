@@ -49,7 +49,7 @@ module SmartAnswer::Calculators
     def due_date_before_14th_july_2013?
       @due_date < Date.parse("14th July 2013")
     end
-    
+
     def due_date_before_6th_april_2014?
       @due_date < Date.parse("6th April 2014")
     end

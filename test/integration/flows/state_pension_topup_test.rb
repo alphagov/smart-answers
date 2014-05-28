@@ -11,7 +11,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
   should "ask date of birth" do
     assert_current_node :dob_age?
   end
-  
+
   context "older than 100 years" do
     setup do
       add_response Date.parse('1900-02-02')
@@ -20,7 +20,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       assert_current_node :outcome_age_limit_reached_birth
     end
   end
-  
+
   context "younger than age limit" do
     setup do
       add_response Date.parse('1980-02-02')
@@ -29,7 +29,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       assert_current_node :outcome_pension_age_not_reached
     end
   end
-  
+
   context "correct age inserted" do
     setup do
       add_response Date.parse('1950-02-02')
@@ -37,16 +37,16 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     should "bring you to how_much_per_week question" do
       assert_current_node :how_much_extra_per_week?
     end
-    
+
     context "correct amount inserted" do
       setup do
         add_response 10
       end
       should "bring you to date_of_lump_sum_payment question" do
         assert_current_node :date_of_lump_sum_payment?
-        
+
       end
-      
+
       context "correct date of payment inserted" do
         setup do
           add_response Date.parse('2016-02-02')
@@ -54,9 +54,9 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
         should "bring you to gender question" do
           assert_current_node :gender?
         end
-        
+
         context "gender inserted" do
-          setup do 
+          setup do
             add_response :female
           end
           should "bring you to final outcome and show result" do
@@ -68,7 +68,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
           end
         end
       end
-      
+
       context "incorrect date of payment inserted(outside of range)" do
         setup do
           add_response Date.parse('2015-02-02')
@@ -78,7 +78,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
         end
       end
     end
-    
+
     context "invalid amount (not integer) inserted" do
       setup do
         add_response 10.1
@@ -87,7 +87,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
         assert_current_node_is_error
       end
     end
-    
+
     context "invalid amount (outside of range) inserted" do
       setup do
         add_response 30
@@ -104,7 +104,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       add_response 25
       add_response Date.parse('2015-10-12')
       add_response :female
-    end 
+    end
     should "bring you to final result outcome" do
       assert_current_node :outcome_qualified_for_top_up_calculations
       assert_state_variable :rate_at_time_of_paying, 23350.0
@@ -120,7 +120,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       add_response 20
       add_response Date.parse('2016-02-02')
       add_response :female
-    end 
+    end
     should "bring you to final result outcome" do
       assert_current_node :outcome_qualified_for_top_up_calculations
       assert_state_variable :rate_at_time_of_paying, 18680.0
@@ -140,14 +140,14 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       assert_state_variable :age_at_date_of_payment, 63
     end
   end
-  
+
   context "check 13 October 1914 dob not allowed to use tool" do
     setup do
       add_response Date.parse('1914-10-13') # Young enough
       add_response 10
       add_response Date.parse('2015-10-14') # Too old at payment date
     end
-    
+
     should "go to outcome" do
       assert_current_node :outcome_age_limit_reached_payment
     end

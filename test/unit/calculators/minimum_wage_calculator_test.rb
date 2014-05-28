@@ -29,7 +29,7 @@ module SmartAnswer::Calculators
         should "retrieve a map of historical minimum wage data" do
           assert_equal 4.91, @calculator.minimum_wage_data_for_date(Date.parse("2013-10-01"))[:accommodation_rate]
           assert_equal 4.82, @calculator.minimum_wage_data_for_date(Date.parse("2012-10-01"))[:accommodation_rate]
-          assert_equal 4.73, @calculator.minimum_wage_data_for_date(Date.parse("2011-10-01"))[:accommodation_rate] 
+          assert_equal 4.73, @calculator.minimum_wage_data_for_date(Date.parse("2011-10-01"))[:accommodation_rate]
           assert_equal 4.51, @calculator.minimum_wage_data_for_date(Date.parse("2010-08-21"))[:accommodation_rate]
         end
       end
@@ -303,7 +303,7 @@ module SmartAnswer::Calculators
           assert_equal 6.08, @calculator.minimum_hourly_rate
           assert_equal 20, @calculator.total_overtime_pay
           assert_equal 2.5, @calculator.total_hourly_rate
-          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage" 
+          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
         should "calculate total hourly rate accounting for overtime" do
@@ -311,7 +311,7 @@ module SmartAnswer::Calculators
           assert_equal 6.08, @calculator.minimum_hourly_rate
           assert_equal 25, @calculator.total_overtime_pay
           assert_equal 2.5, @calculator.total_hourly_rate
-          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage" 
+          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
       end
@@ -326,28 +326,28 @@ module SmartAnswer::Calculators
         should "calculate total hourly rate accounting for overtime" do
           assert_equal 4.83, @calculator.minimum_hourly_rate
           assert_equal 4.83, @calculator.total_hourly_rate
-          assert @calculator.minimum_wage_or_above?, "should be equal to the minimum wage" 
+          assert @calculator.minimum_wage_or_above?, "should be equal to the minimum wage"
         end
 
         should "adjust for free accommodation" do
           @calculator.accommodation_adjustment(0, 5)
           assert_equal 38.65, @calculator.accommodation_cost
           assert_equal 5.48, @calculator.total_hourly_rate
-          assert @calculator.minimum_wage_or_above?, "should be above the minimum wage" 
+          assert @calculator.minimum_wage_or_above?, "should be above the minimum wage"
         end
 
         should "adjust for accommodation charged above the threshold" do
           @calculator.accommodation_adjustment(4.6, 5)
           assert_equal -0.77, @calculator.accommodation_cost
           assert_equal 4.82, @calculator.total_hourly_rate
-          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage" 
+          assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
         should "adjust for accommodation charged below the threshold" do
           @calculator.accommodation_adjustment(4, 5)
           assert_equal 0, @calculator.accommodation_cost
           assert_equal 4.83, @calculator.total_hourly_rate
-          assert @calculator.minimum_wage_or_above?, "should be equal to the minimum wage" 
+          assert @calculator.minimum_wage_or_above?, "should be equal to the minimum wage"
         end
 
         context "with overtime" do

@@ -159,9 +159,9 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
-      assert_state_variable :postal_form_url, nil 
+      assert_state_variable :postal_form_url, nil
       assert_state_variable :postal, ""
-      assert_phrase_list :footnote, [:footnote_exceptions] 
+      assert_phrase_list :footnote, [:footnote_exceptions]
     end
   end # Afghanistan
   context "answer Pakistan" do
@@ -468,7 +468,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_current_node :embassy_result
       assert_state_variable :british_national_parent, 'father'
       assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_either_parent]
-    end 
+    end
   end # Serbia
   context "answer estonia" do
     should "show cash, credit card or cheque condition and give embassy result" do
@@ -481,7 +481,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :cash_only, [:cash_and_card]
     end
   end # Estonia
-  
+
   context "answer united-arab-emirates" do
     should "go to oru result" do
       worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
@@ -496,7 +496,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_state_variable :translator_link_url, "/government/publications/united-arab-emirates-list-of-lawyers"
     end
   end # UAE
-  
+
   context "answer american-samoa" do
     should "go to oru result" do
       worldwide_api_has_organisations_for_location('american-samoa', read_fixture_file('worldwide/american-samoa_organisations.json'))

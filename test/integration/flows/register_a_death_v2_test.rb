@@ -285,7 +285,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_state_variable :clickbook, '' 
+        assert_state_variable :clickbook, ''
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-austria"
@@ -351,7 +351,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
-    end # Answer Andorra, now in France 
+    end # Answer Andorra, now in France
     context "answer Afghanistan" do
       setup do
       worldwide_api_has_organisations_for_location('afghanistan', read_fixture_file('worldwide/afghanistan_organisations.json'))
@@ -375,10 +375,10 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         should "give the ORU result and be done" do
           add_response 'in_the_uk'
           assert_current_node :oru_result
-          assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=afghanistan"}  
+          assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=afghanistan"}
           assert_phrase_list :oru_address, [:oru_address_uk]
           assert_phrase_list :translator_link, [:no_translator_link]
-          assert_state_variable :translator_link_url, nil   
+          assert_state_variable :translator_link_url, nil
         end
       end
     end # Answer Afghanistan
@@ -421,7 +421,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy_sweden]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_phrase_list :clickbook, [:clickbook] 
+        assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
         assert_phrase_list :postal, [:postal_intro, :postal_registration_sweden]
@@ -597,14 +597,14 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_state_variable :organisation, expected_location.fco_organisation
       end
     end # Answer Taiwan
-    
+
     context "answer death in Egypt, user in Belgium" do
       setup do
         worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
         add_response 'egypt'
         add_response 'another_country'
         add_response 'belgium'
-      end  
+      end
       should "give embassy_result" do
         assert_current_node :embassy_result
         assert_state_variable :death_country_name_lowercase_prefix, 'Egypt'

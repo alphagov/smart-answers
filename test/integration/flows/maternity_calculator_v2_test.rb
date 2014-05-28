@@ -6,7 +6,7 @@ require_relative '../../../lib/smart_answer/date_helper'
 class MaternityCalculatorV2Test < ActiveSupport::TestCase
   include DateHelper
   include FlowTestHelper
-  
+
   setup do
     setup_for_testing_flow 'maternity-paternity-calculator-v2'
   end
@@ -14,7 +14,7 @@ class MaternityCalculatorV2Test < ActiveSupport::TestCase
   should "ask what type of leave or pay you want to check" do
     assert_current_node :what_type_of_leave?
   end
-  
+
   context "answer maternity" do
     setup do
       add_response :maternity
@@ -286,7 +286,7 @@ class MaternityCalculatorV2Test < ActiveSupport::TestCase
                           should "ask what particular day of the month the employee is paid" do
                             assert_current_node :what_particular_day_of_the_month_is_the_employee_paid?
                           end
-                          
+
                           context "answer Sunday" do
                             setup do
                               add_response "Sunday"
@@ -570,7 +570,7 @@ class MaternityCalculatorV2Test < ActiveSupport::TestCase
         end
       end
     end # April 9th
-    
+
     context "check for correct LEL Saturday, 12 April 2014 monthly" do
       setup do
           add_response Date.parse("2014-07-26")
@@ -584,14 +584,14 @@ class MaternityCalculatorV2Test < ActiveSupport::TestCase
           add_response 956
           add_response "weekly_starting"
       end
-      
+
       should "have LEL of 111" do
         assert_state_variable :to_saturday, "Saturday, 12 April 2014"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 111)
         assert_current_node :maternity_leave_and_pay_result
       end
     end
-    
+
     context "check for correct LEL Saturday, 05 April 2014 monthly" do
       setup do
         add_response Date.parse("2014-07-19")
@@ -605,14 +605,14 @@ class MaternityCalculatorV2Test < ActiveSupport::TestCase
           add_response 956
           add_response "weekly_starting"
       end
-      
+
       should "have LEL of 109" do
         assert_state_variable :to_saturday, "Saturday, 05 April 2014"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
         assert_current_node :maternity_leave_and_pay_result
       end
     end
-    
+
     context "check for correct LEL Saturday, 05 April 2014 weekly_starting" do
       setup do
         add_response Date.parse("2014-07-19")
@@ -626,14 +626,14 @@ class MaternityCalculatorV2Test < ActiveSupport::TestCase
           add_response 880
           add_response "weekly_starting"
       end
-      
+
       should "have LEL of 109" do
         assert_state_variable :to_saturday, "Saturday, 05 April 2014"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
         assert_current_node :maternity_leave_and_pay_result
       end
     end
-    
+
     context "check for correct LEL Saturday, 05 April 2014 usual_paydates" do
       setup do
         add_response Date.parse("2014-07-19")
@@ -648,14 +648,14 @@ class MaternityCalculatorV2Test < ActiveSupport::TestCase
           add_response "usual_paydates"
           add_response Date.parse('2014-06-27')
       end
-      
+
       should "have LEL of 109" do
         assert_state_variable :to_saturday, "Saturday, 05 April 2014"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
         assert_current_node :maternity_leave_and_pay_result
       end
     end
-    
+
     context "check for correct LEL Saturday, 21 December 2013" do
       setup do
         add_response Date.parse("2014-04-05")
@@ -670,14 +670,14 @@ class MaternityCalculatorV2Test < ActiveSupport::TestCase
           add_response "usual_paydates"
           add_response Date.parse('2014-01-17')
       end
-      
+
       should "have LEL of 109" do
         assert_state_variable :to_saturday, "Saturday, 21 December 2013"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
         assert_current_node :maternity_leave_and_pay_result
       end
     end
-    
+
     context "check for correct LEL Saturday, 30 March 2013" do
       setup do
         add_response Date.parse("2013-07-11")
@@ -691,13 +691,13 @@ class MaternityCalculatorV2Test < ActiveSupport::TestCase
           add_response 864
           add_response "weekly_starting"
       end
-      
+
       should "have LEL of 107" do
         assert_state_variable :to_saturday, "Saturday, 30 March 2013"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 107)
         assert_current_node :maternity_leave_and_pay_result
       end
     end
-    
+
   end
 end

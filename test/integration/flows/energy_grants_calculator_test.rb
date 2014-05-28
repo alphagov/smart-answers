@@ -253,7 +253,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             end
             should "ask which of these do you have?" do
               assert_current_node :home_features_modern?
-              assert_state_variable 'modern', :modern 
+              assert_state_variable 'modern', :modern
             end
             context "answer mains gas" do
               setup do
@@ -266,7 +266,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             end
           end
         end
-        
+
         context "answer working tax credit" do
           setup do
             add_response 'working_tax_credit'
@@ -296,7 +296,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
                 end
                 should "take you to measures_help and eco_eligible outcome" do
                   assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
-                  assert_phrase_list :eligibilities, [:g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :windows_and_doors, 
+                  assert_phrase_list :eligibilities, [:g_under_floor_insulation, :eco_help, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :l_cylinder_thermostat, :windows_and_doors,
                     :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :w_renewal_heat, :smartmeters]
                 end
               end
@@ -536,7 +536,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         assert_current_node_is_error
       end
     end
-  
+
 # test for help with bills outcome variations
     context "winter fuel payment, benfits = pension credit" do
       setup do
@@ -628,6 +628,6 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         assert_phrase_list :eligibilities, [:a_condensing_boiler, :b_cavity_wall_insulation, :c_solid_wall_insulation, :d_draught_proofing, :e_loft_roof_insulation, :g_under_floor_insulation, :heating, :j_better_heating_controls, :q_biomass_boilers_heaters, :t_solar_water_heating, :hot_water, :k_hot_water_cyclinder_jacket, :windows_and_doors, :m_replacement_glazing, :n_secondary_glazing, :o_external_doors, :microgeneration_renewables, :v_green_deal, :w_renewal_heat, :smartmeters]
       end
     end
-    
+
   end
 end

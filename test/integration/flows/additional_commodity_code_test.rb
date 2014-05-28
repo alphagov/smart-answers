@@ -11,7 +11,7 @@ class AdditionalCommodityCodeTest < ActiveSupport::TestCase
   should "ask how much starch glucose the product contains" do
     assert_current_node :how_much_starch_glucose?
   end
-  
+
   context "answer 25" do
     ## Q2c
     should "ask how much sucrose the product contains" do

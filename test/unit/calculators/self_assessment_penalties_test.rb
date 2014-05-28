@@ -117,11 +117,11 @@ module SmartAnswer::Calculators
 
         should "calculate total owed (excludes filing penalty)" do
           @calculator.payment_date = "2013-02-02"
-          assert_equal 5000, @calculator.total_owed 
+          assert_equal 5000, @calculator.total_owed
           @calculator.payment_date = "2013-02-04"
-          assert_equal 5001, @calculator.total_owed 
+          assert_equal 5001, @calculator.total_owed
           @calculator.payment_date = "2013-08-01"
-          assert_equal 5574, @calculator.total_owed 
+          assert_equal 5574, @calculator.total_owed
           @calculator.payment_date = "2014-02-02"
           assert_equal 750, @calculator.late_payment_penalty
           assert_equal 5900, @calculator.total_owed

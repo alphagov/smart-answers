@@ -21,7 +21,7 @@ module SmartAnswer::Calculators
         end
       end
     end
-    
+
     context "bank-giro" do
       should "calculate last_payment_date where end of month is not a work day" do
         ['bank-giro'].each do |pay_method|
@@ -113,7 +113,7 @@ module SmartAnswer::Calculators
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
         assert_equal Date.parse('2013-06-07'), calc.funds_received_by
       end
-      
+
       #date falling in weekend
       should "calculate funds_received_by as end_of_month_after(end_date) + 7 days = falls in weekend therefore result is preceding working day" do
         calc = VatPaymentDeadlines.new(Date.parse('2015-04-30'), @method)

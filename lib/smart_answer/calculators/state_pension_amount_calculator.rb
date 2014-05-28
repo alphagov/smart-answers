@@ -74,11 +74,11 @@ module SmartAnswer::Calculators
     def state_pension_date(sp_gender = gender)
       StatePensionQuery.find(dob, sp_gender)
     end
-    
+
     def state_pension_age
       friendly_time_diff(dob, state_pension_date)
     end
-    
+
     def before_state_pension_date?
       Date.today < state_pension_date
     end

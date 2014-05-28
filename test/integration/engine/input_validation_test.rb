@@ -65,7 +65,7 @@ class InputValidationTest < EngineIntegrationTest
 
     should "allow custom error messages with interpolation" do
       visit "/custom-errors-sample/y"
-      
+
       fill_in "Things", :with => "asdfasdf"
       click_on "Next step"
 

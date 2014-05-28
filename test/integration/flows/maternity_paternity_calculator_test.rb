@@ -289,7 +289,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                           should "ask what particular day of the month the employee is paid" do
                             assert_current_node :what_particular_day_of_the_month_is_the_employee_paid?
                           end
-                          
+
                           context "answer Sunday" do
                             setup do
                               add_response "Sunday"

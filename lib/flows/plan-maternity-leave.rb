@@ -1,11 +1,11 @@
 status :published
 satisfies_need "101018"
 
-date_question :baby_due_date? do 
+date_question :baby_due_date? do
 	save_input_as :due_date
 
   calculate :baby_due_date do
-    Date.parse(due_date)  
+    Date.parse(due_date)
   end
 
   calculate :calculator do
@@ -24,8 +24,8 @@ date_question :leave_start? do
     start_date = responses.last
     start_date_p = Date.parse(start_date)
     due_date_p = Date.parse(due_date)
-    if start_date_p > due_date_p or start_date_p < calculator.leave_earliest_start_date 
-      raise SmartAnswer::InvalidResponse 
+    if start_date_p > due_date_p or start_date_p < calculator.leave_earliest_start_date
+      raise SmartAnswer::InvalidResponse
     end
     calculator.enter_start_date(start_date)
     start_date

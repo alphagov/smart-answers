@@ -37,7 +37,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     should "ask whether self assessment tax return was submitted online or on paper" do
       assert_current_node :how_submitted?
     end
-    
+
     context "online" do
       setup do
         add_response :online
@@ -54,7 +54,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
           assert_current_node_is_error
         end
       end
-      
+
       context "a date before filing deadline" do
         setup do
           add_response "2013-10-10"
@@ -72,8 +72,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
             assert_current_node_is_error
           end
         end
-        
-#testing paid on time        
+
+#testing paid on time
         context "paid on time" do
           setup do
             add_response "2013-10-11"
@@ -104,8 +104,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
               assert_phrase_list :result_parts, [:result_part2_no_penalty]
             end
           end
-        end #end testing paid late but less than 3 months after 
-        
+        end #end testing paid late but less than 3 months after
+
       end
     end
   end
@@ -122,7 +122,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       assert_phrase_list :result_parts, [:result_part2_penalty, :result_part_one_year_late]
     end
   end
-  
+
 #beginning of quick tests
   context "online return, tax year 2012-13" do
     setup do
@@ -146,7 +146,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         assert_state_variable :total_owed, 100
       end
     end
-#band 2 
+#band 2
 #100pounds fine + 10pounds per day (max 90 days, testing 1 day)(band 2)
     context "check 100pounds fine + 10pounds per day (max 90 days, testing 1 day) (band 2)" do
       setup do
@@ -160,7 +160,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         assert_state_variable :total_owed, 110
       end
     end
-# #band 2 
+# #band 2
 # #100pounds fine + 10pounds per day(max 90 days, testing 91 days)(band 2)
     context "check 100pounds fine + 10pounds per day (max 90 days, testing 92 days)(band 2)" do
       setup do
@@ -173,7 +173,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         assert_state_variable :late_filing_penalty, 1000
         assert_state_variable :total_owed, 1000
       end
-    end 
+    end
 # #band 3 case 1
 # #300pounds fine + 1000pounds(previous fine)(band 3), taxdue <= 6002pounds
     context "300pounds fine + 1000pounds(previous fine)(band 3), taxdue < 6002pounds" do
@@ -187,7 +187,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         assert_state_variable :late_filing_penalty, 1300
         assert_state_variable :total_owed, 1300
       end
-    end 
+    end
 # #band 3 case 2
 # #5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds
     context "5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds" do
@@ -204,7 +204,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         assert_state_variable :late_payment_penalty, 1000
         assert_state_variable :total_owed, 12648
       end
-    end 
+    end
 # #band 4 case 1
 #300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds
     context "300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds" do
@@ -235,6 +235,6 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         assert_state_variable :late_payment_penalty, 1500
         assert_state_variable :total_owed, 13800
       end
-    end  
+    end
   end
 end

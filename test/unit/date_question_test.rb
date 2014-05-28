@@ -24,7 +24,7 @@ module SmartAnswer
         save_input_as :date
         next_node :done
       end
-      
+
       assert_raise SmartAnswer::InvalidResponse do
         q.transition(@initial_state, {year: "", month: '2', day: '1'})
       end

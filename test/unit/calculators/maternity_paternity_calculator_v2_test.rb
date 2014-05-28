@@ -125,7 +125,7 @@ module SmartAnswer::Calculators
           end
         end
       end
-      
+
       context "test for 2013 to 2014 rate" do
         setup do
           @due_date = Date.parse("1 September 2013")
@@ -133,20 +133,20 @@ module SmartAnswer::Calculators
           @calculator = MaternityPaternityCalculatorV2.new(@due_date)
           Timecop.travel('1 September 2013')
         end
-        
+
         should "calculate the paternity rate as the standard rate for 2014" do
           @calculator.average_weekly_earnings = 500.55
           @calculator.leave_start_date = Date.new(2014, 1, 1)
           assert_equal 136.78, @calculator.statutory_paternity_rate
         end
-        
+
         should "calculate the paternity rate as 90 percent of weekly earnings" do
           @calculator.average_weekly_earnings = 120.55
           @calculator.leave_start_date = Date.new(2014, 1, 1)
           assert_equal ((120.55 * 0.9).to_f).round(2), @calculator.statutory_paternity_rate
         end
       end
-      
+
       context "test for 2014 to 2015 rate" do
         setup do
           @due_date = Date.parse("1 September 2014")
@@ -154,13 +154,13 @@ module SmartAnswer::Calculators
           @calculator = MaternityPaternityCalculatorV2.new(@due_date)
           Timecop.travel('1 September 2014')
         end
-        
+
         should "calculate the paternity rate as the standard rate for 2015" do
           @calculator.average_weekly_earnings = 500.55
           @calculator.leave_start_date = Date.new(2015, 1, 1)
           assert_equal 138.18, @calculator.statutory_paternity_rate
         end
-        
+
         should "calculate the paternity rate as 90 percent of weekly earnings" do
           @calculator.average_weekly_earnings = 120.55
           @calculator.leave_start_date = Date.new(2015, 1, 1)
@@ -180,25 +180,25 @@ module SmartAnswer::Calculators
           @calculator = MaternityPaternityCalculatorV2.new(@due_date)
           assert_equal @calculator.lower_earning_limit, 109
         end
-        
+
         should "return 111 for due dates after 14/07/2014" do
           @due_date = Date.parse("14 July 2015")
           @calculator = MaternityPaternityCalculatorV2.new(@due_date)
           assert_equal @calculator.lower_earning_limit, 111
         end
-        
+
         should "return lower_earning_limit 109" do
           @due_date = Date.parse("15 July 2014")
           @calculator = MaternityPaternityCalculatorV2.new(@due_date)
           assert_equal @calculator.lower_earning_limit, 109
         end
-        
+
         should "return lower_earning_limit 107" do
           @due_date = Date.parse("15 July 2013")
           @calculator = MaternityPaternityCalculatorV2.new(@due_date)
           assert_equal @calculator.lower_earning_limit, 107
         end
-        
+
         should "return lower_earning_limit 102" do
           @due_date = Date.parse("15 July 2012")
           @calculator = MaternityPaternityCalculatorV2.new(@due_date)
@@ -433,7 +433,7 @@ module SmartAnswer::Calculators
         end
         should "calculate monthly pay dates" do
           @calculator.pay_method = 'monthly'
-          @calculator.pay_day_in_month = 9 
+          @calculator.pay_day_in_month = 9
           paydates = @calculator.paydates_monthly
           assert_equal '2012-08-09', paydates.first.to_s
           assert_equal '2013-05-09', paydates.last.to_s
@@ -476,7 +476,7 @@ module SmartAnswer::Calculators
         should "calculate the particular weekday of the month pay dates" do
           @calculator.pay_method = 'a_certain_week_day_each_month'
           @calculator.pay_week_in_month = "second"
-          @calculator.pay_day_in_week = 1 
+          @calculator.pay_day_in_week = 1
           # Monday 2nd week in the month
           paydates = @calculator.paydates_a_certain_week_day_each_month.map(&:to_s)
 
@@ -518,11 +518,11 @@ module SmartAnswer::Calculators
           setup do
             Timecop.travel('1 Feb 2014')
           end
-          
+
           should "give the correct rate for the period" do
             assert_equal 136.78, @calculator.statutory_rate(Date.parse('12 April 2013'))
           end
-          
+
           should "calculate the paternity rate as the standard rate" do
             @calculator.average_weekly_earnings = 500.55
             @calculator.leave_start_date = Date.new(2014, 2, 1)
@@ -535,7 +535,7 @@ module SmartAnswer::Calculators
             assert_equal ((120.55 * 0.9).to_f).round(2), @calculator.statutory_paternity_rate
           end
         end
-        
+
         context "for 2043 rates" do
           should "give a default rate for a date in the future" do
             assert_equal 138.18, @calculator.statutory_rate(Date.parse('6 April 2043'))

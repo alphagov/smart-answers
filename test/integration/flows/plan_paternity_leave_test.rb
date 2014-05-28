@@ -39,7 +39,7 @@ class PlanPaternityLeaveTest < ActiveSupport::TestCase
         setup do
           add_response :one_week
         end
-        
+
         should "be on leave_start?" do
           assert_current_node :leave_start?
           assert_state_variable "leave_duration", 1
@@ -48,7 +48,7 @@ class PlanPaternityLeaveTest < ActiveSupport::TestCase
         end
         should "succeed on 7 weeks" do
           add_response 7.weeks.since(@due_date)
-          assert_current_node :paternity_leave_details 
+          assert_current_node :paternity_leave_details
         end
 
         should "fail on 7 weeks and 1 day" do
@@ -70,7 +70,7 @@ class PlanPaternityLeaveTest < ActiveSupport::TestCase
         should "be on leave_start?" do
           assert_current_node :leave_start?
         end
-        
+
         should "fail on before due_date" do
           add_response 2.days.ago(@due_date)
           assert_current_node_is_error

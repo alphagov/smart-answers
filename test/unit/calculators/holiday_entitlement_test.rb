@@ -31,7 +31,7 @@ module SmartAnswer::Calculators
       should "return false for 2010-05-20 to 2011-04-03" do
         assert_equal false, HolidayEntitlement.new.feb29th_in_range(Date.new(2010, 5, 20), Date.new(2011, 4, 3))
       end
-      
+
       should "return false for 2012-03-01 to 2012-08-08" do
         assert_equal false, HolidayEntitlement.new.feb29th_in_range(Date.new(2012, 3, 1), Date.new(2012, 8, 8))
       end
@@ -268,7 +268,7 @@ module SmartAnswer::Calculators
         assert_equal '18.3', calc.formatted_full_time_part_time_days
       end
     end
-  
+
     context "calculating full time or part time holiday entitlement by hour" do
       should "return the hours of entitlement" do
         calc = HolidayEntitlement.new(
@@ -393,7 +393,7 @@ module SmartAnswer::Calculators
         assert_equal '23', @calc.formatted_foo
       end
     end
-    
+
     context "decimal precision in hours and minutes calculations" do
       setup do
         @calc = HolidayEntitlement.new(

@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
 	class PlanMaternityLeave
 		include ActionView::Helpers::DateHelper
 
-		attr_reader :formatted_due_date, :formatted_start_date, :leave_earliest_start_date 
+		attr_reader :formatted_due_date, :formatted_start_date, :leave_earliest_start_date
 
 		def initialize(options = {})
 			@due_date = Date.parse(options[:due_date])
@@ -24,7 +24,7 @@ module SmartAnswer::Calculators
 	  	first = formatted_date(range.first)
 	  	last = formatted_date(range.last)
 	  	(first + " to " + last)
-	  end 
+	  end
 
 		def distance_start	
 			distance_of_time_in_words(@due_date, @start_date)

@@ -6,12 +6,12 @@ module SmartAnswer::Calculators
       setup do
         @calculator = CommodityCodeCalculator.new({})
       end
-      
+
       should "load matrix data from file" do
         assert_equal Hash, @calculator.matrix_data[:starch_glucose_to_sucrose].class
         assert_equal 2, @calculator.matrix_data[:starch_glucose_to_sucrose][0][30]
       end
-      
+
       context "populate_commodity_code_matrix method" do
         should "build a 2D (32x19) array of commodity code suffixes" do
           assert_equal 32, @calculator.commodity_code_matrix.size
@@ -22,7 +22,7 @@ module SmartAnswer::Calculators
           assert_equal "090", @calculator.commodity_code_matrix[4][10]
         end
       end
-      
+
       context "commodity_code method" do
         setup do
           @calculator = CommodityCodeCalculator.new(

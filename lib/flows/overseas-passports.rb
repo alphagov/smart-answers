@@ -106,8 +106,8 @@ multiple_choice :renewing_replacing_applying? do
       v
     end
   end
-  
-  calculate :waiting_time do 
+
+  calculate :waiting_time do
     passport_data[application_action]
   end
 
@@ -173,10 +173,10 @@ end
 outcome :ips_application_result_online do
   precalculate :how_long_it_takes do
     PhraseList.new(:"how_long_#{waiting_time}",
-                   :"how_long_additional_info_#{application_action}", 
+                   :"how_long_additional_info_#{application_action}",
                    :how_long_additional_time_online)
-  end 
-  
+  end
+
   precalculate :cost do
     if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
@@ -202,7 +202,7 @@ end
 ## IPS Application Result
 outcome :ips_application_result do
   precalculate :how_long_it_takes do
-    phrases = PhraseList.new 
+    phrases = PhraseList.new
     phrases << :"how_long_#{waiting_time}"
     phrases << :report_loss_or_theft if application_action == "replacing"
     phrases << :"how_long_it_takes_ips#{ips_number}"
@@ -368,17 +368,17 @@ end
 ## FCO Result
 outcome :fco_result do
   precalculate :how_long_it_takes do
-    phrases = PhraseList.new 
+    phrases = PhraseList.new
     phrases << :"how_long_#{waiting_time}"
     phrases << :you_may_have_to_attend_an_interview if %w(renewing_old applying).include?(application_action)
     phrases << :report_loss_or_theft if application_action == "replacing"
     phrases
   end
-  
+
   precalculate :cost do
     cost_type = application_type
     payment_methods = :"passport_costs_#{application_type}"
-    
+
     phrases = PhraseList.new(:"passport_courier_costs_#{cost_type}",
                              :"#{child_or_adult}_passport_costs_#{cost_type}",
                              payment_methods)
@@ -434,7 +434,7 @@ outcome :fco_result do
     PhraseList.new(:"getting_your_passport_#{location}")
   end
   precalculate :helpline do
-    PhraseList.new(:"helpline_#{application_type}", :helpline_fco_webchat) 
+    PhraseList.new(:"helpline_#{application_type}", :helpline_fco_webchat)
   end
 end
 

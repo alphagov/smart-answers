@@ -51,7 +51,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
           assert_current_node :outcome_uk_ft_1314_new
           assert_phrase_list :form_destination, [:postal_address_uk]
         end
-      end 
+      end
 
       context "2014 to 2015" do
         setup do
@@ -73,8 +73,8 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
           assert_current_node :outcome_uk_ft_1415_new
           assert_phrase_list :form_destination, [:postal_address_uk]
         end
-      end 
-    end 
+      end
+    end
 
     context "send proof of identity" do
       setup do
@@ -96,8 +96,8 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         assert_current_node :outcome_proof_identity_1415
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
-    end 
-  
+    end
+
     context "send parents or partners details" do
       setup do
         add_response 'income-details'
@@ -118,8 +118,8 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         assert_current_node :outcome_parent_partner_1415
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
-    end 
-  
+    end
+
     context "apply DSA" do
       setup do
         add_response 'apply-dsa'
@@ -140,7 +140,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         assert_current_node :outcome_dsa_1415
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
-    end 
+    end
 
     context "claim DSA expenses" do
       setup do
@@ -148,7 +148,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         assert_current_node :outcome_dsa_expenses
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
-    end 
+    end
 
     context "claim CcG" do
       setup do
@@ -170,7 +170,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         assert_current_node :outcome_ccg_1415
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
-    end 
+    end
 
     context "claim CcG expenses" do
       setup do
@@ -178,15 +178,15 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         assert_current_node :outcome_ccg_expenses
         assert_phrase_list :form_destination, [:postal_address_uk]
       end
-    end 
+    end
 
     context "claim travel grants" do
       setup do
         add_response 'travel-grant'
         assert_current_node :outcome_travel
       end
-    end 
-  end 
+    end
+  end
 
 
   context "UK student part time" do
@@ -232,7 +232,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
               assert_current_node :outcome_uk_pt_1314_continuing
               assert_phrase_list :form_destination, [:postal_address_uk]
             end
-          end 
+          end
 
           context "continuing student = no" do
             setup do
@@ -250,9 +250,9 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
               assert_current_node :outcome_uk_pt_1314_new
               assert_phrase_list :form_destination, [:postal_address_uk]
             end
-          end 
+          end
         end
-        
+
         context "2014 to 2015" do
           setup do
             add_response 'year-1415'
@@ -278,7 +278,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
               assert_current_node :outcome_uk_pt_1415_continuing
               assert_phrase_list :form_destination, [:postal_address_uk]
             end
-          end 
+          end
 
           context "continuing student = no" do
             setup do
@@ -308,7 +308,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       should "ask what year you want funding for" do
         assert_current_node :what_year?
       end
-      
+
       should "year = 2013/14" do
         add_response 'year-1314'
         assert_current_node :outcome_proof_identity_1314_pt
@@ -339,7 +339,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         add_response 'year-1415'
         assert_current_node :outcome_dsa_1415
       end
-      
+
       should "year = 2014/15" do
         add_response 'year-1415'
         assert_state_variable :student_type, 'uk-part-time'
@@ -385,7 +385,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         assert_current_node :outcome_eu_ft_1314_new
         assert_phrase_list :form_destination, [:postal_address_eu]
       end
-    end 
+    end
 
     context "2014 to 2015" do
       setup do
@@ -409,7 +409,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       end
     end
   end
- 
+
   context "EU student part time" do
     setup do
       add_response 'eu-part-time'
@@ -439,7 +439,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         assert_current_node :outcome_eu_pt_1314_new
         assert_phrase_list :form_destination, [:postal_address_eu]
       end
-    end 
+    end
 
     context "2014 to 2015" do
       setup do

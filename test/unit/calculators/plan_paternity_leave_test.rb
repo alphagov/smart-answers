@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
 		    	assert_equal "Wednesday, 26 December 2012", @calculator.formatted_due_date
 		    end
 		  end
-		  
+		
 		  context "start dates" do
 		    should "format start date (weeks 02)" do
 	  			@start_date = "2013-01-09" # 2 weeks

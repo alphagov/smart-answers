@@ -8,7 +8,7 @@ module SmartAnswer::Calculators
 			@match_date = Date.parse(options[:match_date])
 			@formatted_match_date = formatted_date(@match_date)
 			@arrival_date = Date.parse(options[:arrival_date])
-			@formatted_arrival_date = formatted_date(@arrival_date) 
+			@formatted_arrival_date = formatted_date(@arrival_date)
 			@start_date = Date.parse(options[:start_date])
 			@formatted_start_date = formatted_date(@start_date)
 		end
@@ -21,7 +21,7 @@ module SmartAnswer::Calculators
 	  	first = formatted_date(range.first)
 	  	last = formatted_date(range.last)
 	  	(first + " to " + last)
-	  end 
+	  end
 
 		def distance_start
 			distance_of_time_in_words(@arrival_date, @start_date)
@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
 	    expected_week && weeks_later(expected_week, -1)
 	  end
 
-	  
+	
 
 		def period_of_ordinary_leave
       @start_date .. @start_date + 26 * 7

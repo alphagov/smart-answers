@@ -25,17 +25,17 @@ class StatePensionQuery < Struct.new(:dob, :gender)
 
   # Handle the case where the person's d.o.b. is 29th Feb
   # on a leap year and that the pension elligibility date falls
-  # on a non-leap year. ActiveSupport will helpfully adjust the 
+  # on a non-leap year. ActiveSupport will helpfully adjust the
   # date back to 28th Feb, but the calculation should forward to
   # the 1st March according to DWP rules.
   #
   def account_for_leap_year(date)
-    if leap_year_date?(dob) and !leap_year_date?(date) 
+    if leap_year_date?(dob) and !leap_year_date?(date)
       date += 1
     end
     date
   end
-  
+
   def leap_year_date?(date)
     date.month == 2 and date.day == 29
   end

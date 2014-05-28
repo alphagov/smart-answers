@@ -12,7 +12,7 @@ multiple_choice :past_payment_date? do
   # Rate changes take place on 1st Oct.
   year -= 1 if Date.today.month < 10
 
-  6.times do  
+  6.times do
     option "#{year}-10-01"
     year -= 1
   end
@@ -73,14 +73,14 @@ end
 
 # Q3 Past
 value_question :how_old_were_you? do
-  calculate :age do 
+  calculate :age do
     # Fail-hard cast to Integer here will raise
     # an exception and show the appropriate error.
     age = Integer(responses.last)
     if age <= 0
       raise SmartAnswer::InvalidResponse
     end
-    age  
+    age
   end
 
   next_node do |response|
@@ -118,7 +118,7 @@ end
 
 # Q5
 value_question :how_many_hours_do_you_work? do
-  calculate :basic_hours do 
+  calculate :basic_hours do
     basic_hours = Float(responses.last)
     if basic_hours < 0 or basic_hours > (pay_frequency * 16)
       raise SmartAnswer::InvalidResponse, :error_hours
@@ -130,7 +130,7 @@ end
 
 # Q5 Past
 value_question :how_many_hours_did_you_work? do
-  calculate :basic_hours do 
+  calculate :basic_hours do
     basic_hours = Float(responses.last)
     if basic_hours < 0 or basic_hours > (pay_frequency * 16)
       raise SmartAnswer::InvalidResponse, :error_hours
@@ -262,7 +262,7 @@ multiple_choice :is_provided_with_accommodation? do
   calculate :accommodation_provided do
     responses.last != 'no'
   end
-  
+
   calculate :total_hours do
     calculator.total_hours
   end
@@ -400,7 +400,7 @@ value_question :current_accommodation_usage? do
 
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))
-  
+
     if calculator.minimum_wage_or_above?
       :current_payment_above
     else
@@ -431,7 +431,7 @@ value_question :past_accommodation_usage? do
   calculate :minimum_hourly_rate do
     calculator.format_money calculator.minimum_hourly_rate
   end
-  
+
   calculate :above_minimum_wage do
     calculator.minimum_wage_or_above?
   end
@@ -439,14 +439,14 @@ value_question :past_accommodation_usage? do
   calculate :total_hourly_rate do
     calculator.format_money calculator.total_hourly_rate
   end
-  
+
   calculate :historical_adjustment do
     calculator.historical_adjustment
   end
 
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))
-    
+
     if calculator.historical_adjustment <= 0
       :past_payment_above
     else

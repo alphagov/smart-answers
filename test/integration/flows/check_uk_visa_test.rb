@@ -395,7 +395,7 @@ end
         assert_phrase_list :if_exception, [:electronic_visa_waiver]
     end
   end
-  
+
   context "testing croatia phrase list" do
     setup do
       add_response "croatia"
@@ -405,7 +405,7 @@ end
       assert_phrase_list :no_visa_additional_sentence, [:croatia_additional_sentence]
     end
   end
-  
+
   #testing canada - all groupings AND NON visa national outcome - study AND work - less AND more than 6 months
   context "testing canada" do
     setup do
@@ -422,7 +422,7 @@ end
       should "ask for how long" do
         assert_current_node :staying_for_how_long?
       end
-    
+
       context "testing canada/all groupings but EEA outcome - study - longer than six months" do
         setup do
           add_response "longer_than_six_months"
@@ -431,7 +431,7 @@ end
           assert_current_node :outcome_study_y
         end
       end
-      
+
       context "testing canada/non visa national outcome- study - less or six months" do
         setup do
           add_response "six_months_or_less"
@@ -442,7 +442,7 @@ end
         end
       end
     end #end canada study reason
-      
+
     context "testing work reason" do
       setup do
         add_response "work"
@@ -450,7 +450,7 @@ end
       should "ask for how long" do
         assert_current_node :staying_for_how_long?
       end
-    
+
       context "testing canada/all groupings but EEA outcome - work - longer than six months" do
         setup do
           add_response "longer_than_six_months"
@@ -460,7 +460,7 @@ end
           assert_phrase_list :if_youth_mobility_scheme_country, [:youth_mobility_scheme]
         end
       end
-      
+
       context "testing canada/non visa national outcome - work - less or six months" do
         setup do
           add_response "six_months_or_less"
@@ -471,8 +471,8 @@ end
       end
     end #end canada work reason
   end #end canada - NON visa country
-  
-  
+
+
   #testing armenia - visa national outcome - study AND work
   context "testing armenia" do
     setup do
@@ -491,7 +491,7 @@ end
         assert_current_node :outcome_study_m
       end
     end
-      
+
     context "testing armenia/non visa national outcome - work - less or six months" do
       setup do
         add_response "work"
@@ -500,9 +500,9 @@ end
       should "take you to outcome outcome_work_m" do
         assert_current_node :outcome_work_m
       end
-    end 
+    end
   end #end armenia -  visa country
-  
+
   #testing venezuela - oman - qatar - UAE
   context "testing venezuela special outcome - study - less or six months" do
     setup do
@@ -514,7 +514,7 @@ end
       assert_current_node :outcome_visit_waiver
     end
   end
-  
+
   context "choose a Non-visa country and check for outcome_work_m" do
     setup do
       add_response 'mexico'
@@ -525,7 +525,7 @@ end
         assert_current_node :outcome_work_n
     end
   end
-  
+
   context "outcome taiwan exception study and six_months_or_less" do
     setup do
       add_response 'taiwan'
@@ -546,7 +546,7 @@ end
         assert_current_node :outcome_taiwan_exception
     end
   end
-  
+
   context "outcome taiwan exception school" do
     setup do
       add_response 'taiwan'
@@ -556,7 +556,7 @@ end
         assert_current_node :outcome_taiwan_exception
     end
   end
-  
+
   context "outcome taiwan exception medical" do
     setup do
       add_response 'taiwan'

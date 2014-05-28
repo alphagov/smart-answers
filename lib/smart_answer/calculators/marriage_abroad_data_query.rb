@@ -18,8 +18,8 @@ module SmartAnswer::Calculators
     OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo costa-rica cote-d-ivoire curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq israel kosovo laos liberia liechtenstein macao madagascar mali marshall-islands mauritania micronesia monaco morocco nicaragua niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara)
 
     OS_OTHER_COUNTRIES = %w(burma north-korea iran somalia syria yemen saudi-arabia)
-    
-    
+
+
     OS_AFFIRMATION_COUNTRIES = %w(egypt lebanon finland mongolia peru philippines portugal south-korea thailand turkey united-arab-emirates vietnam)
 
     CP_EQUIVALENT_COUNTRIES = %w(austria belgium brazil colombia czech-republic denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia sweden)
@@ -30,15 +30,15 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITH_DEFINITIVE_ARTICLES = %w(bahamas british-virgin-islands cayman-islands czech-republic democratic-republic-of-congo dominican-republic falkland-islands gambia maldives marshall-islands netherlands philippines seychelles solomon-islands south-georgia-and-south-sandwich-islands turks-and-caicos-islands united-arab-emirates)
 
-    COUNTRY_NAME_TRANSFORM = { 
+    COUNTRY_NAME_TRANSFORM = {
       "democratic-republic-of-congo" => "Democratic Republic of Congo",
       "cote-d-ivoire" => "Cote d'Ivoire",
       "pitcairn" => "Pitcairn Island",
       "south-korea" => "South Korea",
-      "st-helena-ascension-and-tristan-da-cunha" => "St Helena, Ascension and Tristan da Cunha", 
+      "st-helena-ascension-and-tristan-da-cunha" => "St Helena, Ascension and Tristan da Cunha",
       "usa" => "the USA"
     }
-    
+
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(aruba slovakia curacao bonaire-st-eustatius-saba st-maarten taiwan czech-republic argentina cote-d-ivoire)
 
     def commonwealth_country?(country_slug)
@@ -92,11 +92,11 @@ module SmartAnswer::Calculators
     def countries_with_definitive_articles?(country_slug)
       COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(country_slug)
     end
-    
+
     def os_affirmation_countries?(country_slug)
       OS_AFFIRMATION_COUNTRIES.include?(country_slug)
     end
-    
+
     def countries_without_consular_facilities?(country_slug)
       COUNTRIES_WITHOUT_CONSULAR_FACILITIES.include?(country_slug)
     end

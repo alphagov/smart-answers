@@ -2,7 +2,7 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class RegistrationsDataQueryTest < ActiveSupport::TestCase
-    
+
     context RegistrationsDataQuery do
       setup do
         @query = SmartAnswer::Calculators::RegistrationsDataQuery.new
@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
       context "commonwealth_country? method" do
         should "indicate whether a country slug refers to a commonwealth country" do
           assert @query.commonwealth_country?('australia')
-          refute @query.commonwealth_country?('spain')         
+          refute @query.commonwealth_country?('spain')
         end
       end
       context "clickbook method" do
@@ -73,31 +73,31 @@ module SmartAnswer::Calculators
           assert_equal "spain", @query.registration_country_slug('spain')
         end
       end
-      
+
       context "oru transition countries" do
         should "be true for Wallis and Fortuna" do
           assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('wallis-and-futuna')
           refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('grenada')
         end
-        
+
         should "be true for Martinique" do
           assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('martinique')
           refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('ireland')
         end
       end
-      
+
       context "oru document variant countries" do
         should "be true for Netherlands" do
           assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('netherlands')
           refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('cambodia')
         end
-        
+
         should "be true for Belgium" do
           assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('belgium')
           refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('dominica')
         end
       end
-      
+
     end
   end
 end

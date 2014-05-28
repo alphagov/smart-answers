@@ -215,7 +215,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
           assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
           assert_phrase_list :registration_footnote, [:reg_footnote]
         end
-      end # Answer fco 
+      end # Answer fco
     end # Answer Spain
 
     context "answer Morocco" do
@@ -234,7 +234,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         should "give the fco result and be done" do
           assert_current_node :fco_result
         end
-      end # Answer fco 
+      end # Answer fco
     end # Morocco
 
     context "answer Argentina" do
@@ -284,7 +284,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_state_variable :clickbook, '' 
+        assert_state_variable :clickbook, ''
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-austria"
@@ -338,9 +338,9 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
-        assert_state_variable :clickbook, '' 
+        assert_state_variable :clickbook, ''
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-spain" 
+        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-spain"
         assert_phrase_list :postal, [:post_only_pay_by_card_countries]
         assert_state_variable :current_location, "spain"
         expected_location = WorldLocation.find('spain')
@@ -361,7 +361,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-france" 
+        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-france"
         assert_phrase_list :postal, [:post_only_france]
         assert_state_variable :death_country_name_lowercase_prefix, 'Spain'
         assert_state_variable :current_location_name, "France"
@@ -370,7 +370,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
       end
-    end # Answer Andorra, now in France 
+    end # Answer Andorra, now in France
     context "answer Afghanistan" do
       setup do
       worldwide_api_has_organisations_for_location('afghanistan', read_fixture_file('worldwide/afghanistan_organisations.json'))
@@ -395,7 +395,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
           add_response 'back_in_the_uk'
           assert_current_node :fco_result
           assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-          assert_state_variable :registration_footnote, ''      
+          assert_state_variable :registration_footnote, ''
         end
       end
     end # Answer Afghanistan
@@ -438,7 +438,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy_sweden]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_phrase_list :clickbook, [:clickbook] 
+        assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
         assert_phrase_list :postal, [:postal_intro, :postal_registration_sweden]
@@ -517,7 +517,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_phrase_list :clickbook, [:clickbook] 
+        assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, nil
         assert_phrase_list :postal, [:postal_intro, :"postal_registration_usa"]
@@ -630,14 +630,14 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :organisation, expected_location.fco_organisation
       end
     end # Answer Taiwan
-    
+
     context "answer death in Egypt, user in Belgium" do
       setup do
         worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
         add_response 'egypt'
         add_response 'another_country'
         add_response 'belgium'
-      end  
+      end
       should "give embassy_result" do
         assert_current_node :embassy_result
         assert_state_variable :death_country_name_lowercase_prefix, 'Egypt'

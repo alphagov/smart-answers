@@ -11,7 +11,7 @@ module SmartAnswer
       @chooser = AgeRelatedAllowanceChooser.new(
         personal_allowance: @personal_allowance,
         over_65_allowance: @over_65_allowance,
-        over_75_allowance: @over_75_allowance) 
+        over_75_allowance: @over_75_allowance)
     end
 
     test "someone aged 40 has the basic personal allowance" do
@@ -55,7 +55,7 @@ module SmartAnswer
       result = @chooser.get_age_related_allowance(date_of_birth)
       assert_equal(@over_75_allowance, result)
     end
-  
+
     test "someone aged 75 who will be 75 before 5th April has the 75+ personal allowance" do
       date_of_birth = Date.new(Date.today.year-75, 4, 4)
       result = @chooser.get_age_related_allowance(date_of_birth)
