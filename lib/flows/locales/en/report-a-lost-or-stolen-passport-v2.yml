@@ -26,7 +26,7 @@ en-GB:
       ## A1
       complete_LS01_form:
         body: |
-          You must report your lost passport to Her Majesty's Passport Office.
+          You must report your lost or stolen passport to Her Majesty's Passport Office.
 
           To report your lost passport you can do any of:
 
@@ -60,7 +60,7 @@ en-GB:
       contact_the_embassy:
         title: You must report your lost or stolen passport
         body: |
-          [Download form LS01 - 'Lost or stolen passport notification'](/government/publications/report-a-lost-or-stolen-passport-form-ls01) 
+          [Download form LS01 - 'Lost or stolen passport notification'](/government/publications/report-a-lost-or-stolen-passport-form-ls01)
 
           Fill in form LS01 and post, fax or take it to your nearest British embassy, high commission or consulate. Check if you need to make an appointment first if you’re taking it in.
 
