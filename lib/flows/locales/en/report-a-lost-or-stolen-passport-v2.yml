@@ -5,12 +5,12 @@ en-GB:
         description: What you need to do if your passport has been lost or stolen and you need to travel urgently - emergency travel document and replacement passport.
       title: Report a lost or stolen passport
       body: |
-        You must tell Her Majesty's Passport Office  as soon as possible if your passport has been lost or stolen. 
+        You must tell Her Majesty's Passport Office  as soon as possible if your passport has been lost or stolen.
 
         This will reduce the risk of anyone else using your passport or your identity.
       phrases:
         child_forms: |
-          Your signature will be compared to the signature on the original passport application form. If the original application was made by someone else, you’ll also need to send a signed letter from that person confirming that the passport has been %{lost_or_stolen}. This is to help prevent child abduction.
+          Your signature will be compared to the signature on the original passport application form. If the original application was made by someone else, you’ll also need to send a signed letter from that person confirming that the passport has been lost or stolen. This is to help prevent child abduction.
       options:
         adult: Adult
         child: Child
@@ -32,7 +32,7 @@ en-GB:
 
           - [download a copy of form LS01](/government/publications/report-a-lost-or-stolen-passport-form-ls01) and post the completed form to Her Majesty's Passport Office - the address is on the form
           - get a copy of form LS01 from a Post Office that offers the [Check and Send service](/how-the-post-office-check-and-send-service-works)
-          - [ask for a callback](https://passportofficeforms.service.gov.uk/_/request-call-back.ofml) from Her Majesty's Passport Office 
+          - [ask for a callback](https://passportofficeforms.service.gov.uk/_/request-call-back.ofml) from Her Majesty's Passport Office
 
           %{child_advice}
 
@@ -50,7 +50,7 @@ en-GB:
 
           ^Use the [online enquiry form](https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml) to contact Her Majesty’s Passport Office for general advice.
 
-          % You can’t use the [1-day Premium service](/get-a-passport-urgently) if you’re replacing a lost passport. % 
+          % You can’t use the [1-day Premium service](/get-a-passport-urgently) if you’re replacing a lost passport. %
 
           ##If you find your passport
 
