@@ -1,4 +1,9 @@
 ---
+#valid number of weeks:
+# 4 - 5 - 6 - 8 -10 -12 - 14 - 16 -18
+#valid number of months:
+# 5 - 6 - 8
+
 afghanistan:
   type: ips_application_3
   group: ips_documents_group_3
@@ -1567,19 +1572,19 @@ sierra-leone:
   helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
-  renewing_new: 4_weeks
-  renewing_old: 6_weeks
-  applying: 6_weeks
-  replacing: 6_weeks
+  renewing_new: 6_weeks
+  renewing_old: 12_weeks
+  applying: 12_weeks
+  replacing: 8_weeks
 singapore:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 4_weeks
-  renewing_old: 6_weeks
-  applying: 6_weeks
-  replacing: 6_weeks
+  renewing_new: 6_weeks
+  renewing_old: 8_weeks
+  applying: 8_weeks
+  replacing: 8_weeks
 slovakia:
   type: ips_application_1
   group: ips_documents_group_1
@@ -1622,10 +1627,10 @@ south-africa:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 4_weeks
-  renewing_old: 6_weeks
-  applying: 6_weeks
-  replacing: 6_weeks
+  renewing_new: 8_weeks
+  renewing_old: 10_weeks
+  applying: 10_weeks
+  replacing: 10_weeks
 south-georgia-and-south-sandwich-islands:
   type: ips_application_1
   group: ips_documents_group_1
