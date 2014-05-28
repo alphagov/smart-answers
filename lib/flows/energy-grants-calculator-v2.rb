@@ -134,7 +134,7 @@ checkbox_question :which_benefits? do
   option :esa
   option :child_tax_credit
   option :working_tax_credit
-  
+
   calculate :benefits_claimed do
     responses.last.split(",")
   end
@@ -199,7 +199,7 @@ checkbox_question :disabled_or_have_children? do
       else
         :incomesupp_jobseekers_2
       end
-    end 
+    end
   end
 
   next_node do
@@ -236,7 +236,7 @@ multiple_choice :type_of_property? do
   option :house
   option :flat
   save_input_as :property_type
-  
+
   next_node do |response|
     if %w(house).include?(response)
       if modern
@@ -257,7 +257,7 @@ multiple_choice :type_of_flat? do
   option :top_floor
   option :maisonette
   save_input_as :flat_type
-  
+
   next_node do
     if modern
       :home_features_modern?
@@ -505,7 +505,7 @@ outcome :outcome_bills_and_measures_no_benefits do
     end
     phrases
   end
-  
+
   precalculate :title_end do
     if both_help && !circumstances.include?('benefits')
       PhraseList.new(:title_under_green_deal)
@@ -513,7 +513,7 @@ outcome :outcome_bills_and_measures_no_benefits do
       PhraseList.new(:title_energy_supplier)
     end
   end
-  
+
   precalculate :eligibilities do
     phrases = PhraseList.new
     phrases << :header_boilers_and_insulation
@@ -554,15 +554,15 @@ outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
     end
     phrases
   end
-  
+
   precalculate :title_end do
     if (both_help && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?
       PhraseList.new(:title_energy_supplier)
     else
       PhraseList.new(:title_under_green_deal)
-    end  
+    end
   end
-  
+
   precalculate :eligibilities do
     phrases = PhraseList.new
     phrases << :header_boilers_and_insulation
@@ -603,15 +603,15 @@ outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
     end
     phrases
   end
-  
+
   precalculate :title_end do
     unless both_help && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
       PhraseList.new(:title_energy_supplier)
     else
       PhraseList.new(:title_under_green_deal)
-    end  
+    end
   end
-  
+
   precalculate :eligibilities do
     phrases = PhraseList.new
     phrases << :header_boilers_and_insulation

@@ -17,7 +17,7 @@ module SmartAnswer::Calculators
     def full_time_part_time_hours_and_minutes
       (full_time_part_time_hours * 60).floor.divmod(60).map(&:floor)
     end
-  
+
     def days_cap
       (28 * fraction_of_year).round(10)
     end
@@ -114,7 +114,7 @@ module SmartAnswer::Calculators
       # year when leave_year_start_date is not set, but should work a little bit better
       # when it is not set.
       days_divide = feb29th_in_range(leave_year_start, leave_year_end) ? 366 : 365
-      
+
       if start_date and leaving_date
         (Date.parse(leaving_date) - Date.parse(start_date) + 1) / days_divide
       elsif leaving_date

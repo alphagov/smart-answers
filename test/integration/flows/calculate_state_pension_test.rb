@@ -125,22 +125,22 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_state_variable "formatted_state_pension_date", " 6 November 2012"
       end
     end
-    
+
     context "female born on 1 July 1956, timecop day before near_state_pension_age" do
       setup do
         Timecop.travel('2014-05-06')
         add_response :female
         add_response Date.parse('1 July 1952')
       end
-      
+
       should "show result for state_pension_age_is outcome" do
         assert_current_node :age_result
         assert_phrase_list :state_pension_age_statement, [:state_pension_age_is, :pension_credit_future, :bus_pass]
       end
     end
-    
+
     context "additional coverage for birthdate 6 March 1961" do
-      setup do 
+      setup do
         Timecop.travel('2014-05-07')
       end
       should "go to correct outcome" do
@@ -150,7 +150,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :pension_age_review, :bus_pass]
       end
     end
-    
+
     context "test correct state pension age" do
       setup do
         Timecop.travel('2014-05-08')
@@ -161,63 +161,63 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :age_result
         assert_state_variable :state_pension_age, "60 years"
       end
-      
+
       should "show state pension age of 65 years" do
         add_response :male
         add_response Date.parse('23 April 1951')
         assert_current_node :age_result
         assert_state_variable :state_pension_age, "65 years"
       end
-      
+
       should "show state pension age of 66 years" do
         add_response :male
         add_response Date.parse('23 October 1954')
         assert_current_node :age_result
         assert_state_variable :state_pension_age, "66 years"
       end
-      
+
       should "show state pension age of 66 years, 1 month" do
         add_response :male
         add_response Date.parse('23 April 1960')
         assert_current_node :age_result
         assert_state_variable :state_pension_age, "66 years, 1 month"
       end
-      
+
       should "show state pension age of 66 years, 10 month" do
         add_response :male
         add_response Date.parse('23 January 1961')
         assert_current_node :age_result
         assert_state_variable :state_pension_age, "66 years, 10 months"
       end
-      
+
       should "show state pension age of 67" do
         add_response :male
         add_response Date.parse('23 March 1969')
         assert_current_node :age_result
         assert_state_variable :state_pension_age, "67 years"
       end
-      
+
       should "show state pension age of 68" do
         add_response :male
         add_response Date.parse('23 March 1978')
         assert_current_node :age_result
         assert_state_variable :state_pension_age, "67 years, 11 months, 11 days"
       end
-      
+
       should "should show 67 years old as state pension age" do
         add_response :female
         add_response Date.parse('1968-04-07')
         assert_current_node :age_result
         assert_state_variable :state_pension_age, "67 years"
       end
-      
+
       should "should also show 67 years old" do
         add_response :male
         add_response Date.parse('1969-03-07')
         assert_current_node :age_result
         assert_state_variable :state_pension_age, "67 years"
       end
-    end 
+    end
   end # age calculation
 
   #Amount
@@ -334,34 +334,34 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
                 setup do
                   add_response 4
                 end
-                
+
                 should "ask for years of additional benefits" do
                   assert_current_node :years_of_caring?
                 end
-                
+
                 context "2 years of additional benefits" do
                   setup do
                     add_response 2
                   end
-                  
+
                   should "ask years of carer's allowance" do
                     assert_current_node :years_of_carers_allowance?
                   end
-                  
+
                   context "2 years of carer's allowance" do
                     setup do
                       add_response 2
                     end
-                    
+
                     should "ask years of work between 16 and 19" do
                       assert_current_node :years_of_work?
                     end
-                    
+
                     context "0 years of work between 16 and 19" do
                       setup do
                         add_response 0
                       end
-                      
+
                       should "go to amount_result" do
                         assert_state_variable "qualifying_years_total", 34
                         assert_current_node :amount_result
@@ -723,12 +723,12 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
             should "go to years_of_work" do
               assert_current_node :years_of_work?
             end
-            
+
             context "no years of work between 16 and 19" do
               setup do
                 add_response 0
               end
-              
+
               should "go to outcome" do
                 assert_current_node :amount_result
               end
@@ -1135,12 +1135,12 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
       end
     end
-    
+
     context "set timecop for tests" do
       setup do
         Timecop.travel('2014-05-06')
       end
-      
+
       should "should show results for less than ten years NI" do
         add_response :male
         add_response Date.parse('1 Jan 1978')
@@ -1150,7 +1150,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :amount_result
         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :less_than_ten, :too_few_qy_enough_remaining_years_a]
       end # less than 10 years NI
-      
+
       should "show results for not enough qualifyting but enough remaining years" do
         add_response :male
         add_response Date.parse('1 Jan 1953')
@@ -1161,7 +1161,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :amount_result
         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a, :automatic_years_phrase]
       end
-      
+
       should "show results for not enough qualifying years and not enough remaining years" do
         add_response :male
         add_response (Date.today - 64.years)
@@ -1173,7 +1173,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_phrase_list :result_text, [:too_few_qy_not_enough_remaining_years, :automatic_years_phrase]
         assert_state_variable :enough_qualifying_years, nil
       end
-      
+
       should "show results form additional HMRC test case" do
         add_response :female
         add_response Date.parse('6 April 1958')
@@ -1187,12 +1187,12 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :amount_result
       end
     end
-    
+
     context "Timecop date set to 30 April 2014" do
       setup do
         Timecop.travel('2014-04-30')
       end
-      
+
       should "show results for male and 44 available years" do
         add_response :male
         add_response Date.parse('6 April 1951')
@@ -1205,7 +1205,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_state_variable :remaining_years, 2
         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a, :automatic_years_phrase]
       end
-      
+
       should "show results for female and 40 available years" do
         add_response :female
         add_response Date.parse('12 November 1954')
@@ -1219,7 +1219,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_state_variable :remaining_years, 6
         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a]
       end
-      
+
       should "show results for female and 29 available years" do
         add_response :female
         add_response Date.parse('6 December 1965')
@@ -1230,7 +1230,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_state_variable :remaining_years, 18
         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a]
       end
-      
+
       should "show results for male and 35 available years" do
         add_response :male
         add_response Date.parse('8 February 1960')
@@ -1245,7 +1245,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_state_variable :remaining_years, 11
         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a]
       end
-      
+
       should "show 67 years state_pension_age" do
         add_response :male
         add_response Date.parse('23 March 1969')
@@ -1259,7 +1259,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_state_variable :state_pension_age, "67 years"
       end
     end # end timecop 30-04-2014
-    
+
     context "setup a date before 2016" do
       setup do
        Timecop.travel('2013-07-05')

@@ -22,13 +22,13 @@ module SmartAnswer::Calculators
     COUNTRIES_WITH_TRADE_CULTURAL_OFFICES = %w(taiwan)
 
     MODIFIED_CARD_ONLY_COUNTRIES = %w(belgium netherlands czech-republic slovakia hungary poland portugal italy spain switzerland)
-    
+
     CASH_AND_CARD_COUNTRIES = %w(estonia)
-    
+
     ORU_TRANSITIONED_COUNTRIES = %w(american-samoa belgium france french-guiana french-polynesia germany greece guadeloupe italy liechtenstein luxembourg martinique mayotte monaco netherlands portugal reunion san-marino spain st-pierre-and-miquelon switzerland united-arab-emirates usa wallis-and-futuna)
-    
+
     ORU_DOCUMENTS_VARIANT_COUNTRIES = %w(belgium france italy netherlands portugal spain united-arab-emirates)
-    
+
 
     attr_reader :data
 
@@ -37,7 +37,7 @@ module SmartAnswer::Calculators
     end
 
     def commonwealth_country?(country_slug)
-      COMMONWEALTH_COUNTRIES.include?(country_slug) 
+      COMMONWEALTH_COUNTRIES.include?(country_slug)
     end
 
     def clickbook(country_slug)
@@ -55,7 +55,7 @@ module SmartAnswer::Calculators
     def has_consulate_general?(country_slug)
       COUNTRIES_WITH_CONSULATE_GENERALS.include?(country_slug)
     end
-    
+
     def has_trade_and_cultural_office?(country_slug)
       COUNTRIES_WITH_TRADE_CULTURAL_OFFICES.include?(country_slug)
     end
@@ -75,7 +75,7 @@ module SmartAnswer::Calculators
     def cheque_only?(country_slug)
       CHEQUE_ONLY_COUNTRIES.include?(country_slug)
     end
-    
+
     def cash_and_card_only?(country_slug)
       CASH_AND_CARD_COUNTRIES.include?(country_slug)
     end

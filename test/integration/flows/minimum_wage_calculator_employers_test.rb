@@ -7,7 +7,7 @@ class MinimumWageCalculatorEmployersTest < ActiveSupport::TestCase
   setup do
     setup_for_testing_flow "minimum-wage-calculator-employers"
   end
-  
+
   # Q1
   should "ask 'what would you like to check?'" do
     assert_current_node :what_would_you_like_to_check?

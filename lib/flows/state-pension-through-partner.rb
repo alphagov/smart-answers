@@ -6,7 +6,7 @@ satisfies_need "100578"
 multiple_choice :what_is_your_marital_status? do
   option :married
   option :will_marry_before_specific_date
-  option :will_marry_on_or_after_specific_date 
+  option :will_marry_on_or_after_specific_date
   option :widowed
   option :divorced
 
@@ -21,7 +21,7 @@ multiple_choice :what_is_your_marital_status? do
     end
     answers
   end
-  
+
   next_node do |response|
     if response == "divorced"
       :what_is_your_gender?
@@ -35,7 +35,7 @@ end
 multiple_choice :when_will_you_reach_pension_age? do
   option :your_pension_age_before_specific_date
   option :your_pension_age_after_specific_date
-  
+
   calculate :answers do
     if responses.last == "your_pension_age_before_specific_date"
       answers << :old2
@@ -45,7 +45,7 @@ multiple_choice :when_will_you_reach_pension_age? do
     answers << :old3 if responses.first == "widowed"
     answers
   end
-  
+
   calculate :result_phrase do
     if responses.first == "widowed" and responses.last == "your_pension_age_before_specific_date"
       phrases = PhraseList.new
@@ -53,7 +53,7 @@ multiple_choice :when_will_you_reach_pension_age? do
       phrases
     end
   end
-  
+
   next_node do |response|
     if answers == [:widow] && response == "your_pension_age_after_specific_date"
       :what_is_your_gender?
@@ -69,7 +69,7 @@ end
 multiple_choice :when_will_your_partner_reach_pension_age? do
   option :partner_pension_age_before_specific_date
   option :partner_pension_age_after_specific_date
-    
+
   calculate :answers do
     if responses.last == "partner_pension_age_before_specific_date"
       answers << :old3
@@ -78,9 +78,9 @@ multiple_choice :when_will_your_partner_reach_pension_age? do
     end
     answers
   end
-  
+
   calculate :result_phrase do
-    phrases = PhraseList.new    
+    phrases = PhraseList.new
     if answers == [:old1, :old2, :old3] || answers == [:new1, :old2, :old3]
       phrases << :current_rules_no_additional_pension #outcome 1
     elsif answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
@@ -89,7 +89,7 @@ multiple_choice :when_will_your_partner_reach_pension_age? do
     phrases << :increase_retirement_income
     phrases
   end
-  
+
   next_node do |response|
     if answers == [:old1, :old2] || answers == [:new1, :old2]
       :final_outcome
@@ -103,7 +103,7 @@ end
 multiple_choice :what_is_your_gender? do
   option :male_gender
   option :female_gender
-  
+
   calculate :result_phrase do
     phrases = PhraseList.new
     if responses.last == "male_gender"

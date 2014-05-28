@@ -29,7 +29,7 @@ class PlanAdoptionLeaveTest < ActiveSupport::TestCase
     		add_response 4.months.ago
     		assert_current_node_is_error
     	end
-      
+
       should "be on child_arrival_date?" do
         assert_current_node :child_arrival_date?
       end
@@ -50,7 +50,7 @@ class PlanAdoptionLeaveTest < ActiveSupport::TestCase
         end
 
   	  	context "set 2 weeks to leave_start?" do
-  	  		setup do 
+  	  		setup do
             add_response 14.days.ago(@arrival_date)
           end
   	  		should "go to outcome" do

@@ -104,7 +104,7 @@ class NodePresenter
   def has_labels?
     !! label or !! suffix_label
   end
-  
+
   def next_steps
     translate_and_render('next_steps')
   end

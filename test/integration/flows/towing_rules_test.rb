@@ -14,7 +14,7 @@ class TowingRulesTest < ActiveSupport::TestCase
   should "ask which type of tow vehicle" do
     assert_current_node :towing_vehicle_type?
   end
-  
+
   context "answer car or light vehicle" do
     setup do
       add_response "car-or-light-vehicle"
@@ -70,7 +70,7 @@ class TowingRulesTest < ActiveSupport::TestCase
       end
     end
   end ## Cars and light vehicles
-  
+
   ## Medium sized vehicles
   context "answer medium sized vehicles" do
     setup do
@@ -203,7 +203,7 @@ class TowingRulesTest < ActiveSupport::TestCase
       end
     end
   end ## Large vehicles
-  
+
   ## Minibuses
   context "answer minibus" do
     setup do
@@ -275,9 +275,9 @@ class TowingRulesTest < ActiveSupport::TestCase
           end
         end
       end
-    end   
+    end
   end ## Minibuses
-  
+
   ## Buses
   context "answer bus" do
     setup do

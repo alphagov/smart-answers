@@ -22,7 +22,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     setup do
       add_response "going_abroad"
     end
-    
+
     should "ask which benefit you're interested in" do
       assert_current_node :which_benefit?
     end
@@ -640,7 +640,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             add_response 'austria'
           end
           should "take you to EEA outcome" do
-            assert_current_node :esa_going_abroad_eea_outcome 
+            assert_current_node :esa_going_abroad_eea_outcome
           end
         end
         context "answer other country" do
@@ -683,7 +683,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             add_response 'guernsey_jersey'
           end
           should "take you to SS outcome" do
-            assert_current_node :iidb_going_abroad_ss_outcome 
+            assert_current_node :iidb_going_abroad_ss_outcome
           end
         end
         context "answer abroad" do
@@ -951,7 +951,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     setup do
       add_response "already_abroad"
     end
-    
+
     should "ask which benefit you're interested in" do
       assert_current_node :which_benefit?
     end
@@ -1481,7 +1481,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'temporary'
       end
       should "take you to temporary outcome" do
-        assert_current_node :db_already_abroad_temporary_outcome 
+        assert_current_node :db_already_abroad_temporary_outcome
       end
     end
     context "answer going abroad permanently, other country" do

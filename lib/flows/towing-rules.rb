@@ -53,7 +53,7 @@ end
 ## Q14
 multiple_choice :date_licence_was_issued_msv? do
   option "before-jan-1997" => :full_entitlement_msv #A15
-  option "from-jan-1997" => :how_old_are_you_msv_2? #Q16  
+  option "from-jan-1997" => :how_old_are_you_msv_2? #Q16
 end
 
 ## Q16
@@ -115,7 +115,7 @@ end
 ## Q38
 multiple_choice :how_old_are_you_bus? do
   option "under-21" => :not_old_enough_bus #A39
-  option "21-or-over" => :apply_for_provisional_bus #A40 
+  option "21-or-over" => :apply_for_provisional_bus #A40
 end
 
 

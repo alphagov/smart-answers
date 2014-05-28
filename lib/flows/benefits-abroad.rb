@@ -35,7 +35,7 @@ country_select :which_country_jsa? do
     precalculate key do
       PhraseList.new key
     end
-  end 
+  end
   next_node do |response|
     if eea_countries.include?(response)
       :"jsa_eea_#{going_or_already_abroad}" # A3
@@ -78,7 +78,7 @@ country_select :which_country_maternity? do
   end
   next_node do |response|
     if eea_countries.include?(response)
-      :working_for_a_uk_employer? # Q7 
+      :working_for_a_uk_employer? # Q7
     else
       :employer_paying_ni? # Q9, Q10
     end
@@ -195,7 +195,7 @@ country_select :where_tax_credits? do
   situations.each do |situation|
     key = :"where_#{situation}_tax_credits"
     precalculate key do
-      PhraseList.new key 
+      PhraseList.new key
     end
   end
   next_node do |response|
@@ -218,7 +218,7 @@ multiple_choice :how_long_are_you_abroad_for? do
   situations.each do |situation|
     key = :"how_long_#{situation}_tax_credits"
     precalculate key do
-      PhraseList.new key 
+      PhraseList.new key
     end
   end
 end
@@ -252,8 +252,8 @@ end
 # Q26
 country_select :which_country_iidb?, :use_legacy_data => true do
   next_node do |response|
-    iidb_ss_countries = %w(barbados bermuda bosnia-and-herzegovina croatia guernsey israel 
-                           jamaica jersey kosovo macedonia malta mauritius montenegro 
+    iidb_ss_countries = %w(barbados bermuda bosnia-and-herzegovina croatia guernsey israel
+                           jamaica jersey kosovo macedonia malta mauritius montenegro
                            philippines serbia)
 
     if eea_countries.include?(response)
@@ -269,8 +269,8 @@ end
 # Q32
 country_select :which_country_bereavement? do
   next_node do |response|
-    bereavement_ss_countries = %w(barbados bermuda bosnia-and-herzegovina canada croatia 
-                                  guernsey israel jamaica jersey kosovo macedonia malta 
+    bereavement_ss_countries = %w(barbados bermuda bosnia-and-herzegovina canada croatia
+                                  guernsey israel jamaica jersey kosovo macedonia malta
                                   mauritius montenegro philippines serbia turkey united-states)
     if eea_countries.include?(response)
       :bereavement_outcome # A36

@@ -143,7 +143,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
             add_response "another_country"
           end
           context "answer which country" do
-            should "Ireland and get the commonwealth result" do 
+            should "Ireland and get the commonwealth result" do
               worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
               add_response 'ireland'
               assert_state_variable :another_country, true
@@ -169,7 +169,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
               add_response 'yemen'
               assert_current_node :no_embassy_result
               assert_state_variable :registration_country_name, "Yemen"
-            end # now in Yemen 
+            end # now in Yemen
           end # in another country
         end # mother and father british citizens
       end # married
@@ -189,9 +189,9 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
-      assert_state_variable :postal_form_url, nil 
+      assert_state_variable :postal_form_url, nil
       assert_state_variable :postal, ""
-      assert_phrase_list :footnote, [:footnote_exceptions] 
+      assert_phrase_list :footnote, [:footnote_exceptions]
     end
   end # Afghanistan
   context "answer Pakistan" do
@@ -467,7 +467,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_current_node :embassy_result
       assert_state_variable :british_national_parent, 'father'
       assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_either_parent]
-    end 
+    end
   end # Serbia
     context "answer estonia" do
     should "show cash, credit card or cheque condition and give embassy result" do

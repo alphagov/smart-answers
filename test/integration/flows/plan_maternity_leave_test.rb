@@ -40,7 +40,7 @@ class PlanMaternityLeaveTest < ActiveSupport::TestCase
           assert_current_node :maternity_leave_details
         end
 
-        should "12 weeks before due_date should fail" do 
+        should "12 weeks before due_date should fail" do
           add_response 12.weeks.ago(3.months.since)
           assert_current_node_is_error
         end
@@ -58,7 +58,7 @@ class PlanMaternityLeaveTest < ActiveSupport::TestCase
           leave_start_date = 11.weeks.ago(3.months.since)
           week_start_for_leave_date = leave_start_date - leave_start_date.wday
           add_response week_start_for_leave_date
-          assert_current_node :maternity_leave_details     
+          assert_current_node :maternity_leave_details
         end
   		end
     end

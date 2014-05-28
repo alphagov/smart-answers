@@ -269,7 +269,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
           assert_select "label > input[type=text][name=response]"
         end
       end
-      
+
       context "suffix_label in translation file" do
         setup do
           using_translation_file(fixture_file('smart_answers_controller_test/suffix_label_for_sample_question.yml')) do
@@ -307,7 +307,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_select ".step.current h2", /1\s+How much\?/
         assert_select "body", /Please answer this question/
       end
-      
+
       context "suffix_label in translation file" do
         setup do
           using_translation_file(fixture_file('smart_answers_controller_test/suffix_label_for_sample_question.yml')) do

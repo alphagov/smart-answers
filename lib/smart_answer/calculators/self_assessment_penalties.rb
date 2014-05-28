@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
     end
 
     def late_filing_penalty
-      
+
       #Less than 6 months
       if submission_method == "online"
         if overdue_filing_days <= 89
@@ -27,7 +27,7 @@ module SmartAnswer::Calculators
             result = 1000
           end
         end
-      else 
+      else
         if overdue_filing_days <= 92
           result = 100
         elsif overdue_filing_days <= 181
@@ -38,7 +38,7 @@ module SmartAnswer::Calculators
           end
         end
       end
-      
+
       #More than 6 months, same for paper and online return
       if (overdue_filing_days > 181) && (overdue_filing_days <= 365)
         #if 5% of tax due is higher than 300£ then charge 5% of tax due otherwise charge 300£
@@ -103,7 +103,7 @@ module SmartAnswer::Calculators
     def overdue_payment_days
       (payment_date - payment_deadline).to_i
     end
-    
+
     def late_payment_penalty_part
       0.05 * estimated_bill.value
     end
@@ -131,7 +131,7 @@ module SmartAnswer::Calculators
     def parse_date(value)
       Date.parse(value)
     end
-    
+
     #interest is 3% per annum
     def calculate_interest(amount, number_of_days)
       (amount * (0.03 / 365) * (number_of_days - 1 )).round(10)

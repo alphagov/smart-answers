@@ -138,13 +138,13 @@ module SmartAnswer::Calculators
           @calculator = MaternityPaternityCalculator.new(@due_date)
           assert_equal @calculator.lower_earning_limit, 109
         end
-        
+
         should "return 111 for due dates after 14/07/2014" do
           @due_date = Date.parse("14 July 2015")
           @calculator = MaternityPaternityCalculator.new(@due_date)
           assert_equal @calculator.lower_earning_limit, 111
         end
-        
+
         should "return lower_earning_limit 107" do
           @due_date = Date.parse("15 July 2012")
           @calculator = MaternityPaternityCalculator.new(@due_date)
@@ -379,7 +379,7 @@ module SmartAnswer::Calculators
         end
         should "calculate monthly pay dates" do
           @calculator.pay_method = 'monthly'
-          @calculator.pay_day_in_month = 9 
+          @calculator.pay_day_in_month = 9
           paydates = @calculator.paydates_monthly
           assert_equal '2012-08-09', paydates.first.to_s
           assert_equal '2013-05-09', paydates.last.to_s
@@ -422,7 +422,7 @@ module SmartAnswer::Calculators
         should "calculate the particular weekday of the month pay dates" do
           @calculator.pay_method = 'a_certain_week_day_each_month'
           @calculator.pay_week_in_month = "second"
-          @calculator.pay_day_in_week = 1 
+          @calculator.pay_day_in_week = 1
           # Monday 2nd week in the month
           paydates = @calculator.paydates_a_certain_week_day_each_month.map(&:to_s)
 

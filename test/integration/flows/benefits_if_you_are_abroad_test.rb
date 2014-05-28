@@ -30,21 +30,21 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
     end
 
     context "certain countries for certain countries or specific benefits?" do
-    
+
       setup do
         add_response :certain_countries
       end
-      
+
       # Q4
       should "ask 'are you moving to?'" do
         assert_current_node :are_you_moving_to_q4
       end
-      
+
       context "eea or switzerland for 'are you moving to:'" do
         should "be answer 3 for eea or switzerland" do
           add_response :eea_or_switzerland
           assert_current_node :answer_3
-        end  
+        end
       end
 
       context "gibraltar for 'are you moving to:'" do
@@ -67,15 +67,15 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
           assert_current_node :answer_6
         end
       end
-    
+
     end
-    
+
     context "specific benefits for 'certain countries or specific benefits?'" do
       setup do
         add_response :specific_benefits
       end
-      
-      
+
+
       # Q5
       should "ask 'which benefit would you like to claim?' for specific benefits" do
         assert_current_node :which_benefit_would_you_like_to_claim
@@ -90,63 +90,63 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
         setup do
           add_response :jsa
         end
-        
+
         # Q6
         should "ask 'are you moving to:'" do
           assert_current_node :are_you_moving_to_q6
         end
-        
+
         context "eea, switzerland, gibraltar for 'are you moving to:'" do
           should "be answer 8" do
             add_response :eea_switzerland_gibraltar
             assert_current_node :answer_8
           end
         end
-        
+
         context "jersey, etc. for 'are you moving to:'" do
           should "be answer 9" do
             add_response :jersey_etc
             assert_current_node :answer_9
-          end            
+          end
         end
-        
+
         context "none of the above for 'are you moving to:'" do
           should "be answer 9" do
             add_response :none_of_the_above
             assert_current_node :answer_10
-          end           
+          end
         end
-        
+
       end
 
       context "wfp for 'which benefit would you like to claim?'" do
         setup do
           add_response :wfp
         end
-        
+
         #Q7
         should "ask 'are you moving to:'" do
           assert_current_node :are_you_moving_to_q7
         end
-        
+
         context "eea switzerland gibraltar for 'are you moving to:'" do
-          
+
           setup do
             add_response :eea_switzerland_gibraltar
           end
-          
+
           # Q8
           should "ask 'do you already qualify for wfp payments in the uk?'" do
             assert_current_node :already_qualify_for_wfp_in_the_uk
           end
-          
+
           context "yes for 'do you already qualify for wfp payments in the uk?'" do
             should "be answer 12" do
               add_response :yes
               assert_current_node :answer_12
             end
           end
-          
+
           context "no for 'do you already qualify for wfp payments in the uk?'" do
             should "should be answer 11" do
               add_response :no
@@ -154,21 +154,21 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
             end
           end
         end
-        
+
         context "other for 'are you moving to:'" do
           should "be answer 11" do
             add_response :none
             assert_current_node :answer_11
           end
         end
-        
+
       end
 
       context "maternity for 'which benefit would you like to claim?'" do
         setup do
           add_response :maternity
         end
-        
+
         # Q9
         should "ask 'are you moving to a country:'" do
           assert_current_node :are_you_moving_to_a_country_q9
@@ -252,7 +252,7 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
         should "ask 'Are you moving to?'" do
           assert_current_node :moving_to
         end
-        
+
         context "answers to 'Are you moving to:'" do
           should "be answer 16a" do
             add_response :bosnia_croatia_kosova
@@ -267,17 +267,17 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
             assert_current_node :answer_16c
           end
         end
-        
+
         context "EEA or Switzerland for 'Are you moing to:'" do
           setup do
             add_response :eea_or_switzerland
           end
-          
+
           # Q14
           should "ask 'Paying NICs and receiving UK benefits?'" do
             assert_current_node :paying_nics_and_receiving_uk_benefits
           end
-          
+
           context "yes to 'Paying NICs and receiving UK benefits?'" do
             should "be answer 17" do
               add_response :yes
@@ -291,14 +291,14 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
             end
           end
         end
-        
+
         context "other for 'Are you moving to:'" do
           should "be answer 16" do
             add_response :other
             assert_current_node :answer_18
           end
         end
-        
+
       end
 
       context "ssp for 'which benefit would you like to claim?'" do
@@ -310,18 +310,18 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
         should "ask 'Are you moving to a country?'" do
           assert_current_node :are_you_moving_to_a_country_q15
         end
-        
+
         context "in EEA to 'Are you moving to a country?'" do
 
           setup do
             add_response :in_eea
           end
-          
+
           # Q16
           should "ask 'Working for a UK employer?'" do
             assert_current_node :working_for_a_uk_employer
           end
-          
+
           context "yes to 'Working for a UK employer?'" do
             should "be answer 19" do
               add_response :yes
@@ -334,26 +334,26 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
               assert_current_node :answer_20
             end
           end
-          
+
         end
-        
+
         context "outside EEA to 'Are you moving to a country?" do
           setup do
             add_response :outside_eea
           end
-          
+
           # Q17
           should "ask 'Employer paying UK NICs?'" do
             assert_current_node :employer_paying_uk_nics
           end
-          
+
           context "yes to 'Employer paying UK NICs?'" do
             should "be answer 19" do
               add_response :yes
               assert_current_node :answer_19
             end
           end
-          
+
           context "no to 'Employer paying UK NICs?'" do
             should "be answer 20" do
               add_response :no
@@ -361,7 +361,7 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
             end
           end
         end
-        
+
       end
 
       context "tax credits for 'which benefit would you like to claim?'" do
@@ -480,7 +480,7 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
               setup do
                 add_response :less_than_a_year
               end
-              
+
               # Q24
               should "ask 'are you going abroad?'" do
                 assert_current_node :going_abroad
@@ -499,7 +499,7 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
                   assert_current_node :answer_26
                 end
               end
-              
+
               context "'because of the death of your partner or close family member'" do
                 should "get answer 26" do
                   add_response :death
@@ -520,31 +520,31 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
         should "ask 'Are you claiming ESA and going abroad for?'" do
           assert_current_node :claiming_esa_abroad_for
         end
-        
+
         context "less than a year and medical treatment to 'Are you claiming ESA and going abroad for?'" do
           should "be answer 27" do
             add_response :less_than_year_and_medical_treatment
             assert_current_node :answer_27
           end
         end
-        
+
         context "less than a year and different reason to 'Are you claiming ESA and going abroad for?'" do
           should "be answer 28" do
             add_response :less_than_year_and_different_reason
             assert_current_node :answer_28
           end
         end
-        
+
         context "greater than a year or permanently to 'Are you claiming ESA and going abroad for?'" do
           setup do
             add_response :greater_than_year_or_permanently
           end
-          
+
           # Q26
           should "ask 'Are you moving to:'" do
             assert_current_node :are_you_moving_to_q26
           end
-          
+
           context "EEA, Switzerland, Gibraltar to 'Are you moving to:'" do
             should "be answer 29" do
               add_response :eea_switzerland_gibraltar
@@ -558,7 +558,7 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
               assert_current_node :answer_30
             end
           end
-          
+
         end
       end
 
@@ -571,31 +571,31 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
         should "ask 'claiming Disablement Benefit before moving overseas?'" do
           assert_current_node :claiming_iidb
         end
-        
+
         context "no to 'claiming Disablement Benefit before moving overseas?'" do
           should "be answer 31" do
             add_response :no
             assert_current_node :answer_31
           end
         end
-        
+
         context "yes to 'claiming Disablement Benefit before moving overseas?'" do
           setup do
             add_response :yes
           end
-          
+
           # Q28
           should "ask 'Which country are you living in or moving to?'" do
             assert_current_node :moving_to_eea2
           end
-          
+
           context "'in_eea' to 'Which country are you living in or moving to?'" do
             should "be answer 32" do
               add_response :in_eea
               assert_current_node :answer_32
             end
           end
-          
+
           context "'outside_eea' to 'Which country are you living in or moving to?'" do
             should "be answer 33" do
               add_response :outside_eea
@@ -614,24 +614,24 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
         should "ask 'Are you currently getting any of the following?'" do
           assert_current_node :getting_any_allowances
         end
-        
+
         context "no to 'Are you currently getting any of the following?'" do
           should "be answer 34" do
             add_response :no
             assert_current_node :answer_34
           end
         end
-        
+
         context "yes to 'Are you currently getting any of the following?'" do
           setup do
             add_response :yes
           end
-          
+
           # Q30
           should "ask 'Going abroad?'" do
             assert_current_node :going_abroad_q30
           end
-          
+
           context "temporarily to 'Going abroad?'" do
             should "be answer 35" do
               add_response :temporarily
@@ -642,29 +642,29 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
             setup do
               add_response :permanently
             end
-            
+
             # Q31
             should "ask 'Moving to:'" do
               assert_current_node :moving_to_q31
             end
-            
+
             context "none to 'Moving to:'" do
               should "be answer 34" do
                 add_response :none
                 assert_current_node :answer_34
               end
             end
-            
+
             context "EEA, Switzerland, Gibraltar to 'Moving to:'" do
               setup do
                 add_response :eea_switzerland_gibraltar
               end
-              
+
               # Q32
               should "ask 'Do you or a family member pay UK NICs?'" do
                 assert_current_node :do_you_or_family_pay_uk_nic
               end
-              
+
               context "no to 'Do you or a family member pay UK NICs?'" do
                 should "be answer 34" do
                   add_response :no
@@ -675,37 +675,37 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
                 setup do
                   add_response :yes
                 end
-                
+
                 # Q33
                 should "ask 'Paid enough to claim sickness benefit?'" do
                   assert_current_node :enough_to_claim_sickness_benefit
                 end
-                
+
                 context "yes to 'Paid enough to claim sickness benefit?'" do
                   setup do
                     add_response :yes
                   end
-                  
+
                   # Q34
                   should "ask 'Getting SSP, IIB, ESA or bereavment?'" do
                     assert_current_node :getting_ssp_iib_esa_or_bereavment
                   end
-                  
+
                   context "yes to 'Getting SSP, IIB, ESA or bereavment?'" do
                     should "be answer 35b" do
                       add_response :yes
                       assert_current_node :answer_35c
                     end
                   end
-                  
+
                   context "no to 'Getting SSP, IIB, ESA or bereavment?'" do
                     should "be answer 34" do
                       add_response :no
                       assert_current_node :answer_34
                     end
-                  end                    
+                  end
                 end
-                
+
               end
             end
           end

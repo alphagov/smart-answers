@@ -13,12 +13,12 @@ module SmartAnswer::Calculators
 		      @calculator = PlanAdoptionLeave.new(
 		      	match_date: @match_date, arrival_date: "2012-12-25", start_date: "2012-12-20")
 		    end
-		    
+		
 		    should "show formatted due date" do
 		    	assert_equal "25 June 2012", @calculator.formatted_match_date
 		    	assert_equal "25 December 2012", @calculator.formatted_arrival_date
 		    end
-		    
+		
 		    should "format start date " do
 					assert_equal "20 December 2012", @calculator.formatted_start_date
 		    end
@@ -26,7 +26,7 @@ module SmartAnswer::Calculators
 				should "distance from start (days 05)" do
 					assert_equal "5 days", @calculator.distance_start
 		    end
-		    
+		
 		  end
 	    context "formatted dates (start_date 2 weeks)" do
 	    	setup do

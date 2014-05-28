@@ -31,7 +31,7 @@ module SmartAnswer::Calculators
 	  	first = formatted_date(range.first)
 	  	last = formatted_date(range.last)
 	  	(first + " to " + last)
-	  end 
+	  end
 
 		## borrowed methods
 
@@ -65,13 +65,13 @@ module SmartAnswer::Calculators
 	  def period_of_ordinary_leave
 	    @start_date .. ordinary_leave_ends
 	  end
-	  
+	
 	  def period_of_additional_leave
 	    additional_leave_start = @due_date + 20 * 7
 	    additional_leave_end = additional_leave_start + 26 * 7 -1
 	    additional_leave_start .. additional_leave_end
 	  end
-	  
+	
 	  private
 	    def weeks_later(range, weeks)
 	      (range.first + weeks * 7) .. (range.last + weeks * 7)

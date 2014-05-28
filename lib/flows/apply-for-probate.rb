@@ -3,7 +3,7 @@ satisfies_need "100321"
 
 ## Q1
 multiple_choice :where_did_deceased_live? do
-  option :england_or_wales 
+  option :england_or_wales
   option :scotland
   option :northern_ireland
 
@@ -12,7 +12,7 @@ multiple_choice :where_did_deceased_live? do
   next_node :inheritance_tax?
 end
 
-## Q2 
+## Q2
 multiple_choice :inheritance_tax? do
   option :yes
   option :no
@@ -24,7 +24,7 @@ multiple_choice :inheritance_tax? do
   next_node do
     if where_lived == "northern_ireland"
       :which_ni_county?
-    else 
+    else
       :amount_left_en_sco?
     end
   end
@@ -45,7 +45,7 @@ multiple_choice :amount_left_en_sco? do
     end
   end
 
-  
+
   next_node do
     if where_lived == "england_or_wales"
       :done_eng_wales

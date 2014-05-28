@@ -23,16 +23,16 @@ module SmartAnswer::Calculators
 					assert_equal "29 December 2012", @calculator.formatted_start_date
 		    end
 		  end
-		  
+		
 
 		  context "distance from start dates" do
 		    should "distance from start (days 05)" do
 		    	@calculator.enter_start_date("2012-12-28")
-					assert_equal "5 days", @calculator.distance_start 
+					assert_equal "5 days", @calculator.distance_start
 		    end
 		    should "distance from start (weeks 02)" do
 		    	@calculator.enter_start_date("2012-12-19")
-					assert_equal "14 days", @calculator.distance_start 
+					assert_equal "14 days", @calculator.distance_start
 		    end
 	    end
 

@@ -107,7 +107,7 @@ end
 ## Q16
 multiple_choice :how_old_are_you_bus? do
   option "under-24" => :bus_exceptions_under_24 # A29
-  option "24-or-above" => :bus_apply_for_cat_d # A32 
+  option "24-or-above" => :bus_apply_for_cat_d # A32
 end
 
 ## Q17 Tractor

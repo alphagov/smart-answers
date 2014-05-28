@@ -47,7 +47,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       should "take you to Q2" do
         assert_current_node :employee_tell_within_limit? # Q2
       end
-      
+
       context "employee didn't tell employer within time limit" do
         should "go to result A3" do
           add_response :no
@@ -135,7 +135,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                       end
                       should "ask for last normal payday before payday offset" do # Q6.1
                         assert_current_node :last_payday_before_offset?
-                        
+
                       end
                       context "enter last payday before offset" do
                         setup do
@@ -429,7 +429,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response Date.parse("2013-01-07")
       add_response Date.parse("2013-05-03")
       add_response :eight_weeks_more
-      add_response :monthly      
+      add_response :monthly
       add_response Date.parse("2012-12-28")
       add_response Date.parse("2012-10-26")
       add_response 1600.0
@@ -466,7 +466,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response Date.parse("2013-01-07")
       add_response Date.parse("2013-05-03")
       add_response :eight_weeks_more
-      add_response :monthly      
+      add_response :monthly
       add_response Date.parse("2012-12-28")
       add_response Date.parse("2012-10-26")
       add_response 1250.75
@@ -531,7 +531,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                              " 4 May 2013|£86.70"].join("\n")
 
     end
-    
+
     should "show formatted weekly payment amounts with adjusted 3 days start amount" do
       add_response :additional_statutory_paternity_pay
       add_response :yes

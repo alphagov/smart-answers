@@ -61,16 +61,16 @@ end
 date_question :when_submitted? do
   from { 3.year.ago(Date.today) }
   to { 2.years.since(Date.today) }
-  
+
   save_input_as :filing_date
-  
+
   calculate :filing_date_formatted do
     Date.parse(filing_date).strftime("%e %B %Y")
   end
-  
+
   next_node do |response|
     if Date.parse(response) < start_of_next_tax_year
-      raise SmartAnswer::InvalidResponse 
+      raise SmartAnswer::InvalidResponse
     else
       :when_paid?
     end
@@ -80,14 +80,14 @@ end
 date_question :when_paid? do
   from { 3.year.ago(Date.today) }
   to { 2.years.since(Date.today) }
-  
+
   save_input_as :payment_date
 
 
 
   next_node do |response|
     if Date.parse(filing_date) > Date.parse(response)
-      raise SmartAnswer::InvalidResponse 
+      raise SmartAnswer::InvalidResponse
     else
       calculator = Calculators::SelfAssessmentPenalties.new(
         :submission_method => submission_method,
@@ -143,10 +143,10 @@ money_question :how_much_tax? do
     phrases = PhraseList.new
     if calculator.late_payment_penalty == 0
       phrases << :result_part2_no_penalty
-    else 
+    else
       phrases << :result_part2_penalty
     end
-    if Date.parse(payment_date) >= one_year_after_start_date_for_penalties 
+    if Date.parse(payment_date) >= one_year_after_start_date_for_penalties
       phrases << :result_part_one_year_late
     end
     phrases

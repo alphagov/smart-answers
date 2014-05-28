@@ -6,7 +6,7 @@ require 'gds_api/test_helpers/worldwide'
 class FindABritishEmbassyTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
-  
+
   setup do
     worldwide_api_has_selection_of_locations
     setup_for_testing_flow 'find-a-british-embassy'

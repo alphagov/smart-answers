@@ -67,7 +67,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         end
       end
     end
-    
+
     context "answer lost or stolen" do
       setup do
         add_response 'replacing'
@@ -356,7 +356,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
     end # Applying
   end # Albania - IPS_application_2
-  
+
   # Ajerbaijan (an example of IPS application 3 and UK Visa centre).
   context "answer Azerbaijan" do
     setup do
@@ -570,7 +570,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_phrase_list :send_your_application, [:send_application_ips3_ukraine_apply_renew_old_replace, :send_application_address_ukraine]
     end
   end # Ukraine (IPS3 with custom phrases)
-  
+
   context "answer Ukraine, applying, adult passport" do
     should "give the IPS application result with custom phrases" do
       worldwide_api_has_organisations_for_location('ukraine', read_fixture_file('worldwide/ukraine_organisations.json'))
@@ -583,7 +583,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new, :send_application_address_ukraine]
     end
   end # Ukraine (IPS3 with custom phrases)
-  
+
   context "answer nepal, renewing new, adult passport" do
     should "give the IPS application result with custom phrases" do
       worldwide_api_has_organisations_for_location('nepal', read_fixture_file('worldwide/nepal_organisations.json'))
@@ -592,11 +592,11 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       assert_current_node :ips_application_result
       assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new, :"send_application_address_nepal"]
-      assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]    
+      assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
   end # nepal (IPS3 with custom phrases)
-  
+
   context "answer nepal, lost or stolen, adult passport" do
     should "give the IPS application result with custom phrases" do
       worldwide_api_has_organisations_for_location('nepal', read_fixture_file('worldwide/pitcairn-island_organisations.json'))

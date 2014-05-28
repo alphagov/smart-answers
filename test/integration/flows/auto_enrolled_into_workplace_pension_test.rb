@@ -47,14 +47,14 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
 
       context "less than 30 people" do
         should "go to how old" do
-          add_response 12 
+          add_response 12
           assert_current_node :how_old?
         end
       end
 
       context "biggest and smallest" do
         should "go to how_old on 30" do
-          add_response 30 
+          add_response 30
           assert_current_node :how_old?
         end
         should "go to how_old on 9999999" do
@@ -82,7 +82,7 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
         end
       end
 
-      
+
       context "go 100 employees" do
         setup do
           add_response 100
@@ -95,7 +95,7 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
         context "between 16 and 21" do
           setup do
             add_response :between_16_21
-          end            
+          end
           should "ask for earnings" do
             assert_current_node :annual_earnings?
           end

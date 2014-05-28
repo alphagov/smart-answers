@@ -49,7 +49,7 @@ date_question :dob_age? do
   calculate :state_pension_date do
     calculator.state_pension_date
   end
-  
+
   calculate :old_state_pension do
     calculator.state_pension_date < Date.parse('6 April 2016')
   end
@@ -61,7 +61,7 @@ date_question :dob_age? do
   calculate :formatted_state_pension_date do
     state_pension_date.strftime("%e %B %Y")
   end
-  
+
   calculate :state_pension_age do
     calculator.state_pension_age
   end
@@ -136,7 +136,7 @@ date_question :dob_amount? do
   calculate :state_pension_date do
     calculator.state_pension_date.to_date
   end
-  
+
   calculate :old_state_pension do
     calculator.state_pension_date < Date.parse('6 April 2016')
   end
@@ -148,7 +148,7 @@ date_question :dob_amount? do
   calculate :remaining_years do
     calculator.years_to_pension
   end
-  
+
   calculate :ni_years_to_date_from_dob do
     calculator.ni_years_to_date_from_dob
   end
@@ -198,7 +198,7 @@ value_question :years_paid_ni? do
   calculate :available_ni_years do
     calculator.available_years_sum(Integer(responses.last))
   end
-  
+
   calculate :ni_years_to_date_from_dob do
     ni_years_to_date_from_dob - responses.last.to_i
   end
@@ -231,7 +231,7 @@ value_question :years_of_jsa? do
   calculate :available_ni_years do
     calculator.available_years_sum(qualifying_years)
   end
-  
+
   calculate :ni_years_to_date_from_dob do
     ni_years_to_date_from_dob - responses.last.to_i
   end
@@ -262,7 +262,7 @@ end
 multiple_choice :received_child_benefit? do
   option :yes
   option :no
-  
+
   calculate :ni_years_to_date_from_dob do
     ni_years_to_date_from_dob
   end
@@ -282,7 +282,7 @@ value_question :years_of_benefit? do
   precalculate :years_you_can_enter do
     calculator.years_can_be_entered(available_ni_years,22)
   end
-  
+
   calculate :ni_years_to_date_from_dob do
     ni_years_to_date_from_dob - responses.last.to_i
   end
@@ -343,7 +343,7 @@ value_question :years_of_caring? do
   calculate :available_ni_years do
     calculator.available_years_sum(qualifying_years)
   end
-  
+
   calculate :ni_years_to_date_from_dob do
     ni_years_to_date_from_dob - responses.last.to_i
   end
@@ -373,7 +373,7 @@ value_question :years_of_carers_allowance? do
     raise InvalidResponse if caring_years < 0 or !(calculator.has_available_years?(qy))
     qy
   end
-  
+
   calculate :ni_years_to_date_from_dob do
     ni_years_to_date_from_dob - responses.last.to_i
   end
@@ -393,7 +393,7 @@ end
 ## Q10
 value_question :years_of_work? do
   save_input_as :years_of_work_entered
-  
+
   calculate :ni_years_to_date_from_dob do
     calculator.ni_years_to_date_from_dob - Integer(responses.last)
   end
@@ -421,8 +421,8 @@ outcome :age_result do
   precalculate :pension_credit_statement do
     phrases = PhraseList.new
     if pension_credit_date > Date.today.to_s
-      phrases << :pension_credit_future 
-    else 
+      phrases << :pension_credit_future
+    else
       phrases << :pension_credit_past
     end
     phrases << :bus_pass
@@ -494,7 +494,7 @@ outcome :amount_result do
 
   precalculate :result_text do
     phrases = PhraseList.new
-    
+
     enough_qualifying_years = qualifying_years_total >= 30
     enough_remaining_years = remaining_years >= missing_years
     auto_years_entitlement = (Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male"))

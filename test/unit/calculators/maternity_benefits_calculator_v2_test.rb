@@ -2,7 +2,7 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class MaternityBenefitsCalculatorV2Test < ActiveSupport::TestCase
-  	context MaternityBenefitsCalculatorV2 do 
+  	context MaternityBenefitsCalculatorV2 do
   		context "basic tests" do
 	  		setup do
 		    	@due_date = Date.parse("2013-01-02")
@@ -17,7 +17,7 @@ module SmartAnswer::Calculators
 	  	context "editor tests" do
 				# Birth 22/12/12
 				# QW 02/09/12 - 08/09/12
-				# Employ start 17/03/12 
+				# Employ start 17/03/12
 	  		context "birth 2012 Dec 22" do
 		  		setup do
 			    	@due_date = Date.parse("2012 Dec 22")
@@ -78,12 +78,12 @@ module SmartAnswer::Calculators
           assert_equal 109, @calculator.smp_LEL
         end
       end
-      
+
       context "after 6 April 2014" do
         setup do
           @calculator = MaternityBenefitsCalculatorV2.new(Date.parse("7th April 2014"))
         end
-        
+
         should "have smp_rate and ma_rate of 138.18 and smp_LEL of 111" do
           assert_equal 138.18, @calculator.smp_rate
           assert_equal 138.18, @calculator.ma_rate

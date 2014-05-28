@@ -55,7 +55,7 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
     elsif data_query.dutch_caribbean_islands?(ceremony_country)
       "Dutch"
     elsif %w(hong-kong macao).include?(ceremony_country)
-      "Chinese" 
+      "Chinese"
     else
       "National of #{country_name_lowercase_prefix}"
     end
@@ -89,13 +89,13 @@ end
 
 # Q2
 multiple_choice :legal_residency? do
-  option :uk 
-  option :other 
+  option :uk
+  option :other
 
   save_input_as :resident_of
-  
+
   next_node do |response|
-    if %w(uk).include?(response) 
+    if %w(uk).include?(response)
       if %(switzerland).include?(ceremony_country)
         :partner_opposite_or_same_sex?
       else
@@ -178,7 +178,7 @@ country_select :residency_nonuk?, :exclude_countries => exclude_countries do
     if %w(switzerland).include?(ceremony_country)
       :partner_opposite_or_same_sex?
     else
-      :what_is_your_partners_nationality?  
+      :what_is_your_partners_nationality?
     end
   end
 end
@@ -222,7 +222,7 @@ multiple_choice :partner_opposite_or_same_sex? do
       PhraseList.new(:ceremony_type_civil_partnership)
     end
   end
-  
+
   calculate :ceremony_type_lowercase do
     if responses.last == 'opposite_sex'
       "marriage"
@@ -309,9 +309,9 @@ outcome :outcome_switzerland do
     else
       phrases << :switzerland_ss_variant
     end
-    
+
     unless %w(switzerland).include?(residency_country)
-      if %w(uk).include?(resident_of) 
+      if %w(uk).include?(resident_of)
         phrases << :what_you_need_to_do_switzerland_resident_uk
       end
       phrases << :switzerland_not_resident
@@ -326,16 +326,16 @@ outcome :outcome_switzerland do
   end
 end
 
-outcome :outcome_netherlands do 
-  precalculate :netherlands_phraselist do 
+outcome :outcome_netherlands do
+  precalculate :netherlands_phraselist do
     phrases = PhraseList.new
     phrases << :contact_local_authorities << :get_legal_advice << :partner_naturalisation_in_uk
     phrases
   end
 end
 
-outcome :outcome_os_indonesia do 
-  precalculate :indonesia_os_phraselist do 
+outcome :outcome_os_indonesia do
+  precalculate :indonesia_os_phraselist do
     phrases = PhraseList.new
     phrases << :appointment_for_affidavit << :complete_affidavit_with_download_link << :documents_for_divorced_or_widowed << :partner_affidavit_needed << :fee_table_english_other_language_affidavit
     phrases
@@ -530,7 +530,7 @@ outcome :outcome_os_consular_cni do
       elsif %w(montenegro).include?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_montenegro
       elsif %w(kazakhstan kyrgyzstan poland).include?(ceremony_country)
-        phrases << :consular_cni_os_uk_resident_poland_kazak_kyrg      
+        phrases << :consular_cni_os_uk_resident_poland_kazak_kyrg
       end
       if %w(china italy portugal).exclude?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_not_italy_or_portugal
@@ -666,7 +666,7 @@ outcome :outcome_os_consular_cni do
         phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany
       end
     end
-    
+
     if ceremony_country == residency_country
       if %w(germany italy spain).exclude?(residency_country)
         phrases << :consular_cni_os_local_resident_not_germany_or_italy_or_spain
@@ -798,7 +798,7 @@ outcome :outcome_os_affirmation do
     elsif %w(turkey).include?(ceremony_country)
       phrases << :what_you_need_to_do
     else
-      phrases << :what_you_need_to_do_may_ask 
+      phrases << :what_you_need_to_do_may_ask
     end
     if %w(turkey).include?(ceremony_country) and %w(uk).include?(resident_of)
       phrases << :appointment_for_affidavit_notary

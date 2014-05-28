@@ -102,7 +102,7 @@ multiple_choice :which_benefit? do
       if going_or_already_abroad == 'going_abroad'
         :is_how_long_abroad?
       else
-        :is_already_abroad_outcome 
+        :is_already_abroad_outcome
       end
     end
   end
@@ -203,9 +203,9 @@ country_select :which_country_maternity_benefits?, :exclude_countries => exclude
 
   next_node do |response|
     if eea_countries.include?(response)
-      :working_for_a_uk_employer? 
+      :working_for_a_uk_employer?
     else
-      :employer_paying_ni? 
+      :employer_paying_ni?
     end
   end
 end
@@ -522,7 +522,7 @@ multiple_choice :db_claiming_benefits? do
     if response == 'yes'
       :"db_#{going_or_already_abroad}_eea_outcome" # A52 or A53
     else
-      :"db_#{going_or_already_abroad}_other_outcome" # A50 or A51      
+      :"db_#{going_or_already_abroad}_other_outcome" # A50 or A51
     end
   end
 end
@@ -651,7 +651,7 @@ outcome :esa_already_abroad_other_outcome # A40
 outcome :iidb_maybe_outcome # A41
 outcome :iidb_going_abroad_eea_outcome # A42
 outcome :iidb_already_abroad_eea_outcome # A43
-outcome :iidb_going_abroad_ss_outcome # A44 
+outcome :iidb_going_abroad_ss_outcome # A44
 outcome :iidb_already_abroad_ss_outcome # A45
 outcome :iidb_going_abroad_other_outcome # A46
 outcome :iidb_already_abroad_other_outcome # A47

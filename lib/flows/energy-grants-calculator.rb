@@ -136,7 +136,7 @@ checkbox_question :which_benefits? do
   option :esa
   option :child_tax_credit
   option :working_tax_credit
-  
+
   calculate :benefits_claimed do
     responses.last.split(",")
   end
@@ -201,7 +201,7 @@ checkbox_question :disabled_or_have_children? do
       else
         :incomesupp_jobseekers_2
       end
-    end 
+    end
   end
 
   next_node do

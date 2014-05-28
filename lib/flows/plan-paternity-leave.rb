@@ -1,7 +1,7 @@
 status :published
 satisfies_need "101018"
 
-date_question :baby_due_date? do 
+date_question :baby_due_date? do
 	save_input_as :due_date
 
   calculate :calculator do
@@ -32,7 +32,7 @@ date_question :leave_start? do
     start_date = Date.parse(start_date_raw)
     due_date_p = Date.parse(due_date)
     week_num = (leave_duration == 2 ? 6 : 7)
-    raise SmartAnswer::InvalidResponse if start_date > week_num.weeks.since(due_date_p) or start_date < due_date_p 
+    raise SmartAnswer::InvalidResponse if start_date > week_num.weeks.since(due_date_p) or start_date < due_date_p
     calculator.enter_start_date(start_date_raw)
     start_date_raw
   end

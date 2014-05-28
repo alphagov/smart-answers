@@ -4,15 +4,15 @@ require_relative 'flow_test_helper'
 
 class VehiclesYouCanDriveTest < ActiveSupport::TestCase
   include FlowTestHelper
-  
+
   setup do
     setup_for_testing_flow 'vehicles-you-can-drive'
-  end  
+  end
   ## Q1
   should "ask what type of vehicle you'd like to drive" do
     assert_current_node :what_type_of_vehicle?
   end
-  
+
   ## Car and light vehicle specs
   context "answer car or light vehicle" do
     setup do
@@ -44,19 +44,19 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
     end
   end ## Car and light vehicle specs
-  
+
   ## Motorcycle specs
   context "answer motorcycle" do
     setup do
       add_response :motorcycle
     end
-    
+
     ## Q4
     should "ask how old you are" do
       assert_current_node :how_old_are_you_mb?
     end
     context "answer under 17" do
-      ## A5 
+      ## A5
       should "state you cannot ride a motorcycle and be done" do
         add_response 'under-17'
         assert_current_node :mb_not_old_enough
@@ -84,7 +84,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
     end
   end ## Motorcycle specs
-  
+
   ## Moped specs
   context "answer moped" do
     setup do
@@ -127,7 +127,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
     end
   end ## Moped specs
-  
+
   ## Medium sized vehicles
   context "answer medium sized vehicle" do
     setup do
@@ -185,7 +185,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
     end
   end ## Medium sized vehicles
-  
+
   ## Lorries and large vehicles
   context "answer large vehicle or lorry" do
     setup do
@@ -221,11 +221,11 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
         setup do
           add_response :yes
         end
-        
+
         should "state to apply for provisional category c entitlement" do
           assert_current_node :apply_for_provisional_cat_c_entitlement # A23
         end
-        
+
       end
       ## Full cat B licence?
       context "answer no" do
@@ -237,7 +237,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
     end
   end ## Lorries and large vehicles
-  
+
   ## Minibus / PSV
   context "answer minibus" do
     setup do
@@ -287,7 +287,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
     end
   end ## Minibus / PSV
-  
+
   ## Bus / Cat D
   context "answer bus" do
     setup do
@@ -321,7 +321,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
     end
   end ## Bus / Cat D
-  
+
   ## Tractors
   context "answer tractor" do
     setup do
@@ -369,7 +369,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
     end
   end ## Tractors
-  
+
   ## Specialist vehicles
   context "answer specialist vehicle" do
     setup do
@@ -440,7 +440,7 @@ class VehiclesYouCanDriveTest < ActiveSupport::TestCase
       end
     end
   end ## Specialist vehicles
-  
+
   ## Quad bikes
   context "answer quad bike" do
     setup do
