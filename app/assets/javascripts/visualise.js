@@ -96,17 +96,34 @@ $(document).ready(function() {
     // Just give the viewport a little padding.
     V(paper.viewport).translate(20, 20);
 
-    $('#btn-layout').on('click', layout);
+    var toggleButton = $('#btn-toggle-rankdir');
+    toggleButton.on('click', toggleRankdir);
+
+    var rankDir = 'LR';
+
+    function toggleRankdir() {
+      rankDir = rankDir == 'LR' ? 'TB' : 'LR';
+      layout();
+    }
 
     function layout() {
-        var cells = buildGraphFromAdjacencyList(adjacencyList['labels'], adjacencyList['adjacencyList']);
-        graph.resetCells(cells);
-        joint.layout.DirectedGraph.layout(graph, { setLinkVertices: false, rankDir: 'LR', rankSep: 100 });
+      var cells = buildGraphFromAdjacencyList(adjacencyList['labels'], adjacencyList['adjacencyList']);
+      graph.resetCells(cells);
+      joint.layout.DirectedGraph.layout(graph, {
+        setLinkVertices: false,
+        rankDir: rankDir,
+        rankSep: 100
+      });
+      if (rankDir == 'LR') {
+        toggleButton.text('Layout from top-to-bottom');
+      } else {
+        toggleButton.text('Layout from left-to-right');
+      }
+      var padding = 400;
+      paper.fitToContent(10, 10, padding);
+      var bbox = V(paper.viewport).bbox()
+      $('#paper').width(bbox.width + padding);
+      $('#paper').height(bbox.height + padding);
     }
     layout();
-    var padding = 400;
-    paper.fitToContent(10, 10, padding);
-    var bbox = V(paper.viewport).bbox()
-    $('#paper').width(bbox.width + padding);
-    $('#paper').height(bbox.height + padding);
 });
