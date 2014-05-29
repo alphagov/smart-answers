@@ -121,7 +121,7 @@ multiple_choice :residency_uk? do
 
   next_node do |response|
     if %w(uk_iom uk_ci).include?(response)
-      if data_query.os_other_countries?(ceremony_country) or data_query.os_ceremony_countries_living_in_the_uk?(ceremony_country)
+      if data_query.os_other_countries?(ceremony_country)
         :what_is_your_partners_nationality?
       else
         :outcome_os_iom_ci
@@ -236,9 +236,7 @@ multiple_choice :partner_opposite_or_same_sex? do
       :"outcome_#{ceremony_country}"
     else
       if response == 'opposite_sex'
-        if %w(uk).include?(resident_of) and data_query.os_ceremony_countries_living_in_the_uk?(ceremony_country)
-          :outcome_same_sex_marriage_living_in_the_uk
-        elsif %w(indonesia).include?(ceremony_country)
+        if %w(indonesia).include?(ceremony_country)
           :"outcome_os_#{ceremony_country}"
         elsif data_query.os_affirmation_countries?(ceremony_country)
           :outcome_os_affirmation
@@ -1124,4 +1122,3 @@ outcome :outcome_cp_consular do
   end
 end
 outcome :outcome_cp_all_other_countries
-outcome :outcome_same_sex_marriage_living_in_the_uk

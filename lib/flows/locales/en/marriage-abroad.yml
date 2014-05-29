@@ -25,7 +25,7 @@ en-GB:
           [Book an appointment online](%{clickbook_data})
         clickbook_links: |
           +[data_partial:clickbooks:clickbook_data]
-
+          
 #Reusable phrases for all outcomes
       #payment methods
         pay_by_cash_or_credit_card_no_cheque: |
@@ -33,18 +33,18 @@ en-GB:
         pay_in_local_currency: |
           ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
         pay_in_local_currency_ceremony_country_name: |
-          ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^
+          ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^  
         pay_in_euros_or_visa_electron: |
           You can pay by cash (euros only) or credit card (but not Visa Electron).
         pay_in_cash_or_manager_cheque: |
           You can pay in cash or with a bank manager's cheque made payable to 'British Embassy'.
-
+        
       #fees
         list_of_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
         list_of_consular_fees_france: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/france-consular-fees).
-
+          
       #what you need to do phrases
         what_you_need_to_do: |
           ##What you need to do
@@ -61,20 +61,20 @@ en-GB:
       #affidavit phrases
         complete_affidavit: |
           You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit.  Take the completed form with you to your appointment.
-
+          
         complete_affidavit_with_download_link: |
           You’ll need to complete an [‘Affidavit for marriage’ form](/government/publications/marriage-in-%{country_name_lowercase_prefix}) that will be used for your affidavit. Take the completed form with you to your appointment.
-
+          
         download_affidavit: |
           $D
           [Download 'Affadavit for Marriage' (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
           $D
-
+          
         appointment_for_affidavit: |
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         appointment_for_affidavit_notary: |
           Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
-
+        
       #partner affirmation phrases
         partner_affirmation_needed: |
           ^Your partner will need to get an affirmation as well.^
@@ -84,7 +84,7 @@ en-GB:
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
-
+  
       #fee tables
         fee_table_english_other_language_affidavit: |
           ##Fees
@@ -94,7 +94,7 @@ en-GB:
           Issuing any other consular letter or certificate in English | £45
           Issuing any other consular letter or certificate in any other language | £70
           Affidavit for marriage | £55
-
+          
         fee_table_affirmation: |
           ##Fees
 
@@ -105,10 +105,10 @@ en-GB:
       #other phrases
         get_legal_advice: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
-
+        
         contact_local_authorities: |
           Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
-
+        
         partner_naturalisation_in_uk: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -120,20 +120,20 @@ en-GB:
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
           - evidence of nationality or residence where your divorce took place if it was outside the UK
           - evidence if you’ve changed your name by deed poll.
-
+        
         list_of_documents_to_provide_passport_proof_of_residence_for_both: |
           You’ll need to provide supporting documents, including:
 
           - your passport
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
           - equivalent documents for your partner
-#china phrases
+#china phrases 
         evidence_of_nationality_or_residence_china: |
           ^You’ll need to provide evidence of nationality or residence if a divorce or dissolution took place outside the UK. You’ll also need to get it [translated](/government/collections/list-of-lawyers) if the divorce or dissolution took place outside the UK or China.^
-
+        
 # Marriage if resident of Isle of Man or Channel Islands
         iom_ci_os_all: |
-
+        
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         iom_ci_os_spain: |
           %There are certain legal restrictions if neither of you is resident in Spain. You should check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
@@ -148,9 +148,9 @@ en-GB:
         iom_ci_os_ceremony_not_italy: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         iom_ci_os_ceremony_italy: |
-          $C
-          **British Embassy in Rome - marriages**
-          <rome.marriages@fco.gov.uk>
+          $C  
+          **British Embassy in Rome - marriages**  
+          <rome.marriages@fco.gov.uk>  
           $C
 
 # Marriage in Ireland outcome phrases
@@ -162,7 +162,7 @@ en-GB:
 # Marriage & CP in Switzerland phrases
 
         what_you_need_to_do_switzerland_resident_uk: |
-
+        
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into a %{ceremony_type_lowercase} or equivalent in Switzerland.
 
           Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
@@ -200,7 +200,7 @@ en-GB:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - a civil partnership dissolution or annulment certificate
-          - your former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
+          - your former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/) 
 
           You’ll also need to provide evidence of nationality or residence if a divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
 
@@ -588,7 +588,9 @@ en-GB:
           - [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
           - the whole page of the newspaper your announcement appears on, including the date it was issued
           - a photocopy of your partner’s passport
-
+          
+          
+          
         consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident: |
           You’ll need to provide supporting documents, including:
 
@@ -596,7 +598,7 @@ en-GB:
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
           - equivalent documents for your partner
-
+        
         japan_consular_cni_os_local_resident: |
           To book an appointment, complete the [marriage questionnaire](/government/publications/marriage-questionnaire-japan). Send it by email, fax or post following the instructions on the form, along with copies of the requested documents.
 
@@ -610,14 +612,14 @@ en-GB:
           Your partner can provide a recently certified copy of the family register (‘koseki-tohon’) as evidence that they’re free to marry.
         italy_consular_cni_os_partner_local: |
           You’ll need to provide supporting documents, including:
-
+ 
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
           - a copy of your partner’s ID card and Certificato di Stato Libero from the comune
           - a copy of your partner’s Nulla Osta, if possible
         italy_consular_cni_os_partner_other_or_irish: |
           You’ll need to provide supporting documents, including:
-
+ 
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
           - a copy of your partner’s passport and, if possible, a copy of their Certificate of No Impediment (CNI) or similar document to prove they're allowed to marry
@@ -643,7 +645,7 @@ en-GB:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - a civil partnership dissolution or annulment certificate
-          - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
+          - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/) 
         consular_cni_os_other_resident_ceremony_not_germany_or_spain: |
           ^You’ll also need to provide evidence of nationality or residence if a divorce or dissolution took place if outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
         spain_os_consular_cni_three: |
@@ -722,7 +724,7 @@ en-GB:
           You’ll then have to email the embassy with completed [credit card authorisation](/government/publications/credit-card-authorisation-form), [couple information](/government/publications/couple-information-form) and [request for consular services](/government/publications/request-for-consular-services) forms to arrange payment so they can issue your Nulla Osta.
 
           $C
-          **British Embassy in Rome - marriages**
+          **British Embassy in Rome - marriages**  
           <rome.marriages@fco.gov.uk>
           $C
 
@@ -833,7 +835,7 @@ en-GB:
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
         affirmation_os_uae: |
           ^There are no civil marriages in the United Arab Emirates, but you can get married through a religious ceremony at a church or Sharia court.^
-
+          
           You may be able to get married at the British Embassy if you're both resident in the United Arab Emirates and can prove that there are no other suitable facilities.
 
           Contact the British Embassy in the United Arab Emirates for more information.
@@ -866,10 +868,10 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-
+        
         affirmation_os_legalised: |
           You’ll need to get your affidavit ‘[legalised](https://www.gov.uk/get-document-legalised)’ (certified as genuine) before you travel to Turkey.
-
+        
         affirmation_os_download_affidavit_philippines: |
           The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the form in advance.
 
@@ -1068,7 +1070,7 @@ en-GB:
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         cp_or_equivalent_cp_other_resident: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
-
+        
         cp_or_equivalent_cp_all_fees: |
           ##Fees
 
@@ -1082,11 +1084,13 @@ en-GB:
 
           Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
+          
         cp_or_equivalent_cp_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
+        
+        
 
 # PACS in France or French overseas territories with PACS law
         fot_cp_all: |
@@ -1322,7 +1326,7 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-
+        
         consular_cp_all_fees: |
           ##Fees
 
@@ -1334,6 +1338,7 @@ en-GB:
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{ceremony_country}-consular-fees).
 
+
 # Q1
       country_of_ceremony?:
         title: Where do you want to get married?
@@ -1344,6 +1349,7 @@ en-GB:
         options:
           uk: "Yes"
           other: "No"
+
 # Q3a
       residency_uk?:
         title: Where do you live?
@@ -1354,9 +1360,11 @@ en-GB:
           uk_ni: "Northern Ireland"
           uk_iom: "Isle of Man"
           uk_ci: "Channel Islands"
+
 # Q3b
       residency_nonuk?:
         title: Where do you live?
+
 # Q3c
       marriage_or_pacs?:
         title: Do you want to get married or enter into a PACS?
@@ -1364,12 +1372,14 @@ en-GB:
         options:
           marriage: "Marriage"
           pacs: "PACS"
+
 # Q3d
       swiss_resident?:
         title: Do you live in Switzerland?
         options:
           "yes": "Yes"
           "no": "No"
+
 # Q4
       what_is_your_partners_nationality?:
         title: What is your partner’s nationality?
@@ -1378,12 +1388,14 @@ en-GB:
           partner_irish: "Irish"
           partner_local: "%{country_name_partner_residence}"
           partner_other: "National of another country"
+
 # Q5
       partner_opposite_or_same_sex?:
         title: Is your partner of the opposite sex, or the same sex?
         options:
           opposite_sex: "Opposite sex"
           same_sex: "Same sex"
+
 
 # Outcomes
 # outcome Channel Isles and Isle of Man
@@ -1404,6 +1416,7 @@ en-GB:
           %{ceremony_type} in Ireland
         body: |
           %{ireland_partner_sex_variant}
+          
 # outcome Indonesia - Opposite sex
       outcome_os_indonesia:
         title: |
@@ -1419,6 +1432,7 @@ en-GB:
 
           *[GRO]:General Register Office
           *[FCO]:Foreign & Commonwealth Office
+
 # outcome Commonwealth, opposite sex
       outcome_os_commonwealth:
         title: |
@@ -1464,7 +1478,7 @@ en-GB:
           ^You’ll need to have a civil ceremony first if you’re getting married in a religious ceremony.^
 
           If you need a certificate of custom law, you can get one from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
-
+          
           Some mairies only issue a certificate of custom less than 6 months before the date of marriage. You should check with them before you apply. If your certificate is refused because you applied too early, you will need to apply and pay again.
 
           ###Applying for a certificate of custom law from the British Embassy
@@ -1479,6 +1493,8 @@ en-GB:
           ###The certificate of celibacy
 
           The mairie might also ask you for a certificate of celibacy (‘certificat de célibat’) to prove you’re not married or in a civil partnership. There’s no equivalent to this document in British law, so you’ll need to download the official note which explains this and take it to the mairie instead.
+
+
 
           $D
           [Download ‘Explanatory note in lieu of a certificate of celibacy’](/government/publications/france-explanatory-note-in-lieu-of-certificat-celibat)
@@ -1590,36 +1606,63 @@ en-GB:
           *[CNI]:certificate of no impediment
 #outcome for CP in all other countries
       outcome_cp_all_other_countries:
-        title: Same-sex marriage and civil partnership in %{country_name_lowercase_prefix}
+        title: Civil partnership in %{country_name_lowercase_prefix}
         body: |
           It’s not possible to get legal recognition for a same-sex relationship in %{country_name_lowercase_prefix}.
 
-#same sex marriage phrases
-      outcome_same_sex_marriage_living_in_the_uk:
-        title: Same-sex marriage in %{country_name_lowercase_prefix}
-        body: |
-          You may be able to get married at the British embassy or consulate in %{country_name_lowercase_prefix}.
+          You can enter into a [civil partnership in the UK](/marriages-civil-partnerships), or at a British consulate in:
 
+          - Australia (except Tasmania)
+          - Bulgaria
+          - Cambodia
+          - Costa Rica
+          - Croatia
+          - Cyprus
+          - Guatemala
+          - Japan
+          - Latvia
+          - Moldova
+          - Mongolia
+          - Panama
+          - Peru
+          - Philippines
+          - Turkmenistan
+          - Uruguay
+          - Venezuela
+          - Vietnam
 
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+          Certain same-sex relationships in the following countries may be recognised as a civil partnership in the UK:
 
-          ##What documents you’ll need
-          You’ll need proof that you’ve been resident in the area covered by the embassy or consulate for at least 7 days, like an employer’s letter or a bank statement.
-          You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need either:
-          a [decree absolute or final order](/copy-decree-absolute-final-order)
-          the [death certificate](/order-copy-birth-death-marriage-certificate/)
+          - Andorra
+          - Argentina
+          - Australia (in some states)
+          - Austria
+          - Belgium
+          - Bonaire/St Eustatius/Saba
+          - Brazil
+          - Canada
+          - Colombia
+          - Denmark
+          - Ecuador
+          - Finland
+          - France
+          - Germany
+          - Hungary
+          - Iceland
+          - Liechtenstein
+          - Luxembourg
+          - Mexico
+          - Netherlands
+          - New Caledonia
+          - New Zealand
+          - Norway
+          - Portugal
+          - Slovenia
+          - South Africa
+          - Spain
+          - Sweden
+          - United States (in some states)
+          - Uruguay
+          - Wallis and Futuna
 
-          ##What you need to do
-          Once you’ve made your appointment, the embassy or consulate will give you:
-          a notice of registration
-          a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry
-          Once you’ve submitted these and paid the registration fee (see the fees table on this page), the embassy or consulate will display your notice publicly for 14 days.
-          As long as nobody registers an objection during the 14 days, the registration officer can then register your marriage any time until 3 months after you gave notice.
-          You’ll need to provide two witnesses and pay a fee to register your marriage. You’ll need to pay an additional fee for your marriage certificate (see the fees table on this page).
-
-          ##Fees
-          Service | Fee
-          -|-
-          Posting a marriage notice | £65
-          Performing a marriage ceremony| £140
-          Issuing a marriage certificate | £65
+          [Start again](/marriage-abroad) to find out what to do in one of these countries.

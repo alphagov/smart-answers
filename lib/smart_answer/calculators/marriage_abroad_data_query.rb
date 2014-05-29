@@ -19,6 +19,7 @@ module SmartAnswer::Calculators
 
     OS_OTHER_COUNTRIES = %w(burma north-korea iran somalia syria yemen saudi-arabia)
 
+
     OS_AFFIRMATION_COUNTRIES = %w(egypt lebanon finland mongolia peru philippines portugal south-korea thailand turkey united-arab-emirates vietnam)
 
     CP_EQUIVALENT_COUNTRIES = %w(austria belgium brazil colombia czech-republic denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia sweden)
@@ -39,12 +40,6 @@ module SmartAnswer::Calculators
     }
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(aruba slovakia curacao bonaire-st-eustatius-saba st-maarten taiwan czech-republic argentina cote-d-ivoire)
-
-    OS_CEREMONY_COUNTRIES_LIVING_IN_THE_UK = %w(australia azerbaijan bolivia chile china colombia dominican-republic estonia kosovo latvia mongolia montenegro nicaragua russia san-marino hungary serbia)
-
-    def os_ceremony_countries_living_in_the_uk?(country_slug)
-      OS_CEREMONY_COUNTRIES_LIVING_IN_THE_UK.include?(country_slug)
-    end
 
     def commonwealth_country?(country_slug)
       COMMONWEALTH_COUNTRIES.include?(country_slug)
