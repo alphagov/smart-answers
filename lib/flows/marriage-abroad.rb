@@ -509,7 +509,9 @@ outcome :outcome_os_consular_cni do
       end
     end
     if %w(uk).include?(resident_of)
-      if %w(partner_irish).exclude?(partner_nationality)
+      if %w(oman jordan qatar saudi-arabia united-arab-emirates yemen).exclude?(ceremony_country)
+        phrases << :notice_posted_if_no_objection
+      elsif %w(partner_irish).exclude?(partner_nationality)
         phrases << :uk_resident_partner_not_irish_os_consular_cni_three
       elsif %w(partner_irish).include?(partner_nationality) and %w(uk_scotland uk_ni).include?(residency_uk_region)
         phrases << :scotland_ni_resident_partner_irish_os_consular_cni_three
