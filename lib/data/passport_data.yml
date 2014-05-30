@@ -1909,10 +1909,10 @@ ukraine:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   application_office: true
-  renewing_new: 4_weeks
-  renewing_old: 6_weeks
-  applying: 6_weeks
-  replacing: 6_weeks
+  renewing_new: 6_weeks
+  renewing_old: 10_weeks
+  applying: 10_weeks
+  replacing: 8_weeks
 united-arab-emirates:
   type: ips_application_1
   group: ips_documents_group_1
@@ -1931,10 +1931,10 @@ uruguay:
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 4_weeks
-  renewing_old: 6_weeks
-  applying: 6_weeks
-  replacing: 6_weeks
+  renewing_new: 6_weeks
+  renewing_old: 10_weeks
+  applying: 10_weeks
+  replacing: 8_weeks
 usa:
   type: ips_application_1
   group: ips_documents_group_1
@@ -1949,18 +1949,18 @@ uzbekistan:
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   renewing_new: 8_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
+  renewing_old: 10_weeks
+  applying: 10_weeks
   replacing: 8_weeks
 vanuatu:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 4_weeks
-  renewing_old: 6_weeks
-  applying: 6_weeks
-  replacing: 6_weeks
+  renewing_new: 6_weeks
+  renewing_old: 8_weeks
+  applying: 8_weeks
+  replacing: 8_weeks
 venezuela:
   type: ips_application_3
   group: ips_documents_group_3
@@ -1985,29 +1985,29 @@ wallis-and-futuna:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 4_weeks
-  renewing_old: 6_weeks
-  applying: 6_weeks
-  replacing: 6_weeks
+  renewing_new: 6_weeks
+  renewing_old: 8_weeks
+  applying: 8_weeks
+  replacing: 8_weeks
 western-sahara:
   type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   application_office: true
-  renewing_new: 4_weeks
-  renewing_old: 6_weeks
-  applying: 6_weeks
-  replacing: 6_weeks
+  renewing_new: 6_weeks
+  renewing_old: 12_weeks
+  applying: 12_weeks
+  replacing: 8_weeks
 yemen:
   type: ips_application_1
   group: ips_documents_group_3
   helpline: yemen
   app_form: hmpo_1_application_form
   address: durham
-  renewing_new: 4_weeks
-  renewing_old: 6_weeks
-  applying: 6_weeks
-  replacing: 6_weeks
+  renewing_new: 6_weeks
+  renewing_old: 12_weeks
+  applying: 12_weeks
+  replacing: 8_weeks
 zambia:
   type: ips_application_1
   group: ips_documents_group_3
