@@ -260,7 +260,7 @@ multiple_choice :partner_opposite_or_same_sex? do
         end
       else
         if %w(uk).include?(resident_of) and (data_query.ss_marriage_countries_in_the_uk?(ceremony_country) or data_query.ss_marriage_and_partnership_in_the_uk?(ceremony_country))
-          :outcome_same_sex_marriage_living_in_the_uk
+          :outcome_ss_marriage_living_in_the_uk
         elsif %w(spain).include?(ceremony_country)
           :outcome_os_consular_cni
         elsif data_query.cp_equivalent_countries?(ceremony_country)
@@ -1131,11 +1131,11 @@ outcome :outcome_cp_consular do
   end
 end
 outcome :outcome_cp_all_other_countries
-outcome :outcome_same_sex_marriage_living_in_the_uk do
+outcome :outcome_ss_marriage_living_in_the_uk do
   precalculate :ss_title do
     PhraseList.new(:"title_#{marriage_and_partnership_phrases}")
   end
-  precalculate :same_sex_ceremony_body do
+  precalculate :ss_ceremony_body do
     phrases = PhraseList.new
     phrases << :"able_to_#{marriage_and_partnership_phrases}"
     if data_query.ss_clickbook_countries?(ceremony_country)

@@ -1341,7 +1341,6 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to cp no cni required outcome" do
       assert_current_node :outcome_cp_no_cni
-      assert_phrase_list :no_cni_required_cp_outcome, [:"no_cni_required_cp_bonaire-st-eustatius-saba", :no_cni_required_all_legal_advice, :no_cni_required_all_what_you_need_to_do, :no_cni_required_cp_dutch_islands, :no_cni_required_cp_dutch_islands_uk_resident, :no_cni_required_cp_all_consular_facilities, :no_cni_required_cp_naturalisation]
     end
   end
 #testing for ceremony in bonaire, bonaire resident, british partner
@@ -1388,39 +1387,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to cp commonwealth countries outcome" do
-      assert_current_node :outcome_cp_commonwealth_countries
-      assert_phrase_list :commonwealth_countries_cp_outcome, [:commonwealth_countries_cp_australia, :commonwealth_countries_cp_australia_two, :commonwealth_countries_cp_uk_resident_two, :commonwealth_countries_cp_australia_three, :commonwealth_countries_cp_australia_four, :commonwealth_countries_cp_australia_five, :commonwealth_countries_cp_naturalisation, :commonwealth_countries_cp_australia_six]
-    end
-  end
-#testing for ceremony in australia, australia resident, british partner
-  context "ceremony in australia, resident in australia, partner british" do
-    setup do
-      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
-      add_response 'australia'
-      add_response 'other'
-      add_response 'australia'
-      add_response 'partner_british'
-      add_response 'same_sex'
-    end
-    should "go to cp commonwealth countries outcome" do
-      assert_current_node :outcome_cp_commonwealth_countries
-      assert_phrase_list :commonwealth_countries_cp_outcome, [:commonwealth_countries_cp_australia, :commonwealth_countries_cp_australia_two, :commonwealth_countries_cp_local_resident, :commonwealth_countries_cp_australia_three, :commonwealth_countries_cp_australia_four, :commonwealth_countries_cp_australia_five, :commonwealth_countries_cp_australia_six]
-    end
-  end
-#testing for ceremony in australia, other resident, local partner
-  context "ceremony in australia, other resident, partner local" do
-    setup do
-      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
-      worldwide_api_has_organisations_for_location('canada', read_fixture_file('worldwide/canada_organisations.json'))
-      add_response 'australia'
-      add_response 'other'
-      add_response 'canada'
-      add_response 'partner_local'
-      add_response 'same_sex'
-    end
-    should "go to cp commonwealth countries outcome" do
-      assert_current_node :outcome_cp_commonwealth_countries
-      assert_phrase_list :commonwealth_countries_cp_outcome, [:commonwealth_countries_cp_australia, :commonwealth_countries_cp_australia_two, :commonwealth_countries_cp_other_resident, :commonwealth_countries_cp_australia_three, :commonwealth_countries_cp_australia_four, :commonwealth_countries_cp_australia_partner_local, :commonwealth_countries_cp_australia_five, :commonwealth_countries_cp_naturalisation, :commonwealth_countries_cp_australia_six]
+      assert_current_node :outcome_ss_marriage_living_in_the_uk
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_marriage, :what_to_do_ss_marriage, :fees_table_ss_marriage]
     end
   end
 #testing for ceremony in canada, uk resident, other partner
@@ -1467,8 +1435,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to all other countries outcome" do
-      assert_current_node :outcome_cp_consular
-      assert_phrase_list :consular_cp_outcome, [:consular_cp_ceremony, :consular_cp_ceremony_vietnam_partner_local, :consular_cp_vietnam, :consular_cp_all_documents, :consular_cp_partner_not_british, :consular_cp_all_what_you_need_to_do, :consular_cp_naturalisation, :fee_table_affirmation, :pay_by_cash_or_credit_card_no_cheque]
+      assert_current_node :outcome_ss_marriage_living_in_the_uk
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :book_online_vietnam, :documents_needed_ss_marriage_and_partnership, :what_to_do_ss_marriage_and_partnership, :fees_table_ss_marriage_and_partnership]
     end
   end
 # testing for latvia, other resident, british partner
@@ -1636,7 +1604,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'uk_england'
       add_response 'partner_british'
       add_response 'same_sex'
-      assert_current_node :outcome_cp_consular
+      assert_current_node :outcome_ss_marriage_living_in_the_uk
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :book_online_peru, :documents_needed_ss_marriage_and_partnership, :what_to_do_ss_marriage_and_partnership, :fees_table_ss_marriage_and_partnership]
     end
   end
   context "peru outcome mapped to lebanon" do
@@ -1765,8 +1734,10 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'uk_england'
       add_response 'partner_british'
-      add_response 'opposite_sex'
-      assert_current_node :outcome_same_sex_marriage_living_in_the_uk
+      add_response 'same_sex'
+      assert_current_node :outcome_ss_marriage_living_in_the_uk
+      assert_phrase_list :ss_title, [:title_ss_marriage]
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_marriage, :what_to_do_ss_marriage, :fees_table_ss_marriage]
     end
   end
   context "ceremony in azerbaijan, resident in northern ireland, partner irish" do
@@ -1776,10 +1747,12 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'uk_ni'
       add_response 'partner_irish'
-      add_response 'opposite_sex'
+      add_response 'same_sex'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_same_sex_marriage_living_in_the_uk
+      assert_current_node :outcome_ss_marriage_living_in_the_uk
+      assert_phrase_list :ss_title, [:title_ss_marriage]
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_marriage, :what_to_do_ss_marriage, :fees_table_ss_marriage]
     end
   end
     context "uk resident, ceremony in estonia, partner british" do
@@ -1789,10 +1762,12 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'uk_wales'
       add_response 'partner_british'
-      add_response 'opposite_sex'
+      add_response 'same_sex'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_same_sex_marriage_living_in_the_uk
+      assert_current_node :outcome_ss_marriage_living_in_the_uk
+      assert_phrase_list :ss_title, [:title_ss_marriage]
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_marriage, :what_to_do_ss_marriage, :fees_table_ss_marriage]
     end
   end
 end

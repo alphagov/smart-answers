@@ -44,7 +44,7 @@ module SmartAnswer::Calculators
 
     SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES_IN_THE_UK = %w(cambodia costa-rica peru philippines vietnam)
 
-    SS_CLICKBOOK_COUNTRIES = %w(bolivia chile china colombia costa-rica mongolia montenegro peru philippines russia hungary serbia vietnam)
+    SS_CLICKBOOK_COUNTRIES = %w(bolivia chile china colombia costa-rica hungary mongolia montenegro peru philippines russia san-marino serbia vietnam)
 
     def ss_clickbook_countries?(country_slug)
       SS_CLICKBOOK_COUNTRIES.include?(country_slug)

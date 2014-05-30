@@ -219,7 +219,7 @@ en-GB:
         book_online_serbia: |
           Make an [appointment online](www.serbia.clickbook.net) at the Consular Section in Belgrade.
         book_online_vietnam: |
-          Make an [appointment online](http://www.britishembassyhanoi.clickbook.net/)) at the British Embassy in Hanoi. 
+          Make an [appointment online](http://www.britishembassyhanoi.clickbook.net/) at the British Embassy in Hanoi.
 #china phrases
         evidence_of_nationality_or_residence_china: |
           ^You’ll need to provide evidence of nationality or residence if a divorce or dissolution took place outside the UK. You’ll also need to get it [translated](/government/collections/list-of-lawyers) if the divorce or dissolution took place outside the UK or China.^
@@ -1266,8 +1266,7 @@ en-GB:
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
 
 # CP in commonwealth countries phrases
-        commonwealth_countries_cp_australia: |
-          You can get a same-sex relationship legally recognised in some states in Australia.
+
         commonwealth_countries_cp_canada: |
           Same-sex relationships in Canada that are recognised as civil partnerships under British law are known as:
 
@@ -1282,14 +1281,6 @@ en-GB:
 
           - marriage
           - civil partnership
-        commonwealth_countries_cp_australia_two: |
-          Same-sex relationships in Australian states that are recognised as civil partnerships under British law are known as:
-
-          - ‘civil partnership’ (Australian Capital Territory)
-          - ‘a relationship registered under the Relationships Register Act 2010’ (New South Wales)
-          - ‘civil partnership’ (Queensland)
-          - 'significant relationship' (Tasmania)
-          - ‘registered domestic relationship’ (Victoria)
         commonwealth_countries_cp_uk_resident_two: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
 
@@ -1302,22 +1293,7 @@ en-GB:
           Contact your nearest high commission, embassy or consulate of %{country_name_lowercase_prefix} before making any plans to find out about local laws, including what documents you’ll need.
 
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
-        commonwealth_countries_cp_australia_three: |
-          ##Registering a civil partnership at the British consulate
 
-          You may be able to register a civil partnership at your nearest British high commission or consulate if you can’t get legal recognition for your relationship under local law.
-
-          Contact your nearest British high commission or consulate to make an appointment.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        commonwealth_countries_cp_australia_four: |
-          ###What documents you’ll need
-
-          You’ll need proof that you’ve been resident in the area covered by the high commission or consulate for at least 7 days, like an employer’s letter or a bank statement. (This isn’t required in Queensland, Northern Territory or Western Australia.)
-
-          You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:
-
-          - a [decree absolute or final order](/copy-decree-absolute-final-order), or
-          - the [death certificate](/order-copy-birth-death-marriage-certificate/)
         commonwealth_countries_cp_australia_partner_local: |
           Your Australian partner will also need a Single Status Certificate issued by state or territory authorities.
         commonwealth_countries_cp_australia_partner_other: |
@@ -1325,36 +1301,12 @@ en-GB:
 
           - a ‘certificate of no impediment’ (CNI) or similar document to prove they’re allowed to enter into a civil partnership from their national authorities
           - a Single Status Certificate issued by state or territory authorities, if they’ve been resident in Australia for at least 21 days
-        commonwealth_countries_cp_australia_five: |
-          ###What you need to do
-
-          Once you’ve made your appointment, the high commission or consulate will give you:
-
-          - a notice of registration
-          - a declaration that you and your partner will need to swear, stating that you’re legally entitled to enter into a civil partnership
-
-          Once you’ve submitted these and paid the registration fee (see below), the high commission or consulate will display your notice publicly for 14 days. (This isn’t required in Queensland, Northern Territory or Western Australia.)
-
-          As long as nobody has registered an objection after this time, the registration officer can then register your partnership any time until 3 months after the date you gave notice.
-
-          You’ll need to provide two witnesses and pay a fee to register your civil partnership. You’ll need to pay an additional fee for your civil partnership certificate (see below).
         commonwealth_countries_cp_ceremony_not_australia: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         commonwealth_countries_cp_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-        commonwealth_countries_cp_australia_six: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Receiving a notice of registration | £65
-          Registering a civil partnership | £140
-          Issuing a civil partnership certificate | £65
-
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
-
 # CP in countries with consular CP (exc australia) phrases
         consular_cp_ceremony: |
           You may be able to register a civil partnership at the British embassy or consulate in %{country_name_lowercase_prefix}.
@@ -1686,8 +1638,8 @@ en-GB:
         title: Same-sex marriage and civil partnership in %{country_name_lowercase_prefix}
         body: |
           It’s not possible to get legal recognition for a same-sex relationship in %{country_name_lowercase_prefix}.
-      outcome_same_sex_marriage_living_in_the_uk:
+      outcome_ss_marriage_living_in_the_uk:
         title: %{ss_title} in %{country_name_lowercase_prefix}
         body: |
-          %{same_sex_ceremony_body}
+          %{ss_ceremony_body}
 
