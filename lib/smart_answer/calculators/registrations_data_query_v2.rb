@@ -7,27 +7,27 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITH_CONSULATES = %w(china colombia israel russia turkey)
 
-    COUNTRIES_WITH_CONSULATE_GENERALS = %(brazil hong-kong turkey)
+    COUNTRIES_WITH_CONSULATE_GENERALS = %(belgium brazil germany hong-kong netherlands spain turkey)
 
-    CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan laos latvia libya slovenia tunisia uganda)
+    CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan laos latvia libya luxembourg slovenia tunisia uganda)
 
     CHEQUE_ONLY_COUNTRIES = %w(taiwan)
 
     EASTERN_CARIBBEAN_COUNTRIES = %w(antigua-and-barbuda barbados dominica st-kitts-and-nevis st-vincent-and-the-grenadines)
 
-    NO_POSTAL_COUNTRIES = %w(barbados costa-rica malaysia papua-new-guinea sweden tanzania thailand)
+    NO_POSTAL_COUNTRIES = %w(barbados costa-rica malaysia papua-new-guinea sweden tanzania thailand usa)
 
-    POST_ONLY_COUNTRIES = %w(czech-republic hungary new-caledonia poland slovakia)
+    POST_ONLY_COUNTRIES = %w(belgium czech-republic france french-guiana french-polynesia italy guadeloupe hungary martinique mayotte monaco new-caledonia netherlands poland portugal reunion slovakia spain st-pierre-and-miquelon switzerland wallis-and-futuna united-arab-emirates)
 
     COUNTRIES_WITH_TRADE_CULTURAL_OFFICES = %w(taiwan)
 
-    MODIFIED_CARD_ONLY_COUNTRIES = %w(czech-republic slovakia hungary poland)
+    MODIFIED_CARD_ONLY_COUNTRIES = %w(belgium netherlands czech-republic slovakia hungary poland portugal italy spain switzerland)
 
     CASH_AND_CARD_COUNTRIES = %w(estonia)
 
-    ORU_TRANSITIONED_COUNTRIES = %w(american-samoa andorra belgium france french-guiana french-polynesia germany greece guadeloupe italy liechtenstein luxembourg martinique mayotte monaco netherlands portugal reunion san-marino spain st-pierre-and-miquelon switzerland united-arab-emirates usa wallis-and-futuna)
+    ORU_TRANSITIONED_COUNTRIES = %w(american-samoa belgium france french-guiana french-polynesia germany greece guadeloupe italy liechtenstein luxembourg martinique mayotte monaco netherlands portugal reunion san-marino spain st-pierre-and-miquelon switzerland united-arab-emirates usa wallis-and-futuna)
 
-    ORU_DOCUMENTS_VARIANT_COUNTRIES = %w(andorra belgium france italy monaco netherlands portugal spain united-arab-emirates usa)
+    ORU_DOCUMENTS_VARIANT_COUNTRIES = %w(belgium france italy netherlands portugal spain united-arab-emirates)
 
 
     attr_reader :data
