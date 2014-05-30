@@ -15,7 +15,6 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
     raise InvalidResponse unless loc
     loc
   end
-
   calculate :organisation do
     location.fco_organisation
   end
@@ -24,6 +23,14 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
       organisation.offices_with_service 'Registrations of Marriage and Civil Partnerships'
     else
       []
+    end
+  end
+
+  calculate :marriage_and_partnership_phrases do
+    if data_query.ss_marriage_countries_in_the_uk?(ceremony_country)
+      "ss_marriage"
+    elsif data_query.ss_marriage_and_partnership_in_the_uk?(ceremony_country)
+      "ss_marriage_and_partnership"
     end
   end
 
@@ -121,7 +128,7 @@ multiple_choice :residency_uk? do
 
   next_node do |response|
     if %w(uk_iom uk_ci).include?(response)
-      if data_query.os_other_countries?(ceremony_country) or data_query.os_ceremony_countries_living_in_the_uk?(ceremony_country)
+      if data_query.os_other_countries?(ceremony_country) or data_query.ss_marriage_countries_in_the_uk?(ceremony_country) or data_query.ss_marriage_and_partnership_in_the_uk?(ceremony_country)
         :what_is_your_partners_nationality?
       else
         :outcome_os_iom_ci
@@ -236,9 +243,7 @@ multiple_choice :partner_opposite_or_same_sex? do
       :"outcome_#{ceremony_country}"
     else
       if response == 'opposite_sex'
-        if %w(uk).include?(resident_of) and data_query.os_ceremony_countries_living_in_the_uk?(ceremony_country)
-          :outcome_same_sex_marriage_living_in_the_uk
-        elsif %w(indonesia).include?(ceremony_country)
+        if %w(indonesia).include?(ceremony_country)
           :"outcome_os_#{ceremony_country}"
         elsif data_query.os_affirmation_countries?(ceremony_country)
           :outcome_os_affirmation
@@ -254,13 +259,15 @@ multiple_choice :partner_opposite_or_same_sex? do
           :outcome_os_other_countries
         end
       else
-        if %w(spain).include?(ceremony_country)
+        if %w(uk).include?(resident_of) and (data_query.ss_marriage_countries_in_the_uk?(ceremony_country) or data_query.ss_marriage_and_partnership_in_the_uk?(ceremony_country))
+          :outcome_same_sex_marriage_living_in_the_uk
+        elsif %w(spain).include?(ceremony_country)
           :outcome_os_consular_cni
         elsif data_query.cp_equivalent_countries?(ceremony_country)
           :outcome_cp_cp_or_equivalent
         elsif data_query.cp_cni_not_required_countries?(ceremony_country)
           :outcome_cp_no_cni
-        elsif %w(australia canada new-zealand south-africa).include?(ceremony_country)
+        elsif %w(canada new-zealand south-africa).include?(ceremony_country)
           :outcome_cp_commonwealth_countries
         elsif data_query.cp_consular_countries?(ceremony_country)
           :outcome_cp_consular
@@ -1124,4 +1131,19 @@ outcome :outcome_cp_consular do
   end
 end
 outcome :outcome_cp_all_other_countries
-outcome :outcome_same_sex_marriage_living_in_the_uk
+outcome :outcome_same_sex_marriage_living_in_the_uk do
+  precalculate :ss_title do
+    PhraseList.new(:"title_#{marriage_and_partnership_phrases}")
+  end
+  precalculate :same_sex_ceremony_body do
+    phrases = PhraseList.new
+    phrases << :"able_to_#{marriage_and_partnership_phrases}"
+    if data_query.ss_clickbook_countries?(ceremony_country)
+      phrases << :"book_online_#{ceremony_country}"
+    else
+      phrases << :contact_embassy_or_consulate << :embassies_data
+    end
+    phrases << :"documents_needed_#{marriage_and_partnership_phrases}" << :"what_to_do_#{marriage_and_partnership_phrases}" << :"fees_table_#{marriage_and_partnership_phrases}"
+    phrases
+  end
+end
