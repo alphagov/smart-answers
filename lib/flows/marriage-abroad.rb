@@ -424,6 +424,10 @@ end
 outcome :outcome_os_consular_cni do
   precalculate :consular_cni_os_start do
     phrases = PhraseList.new
+
+    cni_posted_after_7_days_countries = %w(albania algeria angola austria azerbaijan bahrain bolivia bosnia-herzegovina cambodia chile croatia cuba ecuador estonia georgia greece hong-kong iceland iran italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia montenegro nicaragua norway poland russia spain sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+    cni_posted_after_14_days_countries = %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
+
     if %w(ecuador).include?(ceremony_country) and %w(partner_local).include?(partner_nationality) and %w(ecuador).exclude?(residency_country)
       phrases << :ecuador_os_consular_cni
     end
@@ -458,7 +462,7 @@ outcome :outcome_os_consular_cni do
     if %w(italy).include?(ceremony_country)
       phrases << :italy_os_consular_cni_ceremony_italy
     end
-    if %w(italy spain).exclude?(ceremony_country)
+    unless %w(italy spain).include?(ceremony_country)
       phrases << :italy_os_consular_cni_ceremony_not_italy_or_spain
     end
 
@@ -509,8 +513,10 @@ outcome :outcome_os_consular_cni do
       end
     end
     if %w(uk).include?(resident_of)
-      if %w(oman jordan qatar saudi-arabia united-arab-emirates yemen).exclude?(ceremony_country)
-        phrases << :notice_posted_if_no_objection
+      if cni_posted_after_14_days_countries.include?(ceremony_country)
+        phrases << :cni_posted_if_no_objection_14_days
+      elsif cni_posted_after_7_days_countries.include?(ceremony_country)
+        phrases << :cni_posted_if_no_objection_7_days
       elsif %w(partner_irish).exclude?(partner_nationality)
         phrases << :uk_resident_partner_not_irish_os_consular_cni_three
       elsif %w(partner_irish).include?(partner_nationality) and %w(uk_scotland uk_ni).include?(residency_uk_region)
@@ -597,7 +603,11 @@ outcome :outcome_os_consular_cni do
         phrases << :consular_cni_os_foreign_resident_ceremony_country_italy
       end
       unless %w(germany).include?(ceremony_country)
-        phrases << :consular_cni_os_foreign_resident_ceremony_country_not_germany
+        if cni_posted_after_7_days_countries.include?(ceremony_country)
+          phrases << :consular_cni_os_foreign_resident_3_days
+        else
+          phrases << :consular_cni_os_foreign_resident_ceremony_country_not_germany
+        end
       end
     end
 
@@ -685,7 +695,9 @@ outcome :outcome_os_consular_cni do
       end
     end
     if data_query.non_commonwealth_country?(residency_country) and %w(ireland).exclude?(residency_country) and ceremony_country != residency_country
-      if %w(italy germany).exclude?(ceremony_country)
+      if cni_posted_after_7_days_countries.include?(ceremony_country)
+        phrases << :consular_cni_os_foreign_resident_ceremony_7_days
+      elsif %w(italy germany).exclude?(ceremony_country)
         phrases << :consular_cni_os_foreign_resident_ceremony_not_italy
       elsif %w(italy).include?(ceremony_country)
         phrases << :consular_cni_os_foreign_resident_ceremony_italy
