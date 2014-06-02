@@ -33,6 +33,8 @@ en-GB:
       which_best_describes_you_child?:
         title: Which of the following best describes you?
       phrases:
+        passport_delivered_by_courier: |
+          Your passport will be delivered to you by courier.
         you_may_have_to_attend_an_interview: |
           You may have to attend an interview.
 
@@ -326,6 +328,8 @@ en-GB:
           You must bring photo ID with you.
         getting_your_passport_contact: |
           They will contact you - using the details on your application form - when your passport is ready to collect.
+        getting_your_passport_with_id: |
+          You must bring photo ID with you.
         getting_your_passport_id_renew_new: |
           You must bring your existing passport as photo ID.
         getting_your_passport_id_apply_renew_old_replace: |
@@ -415,7 +419,7 @@ en-GB:
           ##Contact the Passport Adviceline
 
           $C
-          Telephone: +44 (0) 300 222 0000  
+          Telephone: +44 (0) 300 222 0000
           Monday to Friday, 8am to 8pm (UK time)
           Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
           $C
@@ -532,7 +536,7 @@ en-GB:
 
         passport_courier_costs_ips3: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
-          
+
         passport_courier_costs_ips2_uk_visa: |
           You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
 
@@ -580,15 +584,14 @@ en-GB:
 
         send_application_ips3: |
           ## Making your application
-          You must apply in person.
-
-          You must bring photo ID with you.
+          You must apply in person. You must bring photo ID with you.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
         send_application_ips3_must_post: |
           Send original supporting documents and a photocopy of each one. If you’re renewing a passport, you must also send your current passport and a full colour photocopy of the entire passport (every page including blank pages).
-
+        send_application_ips3_must_post_colour_photo: |
+          Send original supporting documents and a colour photocopy of each one. If you’re renewing a passport, you must also send your current passport and a full colour photocopy of the entire passport (every page including blank pages).
         send_application_ips3_india: |
           ## Making your application
 
@@ -606,7 +609,42 @@ en-GB:
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
-          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages). You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
+
+        send_application_uk_visa_renew_new_colour: |
+          ## Making your application
+
+          You must apply in person. If you’re unable to, someone else can go on your behalf. You must bring photo ID with you.
+
+          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+        send_application_uk_visa_renew_new_colour_western_sahara: |
+          ## Making your application
+
+          You must apply in person. If you’re unable to, someone else can go on your behalf.
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
+        send_application_uk_visa_renew_old_replace_colour_western_sahara: |
+          ## Making your application
+
+          You must apply in person. If you’re unable to, someone else can go on your behalf.
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
 
           You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
 
@@ -615,20 +653,29 @@ en-GB:
 
           You can post your completed form and supporting documents or apply in person to the British High Commission in Dhaka.
 
-          If you send your application, send original supporting documents and a photocopy of each one. If you’re renewing a passport, you must also send your current passport and a full colour photocopy of the entire passport (every page including blank pages).
+          If you send your application, send original supporting documents and a colour photocopy of each one. If you’re renewing a passport, you must also send your current passport and a full colour photocopy of the entire passport (every page including blank pages).
 
-          If you apply in person, you must bring photo ID with you. Bring original supporting documents and a photocopy of each one. The original documents will be returned to you. If you’re renewing a passport, you must bring your current passport with you when you apply.
+          If you apply in person, you must bring photo ID with you. Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you when you return to collect your new passport. If you’re renewing a passport, you must bring your current passport with you when you apply.
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
         send_application_non_uk_visa_renew_new: |
           ## Making your application
 
-          You must apply in person.
-
-          You must bring photo ID with you.
+          You must apply in person. You must bring photo ID with you.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+        send_application_non_uk_visa_renew_new_colour: |
+          ## Making your application
+
+          You must apply in person. If you’re unable to, someone else can go on your behalf. You must bring photo ID with you.
+
+          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
 
           You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
 
@@ -638,10 +685,16 @@ en-GB:
           ## Making your application
 
           You must apply in person.
-
           You must bring photo ID with you.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
+        send_application_non_uk_visa_apply_renew_old_replace_colour: |
+          ## Making your application
+
+          You must apply in person. If you’re unable to, someone else can go on your behalf.
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
 
         send_application_timor-leste_intro: |
           ## Making your application
@@ -666,13 +719,20 @@ en-GB:
           You need to book an appointment - contact the embassy to arrange one.
         send_application_uk_visa_apply_renew_old_replace: |
           ## Making your application
-          You must apply in person.
-
-          You must bring photo ID with you.
+          You must apply in person. You must bring photo ID with you.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
 
           You’ll need to book an appointment by email. Include your name and surname and 3 alternative dates and times. You will receive an email confirming your appointment.
+
+        send_application_uk_visa_apply_renew_old_replace_colour: |
+          ## Making your application
+          You must apply in person. If you’re unable to, someone else can go on your behalf.
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
+
+          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
 
         send_application_address_algeria: |
           $A
@@ -682,7 +742,7 @@ en-GB:
           Algeria
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpoalgeria@teleperformance.com>
           $C
 
         send_application_address_azerbaijan: |
@@ -695,7 +755,7 @@ en-GB:
           Azerbaijan
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpoazerbaijan@teleperformance.com>
           $C
 
         send_application_address_china: |
@@ -766,22 +826,37 @@ en-GB:
           0108
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpogeorgia@teleperformance.com>
           $C
 
         send_application_address_indonesia: |
           $A
-          UK Visa Application Centre
-          2nd Floor,
-          Jl. Prof. Dr. Satrio Kav. 18
-          Setiabudi
+          UK Visa application Centre,
+          Kuningan City Mall,
+          2nd Floor No. L2-19,
+          Jl. Prof. Dr. Satrio Kav. 18 -
+          Setiabudi,
           Kuningan
-          South Jakarta
-          12940
+          South of Jakarta
+          12940,
           Indonesia
           $A
           $C
           Email: <JakartaHMPO@vfshelpline.com>
+          $C
+          
+          $A
+          3rd Floor
+          No. 7-9.3/A,
+          Benoa Square,
+          Jl. By pass I Gusti Ngurah Rai No. 21A,
+          Kedonganan,
+          Kuta,
+          Bali - 80361,
+          Indonesia
+          $A
+          $C
+          Email: <BaliHMPO@vfshelpline.com>
           $C
 
         send_application_address_gaza: |
@@ -793,8 +868,8 @@ en-GB:
           Gaza
           $A
           $C
-          Email: <dljerusalemconsularprotect@fco.gov.uk>  
-          Telephone: +972 (8) 2641456  
+          Email: <dljerusalemconsularprotect@fco.gov.uk>
+          Telephone: +972 (8) 2641456
           Fax: +972 (8) 2641457
           $C
 
@@ -809,7 +884,7 @@ en-GB:
           Kazakhstan, 050000
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpokazakhstan@teleperformance.com>
           $C
 
         send_application_address_laos: |
@@ -818,7 +893,7 @@ en-GB:
           British Embassy
           Rue J. Nehru
           Saysettha District
-          Vientian
+          Vientiane
           Laos
           $A
           $C
@@ -829,12 +904,13 @@ en-GB:
           $A
           UK Visa Application Centre
           Central Beirut District
-          Fosh St (the Souhks)
-          Beirut
-          Lebanon
+          Maarad Street
+          Building 201
+          Second Floor
+          Beirut, Lebanon
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpolebanon@teleperformance.com>
           $C
 
         send_application_address_mauritania: |
@@ -846,7 +922,7 @@ en-GB:
           Morocco
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpomorocco@teleperformance.com>
           $C
 
         send_application_address_morocco: |
@@ -858,7 +934,7 @@ en-GB:
           Morocco
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpomorocco@teleperformance.com>
           $C
 
         send_application_address_nepal: |
@@ -901,7 +977,7 @@ en-GB:
           Russia
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpoekaterinburg@teleperformance.com>
           $C
 
           $A
@@ -912,7 +988,7 @@ en-GB:
           Russia
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpomoscow@teleperformance.com>
           $C
 
           $A
@@ -922,7 +998,7 @@ en-GB:
           Russia
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpostpetersburg@teleperformance.com>
           $C
 
         send_application_address_thailand: |
@@ -961,7 +1037,7 @@ en-GB:
           Ukraine
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpoukraine@teleperformance.com>
           $C
         send_application_address_venezuela: |
           $A
@@ -985,7 +1061,7 @@ en-GB:
           Morocco
           $A
           $C
-          Email: <hmpo.enquiry@teleperformance.com>
+          Email: <hmpomorocco@teleperformance.com>
           $C
 
         getting_your_passport_ips3: |
@@ -997,7 +1073,7 @@ en-GB:
           British Indian Ocean Territory
 
         emergency_travel_help_kyrgyzstan: |
-          If you need help with emergency travel arrangements in Kyrgyzstan, contact the [British Embassy in Bishkek](/government/world/organisations/british-embassy-bishkek). 
+          If you need help with emergency travel arrangements in Kyrgyzstan, contact the [British Embassy in Bishkek](/government/world/organisations/british-embassy-bishkek).
 
         emergency_travel_help_north-korea: |
           If you need help with emergency travel arrangements in North Korea, contact the [British Embassy in Pyongyang](/government/world/organisations/british-embassy-pyonyang).

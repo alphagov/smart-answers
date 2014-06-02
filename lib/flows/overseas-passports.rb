@@ -257,32 +257,47 @@ outcome :ips_application_result do
 
   precalculate :send_your_application do
     uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara venezuela)
-
+    uk_visa_application_with_colour_pictures = %w(azerbaijan algeria china georgia indonesia kazakhstan laos lebanon mauritania morocco nepal thailand ukraine russia venezuela)
+    non_uk_visa_application_with_colour_pictures = %w(belarus burma cuba sudan tajikistan turkmenistan uzbekistan)
     phrases = PhraseList.new
     if application_address
       phrases << :"send_application_#{application_address}"
     elsif uk_visa_application_centre_countries.include?(current_location)
       if %w(renewing_new).include?(application_action)
         if passport_data['application_office']
-          phrases << :send_application_uk_visa_renew_new << :"send_application_address_#{current_location}"
-        else
-          phrases << :send_application_non_uk_visa_renew_new
-          if %w(gaza).include?(current_location)
-            phrases << :"send_application_address_#{current_location}"
+          if %w(western-sahara).include?(current_location)
+            phrases << :send_application_uk_visa_renew_new_colour_western_sahara
+          elsif uk_visa_application_with_colour_pictures.include?(current_location)
+            phrases << :send_application_uk_visa_renew_new_colour
           else
-            phrases << :send_application_embassy_address
+            phrases << :send_application_uk_visa_renew_new
           end
+          phrases << :"send_application_address_#{current_location}"
+        else
+          if %w(afghanistan burundi gaza).include?(current_location)
+            phrases << :send_application_non_uk_visa_renew_new_colour
+          else
+            phrases << :send_application_non_uk_visa_renew_new
+          end
+          phrases << :send_application_embassy_address
         end
       else
         if passport_data['application_office']
-          phrases << :send_application_uk_visa_apply_renew_old_replace << :"send_application_address_#{current_location}"
-        else
-          phrases << :send_application_non_uk_visa_apply_renew_old_replace
-          if %w(gaza).include?(current_location)
-            phrases << :"send_application_address_#{current_location}"
+          if %w(western-sahara).include?(current_location)
+            phrases << :send_application_uk_visa_renew_old_replace_colour_western_sahara
+          elsif uk_visa_application_with_colour_pictures.include?(current_location)
+            phrases << :send_application_uk_visa_apply_renew_old_replace_colour
           else
-            phrases << :send_application_embassy_address
+            phrases << :send_application_uk_visa_apply_renew_old_replace
           end
+          phrases << :"send_application_address_#{current_location}"
+        else
+          if %w(afghanistan burundi gaza).include?(current_location)
+            phrases << :send_application_non_uk_visa_apply_renew_old_replace_colour
+          else
+            phrases << :send_application_non_uk_visa_apply_renew_old_replace
+          end
+          phrases << :send_application_embassy_address
         end
       end
     elsif %w(timor-leste).include?(current_location)
@@ -295,20 +310,29 @@ outcome :ips_application_result do
       phrases << :"send_application_address_#{current_location}"
     elsif %w(bangladesh india pakistan).include?(current_location)
       phrases << :"send_application_ips3_#{current_location}"
-      phrases << :send_application_ips3_must_post unless current_location == 'bangladesh'
+      phrases << :send_application_ips3_must_post unless %w(india bangladesh pakistan).include?(current_location)
+      phrases << :send_application_ips3_must_post_colour_photo if %w(india pakistan).include?(current_location)
       phrases << :send_application_embassy_address
     elsif general_action == 'renewing' and data_query.renewing_countries?(current_location)
       if passport_data['application_office']
         phrases << :"send_application_address_#{current_location}"
       else
-        phrases << :"send_application_ips#{ips_number}" << :renewing_new_renewing_old
+        if non_uk_visa_application_with_colour_pictures.include?(current_location)
+          phrases << :send_application_non_uk_visa_renew_new_colour
+        else
+          phrases << :"send_application_ips#{ips_number}" << :renewing_new_renewing_old
+        end
         phrases << :send_application_embassy_address
       end
     else
       if passport_data['application_office']
         phrases << :"send_application_address_#{current_location}"
       else
-        phrases << :"send_application_ips#{ips_number}"
+        if non_uk_visa_application_with_colour_pictures.include?(current_location)
+          phrases << :send_application_non_uk_visa_apply_renew_old_replace_colour
+        else
+          phrases << :"send_application_ips#{ips_number}"
+        end
         phrases << :send_application_embassy_address if ips_number.to_i > 1
       end
     end
@@ -319,11 +343,15 @@ outcome :ips_application_result do
     collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe)
     collect_in_person_variant_countries = %w(burundi india jordan pitcairn-island)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
-    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan laos lebanon mauritania morocco russia thailand ukraine venezuela western-sahara)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan lebanon mauritania morocco russia thailand ukraine venezuela western-sahara)
     uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
+    collect_with_photo_id_countries = %w(cambodia egypt iraq libya sierra-leone tunisia uganda yemen)
+    passport_delivered_by_courier_countries = %w(laos)
 
     phrases = PhraseList.new
-    if uk_visa_application_centre_countries.include?(current_location)
+    if passport_delivered_by_courier_countries.include?(current_location)
+      phrases << :passport_delivered_by_courier
+    elsif uk_visa_application_centre_countries.include?(current_location)
       phrases << :getting_your_passport_uk_visa_centre
       if %w(renewing_new).include?(application_action)
         phrases << :getting_your_passport_contact << :getting_your_passport_id_renew_new
@@ -333,7 +361,11 @@ outcome :ips_application_result do
     elsif uk_visa_application_centre_variant_countries.include?(current_location)
       phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_uk_visa_where_to_collect
       if %w(renewing_new).include?(application_action)
-        phrases << :getting_your_passport_id_renew_new
+        if collect_with_photo_id_countries.include?(current_location)
+          phrases << :getting_your_passport_with_id
+        else
+          phrases << :getting_your_passport_id_renew_new
+        end
       else
         phrases << :getting_your_passport_id_apply_renew_old_replace
       end
