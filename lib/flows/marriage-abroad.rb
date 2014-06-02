@@ -258,7 +258,7 @@ multiple_choice :partner_opposite_or_same_sex? do
           :outcome_os_other_countries
         end
       else
-        if %w(uk).include?(resident_of) and (data_query.ss_marriage_countries_in_the_uk?(ceremony_country) or data_query.ss_marriage_and_partnership_in_the_uk?(ceremony_country))
+        if %w(uk_england uk_wales uk_iom uk_ci).include?(residency_uk_region) and (data_query.ss_marriage_countries_in_the_uk?(ceremony_country) or data_query.ss_marriage_and_partnership_in_the_uk?(ceremony_country))
           :outcome_ss_marriage_living_in_the_uk
         elsif %w(spain).include?(ceremony_country)
           :outcome_os_consular_cni

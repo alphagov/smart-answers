@@ -1814,9 +1814,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_ss_marriage_living_in_the_uk
-      assert_phrase_list :ss_title, [:title_ss_marriage]
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_marriage, :what_to_do_ss_marriage, :fees_table_ss_marriage]
+      assert_current_node :outcome_cp_all_other_countries
     end
   end
     context "uk resident, ceremony in estonia, partner british" do
