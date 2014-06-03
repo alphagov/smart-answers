@@ -40,6 +40,18 @@ module SmartAnswer::Calculators
       COMMONWEALTH_COUNTRIES.include?(country_slug)
     end
 
+    def responded_with_commonwealth_country?
+      SmartAnswer::Predicate::RespondedWith.new(COMMONWEALTH_COUNTRIES, "commonwealth country")
+    end
+
+    def born_in_oru_transitioned_country?
+      SmartAnswer::Predicate::VariableMatches.new(:country_of_birth, ORU_TRANSITIONED_COUNTRIES, "ORU transitioned country")
+    end
+
+    def died_in_oru_transitioned_country?
+      SmartAnswer::Predicate::VariableMatches.new(:country_of_death, ORU_TRANSITIONED_COUNTRIES, "ORU transitioned country of death")
+    end
+
     def clickbook(country_slug)
       data['clickbook'][country_slug]
     end
