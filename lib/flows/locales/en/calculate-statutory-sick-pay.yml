@@ -95,7 +95,7 @@ en-GB:
       total_employee_earnings?:
         title: Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between %{relevant_period_from} and %{relevant_period_to}.
         body: |
-          Different rules apply for directors of limited companies incorporated before 1 October 2009 - see page 28 of the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf)
+          Different rules apply for [directors of limited companies incorporated before 1 October 2009](/statutory-sick-pay-how-different-employment-types-affect-what-you-pay)
         error_message: Please enter a number greater than 0
 
       # Question 7
@@ -120,7 +120,7 @@ en-GB:
       off_sick_4_days?:
         title: Was your employee off sick within the previous 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
         body: |
-          These are called ‘linked Periods of Incapacity for Work (PIW)’. To check if an employee’s PIW links to a previous one, see the [Employer Helpbook for Statutory Sick Pay](http://www.hmrc.gov.uk/helpsheets/e14.pdf)
+          These are called ‘linked Periods of Incapacity for Work (PIW)’. Check if an employee’s [PIW links to a previous one.](/government/publications/statutory-sick-pay-tables-for-linking-periods-of-incapacity-for-work)
 
       # Question 11.1
       linked_sickness_start_date?:
@@ -164,17 +164,12 @@ en-GB:
       # Answer 4
       not_regular_schedule:
         body: |
-          If your employee has an irregular work schedule, you’ll need to work out Statutory Sick Pay manually. See HMRC’s ‘Employer Helpbook for Statutory Sick Pay.’
-
-
-          $D
-            [Download 'Employer Helpbook for Statutory Sick Pay' (PDF, 1.3MB)](http://www.hmrc.gov.uk/helpsheets/e14.pdf)
-          $D
+          If your employee has an irregular work schedule, you’ll need to [work out Statutory Sick Pay manually](/statutory-sick-pay-manually-calculate-your-employees-payments).
 
       # Answer 5
       not_earned_enough:
         body: |
-          Your employee isn’t entitled to Statutory Sick Pay because their average weekly earnings must be at least £%{lower_earning_limit}. Their average weekly earnings are £%{employee_average_weekly_earnings}. 
+          Your employee isn’t entitled to Statutory Sick Pay because their average weekly earnings must be at least £%{lower_earning_limit}. Their average weekly earnings are £%{employee_average_weekly_earnings}.
 
           You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
 
@@ -213,7 +208,7 @@ en-GB:
       # Answer 8
       maximum_entitlement_reached:
         body: |
-          Your employee isn’t entitled to Statutory Sick Pay because they’ve already received the maximum amount of SSP (28 weeks). 
+          Your employee isn’t entitled to Statutory Sick Pay because they’ve already received the maximum amount of SSP (28 weeks).
 
           You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of them going off sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
 
