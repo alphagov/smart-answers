@@ -25,15 +25,28 @@ module SmartAnswer
       alias_method :|, :or
 
       def match_description
-        @match_description || if acceptable_responses.size == 1
-          acceptable_responses.first
-        else
-          "{ #{@acceptable_responses.join(" | ")} }"
-        end
+        @match_description || generate_match_description
       end
 
       def label
         @label || "#{@variable_name} == #{match_description}"
+      end
+
+    private
+      def generate_match_description
+        if multiple_acceptable_responses?
+          wrap_in_braces(acceptable_responses)
+        else
+          acceptable_responses.first || ""
+        end
+      end
+
+      def multiple_acceptable_responses?
+        acceptable_responses.size > 1
+      end
+
+      def wrap_in_braces(set)
+        "{ #{set.join(" | ")} }"
       end
     end
   end
