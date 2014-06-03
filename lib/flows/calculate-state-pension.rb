@@ -238,7 +238,7 @@ value_question :years_of_jsa? do
 
   calculate :calc do
     calc = Calculators::StatePensionAmountCalculator.new(
-    gender: gender, dob: dob, qualifying_years: qualifying_years )
+    gender: gender, dob: dob, qualifying_years: qualifying_years)
   end
 
   next_node do |response|
@@ -280,7 +280,7 @@ end
 value_question :years_of_benefit? do
 
   precalculate :years_you_can_enter do
-    calculator.years_can_be_entered(available_ni_years,22)
+    calculator.years_can_be_entered(available_ni_years, 22)
   end
 
   calculate :ni_years_to_date_from_dob do
@@ -330,7 +330,7 @@ value_question :years_of_caring? do
   end
 
   precalculate :years_you_can_enter do
-    calculator.years_can_be_entered(available_ni_years,allowed_caring_years)
+    calculator.years_can_be_entered(available_ni_years, allowed_caring_years)
   end
 
   calculate :qualifying_years do
@@ -527,7 +527,7 @@ outcome :amount_result do
 
   precalculate :automatic_credits do
     date_of_birth = Date.parse(dob)
-    if Date.civil(1957,4,5) < date_of_birth and date_of_birth < Date.civil(1994,4,6)
+    if Date.civil(1957, 4, 5) < date_of_birth and date_of_birth < Date.civil(1994, 4, 6)
       PhraseList.new :automatic_credits
     else
       ''

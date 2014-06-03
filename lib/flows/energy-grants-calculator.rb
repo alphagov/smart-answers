@@ -21,7 +21,7 @@ multiple_choice :what_are_you_looking_for? do
     PhraseList.new(:next_steps_links)
   end
   calculate :warm_home_discount_amount do
-    if Date.today < Date.civil(2014,4,6)
+    if Date.today < Date.civil(2014, 4, 6)
       135
     else
       ''
@@ -108,7 +108,7 @@ date_question :date_of_birth? do
 
   calculate :age_variant do
     dob = Date.parse(responses.last)
-    if dob < Date.new(1951,7,5)
+    if dob < Date.new(1951, 7, 5)
       :winter_fuel_payment
     elsif dob < 60.years.ago(Date.today + 1)
       :over_60
@@ -189,13 +189,13 @@ checkbox_question :disabled_or_have_children? do
 
   calculate :incomesupp_jobseekers_1 do
     case responses.last
-    when 'disabled','disabled_child','child_under_5','pensioner_premium'
+    when 'disabled', 'disabled_child', 'child_under_5', 'pensioner_premium'
       :incomesupp_jobseekers_1
     end
   end
   calculate :incomesupp_jobseekers_2 do
     case responses.last
-    when 'child_under_16','work_support_esa'
+    when 'child_under_16', 'work_support_esa'
       if circumstances.include?('social_housing') || (benefits_claimed.include?('working_tax_credit') && age_variant != :over_60)
         nil
       else

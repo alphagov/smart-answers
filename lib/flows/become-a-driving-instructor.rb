@@ -58,7 +58,7 @@ multiple_choice :because_of_disability? do
     responses.last == 'yes'
   end
   calculate :content_sections do
-    if ! disabled_driver
+    if !disabled_driver
       PhraseList.new :ADI_required_legal_warning, :acronym_definitions
     end
   end

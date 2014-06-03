@@ -51,6 +51,7 @@ end
 group :development do
   gem 'parser'
   gem 'pry'
+  gem 'rubocop'
 end
 
 group :assets do

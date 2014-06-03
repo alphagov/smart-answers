@@ -72,7 +72,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         setup do
           @dd = Date.parse("21 November 2012")
           #FIXME qw should be 15 weeks before due date...
-          @qw = 15.weeks.ago(@dd - @dd.wday)..15.weeks.ago((@dd-@dd.wday)+6)
+	  @qw = 15.weeks.ago(@dd - @dd.wday)..15.weeks.ago((@dd - @dd.wday) + 6)
           add_response @dd
         end
         ## QM2
@@ -114,12 +114,12 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   assert_current_node :last_normal_payday?
                 end
                 should "be wrong as lastpayday is after" do
-                  add_response @qw.last+2
+		  add_response @qw.last + 2
                   assert_current_node_is_error
                 end
                 context "answer 2 days before Saturday of qualifying week" do
                   setup do
-                    add_response @qw.last-2
+		    add_response @qw.last - 2
                   end
                   ## QM5.3
                   should "ask when before lastpayday I was paid" do
@@ -694,7 +694,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                             #FIXME assert_state_variable "relevant_period", @relevant_period
                             #FIXME assert_state_variable "employment_start", 26.weeks.ago(expected_start)
                             assert_state_variable "employment_end", @pat_due_date
-                            assert_state_variable "spp_rate", sprintf("%.2f",136.78)
+			    assert_state_variable "spp_rate", sprintf("%.2f", 136.78)
                           end
 
                           should "display employee is entitled to pay" do
@@ -707,7 +707,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                           setup { add_response 120.25 }
 
                           should "calculate dates and pay amounts" do
-                            assert_state_variable "spp_rate", sprintf("%.2f",108.23)
+			    assert_state_variable "spp_rate", sprintf("%.2f", 108.23)
                             assert_current_node :paternity_leave_and_pay
                           end
                         end
@@ -931,7 +931,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                               #FIXME assert_state_variable "relevant_period", @relevant_period
                               #FIXME assert_state_variable "employment_start", 26.weeks.ago(expected_start)
                               assert_state_variable "employment_end", @pat_adoption_match
-                              assert_state_variable "sapp_rate", sprintf("%.2f",136.78)
+			      assert_state_variable "sapp_rate", sprintf("%.2f", 136.78)
                             end
 
                             should "display pay info" do

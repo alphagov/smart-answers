@@ -212,4 +212,3 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
     end
   end
 end
-

@@ -49,7 +49,7 @@ module SmartAnswer::Calculators
     end
 
     def formatted_relevant_period
-      relevant_period.map{ |p| format_date_day(p) }.join(" and ")
+      relevant_period.map { |p| format_date_day(p) }.join(" and ")
     end
 
     def leave_end_date
@@ -177,7 +177,7 @@ module SmartAnswer::Calculators
     end
 
     def total_statutory_pay
-      paydates_and_pay.map{ |h| h[:pay] }.sum.round(2)
+      paydates_and_pay.map { |h| h[:pay] }.sum.round(2)
     end
 
     def paydates_and_pay
@@ -278,7 +278,7 @@ module SmartAnswer::Calculators
         { min: uprating_date(2013), max: uprating_date(2014), amount: 136.78 },
         { min: uprating_date(2014), max: uprating_date(2100), amount: 138.18 } ### Change year in future
       ]
-      rate = rates.find{ |r| r[:min] <= date and date < r[:max] } || rates.last
+      rate = rates.find { |r| r[:min] <= date and date < r[:max] } || rates.last
       rate[:amount]
     end
 
@@ -354,7 +354,7 @@ module SmartAnswer::Calculators
     end
 
     def uprating_date(year)
-      date = first_sunday_in_month(4 ,year)
+      date = first_sunday_in_month(4 , year)
       date += leave_start_date.wday if leave_start_date
       date
     end

@@ -82,6 +82,7 @@ date_question :childs_date_of_birth? do
   end
 
   next_node_if(:homeoffice_result, after_july_2006)
+
   next_node(:where_are_you_now?)
 end
 
@@ -140,7 +141,7 @@ outcome :embassy_result do
     end
   end
   precalculate :embassy_result_indonesia_british_father_paternity do
-    if registration_country =='indonesia' and british_national_parent == 'father' and paternity_declaration
+    if registration_country == 'indonesia' and british_national_parent == 'father' and paternity_declaration
       PhraseList.new(:indonesia_british_father_paternity)
     end
   end

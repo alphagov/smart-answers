@@ -10,7 +10,7 @@ module SmartAnswer
       @instance = nil
     end
 
-    def initialize(options={})
+    def initialize(options = {})
       @load_path = Pathname.new(options[:load_path] || Rails.root.join('lib', 'flows'))
       @show_drafts = options[:show_drafts]
       preload_flows! if Rails.env.production? or options[:preload_flows]

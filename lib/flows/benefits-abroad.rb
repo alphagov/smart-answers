@@ -1,7 +1,7 @@
 status :draft
 satisfies_need "100405"
 
-situations = ['going_abroad','already_abroad']
+situations = ['going_abroad', 'already_abroad']
 
 eea_countries = %w(austria belgium bulgaria cyprus czech-republic denmark estonia finland france germany gibraltar greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 former_yugoslavia = %w(croatia bosnia-and-herzegovina kosovo macedonia montenegro serbia)

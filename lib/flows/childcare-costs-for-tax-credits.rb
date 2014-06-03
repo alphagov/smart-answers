@@ -260,4 +260,3 @@ end
 
 #O9
 outcome :no_longer_paying
-

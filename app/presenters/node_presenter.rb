@@ -18,21 +18,21 @@ class NodePresenter
     markup && GovspeakPresenter.new(markup).html
   end
 
-  def state_for_interpolation( nested = false )
-    Hash[@state.to_hash.map { |k,v| [k, value_for_interpolation(v, nested)] }]
+  def state_for_interpolation(nested = false)
+    Hash[@state.to_hash.map { |k, v| [k, value_for_interpolation(v, nested)] }]
   end
 
   def value_for_interpolation(value, nested = false)
     case value
     when Date then I18n.localize(value, format: :long)
     when ::SmartAnswer::Money then
-      number_to_currency(value, precision: ((value.to_f == value.to_f.round) ? 0 : 2 ))
+      number_to_currency(value, precision: ((value.to_f == value.to_f.round) ? 0 : 2))
     when ::SmartAnswer::Salary then
       number_to_currency(value.amount, precision: 0) + " per " + value.period
     when ::SmartAnswer::PhraseList then
       if nested == false
         value.phrase_keys.map do |phrase_key|
-          I18n.translate!("#{@i18n_prefix}.phrases.#{phrase_key}", state_for_interpolation( true )) rescue phrase_key
+	  I18n.translate!("#{@i18n_prefix}.phrases.#{phrase_key}", state_for_interpolation(true)) rescue phrase_key
         end.join("\n\n")
       else
         false
@@ -50,7 +50,7 @@ class NodePresenter
   end
 
   def has_subtitle?
-    !! subtitle
+    !!subtitle
   end
 
   def title
@@ -58,7 +58,7 @@ class NodePresenter
   end
 
   def has_title?
-    !! title
+    !!title
   end
 
   def error_message
@@ -66,7 +66,7 @@ class NodePresenter
   end
 
   def has_error_message?
-    !! error_message
+    !!error_message
   end
 
   def body
@@ -82,7 +82,7 @@ class NodePresenter
   end
 
   def has_hint?
-    !! hint
+    !!hint
   end
 
   def label
@@ -90,7 +90,7 @@ class NodePresenter
   end
 
   def has_label?
-    !! label
+    !!label
   end
 
   def suffix_label
@@ -98,11 +98,11 @@ class NodePresenter
   end
 
   def has_suffix_label?
-    !! suffix_label
+    !!suffix_label
   end
 
   def has_labels?
-    !! label or !! suffix_label
+    !!label or !!suffix_label
   end
 
   def next_steps
@@ -110,7 +110,7 @@ class NodePresenter
   end
 
   def has_next_steps?
-    !! next_steps
+    !!next_steps
   end
 
   def options

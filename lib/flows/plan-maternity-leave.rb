@@ -2,7 +2,7 @@ status :published
 satisfies_need "101018"
 
 date_question :baby_due_date? do
-	save_input_as :due_date
+  save_input_as :due_date
 
   calculate :baby_due_date do
     Date.parse(due_date)
@@ -12,11 +12,11 @@ date_question :baby_due_date? do
     Calculators::PlanMaternityLeave.new(due_date: due_date)
   end
 
-	next_node :leave_start?
+  next_node :leave_start?
 end
 
 date_question :leave_start? do
-	precalculate :earliest_start do
+  precalculate :earliest_start do
     calculator.earliest_start
   end
 
@@ -31,15 +31,15 @@ date_question :leave_start? do
     start_date
   end
 
-	next_node :maternity_leave_details
+  next_node :maternity_leave_details
 end
 
 outcome :maternity_leave_details do
-	precalculate :due_date_formatted do
-		calculator.formatted_due_date
-	end
+  precalculate :due_date_formatted do
+    calculator.formatted_due_date
+  end
   precalculate :start_date_formatted do
-  	calculator.formatted_start_date
+    calculator.formatted_start_date
   end
   precalculate :distance_start do
     calculator.distance_start

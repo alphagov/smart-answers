@@ -43,7 +43,7 @@ class ICSRendererTest < ActiveSupport::TestCase
     end
 
     should "render an event with a date" do
-      e = OpenStruct.new("title" => "An Event", "date" => Date.parse("2012-04-14") )
+      e = OpenStruct.new("title" => "An Event", "date" => Date.parse("2012-04-14"))
 
       @r.expects(:uid).with(2).returns("sdaljksafd-2@gov.uk")
 
@@ -60,7 +60,7 @@ class ICSRendererTest < ActiveSupport::TestCase
     end
 
     should "render an event with a range" do
-      e = OpenStruct.new("title" => "An Event", "date" => Date.parse("2012-04-14")..Date.parse("2012-04-18") )
+      e = OpenStruct.new("title" => "An Event", "date" => Date.parse("2012-04-14")..Date.parse("2012-04-18"))
 
       @r.expects(:uid).with(2).returns("sdaljksafd-2@gov.uk")
 

@@ -1,5 +1,5 @@
 module SmartAnswer
-	class AgeRelatedAllowanceChooser
+  class AgeRelatedAllowanceChooser
 
     # created for married couples allowance calculator.
     # this could be extended for use across smart answers

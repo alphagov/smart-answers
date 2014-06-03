@@ -80,7 +80,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
-          assert_phrase_list :how_long_it_takes, [:how_long_14_weeks,:report_loss_or_theft, :how_long_it_takes_ips3]
+	  assert_phrase_list :how_long_it_takes, [:how_long_14_weeks, :report_loss_or_theft, :how_long_it_takes_ips3]
         end
       end
     end

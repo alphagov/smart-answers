@@ -72,10 +72,10 @@ module SmartAnswer::Calculators
 
     def passport_costs
       {}.tap do |costs|
-        PASSPORT_COSTS.each do |k,v|
+	PASSPORT_COSTS.each do |k, v|
           [:adult_32, :adult_48, :child].each_with_index do |t, i|
             key = "#{k.downcase.gsub(' ', '_')}_#{t}"
-            costs[key] = v[i].map{ |c| "#{number_with_delimiter(c)} #{k}"}.join(" | ")
+	    costs[key] = v[i].map { |c| "#{number_with_delimiter(c)} #{k}"}.join(" | ")
           end
         end
       end

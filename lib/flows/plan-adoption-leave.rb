@@ -8,16 +8,16 @@ date_question :child_match_date? do
 end
 
 date_question :child_arrival_date? do
-	calculate :arrival_date do
+  calculate :arrival_date do
     raise InvalidResponse if Date.parse(responses.last) <= Date.parse(match_date)
     responses.last
   end
 
-	next_node :leave_start?
+  next_node :leave_start?
 end
 
 date_question :leave_start? do
-	calculate :start_date do
+  calculate :start_date do
     dist = (Date.parse(arrival_date) - Date.parse(responses.last)).to_i
     raise InvalidResponse unless (1..14).include? dist
     responses.last
@@ -30,18 +30,18 @@ date_question :leave_start? do
       start_date: start_date)
   end
 
-	next_node :adoption_leave_details
+  next_node :adoption_leave_details
 end
 
 outcome :adoption_leave_details do
-	precalculate :match_date_formatted do
+  precalculate :match_date_formatted do
     calculator.formatted_match_date
   end
   precalculate :arrival_date_formatted do
-		calculator.formatted_arrival_date
-	end
+    calculator.formatted_arrival_date
+  end
   precalculate :start_date_formatted do
-  	calculator.formatted_start_date
+    calculator.formatted_start_date
   end
   precalculate :distance_start do
     calculator.distance_start

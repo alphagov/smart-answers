@@ -485,5 +485,3 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
 
 
 end
-
-

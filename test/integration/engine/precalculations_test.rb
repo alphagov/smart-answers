@@ -61,4 +61,3 @@ class PrecalculationsTest < EngineIntegrationTest
     end
   end # with_and_without_javascript
 end
-

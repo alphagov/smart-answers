@@ -246,7 +246,7 @@ end
 value_question :shift_worker_shifts_per_shift_pattern? do
   calculate :shifts_per_shift_pattern do
     shifts = Integer(responses.last)
-    raise InvalidResponse if shifts <=0
+    raise InvalidResponse if shifts <= 0
     shifts
   end
   next_node :shift_worker_days_per_shift_pattern?

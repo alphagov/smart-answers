@@ -4,7 +4,7 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class FlowRegistryTest < ActiveSupport::TestCase
-    def registry(options={})
+    def registry(options = {})
       FlowRegistry.new(options.merge(load_path: File.dirname(__FILE__) + '/../fixtures/'))
     end
 

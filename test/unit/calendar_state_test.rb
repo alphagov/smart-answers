@@ -10,7 +10,7 @@ module SmartAnswer
 
     test "a CalendarState has no dates when initialized" do
       calendar_state = CalendarState.new(@state)
-      assert_equal [ ], calendar_state.dates
+      assert_equal [], calendar_state.dates
     end
 
     test "can initialize a CalendarState with a block of dates" do
@@ -18,7 +18,7 @@ module SmartAnswer
         date :event_date, Date.parse("17 October 2012")
       end
 
-      assert_equal [ OpenStruct.new(:title => :event_date, :date => Date.parse("17 October 2012")) ], calendar_state.dates
+      assert_equal [OpenStruct.new(:title => :event_date, :date => Date.parse("17 October 2012"))], calendar_state.dates
     end
 
     test "can initialize a CalendarState with a range" do
@@ -26,7 +26,7 @@ module SmartAnswer
         date :event_range, Date.parse("20 October 2012")..Date.parse("21 October 2012")
       end
 
-      assert_equal [ OpenStruct.new(:title => :event_range, :date => Date.parse("20 October 2012")..Date.parse("21 October 2012")) ], calendar_state.dates
+      assert_equal [OpenStruct.new(:title => :event_range, :date => Date.parse("20 October 2012")..Date.parse("21 October 2012"))], calendar_state.dates
     end
 
     test "joins the path of the current state" do

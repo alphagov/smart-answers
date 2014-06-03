@@ -54,19 +54,19 @@ class SmartAnswerPresenter
   end
 
   def has_subtitle?
-    !! subtitle
+    !!subtitle
   end
 
   def has_body?
-    !! body
+    !!body
   end
 
   def has_devolved_body?
-    !! devolved_body
+    !!devolved_body
   end
 
   def has_meta_description?
-    !! lookup_translation('meta.description')
+    !!lookup_translation('meta.description')
   end
 
   def meta_description

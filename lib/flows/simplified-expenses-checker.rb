@@ -155,11 +155,11 @@ value_question :vehicle_business_use_time? do
     responses.last.to_f
   end
   calculate :green_vehicle_write_off do
-    vehicle_is_green ? Money.new(green_vehicle_price * ( business_use_percent / 100 )) : nil
+    vehicle_is_green ? Money.new(green_vehicle_price * ( business_use_percent / 100)) : nil
   end
 
   calculate :dirty_vehicle_write_off do
-    vehicle_is_green ? nil : Money.new(dirty_vehicle_price * ( business_use_percent / 100 ))
+    vehicle_is_green ? nil : Money.new(dirty_vehicle_price * ( business_use_percent / 100))
   end
 
   next_node do |response|
@@ -199,7 +199,7 @@ end
 #Q10 - miles to drive for business motorcycle
 value_question :drive_business_miles_motorcycle? do
   calculate :simple_motorcycle_costs do
-    Money.new(responses.last.gsub(",","").to_f * 0.24)
+    Money.new(responses.last.gsub(",", "").to_f * 0.24)
   end
   next_node do
     if list_of_expenses.include?("using_home_for_business")
@@ -216,7 +216,7 @@ end
 value_question :hours_work_home? do
 
   calculate :hours_worked_home do
-    responses.last.gsub(",","").to_f
+    responses.last.gsub(",", "").to_f
   end
 
   calculate :simple_home_costs do
@@ -370,5 +370,3 @@ outcome :you_can_use_result do
   end
 end
 outcome :capital_allowance_result
-
-

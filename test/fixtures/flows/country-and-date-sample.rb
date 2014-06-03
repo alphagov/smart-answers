@@ -11,7 +11,7 @@ date_question :what_date_did_you_move_there? do
 
   save_input_as :date_moved
   calculate :years_there do
-    ((Date.today - Date.parse(date_moved))/365.25).to_i
+    ((Date.today - Date.parse(date_moved)) / 365.25).to_i
   end
 
   next_node :which_country_were_you_born_in?

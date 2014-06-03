@@ -91,7 +91,7 @@ multiple_choice :renewing_replacing_applying? do
     passport_data['online_application'] ? :ips_application_result_online : :ips_application_result
   end
 
-  data_query.passport_costs.each do |k,v|
+  data_query.passport_costs.each do |k, v|
     calculate "costs_#{k}".to_sym do
       v
     end

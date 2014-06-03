@@ -3,7 +3,7 @@ module SmartAnswer::Calculators
 
     attr_accessor :overtime_hours, :overtime_hourly_rate, :accommodation_cost
 
-    def initialize(params={})
+    def initialize(params = {})
       @age = params[:age]
       @date = (params[:date].nil? ? Date.today : params[:date])
       @basic_hours = params[:basic_hours].to_f

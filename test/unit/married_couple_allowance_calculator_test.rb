@@ -24,20 +24,20 @@ module SmartAnswer
         validate_income: false)
     end
 
-    test  "worked example on directgov for 2011-12" do
+    test "worked example on directgov for 2011-12" do
       hmrc_example_calculator = MarriedCouplesAllowanceCalculator.new(
           maximum_mca: 7295,
           minimum_mca: 2800,
           income_limit: 24000,
           personal_allowance: 7475)
 
-      age_related_allowance_2011_12 =10090
+      age_related_allowance_2011_12 = 10090
       result = hmrc_example_calculator.calculate_allowance(age_related_allowance_2011_12, 29600)
       assert_equal Money.new("711"), result
     end
 
     #add one for 2013-14 when the worked example is released
-    test  "worked example on HMRC site for 2012-13" do
+    test "worked example on HMRC site for 2012-13" do
       hmrc_example_calculator = MarriedCouplesAllowanceCalculator.new(
           maximum_mca: 7705,
           minimum_mca: 2960,
@@ -60,12 +60,12 @@ module SmartAnswer
       assert_equal Money.new("802"), result
     end
 
-    test  "minimum allowance when annual income over income limit" do
+    test "minimum allowance when annual income over income limit" do
       result = @calculator.calculate_allowance(@age_related_allowance, 90000)
       assert_equal Money.new("301"), result
     end
 
-    test  "maximum allowance when low annual income" do
+    test "maximum allowance when low annual income" do
       result = @calculator.calculate_allowance(@age_related_allowance, 100)
       assert_equal Money.new("802"), result
     end

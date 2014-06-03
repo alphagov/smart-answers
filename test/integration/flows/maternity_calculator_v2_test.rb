@@ -69,7 +69,7 @@ class MaternityCalculatorV2Test < ActiveSupport::TestCase
         setup do
           @dd = Date.parse("21 November 2012")
           #FIXME qw should be 15 weeks before due date...
-          @qw = 15.weeks.ago(@dd - @dd.wday)..15.weeks.ago((@dd-@dd.wday)+6)
+	  @qw = 15.weeks.ago(@dd - @dd.wday)..15.weeks.ago((@dd - @dd.wday) + 6)
           add_response @dd
         end
         ## QM2
@@ -111,12 +111,12 @@ class MaternityCalculatorV2Test < ActiveSupport::TestCase
                   assert_current_node :last_normal_payday?
                 end
                 should "be wrong as lastpayday is after" do
-                  add_response @qw.last+2
+		  add_response @qw.last + 2
                   assert_current_node_is_error
                 end
                 context "answer 2 days before Saturday of qualifying week" do
                   setup do
-                    add_response @qw.last-2
+		    add_response @qw.last - 2
                   end
                   ## QM5.3
                   should "ask when before lastpayday I was paid" do

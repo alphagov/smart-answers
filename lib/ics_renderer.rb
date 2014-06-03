@@ -10,8 +10,8 @@ class ICSRenderer
     output << "METHOD:PUBLISH\r\n"
     output << "PRODID:-//uk.gov/GOVUK smart-answers//EN\r\n"
     output << "CALSCALE:GREGORIAN\r\n"
-    @events.each_with_index do |event,i|
-      output << render_event(event,i)
+    @events.each_with_index do |event, i|
+      output << render_event(event, i)
     end
     output << "END:VCALENDAR\r\n"
   end
@@ -40,7 +40,7 @@ class ICSRenderer
 
   def dtstamp
     unless @dtstamp
-      time = File.mtime( Rails.root.join('REVISION') ) rescue Time.now
+      time = File.mtime(Rails.root.join('REVISION')) rescue Time.now
       @dtstamp = time.utc.strftime("%Y%m%dT%H%M%SZ")
     end
     @dtstamp

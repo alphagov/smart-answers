@@ -2,7 +2,7 @@ status :draft
 satisfies_need "100490"
 
 exclude_countries = %w(holy-see british-antarctic-territory)
-situations = ['going_abroad','already_abroad']
+situations = ['going_abroad', 'already_abroad']
 eea_countries = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany gibraltar greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 former_yugoslavia = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia)
 social_security_countries_jsa = former_yugoslavia + %w(guernsey_jersey new-zealand)

@@ -18,7 +18,7 @@ class CalendarExportTest < EngineIntegrationTest
     visit "/calendars-sample/y/2012-01-01/2012-05-01/no"
 
     within '.result-info' do
-      assert ! page.has_link?("Add dates to your calendar")
+      assert !page.has_link?("Add dates to your calendar")
     end
   end
 

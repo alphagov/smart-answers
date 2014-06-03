@@ -151,5 +151,3 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
   end
 end
-
-

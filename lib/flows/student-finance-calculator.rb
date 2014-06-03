@@ -56,7 +56,7 @@ money_question :how_much_are_your_tuition_fees_per_year? do
       :where_will_you_live_while_studying?
     when 'uk-part-time'
       :do_any_of_the_following_apply_all_uk_students?
-    when 'eu-full-time','eu-part-time'
+    when 'eu-full-time', 'eu-part-time'
       :outcome_eu_students
     end
   end
@@ -103,7 +103,7 @@ money_question :whats_your_household_income? do
         if household_income > 42611
           Money.new ('0')
         else
-          Money.new( 3354 - ((household_income - 25000)/5.33).floor )
+	  Money.new(3354 - ((household_income - 25000) / 5.33).floor)
         end
       end
     else
@@ -117,7 +117,7 @@ money_question :whats_your_household_income? do
         if household_income > 42620
           Money.new('0')
         else
-          Money.new( 3387 - ((household_income - 25000)/5.28).floor )
+	  Money.new(3387 - ((household_income - 25000) / 5.28).floor)
         end
       end
     end
@@ -131,7 +131,7 @@ money_question :whats_your_household_income? do
     else
       # reduce maintenance loan by £1 for each full £9.90 of income above £42875 until loan reaches 65% of max, when no further reduction applies
       min_loan_amount = (0.65 * max_maintenance_loan_amount.value).floor # to match the reference table
-      reduced_loan_amount = max_maintenance_loan_amount - ((responses.last - 42875)/9.90).floor
+      reduced_loan_amount = max_maintenance_loan_amount - ((responses.last - 42875) / 9.90).floor
       if reduced_loan_amount > min_loan_amount
         Money.new (reduced_loan_amount)
       else

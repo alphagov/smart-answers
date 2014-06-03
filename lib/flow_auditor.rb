@@ -62,7 +62,7 @@ private
       tree.type == :block &&
       tree.children.first.respond_to?(:type) &&
       tree.children.first.type == :send &&
-      tree.children.first.children.first== nil &&
+      tree.children.first.children.first == nil &&
       methods.include?(tree.children.first.children[1])
   end
 

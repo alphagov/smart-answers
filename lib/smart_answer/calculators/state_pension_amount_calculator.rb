@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class StatePensionAmountCalculator
     include FriendlyTimeDiff
 
-    attr_reader :gender, :dob, :qualifying_years, :available_years ,:starting_credits
+    attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits
     attr_accessor :qualifying_years
 
     PENSION_RATES = [
@@ -68,7 +68,7 @@ module SmartAnswer::Calculators
     end
 
     def pension_period_end_year(date)
-      date < Date.civil(date.year,4,6) ? date.year - 1 : date.year
+      date < Date.civil(date.year, 4, 6) ? date.year - 1 : date.year
     end
 
     def state_pension_date(sp_gender = gender)
@@ -98,14 +98,14 @@ module SmartAnswer::Calculators
 
     # these people always get at least 2 years of starting credits
     def at_least_two_year_credit_age?
-      ( dob >= Date.parse('1958-04-06') and dob <= Date.parse('1959-04-05') ) or
-      ( dob >= Date.parse('1992-04-06') and dob <= Date.parse('1993-04-05') )
+      ( dob >= Date.parse('1958-04-06') and dob <= Date.parse('1959-04-05')) or
+      ( dob >= Date.parse('1992-04-06') and dob <= Date.parse('1993-04-05'))
     end
 
     # these people always get at least 1 year of starting credits
     def at_least_one_year_credit_age?
-      ( dob >= Date.parse('1957-04-06') and dob <= Date.parse('1958-04-05') ) or
-      ( dob >= Date.parse('1993-04-06') and dob <= Date.parse('1994-04-05') )
+      ( dob >= Date.parse('1957-04-06') and dob <= Date.parse('1958-04-05')) or
+      ( dob >= Date.parse('1993-04-06') and dob <= Date.parse('1994-04-05'))
     end
 
     # these people get different starting credits based on when they were born and what they answer to Q10
@@ -118,14 +118,14 @@ module SmartAnswer::Calculators
       ]
     end
 
-    def calc_qualifying_years_credit(entered_num=0)
+    def calc_qualifying_years_credit(entered_num = 0)
       credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
       if credit_band
         case credit_band[:validate]
         when 0
           entered_num > 0 ? 0 : 1
         when 1
-          rval = (1..2).find{ |c| c + entered_num == 2 }
+	  rval = (1..2).find { |c| c + entered_num == 2 }
           entered_num < 2 ? rval : 0
         else
           0
@@ -186,7 +186,7 @@ module SmartAnswer::Calculators
       available_years_sum(qual_years) < 1
     end
 
-    def years_can_be_entered(ay,max_num)
+    def years_can_be_entered(ay, max_num)
       (ay > max_num ? max_num : ay)
     end
   end
