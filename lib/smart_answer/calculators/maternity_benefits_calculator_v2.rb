@@ -30,7 +30,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    def smp_LEL
+    def smp_lel
       if due_date_before_14th_july_2013?
         107
       elsif due_date_before_6th_april_2014?

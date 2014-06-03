@@ -85,7 +85,7 @@ CommentIndentation:
 
 ConstantName:
   Description: Constants should use SCREAMING_SNAKE_CASE.
-  Enabled: false
+  Enabled: true
 
 Debugger:
   Description: Check for debugger calls.
@@ -193,7 +193,7 @@ IndentationWidth:
 
 MethodName:
   Description: Use the configured style when naming methods.
-  Enabled: false
+  Enabled: true
   EnforcedStyle: snake_case
   SupportedStyles:
   - snake_case
@@ -374,7 +374,7 @@ TrivialAccessors:
 
 UnderscorePrefixedVariableName:
   Description: Do not use prefix `_` for a variable that is used.
-  Enabled: false
+  Enabled: true
 
 UnreachableCode:
   Description: Unreachable code.
@@ -413,7 +413,7 @@ UselessSetterCall:
 # Documented
 VariableName:
   Description: Use the configured style when naming variables.
-  Enabled: false
+  Enabled: true
   EnforcedStyle: snake_case
   SupportedStyles:
   - snake_case
