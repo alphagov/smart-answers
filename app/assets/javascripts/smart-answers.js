@@ -91,6 +91,7 @@ $(document).ready(function() {
   // manage the URL
   function addToHistory(data) {
     history.pushState(data, data['title'], data['url']);
+    window._gaq && window._gaq.push(['_trackPageview', data['url']]);
   }
 
   // add an indicator of loading
