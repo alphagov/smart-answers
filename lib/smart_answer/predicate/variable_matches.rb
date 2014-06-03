@@ -11,7 +11,7 @@ module SmartAnswer
       end
 
       def call(state, response)
-        @acceptable_responses.include?(state.send(@variable_name))
+        acceptable_responses.include?(state.send(variable_name))
       end
 
       def or(other)
@@ -29,7 +29,7 @@ module SmartAnswer
       end
 
       def label
-        @label || "#{@variable_name} == #{match_description}"
+        @label || "#{variable_name} == #{match_description}"
       end
 
     private
