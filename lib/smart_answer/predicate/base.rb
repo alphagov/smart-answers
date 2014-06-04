@@ -18,6 +18,14 @@ module SmartAnswer
 
       alias_method :|, :or
 
+      def and(other, new_label = nil)
+        SmartAnswer::Predicate::Base.new(new_label || "#{self.label} AND #{other.label}", ->(state, input) {
+          self.call(state, input) && other.call(state, input)
+        })
+      end
+
+      alias_method :&, :and
+
       def label
         @label || "-- undefined --"
       end

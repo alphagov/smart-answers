@@ -51,6 +51,29 @@ module SmartAnswer
           p2 = SmartAnswer::Predicate::Base.new('p2')
           assert_equal "custom label", (p1.or(p2, "custom label")).label
         end
+
+        should "be able to create a logical conjunction of two predicates with shortcut execution" do
+          p_true = SmartAnswer::Predicate::Base.new('true', ->(_, _) { true })
+          p_false = SmartAnswer::Predicate::Base.new('true', ->(_, _) { false })
+
+          assert_equal true, (p_true & p_true).call(@state, 'any input')
+          assert_equal false, (p_true & p_false).call(@state, 'any input')
+          assert_equal false, (p_false & p_true).call(@state, 'any input')
+          assert_equal false, (p_false & p_false).call(@state, 'any input')
+        end
+
+        should "predicate formed by logical conjunction has meaningful label" do
+          p1 = SmartAnswer::Predicate::Base.new('p1', ->(_, _) { true })
+          p2 = SmartAnswer::Predicate::Base.new('p2', ->(_, _) { true })
+
+          assert_equal "p1 AND p2", (p1 & p2).label
+        end
+
+        should "be able to override lable when combining using and()" do
+          p1 = SmartAnswer::Predicate::Base.new('p1')
+          p2 = SmartAnswer::Predicate::Base.new('p2')
+          assert_equal "custom label", (p1.and(p2, "custom label")).label
+        end
       end
 
       context "Callable predicate" do
