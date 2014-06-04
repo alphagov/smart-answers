@@ -35,8 +35,6 @@ module SmartAnswer::Calculators
       (lel_annual_rate / 52).ceil
     end
 
-
-
     def self.enrollment_date(num)
       enrollment_data(num)[:start_date]
     end

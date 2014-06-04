@@ -151,7 +151,6 @@ module SmartAnswer::Calculators
       [current_statutory_rate, awe].min
     end
 
-
     ## Adoption
     ##
     ## Statutory adoption rate

@@ -19,18 +19,18 @@ class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
   end
 
   context "in the UK " do
-    setup do
-      add_response :in_the_uk
-    end
+      setup do
+	add_response :in_the_uk
+      end
 
     should "ask whether the passport is for a child or an adult" do
       assert_current_node :adult_or_child_passport?
     end
 
     context "for an Adult" do
-      setup do
-        add_response :adult
-      end
+	setup do
+	  add_response :adult
+	end
 
         should "tell you to fill out the LS01 form" do
           assert_current_node :complete_LS01_form
@@ -48,25 +48,25 @@ class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
       end
     end
     context "abroad" do
-      setup do
-        add_response :abroad
-      end
+    setup do
+      add_response :abroad
+    end
 
       should "ask whether the passport is for a child or an adult" do
         assert_current_node :adult_or_child_passport?
       end
 
       context "for an Adult" do
-        setup do
-          add_response :adult
-        end
+      setup do
+	add_response :adult
+      end
         should "ask in which country has been lost/stolen" do
           assert_current_node :which_country?
         end
         context "in Azerbaijan" do
-          setup do
-            add_response "azerbaijan"
-          end
+	setup do
+	  add_response "azerbaijan"
+	end
 
         should "tell you to report it to the embassy" do
           assert_current_node :contact_the_embassy

@@ -10,7 +10,6 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
 country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
 exclude_countries = %w(holy-see british-antarctic-territory)
 
-
 # Q1
 country_select :country_of_birth?, exclude_countries: exclude_countries do
   save_input_as :country_of_birth
@@ -97,7 +96,7 @@ end
 # Q6
 country_select :which_country?, exclude_countries: exclude_countries do
   calculate :registration_country do
-  reg_data_query.registration_country_slug(responses.last)
+    reg_data_query.registration_country_slug(responses.last)
   end
   calculate :registration_country_name do
     WorldLocation.all.find { |c| c.slug == registration_country }.name
@@ -117,7 +116,7 @@ end
 outcome :embassy_result do
   precalculate :embassy_high_commission_or_consulate do
     if reg_data_query.has_high_commission?(registration_country)
-     "British high commission"
+      "British high commission"
     elsif reg_data_query.has_consulate?(registration_country)
       "British consulate"
     elsif reg_data_query.has_trade_and_cultural_office?(registration_country)
@@ -206,7 +205,6 @@ outcome :embassy_result do
     end
   end
 
-
   precalculate :location do
     loc = WorldLocation.find(registration_country)
     raise InvalidResponse unless loc
@@ -253,7 +251,7 @@ outcome :embassy_result do
     if exclusions.include?(registration_country)
       PhraseList.new(:footnote_exceptions)
     elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
-        PhraseList.new(:footnote_caribbean)
+      PhraseList.new(:footnote_caribbean)
     elsif another_country
       PhraseList.new(:footnote_another_country)
     else
@@ -264,7 +262,7 @@ end
 outcome :fco_result do
   precalculate :embassy_high_commission_or_consulate do
     if reg_data_query.has_high_commission?(registration_country)
-     "British high commission"
+      "British high commission"
     elsif reg_data_query.has_consulate?(registration_country)
       "British consulate"
     elsif reg_data_query.has_trade_and_cultural_office?(registration_country)

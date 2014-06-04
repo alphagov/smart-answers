@@ -113,7 +113,6 @@ multiple_choice :legal_residency? do
   end
 end
 
-
 # Q3a
 multiple_choice :residency_uk? do
   option :uk_england
@@ -439,7 +438,7 @@ outcome :outcome_os_consular_cni do
       phrases << :uk_resident_os_consular_cni_dutch_caribbean_islands
     else
       unless %w(uk).include?(resident_of) or ceremony_country == residency_country or %w(italy).include?(ceremony_country)
-      phrases << :other_resident_os_consular_cni
+	phrases << :other_resident_os_consular_cni
       end
     end
     if %w(jordan oman qatar).include?(ceremony_country)
@@ -1067,9 +1066,9 @@ outcome :outcome_cp_commonwealth_countries do
     if %w(uk).include?(resident_of)
       phrases << :commonwealth_countries_cp_uk_resident_two
     elsif ceremony_country == residency_country
-        phrases << :commonwealth_countries_cp_local_resident
+      phrases << :commonwealth_countries_cp_local_resident
     elsif ceremony_country != residency_country and %w(uk).exclude?(resident_of)
-        phrases << :commonwealth_countries_cp_other_resident
+      phrases << :commonwealth_countries_cp_other_resident
     end
     if %w(australia).include?(ceremony_country)
       phrases << :commonwealth_countries_cp_australia_three

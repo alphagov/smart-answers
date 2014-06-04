@@ -5,7 +5,6 @@ multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
   option yes: :did_you_marry_or_civil_partner_before_5_december_2005?
   option no: :sorry
 
-
   calculate :is_before_april_changes do
     Date.today < Date.civil(2014, 04, 06)
   end
@@ -101,7 +100,6 @@ money_question :whats_the_highest_earners_income? do
     end
   end
 end
-
 
 multiple_choice :paying_into_a_pension? do
   option yes: :how_much_expected_contributions_before_tax?

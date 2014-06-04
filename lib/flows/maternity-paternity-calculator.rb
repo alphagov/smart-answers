@@ -323,7 +323,6 @@ outcome :maternity_leave_and_pay_result do
 
 end
 
-
 ## Paternity
 
 ## QP0
@@ -399,7 +398,6 @@ multiple_choice :employee_employed_at_employment_end_paternity? do
   end
 end
 
-
 ## QP6
 multiple_choice :employee_on_payroll_paternity? do
   option yes: :last_normal_payday? # NOTE: this goes to a shared question => QM5.2
@@ -446,8 +444,6 @@ end
 # Paternity outcomes
 outcome :paternity_leave_and_pay
 outcome :paternity_not_entitled_to_leave_or_pay
-
-
 
 ## Paternity Adoption
 
@@ -564,7 +560,6 @@ multiple_choice :padoption_employee_on_payroll? do
   end
 end
 
-
 ## QAP8
 money_question :padoption_employee_avg_weekly_earnings? do
   calculate :sapp_rate do
@@ -596,8 +591,6 @@ end
 ## Paternity Adoption Results
 outcome :padoption_leave_and_pay
 outcome :padoption_not_entitled_to_leave_or_pay
-
-
 
 ## Adoption
 ## QA0
@@ -706,7 +699,6 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
     pay_info
   end
 
-
   calculate :payday_exit do
     'adoption'
   end
@@ -717,10 +709,10 @@ end
 
 ## QA7
 money_question :adoption_employees_average_weekly_earnings? do
- calculate :sap_rate do
-  calculator.average_weekly_earnings = responses.last
-  sprintf("%.2f", calculator.statutory_adoption_rate)
- end
+  calculate :sap_rate do
+    calculator.average_weekly_earnings = responses.last
+   sprintf("%.2f", calculator.statutory_adoption_rate)
+  end
  calculate :lower_earning_limit do
    sprintf("%.2f", calculator.lower_earning_limit)
  end

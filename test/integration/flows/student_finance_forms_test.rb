@@ -188,7 +188,6 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
     end
   end
 
-
   context "UK student part time" do
     setup do
       add_response 'uk-part-time'
@@ -254,9 +253,9 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         end
 
         context "2014 to 2015" do
-          setup do
-            add_response 'year-1415'
-          end
+	setup do
+	  add_response 'year-1415'
+	end
 
           should "ask are you a continuing student" do
             assert_current_node :continuing_student?
@@ -281,9 +280,9 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
           end
 
           context "continuing student = no" do
-            setup do
-              add_response 'new-student'
-            end
+	  setup do
+	    add_response 'new-student'
+	  end
 
           should "course start before 01/09/12" do
             add_response 'course-start-before-01092012'
@@ -464,7 +463,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
     end
   end
 
-# tests after the 24 March updates
+  # tests after the 24 March updates
   context "date is now after 24 March 2014 so should give the standard outcome" do
     setup do
       add_response 'eu-full-time'
@@ -482,6 +481,5 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       assert_current_node :outcome_eu_ft_1415_continuing
     end
   end
-
 
 end

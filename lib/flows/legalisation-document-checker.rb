@@ -4,7 +4,6 @@ satisfies_need "101010"
 data_query = SmartAnswer::Calculators::LegalisationDocumentsDataQuery.new
 i18n_prefix = "flow.legalisation-document-checker"
 
-
 #Q1
 checkbox_question :which_documents_do_you_want_legalised? do
   option "acro-police-certificate"
@@ -77,7 +76,6 @@ checkbox_question :which_documents_do_you_want_legalised? do
   next_node :outcome_results
 
 end
-
 
 outcome :outcome_results do
   precalculate :groups_selected do

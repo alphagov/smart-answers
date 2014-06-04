@@ -104,7 +104,6 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
     pay_info
   end
 
-
   calculate :payday_exit do
     'adoption'
   end
@@ -115,10 +114,10 @@ end
 
 ## QA7
 money_question :adoption_employees_average_weekly_earnings? do
- calculate :sap_rate do
-  calculator.average_weekly_earnings = responses.last
-  sprintf("%.2f", calculator.statutory_adoption_rate)
- end
+  calculate :sap_rate do
+    calculator.average_weekly_earnings = responses.last
+   sprintf("%.2f", calculator.statutory_adoption_rate)
+  end
  calculate :lower_earning_limit do
    sprintf("%.2f", calculator.lower_earning_limit)
  end

@@ -132,7 +132,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
           end # paying 0 before tax
 
-
           context "paying a greater amount into a pension than income" do
             setup do
               add_response "40000"
@@ -471,6 +470,5 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
       end
     end
   end
-
 
 end

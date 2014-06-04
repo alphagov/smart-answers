@@ -3,7 +3,6 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
-
 class OverseasPassportsTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
@@ -1126,7 +1125,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
     end
   end
-#china
+  #china
   context "answer china, test time phrase" do
     setup do
       worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))

@@ -118,7 +118,6 @@ multiple_choice :staying_for_how_long? do
   end
 end
 
-
 outcome :outcome_no_visa_needed do
   precalculate :no_visa_additional_sentence do
     if %w(croatia).include?(passport_country)

@@ -2,7 +2,7 @@ days_of_the_week = Calculators::MaternityPaternityCalculatorV2::DAYS_OF_THE_WEEK
 
 ## QP0
 multiple_choice :leave_or_pay_for_adoption? do
-    option yes: :employee_date_matched_paternity_adoption?
+  option yes: :employee_date_matched_paternity_adoption?
     option no: :baby_due_date_paternity?
 end
 
@@ -59,7 +59,7 @@ end
 
 ## QP5
 multiple_choice :employee_has_contract_paternity? do
-    option :yes
+  option :yes
     option :no
   save_input_as :has_contract
 
@@ -198,7 +198,6 @@ date_question :last_normal_payday_paternity? do
   next_node :payday_eight_weeks_paternity?
 end
 
-
 ## QP11
 date_question :payday_eight_weeks_paternity? do
   from { 2.years.ago(Date.today) }
@@ -256,7 +255,6 @@ money_question :earnings_for_pay_period_paternity? do
   end
 end
 
-
 ## QP14
 multiple_choice :how_do_you_want_the_spp_calculated? do
   option :weekly_starting
@@ -290,7 +288,6 @@ multiple_choice :how_do_you_want_the_spp_calculated? do
   end
 
 end
-
 
 ## QP15
 date_question :next_pay_day_paternity? do
@@ -483,9 +480,9 @@ end
 
 ## QAP1
 date_question :employee_date_matched_paternity_adoption? do
-    calculate :matched_date do
-    Date.parse(responses.last)
-  end
+  calculate :matched_date do
+  Date.parse(responses.last)
+end
   calculate :calculator do
     Calculators::MaternityPaternityCalculatorV2.new(matched_date, "adoption")
   end
@@ -519,25 +516,25 @@ end
 
 ## QAP3
 multiple_choice :padoption_employee_responsible_for_upbringing? do
-    calculate :not_entitled_reason do
-    PhraseList.new :not_responsible_for_upbringing
-  end
+  calculate :not_entitled_reason do
+  PhraseList.new :not_responsible_for_upbringing
+end
   option yes: :padoption_employee_start_on_or_before_employment_start?
     option no: :padoption_not_entitled_to_leave_or_pay #5AP DP
 end
 
 ## QAP4
 multiple_choice :padoption_employee_start_on_or_before_employment_start? do
-    calculate :not_entitled_reason do
-    PhraseList.new :not_worked_long_enough
-  end
+  calculate :not_entitled_reason do
+  PhraseList.new :not_worked_long_enough
+end
   option yes: :padoption_have_employee_contract?
     option no: :padoption_not_entitled_to_leave_or_pay #5AP EP
 end
 
 ## QAP5
 multiple_choice :padoption_have_employee_contract? do
-    option :yes
+  option :yes
     option :no
 
   calculate :padoption_leave_info do
@@ -593,7 +590,6 @@ multiple_choice :padoption_employee_on_payroll? do
     calculator.format_date_day calculator.matched_week.last
   end
 end
-
 
 ## QAP8
 money_question :padoption_employee_avg_weekly_earnings? do

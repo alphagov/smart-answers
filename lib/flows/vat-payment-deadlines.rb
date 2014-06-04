@@ -18,8 +18,8 @@ multiple_choice :how_do_you_want_to_pay? do
   option :'online-debit-credit-card' => :result_online_debit_credit_card
   option :'bacs-direct-credit' => :result_bacs_direct_credit
   option :'bank-giro' => :result_bank_giro
-  option 'chaps': :result_chaps
-  option 'cheque': :result_cheque
+  option 'chaps' => :result_chaps
+  option 'cheque' => :result_cheque
 
   calculate :calculator do
     Calculators::VatPaymentDeadlines.new(period_end_date, responses.last)

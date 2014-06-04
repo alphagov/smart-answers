@@ -83,8 +83,6 @@ date_question :when_paid? do
 
   save_input_as :payment_date
 
-
-
   next_node do |response|
     if Date.parse(filing_date) > Date.parse(response)
       raise SmartAnswer::InvalidResponse
@@ -154,7 +152,6 @@ money_question :how_much_tax? do
 
   next_node :late
 end
-
 
 outcome :late
 outcome :filed_and_paid_on_time

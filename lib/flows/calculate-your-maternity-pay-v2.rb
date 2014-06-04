@@ -47,7 +47,7 @@ end
 
 # Question 2
 multiple_choice :are_you_employed? do
-option :yes
+  option :yes
 option :no
 
   next_node do |response|
@@ -185,7 +185,7 @@ salary_question :how_much_did_you_earn_between? do
   end
 end
 
-# Question 8
+ # Question 8
  multiple_choice :have_you_helped_partner_self_employed? do
    option yes: :have_you_been_paid_for_helping_partner?
    option no: :will_you_work_at_least_26_weeks_during_test_period?
@@ -224,7 +224,7 @@ outcome :you_qualify_for_maternity_allowance do
   end
 end
 
-# Outcome 4
+ # Outcome 4
  outcome :lower_maternity_allowance do
    precalculate :extra_help_phrase do
      PhraseList.new(:extra_help)

@@ -82,7 +82,6 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
         end
       end
 
-
       context "go 100 employees" do
         setup do
           add_response 100
@@ -312,6 +311,5 @@ class AutoEnrolledIntoWorkplacePensionTest < ActiveSupport::TestCase
       assert_phrase_list :small_company, [:small_company_text]
     end
   end
-
 
 end

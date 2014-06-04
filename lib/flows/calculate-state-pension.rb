@@ -33,7 +33,6 @@ multiple_choice :gender? do
   end
 end
 
-
 # Q3:Age
 date_question :dob_age? do
   from { 100.years.ago }
@@ -103,7 +102,6 @@ date_question :dob_age? do
 
     calc = Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: response)
-
 
     near_pension_date = (calc.before_state_pension_date? and
                          calc.within_four_months_one_day_from_state_pension?)
@@ -257,7 +255,6 @@ value_question :years_of_jsa? do
   end
 end
 
-
 ## Q6
 multiple_choice :received_child_benefit? do
   option :yes
@@ -388,7 +385,6 @@ value_question :years_of_carers_allowance? do
     end
   end
 end
-
 
 ## Q10
 value_question :years_of_work? do

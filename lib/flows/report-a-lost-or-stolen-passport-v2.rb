@@ -22,8 +22,8 @@ multiple_choice :adult_or_child_passport? do
 
   next_node do
     case location
-      when 'in_the_uk' then :complete_LS01_form
-      when 'abroad' then :which_country?
+    when 'in_the_uk' then :complete_LS01_form
+    when 'abroad' then :which_country?
     end
   end
 end

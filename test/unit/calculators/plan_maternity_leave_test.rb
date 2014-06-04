@@ -24,7 +24,6 @@ module SmartAnswer::Calculators
 	end
       end
 
-
       context "distance from start dates" do
 	should "distance from start (days 05)" do
 	  @calculator.enter_start_date("2012-12-28")

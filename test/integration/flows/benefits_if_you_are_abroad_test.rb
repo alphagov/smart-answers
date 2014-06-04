@@ -75,7 +75,6 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
         add_response :specific_benefits
       end
 
-
       # Q5
       should "ask 'which benefit would you like to claim?' for specific benefits" do
         assert_current_node :which_benefit_would_you_like_to_claim

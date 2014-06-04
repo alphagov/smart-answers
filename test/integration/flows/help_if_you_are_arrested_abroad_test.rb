@@ -22,7 +22,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
       context "Answering Aruba" do
         setup do
-        worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
+	  worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
           add_response :aruba
         end
 
@@ -51,7 +51,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
       context "Answering Belgium" do
         setup do
-        worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
+	  worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
           add_response :belgium
         end
 
@@ -73,7 +73,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
 
       context "Answering Greece" do
         setup do
-        worldwide_api_has_organisations_for_location('greece', read_fixture_file('worldwide/greece_organisations.json'))
+	  worldwide_api_has_organisations_for_location('greece', read_fixture_file('worldwide/greece_organisations.json'))
           add_response :greece
         end
 
@@ -115,6 +115,5 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
       assert_phrase_list :further_help_links, [:further_links]
     end
   end
-
 
 end

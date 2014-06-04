@@ -14,7 +14,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       assert_current_node :what_are_you_looking_for?
     end
 
-# help with fuel bills (bills_help)
+    # help with fuel bills (bills_help)
     context "answer 'help with fuel bill" do
       setup do
         add_response :help_with_fuel_bill
@@ -223,7 +223,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
     end # END help with fuel bills (help_with_bills)
 
-# help to make home more energy efficient (measure_help)
+    # help to make home more energy efficient (measure_help)
     context "answer 'help to make home more energy efficient" do
       setup do
         add_response :help_energy_efficiency
@@ -392,7 +392,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
 
     end
 
-# help with a new boiler or other measures (measure_help)
+    # help with a new boiler or other measures (measure_help)
     context "answer 'help with a new boiler, insulation or other measure" do
       setup do
         add_response :help_boiler_measure
@@ -427,7 +427,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
     end
 
-# all types of help (both_help)
+    # all types of help (both_help)
     context "answer 'all of the above" do
       setup do
         add_response :all_help
@@ -500,7 +500,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
     end
 
-# test for incomesupp_jobseekers_2
+    # test for incomesupp_jobseekers_2
     context "test that incomesupp_jobseekers_2 is being calculated correctly at Q4" do
       setup do
         add_response 'all_help'
@@ -514,7 +514,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
     end
 
-# test for mutually exclusive options in Q2
+    # test for mutually exclusive options in Q2
     context "check that mutually exclusive answers can't be selected in Q2" do
       setup do
         add_response 'help_with_fuel_bill'
@@ -537,7 +537,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
     end
 
-# test for help with bills outcome variations
+    # test for help with bills outcome variations
     context "winter fuel payment, benfits = pension credit" do
       setup do
         add_response 'help_with_fuel_bill'
@@ -603,7 +603,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
     end
 
-# test for measure_help green deal outcomes
+    # test for measure_help green deal outcomes
     context "circumstances = none, modern house, no features" do
       setup do
         add_response 'help_boiler_measure'

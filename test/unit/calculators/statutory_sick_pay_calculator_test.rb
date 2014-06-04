@@ -166,7 +166,6 @@ module SmartAnswer::Calculators
       end
     end
 
-
     context "historic rate test 1" do
       setup do
         @start_date = Date.parse("5 April 2012")
@@ -256,7 +255,6 @@ module SmartAnswer::Calculators
         assert_equal @calculator.ssp_payment, 338.09
       end
     end
-
 
     # Monday - Thursday
     context "test scenario 6" do

@@ -27,7 +27,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     end
 
     should "ask about benefits" do
-       assert_current_node :gets_benefits?
+      assert_current_node :gets_benefits?
     end
 
     context "no to benefits" do

@@ -24,8 +24,8 @@ multiple_choice :adult_or_child_passport? do
 
   next_node do
     case lost_or_stolen
-      when 'lost' then :where_was_the_passport_lost?
-      when 'stolen' then :where_was_the_passport_stolen?
+    when 'lost' then :where_was_the_passport_lost?
+    when 'stolen' then :where_was_the_passport_stolen?
     end
   end
 end

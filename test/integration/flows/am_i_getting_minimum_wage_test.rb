@@ -291,9 +291,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
     end # Apprentice
   end # Current pay
 
-
-
-
   # Past payments
   #
   context "when checking past pay" do
@@ -365,7 +362,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             should "ask 'how many hours did you work?'" do
               assert_current_node :how_many_hours_did_you_work?
             end
-
 
           context "test hours entry for hours worked" do
             should "succeed on 37.5 entered" do

@@ -9,7 +9,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
   end
 
   should "ask which calculation to perform" do
-      assert_current_node :which_calculation?
+    assert_current_node :which_calculation?
   end
 
   #Age
@@ -490,7 +490,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
             add_response 4 #years of caring
             assert_current_node_is_error
           end
-
 
           should "allow 3 years of caring on 6 April 2013" do
             add_response 3
@@ -980,7 +979,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       end
     end # female
 
-
     context "testing flow optimisation - at least 2 SC years" do
       setup do
         Timecop.travel('2014-05-06')
@@ -1262,7 +1260,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
     context "setup a date before 2016" do
       setup do
-       Timecop.travel('2013-07-05')
+	Timecop.travel('2013-07-05')
       end
       should "show results for before April 2016 with enough years" do
         add_response :male

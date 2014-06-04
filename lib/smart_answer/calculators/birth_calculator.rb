@@ -22,6 +22,5 @@ module SmartAnswer::Calculators
       25.weeks.ago(qualifying_week.last)
     end
 
-
   end
 end

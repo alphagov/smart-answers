@@ -86,7 +86,6 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
     end
   end # end tests for "can't claim because previously claimed Capital Allowance"
 
-
   context "main result - claimed expenses before, car_or_van only" do
     setup do
       add_response "yes"

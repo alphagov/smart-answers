@@ -221,11 +221,11 @@ value_question :hours_work_home? do
 
   calculate :simple_home_costs do
     amount = case hours_worked_home
-    when 0..24 then 0
-    when 25..50 then 120
-    when 51..100 then 216
-    else 312
-    end
+	     when 0..24 then 0
+	     when 25..50 then 120
+	     when 51..100 then 216
+	     else 312
+	     end
     Money.new(amount)
   end
 
@@ -251,7 +251,6 @@ money_question :current_claim_amount_home? do
 
 end
 
-
 #Q13 = how much do you deduct from premises for private use?
 money_question :deduct_from_premises? do
   save_input_as :business_premises_cost
@@ -267,18 +266,17 @@ value_question :people_live_on_premises? do
 
   calculate :simple_business_costs do
     amount = case live_on_premises
-    when 0 then 0
-    when 1 then 4200
-    when 2 then 6000
-    else 7800
-    end
+	     when 0 then 0
+	     when 1 then 4200
+	     when 2 then 6000
+	     else 7800
+	     end
 
     Money.new(amount)
   end
 
   next_node :you_can_use_result
 end
-
 
 outcome :you_cant_use_result
 outcome :you_can_use_result do
@@ -350,7 +348,6 @@ outcome :you_can_use_result do
     bullets << :current_business_costs_bullet unless simple_business_costs.to_f == 0.0
     bullets
   end
-
 
   precalculate :capital_allowances_claimed_message do
     capital_allowance_claimed ? PhraseList.new(:cap_allow_text) : PhraseList.new

@@ -29,9 +29,9 @@ multiple_choice :what_are_you_looking_for? do
   end
   next_node do |response|
     unless response.include?('help_with_fuel_bill')
-    :what_are_your_circumstances_without_bills_help? #Q2A
+      :what_are_your_circumstances_without_bills_help? #Q2A
     else
-    :what_are_your_circumstances? #Q2
+      :what_are_your_circumstances? #Q2
     end
   end
 end
@@ -239,7 +239,6 @@ multiple_choice :when_property_built? do
     end
   end
 end
-
 
 # Q7a modern
 checkbox_question :home_features_modern? do

@@ -3,7 +3,6 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class MinimumWageCalculatorTest < ActiveSupport::TestCase
 
-
     context "MinimumWageCalculator" do
       setup do
         @age = 19

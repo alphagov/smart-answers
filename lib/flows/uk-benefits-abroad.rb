@@ -33,9 +33,9 @@ multiple_choice :going_or_already_abroad? do
   end
 
   calculate :already_abroad_text do
-  if responses.last == 'already_abroad'
+    if responses.last == 'already_abroad'
       PhraseList.new(:already_abroad_text)
-    end
+      end
   end
 
   calculate :already_abroad_text_two do
@@ -397,7 +397,6 @@ multiple_choice :tax_credits_why_going_abroad? do
   option tax_credits_death: :tax_credits_medical_death_outcome #A32
 end
 
-
 # Q20
 multiple_choice :esa_how_long_abroad? do
   option :esa_under_a_year_medical
@@ -590,7 +589,6 @@ multiple_choice :is_any_of_the_following_apply? do
   option yes: :is_not_eligible_outcome # A64
   option no: :is_abroad_for_treatment_outcome # A63
 end
-
 
 outcome :jsa_less_than_a_year_medical_outcome # A1
 outcome :jsa_less_than_a_year_other_outcome # A2

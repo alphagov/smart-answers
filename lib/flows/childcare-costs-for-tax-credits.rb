@@ -67,7 +67,6 @@ money_question :how_much_52_weeks_2? do
   end
 end
 
-
 #Q9
 money_question :how_much_12_months_2? do
   calculate :weekly_cost do

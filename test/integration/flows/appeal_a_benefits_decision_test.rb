@@ -343,7 +343,6 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
                   end
                 end
 
-
                 context "answer 'child benefit' to 'kind of benefit or credit?'" do
                   should "say 'appeal to HMRC leaflet CH24A'" do
                     add_response :child_benefit

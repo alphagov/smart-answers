@@ -129,7 +129,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       within('ol li.done:nth-child(2)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do
-         assert page.has_checked_field? "To seek the Holy Grail"
+	assert page.has_checked_field? "To seek the Holy Grail"
          assert page.has_unchecked_field? "To rescue the princess"
          assert page.has_unchecked_field? "I dunno"
       end

@@ -338,7 +338,6 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
         end
       end
 
-
       context "catches years_employed greater than age_of_employee" do
         context "be 18 years old and worked 20" do
           setup do

@@ -283,7 +283,6 @@ money_question :housing_benefit_amount? do
   end
 end
 
-
 #Q6
 multiple_choice :single_couple_lone_parent? do
   option :single
@@ -313,7 +312,6 @@ multiple_choice :single_couple_lone_parent? do
     end
   end
 end
-
 
 ##OUTCOMES
 

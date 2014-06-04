@@ -65,7 +65,6 @@ multiple_choice :mother_eligibility_at_birth? do
   option no: :do_not_qualify
 end
 
-
 outcome :you_qualify
 outcome :do_not_qualify
 outcome :british_overseas_territories_citizen_info

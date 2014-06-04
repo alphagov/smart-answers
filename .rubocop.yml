@@ -48,7 +48,7 @@ BlockAlignment:
 # Documented
 CaseIndentation:
   Description: Indentation of when in a case/when/[else/]end.
-  Enabled: false
+  Enabled: true
   IndentWhenRelativeTo: case
   SupportedStyles:
   - case
@@ -81,7 +81,7 @@ CollectionMethods:
 # Supports --auto-correct
 CommentIndentation:
   Description: Indentation of comments.
-  Enabled: false
+  Enabled: true
 
 ConstantName:
   Description: Constants should use SCREAMING_SNAKE_CASE.
@@ -120,13 +120,13 @@ ElseLayout:
 # Supports --auto-correct
 EmptyLineBetweenDefs:
   Description: Use empty lines between defs.
-  Enabled: false
+  Enabled: true
   AllowAdjacentOneLineDefs: false
 
 # Supports --auto-correct
 EmptyLines:
   Description: Don't use several empty lines in a row.
-  Enabled: false
+  Enabled: true
 
 Encoding:
   Description: Use UTF-8 as the source file encoding.
@@ -189,7 +189,7 @@ IfUnlessModifier:
 # Supports --auto-correct
 IndentationWidth:
   Description: Use 2 spaces for indentation.
-  Enabled: false
+  Enabled: true
 
 MethodName:
   Description: Use the configured style when naming methods.

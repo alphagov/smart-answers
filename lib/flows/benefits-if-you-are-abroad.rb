@@ -231,7 +231,6 @@ multiple_choice :are_you_moving_to_q36 do
   option none: :answer_38
 end
 
-
 outcome :answer_2
 outcome :answer_3
 outcome :answer_4

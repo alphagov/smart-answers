@@ -39,14 +39,14 @@ multiple_choice :were_you_an_apprentice? do
 
   next_node do |response|
     case response
-      when "no"
-        :how_old_were_you?
+    when "no"
+      :how_old_were_you?
+    else
+      if Date.parse(payment_date) < Date.parse('2010-10-01')
+	:does_not_apply_to_historical_apprentices
       else
-        if Date.parse(payment_date) < Date.parse('2010-10-01')
-          :does_not_apply_to_historical_apprentices
-        else
-          :how_often_did_you_get_paid?
-        end
+	:how_often_did_you_get_paid?
+      end
     end
   end
 end
@@ -87,7 +87,7 @@ value_question :how_old_were_you? do
     if response.to_i < 16
       :under_school_leaving_age_past
     else
-     :how_often_did_you_get_paid?
+      :how_often_did_you_get_paid?
     end
   end
 end
@@ -282,18 +282,16 @@ multiple_choice :is_provided_with_accommodation? do
   next_node do |response|
 
     case response
-      when "yes_free"
-        :current_accommodation_usage?
-      when "yes_charged"
-        :current_accommodation_charge?
+    when "yes_free"
+      :current_accommodation_usage?
+    when "yes_charged"
+      :current_accommodation_charge?
+    else
+      if calculator.minimum_wage_or_above?
+	:current_payment_above
       else
-
-        if calculator.minimum_wage_or_above?
-          :current_payment_above
-        else
-          :current_payment_below
-        end
-
+	:current_payment_below
+      end
     end
   end
 end
@@ -327,18 +325,16 @@ multiple_choice :was_provided_with_accommodation? do
   next_node do |response|
 
     case response
-      when "yes_free"
-        :past_accommodation_usage?
-      when "yes_charged"
-        :past_accommodation_charge?
+    when "yes_free"
+      :past_accommodation_usage?
+    when "yes_charged"
+      :past_accommodation_charge?
+    else
+      if calculator.minimum_wage_or_above?
+	:past_payment_above
       else
-
-        if calculator.minimum_wage_or_above?
-          :past_payment_above
-        else
-          :past_payment_below
-        end
-
+	:past_payment_below
+      end
     end
   end
 end
@@ -396,7 +392,6 @@ value_question :current_accommodation_usage? do
   calculate :above_minimum_wage do
     calculator.minimum_wage_or_above?
   end
-
 
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))

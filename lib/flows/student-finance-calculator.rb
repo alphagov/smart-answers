@@ -150,7 +150,6 @@ money_question :whats_your_household_income? do
     end
   end
 
-
   next_node :do_any_of_the_following_apply_uk_full_time_students_only?
 end
 

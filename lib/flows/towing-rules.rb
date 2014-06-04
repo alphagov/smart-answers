@@ -103,7 +103,6 @@ multiple_choice :how_old_are_you_minibus? do
   option "21-or-over" => :limited_overall_entitlement_minibus #A34
 end
 
-
 ## Buses
 ##
 ## Q36
@@ -117,8 +116,6 @@ multiple_choice :how_old_are_you_bus? do
   option "under-21" => :not_old_enough_bus #A39
   option "21-or-over" => :apply_for_provisional_bus #A40
 end
-
-
 
 outcome :car_light_vehicle_entitlement # A3
 outcome :full_entitlement #A4

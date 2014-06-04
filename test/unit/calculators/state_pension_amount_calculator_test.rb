@@ -98,8 +98,8 @@ module SmartAnswer::Calculators
 
       should "uprate on or after 8th April 2014" do
         Timecop.travel(Date.parse("2014-04-08")) do
-         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-           gender: "male", dob: "1953-04-04", qualifying_years: 29)
+	  @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+	    gender: "male", dob: "1953-04-04", qualifying_years: 29)
          assert_equal 109.33, @calculator.what_you_get
          @calculator.qualifying_years = 28
          assert_equal 105.56, @calculator.what_you_get
@@ -431,7 +431,6 @@ module SmartAnswer::Calculators
 	  assert_equal 22, @calculator.years_can_be_entered(@calculator.available_years_sum, 22)
         end
       end
-
 
       context "testing what would get if not enough time to get full state pension" do
         should "state that user has 13 remaining years and would get 2/3 of basic pension" do

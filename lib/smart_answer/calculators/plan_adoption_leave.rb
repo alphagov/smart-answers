@@ -43,8 +43,6 @@ module SmartAnswer::Calculators
       expected_week && weeks_later(expected_week, -1)
     end
 
-
-
     def period_of_ordinary_leave
       @start_date .. @start_date + 26 * 7
     end

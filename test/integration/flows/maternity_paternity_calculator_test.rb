@@ -576,7 +576,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
     end # April 9th
   end # Maternity
 
-
   ##
   ## Paternity flow
   ##
@@ -824,7 +823,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         end #due date 3 months from now
       end #QP0 - no
 
-
       ##
       ## Paternity - Adoption
       ##
@@ -867,7 +865,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
                 # QAP5
                 should "ask if employee has an employment contract" do
-                   assert_current_node :padoption_have_employee_contract?
+		  assert_current_node :padoption_have_employee_contract?
                 end
 
                 context "answer yes" do
@@ -879,7 +877,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
                   # QAP6
                   should "ask if employee will be employed at employment_end" do
-                     assert_current_node :padoption_employed_at_employment_end?
+		    assert_current_node :padoption_employed_at_employment_end?
                   end
 
                   context "answer yes" do
@@ -887,7 +885,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
                     # QAP7
                     should "ask if employee is on payroll" do
-                       assert_current_node :padoption_employee_on_payroll?
+		      assert_current_node :padoption_employee_on_payroll?
                     end
 
                     context "answer yes" do
@@ -994,7 +992,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   #TODO: complete this flow with different pay scenarios
                 end
 
-
               end
 
               context "answer no" do
@@ -1022,8 +1019,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
       end #QP0 - yes
     end # Date 9th April
   end # Paternity flow
-
-
 
   ##
   ## Adoption flow
@@ -1200,7 +1195,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       end
                       context "answer below the lower earning limit" do
                         should "state they are not entitled to leave and not entitled to pay" do
-                         add_response 100
+			  add_response 100
                           assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
                           assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :adoption_not_entitled_to_pay_outro]
                           assert_current_node :adoption_leave_and_pay

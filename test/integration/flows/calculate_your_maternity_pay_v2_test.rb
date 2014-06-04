@@ -468,9 +468,9 @@ class CalculateYourMaternityPayV2Test < ActiveSupport::TestCase
         assert_current_node :have_you_been_paid_for_helping_partner?
       end
         context "yes, you have been paid for helping" do
-          setup do
-          add_response "yes"
-        end
+	setup do
+	add_response "yes"
+      end
         should "show you that you may or cannot get benefits" do
           assert_current_node :nothing_maybe_benefits
         end
@@ -492,17 +492,17 @@ class CalculateYourMaternityPayV2Test < ActiveSupport::TestCase
           assert_current_node :partner_helped_for_more_than_26weeks?
         end
           context "no, you haven't helped for more than 26 weeks" do
-            setup do
-              add_response "no"
-            end
+	  setup do
+	    add_response "no"
+	  end
           should "show you that you may or cannot get benefits" do
             assert_current_node :nothing_maybe_benefits
           end
         end
           context "yes, you have helped for more than 26 weeks" do
-            setup do
-              add_response "yes"
-            end
+	  setup do
+	    add_response "yes"
+	  end
           should "show you that you can get lower maternity allowance" do
             assert_current_node :lower_maternity_allowance
             assert_state_variable :eleven_weeks, Date.parse("Sun, 11 May 2014")

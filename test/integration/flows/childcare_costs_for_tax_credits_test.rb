@@ -60,7 +60,6 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
           end
         end #Q5
 
-
       end #Q3
     end
 

@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 protected
 
   def error_404; error(404); end
+
   def error_503(e = nil); error(503, e); end
 
   def error(status_code, exception = nil)
