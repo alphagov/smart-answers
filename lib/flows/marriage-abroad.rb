@@ -26,9 +26,9 @@ country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
   end
 
   calculate :marriage_and_partnership_phrases do
-    if data_query.ss_marriage_countries_in_the_uk?(ceremony_country)
+    if data_query.ss_marriage_countries?(ceremony_country)
       "ss_marriage"
-    elsif data_query.ss_marriage_and_partnership_in_the_uk?(ceremony_country)
+    elsif data_query.ss_marriage_and_partnership?(ceremony_country)
       "ss_marriage_and_partnership"
     end
   end
@@ -127,7 +127,7 @@ multiple_choice :residency_uk? do
 
   next_node do |response|
     if %w(uk_iom uk_ci).include?(response)
-      if data_query.os_other_countries?(ceremony_country) or data_query.ss_marriage_countries_in_the_uk?(ceremony_country) or data_query.ss_marriage_and_partnership_in_the_uk?(ceremony_country)
+      if data_query.os_other_countries?(ceremony_country) or data_query.ss_marriage_countries?(ceremony_country) or data_query.ss_marriage_and_partnership?(ceremony_country)
         :what_is_your_partners_nationality?
       else
         :outcome_os_iom_ci
@@ -258,8 +258,8 @@ multiple_choice :partner_opposite_or_same_sex? do
           :outcome_os_other_countries
         end
       else
-        if %w(uk_england uk_wales uk_iom uk_ci).include?(residency_uk_region) and (data_query.ss_marriage_countries_in_the_uk?(ceremony_country) or data_query.ss_marriage_and_partnership_in_the_uk?(ceremony_country))
-          :outcome_ss_marriage_living_in_the_uk
+        if (%w(uk_england uk_wales uk_iom uk_ci).include?(residency_uk_region) or %w(other).include?(resident_of)) and (data_query.ss_marriage_countries?(ceremony_country) or data_query.ss_marriage_and_partnership?(ceremony_country))
+          :outcome_ss_marriage
         elsif %w(spain).include?(ceremony_country)
           :outcome_os_consular_cni
         elsif data_query.cp_equivalent_countries?(ceremony_country)
@@ -1143,8 +1143,10 @@ outcome :outcome_cp_consular do
     phrases
   end
 end
+
 outcome :outcome_cp_all_other_countries
-outcome :outcome_ss_marriage_living_in_the_uk do
+
+outcome :outcome_ss_marriage do
   precalculate :ss_title do
     PhraseList.new(:"title_#{marriage_and_partnership_phrases}")
   end
