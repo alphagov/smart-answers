@@ -81,7 +81,7 @@ CollectionMethods:
 # Supports --auto-correct
 CommentIndentation:
   Description: Indentation of comments.
-  Enabled: true
+  Enabled: false
 
 ConstantName:
   Description: Constants should use SCREAMING_SNAKE_CASE.
