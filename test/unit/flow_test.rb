@@ -24,8 +24,8 @@ class FlowTest < ActiveSupport::TestCase
   test "Can build multiple choice question nodes" do
     s = SmartAnswer::Flow.new do
       multiple_choice :do_you_like_chocolate? do
-	option yes: :sweet_tooth
-	option no: :savoury_tooth
+        option yes: :sweet_tooth
+ option no: :savoury_tooth
       end
 
       outcome :sweet_tooth

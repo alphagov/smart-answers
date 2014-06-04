@@ -186,7 +186,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Australia (commonwealth country)
     context "answer Spain" do
       setup do
-	worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
+        worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
         add_response 'spain'
       end
       should "ask where you are now" do
@@ -219,7 +219,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
 
     context "answer Morocco" do
       setup do
-	worldwide_api_has_organisations_for_location('morocco', read_fixture_file('worldwide/morocco_organisations.json'))
+        worldwide_api_has_organisations_for_location('morocco', read_fixture_file('worldwide/morocco_organisations.json'))
         add_response 'morocco'
       end
       should "ask where are you now" do
@@ -240,7 +240,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
 
     context "answer Argentina" do
       setup do
-	worldwide_api_has_organisations_for_location('argentina', read_fixture_file('worldwide/argentina_organisations.json'))
+        worldwide_api_has_organisations_for_location('argentina', read_fixture_file('worldwide/argentina_organisations.json'))
         add_response 'argentina'
         add_response 'same_country'
       end
@@ -257,7 +257,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Answer Argentina
     context "answer China" do
       setup do
-	worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
+        worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
         add_response 'china'
         add_response 'same_country'
       end
@@ -277,7 +277,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Answer China
     context "answer Austria" do
       setup do
-	worldwide_api_has_organisations_for_location('austria', read_fixture_file('worldwide/austria_organisations.json'))
+        worldwide_api_has_organisations_for_location('austria', read_fixture_file('worldwide/austria_organisations.json'))
         add_response 'austria'
         add_response 'same_country'
       end
@@ -297,7 +297,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Answer Austria
     context "answer Slovakia" do
       setup do
-	worldwide_api_has_organisations_for_location('slovakia', read_fixture_file('worldwide/slovakia_organisations.json'))
+        worldwide_api_has_organisations_for_location('slovakia', read_fixture_file('worldwide/slovakia_organisations.json'))
         add_response 'slovakia'
         add_response 'same_country'
       end
@@ -312,49 +312,49 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Answer Slovakia
     context "answer Italy" do
       setup do
-	worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
+        worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
         add_response 'italy'
         add_response 'same_country'
       end
       should "give the ORU result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=italy"}
+ assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=italy"}
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/italy-list-of-lawyers"
       end
     end # Answer Italy
     context "death occurred in Andorra" do
       setup do
-	worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
+        worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
         add_response 'andorra'
         add_response 'same_country'
       end
       should "give the oru result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=andorra"}
+ assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=andorra"}
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
     end # Answer Andorra
     context "death occurred in Andorra, but they are now in France" do
       setup do
-	worldwide_api_has_organisations_for_location('france', read_fixture_file('worldwide/france_organisations.json'))
+        worldwide_api_has_organisations_for_location('france', read_fixture_file('worldwide/france_organisations.json'))
         add_response 'andorra'
         add_response 'another_country'
       end
       should "give the embassy result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=andorra"}
+ assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=andorra"}
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
     end # Answer Andorra, now in France
     context "answer Afghanistan" do
       setup do
-	worldwide_api_has_organisations_for_location('afghanistan', read_fixture_file('worldwide/afghanistan_organisations.json'))
+        worldwide_api_has_organisations_for_location('afghanistan', read_fixture_file('worldwide/afghanistan_organisations.json'))
         add_response 'afghanistan'
       end
       context "currently still in the country" do
@@ -375,7 +375,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         should "give the ORU result and be done" do
           add_response 'in_the_uk'
           assert_current_node :oru_result
-	  assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=afghanistan"}
+   assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=afghanistan"}
           assert_phrase_list :oru_address, [:oru_address_uk]
           assert_phrase_list :translator_link, [:no_translator_link]
           assert_state_variable :translator_link_url, nil
@@ -384,7 +384,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Answer Afghanistan
     context "answer Iran" do
       setup do
-	worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
+        worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
         add_response 'iran'
       end
       should "give the no embassy result" do
@@ -394,7 +394,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Iran
     context "answer Libya" do
       setup do
-	worldwide_api_has_organisations_for_location('libya', read_fixture_file('worldwide/libya_organisations.json'))
+        worldwide_api_has_organisations_for_location('libya', read_fixture_file('worldwide/libya_organisations.json'))
         add_response 'libya'
         add_response 'same_country'
       end
@@ -412,7 +412,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Answer Libya
     context "answer Sweden" do
       setup do
-	worldwide_api_has_organisations_for_location('sweden', read_fixture_file('worldwide/sweden_organisations.json'))
+        worldwide_api_has_organisations_for_location('sweden', read_fixture_file('worldwide/sweden_organisations.json'))
         add_response 'sweden'
         add_response 'same_country'
       end
@@ -432,7 +432,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Answer Sweden
     context "answer Hong Kong" do
       setup do
-	worldwide_api_has_organisations_for_location('hong-kong', read_fixture_file('worldwide/hong-kong_organisations.json'))
+        worldwide_api_has_organisations_for_location('hong-kong', read_fixture_file('worldwide/hong-kong_organisations.json'))
         add_response 'hong-kong'
         add_response 'same_country'
       end
@@ -451,7 +451,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Answer Hong Kong
     context "answer Brazil" do
       setup do
-	worldwide_api_has_organisations_for_location('brazil', read_fixture_file('worldwide/brazil_organisations.json'))
+        worldwide_api_has_organisations_for_location('brazil', read_fixture_file('worldwide/brazil_organisations.json'))
         add_response 'brazil'
         add_response 'same_country'
       end
@@ -471,49 +471,49 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Answer Brazil
     context "answer Germany" do
       setup do
-	worldwide_api_has_organisations_for_location('germany', read_fixture_file('worldwide/germany_organisations.json'))
+        worldwide_api_has_organisations_for_location('germany', read_fixture_file('worldwide/germany_organisations.json'))
         add_response 'germany'
         add_response 'same_country'
       end
       should "give the ORU result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=germany"}
+ assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=germany"}
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/germany-list-of-lawyers"
       end
     end # Answer Germany
     context "answer USA" do
       setup do
-	worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
+        worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
         add_response 'usa'
         add_response 'same_country'
       end
       should "give the oru result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=usa"}
+ assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=usa"}
         assert_phrase_list :translator_link, [:no_translator_link]
         assert_state_variable :translator_link_url, nil
       end
     end # Answer USA
     context "answer Netherlands" do
       setup do
-	worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
+        worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
         add_response 'netherlands'
         add_response 'same_country'
       end
       should "give the ORU result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=netherlands"}
+ assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=netherlands"}
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/netherlands-list-of-lawyers"
       end
     end # Answer Netherlands
     context "answer death in dominica, user in st kitts" do
       setup do
-	worldwide_api_has_organisations_for_location('barbados', read_fixture_file('worldwide/barbados_organisations.json'))
+        worldwide_api_has_organisations_for_location('barbados', read_fixture_file('worldwide/barbados_organisations.json'))
         add_response 'dominica'
         add_response 'another_country'
         add_response 'st-kitts-and-nevis'
@@ -535,7 +535,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Answer Dominica
     context "answer death in malaysia, user in same country" do
       setup do
-	worldwide_api_has_organisations_for_location('malaysia', read_fixture_file('worldwide/malaysia_organisations.json'))
+        worldwide_api_has_organisations_for_location('malaysia', read_fixture_file('worldwide/malaysia_organisations.json'))
         add_response 'malaysia'
         add_response 'same_country'
       end
@@ -556,7 +556,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
     end # Answer Malaysia
     context "answer death in indonesia, user in same country" do
       setup do
-	worldwide_api_has_organisations_for_location('indonesia', read_fixture_file('worldwide/indonesia_organisations.json'))
+        worldwide_api_has_organisations_for_location('indonesia', read_fixture_file('worldwide/indonesia_organisations.json'))
         add_response 'indonesia'
         add_response 'same_country'
       end

@@ -125,7 +125,7 @@ module SmartAnswer::Calculators
         when 0
           entered_num > 0 ? 0 : 1
         when 1
-	  rval = (1..2).find { |c| c + entered_num == 2 }
+          rval = (1..2).find { |c| c + entered_num == 2 }
           entered_num < 2 ? rval : 0
         else
           0

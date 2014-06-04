@@ -30,7 +30,7 @@ module SmartAnswer
 
     def status(s = nil)
       if s
-	raise Flow::InvalidStatus unless [:published, :draft].include? s
+        raise Flow::InvalidStatus unless [:published, :draft].include? s
         @status = s
       end
 

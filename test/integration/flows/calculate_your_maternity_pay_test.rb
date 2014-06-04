@@ -92,7 +92,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
             end
           end
 
-	  context "salary above 30 and less than smp_lel" do
+   context "salary above 30 and less than smp_lel" do
             setup do
               add_response "31"
             end
@@ -102,13 +102,13 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
             end
           end
 
-	  context "salary above smp_lel" do
+   context "salary above smp_lel" do
             setup do
               add_response "110"
             end
 
             should "tell you you qualify for SMP from employer" do
-	      assert_state_variable :smp_lel, 109
+              assert_state_variable :smp_lel, 109
               assert_current_node :smp_from_employer
             end
           end # Answering Q4

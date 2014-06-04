@@ -26,7 +26,7 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       within '.current-question' do
         assert_page_has_content "Which country do you live in?"
-	assert page.has_selector? :select, "response", selected: "Belarus"
+ assert page.has_selector? :select, "response", selected: "Belarus"
       end
 
       select "South Korea", from: "response"
@@ -42,9 +42,9 @@ class ChangingAnswerTest < EngineIntegrationTest
       within('ol li.done:nth-child(2)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do
-	assert page.has_select? "Day", selected: "10"
-	assert page.has_select? "Month", selected: "June"
-	assert page.has_select? "Year", selected: "1985"
+        assert page.has_select? "Day", selected: "10"
+ assert page.has_select? "Month", selected: "June"
+ assert page.has_select? "Year", selected: "1985"
       end
 
       select "15", from: "Day"
@@ -70,8 +70,8 @@ class ChangingAnswerTest < EngineIntegrationTest
       within('ol li.done:nth-child(1)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do
-	assert page.has_field? "£", with: "5000.0"
-	assert page.has_select? "per", selected: "month"
+        assert page.has_field? "£", with: "5000.0"
+ assert page.has_select? "per", selected: "month"
       end
 
       fill_in "£", with: "2000"
@@ -129,7 +129,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       within('ol li.done:nth-child(2)') { click_on "Change this answer" }
 
       within '.current-question .question-body' do
-	assert page.has_checked_field? "To seek the Holy Grail"
+        assert page.has_checked_field? "To seek the Holy Grail"
          assert page.has_unchecked_field? "To rescue the princess"
          assert page.has_unchecked_field? "I dunno"
       end

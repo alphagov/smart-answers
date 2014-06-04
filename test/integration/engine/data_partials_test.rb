@@ -38,28 +38,28 @@ class DataPartialsTest < EngineIntegrationTest
       assert page.has_selector?('p', text: "Some data that was passed through")
 
       within '.embassies' do
-	assert page.has_selector?('.embassy', count: 2)
+        assert page.has_selector?('.embassy', count: 2)
         within '.embassy:nth-child(1)' do
-	  assert page.has_selector?('h3', text: "Address")
+          assert page.has_selector?('h3', text: "Address")
           assert_page_has_content "British High Commission"
           assert_page_has_content "Consular Section"
           assert_page_has_content "Commonwealth Avenue"
           assert_page_has_content "Yarralumla"
           assert_page_has_content "ACT 2600"
 
-	  assert page.has_selector?('h3', text: "Phone")
+   assert page.has_selector?('h3', text: "Phone")
           assert_page_has_content "(+61) (0) 2 6270 6666"
         end
 
         within '.embassy:nth-child(2)' do
-	  assert page.has_selector?('h3', text: "Address")
+          assert page.has_selector?('h3', text: "Address")
           assert_page_has_content "British High Commission"
           assert_page_has_content "44 Hill Street"
           assert_page_has_content "Wellington 6011"
           assert_page_has_content "P O Box 1812"
           assert_page_has_content "Wellington 6140"
 
-	  assert page.has_selector?('h3', text: "Phone")
+   assert page.has_selector?('h3', text: "Phone")
           assert_page_has_content "(+64) (0) 9 6270 1234"
         end
       end

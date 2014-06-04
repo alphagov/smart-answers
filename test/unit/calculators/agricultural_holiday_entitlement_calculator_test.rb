@@ -30,7 +30,7 @@ module SmartAnswer::Calculators
       end
       context "available_days" do
         should "give the number of days since the calculation period started" do
-	  Timecop.travel(Date.civil(Date.today.year, 12, 25))
+          Timecop.travel(Date.civil(Date.today.year, 12, 25))
           assert_equal 85, @calc.available_days
         end
       end

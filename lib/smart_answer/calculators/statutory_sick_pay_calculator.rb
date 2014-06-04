@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
       count += 1 if start_date.day < 17
       count += 1 if end_date.day > 15
       while current_month.month != end_month
-	count += 1
+        count += 1
         current_month = current_month.next_month
       end
       count
@@ -178,7 +178,7 @@ module SmartAnswer::Calculators
     def find_6th_april_after(date)
       year = date.year
       if (date.month > 4) or (date.month == 4 and date.day > 6)
-	year += 1
+        year += 1
       end
       Date.new(year, 4, 6)
     end

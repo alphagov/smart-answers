@@ -103,7 +103,7 @@ money_question :whats_your_household_income? do
         if household_income > 42611
           Money.new ('0')
         else
-	  Money.new(3354 - ((household_income - 25000) / 5.33).floor)
+          Money.new(3354 - ((household_income - 25000) / 5.33).floor)
         end
       end
     else
@@ -117,7 +117,7 @@ money_question :whats_your_household_income? do
         if household_income > 42620
           Money.new('0')
         else
-	  Money.new(3387 - ((household_income - 25000) / 5.28).floor)
+          Money.new(3387 - ((household_income - 25000) / 5.28).floor)
         end
       end
     end

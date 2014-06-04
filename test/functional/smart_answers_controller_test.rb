@@ -16,13 +16,13 @@ class SmartAnswersControllerTest < ActionController::TestCase
       satisfies_need 1337
 
       multiple_choice :do_you_like_chocolate? do
-	option yes: :you_have_a_sweet_tooth
-	option no: :do_you_like_jam?
+        option yes: :you_have_a_sweet_tooth
+ option no: :do_you_like_jam?
       end
 
       multiple_choice :do_you_like_jam? do
-	option yes: :you_have_a_sweet_tooth
-	option no: :you_have_a_savoury_tooth
+        option yes: :you_have_a_sweet_tooth
+ option no: :you_have_a_savoury_tooth
       end
 
       outcome :you_have_a_savoury_tooth
@@ -390,7 +390,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         @flow = SmartAnswer::Flow.new do
           name :sample
           multiple_choice :what? do
-	    option cheese: :done
+            option cheese: :done
           end
           outcome :done
         end

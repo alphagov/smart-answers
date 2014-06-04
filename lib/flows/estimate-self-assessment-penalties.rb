@@ -88,11 +88,11 @@ date_question :when_paid? do
       raise SmartAnswer::InvalidResponse
     else
       calculator = Calculators::SelfAssessmentPenalties.new(
-	submission_method: submission_method,
-	filing_date: filing_date,
-	payment_date: response,
-	dates: calculator_dates,
-	tax_year: tax_year
+        submission_method: submission_method,
+        filing_date: filing_date,
+        payment_date: response,
+        dates: calculator_dates,
+        tax_year: tax_year
       )
       if calculator.paid_on_time?
         :filed_and_paid_on_time

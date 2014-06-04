@@ -100,28 +100,28 @@ class SmartAnswerPresenter
 
   def presenter_for(node)
     presenter_class = case node
-		      when SmartAnswer::Question::OptionalDate
-			OptionalDateQuestionPresenter
-		      when SmartAnswer::Question::Date
-			DateQuestionPresenter
-		      when SmartAnswer::Question::CountrySelect
-			CountrySelectQuestionPresenter
-		      when SmartAnswer::Question::MultipleChoice
-			MultipleChoiceQuestionPresenter
-		      when SmartAnswer::Question::Checkbox
-			CheckboxQuestionPresenter
-		      when SmartAnswer::Question::Value
-			ValueQuestionPresenter
-		      when SmartAnswer::Question::Money
-			MoneyQuestionPresenter
-		      when SmartAnswer::Question::Salary
-			SalaryQuestionPresenter
-		      when SmartAnswer::Question::Base
-			QuestionPresenter
-		      when SmartAnswer::Outcome
-			OutcomePresenter
-		      else NodePresenter
-		      end
+                      when SmartAnswer::Question::OptionalDate
+                        OptionalDateQuestionPresenter
+                      when SmartAnswer::Question::Date
+                        DateQuestionPresenter
+                      when SmartAnswer::Question::CountrySelect
+                        CountrySelectQuestionPresenter
+                      when SmartAnswer::Question::MultipleChoice
+                        MultipleChoiceQuestionPresenter
+                      when SmartAnswer::Question::Checkbox
+                        CheckboxQuestionPresenter
+                      when SmartAnswer::Question::Value
+                        ValueQuestionPresenter
+                      when SmartAnswer::Question::Money
+                        MoneyQuestionPresenter
+                      when SmartAnswer::Question::Salary
+                        SalaryQuestionPresenter
+                      when SmartAnswer::Question::Base
+                        QuestionPresenter
+                      when SmartAnswer::Outcome
+                        OutcomePresenter
+                      else NodePresenter
+                      end
     presenter_class.new(i18n_prefix, node, current_state)
   end
 

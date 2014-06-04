@@ -81,7 +81,7 @@ class SimplifiedExpensesCheckerV2Test < ActiveSupport::TestCase
       end
 
       should "raise invalid error" do
-	assert_current_node :type_of_expense?, error: true
+        assert_current_node :type_of_expense?, error: true
       end
     end
   end # end tests for "can't claim because previously claimed Capital Allowance"

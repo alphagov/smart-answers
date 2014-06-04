@@ -44,7 +44,7 @@ multiple_choice :was_death_expected? do
 end
 
 # Q4
-country_select :which_country?, :exclude_countries => exclude_countries do
+country_select :which_country?, exclude_countries: exclude_countries do
   save_input_as :country_of_death
 
   calculate :current_location do
@@ -135,7 +135,7 @@ end
 
 outcome :oru_result do
   precalculate :button_data do
-    {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=#{country_of_death}"}
+    {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=#{country_of_death}"}
   end
 
   precalculate :translator_link_url do
@@ -198,13 +198,13 @@ outcome :embassy_result do
   precalculate :booking_text_embassy_result do
     unless reg_data_query.post_only_countries?(current_location)
       phrases = PhraseList.new
-	if current_location == 'hong-kong'
-	  phrases << :booking_text_embassy_hong_kong
-	else
-	  phrases << :booking_text_embassy
-	end
-	phrases
+      if current_location == 'hong-kong'
+        phrases << :booking_text_embassy_hong_kong
+      else
+        phrases << :booking_text_embassy
       end
+      phrases
+    end
   end
 
   precalculate :clickbook_data do
@@ -299,7 +299,7 @@ outcome :embassy_result do
     if exclusions.include?(country_of_death)
       PhraseList.new(:footnote_exceptions)
     elsif country_of_death != current_location and reg_data_query.eastern_caribbean_countries?(country_of_death) and reg_data_query.eastern_caribbean_countries?(current_location)
-        PhraseList.new(:footnote_caribbean)
+      PhraseList.new(:footnote_caribbean)
     elsif another_country
       PhraseList.new(:footnote_another_country)
     else

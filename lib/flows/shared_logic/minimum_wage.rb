@@ -43,9 +43,9 @@ multiple_choice :were_you_an_apprentice? do
       :how_old_were_you?
     else
       if Date.parse(payment_date) < Date.parse('2010-10-01')
-	:does_not_apply_to_historical_apprentices
+        :does_not_apply_to_historical_apprentices
       else
-	:how_often_did_you_get_paid?
+        :how_often_did_you_get_paid?
       end
     end
   end
@@ -288,9 +288,9 @@ multiple_choice :is_provided_with_accommodation? do
       :current_accommodation_charge?
     else
       if calculator.minimum_wage_or_above?
-	:current_payment_above
+        :current_payment_above
       else
-	:current_payment_below
+        :current_payment_below
       end
     end
   end
@@ -331,9 +331,9 @@ multiple_choice :was_provided_with_accommodation? do
       :past_accommodation_charge?
     else
       if calculator.minimum_wage_or_above?
-	:past_payment_above
+        :past_payment_above
       else
-	:past_payment_below
+        :past_payment_below
       end
     end
   end

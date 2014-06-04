@@ -253,9 +253,9 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
         end
 
         context "2014 to 2015" do
-	setup do
-	  add_response 'year-1415'
-	end
+        setup do
+          add_response 'year-1415'
+        end
 
           should "ask are you a continuing student" do
             assert_current_node :continuing_student?
@@ -280,9 +280,9 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
           end
 
           context "continuing student = no" do
-	  setup do
-	    add_response 'new-student'
-	  end
+          setup do
+            add_response 'new-student'
+          end
 
           should "course start before 01/09/12" do
             add_response 'course-start-before-01092012'

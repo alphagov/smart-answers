@@ -438,7 +438,7 @@ outcome :outcome_os_consular_cni do
       phrases << :uk_resident_os_consular_cni_dutch_caribbean_islands
     else
       unless %w(uk).include?(resident_of) or ceremony_country == residency_country or %w(italy).include?(ceremony_country)
-	phrases << :other_resident_os_consular_cni
+        phrases << :other_resident_os_consular_cni
       end
     end
     if %w(jordan oman qatar).include?(ceremony_country)

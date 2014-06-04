@@ -22,7 +22,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
 
         assert page.has_no_content?("-----") # markdown should be rendered, not output
 
-	assert page.has_link?("Start now", href: "/bridge-of-death/y")
+ assert page.has_link?("Start now", href: "/bridge-of-death/y")
       end
 
       click_on "Start now"
@@ -42,7 +42,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your name?"
         end
         within '.question-body' do
-	  assert page.has_field?("Name:", type: "text")
+          assert page.has_field?("Name:", type: "text")
         end
       end
 
@@ -52,14 +52,14 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       assert_current_url "/bridge-of-death/y/Lancelot"
 
       within '.done-questions' do
-	within('.start-again') { assert page.has_link?("Start again", href: '/bridge-of-death') }
+        within('.start-again') { assert page.has_link?("Start again", href: '/bridge-of-death') }
         within 'ol li.done' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
-	  within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Lancelot") }
+   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Lancelot") }
         end
       end
 
@@ -69,9 +69,9 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your quest?"
         end
         within '.question-body' do
-	  assert page.has_field?("To seek the Holy Grail", type: 'radio', with: "to_seek_the_holy_grail")
-	  assert page.has_field?("To rescue the princess", type: 'radio', with: "to_rescue_the_princess")
-	  assert page.has_field?("I dunno", type: 'radio', with: "dunno")
+          assert page.has_field?("To seek the Holy Grail", type: 'radio', with: "to_seek_the_holy_grail")
+   assert page.has_field?("To rescue the princess", type: 'radio', with: "to_rescue_the_princess")
+   assert page.has_field?("I dunno", type: 'radio', with: "dunno")
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["To seek the Holy Grail", "To rescue the princess", "I dunno"], options
@@ -84,14 +84,14 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail"
 
       within '.done-questions' do
-	within('.start-again') { assert page.has_link?("Start again", href: '/bridge-of-death') }
+        within('.start-again') { assert page.has_link?("Start again", href: '/bridge-of-death') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
-	  within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Lancelot") }
+   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Lancelot") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
@@ -99,7 +99,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your quest?"
           end
           within('.answer') { assert_page_has_content "To seek the Holy Grail" }
-	  within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
+   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
         end
       end
 
@@ -109,9 +109,9 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your favorite colour?"
         end
         within '.question-body' do
-	  assert page.has_field?("Blue", type: 'radio', with: "blue")
-	  assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", type: 'radio', with: "blue_no_yellow")
-	  assert page.has_field?("Red", type: 'radio', with: "red")
+          assert page.has_field?("Blue", type: 'radio', with: "blue")
+   assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", type: 'radio', with: "blue_no_yellow")
+   assert page.has_field?("Red", type: 'radio', with: "red")
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", "Red"], options
@@ -124,14 +124,14 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/blue"
 
       within '.done-questions' do
-	within('.start-again') { assert page.has_link?("Start again", href: '/bridge-of-death') }
+        within('.start-again') { assert page.has_link?("Start again", href: '/bridge-of-death') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
-	  within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Lancelot") }
+   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Lancelot") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
@@ -139,7 +139,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your quest?"
           end
           within('.answer') { assert_page_has_content "To seek the Holy Grail" }
-	  within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
+   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
         end
         within 'ol li.done:nth-child(3)' do
           within 'h3' do
@@ -147,7 +147,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your favorite colour?"
           end
           within('.answer') { assert_page_has_content "Blue" }
-	  within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail?previous_response=blue") }
+   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail?previous_response=blue") }
         end
       end
 
@@ -179,7 +179,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your name?"
         end
         within('.answer') { assert_page_has_content "Robin" }
-	within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Robin") }
+ within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Robin") }
       end
       within 'ol li.done:nth-child(2)' do
         within 'h3' do
@@ -187,7 +187,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your quest?"
         end
         within('.answer') { assert_page_has_content "To seek the Holy Grail" }
-	within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Robin?previous_response=to_seek_the_holy_grail") }
+ within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Robin?previous_response=to_seek_the_holy_grail") }
       end
     end
 
@@ -197,7 +197,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         assert_page_has_content "What...is the capital of Assyria?"
       end
       within '.question-body' do
-	assert page.has_field?("Answer:", type: "text")
+        assert page.has_field?("Answer:", type: "text")
       end
     end
 

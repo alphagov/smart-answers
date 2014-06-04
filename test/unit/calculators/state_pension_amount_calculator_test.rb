@@ -98,8 +98,8 @@ module SmartAnswer::Calculators
 
       should "uprate on or after 8th April 2014" do
         Timecop.travel(Date.parse("2014-04-08")) do
-	  @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-	    gender: "male", dob: "1953-04-04", qualifying_years: 29)
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
+            gender: "male", dob: "1953-04-04", qualifying_years: 29)
          assert_equal 109.33, @calculator.what_you_get
          @calculator.qualifying_years = 28
          assert_equal 105.56, @calculator.what_you_get
@@ -166,21 +166,21 @@ module SmartAnswer::Calculators
       end
 
       should "return ni_years_to_date = 3" do
-	dob = Date.civil(22.years.ago.year, 4, 6).to_s
+        dob = Date.civil(22.years.ago.year, 4, 6).to_s
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
           gender: "female", dob: dob, qualifying_years: nil)
         assert_equal 3, @calculator.available_years
       end
 
       should "return ni_years_to_date = 3" do
-	dob = Date.civil(22.years.ago.year, 7, 6).to_s
+        dob = Date.civil(22.years.ago.year, 7, 6).to_s
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
           gender: "female", dob: dob, qualifying_years: nil)
         assert_equal 3, @calculator.available_years
       end
 
       should "return ni_years_to_date = 2" do
-	dob = Date.civil(22.years.ago.year, 1, 20).to_s
+        dob = Date.civil(22.years.ago.year, 1, 20).to_s
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
           gender: "female", dob: dob, qualifying_years: nil)
         assert_equal 3, @calculator.available_years
@@ -202,7 +202,7 @@ module SmartAnswer::Calculators
 
       context "male born 26 years and one month ago, no qualifying_years" do
         setup do
-	  dob = Date.civil(26.years.ago.year, 3, 6).to_s
+          dob = Date.civil(26.years.ago.year, 3, 6).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: dob, qualifying_years: nil)
         end
@@ -226,7 +226,7 @@ module SmartAnswer::Calculators
       context "male born 26 years and one day ago, no qualifying_years" do
         setup do
           Timecop.travel(Date.parse("2013-03-01"))
-	  dob = Date.civil(26.years.ago.year, 4, 5).to_s
+   dob = Date.civil(26.years.ago.year, 4, 5).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: dob, qualifying_years: nil)
         end
@@ -239,7 +239,7 @@ module SmartAnswer::Calculators
       context "32 years old with 10 qualifying_years" do
         setup do
           Timecop.travel(Date.parse("2013-03-01"))
-	  dob = Date.civil(32.years.ago.year, 4, 6).to_s
+   dob = Date.civil(32.years.ago.year, 4, 6).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "female", dob: dob, qualifying_years: 10)
         end
@@ -421,14 +421,14 @@ module SmartAnswer::Calculators
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: 49.years.ago.to_s, qualifying_years: 25)
           assert_equal 5, @calculator.available_years_sum
-	  assert_equal 5, @calculator.years_can_be_entered(@calculator.available_years_sum, 22)
+   assert_equal 5, @calculator.years_can_be_entered(@calculator.available_years_sum, 22)
         end
         should "should return 22" do
           Timecop.travel("2013-04-20")
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: 49.years.ago.to_s, qualifying_years: 5)
           assert_equal 25, @calculator.available_years_sum
-	  assert_equal 22, @calculator.years_can_be_entered(@calculator.available_years_sum, 22)
+   assert_equal 22, @calculator.years_can_be_entered(@calculator.available_years_sum, 22)
         end
       end
 
@@ -714,7 +714,7 @@ module SmartAnswer::Calculators
       setup do
         Timecop.travel("2014-04-01")
         @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
-	  gender: "male", dob: "6 May 1958", qualifying_years: "50")
+   gender: "male", dob: "6 May 1958", qualifying_years: "50")
       end
 
       should "be 36 based on birthday not having happened yet" do

@@ -27,11 +27,11 @@ class PlanMaternityLeaveTest < ActiveSupport::TestCase
 
     context "set 3 months to baby_due_date" do
       setup do
-	add_response 3.months.since
+        add_response 3.months.since
       end
 
       should "be on leave_start?" do
-	assert_current_node :leave_start?
+        assert_current_node :leave_start?
       end
 
       context "test leave_start?" do

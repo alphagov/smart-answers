@@ -40,7 +40,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       end
 
       context "pension_credit_date check -- born 5th Dec 1953" do
-	setup { add_response Date.parse("5th Dec 1953")}
+        setup { add_response Date.parse("5th Dec 1953")}
         should "go to age result" do
           assert_current_node :age_result
           assert_phrase_list :pension_credit_statement, [:pension_credit_past, :bus_pass]
@@ -52,7 +52,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       context "age is less than 20 years" do
         should "user is too young to get more information" do
-	  add_response Date.today.advance(years: -15)
+          add_response Date.today.advance(years: -15)
 
           assert_current_node :too_young
         end
@@ -425,7 +425,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
                         assert_state_variable "state_pension_age", "65 years"
                         assert_state_variable "remaining_years", 5
                         assert_state_variable "pension_loss", "14.69"
-			assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a, :automatic_years_phrase]
+   assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a, :automatic_years_phrase]
                         assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
                         assert_current_node :amount_result
                       end
@@ -519,7 +519,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       context "age = 61, NI = 20, JSA = 1" do
         setup do
           Timecop.travel("2012-08-08")
-	  add_response Date.civil(61.years.ago.year, 4, 7)
+   add_response Date.civil(61.years.ago.year, 4, 7)
           add_response 20
           add_response 1
         end
@@ -626,7 +626,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       context "50 years old" do
         setup do
           Timecop.travel('2012-10-08')
-	  add_response Date.civil(50.years.ago.year, 4, 7)
+   add_response Date.civil(50.years.ago.year, 4, 7)
         end
 
         should "ask for number of years paid NI" do
@@ -766,7 +766,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       context "(testing from years_of_benefit) age 40, NI = 5, JSA = 5, cb = yes " do
         setup do
           Timecop.travel('2014-05-06')
-	  add_response Date.civil(40.years.ago.year, 4, 7)
+   add_response Date.civil(40.years.ago.year, 4, 7)
           add_response 10
           add_response 5
           add_response :yes
@@ -951,7 +951,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       end
       context "years_you_can_enter test" do
         setup do
-	  add_response Date.civil(49.years.ago.year, 4, 7)
+          add_response Date.civil(49.years.ago.year, 4, 7)
           add_response 20
           add_response 5
           add_response :yes
@@ -1260,7 +1260,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
     context "setup a date before 2016" do
       setup do
-	Timecop.travel('2013-07-05')
+        Timecop.travel('2013-07-05')
       end
       should "show results for before April 2016 with enough years" do
         add_response :male

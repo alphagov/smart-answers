@@ -26,7 +26,7 @@ class PlanPaternityLeaveTest < ActiveSupport::TestCase
 
     context "set 3 months to baby_due_date" do
       setup do
-	@due_date = 3.months.since
+        @due_date = 3.months.since
         add_response @due_date
       end
 
@@ -43,7 +43,7 @@ class PlanPaternityLeaveTest < ActiveSupport::TestCase
           assert_current_node :leave_start?
           assert_state_variable "leave_duration", 1
           # FIXME:
-	  #assert_state_variable "potential_leave", "11 January 2013 to 01 March 2013"
+   #assert_state_variable "potential_leave", "11 January 2013 to 01 March 2013"
         end
         should "succeed on 7 weeks" do
           add_response 7.weeks.since(@due_date)
@@ -90,12 +90,12 @@ class PlanPaternityLeaveTest < ActiveSupport::TestCase
           assert_current_node :paternity_leave_details
         end
 
-	context "set 2 weeks to leave_start?" do
-	  setup {add_response 2.weeks.since(@due_date)}
-	  should "go to outcome" do
-	    assert_current_node :paternity_leave_details
-	  end
-	end
+ context "set 2 weeks to leave_start?" do
+   setup {add_response 2.weeks.since(@due_date)}
+   should "go to outcome" do
+     assert_current_node :paternity_leave_details
+   end
+ end
       end
     end
   end

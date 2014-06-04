@@ -7,8 +7,8 @@ module SmartAnswer
 
     test "Can list options" do
       q = Question::MultipleChoice.new(:example) do
-	option yes: :fred
-	option no: :bob
+        option yes: :fred
+ option no: :bob
       end
 
       assert_equal ["yes", "no"], q.options
@@ -25,8 +25,8 @@ module SmartAnswer
 
     test "Can determine next state on provision of an input" do
       q = Question::MultipleChoice.new(:example) do
-	option yes: :fred
-	option no: :bob
+        option yes: :fred
+ option no: :bob
       end
 
       current_state = State.new(:example)
@@ -37,7 +37,7 @@ module SmartAnswer
 
     test "Next node default can be given by block" do
       q = Question::MultipleChoice.new(:example) do
-	option yes: :fred
+        option yes: :fred
         option :no
         next_node { :baz }
         permitted_next_nodes(:baz)
@@ -49,7 +49,7 @@ module SmartAnswer
 
     test "Error raised on illegal input" do
       q = Question::MultipleChoice.new(:example) do
-	option yes: :fred
+        option yes: :fred
       end
 
       current_state = State.new(:example)

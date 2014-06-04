@@ -65,12 +65,12 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       context "answer invalid for Q3 how old" do
         should "not accept 0 age" do
           add_response 0
-	  assert_current_node :how_old_are_you?, error: true
+   assert_current_node :how_old_are_you?, error: true
         end
 
         should "not accept age > 200" do
           add_response 250
-	  assert_current_node :how_old_are_you?, error: true
+   assert_current_node :how_old_are_you?, error: true
         end
 
       end

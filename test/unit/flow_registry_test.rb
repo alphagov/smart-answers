@@ -55,7 +55,7 @@ module SmartAnswer
 
     context "with preloaded flows" do
       setup do
-	@r = registry(preload_flows: true)
+        @r = registry(preload_flows: true)
       end
 
       should "not hit the filesystem when finding a flow" do

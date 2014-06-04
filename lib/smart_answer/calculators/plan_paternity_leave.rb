@@ -52,9 +52,9 @@ module SmartAnswer::Calculators
     def ordinary_leave_ends
       anticipated_end = @start_date + 2 * 7 - 1
       if anticipated_end > latest_start
-	latest_start
+        latest_start
       else
-	anticipated_end
+        anticipated_end
       end
     end
 
@@ -74,7 +74,7 @@ module SmartAnswer::Calculators
 
     private
       def weeks_later(range, weeks)
-	(range.first + weeks * 7) .. (range.last + weeks * 7)
+        (range.first + weeks * 7) .. (range.last + weeks * 7)
       end
 
   end

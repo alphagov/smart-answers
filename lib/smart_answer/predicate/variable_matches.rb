@@ -27,7 +27,6 @@ module SmartAnswer
 
       alias_method :|, :or
 
-
       def label
         "#{@variable_name} == #{match_description}"
       end

@@ -62,7 +62,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         should "ask when bill was paid" do
           assert_current_node :when_paid?
         end
-	#testing error message 2
+ #testing error message 2
 
         context "test error message for date input before filing date" do
           setup do
@@ -73,7 +73,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
           end
         end
 
-	#testing paid on time
+ #testing paid on time
         context "paid on time" do
           setup do
             add_response "2013-10-11"

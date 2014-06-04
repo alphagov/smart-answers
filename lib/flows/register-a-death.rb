@@ -178,13 +178,13 @@ outcome :embassy_result do
   precalculate :booking_text_embassy_result do
     unless reg_data_query.post_only_countries?(current_location)
       phrases = PhraseList.new
-	if current_location == 'hong-kong'
-	  phrases << :booking_text_embassy_hong_kong
-	else
-	  phrases << :booking_text_embassy
-	end
-	phrases
+      if current_location == 'hong-kong'
+        phrases << :booking_text_embassy_hong_kong
+      else
+        phrases << :booking_text_embassy
       end
+      phrases
+    end
   end
 
   precalculate :clickbook_data do

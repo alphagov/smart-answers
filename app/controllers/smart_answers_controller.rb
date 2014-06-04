@@ -14,7 +14,7 @@ class SmartAnswersController < ApplicationController
         html_fragment = with_format('html') {
           render_to_string(partial: "content")
         }
-	render json: {
+ render json: {
           url: smart_answer_path(params[:id], 'y', @presenter.current_state.responses),
           html_fragment: html_fragment,
           title: @presenter.current_node.title
@@ -23,7 +23,7 @@ class SmartAnswersController < ApplicationController
       format.ics {
         if @presenter.current_node.respond_to?(:calendar) and @presenter.current_node.has_calendar?
           response.headers['Content-Disposition'] = "attachment; filename=\"#{@name.to_s}.ics\""
-	  render text: @presenter.current_node.calendar.to_ics, layout: false
+   render text: @presenter.current_node.calendar.to_ics, layout: false
         else
           error_404
         end

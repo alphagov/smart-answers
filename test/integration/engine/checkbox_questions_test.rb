@@ -13,10 +13,10 @@ class CheckboxQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What do you want on your pizza?"
         end
         within '.question-body' do
-	  assert page.has_field?("Ham", type: 'checkbox', with: "ham")
-	  assert page.has_field?("Peppers", type: 'checkbox', with: "peppers")
-	  assert page.has_field?("Ice Cream!!!", type: 'checkbox', with: "ice_cream")
-	  assert page.has_field?("Pepperoni", type: 'checkbox', with: "pepperoni")
+          assert page.has_field?("Ham", type: 'checkbox', with: "ham")
+   assert page.has_field?("Peppers", type: 'checkbox', with: "peppers")
+   assert page.has_field?("Ice Cream!!!", type: 'checkbox', with: "ice_cream")
+   assert page.has_field?("Pepperoni", type: 'checkbox', with: "pepperoni")
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["Ham", "Peppers", "Ice Cream!!!", "Pepperoni"], options
@@ -30,7 +30,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       assert_current_url "/checkbox-sample/y/ham,pepperoni"
 
       within '.done-questions' do
-	within('.start-again') { assert page.has_link?("Start again", href: '/checkbox-sample') }
+        within('.start-again') { assert page.has_link?("Start again", href: '/checkbox-sample') }
         within 'ol li.done' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
@@ -39,7 +39,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
           within '.answer' do
             assert_equal ['Ham', 'Pepperoni'], page.all("li").map(&:text)
           end
-	  within('.undo') { assert page.has_link?("Change this answer", href: "/checkbox-sample/y/?previous_response=ham%2Cpepperoni") }
+   within('.undo') { assert page.has_link?("Change this answer", href: "/checkbox-sample/y/?previous_response=ham%2Cpepperoni") }
         end
       end
 
@@ -57,14 +57,14 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       assert_current_url "/checkbox-sample/y/none"
 
       within '.done-questions' do
-	within('.start-again') { assert page.has_link?("Start again", href: '/checkbox-sample') }
+        within('.start-again') { assert page.has_link?("Start again", href: '/checkbox-sample') }
         within 'ol li.done' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What do you want on your pizza?"
           end
           within('.answer') { assert_page_has_content "none" }
-	  within('.undo') { assert page.has_link?("Change this answer", href: "/checkbox-sample/y/?previous_response=none") }
+   within('.undo') { assert page.has_link?("Change this answer", href: "/checkbox-sample/y/?previous_response=none") }
         end
       end
 

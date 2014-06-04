@@ -168,7 +168,7 @@ multiple_choice :continuing_student? do
           :outcome_eu_ft_1314_new
         end
       elsif year_required == "year-1415"
-	if response == 'continuing-student'
+        if response == 'continuing-student'
           :outcome_eu_ft_1415_continuing
         else
           :outcome_eu_ft_1415_new
@@ -183,7 +183,7 @@ multiple_choice :continuing_student? do
           :outcome_eu_pt_1314_new
         end
       elsif year_required == 'year-1415'
-	if response == 'continuing-student'
+        if response == 'continuing-student'
           :outcome_eu_pt_1415_continuing
         else
           :outcome_eu_pt_1415_new
