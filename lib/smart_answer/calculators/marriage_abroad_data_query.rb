@@ -19,7 +19,6 @@ module SmartAnswer::Calculators
 
     OS_OTHER_COUNTRIES = %w(burma north-korea iran somalia syria yemen saudi-arabia)
 
-
     OS_AFFIRMATION_COUNTRIES = %w(egypt lebanon finland mongolia peru philippines portugal south-korea thailand turkey united-arab-emirates vietnam)
 
     CP_EQUIVALENT_COUNTRIES = %w(austria belgium brazil colombia czech-republic denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia sweden)

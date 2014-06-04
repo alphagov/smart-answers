@@ -13,14 +13,14 @@ multiple_choice :how_much_starch_glucose? do
 
   next_node do |response|
     case response.to_i
-      when 25
-        :how_much_sucrose_2?
-      when 50
-        :how_much_sucrose_3?
-      when 75
-        :how_much_sucrose_4?
-      else
-        :how_much_sucrose_1?
+    when 25
+      :how_much_sucrose_2?
+    when 50
+      :how_much_sucrose_3?
+    when 75
+      :how_much_sucrose_4?
+    else
+      :how_much_sucrose_1?
     end
   end
 end
@@ -105,19 +105,19 @@ multiple_choice :how_much_milk_fat? do
 
   next_node do |response|
     case response.to_i
-      when 0, 1
-        :how_much_milk_protein_ab?
-      when 3
-        :how_much_milk_protein_c?
-      when 6
-        :how_much_milk_protein_d?
-      when 9, 12
-        :how_much_milk_protein_ef?
-      when 18, 26
-        :how_much_milk_protein_gh?
-      else
-        :commodity_code_result
-      end
+    when 0, 1
+      :how_much_milk_protein_ab?
+    when 3
+      :how_much_milk_protein_c?
+    when 6
+      :how_much_milk_protein_d?
+    when 9, 12
+      :how_much_milk_protein_ef?
+    when 18, 26
+      :how_much_milk_protein_gh?
+    else
+      :commodity_code_result
+    end
   end
 end
 

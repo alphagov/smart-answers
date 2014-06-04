@@ -91,7 +91,6 @@ module SmartAnswer
         assert_equal ['red', 'green'], @question.to_response('red,green')
       end
 
-
       should "remove the none option from the results" do
         assert_equal [], @question.to_response('none')
       end

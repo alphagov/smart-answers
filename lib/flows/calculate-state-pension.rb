@@ -33,7 +33,6 @@ multiple_choice :gender? do
   end
 end
 
-
 # Q3:Age
 date_question :dob_age? do
   from { 100.years.ago }
@@ -103,7 +102,6 @@ date_question :dob_age? do
 
     calc = Calculators::StatePensionAmountCalculator.new(
       gender: gender, dob: response)
-
 
     near_pension_date = (calc.before_state_pension_date? and
                          calc.within_four_months_one_day_from_state_pension?)
@@ -238,7 +236,7 @@ value_question :years_of_jsa? do
 
   calculate :calc do
     calc = Calculators::StatePensionAmountCalculator.new(
-    gender: gender, dob: dob, qualifying_years: qualifying_years )
+    gender: gender, dob: dob, qualifying_years: qualifying_years)
   end
 
   next_node do |response|
@@ -256,7 +254,6 @@ value_question :years_of_jsa? do
     end
   end
 end
-
 
 ## Q6
 multiple_choice :received_child_benefit? do
@@ -280,7 +277,7 @@ end
 value_question :years_of_benefit? do
 
   precalculate :years_you_can_enter do
-    calculator.years_can_be_entered(available_ni_years,22)
+    calculator.years_can_be_entered(available_ni_years, 22)
   end
 
   calculate :ni_years_to_date_from_dob do
@@ -330,7 +327,7 @@ value_question :years_of_caring? do
   end
 
   precalculate :years_you_can_enter do
-    calculator.years_can_be_entered(available_ni_years,allowed_caring_years)
+    calculator.years_can_be_entered(available_ni_years, allowed_caring_years)
   end
 
   calculate :qualifying_years do
@@ -388,7 +385,6 @@ value_question :years_of_carers_allowance? do
     end
   end
 end
-
 
 ## Q10
 value_question :years_of_work? do
@@ -527,7 +523,7 @@ outcome :amount_result do
 
   precalculate :automatic_credits do
     date_of_birth = Date.parse(dob)
-    if Date.civil(1957,4,5) < date_of_birth and date_of_birth < Date.civil(1994,4,6)
+    if Date.civil(1957, 4, 5) < date_of_birth and date_of_birth < Date.civil(1994, 4, 6)
       PhraseList.new :automatic_credits
     else
       ''

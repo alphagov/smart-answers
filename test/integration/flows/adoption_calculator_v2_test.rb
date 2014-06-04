@@ -187,7 +187,7 @@ class AdoptionCalculatorV2Test < ActiveSupport::TestCase
                       end
                       context "answer below the lower earning limit" do
                         should "state they are not entitled to leave and not entitled to pay" do
-                         add_response 100
+                          add_response 100
                           assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
                           assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :adoption_not_entitled_to_pay_outro]
                           assert_current_node :adoption_leave_and_pay

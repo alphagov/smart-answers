@@ -11,7 +11,7 @@ class WorkingDays
 
   def after(date)
     days = @days
-    while days > 0 or ! workday?(date)
+    while days > 0 or !workday?(date)
       date += 1.day
       days -= 1 if workday?(date)
     end
@@ -20,7 +20,7 @@ class WorkingDays
 
   def before(date)
     days = @days
-    while days > 0 or ! workday?(date)
+    while days > 0 or !workday?(date)
       date -= 1.day
       days -= 1 if workday?(date)
     end
@@ -42,7 +42,7 @@ class WorkingDays
   end
 
   def self.load_bank_holidays
-    response = GdsApi::JsonClient.new(:disable_cache => true).get_json!(BANK_HOLIDAYS_URL)
+    response = GdsApi::JsonClient.new(disable_cache: true).get_json!(BANK_HOLIDAYS_URL)
 
     response['england-and-wales']['events'].map do |event|
       Date.parse(event["date"])

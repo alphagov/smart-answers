@@ -3,8 +3,8 @@ satisfies_need "100389"
 
 ## Q1
 multiple_choice :are_you_getting_dla? do
-  option :yes => :what_is_your_dob?
-  option :no => :what_is_your_dob?
+  option yes: :what_is_your_dob?
+  option no: :what_is_your_dob?
 
   # Used in later questions
   calculate :calculator do

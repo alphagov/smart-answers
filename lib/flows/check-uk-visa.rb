@@ -39,7 +39,7 @@ visiting_for_study = SmartAnswer::Predicate::VariableMatches.new(:purpose_of_vis
 visiting_for_work = SmartAnswer::Predicate::VariableMatches.new(:purpose_of_visit, "work")
 
 # Q1
-country_select :what_passport_do_you_have?, :additional_countries => additional_countries, :exclude_countries => exclude_countries do
+country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: exclude_countries do
   save_input_as :passport_country
 
   next_node_if(:outcome_no_visa_needed, responded_with_eea_country)
@@ -49,8 +49,8 @@ end
 # Q2
 multiple_choice :purpose_of_visit? do
   option :tourism
-  option :work => :staying_for_how_long?
-  option :study => :staying_for_how_long?
+  option work: :staying_for_how_long?
+  option study: :staying_for_how_long?
   option :transit
   option :family
   option :marriage
@@ -136,7 +136,6 @@ multiple_choice :staying_for_how_long? do
     end
   end
 end
-
 
 outcome :outcome_no_visa_needed do
   precalculate :no_visa_additional_sentence do

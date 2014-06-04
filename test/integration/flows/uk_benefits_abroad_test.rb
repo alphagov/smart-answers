@@ -12,12 +12,12 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     worldwide_api_has_locations %w(albania austria canada jamaica kosovo)
   end
 
-# Q1
+  # Q1
   should "ask if you are going abroad or are already abroad" do
     assert_current_node :going_or_already_abroad?
   end
 
-# Going abroad
+  # Going abroad
   context "when going abroad" do
     setup do
       add_response "going_abroad"
@@ -944,9 +944,9 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
   end
-# end Going Abroad
+  # end Going Abroad
 
-# Already abroad
+  # Already abroad
   context "already abroad" do
     setup do
       add_response "already_abroad"

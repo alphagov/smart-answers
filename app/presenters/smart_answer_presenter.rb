@@ -54,19 +54,19 @@ class SmartAnswerPresenter
   end
 
   def has_subtitle?
-    !! subtitle
+    !!subtitle
   end
 
   def has_body?
-    !! body
+    !!body
   end
 
   def has_devolved_body?
-    !! devolved_body
+    !!devolved_body
   end
 
   def has_meta_description?
-    !! lookup_translation('meta.description')
+    !!lookup_translation('meta.description')
   end
 
   def meta_description
@@ -100,28 +100,28 @@ class SmartAnswerPresenter
 
   def presenter_for(node)
     presenter_class = case node
-    when SmartAnswer::Question::OptionalDate
-      OptionalDateQuestionPresenter
-    when SmartAnswer::Question::Date
-      DateQuestionPresenter
-    when SmartAnswer::Question::CountrySelect
-      CountrySelectQuestionPresenter
-    when SmartAnswer::Question::MultipleChoice
-      MultipleChoiceQuestionPresenter
-    when SmartAnswer::Question::Checkbox
-      CheckboxQuestionPresenter
-    when SmartAnswer::Question::Value
-      ValueQuestionPresenter
-    when SmartAnswer::Question::Money
-      MoneyQuestionPresenter
-    when SmartAnswer::Question::Salary
-      SalaryQuestionPresenter
-    when SmartAnswer::Question::Base
-      QuestionPresenter
-    when SmartAnswer::Outcome
-      OutcomePresenter
-    else NodePresenter
-    end
+                      when SmartAnswer::Question::OptionalDate
+                        OptionalDateQuestionPresenter
+                      when SmartAnswer::Question::Date
+                        DateQuestionPresenter
+                      when SmartAnswer::Question::CountrySelect
+                        CountrySelectQuestionPresenter
+                      when SmartAnswer::Question::MultipleChoice
+                        MultipleChoiceQuestionPresenter
+                      when SmartAnswer::Question::Checkbox
+                        CheckboxQuestionPresenter
+                      when SmartAnswer::Question::Value
+                        ValueQuestionPresenter
+                      when SmartAnswer::Question::Money
+                        MoneyQuestionPresenter
+                      when SmartAnswer::Question::Salary
+                        SalaryQuestionPresenter
+                      when SmartAnswer::Question::Base
+                        QuestionPresenter
+                      when SmartAnswer::Outcome
+                        OutcomePresenter
+                      else NodePresenter
+                      end
     presenter_class.new(i18n_prefix, node, current_state)
   end
 

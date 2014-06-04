@@ -45,7 +45,6 @@ multiple_choice :amount_left_en_sco? do
     end
   end
 
-
   next_node do
     if where_lived == "england_or_wales"
       :done_eng_wales
@@ -90,7 +89,6 @@ multiple_choice :amount_left_ni? do
 
   next_node :done_ni
 end
-
 
 outcome :no_will_outcome
 outcome :no_executor_outcome

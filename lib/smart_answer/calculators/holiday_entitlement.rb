@@ -22,7 +22,6 @@ module SmartAnswer::Calculators
       (28 * fraction_of_year).round(10)
     end
 
-
     def casual_irregular_entitlement
       minutes = (5.6 / 46.4 * total_hours * 60).round(10)
       minutes.floor.divmod(60).map(&:floor)

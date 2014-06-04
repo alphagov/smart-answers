@@ -16,7 +16,6 @@ module SmartAnswer::Calculators
       end
     end
 
-
     context ".weekly_cost_from_monthly" do
       should "return the weekly cost based on the monthly cost" do
         assert_equal 14, ChildcareCostCalculator.weekly_cost_from_monthly(60)

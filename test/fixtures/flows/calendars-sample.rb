@@ -13,8 +13,8 @@ date_question :when_are_you_stopping? do
 end
 
 multiple_choice :do_you_want_a_calendar? do
-  option :yes => :date_ranges
-  option :no => :no_calendar
+  option yes: :date_ranges
+  option no: :no_calendar
 end
 
 outcome :date_ranges do

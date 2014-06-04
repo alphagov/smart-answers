@@ -4,13 +4,13 @@ satisfies_need "100242"
 ## Q1
 multiple_choice :what_type_of_vehicle? do
   option "car-or-light-vehicle" => :how_old_are_you? #Q3
-  option :motorcycle => :how_old_are_you_mb? #Q4
-  option :moped => :do_you_have_a_full_driving_licence? #Q9
+  option motorcycle: :how_old_are_you_mb? #Q4
+  option moped: :do_you_have_a_full_driving_licence? #Q9
   option "medium-sized-vehicle" => :do_you_have_a_full_cat_b_driving_licence? #Q12
   option "large-vehicle-or-lorry" => :how_old_are_you_lorry? #Q15
-  option :minibus => :when_was_licence_issued_psv? #Q18
-  option :bus => :full_cat_b_licence_bus? #Q21
-  option :tractor => :full_cat_b_licence_tractor? #Q23
+  option minibus: :when_was_licence_issued_psv? #Q18
+  option bus: :full_cat_b_licence_bus? #Q21
+  option tractor: :full_cat_b_licence_tractor? #Q23
   option "specialist-vehicle" => :full_cat_b_licence_sv? #Q25
   option "quad-bike" => :full_cat_b_licence_quad? #Q28
   option "trike" => :full_cat_b_licence_trike? # Q30
@@ -33,14 +33,14 @@ end
 
 ## Q4 Mopeds
 multiple_choice :do_you_have_a_full_driving_licence? do
-  option :yes => :licence_issued_before_2001? # Q10
-  option :no => :how_old_are_you_mpd? # Q11
+  option yes: :licence_issued_before_2001? # Q10
+  option no: :how_old_are_you_mpd? # Q11
 end
 
 ## Q5
 multiple_choice :licence_issued_before_2001? do
-  option :yes => :moped_entitlement_licence_pre_2001 # A13
-  option :no => :moped_entitlement_licence_post_2001 # A14
+  option yes: :moped_entitlement_licence_pre_2001 # A13
+  option no: :moped_entitlement_licence_post_2001 # A14
 end
 
 ## Q6
@@ -51,8 +51,8 @@ end
 
 ## Q7 Medium sized vehicles
 multiple_choice :do_you_have_a_full_cat_b_driving_licence? do
-  option :yes => :when_was_licence_issued? # Q13
-  option :no => :cat_b_licence_required # A20
+  option yes: :when_was_licence_issued? # Q13
+  option no: :cat_b_licence_required # A20
 end
 
 ## Q8
@@ -76,8 +76,8 @@ end
 
 ## Q11
 multiple_choice :do_you_have_a_full_cat_b_car_licence? do
-  option :yes => :apply_for_provisional_cat_c_entitlement #A23
-  option :no => :cat_b_driving_licence_required # A25
+  option yes: :apply_for_provisional_cat_c_entitlement #A23
+  option no: :cat_b_driving_licence_required # A25
 end
 
 ## Q12 Minibus PSV
@@ -88,20 +88,20 @@ end
 
 ## Q13
 multiple_choice :has_licence_been_replaced_psv? do
-  option :yes => :psv_renew_entitlement # A50
-  option :no => :psv_entitled # A26
+  option yes: :psv_renew_entitlement # A50
+  option no: :psv_entitled # A26
 end
 
 ## Q14
 multiple_choice :does_licence_show_d1_psv? do
-  option :yes => :psv_entitled # A26
-  option :no => :psv_entitled_cat_b # A51
+  option yes: :psv_entitled # A26
+  option no: :psv_entitled_cat_b # A51
 end
 
 ## Q15 Bus
 multiple_choice :full_cat_b_licence_bus? do
-  option :yes => :how_old_are_you_bus? # Q22
-  option :no => :bus_apply_for_cat_b # A33
+  option yes: :how_old_are_you_bus? # Q22
+  option no: :bus_apply_for_cat_b # A33
 end
 
 ## Q16
@@ -112,8 +112,8 @@ end
 
 ## Q17 Tractor
 multiple_choice :full_cat_b_licence_tractor? do
-  option :yes => :tractor_entitled # A34
-  option :no => :how_old_are_you_tractor? # Q24
+  option yes: :tractor_entitled # A34
+  option no: :how_old_are_you_tractor? # Q24
 end
 
 ## Q18
@@ -125,8 +125,8 @@ end
 
 ## Q19 Specialist vehicles
 multiple_choice :full_cat_b_licence_sv? do
-  option :yes => :how_old_are_you_licence_sv? # Q26
-  option :no => :how_old_are_you_no_licence_sv? # Q27
+  option yes: :how_old_are_you_licence_sv? # Q26
+  option no: :how_old_are_you_no_licence_sv? # Q27
 end
 
 ## Q20
@@ -145,8 +145,8 @@ end
 
 ## Q22 Quad bikes and 4-wheeled light vehicles
 multiple_choice :full_cat_b_licence_quad? do
-  option :yes => :quad_entitled # A44
-  option :no => :how_old_are_you_quad? # Q29
+  option yes: :quad_entitled # A44
+  option no: :how_old_are_you_quad? # Q29
 end
 
 ## Q23
@@ -158,8 +158,8 @@ end
 
 ## Q24 Motor tricycle
 multiple_choice :full_cat_b_licence_trike? do
-  option :yes => :trike_entitled
-  option :no => :trike_conditional_entitlement
+  option yes: :trike_entitled
+  option no: :trike_conditional_entitlement
 end
 
 outcome :not_old_enough # A1

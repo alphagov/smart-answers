@@ -10,21 +10,21 @@ date_question :dob_age? do
 
   save_input_as :date_of_birth
 
-	next_node do |response|
+  next_node do |response|
     dob = Date.parse(response)
-		if (dob < (Date.parse('2015-10-12') - 101.years))
-			:outcome_age_limit_reached_birth
-		elsif (dob > Date.parse('1953-04-06'))
+    if (dob < (Date.parse('2015-10-12') - 101.years))
+      :outcome_age_limit_reached_birth
+    elsif (dob > Date.parse('1953-04-06'))
       :outcome_pension_age_not_reached
     else
-			:how_much_extra_per_week?
-		end
-	end
+      :how_much_extra_per_week?
+    end
+  end
 end
 
 #Q2
 money_question :how_much_extra_per_week? do
-	save_input_as :money_wanted
+  save_input_as :money_wanted
 
   calculate :integer_value do
     money = responses.last.to_f
@@ -89,7 +89,7 @@ end
 outcome :outcome_qualified_for_top_up_calculations do
 
   precalculate :weekly_amount do
-    sprintf("%.0f",money_wanted)
+    sprintf("%.0f", money_wanted)
   end
 
   precalculate :rate_at_time_of_paying do

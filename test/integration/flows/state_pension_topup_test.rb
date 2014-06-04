@@ -113,7 +113,6 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     end
   end
 
-
   context "Check if a 63 years WOMAN is allowed to use the tool" do
     setup do
       add_response Date.parse('1953-02-02')

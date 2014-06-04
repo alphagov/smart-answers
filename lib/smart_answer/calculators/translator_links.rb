@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
     end
 
     def self.translator_links
-      @links ||= YAML.load_file(Rails.root.join("lib","data","translators.yml"))
+      @links ||= YAML.load_file(Rails.root.join("lib", "data", "translators.yml"))
     end
   end
 end

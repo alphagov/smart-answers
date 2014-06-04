@@ -6,16 +6,16 @@ class PlanMaternityLeaveTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   context "test baby due in 3 months and leave 2 weeks before" do
-  	setup do
-	    setup_for_testing_flow 'plan-maternity-leave'
-	  end
+    setup do
+      setup_for_testing_flow 'plan-maternity-leave'
+    end
 
-  	should "start on the baby_due_date? question" do
-  		assert_current_node :baby_due_date?
-  	end
+    should "start on the baby_due_date? question" do
+      assert_current_node :baby_due_date?
+    end
 
-  	should "no error on over 9 months" do
-  		add_response 1.years.since
+    should "no error on over 9 months" do
+      add_response 1.years.since
       assert_state_variable :baby_due_date, 1.years.since.to_date
       assert_current_node :leave_start?
     end
@@ -23,18 +23,18 @@ class PlanMaternityLeaveTest < ActiveSupport::TestCase
     should "no error on due_date before today" do
       add_response 3.months.ago
       assert_current_node :leave_start?
-  	end
+    end
 
-  	context "set 3 months to baby_due_date" do
-  		setup do
-		  	add_response 3.months.since
-		  end
-  		
-  		should "be on leave_start?" do
-	  		assert_current_node :leave_start?
-	  	end
+    context "set 3 months to baby_due_date" do
+      setup do
+        add_response 3.months.since
+      end
 
-	  	context "test leave_start?" do
+      should "be on leave_start?" do
+        assert_current_node :leave_start?
+      end
+
+      context "test leave_start?" do
         should "2 weeks before due_date go to outcome" do
           add_response 2.weeks.ago(3.months.since)
           assert_current_node :maternity_leave_details
@@ -60,7 +60,7 @@ class PlanMaternityLeaveTest < ActiveSupport::TestCase
           add_response week_start_for_leave_date
           assert_current_node :maternity_leave_details
         end
-  		end
+      end
     end
   end
 end

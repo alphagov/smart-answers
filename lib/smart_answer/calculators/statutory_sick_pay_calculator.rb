@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
       count += 1 if start_date.day < 17
       count += 1 if end_date.day > 15
       while current_month.month != end_month
-        count +=1
+        count += 1
         current_month = current_month.next_month
       end
       count
@@ -81,7 +81,7 @@ module SmartAnswer::Calculators
       # we need to calculate the daily rate by truncating to four decimal places to match unrounded daily rates used by HMRC
       # doing .round(6) after multiplication to avoid float precision issues
       # Simply using .round(4) on ssp_weekly_rate/@pattern_days will be off by 0.0001 for 3 and 7 pattern days and lead to 1p difference in some statutory amount calculations
-      pattern_days > 0 ? ((((weekly_rate / pattern_days) * 10000).round(6).floor)/10000.0) : 0.0000
+      pattern_days > 0 ? ((((weekly_rate / pattern_days) * 10000).round(6).floor) / 10000.0) : 0.0000
     end
 
     def max_days_that_can_be_paid
@@ -178,7 +178,7 @@ module SmartAnswer::Calculators
     def find_6th_april_after(date)
       year = date.year
       if (date.month > 4) or (date.month == 4 and date.day > 6)
-        year +=1
+        year += 1
       end
       Date.new(year, 4, 6)
     end

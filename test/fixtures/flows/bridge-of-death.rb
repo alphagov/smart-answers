@@ -25,9 +25,9 @@ value_question :what_is_the_capital_of_assyria? do
 end
 
 multiple_choice :what_is_your_favorite_colour? do
-  option :blue => :done
-  option :blue_no_yellow => :auuuuuuuugh
-  option :red => :done
+  option blue: :done
+  option blue_no_yellow: :auuuuuuuugh
+  option red: :done
 end
 
 outcome :done

@@ -4,7 +4,7 @@ class GraphPresenter
   end
 
   def labels
-    Hash[@flow.nodes.map { |node| [node.name, graph_label_text(node)]} ]
+    Hash[@flow.nodes.map { |node| [node.name, graph_label_text(node)]}]
   end
 
   def adjacency_list
@@ -56,7 +56,7 @@ private
     text
   end
 
-  def word_wrap(text, line_width=40)
+  def word_wrap(text, line_width = 40)
     text.split("\n").collect! do |line|
       line.length > line_width ? line.gsub(/(.{1,#{line_width}})(\s+|$)/, "\\1\n").strip : line
     end * "\n"

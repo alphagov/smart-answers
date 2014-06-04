@@ -14,7 +14,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       assert_current_node :what_are_you_looking_for?
     end
 
-# help with fuel bills (bills_help)
+    # help with fuel bills (bills_help)
     context "answer 'help with fuel bill" do
       setup do
         add_response :help_with_fuel_bill
@@ -223,7 +223,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
     end # END help with fuel bills (help_with_bills)
 
-# help to make home more energy efficient (measure_help)
+    # help to make home more energy efficient (measure_help)
     context "answer 'help to make home more energy efficient" do
       setup do
         add_response :help_energy_efficiency
@@ -349,7 +349,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
                   end
                   should "take you to measures_help and eco_eligible outcome" do
                     assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
-                    assert_phrase_list :eligibilities, [:header_boilers_and_insulation,:opt_cavity_wall_insulation, :opt_solid_wall_insulation, :opt_draught_proofing, :opt_under_floor_insulation, :opt_eco_help, :header_heating, :opt_better_heating_controls, :opt_heat_pump, :opt_biomass_boilers_heaters, :opt_solar_water_heating, :header_windows_and_doors, :opt_replacement_glazing, :opt_renewal_heat, :help_and_advice, :help_and_advice_body]
+      assert_phrase_list :eligibilities, [:header_boilers_and_insulation, :opt_cavity_wall_insulation, :opt_solid_wall_insulation, :opt_draught_proofing, :opt_under_floor_insulation, :opt_eco_help, :header_heating, :opt_better_heating_controls, :opt_heat_pump, :opt_biomass_boilers_heaters, :opt_solar_water_heating, :header_windows_and_doors, :opt_replacement_glazing, :opt_renewal_heat, :help_and_advice, :help_and_advice_body]
 
                     assert_state_variable :opt_fan_assisted_heater, nil
                     assert_state_variable :opt_warm_air_unit, nil
@@ -535,7 +535,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
                 end
                 should "take you to measures help and eco eligible outcome" do
                   assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
-                  assert_phrase_list :eligibilities, [:header_boilers_and_insulation,:opt_cavity_wall_insulation, :opt_solid_wall_insulation, :opt_draught_proofing, :opt_loft_roof_insulation, :opt_under_floor_insulation, :opt_eco_help, :header_heating, :opt_better_heating_controls, :opt_heat_pump, :opt_biomass_boilers_heaters, :opt_solar_water_heating, :header_windows_and_doors, :opt_replacement_glazing, :opt_renewal_heat, :help_and_advice, :help_and_advice_body]
+    assert_phrase_list :eligibilities, [:header_boilers_and_insulation, :opt_cavity_wall_insulation, :opt_solid_wall_insulation, :opt_draught_proofing, :opt_loft_roof_insulation, :opt_under_floor_insulation, :opt_eco_help, :header_heating, :opt_better_heating_controls, :opt_heat_pump, :opt_biomass_boilers_heaters, :opt_solar_water_heating, :header_windows_and_doors, :opt_replacement_glazing, :opt_renewal_heat, :help_and_advice, :help_and_advice_body]
                 end
               end
             end
@@ -544,7 +544,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
     end
 
-# help with a new boiler or other measures (measure_help)
+    # help with a new boiler or other measures (measure_help)
     context "answer 'help with a new boiler, insulation or other measure" do
       setup do
         add_response :help_boiler_measure
@@ -580,7 +580,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
               should "take you to measure help & eco eligible outcome with mains gas variants" do
                 assert_current_node :outcome_measures_help_green_deal
                 assert_phrase_list :title_end, [:title_under_green_deal]
-                assert_phrase_list :eligibilities, [:header_boilers_and_insulation, :opt_condensing_boiler, :opt_cavity_wall_insulation, :opt_solid_wall_insulation, :opt_draught_proofing, :opt_loft_roof_insulation, :header_heating, :opt_better_heating_controls,:header_windows_and_doors, :opt_replacement_glazing, :opt_renewal_heat, :help_and_advice, :help_and_advice_body]
+  assert_phrase_list :eligibilities, [:header_boilers_and_insulation, :opt_condensing_boiler, :opt_cavity_wall_insulation, :opt_solid_wall_insulation, :opt_draught_proofing, :opt_loft_roof_insulation, :header_heating, :opt_better_heating_controls, :header_windows_and_doors, :opt_replacement_glazing, :opt_renewal_heat, :help_and_advice, :help_and_advice_body]
 
                 assert_state_variable :opt_fan_assisted_heater, nil
                 assert_state_variable :opt_warm_air_unit, nil
@@ -600,7 +600,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
     end
 
-# all types of help (both_help)
+    # all types of help (both_help)
     context "answer 'all of the above" do
       setup do
         add_response :all_help
@@ -740,7 +740,6 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
           assert_phrase_list :title_end, [:title_energy_supplier]
           assert_phrase_list :eligibilities, [:header_boilers_and_insulation, :opt_condensing_boiler, :opt_under_floor_insulation, :opt_eco_help, :header_heating, :opt_better_heating_controls, :header_windows_and_doors, :opt_replacement_glazing, :opt_renewal_heat, :help_and_advice, :help_and_advice_body]
 
-
           assert_state_variable :opt_fan_assisted_heater, nil
           assert_state_variable :opt_warm_air_unit, nil
           assert_state_variable :header_hot_water_cyclinder_jacket, nil
@@ -757,7 +756,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
     end
 
-# test for incomesupp_jobseekers_2
+    # test for incomesupp_jobseekers_2
     context "test that incomesupp_jobseekers_2 is being calculated correctly at Q4" do
       setup do
         add_response 'all_help'
@@ -771,7 +770,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
     end
 
-# test for mutually exclusive options in Q2
+    # test for mutually exclusive options in Q2
     context "check that mutually exclusive answers can't be selected in Q2" do
       setup do
         add_response 'help_with_fuel_bill'
@@ -794,7 +793,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
     end
 
-# test for help with bills outcome variations
+    # test for help with bills outcome variations
     context "winter fuel payment, benfits = pension credit" do
       setup do
         add_response 'help_with_fuel_bill'
@@ -870,7 +869,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
       end
     end
 
-# test for measure_help green deal outcomes
+    # test for measure_help green deal outcomes
     context "circumstances = none, modern house, no features" do
       setup do
         add_response 'help_boiler_measure'
@@ -923,7 +922,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
         assert_state_variable :opt_solar, nil
       end
     end
-# test for flat, modern with mains gas and electric heating
+    # test for flat, modern with mains gas and electric heating
     context "no circumstances, modern flat, mains gas and electricity" do
       setup do
         add_response 'all_help'
@@ -940,7 +939,6 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
         assert_phrase_list :eligibilities, [:help_and_advice_body]
       end
     end
-
 
     # test for measure_help green deal outcomes with top floor flat with loft attic conversion
     context "circumstances = none, modern house, no features" do
@@ -985,8 +983,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
         assert_state_variable :property_type, "flat"
         assert_current_node :outcome_measures_help_green_deal
         assert_phrase_list :title_end, [:title_under_green_deal]
-        assert_phrase_list :eligibilities, [:header_boilers_and_insulation, :opt_condensing_boiler, :opt_cavity_wall_insulation, :opt_solid_wall_insulation, :opt_draught_proofing,:opt_room_roof_insulation, :opt_under_floor_insulation, :header_heating, :opt_better_heating_controls, :opt_heat_pump, :opt_biomass_boilers_heaters, :opt_solar_water_heating, :header_windows_and_doors, :opt_replacement_glazing, :opt_renewal_heat, :help_and_advice, :help_and_advice_body]
-
+ assert_phrase_list :eligibilities, [:header_boilers_and_insulation, :opt_condensing_boiler, :opt_cavity_wall_insulation, :opt_solid_wall_insulation, :opt_draught_proofing, :opt_room_roof_insulation, :opt_under_floor_insulation, :header_heating, :opt_better_heating_controls, :opt_heat_pump, :opt_biomass_boilers_heaters, :opt_solar_water_heating, :header_windows_and_doors, :opt_replacement_glazing, :opt_renewal_heat, :help_and_advice, :help_and_advice_body]
 
         assert_state_variable :opt_loft_roof_insulation, nil
         assert_state_variable :opt_fan_assisted_heater, nil

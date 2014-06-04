@@ -72,7 +72,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         setup do
           @dd = Date.parse("21 November 2012")
           #FIXME qw should be 15 weeks before due date...
-          @qw = 15.weeks.ago(@dd - @dd.wday)..15.weeks.ago((@dd-@dd.wday)+6)
+   @qw = 15.weeks.ago(@dd - @dd.wday)..15.weeks.ago((@dd - @dd.wday) + 6)
           add_response @dd
         end
         ## QM2
@@ -114,12 +114,12 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   assert_current_node :last_normal_payday?
                 end
                 should "be wrong as lastpayday is after" do
-                  add_response @qw.last+2
+                  add_response @qw.last + 2
                   assert_current_node_is_error
                 end
                 context "answer 2 days before Saturday of qualifying week" do
                   setup do
-                    add_response @qw.last-2
+                    add_response @qw.last - 2
                   end
                   ## QM5.3
                   should "ask when before lastpayday I was paid" do
@@ -576,7 +576,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
     end # April 9th
   end # Maternity
 
-
   ##
   ## Paternity flow
   ##
@@ -694,7 +693,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                             #FIXME assert_state_variable "relevant_period", @relevant_period
                             #FIXME assert_state_variable "employment_start", 26.weeks.ago(expected_start)
                             assert_state_variable "employment_end", @pat_due_date
-                            assert_state_variable "spp_rate", sprintf("%.2f",136.78)
+       assert_state_variable "spp_rate", sprintf("%.2f", 136.78)
                           end
 
                           should "display employee is entitled to pay" do
@@ -707,7 +706,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                           setup { add_response 120.25 }
 
                           should "calculate dates and pay amounts" do
-                            assert_state_variable "spp_rate", sprintf("%.2f",108.23)
+                            assert_state_variable "spp_rate", sprintf("%.2f", 108.23)
                             assert_current_node :paternity_leave_and_pay
                           end
                         end
@@ -824,7 +823,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
         end #due date 3 months from now
       end #QP0 - no
 
-
       ##
       ## Paternity - Adoption
       ##
@@ -867,7 +865,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
                 # QAP5
                 should "ask if employee has an employment contract" do
-                   assert_current_node :padoption_have_employee_contract?
+                  assert_current_node :padoption_have_employee_contract?
                 end
 
                 context "answer yes" do
@@ -879,7 +877,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
                   # QAP6
                   should "ask if employee will be employed at employment_end" do
-                     assert_current_node :padoption_employed_at_employment_end?
+                    assert_current_node :padoption_employed_at_employment_end?
                   end
 
                   context "answer yes" do
@@ -887,7 +885,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
 
                     # QAP7
                     should "ask if employee is on payroll" do
-                       assert_current_node :padoption_employee_on_payroll?
+                      assert_current_node :padoption_employee_on_payroll?
                     end
 
                     context "answer yes" do
@@ -931,7 +929,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                               #FIXME assert_state_variable "relevant_period", @relevant_period
                               #FIXME assert_state_variable "employment_start", 26.weeks.ago(expected_start)
                               assert_state_variable "employment_end", @pat_adoption_match
-                              assert_state_variable "sapp_rate", sprintf("%.2f",136.78)
+         assert_state_variable "sapp_rate", sprintf("%.2f", 136.78)
                             end
 
                             should "display pay info" do
@@ -994,7 +992,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                   #TODO: complete this flow with different pay scenarios
                 end
 
-
               end
 
               context "answer no" do
@@ -1022,8 +1019,6 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
       end #QP0 - yes
     end # Date 9th April
   end # Paternity flow
-
-
 
   ##
   ## Adoption flow
@@ -1200,7 +1195,7 @@ class MaternityPaternityCalculatorTest < ActiveSupport::TestCase
                       end
                       context "answer below the lower earning limit" do
                         should "state they are not entitled to leave and not entitled to pay" do
-                         add_response 100
+                          add_response 100
                           assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
                           assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :adoption_not_entitled_to_pay_outro]
                           assert_current_node :adoption_leave_and_pay

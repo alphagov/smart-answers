@@ -3,7 +3,6 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
-
 class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
@@ -386,12 +385,12 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   end
 end
     context "testing outcome visit waiver" do
-      setup do
-        add_response 'oman'
-        add_response 'medical'
-      end
+    setup do
+      add_response 'oman'
+      add_response 'medical'
+    end
       should "take you to outcome visit waiver" do
-        assert_current_node :outcome_visit_waiver
+      assert_current_node :outcome_visit_waiver
         assert_phrase_list :if_exception, [:electronic_visa_waiver]
     end
   end
@@ -472,7 +471,6 @@ end
     end #end canada work reason
   end #end canada - NON visa country
 
-
   #testing armenia - visa national outcome - study AND work
   context "testing armenia" do
     setup do
@@ -522,7 +520,7 @@ end
       add_response 'six_months_or_less'
     end
       should "take you to outcome work_m" do
-        assert_current_node :outcome_work_n
+      assert_current_node :outcome_work_n
     end
   end
 
@@ -533,7 +531,7 @@ end
       add_response 'six_months_or_less'
     end
       should "take you to outcome taiwan exception" do
-        assert_current_node :outcome_taiwan_exception
+      assert_current_node :outcome_taiwan_exception
     end
   end
 
@@ -543,7 +541,7 @@ end
       add_response 'tourism'
     end
       should "take you to outcome taiwan exception" do
-        assert_current_node :outcome_taiwan_exception
+      assert_current_node :outcome_taiwan_exception
     end
   end
 
@@ -553,7 +551,7 @@ end
       add_response 'school'
     end
       should "take you to outcome taiwan exception" do
-        assert_current_node :outcome_taiwan_exception
+      assert_current_node :outcome_taiwan_exception
     end
   end
 
@@ -563,7 +561,7 @@ end
       add_response 'medical'
     end
       should "take you to outcome taiwan exception" do
-        assert_current_node :outcome_taiwan_exception
+      assert_current_node :outcome_taiwan_exception
     end
   end
   context "outcome taiwan exception transit" do
@@ -638,4 +636,3 @@ end
     end
   end
 end
-

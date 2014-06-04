@@ -8,7 +8,7 @@ module SmartAnswer
     end
 
     def +(phrase_key)
-      PhraseList.new( *phrase_keys + [ phrase_key ] )
+      PhraseList.new(*phrase_keys + [phrase_key])
     end
 
     def <<(phrase_key)

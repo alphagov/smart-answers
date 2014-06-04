@@ -104,7 +104,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 should "calculate allowance using calculators" do
                   SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
                     expects(:calculate_adjusted_net_income).
-                    with(30000.0,1000.0,500.0,100.0).
+      with(30000.0, 1000.0, 500.0, 100.0).
                     returns("Adjusted net income")
 
                   SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
@@ -132,7 +132,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
           end # paying 0 before tax
 
-
           context "paying a greater amount into a pension than income" do
             setup do
               add_response "40000"
@@ -147,7 +146,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             should "calculate allowance using calculators" do
               SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_adjusted_net_income).
-                with(30000.0,40000.0,0,0).
+  with(30000.0, 40000.0, 0, 0).
                 returns("Adjusted net income")
 
               SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
@@ -186,7 +185,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             should "calculate allowance using calculators" do
               SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_adjusted_net_income).
-                with(30000.0,0,0,100.0).
+  with(30000.0, 0, 0, 100.0).
                 returns("Adjusted net income")
 
               SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
@@ -214,7 +213,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             should "calculate allowance using calculators" do
               SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_adjusted_net_income).
-                with(30000.0,0,0,0).
+  with(30000.0, 0, 0, 0).
                 returns("Adjusted net income")
 
               SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
@@ -320,7 +319,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 should "calculate allowance using calculators" do
                   SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
                     expects(:calculate_adjusted_net_income).
-                    with(30000.0,1000.0,500.0,100.0).
+      with(30000.0, 1000.0, 500.0, 100.0).
                     returns("Adjusted net income")
 
                   SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
@@ -370,7 +369,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             should "calculate allowance using calculators" do
               SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_adjusted_net_income).
-                with(30000.0,0,0,100.0).
+  with(30000.0, 0, 0, 100.0).
                 returns("Adjusted net income")
 
               SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
@@ -398,7 +397,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             should "calculate allowance using calculators" do
               SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_adjusted_net_income).
-                with(30000.0,0,0,0).
+  with(30000.0, 0, 0, 0).
                 returns("Adjusted net income")
 
               SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
@@ -471,6 +470,5 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
       end
     end
   end
-
 
 end

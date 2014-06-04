@@ -5,15 +5,15 @@ decision_appeal_limit_in_months = 13
 
 # Q1
 multiple_choice :already_appealed_the_decision? do
-  option :yes => :problem_with_tribunal_proceedure?
-  option :no => :date_of_decision_letter?
+  option yes: :problem_with_tribunal_proceedure?
+  option no: :date_of_decision_letter?
 end
 
 # Q2
 multiple_choice :problem_with_tribunal_proceedure? do
-  option :missing_doc_or_not_present => :you_can_challenge_decision #A1
-  option :mistake_in_law => :can_appeal_to_upper_tribunal #A2
-  option :none => :cant_challenge_or_appeal #A3
+  option missing_doc_or_not_present: :you_can_challenge_decision #A1
+  option mistake_in_law: :can_appeal_to_upper_tribunal #A2
+  option none: :cant_challenge_or_appeal #A3
 end
 
 # Q3
@@ -132,22 +132,22 @@ end
 
 # Q7
 multiple_choice :special_circumstances? do
-  option :yes => :asked_to_reconsider?
-  option :no => :cant_appeal
+  option yes: :asked_to_reconsider?
+  option no: :cant_appeal
 end
 
 # Q8
 multiple_choice :asked_to_reconsider? do
-  option :yes => :kind_of_benefit_or_credit?
-  option :no => :ask_to_reconsider
+  option yes: :kind_of_benefit_or_credit?
+  option no: :ask_to_reconsider
 end
 
 # Q9
 multiple_choice :kind_of_benefit_or_credit? do
-  option :budgeting_loan => :apply_to_the_independent_review_service
-  option :housing_benefit => :appeal_to_your_council
-  option :child_benefit => :appeal_to_hmrc_ch24a
-  option :other_credit_or_benefit => :appeal_to_social_security
+  option budgeting_loan: :apply_to_the_independent_review_service
+  option housing_benefit: :appeal_to_your_council
+  option child_benefit: :appeal_to_hmrc_ch24a
+  option other_credit_or_benefit: :appeal_to_social_security
 end
 
 outcome :you_can_challenge_decision #A1

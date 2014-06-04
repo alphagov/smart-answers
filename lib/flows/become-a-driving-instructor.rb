@@ -2,8 +2,8 @@ status :published
 satisfies_need "100997"
 
 multiple_choice :are_you_21_or_over? do
-  option :yes => :have_you_had_licence_for_3_years?
-  option :no => :not_old_enough
+  option yes: :have_you_had_licence_for_3_years?
+  option no: :not_old_enough
 
   calculate :content_sections do
     if responses.last == 'no'
@@ -13,8 +13,8 @@ multiple_choice :are_you_21_or_over? do
 end
 
 multiple_choice :have_you_had_licence_for_3_years? do
-  option :yes => :are_you_driving_instructor_in_ec_country?
-  option :no => :havent_had_licence_for_long_enough
+  option yes: :are_you_driving_instructor_in_ec_country?
+  option no: :havent_had_licence_for_long_enough
 
   calculate :content_sections do
     if responses.last == 'no'
@@ -24,8 +24,8 @@ multiple_choice :have_you_had_licence_for_3_years? do
 end
 
 multiple_choice :are_you_driving_instructor_in_ec_country? do
-  option :yes => :can_apply_to_transfer_registration
-  option :no => :have_you_been_disqualified_or_6_points?
+  option yes: :can_apply_to_transfer_registration
+  option no: :have_you_been_disqualified_or_6_points?
 
   calculate :content_sections do
     if responses.last == 'yes'
@@ -35,8 +35,8 @@ multiple_choice :are_you_driving_instructor_in_ec_country? do
 end
 
 multiple_choice :have_you_been_disqualified_or_6_points? do
-  option :yes => :can_start_process_of_applying
-  option :no => :what_licence_type?
+  option yes: :can_start_process_of_applying
+  option no: :what_licence_type?
 
   calculate :content_sections do
     if responses.last == 'yes'
@@ -46,19 +46,19 @@ multiple_choice :have_you_been_disqualified_or_6_points? do
 end
 
 multiple_choice :what_licence_type? do
-  option :manual => :non_motoring_offences?
-  option :automatic => :because_of_disability?
+  option manual: :non_motoring_offences?
+  option automatic: :because_of_disability?
 end
 
 multiple_choice :because_of_disability? do
-  option :yes => :non_motoring_offences?
-  option :no => :cant_because_limited_licence
+  option yes: :non_motoring_offences?
+  option no: :cant_because_limited_licence
 
   calculate :disabled_driver do
     responses.last == 'yes'
   end
   calculate :content_sections do
-    if ! disabled_driver
+    if !disabled_driver
       PhraseList.new :ADI_required_legal_warning, :acronym_definitions
     end
   end

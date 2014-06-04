@@ -3,7 +3,6 @@ satisfies_need "100143"
 
 calculator = Calculators::AgriculturalHolidayEntitlementCalculator.new()
 
-
 multiple_choice :work_the_same_number_of_days_each_week? do
   option "same-number-of-days" => :how_many_days_per_week?
   option "different-number-of-days" => :what_date_does_holiday_start?

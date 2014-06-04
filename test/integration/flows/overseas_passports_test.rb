@@ -3,7 +3,6 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
-
 class OverseasPassportsTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
@@ -80,7 +79,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
-          assert_phrase_list :how_long_it_takes, [:how_long_14_weeks,:report_loss_or_theft, :how_long_it_takes_ips3]
+   assert_phrase_list :how_long_it_takes, [:how_long_14_weeks, :report_loss_or_theft, :how_long_it_takes_ips3]
         end
       end
     end
@@ -1126,7 +1125,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
     end
   end
-#china
+  #china
   context "answer china, test time phrase" do
     setup do
       worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))

@@ -10,7 +10,7 @@ module SmartAnswer
     end
 
     def date(name, date_or_range)
-      @dates << OpenStruct.new(:title => name, :date => date_or_range)
+      @dates << OpenStruct.new(title: name, date: date_or_range)
     end
 
     def path

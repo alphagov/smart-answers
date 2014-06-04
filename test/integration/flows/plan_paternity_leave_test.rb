@@ -6,34 +6,33 @@ class PlanPaternityLeaveTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   context "test baby due in 3 months and leave 2 weeks before" do
-  	setup do
-	    setup_for_testing_flow 'plan-paternity-leave'
-	  end
+    setup do
+      setup_for_testing_flow 'plan-paternity-leave'
+    end
 
-  	should "start on the baby_due_date? question" do
-  		assert_current_node :baby_due_date?
-  	end
+    should "start on the baby_due_date? question" do
+      assert_current_node :baby_due_date?
+    end
 
-  	should "no error on over 9 months" do
-  		add_response 1.years.since
-  		assert_current_node :leave_duration?
+    should "no error on over 9 months" do
+      add_response 1.years.since
+      assert_current_node :leave_duration?
     end
 
     should "no error on due_date before today" do
       add_response 3.months.ago
       assert_current_node :leave_duration?
-  	end
+    end
 
     context "set 3 months to baby_due_date" do
-  		setup do
-		  	@due_date = 3.months.since
+      setup do
+        @due_date = 3.months.since
         add_response @due_date
-		  end
-  		
+      end
+
       should "be on leave_duration?" do
         assert_current_node :leave_duration?
       end
-
 
       context "set one week leave" do
         setup do
@@ -44,7 +43,7 @@ class PlanPaternityLeaveTest < ActiveSupport::TestCase
           assert_current_node :leave_start?
           assert_state_variable "leave_duration", 1
           # FIXME:
-	  #assert_state_variable "potential_leave", "11 January 2013 to 01 March 2013"
+   #assert_state_variable "potential_leave", "11 January 2013 to 01 March 2013"
         end
         should "succeed on 7 weeks" do
           add_response 7.weeks.since(@due_date)
@@ -91,13 +90,13 @@ class PlanPaternityLeaveTest < ActiveSupport::TestCase
           assert_current_node :paternity_leave_details
         end
 
-  	  	context "set 2 weeks to leave_start?" do
-  	  		setup {add_response 2.weeks.since(@due_date)}
-  	  		should "go to outcome" do
-  	  			assert_current_node :paternity_leave_details
-  	  		end
-    		end
+ context "set 2 weeks to leave_start?" do
+   setup {add_response 2.weeks.since(@due_date)}
+   should "go to outcome" do
+     assert_current_node :paternity_leave_details
+   end
+ end
       end
-	  end
+    end
   end
 end

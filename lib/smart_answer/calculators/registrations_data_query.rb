@@ -29,7 +29,6 @@ module SmartAnswer::Calculators
 
     ORU_DOCUMENTS_VARIANT_COUNTRIES = %w(belgium france italy netherlands portugal spain united-arab-emirates)
 
-
     attr_reader :data
 
     def initialize

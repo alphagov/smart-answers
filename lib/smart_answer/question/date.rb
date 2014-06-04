@@ -85,29 +85,29 @@ module SmartAnswer
 
       def parse_input(input)
         date = case input
-        when Hash, ActiveSupport::HashWithIndifferentAccess
-          input = input.symbolize_keys
-          expected_keys = []
-          expected_keys << :day unless defaulted_day?
-          expected_keys << :month unless defaulted_month?
-          expected_keys << :year unless defaulted_year?
-          expected_keys.each do |k|
-            raise InvalidResponse, "Please enter a complete date", caller unless input[k].present?
-          end
-          day = (default_day || input[:day]).to_i
-          month = (default_month || input[:month]).to_i
-          year = (default_year || input[:year]).to_i
-          ::Date.new(year, month, day)
-        when String
-          ::Date.parse(input)
-        when ::Date
-          input
-        else
-          raise InvalidResponse, "Bad date", caller
-        end
+               when Hash, ActiveSupport::HashWithIndifferentAccess
+                 input = input.symbolize_keys
+                 expected_keys = []
+                 expected_keys << :day unless defaulted_day?
+                 expected_keys << :month unless defaulted_month?
+                 expected_keys << :year unless defaulted_year?
+                 expected_keys.each do |k|
+                 raise InvalidResponse, "Please enter a complete date", caller unless input[k].present?
+               end
+               day = (default_day || input[:day]).to_i
+               month = (default_month || input[:month]).to_i
+               year = (default_year || input[:year]).to_i
+               ::Date.new(year, month, day)
+               when String
+                 ::Date.parse(input)
+               when ::Date
+                 input
+               else
+                 raise InvalidResponse, "Bad date", caller
+               end
         date.strftime('%Y-%m-%d')
-      rescue
-        raise InvalidResponse, "Bad date: #{input.inspect}", caller
+        rescue
+          raise InvalidResponse, "Bad date: #{input.inspect}", caller
       end
 
       def to_response(input)

@@ -20,7 +20,7 @@ class StatePensionQuery < Struct.new(:dob, :gender)
   end
 
   def run
-    state_pension_dates.find{|p| p.match?(dob, gender)}
+    state_pension_dates.find {|p| p.match?(dob, gender)}
   end
 
   # Handle the case where the person's d.o.b. is 29th Feb
@@ -46,22 +46,22 @@ class StatePensionQuery < Struct.new(:dob, :gender)
 
   def pension_dates_dynamic
     [
-      StatePensionDate.new(:female, Date.new(1890,1,1), Date.new(1950, 4, 5), 60.years.since(dob)),
-      StatePensionDate.new(:male, Date.new(1890,1,1), Date.new(1953, 12, 5), 65.years.since(dob)),
-      StatePensionDate.new(:both, Date.new(1954,10,6), Date.new(1960, 4, 5), 66.years.since(dob)),
-      StatePensionDate.new(:both, Date.new(1960,4,6), Date.new(1960, 5, 5), 66.years.since(dob) + 1.month),
-      StatePensionDate.new(:both, Date.new(1960,5,6), Date.new(1960, 6, 5), 66.years.since(dob) + 2.months),
-      StatePensionDate.new(:both, Date.new(1960,6,6), Date.new(1960, 7, 5), 66.years.since(dob) + 3.months),
-      StatePensionDate.new(:both, Date.new(1960,7,6), Date.new(1960, 8, 5), 66.years.since(dob) + 4.months),
-      StatePensionDate.new(:both, Date.new(1960,8,6), Date.new(1960, 9, 5), 66.years.since(dob) + 5.months),
-      StatePensionDate.new(:both, Date.new(1960,9,6), Date.new(1960, 10, 5), 66.years.since(dob) + 6.months),
-      StatePensionDate.new(:both, Date.new(1960,10,6), Date.new(1960, 11, 5), 66.years.since(dob) + 7.months),
-      StatePensionDate.new(:both, Date.new(1960,11,6), Date.new(1960, 12, 5), 66.years.since(dob) + 8.months),
-      StatePensionDate.new(:both, Date.new(1960,12,6), Date.new(1961, 1, 5), 66.years.since(dob) + 9.months),
-      StatePensionDate.new(:both, Date.new(1961,1,6), Date.new(1961, 2, 5), 66.years.since(dob) + 10.months),
-      StatePensionDate.new(:both, Date.new(1961,2,6), Date.new(1961, 3, 5), 66.years.since(dob) + 11.months),
-      StatePensionDate.new(:both, Date.new(1961,3,6), Date.new(1977, 4, 5), 67.years.since(dob)),
-      StatePensionDate.new(:both, Date.new(1978,4,6), Date.today + 1, 68.years.since(dob))
+      StatePensionDate.new(:female, Date.new(1890, 1, 1), Date.new(1950, 4, 5), 60.years.since(dob)),
+      StatePensionDate.new(:male, Date.new(1890, 1, 1), Date.new(1953, 12, 5), 65.years.since(dob)),
+      StatePensionDate.new(:both, Date.new(1954, 10, 6), Date.new(1960, 4, 5), 66.years.since(dob)),
+      StatePensionDate.new(:both, Date.new(1960, 4, 6), Date.new(1960, 5, 5), 66.years.since(dob) + 1.month),
+      StatePensionDate.new(:both, Date.new(1960, 5, 6), Date.new(1960, 6, 5), 66.years.since(dob) + 2.months),
+      StatePensionDate.new(:both, Date.new(1960, 6, 6), Date.new(1960, 7, 5), 66.years.since(dob) + 3.months),
+      StatePensionDate.new(:both, Date.new(1960, 7, 6), Date.new(1960, 8, 5), 66.years.since(dob) + 4.months),
+      StatePensionDate.new(:both, Date.new(1960, 8, 6), Date.new(1960, 9, 5), 66.years.since(dob) + 5.months),
+      StatePensionDate.new(:both, Date.new(1960, 9, 6), Date.new(1960, 10, 5), 66.years.since(dob) + 6.months),
+      StatePensionDate.new(:both, Date.new(1960, 10, 6), Date.new(1960, 11, 5), 66.years.since(dob) + 7.months),
+      StatePensionDate.new(:both, Date.new(1960, 11, 6), Date.new(1960, 12, 5), 66.years.since(dob) + 8.months),
+      StatePensionDate.new(:both, Date.new(1960, 12, 6), Date.new(1961, 1, 5), 66.years.since(dob) + 9.months),
+      StatePensionDate.new(:both, Date.new(1961, 1, 6), Date.new(1961, 2, 5), 66.years.since(dob) + 10.months),
+      StatePensionDate.new(:both, Date.new(1961, 2, 6), Date.new(1961, 3, 5), 66.years.since(dob) + 11.months),
+      StatePensionDate.new(:both, Date.new(1961, 3, 6), Date.new(1977, 4, 5), 67.years.since(dob)),
+      StatePensionDate.new(:both, Date.new(1978, 4, 6), Date.today + 1, 68.years.since(dob))
     ]
   end
 

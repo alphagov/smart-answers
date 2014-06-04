@@ -26,8 +26,8 @@ date_question :when_is_your_baby_due? do
   calculate :twenty_six_weeks_before_qualifying_week do
     calculator.employment_start
   end
-  calculate :smp_LEL do
-    calculator.smp_LEL
+  calculate :smp_lel do
+    calculator.smp_lel
   end
 
   calculate :smp_rate do
@@ -47,7 +47,7 @@ end
 
 # Question 2
 multiple_choice :are_you_employed? do
-option :yes
+  option :yes
 option :no
 
   next_node do |response|
@@ -90,10 +90,10 @@ salary_question :how_much_do_you_earn? do
   weekly_salary_90 = nil
   next_node do |salary|
     weekly_salary_90 = Money.new(salary.per_week * 0.9)
-    if salary.per_week >= smp_LEL
+    if salary.per_week >= smp_lel
       # Outcome 2
       :smp_from_employer
-    elsif salary.per_week >= 30 && salary.per_week < smp_LEL
+    elsif salary.per_week >= 30 && salary.per_week < smp_lel
       # Outcome 3
       :you_qualify_for_maternity_allowance
     else
@@ -130,8 +130,8 @@ end
 
 # Question 5
 multiple_choice :will_you_still_be_employed_in_qualifying_week? do
-  option :yes => :how_much_do_you_earn?
-  option :no => :will_you_work_at_least_26_weeks_during_test_period?
+  option yes: :how_much_do_you_earn?
+  option no: :will_you_work_at_least_26_weeks_during_test_period?
 end
 
 # Note this is only reached for 'employed' people who
@@ -185,22 +185,22 @@ salary_question :how_much_did_you_earn_between? do
   end
 end
 
-# Question 8
+ # Question 8
  multiple_choice :have_you_helped_partner_self_employed? do
-   option :yes => :have_you_been_paid_for_helping_partner?
-   option :no => :will_you_work_at_least_26_weeks_during_test_period?
+   option yes: :have_you_been_paid_for_helping_partner?
+   option no: :will_you_work_at_least_26_weeks_during_test_period?
  end
 
  # Question 9
  multiple_choice :have_you_been_paid_for_helping_partner? do
-   option :yes => :nothing_maybe_benefits
-   option :no => :partner_helped_for_more_than_26weeks?
+   option yes: :nothing_maybe_benefits
+   option no: :partner_helped_for_more_than_26weeks?
  end
 
  # Question 10
  multiple_choice :partner_helped_for_more_than_26weeks? do
-   option :yes => :lower_maternity_allowance
-   option :no => :nothing_maybe_benefits
+   option yes: :lower_maternity_allowance
+   option no: :nothing_maybe_benefits
  end
 
 # Outcome 1
@@ -224,7 +224,7 @@ outcome :you_qualify_for_maternity_allowance do
   end
 end
 
-# Outcome 4
+ # Outcome 4
  outcome :lower_maternity_allowance do
    precalculate :extra_help_phrase do
      PhraseList.new(:extra_help)

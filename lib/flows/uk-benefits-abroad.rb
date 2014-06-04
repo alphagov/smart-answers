@@ -2,7 +2,7 @@ status :draft
 satisfies_need "100490"
 
 exclude_countries = %w(holy-see british-antarctic-territory)
-situations = ['going_abroad','already_abroad']
+situations = ['going_abroad', 'already_abroad']
 eea_countries = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany gibraltar greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 former_yugoslavia = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia)
 social_security_countries_jsa = former_yugoslavia + %w(guernsey_jersey new-zealand)
@@ -33,9 +33,9 @@ multiple_choice :going_or_already_abroad? do
   end
 
   calculate :already_abroad_text do
-  if responses.last == 'already_abroad'
+    if responses.last == 'already_abroad'
       PhraseList.new(:already_abroad_text)
-    end
+      end
   end
 
   calculate :already_abroad_text_two do
@@ -110,9 +110,9 @@ end
 
 # Q3a going abroad
 multiple_choice :jsa_how_long_abroad? do
-  option :less_than_a_year_medical => :jsa_less_than_a_year_medical_outcome # A1
-  option :less_than_a_year_other => :jsa_less_than_a_year_other_outcome # A2
-  option :more_than_a_year => :channel_islands? # Q3b
+  option less_than_a_year_medical: :jsa_less_than_a_year_medical_outcome # A1
+  option less_than_a_year_other: :jsa_less_than_a_year_other_outcome # A2
+  option more_than_a_year: :channel_islands? # Q3b
 end
 
 # Q3b
@@ -148,7 +148,7 @@ multiple_choice :channel_islands? do
 end
 
 # Q3c
-country_select :which_country_jsa?, :exclude_countries => exclude_countries do
+country_select :which_country_jsa?, exclude_countries: exclude_countries do
   situations.each do |situation|
     key = :"which_country_#{situation}_jsa"
     precalculate key do
@@ -174,7 +174,7 @@ country_select :which_country_jsa?, :exclude_countries => exclude_countries do
 end
 
 # Q4
-country_select :which_country_wfp?, :exclude_countries => exclude_countries do
+country_select :which_country_wfp?, exclude_countries: exclude_countries do
   situations.each do |situation|
     key = :"which_country_#{situation}_wfp"
     precalculate key do
@@ -192,7 +192,7 @@ country_select :which_country_wfp?, :exclude_countries => exclude_countries do
 end
 
 # Q5
-country_select :which_country_maternity_benefits?, :exclude_countries => exclude_countries do
+country_select :which_country_maternity_benefits?, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_maternity"
@@ -212,14 +212,14 @@ end
 
 # Q6
 multiple_choice :working_for_a_uk_employer? do
-  option :yes => :eligible_for_smp?
-  option :no => :maternity_benefits_maternity_allowance_outcome # A12
+  option yes: :eligible_for_smp?
+  option no: :maternity_benefits_maternity_allowance_outcome # A12
 end
 
 # Q7
 multiple_choice :eligible_for_smp? do
-  option :yes => :maternity_benefits_eea_entitled_outcome # A13
-  option :no => :maternity_benefits_maternity_allowance_outcome # A12
+  option yes: :maternity_benefits_eea_entitled_outcome # A13
+  option no: :maternity_benefits_maternity_allowance_outcome # A12
 end
 
 # Q8
@@ -241,7 +241,7 @@ multiple_choice :employer_paying_ni? do
 end
 
 # Q9
-country_select :which_country_child_benefit?, :exclude_countries => exclude_countries do
+country_select :which_country_child_benefit?, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_child"
@@ -273,12 +273,12 @@ end
 
 # Q10
 multiple_choice :do_either_of_the_following_apply? do
-  option :yes => :child_benefit_entitled_outcome # A21
-  option :no => :child_benefit_not_entitled_outcome # A22
+  option yes: :child_benefit_entitled_outcome # A21
+  option no: :child_benefit_not_entitled_outcome # A22
 end
 
 # Q11
-country_select :which_country_ssp?, :exclude_countries => exclude_countries do
+country_select :which_country_ssp?, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_ssp"
@@ -349,18 +349,18 @@ end
 
 # Q15
 multiple_choice :tax_credits_how_long_abroad? do
-  option :tax_credits_up_to_a_year => :tax_credits_why_going_abroad? # Q19
-  option :tax_credits_more_than_a_year => :tax_credits_children? # Q16
+  option tax_credits_up_to_a_year: :tax_credits_why_going_abroad? # Q19
+  option tax_credits_more_than_a_year: :tax_credits_children? # Q16
 end
 
 # Q16
 multiple_choice :tax_credits_children? do
-  option :yes => :which_country_tax_credits? # Q17
-  option :no => :tax_credits_unlikely_outcome # A29
+  option yes: :which_country_tax_credits? # Q17
+  option no: :tax_credits_unlikely_outcome # A29
 end
 
 # Q17
-country_select :which_country_tax_credits?, :exclude_countries => exclude_countries do
+country_select :which_country_tax_credits?, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_tax_credits"
@@ -386,17 +386,16 @@ end
 
 # Q18
 multiple_choice :tax_credits_currently_claiming? do
-  option :yes => :tax_credits_eea_entitled_outcome # A30
-  option :no => :tax_credits_unlikely_outcome # A29
+  option yes: :tax_credits_eea_entitled_outcome # A30
+  option no: :tax_credits_unlikely_outcome # A29
 end
 
 # Q19
 multiple_choice :tax_credits_why_going_abroad? do
-  option :tax_credits_holiday => :tax_credits_holiday_outcome # A31
-  option :tax_credits_medical_treatment => :tax_credits_medical_death_outcome #A32
-  option :tax_credits_death => :tax_credits_medical_death_outcome #A32
+  option tax_credits_holiday: :tax_credits_holiday_outcome # A31
+  option tax_credits_medical_treatment: :tax_credits_medical_death_outcome #A32
+  option tax_credits_death: :tax_credits_medical_death_outcome #A32
 end
-
 
 # Q20
 multiple_choice :esa_how_long_abroad? do
@@ -417,7 +416,7 @@ multiple_choice :esa_how_long_abroad? do
 end
 
 # Q21
-country_select :which_country_esa?, :exclude_countries => exclude_countries do
+country_select :which_country_esa?, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_esa"
@@ -443,12 +442,12 @@ end
 
 # Q22
 multiple_choice :iidb_already_claiming? do
-  option :yes => :channel_islands? # Q3b
-  option :no => :iidb_maybe_outcome # A41
+  option yes: :channel_islands? # Q3b
+  option no: :iidb_maybe_outcome # A41
 end
 
 # Q23
-country_select :which_country_iidb?, :exclude_countries => exclude_countries do
+country_select :which_country_iidb?, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_iidb"
@@ -489,7 +488,7 @@ multiple_choice :db_how_long_abroad? do
 end
 
 # Q25
-country_select :which_country_disability_benefits?, :exclude_countries => exclude_countries do
+country_select :which_country_disability_benefits?, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_disability"
@@ -528,7 +527,7 @@ multiple_choice :db_claiming_benefits? do
 end
 
 # Q27
-country_select :which_country_bereavement_benefits?, :exclude_countries => exclude_countries do
+country_select :which_country_bereavement_benefits?, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_bereavement"
@@ -556,41 +555,40 @@ end
 
 # Q28
 multiple_choice :is_how_long_abroad? do
-  option :is_under_a_year_medical => :is_under_a_year_medical_outcome # A60
-  option :is_under_a_year_other => :is_claiming_benefits? # Q29
-  option :is_more_than_a_year => :is_more_than_a_year_outcome # A61
+  option is_under_a_year_medical: :is_under_a_year_medical_outcome # A60
+  option is_under_a_year_other: :is_claiming_benefits? # Q29
+  option is_more_than_a_year: :is_more_than_a_year_outcome # A61
 end
 
 # Q29
 multiple_choice :is_claiming_benefits? do
-  option :yes => :is_claiming_benefits_outcome # A62
-  option :no => :is_either_of_the_following? # Q30
+  option yes: :is_claiming_benefits_outcome # A62
+  option no: :is_either_of_the_following? # Q30
 end
 
 # Q30
 multiple_choice :is_either_of_the_following? do
-  option :yes => :is_abroad_for_treatment? # Q31
-  option :no => :is_any_of_the_following_apply? # Q33
+  option yes: :is_abroad_for_treatment? # Q31
+  option no: :is_any_of_the_following_apply? # Q33
 end
 
 # Q31
 multiple_choice :is_abroad_for_treatment? do
-  option :yes => :is_abroad_for_treatment_outcome # A63
-  option :no => :is_work_or_sick_pay? # Q32
+  option yes: :is_abroad_for_treatment_outcome # A63
+  option no: :is_work_or_sick_pay? # Q32
 end
 
 # Q32
 multiple_choice :is_work_or_sick_pay? do
-  option :yes => :is_abroad_for_treatment_outcome # A63
-  option :no => :is_not_eligible_outcome # A64
+  option yes: :is_abroad_for_treatment_outcome # A63
+  option no: :is_not_eligible_outcome # A64
 end
 
 # Q33
 multiple_choice :is_any_of_the_following_apply? do
-  option :yes => :is_not_eligible_outcome # A64
-  option :no => :is_abroad_for_treatment_outcome # A63
+  option yes: :is_not_eligible_outcome # A64
+  option no: :is_abroad_for_treatment_outcome # A63
 end
-
 
 outcome :jsa_less_than_a_year_medical_outcome # A1
 outcome :jsa_less_than_a_year_other_outcome # A2

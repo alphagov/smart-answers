@@ -10,7 +10,6 @@ module FlowTestHelper
     @responses << resp.to_s
   end
 
-
   def current_state
     @state ||= begin
       @flow.process(@responses)

@@ -28,21 +28,21 @@ module SmartAnswer
       status == :draft
     end
 
-    def status(s=nil)
+    def status(s = nil)
       if s
-        raise Flow::InvalidStatus unless [:published,:draft].include? s
+        raise Flow::InvalidStatus unless [:published, :draft].include? s
         @status = s
       end
 
       @status
     end
 
-    def section_slug(s=nil)
+    def section_slug(s = nil)
       ActiveSupport::Deprecation.warn("Sections are no longer handled within smartanswers.", caller(1))
       nil
     end
 
-    def subsection_slug(s=nil)
+    def subsection_slug(s = nil)
       ActiveSupport::Deprecation.warn("Sections are no longer handled within smartanswers.", caller(1))
       nil
     end

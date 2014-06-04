@@ -95,7 +95,7 @@ module SmartAnswer
 
     test "Can check if a node has body" do
       assert NodePresenter.new("flow.test", Question::Date.new(:example_question?)).has_body?, "example_question? has body"
-      assert ! NodePresenter.new("flow.test", Question::Date.new(:missing)).has_body?, "missing has no body"
+      assert !NodePresenter.new("flow.test", Question::Date.new(:missing)).has_body?, "missing has no body"
     end
 
     test "Node subtitle looked up" do
@@ -105,7 +105,7 @@ module SmartAnswer
 
     test "Can check if a node has subtitle" do
       assert NodePresenter.new("flow.test", Question::Date.new(:example_question?)).has_subtitle?
-      assert ! NodePresenter.new("flow.test", Question::Date.new(:missing)).has_subtitle?
+      assert !NodePresenter.new("flow.test", Question::Date.new(:missing)).has_subtitle?
     end
 
     test "Node hint looked up from translation file" do
@@ -117,7 +117,7 @@ module SmartAnswer
 
     test "Can check if node has hint" do
       assert NodePresenter.new("flow.test", Question::Date.new(:example_question?)).has_hint?
-      assert ! NodePresenter.new("flow.test", Question::Date.new(:missing)).has_hint?
+      assert !NodePresenter.new("flow.test", Question::Date.new(:missing)).has_hint?
     end
 
     test "Options can be looked up from translation file" do

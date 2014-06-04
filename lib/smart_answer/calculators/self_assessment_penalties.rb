@@ -21,7 +21,7 @@ module SmartAnswer::Calculators
         if overdue_filing_days <= 89
           result = 100
         elsif overdue_filing_days <= 181
-          result = (overdue_filing_days - 89 ) * 10 + 100
+          result = (overdue_filing_days - 89) * 10 + 100
           #this fine can't be more than 1000£
           if result > 1000
             result = 1000
@@ -134,7 +134,7 @@ module SmartAnswer::Calculators
 
     #interest is 3% per annum
     def calculate_interest(amount, number_of_days)
-      (amount * (0.03 / 365) * (number_of_days - 1 )).round(10)
+      (amount * (0.03 / 365) * (number_of_days - 1)).round(10)
     end
   end
 end

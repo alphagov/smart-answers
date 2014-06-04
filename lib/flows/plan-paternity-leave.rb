@@ -2,13 +2,13 @@ status :published
 satisfies_need "101018"
 
 date_question :baby_due_date? do
-	save_input_as :due_date
+  save_input_as :due_date
 
   calculate :calculator do
     Calculators::PlanPaternityLeave.new(due_date: due_date)
   end
 
-	next_node :leave_duration?
+  next_node :leave_duration?
 end
 
 multiple_choice :leave_duration? do
@@ -37,13 +37,13 @@ date_question :leave_start? do
     start_date_raw
   end
 
-	next_node :paternity_leave_details
+  next_node :paternity_leave_details
 end
 
 outcome :paternity_leave_details do
-	precalculate :due_date_formatted do
-		calculator.formatted_due_date
-	end
+  precalculate :due_date_formatted do
+    calculator.formatted_due_date
+  end
   precalculate :qualifying_week do
     calculator.qualifying_week.last
   end

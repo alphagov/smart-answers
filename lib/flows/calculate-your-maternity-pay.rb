@@ -25,8 +25,8 @@ date_question :when_is_your_baby_due? do
   calculate :twenty_six_weeks_before_qualifying_week do
     calculator.employment_start
   end
-  calculate :smp_LEL do
-    calculator.smp_LEL
+  calculate :smp_lel do
+    calculator.smp_lel
   end
 
   calculate :smp_rate do
@@ -45,8 +45,8 @@ date_question :when_is_your_baby_due? do
 end
 
 multiple_choice :are_you_employed? do
-  option :yes => :did_you_start_26_weeks_before_qualifying_week?
-  option :no => :will_you_work_at_least_26_weeks_during_test_period?
+  option yes: :did_you_start_26_weeks_before_qualifying_week?
+  option no: :will_you_work_at_least_26_weeks_during_test_period?
 end
 
 multiple_choice :did_you_start_26_weeks_before_qualifying_week? do
@@ -71,8 +71,8 @@ multiple_choice :did_you_start_26_weeks_before_qualifying_week? do
 end
 
 multiple_choice :will_you_still_be_employed_in_qualifying_week? do
-  option :yes => :how_much_do_you_earn?
-  option :no => :will_you_work_at_least_26_weeks_during_test_period?
+  option yes: :how_much_do_you_earn?
+  option no: :will_you_work_at_least_26_weeks_during_test_period?
 end
 
 # Note this is only reached for 'employed' people who
@@ -84,10 +84,10 @@ salary_question :how_much_do_you_earn? do
   weekly_salary_90 = nil
   next_node do |salary|
     weekly_salary_90 = Money.new(salary.per_week * 0.9)
-    if salary.per_week >= smp_LEL
+    if salary.per_week >= smp_lel
       # Outcome 2
       :smp_from_employer
-    elsif salary.per_week >= 30 && salary.per_week < smp_LEL
+    elsif salary.per_week >= 30 && salary.per_week < smp_lel
       # Outcome 3
       :you_qualify_for_maternity_allowance
     else

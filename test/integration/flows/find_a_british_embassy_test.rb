@@ -18,7 +18,7 @@ class FindABritishEmbassyTest < ActiveSupport::TestCase
 
   should "error for a country that doesn't exist" do
     add_response 'non-existent'
-    assert_current_node :choose_embassy_country, :error => true
+    assert_current_node :choose_embassy_country, error: true
   end
 
   should "display the embassy details for a country with embassy details available" do

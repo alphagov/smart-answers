@@ -29,7 +29,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
         should "go to Outcome 1" do
           assert_current_node :outcome_not_affected_exemptions
-          assert_phrase_list :outcome_phrase, [:outcome_not_affected_exemptions_phrase,:contact_details]
+   assert_phrase_list :outcome_phrase, [:outcome_not_affected_exemptions_phrase, :contact_details]
         end
       end # Q2 Qualify for working tax credit at Outcome 1
 
@@ -47,7 +47,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
           should "go to outcome 1" do
             assert_current_node :outcome_not_affected_exemptions
-            assert_phrase_list :outcome_phrase, [:outcome_not_affected_exemptions_phrase,:contact_details]
+     assert_phrase_list :outcome_phrase, [:outcome_not_affected_exemptions_phrase, :contact_details]
           end
         end # Q3 receiving benefits end at Outcome 1
 
@@ -65,7 +65,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
             #Q5f
             should "ask how much for guardian allowance benefit" do
-              assert_state_variable :benefit_related_questions, [:sda_amount?,:housing_benefit_amount?,:single_couple_lone_parent?]
+              assert_state_variable :benefit_related_questions, [:sda_amount?, :housing_benefit_amount?, :single_couple_lone_parent?]
               assert_current_node :guardian_amount?
               assert_state_variable :total_benefits, 0
             end
@@ -75,7 +75,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
               #Q5k
               should "ask how much for severe disability allowance" do
-                assert_state_variable :benefit_related_questions, [:housing_benefit_amount?,:single_couple_lone_parent?]
+                assert_state_variable :benefit_related_questions, [:housing_benefit_amount?, :single_couple_lone_parent?]
                 assert_current_node :sda_amount?
                 assert_state_variable :total_benefits, 300
               end
@@ -103,7 +103,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
                     should "go to outcome 3" do
                       assert_current_node :outcome_affected_greater_than_cap
-                      assert_phrase_list :outcome_phrase, [:outcome_affected_greater_than_cap_phrase,:housing_benefit_not_zero, :estimate_only, :contact_details]
+        assert_phrase_list :outcome_phrase, [:outcome_affected_greater_than_cap_phrase, :housing_benefit_not_zero, :estimate_only, :contact_details]
                     end
                   end #Q6 single greater than cap, at Outcome 3
                 end #Q5p how much for housing benefit
@@ -115,7 +115,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
             setup { add_response 'esa,maternity' }
 
             should "ask ask how much for esa benefit" do
-              assert_state_variable :benefit_related_questions, [:maternity_amount?,:housing_benefit_amount?,:single_couple_lone_parent?]
+              assert_state_variable :benefit_related_questions, [:maternity_amount?, :housing_benefit_amount?, :single_couple_lone_parent?]
               assert_current_node :esa_amount?
             end
 
@@ -123,7 +123,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
               setup { add_response "10" }
 
               should "ask how much for maternity benefits" do
-                assert_state_variable :benefit_related_questions, [:housing_benefit_amount?,:single_couple_lone_parent?]
+                assert_state_variable :benefit_related_questions, [:housing_benefit_amount?, :single_couple_lone_parent?]
                 assert_current_node :maternity_amount?
               end
 
@@ -147,7 +147,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
                     should "go to outcome" do
                       assert_current_node :outcome_not_affected_less_than_cap
-                      assert_phrase_list :outcome_phrase, [:outcome_not_affected_less_than_cap_phrase,:contact_details]
+        assert_phrase_list :outcome_phrase, [:outcome_not_affected_less_than_cap_phrase, :contact_details]
                     end
                   end #Q6 lone parent, under cap, at Outcome 4
                 end #Q5p how much for housing, under cap
@@ -161,7 +161,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
             should "go to outcome" do
               assert_current_node :outcome_not_affected
-              assert_phrase_list :outcome_phrase, [:outcome_not_affected_phrase,:contact_details]
+       assert_phrase_list :outcome_phrase, [:outcome_not_affected_phrase, :contact_details]
             end
           end #Q4 no additional benefits at Outcome 5
         end #Q3 not receiving benefits
@@ -174,7 +174,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
       should "go to Outcome 1" do
         assert_current_node :outcome_not_affected_no_housing_benefit
-        assert_phrase_list :outcome_phrase, [:outcome_not_affected_no_housing_benefit_phrase,:contact_details]
+ assert_phrase_list :outcome_phrase, [:outcome_not_affected_no_housing_benefit_phrase, :contact_details]
       end
     end # Q1 not receving housing benefit at Outcome 2
 

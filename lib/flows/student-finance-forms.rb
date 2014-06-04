@@ -20,12 +20,12 @@ multiple_choice :type_of_student? do
 
   next_node do |response|
     case response.to_s
-      when 'uk-full-time'
-        :form_needed_for_1?
-      when "uk-part-time"
-        :form_needed_for_2?
-      else
-        :what_year?
+    when 'uk-full-time'
+      :form_needed_for_1?
+    when "uk-part-time"
+      :form_needed_for_2?
+    else
+      :what_year?
     end
   end
 end
@@ -45,14 +45,14 @@ multiple_choice :form_needed_for_1? do
 
   next_node do |response|
     case response.to_s
-      when 'travel-grant'
-        :outcome_travel
-      when 'ccg-expenses'
-        :outcome_ccg_expenses
-      when 'dsa-expenses'
-        :outcome_dsa_expenses
-      else
-        :what_year?
+    when 'travel-grant'
+      :outcome_travel
+    when 'ccg-expenses'
+      :outcome_ccg_expenses
+    when 'dsa-expenses'
+      :outcome_dsa_expenses
+    else
+      :what_year?
     end
   end
 end
@@ -68,14 +68,13 @@ multiple_choice :form_needed_for_2? do
 
   next_node do |response|
     case response.to_s
-      when 'dsa-expenses'
-        :outcome_dsa_expenses
-      else
-        :what_year?
+    when 'dsa-expenses'
+      :outcome_dsa_expenses
+    else
+      :what_year?
     end
   end
 end
-
 
 ## Q3
 multiple_choice :what_year? do
@@ -131,7 +130,6 @@ multiple_choice :what_year? do
   end
 end
 
-
 ## Q4
 multiple_choice :continuing_student? do
   option :"continuing-student"
@@ -170,7 +168,7 @@ multiple_choice :continuing_student? do
           :outcome_eu_ft_1314_new
         end
       elsif year_required == "year-1415"
-        if response =='continuing-student'
+        if response == 'continuing-student'
           :outcome_eu_ft_1415_continuing
         else
           :outcome_eu_ft_1415_new
@@ -185,7 +183,7 @@ multiple_choice :continuing_student? do
           :outcome_eu_pt_1314_new
         end
       elsif year_required == 'year-1415'
-        if response =='continuing-student'
+        if response == 'continuing-student'
           :outcome_eu_pt_1415_continuing
         else
           :outcome_eu_pt_1415_new
@@ -195,7 +193,6 @@ multiple_choice :continuing_student? do
 
   end
 end
-
 
 ##Q5
 multiple_choice :pt_course_start? do
@@ -238,7 +235,6 @@ multiple_choice :pt_course_start? do
     end
   end
 end
-
 
 outcome :outcome_uk_ft_1314_new
 outcome :outcome_uk_ft_1314_continuing

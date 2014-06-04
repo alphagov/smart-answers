@@ -25,21 +25,21 @@ class FCOEmbassyScraper
         e = process_embassy_page(url)
         country_name = e.delete("country")
         country = case country_name
-        when "Côte d'Ivoire"
-          {:slug => "cote-d_ivoire-(ivory-coast)"}
-        when "Dominica"
-          {:slug => "dominica,-commonwealth-of"}
-        when "Equatorial Guinea - BHC Yaoundé"
-          {:slug => "equatorial-guinea"}
-        when "Kyrgystan"
-          {:slug => "kyrgyzstan"}
-        when "Niger - British High Commission"
-          {:slug => "niger"}
-        when "Pitcairn Henderson Ducie & Oeno Islands"
-          {:slug => "pitcairn"}
-        else
-          @countries.select {|c| c[:name].downcase == country_name.downcase }.first
-        end
+                  when "Côte d'Ivoire"
+                    {slug: "cote-d_ivoire-(ivory-coast)"}
+                  when "Dominica"
+                    {slug: "dominica,-commonwealth-of"}
+                  when "Equatorial Guinea - BHC Yaoundé"
+                    {slug: "equatorial-guinea"}
+                  when "Kyrgystan"
+                    {slug: "kyrgyzstan"}
+                  when "Niger - British High Commission"
+                    {slug: "niger"}
+                  when "Pitcairn Henderson Ducie & Oeno Islands"
+                    {slug: "pitcairn"}
+                  else
+                    @countries.select {|c| c[:name].downcase == country_name.downcase }.first
+                  end
         if country
           @embassies[country[:slug]] ||= []
           @embassies[country[:slug]] << e
