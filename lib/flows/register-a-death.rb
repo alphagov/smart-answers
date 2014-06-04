@@ -7,7 +7,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho
                 liberia madagascar montenegro paraguay samoa slovenia somalia
                 swaziland taiwan tajikistan western-sahara)
-no_embassies = %w(iran syria yemen)
+country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
 exclude_countries = %w(holy-see british-antarctic-territory)
 modified_card_only_countries = %w(belgium netherlands czech-republic slovakia hungary poland portugal italy spain switzerland)
 
@@ -67,15 +67,9 @@ country_select :which_country?, :exclude_countries => exclude_countries do
     end
   end
 
-  next_node do |response|
-    if reg_data_query.commonwealth_country?(response)
-      :commonwealth_result
-    elsif no_embassies.include?(response)
-      :no_embassy_result
-    else
-      :where_are_you_now?
-    end
-  end
+  next_node_if(:commonwealth_result, reg_data_query.responded_with_commonwealth_country?)
+  next_node_if(:no_embassy_result, country_has_no_embassy)
+  next_node(:where_are_you_now?)
 end
 # Q5
 multiple_choice :where_are_you_now? do

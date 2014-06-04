@@ -8,7 +8,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho
                 liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
                 taiwan tajikistan western-sahara)
-no_embassies = %w(iran syria yemen)
+country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
 exclude_countries = %w(holy-see british-antarctic-territory)
 
 # Q1
@@ -38,8 +38,8 @@ country_select :country_of_birth?, :exclude_countries => exclude_countries do
     end
   end
 
-  next_node_if(:no_embassy_result) { |response| no_embassies.include?(response) }
-  next_node_if(:commonwealth_result) { |response| reg_data_query.commonwealth_country?(response) }
+  next_node_if(:no_embassy_result, country_has_no_embassy)
+  next_node_if(:commonwealth_result, reg_data_query.responded_with_commonwealth_country?)
   next_node(:who_has_british_nationality?)
 end
 
@@ -68,7 +68,7 @@ multiple_choice :married_couple_or_civil_partnership? do
     responses.last == 'no'
   end
 
-  next_node_if(:childs_date_of_birth?) { |response| response == 'no' and british_national_parent == 'father' }
+  next_node_if(:childs_date_of_birth?, responded_with('no'), variable_matches(:british_national_parent, 'father'))
   next_node(:where_are_you_now?)
 end
 
@@ -77,7 +77,11 @@ date_question :childs_date_of_birth? do
   from { Date.today }
   to { 50.years.ago(Date.today) }
 
-  next_node_if(:homeoffice_result) { |response| Date.new(2006,07,01) > Date.parse(response) }
+  after_july_2006 = SmartAnswer::Predicate::Callable.new("after 1 July 2006") do |response|
+    Date.new(2006,07,01) > Date.parse(response)
+  end
+
+  next_node_if(:homeoffice_result, after_july_2006)
   next_node(:where_are_you_now?)
 end
 
@@ -95,10 +99,8 @@ multiple_choice :where_are_you_now? do
     responses.last == 'in_the_uk'
   end
 
-  next_node_if(:oru_result) do |response|
-    reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.include?(country_of_birth) || response == 'in_the_uk'
-  end
-  next_node_if(:embassy_result) { |response| response == 'same_country' }
+  next_node_if(:oru_result, reg_data_query.born_in_oru_transitioned_country? | responded_with('in_the_uk'))
+  next_node_if(:embassy_result, responded_with('same_country'))
   next_node(:which_country?)
 end
 
@@ -118,7 +120,7 @@ country_select :which_country?, :exclude_countries => exclude_countries do
     end
   end
 
-  next_node_if(:no_embassy_result) { |response| no_embassies.include?(response) }
+  next_node_if(:no_embassy_result, country_has_no_embassy)
   next_node(:embassy_result)
 end
 

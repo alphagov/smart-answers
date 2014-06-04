@@ -2,8 +2,8 @@ status :published
 satisfies_need "100131"
 
 data_query = Calculators::PassportAndEmbassyDataQuery.new
+
 exclude_countries = %w(holy-see british-antarctic-territory)
-apply_in_neighbouring_country_countries = %w(british-indian-ocean-territory kyrgyzstan north-korea south-georgia-and-south-sandwich-islands)
 
 # Q1
 country_select :which_country_are_you_in?, :exclude_countries => exclude_countries do
@@ -18,17 +18,10 @@ country_select :which_country_are_you_in?, :exclude_countries => exclude_countri
     loc
   end
 
-  next_node do |response|
-    if Calculators::PassportAndEmbassyDataQuery::NO_APPLICATION_REGEXP.match(response)
-      :cannot_apply
-    elsif %w(the-occupied-palestinian-territories).include?(response)
-      :which_opt?
-    elsif apply_in_neighbouring_country_countries.include?(response)
-      :apply_in_neighbouring_country
-    else
-      :renewing_replacing_applying?
-    end
-  end
+  next_node_if(:cannot_apply, data_query.ineligible_country?)
+  next_node_if(:which_opt?, responded_with('the-occupied-palestinian-territories'))
+  next_node_if(:apply_in_neighbouring_country, data_query.apply_in_neighbouring_countries?)
+  next_node(:renewing_replacing_applying?)
 end
 
 # Q1a
@@ -72,10 +65,7 @@ multiple_choice :renewing_replacing_applying? do
     passport_data['type']
   end
   calculate :is_ips_application do
-    application_type =~ Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
-  end
-  calculate :is_fco_application do
-    application_type =~ Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
+    data_query.ips_application?.call(self, nil)
   end
   calculate :ips_number do
     application_type.split("_")[2] if is_ips_application
@@ -129,16 +119,13 @@ multiple_choice :child_or_adult_passport? do
     end
   end
 
-  next_node do |response|
-    case application_type
-    when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
-      %Q(applying renewing_old).include?(application_action) ? :country_of_birth? : ips_result_type
-    when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
-      :fco_result
-    else
-      :result
-    end
+  on_condition(data_query.ips_application?) do
+    next_node_if(:country_of_birth?, variable_matches(:application_action, %w(applying renewing_old)))
+    next_node_if(:ips_application_result_online, variable_matches(:ips_result_type, :ips_application_result_online))
+    next_node(:ips_application_result)
   end
+  next_node_if(:fco_result, data_query.fco_application?)
+  next_node(:result)
 end
 
 # Q4
@@ -157,16 +144,12 @@ country_select :country_of_birth?, :include_uk => true, :exclude_countries => ex
     supporting_documents.split("_")[3]
   end
 
-  next_node do |response|
-    case application_type
-    when Calculators::PassportAndEmbassyDataQuery::IPS_APPLICATIONS_REGEXP
-      ips_result_type
-    when Calculators::PassportAndEmbassyDataQuery::FCO_APPLICATIONS_REGEXP
-      :fco_result
-    else
-      :result
-    end
+  on_condition(data_query.ips_application?) do
+    next_node_if(:ips_application_result_online, variable_matches(:ips_result_type, :ips_application_result_online))
+    next_node(:ips_application_result)
   end
+  next_node_if(:fco_result, data_query.fco_application?)
+  next_node(:result)
 end
 
 ## Online IPS Application Result

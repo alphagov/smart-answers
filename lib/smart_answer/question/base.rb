@@ -125,7 +125,7 @@ module SmartAnswer
           if predicate.is_a?(SmartAnswer::Predicate::Base)
             predicate
           else
-            SmartAnswer::Predicate::Callable.new(predicate)
+            SmartAnswer::Predicate::Callable.new(nil, predicate)
           end
         end
       end

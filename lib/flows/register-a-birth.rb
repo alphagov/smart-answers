@@ -7,7 +7,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
                 dominican-republic east-timor eritrea haiti kosovo laos lesotho
                 liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
                 taiwan tajikistan western-sahara)
-no_embassies = %w(iran syria yemen)
+country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
 exclude_countries = %w(holy-see british-antarctic-territory)
 
 
@@ -38,15 +38,9 @@ country_select :country_of_birth?, :exclude_countries => exclude_countries do
     end
   end
 
-  next_node do |response|
-    if no_embassies.include?(response)
-      :no_embassy_result
-    elsif reg_data_query.commonwealth_country?(response)
-      :commonwealth_result
-    else
-      :who_has_british_nationality?
-    end
-  end
+  next_node_if(:no_embassy_result, country_has_no_embassy)
+  next_node_if(:commonwealth_result, reg_data_query.responded_with_commonwealth_country?)
+  next_node(:who_has_british_nationality?)
 end
 # Q2
 multiple_choice :who_has_british_nationality? do
@@ -73,49 +67,33 @@ multiple_choice :married_couple_or_civil_partnership? do
     responses.last == 'no'
   end
 
-  next_node do |response|
-    if response == 'no' and british_national_parent == 'father'
-      :childs_date_of_birth?
-    else
-      :where_are_you_now?
-    end
-  end
+  next_node_if(:childs_date_of_birth?, responded_with('no'), variable_matches(:british_national_parent, 'father'))
+  next_node(:where_are_you_now?)
 end
 # Q4
 date_question :childs_date_of_birth? do
   from { Date.today }
   to { 50.years.ago(Date.today) }
-  next_node do |response|
-    if Date.new(2006,07,01) > Date.parse(response)
-      :homeoffice_result
-    else
-      :where_are_you_now?
-    end
+  after_july_2006 = SmartAnswer::Predicate::Callable.new("after 1 July 2006") do |response|
+    Date.new(2006,07,01) > Date.parse(response)
   end
+  next_node_if(:homeoffice_result, after_july_2006)
+  next_node(:where_are_you_now?)
 end
 # Q5
 multiple_choice :where_are_you_now? do
-  option :same_country
-  option :another_country
+  option :same_country => :embassy_result
+  option :another_country => :which_country?
   option :in_the_uk
 
   calculate :another_country do
     responses.last == 'another_country'
   end
 
-  next_node do |response|
-    case response
-    when 'same_country' then :embassy_result
-    when 'another_country' then :which_country?
-    else
-      if %w(niger pakistan).include?(country_of_birth)
-        :embassy_result
-      else
-        :fco_result
-      end
-    end
-  end
+  next_node_if(:embassy_result, variable_matches(:country_of_birth, %w(niger pakistan)))
+  next_node(:fco_result)
 end
+
 # Q6
 country_select :which_country?, :exclude_countries => exclude_countries do
   calculate :registration_country do
@@ -132,13 +110,8 @@ country_select :which_country?, :exclude_countries => exclude_countries do
     end
   end
 
-  next_node do |response|
-    if no_embassies.include?(response)
-      :no_embassy_result
-    else
-      :embassy_result
-    end
-  end
+  next_node_if(:no_embassy_result, country_has_no_embassy)
+  next_node(:embassy_result)
 end
 # Outcomes
 outcome :embassy_result do
