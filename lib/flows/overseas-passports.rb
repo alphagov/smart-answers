@@ -284,13 +284,7 @@ outcome :ips_application_result do
         end
       end
     elsif %w(timor-leste).include?(current_location)
-      phrases << :"send_application_timor-leste_intro"
-      if %w(renewing_new).include?(application_action)
-        phrases << :"send_application_ips#{ips_number}_#{current_location}_renew_new"
-      else
-        phrases << :"send_application_ips3_#{current_location}_apply_renew_old_replace"
-      end
-      phrases << :"send_application_address_#{current_location}"
+      phrases << :"send_application_#{current_location}" << :"send_application_address_#{current_location}"
     elsif %w(bangladesh india pakistan).include?(current_location)
       phrases << :"send_application_ips3_#{current_location}"
       phrases << :send_application_ips3_must_post unless %w(india bangladesh pakistan).include?(current_location)
@@ -328,7 +322,7 @@ outcome :ips_application_result do
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
     uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan lebanon mauritania morocco russia thailand ukraine venezuela western-sahara)
     uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
-    collect_with_photo_id_countries = %w(cambodia egypt iraq libya sierra-leone tunisia uganda yemen)
+    collect_with_photo_id_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
     passport_delivered_by_courier_countries = %w(laos)
 
     phrases = PhraseList.new
