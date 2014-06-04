@@ -194,7 +194,7 @@ en-GB:
         book_online_bolivia: |
           Make an [appointment online](https://britishembassylapaz.clickbook.net/sub/britishembassylapaz) at the British Embassy in La Paz.
         book_online_chile: |
-          Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsant) at the British Embassy in Satiago.
+          Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsant) at the British Embassy in Santiago.
         book_online_china: |
           Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britembeijing?OpenDocument&cb_referer=) at the British Embassy Beijing.
         book_online_colombia: |
@@ -1666,7 +1666,7 @@ en-GB:
         title: Same-sex marriage and civil partnership in %{country_name_lowercase_prefix}
         body: |
           It’s not possible to get legal recognition for a same-sex relationship in %{country_name_lowercase_prefix}.
-      outcome_ss_marriage_living_in_the_uk:
+      outcome_ss_marriage:
         title: %{ss_title} in %{country_name_lowercase_prefix}
         body: |
           %{ss_ceremony_body}
