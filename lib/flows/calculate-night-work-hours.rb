@@ -110,9 +110,9 @@ value_question :overtime_hours? do
 
   calculate :calculator do
     Calculators::NightWorkHours.new(
-      :weeks_worked => weeks_worked, :weeks_leave => weeks_leave,
-      :work_cycle => work_cycle, :nights_in_cycle => nights_in_cycle,
-      :hours_per_shift => hours_per_shift, :overtime_hours => overtime_hours
+      weeks_worked: weeks_worked, weeks_leave: weeks_leave,
+      work_cycle: work_cycle, nights_in_cycle: nights_in_cycle,
+      hours_per_shift: hours_per_shift, overtime_hours: overtime_hours
     )
   end
 
@@ -126,9 +126,9 @@ value_question :overtime_hours? do
 
   next_node do |response|
     calculator = Calculators::NightWorkHours.new(
-      :weeks_worked => weeks_worked, :weeks_leave => weeks_leave,
-      :work_cycle => work_cycle, :nights_in_cycle => nights_in_cycle,
-      :hours_per_shift => hours_per_shift, :overtime_hours => response.to_i
+      weeks_worked: weeks_worked, weeks_leave: weeks_leave,
+      work_cycle: work_cycle, nights_in_cycle: nights_in_cycle,
+      hours_per_shift: hours_per_shift, overtime_hours: response.to_i
     )
 
     if calculator.average_hours < 9

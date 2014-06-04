@@ -6,7 +6,7 @@ reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 exclude_countries = %w(holy-see british-antarctic-territory the-occupied-palestinian-territories)
 
 # Q1
-country_select :country_of_ceremony?, :exclude_countries => exclude_countries do
+country_select :country_of_ceremony?, exclude_countries: exclude_countries do
   save_input_as :ceremony_country
 
   calculate :location do
@@ -139,7 +139,7 @@ multiple_choice :residency_uk? do
 end
 
 # Q3b
-country_select :residency_nonuk?, :exclude_countries => exclude_countries do
+country_select :residency_nonuk?, exclude_countries: exclude_countries do
   save_input_as :residency_country
 
   calculate :location do

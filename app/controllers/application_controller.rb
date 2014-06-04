@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include Slimmer::Headers
   before_filter :set_analytics_headers
 
-  rescue_from GdsApi::TimedOutException, :with => :error_503
+  rescue_from GdsApi::TimedOutException, with: :error_503
 
 protected
 
@@ -15,7 +15,7 @@ protected
     if exception and defined? Airbrake
       env["airbrake.error_id"] = notify_airbrake(exception)
     end
-    render :status => status_code, :text => "#{status_code} error"
+    render status: status_code, text: "#{status_code} error"
   end
 
   def set_analytics_headers
@@ -29,7 +29,7 @@ protected
     duration = 5.seconds if @presenter.present? and @presenter.artefact.blank?
 
     unless Rails.env.development?
-      expires_in(duration, :public => true)
+      expires_in(duration, public: true)
     end
   end
 end

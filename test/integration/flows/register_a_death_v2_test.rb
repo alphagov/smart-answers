@@ -319,7 +319,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "give the ORU result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=italy"}
+	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=italy"}
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/italy-list-of-lawyers"
       end
@@ -333,7 +333,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "give the oru result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=andorra"}
+	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=andorra"}
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
@@ -347,7 +347,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "give the embassy result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=andorra"}
+	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=andorra"}
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
@@ -375,7 +375,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         should "give the ORU result and be done" do
           add_response 'in_the_uk'
           assert_current_node :oru_result
-          assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=afghanistan"}
+	  assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=afghanistan"}
           assert_phrase_list :oru_address, [:oru_address_uk]
           assert_phrase_list :translator_link, [:no_translator_link]
           assert_state_variable :translator_link_url, nil
@@ -478,7 +478,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "give the ORU result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=germany"}
+	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=germany"}
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/germany-list-of-lawyers"
       end
@@ -492,7 +492,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "give the oru result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=usa"}
+	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=usa"}
         assert_phrase_list :translator_link, [:no_translator_link]
         assert_state_variable :translator_link_url, nil
       end
@@ -506,7 +506,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       should "give the ORU result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_state_variable :button_data, {:text => "Pay now", :url => "https://pay-register-death-abroad.service.gov.uk/start?country=netherlands"}
+	assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start?country=netherlands"}
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/netherlands-list-of-lawyers"
       end

@@ -2,8 +2,8 @@ status :published
 satisfies_need "101007"
 
 multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
-  option :yes => :did_you_marry_or_civil_partner_before_5_december_2005?
-  option :no => :sorry
+  option yes: :did_you_marry_or_civil_partner_before_5_december_2005?
+  option no: :sorry
 
 
   calculate :is_before_april_changes do
@@ -39,8 +39,8 @@ multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
 end
 
 multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
-  option :yes => :whats_the_husbands_date_of_birth?
-  option :no => :whats_the_highest_earners_date_of_birth?
+  option yes: :whats_the_husbands_date_of_birth?
+  option no: :whats_the_highest_earners_date_of_birth?
 
   calculate :income_measure do
     case responses.last
@@ -104,8 +104,8 @@ end
 
 
 multiple_choice :paying_into_a_pension? do
-  option :yes => :how_much_expected_contributions_before_tax?
-  option :no => :how_much_expected_gift_aided_donations?
+  option yes: :how_much_expected_contributions_before_tax?
+  option no: :how_much_expected_gift_aided_donations?
 end
 
 money_question :how_much_expected_contributions_before_tax? do

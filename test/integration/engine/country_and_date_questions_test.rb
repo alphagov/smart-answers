@@ -40,20 +40,20 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         assert_equal expected, actual
       end
 
-      select "Belarus", :from => "response"
+      select "Belarus", from: "response"
       click_on "Next step"
 
       assert_current_url "/country-and-date-sample/y/belarus"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/country-and-date-sample') }
+	within('.start-again') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "Which country do you live in?"
           end
           within('.answer') { assert_page_has_content "Belarus" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/?previous_response=belarus") }
+	  within('.undo') { assert page.has_link?("Change this answer", href: "/country-and-date-sample/y/?previous_response=belarus") }
         end
       end
 
@@ -71,22 +71,22 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         assert page.has_select? 'Year'
       end
 
-      select "5", :from => "Day"
-      select "May", :from => "Month"
-      select "1975", :from => "Year"
+      select "5", from: "Day"
+      select "May", from: "Month"
+      select "1975", from: "Year"
       click_on "Next step"
 
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/country-and-date-sample') }
+	within('.start-again') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "Which country do you live in?"
           end
           within('.answer') { assert_page_has_content "Belarus" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/?previous_response=belarus") }
+	  within('.undo') { assert page.has_link?("Change this answer", href: "/country-and-date-sample/y/?previous_response=belarus") }
         end
 
         within 'ol li.done:nth-child(2)' do
@@ -96,7 +96,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
           end
 
           within('.answer') { assert_page_has_content "5 May 1975" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
+	  within('.undo') { assert page.has_link?("Change this answer", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
         end
       end
 
@@ -118,20 +118,20 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         assert_equal expected, actual
       end
 
-      select "United Kingdom", :from => "response"
+      select "United Kingdom", from: "response"
       click_on "Next step"
 
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05/united-kingdom"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/country-and-date-sample') }
+	within('.start-again') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "Which country do you live in?"
           end
           within('.answer') { assert_page_has_content "Belarus" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/?previous_response=belarus") }
+	  within('.undo') { assert page.has_link?("Change this answer", href: "/country-and-date-sample/y/?previous_response=belarus") }
         end
 
         within 'ol li.done:nth-child(2)' do
@@ -141,7 +141,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
           end
 
           within('.answer') { assert_page_has_content "5 May 1975" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
+	  within('.undo') { assert page.has_link?("Change this answer", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
         end
 
         within 'ol li.done:nth-child(3)' do
@@ -151,7 +151,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
           end
 
           within('.answer') { assert_page_has_content "United Kingdom" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/country-and-date-sample/y/belarus/1975-05-05?previous_response=united-kingdom") }
+	  within('.undo') { assert page.has_link?("Change this answer", href: "/country-and-date-sample/y/belarus/1975-05-05?previous_response=united-kingdom") }
         end
       end
 
@@ -184,20 +184,20 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       assert page.has_no_xpath? "//select/option[@value = 'united-kingdom']"
     end
 
-    select "Belarus", :from => "response"
+    select "Belarus", from: "response"
     click_on "Next step"
 
     assert_current_url "/country-legacy-sample/y/belarus"
 
     within '.done-questions' do
-      within('.start-again') { assert page.has_link?("Start again", :href => '/country-legacy-sample') }
+      within('.start-again') { assert page.has_link?("Start again", href: '/country-legacy-sample') }
       within 'ol li.done:nth-child(1)' do
         within 'h3' do
           within('.question-number') { assert_page_has_content "1" }
           assert_page_has_content "Which country do you live in?"
         end
         within('.answer') { assert_page_has_content "Belarus" }
-        within('.undo') { assert page.has_link?("Change this answer", :href => "/country-legacy-sample/y/?previous_response=belarus") }
+	within('.undo') { assert page.has_link?("Change this answer", href: "/country-legacy-sample/y/?previous_response=belarus") }
       end
     end
 
@@ -213,7 +213,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       assert page.has_select?("response")
     end
 
-    select "United Kingdom", :from => "response"
+    select "United Kingdom", from: "response"
     click_on "Next step"
 
     assert_current_url "/country-legacy-sample/y/belarus/united-kingdom"

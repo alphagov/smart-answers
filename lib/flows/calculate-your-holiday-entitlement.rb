@@ -44,10 +44,10 @@ value_question :how_many_days_per_week? do
   end
   calculate :calculator do
     Calculators::HolidayEntitlement.new(
-      :days_per_week => (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
-      :start_date => start_date,
-      :leaving_date => leaving_date,
-      :leave_year_start_date => leave_year_start_date
+      days_per_week: (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
+      start_date: start_date,
+      leaving_date: leaving_date,
+      leave_year_start_date: leave_year_start_date
     )
   end
   calculate :holiday_entitlement_days do
@@ -121,10 +121,10 @@ end
 value_question :how_many_hours_per_week? do
   calculate :calculator do
     Calculators::HolidayEntitlement.new(
-      :hours_per_week => Float(responses.last),
-      :start_date => start_date,
-      :leaving_date => leaving_date,
-      :leave_year_start_date => leave_year_start_date
+      hours_per_week: Float(responses.last),
+      start_date: start_date,
+      leaving_date: leaving_date,
+      leave_year_start_date: leave_year_start_date
     )
   end
   calculate :holiday_entitlement_hours_and_minutes do
@@ -149,7 +149,7 @@ value_question :casual_or_irregular_hours? do
     hours
   end
   calculate :calculator do
-    Calculators::HolidayEntitlement.new(:total_hours => total_hours)
+    Calculators::HolidayEntitlement.new(total_hours: total_hours)
   end
   calculate :holiday_entitlement_hours do
     calculator.casual_irregular_entitlement.first
@@ -170,7 +170,7 @@ value_question :annualised_hours? do
     hours
   end
   calculate :calculator do
-    Calculators::HolidayEntitlement.new(:total_hours => total_hours)
+    Calculators::HolidayEntitlement.new(total_hours: total_hours)
   end
   calculate :average_hours_per_week do
     calculator.formatted_annualised_hours_per_week
@@ -204,8 +204,8 @@ value_question :compressed_hours_how_many_days_per_week? do
   end
   calculate :calculator do
     Calculators::HolidayEntitlement.new(
-      :hours_per_week => hours_per_week,
-      :days_per_week => days_per_week
+      hours_per_week: hours_per_week,
+      days_per_week: days_per_week
     )
   end
   calculate :holiday_entitlement_hours do
@@ -260,12 +260,12 @@ value_question :shift_worker_days_per_shift_pattern? do
   end
   calculate :calculator do
     Calculators::HolidayEntitlement.new(
-      :start_date => start_date,
-      :leaving_date => leaving_date,
-      :leave_year_start_date => leave_year_start_date,
-      :hours_per_shift => hours_per_shift,
-      :shifts_per_shift_pattern => shifts_per_shift_pattern,
-      :days_per_shift_pattern => days_per_shift_pattern
+      start_date: start_date,
+      leaving_date: leaving_date,
+      leave_year_start_date: leave_year_start_date,
+      hours_per_shift: hours_per_shift,
+      shifts_per_shift_pattern: shifts_per_shift_pattern,
+      days_per_shift_pattern: days_per_shift_pattern
     )
   end
   calculate :shifts_per_week do

@@ -6,7 +6,7 @@ data_query = Calculators::PassportAndEmbassyDataQuery.new
 exclude_countries = %w(holy-see british-antarctic-territory)
 
 # Q1
-country_select :which_country_are_you_in?, :exclude_countries => exclude_countries do
+country_select :which_country_are_you_in?, exclude_countries: exclude_countries do
   save_input_as :current_location
 
   calculate :location do
@@ -129,7 +129,7 @@ multiple_choice :child_or_adult_passport? do
 end
 
 # Q4
-country_select :country_of_birth?, :include_uk => true, :exclude_countries => exclude_countries do
+country_select :country_of_birth?, include_uk: true, exclude_countries: exclude_countries do
   save_input_as :birth_location
 
   calculate :application_group do

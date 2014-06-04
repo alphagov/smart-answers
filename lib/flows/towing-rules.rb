@@ -14,8 +14,8 @@ end
 
 ## Q2
 multiple_choice :existing_towing_entitlements? do
-  option :yes => :how_long_entitlements? #Q2A
-  option :no => :date_licence_was_issued? #Q5
+  option yes: :how_long_entitlements? #Q2A
+  option no: :date_licence_was_issued? #Q5
 end
 
 ## Q2A
@@ -34,8 +34,8 @@ end
 ##
 ## Q8
 multiple_choice :medium_sized_vehicle_licenceholder? do
-  option :yes => :how_old_are_you_msv? #Q9
-  option :no => :existing_large_vehicle_towing_entitlements? #Q12
+  option yes: :how_old_are_you_msv? #Q9
+  option no: :existing_large_vehicle_towing_entitlements? #Q12
 end
 
 ## Q9
@@ -46,8 +46,8 @@ end
 
 ## Q12
 multiple_choice :existing_large_vehicle_towing_entitlements? do
-  option :yes => :included_entitlement_msv #A13
-  option :no => :date_licence_was_issued_msv? #Q14
+  option yes: :included_entitlement_msv #A13
+  option no: :date_licence_was_issued_msv? #Q14
 end
 
 ## Q14
@@ -67,8 +67,8 @@ end
 ##
 ## Q20
 multiple_choice :existing_large_vehicle_licence? do
-  option :yes => :full_cat_c_entitlement #A21
-  option :no => :how_old_are_you_lv? #Q22
+  option yes: :full_cat_c_entitlement #A21
+  option no: :how_old_are_you_lv? #Q22
 end
 
 ## Q22
@@ -81,20 +81,20 @@ end
 ##
 ## Q25
 multiple_choice :car_licence_before_jan_1997? do
-  option :yes => :full_entitlement_minibus #A26
-  option :no => :do_you_have_lv_or_bus_towing_entitlement? #Q27
+  option yes: :full_entitlement_minibus #A26
+  option no: :do_you_have_lv_or_bus_towing_entitlement? #Q27
 end
 
 ## Q27
 multiple_choice :do_you_have_lv_or_bus_towing_entitlement? do
-  option :yes => :included_entitlement_minibus #A28
-  option :no => :full_minibus_licence? #Q29
+  option yes: :included_entitlement_minibus #A28
+  option no: :full_minibus_licence? #Q29
 end
 
 ## Q29
 multiple_choice :full_minibus_licence? do
-  option :yes => :limited_towing_entitlement_minibus #A30
-  option :no => :how_old_are_you_minibus? #Q31
+  option yes: :limited_towing_entitlement_minibus #A30
+  option no: :how_old_are_you_minibus? #Q31
 end
 
 ## Q31
@@ -108,8 +108,8 @@ end
 ##
 ## Q36
 multiple_choice :bus_licenceholder? do
-  option :yes => :full_entitlement_bus #A37
-  option :no => :how_old_are_you_bus? #Q38
+  option yes: :full_entitlement_bus #A37
+  option no: :how_old_are_you_bus? #Q38
 end
 
 ## Q38

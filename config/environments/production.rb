@@ -60,7 +60,7 @@ SmartAnswers::Application.configure do
 
   config.action_controller.asset_host = ENV['GOVUK_ASSET_HOST']
 
-  config.action_mailer.default_url_options = { :host => Plek.current.find('smartanswers') }
+  config.action_mailer.default_url_options = { host: Plek.current.find('smartanswers') }
   config.action_mailer.delivery_method = :ses
 
   # Enable JSON-style logging

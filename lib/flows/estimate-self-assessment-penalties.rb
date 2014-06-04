@@ -2,17 +2,17 @@ status :published
 satisfies_need "100615"
 
 calculator_dates = {
-  :online_filing_deadline => {
+  online_filing_deadline: {
     :"2010-11" => Date.new(2012, 1, 31),
     :"2011-12" => Date.new(2013, 1, 31),
     :"2012-13" => Date.new(2014, 1, 31)
   },
-  :offline_filing_deadline => {
+  offline_filing_deadline: {
     :"2010-11" => Date.new(2011, 10, 31),
     :"2011-12" => Date.new(2012, 10, 31),
     :"2012-13" => Date.new(2013, 10, 31)
   },
-  :payment_deadline => {
+  payment_deadline: {
     :"2010-11" => Date.new(2012, 1, 31),
     :"2011-12" => Date.new(2013, 1, 31),
     :"2012-13" => Date.new(2014, 1, 31)
@@ -52,8 +52,8 @@ multiple_choice :which_year? do
 end
 
 multiple_choice :how_submitted? do
-  option :online => :when_submitted?
-  option :paper => :when_submitted?
+  option online: :when_submitted?
+  option paper: :when_submitted?
 
   save_input_as :submission_method
 end
@@ -90,11 +90,11 @@ date_question :when_paid? do
       raise SmartAnswer::InvalidResponse
     else
       calculator = Calculators::SelfAssessmentPenalties.new(
-        :submission_method => submission_method,
-        :filing_date => filing_date,
-        :payment_date => response,
-        :dates => calculator_dates,
-        :tax_year => tax_year
+	submission_method: submission_method,
+	filing_date: filing_date,
+	payment_date: response,
+	dates: calculator_dates,
+	tax_year: tax_year
       )
       if calculator.paid_on_time?
         :filed_and_paid_on_time
@@ -110,12 +110,12 @@ money_question :how_much_tax? do
 
   calculate :calculator do
     Calculators::SelfAssessmentPenalties.new(
-      :submission_method => submission_method,
-      :filing_date => filing_date,
-      :payment_date => payment_date,
-      :estimated_bill => responses.last,
-      :dates => calculator_dates,
-      :tax_year => tax_year
+      submission_method: submission_method,
+      filing_date: filing_date,
+      payment_date: payment_date,
+      estimated_bill: responses.last,
+      dates: calculator_dates,
+      tax_year: tax_year
     )
   end
 

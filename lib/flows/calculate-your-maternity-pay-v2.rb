@@ -130,8 +130,8 @@ end
 
 # Question 5
 multiple_choice :will_you_still_be_employed_in_qualifying_week? do
-  option :yes => :how_much_do_you_earn?
-  option :no => :will_you_work_at_least_26_weeks_during_test_period?
+  option yes: :how_much_do_you_earn?
+  option no: :will_you_work_at_least_26_weeks_during_test_period?
 end
 
 # Note this is only reached for 'employed' people who
@@ -187,20 +187,20 @@ end
 
 # Question 8
  multiple_choice :have_you_helped_partner_self_employed? do
-   option :yes => :have_you_been_paid_for_helping_partner?
-   option :no => :will_you_work_at_least_26_weeks_during_test_period?
+   option yes: :have_you_been_paid_for_helping_partner?
+   option no: :will_you_work_at_least_26_weeks_during_test_period?
  end
 
  # Question 9
  multiple_choice :have_you_been_paid_for_helping_partner? do
-   option :yes => :nothing_maybe_benefits
-   option :no => :partner_helped_for_more_than_26weeks?
+   option yes: :nothing_maybe_benefits
+   option no: :partner_helped_for_more_than_26weeks?
  end
 
  # Question 10
  multiple_choice :partner_helped_for_more_than_26weeks? do
-   option :yes => :lower_maternity_allowance
-   option :no => :nothing_maybe_benefits
+   option yes: :lower_maternity_allowance
+   option no: :nothing_maybe_benefits
  end
 
 # Outcome 1

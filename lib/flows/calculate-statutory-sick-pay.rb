@@ -23,14 +23,14 @@ end
 
 # Question 2
 multiple_choice :employee_tell_within_limit? do
-    option :yes => :employee_work_different_days? # Question 3
-    option :no => :didnt_tell_soon_enough # Answer 3
+    option yes: :employee_work_different_days? # Question 3
+    option no: :didnt_tell_soon_enough # Answer 3
 end
 
 # Question 3
 multiple_choice :employee_work_different_days? do
-    option :yes => :not_regular_schedule # Answer 4
-    option :no => :first_sick_day? # Question 4
+    option yes: :not_regular_schedule # Answer 4
+    option no: :first_sick_day? # Question 4
 end
 
 # Question 4
@@ -65,9 +65,9 @@ end
 
 # Question 5.1
 multiple_choice :paid_at_least_8_weeks? do
-  option :eight_weeks_more => :how_often_pay_employee_pay_patterns? # Question 5.2
-  option :eight_weeks_less => :total_earnings_before_sick_period? # Question 8
-  option :before_payday => :how_often_pay_employee_pay_patterns? # Question 5.2
+  option eight_weeks_more: :how_often_pay_employee_pay_patterns? # Question 5.2
+  option eight_weeks_less: :total_earnings_before_sick_period? # Question 8
+  option before_payday: :how_often_pay_employee_pay_patterns? # Question 5.2
 
   save_input_as :eight_weeks_earnings
 end
@@ -184,7 +184,7 @@ end
 
 # Question 11
 multiple_choice :off_sick_4_days? do
-  option :yes => :linked_sickness_start_date?
+  option yes: :linked_sickness_start_date?
   option :no
 
   next_node_if(:not_earned_enough) do

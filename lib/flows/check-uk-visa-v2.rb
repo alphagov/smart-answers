@@ -16,7 +16,7 @@ country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus bo
 country_group_eea = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 
 # Q1
-country_select :what_passport_do_you_have?, :additional_countries => additional_countries, :exclude_countries => exclude_countries do
+country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: exclude_countries do
   save_input_as :passport_country
 
   next_node_if(:outcome_no_visa_needed, country_in(country_group_eea))
@@ -26,8 +26,8 @@ end
 # Q2
 multiple_choice :purpose_of_visit? do
   option :tourism
-  option :work => :staying_for_how_long?
-  option :study => :staying_for_how_long?
+  option work: :staying_for_how_long?
+  option study: :staying_for_how_long?
   option :transit
   option :family
   option :marriage

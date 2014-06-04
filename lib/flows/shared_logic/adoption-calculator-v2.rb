@@ -1,7 +1,7 @@
 ## QA0
 multiple_choice :taking_paternity_leave_for_adoption? do
-  option :yes => :employee_date_matched_paternity_adoption? #QAP1
-  option :no => :date_of_adoption_match? # QA1
+  option yes: :employee_date_matched_paternity_adoption? #QAP1
+  option no: :date_of_adoption_match? # QA1
 end
 
 ## QA1
@@ -79,8 +79,8 @@ end
 
 ## QA5
 multiple_choice :adoption_did_the_employee_work_for_you? do
-  option :yes => :adoption_is_the_employee_on_your_payroll?
-  option :no => :adoption_not_entitled_to_leave_or_pay
+  option yes: :adoption_is_the_employee_on_your_payroll?
+  option no: :adoption_not_entitled_to_leave_or_pay
   #at this point we know for sure if employee is entitled to leave
   calculate :adoption_leave_info do
     if (responses.last == 'yes') and (employee_has_contract_adoption == 'yes')
@@ -93,8 +93,8 @@ end
 
 ## QA6
 multiple_choice :adoption_is_the_employee_on_your_payroll? do
-  option :yes => :last_normal_payday? # NOTE: this goes to a shared question => QM5.2
-  option :no => :adoption_leave_and_pay
+  option yes: :last_normal_payday? # NOTE: this goes to a shared question => QM5.2
+  option no: :adoption_leave_and_pay
   calculate :adoption_pay_info do
     if responses.last == 'no'
       pay_info = PhraseList.new(:adoption_not_entitled_to_pay_intro)

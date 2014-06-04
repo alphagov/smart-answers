@@ -16,17 +16,17 @@ multiple_choice :going_or_already_abroad? do
 end
 # Q2
 multiple_choice :which_benefit? do
-  option :jsa => :which_country_jsa? # Q3
-  option :pension => :pension_outcome # A2
-  option :wfp => :which_country_wfp? # Q4
-  option :maternity_benefits => :which_country_maternity? # Q6
-  option :child_benefits => :which_country_cb? # Q11
-  option :iidb => :already_claiming_iidb? # Q22
-  option :ssp => :which_country_ssp? # Q31
-  option :esa => :how_long_are_you_abroad_for_esa? # Q23
+  option jsa: :which_country_jsa? # Q3
+  option pension: :pension_outcome # A2
+  option wfp: :which_country_wfp? # Q4
+  option maternity_benefits: :which_country_maternity? # Q6
+  option child_benefits: :which_country_cb? # Q11
+  option iidb: :already_claiming_iidb? # Q22
+  option ssp: :which_country_ssp? # Q31
+  option esa: :how_long_are_you_abroad_for_esa? # Q23
   #option :disability_benefits => # Q26 # Leave for now.
-  option :bereavement_benefits => :which_country_bereavement? # Q32
-  option :tax_credits => :eligible_for_tax_credits? # Q16
+  option bereavement_benefits: :which_country_bereavement? # Q32
+  option tax_credits: :eligible_for_tax_credits? # Q16
 end
 # Q3
 country_select :which_country_jsa? do
@@ -64,8 +64,8 @@ country_select :which_country_wfp? do
 end
 # Q5
 multiple_choice :qualify_for_wfp? do
-  option :yes => :wfp_outcome # A7
-  option :no => :wfp_not_entitled # A6
+  option yes: :wfp_outcome # A7
+  option no: :wfp_not_entitled # A6
 end
 # Q6
 country_select :which_country_maternity? do
@@ -86,8 +86,8 @@ country_select :which_country_maternity? do
 end
 # Q7
 multiple_choice :working_for_a_uk_employer? do
-  option :yes => :eligible_for_maternity_pay? # Q8
-  option :no => :smp_not_entitled # A8
+  option yes: :eligible_for_maternity_pay? # Q8
+  option no: :smp_not_entitled # A8
    situations.each do |situation|
     key = :"uk_employer_#{situation}_maternity"
     precalculate key do
@@ -97,8 +97,8 @@ multiple_choice :working_for_a_uk_employer? do
 end
 # Q8
 multiple_choice :eligible_for_maternity_pay? do
-  option :yes => :smp_outcome # A9
-  option :no => :smp_not_entitled #A8
+  option yes: :smp_outcome # A9
+  option no: :smp_not_entitled #A8
 end
 # Q9, Q10
 multiple_choice :employer_paying_ni? do
@@ -139,8 +139,8 @@ country_select :which_country_cb? do
 end
 # Q12
 multiple_choice :do_either_of_the_following_apply? do
-  option :yes => :cb_outcome # A15
-  option :no => :cb_not_entitled # A16
+  option yes: :cb_outcome # A15
+  option no: :cb_not_entitled # A16
 end
 # Q13
 country_select :which_country_ssp? do
@@ -160,18 +160,18 @@ country_select :which_country_ssp? do
 end
 # Q14
 multiple_choice :working_for_a_uk_employer_ssp? do
-  option :yes => :ssp_outcome # A17
-  option :no => :ssp_not_entitled # A18
+  option yes: :ssp_outcome # A17
+  option no: :ssp_not_entitled # A18
 end
 # Q15
 multiple_choice :employer_paying_ni_ssp? do
-  option :yes => :ssp_outcome # A17
-  option :no => :ssp_not_entitled # A18
+  option yes: :ssp_outcome # A17
+  option no: :ssp_not_entitled # A18
 end
 # Q16
 multiple_choice :eligible_for_tax_credits? do
-  option :yes => :are_you_one_of_the_following? # Q17
-  option :no => :tax_credits_unlikely # A19
+  option yes: :are_you_one_of_the_following? # Q17
+  option no: :tax_credits_unlikely # A19
   situations.each do |situation|
     key = :"eligible_#{situation}_tax_credits"
     precalculate key do
@@ -181,14 +181,14 @@ multiple_choice :eligible_for_tax_credits? do
 end
 # Q17
 multiple_choice :are_you_one_of_the_following? do
-  option :crown_servant => :tax_credits_outcome # A20
-  option :cross_border_worker => :tax_credits_exceptions # A21
-  option :none_of_the_above => :how_long_are_you_abroad_for? # Q21
+  option crown_servant: :tax_credits_outcome # A20
+  option cross_border_worker: :tax_credits_exceptions # A21
+  option none_of_the_above: :how_long_are_you_abroad_for? # Q21
 end
 # Q18
 multiple_choice :do_you_have_children? do
-  option :yes => :where_tax_credits? # Q19
-  option :no => :tax_credits_outcome # A20
+  option yes: :where_tax_credits? # Q19
+  option no: :tax_credits_outcome # A20
 end
 # Q19
 country_select :where_tax_credits? do
@@ -208,13 +208,13 @@ country_select :where_tax_credits? do
 end
 # Q20
 multiple_choice :currently_claiming? do
-  option :yes => :tax_credits_possible # A22
-  option :no => :tax_credits_unlikely # A19
+  option yes: :tax_credits_possible # A22
+  option no: :tax_credits_unlikely # A19
 end
 # Q21
 multiple_choice :how_long_are_you_abroad_for? do
-  option :up_to_a_year => :why_are_you_going_abroad? # Q22
-  option :more_than_a_year => :do_you_have_children? # Q18
+  option up_to_a_year: :why_are_you_going_abroad? # Q22
+  option more_than_a_year: :do_you_have_children? # Q18
   situations.each do |situation|
     key = :"how_long_#{situation}_tax_credits"
     precalculate key do
@@ -224,18 +224,18 @@ multiple_choice :how_long_are_you_abroad_for? do
 end
 # Q22
 multiple_choice :why_are_you_going_abroad? do
-  option :holiday_or_business_trip => :tax_credits_continue_8_weeks # A23
-  option :medical_treatment => :tax_credits_continue_12_weeks # A24
-  option :death => :tax_credits_continue_12_weeks # A24
+  option holiday_or_business_trip: :tax_credits_continue_8_weeks # A23
+  option medical_treatment: :tax_credits_continue_12_weeks # A24
+  option death: :tax_credits_continue_12_weeks # A24
 end
 # Q23
 multiple_choice :how_long_are_you_abroad_for_esa? do
-  option :less_than_a_year_medical => :esa_eligible_26_weeks # A25
-  option :less_than_a_year => :esa_eligible_4_weeks # A26
-  option :more_than_a_year => :which_country_esa? # Q24
+  option less_than_a_year_medical: :esa_eligible_26_weeks # A25
+  option less_than_a_year: :esa_eligible_4_weeks # A26
+  option more_than_a_year: :which_country_esa? # Q24
 end
 # Q24
-country_select :which_country_esa?, :use_legacy_data => true do
+country_select :which_country_esa?, use_legacy_data: true do
   next_node do |response|
     if eea_countries.include?(response)
       :esa_eligible_possible # A27
@@ -246,11 +246,11 @@ country_select :which_country_esa?, :use_legacy_data => true do
 end
 # Q25
 multiple_choice :already_claiming_iidb? do
-  option :yes => :which_country_iidb? # Q26
-  option :no => :iidb_possible_with_ni # A29
+  option yes: :which_country_iidb? # Q26
+  option no: :iidb_possible_with_ni # A29
 end
 # Q26
-country_select :which_country_iidb?, :use_legacy_data => true do
+country_select :which_country_iidb?, use_legacy_data: true do
   next_node do |response|
     iidb_ss_countries = %w(barbados bermuda bosnia-and-herzegovina croatia guernsey israel
                            jamaica jersey kosovo macedonia malta mauritius montenegro

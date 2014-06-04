@@ -2,8 +2,8 @@ days_of_the_week = Calculators::MaternityPaternityCalculatorV2::DAYS_OF_THE_WEEK
 
 ## QP0
 multiple_choice :leave_or_pay_for_adoption? do
-    option :yes => :employee_date_matched_paternity_adoption?
-    option :no => :baby_due_date_paternity?
+    option yes: :employee_date_matched_paternity_adoption?
+    option no: :baby_due_date_paternity?
 end
 
 ## QP1
@@ -35,8 +35,8 @@ end
 ## QP3
 multiple_choice :employee_responsible_for_upbringing? do
 
-  option :yes => :employee_work_before_employment_start?
-  option :no => :paternity_not_entitled_to_leave_or_pay
+  option yes: :employee_work_before_employment_start?
+  option no: :paternity_not_entitled_to_leave_or_pay
   save_input_as :paternity_responsible
 
   calculate :employment_start do
@@ -52,8 +52,8 @@ end
 
 ## QP4
 multiple_choice :employee_work_before_employment_start? do
-  option :yes => :employee_has_contract_paternity?
-    option :no => :paternity_not_entitled_to_leave_or_pay
+  option yes: :employee_has_contract_paternity?
+    option no: :paternity_not_entitled_to_leave_or_pay
   save_input_as :paternity_employment_start ## Needed only in outcome
 end
 
@@ -224,10 +224,10 @@ end
 
 ## QP12
 multiple_choice :pay_frequency_paternity? do
-  option :weekly => :earnings_for_pay_period_paternity?
-  option :every_2_weeks => :earnings_for_pay_period_paternity?
-  option :every_4_weeks => :earnings_for_pay_period_paternity?
-  option :monthly => :earnings_for_pay_period_paternity?
+  option weekly: :earnings_for_pay_period_paternity?
+  option every_2_weeks: :earnings_for_pay_period_paternity?
+  option every_4_weeks: :earnings_for_pay_period_paternity?
+  option monthly: :earnings_for_pay_period_paternity?
   save_input_as :pay_pattern
 
   calculate :calculator do
@@ -307,11 +307,11 @@ end
 
 ## QP16
 multiple_choice :monthly_pay_paternity? do
-  option :first_day_of_the_month => :paternity_leave_and_pay
-  option :last_day_of_the_month => :paternity_leave_and_pay
-  option :specific_date_each_month => :specific_date_each_month_paternity?
-  option :last_working_day_of_the_month => :days_of_the_week_paternity?
-  option :a_certain_week_day_each_month => :day_of_the_month_paternity?
+  option first_day_of_the_month: :paternity_leave_and_pay
+  option last_day_of_the_month: :paternity_leave_and_pay
+  option specific_date_each_month: :specific_date_each_month_paternity?
+  option last_working_day_of_the_month: :days_of_the_week_paternity?
+  option a_certain_week_day_each_month: :day_of_the_month_paternity?
 
   save_input_as :monthly_pay_method
 end
@@ -522,8 +522,8 @@ multiple_choice :padoption_employee_responsible_for_upbringing? do
     calculate :not_entitled_reason do
     PhraseList.new :not_responsible_for_upbringing
   end
-  option :yes => :padoption_employee_start_on_or_before_employment_start?
-    option :no => :padoption_not_entitled_to_leave_or_pay #5AP DP
+  option yes: :padoption_employee_start_on_or_before_employment_start?
+    option no: :padoption_not_entitled_to_leave_or_pay #5AP DP
 end
 
 ## QAP4
@@ -531,8 +531,8 @@ multiple_choice :padoption_employee_start_on_or_before_employment_start? do
     calculate :not_entitled_reason do
     PhraseList.new :not_worked_long_enough
   end
-  option :yes => :padoption_have_employee_contract?
-    option :no => :padoption_not_entitled_to_leave_or_pay #5AP EP
+  option yes: :padoption_have_employee_contract?
+    option no: :padoption_not_entitled_to_leave_or_pay #5AP EP
 end
 
 ## QAP5
@@ -553,8 +553,8 @@ end
 
 ## QAP6
 multiple_choice :padoption_employed_at_employment_end? do
-  option :yes => :padoption_employee_on_payroll?
-  option :no => :padoption_leave_and_pay # 4AP AP
+  option yes: :padoption_employee_on_payroll?
+  option no: :padoption_leave_and_pay # 4AP AP
     calculate :padoption_pay_info do
     if responses.last == 'no'
       pay_info = PhraseList.new (:padoption_not_entitled_to_pay_intro)
@@ -571,8 +571,8 @@ end
 
 ## QAP7
 multiple_choice :padoption_employee_on_payroll? do
-  option :yes => :last_normal_payday? # NOTE: goes to shared questions
-  option :no => :padoption_leave_and_pay # 4AP BP
+  option yes: :last_normal_payday? # NOTE: goes to shared questions
+  option no: :padoption_leave_and_pay # 4AP BP
     calculate :padoption_pay_info do
     if responses.last == 'no'
       pay_info = PhraseList.new(:padoption_not_entitled_to_pay_intro)

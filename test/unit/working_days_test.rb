@@ -4,7 +4,7 @@ require 'working_days'
 class WorkingDaysTest < ActiveSupport::TestCase
   setup do
     WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).
-      to_return(:body => File.open(fixture_file('bank_holidays.json')))
+      to_return(body: File.open(fixture_file('bank_holidays.json')))
   end
 
   context "adding working days" do
@@ -89,7 +89,7 @@ class WorkingDaysTest < ActiveSupport::TestCase
       WorkingDays.bank_holidays
       WorkingDays.bank_holidays
 
-      WebMock.assert_requested(:get, "https://www.gov.uk/bank-holidays.json", :times => 1)
+      WebMock.assert_requested(:get, "https://www.gov.uk/bank-holidays.json", times: 1)
     end
   end
 end

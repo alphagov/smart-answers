@@ -15,7 +15,7 @@ class DocumentLegalisationCheckerTest < ActiveSupport::TestCase
 
   should "error if nothing selected" do
     add_response 'none'
-    assert_current_node :which_documents_do_you_want_legalised?, :error => true
+    assert_current_node :which_documents_do_you_want_legalised?, error: true
   end
 
   context "doesnt include birth_data, certificate_impediment or medical_reports" do

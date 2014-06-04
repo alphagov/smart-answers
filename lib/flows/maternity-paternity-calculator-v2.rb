@@ -6,9 +6,9 @@ satisfies_need "100990"
 ## Q1
 multiple_choice :what_type_of_leave? do
   save_input_as :leave_type
-  option :maternity => :baby_due_date_maternity?
-  option :paternity => :leave_or_pay_for_adoption?
-  option :adoption => :taking_paternity_leave_for_adoption?
+  option maternity: :baby_due_date_maternity?
+  option paternity: :leave_or_pay_for_adoption?
+  option adoption: :taking_paternity_leave_for_adoption?
 end
 
 

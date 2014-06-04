@@ -4,8 +4,8 @@ satisfies_need "100992"
 
 ## Q1
 multiple_choice :are_you_an_employee_or_employer? do
-  option :employee => :employee_which_ones_of_these_describes_you?
-  option :employer => :employer_which_ones_of_these_describes_your_employee?
+  option employee: :employee_which_ones_of_these_describes_you?
+  option employer: :employer_which_ones_of_these_describes_your_employee?
 end
 
 ## Q2
@@ -62,24 +62,24 @@ end
 
 ## Q3
 multiple_choice :employee_responsible_for_childs_upbringing? do
-  option :yes => :employee_right_to_apply
-  option :no => :employee_no_right_to_apply
+  option yes: :employee_right_to_apply
+  option no: :employee_no_right_to_apply
 end
 
 multiple_choice :employer_responsible_for_childs_upbringing? do
-  option :yes => :employer_right_to_apply
-  option :no => :employer_no_right_to_apply
+  option yes: :employer_right_to_apply
+  option no: :employer_no_right_to_apply
 end
 
 ## Q4
 multiple_choice :employee_do_any_of_these_describe_the_adult_youre_caring_for? do
-  option :yes => :employee_right_to_apply
-  option :no => :employee_no_right_to_apply
+  option yes: :employee_right_to_apply
+  option no: :employee_no_right_to_apply
 end
 
 multiple_choice :employer_do_any_of_these_describe_the_adult_being_cared_for? do
-  option :yes => :employer_right_to_apply
-  option :no => :employer_no_right_to_apply
+  option yes: :employer_right_to_apply
+  option no: :employer_no_right_to_apply
 end
 
 ## A1

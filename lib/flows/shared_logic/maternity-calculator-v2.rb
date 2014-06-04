@@ -68,8 +68,8 @@ end
 
 ## QM4
 multiple_choice :did_the_employee_work_for_you? do
-  option :yes => :is_the_employee_on_your_payroll?
-  option :no => :maternity_leave_and_pay_result
+  option yes: :is_the_employee_on_your_payroll?
+  option no: :maternity_leave_and_pay_result
   calculate :not_entitled_to_pay_reason do
     responses.last == 'no' ? :not_worked_long_enough : nil
   end
@@ -77,8 +77,8 @@ end
 
 ## QM5
 multiple_choice :is_the_employee_on_your_payroll? do
-  option :yes => :last_normal_payday? # NOTE: goes to shared questions
-  option :no => :maternity_leave_and_pay_result
+  option yes: :last_normal_payday? # NOTE: goes to shared questions
+  option no: :maternity_leave_and_pay_result
 
   calculate :not_entitled_to_pay_reason do
     responses.last == 'no' ? :must_be_on_payroll : nil
@@ -143,10 +143,10 @@ end
 ## QM5.4
 multiple_choice :pay_frequency? do
   save_input_as :pay_pattern
-  option :weekly => :earnings_for_pay_period? ## QM5.5
-  option :every_2_weeks => :earnings_for_pay_period? ## QM5.5
-  option :every_4_weeks => :earnings_for_pay_period? ## QM5.5
-  option :monthly => :earnings_for_pay_period? ## QM5.5
+  option weekly: :earnings_for_pay_period? ## QM5.5
+  option every_2_weeks: :earnings_for_pay_period? ## QM5.5
+  option every_4_weeks: :earnings_for_pay_period? ## QM5.5
+  option monthly: :earnings_for_pay_period? ## QM5.5
 end
 
 ## QM5.5
@@ -193,11 +193,11 @@ end
 
 ## QM9
 multiple_choice :when_in_the_month_is_the_employee_paid? do
-  option :first_day_of_the_month => :maternity_leave_and_pay_result
-  option :last_day_of_the_month => :maternity_leave_and_pay_result
-  option :specific_date_each_month => :what_specific_date_each_month_is_the_employee_paid?
-  option :last_working_day_of_the_month => :what_days_does_the_employee_work?
-  option :a_certain_week_day_each_month => :what_particular_day_of_the_month_is_the_employee_paid?
+  option first_day_of_the_month: :maternity_leave_and_pay_result
+  option last_day_of_the_month: :maternity_leave_and_pay_result
+  option specific_date_each_month: :what_specific_date_each_month_is_the_employee_paid?
+  option last_working_day_of_the_month: :what_days_does_the_employee_work?
+  option a_certain_week_day_each_month: :what_particular_day_of_the_month_is_the_employee_paid?
 
   save_input_as :monthly_pay_method
 end

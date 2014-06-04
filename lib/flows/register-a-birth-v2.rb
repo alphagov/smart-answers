@@ -12,7 +12,7 @@ country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria
 exclude_countries = %w(holy-see british-antarctic-territory)
 
 # Q1
-country_select :country_of_birth?, :exclude_countries => exclude_countries do
+country_select :country_of_birth?, exclude_countries: exclude_countries do
   save_input_as :country_of_birth
 
   calculate :registration_country do
@@ -45,10 +45,10 @@ end
 
 # Q2
 multiple_choice :who_has_british_nationality? do
-  option :mother => :married_couple_or_civil_partnership?
-  option :father => :married_couple_or_civil_partnership?
-  option :mother_and_father => :married_couple_or_civil_partnership?
-  option :neither => :no_registration_result
+  option mother: :married_couple_or_civil_partnership?
+  option father: :married_couple_or_civil_partnership?
+  option mother_and_father: :married_couple_or_civil_partnership?
+  option neither: :no_registration_result
 
   calculate :british_national_parent do
     if country_of_birth == 'sweden'
@@ -106,7 +106,7 @@ multiple_choice :where_are_you_now? do
 end
 
 # Q6
-country_select :which_country?, :exclude_countries => exclude_countries do
+country_select :which_country?, exclude_countries: exclude_countries do
   calculate :registration_country do
   reg_data_query.registration_country_slug(responses.last)
   end
@@ -265,7 +265,7 @@ end
 outcome :oru_result do
 
   precalculate :button_data do
-    {:text => "Pay now", :url => "https://pay-register-birth-abroad.service.gov.uk/start?country=#{country_of_birth}"}
+    {text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start?country=#{country_of_birth}"}
   end
 
   precalculate :oru_documents_variant do

@@ -52,7 +52,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       context "age is less than 20 years" do
         should "user is too young to get more information" do
-          add_response Date.today.advance(:years => -15)
+	  add_response Date.today.advance(years: -15)
 
           assert_current_node :too_young
         end

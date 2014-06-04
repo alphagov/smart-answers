@@ -6,7 +6,7 @@ prisoner_packs = arrested_calc.data
 exclude_countries = %w(holy-see british-antarctic-territory)
 
 #Q1
-country_select :which_country?, :exclude_countries => exclude_countries do
+country_select :which_country?, exclude_countries: exclude_countries do
   save_input_as :country
 
   calculate :location do

@@ -1,8 +1,8 @@
 status :draft
 
 multiple_choice :what_are_you_testing? do
-  option :data_partial_with_scalar => :done_scalar
-  option :data_partial_with_array => :done_array
+  option data_partial_with_scalar: :done_scalar
+  option data_partial_with_array: :done_array
 end
 
 outcome :done_scalar do

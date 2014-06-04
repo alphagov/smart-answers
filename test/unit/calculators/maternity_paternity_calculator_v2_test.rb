@@ -672,9 +672,9 @@ module SmartAnswer::Calculators
         end
         should "calculate pay on paydates with April 2013 uprating" do
           paydates_and_pay =  @calculator.paydates_and_pay
-          assert_equal({ :date => Date.parse('25 January 2013'), :pay => 18.56 }, paydates_and_pay.first)
-          assert_equal({ :date => Date.parse('29 March 2013'), :pay => 649.45 }, paydates_and_pay.third)
-          assert_equal({ :date => Date.parse('31 May 2013'), :pay => 649.45 }, paydates_and_pay[4])
+	  assert_equal({ date: Date.parse('25 January 2013'), pay: 18.56 }, paydates_and_pay.first)
+	  assert_equal({ date: Date.parse('29 March 2013'), pay: 649.45 }, paydates_and_pay.third)
+	  assert_equal({ date: Date.parse('31 May 2013'), pay: 649.45 }, paydates_and_pay[4])
         end
       end
 

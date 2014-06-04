@@ -14,10 +14,10 @@ modified_card_only_countries = %w(belgium netherlands czech-republic slovakia hu
 # Q1
 multiple_choice :where_did_the_death_happen? do
   save_input_as :where_death_happened
-  option :england_wales => :did_the_person_die_at_home_hospital?
-  option :scotland => :did_the_person_die_at_home_hospital?
-  option :northern_ireland => :did_the_person_die_at_home_hospital?
-  option :overseas => :which_country?
+  option england_wales: :did_the_person_die_at_home_hospital?
+  option scotland: :did_the_person_die_at_home_hospital?
+  option northern_ireland: :did_the_person_die_at_home_hospital?
+  option overseas: :which_country?
 end
 # Q2
 multiple_choice :did_the_person_die_at_home_hospital? do
@@ -41,7 +41,7 @@ multiple_choice :was_death_expected? do
 end
 
 # Q4
-country_select :which_country?, :exclude_countries => exclude_countries do
+country_select :which_country?, exclude_countries: exclude_countries do
   save_input_as :country
 
   calculate :current_location do
@@ -73,16 +73,16 @@ country_select :which_country?, :exclude_countries => exclude_countries do
 end
 # Q5
 multiple_choice :where_are_you_now? do
-  option :same_country => :embassy_result
-  option :another_country => :which_country_are_you_in_now?
-  option :back_in_the_uk => :fco_result
+  option same_country: :embassy_result
+  option another_country: :which_country_are_you_in_now?
+  option back_in_the_uk: :fco_result
 
   calculate :another_country do
     responses.last == 'another_country'
   end
 end
 # Q6
-country_select :which_country_are_you_in_now?, :exclude_countries => exclude_countries do
+country_select :which_country_are_you_in_now?, exclude_countries: exclude_countries do
   calculate :current_location do
     reg_data_query.registration_country_slug(responses.last) || responses.last
   end

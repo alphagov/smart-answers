@@ -21,7 +21,7 @@ class ReportAProblemTest < EngineIntegrationTest
       context "question" do
         setup do
           click_on "Start now"
-          fill_in "Name:", :with => "Lancelot"
+	  fill_in "Name:", with: "Lancelot"
         end
 
         should "show report-a-problem" do
@@ -32,7 +32,7 @@ class ReportAProblemTest < EngineIntegrationTest
       context "question" do
         setup do
           click_on "Start now"
-          fill_in "Name:", :with => "Lancelot"
+	  fill_in "Name:", with: "Lancelot"
           click_on "Next step"
         end
 
@@ -44,7 +44,7 @@ class ReportAProblemTest < EngineIntegrationTest
       context "outcome" do
         setup do
           click_on "Start now"
-          fill_in "Name:", :with => "Lancelot"
+	  fill_in "Name:", with: "Lancelot"
           click_on "Next step"
           choose "To seek the Holy Grail"
           click_on "Next step"

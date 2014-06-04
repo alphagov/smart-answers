@@ -4,8 +4,8 @@ satisfies_need "100221"
 exclude_countries = %w(holy-see british-antarctic-territory)
 
 multiple_choice :where_was_the_passport_lost_or_stolen? do
-  option :in_the_uk => :adult_or_child_passport?
-  option :abroad => :adult_or_child_passport?
+  option in_the_uk: :adult_or_child_passport?
+  option abroad: :adult_or_child_passport?
 
   save_input_as :location
 end
@@ -28,7 +28,7 @@ multiple_choice :adult_or_child_passport? do
   end
 end
 
-country_select :which_country?, :exclude_countries => exclude_countries do
+country_select :which_country?, exclude_countries: exclude_countries do
   save_input_as :country
 
   calculate :overseas_passports_embassies do

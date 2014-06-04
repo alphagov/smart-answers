@@ -2,10 +2,10 @@ status :draft
 satisfies_need "100983"
 
 multiple_choice :do_you_have? do
-  option :british_citizenship => :is_one_of_these_true?
-  option :british_nationality => :describe_your_british_nationality?
-  option :british_partner => :british_partner_info
-  option :british_parent => :british_parent_info
+  option british_citizenship: :is_one_of_these_true?
+  option british_nationality: :describe_your_british_nationality?
+  option british_partner: :british_partner_info
+  option british_parent: :british_parent_info
 end
 
 multiple_choice :is_one_of_these_true? do
@@ -28,10 +28,10 @@ multiple_choice :is_one_of_these_true? do
 end
 
 multiple_choice :describe_your_british_nationality? do
-  option :british_overseas_territories_citizen => :british_overseas_territories_citizen_info
-  option :british_overseas_citizen => :british_overseas_citizen_info
-  option :british_subject => :british_subject_info
-  option :british_protected_person => :british_protected_person_info
+  option british_overseas_territories_citizen: :british_overseas_territories_citizen_info
+  option british_overseas_citizen: :british_overseas_citizen_info
+  option british_subject: :british_subject_info
+  option british_protected_person: :british_protected_person_info
 end
 
 date_question :date_of_birth? do
@@ -51,18 +51,18 @@ date_question :date_of_birth? do
 end
 
 multiple_choice :parents_married_at_birth? do
-  option :yes => :parent_eligibility_at_birth?
-  option :no => :mother_eligibility_at_birth?
+  option yes: :parent_eligibility_at_birth?
+  option no: :mother_eligibility_at_birth?
 end
 
 multiple_choice :parent_eligibility_at_birth? do
-  option :yes => :you_qualify
-  option :no => :do_not_qualify
+  option yes: :you_qualify
+  option no: :do_not_qualify
 end
 
 multiple_choice :mother_eligibility_at_birth? do
-  option :yes => :you_qualify
-  option :no => :do_not_qualify
+  option yes: :you_qualify
+  option no: :do_not_qualify
 end
 
 
