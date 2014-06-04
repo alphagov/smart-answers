@@ -1061,7 +1061,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :send_your_application, [:"send_application_timor-leste_intro", :"send_application_ips3_timor-leste_renew_new", :"send_application_address_timor-leste"]
+        assert_phrase_list :send_your_application, [:"send_application_timor-leste", :"send_application_address_timor-leste"]
       end
     end
     context "applying for a new adult passport" do
@@ -1070,7 +1070,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :send_your_application, [:"send_application_timor-leste_intro", :"send_application_ips3_timor-leste_apply_renew_old_replace", :"send_application_address_timor-leste"]
+        assert_phrase_list :send_your_application, [:"send_application_timor-leste", :"send_application_address_timor-leste"]
       end
     end
   end # Timor-Leste
