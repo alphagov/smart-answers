@@ -120,7 +120,7 @@ en-GB:
              +44 207 008 1500 at any other time
 
           $C
-          
+
         helpline_intro: |
           If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
 
@@ -490,7 +490,7 @@ en-GB:
 
         passport_courier_costs_ips2: |
           You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British embassy, high commission or consulate where you applied for you to collect.
-          
+
         adult_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
           |---------------|--------------|--------------------------------------|
@@ -625,6 +625,8 @@ en-GB:
           You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
         send_application_uk_visa_renew_new_colour_western_sahara: |
           ## Making your application
 
@@ -844,7 +846,7 @@ en-GB:
           $C
           Email: <JakartaHMPO@vfshelpline.com>
           $C
-          
+
           $A
           3rd Floor
           No. 7-9.3/A,
@@ -947,7 +949,7 @@ en-GB:
           Nepal
           $A
           $C
-          Email: <KathmanduHMPO@vfshelpline.com>  
+          Email: <KathmanduHMPO@vfshelpline.com>
           Opening hours: Monday to Friday 2pm to 4pm (local time)
           $C
 
@@ -964,8 +966,8 @@ en-GB:
           $A
 
           $C
-          Email: <admin@pitcairn.gov.pn>  
-          Telephone: +64 9 366 0186  
+          Email: <admin@pitcairn.gov.pn>
+          Telephone: +64 9 366 0186
           Fax: +64 9 366 0187
           $C
 
@@ -1309,7 +1311,7 @@ en-GB:
           ###Passport Adviceline
 
           $C
-          Telephone: +44 (0) 300 222 0000  
-          Monday to Friday, 8am to 8pm (UK time)  
+          Telephone: +44 (0) 300 222 0000
+          Monday to Friday, 8am to 8pm (UK time)
           Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
           $C
