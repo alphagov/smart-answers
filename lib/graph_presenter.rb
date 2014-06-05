@@ -49,7 +49,12 @@ private
     when SmartAnswer::Question::Base
       text << word_wrap(node_title(node))
     when SmartAnswer::Outcome
-      text << word_wrap(node_title(node).empty? ? first_line_of_body(node) : node_title(node))
+      candidate_texts = [
+        node_title(node),
+        first_line_of_body(node),
+        node.name.to_s
+      ]
+      text << word_wrap(candidate_texts.find(&:present?))
     else
       text << "Unknown node type"
     end
