@@ -8,7 +8,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan american-samoa andorra australia barbados belize cameroon central-african-republic china el-salvador estonia guatemala grenada hong-kong indonesia ireland iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
+    @location_slugs = %w(afghanistan american-samoa andorra australia barbados belize bonaire-st-eustatius-saba cameroon central-african-republic china el-salvador estonia guatemala grenada hong-kong indonesia ireland iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth-v2'
   end
@@ -190,6 +190,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "sweden"
       add_response "father"
       add_response "no"
+      add_response "6 January 2014"
       add_response "same_country"
       assert_current_node :embassy_result
       assert_state_variable :british_national_parent, 'mother_and_father'
@@ -511,4 +512,19 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_state_variable :translator_link_url, nil
     end
   end # american samoa
+
+  context "answer bonaire-st-eustatius-saba" do
+    should "also go to oru result" do
+      worldwide_api_has_organisations_for_location('/bonaire-st-eustatius-saba', read_fixture_file('worldwide/bonaire-st-eustatius-saba_organisations.json'))
+      add_response "bonaire-st-eustatius-saba"
+      add_response "mother_and_father"
+      add_response "yes"
+      add_response "same_country"
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :oru_address, [:oru_address_abroad]
+      assert_phrase_list :translator_link, [:no_translator_link]
+      assert_state_variable :translator_link_url, nil
+    end
+  end
 end

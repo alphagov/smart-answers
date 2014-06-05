@@ -1,9 +1,9 @@
 ---
 clickbook:
   argentina: http://www.britishembassyinbsas.clickbook.net/
-  belgium: http://britishconsulate-gen.clickbook.net/ 
-  belize: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHINBELIZE 
-  bolivia: http://www.britishembassyinlapa.clickbook.net/ 
+  belgium: http://britishconsulate-gen.clickbook.net/
+  belize: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHINBELIZE
+  bolivia: http://www.britishembassyinlapa.clickbook.net/
   brazil: http://www.britishconsulaterj.clickbook.net/
   bulgaria: http://britishembassysofia.clickbook.net/
   chile: https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsant
@@ -31,7 +31,7 @@ clickbook:
   luxembourg: http://ukinluxembourg.clickbook.net/
   mexico: http://www.britishconsulatemex.clickbook.net/
   netherlands: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHCONSULATE
-  norway: http://www.britishembassy.clickbook.net/ 
+  norway: http://www.britishembassy.clickbook.net/
   oman: https://www.clickbook.net/dev/bc.nsf/sub/britishembassymuscat
   panama: http://www.britishembassyinpana.clickbook.net/
   peru: http://britishembassyinlima.clickbook.net/
@@ -53,9 +53,11 @@ registration_country:
   american-samoa: usa
   andorra: spain
   antigua-and-barbuda: barbados
+  aruba: netherlands
   bahamas: jamaica
   benin: ghana
   bhutan: india
+  bonaire-st-eustatius-saba: netherlands
   burkina-faso: ghana
   burundi: rwanda
   cape-verde: senegal
@@ -63,7 +65,7 @@ registration_country:
   chad: cameroon
   comoros: mauritius
   cote-d-ivoire: ghana
-  curacao: barbados
+  curacao: netherlands
   djibouti: ethiopia
   dominica: barbados
   el-salvador: guatemala
@@ -102,7 +104,7 @@ registration_country:
   south-sudan: ethiopia
   st-kitts-and-nevis: barbados
   st-lucia: barbados
-  st-maarten: barbados
+  st-maarten: netherlands
   st-pierre-and-miquelon: france
   st-vincent-and-the-grenadines: barbados
   swaziland: south-africa
@@ -161,4 +163,3 @@ death:
   - tanzania
   - thailand
   - usa
-  
