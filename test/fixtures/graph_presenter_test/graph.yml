@@ -1,0 +1,19 @@
+en-GB:
+  flow:
+    graph:
+      meta:
+        description: "Graph example"
+      title:
+        Graph example
+      body:
+        Graph example
+
+      options:
+        "no": "No"
+        "yes": "Yes"
+
+      q1?:
+        title: "What is the answer to q1?"
+
+      done:
+        title: "Done"
