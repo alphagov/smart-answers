@@ -69,6 +69,7 @@ multiple_choice :married_couple_or_civil_partnership? do
   end
 
   next_node_if(:childs_date_of_birth?, responded_with('no'), variable_matches(:british_national_parent, 'father'))
+  next_node_if(:childs_date_of_birth?, variable_matches(:country_of_birth, 'sweden') | (responded_with('no') & variable_matches(:british_national_parent, 'father')))
   next_node(:where_are_you_now?)
 end
 

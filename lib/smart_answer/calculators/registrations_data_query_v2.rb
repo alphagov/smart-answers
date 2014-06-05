@@ -25,7 +25,7 @@ module SmartAnswer::Calculators
 
     CASH_AND_CARD_COUNTRIES = %w(estonia)
 
-    ORU_TRANSITIONED_COUNTRIES = %w(american-samoa andorra belgium france french-guiana french-polynesia germany greece guadeloupe italy liechtenstein luxembourg martinique mayotte monaco netherlands portugal reunion san-marino spain st-pierre-and-miquelon switzerland united-arab-emirates usa wallis-and-futuna)
+    ORU_TRANSITIONED_COUNTRIES = %w(american-samoa andorra aruba belgium bonaire-st-eustatius-saba curacao france french-guiana french-polynesia germany greece guadeloupe italy liechtenstein luxembourg martinique mayotte monaco netherlands portugal reunion san-marino spain st-maarten st-pierre-and-miquelon switzerland united-arab-emirates usa wallis-and-futuna)
 
     ORU_DOCUMENTS_VARIANT_COUNTRIES = %w(andorra belgium france italy monaco netherlands portugal spain united-arab-emirates usa)
 
