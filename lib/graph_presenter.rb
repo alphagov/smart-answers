@@ -91,7 +91,7 @@ private
   end
 
   def first_line_of_body(node)
-    node_body(node).split("\n\n").first
+    node_body(node).split("\n\n").first || ""
   end
 
   def translate_option(node, option)
