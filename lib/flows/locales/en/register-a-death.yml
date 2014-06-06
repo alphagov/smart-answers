@@ -38,7 +38,7 @@ en-GB:
         options:
           same_country: "In the country where the death happened"
           another_country: "In another country"
-          back_in_the_uk: "In the UK"
+          in_the_uk: "In the UK"
       phrases:
         intro_ew: |
           You should register the death within 5 days. 
@@ -225,7 +225,7 @@ en-GB:
           - the person’s British passport 
           - their full length British birth, naturalisation or registration certificate 
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
-
+          
         documents_list_embassy_netherlands: |
           - an international version of the local death certificate (not a certificate issued by a doctor)
           - the person’s passport
@@ -267,7 +267,7 @@ en-GB:
 
         postal_delivery_form: |
           Use the [delivery return form](%{postal_return_form_url}) to get your documents delivered back to you.
-
+          
         post_only_france: |
           ##Send your registration
 
@@ -279,6 +279,7 @@ en-GB:
           Post your application to the %{embassy_high_commission_or_consulate}.
 
           You must use recorded delivery or a courier. You’ll need to organise the return delivery of your documents (eg by including a pre-paid envelope or through the courier).
+
         post_only_pay_by_card_countries: |
           ##Send your registration
 
@@ -306,7 +307,7 @@ en-GB:
 
         postal_registration_barbados: |
           Pay by bank draft made payable to "British High Commission".
-
+          
         postal_registration_belgium: |
           You should pay by bank transfer made payable to "British Embassy Consular Account" (ING) 310-1200800-26.
 
@@ -339,7 +340,27 @@ en-GB:
         footnote: |
           ^It takes about 3 working days for the death to be officially registered.^
         reg_footnote: |
-         Your application will be sent to the %{embassy_high_commission_or_consulate} in %{death_country_name_lowercase_prefix} to be registered there.  
+         Your application will be sent to the %{embassy_high_commission_or_consulate} in %{death_country_name_lowercase_prefix} to be registered there.
+        approved_translator_link: Use an [approved translator](%{translator_link_url}) and include their name and address with your application 
+        no_translator_link: Use a professional translator and include their name and address with your application
+        oru_address_uk: |
+          $A
+            Overseas Registration Unit 
+            Foreign and Commonwealth Office 
+            PO Box 6255 
+            Milton Keynes 
+            MK10 1XX
+          $A
+        oru_address_abroad: |
+          $A
+            Overseas Registration Unit
+            Foreign & Commonwealth Office
+            Hanslope Park
+            Hanslope
+            Milton Keynes
+            MK19 7BH
+            United Kingdom
+          $A
 
 # Outcomes
 #
@@ -402,70 +423,78 @@ en-GB:
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
-      fco_result:
+      oru_result:
         body: |
-          $!You must register the death according to the regulations in %{death_country_name_lowercase_prefix}. You will be given a local death certificate.$!
+          $!You must register the death according to the regulations in the country where the person died. You will be given a local death certificate.$!
 
-          This local death certificate will be accepted in the UK (it may need to be a [certified translation](/certifying-a-document) of the document if it’s not in English).
+          This local death certificate will be accepted in the UK. It may need to be a [certified translation](/certifying-a-document) of the document if it’s not in English.
 
-          ##Registering the death with the UK authorities
+          ##Register the death with the UK authorities
 
-          You can also apply to register the death with the Foreign & Commonwealth Office (FCO) in the UK.
-          You don’t have to do this, but it means:
+          You can also apply to register the death with the UK authorities. You don’t have to do this, but it means:
 
-          - a British-style death certificate will be issued
-          - the death will be recorded at the General Register Office in the UK
+          - the death will be recorded with the General Register Offices (for England, Wales and Northern Ireland) and the National Records Office of Scotland
+          - you can order a consular death registration certificate
 
-          %{registration_footnote}
+          You will need to:
 
-          ##How to register
-
-          Download and complete a [registration form](/government/publications/application-to-register-an-overseas-death).
-
-          ##Documents
-
-          You must provide originals and a photocopy of:
-
-          - a local death certificate (not a certificate issued by a doctor)
-          - the person’s passport
-          - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+          s1. Check that you have the right documents.
+          s2. Print out and fill in the forms.
+          s3. Pay online.
+          s4. Post your documents and the forms.
 
 
-          ##Cost
+          ###1. Documents
+          
+          ^Send English translations of all foreign documents. %{translator_link}. Don't send laminated documents.^
+
+          You must provide:
+
+          - the original local death certificate (not a certificate issued by a doctor)
+          - a photocopy of the photo page of the passport of the person who died
+          - their original full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
+          - written permission from the person’s next of kin or the executor of their estate (if you’re not next of kin or the executor)
+
+          %Your application will be rejected if the documents aren’t authentic, don’t confirm the person’s identity or don’t prove that they were a British national when they died. The registration fee won’t be refunded.%
+
+          ###2. Forms
+
+          Print out and fill in the [death registration form](/government/publications/application-to-register-an-overseas-death).
+
+          ###3. Pay 
+
+          Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> if you are unable to pay online.
+          
+          The registration fee doesn't include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
 
           Service | Fee
-          -|-
           Register a death | £105
           Copy of a death registration certificate | £65
 
-          [Pay online](/pay-register-death-abroad) for the registration and copies of the certificate.
+          You must also pay for your documents to be returned to you.
 
+          Postage destination | Fee
+          UK | £4.50
+          Europe | £12.50
+          Rest of world | £22
 
-          Alternatively, pay by postal order or bank draft made payable to ‘FCO’. Personal cheques aren’t accepted.
+          +[data_partial:button:button_data]
 
-          ##Send your registration
+          
+          ###4. Send your registration
 
-          Send the form and documentation to FCO.
+          Once you've paid you will be given a reference number to use on your death registration form.
 
+          Post your registration form and documents by secure post to:
+          
 
-          $A
-            Foreign & Commonwealth Office
-            Rm K4.9
-            King Charles Street
-            London
-            SW1A 2AH
-          $A
+          %{oru_address}
 
-          Your original documents will be returned within 20 working days.
+          ##Return of your documents
 
-          ^It takes up to 12 weeks for the death to be officially registered as the registration is sent to the local British embassy, consulate or high commission where the death happened.^
+          It usually takes 3 working days for the death to be registered in the UK, once the Overseas Registration Unit has received your form and the right documents. They’ll contact you within the 3 working days if they need more information.
 
-
-          ##Copies of the registration certificate 
-
-          You can order copies of the registration certificate from the FCO when you register the death. 
-
-          You can also get copies from the [General Register Office](http://www.gro.gov.uk/) from September the next year after you register - they will cost less.
+          Your documents will be returned to you by secure courier after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them.
 
       no_embassy_result:
         body: |
