@@ -68,7 +68,7 @@ end
 
 ## QP6
 multiple_choice :employee_on_payroll_paternity? do
-  option :yes
+  option :yes => :employee_still_employed_on_birth_date?
   option :no
   save_input_as :on_payroll
 
@@ -87,17 +87,8 @@ multiple_choice :employee_on_payroll_paternity? do
     calculator.format_date_day calculator.qualifying_week.last
   end
 
-  next_node do |response|
-    if response == 'no'
-      if has_contract == 'no'
-        :paternity_not_entitled_to_leave_or_pay
-      else
-        :employee_start_paternity?
-      end
-    else
-      :employee_still_employed_on_birth_date?
-    end
-  end
+  next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no'))
+  next_node :employee_start_paternity?
 end
 
 ## QP7
@@ -113,13 +104,9 @@ multiple_choice :employee_still_employed_on_birth_date? do
     end
   end
 
-  next_node do |response|
-    if response == "no" && has_contract == 'no'
-      :paternity_not_entitled_to_leave_or_pay
-    else
-      :employee_start_paternity?
-    end
-  end
+
+  next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no') & responded_with('no'))
+  next_node :employee_start_paternity?
 end
 
 ## QP8
@@ -174,14 +161,9 @@ multiple_choice :employee_paternity_length? do
     end
   end
 
-  next_node do
-
-    if has_contract == 'yes' && (on_payroll == 'no' || employed_dob == 'no')
-      :paternity_not_entitled_to_leave_or_pay
-    else
-      :last_normal_payday_paternity?
-    end
-  end
+  next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'yes') &
+    (variable_matches(:on_payroll, 'no') | variable_matches(:employed_dob, 'no')))
+  next_node :last_normal_payday_paternity?
 end
 
 ## QP10
@@ -240,19 +222,17 @@ end
 money_question :earnings_for_pay_period_paternity? do
   save_input_as :earnings
 
-  calculate :calculator do
-    calculator.calculate_average_weekly_pay(pay_pattern, responses.last)
+  next_node_calculation :calculator do |response|
+    calculator.calculate_average_weekly_pay(pay_pattern, response)
     calculator
   end
 
-  next_node do |response|
-    calculator.calculate_average_weekly_pay(pay_pattern, response)
-    if calculator.average_weekly_earnings < calculator.lower_earning_limit
-      :paternity_leave_and_pay
-    else
-      :how_do_you_want_the_spp_calculated?
-    end
+  average_weekly_earnings_under_lower_earning_limit = SmartAnswer::Predicate::Callable.new("average weekly earnings under lower earning limit") do
+    calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
+
+  next_node_if(:paternity_leave_and_pay, average_weekly_earnings_under_lower_earning_limit)
+  next_node :how_do_you_want_the_spp_calculated?
 end
 
 ## QP14
@@ -275,18 +255,9 @@ multiple_choice :how_do_you_want_the_spp_calculated? do
     end
   end
 
-  next_node do |response|
-    if response == "weekly_starting"
-      :paternity_leave_and_pay
-    else
-      if pay_pattern == "monthly"
-        :monthly_pay_paternity?
-      else
-        :next_pay_day_paternity?
-      end
-    end
-  end
-
+  next_node_if(:paternity_leave_and_pay, responded_with('weekly_starting'))
+  next_node_if(:monthly_pay_paternity?, variable_matches(:pay_pattern, 'monthly'))
+  next_node :next_pay_day_paternity?
 end
 
 ## QP15
