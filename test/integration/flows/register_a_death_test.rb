@@ -198,24 +198,23 @@ class RegisterADeathTest < ActiveSupport::TestCase
           add_response 'same_country'
         end
         should "give the embassy result and be done" do
-          assert_current_node :embassy_result
-          assert_phrase_list :postal, [:post_only_pay_by_card_countries]
-          assert_phrase_list :footnote, [:footnote]
-          expected_location = WorldLocation.find('spain')
-          assert_state_variable :location, expected_location
-          assert_state_variable :organisation, expected_location.fco_organisation
+          assert_current_node :oru_result
+          assert_phrase_list :oru_address, [:oru_address_abroad]
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
         end
       end # Answer embassy
-      context "answer fco office in the uk" do
+      context "answer ORU office in the uk" do
         setup do
-          add_response 'back_in_the_uk'
+          add_response 'in_the_uk'
         end
-        should "give the fco result and be done" do
-          assert_current_node :fco_result
-          assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
-          assert_phrase_list :registration_footnote, [:reg_footnote]
+        should "give the ORU result and be done" do
+          assert_current_node :oru_result
+          assert_phrase_list :oru_address, [:oru_address_uk]
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
         end
-      end # Answer fco
+      end # Answer ORU
     end # Answer Spain
 
     context "answer Morocco" do
@@ -227,14 +226,16 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :current_location_name, "Morocco"
         assert_current_node :where_are_you_now?
       end
-      context "answer fco office in the uk" do
+      context "answer ORU office in the uk" do
         setup do
-          add_response 'back_in_the_uk'
+          add_response 'in_the_uk'
         end
-        should "give the fco result and be done" do
-          assert_current_node :fco_result
+        should "give the ORU result and be done" do
+          assert_current_node :oru_result
+          assert_phrase_list :translator_link, [:no_translator_link]
+          assert_state_variable :translator_link_url, nil
         end
-      end # Answer fco
+      end # Answer ORU
     end # Morocco
 
     context "answer Argentina" do
@@ -315,17 +316,12 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'italy'
         add_response 'same_country'
       end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-italy"
-        assert_state_variable :postal_return_form_url, "/government/publications/registered-post-return-delivery-form-italy"
-        assert_phrase_list :postal, [:post_only_pay_by_card_countries]
-        expected_location = WorldLocation.find('italy')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
+      should "give the ORU result and be done" do
+        assert_current_node :oru_result
+        assert_phrase_list :oru_address, [:oru_address_abroad]
+        assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_state_variable :translator_link_url, "/government/publications/italy-list-of-lawyers"
       end
     end # Answer Italy
     context "death occurred in Andorra" do
@@ -334,18 +330,12 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'andorra'
         add_response 'same_country'
       end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
-        assert_state_variable :clickbook, ''
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-spain"
-        assert_phrase_list :postal, [:post_only_pay_by_card_countries]
-        assert_state_variable :current_location, "spain"
-        expected_location = WorldLocation.find('spain')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
+      should "give the oru result and be done" do
+        assert_current_node :oru_result
+        assert_phrase_list :oru_address, [:oru_address_abroad]
+        assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
     end # Answer Andorra
     context "death occurred in Andorra, but they are now in France" do
@@ -353,22 +343,13 @@ class RegisterADeathTest < ActiveSupport::TestCase
         worldwide_api_has_organisations_for_location('france', read_fixture_file('worldwide/france_organisations.json'))
         add_response 'andorra'
         add_response 'another_country'
-        add_response 'france'
       end
       should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_phrase_list :clickbook, [:clickbook]
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-france"
-        assert_phrase_list :postal, [:post_only_france]
-        assert_state_variable :death_country_name_lowercase_prefix, 'Spain'
-        assert_state_variable :current_location_name, "France"
-        assert_phrase_list :footnote, [:footnote_another_country]
-        expected_location = WorldLocation.find('france')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
+        assert_current_node :oru_result
+        assert_phrase_list :oru_address, [:oru_address_abroad]
+        assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
     end # Answer Andorra, now in France
     context "answer Afghanistan" do
@@ -391,11 +372,13 @@ class RegisterADeathTest < ActiveSupport::TestCase
         end
       end
       context "now back in the UK" do
-        should "give the FCO result and be done" do
-          add_response 'back_in_the_uk'
-          assert_current_node :fco_result
-          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-          assert_state_variable :registration_footnote, ''
+        should "give the ORU result and be done" do
+          add_response 'in_the_uk'
+          assert_current_node :oru_result
+          assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+          assert_phrase_list :oru_address, [:oru_address_uk]
+          assert_phrase_list :translator_link, [:no_translator_link]
+          assert_state_variable :translator_link_url, nil
         end
       end
     end # Answer Afghanistan
@@ -492,18 +475,12 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'germany'
         add_response 'same_country'
       end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_state_variable :clickbook, ''
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-germany"
-        assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
-        expected_location = WorldLocation.find('germany')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
+      should "give the ORU result and be done" do
+        assert_current_node :oru_result
+        assert_phrase_list :oru_address, [:oru_address_abroad]
+        assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_state_variable :translator_link_url, "/government/publications/germany-list-of-lawyers"
       end
     end # Answer Germany
     context "answer USA" do
@@ -512,18 +489,12 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'usa'
         add_response 'same_country'
       end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_phrase_list :clickbook, [:clickbook]
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, nil
-        assert_phrase_list :postal, [:postal_intro, :"postal_registration_usa"]
-        expected_location = WorldLocation.find('usa')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
+      should "give the oru result and be done" do
+        assert_current_node :oru_result
+        assert_phrase_list :oru_address, [:oru_address_abroad]
+        assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+        assert_phrase_list :translator_link, [:no_translator_link]
+        assert_state_variable :translator_link_url, nil
       end
     end # Answer USA
     context "answer Netherlands" do
@@ -532,16 +503,12 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'netherlands'
         add_response 'same_country'
       end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy_netherlands]
-        assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/publications/credit-card-payment-authorisation-form-netherlands"
-        assert_phrase_list :postal, [:post_only_pay_by_card_countries]
-        expected_location = WorldLocation.find('netherlands')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
+      should "give the ORU result and be done" do
+        assert_current_node :oru_result
+        assert_phrase_list :oru_address, [:oru_address_abroad]
+        assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_state_variable :translator_link_url, "/government/publications/netherlands-list-of-lawyers"
       end
     end # Answer Netherlands
     context "answer death in dominica, user in st kitts" do
