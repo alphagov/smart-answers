@@ -265,7 +265,7 @@ end
 outcome :oru_result do
 
   precalculate :button_data do
-    {text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start?country=#{country_of_birth}"}
+    {text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"}
   end
 
   precalculate :oru_documents_variant do
