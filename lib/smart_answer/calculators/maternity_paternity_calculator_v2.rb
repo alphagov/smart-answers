@@ -66,7 +66,7 @@ module SmartAnswer::Calculators
 
     def pay_duration
       case leave_type
-      when 'paternity'
+      when 'paternity', 'paternity_adoption'
         2
       else
         39
@@ -344,6 +344,11 @@ module SmartAnswer::Calculators
     end
 
     def paternity_rate_for(date)
+      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
+      [current_statutory_rate, awe].min
+    end
+
+    def paternity_adoption_rate_for(date)
       awe = (@average_weekly_earnings.to_f * 0.9).round(2)
       [current_statutory_rate, awe].min
     end

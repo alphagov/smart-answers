@@ -164,13 +164,13 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
                                       should "reach the result when answering first day" do
                                         add_response "first_day_of_the_month"
                                         assert_state_variable "has_contract", "yes"
-                                        assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay]
+                                        assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay, :paternity_spp_claim_link]
                                         assert_current_node :paternity_leave_and_pay
                                       end
 
                                       should "reach the result when answering last day" do
                                         add_response "last_day_of_the_month"
-                                        assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay]
+                                        assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay, :paternity_spp_claim_link]
                                         assert_current_node :paternity_leave_and_pay
                                       end
                                     end
@@ -196,7 +196,7 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
                                       end
                                       should "accept an answer and go to the outcome" do
                                         add_response "25"
-                                        assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay]
+                                        assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay, :paternity_spp_claim_link]
                                         assert_current_node :paternity_leave_and_pay
                                       end
                                     end
@@ -237,7 +237,7 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
                                       assert_current_node :paternity_leave_and_pay
                                       assert_state_variable "has_contract", "yes"
                                       assert_state_variable :pay_dates_and_pay, "18 June 2013|£103.85\n25 June 2013|£103.85"
-                                      assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay]
+                                      assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay, :paternity_spp_claim_link]
                                     end
                                   end #QP14 end SPP calculated weekly
                                 end #QP13 end earings above 109 between relevant period
@@ -264,7 +264,7 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
                                   add_response "usual_paydates"
                                   add_response "2013-01-01"
                                   assert_state_variable :average_weekly_earnings, '625.00'
-                                  assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay]
+                                  assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay, :paternity_spp_claim_link]
                                   assert_state_variable :pay_dates_and_pay, "18 June 2013|£135.45\n25 June 2013|£135.45"
                                   assert_current_node :paternity_leave_and_pay
                                 end
@@ -295,7 +295,7 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
                           setup { add_response "two_weeks" }
 
                           should "go to outcome" do
-                            assert_phrase_list :not_entitled_reason, [:paternity_entitled_to_leave, :paternity_not_entitled_to_pay_intro, :must_be_employed_by_you, :paternity_not_entitled_to_pay_outro]
+                            assert_phrase_list :not_entitled_reason, [:paternity_entitled_to_leave, :paternity_not_entitled_to_pay_intro, :paternity_must_be_employed_by_you, :paternity_not_entitled_to_pay_outro]
                             assert_current_node :paternity_not_entitled_to_leave_or_pay
                           end
                         end # QP9 leave length
@@ -364,7 +364,7 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
                       add_response "2013-03-01"
                       assert_current_node :paternity_leave_and_pay
                       # assert_current_node :next_pay_day_paternity?
-                      assert_phrase_list :paternity_info, [:paternity_not_entitled_to_leave, :paternity_entitled_to_pay]
+                      assert_phrase_list :paternity_info, [:paternity_not_entitled_to_leave, :paternity_entitled_to_pay, :paternity_spp_claim_link]
                     end
                   end
                 end #QP5 - no employment contract
@@ -384,7 +384,7 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
               setup { add_response :no }
 
               should "state that they are not entitled to leave or pay because they're not responsible for upbringing" do
-                assert_phrase_list :not_entitled_reason, [:paternity_not_entitled_to_leave_or_pay_intro, :not_responsible_for_upbringing, :paternity_not_entitled_to_leave_or_pay_outro]
+                assert_phrase_list :not_entitled_reason, [:paternity_not_entitled_to_leave_or_pay_intro, :paternity_not_responsible_for_upbringing, :paternity_not_entitled_to_leave_or_pay_outro]
                 assert_current_node :paternity_not_entitled_to_leave_or_pay
               end
             end
@@ -439,6 +439,90 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
           assert_state_variable :lower_earning_limit, '111.00'
         end
       end #QP0 no with 2014/2015 figures
+
+      # Paternity Adoption
+      context "answer adoption" do
+        setup { add_response "yes" }
+
+        context "adoption but not responsible for upbringing" do
+          should "go to not entitled to leave or pay outcome" do
+            add_response "2014-01-01"
+            add_response "2014-02-01"
+            add_response "no"
+            assert_current_node :paternity_not_entitled_to_leave_or_pay
+            assert_phrase_list :not_entitled_reason, [:paternity_not_entitled_to_leave_or_pay_intro, :paternity_adoption_not_responsible_for_upbringing, :paternity_not_entitled_to_leave_or_pay_outro]
+          end
+        end
+
+        context "adoption but not worked for long enough" do
+          should "go to not entitled to leave or pay outcome with right phraselist" do
+            add_response "2014-01-01"
+            add_response "2014-02-01"
+            add_response "yes"
+            add_response "no"
+            assert_current_node :paternity_not_entitled_to_leave_or_pay
+            assert_phrase_list :not_entitled_reason, [:paternity_not_entitled_to_leave_or_pay_intro, :not_worked_long_enough, :paternity_not_entitled_to_leave_or_pay_outro]
+          end
+        end
+
+        context "answer yes for most questions to get to outcome" do
+          should "flow through to paternity_leave_and_pay outcome" do
+            add_response "2014-01-01"
+            add_response "2014-02-01"
+            add_response "yes"
+            add_response "yes"
+            add_response "yes"
+            add_response "yes"
+            add_response "yes"
+            add_response "2014-02-02"
+            add_response "two_weeks"
+            add_response "2014-01-03"
+            add_response "2013-11-08"
+            add_response "monthly"
+            add_response "4000"
+            add_response "usual_paydates"
+            add_response "last_day_of_the_month"
+            assert_current_node :paternity_leave_and_pay
+            assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay, :paternity_adoption_spp_claim_link]
+          end
+        end
+
+        context "answer no to contract" do
+          should "flow through to paternity_leave_and_pay outcome" do
+            add_response "2014-01-01"
+            add_response "2014-02-01"
+            add_response "yes"
+            add_response "yes"
+            add_response "no" # no contract
+            add_response "yes"
+            add_response "yes"
+            add_response "2014-02-02"
+            add_response "two_weeks"
+            add_response "2014-01-03"
+            add_response "2013-11-08"
+            add_response "monthly"
+            add_response "4000"
+            add_response "usual_paydates"
+            add_response "last_day_of_the_month"
+            assert_current_node :paternity_leave_and_pay
+            assert_phrase_list :paternity_info, [:paternity_not_entitled_to_leave, :paternity_entitled_to_pay, :paternity_adoption_spp_claim_link]
+          end
+        end
+
+        context "answer not employed at matched date" do
+          should "show correct paternity adoption employed on date in phrase list" do
+            add_response "2014-01-01"
+            add_response "2014-02-01"
+            add_response "yes"
+            add_response "yes"
+            add_response "no" # no contract
+            add_response "yes"
+            add_response "no" # not employed on matched date
+            assert_current_node :paternity_not_entitled_to_leave_or_pay
+            assert_phrase_list :not_entitled_reason, [:paternity_not_entitled_to_leave, :paternity_not_entitled_to_pay_intro, :paternity_adoption_must_be_employed_by_you, :paternity_not_entitled_to_pay_outro]
+          end
+        end
+      end
     end
   end
 end
