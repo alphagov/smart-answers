@@ -105,6 +105,7 @@ class AdoptionCalculatorV2Test < ActiveSupport::TestCase
                           assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
                           assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :adoption_not_entitled_to_pay_outro]
                           assert_current_node :adoption_leave_and_pay
+                          assert_state_variable :average_weekly_earnings, 100.0
                         end
                       end
                       context "answer above the earning limit" do
@@ -191,6 +192,7 @@ class AdoptionCalculatorV2Test < ActiveSupport::TestCase
                           assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
                           assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_earn_over_threshold, :adoption_not_entitled_to_pay_outro]
                           assert_current_node :adoption_leave_and_pay
+                          assert_state_variable :average_weekly_earnings, 100.0
                         end
                       end
                       context "answer above the earning limit" do

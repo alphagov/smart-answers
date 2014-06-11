@@ -84,15 +84,12 @@ multiple_choice :is_the_employee_on_your_payroll? do
     responses.last == 'no' ? :must_be_on_payroll : nil
   end
 
-  calculate :payday_exit do
-    'maternity'
-  end
   calculate :to_saturday do
     calculator.format_date_day calculator.qualifying_week.last
   end
 end
 
-## QM5.2 && QP6.2 && QA6.2
+## QM5.2 && QA6.2
 date_question :last_normal_payday? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
@@ -105,7 +102,7 @@ date_question :last_normal_payday? do
   next_node :payday_eight_weeks?
 end
 
-## QM5.3 && P6.3 && A6.3
+## QM5.3 && A6.3
 date_question :payday_eight_weeks? do
   from { 2.year.ago(Date.today) }
   to { 2.years.since(Date.today) }
@@ -126,8 +123,7 @@ date_question :payday_eight_weeks? do
     calculator.formatted_relevant_period
   end
 
-  next_node_if(:padoption_employee_avg_weekly_earnings?, variable_matches(:payday_exit, 'paternity_adoption'))
-  next_node_if(:adoption_employees_average_weekly_earnings?, variable_matches(:payday_exit, 'adoption'))
+  next_node_if(:adoption_employees_average_weekly_earnings?, variable_matches(:leave_type, 'adoption'))
   next_node :pay_frequency?
 end
 

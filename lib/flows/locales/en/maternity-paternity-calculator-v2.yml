@@ -41,7 +41,7 @@ en-GB:
       phrases:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
-        must_earn_over_threshold: + their average weekly earnings between %{relevant_period} must be at least £%{lower_earning_limit}
+        must_earn_over_threshold: + their average weekly earnings (£%{average_weekly_earnings}) between %{relevant_period} must be at least £%{lower_earning_limit}
         paternity_adoption_must_be_employed_by_you: + they must still be employed by you on %{ap_adoption_date_formatted}
         paternity_must_be_employed_by_you: + they must still be employed by you on %{due_date}
         paternity_adoption_not_responsible_for_upbringing: + aren’t responsible for the child’s upbringing or the adopter’s partner
@@ -107,7 +107,7 @@ en-GB:
 
 
           $D
-            [Download Form SMP1, Non-payment of Statutory Maternity Pay (PDF, 59KB)](http://www.dwp.gov.uk/advisers/claimforms/smp1_print.pdf "Download Form SMP1, Non-payment of Statutory Maternity Pay (PDF, 59KB)"){:rel="external"}
+            [Download Form SMP1, Non-payment of Statutory Maternity Pay (PDF, 59KB)](http://www.dwp.gov.uk/advisers/claimforms/smp1_print.pdf){:rel="external"}
           $D
 
         paternity_entitled_to_leave: |
@@ -133,29 +133,29 @@ en-GB:
 
         paternity_entitled_to_pay: |
           ##Statutory Paternity Pay (SPP)
-          
+
           The employee is entitled to SPP.
-          
+
           Their average weekly earnings are: £%{average_weekly_earnings}
-          
+
           ## SPP calculation
 
           Date | SPP amount
           -|-
           %{pay_dates_and_pay}
            | **Total SPP: £%{total_spp}**
-          
+
 
         paternity_not_entitled_to_leave_or_pay_intro: |
           ##Not entitled to Statutory Paternity Pay or Leave
 
-          The employee is not entitled to Statutory Paternity Leave or Pay because: 
+          The employee is not entitled to Statutory Paternity Leave or Pay because:
 
         paternity_not_entitled_to_leave_or_pay_outro: |
-        
-          You must write confirming this. Also, send them form OSP1 confirming they’re not entitled to pay within 28 days of their pay request. 
 
-          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
+          You must write confirming this. Also, send them form OSP1 confirming they’re not entitled to pay within 28 days of their pay request.
+
+          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf){:rel="external"} $D
 
         # Result 3
         paternity_not_entitled_to_pay_intro: |
@@ -168,7 +168,7 @@ en-GB:
           Send them form OSPP1 confirming this within 28 days of their pay request.
 
 
-          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf "Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)") $D
+          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf){:rel="external"} $D
 
 
         adoption_leave_table: |
@@ -214,7 +214,7 @@ en-GB:
           Send them form SAP1 within 7 days of your decision. They must get this form within 28 days of their pay request or the date they were matched with the child (whichever is earlier).
 
 
-          $D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf "Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)"){:rel="external"} $D
+          $D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf){:rel="external"} $D
 
       ## Q1
       what_type_of_leave?:
@@ -247,7 +247,7 @@ en-GB:
       ## QM5.4
       pay_frequency?:
         title: How often do you pay the employee?
-        hint: If they’re paid irregularly choose ‘weekly’. 
+        hint: If they’re paid irregularly choose ‘weekly’.
         options:
           "weekly": "Weekly"
           "every_2_weeks": "Every 2 weeks"
@@ -503,6 +503,6 @@ en-GB:
           You must write confirming this. Also, send them form SAP1 confirming they’re not entitled to pay within 28 days of their pay request.
 
 
-          $D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf "Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)"){:rel="external"} $D
+          $D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf){:rel="external"} $D
 
 

@@ -250,7 +250,7 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
                                     assert_state_variable :has_contract, "yes"
                                     assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_not_entitled_to_pay_intro,
                                       :must_earn_over_threshold, :paternity_not_entitled_to_pay_outro]
-                                      assert_state_variable :lower_earning_limit, '107.00'
+                                    assert_state_variable :lower_earning_limit, '107.00'
                                     assert_current_node :paternity_leave_and_pay
                                   end
 
