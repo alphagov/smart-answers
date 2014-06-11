@@ -5,25 +5,35 @@
 <%= javascript_include_tag 'dagre' %>
 <%= javascript_include_tag 'visualise' %>
 <%= stylesheet_link_tag 'joint' %>
+<%= stylesheet_link_tag 'visualise' %>
 <% end %>
+
+<% content_for :before_wrapper do %>
+  <div id="global-breadcrumb" class="header-context"></div>
+<% end %>
+
 <script defer="false">
   var adjacencyList = <%= JSON.pretty_generate(@graph_data).html_safe %>;
 </script>
-<main id="content" role="main">
-  <div >
+
+<main id="content" role="main" class="visualisation-">
+  <div class="container">
     <header class="page-header group">
       <div>
         <h1>
-          Visualisation of '<%= @presenter.title %>'
+          <span>Flow visualisation for</span>
+          <%= @presenter.title %>
         </h1>
       </div>
+      <p>This is a visualisation of the <%= link_to @presenter.title, smart_answer_path(params[:id]) %> questions and outcomes.</p>
     </header>
-    <div class="step current">
-      <button id="btn-toggle-rankdir">Layout from top-to-bottom</button>
 
-      <div id="paper" style="background-color: #f0f0f0; position: relative"></div>
+    <h2>Layout</h2>
+    <button id="btn-toggle-rankdir" class="big button">top-to-bottom</button>
 
-    </div>
   </div>
-
 </main>
+
+<div class="visualisation">
+  <div id="paper" style="margin: 2em auto; position: relative"></div>
+</div>

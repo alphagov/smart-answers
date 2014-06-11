@@ -8,7 +8,7 @@ gem 'rails', '3.2.17'
 gem 'rails-i18n'
 gem 'json'
 gem 'plek', '1.7.0'
-gem 'govuk_frontend_toolkit', '0.32.2'
+gem 'govuk_frontend_toolkit', '1.3.0'
 gem 'airbrake', '3.1.15'
 gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.1'
@@ -25,7 +25,7 @@ gem 'extlib', '0.9.16'
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '3.25.0'
+  gem 'slimmer', '4.1.0'
 end
 
 if ENV['GOVSPEAK_DEV']

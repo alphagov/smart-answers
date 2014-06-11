@@ -1,0 +1,40 @@
+@import "grid_layout.scss";
+@import "colours.scss";
+@import "typography.scss";
+@import "design-patterns/buttons.scss";
+
+#content {
+    @include outer-block;
+
+    .container {
+        @include inner-block;
+    }
+
+    header {
+        margin: 2em 0;
+
+        h1 {
+            @include bold-48;
+
+            span {
+                display: block;
+                color: $grey-1;
+                @include core-27;
+                font-weight: normal;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    #btn-toggle-rankdir {
+        @include button;
+    }
+}
+
+#paper {
+    // Prevents the 
+    min-height: 600px;
+}
