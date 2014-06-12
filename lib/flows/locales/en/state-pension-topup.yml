@@ -6,14 +6,14 @@ en-GB:
         description: Work out how much State Pension top ups will cost so that you can budget for your retirement
       body: |
         From 12 October 2015 to 1 April 2017 you’ll be able to make a ‘Class 3A voluntary contribution’ to top up your State Pension by up to £25 per week.
-        
+
         Calculate how much you’ll need to contribute. You must be:
 
         - a man born before 6 April 1951
         - a woman born before 6 April 1953
       devolved_body: |
         ###What you need to know
-        
+
         You can choose to top up your State Pension by between £1 and £25 per week. How much you’ll need to contribute depends on:
 
         - how much extra pension you want to get each week
@@ -57,12 +57,12 @@ en-GB:
 
 #Outcome A1
       outcome_qualified_for_top_up_calculations:
-        title: | 
+        title: |
           Results
         body: |
-          
+
           To top up your pension by £%{weekly_amount} per week, on %{date_of_payment} you'll need to make a lump sum payment of %{rate_at_time_of_paying}.
-          
+
           Make sure you’ll get the full [basic State Pension](/state-pension-statement) before making Class 3A contributions.
 
           You should get [financial advice](/plan-retirement-income/get-financial-advice) when planning your retirement income.
@@ -71,16 +71,16 @@ en-GB:
 
           Find out more about [topping up your State Pension](/government/publications/additional-state-pension-top-up#register-your-interest) and register your interest.
 #outcome A2
-      outcome_pension_age_not_reached: 
+      outcome_pension_age_not_reached:
         title: |
           You must reach State Pension age before 6 April 2016 to use this calculator
 
 #Outcome A3
       outcome_age_limit_reached_birth:
-        title: | 
+        title: |
           You must be under 101 years old on 12 October 2015 to use State Pension top up
 
-#Outcome A4   
+#Outcome A4
       outcome_age_limit_reached_payment:
         title: |
           You must be under 101 years old on %{age_at_date_of_payment} to use State Pension top up
