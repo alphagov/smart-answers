@@ -12,6 +12,11 @@ date_question :date_of_adoption_match? do
   calculate :calculator do
     Calculators::MaternityPaternityCalculatorV2.new(match_date, "adoption")
   end
+
+  calculate :leave_type do
+    'adoption'
+  end
+
   next_node :date_of_adoption_placement?
 end
 
@@ -104,9 +109,6 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
     pay_info
   end
 
-  calculate :payday_exit do
-    'adoption'
-  end
   calculate :to_saturday do
     calculator.format_date_day calculator.matched_week.last
   end
@@ -125,11 +127,14 @@ money_question :adoption_employees_average_weekly_earnings? do
     if responses.last >= calculator.lower_earning_limit
       PhraseList.new(:adoption_pay_table)
     else
-      pay_info = PhraseList.new(:adoption_not_entitled_to_pay_intro)
-      pay_info << :must_earn_over_threshold
-      pay_info << :adoption_not_entitled_to_pay_outro
-      pay_info
+      PhraseList.new << :adoption_not_entitled_to_pay_intro <<
+                        :must_earn_over_threshold <<
+                        :adoption_not_entitled_to_pay_outro
     end
+  end
+
+  calculate :average_weekly_earnings do
+    calculator.average_weekly_earnings
   end
   next_node :adoption_leave_and_pay
 end

@@ -144,10 +144,6 @@ multiple_choice :employee_on_payroll_paternity? do
     end
   end
 
-  calculate :payday_exit do
-    leave_type
-  end
-
   calculate :to_saturday do
     if adoption
       calculator.format_date_day calculator.matched_week.last
