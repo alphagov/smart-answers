@@ -1,6 +1,11 @@
 (function() {
   "use strict";
 
+  var linkBackground = '#fff',
+    outcomeBackground = '#d5e8f3',
+    questionBackground = '#fff',
+    strokeColour = '#333';
+
   // Helpers.
   // --------
 
@@ -34,7 +39,7 @@
         {
           position: 0.5,
           attrs: {
-            rect: { fill: '#F5E9A2' },
+            rect: { fill: linkBackground },
             text: { text: edgeLabel },
             padding: 10,
             width: 100
@@ -59,17 +64,17 @@
       height: height,
       rx: 5,
       ry: 5,
-      stroke: '#aaa',
+      stroke: strokeColour,
       'stroke-width': 1
     };
 
     if (isOutcome) {
       rectProperties = $.extend(rectProperties, {
-        fill: '#afa'
+        fill: outcomeBackground
       });
     } else {
       rectProperties = $.extend(rectProperties, {
-        fill: '#fff'
+        fill: questionBackground
       });
     }
 
@@ -77,7 +82,7 @@
       id: id,
       size: { width: width, height: height },
       attrs: {
-        text: { text: label, 'font-size': letterSize, 'font-family': 'verdana' },
+        text: { text: label, 'font-size': letterSize },
         rect: rectProperties
       }
     };
