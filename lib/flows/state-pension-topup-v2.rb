@@ -5,16 +5,34 @@ data_query = Calculators::StatePensionTopupDataQueryV2.new()
 
 #Q1
 date_question :dob_age? do
-  from { 101.years.ago }
-  to { Date.today }
+  from { 110.years.ago }
+  to { Date.today - 15.years }
 
   save_input_as :date_of_birth
 
   next_node do |response|
     dob = Date.parse(response)
-    if (dob < (Date.parse('2015-10-12') - 101.years))
+    if (dob <= Date.parse('1914-10-12'))
       :outcome_age_limit_reached_birth
-    elsif (dob > Date.parse('1953-04-06'))
+    elsif (dob >= Date.parse('1953-04-07'))
+      :outcome_pension_age_not_reached
+    else
+      :gender?
+    end
+  end
+end
+
+#Q2
+multiple_choice :gender? do
+  option :male
+  option :female
+
+  save_input_as :gender
+
+  next_node do |response|
+
+    dob = Date.parse(date_of_birth)
+    if (response == "male") and (dob >= Date.parse('1951-04-07'))
       :outcome_pension_age_not_reached
     else
       :how_much_extra_per_week?
@@ -22,9 +40,9 @@ date_question :dob_age? do
   end
 end
 
-#Q2
+#Q3
 money_question :how_much_extra_per_week? do
-  save_input_as :money_wanted
+  save_input_as :weekly_amount
 
   calculate :integer_value do
     money = responses.last.to_f
@@ -32,84 +50,60 @@ money_question :how_much_extra_per_week? do
       raise SmartAnswer::InvalidResponse
     end
   end
-  next_node :date_of_lump_sum_payment?
-end
 
-#Q3
-date_question :date_of_lump_sum_payment? do
-  from { Date.parse('12 Oct 2015') }
-  to { Date.parse('01 April 2017') }
-
-  save_input_as :age_at_date_of_payment
-
-  calculate :date_of_payment do
-    Date.parse(responses.last)
+  calculate :weekly_amount do
+    sprintf("%.00f", weekly_amount)
   end
 
-  next_node do |response|
-    date_paying = Date.parse(response)
+  calculate :upper_age do
+    upper_date = Date.parse('2017-04-17')
     dob = Date.parse(date_of_birth)
-
-    if date_paying < Date.parse('2015-10-12') or date_paying > Date.parse('2017-04-01')
-      raise SmartAnswer::InvalidResponse
-    elsif (date_paying.year - dob.year) > 100
-      :outcome_age_limit_reached_payment
-    else
-      :gender?
+    years = upper_date.year - dob.year
+    if (upper_date.month < dob.month) || ((upper_date.month == dob.month) && (upper_date.day < date_of_birth.day))
+      years = years - 1
     end
-  end
-end
-
-#Q4
-multiple_choice :gender? do
-  option :male
-  option :female
-
-  save_input_as :gender
-
-  calculate :age_at_date_of_payment do
-    date_paying = Date.parse(age_at_date_of_payment)
-    dob = Date.parse(date_of_birth)
-    age_when_paying = (date_paying.year - dob.year)
-    age_when_paying
+    years
   end
 
-  next_node do |response|
-
+  calculate :lower_age do
+    lower_age = Date.parse('2015-10-12')
     dob = Date.parse(date_of_birth)
-    if (response == "male") and (dob > Date.parse('1951-04-06'))
-      :outcome_pension_age_not_reached
-    else
-      :outcome_qualified_for_top_up_calculations
+    years = lower_age.year - dob.year
+    if (lower_age.month < dob.month) || ((lower_age.month == dob.month) && (lower_age.day < date_of_birth.day))
+      years = years - 1
     end
+    years
   end
+
+  next_node :outcome_qualified_for_top_up_calculations
 end
 
 #A1
 outcome :outcome_qualified_for_top_up_calculations do
-
-  precalculate :weekly_amount do
-    sprintf("%.0f", money_wanted)
+  precalculate :upper_rate_cost do
+    total = data_query.age_and_rates(upper_age) * weekly_amount.to_f
+    total_money = SmartAnswer::Money.new(total)
+  end
+  precalculate :lower_rate_cost do
+    total = data_query.age_and_rates(lower_age) * weekly_amount.to_f
+    total_money = SmartAnswer::Money.new(total)
   end
 
-  precalculate :rate_at_time_of_paying do
-    money = money_wanted.to_f
-    total = data_query.age_and_rates(age_at_date_of_payment) * money
-
-    total_money = SmartAnswer::Money.new(total)
+  precalculate :age_phrases do
+    phrases = PhraseList.new
+    unless (gender == "male" and lower_age <= 64.years) or (gender == "female" and lower_age <= 62.years)
+      phrases << :lower_age_phrase
+    end
+    unless upper_age >= 101.years
+      phrases << :upper_age_phrase
+    end
+    phrases
   end
 end
 
 #A2
 outcome :outcome_pension_age_not_reached
-
 #A3
 outcome :outcome_age_limit_reached_birth
-
 #A4
-outcome :outcome_age_limit_reached_payment do
-
-  precalculate :age_at_date_of_payment do
-    Date.parse(age_at_date_of_payment)
-  end
-end
+outcome :outcome_age_limit_reached_payment
