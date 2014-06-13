@@ -54,17 +54,8 @@ en-GB:
         options:
           "male": "Male"
           "female": "Female"
-
-#Outcome A1
-      outcome_qualified_for_top_up_calculations:
-        title: |
-          Results
-        body: |
-          To top up your pension by £%{weekly_amount} per week, you’ll need to make a lump sum payment of:
-
-          - %{lower_rate_cost} when you’re %{lower_age}
-          - %{upper_rate_cost} when you’re %{upper_age}
-
+      phrases:
+        body_phrase: |
           Make sure you’ll get the full [basic State Pension](/state-pension-statement) before making Class 3A contributions.
 
           You should get [financial advice](/plan-retirement-income/get-financial-advice) when planning your retirement income.
@@ -72,6 +63,37 @@ en-GB:
           The contribution amount is an estimate.
 
           Find out more about [topping up your State Pension](/government/publications/additional-state-pension-top-up#register-your-interest) and register your interest.
+#Outcome A1-a
+      top_up_calculations_upper_age:
+        title: |
+          Results
+        body: |
+          To top up your pension by £%{weekly_amount} per week, you’ll need to make a lump sum payment of:
+
+          - %{upper_rate_cost} when you’re %{upper_age}
+
+          %{body_phrase}
+#Outcome A1-b
+      top_up_calculations_lower_age:
+        title: |
+          Results
+        body: |
+          To top up your pension by £%{weekly_amount} per week, you’ll need to make a lump sum payment of:
+
+          - %{lower_rate_cost} when you’re %{lower_age}
+
+          %{body_phrase}
+#Outcome A1-c
+      top_up_calculations_both_ages:
+        title: |
+          Results
+        body: |
+          To top up your pension by £%{weekly_amount} per week, you’ll need to make a lump sum payment of either:
+
+          - %{lower_rate_cost} when you’re %{lower_age}
+          - %{upper_rate_cost} when you’re %{upper_age}
+
+          %{body_phrase}
 
 #outcome A2
       outcome_pension_age_not_reached:
