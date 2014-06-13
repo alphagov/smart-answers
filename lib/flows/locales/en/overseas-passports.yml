@@ -7,6 +7,15 @@ en-GB:
       body: |
         Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
 
+        %If you’re renewing an existing British passport you can apply for it to be extended for 12 months. You won’t be charged any extra fees.%
+
+        To apply, phone your local [British Embassy, Consulate or High Commission](/government/world/organisations) and select the ‘Consular Services’ option. Appointments can be made from Monday 16 June.
+
+        %If you’re the parent or guardian of a child living overseas that needs to travel urgently, you can apply for an emergency travel document for your child instead of a new or renewed passport.%
+
+        Emergency travel documents are available from the week beginning 16 June in most countries, after checks to confirm nationality and identity. To apply, phone your local [British Embassy, Consulate or High Commission](/government/world/organisations).
+
+
       which_country_are_you_in?:
         title: Which country or territory are you in?
       which_opt?:
