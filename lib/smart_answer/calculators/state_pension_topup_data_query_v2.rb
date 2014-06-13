@@ -20,8 +20,7 @@ module SmartAnswer::Calculators
       total_money = SmartAnswer::Money.new(total)
     end
 
-    def date_difference_in_years(date_of_birth,date_limit)
-      dob = Date.parse(date_of_birth)
+    def date_difference_in_years(dob,date_limit)
       years = date_limit.year - dob.year
       if (date_limit.month < dob.month) || ((date_limit.month == dob.month) && (date_limit.day < date_of_birth.day))
         years = years - 1

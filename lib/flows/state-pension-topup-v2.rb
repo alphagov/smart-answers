@@ -9,14 +9,18 @@ date_question :dob_age? do
   to { Date.today - 15.years }
 
   save_input_as :date_of_birth
+  
+  calculate :dob do
+    Date.parse(date_of_birth)
+  end
 
   calculate :upper_age do
     upper_date = Date.parse('2017-04-01')
-    data_query.date_difference_in_years(date_of_birth,upper_date)
+    data_query.date_difference_in_years(dob,upper_date)
   end
   calculate :lower_age do
     lower_date = Date.parse('2015-10-12')
-    data_query.date_difference_in_years(date_of_birth,lower_date)
+    data_query.date_difference_in_years(dob,lower_date)
   end
 
   next_node do |response|
@@ -39,7 +43,6 @@ multiple_choice :gender? do
   save_input_as :gender
 
   next_node do |response|
-    dob = Date.parse(date_of_birth)
     if (response == "male") and (dob >= Date.parse('1951-04-07'))
       :outcome_pension_age_not_reached
     else
