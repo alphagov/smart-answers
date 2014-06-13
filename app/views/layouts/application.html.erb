@@ -5,6 +5,9 @@
     <%= yield :head %>
   </head>
 <body class="mainstream">
+
+  <%= yield :before_wrapper %>
+
   <div id="wrapper" class="answer smart_answer">
     <%= yield %>
     <%= yield :end_of_wrapper %>

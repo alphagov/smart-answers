@@ -58,6 +58,7 @@ module SmartAnswers
       joint.css
       dagre.js
       visualise.js
+      visualise.css
     )
 
     # Version of your assets, change this if you want to expire all your assets
