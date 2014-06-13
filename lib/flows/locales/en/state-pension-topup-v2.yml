@@ -99,6 +99,8 @@ en-GB:
       outcome_pension_age_not_reached:
         title: |
           You must reach State Pension age before 6 April 2016 to use this calculator
+        body: |
+          State Pension age is 63 if you’re a woman, or 65 if you’re a man.
 
 #Outcome A3
       outcome_age_limit_reached_birth:

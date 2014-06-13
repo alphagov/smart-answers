@@ -29,7 +29,7 @@ module SmartAnswer::Calculators
         dob = Date.parse('1920-01-01')
         assert_equal 95, @calculator.date_difference_in_years(dob, lower_date)
       end
-      
+
       should "return upper_rate - dob in years" do
         assert_equal 1590.0, @calculator.money_rate_cost(97, 10)
       end

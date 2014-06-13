@@ -16,13 +16,17 @@ module SmartAnswer::Calculators
     end
 
     def money_rate_cost(age,weekly_amount)
-      total = age_and_rates(age) * weekly_amount.to_f
-      total_money = SmartAnswer::Money.new(total)
+      if age_and_rates(age)
+        total = age_and_rates(age) * weekly_amount.to_f
+        total_money = SmartAnswer::Money.new(total)
+      else
+        0
+      end
     end
 
     def date_difference_in_years(dob,date_limit)
       years = date_limit.year - dob.year
-      if (date_limit.month < dob.month) || ((date_limit.month == dob.month) && (date_limit.day < date_of_birth.day))
+      if (date_limit.month < dob.month) || ((date_limit.month == dob.month) && (date_limit.day < dob.day))
         years = years - 1
       end
       years
