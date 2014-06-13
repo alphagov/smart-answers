@@ -107,7 +107,7 @@
       var toggleButton = $('#btn-toggle-rankdir');
       toggleButton.on('click', toggleRankdir);
 
-      var rankDir = 'LR';
+      var rankDir = 'TB';
 
       function toggleRankdir() {
         rankDir = rankDir == 'LR' ? 'TB' : 'LR';
@@ -123,9 +123,9 @@
           rankSep: 100
         });
         if (rankDir == 'LR') {
-          toggleButton.text('top-to-bottom');
+          toggleButton.text('Show in portrait');
         } else {
-          toggleButton.text('left-to-right');
+          toggleButton.text('Show in landscape');
         }
         var padding = 400;
         paper.fitToContent(10, 10, padding);
