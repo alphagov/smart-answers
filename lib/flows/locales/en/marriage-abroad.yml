@@ -1667,7 +1667,7 @@ en-GB:
         body: |
           It’s not possible to get legal recognition for a same-sex relationship in %{country_name_lowercase_prefix}.
       outcome_ss_marriage:
-        title: %{ss_title} in %{country_name_lowercase_prefix}
+        title: "%{ss_title} in %{country_name_lowercase_prefix}"
         body: |
           %{ss_ceremony_body}
 
