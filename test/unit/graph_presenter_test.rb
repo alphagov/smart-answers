@@ -39,5 +39,13 @@ module SmartAnswer
 
       assert_equal expected_adjacency_list, @presenter.adjacency_list
     end
+
+    test "indicates does not define transitions in a way which can be visualised" do
+      p = GraphPresenter.new(@registry.find('graph'))
+      assert p.visualisable?, "'graph' should be visualisable"
+
+      p = GraphPresenter.new(@registry.find('missing_transition'))
+      refute p.visualisable?, "'missing_transition' should not be visualisable"
+    end
   end
 end
