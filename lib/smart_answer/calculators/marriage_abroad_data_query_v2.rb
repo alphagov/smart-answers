@@ -46,6 +46,12 @@ module SmartAnswer::Calculators
 
     SS_CLICKBOOK_COUNTRIES = %w(bolivia chile china colombia costa-rica hungary mongolia montenegro peru philippines russia san-marino serbia vietnam)
 
+    SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia china estonia san-marino serbia)
+
+    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A = %w(hungary mongolia montenegro nicaragua russia)
+
+    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B = %w(azerbaijan chile dominican-republic kosovo latvia)
+
     def ss_clickbook_countries?(country_slug)
       SS_CLICKBOOK_COUNTRIES.include?(country_slug)
     end
@@ -56,6 +62,18 @@ module SmartAnswer::Calculators
 
     def ss_marriage_and_partnership?(country_slug)
       SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES.include?(country_slug)
+    end
+
+    def ss_alt_fees_table_country?(country_slug, partner_nationality)
+      SS_ALT_FEES_TABLE_COUNTRY.include?(country_slug) ||
+        (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && partner_nationality == "partner_british") ||
+        (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) && partner_nationality != "partner_local") &&
+        (%w(cambodia vietnam).exclude?(country_slug))
+    end
+
+    def ss_marriage_not_possible?(country_slug, partner_nationality)
+      (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && partner_nationality != "partner_british") ||
+        ((SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) || %w(cambodia vietnam).include?(country_slug)) && partner_nationality == "partner_local")
     end
 
     def commonwealth_country?(country_slug)

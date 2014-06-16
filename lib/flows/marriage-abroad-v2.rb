@@ -257,7 +257,9 @@ multiple_choice :partner_opposite_or_same_sex? do
           :outcome_os_other_countries
         end
       else
-        if (%w(uk_england uk_wales uk_iom uk_ci).include?(residency_uk_region) or %w(other).include?(resident_of)) and (data_query.ss_marriage_countries?(ceremony_country) or data_query.ss_marriage_and_partnership?(ceremony_country))
+        if data_query.ss_marriage_not_possible?(ceremony_country, partner_nationality)
+          :outcome_ss_marriage_not_possible
+        elsif (%w(uk_england uk_scotland uk_ni uk_wales uk_iom uk_ci).include?(residency_uk_region) or %w(other).include?(resident_of)) and (data_query.ss_marriage_countries?(ceremony_country) or data_query.ss_marriage_and_partnership?(ceremony_country))
           :outcome_ss_marriage
         elsif %w(spain).include?(ceremony_country)
           :outcome_os_consular_cni
@@ -1149,6 +1151,15 @@ outcome :outcome_ss_marriage do
   precalculate :ss_title do
     PhraseList.new(:"title_#{marriage_and_partnership_phrases}")
   end
+
+  precalculate :ss_fees_table do
+    if data_query.ss_alt_fees_table_country?(ceremony_country, partner_nationality)
+      :"#{marriage_and_partnership_phrases}_alt"
+    else
+      :"#{marriage_and_partnership_phrases}"
+    end
+  end
+
   precalculate :ss_ceremony_body do
     phrases = PhraseList.new
     phrases << :"able_to_#{marriage_and_partnership_phrases}"
@@ -1157,7 +1168,9 @@ outcome :outcome_ss_marriage do
     else
       phrases << :contact_embassy_or_consulate << :embassies_data
     end
-    phrases << :"documents_needed_#{marriage_and_partnership_phrases}" << :"what_to_do_#{marriage_and_partnership_phrases}" << :"fees_table_#{marriage_and_partnership_phrases}"
+    phrases << :"documents_needed_#{marriage_and_partnership_phrases}" << :"what_to_do_#{marriage_and_partnership_phrases}" << :"fees_table_#{ss_fees_table}"
     phrases
   end
 end
+
+outcome :outcome_ss_marriage_not_possible
