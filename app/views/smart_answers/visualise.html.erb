@@ -26,6 +26,9 @@
         </h1>
       </div>
       <p>This is a visualisation of the <%= link_to @presenter.title, smart_answer_path(params[:id]) %> questions and outcomes.</p>
+      <% if ! @graph_presenter.visualisable? %>
+        <div class='warning'><p>This visualisation does not show all transitions correctly. It needs to be updated so that it can be visualised correctly.</p></div>
+      <% end %>
     </header>
 
     <p>Having problems reading the visualisation? Changing the orientation may help.</p>

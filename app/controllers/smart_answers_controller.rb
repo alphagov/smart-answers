@@ -38,7 +38,8 @@ class SmartAnswersController < ApplicationController
   def visualise
     respond_to do |format|
       format.html {
-        @graph_data = GraphPresenter.new(@smart_answer).to_hash
+        @graph_presenter = GraphPresenter.new(@smart_answer)
+        @graph_data = @graph_presenter.to_hash
         render layout: true
       }
       format.gv {
