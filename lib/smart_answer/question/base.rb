@@ -10,6 +10,7 @@ module SmartAnswer
         @default_next_node_function ||= lambda {|_|}
         @permitted_next_nodes = []
         @predicate_stack = []
+        @predicates = {}
         super
       end
 
@@ -89,6 +90,19 @@ module SmartAnswer
 
       def variable_matches(variable_name, acceptable_responses)
         SmartAnswer::Predicate::VariableMatches.new(variable_name, acceptable_responses)
+      end
+
+      def define_predicate(identifier, label = nil, &block)
+        raise "method #{identifier} already defined" if self.class.method_defined?(identifier)
+        @predicates[identifier] = SmartAnswer::Predicate::Callable.new(label || identifier.to_s, &block)
+      end
+
+      def respond_to_missing?(method, include_private = false)
+        @predicates.has_key?(method)
+      end
+
+      def method_missing(method, *args, &block)
+        @predicates.fetch(method)
       end
 
       def parse_input(raw_input)
