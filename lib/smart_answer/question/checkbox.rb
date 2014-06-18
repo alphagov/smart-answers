@@ -44,6 +44,10 @@ module SmartAnswer
       def response_has_all_of(required_responses)
         SmartAnswer::Predicate::ResponseHasAllOf.new(required_responses)
       end
+
+      def response_is_only(accepted_response)
+        ->(response) { response.split(",") == [accepted_response] }
+      end
     end
   end
 end

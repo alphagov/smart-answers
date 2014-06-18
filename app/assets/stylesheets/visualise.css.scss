@@ -32,6 +32,12 @@
     #btn-toggle-rankdir {
         @include button;
     }
+
+}
+
+.warning {
+  border-left: 6px solid red;
+  padding: 0.5em 2em;
 }
 
 #paper {

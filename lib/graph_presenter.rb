@@ -23,6 +23,12 @@ class GraphPresenter
     end
   end
 
+  def visualisable?
+    @flow.questions.all? do |node|
+      node.permitted_next_nodes.any?
+    end
+  end
+
   def to_hash
     {
       labels: labels,
