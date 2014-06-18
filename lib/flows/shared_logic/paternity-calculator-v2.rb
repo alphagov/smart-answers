@@ -4,14 +4,6 @@ days_of_the_week = Calculators::MaternityPaternityCalculatorV2::DAYS_OF_THE_WEEK
 multiple_choice :leave_or_pay_for_adoption? do
   option yes: :employee_date_matched_paternity_adoption?
   option no: :baby_due_date_paternity?
-
-  calculate :adoption do
-    responses.last == 'yes'
-  end
-
-  calculate :leave_type do
-    responses.last == 'yes' ? 'paternity_adoption' : 'paternity'
-  end
 end
 
 ## QP1
@@ -35,6 +27,14 @@ date_question :employee_date_matched_paternity_adoption? do
 
   calculate :calculator do
     Calculators::MaternityPaternityCalculatorV2.new(matched_date, 'paternity_adoption')
+  end
+
+  calculate :leave_type do
+    'paternity_adoption'
+  end
+
+  calculate :paternity_adoption? do
+    leave_type == 'paternity_adoption'
   end
 
   next_node :padoption_date_of_adoption_placement?
@@ -132,7 +132,7 @@ multiple_choice :employee_on_payroll_paternity? do
   save_input_as :on_payroll
 
   calculate :leave_spp_claim_link do
-    adoption ? 'adoption' : 'notice-period'
+    paternity_adoption? ? 'adoption' : 'notice-period'
   end
 
   calculate :not_entitled_reason do
@@ -145,7 +145,7 @@ multiple_choice :employee_on_payroll_paternity? do
   end
 
   calculate :to_saturday do
-    if adoption
+    if paternity_adoption?
       calculator.format_date_day calculator.matched_week.last
     else
       calculator.format_date_day calculator.qualifying_week.last
@@ -153,11 +153,11 @@ multiple_choice :employee_on_payroll_paternity? do
   end
 
   calculate :still_employed_date do
-    adoption ? calculator.employment_end : date_of_birth
+    paternity_adoption? ? calculator.employment_end : date_of_birth
   end
 
   calculate :start_leave_hint do
-    adoption ? ap_adoption_date_formatted : date_of_birth
+    paternity_adoption? ? ap_adoption_date_formatted : date_of_birth
   end
 
   next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no'))
@@ -192,7 +192,7 @@ date_question :employee_start_paternity? do
 
   calculate :leave_start_date do
     calculator.leave_start_date = Date.parse(responses.last)
-    if adoption
+    if paternity_adoption?
       raise SmartAnswer::InvalidResponse if calculator.leave_start_date < ap_adoption_date
     else
       raise SmartAnswer::InvalidResponse if calculator.leave_start_date < date_of_birth
@@ -305,11 +305,11 @@ money_question :earnings_for_pay_period_paternity? do
     calculator
   end
 
-  average_weekly_earnings_under_lower_earning_limit = SmartAnswer::Predicate::Callable.new("average weekly earnings under lower earning limit") do
+  define_predicate(:average_weekly_earnings_under_lower_earning_limit?) do
     calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
 
-  next_node_if(:paternity_leave_and_pay, average_weekly_earnings_under_lower_earning_limit)
+  next_node_if(:paternity_leave_and_pay, average_weekly_earnings_under_lower_earning_limit?)
   next_node :how_do_you_want_the_spp_calculated?
 end
 
