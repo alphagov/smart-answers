@@ -13,10 +13,6 @@ date_question :date_of_adoption_match? do
     Calculators::MaternityPaternityCalculatorV2.new(match_date, "adoption")
   end
 
-  calculate :leave_type do
-    'adoption'
-  end
-
   next_node :date_of_adoption_placement?
 end
 
