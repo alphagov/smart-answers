@@ -1,7 +1,7 @@
 status :draft
 satisfies_need "100865"
 
-data_query = Calculators::StatePensionTopupDataQueryV2.new()
+calculator = Calculators::StatePensionTopupCalculator.new()
 
 #Q1
 date_question :dob_age? do
@@ -10,9 +10,13 @@ date_question :dob_age? do
 
   save_input_as :date_of_birth
 
-  define_predicate(:age_limit_reached?) { |response| Date.parse(response) <= Date.parse('1914-10-12') }
+  define_predicate(:age_limit_reached?) do |response|
+    Date.parse(response) <= calculator.class::OLDEST_DOB
+  end
 
-  define_predicate(:age_not_yet_reached?) { |response| Date.parse(response) >= Date.parse('1953-04-07') }
+  define_predicate(:age_not_yet_reached?) do |response|
+    Date.parse(response) >= calculator.class::FEMALE_YOUNGEST_DOB
+  end
 
   next_node_if(:outcome_age_limit_reached_birth, age_limit_reached?)
   next_node_if(:outcome_pension_age_not_reached, age_not_yet_reached?)
@@ -26,15 +30,9 @@ multiple_choice :gender? do
 
   save_input_as :gender
 
-  calculate :upper_age do
-    data_query.date_difference_in_years(Date.parse(date_of_birth), Date.parse('2017-04-01'))
-  end
-  calculate :lower_age do
-    data_query.date_difference_in_years(Date.parse(date_of_birth), Date.parse('2015-10-12'))
-  end
-
   define_predicate(:male_and_young_enough?) do |response|
-    (response == "male") & (Date.parse(date_of_birth) >= Date.parse('1951-04-07'))
+    (response == "male") &
+    (Date.parse(date_of_birth) >= calculator.class::MALE_YOUNGEST_DOB)
   end
 
   next_node_if(:outcome_pension_age_not_reached, male_and_young_enough?)
@@ -52,40 +50,28 @@ money_question :how_much_extra_per_week? do
     end
   end
 
-  calculate :weekly_amount do
-    sprintf("%.0f", weekly_amount)
+  calculate :retirement_age do
+    calculator.retirement_age(gender)
   end
 
   calculate :body_phrase do
     PhraseList.new(:body_phrase)
   end
 
-  calculate :upper_rate_cost do
-    data_query.money_rate_cost(upper_age, weekly_amount)
-  end
-  calculate :lower_rate_cost do
-    data_query.money_rate_cost(lower_age, weekly_amount)
-  end
-
-  define_predicate(:male_or_female_and_old_enough?) do |response|
-    (gender == "male" && lower_age > 64) || (gender == "female" && lower_age > 62)
-  end
-
-  define_predicate(:older_than_101?) { upper_age > 101 }
-
-  on_condition(male_or_female_and_old_enough?) do
-    next_node_if(:top_up_calculations_upper_age, older_than_101?)
-    next_node :top_up_calculations_both_ages
-  end
-  next_node :top_up_calculations_lower_age
+  next_node :outcome_topup_calculations
 end
 
-#A1-a
-outcome :top_up_calculations_upper_age
-#A1-b
-outcome :top_up_calculations_lower_age
-#A1-b
-outcome :top_up_calculations_both_ages
+#A1
+outcome :outcome_topup_calculations do
+  precalculate :amount_and_age do
+    # Only needed for formatting amount
+    self.class.send :include, ActionView::Helpers::NumberHelper
+
+    calculator.lump_sum_and_age(Date.parse(date_of_birth), weekly_amount).map do |amount_and_age|
+      %Q(- #{number_to_currency(amount_and_age[:amount], precision: 0)} when you're #{amount_and_age[:age]})
+    end.join("\n")
+  end
+end
 #A2
 outcome :outcome_pension_age_not_reached
 #A3
