@@ -161,9 +161,10 @@ barbados:
   applying: 8_weeks
   replacing: 8_weeks
 belarus:
-  type: ips_application_2
+  type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
   renewing_new: 8_weeks
   renewing_old: 12_weeks
   applying: 12_weeks

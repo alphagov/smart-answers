@@ -753,7 +753,18 @@ en-GB:
           $C
           Email: <hmpoazerbaijan@teleperformance.com>
           $C
-
+        send_application_address_belarus: |
+          $A
+          UK Visa Application Centre
+          President Hotel
+          Kirova st 18
+          Minsk
+          220030
+          Belarus
+          $A
+          $C
+          Email: <hmpobelarus@teleperformance.com>
+          $C
         send_application_address_china: |
           $A
           UK Visa Application Centre
