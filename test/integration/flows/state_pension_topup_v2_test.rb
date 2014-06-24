@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
@@ -51,12 +52,10 @@ class CalculateStatePensionTopupV2Test < ActiveSupport::TestCase
           add_response 10
         end
         should "bring you to results outcome" do
-          assert_current_node :top_up_calculations_both_ages
-          assert_state_variable :weekly_amount, "10"
+          assert_current_node :outcome_topup_calculations
+          assert_state_variable :weekly_amount, 10.0
           assert_state_variable :date_of_birth, "1950-02-02"
-          assert_state_variable :upper_age, 67
-          assert_state_variable :lower_age, 65
-          assert_state_variable :lower_rate_cost, 8900.00
+          assert_state_variable :amount_and_age, "- £8,900 when you're 65\n- £8,710 when you're 66\n- £8,470 when you're 67"
         end
       end
     end
@@ -68,7 +67,7 @@ class CalculateStatePensionTopupV2Test < ActiveSupport::TestCase
       add_response 1
     end
     should "show lower rate only" do
-      assert_current_node :top_up_calculations_lower_age
+      assert_current_node :outcome_topup_calculations
     end
   end
   context "Woman turns 63 on 6 April 2016 = DOB 6/4/1953 = *just* old enough 63 rate only" do
@@ -78,20 +77,20 @@ class CalculateStatePensionTopupV2Test < ActiveSupport::TestCase
       add_response 1
     end
     should "show lower rate only" do
-      assert_current_node :top_up_calculations_lower_age
+      assert_current_node :outcome_topup_calculations
+      assert_state_variable :amount_and_age, "- £934 when you're 63\n- £913 when you're 64"
     end
   end
-  context "Anyone turns 101 on 2 April 2017 = DOB 2/4/1916 = Old limit for 2 - show rate for 99 & 100" do
+  context "Anyone turns 101 on 2 April 2017 = DOB 2/4/1916 = Old limit for 2 - show rates for 99 & 100" do
     setup do
       add_response Date.parse('1916-04-02')
       add_response "male"
       add_response 1
     end
-    should "show both rates" do
-      assert_state_variable :upper_age, 100
-      assert_state_variable :lower_age, 99
+    should "show two rates" do
+      assert_current_node :outcome_topup_calculations
+      assert_state_variable :amount_and_age, "- £137 when you're 99\n- £127 when you're 100"
       assert_state_variable :gender, "male"
-      assert_current_node :top_up_calculations_both_ages
     end
   end
   context "Anyone who is 100y11m21d on 12 Oct 2015 = DOB 13/10/1914 = just young enough for 100 rate" do
@@ -100,11 +99,10 @@ class CalculateStatePensionTopupV2Test < ActiveSupport::TestCase
       add_response "male"
       add_response 1
     end
-    should "show upper rate" do
-      assert_state_variable :upper_age, 102
-      assert_state_variable :lower_age, 100
+    should "show one rate" do
+      assert_current_node :outcome_topup_calculations
+      assert_state_variable :amount_and_age, "- £127 when you're 100"
       assert_state_variable :gender, "male"
-      assert_current_node :top_up_calculations_upper_age
     end
   end
   context "Woman who is 62 on 6 April 2016 = DOB 7/4/1953 = new rules (A2)" do
@@ -113,6 +111,28 @@ class CalculateStatePensionTopupV2Test < ActiveSupport::TestCase
     end
     should "show both rates" do
       assert_current_node :outcome_pension_age_not_reached
+    end
+  end
+  context "Male born 13/10/1940 needs 3 rates" do
+    setup do
+      add_response Date.parse('1940-10-13')
+      add_response "male"
+      add_response 1
+    end
+    should "go to calculations outcome and show 3 rates" do
+      assert_current_node :outcome_topup_calculations
+      assert_state_variable :amount_and_age, "- £694 when you're 74\n- £674 when you're 75\n- £646 when you're 76"
+    end
+  end
+  context "Male born 06/04/1951 needs 2 rates" do
+    setup do
+      add_response Date.parse('1951-04-06')
+      add_response "male"
+      add_response "10"
+    end
+    should "go to calculations and show 2 rates" do
+      assert_current_node :outcome_topup_calculations
+      assert_state_variable :amount_and_age, "- £8,900 when you're 65\n- £8,710 when you're 66"
     end
   end
 end
