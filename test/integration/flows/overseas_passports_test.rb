@@ -923,7 +923,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # british-indian-ocean-territory
 
-  context "answer turkey, doc group 1" do
+  context "answer turkey, doc group 2" do
     setup do
       worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
       add_response 'turkey'
@@ -935,7 +935,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_current_node :ips_application_result_online
       assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
-      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1]
+      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_2]
       assert_match /the passport numbers of both parents/, outcome_body
     end
   end

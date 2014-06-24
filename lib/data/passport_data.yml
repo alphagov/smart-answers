@@ -262,7 +262,7 @@ brazil:
   replacing: 8_weeks
 british-indian-ocean-territory:
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_3
   app_form: hmpo_1_application_form
   renewing_new: 4_weeks
   renewing_old: 6_weeks
@@ -1342,7 +1342,7 @@ nigeria:
   replacing: 10_weeks
 north-korea:
   type: ips_application_3
-  group: ips_documents_group_2
+  group: ips_documents_group_3
   app_form: hmpo_1_application_form
   renewing_new: 4_weeks
   renewing_old: 6_weeks
@@ -1859,7 +1859,7 @@ tunisia:
   replacing: 8_weeks
 turkey:
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
   renewing_new: 6_weeks
