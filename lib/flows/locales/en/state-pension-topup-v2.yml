@@ -68,7 +68,7 @@ en-GB:
         title: |
           Results
         body: |
-          To top up your pension by %{weekly_amount} per week, you’ll need to make a lump sum payment of:
+          To top up your pension by %{weekly_amount} per week, you’ll need to make a lump sum payment of either:
 
           %{amount_and_age}
 
