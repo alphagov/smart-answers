@@ -179,7 +179,7 @@ en-GB:
           You should apply as a [child visitor](/child-visit-visa) if you’re under 18.
 
       outcome_work_y:
-        title: You’ll need a visa to come to the UK to work or do business
+        title: You’ll need a visa to work or do business or academic research in the UK
         body: |
           
           The visa you apply for depends on your circumstances.
@@ -261,7 +261,7 @@ en-GB:
 
       outcome_work_n:
         title: |
-          You may need a visa to work or do business in the UK
+          You’ll need a visa to work or do business or academic research in the UK
         body: |
 
           Whether you need a visa depends on your circumstances.
@@ -358,10 +358,7 @@ en-GB:
 
           ##They’re settled in the UK
           
-          Apply for a [‘family of a settled person’ visa](/remain-in-uk-family) if your family member or partner is either:
-
-          - a British citizen
-          - from outside the European Economic Area (EEA) and settled in the UK
+          Apply for a [‘family of a settled person’ visa](/join-family-in-uk) if your family member or partner is either a British citizen or from outside the European Economic Area (EEA) and settled in the UK.
 
           ##They’re working or studying in the UK
 
@@ -381,10 +378,7 @@ en-GB:
 
           ##They’re settled in the UK
           
-          Apply for a [‘family of a settled person’ visa](/remain-in-uk-family) if your family member or partner is either:
-
-          - a British citizen
-          - from outside the European Economic Area (EEA) and settled in the UK
+          Apply for a [‘family of a settled person’ visa](/join-family-in-uk) if your family member or partner is either a British citizen or from outside the European Economic Area (EEA) and settled in the UK.
 
           ##They’re working or studying in the UK
 
@@ -397,13 +391,13 @@ en-GB:
       outcome_joining_family_nvn:
         title: You’ll need a visa to join your family or partner in the UK for a long stay
         body: |
-          ^You don’t need a visa f you’re visiting family or a partner for 6 months or less.^
+          ^You don’t need a visa if you’re visiting family or a partner for 6 months or less.^
 
           The visa you apply for depends on your family member’s situation.
 
           ##They’re settled in the UK
 
-          Apply for a [‘family of a settled person’ visa](/remain-in-uk-family) if your family member or partner is a British citizen or they’re from outside the European Economic Area (EEA) and settled in the UK.
+          Apply for a [‘family of a settled person’ visa](/join-family-in-uk) if your family member or partner is a British citizen or they’re from outside the European Economic Area (EEA) and settled in the UK.
 
           ##They’re working or studying in the UK
 
@@ -438,7 +432,7 @@ en-GB:
         body: |
           Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner don't plan to stay in the UK longer than 6 months.
 
-          Apply for a [family of a settled person visa](/join-family-in-uk) if your partner is already in the UK and you plan to stay longer than 6 months. If your partner was in the UK before settling or becoming a British citizen, you may have to [apply as a ‘dependant’ (partner)](/remain-in-uk-family/exceptions) in their original visa category.
+          Apply for a [family of a settled person visa](/join-family-in-uk) if your partner is British or settled in the UK and you wish to join them to live in the UK permanently.
 
       outcome_school_n:
         title: You won’t need a visa to come to the UK
