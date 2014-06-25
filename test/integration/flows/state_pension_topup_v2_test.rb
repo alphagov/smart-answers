@@ -60,25 +60,43 @@ class CalculateStatePensionTopupV2Test < ActiveSupport::TestCase
       end
     end
   end
-  context "Man turns 65 on 6 April 2016 = DOB 6/4/1951 = *just* old enough 65 rate only" do
+  context "Man turns 65 on 5 April 2016 = DOB 5/4/1951 = *just old enough*" do
     setup do
-      add_response Date.parse('1951-04-06')
+      add_response Date.parse('1951-04-05')
       add_response "male"
       add_response 1
     end
-    should "show lower rate only" do
+    should "show two rates" do
       assert_current_node :outcome_topup_calculations
+      assert_state_variable :amount_and_age, "- £890 when you're 65\n- £871 when you're 66"
     end
   end
-  context "Woman turns 63 on 6 April 2016 = DOB 6/4/1953 = *just* old enough 63 rate only" do
+  context "Man turns 65 on 6 April 2016 = DOB 6/4/1951 = not old enough" do
     setup do
-      add_response Date.parse('1953-04-06')
+      add_response Date.parse('1951-04-06')
+      add_response "male"
+    end
+    should "show age not reached outcome" do
+      assert_current_node :outcome_pension_age_not_reached
+    end
+  end
+  context "Woman turns 63 on 5 April 2016 = DOB 5/4/1953 = *just* old enough" do
+    setup do
+      add_response Date.parse('1953-04-05')
       add_response "female"
       add_response 1
     end
-    should "show lower rate only" do
+    should "show should two rates only" do
       assert_current_node :outcome_topup_calculations
       assert_state_variable :amount_and_age, "- £934 when you're 63\n- £913 when you're 64"
+    end
+  end
+  context "Woman turns 63 on 6 April 2016 = DOB 6/4/1953 = not old enough" do
+    setup do
+      add_response Date.parse('1953-04-06')
+    end
+    should "show age not reached outcome" do
+      assert_current_node :outcome_pension_age_not_reached
     end
   end
   context "Anyone turns 101 on 2 April 2017 = DOB 2/4/1916 = Old limit for 2 - show rates for 99 & 100" do
@@ -122,17 +140,6 @@ class CalculateStatePensionTopupV2Test < ActiveSupport::TestCase
     should "go to calculations outcome and show 3 rates" do
       assert_current_node :outcome_topup_calculations
       assert_state_variable :amount_and_age, "- £694 when you're 74\n- £674 when you're 75\n- £646 when you're 76"
-    end
-  end
-  context "Male born 06/04/1951 needs 2 rates" do
-    setup do
-      add_response Date.parse('1951-04-06')
-      add_response "male"
-      add_response "10"
-    end
-    should "go to calculations and show 2 rates" do
-      assert_current_node :outcome_topup_calculations
-      assert_state_variable :amount_and_age, "- £8,900 when you're 65\n- £8,710 when you're 66"
     end
   end
 end

@@ -4,9 +4,9 @@ module SmartAnswer::Calculators
     UPPER_AGE = 100
     LOWER_AGE = 62
     MALE_LOWER_AGE = 64
-    OLDEST_DOB = Date.parse('1914-10-12')
-    FEMALE_YOUNGEST_DOB = Date.parse('1953-04-07')
-    MALE_YOUNGEST_DOB = Date.parse('1951-04-07')
+    OLDEST_DOB = Date.parse('1914-10-13')
+    FEMALE_YOUNGEST_DOB = Date.parse('1953-04-05')
+    MALE_YOUNGEST_DOB = Date.parse('1951-04-05')
     TOPUP_START_DATE = Date.parse('2015-10-12')
     TOPUP_END_DATE = Date.parse('2017-04-01')
     FEMALE_RETIREMENT_AGE = 63
