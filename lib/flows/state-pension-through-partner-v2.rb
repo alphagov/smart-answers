@@ -22,13 +22,8 @@ multiple_choice :what_is_your_marital_status? do
     answers
   end
 
-  next_node do |response|
-    if response == "divorced"
-      :what_is_your_gender?
-    else
-      :when_will_you_reach_pension_age?
-    end
-  end
+  next_node_if(:what_is_your_gender?, responded_with("divorced"))
+  next_node :when_will_you_reach_pension_age?
 end
 
 # Q2
@@ -48,21 +43,24 @@ multiple_choice :when_will_you_reach_pension_age? do
 
   calculate :result_phrase do
     if responses.first == "widowed" and responses.last == "your_pension_age_before_specific_date"
-      phrases = PhraseList.new
-      phrases << :current_rules_and_additional_pension << :increase_retirement_income #outcome 2
-      phrases
+      PhraseList.new(
+        :current_rules_and_additional_pension,
+        :increase_retirement_income #outcome 2
+      )
     end
   end
 
-  next_node do |response|
-    if answers == [:widow] && response == "your_pension_age_after_specific_date"
-      :what_is_your_gender?
-    elsif answers == [:widow] && response == "your_pension_age_before_specific_date"
-      :final_outcome
-    else
-      :when_will_your_partner_reach_pension_age?
-    end
+  define_predicate(:widow_and_new_pension?) do |response|
+    answers == [:widow] && response == "your_pension_age_after_specific_date"
   end
+
+  define_predicate(:widow_and_old_pension?) do |response|
+    answers == [:widow] && response == "your_pension_age_before_specific_date"
+  end
+
+  next_node_if(:what_is_your_gender?, widow_and_new_pension?)
+  next_node_if(:final_outcome, widow_and_old_pension?)
+  next_node :when_will_your_partner_reach_pension_age?
 end
 
 #Q3
@@ -90,13 +88,12 @@ multiple_choice :when_will_your_partner_reach_pension_age? do
     phrases
   end
 
-  next_node do |response|
-    if answers == [:old1, :old2] || answers == [:new1, :old2]
-      :final_outcome
-    else
-      :what_is_your_gender?
-    end
-  end
+  define_predicate(:gender_not_needed_for_outcome?) {
+    answers == [:old1, :old2] || answers == [:new1, :old2]
+  }
+
+  next_node_if(:final_outcome, gender_not_needed_for_outcome?)
+  next_node :what_is_your_gender?
 end
 
 # Q4
