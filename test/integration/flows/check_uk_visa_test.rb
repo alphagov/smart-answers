@@ -144,7 +144,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'family'
       end
       should "take you to outcome family_y" do
-        assert_current_node :outcome_joining_family_y
+        assert_current_node :outcome_joining_family_nvn
       end
     end
   end
