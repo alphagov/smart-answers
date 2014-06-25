@@ -193,7 +193,7 @@ outcome :ips_application_result do
   end
 
   precalculate :cost do
-    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine venezuela western-sahara)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan belarus china georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine venezuela western-sahara)
     pay_at_appointment_countries = %(venezuela)
 
     if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
@@ -239,9 +239,9 @@ outcome :ips_application_result do
   end
 
   precalculate :send_your_application do
-    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara venezuela)
-    uk_visa_application_with_colour_pictures = %w(azerbaijan algeria china georgia indonesia kazakhstan laos lebanon mauritania morocco nepal thailand ukraine russia venezuela)
-    non_uk_visa_application_with_colour_pictures = %w(belarus burma cuba sudan tajikistan turkmenistan uzbekistan)
+    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan belarus burundi china gaza georgia indonesia kazakhstan laos lebanon mauritania morocco nepal russia thailand ukraine western-sahara venezuela)
+    uk_visa_application_with_colour_pictures = %w(azerbaijan algeria belarus china georgia indonesia kazakhstan laos lebanon mauritania morocco nepal thailand ukraine russia venezuela)
+    non_uk_visa_application_with_colour_pictures = %w(burma cuba sudan tajikistan turkmenistan uzbekistan)
     phrases = PhraseList.new
     if application_address
       phrases << :"send_application_#{application_address}"
@@ -320,7 +320,7 @@ outcome :ips_application_result do
     collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe)
     collect_in_person_variant_countries = %w(burundi india jordan pitcairn-island)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
-    uk_visa_application_centre_countries = %w(algeria azerbaijan china georgia indonesia kazakhstan lebanon mauritania morocco russia thailand ukraine venezuela western-sahara)
+    uk_visa_application_centre_countries = %w(algeria azerbaijan belarus china georgia indonesia kazakhstan lebanon mauritania morocco russia thailand ukraine venezuela western-sahara)
     uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
     collect_with_photo_id_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
     passport_delivered_by_courier_countries = %w(laos)
