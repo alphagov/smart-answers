@@ -11,15 +11,15 @@ date_question :dob_age? do
   save_input_as :date_of_birth
 
   define_predicate(:age_limit_reached?) do |response|
-    Date.parse(response) <= calculator.class::OLDEST_DOB
+    Date.parse(response) < calculator.class::OLDEST_DOB
   end
 
-  define_predicate(:age_not_yet_reached?) do |response|
-    Date.parse(response) >= calculator.class::FEMALE_YOUNGEST_DOB
+  define_predicate(:too_young?) do |response|
+    Date.parse(response) > calculator.class::FEMALE_YOUNGEST_DOB
   end
 
   next_node_if(:outcome_age_limit_reached_birth, age_limit_reached?)
-  next_node_if(:outcome_pension_age_not_reached, age_not_yet_reached?)
+  next_node_if(:outcome_pension_age_not_reached, too_young?)
   next_node :gender?
 end
 
@@ -30,12 +30,12 @@ multiple_choice :gender? do
 
   save_input_as :gender
 
-  define_predicate(:male_and_young_enough?) do |response|
+  define_predicate(:male_and_too_young?) do |response|
     (response == "male") &
-    (Date.parse(date_of_birth) >= calculator.class::MALE_YOUNGEST_DOB)
+    (Date.parse(date_of_birth) > calculator.class::MALE_YOUNGEST_DOB)
   end
 
-  next_node_if(:outcome_pension_age_not_reached, male_and_young_enough?)
+  next_node_if(:outcome_pension_age_not_reached, male_and_too_young?)
   next_node :how_much_extra_per_week?
 end
 
