@@ -49,7 +49,7 @@ class CalculateChildMaintentanceV2Test < ActiveSupport::TestCase
 
           should "take you to the flat rate outcome" do
             assert_current_node :flat_rate_result
-            assert_state_variable "flat_rate_amount", 7
+            assert_state_variable "flat_rate_amount", "7.00"
           end
         end
         context "answer 104 to 103" do
@@ -76,7 +76,7 @@ class CalculateChildMaintentanceV2Test < ActiveSupport::TestCase
         context "answer £100" do
           should "give flat rate result" do
             add_response "100"
-            assert_state_variable "flat_rate_amount", 7
+            assert_state_variable "flat_rate_amount", "7.00"
             assert_current_node :flat_rate_result
           end
           should "flow through to calculation result" do
@@ -93,7 +93,7 @@ class CalculateChildMaintentanceV2Test < ActiveSupport::TestCase
             add_response 0
             add_response 0
             assert_current_node :reduced_and_basic_rates_result
-            assert_state_variable "child_maintenance_payment", "294"
+            assert_state_variable "child_maintenance_payment", "294.00"
           end
         end
       end
@@ -135,7 +135,7 @@ class CalculateChildMaintentanceV2Test < ActiveSupport::TestCase
 
       should "take you to flat rate result" do
         assert_current_node :reduced_and_basic_rates_result
-        assert_state_variable "child_maintenance_payment", "71"
+        assert_state_variable "child_maintenance_payment", "71.00"
       end
     end
 
@@ -150,7 +150,7 @@ class CalculateChildMaintentanceV2Test < ActiveSupport::TestCase
 
       should "take you to flat rate result" do
         assert_current_node :reduced_and_basic_rates_result
-        assert_state_variable "child_maintenance_payment", "70"
+        assert_state_variable "child_maintenance_payment", "70.00"
       end
     end
   end

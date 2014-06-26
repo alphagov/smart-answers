@@ -7,6 +7,21 @@ multiple_choice :are_you_paying_or_receiving? do
   option :receive
 
   save_input_as :paying_or_receiving
+
+  calculate :fees_title do
+    PhraseList.new(:"#{paying_or_receiving}_title")
+  end
+
+  calculate :collect_and_pay_service do
+      PhraseList.new(:"#{paying_or_receiving}_collect_and_pay_service")
+    end
+
+  calculate :enforcement_charge do
+    if responses.last == "pay"
+      PhraseList.new(:enforcement_charge)
+    end
+  end
+
   next_node :how_many_children_paid_for?
 end
 
@@ -35,7 +50,7 @@ multiple_choice :gets_benefits? do
   option "no"
 
   calculate :calculator do
-    Calculators::ChildMaintenanceCalculator.new(number_of_children, benefits)
+    Calculators::ChildMaintenanceCalculatorV2.new(number_of_children, benefits, paying_or_receiving)
   end
 
   next_node do |response|
@@ -49,9 +64,7 @@ end
 
 ## Q3
 money_question :gross_income_of_payee? do
-  calculate :flat_rate_amount do
-    calculator.base_amount
-  end
+
   next_node do |response|
     calculator.income = response
     rate_type = calculator.rate_type
@@ -87,6 +100,7 @@ multiple_choice :how_many_nights_children_stay_with_payee? do
     calculator.number_of_shared_care_nights = responses.last.to_i
     sprintf("%.0f", calculator.calculate_maintenance_payment)
   end
+
   next_node do |response|
     calculator.number_of_shared_care_nights = response.to_i
     rate_type = calculator.rate_type
@@ -110,7 +124,16 @@ end
 
 outcome :flat_rate_result do
   precalculate :flat_rate_amount do
-    calculator.base_amount
+    sprintf('%.2f', calculator.base_amount)
+  end
+  precalculate :collect_fees do
+    sprintf('%.2f', calculator.collect_fees)
+  end
+  precalculate :total_fees do
+    sprintf('%.2f', Calculators::ChildMaintenanceCalculatorV2.total_fees(paying_or_receiving, flat_rate_amount, collect_fees))
+  end
+  precalculate :total_yearly_fees do
+    sprintf('%.2f', Calculators::ChildMaintenanceCalculatorV2.total_yearly_fees(collect_fees))
   end
 end
 
@@ -123,4 +146,17 @@ outcome :reduced_and_basic_rates_result do
       rate_type.to_s
     end
   end
+  precalculate :child_maintenance_payment do
+    sprintf('%.2f', child_maintenance_payment)
+  end
+  precalculate :collect_fees do
+    sprintf('%.2f', Calculators::ChildMaintenanceCalculatorV2.collect_fees_cmp(paying_or_receiving, child_maintenance_payment))
+  end
+  precalculate :total_fees do
+    sprintf('%.2f', Calculators::ChildMaintenanceCalculatorV2.total_fees_cmp(paying_or_receiving, child_maintenance_payment, collect_fees))
+  end
+  precalculate :total_yearly_fees do
+    sprintf('%.2f', Calculators::ChildMaintenanceCalculatorV2.total_yearly_fees(collect_fees))
+  end
+
 end

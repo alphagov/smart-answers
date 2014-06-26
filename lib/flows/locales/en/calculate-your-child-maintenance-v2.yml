@@ -27,6 +27,12 @@ en-GB:
           Enter the total number of children - including children that you have family based arrangements for.
         receive_hint: |
           Enter children from 1 partner only and make a separate calculation for each partner - including children that you have family based arrangements for.
+        pay_collect_and_pay_service: pay
+        receive_collect_and_pay_service: receive
+        pay_title: Additional weekly fees | Total amount to pay per week
+        receive_title: Fees | Total amount you’ll receive
+        enforcement_charge: You may also have to pay an enforcement charge if you don’t make your full payments on time.
+
       options:
         "yes": "Yes"
         "no": "No"
@@ -99,7 +105,7 @@ en-GB:
       ## A1
       nil_rate_result:
         body: |
-          $!Based on your answers no child maintenance has to be paid. $!
+          Based on your answers no child maintenance has to be paid.
 
           %{nil_rate_reason}
 
@@ -110,9 +116,22 @@ en-GB:
       ## A2
       flat_rate_result:
         body: |
-          $!Based on your answers the child maintenance payment is the flat rate of £%{flat_rate_amount} per week. $!
+          Based on your answers the child maintenance payment is the flat rate of £%{flat_rate_amount} per week.
 
           This is the total weekly amount, not the amount per child.
+
+          Depending on how child maintenance is arranged, fees may be added to this amount.
+
+          Payment type | Weekly flat rate payment | %{fees_title} | Application fee  - you only pay this once
+          - | -
+          [Collect and pay](/child-maintenance/how-to-pay) | £%{flat_rate_amount} | £%{collect_fees} | £%{total_fees} | £20.00
+          [Direct pay](/child-maintenance/how-to-pay) | £%{flat_rate_amount} | No fees | £%{flat_rate_amount} | £20.00
+          [Arranging child maintenance yourself](/arranging-child-maintenance-yourself) | £%{flat_rate_amount} | No fees | £%{flat_rate_amount} | No fee
+
+
+          You will pay up to £%{total_yearly_fees} if you %{collect_and_pay_service} child maintenance through the Collect and Pay service.
+
+          %{enforcement_charge}
 
           The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
@@ -121,9 +140,23 @@ en-GB:
       ## A3
       reduced_and_basic_rates_result:
         body: |
-          $!Based on your answers the child maintenance payment is the %{rate_type_formatted} rate of £%{child_maintenance_payment} per week. $!
+          Based on your answers the child maintenance payment is the %{rate_type_formatted} rate of £%{child_maintenance_payment} per week.
 
           This is the total weekly amount, not the amount per child.
+
+          Depending on how child maintenance is arranged, fees may be added to this amount.
+
+          Payment type | Weekly payment | %{fees_title} | Application fee  - you only pay this once
+          - | -
+          [Collect and pay](/child-maintenance/how-to-pay) | £%{child_maintenance_payment} | £%{collect_fees} | £%{total_fees} | £20.00
+          [Direct pay](/child-maintenance/how-to-pay) | £%{child_maintenance_payment} | No fees | £%{child_maintenance_payment} | £20.00
+          [Arranging child maintenance yourself](/arranging-child-maintenance-yourself) | £%{child_maintenance_payment} | No fees | £%{child_maintenance_payment} | No fee
+
+
+          You will pay up to £%{total_yearly_fees} if you %{collect_and_pay_service} child maintenance through the Collect and Pay service.
+
+          %{enforcement_charge}
+
 
           The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
