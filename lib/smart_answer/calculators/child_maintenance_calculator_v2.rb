@@ -117,44 +117,48 @@ module SmartAnswer::Calculators
       SCHEME_BASE_AMOUNT
     end
 
+    def paying?
+      @paying_or_receiving == "pay"
+    end
+
     def collect_fees
-      if @paying_or_receiving == "pay"
+      if paying?
         (base_amount * 0.2).round(2)
       else
         (base_amount * 0.04).round(2)
       end
     end
 
-    def self.collect_fees_cmp(paying_or_receiving, child_maintenance_payment)
+    def collect_fees_cmp(child_maintenance_payment)
       child_maintenance_payment = child_maintenance_payment.to_f
-      if paying_or_receiving == "pay"
+      if paying?
         (child_maintenance_payment * 0.2).round(2)
       else
         (child_maintenance_payment * 0.04).round(2)
       end
     end
 
-    def self.total_fees(paying_or_receiving, flat_rate_amount, collect_fees)
+    def total_fees(flat_rate_amount, collect_fees)
       flat_rate_amount = flat_rate_amount.to_f
       collect_fees = collect_fees.to_f
-      if paying_or_receiving == "pay"
+      if paying?
         (flat_rate_amount + collect_fees).round(2)
       else
         (flat_rate_amount - collect_fees).round(2)
       end
     end
 
-    def self.total_fees_cmp(paying_or_receiving, child_maintenance_payment, collect_fees)
+    def total_fees_cmp(child_maintenance_payment, collect_fees)
       child_maintenance_payment = child_maintenance_payment.to_f
       collect_fees = collect_fees.to_f
-      if paying_or_receiving == "pay"
+      if paying?
         (child_maintenance_payment + collect_fees).round(2)
       else
         (child_maintenance_payment - collect_fees).round(2)
       end
     end
 
-    def self.total_yearly_fees(collect_fees)
+    def total_yearly_fees(collect_fees)
       collect_fees = collect_fees.to_f
       (collect_fees * 52).round(2)
     end

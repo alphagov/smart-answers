@@ -130,10 +130,10 @@ outcome :flat_rate_result do
     sprintf('%.2f', calculator.collect_fees)
   end
   precalculate :total_fees do
-    sprintf('%.2f', Calculators::ChildMaintenanceCalculatorV2.total_fees(paying_or_receiving, flat_rate_amount, collect_fees))
+    sprintf('%.2f', calculator.total_fees(flat_rate_amount, collect_fees))
   end
   precalculate :total_yearly_fees do
-    sprintf('%.2f', Calculators::ChildMaintenanceCalculatorV2.total_yearly_fees(collect_fees))
+    sprintf('%.2f', calculator.total_yearly_fees(collect_fees))
   end
 end
 
@@ -150,13 +150,13 @@ outcome :reduced_and_basic_rates_result do
     sprintf('%.2f', child_maintenance_payment)
   end
   precalculate :collect_fees do
-    sprintf('%.2f', Calculators::ChildMaintenanceCalculatorV2.collect_fees_cmp(paying_or_receiving, child_maintenance_payment))
+    sprintf('%.2f', calculator.collect_fees_cmp(child_maintenance_payment))
   end
   precalculate :total_fees do
-    sprintf('%.2f', Calculators::ChildMaintenanceCalculatorV2.total_fees_cmp(paying_or_receiving, child_maintenance_payment, collect_fees))
+    sprintf('%.2f', calculator.total_fees_cmp(child_maintenance_payment, collect_fees))
   end
   precalculate :total_yearly_fees do
-    sprintf('%.2f', Calculators::ChildMaintenanceCalculatorV2.total_yearly_fees(collect_fees))
+    sprintf('%.2f', calculator.total_yearly_fees(collect_fees))
   end
 
 end
