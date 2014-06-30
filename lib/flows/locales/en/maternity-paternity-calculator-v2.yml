@@ -174,15 +174,12 @@ en-GB:
         adoption_leave_table: |
           ##Statutory Adoption Leave
 
-          The employee is entitled to up to 52 weeks Statutory Adoption Leave.
+          The employee is entitled to up to 52 weeks Statutory Adoption Leave if they [claim the leave on time](/employers-adoption-pay-leave/notice-period).
 
           |Leave                         | Key dates                   |
           |------------------------------|-----------------------------|
           |Start                         | %{leave_start_date}         |
           |End                           | %{leave_end_date}           |
-          |Earliest date leave can start for UK adoptions | %{a_leave_earliest_start} |
-          |Earliest date leave can start for overseas adoptions | %{adoption_placement_date} or within 28 days from this date |
-          |Latest date to give notice | %{a_notice_leave} (the rules are different for [overseas adoptions](/adoption-leave-pay-employees/notice-period "Notice for overseas adoptions")) |
 
         adoption_not_entitled_to_leave: |
           ##Statutory Adoption Leave
@@ -194,16 +191,15 @@ en-GB:
         adoption_pay_table: |
           ##Statutory Adoption Pay
 
-          The employee is entitled to 39 weeks Statutory Adoption Pay (SAP).
+          The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP) if they [claim SAP in time](/employers-adoption-pay-leave/notice-period) and give you [proof of the adoption](/employers-adoption-pay-leave/proof-of-adoption).
 
-          |Pay                            | Key facts                 |
-          |-------------------------------|---------------------------|
-          |Start                          | %{pay_start_date}         |
-          |End                            | %{pay_end_date}           |
-          |Weekly rate                    | £%{sap_rate}              |
-          |Proof of adoption              | You’ll need [proof of the adoption](/adoption-leave-pay-employees/proof-of-adoption "Proof of adoption")  before you can pay SAP usually 28 days before SAP starts |
+          The employee’s average weekly earnings are: £%{average_weekly_earnings}.
 
-          *[SAP]: Statutory Adoption Pay
+          Date | SAP amount
+          -|-
+          %{pay_dates_and_pay}
+           | **Total SAP: £%{total_sap}**
+
 
         adoption_not_entitled_to_pay_intro: |
           ##Statutory Adoption Pay
@@ -418,7 +414,7 @@ en-GB:
           "6": "Saturday"
       ## QP20
       pay_date_options_paternity?:
-        title: Is the employee paid on the 1st, 2nd, 3rd, 4th of last %{pay_day_in_week}?
+        title: Is the employee paid on the 1st, 2nd, 3rd, 4th or last %{pay_day_in_week}?
         options:
           "first": "1st"
           "second": "2nd"
@@ -464,25 +460,47 @@ en-GB:
         hint: For overseas adoptions enter the date of arrival in the UK.
         error_message: Placement date can't be before matching date
       ## QA3
-      adoption_employment_contract?:
-        title: Does the employee have an employment contract with you?
-      ## QA4
-      adoption_date_leave_starts?:
-        title: When does the employee want to start their leave?
-        hint: Leave can't start before %{a_leave_earliest_start} or within 28 days of the child arriving in the UK (overseas adoptions only).
-        error_message: Please enter a valid date
-      ## QA5
       adoption_did_the_employee_work_for_you?:
         title: Did the employee work for you on or before %{employment_start}?
-      ## QA6
+      ## QA4
+      adoption_employment_contract?:
+        title: Does the employee have an employment contract with you?
+      ## QA5
       adoption_is_the_employee_on_your_payroll?:
         title: Is the employee on your payroll?
+      ## QA6
+      adoption_date_leave_starts?:
+        title: When does the employee want to start their leave? adoption
+        hint: Leave can't start before %{a_leave_earliest_start} or within 28 days of the child arriving in the UK (overseas adoptions only).
+        error_message: Please enter a valid date
       ## QA7
-      adoption_employees_average_weekly_earnings?:
-         title: What were the employee’s average weekly earnings between %{relevant_period}?
-         hint: Enter the average weekly amount. The dates are the 8 week 'relevant period'.
-         suffix_label: per week
-         error_message: Please enter a number greater than 0
+      last_normal_payday_adoption?:
+        title: What was the last normal payday on or before %{to_saturday}?
+        error_message: You must enter a date on or before %{to_saturday}
+      ## QA8
+      payday_eight_weeks_adoption?:
+        title: What was the last normal payday before %{payday_offset}?
+        error_message: You must enter a date before %{payday_offset}
+      ## QA9
+      pay_frequency_adoption?:
+        title: How often do you pay the employee?
+        hint: If they’re paid irregularly choose ‘weekly’.
+        options:
+          "weekly": "Weekly"
+          "every_2_weeks": "Every 2 weeks"
+          "every_4_weeks": "Every 4 weeks"
+          "monthly": "Monthly"
+      ## QA10
+      earnings_for_pay_period_adoption?:
+        title: What were the employee’s total earnings betwee %{relevant_period}?
+        hint: This is their earnings before deductions like PAYE, pension or National Insurance contributions.
+        error_message: Please enter a number greater than 0
+      ## QA11
+      how_do_you_want_the_sap_calculated?:
+        title: How do you want the adoption pay calculated?
+        options:
+          "weekly_starting": "Weekly starting %{leave_start_date}"
+          "usual_paydates": "Based on their usual paydates"
       ## Adoption outcomes
       adoption_leave_and_pay:
         next_steps: |
@@ -498,7 +516,7 @@ en-GB:
         body: |
           ##Not entitled to Statutory Adoption Leave and Pay
 
-          The employee is not entitled to statutory adoption leave or pay because they must have started working for you on %{employment_start}
+          The employee is not entitled to Statutory Adoption Leave or Pay because they must have started working for you on %{employment_start}
 
           You must write confirming this. Also, send them form SAP1 confirming they’re not entitled to pay within 28 days of their pay request.
 

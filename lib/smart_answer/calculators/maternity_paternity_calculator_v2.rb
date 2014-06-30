@@ -139,10 +139,6 @@ module SmartAnswer::Calculators
       @leave_earliest_start_date = 14.days.ago(date)
     end
 
-    def adoption_leave_start_date=(date)
-      @leave_start_date = date
-    end
-
     ## Paternity
     ##
     ## Statutory paternity rate
@@ -155,7 +151,8 @@ module SmartAnswer::Calculators
     ##
     ## Statutory adoption rate
     def statutory_adoption_rate
-      statutory_maternity_rate_b
+      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
+      [current_statutory_rate, awe].min
     end
 
     def pay_period_in_days
@@ -332,7 +329,11 @@ module SmartAnswer::Calculators
 
     # Gives the weekly rate for a date.
     def rate_for(date)
-      send(:"#{leave_type}_rate_for", date)
+      if leave_type == 'maternity'
+        maternity_rate_for(date)
+      else
+        paternity_padoption_adoption_rate_for(date)
+      end
     end
 
     def maternity_rate_for(date)
@@ -343,14 +344,9 @@ module SmartAnswer::Calculators
       end
     end
 
-    def paternity_rate_for(date)
+    def paternity_padoption_adoption_rate_for(date)
       awe = (@average_weekly_earnings.to_f * 0.9).round(2)
-      [current_statutory_rate, awe].min
-    end
-
-    def paternity_adoption_rate_for(date)
-      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
-      [current_statutory_rate, awe].min
+      [statutory_rate(date), awe].min
     end
 
     def first_sunday_in_month(month, year)
