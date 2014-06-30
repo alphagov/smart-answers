@@ -191,7 +191,7 @@ en-GB:
 
           You got married in 1975 and chose to to pay National Insurance contributions at a reduced rate.
 
-          Your state pension will be worked out differently if your reduced rate election still applied to you in 1982.
+          Your State Pension will be worked out differently if your reduced rate election still applied to you in 1982.
 
           $E
 
@@ -202,13 +202,13 @@ en-GB:
           - the lower rate basic State Pension of £67.80 a week (if married or in a civil partnership and your partner has reached State Pension age)
           - the rate of the basic State Pension of £113.10 a week (if widowed, divorced or your civil partnership has been dissolved)
 
-          This will also include any Additional State Pension that you built up before 6 April 2016.
+           You’ll also get any Additional State Pension that you built up before 6 April 2016 on top of this basic amount.
 
           This will be paid to you when:
 
           - you or your spouse or civil partner reach State pension age (whichever is later)
           - you reach State Pension age (if widowed or divorced)
-          - you are widowed or divorced after you reach State pension age
+          - you’re widowed, divorced or your civil partnership has been dissolved after you reach State Pension age
 
           ^You won’t need to have the minimum of 10 qualifying years on your National Insurance record to get a State Pension if you’re eligible under these different rules.^
 
@@ -224,7 +224,7 @@ en-GB:
 
           This will also be based on your late spouse or civil partner’s contributions to their Additional State Pension up to 6 April 2016.
 
-          If your spouse or civil partner reached State Pension age or died under State Pension age on or after 6 April 2016 you may be able to inherit a portion of their [protected payment](/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner).
+          If your spouse or civil partner reached State Pension age or died under State Pension age on or after 6 April 2016 you may be able to inherit a portion of their [Protected Payment](/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner).
 
           ^You won’t be able to inherit either your late spouse or civil partner’s Additional State Pension or Protected payment if you remarry or form a new civil partnership before State Pension age.^
 
@@ -261,7 +261,7 @@ en-GB:
 
           You got married in 1975 and chose to to pay National Insurance contributions at a reduced rate.
 
-          Your state pension will be worked out differently if your reduced rate election still applied to you in 1982.
+          Your State Pension will be worked out differently if your reduced rate election still applied to you in 1982.
 
           $E
 
@@ -283,7 +283,7 @@ en-GB:
 
           You’ll get a pension that is the higher of:
 
-          - the lower rate basic State Pension of £67.80 a week (under the current State Pension system) and any Additional State Pension you built up before 6 April 2016
+          - the lower rate current system basic State Pension of £67.80 a week and any Additional State Pension you built up before 6 April 2016
           - your [State Pension](/new-state-pension) under your own National Insurance contributions.
 
           ^Your pension must have been calculated under the reduced rate election rules for this to apply.^
@@ -334,7 +334,7 @@ en-GB:
 
           This will also be based on the contributions to the Additional State Pension up to 6 April 2016.
 
-          If you’re widowed on or after 6 April 2016 you may be able to inherit a portion of your partner’s [protected payment](/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner).
+          If you’re widowed on or after 6 April 2016 you may be able to inherit a portion of your partner’s [Protected Payment](/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner).
 
           ^You won’t be able to inherit either your late partner’s Additional State Pension or Protected payment if you remarry before State Pension age.^
 
@@ -369,7 +369,7 @@ en-GB:
 
           If your partner reached State Pension age or died before 6 April 2016 you may be able to inherit a portion of their [Additional State Pension](/additional-state-pension/further-information).
 
-          If partner reached State Pension age or died under State Pension age on or after 6 April 2016 you may be able to inherit a portion of their [protected payment](/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner).
+          If partner reached State Pension age or died under State Pension age on or after 6 April 2016 you may be able to inherit a portion of their [Protected Payment](/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner).
 
           ^You won’t be able to inherit either your late spouse or civil partner’s Additional State Pension or Protected payment if you remarry before State Pension age.^
 
@@ -390,7 +390,7 @@ en-GB:
 
           ##You reach State Pension age on or after 6 April 2016
 
-          You can’t increase your state pension through your former spouse’s or civil partner’s National Insurance contributions.
+          You can’t increase your State Pension through your former spouse’s or civil partner’s National Insurance contributions.
 
           The new State Pension is based on your own National Insurance record.
 
@@ -433,7 +433,7 @@ en-GB:
 
           You got married in 1975 and chose to to pay National Insurance contributions at a reduced rate.
 
-          Your state pension will be worked out differently if your reduced rate election still applied to you in 1982.
+          Your State Pension will be worked out differently if your reduced rate election still applied to you in 1982.
 
           $E
 
@@ -451,7 +451,7 @@ en-GB:
 
           You’ll get a pension that is the higher of:
 
-          - the lower rate basic State Pension of £67.80 a week (under the current State Pension rules) and any Additional State Pension you built up before 6 April 2016
+          - the lower rate current system basic State Pension of £67.80 a week and any Additional State Pension you built up before 6 April 2016
           - your [State Pension](/new-state-pension) under your own National Insurance contributions.
 
           ^Your pension must have been calculated under the reduced rate election rules for this to apply.^
@@ -469,14 +469,14 @@ en-GB:
           divorced: "divorced or have dissolved your civil partnership"
 #Q2
       when_will_you_reach_pension_age?:
-        title:  When will you reach state pension age?
+        title:  When will you reach State Pension age?
         options:
           your_pension_age_before_specific_date: "on or before 5 April 2016"
           your_pension_age_after_specific_date: "on or after 6 April 2016"
 
 #Q3
       when_will_your_partner_reach_pension_age?:
-        title:  When will your spouse or civil partner reach state pension age?
+        title:  When will your spouse or civil partner reach State Pension age?
         options:
           partner_pension_age_before_specific_date: "on or before 5 April 2016"
           partner_pension_age_after_specific_date: "on or after 6 April 2016"
