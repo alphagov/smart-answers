@@ -2,6 +2,8 @@ status :draft
 satisfies_need "100490"
 
 exclude_countries = %w(holy-see british-antarctic-territory)
+additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
+
 situations = ['going_abroad','already_abroad']
 going_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'going_abroad', nil, 'going abroad')
 already_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'already_abroad', nil, 'already abroad')
@@ -17,9 +19,9 @@ responded_with_former_yugoslavia = SmartAnswer::Predicate::RespondedWith.new(
   countries_of_former_yugoslavia,
   "former Yugoslavia"
 )
-social_security_countries_jsa = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(guernsey_jersey new-zealand))
-social_security_countries_iidb = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda guernsey_jersey israel jamaica mauritius philippines turkey))
-social_security_countries_bereavement_benefits = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda canada guernsey_jersey israel jamaica mauritius new-zealand philippines turkey usa))
+social_security_countries_jsa = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(guernsey jersey new-zealand))
+social_security_countries_iidb = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey))
+social_security_countries_bereavement_benefits = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa))
 
 # Q1
 multiple_choice :going_or_already_abroad? do
@@ -95,9 +97,15 @@ end
 
 # Q3a going abroad
 multiple_choice :jsa_how_long_abroad? do
-  option less_than_a_year_medical: :jsa_less_than_a_year_medical_outcome # A1
-  option less_than_a_year_other: :jsa_less_than_a_year_other_outcome # A2
-  option more_than_a_year: :channel_islands? # Q3b
+  option :less_than_a_year_medical
+  option :less_than_a_year_other
+  option :more_than_a_year
+
+  save_input_as :how_long_abroad_jsa
+
+  next_node_if(:jsa_less_than_a_year_medical_outcome, responded_with("less_than_a_year_medical"))
+  next_node_if(:jsa_less_than_a_year_other_outcome, responded_with("less_than_a_year_other"))
+  next_node_if(:which_country_jsa?, responded_with("more_than_a_year"))
 end
 
 # Q3b
@@ -120,23 +128,23 @@ multiple_choice :channel_islands? do
     next_node_if(:which_country_iidb?, variable_matches(:benefit, 'iidb'))
     next_node_if(:which_country_bereavement_benefits?, variable_matches(:benefit, 'bereavement_benefits'))
   end
-  on_condition(responded_with('guernsey_jersey')) do
-    on_condition(going_abroad) do
-      next_node_if(:jsa_social_security_going_abroad_outcome, variable_matches(:benefit, 'jsa'))
-      next_node_if(:iidb_going_abroad_ss_outcome, variable_matches(:benefit, 'iidb'))
-      next_node_if(:bb_going_abroad_ss_outcome, variable_matches(:benefit, 'bereavement_benefits'))
-    end
+  # on_condition(responded_with('guernsey_jersey')) do
+  #   on_condition(going_abroad) do
+  #     next_node_if(:jsa_social_security_going_abroad_outcome, variable_matches(:benefit, 'jsa'))
+  #     next_node_if(:iidb_going_abroad_ss_outcome, variable_matches(:benefit, 'iidb'))
+  #     next_node_if(:bb_going_abroad_ss_outcome, variable_matches(:benefit, 'bereavement_benefits'))
+  #   end
 
-    next_node_if(:jsa_social_security_already_abroad_outcome, variable_matches(:benefit, 'jsa'))
-    next_node_if(:employer_paying_ni?, variable_matches(:benefit, 'maternity_benefits'))
-    next_node_if(:child_benefit_ss_outcome, variable_matches(:benefit, 'child_benefit'))
-    next_node_if(:iidb_already_abroad_ss_outcome, variable_matches(:benefit, 'iidb'))
-    next_node_if(:bb_already_abroad_ss_outcome, variable_matches(:benefit, 'bereavement_benefits'))
-  end
+  #   next_node_if(:jsa_social_security_already_abroad_outcome, variable_matches(:benefit, 'jsa'))
+  #   next_node_if(:employer_paying_ni?, variable_matches(:benefit, 'maternity_benefits'))
+  #   next_node_if(:child_benefit_ss_outcome, variable_matches(:benefit, 'child_benefit'))
+  #   next_node_if(:iidb_already_abroad_ss_outcome, variable_matches(:benefit, 'iidb'))
+  #   next_node_if(:bb_already_abroad_ss_outcome, variable_matches(:benefit, 'bereavement_benefits'))
+  # end
 end
 
 # Q3c
-country_select :which_country_jsa?, exclude_countries: exclude_countries do
+country_select :which_country_jsa?,additional_countries: additional_countries, exclude_countries: exclude_countries do
   situations.each do |situation|
     key = :"which_country_#{situation}_jsa"
     precalculate key do
@@ -147,7 +155,7 @@ country_select :which_country_jsa?, exclude_countries: exclude_countries do
   save_input_as :country
 
   calculate :country_name do
-    WorldLocation.all.find { |c| c.slug == country }.name
+    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
   end
 
   on_condition(already_abroad) do
@@ -163,7 +171,7 @@ country_select :which_country_jsa?, exclude_countries: exclude_countries do
 end
 
 # Q4
-country_select :which_country_wfp?, exclude_countries: exclude_countries do
+country_select :which_country_wfp?,additional_countries: additional_countries, exclude_countries: exclude_countries do
   situations.each do |situation|
     key = :"which_country_#{situation}_wfp"
     precalculate key do
@@ -176,7 +184,7 @@ country_select :which_country_wfp?, exclude_countries: exclude_countries do
 end
 
 # Q5
-country_select :which_country_maternity_benefits?, exclude_countries: exclude_countries do
+country_select :which_country_maternity_benefits?, additional_countries: additional_countries, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_maternity"
@@ -216,7 +224,7 @@ multiple_choice :employer_paying_ni? do
 end
 
 # Q9
-country_select :which_country_child_benefit?, exclude_countries: exclude_countries do
+country_select :which_country_child_benefit?, additional_countries: additional_countries, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_child"
@@ -228,7 +236,7 @@ country_select :which_country_child_benefit?, exclude_countries: exclude_countri
   save_input_as :country
 
   calculate :country_name do
-    WorldLocation.all.find { |c| c.slug == country }.name
+    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
   end
 
   next_node_if(:do_either_of_the_following_apply?, responded_with_eea_country) # Q10
@@ -248,7 +256,7 @@ multiple_choice :do_either_of_the_following_apply? do
 end
 
 # Q11
-country_select :which_country_ssp?, exclude_countries: exclude_countries do
+country_select :which_country_ssp?, additional_countries: additional_countries, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_ssp"
@@ -260,7 +268,7 @@ country_select :which_country_ssp?, exclude_countries: exclude_countries do
   save_input_as :country
 
   calculate :country_name do
-    WorldLocation.all.find { |c| c.slug == country }.name
+    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
   end
 
   next_node_if(:working_for_uk_employer_ssp?, responded_with_eea_country) # Q12
@@ -317,7 +325,7 @@ multiple_choice :tax_credits_children? do
 end
 
 # Q17
-country_select :which_country_tax_credits?, exclude_countries: exclude_countries do
+country_select :which_country_tax_credits?, additional_countries: additional_countries, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_tax_credits"
@@ -329,7 +337,7 @@ country_select :which_country_tax_credits?, exclude_countries: exclude_countries
   save_input_as :country
 
   calculate :country_name do
-    WorldLocation.all.find { |c| c.slug == country }.name
+    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
   end
 
   next_node_if(:tax_credits_currently_claiming?, responded_with_eea_country) # Q18
@@ -367,7 +375,7 @@ multiple_choice :esa_how_long_abroad? do
 end
 
 # Q21
-country_select :which_country_esa?, exclude_countries: exclude_countries do
+country_select :which_country_esa?, additional_countries: additional_countries, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_esa"
@@ -379,7 +387,7 @@ country_select :which_country_esa?, exclude_countries: exclude_countries do
   save_input_as :country
 
   calculate :country_name do
-    WorldLocation.all.find { |c| c.slug == country }.name
+    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
   end
 
   on_condition(going_abroad) do
@@ -399,7 +407,7 @@ multiple_choice :iidb_already_claiming? do
 end
 
 # Q23
-country_select :which_country_iidb?, exclude_countries: exclude_countries do
+country_select :which_country_iidb?, additional_countries: additional_countries, exclude_countries: exclude_countries do
   save_input_as :country
   situations.each do |situation|
     key = :"which_country_#{situation}_iidb"
@@ -411,7 +419,7 @@ country_select :which_country_iidb?, exclude_countries: exclude_countries do
   save_input_as :country
 
   calculate :country_name do
-    WorldLocation.all.find { |c| c.slug == country }.name
+    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
   end
 
   on_condition(going_abroad) do
@@ -448,7 +456,7 @@ country_select :which_country_disability_benefits?, exclude_countries: exclude_c
   save_input_as :country
 
   calculate :country_name do
-    WorldLocation.all.find { |c| c.slug == country }.name
+    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
   end
 
   next_node_if(:db_claiming_benefits?, responded_with_eea_country)
@@ -484,7 +492,7 @@ country_select :which_country_bereavement_benefits?, exclude_countries: exclude_
   save_input_as :country
 
   calculate :country_name do
-    WorldLocation.all.find { |c| c.slug == country }.name
+    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
   end
 
   on_condition(going_abroad) do
