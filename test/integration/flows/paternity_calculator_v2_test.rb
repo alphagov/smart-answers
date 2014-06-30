@@ -265,7 +265,7 @@ class PaternityCalculatorV2Test < ActiveSupport::TestCase
                                   add_response "2013-01-01"
                                   assert_state_variable :average_weekly_earnings, '625.00'
                                   assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_entitled_to_pay, :paternity_spp_claim_link]
-                                  assert_state_variable :pay_dates_and_pay, "18 June 2013|£135.45\n25 June 2013|£135.45"
+                                  assert_state_variable :pay_dates_and_pay, "18 June 2013|£136.78\n25 June 2013|£136.78"
                                   assert_current_node :paternity_leave_and_pay
                                 end
                               end

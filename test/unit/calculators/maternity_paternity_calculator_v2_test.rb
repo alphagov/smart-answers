@@ -573,11 +573,11 @@ module SmartAnswer::Calculators
 
           paydates_and_pay = @calculator.paydates_and_pay
 
-   assert_equal ["2013-01-03", "2013-01-17", "2013-01-31", "2013-02-14", "2013-02-28",
-   "2013-03-14", "2013-03-28", "2013-04-11", "2013-04-25", "2013-05-09",
-   "2013-05-23", "2013-06-06", "2013-06-20", "2013-07-04", "2013-07-18",
-   "2013-08-01", "2013-08-15", "2013-08-29", "2013-09-12", "2013-09-26",
-   "2013-10-10"], paydates_and_pay.map { |p| p[:date].to_s }
+          assert_equal ["2013-01-03", "2013-01-17", "2013-01-31", "2013-02-14", "2013-02-28",
+          "2013-03-14", "2013-03-28", "2013-04-11", "2013-04-25", "2013-05-09",
+          "2013-05-23", "2013-06-06", "2013-06-20", "2013-07-04", "2013-07-18",
+          "2013-08-01", "2013-08-15", "2013-08-29", "2013-09-12", "2013-09-26",
+          "2013-10-10"], paydates_and_pay.map { |p| p[:date].to_s }
           assert_equal 32.15, paydates_and_pay.first[:pay]
           assert_equal 450, paydates_and_pay.second[:pay]
           assert_equal 270.9, paydates_and_pay[4][:pay]
@@ -655,10 +655,10 @@ module SmartAnswer::Calculators
           assert_equal 25.72, paydates_and_pay.first[:pay]
           assert_equal 180.0, paydates_and_pay.second[:pay]
           assert_equal 173.64, paydates_and_pay[6][:pay]
-   assert_equal 173.64, paydates_and_pay.find { |p| p[:date].to_s == '2013-03-08' }[:pay]
-   assert_equal 135.45, paydates_and_pay.find { |p| p[:date].to_s == '2013-04-05' }[:pay]
-   assert_equal 135.64, paydates_and_pay.find { |p| p[:date].to_s == '2013-04-12' }[:pay]
-   assert_equal 136.78, paydates_and_pay.find { |p| p[:date].to_s == '2013-04-19' }[:pay]
+          assert_equal 173.64, paydates_and_pay.find { |p| p[:date].to_s == '2013-03-08' }[:pay]
+          assert_equal 135.45, paydates_and_pay.find { |p| p[:date].to_s == '2013-04-05' }[:pay]
+          assert_equal 135.64, paydates_and_pay.find { |p| p[:date].to_s == '2013-04-12' }[:pay]
+          assert_equal 136.78, paydates_and_pay.find { |p| p[:date].to_s == '2013-04-19' }[:pay]
         end
       end
       context "HMRC test scenario for SMP paid a certain day of the month" do
@@ -672,9 +672,9 @@ module SmartAnswer::Calculators
         end
         should "calculate pay on paydates with April 2013 uprating" do
           paydates_and_pay =  @calculator.paydates_and_pay
-   assert_equal({ date: Date.parse('25 January 2013'), pay: 18.56 }, paydates_and_pay.first)
-   assert_equal({ date: Date.parse('29 March 2013'), pay: 649.45 }, paydates_and_pay.third)
-   assert_equal({ date: Date.parse('31 May 2013'), pay: 649.45 }, paydates_and_pay[4])
+          assert_equal({ date: Date.parse('25 January 2013'), pay: 18.56 }, paydates_and_pay.first)
+          assert_equal({ date: Date.parse('29 March 2013'), pay: 649.45 }, paydates_and_pay.third)
+          assert_equal({ date: Date.parse('31 May 2013'), pay: 649.45 }, paydates_and_pay[4])
         end
       end
 
@@ -735,7 +735,7 @@ module SmartAnswer::Calculators
         should "produce 1 week of pay dates and pay at maximum amount" do
           paydates_and_pay =  @calculator.paydates_and_pay
           assert_equal '2014-05-31', paydates_and_pay.first[:date].to_s
-          assert_equal 273.56, paydates_and_pay.first[:pay]
+          assert_equal 276.36, paydates_and_pay.first[:pay]
         end
       end
       context "test for paternity pay monthly dates and pay uprated for 2014" do
@@ -752,6 +752,50 @@ module SmartAnswer::Calculators
           paydates_and_pay =  @calculator.paydates_and_pay
           assert_equal '2014-05-31', paydates_and_pay.first[:date].to_s
           assert_equal 276.36, paydates_and_pay.first[:pay]
+        end
+      end
+      context "test adoption table rate returned for weekly amounts" do
+        setup do
+          @match_date = Date.parse("2 January 2014")
+          @calculator = MaternityPaternityCalculatorV2.new(@match_date, "adoption")
+        end
+        should "calculate 39 weeks of dates and pay" do
+          @calculator.pay_method = 'weekly_starting'
+          @calculator.leave_start_date = Date.parse('20 January 2014')
+          @calculator.calculate_average_weekly_pay('monthly', 3000)
+          paydates_and_pay = @calculator.paydates_and_pay
+          assert_equal ["2014-01-26", "2014-02-02", "2014-02-09", "2014-02-16", "2014-02-23",
+          "2014-03-02", "2014-03-09", "2014-03-16", "2014-03-23", "2014-03-30",
+          "2014-04-06", "2014-04-13", "2014-04-20", "2014-04-27", "2014-05-04",
+          "2014-05-11", "2014-05-18", "2014-05-25", "2014-06-01", "2014-06-08",
+          "2014-06-15", "2014-06-22", "2014-06-29", "2014-07-06", "2014-07-13",
+          "2014-07-20", "2014-07-27", "2014-08-03", "2014-08-10", "2014-08-17",
+          "2014-08-24", "2014-08-31", "2014-09-07", "2014-09-14", "2014-09-21",
+          "2014-09-28", "2014-10-05", "2014-10-12", "2014-10-19"], paydates_and_pay.map { |p| p[:date].to_s }
+          assert_equal 136.78, paydates_and_pay.first[:pay]
+          assert_equal 136.78, paydates_and_pay[9][:pay]
+          assert_equal 138.18, paydates_and_pay[11][:pay]
+          assert_equal 138.18, paydates_and_pay.last[:pay]
+        end
+      end
+      context "test adoption table rate returned for a certain weekday in each month" do
+        setup do
+          @match_date = Date.parse("2 January 2014")
+          @calculator = MaternityPaternityCalculatorV2.new(@match_date, "adoption")
+        end
+        should "calculate 10 months of dates and pay" do
+          @calculator.leave_start_date = Date.parse('20 January 2014')
+          @calculator.pay_method = 'a_certain_week_day_each_month'
+          @calculator.pay_day_in_week = 5
+          @calculator.pay_week_in_month = 'last'
+          @calculator.calculate_average_weekly_pay('monthly', 3000)
+          paydates_and_pay = @calculator.paydates_and_pay
+          assert_equal ["2014-01-31", "2014-02-28", "2014-03-28",
+          "2014-04-25", "2014-05-30", "2014-06-27", "2014-07-25",
+          "2014-08-29", "2014-09-26", "2014-10-31"], paydates_and_pay.map { |p| p[:date].to_s }
+          assert_equal 234.48, paydates_and_pay.first[:pay]
+          assert_equal 550.93, paydates_and_pay[3][:pay]
+          assert_equal 454.03, paydates_and_pay.last[:pay]
         end
       end
     end
