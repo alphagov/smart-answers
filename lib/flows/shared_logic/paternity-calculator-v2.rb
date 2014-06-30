@@ -333,7 +333,7 @@ multiple_choice :how_do_you_want_the_spp_calculated? do
   next_node :next_pay_day_paternity?
 end
 
-## QP15
+## QP15 - Also shared with adoption calculator here onwards
 date_question :next_pay_day_paternity? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
@@ -348,13 +348,16 @@ end
 
 ## QP16
 multiple_choice :monthly_pay_paternity? do
-  option first_day_of_the_month: :paternity_leave_and_pay
-  option last_day_of_the_month: :paternity_leave_and_pay
+  option :first_day_of_the_month
+  option :last_day_of_the_month
   option specific_date_each_month: :specific_date_each_month_paternity?
   option last_working_day_of_the_month: :days_of_the_week_paternity?
   option a_certain_week_day_each_month: :day_of_the_month_paternity?
 
   save_input_as :monthly_pay_method
+
+  next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
+  next_node :paternity_leave_and_pay
 end
 
 ## QP17
@@ -366,6 +369,7 @@ value_question :specific_date_each_month_paternity? do
     calculator.pay_day_in_month = day
   end
 
+  next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
   next_node :paternity_leave_and_pay
 end
 
@@ -377,6 +381,8 @@ checkbox_question :days_of_the_week_paternity? do
     calculator.work_days = responses.last.split(",").map(&:to_i)
     calculator.pay_day_in_week = responses.last.split(",").sort.last.to_i
   end
+
+  next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
   next_node :paternity_leave_and_pay
 end
 
@@ -392,7 +398,7 @@ multiple_choice :day_of_the_month_paternity? do
 
   calculate :pay_day_in_week do
     calculator.pay_day_in_week = responses.last.to_i
-    responses.last
+    days_of_the_week[responses.last.to_i]
   end
 
   next_node :pay_date_options_paternity?
@@ -410,6 +416,7 @@ multiple_choice :pay_date_options_paternity? do
     calculator.pay_week_in_month = responses.last
   end
 
+  next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
   next_node :paternity_leave_and_pay
 end
 
@@ -464,13 +471,11 @@ outcome :paternity_leave_and_pay do
   end
 
   precalculate :pay_dates_and_pay do
-    rows = []
     if entitled_to_pay? && above_lower_earning_limit?
-      calculator.paydates_and_pay.each do |date_and_pay|
-        rows << %Q(#{date_and_pay[:date].strftime("%e %B %Y")}|£#{sprintf("%.2f", date_and_pay[:pay])})
-      end
+      calculator.paydates_and_pay.map do |date_and_pay|
+        %Q(#{date_and_pay[:date].strftime("%e %B %Y")}|£#{sprintf("%.2f", date_and_pay[:pay])})
+      end.join("\n")
     end
-    rows.join("\n")
   end
 
   precalculate :total_spp do
@@ -488,8 +493,7 @@ end
 outcome :paternity_not_entitled_to_leave_or_pay do
   precalculate :not_entitled_reason do
     if not_entitled_reason.nil?
-      phrases = PhraseList.new
-      phrases << :paternity_not_entitled_to_leave_or_pay_intro
+      phrases = PhraseList.new(:paternity_not_entitled_to_leave_or_pay_intro)
       phrases << :"#{leave_type}_not_responsible_for_upbringing" if paternity_responsible == 'no'
       phrases << :not_worked_long_enough if paternity_employment_start == "no"
       phrases << :paternity_entitled_to_leave if on_payroll == "no"
