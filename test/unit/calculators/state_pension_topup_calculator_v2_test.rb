@@ -26,11 +26,11 @@ module SmartAnswer::Calculators
       end
 
       should "Show age of 64" do
-        assert_equal 64, @calculator.date_difference_in_years(Date.parse('1951-04-06'), Date.parse('2015-10-12'))
+        assert_equal 64, @calculator.age_at_date(Date.parse('1951-04-06'), Date.parse('2015-10-12'))
       end
 
       should "Show age of 85" do
-        assert_equal 85, @calculator.date_difference_in_years(Date.parse('1930-04-06'), Date.parse('2015-10-12'))
+        assert_equal 85, @calculator.age_at_date(Date.parse('1930-04-06'), Date.parse('2015-10-12'))
       end
     end
 
@@ -40,12 +40,12 @@ module SmartAnswer::Calculators
         @calculator.retirement_age('male')
       end
 
-      should "Show 3 rates for ages 85 to 87" do
-        assert_equal [{:amount=>3940.0, :age=>85}, {:amount=>3660.0, :age=>86}, {:amount=>3390.0, :age=>87}], @calculator.lump_sum_and_age(Date.parse('1930-04-06'), 10)
+      should "Show 2 rates for ages 85 and 86" do
+        assert_equal [{:amount=>3940.0, :age=>85}, {:amount=>3660.0, :age=>86}], @calculator.lump_sum_and_age(Date.parse('1930-04-06'), 10)
       end
 
-      should "Show 2 rates for ages 65 and 66" do
-        assert_equal [{:amount=>8900.0, :age=>65}, {:amount=>8710.0, :age=>66}], @calculator.lump_sum_and_age(Date.parse('1951-04-06'), 10)
+      should "Show rate for 65" do
+        assert_equal [{:amount=>8900.0, :age=>65}], @calculator.lump_sum_and_age(Date.parse('1951-04-06'), 10)
       end
     end
 
@@ -55,8 +55,8 @@ module SmartAnswer::Calculators
         @calculator.retirement_age('female')
       end
 
-      should "Show 2 rates for 63 and 64" do
-        assert_equal [{:amount=>9340.0, :age=>63}, {:amount=>9130.0, :age=>64}], @calculator.lump_sum_and_age(Date.parse('1953-04-06'), 10)
+      should "Show rate for 63" do
+        assert_equal [{:amount=>9340.0, :age=>63}], @calculator.lump_sum_and_age(Date.parse('1953-04-06'), 10)
       end
     end
   end

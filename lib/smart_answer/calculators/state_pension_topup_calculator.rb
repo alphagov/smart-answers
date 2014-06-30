@@ -34,18 +34,25 @@ module SmartAnswer::Calculators
 
     def lump_sum_and_age(dob, weekly_amount)
       rows = []
-      age = date_difference_in_years(dob, TOPUP_START_DATE)
+      age = age_at_date(dob, TOPUP_START_DATE)
       (TOPUP_START_DATE.year..TOPUP_END_DATE.year).each do |year|
-        break if age > UPPER_AGE
+        break if age > UPPER_AGE || birthday_after_topup_end?(dob, age)
         rows << {:amount => lump_sum_amount(age, weekly_amount), :age => age} if age >= @retirement_age
         age += 1
       end
       rows
     end
 
-    def date_difference_in_years(dob, date)
+    def birthday_after_topup_end?(dob, age)
+      birthday = Date.new(TOPUP_END_DATE.year, dob.month, dob.day)
+      age_at_topup_end = age_at_date(dob, TOPUP_END_DATE)
+      (age > age_at_topup_end) && (birthday >= TOPUP_END_DATE)
+    end
+
+    def age_at_date(dob, date)
       years = date.year - dob.year
-      if (date.month < dob.month) || ((date.month == dob.month) && (date.day < dob.day))
+      birthday = Date.new(date.year, dob.month, dob.day)
+      if date < birthday
         years = years - 1
       end
       years
