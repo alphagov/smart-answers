@@ -412,7 +412,7 @@ en-GB:
 # A4
       jsa_eea_already_abroad_outcome:
         body: |
-          You can’t get JSA while you’re abroad. You may qualify for unemployment benefits in %{country_name} because of the agreements between [EEA countries](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) and Switzerland. 
+          You can’t get JSA while you’re abroad. You may qualify for unemployment benefits in %{country_name} because of the agreements between [EEA countries](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) and Switzerland.
 
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
@@ -428,7 +428,7 @@ en-GB:
 # A6
       jsa_social_security_already_abroad_outcome:
         body: |
-          You can’t get JSA abroad. You may qualify for unemployment benefits because of the agreements between the [EEA countries](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) and Switzerland. 
+          You can’t get JSA abroad. You may qualify for unemployment benefits because of the agreements between the [EEA countries](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) and Switzerland.
 
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
@@ -462,9 +462,7 @@ en-GB:
 # A11
       wfp_not_eligible_outcome:
         body: |
-          You can’t get Winter Fuel Payments while you’re abroad.
-
-          You must be living in an [EEA country](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+          You can’t get Winter Fuel Payments while you’re abroad unless you live in the [European Economic Area (EEA)](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) or Switzerland.
 
 # A12
       maternity_benefits_maternity_allowance_outcome:
