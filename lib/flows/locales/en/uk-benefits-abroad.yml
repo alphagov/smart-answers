@@ -281,7 +281,7 @@ en-GB:
       is_how_long_abroad?:
         title: How long are you going abroad for?
         options:
-          is_under_a_year_medical: Less than 1 year, to get medical treatment for you or your child 
+          is_under_a_year_medical: Less than 1 year, to get medical treatment for you or your child
           is_under_a_year_other: Less than 1 year, for a different reason
           is_more_than_a_year: More than 1 year
         hint: You can’t apply for Income Support from abroad.
@@ -654,15 +654,13 @@ en-GB:
 # A35
       esa_going_abroad_under_a_year_other_outcome:
         body: |
-          You can’t start getting ESA while temporarily abroad.
+          You may be able to carry on getting [income-related or contribution-based ESA(/employment-support-allowance) for up to 26 weeks
 
-          You can carry on getting [income-related or contribution-based ESA](/employment-support-allowance) for up to 26 weeks after leaving the UK if you were already receiving it before you left and the medical treatment is for the disease or disability for which you’re getting ESA.
+          You can carry on getting [ESA](/employment-support-allowance) for up to 4 weeks.
 
-          You must have told your local [Jobcentre Plus](/contact-jobcentre-plus) before you left.
+          You may able to get ESA for a longer temporary absence if you’re the family member of a Crown servant  (someone who works for the UK government abroad).
 
-          There is no 26 week limit for NHS-funded treatment abroad.
-
-          You may be able to get benefits from the country you are living in if you’ve been paying into a local security insurance scheme. Contact the local authorities to find out more.
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
 
           *[ESA]: Employment and Support Allowance
 # A36
@@ -721,6 +719,7 @@ en-GB:
 
           - Barbados  
           - Bermuda  
+          - Canada  
           - Israel  
           - Jamaica  
           - Jersey and Guernsey  
