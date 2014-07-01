@@ -3,15 +3,16 @@ module SmartAnswer::Calculators
 
     attr_accessor :income, :number_of_other_children, :number_of_shared_care_nights
 
-    SCHEME_BASE_AMOUNT = 7
+    SCHEME_BASE_AMOUNT = 7.00
     REDUCED_RATE_THRESHOLD = 100
     BASIC_PLUS_RATE_THRESHOLD = 800
-    SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT = 7
+    SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT = 7.00
     SCHEME_MAX_INCOME = 3000
 
-    def initialize(number_of_children, benefits)
+    def initialize(number_of_children, benefits, paying_or_receiving)
       @number_of_children = number_of_children.to_i
       @benefits = benefits
+      @paying_or_receiving = paying_or_receiving
       @calculator_data = self.class.child_maintenance_data
     end
 
@@ -114,6 +115,52 @@ module SmartAnswer::Calculators
 
     def base_amount
       SCHEME_BASE_AMOUNT
+    end
+
+    def paying?
+      @paying_or_receiving == "pay"
+    end
+
+    def collect_fees
+      if paying?
+        (base_amount * 0.2).round(2)
+      else
+        (base_amount * 0.04).round(2)
+      end
+    end
+
+    def collect_fees_cmp(child_maintenance_payment)
+      child_maintenance_payment = child_maintenance_payment.to_f
+      if paying?
+        (child_maintenance_payment * 0.2).round(2)
+      else
+        (child_maintenance_payment * 0.04).round(2)
+      end
+    end
+
+    def total_fees(flat_rate_amount, collect_fees)
+      flat_rate_amount = flat_rate_amount.to_f
+      collect_fees = collect_fees.to_f
+      if paying?
+        (flat_rate_amount + collect_fees).round(2)
+      else
+        (flat_rate_amount - collect_fees).round(2)
+      end
+    end
+
+    def total_fees_cmp(child_maintenance_payment, collect_fees)
+      child_maintenance_payment = child_maintenance_payment.to_f
+      collect_fees = collect_fees.to_f
+      if paying?
+        (child_maintenance_payment + collect_fees).round(2)
+      else
+        (child_maintenance_payment - collect_fees).round(2)
+      end
+    end
+
+    def total_yearly_fees(collect_fees)
+      collect_fees = collect_fees.to_f
+      (collect_fees * 52).round(2)
     end
 
     def self.child_maintenance_data
