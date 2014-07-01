@@ -14,51 +14,86 @@ Run unit tests by executing the following:
     bundle exec rake
 
 
+## Smart answer syntax
+
+### Question types
+
+* `multiple_choice` - choose a single value from a list of values. Response is a string.
+* `checkbox_question` - choose multiple values from a list of values. Response is a list.
+* `country_select` - choose a single country. 
+* `date_question` - choose a single date
+* `value_question` - enter a single string value (free text)
+* `money_question` - enter a money amount. The response is converted to a `Money` object.
+* `salary_question` - enter a salary as either a weekly or monthly money amount. Coverted to a `Salary` object.
+
+### Defining next node rules
+
+There are two syntaxes for defining next node rules. The older syntax uses a block which returns a symbol indicating the next node. This syntax is deprecated. 
+
+```ruby
+next_node do |response|
+  response == 'green' ? :green : :red
+end
+```
+
+The disadvantage of this syntax is that it's not possible to analyze the flow to find out the possible paths through the flow. A newer syntax has been created which allows the flow to be analyzed and a [visualisation](http://www.gov.uk/check-uk-visa/visualise) to be produced. 
+
+Here is the same logic expressed using the new syntax:
+
+```ruby
+next_node_if(:green, responded_with('green')) )
+next_node(:red)
+```
+
+The `responded_with` function actually returns a [predicate](http://en.wikipedia.org/wiki/Predicate_%28mathematical_logic%29) which will be invoked during processing. If the predicate returns `true` then the `:green` node will be next, otherwise the next rule will be evaluated. In this case the next rule says `:red` is the next node with no condition. 
+
+### Predicate helpers
+
+* `responded_with(value)` - `value` can be either a string or an array of values
+* `variable_matches(varname, value)` - `varname` is a symbol representing the name of the variable to test, `value` can be either a single value or an array
+* `response_has_all_of(required_responses)` - only for checkbox questions, true if all of the required responses were checked. `required_responses` can be a single value or an array.
+* `response_is_one_of(responses)` -  only for checkbox questions, true if ANY of the responses were checked. `responses` can be a single value or an array.
+
+### Combining predicates
+
+Predicates can be combined using logical conjunctions `|` or `&`:
+
+```ruby
+next_node_if(:orange, variable_matches(:first_colour, "red") & variable_matches(:second_colour, "yellow"))
+next_node_if(:monochrome, variable_matches(:first_colour, "black") | variable_matches(:second_colour, "white"))
+```
+
+### Structuring rules by nesting
+
+Predicates can also be organised by nesting using `on_condition`, e.g.
+
+```ruby
+on_condition(responded_with("red")) do
+  next_node_if(:orange, variable_matches(:first_color, "yellow"))
+  next_node(:red)
+end
+next_node(:blue)
+```
+
+Here's a truth table for the above scenario:
+
+|       | Yellow | other
+| Red   | orange | red
+| other | blue   | blue
+
+### Defining named predicates
+
+Named predicates can also be defined using
+
+```ruby
+define_predicate(:can_has_cheesburger?) do |response|
+  # logic here…
+end
+
+next_node_if(:something, can_has_cheesburger?)
+```
+
 Issues/todos
 ------------
 
-The way that values are presented is badly factored. Values need to be
-formatted for presentation in two places:
-
-1. when displaying a collapsed question;
-2. when interpolating values into question text.
-
-Values can come from two places:
-
-1. directly from a response (`save_input_as`);
-2. via a calculation.
-
-To correctly present a multiple-choice response value, you need to
-know the question where it was posed. Other question types may also
-determine formatting/presentation rules on a per-question basis so it
-makes sense that it's determined at that point.
-
-However, at present we don't remember which question gave rise to a
-saved input, so this formatting is impossible.
-
-There are two (duplicated) implementations of formatting response
-labels:
-
-1. the node presenters, e.g. `DateQuestionPresenter#response_label`
-2. `NodePresenter#value_for_interpolation`
-
-This is duplication and should be refactored out.
-
-For now I don't think we ever need to interpolate in the responses of
-multiple choice questions, so I think we can avoid this issue by:
-
-1. determining formatting from the type of the value
-2. adding a money type
-
-The `AgeRelatedAllowanceChooser` has been created to return the
-age-related personal allowance to assist with the calculation of
-married couple's allowance. However, the reduction of allowances that
-takes place in `MarriedCoupleAllowanceCalculator` applies to other tax
-calculations, as your personal allowance depends on both your age and
-income. So the `AgeRelatedAllowanceChooser` could be changed to a
-`PersonalAllowanceCalculator` and extended such that it takes all those
-factors into account and can be used across the system to calculate
-someone's personal allowance depending on their age, income, and if
-required, other factors:
-
-[http://www.hmrc.gov.uk/incometax/personal-allow.htm]
+Please see the [github issues](https://github.com/alphagov/smart-answers/issues) page.
