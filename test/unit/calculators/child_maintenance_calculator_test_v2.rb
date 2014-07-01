@@ -134,29 +134,45 @@ module SmartAnswer::Calculators
     end
 
     #examples to test fees values
-    context "collect fees totals are 20% of flat rate for payers and 4% for receivers" do
-      should "give the collection totals for flat rate payments" do
+    context "collect fees totals are 20% of flat rate for payers" do
+      setup do
         @calculator = ChildMaintenanceCalculatorV2.new(2, 'yes', 'pay')
         @calculator.number_of_shared_care_nights = 0
         @calculator.income = 100
+      end
+      should "give the collection totals for flat rate payments for payers" do
         assert_equal :flat, @calculator.rate_type
         assert_equal 1.40, @calculator.collect_fees
+        assert_equal 11.40, @calculator.collect_fees_cmp(57.00)
+      end
+    end
+    context "collect fees total are 4% of flat rate for receivers" do
+      setup do
         @calculator = ChildMaintenanceCalculatorV2.new(2, 'yes', 'receive')
         @calculator.number_of_shared_care_nights = 0
         @calculator.income = 100
+      end
+      should "give the collection totals for cmp for recievers" do
         assert_equal :flat, @calculator.rate_type
         assert_equal 0.28, @calculator.collect_fees
-      end
-      should "give the collection totals for cmp" do
-        assert_equal 11.40, ChildMaintenanceCalculatorV2.collect_fees_cmp('pay', 57.00)
-        assert_equal 2.28, ChildMaintenanceCalculatorV2.collect_fees_cmp('receive', 57.00)
+        assert_equal 2.28, @calculator.collect_fees_cmp(57.00)
       end
     end
 
-    context "total fees are flat rate + collect fees for payers, flat rate - collect rate for receivers" do
+    context "total fees are flat rate + collect fees for payers" do
+      setup do
+        @calculator = ChildMaintenanceCalculatorV2.new(2, 'yes', 'pay')
+      end
       should "give the fees totals with an cmp of 57.00" do
-        assert_equal 68.40, ChildMaintenanceCalculatorV2.total_fees_cmp('pay', 57.00, 11.40)
-        assert_equal 54.72, ChildMaintenanceCalculatorV2.total_fees_cmp('receive', 57.00, 2.28)
+        assert_equal 68.40, @calculator.total_fees_cmp(57.00, 11.40)
+      end
+      context "total fees are flat rate - collect rate for receivers" do
+        setup do
+          @calculator = ChildMaintenanceCalculatorV2.new(2, 'yes', 'receive')
+        end
+        should "" do
+          assert_equal 54.72, @calculator.total_fees_cmp(57.00, 2.28)
+        end
       end
     end
   end
