@@ -57,7 +57,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
         should "ask you the channel islands question" do
           assert_phrase_list :channel_islands_question_titles, [:ci_going_abroad_question_title]
-          assert_current_node :which_country_jsa?
+          assert_current_node :which_country?
         end
 
         context "answer Guernsey or Jersey" do

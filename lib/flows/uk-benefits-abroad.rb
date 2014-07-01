@@ -105,42 +105,139 @@ multiple_choice :jsa_how_long_abroad? do
 
   next_node_if(:jsa_less_than_a_year_medical_outcome, responded_with("less_than_a_year_medical"))
   next_node_if(:jsa_less_than_a_year_other_outcome, responded_with("less_than_a_year_other"))
-  next_node_if(:which_country_jsa?, responded_with("more_than_a_year"))
+  next_node_if(:which_country?, responded_with("more_than_a_year"))
 end
 
-# Q3b
-multiple_choice :channel_islands? do
-  option :guernsey_jersey
-  option :abroad
+# # Q3b
+# multiple_choice :channel_islands? do
+#   option :guernsey_jersey
+#   option :abroad
+
+#   save_input_as :country
+
+#   calculate :country_name do
+#     if responses.last == 'guernsey_jersey'
+#       PhraseList.new(:ci_country_name)
+#     end
+#   end
+
+#   on_condition(responded_with('abroad')) do
+#     next_node_if(:which_country_jsa?, variable_matches(:benefit, 'jsa'))
+#     next_node_if(:which_country_maternity_benefits?, variable_matches(:benefit, 'maternity_benefits'))
+#     next_node_if(:which_country_child_benefit?, variable_matches(:benefit, 'child_benefit'))
+#     next_node_if(:which_country_iidb?, variable_matches(:benefit, 'iidb'))
+#     next_node_if(:which_country_bereavement_benefits?, variable_matches(:benefit, 'bereavement_benefits'))
+#   end
+#   on_condition(responded_with('guernsey_jersey')) do
+#     on_condition(going_abroad) do
+#       next_node_if(:jsa_social_security_going_abroad_outcome, variable_matches(:benefit, 'jsa'))
+#       next_node_if(:iidb_going_abroad_ss_outcome, variable_matches(:benefit, 'iidb'))
+#       next_node_if(:bb_going_abroad_ss_outcome, variable_matches(:benefit, 'bereavement_benefits'))
+#     end
+
+#     next_node_if(:jsa_social_security_already_abroad_outcome, variable_matches(:benefit, 'jsa'))
+#     next_node_if(:employer_paying_ni?, variable_matches(:benefit, 'maternity_benefits'))
+#     next_node_if(:child_benefit_ss_outcome, variable_matches(:benefit, 'child_benefit'))
+#     next_node_if(:iidb_already_abroad_ss_outcome, variable_matches(:benefit, 'iidb'))
+#     next_node_if(:bb_already_abroad_ss_outcome, variable_matches(:benefit, 'bereavement_benefits'))
+#   end
+# end
+# Q which country GENERAL
+country_select :which_country?,additional_countries: additional_countries, exclude_countries: exclude_countries do
+  # situations.each do |situation|
+
+  #   key = :"which_country_#{situation}_#{benefit}"
+  #   precalculate key do
+  #     PhraseList.new key
+  #   end
+  # end
 
   save_input_as :country
 
   calculate :country_name do
-    if responses.last == 'guernsey_jersey'
-      PhraseList.new(:ci_country_name)
+    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
+  end
+
+
+  on_condition(variable_matches(:benefit, 'jsa')) {
+    on_condition(already_abroad) do
+      next_node_if(:jsa_eea_already_abroad_outcome, responded_with_eea_country) # A3 or A4
+      next_node_if(:jsa_social_security_already_abroad_outcome, social_security_countries_jsa) # A5 or A6
     end
-  end
 
-  on_condition(responded_with('abroad')) do
-    next_node_if(:which_country_jsa?, variable_matches(:benefit, 'jsa'))
-    next_node_if(:which_country_maternity_benefits?, variable_matches(:benefit, 'maternity_benefits'))
-    next_node_if(:which_country_child_benefit?, variable_matches(:benefit, 'child_benefit'))
-    next_node_if(:which_country_iidb?, variable_matches(:benefit, 'iidb'))
-    next_node_if(:which_country_bereavement_benefits?, variable_matches(:benefit, 'bereavement_benefits'))
-  end
-  # on_condition(responded_with('guernsey_jersey')) do
-  #   on_condition(going_abroad) do
-  #     next_node_if(:jsa_social_security_going_abroad_outcome, variable_matches(:benefit, 'jsa'))
-  #     next_node_if(:iidb_going_abroad_ss_outcome, variable_matches(:benefit, 'iidb'))
-  #     next_node_if(:bb_going_abroad_ss_outcome, variable_matches(:benefit, 'bereavement_benefits'))
-  #   end
+    on_condition(going_abroad) do
+      next_node_if(:jsa_eea_going_abroad_outcome, responded_with_eea_country) # A3 or A4
+      next_node_if(:jsa_social_security_going_abroad_outcome, social_security_countries_jsa) # A5 or A6
+    end
+    next_node(:jsa_not_entitled_outcome) # A7
+  }
+  on_condition(variable_matches(:benefit, 'maternity')) {
+    next_node_if(:working_for_a_uk_employer?, responded_with_eea_country)
+    next_node(:employer_paying_ni?)
+  }
+  on_condition(variable_matches(:benefit, 'wfp')) {
+    next_node_if(:wfp_eea_eligible_outcome, responded_with_eea_country) # A10
+    next_node(:wfp_not_eligible_outcome) # A11
+  }
+  on_condition(variable_matches(:benefit, 'child_benefit')) {
+    next_node_if(:do_either_of_the_following_apply?, responded_with_eea_country) # Q10
+    on_condition(responded_with_former_yugoslavia) do
+      next_node_if(:child_benefit_fy_going_abroad_outcome, going_abroad) # A17
+      next_node(:child_benefit_fy_already_abroad_outcome) # A18
+    end
+    next_node_if(:child_benefit_ss_outcome, responded_with(%w(barbados canada israel mauritius new-zealand))) # A19
+    next_node_if(:child_benefit_jtu_outcome, responded_with(%w(jamaica turkey usa))) # A20
+    next_node(:child_benefit_not_entitled_outcome) # A22
+  }
+  on_condition(variable_matches(:benefit, 'iidb')) {
+    on_condition(going_abroad) do
+      next_node_if(:iidb_going_abroad_eea_outcome, responded_with_eea_country) # A42
+      next_node_if(:iidb_going_abroad_ss_outcome, social_security_countries_iidb) # A44
+      next_node(:iidb_going_abroad_other_outcome) # A46
+    end
+    on_condition(already_abroad) do
+      next_node_if(:iidb_already_abroad_eea_outcome, responded_with_eea_country) # A43
+      next_node_if(:iidb_already_abroad_ss_outcome, social_security_countries_iidb) # A45
+      next_node(:iidb_already_abroad_other_outcome) # A47
+    end
+  }
+  on_condition(variable_matches(:benefit, 'disability_benefits')) {
+    next_node_if(:db_claiming_benefits?, responded_with_eea_country)
+    next_node_if(:db_going_abroad_other_outcome, going_abroad) # A50
+    next_node(:db_already_abroad_other_outcome) # A51
+  }
+  on_condition(variable_matches(:benefit, 'ssp')) {
+    next_node_if(:working_for_uk_employer_ssp?, responded_with_eea_country) # Q12
+    next_node(:employer_paying_ni_ssp?) # Q13
+  }
 
-  #   next_node_if(:jsa_social_security_already_abroad_outcome, variable_matches(:benefit, 'jsa'))
-  #   next_node_if(:employer_paying_ni?, variable_matches(:benefit, 'maternity_benefits'))
-  #   next_node_if(:child_benefit_ss_outcome, variable_matches(:benefit, 'child_benefit'))
-  #   next_node_if(:iidb_already_abroad_ss_outcome, variable_matches(:benefit, 'iidb'))
-  #   next_node_if(:bb_already_abroad_ss_outcome, variable_matches(:benefit, 'bereavement_benefits'))
-  # end
+  on_condition(variable_matches(:benefit, 'tax_credits')) {
+    next_node_if(:tax_credits_currently_claiming?, responded_with_eea_country) # Q18
+    next_node(:tax_credits_unlikely_outcome) # A29
+  }
+
+  on_condition(variable_matches(:benefit, 'esa')) {
+    on_condition(going_abroad) do
+    next_node_if(:esa_going_abroad_eea_outcome, responded_with_eea_country) # A37
+    next_node(:esa_going_abroad_other_outcome) # A39
+  end
+  on_condition(already_abroad) do
+    next_node_if(:esa_already_abroad_eea_outcome, responded_with_eea_country) # A38
+    next_node(:esa_already_abroad_other_outcome) # A40
+  end
+  }
+  on_condition(variable_matches(:benefit, 'bereavement_benefits')) {
+    on_condition(going_abroad) do
+    next_node_if(:bb_going_abroad_eea_outcome, responded_with_eea_country) # A54
+    next_node_if(:bb_going_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A56
+    next_node(:bb_going_abroad_other_outcome) # A58
+  end
+  on_condition(already_abroad) do
+    next_node_if(:bb_already_abroad_eea_outcome, responded_with_eea_country) # A55
+    next_node_if(:bb_already_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A57
+    next_node(:bb_already_abroad_other_outcome) # A59
+  end
+  }
 end
 
 # Q3c
@@ -214,7 +311,7 @@ multiple_choice :employer_paying_ni? do
   option :yes => :eligible_for_smp?
   option :no
 
-  on_condition(variable_matches(:country, countries_of_former_yugoslavia + %w(barbados guernsey_jersey israel turkey))) do
+  on_condition(variable_matches(:country, countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey))) do
     on_condition(already_abroad) do
       next_node(:maternity_benefits_social_security_already_abroad_outcome) # A14 or A15
     end
