@@ -38,13 +38,13 @@ multiple_choice :going_or_already_abroad? do
     PhraseList.new(:"#{going_or_already_abroad}_how_long_question_title")
   end
 
-  calculate :channel_islands_question_titles do
-    PhraseList.new(:"ci_#{going_or_already_abroad}_question_title")
-  end
+  # calculate :channel_islands_question_titles do
+  #   PhraseList.new(:"ci_#{going_or_already_abroad}_question_title")
+  # end
 
-  calculate :channel_islands_prefix do
-    PhraseList.new(:"ci_#{going_or_already_abroad}_prefix")
-  end
+  # calculate :channel_islands_prefix do
+  #   PhraseList.new(:"ci_#{going_or_already_abroad}_prefix")
+  # end
 
   calculate :already_abroad_text do
     if responses.last == 'already_abroad'
@@ -90,7 +90,7 @@ multiple_choice :which_benefit? do
     next_node_if(:is_how_long_abroad?, responded_with('income_support'))
   end
   on_condition(already_abroad) do
-    next_node_if(:channel_islands?, responded_with('jsa'))
+    next_node_if(:which_country?, responded_with('jsa'))
     next_node_if(:pension_already_abroad_outcome, responded_with('pension'))
     next_node_if(:is_already_abroad_outcome, responded_with('income_support'))
   end
