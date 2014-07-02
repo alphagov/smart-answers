@@ -4,7 +4,6 @@ satisfies_need "100490"
 exclude_countries = %w(holy-see british-antarctic-territory)
 additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
-situations = ['going_abroad','already_abroad']
 going_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'going_abroad', nil, 'going abroad')
 already_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'already_abroad', nil, 'already abroad')
 responded_with_eea_country = SmartAnswer::Predicate::RespondedWith.new(
@@ -20,7 +19,6 @@ responded_with_former_yugoslavia = SmartAnswer::Predicate::RespondedWith.new(
   "former Yugoslavia"
 )
 social_security_countries_jsa = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(guernsey jersey new-zealand))
-social_security_countries_maternity_benefits = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(guernsey jersey barbados israel turkey))
 social_security_countries_iidb = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey))
 social_security_countries_bereavement_benefits = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa))
 
@@ -37,14 +35,6 @@ multiple_choice :going_or_already_abroad? do
   calculate :how_long_question_titles do
     PhraseList.new(:"#{going_or_already_abroad}_how_long_question_title")
   end
-
-  # calculate :channel_islands_question_titles do
-  #   PhraseList.new(:"ci_#{going_or_already_abroad}_question_title")
-  # end
-
-  # calculate :channel_islands_prefix do
-  #   PhraseList.new(:"ci_#{going_or_already_abroad}_prefix")
-  # end
 
   calculate :already_abroad_text do
     if responses.last == 'already_abroad'
@@ -96,7 +86,7 @@ multiple_choice :which_benefit? do
   end
 end
 
-# Q3a going abroad
+# Q3 going abroad
 multiple_choice :jsa_how_long_abroad? do
   option :less_than_a_year_medical
   option :less_than_a_year_other
@@ -109,42 +99,7 @@ multiple_choice :jsa_how_long_abroad? do
   next_node_if(:which_country?, responded_with("more_than_a_year"))
 end
 
-# # Q3b
-# multiple_choice :channel_islands? do
-#   option :guernsey_jersey
-#   option :abroad
 
-#   save_input_as :country
-
-#   calculate :country_name do
-#     if responses.last == 'guernsey_jersey'
-#       PhraseList.new(:ci_country_name)
-#     end
-#   end
-
-#   on_condition(responded_with('abroad')) do
-#     next_node_if(:which_country_jsa?, variable_matches(:benefit, 'jsa'))
-#     next_node_if(:which_country_maternity_benefits?, variable_matches(:benefit, 'maternity_benefits'))
-#     next_node_if(:which_country_child_benefit?, variable_matches(:benefit, 'child_benefit'))
-#     next_node_if(:which_country_iidb?, variable_matches(:benefit, 'iidb'))
-#     next_node_if(:which_country_bereavement_benefits?, variable_matches(:benefit, 'bereavement_benefits'))
-#   end
-#   on_condition(responded_with('guernsey_jersey')) do
-#     on_condition(going_abroad) do
-#       next_node_if(:jsa_social_security_going_abroad_outcome, variable_matches(:benefit, 'jsa'))
-#       next_node_if(:iidb_going_abroad_ss_outcome, variable_matches(:benefit, 'iidb'))
-#       next_node_if(:bb_going_abroad_ss_outcome, variable_matches(:benefit, 'bereavement_benefits'))
-#     end
-
-#     next_node_if(:jsa_social_security_already_abroad_outcome, variable_matches(:benefit, 'jsa'))
-#     next_node_if(:employer_paying_ni?, variable_matches(:benefit, 'maternity_benefits'))
-#     next_node_if(:child_benefit_ss_outcome, variable_matches(:benefit, 'child_benefit'))
-#     next_node_if(:iidb_already_abroad_ss_outcome, variable_matches(:benefit, 'iidb'))
-#     next_node_if(:bb_already_abroad_ss_outcome, variable_matches(:benefit, 'bereavement_benefits'))
-#   end
-# end
-
-# Q which country GENERAL
 country_select :which_country?,additional_countries: additional_countries, exclude_countries: exclude_countries do
 
   save_input_as :country
