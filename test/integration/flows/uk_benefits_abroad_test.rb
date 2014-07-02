@@ -390,65 +390,65 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-#     # SSP
-#     context "answer statutory sick pay (SSP)" do
-#       setup do
-#         add_response 'ssp'
-#       end
-#       should "ask which country are you moving to" do
-#         assert_current_node :which_country_ssp?
-#       end
+    # SSP
+    context "answer statutory sick pay (SSP)" do
+      setup do
+        add_response 'ssp'
+      end
+      should "ask which country are you moving to" do
+        assert_current_node :which_country?
+      end
 
-#       context "answer EEA country" do
-#         setup do
-#           add_response 'austria'
-#         end
-#         should "ask you are you working for a UK employer" do
-#           assert_current_node :working_for_uk_employer_ssp?
-#         end
-#         context "answer yes" do
-#           setup do
-#             add_response 'yes'
-#           end
-#           should "take you to the entitled outcome" do
-#             assert_current_node :ssp_going_abroad_entitled_outcome
-#           end
-#         end
-#         context "answer no" do
-#           setup do
-#             add_response 'no'
-#           end
-#           should "take you to not entitled outcome" do
-#             assert_current_node :ssp_going_abroad_not_entitled_outcome
-#           end
-#         end
-#       end
+      context "answer EEA country" do
+        setup do
+          add_response 'austria'
+        end
+        should "ask you are you working for a UK employer" do
+          assert_current_node :working_for_uk_employer_ssp?
+        end
+        context "answer yes" do
+          setup do
+            add_response 'yes'
+          end
+          should "take you to the entitled outcome" do
+            assert_current_node :ssp_going_abroad_entitled_outcome
+          end
+        end
+        context "answer no" do
+          setup do
+            add_response 'no'
+          end
+          should "take you to not entitled outcome" do
+            assert_current_node :ssp_going_abroad_not_entitled_outcome
+          end
+        end
+      end
 
-#       context "answer other country" do
-#         setup do
-#           add_response 'albania'
-#         end
-#         should "ask is your employer paying NI contributions for you" do
-#           assert_current_node :employer_paying_ni_ssp?
-#         end
-#         context "answer yes" do
-#           setup do
-#             add_response 'yes'
-#           end
-#           should "take you to the entitled outcome" do
-#             assert_current_node :ssp_going_abroad_entitled_outcome
-#           end
-#         end
-#         context "answer no" do
-#           setup do
-#             add_response 'no'
-#           end
-#           should "take you to not entitled outcome" do
-#             assert_current_node :ssp_going_abroad_not_entitled_outcome
-#           end
-#         end
-#       end
-#     end
+      context "answer other country" do
+        setup do
+          add_response 'albania'
+        end
+        should "ask is your employer paying NI contributions for you" do
+          assert_current_node :employer_paying_ni_ssp?
+        end
+        context "answer yes" do
+          setup do
+            add_response 'yes'
+          end
+          should "take you to the entitled outcome" do
+            assert_current_node :ssp_going_abroad_entitled_outcome
+          end
+        end
+        context "answer no" do
+          setup do
+            add_response 'no'
+          end
+          should "take you to not entitled outcome" do
+            assert_current_node :ssp_going_abroad_not_entitled_outcome
+          end
+        end
+      end
+    end
 
 #     # Tax Credis
 #     context "answer tax credits" do
@@ -762,13 +762,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :bb_going_abroad_ss_outcome
         end
       end
-      # context "answer abroad" do
-      #   setup do
-      #     add_response 'abroad'
-      #   end
-      #   should "ask you which country you're moving to" do
-      #     assert_current_node :which_country_bereavement_benefits?
-    #   end
       context "answer EEA country" do
         setup do
           add_response 'austria'

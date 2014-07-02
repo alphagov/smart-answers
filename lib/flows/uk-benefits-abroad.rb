@@ -75,7 +75,7 @@ multiple_choice :which_benefit? do
   option :maternity_benefits => :which_country? # Q3b
   option :child_benefit => :which_country? # Q3b
   option :iidb => :iidb_already_claiming? # Q22
-  option :ssp => :which_country_ssp? # Q11
+  option :ssp => :which_country? # Q11
   option :esa => :esa_how_long_abroad? # Q20
   option :disability_benefits => :db_how_long_abroad? # Q24
   option :bereavement_benefits => :which_country? # Q3b
@@ -356,25 +356,25 @@ multiple_choice :do_either_of_the_following_apply? do
   option no: :child_benefit_not_entitled_outcome # A22
 end
 
-# Q11
-country_select :which_country_ssp?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-  save_input_as :country
-  situations.each do |situation|
-    key = :"which_country_#{situation}_ssp"
-    precalculate key do
-      PhraseList.new key
-    end
-  end
+# # Q11
+# country_select :which_country_ssp?, additional_countries: additional_countries, exclude_countries: exclude_countries do
+#   save_input_as :country
+#   situations.each do |situation|
+#     key = :"which_country_#{situation}_ssp"
+#     precalculate key do
+#       PhraseList.new key
+#     end
+#   end
 
-  save_input_as :country
+#   save_input_as :country
 
-  calculate :country_name do
-    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-  end
+#   calculate :country_name do
+#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
+#   end
 
-  next_node_if(:working_for_uk_employer_ssp?, responded_with_eea_country) # Q12
-  next_node(:employer_paying_ni_ssp?) # Q13
-end
+#   next_node_if(:working_for_uk_employer_ssp?, responded_with_eea_country) # Q12
+#   next_node(:employer_paying_ni_ssp?) # Q13
+# end
 
 # Q12
 multiple_choice :working_for_uk_employer_ssp? do
