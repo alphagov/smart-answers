@@ -284,19 +284,19 @@ end
 #   next_node(:wfp_not_eligible_outcome) # A11
 # end
 
-# Q5
-country_select :which_country_maternity_benefits?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-  save_input_as :country
-  situations.each do |situation|
-    key = :"which_country_#{situation}_maternity"
-    precalculate key do
-      PhraseList.new key
-    end
-  end
+# # Q5
+# country_select :which_country_maternity_benefits?, additional_countries: additional_countries, exclude_countries: exclude_countries do
+#   save_input_as :country
+#   situations.each do |situation|
+#     key = :"which_country_#{situation}_maternity"
+#     precalculate key do
+#       PhraseList.new key
+#     end
+#   end
 
-  next_node_if(:working_for_a_uk_employer?, responded_with_eea_country)
-  next_node(:employer_paying_ni?)
-end
+#   next_node_if(:working_for_a_uk_employer?, responded_with_eea_country)
+#   next_node(:employer_paying_ni?)
+# end
 
 # Q6
 multiple_choice :working_for_a_uk_employer? do
@@ -507,63 +507,63 @@ multiple_choice :iidb_already_claiming? do
   option no: :iidb_maybe_outcome # A41
 end
 
-# Q23
-country_select :which_country_iidb?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-  save_input_as :country
-  situations.each do |situation|
-    key = :"which_country_#{situation}_iidb"
-    precalculate key do
-      PhraseList.new key
-    end
-  end
+# # Q23
+# country_select :which_country_iidb?, additional_countries: additional_countries, exclude_countries: exclude_countries do
+#   save_input_as :country
+#   situations.each do |situation|
+#     key = :"which_country_#{situation}_iidb"
+#     precalculate key do
+#       PhraseList.new key
+#     end
+#   end
 
-  save_input_as :country
+#   save_input_as :country
 
-  calculate :country_name do
-    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-  end
+#   calculate :country_name do
+#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
+#   end
 
-  on_condition(going_abroad) do
-    next_node_if(:iidb_going_abroad_eea_outcome, responded_with_eea_country) # A42
-    next_node_if(:iidb_going_abroad_ss_outcome, social_security_countries_iidb) # A44
-    next_node(:iidb_going_abroad_other_outcome) # A46
-  end
-  on_condition(already_abroad) do
-    next_node_if(:iidb_already_abroad_eea_outcome, responded_with_eea_country) # A43
-    next_node_if(:iidb_already_abroad_ss_outcome, social_security_countries_iidb) # A45
-    next_node(:iidb_already_abroad_other_outcome) # A47
-  end
-end
+#   on_condition(going_abroad) do
+#     next_node_if(:iidb_going_abroad_eea_outcome, responded_with_eea_country) # A42
+#     next_node_if(:iidb_going_abroad_ss_outcome, social_security_countries_iidb) # A44
+#     next_node(:iidb_going_abroad_other_outcome) # A46
+#   end
+#   on_condition(already_abroad) do
+#     next_node_if(:iidb_already_abroad_eea_outcome, responded_with_eea_country) # A43
+#     next_node_if(:iidb_already_abroad_ss_outcome, social_security_countries_iidb) # A45
+#     next_node(:iidb_already_abroad_other_outcome) # A47
+#   end
+# end
 
 # Q24
 multiple_choice :db_how_long_abroad? do
   option :temporary
-  option :permanent => :which_country_disability_benefits? # Q25
+  option :permanent => :which_country? # Q25
 
   next_node_if(:db_going_abroad_temporary_outcome, going_abroad) # A48
   next_node(:db_already_abroad_temporary_outcome) # A49
 end
 
-# Q25
-country_select :which_country_disability_benefits?, exclude_countries: exclude_countries do
-  save_input_as :country
-  situations.each do |situation|
-    key = :"which_country_#{situation}_disability"
-    precalculate key do
-      PhraseList.new key
-    end
-  end
+# # Q25
+# country_select :which_country_disability_benefits?, exclude_countries: exclude_countries do
+#   save_input_as :country
+#   situations.each do |situation|
+#     key = :"which_country_#{situation}_disability"
+#     precalculate key do
+#       PhraseList.new key
+#     end
+#   end
 
-  save_input_as :country
+#   save_input_as :country
 
-  calculate :country_name do
-    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-  end
+#   calculate :country_name do
+#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
+#   end
 
-  next_node_if(:db_claiming_benefits?, responded_with_eea_country)
-  next_node_if(:db_going_abroad_other_outcome, going_abroad) # A50
-  next_node(:db_already_abroad_other_outcome) # A51
-end
+#   next_node_if(:db_claiming_benefits?, responded_with_eea_country)
+#   next_node_if(:db_going_abroad_other_outcome, going_abroad) # A50
+#   next_node(:db_already_abroad_other_outcome) # A51
+# end
 
 # Q26
 multiple_choice :db_claiming_benefits? do

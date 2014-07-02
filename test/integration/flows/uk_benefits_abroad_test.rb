@@ -661,13 +661,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :iidb_going_abroad_ss_outcome
           end
         end
-        # context "answer abroad" do
-        #   setup do
-        #     add_response 'abroad'
-        #   end
-        #   should "ask you which country you're moving to" do
-        #     assert_current_node :which_country_iidb?
-        #   end
         context "answer EEA country" do
           setup do
             add_response 'austria'
@@ -694,66 +687,66 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
       end
     end
+
+    # Disability benefits
+    context "answer Disability benefits" do
+      setup do
+        add_response 'disability_benefits'
+      end
+      should "ask how long you're gong abroad for" do
+        assert_current_node :db_how_long_abroad?
+      end
+      context "answer temporarily" do
+        setup do
+          add_response 'temporary'
+        end
+        should "take you to temporary outcome" do
+          assert_current_node :db_going_abroad_temporary_outcome
+        end
+      end
+      context "answer permanently" do
+        setup do
+          add_response 'permanent'
+        end
+        should "ask which country you are moving to" do
+          assert_current_node :which_country?
+        end
+        context "answer other country" do
+          setup do
+            add_response 'albania'
+          end
+          should "take you to other country outcome" do
+            assert_current_node :db_going_abroad_other_outcome
+          end
+        end
+        context "answer EEA country" do
+          setup do
+            add_response 'austria'
+          end
+          should "ask you if you or family are getting benefits" do
+            assert_current_node :db_claiming_benefits?
+          end
+          context "answer yes" do
+            setup do
+              add_response 'yes'
+            end
+            should "take you to EEA outcome" do
+              assert_current_node :db_going_abroad_eea_outcome
+            end
+          end
+          context "answer no" do
+            setup do
+              add_response 'no'
+            end
+            should "take you to other outcome" do
+              assert_current_node :db_going_abroad_other_outcome
+            end
+          end
+        end
+      end
+    end
   end
 end
-
-#     # Disability benefits
-#     context "answer Disability benefits" do
-#       setup do
-#         add_response 'disability_benefits'
-#       end
-#       should "ask how long you're gong abroad for" do
-#         assert_current_node :db_how_long_abroad?
-#       end
-#       context "answer temporarily" do
-#         setup do
-#           add_response 'temporary'
-#         end
-#         should "take you to temporary outcome" do
-#           assert_current_node :db_going_abroad_temporary_outcome
-#         end
-#       end
-#       context "answer permanently" do
-#         setup do
-#           add_response 'permanent'
-#         end
-#         should "ask which country you are moving to" do
-#           assert_current_node :which_country_disability_benefits?
-#         end
-#         context "answer other country" do
-#           setup do
-#             add_response 'albania'
-#           end
-#           should "take you to other country outcome" do
-#             assert_current_node :db_going_abroad_other_outcome
-#           end
-#         end
-#         context "answer EEA country" do
-#           setup do
-#             add_response 'austria'
-#           end
-#           should "ask you if you or family are getting benefits" do
-#             assert_current_node :db_claiming_benefits?
-#           end
-#           context "answer yes" do
-#             setup do
-#               add_response 'yes'
-#             end
-#             should "take you to EEA outcome" do
-#               assert_current_node :db_going_abroad_eea_outcome
-#             end
-#           end
-#           context "answer no" do
-#             setup do
-#               add_response 'no'
-#             end
-#             should "take you to other outcome" do
-#               assert_current_node :db_going_abroad_other_outcome
-#             end
-#           end
-#         end
-#       end
-#     end
 
 #     # Bereavement benefits
 #     context "answer bereavement benefits" do
