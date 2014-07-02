@@ -56,63 +56,42 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           add_response 'more_than_a_year'
         end
         should "ask you the channel islands question" do
-          assert_phrase_list :channel_islands_question_titles, [:ci_going_abroad_question_title]
-          assert_current_node :channel_islands?
+          assert_current_node :which_country?
         end
 
         context "answer Guernsey or Jersey" do
           setup do
-            add_response 'guernsey_jersey'
+            add_response 'guernsey'
           end
           should "take you to JSA SS outcome" do
-            assert_phrase_list :channel_islands_question_titles, [:ci_going_abroad_question_title]
-            assert_phrase_list :channel_islands_prefix, [:ci_going_abroad_prefix]
             assert_current_node :jsa_social_security_going_abroad_outcome
           end
         end
-        context "answer abroad" do
-          setup do
-            add_response "abroad"
-          end
-          should "take you to which country JSA question" do
-            assert_current_node :which_country_jsa?
-          end
 
-          context "answer EEA country" do
-            setup do
-              add_response 'austria'
-            end
-            should "go to the JSA EEA outcome" do
-              assert_current_node :jsa_eea_going_abroad_outcome
-            end
+        context "answer EEA country" do
+          setup do
+            add_response 'austria'
           end
-          context "answer SS country" do
-            setup do
-              add_response 'kosovo'
-            end
-            should "go to the JSA SS outcome" do
-              assert_current_node :jsa_social_security_going_abroad_outcome
-            end
-          end
-          context "answer 'other' country" do
-            setup do
-              add_response 'albania'
-            end
-            should "take you to JSA not entitled outcome" do
-              assert_current_node :jsa_not_entitled_outcome
-            end
+          should "go to the JSA EEA outcome" do
+            assert_current_node :jsa_eea_going_abroad_outcome
           end
         end
-      end
-    end
-
-    # State Pension
-    context "answer State Pension" do
-      setup do
-        add_response 'pension'
-      end
-      should "take you to the pension going abroad outcome" do
-        assert_current_node :pension_going_abroad_outcome
+        context "answer SS country" do
+          setup do
+            add_response 'kosovo'
+          end
+          should "go to the JSA SS outcome" do
+            assert_current_node :jsa_social_security_going_abroad_outcome
+          end
+        end
+        context "answer 'other' country" do
+          setup do
+            add_response 'albania'
+          end
+          should "take you to JSA not entitled outcome" do
+            assert_current_node :jsa_not_entitled_outcome
+          end
+        end
       end
     end
 
@@ -122,7 +101,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'winter_fuel_payment'
       end
       should "ask you which country you are moving to" do
-        assert_current_node :which_country_wfp?
+        assert_current_node :which_country?
       end
       context "answer EEA country" do
         setup do
@@ -147,14 +126,13 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response 'maternity_benefits'
       end
-      should "ask you the Channel islands question" do
-        assert_phrase_list :channel_islands_question_titles, [:ci_going_abroad_question_title]
-        assert_current_node :channel_islands?
+      should "ask you the country question" do
+        assert_current_node :which_country?
       end
 
       context "answer Guernsey or Jersey" do
         setup do
-          add_response 'guernsey_jersey'
+          add_response 'guernsey'
         end
         should "ask you if your employer pays NI contributions" do
           assert_current_node :employer_paying_ni?
@@ -172,8 +150,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               add_response 'yes'
             end
             should "take you to SS eligible outcome" do
-              assert_phrase_list :channel_islands_question_titles, [:ci_going_abroad_question_title]
-              assert_phrase_list :channel_islands_prefix, [:ci_going_abroad_prefix]
               assert_current_node :maternity_benefits_eea_entitled_outcome
             end
           end
@@ -196,126 +172,108 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
       end
 
-      context "answer abroad" do
+      context "answer EEA country" do
         setup do
-          add_response 'abroad'
+          add_response 'austria'
         end
-        should "take you to country select question" do
-          assert_phrase_list :question_titles, [:going_abroad_country_question_title]
-          assert_current_node :which_country_maternity_benefits?
+        should "ask are you working for a UK employer" do
+          assert_current_node :working_for_a_uk_employer?
         end
-
-        context "answer EEA country" do
+        context "answer yes" do
           setup do
-            add_response 'austria'
+            add_response 'yes'
           end
-          should "ask are you working for a UK employer" do
-            assert_current_node :working_for_a_uk_employer?
+          should "ask if you're eligible for SMP" do
+            assert_current_node :eligible_for_smp?
           end
           context "answer yes" do
             setup do
               add_response 'yes'
             end
-            should "ask if you're eligible for SMP" do
-              assert_current_node :eligible_for_smp?
-            end
-            context "answer yes" do
-              setup do
-                add_response 'yes'
-              end
-              should "take you to EEA eligible outcome" do
-                assert_current_node :maternity_benefits_eea_entitled_outcome
-              end
-            end
-            context "answer no" do
-              setup do
-                add_response 'no'
-              end
-              should "take you to can't get SMP but may get MA outcome" do
-                assert_current_node :maternity_benefits_maternity_allowance_outcome
-              end
+            should "take you to EEA eligible outcome" do
+              assert_current_node :maternity_benefits_eea_entitled_outcome
             end
           end
           context "answer no" do
             setup do
               add_response 'no'
             end
-            should "take you to the can't get SMP but may get MA outcome" do
+            should "take you to can't get SMP but may get MA outcome" do
               assert_current_node :maternity_benefits_maternity_allowance_outcome
             end
           end
         end
-
-        context "answer SS country" do
+        context "answer no" do
           setup do
-            add_response 'kosovo'
+            add_response 'no'
           end
-          should "ask if your empoyer is paying NI contributions" do
-            assert_current_node :employer_paying_ni?
+          should "take you to the can't get SMP but may get MA outcome" do
+            assert_current_node :maternity_benefits_maternity_allowance_outcome
+          end
+        end
+      end
+
+      context "answer SS country" do
+        setup do
+          add_response 'kosovo'
+        end
+        should "ask if your empoyer is paying NI contributions" do
+          assert_current_node :employer_paying_ni?
+        end
+        context "answer yes" do
+          setup do
+            add_response 'yes'
+          end
+          should "take you to SMP question" do
+            assert_current_node :eligible_for_smp?
           end
           context "answer yes" do
             setup do
               add_response 'yes'
             end
-            should "take you to SMP question" do
-              assert_current_node :eligible_for_smp?
-            end
-            context "answer yes" do
-              setup do
-                add_response 'yes'
-              end
-              should "take you to EEA entitled outcome" do
-                assert_current_node :maternity_benefits_eea_entitled_outcome
-              end
-            end
-            context "answer no" do
-              setup do
-                add_response 'no'
-              end
-              should "take you to can't get SMP but may get MA outcome" do
-                assert_current_node :maternity_benefits_maternity_allowance_outcome
-              end
+            should "take you to EEA entitled outcome" do
+              assert_current_node :maternity_benefits_eea_entitled_outcome
             end
           end
           context "answer no" do
             setup do
               add_response 'no'
             end
-            should "take you to SS going abroad outcome" do
-              assert_current_node :maternity_benefits_social_security_going_abroad_outcome
+            should "take you to can't get SMP but may get MA outcome" do
+              assert_current_node :maternity_benefits_maternity_allowance_outcome
             end
           end
         end
-
-        context "answer 'other' country" do
+        context "answer no" do
           setup do
-            add_response 'albania'
+            add_response 'no'
           end
-          should "ask if your empoyer is paying NI contributions" do
-            assert_current_node :employer_paying_ni?
+          should "take you to SS going abroad outcome" do
+            assert_current_node :maternity_benefits_social_security_going_abroad_outcome
+          end
+        end
+      end
+
+      context "answer 'other' country" do
+        setup do
+          add_response 'albania'
+        end
+        should "ask if your empoyer is paying NI contributions" do
+          assert_current_node :employer_paying_ni?
+        end
+        context "answer yes" do
+          setup do
+            add_response 'yes'
+          end
+          should "take you to SMP question" do
+            assert_current_node :eligible_for_smp?
           end
           context "answer yes" do
             setup do
               add_response 'yes'
             end
-            should "take you to SMP question" do
-              assert_current_node :eligible_for_smp?
-            end
-            context "answer yes" do
-              setup do
-                add_response 'yes'
-              end
-              should "take you to SS entitled outcome" do
-                assert_current_node :maternity_benefits_eea_entitled_outcome
-              end
-            end
-            context "answer no" do
-              setup do
-                add_response 'no'
-              end
-              should "take you to not entitled outcome" do
-                assert_current_node :maternity_benefits_maternity_allowance_outcome
-              end
+            should "take you to SS entitled outcome" do
+              assert_current_node :maternity_benefits_eea_entitled_outcome
             end
           end
           context "answer no" do
@@ -323,94 +281,94 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               add_response 'no'
             end
             should "take you to not entitled outcome" do
-              assert_current_node :maternity_benefits_not_entitled_outcome
+              assert_current_node :maternity_benefits_maternity_allowance_outcome
             end
+          end
+        end
+        context "answer no" do
+          setup do
+            add_response 'no'
+          end
+          should "take you to not entitled outcome" do
+            assert_current_node :maternity_benefits_not_entitled_outcome
           end
         end
       end
     end
+
 
     # Child benefits
     context "answer child benefits" do
       setup do
         add_response 'child_benefit'
       end
-      should "ask you the Channel islands question" do
-        assert_phrase_list :channel_islands_question_titles, [:ci_going_abroad_question_title]
-        assert_current_node :channel_islands?
+      should "ask you the country question" do
+        assert_current_node :which_country?
       end
 
       context "answer Guernsey or Jersey" do
         setup do
-          add_response 'guernsey_jersey'
+          add_response 'jersey'
         end
         should "take you to SS outcome" do
           assert_current_node :child_benefit_ss_outcome
         end
       end
-      context "answer abroad" do
-        setup do
-          add_response 'abroad'
-        end
-        should "take you to which country question" do
-          assert_current_node :which_country_child_benefit?
-        end
 
-        context "answer EEA country" do
+      context "answer EEA country" do
+        setup do
+          add_response 'austria'
+        end
+        should "ask you do any of the following apply" do
+          assert_current_node :do_either_of_the_following_apply?
+        end
+        context "answer yes" do
           setup do
-            add_response 'austria'
+            add_response 'yes'
           end
-          should "ask you do any of the following apply" do
-            assert_current_node :do_either_of_the_following_apply?
-          end
-          context "answer yes" do
-            setup do
-              add_response 'yes'
-            end
-            should "take you to the entitled outcome" do
-              assert_current_node :child_benefit_entitled_outcome
-            end
-          end
-          context "answer no" do
-            setup do
-              add_response 'no'
-            end
-            should "take you to not entitled outcome" do
-              assert_current_node :child_benefit_not_entitled_outcome
-            end
+          should "take you to the entitled outcome" do
+            assert_current_node :child_benefit_entitled_outcome
           end
         end
-        context "answer FY country" do
+        context "answer no" do
           setup do
-            add_response 'kosovo'
-          end
-          should "take you to FY going abroad outcome" do
-            assert_current_node :child_benefit_fy_going_abroad_outcome
-          end
-        end
-        context "answer SS country" do
-          setup do
-            add_response 'canada'
-          end
-          should "take you to SS outcome" do
-            assert_current_node :child_benefit_ss_outcome
-          end
-        end
-        context "answer JTU country" do
-          setup do
-            add_response 'jamaica'
-          end
-          should "take you to JTU outcome" do
-            assert_current_node :child_benefit_jtu_outcome
-          end
-        end
-        context "answer other country" do
-          setup do
-            add_response 'albania'
+            add_response 'no'
           end
           should "take you to not entitled outcome" do
             assert_current_node :child_benefit_not_entitled_outcome
           end
+        end
+      end
+      context "answer FY country" do
+        setup do
+          add_response 'kosovo'
+        end
+        should "take you to FY going abroad outcome" do
+          assert_current_node :child_benefit_fy_going_abroad_outcome
+        end
+      end
+      context "answer SS country" do
+        setup do
+          add_response 'canada'
+        end
+        should "take you to SS outcome" do
+          assert_current_node :child_benefit_ss_outcome
+        end
+      end
+      context "answer JTU country" do
+        setup do
+          add_response 'jamaica'
+        end
+        should "take you to JTU outcome" do
+          assert_current_node :child_benefit_jtu_outcome
+        end
+      end
+      context "answer other country" do
+        setup do
+          add_response 'albania'
+        end
+        should "take you to not entitled outcome" do
+          assert_current_node :child_benefit_not_entitled_outcome
         end
       end
     end
@@ -421,7 +379,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'ssp'
       end
       should "ask which country are you moving to" do
-        assert_current_node :which_country_ssp?
+        assert_current_node :which_country?
       end
 
       context "answer EEA country" do
@@ -454,7 +412,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           add_response 'albania'
         end
         should "ask is your employer paying NI contributions for you" do
-          assert_current_node :employer_paying_ni_ssp?
+          assert_current_node :employer_paying_ni?
         end
         context "answer yes" do
           setup do
@@ -564,7 +522,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               add_response 'yes'
             end
             should "ask you what country you're moving to" do
-              assert_current_node :which_country_tax_credits?
+              assert_current_node :which_country?
             end
             context "answer EEA country" do
               setup do
@@ -633,7 +591,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           add_response 'esa_more_than_a_year'
         end
         should "ask which country are you moving to" do
-          assert_current_node :which_country_esa?
+          assert_current_node :which_country?
         end
         context "answer EEA country" do
           setup do
@@ -675,47 +633,39 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         setup do
           add_response 'yes'
         end
-        should "take you to channel islands question" do
-          assert_current_node :channel_islands?
+        should "take you to country question" do
+          assert_current_node :which_country?
         end
-        context "answer Guernsey/Jersey" do
+        context "answer Guernsey" do
           setup do
-            add_response 'guernsey_jersey'
+            add_response 'guernsey'
           end
           should "take you to SS outcome" do
             assert_current_node :iidb_going_abroad_ss_outcome
           end
         end
-        context "answer abroad" do
+        context "answer EEA country" do
           setup do
-            add_response 'abroad'
+            add_response 'austria'
           end
-          should "ask you which country you're moving to" do
-            assert_current_node :which_country_iidb?
+          should "take you to EEA outcome" do
+            assert_current_node :iidb_going_abroad_eea_outcome
           end
-          context "answer EEA country" do
-            setup do
-              add_response 'austria'
-            end
-            should "take you to EEA outcome" do
-              assert_current_node :iidb_going_abroad_eea_outcome
-            end
+        end
+        context "answer SS country" do
+          setup do
+            add_response 'kosovo'
           end
-          context "answer SS country" do
-            setup do
-              add_response 'kosovo'
-            end
-            should "take you to SS outcome" do
-              assert_current_node :iidb_going_abroad_ss_outcome
-            end
+          should "take you to SS outcome" do
+            assert_current_node :iidb_going_abroad_ss_outcome
           end
-          context "answer other country" do
-            setup do
-              add_response 'albania'
-            end
-            should "take you to other country outcome" do
-              assert_current_node :iidb_going_abroad_other_outcome
-            end
+        end
+        context "answer other country" do
+          setup do
+            add_response 'albania'
+          end
+          should "take you to other country outcome" do
+            assert_current_node :iidb_going_abroad_other_outcome
           end
         end
       end
@@ -742,7 +692,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           add_response 'permanent'
         end
         should "ask which country you are moving to" do
-          assert_current_node :which_country_disability_benefits?
+          assert_current_node :which_country?
         end
         context "answer other country" do
           setup do
@@ -784,47 +734,39 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response 'bereavement_benefits'
       end
-      should "take you to the channel islands question" do
-        assert_current_node :channel_islands?
+      should "take you to the country question" do
+        assert_current_node :which_country?
       end
-      context "answer Guernsey/Jersey" do
+      context "answer Guernsey" do
         setup do
-          add_response 'guernsey_jersey'
+          add_response 'guernsey'
         end
         should "take you to the SS outcome" do
           assert_current_node :bb_going_abroad_ss_outcome
         end
       end
-      context "answer abroad" do
+      context "answer EEA country" do
         setup do
-          add_response 'abroad'
+          add_response 'austria'
         end
-        should "ask you which country you're moving to" do
-          assert_current_node :which_country_bereavement_benefits?
+        should "take you to EEA outcome" do
+          assert_current_node :bb_going_abroad_eea_outcome
         end
-        context "answer EEA country" do
-          setup do
-            add_response 'austria'
-          end
-          should "take you to EEA outcome" do
-            assert_current_node :bb_going_abroad_eea_outcome
-          end
+      end
+      context "answer SS country" do
+        setup do
+          add_response 'kosovo'
         end
-        context "answer SS country" do
-          setup do
-            add_response 'kosovo'
-          end
-          should "take you to SS outcome" do
-            assert_current_node :bb_going_abroad_ss_outcome
-          end
+        should "take you to SS outcome" do
+          assert_current_node :bb_going_abroad_ss_outcome
         end
-        context "answer other country" do
-          setup do
-            add_response 'albania'
-          end
-          should "take you to other country outcome" do
-            assert_current_node :bb_going_abroad_other_outcome
-          end
+      end
+      context "answer other country" do
+        setup do
+          add_response 'albania'
+        end
+        should "take you to other country outcome" do
+          assert_current_node :bb_going_abroad_other_outcome
         end
       end
     end
@@ -959,18 +901,15 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer JSA, Guernsey (SS)" do
       setup do
         add_response 'jsa'
-        add_response 'guernsey_jersey'
+        add_response 'guernsey'
       end
       should "take you to JSA SS outcome" do
-        assert_phrase_list :channel_islands_question_titles, [:ci_already_abroad_question_title]
-        assert_phrase_list :channel_islands_prefix, [:ci_already_abroad_prefix]
         assert_current_node :jsa_social_security_already_abroad_outcome
       end
     end
     context "answer JSA EEA country" do
       setup do
         add_response 'jsa'
-        add_response "abroad"
         add_response 'austria'
       end
       should "take you to JSA EEA outcome" do
@@ -980,7 +919,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer JSA SS country" do
       setup do
         add_response 'jsa'
-        add_response 'abroad'
         add_response 'kosovo'
       end
       should "take you to JSA SS outcome" do
@@ -990,7 +928,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer JSA other country" do
       setup do
         add_response 'jsa'
-        add_response 'abroad'
         add_response 'albania'
       end
       should "take you to JSA other country outcome" do
@@ -1032,7 +969,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer Guernsey/Jersey, employer paying NI, eligible for SMP" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'guernsey_jersey'
+        add_response 'jersey'
         add_response 'yes'
         add_response 'yes'
       end
@@ -1043,19 +980,18 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer Guernsey/Jersey, employer paying NI, not eligible for SMP" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'guernsey_jersey'
+        add_response 'guernsey'
         add_response 'yes'
         add_response 'no'
       end
       should "take you to SS can't get SMP but may get MA outcome" do
-        assert_phrase_list :channel_islands_prefix, [:ci_already_abroad_prefix]
         assert_current_node :maternity_benefits_maternity_allowance_outcome
       end
     end
     context "answer Guernsey/Jersey, employer paying NI" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'guernsey_jersey'
+        add_response 'jersey'
         add_response 'no'
       end
       should "take you to SS can't get SMP but may get MA outcome" do
@@ -1065,7 +1001,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer EEA country, working for UK employer, eligible for SMP" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'abroad'
         add_response 'austria'
         add_response 'yes'
         add_response 'yes'
@@ -1077,7 +1012,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer EEA country, working for UK employer, not eligible for SMP" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'abroad'
         add_response 'austria'
         add_response 'yes'
         add_response 'no'
@@ -1089,7 +1023,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer EEA country, not working for UK employer" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'abroad'
         add_response 'austria'
         add_response 'no'
       end
@@ -1100,7 +1033,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer SS country, employer paying NI, eligible for SMP" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'abroad'
         add_response 'kosovo'
         add_response 'yes'
         add_response 'yes'
@@ -1112,7 +1044,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer SS country, employer paying NI, not eligible for SMP" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'abroad'
         add_response 'kosovo'
         add_response 'yes'
         add_response 'no'
@@ -1124,7 +1055,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer SS country, employer not paying NI" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'abroad'
         add_response 'kosovo'
         add_response 'no'
       end
@@ -1135,7 +1065,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer other country, employer paying NI, eligible for SMP" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'abroad'
         add_response 'albania'
         add_response 'yes'
         add_response 'yes'
@@ -1147,7 +1076,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer other country, employer paying NI, not eligible for SMP" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'abroad'
         add_response 'albania'
         add_response 'yes'
         add_response 'no'
@@ -1159,7 +1087,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer other country, employer not paying NI" do
       setup do
         add_response 'maternity_benefits'
-        add_response 'abroad'
         add_response 'albania'
         add_response 'no'
       end
@@ -1181,7 +1108,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer EEA country, paying NI in the UK" do
       setup do
         add_response 'child_benefit'
-        add_response 'abroad'
         add_response 'austria'
         add_response 'yes'
       end
@@ -1192,7 +1118,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer EEA country, not paying NI in the UK, not receiving benefits" do
       setup do
         add_response 'child_benefit'
-        add_response 'abroad'
         add_response 'austria'
         add_response 'no'
       end
@@ -1203,7 +1128,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer FY country" do
       setup do
         add_response 'child_benefit'
-        add_response 'abroad'
         add_response 'kosovo'
       end
       should "take you to FY already abroad outcome" do
@@ -1213,7 +1137,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer SS country" do
       setup do
         add_response 'child_benefit'
-        add_response 'abroad'
         add_response 'canada'
       end
       should "take you to SS outcome" do
@@ -1223,7 +1146,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer JTU country" do
       setup do
         add_response 'child_benefit'
-        add_response 'abroad'
         add_response 'jamaica'
       end
       should "take you to JTU outcome" do
@@ -1434,7 +1356,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response 'iidb'
         add_response 'yes'
-        add_response 'guernsey_jersey'
+        add_response 'jersey'
       end
       should "take you to SS outcome" do
         assert_current_node :iidb_already_abroad_ss_outcome
@@ -1444,7 +1366,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response 'iidb'
         add_response 'yes'
-        add_response 'abroad'
         add_response 'austria'
       end
       should "take you to EEA outcome" do
@@ -1455,7 +1376,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response 'iidb'
         add_response 'yes'
-        add_response 'abroad'
         add_response 'kosovo'
       end
       should "take you to SS outcome" do
@@ -1466,7 +1386,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response 'iidb'
         add_response 'yes'
-        add_response 'abroad'
         add_response 'albania'
       end
       should "take you to other outcome" do
@@ -1521,7 +1440,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer Guernsey/Jersey" do
       setup do
         add_response 'bereavement_benefits'
-        add_response 'guernsey_jersey'
+        add_response 'guernsey'
       end
       should "take you to SS outcome" do
         assert_current_node :bb_already_abroad_ss_outcome
@@ -1530,7 +1449,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer EEA country" do
       setup do
         add_response 'bereavement_benefits'
-        add_response 'abroad'
         add_response 'austria'
       end
       should "take you to EEA outcome" do
@@ -1540,7 +1458,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer SS country" do
       setup do
         add_response 'bereavement_benefits'
-        add_response 'abroad'
         add_response 'kosovo'
       end
       should "take you to SS outcome" do
@@ -1550,7 +1467,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     context "answer other country" do
       setup do
         add_response 'bereavement_benefits'
-        add_response 'abroad'
         add_response 'albania'
       end
       should "take you to other country outcome" do
