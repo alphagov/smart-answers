@@ -8,7 +8,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia canada china croatia mexico south-africa turkey yemen oman united-arab-emirates qatar taiwan venezuela)
+    @location_slugs = %w(andorra anguilla armenia canada china colombia croatia mexico south-africa turkey yemen oman united-arab-emirates qatar taiwan venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'check-uk-visa'
   end
@@ -633,6 +633,16 @@ end
         assert_current_node :outcome_medical_y
         assert_state_variable :if_exception, nil
       end
+    end
+  end
+  context "check correct outcome for Colombia" do
+    setup do
+      add_response 'colombia'
+      add_response 'transit'
+      add_response 'yes'
+    end
+    should "go to outcome_transit_leaving_airport" do
+      assert_current_node :outcome_transit_leaving_airport
     end
   end
 end
