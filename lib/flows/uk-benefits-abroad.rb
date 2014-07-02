@@ -73,7 +73,7 @@ multiple_choice :which_benefit? do
   option :pension
   option :winter_fuel_payment => :which_country? # Q4
   option :maternity_benefits => :which_country? # Q3b
-  option :child_benefit => :channel_islands? # Q3b
+  option :child_benefit => :which_country? # Q3b
   option :iidb => :iidb_already_claiming? # Q22
   option :ssp => :which_country_ssp? # Q11
   option :esa => :esa_how_long_abroad? # Q20
@@ -183,7 +183,7 @@ country_select :which_country?,additional_countries: additional_countries, exclu
       next_node_if(:child_benefit_fy_going_abroad_outcome, going_abroad) # A17
       next_node(:child_benefit_fy_already_abroad_outcome) # A18
     end
-    next_node_if(:child_benefit_ss_outcome, responded_with(%w(barbados canada israel mauritius new-zealand))) # A19
+    next_node_if(:child_benefit_ss_outcome, responded_with(%w(barbados canada guernsey israel jersey mauritius new-zealand))) # A19
     next_node_if(:child_benefit_jtu_outcome, responded_with(%w(jamaica turkey usa))) # A20
     next_node(:child_benefit_not_entitled_outcome) # A22
   end
@@ -324,31 +324,31 @@ multiple_choice :employer_paying_ni? do
   next_node(:maternity_benefits_not_entitled_outcome) # A17
 end
 
-# Q9
-country_select :which_country_child_benefit?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-  save_input_as :country
-  situations.each do |situation|
-    key = :"which_country_#{situation}_child"
-    precalculate key do
-      PhraseList.new key
-    end
-  end
+# # Q9
+# country_select :which_country_child_benefit?, additional_countries: additional_countries, exclude_countries: exclude_countries do
+#   save_input_as :country
+#   situations.each do |situation|
+#     key = :"which_country_#{situation}_child"
+#     precalculate key do
+#       PhraseList.new key
+#     end
+#   end
 
-  save_input_as :country
+#   save_input_as :country
 
-  calculate :country_name do
-    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-  end
+#   calculate :country_name do
+#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
+#   end
 
-  next_node_if(:do_either_of_the_following_apply?, responded_with_eea_country) # Q10
-  on_condition(responded_with_former_yugoslavia) do
-    next_node_if(:child_benefit_fy_going_abroad_outcome, going_abroad) # A17
-    next_node(:child_benefit_fy_already_abroad_outcome) # A18
-  end
-  next_node_if(:child_benefit_ss_outcome, responded_with(%w(barbados canada israel mauritius new-zealand))) # A19
-  next_node_if(:child_benefit_jtu_outcome, responded_with(%w(jamaica turkey usa))) # A20
-  next_node(:child_benefit_not_entitled_outcome) # A22
-end
+#   next_node_if(:do_either_of_the_following_apply?, responded_with_eea_country) # Q10
+#   on_condition(responded_with_former_yugoslavia) do
+#     next_node_if(:child_benefit_fy_going_abroad_outcome, going_abroad) # A17
+#     next_node(:child_benefit_fy_already_abroad_outcome) # A18
+#   end
+#   next_node_if(:child_benefit_ss_outcome, responded_with(%w(barbados canada guernsey israel jersey mauritius new-zealand))) # A19
+#   next_node_if(:child_benefit_jtu_outcome, responded_with(%w(jamaica turkey usa))) # A20
+#   next_node(:child_benefit_not_entitled_outcome) # A22
+# end
 
 # Q10
 multiple_choice :do_either_of_the_following_apply? do
