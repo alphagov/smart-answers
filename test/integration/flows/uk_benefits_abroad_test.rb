@@ -412,7 +412,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           add_response 'albania'
         end
         should "ask is your employer paying NI contributions for you" do
-          assert_current_node :employer_paying_ni_ssp?
+          assert_current_node :employer_paying_ni?
         end
         context "answer yes" do
           setup do

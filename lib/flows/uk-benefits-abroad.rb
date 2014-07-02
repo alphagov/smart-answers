@@ -164,7 +164,7 @@ country_select :which_country?,additional_countries: additional_countries, exclu
 #ssp
   on_condition(variable_matches(:benefit, 'ssp')) do
     next_node_if(:working_for_uk_employer_ssp?, responded_with_eea_country) # Q12
-    next_node(:employer_paying_ni_ssp?) # Q13
+    next_node(:employer_paying_ni?) # Q13
   end
 #tax credits
   on_condition(variable_matches(:benefit, 'tax_credits')) do
@@ -197,62 +197,6 @@ country_select :which_country?,additional_countries: additional_countries, exclu
   end
 end
 
-#TO BE DELETED
-# # Q3c
-# country_select :which_country_jsa?,additional_countries: additional_countries, exclude_countries: exclude_countries do
-#   situations.each do |situation|
-#     key = :"which_country_#{situation}_jsa"
-#     precalculate key do
-#       PhraseList.new key
-#     end
-#   end
-
-#   save_input_as :country
-
-#   calculate :country_name do
-#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-#   end
-
-#   on_condition(already_abroad) do
-#     next_node_if(:jsa_eea_already_abroad_outcome, responded_with_eea_country) # A3 or A4
-#     next_node_if(:jsa_social_security_already_abroad_outcome, social_security_countries_jsa) # A5 or A6
-#   end
-
-#   on_condition(going_abroad) do
-#     next_node_if(:jsa_eea_going_abroad_outcome, responded_with_eea_country) # A3 or A4
-#     next_node_if(:jsa_social_security_going_abroad_outcome, social_security_countries_jsa) # A5 or A6
-#   end
-#   next_node(:jsa_not_entitled_outcome) # A7
-# end
-
-#TO BE DELETED
-# # Q4
-# country_select :which_country_wfp?,additional_countries: additional_countries, exclude_countries: exclude_countries do
-#   situations.each do |situation|
-#     key = :"which_country_#{situation}_wfp"
-#     precalculate key do
-#       PhraseList.new key
-#     end
-#   end
-
-#   next_node_if(:wfp_eea_eligible_outcome, responded_with_eea_country) # A10
-#   next_node(:wfp_not_eligible_outcome) # A11
-# end
-
-# # Q5
-# country_select :which_country_maternity_benefits?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-#   save_input_as :country
-#   situations.each do |situation|
-#     key = :"which_country_#{situation}_maternity"
-#     precalculate key do
-#       PhraseList.new key
-#     end
-#   end
-
-#   next_node_if(:working_for_a_uk_employer?, responded_with_eea_country)
-#   next_node(:employer_paying_ni?)
-# end
-
 # Q6
 multiple_choice :working_for_a_uk_employer? do
   option yes: :eligible_for_smp?
@@ -267,9 +211,21 @@ end
 
 # Q8
 multiple_choice :employer_paying_ni? do
-  option :yes => :eligible_for_smp?
+  option :yes
   option :no
 
+  #SSP
+  on_condition(variable_matches(:benefit, 'ssp')) do
+    on_condition(going_abroad) do
+      next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A23
+      next_node(:ssp_going_abroad_not_entitled_outcome) # A25
+    end
+    on_condition(already_abroad) do
+      next_node_if(:ssp_already_abroad_entitled_outcome, responded_with('yes')) # A24
+      next_node(:ssp_already_abroad_not_entitled_outcome) # A26
+    end
+  end
+  next_node_if(:eligible_for_smp?, responded_with('yes'))
   on_condition(variable_matches(:country, countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey))) do
     on_condition(already_abroad) do
       next_node(:maternity_benefits_social_security_already_abroad_outcome) # A14 or A15
@@ -279,57 +235,11 @@ multiple_choice :employer_paying_ni? do
   next_node(:maternity_benefits_not_entitled_outcome) # A17
 end
 
-# # Q9
-# country_select :which_country_child_benefit?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-#   save_input_as :country
-#   situations.each do |situation|
-#     key = :"which_country_#{situation}_child"
-#     precalculate key do
-#       PhraseList.new key
-#     end
-#   end
-
-#   save_input_as :country
-
-#   calculate :country_name do
-#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-#   end
-
-#   next_node_if(:do_either_of_the_following_apply?, responded_with_eea_country) # Q10
-#   on_condition(responded_with_former_yugoslavia) do
-#     next_node_if(:child_benefit_fy_going_abroad_outcome, going_abroad) # A17
-#     next_node(:child_benefit_fy_already_abroad_outcome) # A18
-#   end
-#   next_node_if(:child_benefit_ss_outcome, responded_with(%w(barbados canada guernsey israel jersey mauritius new-zealand))) # A19
-#   next_node_if(:child_benefit_jtu_outcome, responded_with(%w(jamaica turkey usa))) # A20
-#   next_node(:child_benefit_not_entitled_outcome) # A22
-# end
-
 # Q10
 multiple_choice :do_either_of_the_following_apply? do
   option yes: :child_benefit_entitled_outcome # A21
   option no: :child_benefit_not_entitled_outcome # A22
 end
-
-# # Q11
-# country_select :which_country_ssp?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-#   save_input_as :country
-#   situations.each do |situation|
-#     key = :"which_country_#{situation}_ssp"
-#     precalculate key do
-#       PhraseList.new key
-#     end
-#   end
-
-#   save_input_as :country
-
-#   calculate :country_name do
-#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-#   end
-
-#   next_node_if(:working_for_uk_employer_ssp?, responded_with_eea_country) # Q12
-#   next_node(:employer_paying_ni_ssp?) # Q13
-# end
 
 # Q12
 multiple_choice :working_for_uk_employer_ssp? do
@@ -346,20 +256,20 @@ multiple_choice :working_for_uk_employer_ssp? do
   end
 end
 
-# Q13
-multiple_choice :employer_paying_ni_ssp? do
-  option :yes
-  option :no
+# # Q13
+# multiple_choice :employer_paying_ni_ssp? do
+#   option :yes
+#   option :no
 
-  on_condition(going_abroad) do
-    next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A23
-    next_node(:ssp_going_abroad_not_entitled_outcome) # A25
-  end
-  on_condition(already_abroad) do
-    next_node_if(:ssp_already_abroad_entitled_outcome, responded_with('yes')) # A24
-    next_node(:ssp_already_abroad_not_entitled_outcome) # A26
-  end
-end
+#   on_condition(going_abroad) do
+#     next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A23
+#     next_node(:ssp_going_abroad_not_entitled_outcome) # A25
+#   end
+#   on_condition(already_abroad) do
+#     next_node_if(:ssp_already_abroad_entitled_outcome, responded_with('yes')) # A24
+#     next_node(:ssp_already_abroad_not_entitled_outcome) # A26
+#   end
+# end
 
 # Q14
 multiple_choice :eligible_for_tax_credits? do
@@ -379,26 +289,6 @@ multiple_choice :tax_credits_children? do
   option yes: :which_country? # Q17
   option no: :tax_credits_unlikely_outcome # A29
 end
-
-# # Q17
-# country_select :which_country_tax_credits?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-#   save_input_as :country
-#   situations.each do |situation|
-#     key = :"which_country_#{situation}_tax_credits"
-#     precalculate key do
-#       PhraseList.new key
-#     end
-#   end
-
-#   save_input_as :country
-
-#   calculate :country_name do
-#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-#   end
-
-#   next_node_if(:tax_credits_currently_claiming?, responded_with_eea_country) # Q18
-#   next_node(:tax_credits_unlikely_outcome) # A29
-# end
 
 # Q18
 multiple_choice :tax_credits_currently_claiming? do
@@ -430,65 +320,11 @@ multiple_choice :esa_how_long_abroad? do
   next_node(:which_country?)
 end
 
-# # Q21
-# country_select :which_country_esa?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-#   save_input_as :country
-#   situations.each do |situation|
-#     key = :"which_country_#{situation}_esa"
-#     precalculate key do
-#       PhraseList.new key
-#     end
-#   end
-
-#   save_input_as :country
-
-#   calculate :country_name do
-#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-#   end
-
-#   on_condition(going_abroad) do
-#     next_node_if(:esa_going_abroad_eea_outcome, responded_with_eea_country) # A37
-#     next_node(:esa_going_abroad_other_outcome) # A39
-#   end
-#   on_condition(already_abroad) do
-#     next_node_if(:esa_already_abroad_eea_outcome, responded_with_eea_country) # A38
-#     next_node(:esa_already_abroad_other_outcome) # A40
-#   end
-# end
-
 # Q22
 multiple_choice :iidb_already_claiming? do
   option yes: :which_country? # Q3b
   option no: :iidb_maybe_outcome # A41
 end
-
-# # Q23
-# country_select :which_country_iidb?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-#   save_input_as :country
-#   situations.each do |situation|
-#     key = :"which_country_#{situation}_iidb"
-#     precalculate key do
-#       PhraseList.new key
-#     end
-#   end
-
-#   save_input_as :country
-
-#   calculate :country_name do
-#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-#   end
-
-#   on_condition(going_abroad) do
-#     next_node_if(:iidb_going_abroad_eea_outcome, responded_with_eea_country) # A42
-#     next_node_if(:iidb_going_abroad_ss_outcome, social_security_countries_iidb) # A44
-#     next_node(:iidb_going_abroad_other_outcome) # A46
-#   end
-#   on_condition(already_abroad) do
-#     next_node_if(:iidb_already_abroad_eea_outcome, responded_with_eea_country) # A43
-#     next_node_if(:iidb_already_abroad_ss_outcome, social_security_countries_iidb) # A45
-#     next_node(:iidb_already_abroad_other_outcome) # A47
-#   end
-# end
 
 # Q24
 multiple_choice :db_how_long_abroad? do
@@ -498,27 +334,6 @@ multiple_choice :db_how_long_abroad? do
   next_node_if(:db_going_abroad_temporary_outcome, going_abroad) # A48
   next_node(:db_already_abroad_temporary_outcome) # A49
 end
-
-# # Q25
-# country_select :which_country_disability_benefits?, exclude_countries: exclude_countries do
-#   save_input_as :country
-#   situations.each do |situation|
-#     key = :"which_country_#{situation}_disability"
-#     precalculate key do
-#       PhraseList.new key
-#     end
-#   end
-
-#   save_input_as :country
-
-#   calculate :country_name do
-#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-#   end
-
-#   next_node_if(:db_claiming_benefits?, responded_with_eea_country)
-#   next_node_if(:db_going_abroad_other_outcome, going_abroad) # A50
-#   next_node(:db_already_abroad_other_outcome) # A51
-# end
 
 # Q26
 multiple_choice :db_claiming_benefits? do
@@ -534,34 +349,6 @@ multiple_choice :db_claiming_benefits? do
     next_node(:db_already_abroad_other_outcome) # A51
   end
 end
-
-# # Q27
-# country_select :which_country_bereavement_benefits?, exclude_countries: exclude_countries do
-#   save_input_as :country
-#   situations.each do |situation|
-#     key = :"which_country_#{situation}_bereavement"
-#     precalculate key do
-#       PhraseList.new key
-#     end
-#   end
-
-#   save_input_as :country
-
-#   calculate :country_name do
-#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-#   end
-
-#   on_condition(going_abroad) do
-#     next_node_if(:bb_going_abroad_eea_outcome, responded_with_eea_country) # A54
-#     next_node_if(:bb_going_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A56
-#     next_node(:bb_going_abroad_other_outcome) # A58
-#   end
-#   on_condition(already_abroad) do
-#     next_node_if(:bb_already_abroad_eea_outcome, responded_with_eea_country) # A55
-#     next_node_if(:bb_already_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A57
-#     next_node(:bb_already_abroad_other_outcome) # A59
-#   end
-# end
 
 # Q28
 multiple_choice :is_how_long_abroad? do
