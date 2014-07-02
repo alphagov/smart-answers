@@ -503,7 +503,7 @@ end
 
 # Q22
 multiple_choice :iidb_already_claiming? do
-  option yes: :channel_islands? # Q3b
+  option yes: :which_country? # Q3b
   option no: :iidb_maybe_outcome # A41
 end
 

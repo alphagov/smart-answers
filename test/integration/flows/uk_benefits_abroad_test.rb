@@ -331,13 +331,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           assert_current_node :child_benefit_ss_outcome
         end
       end
-      # context "answer abroad" do
-      #   setup do
-      #     add_response 'abroad'
-      #   end
-      #   should "take you to which country question" do
-      #     assert_current_node :which_country_child_benefit?
-      #   end
 
       context "answer EEA country" do
         setup do
@@ -396,8 +389,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
       end
     end
-  end
-end
 
 #     # SSP
 #     context "answer statutory sick pay (SSP)" do
@@ -638,72 +629,73 @@ end
 #       end
 #     end
 
-#     # IIDB
-#     context "answer IIDB" do
-#       setup do
-#         add_response 'iidb'
-#       end
-#       should "ask are you already claiming IIDB" do
-#         assert_current_node :iidb_already_claiming?
-#       end
+    # IIDB
+    context "answer IIDB" do
+      setup do
+        add_response 'iidb'
+      end
+      should "ask are you already claiming IIDB" do
+        assert_current_node :iidb_already_claiming?
+      end
 
-#       context "answer no" do
-#         setup do
-#           add_response 'no'
-#         end
-#         should "take you to maybe outcome" do
-#           assert_current_node :iidb_maybe_outcome
-#         end
-#       end
-#       context "answer yes" do
-#         setup do
-#           add_response 'yes'
-#         end
-#         should "take you to channel islands question" do
-#           assert_current_node :channel_islands?
-#         end
-#         context "answer Guernsey/Jersey" do
-#           setup do
-#             add_response 'guernsey_jersey'
-#           end
-#           should "take you to SS outcome" do
-#             assert_current_node :iidb_going_abroad_ss_outcome
-#           end
-#         end
-#         context "answer abroad" do
-#           setup do
-#             add_response 'abroad'
-#           end
-#           should "ask you which country you're moving to" do
-#             assert_current_node :which_country_iidb?
-#           end
-#           context "answer EEA country" do
-#             setup do
-#               add_response 'austria'
-#             end
-#             should "take you to EEA outcome" do
-#               assert_current_node :iidb_going_abroad_eea_outcome
-#             end
-#           end
-#           context "answer SS country" do
-#             setup do
-#               add_response 'kosovo'
-#             end
-#             should "take you to SS outcome" do
-#               assert_current_node :iidb_going_abroad_ss_outcome
-#             end
-#           end
-#           context "answer other country" do
-#             setup do
-#               add_response 'albania'
-#             end
-#             should "take you to other country outcome" do
-#               assert_current_node :iidb_going_abroad_other_outcome
-#             end
-#           end
-#         end
-#       end
-#     end
+      context "answer no" do
+        setup do
+          add_response 'no'
+        end
+        should "take you to maybe outcome" do
+          assert_current_node :iidb_maybe_outcome
+        end
+      end
+      context "answer yes" do
+        setup do
+          add_response 'yes'
+        end
+        should "take you to country question" do
+          assert_current_node :which_country?
+        end
+        context "answer Guernsey" do
+          setup do
+            add_response 'guernsey'
+          end
+          should "take you to SS outcome" do
+            assert_current_node :iidb_going_abroad_ss_outcome
+          end
+        end
+        # context "answer abroad" do
+        #   setup do
+        #     add_response 'abroad'
+        #   end
+        #   should "ask you which country you're moving to" do
+        #     assert_current_node :which_country_iidb?
+        #   end
+        context "answer EEA country" do
+          setup do
+            add_response 'austria'
+          end
+          should "take you to EEA outcome" do
+            assert_current_node :iidb_going_abroad_eea_outcome
+          end
+        end
+        context "answer SS country" do
+          setup do
+            add_response 'kosovo'
+          end
+          should "take you to SS outcome" do
+            assert_current_node :iidb_going_abroad_ss_outcome
+          end
+        end
+        context "answer other country" do
+          setup do
+            add_response 'albania'
+          end
+          should "take you to other country outcome" do
+            assert_current_node :iidb_going_abroad_other_outcome
+          end
+        end
+      end
+    end
+  end
+end
 
 #     # Disability benefits
 #     context "answer Disability benefits" do
