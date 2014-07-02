@@ -20,6 +20,7 @@ responded_with_former_yugoslavia = SmartAnswer::Predicate::RespondedWith.new(
   "former Yugoslavia"
 )
 social_security_countries_jsa = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(guernsey jersey new-zealand))
+social_security_countries_maternity_benefits = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(guernsey jersey barbados israel turkey))
 social_security_countries_iidb = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey))
 social_security_countries_bereavement_benefits = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa))
 
@@ -71,7 +72,7 @@ multiple_choice :which_benefit? do
   option :jsa
   option :pension
   option :winter_fuel_payment => :which_country? # Q4
-  option :maternity_benefits => :channel_islands? # Q3b
+  option :maternity_benefits => :which_country? # Q3b
   option :child_benefit => :channel_islands? # Q3b
   option :iidb => :iidb_already_claiming? # Q22
   option :ssp => :which_country_ssp? # Q11
@@ -166,7 +167,7 @@ country_select :which_country?,additional_countries: additional_countries, exclu
     next_node(:jsa_not_entitled_outcome) # A7
   end
 #maternity
-  on_condition(variable_matches(:benefit, 'maternity')) do
+  on_condition(variable_matches(:benefit, 'maternity_benefits')) do
     next_node_if(:working_for_a_uk_employer?, responded_with_eea_country)
     next_node(:employer_paying_ni?)
   end
