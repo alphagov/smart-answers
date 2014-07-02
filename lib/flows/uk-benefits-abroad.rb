@@ -78,7 +78,7 @@ multiple_choice :which_benefit? do
   option :ssp => :which_country_ssp? # Q11
   option :esa => :esa_how_long_abroad? # Q20
   option :disability_benefits => :db_how_long_abroad? # Q24
-  option :bereavement_benefits => :channel_islands? # Q3b
+  option :bereavement_benefits => :which_country? # Q3b
   option :tax_credits => :eligible_for_tax_credits? # Q14
   option :income_support
 
@@ -580,33 +580,33 @@ multiple_choice :db_claiming_benefits? do
   end
 end
 
-# Q27
-country_select :which_country_bereavement_benefits?, exclude_countries: exclude_countries do
-  save_input_as :country
-  situations.each do |situation|
-    key = :"which_country_#{situation}_bereavement"
-    precalculate key do
-      PhraseList.new key
-    end
-  end
+# # Q27
+# country_select :which_country_bereavement_benefits?, exclude_countries: exclude_countries do
+#   save_input_as :country
+#   situations.each do |situation|
+#     key = :"which_country_#{situation}_bereavement"
+#     precalculate key do
+#       PhraseList.new key
+#     end
+#   end
 
-  save_input_as :country
+#   save_input_as :country
 
-  calculate :country_name do
-    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-  end
+#   calculate :country_name do
+#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
+#   end
 
-  on_condition(going_abroad) do
-    next_node_if(:bb_going_abroad_eea_outcome, responded_with_eea_country) # A54
-    next_node_if(:bb_going_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A56
-    next_node(:bb_going_abroad_other_outcome) # A58
-  end
-  on_condition(already_abroad) do
-    next_node_if(:bb_already_abroad_eea_outcome, responded_with_eea_country) # A55
-    next_node_if(:bb_already_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A57
-    next_node(:bb_already_abroad_other_outcome) # A59
-  end
-end
+#   on_condition(going_abroad) do
+#     next_node_if(:bb_going_abroad_eea_outcome, responded_with_eea_country) # A54
+#     next_node_if(:bb_going_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A56
+#     next_node(:bb_going_abroad_other_outcome) # A58
+#   end
+#   on_condition(already_abroad) do
+#     next_node_if(:bb_already_abroad_eea_outcome, responded_with_eea_country) # A55
+#     next_node_if(:bb_already_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A57
+#     next_node(:bb_already_abroad_other_outcome) # A59
+#   end
+# end
 
 # Q28
 multiple_choice :is_how_long_abroad? do

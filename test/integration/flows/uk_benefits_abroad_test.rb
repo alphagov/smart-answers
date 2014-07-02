@@ -745,58 +745,57 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
       end
     end
+
+    # Bereavement benefits
+    context "answer bereavement benefits" do
+      setup do
+        add_response 'bereavement_benefits'
+      end
+      should "take you to the country question" do
+        assert_current_node :which_country?
+      end
+      context "answer Guernsey" do
+        setup do
+          add_response 'guernsey'
+        end
+        should "take you to the SS outcome" do
+          assert_current_node :bb_going_abroad_ss_outcome
+        end
+      end
+      # context "answer abroad" do
+      #   setup do
+      #     add_response 'abroad'
+      #   end
+      #   should "ask you which country you're moving to" do
+      #     assert_current_node :which_country_bereavement_benefits?
+    #   end
+      context "answer EEA country" do
+        setup do
+          add_response 'austria'
+        end
+        should "take you to EEA outcome" do
+          assert_current_node :bb_going_abroad_eea_outcome
+        end
+      end
+      context "answer SS country" do
+        setup do
+          add_response 'kosovo'
+        end
+        should "take you to SS outcome" do
+          assert_current_node :bb_going_abroad_ss_outcome
+        end
+      end
+      context "answer other country" do
+        setup do
+          add_response 'albania'
+        end
+        should "take you to other country outcome" do
+          assert_current_node :bb_going_abroad_other_outcome
+        end
+      end
+    end
   end
 end
-
-#     # Bereavement benefits
-#     context "answer bereavement benefits" do
-#       setup do
-#         add_response 'bereavement_benefits'
-#       end
-#       should "take you to the channel islands question" do
-#         assert_current_node :channel_islands?
-#       end
-#       context "answer Guernsey/Jersey" do
-#         setup do
-#           add_response 'guernsey_jersey'
-#         end
-#         should "take you to the SS outcome" do
-#           assert_current_node :bb_going_abroad_ss_outcome
-#         end
-#       end
-#       context "answer abroad" do
-#         setup do
-#           add_response 'abroad'
-#         end
-#         should "ask you which country you're moving to" do
-#           assert_current_node :which_country_bereavement_benefits?
-#         end
-#         context "answer EEA country" do
-#           setup do
-#             add_response 'austria'
-#           end
-#           should "take you to EEA outcome" do
-#             assert_current_node :bb_going_abroad_eea_outcome
-#           end
-#         end
-#         context "answer SS country" do
-#           setup do
-#             add_response 'kosovo'
-#           end
-#           should "take you to SS outcome" do
-#             assert_current_node :bb_going_abroad_ss_outcome
-#           end
-#         end
-#         context "answer other country" do
-#           setup do
-#             add_response 'albania'
-#           end
-#           should "take you to other country outcome" do
-#             assert_current_node :bb_going_abroad_other_outcome
-#           end
-#         end
-#       end
-#     end
 
 #     # answer Income Support
 #     context "answer income support" do
