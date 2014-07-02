@@ -66,9 +66,9 @@ class CalculateStatePensionTopupV2Test < ActiveSupport::TestCase
       add_response "male"
       add_response 1
     end
-    should "show two rates" do
+    should "show one rate" do
       assert_current_node :outcome_topup_calculations
-      assert_state_variable :amount_and_age, "- £890 when you're 65\n- £871 when you're 66"
+      assert_state_variable :amount_and_age, "- £890 when you're 65"
     end
   end
   context "Man turns 65 on 6 April 2016 = DOB 6/4/1951 = not old enough" do
@@ -86,9 +86,9 @@ class CalculateStatePensionTopupV2Test < ActiveSupport::TestCase
       add_response "female"
       add_response 1
     end
-    should "show should two rates only" do
+    should "should show one rate only" do
       assert_current_node :outcome_topup_calculations
-      assert_state_variable :amount_and_age, "- £934 when you're 63\n- £913 when you're 64"
+      assert_state_variable :amount_and_age, "- £934 when you're 63"
     end
   end
   context "Woman turns 63 on 6 April 2016 = DOB 6/4/1953 = not old enough" do
@@ -133,7 +133,7 @@ class CalculateStatePensionTopupV2Test < ActiveSupport::TestCase
   end
   context "Male born 13/10/1940 needs 3 rates" do
     setup do
-      add_response Date.parse('1940-10-13')
+      add_response Date.parse('1940-10-14')
       add_response "male"
       add_response 1
     end
