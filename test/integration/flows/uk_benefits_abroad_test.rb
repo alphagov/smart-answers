@@ -579,55 +579,55 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-#     # ESA
-#     context "answer ESA" do
-#       setup do
-#         add_response 'esa'
-#       end
-#       should "ask how long you're going abroad" do
-#         assert_current_node :esa_how_long_abroad?
-#       end
-#       context "answer less than a year for medical treatment" do
-#         setup do
-#           add_response 'esa_under_a_year_medical'
-#         end
-#         should "take you to medical treatment outcome" do
-#           assert_current_node :esa_going_abroad_under_a_year_medical_outcome
-#         end
-#       end
-#       context "answer less than a year for different reason" do
-#         setup do
-#           add_response 'esa_under_a_year_other'
-#         end
-#         should "take you to different reason outcome" do
-#           assert_current_node :esa_going_abroad_under_a_year_other_outcome
-#         end
-#       end
-#       context "answers more than a year" do
-#         setup do
-#           add_response 'esa_more_than_a_year'
-#         end
-#         should "ask which country are you moving to" do
-#           assert_current_node :which_country_esa?
-#         end
-#         context "answer EEA country" do
-#           setup do
-#             add_response 'austria'
-#           end
-#           should "take you to EEA outcome" do
-#             assert_current_node :esa_going_abroad_eea_outcome
-#           end
-#         end
-#         context "answer other country" do
-#           setup do
-#             add_response 'albania'
-#           end
-#           should "take you to other outcome" do
-#             assert_current_node :esa_going_abroad_other_outcome
-#           end
-#         end
-#       end
-#     end
+    # ESA
+    context "answer ESA" do
+      setup do
+        add_response 'esa'
+      end
+      should "ask how long you're going abroad" do
+        assert_current_node :esa_how_long_abroad?
+      end
+      context "answer less than a year for medical treatment" do
+        setup do
+          add_response 'esa_under_a_year_medical'
+        end
+        should "take you to medical treatment outcome" do
+          assert_current_node :esa_going_abroad_under_a_year_medical_outcome
+        end
+      end
+      context "answer less than a year for different reason" do
+        setup do
+          add_response 'esa_under_a_year_other'
+        end
+        should "take you to different reason outcome" do
+          assert_current_node :esa_going_abroad_under_a_year_other_outcome
+        end
+      end
+      context "answers more than a year" do
+        setup do
+          add_response 'esa_more_than_a_year'
+        end
+        should "ask which country are you moving to" do
+          assert_current_node :which_country?
+        end
+        context "answer EEA country" do
+          setup do
+            add_response 'austria'
+          end
+          should "take you to EEA outcome" do
+            assert_current_node :esa_going_abroad_eea_outcome
+          end
+        end
+        context "answer other country" do
+          setup do
+            add_response 'albania'
+          end
+          should "take you to other outcome" do
+            assert_current_node :esa_going_abroad_other_outcome
+          end
+        end
+      end
+    end
 
     # IIDB
     context "answer IIDB" do

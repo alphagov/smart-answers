@@ -425,25 +425,25 @@ multiple_choice :tax_credits_children? do
   option no: :tax_credits_unlikely_outcome # A29
 end
 
-# Q17
-country_select :which_country_tax_credits?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-  save_input_as :country
-  situations.each do |situation|
-    key = :"which_country_#{situation}_tax_credits"
-    precalculate key do
-      PhraseList.new key
-    end
-  end
+# # Q17
+# country_select :which_country_tax_credits?, additional_countries: additional_countries, exclude_countries: exclude_countries do
+#   save_input_as :country
+#   situations.each do |situation|
+#     key = :"which_country_#{situation}_tax_credits"
+#     precalculate key do
+#       PhraseList.new key
+#     end
+#   end
 
-  save_input_as :country
+#   save_input_as :country
 
-  calculate :country_name do
-    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-  end
+#   calculate :country_name do
+#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
+#   end
 
-  next_node_if(:tax_credits_currently_claiming?, responded_with_eea_country) # Q18
-  next_node(:tax_credits_unlikely_outcome) # A29
-end
+#   next_node_if(:tax_credits_currently_claiming?, responded_with_eea_country) # Q18
+#   next_node(:tax_credits_unlikely_outcome) # A29
+# end
 
 # Q18
 multiple_choice :tax_credits_currently_claiming? do
@@ -472,34 +472,34 @@ multiple_choice :esa_how_long_abroad? do
     next_node_if(:esa_already_abroad_under_a_year_medical_outcome, responded_with('esa_under_a_year_medical'))
     next_node_if(:esa_already_abroad_under_a_year_other_outcome, responded_with('esa_under_a_year_other'))
   end
-  next_node(:which_country_esa?)
+  next_node(:which_country?)
 end
 
-# Q21
-country_select :which_country_esa?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-  save_input_as :country
-  situations.each do |situation|
-    key = :"which_country_#{situation}_esa"
-    precalculate key do
-      PhraseList.new key
-    end
-  end
+# # Q21
+# country_select :which_country_esa?, additional_countries: additional_countries, exclude_countries: exclude_countries do
+#   save_input_as :country
+#   situations.each do |situation|
+#     key = :"which_country_#{situation}_esa"
+#     precalculate key do
+#       PhraseList.new key
+#     end
+#   end
 
-  save_input_as :country
+#   save_input_as :country
 
-  calculate :country_name do
-    (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-  end
+#   calculate :country_name do
+#     (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
+#   end
 
-  on_condition(going_abroad) do
-    next_node_if(:esa_going_abroad_eea_outcome, responded_with_eea_country) # A37
-    next_node(:esa_going_abroad_other_outcome) # A39
-  end
-  on_condition(already_abroad) do
-    next_node_if(:esa_already_abroad_eea_outcome, responded_with_eea_country) # A38
-    next_node(:esa_already_abroad_other_outcome) # A40
-  end
-end
+#   on_condition(going_abroad) do
+#     next_node_if(:esa_going_abroad_eea_outcome, responded_with_eea_country) # A37
+#     next_node(:esa_going_abroad_other_outcome) # A39
+#   end
+#   on_condition(already_abroad) do
+#     next_node_if(:esa_already_abroad_eea_outcome, responded_with_eea_country) # A38
+#     next_node(:esa_already_abroad_other_outcome) # A40
+#   end
+# end
 
 # Q22
 multiple_choice :iidb_already_claiming? do
