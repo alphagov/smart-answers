@@ -450,134 +450,134 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
     end
 
-#     # Tax Credis
-#     context "answer tax credits" do
-#       setup do
-#         add_response 'tax_credits'
-#       end
-#       should "ask if you or partner is a crown servant or cross-border worker" do
-#         assert_current_node :eligible_for_tax_credits?
-#       end
-#       context "answer crown servant" do
-#         setup do
-#           add_response 'crown_servant'
-#         end
-#         should "take you to crown servant outcome" do
-#           assert_current_node :tax_credits_crown_servant_outcome
-#           assert_phrase_list :tax_credits_crown_servant, [:tax_credits_going_abroad_helpline]
-#         end
-#       end
-#       context "answer cross-border worker" do
-#         setup do
-#           add_response 'cross_border_worker'
-#         end
-#         should "take you to cross-border worker outcome" do
-#           assert_current_node :tax_credits_cross_border_worker_outcome
-#           assert_phrase_list :tax_credits_cross_border_worker, [:tax_credits_cross_border_going_abroad, :tax_credits_cross_border, :tax_credits_going_abroad_helpline]
-#         end
-#       end
-#       context "answer none of the above" do
-#         setup do
-#           add_response 'none_of_the_above'
-#         end
-#         should "ask how long you're going abroad for" do
-#           assert_current_node :tax_credits_how_long_abroad?
-#         end
+    # Tax Credis
+    context "answer tax credits" do
+      setup do
+        add_response 'tax_credits'
+      end
+      should "ask if you or partner is a crown servant or cross-border worker" do
+        assert_current_node :eligible_for_tax_credits?
+      end
+      context "answer crown servant" do
+        setup do
+          add_response 'crown_servant'
+        end
+        should "take you to crown servant outcome" do
+          assert_current_node :tax_credits_crown_servant_outcome
+          assert_phrase_list :tax_credits_crown_servant, [:tax_credits_going_abroad_helpline]
+        end
+      end
+      context "answer cross-border worker" do
+        setup do
+          add_response 'cross_border_worker'
+        end
+        should "take you to cross-border worker outcome" do
+          assert_current_node :tax_credits_cross_border_worker_outcome
+          assert_phrase_list :tax_credits_cross_border_worker, [:tax_credits_cross_border_going_abroad, :tax_credits_cross_border, :tax_credits_going_abroad_helpline]
+        end
+      end
+      context "answer none of the above" do
+        setup do
+          add_response 'none_of_the_above'
+        end
+        should "ask how long you're going abroad for" do
+          assert_current_node :tax_credits_how_long_abroad?
+        end
 
-#         context "answer less than a year" do
-#           setup do
-#             add_response :tax_credits_up_to_a_year
-#           end
-#           should "ask why are you going abroad" do
-#             assert_current_node :tax_credits_why_going_abroad?
-#           end
-#           context "answer holiday" do
-#             setup do
-#               add_response 'tax_credits_holiday'
-#             end
-#             should "take you to the holiday outcome" do
-#               assert_current_node :tax_credits_holiday_outcome
-#               assert_phrase_list :tax_credits_holiday, [:tax_credits_holiday_going_abroad, :tax_credits_holiday, :tax_credits_going_abroad_helpline]
-#             end
-#           end
-#           context "answer medical treatment" do
-#             setup do
-#               add_response 'tax_credits_medical_treatment'
-#             end
-#             should "take you to medical treatment outcome" do
-#               assert_current_node :tax_credits_medical_death_outcome
-#               assert_phrase_list :tax_credits_medical_death, [:tax_credits_medical_death_going_abroad, :tax_credits_medical_death, :tax_credits_going_abroad_helpline]
-#             end
-#           end
-#           context "answer family bereavement" do
-#             setup do
-#               add_response 'tax_credits_death'
-#             end
-#             should "take you to family bereavement outcome" do
-#               assert_current_node :tax_credits_medical_death_outcome
-#               assert_phrase_list :tax_credits_medical_death, [:tax_credits_medical_death_going_abroad, :tax_credits_medical_death, :tax_credits_going_abroad_helpline]
-#             end
-#           end
-#         end
-#         context "answer more than a year" do
-#           setup do
-#             add_response 'tax_credits_more_than_a_year'
-#           end
-#           should "ask if you have children" do
-#             assert_current_node :tax_credits_children?
-#           end
-#           context "answer no" do
-#             setup do
-#               add_response 'no'
-#             end
-#             should "take you to unlikely outcome" do
-#               assert_current_node :tax_credits_unlikely_outcome
-#             end
-#           end
-#           context "answer yes" do
-#             setup do
-#               add_response 'yes'
-#             end
-#             should "ask you what country you're moving to" do
-#               assert_current_node :which_country_tax_credits?
-#             end
-#             context "answer EEA country" do
-#               setup do
-#                 add_response 'austria'
-#               end
-#               should "ask are you claiming any of these benefits" do
-#                 assert_current_node :tax_credits_currently_claiming?
-#               end
-#               context "answer yes" do
-#                 setup do
-#                   add_response 'yes'
-#                 end
-#                 should "take you to EEA may qualify outcome" do
-#                   assert_current_node :tax_credits_eea_entitled_outcome
-#                 end
-#               end
-#               context "answer no" do
-#                 setup do
-#                   add_response 'no'
-#                 end
-#                 should "take you to not entitled outcome" do
-#                   assert_current_node :tax_credits_unlikely_outcome
-#                 end
-#               end
-#             end
-#             context "answer other country" do
-#               setup do
-#                 add_response 'albania'
-#               end
-#               should "take you to not entitled outcome" do
-#                 assert_current_node :tax_credits_unlikely_outcome
-#               end
-#             end
-#           end
-#         end
+        context "answer less than a year" do
+          setup do
+            add_response :tax_credits_up_to_a_year
+          end
+          should "ask why are you going abroad" do
+            assert_current_node :tax_credits_why_going_abroad?
+          end
+          context "answer holiday" do
+            setup do
+              add_response 'tax_credits_holiday'
+            end
+            should "take you to the holiday outcome" do
+              assert_current_node :tax_credits_holiday_outcome
+              assert_phrase_list :tax_credits_holiday, [:tax_credits_holiday_going_abroad, :tax_credits_holiday, :tax_credits_going_abroad_helpline]
+            end
+          end
+          context "answer medical treatment" do
+            setup do
+              add_response 'tax_credits_medical_treatment'
+            end
+            should "take you to medical treatment outcome" do
+              assert_current_node :tax_credits_medical_death_outcome
+              assert_phrase_list :tax_credits_medical_death, [:tax_credits_medical_death_going_abroad, :tax_credits_medical_death, :tax_credits_going_abroad_helpline]
+            end
+          end
+          context "answer family bereavement" do
+            setup do
+              add_response 'tax_credits_death'
+            end
+            should "take you to family bereavement outcome" do
+              assert_current_node :tax_credits_medical_death_outcome
+              assert_phrase_list :tax_credits_medical_death, [:tax_credits_medical_death_going_abroad, :tax_credits_medical_death, :tax_credits_going_abroad_helpline]
+            end
+          end
+        end
+        context "answer more than a year" do
+          setup do
+            add_response 'tax_credits_more_than_a_year'
+          end
+          should "ask if you have children" do
+            assert_current_node :tax_credits_children?
+          end
+          context "answer no" do
+            setup do
+              add_response 'no'
+            end
+            should "take you to unlikely outcome" do
+              assert_current_node :tax_credits_unlikely_outcome
+            end
+          end
+          context "answer yes" do
+            setup do
+              add_response 'yes'
+            end
+            should "ask you what country you're moving to" do
+              assert_current_node :which_country?
+            end
+            context "answer EEA country" do
+              setup do
+                add_response 'austria'
+              end
+              should "ask are you claiming any of these benefits" do
+                assert_current_node :tax_credits_currently_claiming?
+              end
+              context "answer yes" do
+                setup do
+                  add_response 'yes'
+                end
+                should "take you to EEA may qualify outcome" do
+                  assert_current_node :tax_credits_eea_entitled_outcome
+                end
+              end
+              context "answer no" do
+                setup do
+                  add_response 'no'
+                end
+                should "take you to not entitled outcome" do
+                  assert_current_node :tax_credits_unlikely_outcome
+                end
+              end
+            end
+            context "answer other country" do
+              setup do
+                add_response 'albania'
+              end
+              should "take you to not entitled outcome" do
+                assert_current_node :tax_credits_unlikely_outcome
+              end
+            end
+          end
+        end
 
-#       end
-#     end
+      end
+    end
 
 #     # ESA
 #     context "answer ESA" do

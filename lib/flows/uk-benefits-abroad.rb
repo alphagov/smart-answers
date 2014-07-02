@@ -421,7 +421,7 @@ end
 
 # Q16
 multiple_choice :tax_credits_children? do
-  option yes: :which_country_tax_credits? # Q17
+  option yes: :which_country? # Q17
   option no: :tax_credits_unlikely_outcome # A29
 end
 
