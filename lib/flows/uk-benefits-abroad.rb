@@ -86,20 +86,6 @@ multiple_choice :which_benefit? do
   end
 end
 
-# Q3 going abroad
-multiple_choice :jsa_how_long_abroad? do
-  option :less_than_a_year_medical
-  option :less_than_a_year_other
-  option :more_than_a_year
-
-  save_input_as :how_long_abroad_jsa
-
-  next_node_if(:jsa_less_than_a_year_medical_outcome, responded_with("less_than_a_year_medical"))
-  next_node_if(:jsa_less_than_a_year_other_outcome, responded_with("less_than_a_year_other"))
-  next_node_if(:which_country?, responded_with("more_than_a_year"))
-end
-
-
 country_select :which_country?,additional_countries: additional_countries, exclude_countries: exclude_countries do
 
   save_input_as :country
@@ -197,24 +183,24 @@ country_select :which_country?,additional_countries: additional_countries, exclu
   end
 end
 
-# Q6
+# Q3
 multiple_choice :working_for_a_uk_employer? do
   option yes: :eligible_for_smp?
   option no: :maternity_benefits_maternity_allowance_outcome # A12
 end
 
-# Q7
+# Q4
 multiple_choice :eligible_for_smp? do
   option yes: :maternity_benefits_eea_entitled_outcome # A13
   option no: :maternity_benefits_maternity_allowance_outcome # A12
 end
 
-# Q8
+# Q5
 multiple_choice :employer_paying_ni? do
   option :yes
   option :no
 
-  #SSP
+  #SSP benefits
   on_condition(variable_matches(:benefit, 'ssp')) do
     on_condition(going_abroad) do
       next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A23
@@ -225,6 +211,7 @@ multiple_choice :employer_paying_ni? do
       next_node(:ssp_already_abroad_not_entitled_outcome) # A26
     end
   end
+  #not SSP benefits
   next_node_if(:eligible_for_smp?, responded_with('yes'))
   on_condition(variable_matches(:country, countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey))) do
     on_condition(already_abroad) do
@@ -235,13 +222,13 @@ multiple_choice :employer_paying_ni? do
   next_node(:maternity_benefits_not_entitled_outcome) # A17
 end
 
-# Q10
+# Q6
 multiple_choice :do_either_of_the_following_apply? do
   option yes: :child_benefit_entitled_outcome # A21
   option no: :child_benefit_not_entitled_outcome # A22
 end
 
-# Q12
+# Q7
 multiple_choice :working_for_uk_employer_ssp? do
   option :yes
   option :no
@@ -256,54 +243,103 @@ multiple_choice :working_for_uk_employer_ssp? do
   end
 end
 
-# # Q13
-# multiple_choice :employer_paying_ni_ssp? do
-#   option :yes
-#   option :no
-
-#   on_condition(going_abroad) do
-#     next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A23
-#     next_node(:ssp_going_abroad_not_entitled_outcome) # A25
-#   end
-#   on_condition(already_abroad) do
-#     next_node_if(:ssp_already_abroad_entitled_outcome, responded_with('yes')) # A24
-#     next_node(:ssp_already_abroad_not_entitled_outcome) # A26
-#   end
-# end
-
-# Q14
+# Q8
 multiple_choice :eligible_for_tax_credits? do
   option :crown_servant => :tax_credits_crown_servant_outcome # A27
   option :cross_border_worker => :tax_credits_cross_border_worker_outcome # A28
   option :none_of_the_above => :tax_credits_how_long_abroad?
 end
 
-# Q15
-multiple_choice :tax_credits_how_long_abroad? do
-  option tax_credits_up_to_a_year: :tax_credits_why_going_abroad? # Q19
-  option tax_credits_more_than_a_year: :tax_credits_children? # Q16
-end
-
-# Q16
+# Q9
 multiple_choice :tax_credits_children? do
   option yes: :which_country? # Q17
   option no: :tax_credits_unlikely_outcome # A29
 end
 
-# Q18
+# Q10
 multiple_choice :tax_credits_currently_claiming? do
   option yes: :tax_credits_eea_entitled_outcome # A30
   option no: :tax_credits_unlikely_outcome # A29
 end
 
-# Q19
+# Q11
 multiple_choice :tax_credits_why_going_abroad? do
   option tax_credits_holiday: :tax_credits_holiday_outcome # A31
   option tax_credits_medical_treatment: :tax_credits_medical_death_outcome #A32
   option tax_credits_death: :tax_credits_medical_death_outcome #A32
 end
 
-# Q20
+# Q12
+multiple_choice :iidb_already_claiming? do
+  option yes: :which_country? # Q3b
+  option no: :iidb_maybe_outcome # A41
+end
+
+# Q13
+multiple_choice :db_claiming_benefits? do
+  option :yes
+  option :no
+
+  on_condition(going_abroad) do
+    next_node_if(:db_going_abroad_eea_outcome, responded_with('yes')) # A52
+    next_node(:db_going_abroad_other_outcome) # A50
+  end
+  on_condition(already_abroad) do
+    next_node_if(:db_already_abroad_eea_outcome, responded_with('yes')) # A53
+    next_node(:db_already_abroad_other_outcome) # A51
+  end
+end
+
+# Q14
+multiple_choice :is_claiming_benefits? do
+  option yes: :is_claiming_benefits_outcome # A62
+  option no: :is_either_of_the_following? # Q30
+end
+
+# Q15
+multiple_choice :is_either_of_the_following? do
+  option yes: :is_abroad_for_treatment? # Q31
+  option no: :is_any_of_the_following_apply? # Q33
+end
+
+# Q16
+multiple_choice :is_abroad_for_treatment? do
+  option yes: :is_abroad_for_treatment_outcome # A63
+  option no: :is_work_or_sick_pay? # Q32
+end
+
+# Q17
+multiple_choice :is_work_or_sick_pay? do
+  option yes: :is_abroad_for_treatment_outcome # A63
+  option no: :is_not_eligible_outcome # A64
+end
+
+# Q18
+multiple_choice :is_any_of_the_following_apply? do
+  option yes: :is_not_eligible_outcome # A64
+  option no: :is_abroad_for_treatment_outcome # A63
+end
+
+# Going abroad questions
+# Going abroad Q1 JSA
+multiple_choice :jsa_how_long_abroad? do
+  option :less_than_a_year_medical
+  option :less_than_a_year_other
+  option :more_than_a_year
+
+  save_input_as :how_long_abroad_jsa
+
+  next_node_if(:jsa_less_than_a_year_medical_outcome, responded_with("less_than_a_year_medical"))
+  next_node_if(:jsa_less_than_a_year_other_outcome, responded_with("less_than_a_year_other"))
+  next_node_if(:which_country?, responded_with("more_than_a_year"))
+end
+# Going abroad Q2 tax credits
+multiple_choice :tax_credits_how_long_abroad? do
+  option tax_credits_up_to_a_year: :tax_credits_why_going_abroad? # Q19
+  option tax_credits_more_than_a_year: :tax_credits_children? # Q16
+end
+
+# Going abroad Q3 ESA
 multiple_choice :esa_how_long_abroad? do
   option :esa_under_a_year_medical
   option :esa_under_a_year_other
@@ -320,13 +356,7 @@ multiple_choice :esa_how_long_abroad? do
   next_node(:which_country?)
 end
 
-# Q22
-multiple_choice :iidb_already_claiming? do
-  option yes: :which_country? # Q3b
-  option no: :iidb_maybe_outcome # A41
-end
-
-# Q24
+# Going abroad Q4 Disability Benefits
 multiple_choice :db_how_long_abroad? do
   option :temporary
   option :permanent => :which_country? # Q25
@@ -335,56 +365,11 @@ multiple_choice :db_how_long_abroad? do
   next_node(:db_already_abroad_temporary_outcome) # A49
 end
 
-# Q26
-multiple_choice :db_claiming_benefits? do
-  option :yes
-  option :no
-
-  on_condition(going_abroad) do
-    next_node_if(:db_going_abroad_eea_outcome, responded_with('yes')) # A52
-    next_node(:db_going_abroad_other_outcome) # A50
-  end
-  on_condition(already_abroad) do
-    next_node_if(:db_already_abroad_eea_outcome, responded_with('yes')) # A53
-    next_node(:db_already_abroad_other_outcome) # A51
-  end
-end
-
-# Q28
+# Going abroad Q5 Income Support
 multiple_choice :is_how_long_abroad? do
   option is_under_a_year_medical: :is_under_a_year_medical_outcome # A60
   option is_under_a_year_other: :is_claiming_benefits? # Q29
   option is_more_than_a_year: :is_more_than_a_year_outcome # A61
-end
-
-# Q29
-multiple_choice :is_claiming_benefits? do
-  option yes: :is_claiming_benefits_outcome # A62
-  option no: :is_either_of_the_following? # Q30
-end
-
-# Q30
-multiple_choice :is_either_of_the_following? do
-  option yes: :is_abroad_for_treatment? # Q31
-  option no: :is_any_of_the_following_apply? # Q33
-end
-
-# Q31
-multiple_choice :is_abroad_for_treatment? do
-  option yes: :is_abroad_for_treatment_outcome # A63
-  option no: :is_work_or_sick_pay? # Q32
-end
-
-# Q32
-multiple_choice :is_work_or_sick_pay? do
-  option yes: :is_abroad_for_treatment_outcome # A63
-  option no: :is_not_eligible_outcome # A64
-end
-
-# Q33
-multiple_choice :is_any_of_the_following_apply? do
-  option yes: :is_not_eligible_outcome # A64
-  option no: :is_abroad_for_treatment_outcome # A63
 end
 
 outcome :jsa_less_than_a_year_medical_outcome # A1

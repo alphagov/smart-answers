@@ -118,54 +118,34 @@ en-GB:
           bereavement_benefits: "Bereavement benefits"
           tax_credits: "Tax credits"
           income_support: "Income Support"
-
-# Q3a
-      jsa_how_long_abroad?:
-        title: |
-          If you’re claiming JSA, how long are you going abroad for?
-        body: |
-          *[JSA]: Jobseeker’s Allowance
-        options:
-          less_than_a_year_medical: "Less than 1 year, to get medical treatment for yourself or your child "
-          less_than_a_year_other: "Less than 1 year, for a different reason"
-          more_than_a_year: "More than 1 year"
-
-
-
-# Q6
+# Q3
       working_for_a_uk_employer?:
         title: |
           Are you working for a UK employer and paying Class 1 National Insurance Contributions?
         body: |
           If you're unsure you can read our [National Insurance Guide](/national-insurance/how-much-national-insurance-you-pay).
-
-# Q7
+# Q4
       eligible_for_smp?:
         title: Are you eligible for Statutory Maternity Pay?
         body: |
           If you're unsure you can read our [Maternity pay and leave guide](/statutory-maternity-pay#eligibility)
 
-# Q8
+# Q5
       employer_paying_ni?:
         title: |
           Is your employer paying National Insurance contributions for you?
 
-# Q10
+# Q6
       do_either_of_the_following_apply?:
         title: Do either of the following apply to you?
         body: |
           * you’re paying National Insurance contributions in the UK
           * you’re currently receiving at least one of the following UK benefits (Jobseeker's Allowance, Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit)
 
-# Q12
+# Q7
       working_for_uk_employer_ssp?:
         title: Are you working for a UK employer?
-
-# Q13
-      employer_paying_ni_ssp?:
-        title: Is your employer paying National Insurance contributions for you?
-
-# Q14
+# Q8
       eligible_for_tax_credits?:
         title: Are you or your partner one of the following?
         options:
@@ -177,18 +157,11 @@ en-GB:
 
           A cross-border worker is someone who regularly travels to or from another country to work.
 
-# Q15
-      tax_credits_how_long_abroad?:
-        title: %{how_long_question_titles}
-        options:
-          tax_credits_up_to_a_year: Up to 1 year
-          tax_credits_more_than_a_year: More than 1 year
-
-# Q16
+# Q9
       tax_credits_children?:
         title: Do you have any children?
 
-# Q18
+# Q10
       tax_credits_currently_claiming?:
         title: Are you currently claiming any of the following?
         body: |
@@ -199,8 +172,7 @@ en-GB:
           - Industrial Injuries Disablement Benefit
           - contribution-based Employment and Support Allowance
           - Severe Disablement Allowance
-
-# Q19
+# Q11
       tax_credits_why_going_abroad?:
         title: Why are you going abroad?
         options:
@@ -208,40 +180,15 @@ en-GB:
           tax_credits_medical_treatment: For medical treatment for yourself, your partner or your child
           tax_credits_death: Because of the death of your partner, child or close family member
 
-# Q20
-      esa_how_long_abroad?:
-        title: %{how_long_question_titles}
-        options:
-          esa_under_a_year_medical: Less than 1 year, to get medical treatment for yourself or your child
-          esa_under_a_year_other: Less than 1 year, for a different reason
-          esa_more_than_a_year: More than 1 year%{already_abroad_text_two}
-
-# Q22
+# Q12
       iidb_already_claiming?:
         title: Are you already claiming Industrial Injuries Disablement Benefit?
 
-# Q24
-      db_how_long_abroad?:
-        title: %{how_long_question_titles}
-        options:
-          temporary: Temporarily, eg for a holiday
-          permanent: Permanently
-
-# Q26
+# Q13
       db_claiming_benefits?:
         title: |
           Are you or a family member getting State Pension, Industrial Injuries Benefit, ESA (contributory) or bereavement benefits?
-
-# Q28
-      is_how_long_abroad?:
-        title: How long are you going abroad for?
-        options:
-          is_under_a_year_medical: Less than 1 year, to get medical treatment for you or your child
-          is_under_a_year_other: Less than 1 year, for a different reason
-          is_more_than_a_year: More than 1 year
-        hint: You can’t apply for Income Support from abroad.
-
-# Q29
+# Q14
       is_claiming_benefits?:
         title: |
           Are you travelling abroad with a partner who is getting Income Support with one of the following premiums:
@@ -252,20 +199,19 @@ en-GB:
           - the [Severe Disability premium](/disability-premiums-income-support/eligibility)
         hint: |
           Your partner must be getting the premium, not you.
-
-# Q30
+# Q15
       is_either_of_the_following?:
         title: "Are you getting Income Support while either:"
         body: |
           - getting [Statutory Sick Pay](/statutory-sick-pay/)
           - incapable of work, but being treated as capable of work because you are temporarily disqualified from receiving Income Support
 
-# Q31
+# Q16
       is_abroad_for_treatment?:
         title: |
           Are you going abroad to get medical treatment for the illness or disability that prevents you from working?
 
-# Q32
+# Q17
       is_work_or_sick_pay?:
         title: |
           Have you been unable to work or received Statutory Sick Pay for one of the following:
@@ -273,13 +219,54 @@ en-GB:
           - 364 days
           - 196 days if you’re terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)
 
-# Q33
+# Q18
       is_any_of_the_following_apply?:
         title: "Are you one of the following:"
         body: |
           - affected by a trades dispute (eg on strike)
           -  age 16 to 19 and in full-time secondary education
           - appealing against a decision about your ability to work
+
+# Going abroad questions
+# Going abroad Q1 JSA
+      jsa_how_long_abroad?:
+        title: |
+          If you’re claiming JSA, how long are you going abroad for?
+        body: |
+          *[JSA]: Jobseeker’s Allowance
+        options:
+          less_than_a_year_medical: "Less than 1 year, to get medical treatment for yourself or your child "
+          less_than_a_year_other: "Less than 1 year, for a different reason"
+          more_than_a_year: "More than 1 year"
+# Going abroad Q2 tax credits
+      tax_credits_how_long_abroad?:
+        title: %{how_long_question_titles}
+        options:
+          tax_credits_up_to_a_year: Up to 1 year
+          tax_credits_more_than_a_year: More than 1 year
+# Going abroad Q3 ESA
+      esa_how_long_abroad?:
+        title: %{how_long_question_titles}
+        options:
+          esa_under_a_year_medical: Less than 1 year, to get medical treatment for yourself or your child
+          esa_under_a_year_other: Less than 1 year, for a different reason
+          esa_more_than_a_year: More than 1 year%{already_abroad_text_two}
+# Going abroad Q4 Disability Benefits
+      db_how_long_abroad?:
+        title: %{how_long_question_titles}
+        options:
+          temporary: Temporarily, eg for a holiday
+          permanent: Permanently
+# Going abroad Q5 Income Support
+      is_how_long_abroad?:
+        title: How long are you going abroad for?
+        options:
+          is_under_a_year_medical: Less than 1 year, to get medical treatment for you or your child
+          is_under_a_year_other: Less than 1 year, for a different reason
+          is_more_than_a_year: More than 1 year
+        hint: You can’t apply for Income Support from abroad.
+
+
 
 
 # A1
