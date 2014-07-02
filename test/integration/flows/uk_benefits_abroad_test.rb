@@ -97,8 +97,9 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
       end
     end
-  end
-end
+    
+#   end
+# end
 #     # State Pension
 #     context "answer State Pension" do
 #       setup do
@@ -109,31 +110,33 @@ end
 #       end
 #     end
 
-#     # Winter Fuel Payment
-#     context "answer WFP" do
-#       setup do
-#         add_response 'winter_fuel_payment'
-#       end
-#       should "ask you which country you are moving to" do
-#         assert_current_node :which_country_wfp?
-#       end
-#       context "answer EEA country" do
-#         setup do
-#           add_response 'austria'
-#         end
-#         should "take you to eligible outcome" do
-#           assert_current_node :wfp_eea_eligible_outcome
-#         end
-#       end
-#       context "answer other country" do
-#         setup do
-#           add_response 'albania'
-#         end
-#         should "take you to not eligible outcome" do
-#           assert_current_node :wfp_not_eligible_outcome
-#         end
-#       end
-#     end
+    # Winter Fuel Payment
+    context "answer WFP" do
+      setup do
+        add_response 'winter_fuel_payment'
+      end
+      should "ask you which country you are moving to" do
+        assert_current_node :which_country?
+      end
+      context "answer EEA country" do
+        setup do
+          add_response 'austria'
+        end
+        should "take you to eligible outcome" do
+          assert_current_node :wfp_eea_eligible_outcome
+        end
+      end
+      context "answer other country" do
+        setup do
+          add_response 'albania'
+        end
+        should "take you to not eligible outcome" do
+          assert_current_node :wfp_not_eligible_outcome
+        end
+      end
+    end
+  end
+end
 
 #     # Maternity benefits
 #     context "answer maternity benefits" do
