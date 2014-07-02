@@ -1158,14 +1158,18 @@ outcome :outcome_ss_marriage do
   precalculate :ss_ceremony_body do
     phrases = PhraseList.new
     phrases << :"able_to_#{marriage_and_partnership_phrases}"
-    if data_query.ss_clickbook_countries?(ceremony_country)
+    if %w(japan).include?(ceremony_country)
+      phrases << :consular_cp_japan
+    elsif data_query.ss_clickbook_countries?(ceremony_country)
       phrases << :"book_online_#{ceremony_country}"
     else
       phrases << :contact_embassy_or_consulate << :embassies_data
     end
-    phrases << :"documents_needed_#{marriage_and_partnership_phrases}" <<
-                :"what_to_do_#{marriage_and_partnership_phrases}" <<
-                :"fees_table_#{ss_fees_table}"
+    unless %w(japan).include?(ceremony_country)
+      phrases << :"documents_needed_#{marriage_and_partnership_phrases}"
+    end
+    phrases << :"what_to_do_#{marriage_and_partnership_phrases}" << :partner_naturalisation_in_uk <<
+                :"fees_table_#{ss_fees_table}" << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
     phrases
   end
 end
