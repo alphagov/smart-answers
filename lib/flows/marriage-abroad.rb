@@ -765,6 +765,8 @@ outcome :outcome_os_consular_cni do
           unless %w(cote-d-ivoire).include?(ceremony_country)
             if %w(monaco).include?(ceremony_country)
               phrases << :list_of_consular_fees_france
+            elsif %w(kazakhstan).include?(ceremony_country)
+              phrases << :list_of_consular_kazakhstan
             else
               phrases << :list_of_consular_fees
             end

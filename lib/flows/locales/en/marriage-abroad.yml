@@ -130,6 +130,8 @@ en-GB:
     #fees
         list_of_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+        list_of_consular_kazakhstan: |
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
         list_of_consular_fees_france: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/france-consular-fees).
       #what you need to do phrases
@@ -1040,7 +1042,7 @@ en-GB:
           -|-
           Affirmation for freedom to marry in English | £45
           Affirmation for freedom to marry in any other language | £70
-          
+
         affirmation_os_all_fees_55_70: |
           ##Fees
 
@@ -1578,7 +1580,7 @@ en-GB:
           s1. Download the [certificate of custom law application form](/government/publications/application-for-a-certificate-of-custom-law-for-marriage-france).
           s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
-          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See [consular fees for France](/government/publications/france-consular-fees) for the current fee.
+          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See fee 11 on [consular fees for France](/government/publications/france-consular-fees) for the current fee.
           s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
 
 
