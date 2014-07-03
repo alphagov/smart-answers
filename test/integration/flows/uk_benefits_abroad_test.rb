@@ -678,6 +678,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "ask how long you're gong abroad for" do
         assert_current_node :db_how_long_abroad?
+        assert_phrase_list :how_long_question_titles, [:disability_benefits_how_long_question_title]
       end
       context "answer temporarily" do
         setup do
