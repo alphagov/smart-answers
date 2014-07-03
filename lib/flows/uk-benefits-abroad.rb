@@ -32,9 +32,6 @@ multiple_choice :going_or_already_abroad? do
     PhraseList.new(:"#{going_or_already_abroad}_country_question_title")
   end
 
-  calculate :how_long_question_titles do
-    PhraseList.new(:"#{going_or_already_abroad}_how_long_question_title")
-  end
 
   calculate :already_abroad_text do
     if responses.last == 'already_abroad'
@@ -73,6 +70,14 @@ multiple_choice :which_benefit? do
   option :income_support
 
   save_input_as :benefit
+
+  calculate :how_long_question_titles do
+    if benefit == "disability_benefits"
+      PhraseList.new(:"#{benefit}_how_long_question_title")
+    else
+      PhraseList.new(:"#{going_or_already_abroad}_how_long_question_title")
+    end
+  end
 
   on_condition(going_abroad) do
     next_node_if(:jsa_how_long_abroad?, responded_with('jsa'))
