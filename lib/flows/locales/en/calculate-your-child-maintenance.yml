@@ -139,6 +139,8 @@ en-GB:
 
 
           You will pay up to £%{total_yearly_fees} in fees per year if you %{collect_and_pay_service} child maintenance through the Collect and Pay service.
+          
+          ^You don’t have to pay an application fee if you’re in Northern Ireland.^
 
           %{enforcement_charge}
 
@@ -163,6 +165,8 @@ en-GB:
 
 
           You will pay up to £%{total_yearly_fees} in fees per year if you %{collect_and_pay_service} child maintenance through the Collect and Pay service.
+          
+          ^You don’t have to pay an application fee if you’re in Northern Ireland.^
 
           %{enforcement_charge}
 
