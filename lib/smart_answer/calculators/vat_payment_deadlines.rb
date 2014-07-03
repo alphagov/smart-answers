@@ -44,7 +44,9 @@ module SmartAnswer::Calculators
         # Select previous working day if not a work_day
         0.working_days.before(end_of_month_after(@period_end_date) + 7.days)
       when 'chaps'
-        5.working_days.after(end_of_month_after(@period_end_date))
+        receiving_by_date = end_of_month_after(@period_end_date) + 7.days
+        receiving_by_date -= 1 while !receiving_by_date.workday?
+        receiving_by_date
       when 'cheque'
         # Select previous working day if not a work_day
         0.working_days.before(end_of_month_after(@period_end_date))
