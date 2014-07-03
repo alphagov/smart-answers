@@ -72,10 +72,6 @@ date_question :dob_age? do
     end
   end
 
-  calculate :formatted_pension_pack_date do
-    4.months.ago(state_pension_date).strftime("%B %Y")
-  end
-
   calculate :available_ni_years do
     calculator.ni_years_to_date_from_dob
   end
@@ -148,6 +144,8 @@ date_question :dob_amount? do
     calculator.ni_years_to_date_from_dob
   end
 
+  validate { |response| Date.parse(response) <= Date.today }
+
   define_predicate(:before_state_pension_date?) do |response|
     calc = Calculators::StatePensionAmountCalculatorV2.new(gender: gender, dob: response)
     calc.before_state_pension_date?
@@ -158,7 +156,31 @@ date_question :dob_amount? do
     calc.under_20_years_old?
   end
 
-  validate { |response| Date.parse(response) <= Date.today }
+  define_predicate(:woman_and_born_in_date_range?) do |response|
+    (Date.parse('6 April 1953')..Date.parse('5 April 1961')).cover?(Date.parse(response)) && gender == "female"
+  end
+
+  next_node_if(:pay_reduced_ni_rate?, woman_and_born_in_date_range?)
+  on_condition(before_state_pension_date?) do
+    next_node_if(:too_young, under_20_years_old?)
+    next_node :years_paid_ni?
+  end
+  next_node :reached_state_pension_age
+end
+
+# Q3a
+multiple_choice :pay_reduced_ni_rate? do
+  option :yes
+  option :no
+  save_input_as :pays_reduced_ni_rate
+
+  define_predicate(:before_state_pension_date?) {
+    calculator.before_state_pension_date?
+  }
+
+  define_predicate(:under_20_years_old?) {
+    calculator.under_20_years_old?
+  }
 
   on_condition(before_state_pension_date?) do
     next_node_if(:too_young, under_20_years_old?)
@@ -399,8 +421,25 @@ value_question :years_of_work? do
     qy
   end
 
-  next_node :amount_result
+  next_node_calculation :ni do |response|
+    response.to_i + qualifying_years
+  end
 
+  define_predicate(:new_rules_and_less_than_10_ni?) {
+    (ni < 10) && (calculator.state_pension_date > Date.parse('6 April 2016'))
+  }
+
+  next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
+  next_node :amount_result
+end
+
+## Q11
+multiple_choice :lived_or_worked_outside_uk? do
+  option :yes
+  option :no
+  save_input_as :lived_or_worked_abroad
+
+  next_node :amount_result
 end
 
 outcome :near_state_pension_age
@@ -495,9 +534,7 @@ outcome :amount_result do
 
     if calc.within_four_months_one_day_from_state_pension?
       phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years : :within_4_months_not_enough_qy_years)
-      if Date.today < calc.state_pension_date - 35
-        phrases << :pension_statement
-      end
+      phrases << :pension_statement if Date.today < calc.state_pension_date - 35
       phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years_more : :within_4_months_not_enough_qy_years_more)
       phrases << :automatic_years_phrase if auto_years_entitlement and !enough_qualifying_years
     elsif calculator.state_pension_date >= Date.parse('2016-04-06')
@@ -506,6 +543,8 @@ outcome :amount_result do
         phrases << :ten_and_greater
       else
         phrases << :less_than_ten
+        phrases << :reduced_rate_election if pays_reduced_ni_rate == "yes"
+        phrases << :lived_or_worked_overseas if lived_or_worked_abroad == "yes"
       end
       phrases << :too_few_qy_enough_remaining_years_a
       phrases << :automatic_years_phrase if auto_years_entitlement
@@ -514,7 +553,6 @@ outcome :amount_result do
       phrases << :automatic_years_phrase if auto_years_entitlement
     else
       phrases << :you_get_full_state_pension
-      phrases << :automatic_years_phrase if auto_years_entitlement
     end
     phrases
   end

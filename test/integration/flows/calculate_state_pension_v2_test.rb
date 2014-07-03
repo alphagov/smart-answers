@@ -85,7 +85,6 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
           assert_phrase_list :state_pension_age_statement, [:state_pension_age_was, :pension_credit_past, :bus_pass]
           assert_state_variable "state_pension_age", "65 years"
           assert_state_variable "formatted_state_pension_date", " 6 April 2010"
-          assert_state_variable "formatted_pension_pack_date", "December 2009"
         end
       end # born on 6th of April
 
@@ -690,6 +689,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         end
         should "return amount_result" do
           add_response Date.parse("8th October 1960")
+          add_response :yes
           add_response 25   # ni years
           add_response 1    # jsa years
           add_response :no
@@ -702,6 +702,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         setup do
           Timecop.travel('2014-05-06')
           add_response Date.parse("8th October 1953")
+          add_response :no
           add_response 25
         end
 
@@ -766,7 +767,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       context "(testing from years_of_benefit) age 40, NI = 5, JSA = 5, cb = yes " do
         setup do
           Timecop.travel('2014-05-06')
-   add_response Date.civil(40.years.ago.year, 4, 7)
+          add_response Date.civil(40.years.ago.year, 4, 7)
           add_response 10
           add_response 5
           add_response :yes
@@ -835,6 +836,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         setup do
           Timecop.travel('2014-05-06')
           add_response Date.parse("5th May 1958")
+          add_response :yes
           add_response 20
           add_response 7
           add_response :no
@@ -859,6 +861,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       context "58 years old" do
         setup do
           add_response 58.years.ago
+          add_response :no
         end
 
         should "ask for number of years paid NI" do
@@ -921,6 +924,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         setup do
           Timecop.travel('2014-05-06')
           add_response Date.parse('1959-01-01')
+          add_response :yes
           add_response 20
           add_response 4
           add_response :yes
@@ -939,6 +943,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         setup do
           Timecop.travel('2014-05-06')
           add_response Date.parse('1957-12-01')
+          add_response :no
           add_response 20
           add_response 0
           add_response :no
@@ -984,6 +989,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         Timecop.travel('2014-05-06')
         add_response 'female'
         add_response Date.parse('1958-05-10')
+        add_response :yes
         add_response 34
         add_response 0 # unemployment, sickness
         add_response 'no' # child benefit
@@ -1175,6 +1181,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       should "show results form additional HMRC test case" do
         add_response :female
         add_response Date.parse('6 April 1958')
+        add_response :no
         add_response 31
         add_response 0
         add_response 'yes'
@@ -1207,6 +1214,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       should "show results for female and 40 available years" do
         add_response :female
         add_response Date.parse('12 November 1954')
+        add_response :yes
         add_response 38
         add_response 1 # unemployment, sickness
         add_response 'yes' # child benefit
@@ -1271,6 +1279,23 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 0
         assert_current_node :amount_result
         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years, :automatic_years_phrase]
+      end
+    end
+
+    context "show correct phrases for woman with RRE and lived abroad" do
+      setup do
+        add_response :female
+        add_response Date.parse('4 April 1955')
+        add_response :yes # Reduced Rate Electiion
+        add_response 0 # years of NI
+        add_response 0 # Years of unemployment
+        add_response :no # claimed benefit
+        add_response 0 # years worked between 16 and 19
+        add_response :yes # lived or worked abroad
+      end
+      should "go to outcome and show correct phrases" do
+        assert_current_node :amount_result
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :less_than_ten, :reduced_rate_election, :lived_or_worked_overseas, :too_few_qy_enough_remaining_years_a]
       end
     end
   end #amount calculation
