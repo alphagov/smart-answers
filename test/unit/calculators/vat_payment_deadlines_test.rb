@@ -104,20 +104,46 @@ module SmartAnswer::Calculators
         @method = 'chaps'
       end
 
-      should "calculate last_payment_date as end_of_month_after(end_date) + 7 days" do
-        calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-06-07'), calc.last_payment_date
-      end
+      # should "calculate last_payment_date as end_of_month_after(end_date) + 7 days" do
+      #   calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
+      #   assert_equal Date.parse('2013-06-07'), calc.last_payment_date
+      # end
 
-      should "calculate funds_received_by as end_of_month_after(end_date) + 7 days" do
-        calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-        assert_equal Date.parse('2013-06-07'), calc.funds_received_by
-      end
+      # should "calculate funds_received_by as end_of_month_after(end_date) + 7 days" do
+      #   calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
+      #   assert_equal Date.parse('2013-06-07'), calc.funds_received_by
+      # end
 
-      #date falling in weekend
-      should "calculate funds_received_by as end_of_month_after(end_date) + 7 days = falls in weekend therefore result is preceding working day" do
-        calc = VatPaymentDeadlines.new(Date.parse('2015-04-30'), @method)
-        assert_equal Date.parse('2015-06-05'), calc.funds_received_by
+      # #date falling in weekend
+      # should "calculate funds_received_by as end_of_month_after(end_date) + 7 days = falls in weekend therefore result is preceding working day" do
+      #   calc = VatPaymentDeadlines.new(Date.parse('2015-04-30'), @method)
+      #   assert_equal Date.parse('2015-06-05'), calc.funds_received_by
+      # end
+
+      should "The last date you can pay is [period_end_date + 1 calendar month + 7 calendar days. If the 7th is a BH or WE go back to the last preceding working day. Same for either payment date and funds_received_by date" do
+        calc = VatPaymentDeadlines.new(Date.parse('2013-11-30'), @method)
+        assert_equal Date.parse('2014-01-07'), calc.last_payment_date
+        assert_equal Date.parse('2014-01-07'), calc.funds_received_by
+
+        calc = VatPaymentDeadlines.new(Date.parse('2014-03-31'), @method)
+        assert_equal Date.parse('2014-05-07'), calc.last_payment_date
+        assert_equal Date.parse('2014-05-07'), calc.funds_received_by
+
+        calc = VatPaymentDeadlines.new(Date.parse('2014-11-30'), @method)
+        assert_equal Date.parse('2015-01-07'), calc.last_payment_date
+        assert_equal Date.parse('2015-01-07'), calc.funds_received_by
+
+        calc = VatPaymentDeadlines.new(Date.parse('2015-02-28'), @method)
+        assert_equal Date.parse('2015-04-07'), calc.last_payment_date
+        assert_equal Date.parse('2015-04-07'), calc.funds_received_by
+
+        calc = VatPaymentDeadlines.new(Date.parse('2015-03-31'), @method)
+        assert_equal Date.parse('2015-05-07'), calc.last_payment_date
+        assert_equal Date.parse('2015-05-07'), calc.funds_received_by
+
+        calc = VatPaymentDeadlines.new(Date.parse('2015-11-30'), @method)
+        assert_equal Date.parse('2016-01-07'), calc.last_payment_date
+        assert_equal Date.parse('2016-01-07'), calc.funds_received_by
       end
     end
 
