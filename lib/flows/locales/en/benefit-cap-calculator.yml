@@ -123,13 +123,13 @@ en-GB:
           carers: Carer's Allowance
           child_benefit: Child Benefit
           child_tax: Child Tax Credit
-          esa: Employment and Support Allowance (don't include if you get the support component)                  
+          esa: Employment and Support Allowance                  
           guardian: Guardian's Allowance
-          incapacity: Incapacity Allowance
+          incapacity: Incapacity Benefit
           income_support: Income Support
           jsa: Jobseeker’s Allowance
           maternity: Maternity Allowance
-          sda: Severe Disability Allowance
+          sda: Severe Disablement Allowance
           widowed_mother: Widowed Mother's Allowance
           widowed_parent: Widowed Parent's Allowance
           widow_pension: Widow's Pension
