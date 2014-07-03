@@ -820,6 +820,8 @@ outcome :outcome_os_affirmation do
     end
     if %w(turkey).include?(ceremony_country) and %w(uk).include?(resident_of)
       phrases << :appointment_for_affidavit_notary
+    elsif %w(philippines).include?(ceremony_country)
+      phrases << :contact_for_affidavit << :make_appointment_online
     else
       phrases << :appointment_for_affidavit
       if %w(turkey).include?(ceremony_country)
@@ -867,6 +869,8 @@ outcome :outcome_os_affirmation do
 
     if %w(turkey vietnam thailand south-korea).include?(ceremony_country)
       phrases << :fee_table_affirmation
+    elsif %w(philippines).include?(ceremony_country)
+      phrases << :affirmation_os_all_fees_55_70
     else
       phrases << :affirmation_os_all_fees
     end
