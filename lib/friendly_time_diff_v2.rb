@@ -1,7 +1,9 @@
 module FriendlyTimeDiffV2
+  # Returns a more specific age between two given dates
+  # in the readable format of years, months and days.
 
   def friendly_time_diff_v2(from_time, to_time)
-    FriendlyDateDiff.new(from_time.to_date, to_time.to_date).describe
+    FriendlyDateDiffV2.new(from_time.to_date, to_time.to_date).describe
   end
 
 private
@@ -49,7 +51,13 @@ private
 
     def whole_days_away
       closest_month_anniversary_before_to_date = (from_date >> month_difference)
-      (to_date - closest_month_anniversary_before_to_date).to_i
+      days = (to_date - closest_month_anniversary_before_to_date).to_i
+      days -= 1 if leap_year_birthday?
+      days
+    end
+
+    def leap_year_birthday?
+      Date.new(from_date.year).leap? && (from_date.month == 2 && from_date.day == 29)
     end
   end
 end

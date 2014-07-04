@@ -588,8 +588,7 @@ module SmartAnswer::Calculators
         should "67 years; dob: 1968-02-29; pension date: 2034-03-01 " do
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
               gender: "male", dob: "1968-02-29", qualifying_years: nil)
-          # assert_equal "65 years, 10 months and 23 days", @calculator.state_pension_age
-          assert_equal "67 years, 1 day", @calculator.state_pension_age
+          assert_equal "67 years", @calculator.state_pension_age
           assert_equal Date.parse("2035-03-01"), @calculator.state_pension_date
         end
 
