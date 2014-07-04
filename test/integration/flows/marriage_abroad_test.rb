@@ -8,7 +8,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(argentina anguilla armenia aruba australia austria azerbaijan bahamas belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma cambodia canada china cote-d-ivoire cyprus czech-republic denmark egypt estonia finland france germany indonesia iran ireland italy japan jordan latvia lebanon mayotte mexico monaco netherlands nicaragua north-korea guatemala peru philippines poland portugal russia saudi-arabia serbia slovakia south-africa south-korea spain sweden switzerland thailand turkey united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
+    @location_slugs = %w(argentina anguilla armenia aruba australia austria azerbaijan bahamas belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma cambodia canada china cote-d-ivoire cyprus czech-republic denmark egypt estonia finland france germany indonesia iran ireland italy japan jordan latvia lebanon mayotte mexico monaco netherlands nicaragua north-korea guatemala peru philippines poland portugal russia saudi-arabia serbia slovakia south-africa st-maarten south-korea spain sweden switzerland thailand turkey united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad'
   end
@@ -1877,7 +1877,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'same_sex'
     end
-    should "go to outcome_ss_marriage_not_possible" do
+    should "go to outcome_ss_marriage" do
       assert_current_node :outcome_ss_marriage
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_marriage_and_partnership, :what_to_do_ss_marriage_and_partnership, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
@@ -1892,24 +1892,24 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
     end
-    should "go to outcome_ss_marriage_not_possible" do
+    should "go to affirmation_os_outcome" do
       assert_current_node :outcome_os_affirmation
       assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_may_ask, :book_online_portugal, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :fee_table_affirmation, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  context "Marrying anywhere in the world > British National not living in the UK > Resident in Portugal > Partner of any nationality > Same sex" do
-    setup do
-      worldwide_api_has_organisations_for_location('portugal', read_fixture_file('worldwide/portugal_organisations.json'))
-      worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
-      add_response 'vietnam'
-      add_response 'other'
-      add_response 'portugal'
-      add_response 'partner_other'
-      add_response 'same_sex'
-    end
-    should "go to outcome_ss_marriage_not_possible" do
-      assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :book_online_vietnam, :documents_needed_ss_marriage_and_partnership, :what_to_do_ss_marriage_and_partnership, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
-    end
-  end
+  # context "Test phraselists for Dutch Caribbean Islands where the user lives in the Netherlands" do
+  #   setup do
+  #     # worldwide_api_has_organisations_for_location('st-maarten', read_fixture_file('worldwide/st-maarten_organisations.json'))
+  #     worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
+  #     add_response 'vietnam'
+  #     add_response 'other'
+  #     add_response 'netherlands'
+  #     add_response 'partner_other'
+  #     add_response 'opposite_sex'
+  #   end
+  #   should "go to outcome_os_affirmation" do
+  #     assert_current_node :outcome_os_affirmation
+  #     assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_may_ask, :book_online_portugal, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :fee_table_affirmation, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+  #   end
+  # end
 end

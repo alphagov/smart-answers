@@ -1065,7 +1065,7 @@ en-GB:
         no_cni_os_dutch_caribbean_islands_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         no_cni_os_dutch_caribbean_other_resident: |
-          Contact your nearest Dutch embassy or consulate before making any plans to find out about local marriage laws, including what documents you’ll need.
+          Contact the local authorities before making any plans to find out about local marriage laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_os_not_dutch_caribbean_islands_uk_resident: |

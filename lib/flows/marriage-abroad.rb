@@ -454,11 +454,9 @@ outcome :outcome_os_consular_cni do
       if %w(spain).exclude?(residency_country)
         phrases << :spain_os_consular_cni_not_local_resident
       end
-    end
-    if %w(italy).include?(ceremony_country)
+    elsif %w(italy).include?(ceremony_country)
       phrases << :italy_os_consular_cni_ceremony_italy
-    end
-    unless %w(italy spain).include?(ceremony_country)
+    else
       phrases << :italy_os_consular_cni_ceremony_not_italy_or_spain
     end
 
@@ -905,7 +903,7 @@ outcome :outcome_os_no_cni do
       phrases << :no_cni_os_dutch_caribbean_islands
       if %w(uk).include?(resident_of)
         phrases << :no_cni_os_dutch_caribbean_islands_uk_resident
-      elsif ceremony_country == residency_country
+      elsif (ceremony_country == residency_country) or %w(netherlands).include?(residency_country)
         phrases << :no_cni_os_dutch_caribbean_islands_local_resident
       elsif ceremony_country != residency_country and %w(uk).exclude?(resident_of)
         phrases << :no_cni_os_dutch_caribbean_other_resident
