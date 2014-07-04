@@ -802,7 +802,9 @@ end
 outcome :outcome_os_affirmation do
   precalculate :affirmation_os_outcome do
     phrases = PhraseList.new
-    if %w(uk).include?(resident_of)
+    if %w(portugal).include?(ceremony_country)
+      phrases << :contact_civil_register_office_portugal
+    elsif %w(uk).include?(resident_of)
       phrases << :affirmation_os_uk_resident
     elsif ceremony_country == residency_country
       phrases << :affirmation_os_local_resident
@@ -822,6 +824,8 @@ outcome :outcome_os_affirmation do
     end
     if %w(turkey).include?(ceremony_country) and %w(uk).include?(resident_of)
       phrases << :appointment_for_affidavit_notary
+    elsif %w(portugal).include?(residency_country)
+      phrases << :book_online_portugal
     elsif %w(philippines).include?(ceremony_country)
       phrases << :contact_for_affidavit << :make_appointment_online
     else
@@ -837,7 +841,7 @@ outcome :outcome_os_affirmation do
         phrases << :clickbook_link
       end
     end
-    if %w(turkey).exclude?(ceremony_country)
+    unless %w(turkey).include?(ceremony_country) or %w(portugal).include?(residency_country)
       phrases << :affirmation_os_translation_in_local_language
     end
     phrases << :affirmation_os_download_affidavit_philippines if %w(philippines).include?(ceremony_country)

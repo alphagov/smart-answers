@@ -221,6 +221,8 @@ en-GB:
 
         make_appointment_online: |
           Make an [appointment online](http://britishembassymanila.clickbook.net/) or contact the embassy directly.
+        contact_civil_register_office_portugal: |
+          Contact your nearest [Civil Register Office](http://www.irn.mj.pt/IRN/sections/irn/a_registral/servicos-externos-docs/contactos/contactos-dos-servicos-civil/) in Portugal to find out about local marriage laws, including what documents you’ll need.
 #book online phrases
         book_online_bolivia: |
           Make an [appointment online](https://britishembassylapaz.clickbook.net/sub/britishembassylapaz) at the British Embassy in La Paz.
@@ -240,6 +242,8 @@ en-GB:
           Make an [appointment online](http://britishembassyinlima.clickbook.net/) at the British Embassy in Lima.
         book_online_philippines: |
           Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassymanila) at the British Embassy in Manila.
+        book_online_portugal: |
+          Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishconsulatelis?OpenDocument&cb_referer=#.U57PMF64n8s) at the British Consulate in Lisbon to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         book_online_russia: |
           Make an [appointment online](www.RussiaConsular.clickbook.net) at the British Embassy Moscow.
         book_online_san-marino: |
