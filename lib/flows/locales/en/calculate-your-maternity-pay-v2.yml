@@ -66,7 +66,7 @@ en-GB:
         error_message: Please choose 'yes' or 'no'
 
       have_you_helped_partner_self_employed?:
-        title: Is your partner self-employed and have you been helping with their business?
+        title: Is your spouse or civil partner self-employed and have you been helping with their business?
 
       have_you_been_paid_for_helping_partner?:
         title: Have you been paid for the work you’ve been doing?
@@ -123,9 +123,9 @@ en-GB:
 
         next_steps: |
 
-          * Read the guide
+          * Read the guide to:
 
-           [Maternity Pay and Leave](/maternity-pay-leave)
+           [Maternity pay and leave](/maternity-pay-leave)
 
       # OUTCOME THREE
       you_qualify_for_maternity_allowance:
@@ -140,7 +140,7 @@ en-GB:
 
           Tax will not be deducted.
 
-          You can [claim Maternity Allowance](/maternity-allowance) as soon as you’ve been pregnant for 26 weeks.
+          You can [claim Maternity Allowance](/maternity-allowance/how-to-claim) as soon as you’ve been pregnant for 26 weeks.
 
           Usually, payments start 11 weeks before your baby is due (%{eleven_weeks}).
 
@@ -150,10 +150,10 @@ en-GB:
 
         next_steps: |
 
-          Read the guide to:
+          Read the guides to:
 
           * [Maternity Allowance](/maternity-allowance)
-          * [Maternity Leave](/maternity-pay-leave)
+          * [Maternity leave](/maternity-pay-leave)
 
       # OUTCOME FOUR
       lower_maternity_allowance:
@@ -165,7 +165,7 @@ en-GB:
 
           You can [claim Maternity Allowance](/maternity-allowance/how-to-claim) as soon as you’ve been pregnant for 26 weeks.
 
-          Usually, payments start 11 weeks before your baby is due (%{due_date_minus_11_weeks}).
+         Payments can start 11 weeks before your baby is due, %{due_date_minus_11_weeks}.
 
           %This is an estimate, you must claim Maternity Allowance to find out if you qualify and what you'll get.%
 
