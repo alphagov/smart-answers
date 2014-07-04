@@ -1079,35 +1079,25 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for ceremony in monaco, local resident, partner british
-  context "ceremony in monaco, resident in monaco, partner british" do
+  #testing for ceremony in monaco
+  context "ceremony in monaco, maps to France, marriage" do
     setup do
       worldwide_api_has_organisations_for_location('monaco', read_fixture_file('worldwide/monaco_organisations.json'))
       add_response 'monaco'
-      add_response 'other'
-      add_response 'monaco'
-      add_response 'partner_british'
-      add_response 'opposite_sex'
+      add_response 'marriage'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_islands_local_resident, :get_legal_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees_france, :pay_by_cash_or_credit_card_no_cheque]
+      assert_current_node :outcome_os_france_or_fot
     end
   end
-  #testing for ceremony in aruba, other resident, partner irish
-  context "ceremony in monaco, resident in poland, partner irish" do
+  context "ceremony in monaco, maps to France, pacs" do
     setup do
       worldwide_api_has_organisations_for_location('monaco', read_fixture_file('worldwide/monaco_organisations.json'))
-      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'monaco'
-      add_response 'other'
-      add_response 'poland'
-      add_response 'partner_irish'
-      add_response 'opposite_sex'
+      add_response 'pacs'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :get_legal_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees_france, :pay_by_cash_or_credit_card_no_cheque, :no_cni_os_naturalisation]
+      assert_current_node :outcome_cp_france_pacs
     end
   end
   #testing for ceremony in usa
@@ -1897,19 +1887,4 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_may_ask, :book_online_portugal, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :fee_table_affirmation, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  # context "Test phraselists for Dutch Caribbean Islands where the user lives in the Netherlands" do
-  #   setup do
-  #     # worldwide_api_has_organisations_for_location('st-maarten', read_fixture_file('worldwide/st-maarten_organisations.json'))
-  #     worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
-  #     add_response 'vietnam'
-  #     add_response 'other'
-  #     add_response 'netherlands'
-  #     add_response 'partner_other'
-  #     add_response 'opposite_sex'
-  #   end
-  #   should "go to outcome_os_affirmation" do
-  #     assert_current_node :outcome_os_affirmation
-  #     assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_may_ask, :book_online_portugal, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :fee_table_affirmation, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
-  #   end
-  # end
 end

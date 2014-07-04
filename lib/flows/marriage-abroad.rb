@@ -81,8 +81,8 @@ country_select :country_of_ceremony?, exclude_countries: exclude_countries do
   end
 
   next_node_if(:partner_opposite_or_same_sex?, responded_with('ireland'))
-  next_node_if(:marriage_or_pacs?, responded_with(%w(france new-caledonia wallis-and-futuna)))
-  next_node_if(:outcome_os_france_or_fot, ->(response) { data_query.french_overseas_territories?(response) })
+  next_node_if(:marriage_or_pacs?, responded_with(%w(france monaco new-caledonia wallis-and-futuna)))
+  next_node_if(:outcome_os_france_or_fot, ->(response) { data_query.french_overseas_territories?(response)})
   next_node(:legal_residency?)
 end
 
