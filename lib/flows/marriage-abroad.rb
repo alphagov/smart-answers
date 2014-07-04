@@ -81,8 +81,8 @@ country_select :country_of_ceremony?, exclude_countries: exclude_countries do
   end
 
   next_node_if(:partner_opposite_or_same_sex?, responded_with('ireland'))
-  next_node_if(:marriage_or_pacs?, responded_with(%w(france new-caledonia wallis-and-futuna)))
-  next_node_if(:outcome_os_france_or_fot, ->(response) { data_query.french_overseas_territories?(response) })
+  next_node_if(:marriage_or_pacs?, responded_with(%w(france monaco new-caledonia wallis-and-futuna)))
+  next_node_if(:outcome_os_france_or_fot, ->(response) { data_query.french_overseas_territories?(response)})
   next_node(:legal_residency?)
 end
 
@@ -454,11 +454,9 @@ outcome :outcome_os_consular_cni do
       if %w(spain).exclude?(residency_country)
         phrases << :spain_os_consular_cni_not_local_resident
       end
-    end
-    if %w(italy).include?(ceremony_country)
+    elsif %w(italy).include?(ceremony_country)
       phrases << :italy_os_consular_cni_ceremony_italy
-    end
-    unless %w(italy spain).include?(ceremony_country)
+    else
       phrases << :italy_os_consular_cni_ceremony_not_italy_or_spain
     end
 
@@ -765,6 +763,8 @@ outcome :outcome_os_consular_cni do
           unless %w(cote-d-ivoire).include?(ceremony_country)
             if %w(monaco).include?(ceremony_country)
               phrases << :list_of_consular_fees_france
+            elsif %w(kazakhstan).include?(ceremony_country)
+              phrases << :list_of_consular_kazakhstan
             else
               phrases << :list_of_consular_fees
             end
@@ -800,7 +800,9 @@ end
 outcome :outcome_os_affirmation do
   precalculate :affirmation_os_outcome do
     phrases = PhraseList.new
-    if %w(uk).include?(resident_of)
+    if %w(portugal).include?(ceremony_country)
+      phrases << :contact_civil_register_office_portugal
+    elsif %w(uk).include?(resident_of)
       phrases << :affirmation_os_uk_resident
     elsif ceremony_country == residency_country
       phrases << :affirmation_os_local_resident
@@ -820,6 +822,10 @@ outcome :outcome_os_affirmation do
     end
     if %w(turkey).include?(ceremony_country) and %w(uk).include?(resident_of)
       phrases << :appointment_for_affidavit_notary
+    elsif %w(portugal).include?(residency_country)
+      phrases << :book_online_portugal
+    elsif %w(philippines).include?(ceremony_country)
+      phrases << :contact_for_affidavit << :make_appointment_online
     else
       phrases << :appointment_for_affidavit
       if %w(turkey).include?(ceremony_country)
@@ -833,7 +839,7 @@ outcome :outcome_os_affirmation do
         phrases << :clickbook_link
       end
     end
-    if %w(turkey).exclude?(ceremony_country)
+    unless %w(turkey).include?(ceremony_country) or %w(portugal).include?(residency_country)
       phrases << :affirmation_os_translation_in_local_language
     end
     phrases << :affirmation_os_download_affidavit_philippines if %w(philippines).include?(ceremony_country)
@@ -867,6 +873,8 @@ outcome :outcome_os_affirmation do
 
     if %w(turkey vietnam thailand south-korea).include?(ceremony_country)
       phrases << :fee_table_affirmation
+    elsif %w(philippines).include?(ceremony_country)
+      phrases << :affirmation_os_all_fees_55_70
     else
       phrases << :affirmation_os_all_fees
     end
@@ -895,7 +903,7 @@ outcome :outcome_os_no_cni do
       phrases << :no_cni_os_dutch_caribbean_islands
       if %w(uk).include?(resident_of)
         phrases << :no_cni_os_dutch_caribbean_islands_uk_resident
-      elsif ceremony_country == residency_country
+      elsif (ceremony_country == residency_country) or %w(netherlands).include?(residency_country)
         phrases << :no_cni_os_dutch_caribbean_islands_local_resident
       elsif ceremony_country != residency_country and %w(uk).exclude?(resident_of)
         phrases << :no_cni_os_dutch_caribbean_other_resident

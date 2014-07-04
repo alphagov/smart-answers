@@ -110,7 +110,7 @@ en-GB:
           Receiving a notice of registration | £65
           Registering a marriage or civil partnership | £140
           Issuing a marriage or civil partnership certificate | £65
-#Reusable phrases for all outcomes
+#Reusable phrases
         contact_embassy_or_consulate: |
           Contact your local embassy or consulate to make an appointment.
     #embassies
@@ -130,6 +130,8 @@ en-GB:
     #fees
         list_of_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+        list_of_consular_kazakhstan: |
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
         list_of_consular_fees_france: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/france-consular-fees).
       #what you need to do phrases
@@ -157,6 +159,8 @@ en-GB:
           [Download 'Affadavit for Marriage' (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
           $D
 
+        contact_for_affidavit: |
+          Contact the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         appointment_for_affidavit: |
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         appointment_for_affidavit_notary: |
@@ -214,6 +218,11 @@ en-GB:
           - your passport
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
           - equivalent documents for your partner
+
+        make_appointment_online: |
+          Make an [appointment online](http://britishembassymanila.clickbook.net/) or contact the embassy directly.
+        contact_civil_register_office_portugal: |
+          Contact your nearest [Civil Register Office](http://www.irn.mj.pt/IRN/sections/irn/a_registral/servicos-externos-docs/contactos/contactos-dos-servicos-civil/) in Portugal to find out about local marriage laws, including what documents you’ll need.
 #book online phrases
         book_online_bolivia: |
           Make an [appointment online](https://britishembassylapaz.clickbook.net/sub/britishembassylapaz) at the British Embassy in La Paz.
@@ -233,6 +242,8 @@ en-GB:
           Make an [appointment online](http://britishembassyinlima.clickbook.net/) at the British Embassy in Lima.
         book_online_philippines: |
           Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassymanila) at the British Embassy in Manila.
+        book_online_portugal: |
+          Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishconsulatelis?OpenDocument&cb_referer=#.U57PMF64n8s) at the British Consulate in Lisbon to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         book_online_russia: |
           Make an [appointment online](www.RussiaConsular.clickbook.net) at the British Embassy Moscow.
         book_online_san-marino: |
@@ -1016,11 +1027,7 @@ en-GB:
           You’ll need to get your affidavit ‘[legalised](https://www.gov.uk/get-document-legalised)’ (certified as genuine) before you travel to Turkey.
 
         affirmation_os_download_affidavit_philippines: |
-          The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the form in advance.
-
-          $D
-          [Download 'Affadavit for Marriage' (PDF, 170.34KB)](/government/uploads/system/uploads/attachment_data/file/284905/Marriage_in_the_Philippines_leaflet_affirmation_or_affidavit_of_marital_status_Feb_2014.pdf)
-          $D
+          The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can print and fill in (but not sign) the [Affidavit/Affirmation for marriage form](/government/publications/marriage-in-the-philippines) in advance.
 
         affirmation_os_divorced_or_widowed: |
           If you’ve been divorced or widowed, you’ll also need:
@@ -1040,6 +1047,14 @@ en-GB:
           Affirmation for freedom to marry in English | £45
           Affirmation for freedom to marry in any other language | £70
 
+        affirmation_os_all_fees_55_70: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Affirmation for freedom to marry in English | £55
+          Affirmation for freedom to marry in any other language | £70
+
 # No CNI or consular services phrases
         no_cni_os_dutch_caribbean_islands: |
           %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
@@ -1050,7 +1065,7 @@ en-GB:
         no_cni_os_dutch_caribbean_islands_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         no_cni_os_dutch_caribbean_other_resident: |
-          Contact your nearest Dutch embassy or consulate before making any plans to find out about local marriage laws, including what documents you’ll need.
+          Contact the local authorities before making any plans to find out about local marriage laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_os_not_dutch_caribbean_islands_uk_resident: |
@@ -1569,7 +1584,7 @@ en-GB:
           s1. Download the [certificate of custom law application form](/government/publications/application-for-a-certificate-of-custom-law-for-marriage-france).
           s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
-          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See [consular fees for France](/government/publications/france-consular-fees) for the current fee.
+          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See fee 11 on [consular fees for France](/government/publications/france-consular-fees) for the current fee.
           s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
 
 
