@@ -38,8 +38,8 @@ date_question :when_is_your_baby_due? do
     calculator.ma_rate
   end
 
-  calculate :eleven_weeks do
-    calculator.eleven_weeks
+  calculate :sunday_before_eleven_weeks do
+    calculator.sunday_before_eleven_weeks(due_date)
   end
 
   next_node :are_you_employed?
@@ -228,9 +228,5 @@ end
  outcome :lower_maternity_allowance do
    precalculate :extra_help_phrase do
      PhraseList.new(:extra_help)
-   end
-
-   precalculate :due_date_minus_11_weeks do
-     Date.parse(due_date) - 11.weeks
    end
  end

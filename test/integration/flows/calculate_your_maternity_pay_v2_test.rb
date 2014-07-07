@@ -142,6 +142,7 @@ class CalculateYourMaternityPayV2Test < ActiveSupport::TestCase
               should "tell you you qualify" do
                 assert_current_node :you_qualify_for_maternity_allowance
                 assert_state_variable :eligible_amount, 90
+                assert_state_variable :sunday_before_eleven_weeks, Date.parse("Sun, 05 May 2013")
               end
             end
 
@@ -276,7 +277,7 @@ class CalculateYourMaternityPayV2Test < ActiveSupport::TestCase
 
   context "qualifying week is this week" do
     setup do
-      @due_date = Date.parse("Thu, 04 Apr 2013") + 15.weeks
+      @due_date = Date.parse("Sun, 05 May 2013") + 15.weeks
       add_response @due_date
     end
 
@@ -451,6 +452,7 @@ class CalculateYourMaternityPayV2Test < ActiveSupport::TestCase
     end
     should "ask is your partner self-employed and have you been helping" do
       assert_current_node :have_you_helped_partner_self_employed?
+      assert_state_variable :sunday_before_eleven_weeks, Date.parse("Sun, 11 May 2014")
     end
     context "no, you haven't helped partner self employed" do
       setup do
@@ -505,11 +507,20 @@ class CalculateYourMaternityPayV2Test < ActiveSupport::TestCase
           end
           should "show you that you can get lower maternity allowance" do
             assert_current_node :lower_maternity_allowance
-            assert_state_variable :eleven_weeks, Date.parse("Sun, 11 May 2014")
+            assert_state_variable :sunday_before_eleven_weeks, Date.parse("Sun, 11 May 2014")
           end
         end
       end
     end
   end
-
+  context "test sunday before 11 weeks before due date" do
+    setup do
+      add_response Date.parse("Wed, 18 June 2014")
+      add_response "no"
+    end
+    should "ask is your partner self-employed and have you been helping" do
+      assert_current_node :will_you_work_at_least_26_weeks_during_test_period?
+      assert_state_variable :sunday_before_eleven_weeks, Date.parse("Sun, 30 March 2014")
+    end
+  end
 end
