@@ -28,8 +28,8 @@ en-GB:
         microgeneration: |
           Renewable heating and Microgeneration measures could also help reduce your bill.
         smartmeters: |
-          [Smart meters](/smart-meters) can help you keep track of how much energy you're using. You won't get estimated bills and won't need to take meter readings.  
-      #titles 
+          [Smart meters](/smart-meters) can help you keep track of how much energy you're using. You won't get estimated bills and won't need to take meter readings.
+      #titles
         title_help_with_bills_outcome: |
           Based on your answers you might be eligible for help with your energy bills.
         title_no_help_with_bills_outcome: |
@@ -38,9 +38,9 @@ en-GB:
         title_energy_supplier: "Based on your answers you might qualify for help from your energy supplier with the following:"
         title_under_green_deal: "Under the Green Deal you could get some of these improvements without having to pay all the cost upfront:"
         title_already_energy_efficient: "Your home is probably already quite energy efficient but you could still benefit from:"
-      #eligibilities options and headers 
+      #eligibilities options and headers
         header_boilers_and_insulation: "###Boilers and insulation"
-        opt_condensing_boiler: "- [A new Boiler](http://www.energysavingtrust.org.uk/Heating-and-hot-water/Replacing-your-boiler)(high efficiency or oil condensing boiler)"
+        opt_condensing_boiler: "- [A new Boiler](http://www.energysavingtrust.org.uk/Heating-and-hot-water/Replacing-your-boiler) (high efficiency or oil condensing boiler)"
         opt_cavity_wall_insulation: "- [Cavity wall insulation](http://www.energysavingtrust.org.uk/Insulation/Cavity-wall-insulation)"
         opt_solid_wall_insulation: "- [Solid Wall insulation](http://www.energysavingtrust.org.uk/Insulation/Solid-wall-insulation)"
         opt_draught_proofing: "- [Draught proofing](http://www.energysavingtrust.org.uk/Insulation/Draught-proofing)"
@@ -107,9 +107,9 @@ en-GB:
           property: You own your property
           permission: You rent privately but have permission from the owner to install or upgrade the boiler
         body: |
-          Social housing tenants should talk to their social housing provider if they want to improve their energy efficiency. 
+          Social housing tenants should talk to their social housing provider if they want to improve their energy efficiency.
         foot: |
-          Social housing tenants should talk to their social housing provider if they want to improve their energy efficiency.    
+          Social housing tenants should talk to their social housing provider if they want to improve their energy efficiency.
 
 # Q3
       date_of_birth?:
@@ -137,7 +137,7 @@ en-GB:
           child_under_5: You have a child under 5.
           child_under_16: You have a child under 16 or under 20 if in full-time education.
           pensioner_premium: You (or your partner) get a ‘pensioner premium’.
-          work_support_esa: You’re in the work-related or support group of ESA. 
+          work_support_esa: You’re in the work-related or support group of ESA.
 
 # Q6
       when_property_built?:
@@ -155,10 +155,10 @@ en-GB:
           "flat": A flat
 # Q7b
       type_of_flat?:
-        title: Is it a top-floor flat or a maisonette?
+        title: Is it a top-floor or a ground-floor flat?
         options:
           "top_floor": Top-floor
-          "maisonette": Maisonette
+          "ground_floor": Ground-floor
 
 # Q8a
       home_features_modern?:

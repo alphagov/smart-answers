@@ -976,7 +976,7 @@ class EnergyGrantsCalculatorV2Test < ActiveSupport::TestCase
         add_response 'property'
         add_response 'before-1940'
         add_response 'flat'
-        add_response 'maisonette'
+        add_response 'ground_floor'
         add_response 'loft_attic_conversion'
       end
       should "take you to the green deal outcome with these variations" do
