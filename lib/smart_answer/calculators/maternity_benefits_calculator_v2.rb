@@ -7,9 +7,9 @@ module SmartAnswer::Calculators
     end
 
     def sunday_before_eleven_weeks(due_date)
-      weeks_11 = Date.parse(due_date) - 11.weeks
-      weeks_11 -= 1 while (weeks_11.cwday != 7)
-      weeks_11
+      result = Date.parse(due_date) - 11.weeks
+      result -= 1 while (result.cwday != 7)
+      result
     end
 
     def smp_rate
