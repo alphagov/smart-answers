@@ -212,7 +212,7 @@ end
 # Q7b
 multiple_choice :type_of_flat? do
   option :top_floor
-  option :maisonette
+  option :ground_floor
   save_input_as :flat_type
 
   next_node_if(:home_features_modern?) { %w(on-or-after-1995).include?(property_age) }
