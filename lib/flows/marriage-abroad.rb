@@ -770,7 +770,11 @@ outcome :outcome_os_consular_cni do
             end
           end
         else
-          phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident
+          if %w(kazakhstan).include?(ceremony_country)
+            phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident_kazakhstan
+          else
+            phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident
+          end
         end
       end
     end
