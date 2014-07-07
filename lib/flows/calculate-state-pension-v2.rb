@@ -452,7 +452,16 @@ multiple_choice :lived_or_worked_outside_uk? do
   next_node :amount_result
 end
 
-outcome :near_state_pension_age
+outcome :near_state_pension_age do
+  precalculate :pension_credit do
+    if Date.parse(pension_credit_date) > Date.today
+      PhraseList.new(:pension_credit_future)
+    else
+      PhraseList.new(:pension_credit_past)
+    end
+  end
+end
+
 outcome :reached_state_pension_age
 outcome :too_young do
   precalculate :weekly_rate do

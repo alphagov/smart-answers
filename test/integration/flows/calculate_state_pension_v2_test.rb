@@ -66,11 +66,13 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         should "state that user is near state pension age when born on 16th July 1948" do
           add_response Date.parse("16 July 1948") # retires 16 July 2013
           assert_current_node :near_state_pension_age
+          assert_phrase_list :pension_credit, [:pension_credit_past]
         end
 
         should "state that user is near state pension age when born on 14th November 1948" do
           add_response Date.parse("14 November 1948") # retires 14 Nov 2013
           assert_current_node :near_state_pension_age
+          assert_phrase_list :pension_credit, [:pension_credit_past]
         end
       end
 
@@ -97,6 +99,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         should "be near to the state pension age" do
           assert_state_variable :available_ni_years, 45
           assert_current_node :near_state_pension_age
+          assert_phrase_list :pension_credit, [:pension_credit_past]
         end
       end
 
@@ -108,6 +111,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
         should "tell the user that they're near state pension age" do
           assert_current_node :near_state_pension_age
+          assert_phrase_list :pension_credit, [:pension_credit_past]
         end
       end
     end # male
