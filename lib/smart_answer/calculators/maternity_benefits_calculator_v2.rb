@@ -6,10 +6,6 @@ module SmartAnswer::Calculators
       period_start..period_end
     end
 
-    def eleven_weeks
-      11.weeks.ago(@due_date)
-    end
-
     def sunday_before_eleven_weeks(due_date)
       weeks_11 = Date.parse(due_date) - 11.weeks
       weeks_11 -= 1 while (weeks_11.cwday != 7)
