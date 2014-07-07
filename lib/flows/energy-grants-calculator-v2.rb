@@ -7,6 +7,7 @@ multiple_choice :what_are_you_looking_for? do
   option :help_energy_efficiency
   option :help_boiler_measure
   option :all_help
+  save_input_as :which_help
 
   calculate :bills_help do
     %w(help_with_fuel_bill).include?(responses.last) ? :bills_help : nil
@@ -25,13 +26,9 @@ multiple_choice :what_are_you_looking_for? do
       ''
     end
   end
-  next_node do |response|
-    unless response.include?('help_with_fuel_bill')
-      :what_are_your_circumstances_without_bills_help? #Q2A
-    else
-      :what_are_your_circumstances? #Q2
-    end
-  end
+
+  next_node_if(:what_are_your_circumstances?, responded_with("help_with_fuel_bill")) # Q2
+  next_node :what_are_your_circumstances_without_bills_help? # Q2A
 end
 
 # Q2
@@ -49,24 +46,19 @@ checkbox_question :what_are_your_circumstances? do
     []
   end
 
-  next_node do |response|
-    if response =~ /permission,property,social_housing/
-      raise InvalidResponse, :error_perm_prop_house
-    elsif response =~ /property,social_housing/
-      raise InvalidResponse, :error_prop_house
-    elsif response =~ /permission,property/
-      raise InvalidResponse, :error_perm_prop
-    elsif response =~ /permission,social_housing/
-      raise InvalidResponse, :error_perm_house
-    elsif bills_help || both_help
-      :date_of_birth? # Q3
-    elsif measure_help
-      if response.include?('benefits')
-        :which_benefits? # Q4
-      else
-        :when_property_built? # Q6
-      end
-    end
+  define_predicate(:measure?) {
+    %w(help_energy_efficiency help_boiler_measure).include?(which_help)
+  }
+
+  validate(:error_perm_prop_house) { |r| ! r.include?('permission,property,social_housing') }
+  validate(:error_prop_house) { |r| ! r.include?('property,social_housing') }
+  validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
+  validate(:error_perm_house) { |r| ! r.include?('permission,social_housing')}
+
+  next_node_if(:date_of_birth?) { %w(help_with_fuel_bill both_help).include?(which_help) } # Q3
+  on_condition(measure?) do
+    next_node_if(:which_benefits?, responded_with("benefits"))
+    next_node :when_property_built?
   end
 end
 
@@ -113,17 +105,9 @@ date_question :date_of_birth? do
     end
   end
 
-  next_node do |response|
-    if circumstances.include?('benefits')
-      :which_benefits?
-    else
-      if bills_help
-        :outcome_help_with_bills # outcome 1
-      else
-        :when_property_built? # Q6
-      end
-    end
-  end
+  next_node_if(:which_benefits?) { circumstances.include?('benefits') }
+  next_node_if(:outcome_help_with_bills) { %w(help_with_fuel_bill).include?(which_help) } # outcome 1
+  next_node(:when_property_built?) # Q6
 end
 
 # Q4
@@ -146,34 +130,19 @@ checkbox_question :which_benefits? do
     end
   end
 
-  next_node do |response|
-    if response == 'pension_credit' || response == 'child_tax_credit'
-      if bills_help
-        :outcome_help_with_bills # outcome1
-      else
-        :when_property_built? # Q6
-      end
-
-    elsif response == 'income_support' || response == 'jsa' || response == 'esa' || response == 'working_tax_credit'
-      :disabled_or_have_children? # Q5
-
-    elsif response =~ /child_tax_credit,esa,income_support,jsa,pension_credit/ || response =~ /child_tax_credit,esa,income_support,pension_credit/ || response =~ /child_tax_credit,esa,jsa,pension_credit/
-      :disabled_or_have_children? # Q5
-
-    elsif response =~ /esa,pension_credit/ || response =~ /child_tax_credit,esa/ || response =~ /child_tax_credit,esa,pension_credit/
-      if bills_help
-        :outcome_help_with_bills # outcome1
-      else
-        :when_property_built? # Q6
-      end
-    else
-      if bills_help
-        :outcome_help_with_bills # outcome1
-      else
-        :when_property_built? # Q6
-      end
-    end
+  define_predicate(:disabled_or_have_children_question?) do |response|
+    response == 'income_support' || response == 'jsa' || response == 'esa' ||
+      response == 'working_tax_credit' || response =~ /child_tax_credit,esa,income_support,jsa,pension_credit/ ||
+      response =~ /child_tax_credit,esa,income_support,pension_credit/ || response =~ /child_tax_credit,esa,jsa,pension_credit/
   end
+
+  on_condition(responded_with('pension_credit') || responded_with('child_tax_credit')) do
+    next_node_if(:outcome_help_with_bills) { %w(help_with_fuel_bill).include?(which_help) } # outcome 1
+    next_node(:when_property_built?) # Q6
+  end
+  next_node_if(:disabled_or_have_children?, disabled_or_have_children_question?) # Q5
+  next_node_if(:outcome_help_with_bills) { %w(help_with_fuel_bill).include?(which_help) } # outcome 1
+  next_node(:when_property_built?) # Q6
 end
 
 # Q5
@@ -202,13 +171,8 @@ checkbox_question :disabled_or_have_children? do
     end
   end
 
-  next_node do
-    if bills_help
-      :outcome_help_with_bills
-    else
-      :when_property_built?
-    end
-  end
+  next_node_if(:outcome_help_with_bills) { %w(help_with_fuel_bill).include?(which_help) } # outcome 1
+  next_node(:when_property_built?) # Q6
 end
 
 # Q6
@@ -216,6 +180,7 @@ multiple_choice :when_property_built? do
   option :"on-or-after-1995"
   option :"1940s-1984"
   option :"before-1940"
+  save_input_as :property_age
 
   calculate :modern do
     %w(on-or-after-1995).include?(responses.last)
@@ -236,19 +201,12 @@ multiple_choice :type_of_property? do
   option :flat
   save_input_as :property_type
 
-  next_node do |response|
-    if %w(house).include?(response)
-      if modern
-        :home_features_modern?
-      elsif older
-        :home_features_older?
-      else
-        :home_features_historic?
-      end
-    else
-      :type_of_flat?
-    end
+  on_condition(responded_with('house')) do
+    next_node_if(:home_features_modern?) { %w(on-or-after-1995).include?(property_age) }
+    next_node_if(:home_features_older?) { %w(1940s-1984).include?(property_age) }
+    next_node(:home_features_historic?)
   end
+  next_node(:type_of_flat?)
 end
 
 # Q7b
@@ -257,15 +215,9 @@ multiple_choice :type_of_flat? do
   option :maisonette
   save_input_as :flat_type
 
-  next_node do
-    if modern
-      :home_features_modern?
-    elsif older
-      :home_features_older?
-    else
-      :home_features_historic?
-    end
-  end
+  next_node_if(:home_features_modern?) { %w(on-or-after-1995).include?(property_age) }
+  next_node_if(:home_features_older?) { %w(1940s-1984).include?(property_age) }
+  next_node(:home_features_historic?)
 end
 
 # Q8a modern
@@ -279,28 +231,32 @@ checkbox_question :home_features_modern? do
     responses.last.split(",")
   end
 
-  next_node do |response|
-    features = response.split(',')
-    if modern && features.include?('mains_gas') && features.include?('electric_heating')
-      :outcome_no_green_deal_no_energy_measures
-    elsif measure_help and (circumstances & %w(property permission)).any?
-      if (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
-        :outcome_measures_help_and_eco_eligible
-      else
-        :outcome_measures_help_green_deal
-      end
-    else
-      if circumstances.exclude?('benefits')
-        :outcome_bills_and_measures_no_benefits
-      else
-        if (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
-          :outcome_bills_and_measures_on_benefits_eco_eligible
-        else
-          :outcome_bills_and_measures_on_benefits_not_eco_eligible
-        end
-      end
-    end
+  define_predicate(:modern_and_gas_and_electric_heating?) do |response|
+    modern && response.include?('mains_gas') && response.include?('electric_heating')
   end
+
+  define_predicate(:measure_help_and_property_permission_circumstance?) do
+    measure_help && (circumstances & %w(property permission)).any?
+  end
+
+  define_predicate(:benefits_or_income_support?) do
+    (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
+  end
+
+  define_predicate(:no_benefits?) { circumstances.exclude?('benefits') }
+
+  define_predicate(:property_permission_circumstance_and_benefits?) do
+    (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
+  end
+
+  next_node_if(:outcome_no_green_deal_no_energy_measures, modern_and_gas_and_electric_heating?)
+  on_condition(measure_help_and_property_permission_circumstance?) do
+    next_node_if(:outcome_measures_help_and_eco_eligible, benefits_or_income_support?)
+    next_node(:outcome_measures_help_green_deal)
+  end
+  next_node_if(:outcome_bills_and_measures_no_benefits, no_benefits?)
+  next_node_if(:outcome_bills_and_measures_on_benefits_eco_eligible, property_permission_circumstance_and_benefits?)
+  next_node(:outcome_bills_and_measures_on_benefits_not_eco_eligible)
 end
 
 # Q8b
@@ -318,25 +274,27 @@ checkbox_question :home_features_historic? do
     responses.last.split(",")
   end
 
-  next_node do
-    if measure_help and (circumstances & %w(property permission)).any?
-      if (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
-        :outcome_measures_help_and_eco_eligible
-      else
-        :outcome_measures_help_green_deal
-      end
-    else
-      if circumstances.exclude?('benefits')
-        :outcome_bills_and_measures_no_benefits
-      else
-        if (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
-          :outcome_bills_and_measures_on_benefits_eco_eligible
-        else
-          :outcome_bills_and_measures_on_benefits_not_eco_eligible
-        end
-      end
-    end
+  define_predicate(:measure_help_and_property_permission_circumstance?) do
+    measure_help && (circumstances & %w(property permission)).any?
   end
+
+  define_predicate(:benefits_or_income_support?) do
+    (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
+  end
+
+  define_predicate(:no_benefits?) { circumstances.exclude?('benefits') }
+
+  define_predicate(:property_permission_circumstance_and_benefits?) do
+    (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
+  end
+
+  on_condition(measure_help_and_property_permission_circumstance?) do
+    next_node_if(:outcome_measures_help_and_eco_eligible, benefits_or_income_support?)
+    next_node(:outcome_measures_help_green_deal)
+  end
+  next_node_if(:outcome_bills_and_measures_no_benefits, no_benefits?)
+  next_node_if(:outcome_bills_and_measures_on_benefits_eco_eligible, property_permission_circumstance_and_benefits?)
+  next_node(:outcome_bills_and_measures_on_benefits_not_eco_eligible)
 end
 
 # Q8c
@@ -355,25 +313,27 @@ checkbox_question :home_features_older? do
     responses.last.split(",")
   end
 
-  next_node do
-    if measure_help and (circumstances & %w(property permission)).any?
-      if (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
-        :outcome_measures_help_and_eco_eligible
-      else
-        :outcome_measures_help_green_deal
-      end
-    else
-      if circumstances.exclude?('benefits')
-        :outcome_bills_and_measures_no_benefits
-      else
-        if (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
-          :outcome_bills_and_measures_on_benefits_eco_eligible
-        else
-          :outcome_bills_and_measures_on_benefits_not_eco_eligible
-        end
-      end
-    end
+  define_predicate(:measure_help_and_property_permission_circumstance?) do
+    measure_help && (circumstances & %w(property permission)).any?
   end
+
+  define_predicate(:benefits_or_income_support?) do
+    (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
+  end
+
+  define_predicate(:no_benefits?) { circumstances.exclude?('benefits') }
+
+  define_predicate(:property_permission_circumstance_and_benefits?) do
+    (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
+  end
+
+  on_condition(measure_help_and_property_permission_circumstance?) do
+    next_node_if(:outcome_measures_help_and_eco_eligible, benefits_or_income_support?)
+    next_node(:outcome_measures_help_green_deal)
+  end
+  next_node_if(:outcome_bills_and_measures_no_benefits, no_benefits?)
+  next_node_if(:outcome_bills_and_measures_on_benefits_eco_eligible, property_permission_circumstance_and_benefits?)
+  next_node(:outcome_bills_and_measures_on_benefits_not_eco_eligible)
 end
 
 outcome :outcome_help_with_bills do
