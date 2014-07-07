@@ -150,6 +150,20 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       end
     end
 
+    context "male with different state pension and pension credit dates" do
+      setup do
+        Timecop.travel('2014-05-07')
+      end
+      should "go to correct outcome with pension_credit_past" do
+        add_response :male
+        add_response Date.parse('3 February 1952')
+        assert_current_node :age_result
+        assert_state_variable :formatted_state_pension_date, ' 3 February 2017'
+        assert_state_variable :pension_credit_date, ' 6 November 2013'
+        assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_past, :pension_age_review, :bus_pass]
+      end
+    end
+
     context "test correct state pension age" do
       setup do
         Timecop.travel('2014-05-08')

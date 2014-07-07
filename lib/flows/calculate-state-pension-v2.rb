@@ -80,10 +80,20 @@ date_question :dob_age? do
     phrases = PhraseList.new
     if state_pension_date > Date.today
       if state_pension_date >= Date.parse('2016-04-06')
-        phrases << :state_pension_age_is_a << :pension_credit_future
+        phrases << :state_pension_age_is_a
+        if Date.parse(pension_credit_date) > Date.today
+          phrases << :pension_credit_future
+        else
+          phrases << :pension_credit_past
+        end
         phrases << :pension_age_review
       else
-        phrases << :state_pension_age_is << :pension_credit_future
+        phrases << :state_pension_age_is
+        if Date.parse(pension_credit_date) > Date.today
+          phrases << :pension_credit_future
+        else
+          phrases << :pension_credit_past
+        end
       end
     else
       phrases << :state_pension_age_was << :pension_credit_past
