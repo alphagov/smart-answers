@@ -53,11 +53,11 @@ date_question :dob_age? do
   end
 
   calculate :pension_credit_date do
-    calculator.state_pension_date(:female).strftime("%e %B %Y")
+    calculator.state_pension_date(:female).strftime("%-d %B %Y")
   end
 
   calculate :formatted_state_pension_date do
-    state_pension_date.strftime("%e %B %Y")
+    state_pension_date.strftime("%-d %B %Y")
   end
 
   calculate :state_pension_age do
@@ -452,7 +452,16 @@ multiple_choice :lived_or_worked_outside_uk? do
   next_node :amount_result
 end
 
-outcome :near_state_pension_age
+outcome :near_state_pension_age do
+  precalculate :pension_credit do
+    if Date.parse(pension_credit_date) > Date.today
+      PhraseList.new(:pension_credit_future)
+    else
+      PhraseList.new(:pension_credit_past)
+    end
+  end
+end
+
 outcome :reached_state_pension_age
 outcome :too_young do
   precalculate :weekly_rate do
@@ -460,18 +469,7 @@ outcome :too_young do
   end
 end
 
-outcome :age_result do
-  precalculate :pension_credit_statement do
-    phrases = PhraseList.new
-    if pension_credit_date > Date.today.to_s
-      phrases << :pension_credit_future
-    else
-      phrases << :pension_credit_past
-    end
-    phrases << :bus_pass
-    phrases
-  end
-end
+outcome :age_result
 
 outcome :amount_result do
   precalculate :calc do
