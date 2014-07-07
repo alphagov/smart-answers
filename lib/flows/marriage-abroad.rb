@@ -770,7 +770,11 @@ outcome :outcome_os_consular_cni do
             end
           end
         else
-          phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident
+          if %w(kazakhstan).include?(ceremony_country)
+            phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident_kazakhstan
+          else
+            phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident
+          end
         end
       end
     end
@@ -827,7 +831,11 @@ outcome :outcome_os_affirmation do
     elsif %w(philippines).include?(ceremony_country)
       phrases << :contact_for_affidavit << :make_appointment_online
     else
+      if %w(portugal).include?(ceremony_country)
+        phrases << :book_online_portugal
+      else
       phrases << :appointment_for_affidavit
+      end
       if %w(turkey).include?(ceremony_country)
         phrases << :affirmation_appointment_book_at_following
       end
@@ -839,8 +847,12 @@ outcome :outcome_os_affirmation do
         phrases << :clickbook_link
       end
     end
-    unless %w(turkey).include?(ceremony_country) or %w(portugal).include?(residency_country)
-      phrases << :affirmation_os_translation_in_local_language
+    if !(%w(turkey).include?(ceremony_country) or %w(portugal).include?(residency_country))
+      if %w(portugal).include?(ceremony_country)
+        phrases << :affirmation_os_translation_in_local_language_portugal
+      else
+        phrases << :affirmation_os_translation_in_local_language
+      end
     end
     phrases << :affirmation_os_download_affidavit_philippines if %w(philippines).include?(ceremony_country)
     if %w(turkey).include?(ceremony_country)

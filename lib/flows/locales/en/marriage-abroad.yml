@@ -175,7 +175,20 @@ en-GB:
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
+        affirmation_os_translation_in_local_language_portugal: |
+          $C
+          British Embassy  
+          Rua de São Bernardo 33  
+          1249-082 Lisboa  
+          Portugal  
 
+          Telephone: +351 21 392 40 00  
+          Fax: +351 21 392 40 21  
+          <portugal.consulate@fco.gov.uk>: (Consular enquiries only, not Visas or Passports)  
+          Email: <ppa.lisbon@fco.gov.uk>
+          $C
+
+          ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
       #fee tables
         fee_table_english_other_language_affidavit: |
           ##Fees
@@ -243,7 +256,7 @@ en-GB:
         book_online_philippines: |
           Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassymanila) at the British Embassy in Manila.
         book_online_portugal: |
-          Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishconsulatelis?OpenDocument&cb_referer=#.U57PMF64n8s) at the British Consulate in Lisbon to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+          Contact the British Consulate in Lisbon directly or make an appointment online to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         book_online_russia: |
           Make an [appointment online](www.RussiaConsular.clickbook.net) at the British Embassy Moscow.
         book_online_san-marino: |
@@ -960,6 +973,8 @@ en-GB:
 
         consular_cni_os_fees_foreign_commonwealth_roi_resident: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{residency_country_name_lowercase_prefix}](/government/publications/%{residency_country}-consular-fees) and [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+        consular_cni_os_fees_foreign_commonwealth_roi_resident_kazakhstan: |
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{residency_country_name_lowercase_prefix}](/government/publications/%{residency_country}-consular-fees) and [consular fees for %{country_name_lowercase_prefix}](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
 
         consular_cni_os_fees_russia: |
           You can pay by cash or credit card in Moscow, but not by personal cheque.
@@ -1027,7 +1042,7 @@ en-GB:
           You’ll need to get your affidavit ‘[legalised](https://www.gov.uk/get-document-legalised)’ (certified as genuine) before you travel to Turkey.
 
         affirmation_os_download_affidavit_philippines: |
-          The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can print and fill in (but not sign) the [Affidavit/Affirmation for marriage form](/government/publications/marriage-in-the-philippines) in advance.
+          The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can print and fill in (but not sign) the [affidavit/affirmation for marriage form](/government/publications/marriage-in-the-philippines) in advance.
 
         affirmation_os_divorced_or_widowed: |
           If you’ve been divorced or widowed, you’ll also need:
@@ -1584,7 +1599,7 @@ en-GB:
           s1. Download the [certificate of custom law application form](/government/publications/application-for-a-certificate-of-custom-law-for-marriage-france).
           s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
-          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See fee 11 on [consular fees for France](/government/publications/france-consular-fees) for the current fee.
+          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See fee 11 on [consular fees for France](/government/publications/france-consular-fees) for the current cost.
           s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
 
 
@@ -1651,13 +1666,13 @@ en-GB:
           If you need a certificate of custom law, you can get one from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
 
           Some tribunals only issue a certificate of custom less than 6 months before the date of your PACS. You should check with them before you apply. If your certificate is refused because you applied too early, you will need to apply and pay again.
-          
+
           ###Applying for a certificate of custom law from the British Embassy
 
           s1. Download the [certificate of custom law application form](/government/publications/application-form-for-certificate-of-custom-law-for-pacs-france)
           s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
           s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
-          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See [consular fees for France](/government/publications/france-consular-fees) for the current fee.
+          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See fee 11 on [consular fees for France](/government/publications/france-consular-fees) for the current cost.
           s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
 
 
