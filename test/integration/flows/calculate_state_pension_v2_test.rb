@@ -43,9 +43,8 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         setup { add_response Date.parse("5th Dec 1953")}
         should "go to age result" do
           assert_current_node :age_result
-          assert_phrase_list :pension_credit_statement, [:pension_credit_past, :bus_pass]
           assert_state_variable :state_pension_date, Date.parse("05 Dec 2018")
-          assert_state_variable :pension_credit_date, Date.parse("06 Nov 2018").strftime("%e %B %Y")
+          assert_state_variable :pension_credit_date, Date.parse("06 Nov 2018").strftime("%-d %B %Y")
           assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :pension_age_review, :bus_pass]
         end
       end
@@ -86,7 +85,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
           assert_phrase_list :tense_specific_title, [:have_reached_pension_age]
           assert_phrase_list :state_pension_age_statement, [:state_pension_age_was, :pension_credit_past, :bus_pass]
           assert_state_variable "state_pension_age", "65 years"
-          assert_state_variable "formatted_state_pension_date", " 6 April 2010"
+          assert_state_variable "formatted_state_pension_date", "6 April 2010"
         end
       end # born on 6th of April
 
@@ -125,7 +124,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
       should "tell them they are within four months and one day of state pension age" do
         assert_current_node :near_state_pension_age
-        assert_state_variable "formatted_state_pension_date", " 6 November 2012"
+        assert_state_variable "formatted_state_pension_date", "6 November 2012"
       end
     end
 
@@ -162,8 +161,8 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response :male
         add_response Date.parse('3 February 1952')
         assert_current_node :age_result
-        assert_state_variable :formatted_state_pension_date, ' 3 February 2017'
-        assert_state_variable :pension_credit_date, ' 6 November 2013'
+        assert_state_variable :formatted_state_pension_date, '3 February 2017'
+        assert_state_variable :pension_credit_date, '6 November 2013'
         assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_past, :pension_age_review, :bus_pass]
       end
     end
