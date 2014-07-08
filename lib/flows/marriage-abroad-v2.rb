@@ -478,9 +478,13 @@ outcome :outcome_os_consular_cni do
 
     phrases << :consular_cni_all_what_you_need_to_do
 
-    if %w(italy spain).exclude?(ceremony_country)
+    unless %w(italy spain).include?(ceremony_country)
       unless %w(germany).include?(ceremony_country) and %w(other).include?(resident_of)
-        phrases << :consular_cni_os_ceremony_not_spain_or_italy
+        if %w(croatia).include?(ceremony_country) and %w(croatia).include?(residency_country)
+          phrases << :what_to_do_croatia
+        else
+          phrases << :consular_cni_os_ceremony_not_spain_or_italy
+        end
       end
     end
     if %w(spain).include?(ceremony_country)
@@ -579,13 +583,15 @@ outcome :outcome_os_consular_cni do
     end
 
     if ceremony_country == residency_country
-      if %w(germany italy kazakhstan russia).exclude?(ceremony_country)
+      if %w(croatia).include?(ceremony_country)
+        phrases << :consular_cni_os_local_resident_table
+      elsif %w(germany italy kazakhstan russia).exclude?(ceremony_country)
         phrases << :consular_cni_os_local_resident_not_italy_germany
       end
       if %w(kazakhstan russia).include?(ceremony_country)
         phrases << :"#{ceremony_country}_os_local_resident"
       end
-      if %w(germany italy japan russia spain).exclude?(ceremony_country)
+      unless %w(germany italy japan russia spain).include?(ceremony_country)
         if reg_data_query.clickbook(ceremony_country)
           if %w(vietnam).include?(ceremony_country)
             phrases << :consular_cni_os_vietnam_clickbook
@@ -597,7 +603,9 @@ outcome :outcome_os_consular_cni do
             end
           end
         end
-        unless reg_data_query.clickbook(ceremony_country)
+        if %w(croatia).include?(ceremony_country)
+          phrases << :make_appointment_online_croatia
+        elsif not reg_data_query.clickbook(ceremony_country)
           phrases << :consular_cni_os_no_clickbook_so_embassy_details
         end
       end
@@ -773,7 +781,11 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_naturalisation
     end
     unless (%w(italy).include?(ceremony_country) and %w(uk).include?(resident_of))
-      phrases << :consular_cni_os_fees_not_italy_not_uk
+      if %w(croatia).include?(ceremony_country) and %w(croatia).include?(residency_country)
+        phrases << :fee_table_croatia
+      else
+        phrases << :consular_cni_os_fees_not_italy_not_uk
+      end
       unless data_query.countries_without_consular_facilities?(ceremony_country)
         if ceremony_country == residency_country or %w(uk).include?(resident_of)
           unless %w(cote-d-ivoire).include?(ceremony_country)
@@ -845,7 +857,7 @@ outcome :outcome_os_affirmation do
     elsif %w(portugal).include?(residency_country)
       phrases << :book_online_portugal
     elsif %w(philippines).include?(ceremony_country)
-      phrases << :contact_for_affidavit << :make_appointment_online
+      phrases << :contact_for_affidavit << :make_appointment_online_philippines
     else
       if %w(portugal).include?(ceremony_country)
         phrases << :book_online_portugal
