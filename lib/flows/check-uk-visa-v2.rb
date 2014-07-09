@@ -113,8 +113,8 @@ multiple_choice :staying_for_how_long? do
     on_condition(->(_) { purpose_of_visit_answer == 'work' }) do
       #outcome 5.5 work N no visa needed
       next_node_if(:outcome_work_n) {
-        ( country_group_ukot +
-          country_group_non_visa_national +
+        ( (country_group_ukot +
+          country_group_non_visa_national) |
           %w(taiwan) ).include?(passport_country)
       }
       # outcome 5 work m visa needed short courses
