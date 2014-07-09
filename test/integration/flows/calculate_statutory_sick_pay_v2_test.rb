@@ -2,11 +2,11 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class CalculateStatutorySickPayTest < ActiveSupport::TestCase
+class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'calculate-statutory-sick-pay'
+    setup_for_testing_flow 'calculate-statutory-sick-pay-v2'
   end
 
   context "Already getting maternity allowance" do
@@ -49,11 +49,97 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       end
 
       context "employee didn't tell employer within time limit" do
-        should "go to result A3" do
+        setup do
           add_response :no
-          assert_current_node :didnt_tell_soon_enough # A3
         end
-      end
+        should "ask if employee works different days of the week" do
+          assert_current_node :employee_work_different_days?
+        end
+
+        context "answer no" do
+          setup do
+            add_response :no
+          end
+          should "ask when the first sick day was" do
+            assert_current_node :first_sick_day?
+          end
+
+          context "answer 2 March 2014" do
+            setup do
+              add_response Date.parse('2 March 2014')
+            end
+            should "ask when the last sick day was" do
+              assert_current_node :last_sick_day?
+            end
+
+            context "answer 2 June 2014" do
+              setup do
+                add_response Date.parse('2 June 2014')
+              end
+              should "ask if employer paid 8 weeks of earnings" do
+                assert_current_node :paid_at_least_8_weeks?
+              end
+
+              context "answer before_payday" do
+                setup do
+                  add_response 'before_payday'
+                end
+                should "ask how often employee is paid" do
+                  assert_current_node :how_often_pay_employee_pay_patterns?
+                end
+
+                context "answer irregularly" do
+                  setup do
+                    add_response 'irregularly'
+                  end
+                  should "ask how much they would have been paid on first payday" do
+                    assert_current_node :pay_amount_if_not_sick?
+                  end
+
+                  context "answer £3000" do
+                    setup do
+                      add_response '3000'
+                    end
+                    should "ask how many days earnings cover" do
+                      assert_current_node :contractual_days_covered_by_earnings?
+                    end
+
+                    context "answer 17 days" do
+                      setup do
+                        add_response '17'
+                      end
+                      should "ask if employee was off sick the previous 8 weeks for 4 days" do
+                        assert_current_node :off_sick_4_days?
+                      end
+
+                      context "answer no" do
+                        setup do
+                          add_response 'no'
+                        end
+                        should "ask which days of the week they usually work" do
+                          assert_current_node :usual_work_days?
+                        end
+
+                        context "answer monday to friday" do
+                          setup do
+                            add_response '1,2,3,4,5'
+                          end
+                          should "go to entitled_to_sick_pay outcome" do
+                            assert_current_node :entitled_to_sick_pay
+                            assert_phrase_list :proof_of_illness, [:enough_notice]
+                            assert_phrase_list :entitled_to_esa, [:esa]
+                            assert_phrase_list :paternity_adoption_warning, [:paternity_warning]
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end # answer no to employer told in time
 
       context "employee told employer within time limit" do
         setup do
@@ -364,7 +450,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
             end
           end
         end
-      end
+      end # answer yes to employer told in time
     end
   end
   context "average weekly earnings is less than the LEL on sick start date" do

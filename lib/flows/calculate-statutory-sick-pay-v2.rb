@@ -1,4 +1,4 @@
-status :published
+status :draft
 satisfies_need "100262"
 
 # Question 1
@@ -23,8 +23,14 @@ end
 
 # Question 2
 multiple_choice :employee_tell_within_limit? do
-  option yes: :employee_work_different_days? # Question 3
-    option no: :didnt_tell_soon_enough # Answer 3
+  option :yes
+  option :no
+
+  calculate :notice_of_absence do
+    responses.last == 'no'
+  end
+
+  next_node(:employee_work_different_days?)
 end
 
 # Question 3
@@ -125,7 +131,7 @@ date_question :last_payday_before_offset? do
   calculate :monthly_pattern_payments do
     start_date = Date.parse(relevant_period_from)
     end_date = Date.parse(relevant_period_to)
-    Calculators::StatutorySickPayCalculator.months_between(start_date, end_date)
+    Calculators::StatutorySickPayCalculatorV2.months_between(start_date, end_date)
   end
 
   next_node(:total_employee_earnings?)
@@ -136,7 +142,7 @@ money_question :total_employee_earnings? do
   save_input_as :relevant_period_pay
 
   calculate :employee_average_weekly_earnings do
-    Calculators::StatutorySickPayCalculator.average_weekly_earnings(
+    Calculators::StatutorySickPayCalculatorV2.average_weekly_earnings(
       pay: relevant_period_pay, pay_pattern: pay_pattern, monthly_pattern_payments: monthly_pattern_payments,
       relevant_period_to: relevant_period_to, relevant_period_from: relevant_period_from)
   end
@@ -158,7 +164,7 @@ value_question :contractual_days_covered_by_earnings? do
   calculate :employee_average_weekly_earnings do
     pay = relevant_contractual_pay
     days_worked = responses.last
-    Calculators::StatutorySickPayCalculator.contractual_earnings_awe(pay, days_worked)
+    Calculators::StatutorySickPayCalculatorV2.contractual_earnings_awe(pay, days_worked)
   end
   next_node :off_sick_4_days?
 end
@@ -176,7 +182,7 @@ value_question :days_covered_by_earnings? do
   calculate :employee_average_weekly_earnings do
     pay = earnings
     days_worked = responses.last.to_i
-    Calculators::StatutorySickPayCalculator.total_earnings_awe(pay, days_worked)
+    Calculators::StatutorySickPayCalculatorV2.total_earnings_awe(pay, days_worked)
   end
 
   next_node :off_sick_4_days?
@@ -188,7 +194,7 @@ multiple_choice :off_sick_4_days? do
   option :no
 
   next_node_if(:not_earned_enough) do
-    employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(sick_start_date))
+    employee_average_weekly_earnings < Calculators::StatutorySickPayCalculatorV2.lower_earning_limit_on(Date.parse(sick_start_date))
   end
   next_node :usual_work_days?
 end
@@ -199,7 +205,7 @@ date_question :linked_sickness_start_date? do
   to { Date.today }
 
   next_node_if(:not_earned_enough) do |response|
-    employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(response))
+    employee_average_weekly_earnings < Calculators::StatutorySickPayCalculatorV2.lower_earning_limit_on(Date.parse(response))
   end
   next_node(:how_many_days_sick?)
 end
@@ -219,7 +225,7 @@ checkbox_question :usual_work_days? do
   end
 
   calculate :formatted_sick_pay_weekly_amounts do
-    calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), responses.last.split(","))
+    calculator = Calculators::StatutorySickPayCalculatorV2.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), responses.last.split(","))
 
     if calculator.ssp_payment > 0
       calculator.formatted_sick_pay_weekly_amounts
@@ -229,7 +235,7 @@ checkbox_question :usual_work_days? do
   end
 
   next_node_calculation(:calculator) do |response|
-    Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), response.split(","))
+    Calculators::StatutorySickPayCalculatorV2.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), response.split(","))
   end
 
   # Answer 8
@@ -255,16 +261,13 @@ outcome :already_getting_maternity
 # Answer 2
 outcome :must_be_sick_for_4_days
 
-# Answer 3
-outcome :didnt_tell_soon_enough
-
 # Answer 4
 outcome :not_regular_schedule
 
 # Answer 5
 outcome :not_earned_enough do
   precalculate :lower_earning_limit do
-    Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(sick_start_date))
+    Calculators::StatutorySickPayCalculatorV2.lower_earning_limit_on(Date.parse(sick_start_date))
   end
 end
 
@@ -275,12 +278,16 @@ outcome :entitled_to_sick_pay do
   precalculate :pattern_days do calculator.pattern_days end
   precalculate :pattern_days_total do calculator.pattern_days * 28 end
 
+  precalculate :proof_of_illness do
+    PhraseList.new(:enough_notice) if notice_of_absence
+  end
+
+  precalculate :entitled_to_esa do
+    PhraseList.new(:esa) if notice_of_absence
+  end
+
   precalculate :paternity_adoption_warning do
-    if paternity_maternity_warning
-      PhraseList.new(:paternity_warning)
-    else
-      PhraseList.new
-    end
+    PhraseList.new(:paternity_warning) if paternity_maternity_warning
   end
 end
 
