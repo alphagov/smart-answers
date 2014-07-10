@@ -1220,14 +1220,17 @@ outcome :outcome_ss_marriage do
       phrases << :contact_embassy_or_consulate << :embassies_data
     end
     unless %w(japan).include?(ceremony_country)
-      phrases << :documents_needed_ss_marriage_and_partnership
+      if %w(partner_british).include?(partner_nationality)
+        phrases << :documents_needed_ss_british
+      else
+        phrases << :documents_needed_ss_not_british
+      end
     end
-    phrases << :"what_to_do_#{marriage_and_partnership_phrases}" << :will_display_in_14_days << :"no_objection_in_14_days_#{marriage_and_partnership_phrases}" << :"provide_two_witnesses_#{marriage_and_partnership_phrases}" 
+    phrases << :"what_to_do_#{marriage_and_partnership_phrases}" << :will_display_in_14_days << :"no_objection_in_14_days_#{marriage_and_partnership_phrases}" << :"provide_two_witnesses_#{marriage_and_partnership_phrases}"
     phrases << :australia_ss_relationships if %w(australia).include?(ceremony_country)
     phrases << :ss_marriage_footnote << :partner_naturalisation_in_uk << :"fees_table_#{ss_fees_table}" << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
     phrases
   end
 end
-
 
 outcome :outcome_ss_marriage_not_possible
