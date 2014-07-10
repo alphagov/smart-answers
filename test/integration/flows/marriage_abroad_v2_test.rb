@@ -1538,7 +1538,20 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     should "go to iom/ci os outcome" do
       assert_current_node :outcome_ss_marriage
       assert_phrase_list :ss_title, [:title_ss_marriage]
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_marriage_and_partnership, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_marriage_and_partnership, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :australia_ss_relationships, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+    end
+  end
+  context "australia opposite sex outcome" do
+    should "bring you to australia os outcome" do
+      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
+      add_response 'australia'
+      add_response 'other'
+      add_response 'australia'
+      add_response 'partner_british'
+      add_response 'same_sex'
+      assert_current_node :outcome_ss_marriage
+      assert_phrase_list :ss_title, [:title_ss_marriage]
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_marriage_and_partnership, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :australia_ss_relationships, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "ceremony in italy, resident in channel islands" do
@@ -1775,7 +1788,6 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_phrase_list :indonesia_os_phraselist, [:appointment_for_affidavit, :complete_affidavit_with_download_link, :documents_for_divorced_or_widowed, :partner_affidavit_needed, :fee_table_45_70_55]
     end
   end
-
   context "aruba opposite sex outcome" do
     should "bring you to aruba os outcome" do
       worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
@@ -1786,33 +1798,6 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'opposite_sex'
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_partner_british, :consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_fees_not_italy_not_uk]
-    end
-  end
-
-  context "australia opposite sex outcome" do
-    should "bring you to australia os outcome" do
-      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
-      add_response 'australia'
-      add_response 'uk'
-      add_response 'uk_england'
-      add_response 'partner_british'
-      add_response 'same_sex'
-      assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_title, [:title_ss_marriage]
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_marriage, :what_to_do_ss_marriage, :fees_table_ss_marriage]
-    end
-  end
-  context "australia opposite sex outcome" do
-    should "bring you to australia os outcome" do
-      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
-      add_response 'australia'
-      add_response 'other'
-      add_response 'australia'
-      add_response 'partner_british'
-      add_response 'same_sex'
-      assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_title, [:title_ss_marriage]
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_marriage_and_partnership, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "ceremony in azerbaijan, resident in northern ireland, partner irish" do
