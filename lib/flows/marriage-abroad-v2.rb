@@ -357,7 +357,7 @@ outcome :outcome_os_indonesia do
       :complete_affidavit_with_download_link,
       :documents_for_divorced_or_widowed,
       :partner_affidavit_needed,
-      :fee_table_english_other_language_affidavit
+      :fee_table_45_70_55
     )
   end
 end
@@ -834,10 +834,13 @@ outcome :outcome_os_affirmation do
     phrases = PhraseList.new
     if %w(portugal).include?(ceremony_country)
       phrases << :contact_civil_register_office_portugal
-    elsif %w(uk).include?(resident_of)
+    elsif %w(uk).include?(resident_of) 
       phrases << :affirmation_os_uk_resident
-    elsif ceremony_country == residency_country
+    elsif (ceremony_country == residency_country) or %w(qatar).include?(ceremony_country)
       phrases << :affirmation_os_local_resident
+      if %w(qatar).include?(ceremony_country)
+        phrases << :gulf_states_os_consular_cni << :gulf_states_os_consular_cni_local_resident_partner_not_irish
+      end
     elsif ceremony_country != residency_country and %w(uk).exclude?(resident_of)
       phrases << :affirmation_os_other_resident
     end
@@ -845,6 +848,7 @@ outcome :outcome_os_affirmation do
     if %w(united-arab-emirates).include?(ceremony_country)
       phrases << :affirmation_os_uae
     end
+#What you need to do section
     if %w(south-korea).include?(ceremony_country)
       phrases << :what_you_need_to_do_will_ask
     elsif %w(turkey).include?(ceremony_country)
@@ -910,13 +914,15 @@ outcome :outcome_os_affirmation do
         phrases << :affirmation_os_partner_british
       end
     end
-
+#fee tables 
     if %w(turkey vietnam thailand south-korea).include?(ceremony_country)
-      phrases << :fee_table_affirmation
+      phrases << :fee_table_affidavit_55
     elsif %w(philippines).include?(ceremony_country)
       phrases << :affirmation_os_all_fees_55_70
+    elsif %w(qatar).include?(ceremony_country)
+      phrases << :fee_table_45_70_55
     else
-      phrases << :affirmation_os_all_fees
+      phrases << :affirmation_os_all_fees_45_70
     end
     unless data_query.countries_without_consular_facilities?(ceremony_country)
       if %w(monaco).include?(ceremony_country)
@@ -1175,7 +1181,7 @@ outcome :outcome_cp_consular do
       phrases << :consular_cp_naturalisation
     end
     if %w(vietnam thailand south-korea).include?(ceremony_country)
-      phrases << :fee_table_affirmation
+      phrases << :fee_table_affidavit_55
     else
       phrases << :consular_cp_all_fees
     end
