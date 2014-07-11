@@ -213,6 +213,7 @@ multiple_choice :partner_opposite_or_same_sex? do
   end
 
   next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
+  next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
   next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
   next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
   on_condition(responded_with('opposite_sex')) do
@@ -331,6 +332,20 @@ outcome :outcome_netherlands do
       :get_legal_advice,
       :partner_naturalisation_in_uk
     )
+  end
+end
+
+outcome :outcome_portugal do
+  precalculate :portugal_phraselist do
+    PhraseList.new(:contact_civil_register_office_portugal)
+  end
+  precalculate :portugal_title do
+    phrases = PhraseList.new
+    if %w(opposite_sex).include?(sex_of_your_partner)
+      phrases << :marriage_title
+    else
+      phrases << :same_sex_marriage_title
+    end
   end
 end
 

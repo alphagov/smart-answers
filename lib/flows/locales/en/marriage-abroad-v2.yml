@@ -111,9 +111,12 @@ en-GB:
           Registering a marriage or civil partnership | £140
           Issuing a marriage or civil partnership certificate | £65
 #Reusable phrases
+    #titles
+        marriage_title: Marriage in %{country_name_lowercase_prefix}
+        same_sex_marriage_title: Same-sex in %{country_name_lowercase_prefix}
+    #embassies
         contact_embassy_or_consulate: |
           Contact your local embassy or consulate to make an appointment.
-    #embassies
         embassies_data: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
     #payment methods
@@ -236,6 +239,8 @@ en-GB:
           Make an [appointment online](http://britishembassymanila.clickbook.net/) or contact the embassy directly.
         contact_civil_register_office_portugal: |
           Contact your nearest [Civil Register Office](http://www.irn.mj.pt/IRN/sections/irn/a_registral/servicos-externos-docs/contactos/contactos-dos-servicos-civil/) in Portugal to find out about local marriage laws, including what documents you’ll need.
+          
+          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
 #book online phrases
         book_online_bolivia: |
           Make an [appointment online](https://britishembassylapaz.clickbook.net/sub/britishembassylapaz) at the British Embassy in La Paz.
@@ -1546,6 +1551,13 @@ en-GB:
 
           *[GRO]:General Register Office
           *[FCO]:Foreign & Commonwealth Office
+# outcome Portugal
+      outcome_portugal:
+        title: %{portugal_title}
+        body: |
+          Contact your nearest [Civil Register Office](http://www.irn.mj.pt/IRN/sections/irn/a_registral/servicos-externos-docs/contactos/contactos-dos-servicos-civil/) in Portugal to find out about local marriage laws, including what documents you’ll need.
+
+          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
 # outcome Commonwealth, opposite sex
       outcome_os_commonwealth:
         title: |
