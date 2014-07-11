@@ -155,7 +155,8 @@ en-GB:
           ##What you need to do
 
           You will be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
-
+        make_an_appointment: |
+          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
       #affidavit phrases
         complete_affidavit: |
           You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit.  Take the completed form with you to your appointment.
@@ -165,7 +166,7 @@ en-GB:
 
         download_affidavit: |
           $D
-          [Download 'Affadavit for Marriage' (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
+          [Download 'Affidavit for Marriage' (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
           $D
 
         contact_for_affidavit: |
@@ -228,6 +229,10 @@ en-GB:
           Affidavit for marriage | £55
 
       #other phrases
+        partner_equivalent_document: |
+          ^Your partner will probably need to get an equivalent document from their national authorities.^
+        partner_declaration: |
+          ^Your partner will need to make a declaration as well.^
         what_to_do_croatia: |
           You may be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
           The local registrar may also need a certificate of custom and law, which confirms the marriage is valid - the Embassy in Zagreb can provide this.
@@ -311,8 +316,6 @@ en-GB:
           You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us) to find out what they can provide, then contact the authorities in %{country_name_lowercase_prefix} to confirm if this is acceptable.
 
           The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the authorities in Jersey or Guernsey.
-        iom_ci_os_ceremony_not_italy: |
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         iom_ci_os_ceremony_italy: |
           $C
           **British Embassy in Rome - marriages**
@@ -667,8 +670,6 @@ en-GB:
 
           Email <RussiaConsular@fco.gov.uk> to book an appointment at the British Consulate Ekaterinburg.
 
-        consular_cni_os_no_clickbook_so_embassy_details: |
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         consular_cni_os_local_resident_italy: |
           To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
 
@@ -1055,7 +1056,7 @@ en-GB:
 
         affirmation_os_partner_british: |
           ^Your partner will probably need to get an affirmation as well.^
-
+          
         affirmation_os_partner_not_british: |
           ^Your partner will probably need to get an equivalent document from their national authorities.^
 
@@ -1077,14 +1078,24 @@ en-GB:
         affirmation_os_download_affidavit_philippines: |
           The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can print and fill in (but not sign) the [affidavit/affirmation for marriage form](/government/publications/marriage-in-the-philippines) in advance.
 
-        affirmation_os_divorced_or_widowed: |
+        # affirmation_os_divorced_or_widowed: |
+        #   If you’ve been divorced or widowed, you’ll also need:
+
+        #   - a [decree absolute or final order](/copy-decree-absolute-final-order), or
+        #   - the [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+        #   ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
+
+        #   You’ll also need to provide evidence if you’ve changed your name by deed poll.
+
+        docs_decree_and_death_certificate: |
           If you’ve been divorced or widowed, you’ll also need:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order), or
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
-
+        divorced_or_widowed_evidences: |
           ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
-
+        change_of_name_evidence: |
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
 
         affirmation_os_all_fees_45_70: |
@@ -1095,7 +1106,15 @@ en-GB:
           Affirmation for freedom to marry in English | £45
           Affirmation for freedom to marry in any other language | £70
 
-        affirmation_os_all_fees_55_70: |
+        fee_table_45_55: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Marriage declaration | £45
+          Making an oath | £55
+
+        fee_table_55_70: |
           ##Fees
 
           Service | Fee
@@ -1416,8 +1435,6 @@ en-GB:
 
           - a ‘certificate of no impediment’ (CNI) or similar document to prove they’re allowed to enter into a civil partnership from their national authorities
           - a Single Status Certificate issued by state or territory authorities, if they’ve been resident in Australia for at least 21 days
-        commonwealth_countries_cp_ceremony_not_australia: |
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         commonwealth_countries_cp_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
