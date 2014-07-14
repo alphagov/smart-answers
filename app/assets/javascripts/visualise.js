@@ -123,9 +123,9 @@
           rankSep: 100
         });
         if (rankDir == 'LR') {
-          toggleButton.text('Show in portrait');
-        } else {
           toggleButton.text('Show in landscape');
+        } else {
+          toggleButton.text('Show in portrait');
         }
         var padding = 400;
         paper.fitToContent(10, 10, padding);
