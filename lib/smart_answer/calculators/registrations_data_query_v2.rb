@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
 
     CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan laos latvia libya slovenia tunisia uganda)
 
-    CHEQUE_ONLY_COUNTRIES = %w(taiwan)
+    PAY_BY_BANK_DRAFT_COUNTRIES = %w(taiwan)
 
     EASTERN_CARIBBEAN_COUNTRIES = %w(antigua-and-barbuda barbados dominica st-kitts-and-nevis st-vincent-and-the-grenadines)
 
@@ -83,8 +83,8 @@ module SmartAnswer::Calculators
       CASH_ONLY_COUNTRIES.include?(country_slug)
     end
 
-    def cheque_only?(country_slug)
-      CHEQUE_ONLY_COUNTRIES.include?(country_slug)
+    def pay_by_bank_draft?(country_slug)
+      PAY_BY_BANK_DRAFT_COUNTRIES.include?(country_slug)
     end
 
     def cash_and_card_only?(country_slug)

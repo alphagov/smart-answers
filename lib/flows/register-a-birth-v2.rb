@@ -239,8 +239,8 @@ outcome :embassy_result do
   end
 
   precalculate :cash_only do
-    if reg_data_query.cheque_only?(registration_country)
-      PhraseList.new(:cheque_only)
+    if reg_data_query.pay_by_bank_draft?(registration_country)
+      PhraseList.new(:pay_by_bank_draft)
     elsif reg_data_query.cash_only?(registration_country)
       PhraseList.new(:cash_only)
     elsif reg_data_query.cash_and_card_only?(registration_country)

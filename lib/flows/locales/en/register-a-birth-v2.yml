@@ -252,6 +252,7 @@ en-GB:
           You can also post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate}.
 
           Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url}) and post it with your registration form.
+
         post_only_pay_by_card_countries: |
           ##Send your registration
 
@@ -303,6 +304,8 @@ en-GB:
           %You can only pay by cash, which must be in local currency.%
         cheque_only: |
           You must pay by personal cheque.
+        pay_by_bank_draft: |
+          Pay by bank draft made payable to ‘The Foreign and Commonwealth Office’.
         cash_and_card: |
           You can pay by cash or credit card, but not by personal cheque.
         footnote_another_country: |
