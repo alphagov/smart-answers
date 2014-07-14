@@ -1785,7 +1785,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_indonesia
-      assert_phrase_list :indonesia_os_phraselist, [:appointment_for_affidavit, :complete_affidavit_with_download_link, :documents_for_divorced_or_widowed, :partner_affidavit_needed, :fee_table_45_70_55]
+      assert_phrase_list :indonesia_os_phraselist, [:appointment_for_affidavit, :complete_affidavit_with_download_link, :embassies_data, :documents_for_divorced_or_widowed, :partner_affidavit_needed, :fee_table_45_70_55]
     end
   end
   context "aruba opposite sex outcome" do
