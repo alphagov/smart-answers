@@ -850,24 +850,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # Bangladesh
 
-  context "answer Pakistan" do
-    setup do
-      worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
-      add_response 'pakistan'
-    end
-    context "applying for a new adult passport" do
-      should "give the ips result" do
-        add_response 'applying'
-        add_response 'adult'
-        add_response 'pakistan'
-        assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_6_months, :how_long_it_takes_ips3]
-        assert_phrase_list :send_your_application, [:send_application_ips3_pakistan, :send_application_ips3_must_post_colour_photo, :send_application_embassy_address]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :send_application_ips1_pakistan, :hmpo_1_application_form, :ips_documents_group_3]
-      end
-    end
-  end # Pakistan
-
   context "answer Uzbekistan" do
     setup do
       worldwide_api_has_organisations_for_location('uzbekistan', read_fixture_file('worldwide/uzbekistan_organisations.json'))
@@ -1149,4 +1131,36 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
     end
   end
+  # Testing for Pakistan
+  context "testing for pakistan outcome variations" do
+    setup do
+      worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
+      add_response 'pakistan'
+    end
+    context "renewing_new pakistan adult passport" do
+      should "go to outcome with correct phrases" do
+        add_response 'renewing_new'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_pakistan]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :send_application_ips1_pakistan, :hmpo_1_application_form, :ips_documents_group_3]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact, :getting_your_passport_id_renew_new]
+      end
+    end # renewing_new adult
+    context "replacing adult passport" do
+      should "give the ips result" do
+        add_response 'replacing'
+        add_response 'child'
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_14_weeks,:report_loss_or_theft, :how_long_it_takes_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :child_passport_costs_ips3, :passport_costs_ips3]
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour,
+          :send_application_address_pakistan]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :send_application_ips1_pakistan, :hmpo_1_application_form, :ips_documents_group_3]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact_and_id]
+      end
+    end # replacing child
+  end # Pakistan tests
 end

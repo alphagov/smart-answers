@@ -459,12 +459,12 @@ en-GB:
 
         how_long_additional_info_replacing: |
           If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
-          
+
         how_long_additional_info_renewing_old: |
           You may have to attend an interview for a first adult passport.
         how_long_additional_info_renewing_new: |
           You may have to attend an interview for a first adult passport.
-          
+
         how_long_it_takes_ips1: |
           Applications may take longer if:
 
@@ -598,10 +598,7 @@ en-GB:
 
           You must post your completed form and supporting documents to the British High Commission in New Delhi.
 
-        send_application_ips3_pakistan: |
-          ## Making your application
 
-          You must post your completed form and supporting documents to the British High Commission in Islamabad.
 
         send_application_uk_visa_renew_new: |
           ## Making your application
@@ -956,6 +953,48 @@ en-GB:
           $C
           Email: <KathmanduHMPO@vfshelpline.com>
           Opening hours: Monday to Friday 2pm to 4pm (local time)
+          $C
+
+        send_application_address_pakistan: |
+
+          $A
+          UK Visa Application Centre
+          14-B, Sadiq Plaza G-9 Markaz
+          Islamabad
+          $A
+          $C
+          Email:<islamabad.hmpo@gerrys.com.pk>
+          $C
+
+          $A
+          UK Visa Application Centre
+          43/1/D, Razi Road PECHS
+          Shaharah-e-Faisal
+          Karachi
+          $A
+          $C
+          Email: <karachi.hmpo@gerrys.com.pk>
+          $C
+
+          $A
+          UK Visa Application Centre
+          20, Ex American Centre Building
+          Opp. Ganga Ram Hospital
+          Queens Road
+          Lahore
+          $A
+          $C
+          Email: <lahore.hmpo@gerrys.com.pk>
+          $C
+
+          $A
+          UK Visa Application Centre
+          Nau Mahal Plaza, Near Foot Ball Square,
+          Defense Road
+          Mirpur
+          $A
+          $C
+          Email: <mirpur.hmpo@gerrys.com.pk>
           $C
 
         send_application_address_pitcairn-island: |
