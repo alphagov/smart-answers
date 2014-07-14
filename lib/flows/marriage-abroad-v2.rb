@@ -127,13 +127,16 @@ end
 # Q3b
 country_select :residency_nonuk?, exclude_countries: exclude_countries do
   save_input_as :residency_country
-
+  countries_that_show_their_embassies_data = %w(belarus brazil dominican-republic egypt el-salvador ethiopia finland honduras hungary indonesia south-korea latvia lebanon mongolia nepal oman panama peru philippines qatar slovakia thailand united-arab-emirates vietnam portugal)
   calculate :location do
-    loc = WorldLocation.find(residency_country)
+    if countries_that_show_their_embassies_data.include?(ceremony_country) and %w(other).include?(resident_of)
+      loc = WorldLocation.find(ceremony_country)
+    else
+      loc = WorldLocation.find(residency_country)
+    end
     raise InvalidResponse unless loc
     loc
   end
-
   calculate :organisation do
     location.fco_organisation
   end
@@ -144,6 +147,7 @@ country_select :residency_nonuk?, exclude_countries: exclude_countries do
       []
     end
   end
+
 
   calculate :residency_country_name do
     location.name
