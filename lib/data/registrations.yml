@@ -33,6 +33,9 @@ clickbook:
   netherlands: https://www.clickbook.net/dev/bc.nsf/sub/BRITISHCONSULATE
   norway: http://www.britishembassy.clickbook.net/
   oman: https://www.clickbook.net/dev/bc.nsf/sub/britishembassymuscat
+  pakistan:
+    islamabad: http://britishhighcomm.clickbook.net/
+    karachi: https://onlineappointments.clickbook.net/sub/onlineappointments
   panama: http://www.britishembassyinpana.clickbook.net/
   peru: http://britishembassyinlima.clickbook.net/
   philippines: http://britishembassymanila.clickbook.net/
