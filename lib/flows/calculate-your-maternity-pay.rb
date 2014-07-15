@@ -48,7 +48,7 @@ end
 # Question 2
 multiple_choice :are_you_employed? do
   option :yes
-option :no
+  option :no
 
   next_node do |response|
     if response == 'no'

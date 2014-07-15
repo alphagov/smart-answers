@@ -92,7 +92,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
             end
           end
 
-   context "salary above 30 and less than smp_lel" do
+          context "salary above 30 and less than smp_lel" do
             setup do
               add_response "31"
             end
@@ -102,7 +102,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
             end
           end
 
-   context "salary above smp_lel" do
+          context "salary above smp_lel" do
             setup do
               add_response "110"
             end
@@ -155,7 +155,6 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
                 assert_current_node :nothing_maybe_benefits
               end
             end
-
           end # context - work at least 26 weeks
 
           context "will not work at least 26 weeks during the test period" do
@@ -469,10 +468,10 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
       should "ask you if you have been paid for helping" do
         assert_current_node :have_you_been_paid_for_helping_partner?
       end
-        context "yes, you have been paid for helping" do
+      context "yes, you have been paid for helping" do
         setup do
-               add_response "yes"
-             end
+          add_response "yes"
+        end
         should "show you that you may or cannot get benefits" do
           assert_current_node :nothing_maybe_benefits
         end
@@ -501,7 +500,7 @@ class CalculateYourMaternityPayTest < ActiveSupport::TestCase
             assert_current_node :nothing_maybe_benefits
           end
         end
-          context "yes, you have helped for more than 26 weeks" do
+        context "yes, you have helped for more than 26 weeks" do
           setup do
             add_response "yes"
           end
