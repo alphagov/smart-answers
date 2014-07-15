@@ -116,7 +116,8 @@ multiple_choice :residency_uk? do
       ->(_) {
         data_query.os_other_countries?(ceremony_country) ||
         data_query.ss_marriage_countries?(ceremony_country) ||
-        data_query.ss_marriage_and_partnership?(ceremony_country)
+        data_query.ss_marriage_and_partnership?(ceremony_country) ||
+        %w(portugal).include?(ceremony_country)
       })
     next_node_if(:outcome_os_iom_ci)
   end
