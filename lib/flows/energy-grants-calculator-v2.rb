@@ -55,7 +55,7 @@ checkbox_question :what_are_your_circumstances? do
   validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
   validate(:error_perm_house) { |r| ! r.include?('permission,social_housing')}
 
-  next_node_if(:date_of_birth?) { %w(help_with_fuel_bill both_help).include?(which_help) } # Q3
+  next_node_if(:date_of_birth?) { bills_help || both_help } # Q3
   on_condition(measure?) do
     next_node_if(:which_benefits?, responded_with("benefits"))
     next_node :when_property_built?
@@ -76,18 +76,16 @@ checkbox_question :what_are_your_circumstances_without_bills_help? do
     []
   end
 
-  next_node do |response|
-    if response =~ /permission,property/
-      raise InvalidResponse, :error_perm_prop
-    elsif bills_help || both_help
-      :date_of_birth? # Q3
-    elsif measure_help
-      if response.include?('benefits')
-        :which_benefits? # Q4
-      else
-        :when_property_built? # Q6
-      end
-    end
+  validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
+
+  define_predicate(:measure?) {
+    %w(help_energy_efficiency help_boiler_measure).include?(which_help)
+  }
+
+  next_node_if(:date_of_birth?) { bills_help || both_help }
+  on_condition(measure?) do
+    next_node_if(:which_benefits?, responded_with("benefits"))
+    next_node :when_property_built?
   end
 end
 
@@ -106,7 +104,7 @@ date_question :date_of_birth? do
   end
 
   next_node_if(:which_benefits?) { circumstances.include?('benefits') }
-  next_node_if(:outcome_help_with_bills) { %w(help_with_fuel_bill).include?(which_help) } # outcome 1
+  next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
   next_node(:when_property_built?) # Q6
 end
 
@@ -131,17 +129,21 @@ checkbox_question :which_benefits? do
   end
 
   define_predicate(:disabled_or_have_children_question?) do |response|
-    response == 'income_support' || response == 'jsa' || response == 'esa' ||
-      response == 'working_tax_credit' || response =~ /child_tax_credit,esa,income_support,jsa,pension_credit/ ||
-      response =~ /child_tax_credit,esa,income_support,pension_credit/ || response =~ /child_tax_credit,esa,jsa,pension_credit/
+    response == 'income_support' ||
+    response == 'jsa' ||
+    response == 'esa' ||
+    response == 'working_tax_credit' ||
+    %w{child_tax_credit esa income_support jsa pension_credit}.all? {|key| response.include? key} ||
+    %w{child_tax_credit esa income_support pension_credit}.all? {|key| response.include? key} ||
+    %w{child_tax_credit esa jsa pension_credit}.all? {|key| response.include? key}
   end
 
   on_condition(responded_with('pension_credit') || responded_with('child_tax_credit')) do
-    next_node_if(:outcome_help_with_bills) { %w(help_with_fuel_bill).include?(which_help) } # outcome 1
+    next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
     next_node(:when_property_built?) # Q6
   end
   next_node_if(:disabled_or_have_children?, disabled_or_have_children_question?) # Q5
-  next_node_if(:outcome_help_with_bills) { %w(help_with_fuel_bill).include?(which_help) } # outcome 1
+  next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
   next_node(:when_property_built?) # Q6
 end
 
@@ -171,7 +173,7 @@ checkbox_question :disabled_or_have_children? do
     end
   end
 
-  next_node_if(:outcome_help_with_bills) { %w(help_with_fuel_bill).include?(which_help) } # outcome 1
+  next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
   next_node(:when_property_built?) # Q6
 end
 
@@ -202,8 +204,8 @@ multiple_choice :type_of_property? do
   save_input_as :property_type
 
   on_condition(responded_with('house')) do
-    next_node_if(:home_features_modern?) { %w(on-or-after-1995).include?(property_age) }
-    next_node_if(:home_features_older?) { %w(1940s-1984).include?(property_age) }
+    next_node_if(:home_features_modern?) { modern }
+    next_node_if(:home_features_older?) { older }
     next_node(:home_features_historic?)
   end
   next_node(:type_of_flat?)
@@ -215,8 +217,8 @@ multiple_choice :type_of_flat? do
   option :ground_floor
   save_input_as :flat_type
 
-  next_node_if(:home_features_modern?) { %w(on-or-after-1995).include?(property_age) }
-  next_node_if(:home_features_older?) { %w(1940s-1984).include?(property_age) }
+  next_node_if(:home_features_modern?) { modern }
+  next_node_if(:home_features_older?) { older }
   next_node(:home_features_historic?)
 end
 
