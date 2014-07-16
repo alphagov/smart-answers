@@ -278,18 +278,16 @@ outcome :outcome_os_iom_ci do
   precalculate :iom_ci_os_outcome do
     phrases = PhraseList.new
     phrases << :iom_ci_os_all
-    if %w(spain).include?(ceremony_country)
-      phrases << :iom_ci_os_spain
-    end
+    phrases << :iom_ci_os_spain if %w(spain).include?(ceremony_country)
     if %w(uk_iom).include?(residency_uk_region)
       phrases << :iom_ci_os_resident_of_iom
     else
       phrases << :iom_ci_os_resident_of_ci
     end
-    if not %w(italy).include?(ceremony_country)
-      phrases << :embassies_data
-    else
+    if %w(italy).include?(ceremony_country)
       phrases << :iom_ci_os_ceremony_italy
+    else
+      phrases << :embassies_data
     end
     phrases
   end
@@ -371,15 +369,7 @@ outcome :outcome_os_commonwealth do
   precalculate :commonwealth_os_outcome do
     phrases = PhraseList.new
 
-    if not %w(zimbabwe).include?(ceremony_country)
-      if %w(uk).include?(resident_of)
-        phrases << :uk_resident_os_ceremony_not_zimbabwe
-      elsif residency_country == ceremony_country
-        phrases << :local_resident_os_ceremony_not_zimbabwe
-      else
-        phrases << :other_resident_os_ceremony_not_zimbabwe
-      end
-    else
+    if %w(zimbabwe).include?(ceremony_country)
       if %w(uk).include?(resident_of)
         phrases << :uk_resident_os_ceremony_zimbabwe
       elsif residency_country == ceremony_country
@@ -387,12 +377,18 @@ outcome :outcome_os_commonwealth do
       else
         phrases << :other_resident_os_ceremony_zimbabwe
       end
-    end
-    if %w(zimbabwe).include?(ceremony_country)
       phrases << :commonwealth_os_all_cni_zimbabwe
     else
+      if %w(uk).include?(resident_of)
+        phrases << :uk_resident_os_ceremony_not_zimbabwe
+      elsif residency_country == ceremony_country
+        phrases << :local_resident_os_ceremony_not_zimbabwe
+      else
+        phrases << :other_resident_os_ceremony_not_zimbabwe
+      end
       phrases << :commonwealth_os_all_cni
     end
+
     case ceremony_country
     when 'south-africa'
       if %w(partner_local).include?(partner_nationality)
@@ -436,11 +432,14 @@ outcome :outcome_os_consular_cni do
 
     cni_posted_after_7_days_countries = %w(albania algeria angola austria azerbaijan bahrain bolivia bosnia-herzegovina cambodia chile croatia cuba ecuador estonia georgia greece hong-kong iceland iran italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia montenegro nicaragua norway poland russia spain sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
     cni_posted_after_14_days_countries = %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
+    not_italy_or_spain = %w(italy spain).exclude?(ceremony_country)
+    ceremony_not_germany_or_not_resident_other = (%w(germany).exclude?(ceremony_country) or %w(other).exclude?(resident_of))
+    ceremony_and_residency_in_croatia = %w(croatia).include?(ceremony_country) and %w(croatia).include?(residency_country)
 
     if %w(ecuador).include?(ceremony_country) and %w(partner_local).include?(partner_nationality) and %w(ecuador).exclude?(residency_country)
       phrases << :ecuador_os_consular_cni
     end
-    if %w(uk).include?(resident_of) and %w(italy).exclude?(ceremony_country) and !data_query.dutch_caribbean_islands?(ceremony_country)
+    if %w(uk).include?(resident_of) and %w(italy).exclude?(ceremony_country) and not data_query.dutch_caribbean_islands?(ceremony_country)
       phrases << :uk_resident_os_consular_cni
     elsif residency_country == ceremony_country and %w(italy).exclude?(ceremony_country)
       phrases << :local_resident_os_consular_cni
@@ -471,13 +470,13 @@ outcome :outcome_os_consular_cni do
       phrases << :italy_os_consular_cni_ceremony_not_italy_or_spain
     end
     phrases << :consular_cni_all_what_you_need_to_do
-    unless %w(italy spain).include?(ceremony_country) or (%w(germany).include?(ceremony_country) and %w(other).include?(resident_of))
-      if %w(croatia).include?(ceremony_country) and %w(croatia).include?(residency_country)
-        phrases << :what_to_do_croatia
-      else
-        phrases << :consular_cni_os_ceremony_not_spain_or_italy
-      end
+
+    if ceremony_and_residency_in_croatia
+      phrases << :what_to_do_croatia
+    elsif not_italy_or_spain && ceremony_not_germany_or_not_resident_other
+      phrases << :consular_cni_os_ceremony_not_spain_or_italy
     end
+
     if %w(spain).include?(ceremony_country)
       phrases << :spain_os_consular_cni_two
     elsif %w(italy).include?(ceremony_country)
@@ -801,7 +800,7 @@ outcome :outcome_os_affirmation do
     phrases = PhraseList.new
     if %w(portugal).include?(ceremony_country)
       phrases << :contact_civil_register_office_portugal
-    elsif %w(uk).include?(resident_of) 
+    elsif %w(uk).include?(resident_of)
       phrases << :affirmation_os_uk_resident
     elsif (ceremony_country == residency_country) or %w(qatar).include?(ceremony_country)
       phrases << :affirmation_os_local_resident
