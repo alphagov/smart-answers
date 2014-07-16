@@ -1681,15 +1681,15 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_os_affirmation
     end
   end
-  context "portugal outcome mapped to lebanon" do
-    should "go to outcome os affirmation" do
+  context "portugal has his own outcome" do
+    should "go to portugal outcome" do
       worldwide_api_has_organisations_for_location('portugal', read_fixture_file('worldwide/portugal_organisations.json'))
       add_response 'portugal'
       add_response 'uk'
       add_response 'uk_england'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_os_affirmation
+      assert_current_node :outcome_portugal
     end
   end
 
@@ -1913,9 +1913,23 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
     end
-    should "go to affirmation_os_outcome" do
-      assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_civil_register_office_portugal, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_may_ask, :book_online_portugal, :affirmation_os_translation_in_local_language_portugal, :affirmation_os_divorced_or_widowed, :affirmation_os_partner_not_british, :affirmation_os_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+    should "go to portugal outcome" do
+      assert_current_node :outcome_portugal
+      assert_phrase_list :portugal_title, [:marriage_title]
+    end
+  end
+  context "Marrying anywhere in the world > British National not living in the UK > Resident in Portugal > Partner of any nationality > Opposite sex" do
+    setup do
+      worldwide_api_has_organisations_for_location('portugal', read_fixture_file('worldwide/portugal_organisations.json'))
+      add_response 'portugal'
+      add_response 'uk'
+      add_response 'uk_iom'
+      add_response 'partner_other'
+      add_response 'opposite_sex'
+    end
+    should "go to portugal outcome" do
+      assert_current_node :outcome_portugal
+      assert_phrase_list :portugal_title, [:marriage_title]
     end
   end
 end

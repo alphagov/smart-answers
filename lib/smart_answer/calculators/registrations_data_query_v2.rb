@@ -13,6 +13,8 @@ module SmartAnswer::Calculators
 
     PAY_BY_BANK_DRAFT_COUNTRIES = %w(taiwan)
 
+    CHEQUE_ONLY_COUNTRIES = %w(taiwan)
+
     EASTERN_CARIBBEAN_COUNTRIES = %w(antigua-and-barbuda barbados dominica st-kitts-and-nevis st-vincent-and-the-grenadines)
 
     NO_POSTAL_COUNTRIES = %w(barbados costa-rica malaysia papua-new-guinea sweden tanzania thailand)
@@ -87,6 +89,9 @@ module SmartAnswer::Calculators
       PAY_BY_BANK_DRAFT_COUNTRIES.include?(country_slug)
     end
 
+    def cheque_only?(country_slug)
+      CHEQUE_ONLY_COUNTRIES.include?(country_slug)
+    end
     def cash_and_card_only?(country_slug)
       CASH_AND_CARD_COUNTRIES.include?(country_slug)
     end
