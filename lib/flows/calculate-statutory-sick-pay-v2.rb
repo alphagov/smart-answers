@@ -26,8 +26,8 @@ multiple_choice :employee_tell_within_limit? do
   option :yes
   option :no
 
-  calculate :notice_of_absence do
-    responses.last == 'no'
+  calculate :enough_notice_of_absence do
+    responses.last == 'yes'
   end
 
   next_node(:employee_work_different_days?)
@@ -279,11 +279,11 @@ outcome :entitled_to_sick_pay do
   precalculate :pattern_days_total do calculator.pattern_days * 28 end
 
   precalculate :proof_of_illness do
-    PhraseList.new(:enough_notice) if notice_of_absence
+    PhraseList.new(:enough_notice) unless enough_notice_of_absence
   end
 
   precalculate :entitled_to_esa do
-    PhraseList.new(:esa) if notice_of_absence
+    PhraseList.new(:esa) if enough_notice_of_absence
   end
 
   precalculate :paternity_adoption_warning do

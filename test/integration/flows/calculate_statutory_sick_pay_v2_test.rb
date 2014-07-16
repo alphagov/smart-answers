@@ -127,7 +127,6 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
                           should "go to entitled_to_sick_pay outcome" do
                             assert_current_node :entitled_to_sick_pay
                             assert_phrase_list :proof_of_illness, [:enough_notice]
-                            assert_phrase_list :entitled_to_esa, [:esa]
                             assert_phrase_list :paternity_adoption_warning, [:paternity_warning]
                           end
                         end
@@ -283,6 +282,8 @@ class CalculateStatutorySickPayV2Test < ActiveSupport::TestCase
                               end
                               should "take you to result 6 without first days (no PIW)" do
                                 assert_current_node :entitled_to_sick_pay
+                                assert_phrase_list :entitled_to_esa, [:esa]
+                                assert_phrase_list :paternity_adoption_warning, [:paternity_warning]
                               end
                             end
                           end
