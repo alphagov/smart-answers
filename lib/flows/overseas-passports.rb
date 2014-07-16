@@ -169,11 +169,15 @@ outcome :ips_application_result_online do
                      :"#{child_or_adult}_passport_costs_ips#{ips_number}")
     end
   end
+
   precalculate :how_to_apply do
-    PhraseList.new(:how_to_apply_online,
+    phrases = PhraseList.new(:how_to_apply_online,
                    :"how_to_apply_online_prerequisites_#{general_action}",
                    :"how_to_apply_online_guidance_doc_group_#{ips_docs_number}")
+    phrases << :hong_kong_id_required if %w(hong-kong).include?(current_location)
+    phrases << :how_to_apply_online_guidance_doc_outro
   end
+
   precalculate :getting_your_passport do
     PhraseList.new(:"getting_your_passport_ips#{ips_number}")
   end
