@@ -131,12 +131,12 @@ en-GB:
       outcome_20:
         title: The husband, wife or civil partner keeps all the assets (including property), up to £250,000, and all the personal possessions, whatever their value.
         body: |
-          The remainder of the estate will be shared equally between:
+          The remainder of the estate will be shared as follows:
 
-          - the husband, wife or civil partner
-          - any surviving children
+          * the husband, wife or civil partner gets a life interest in half of the remainder
+          * the other half is then divided equally between the surviving children
 
-          If a son or daughter has already died, their children will inherit in their parent’s place.
+          If a son or daughter has already died, their children will inherit in their parent's place.'
         next_steps: |
           %{next_step_links}
 
