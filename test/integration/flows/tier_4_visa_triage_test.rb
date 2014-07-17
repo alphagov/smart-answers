@@ -28,7 +28,25 @@ class Tier4VisaTriageTest < ActiveSupport::TestCase
         assert_state_variable :sponsor_id, "01HXM2CP2"
         assert_phrase_list :application_link, [:post_link]
         assert_current_node :outcome
-
+      end
+    end
+    context "existing sponsor id provided (online)" do
+      setup do
+        add_response "1GC8FDP33"
+      end
+      should "show outcome with online phraselist" do
+        assert_state_variable :sponsor_name, "Alpha Omega College"
+        assert_state_variable :sponsor_id, "1GC8FDP33"
+        assert_phrase_list :application_link, [:online_link]
+        assert_current_node :outcome
+      end
+    end
+    context "existing sponsor id provided (online)" do
+      setup do
+        add_response "egrwijadvwbjdsva nk."
+      end
+      should "raise an error" do
+        assert_current_node_is_error
       end
     end
   end
