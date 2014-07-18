@@ -131,12 +131,12 @@ en-GB:
       outcome_20:
         title: The husband, wife or civil partner keeps all the assets (including property), up to £250,000, and all the personal possessions, whatever their value.
         body: |
-          The remainder of the estate will be shared equally between:
+          The remainder of the estate will be shared as follows:
 
-          - the husband, wife or civil partner
-          - any surviving children
+          * the husband, wife or civil partner gets a life interest in half of the remainder
+          * the other half is then divided equally between the surviving children
 
-          If a son or daughter has already died, their children will inherit in their parent’s place.
+          If a son or daughter has already died, their children will inherit in their parent's place.
         next_steps: |
           %{next_step_links}
 
@@ -146,17 +146,20 @@ en-GB:
           They also get half of the amount left over.
 
           The remainder goes to the parent or parents.
+
+          If a son or daughter has already died, their children will inherit in their parent’s place.
         next_steps: |
           %{next_step_links}
 
       outcome_22:
         title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000, and all the personal possessions, whatever their value.
         body: |
-          They also get half of the amount left over.
+          They also get half the amount left over.
 
-          The remainder is divided between any brothers or sisters.
+          The remainder is divided between the surviving siblings.
 
-          If a brother or sister has already died, their children (the deceased’s nieces and nephews) inherit.
+          If a brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
+
         next_steps: |
           %{next_step_links}
 
@@ -231,9 +234,8 @@ en-GB:
         body: |
           They also get:
 
-          - furniture and moveable household goods up to the value of £29,000
-          - up to £50,000 in cash
-          - a third of the rest of the estate
+          - up to £89,000 in cash
+          - a third of the rest of the estate (or the entire estate if the cash sum was less than £89,000)
 
           The rest of the estate is divided in half between any surviving:
 
