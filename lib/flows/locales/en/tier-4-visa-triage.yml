@@ -1,0 +1,58 @@
+en-GB:
+  flow:
+    tier-4-visa-triage:
+      title: Check how to extend or switch to a Tier 4 visa
+      meta:
+        description: Check how you can extend or switch your Tier 4 (General) student visa or your Tier 4 (Child) student visa
+      body: |
+        You must check whether you can extend your switch your Tier 4 visa online or by post.
+
+        This applies to:
+
+        * extending or switching to a [Tier 4 (General) student visa](/tier-4-general-visa)
+        * extending or switching to a [Tier 4 (Child) student visa](/child-study-visa)
+      phrases:
+        post_link: |
+          You must [apply by post](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList).
+        online_link: |
+          You must [apply online](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
+        general_extend: |
+          Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/extend-your-visa) guide.
+        general_switch: |
+          Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/switch-to-this-visa) guide.
+        child_extend: |
+          Go back to the [Tier 4 (Child) student visa](/child-study-visa/extend-your-visa) guide.
+        child_switch: |
+          Go back to the [Tier 4 (Child) student visa](/child-study-visa/switch-to-this-visa) guide.
+        you_must_be_in_uk: |
+          ^You must already be in the UK to switch to this visa.^
+
+#Q1
+      extending_or_switching?:
+        title: "Are you:"
+        options:
+          extend_general: extending your Tier 4 (General) student visa
+          switch_general: switching to the Tier 4 (General) student visa
+          extend_child: extending your Tier 4 (Child) student visa
+          switch_child: switching to the Tier 4 (Child) student visa
+#Q2
+      sponsor_id?:
+        title: "What is your Tier 4 sponsor number?"
+        hint: You can find your sponsor number on your certificate of acceptance for studies (CAS).
+        error: The sponsor number you entered isn't valid
+#A1
+      outcome:
+        title: Check that your sponsor details are correct before applying.
+        body: |
+          Your sponsor institution is: %{sponsor_name}
+
+          Your sponsor number is: %{sponsor_id}
+
+          %{application_link}
+
+          You should read the [guidance notes](/government/publications/guidance-on-application-to-extend-visa-under-tier-4-child) before you apply.
+
+          You should apply during the last 3 months of your current permission to stay and no later than 6 months after your confirmation of acceptance for studies (CAS) has been assigned.
+
+          %{extend_or_switch_visa}
+
