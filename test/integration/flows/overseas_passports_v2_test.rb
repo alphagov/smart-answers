@@ -449,9 +449,9 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'india'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_16_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :send_your_application, [:send_application_ips3_india, :send_application_ips3_must_post_colour_photo, :send_application_embassy_address]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_india, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_india]
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour,:send_application_address_india]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact_and_id]
       end
     end
     context "renewing a new adult passport" do
@@ -825,8 +825,8 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_bangladesh, :passport_costs_ips3_cash_or_card]
-        assert_phrase_list :send_your_application, [:send_application_ips3_bangladesh, :send_application_embassy_address]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_bangladesh]
       end
     end
     context "replacing a new adult passport" do
@@ -835,7 +835,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_18_weeks, :report_loss_or_theft, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_bangladesh, :passport_costs_ips3_cash_or_card]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
       end
     end
     context "applying for a new adult passport" do
@@ -845,7 +845,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'bangladesh'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_8_months, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3_cash_or_card_bangladesh, :passport_costs_ips3_cash_or_card]
+        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
       end
     end
   end # Bangladesh
@@ -1010,13 +1010,14 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end
   end # Cambodia
 
-  context "answer Kyrgyzstan, testing for embassy link" do
-    should "give the neighbouring country outcome" do
+  context "answer Kyrgyzstan" do
+    should "give ips_application_result outcome with correct UK Visa centre address" do
       worldwide_api_has_organisations_for_location('kyrgyzstan', read_fixture_file('worldwide/kyrgyzstan_organisations.json'))
       add_response 'kyrgyzstan'
-      assert_current_node :apply_in_neighbouring_country
-      assert_phrase_list :emergency_travel_help, [:emergency_travel_help_kyrgyzstan]
-      assert_state_variable :title_output, 'Kyrgyzstan'
+      add_response 'renewing_new'
+      add_response 'adult'
+      assert_current_node :ips_application_result
+      assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_kyrgyzstan]
     end
   end # Kyrgyzstan
 

@@ -147,6 +147,7 @@ bangladesh:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
   renewing_new: 8_weeks
   renewing_old: 8_months
   applying: 8_months
@@ -832,6 +833,7 @@ india:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
   renewing_new: 8_weeks
   renewing_old: 16_weeks
   applying: 16_weeks
@@ -975,6 +977,7 @@ kyrgyzstan:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
   renewing_new: 4_weeks
   renewing_old: 6_weeks
   applying: 6_weeks

@@ -540,9 +540,6 @@ en-GB:
         passport_courier_costs_ips3_uk_visa: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
 
-        passport_courier_costs_ips3_india: |
-          You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to you direct, or to the British embassy, high commission or consulate where you applied if you wish to collect it.
-
         passport_courier_costs_ips3_pitcairn-island: |
           You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
 
@@ -561,9 +558,6 @@ en-GB:
           Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
-
-        passport_costs_ips3_cash_or_card_bangladesh: |
-          You can pay in cash using local currency if you apply in person - the prices above will be converted according to the exchange rate when you apply. You can’t pay by banker’s draft.
 
         passport_costs_ips3_cash_or_card: |
           Or you can fill in a [payment instruction form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
@@ -589,12 +583,6 @@ en-GB:
           Send original supporting documents and a photocopy of each one. If you’re renewing a passport, you must also send your current passport and a full colour photocopy of the entire passport (every page including blank pages).
         send_application_ips3_must_post_colour_photo: |
           Send original supporting documents and a colour photocopy of each one. If you’re renewing a passport, you must also send your current passport and a full colour photocopy of the entire passport (every page including blank pages).
-        send_application_ips3_india: |
-          ## Making your application
-
-          You must post your completed form and supporting documents to the British High Commission in New Delhi.
-
-
 
         send_application_uk_visa_renew_new: |
           ## Making your application
@@ -643,17 +631,6 @@ en-GB:
           Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
 
           You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
-
-        send_application_ips3_bangladesh: |
-          ## Making your application
-
-          You can post your completed form and supporting documents or apply in person to the British High Commission in Dhaka.
-
-          If you send your application, send original supporting documents and a colour photocopy of each one. If you’re renewing a passport, you must also send your current passport and a full colour photocopy of the entire passport (every page including blank pages).
-
-          If you apply in person, you must bring photo ID with you. Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you when you return to collect your new passport. If you’re renewing a passport, you must bring your current passport with you when you apply.
-
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
         send_application_non_uk_visa_renew_new: |
           ## Making your application
@@ -746,6 +723,27 @@ en-GB:
           $C
           Email: <hmpoazerbaijan@teleperformance.com>
           $C
+        send_application_address_bangladesh: |
+          $A
+          UK Visa Application Centre
+          4th Floor, Delta Life Tower
+          Plot 37, Road 90
+          Gulshan North
+          Dhaka11212
+          $A
+          $C
+          Email: <dhaka.hmpo@vfshelpline.com>
+          $C
+          $A
+          UK Visa Application Centre
+          7th Floor, Nirvana Inn
+          Mirza Jungle Road
+          Ramerdhigir par
+          Sylhet-3100
+          $A
+          $C
+          Email: <sylhet.hmpo@vfshelpline.com>
+          $C
         send_application_address_belarus: |
           $A
           UK Visa Application Centre
@@ -827,6 +825,139 @@ en-GB:
           $A
           $C
           Email: <hmpogeorgia@teleperformance.com>
+          $C
+
+        send_application_address_kyrgyzstan: |
+          $A
+          UK Visa Application Centre
+          Hyatt Regency Bishkek Hotel
+          191 Abdrahmanov Street
+          Bishkek 720011
+          Kyrgyzstan
+          $A
+          $C
+          Email: <hmpokyrgyzstan@teleperformance.com>
+          $C
+
+        send_application_address_india: |
+          $A
+          UK Visa Application Centre
+          Unit No. ( 1 & 2 ), First floor Bhikhubhai Chambers
+          Opp. Bharat Petroleum
+          Near Kochrab Ashram Ashram Road
+          Paldi, Ahmedabad 380009
+          $A
+          $C
+          Email: <ahmedabad.hmpo@vfshelpline.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          Unit No. 302 & 303, Second Floor, Level 3
+          Prestige Atrium No 1
+          Behind Palmgroove Military Canteen and opposite to Empire Hotel
+          Central Street, Shivaji Nagar
+          Bangalore - 560001
+          $A
+          $C
+          Email: <bangalore.hmpo@vfshelpline.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          SCO 62 63, Sector 8 C,
+          Near Hotel Icon and Times of India office
+          Madhya Marg,
+          Chandigarh 160018
+          $A
+          $C
+          Email: <chandigarh.hmpo@vfshelpline.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          Fagun Towers,
+          Second Floor,
+          No 74,Ethiraj Salai,
+          Egmore,
+          Chennai - 600 008
+          $A
+          $C
+          Email: <chennai.hmpo@vfshelpline.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          S&T Arcade,Kurisupally Road,
+          Ravipuram, Cochin – 682016
+          $A
+          $C
+          Email: <cochin.hmpo@vfshelpline.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          Sunil Chambers, 8-2-542/A Road No. 7
+          Near Meridian School
+          Above Ratnadeep Supermarket
+          Banjara Hills, Hyderabad 500 034
+          $A
+          $C
+          Email:<hyderabad.hmpo@vfshelpline.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          Lower Ground Floor
+          MIDAS Corporate Park
+          Plot No. 37, G.T. Road
+          opposite Jalandhar Bus Stand
+          Jalandhar - 144001
+          $A
+          $C
+          Email: <jalandhar.hmpo@vfshelpline.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          Fifth floor, RENE tower
+          Plot No. AA-I, 1842
+          Rajdanga Main Road
+          Kasba, Kolkata 700107
+          $A
+          $C
+          Email: <kolkata.hmpo@vfshelpline.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          Trade Centre, ‘G’ Block,Ground Floor
+          Next to Regus office, Bandra Kurla Complex
+          Bandra (East), Mumbai – 400 051
+          $A
+          $C
+          Email: <mumbai.hmpo@vfshelpline.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          Upper Ground Floor, S-2 Level
+          International Trade Tower
+          opposite Satyam Cinemas
+          Nehru Place, New Delhi 110019
+          $A
+          $C
+          Email: <newdelhi.hmpo@vfshelpline.com>
+          $C
+
+          $A
+          UK Visa Application Centre
+          Office No. 305, Gera 77
+          Next to Bishops Co-Ed School
+          Kalyani Nagar, Pune 411014
+          $A
+          $C
+          Email: <pune.hmpo@vfshelpline.com>
           $C
 
         send_application_address_indonesia: |
