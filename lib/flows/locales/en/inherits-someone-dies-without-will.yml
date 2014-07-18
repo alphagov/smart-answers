@@ -136,7 +136,7 @@ en-GB:
           * the husband, wife or civil partner gets a life interest in half of the remainder
           * the other half is then divided equally between the surviving children
 
-          If a son or daughter has already died, their children will inherit in their parent's place.'
+          If a son or daughter has already died, their children will inherit in their parent's place.
         next_steps: |
           %{next_step_links}
 
@@ -158,7 +158,7 @@ en-GB:
 
           The remainder is divided between the surviving siblings.
 
-          If a brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place
+          If a brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
 
         next_steps: |
           %{next_step_links}
