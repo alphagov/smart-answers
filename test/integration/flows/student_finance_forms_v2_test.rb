@@ -253,9 +253,9 @@ class StudentFinanceFormsV2Test < ActiveSupport::TestCase
         end
 
         context "2014 to 2015" do
-        setup do
-          add_response 'year-1415'
-        end
+          setup do
+            add_response 'year-1415'
+          end
 
           should "ask are you a continuing student" do
             assert_current_node :continuing_student?
