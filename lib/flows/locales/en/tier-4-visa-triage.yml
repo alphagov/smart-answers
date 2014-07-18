@@ -12,10 +12,15 @@ en-GB:
         * extending or switching to a [Tier 4 (General) student visa](/tier-4-general-visa)
         * extending or switching to a [Tier 4 (Child) student visa](/child-study-visa)
       phrases:
-        post_link: |
-          You must [apply by post](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList).
-        online_link: |
-          You must [apply online](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
+        post_and_switch_link: |
+          Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
+        post_and_extend_link: |
+          Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
+        online_and_switch_link: |
+          Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
+        online_and_extend_link: |
+          Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
+
         general_extend: |
           Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/extend-your-visa) guide.
         general_switch: |
