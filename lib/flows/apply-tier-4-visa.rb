@@ -35,7 +35,7 @@ value_question :sponsor_id? do
   save_input_as :sponsor_id
 
   calculate :data do
-    Calculators::StaticDataQuery.new("tier_4_triage_data").data
+    Calculators::StaticDataQuery.new("apply_tier_4_visa_data").data
   end
 
   calculate :sponsor_name do

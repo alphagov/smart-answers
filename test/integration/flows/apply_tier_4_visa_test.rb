@@ -2,11 +2,11 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-class Tier4VisaTriageTest < ActiveSupport::TestCase
+class ApplyTier4VisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'tier-4-visa-triage'
+    setup_for_testing_flow 'apply-tier-4-visa'
   end
 
   should "Ask are you going to do" do
