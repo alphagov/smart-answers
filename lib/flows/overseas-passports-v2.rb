@@ -200,7 +200,9 @@ outcome :ips_application_result do
     uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela western-sahara)
     pay_at_appointment_countries = %(venezuela)
 
-    if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
+    if %w(st-helena-ascension-and-tristan-da-cunha).include?(current_location)
+      PhraseList.new(:passport_costs_fee_only, :"#{child_or_adult}_passport_costs_only", :passport_cost_and_admin_fee)
+    elsif application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
                     :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
                     :"passport_costs_ips#{ips_number}")
@@ -307,7 +309,12 @@ outcome :ips_application_result do
         else
           phrases << :"send_application_ips#{ips_number}"
         end
-        phrases << :send_application_embassy_address if ips_number.to_i > 1
+        if %w(st-helena-ascension-and-tristan-da-cunha).include?(current_location)
+          phrases << :renewing_new_renewing_old if %w(renewing_new).include?(application_action)
+          phrases << :send_application_address_st_helena_ascension_and_tristan_da_cunha
+        else
+          phrases << :send_application_embassy_address if ips_number.to_i > 1
+        end
       end
     end
     phrases
@@ -316,7 +323,7 @@ outcome :ips_application_result do
   precalculate :getting_your_passport do
     collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe)
     collect_in_person_variant_countries = %w(burundi india jordan pitcairn-island)
-    collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea)
+    collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea st-helena-ascension-and-tristan-da-cunha)
     uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan lebanon mauritania morocco pakistan russia thailand ukraine venezuela western-sahara)
     uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
     collect_with_photo_id_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)

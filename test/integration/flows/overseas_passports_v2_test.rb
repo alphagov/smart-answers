@@ -735,18 +735,31 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
   end # South Africa (IPS online application)
 
   context "answer St Helena etc, renewing old, adult passport" do
-    should "give the fco result with custom phrases" do
+    setup do
       worldwide_api_has_no_organisations_for_location('st-helena-ascension-and-tristan-da-cunha')
+    end
+    should "give the ips application result for renewing_old" do
       add_response 'st-helena-ascension-and-tristan-da-cunha'
       add_response 'renewing_old'
       add_response 'adult'
-      assert_current_node :fco_result
-      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :you_may_have_to_attend_an_interview]
-      assert_phrase_list :cost, [:passport_courier_costs_pretoria_south_africa, :adult_passport_costs_pretoria_south_africa, :passport_costs_pretoria_south_africa]
-      assert_match /^[\d,]+ South African Rand \| [\d,]+ South African Rand$/, current_state.costs_south_african_rand_adult_32
-      assert_state_variable :supporting_documents, ''
+      add_response 'st-helena-ascension-and-tristan-da-cunha'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
+      assert_phrase_list :cost, [:passport_costs_fee_only, :adult_passport_costs_only, :passport_cost_and_admin_fee]
+      assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_address_st_helena_ascension_and_tristan_da_cunha]
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_st-helena-ascension-and-tristan-da-cunha", :getting_your_passport_contact, :getting_your_passport_id_apply_renew_old_replace]
     end
-  end # St Helena (FCO with custom phrases)
+    should "give the ips application result for renewing_new" do
+      add_response 'st-helena-ascension-and-tristan-da-cunha'
+      add_response 'renewing_new'
+      add_response 'adult'
+      assert_current_node :ips_application_result
+      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
+      assert_phrase_list :cost, [:passport_costs_fee_only, :adult_passport_costs_only, :passport_cost_and_admin_fee]
+      assert_phrase_list :send_your_application, [:send_application_ips3, :renewing_new_renewing_old, :send_application_address_st_helena_ascension_and_tristan_da_cunha]
+      assert_phrase_list :getting_your_passport, [:"getting_your_passport_st-helena-ascension-and-tristan-da-cunha", :getting_your_passport_contact, :getting_your_passport_id_renew_new]
+    end
+  end # St Helena
 
   context "answer Nigeria, applying, adult passport" do
     should "give the result with custom phrases" do

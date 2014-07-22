@@ -1677,10 +1677,10 @@ sri-lanka:
   applying: 12_weeks
   replacing: 8_weeks
 st-helena-ascension-and-tristan-da-cunha:
-  type: pretoria_south_africa
+  type: ips_application_3
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-  renewing_new: 6_weeks
+  renewing_new: 8_weeks
   renewing_old: 8_weeks
   applying: 8_weeks
   replacing: 8_weeks
