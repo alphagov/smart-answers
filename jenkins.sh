@@ -8,7 +8,7 @@ export GOVUK_ASSET_HOST=http://static.dev.gov.uk
 
 # DELETE STATIC SYMLINKS AND RECONNECT...
 for d in images javascripts templates stylesheets; do
-  rm public/$d
+  rm -f public/$d
   ln -s ../../Static/public/$d public/
 done
 
