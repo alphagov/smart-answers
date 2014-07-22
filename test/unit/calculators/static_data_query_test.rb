@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
 
     context StaticDataQueryTest do
       setup do
-        @query = SmartAnswer::Calculators::StaticDataQuery.new("tier_4_triage_data")
+        @query = SmartAnswer::Calculators::StaticDataQuery.new("apply_tier_4_visa_data")
       end
       context "initialize" do
         should "load the data" do
@@ -14,8 +14,8 @@ module SmartAnswer::Calculators
         end
         should "memoize the data" do
           YAML.expects(:load_file).at_most_once
-          @query.class.load_data("tier_4_triage_data")
-          @query.class.load_data("tier_4_triage_data")
+          @query.class.load_data("apply_tier_4_visa_data")
+          @query.class.load_data("apply_tier_4_visa_data")
         end
       end
     end
