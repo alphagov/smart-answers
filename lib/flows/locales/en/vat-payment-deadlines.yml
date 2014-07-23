@@ -18,13 +18,13 @@ en-GB:
         title: "How do you want to pay?"
         options:
           direct-debit: "Direct debit"
-          online-telephone-banking: "Online or telephone banking"
-          online-debit-credit-card: "Online debit or credit card"
+          online-telephone-banking: "Online or telephone banking (Faster Payments)"
+          online-debit-credit-card: "Online debit or credit card (BillPay)"
           bacs-direct-credit: "Bacs direct credit"
           bank-giro: "Bank Giro"
           chaps: "CHAPS"
           cheque: "Cheque"
-          
+
       result_direct_debit:
         title: "Paying by direct debit"
         body: |
@@ -43,7 +43,7 @@ en-GB:
         body: |
           The last date you can pay is %{last_payment_date}.
 
-          You need your VAT registration number.
+          You need your VAT registration number as the payment reference.
 
           Read more about [how to pay your VAT.](/pay-vat)
 
@@ -62,6 +62,8 @@ en-GB:
           The last date you can pay is %{last_payment_date}.
 
           The money must have cleared by %{funds_received_by}.
+
+          You need your VAT registration number as the payment reference.
 
           ^Check beforehand how long it takes to send a payment and what your daily transfer limit is.^
 
