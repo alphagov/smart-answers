@@ -8,7 +8,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan american-samoa andorra australia barbados belize bonaire-st-eustatius-saba cameroon central-african-republic china el-salvador estonia guatemala grenada hong-kong indonesia ireland iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
+    @location_slugs = %w(afghanistan american-samoa andorra australia barbados belize bonaire-st-eustatius-saba cameroon central-african-republic china el-salvador estonia guatemala grenada hong-kong indonesia ireland iran laos libya maldives netherlands pakistan philippines serbia spain sri-lanka st-kitts-and-nevis sweden taiwan thailand turkey united-arab-emirates usa vietnam yemen)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth'
   end
@@ -209,7 +209,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_current_node :embassy_result
       assert_state_variable :british_national_parent, 'mother_and_father'
       assert_state_variable :embassy_high_commission_or_consulate, 'British Trade & Cultural Office'
-      assert_phrase_list :cash_only, [:cheque_only]
+      assert_phrase_list :cash_only, [:pay_by_bank_draft]
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_taiwan]
     end
@@ -525,6 +525,18 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_phrase_list :oru_address, [:oru_address_abroad]
       assert_phrase_list :translator_link, [:no_translator_link]
       assert_state_variable :translator_link_url, nil
+    end
+  end
+  context "answer bonaire-st-eustatius-saba" do
+    should "also go to oru result" do
+      worldwide_api_has_organisations_for_location('philippines', read_fixture_file('worldwide/philippines_organisations.json'))
+      add_response "philippines"
+      add_response "mother"
+      add_response "yes"
+      add_response "same_country"
+      assert_current_node :embassy_result
+      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_philippines]
+      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
     end
   end
 end
