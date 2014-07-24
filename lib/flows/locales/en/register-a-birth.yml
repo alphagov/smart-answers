@@ -111,9 +111,9 @@ en-GB:
           - your marriage certificate (if you’re married)
           - divorce documents (if either of you have ever been divorced)
           - your child’s local birth certificate (showing both your names)
-          - your child’s hospital certificate (if born in a hospital) 
+          - your child’s hospital certificate (if born in a hospital)
           - a marriage certificate (if you’re married)
-          - your current passports 
+          - your current passports
           - any passports used to travel when you were married (if relevant)
           - any passports used to travel at the time of your child’s birth
           - a Pakistani ID card (if one of you is Pakistani and never held a passport)
@@ -132,9 +132,9 @@ en-GB:
           - your marriage certificate (if you’re married)
           - divorce documents (if either of you have ever been divorced)
           - your child’s local birth certificate (showing both your names)
-          - your child’s hospital certificate (if born in a hospital) 
+          - your child’s hospital certificate (if born in a hospital)
           - a marriage certificate (if you’re married)
-          - your current passports 
+          - your current passports
           - any passports used to travel when you were married (if relevant), including any stamps, visas or observations
           - any passports used to travel at the time of your childs birth, including all stamps, visas or observations
           - a Bangladeshi ID card (if one of you is Bangladeshi and never held a passport)
@@ -177,7 +177,7 @@ en-GB:
         documents_you_must_provide_finland: |
           You and the other parent must provide:
 
-          - your child’s hospital birth certificate, or a letter from the hospital or midwife with full details of the birth 
+          - your child’s hospital birth certificate, or a letter from the hospital or midwife with full details of the birth
           - an extract from the population register (‘virkatodistus’) with the child’s full names, date of birth and parents’ names
           - your British birth certificates (long version) showing details of your parents
           - a naturalisation or registration certificate (if either of you were not born in the UK)
@@ -213,14 +213,14 @@ en-GB:
           - divorce documents (if either of you has ever been divorced)
           - a change of name document (if either of you has ever changed your name)
         docs_footnote_japan: |
-          If one of you is Japanese, you must provide a photocopy of the family register (‘koseki tohon’). 
+          If one of you is Japanese, you must provide a photocopy of the family register (‘koseki tohon’).
 
           If the child's birth is already shown on the family register, you don’t need to provide the ward office birth certificate.  However, you must send an original certified copy of the family register bearing the ward office's stamp (this needs to be original, not a copy).
-        go_to_the_embassy_heading_text: |  
+        go_to_the_embassy_heading_text: |
 
           ##Go to the %{embassy_high_commission_or_consulate}
         registering_all: |
-          Book an appointment at the %{embassy_high_commission_or_consulate} and bring the registration form, supporting documents and the fee. 
+          Book an appointment at the %{embassy_high_commission_or_consulate} and bring the registration form, supporting documents and the fee.
         registering_hong_kong: |
           Bring the registration form, supporting documents and the fee.
         registering_clickbooks: |
@@ -242,7 +242,7 @@ en-GB:
         registering_either_parent: |
           Either parent can register the birth.
         registering_paternity_declaration: |
-          The mother must register the birth. If you want the father’s name on the consular birth certificate, both parents will need to swear a paternity declaration in person at the nearest consulate. 
+          The mother must register the birth. If you want the father’s name on the consular birth certificate, both parents will need to swear a paternity declaration in person at the nearest consulate.
 
           Paternity declarations are free. Contact the consulate for more details.
 
@@ -252,6 +252,7 @@ en-GB:
           You can also post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate}.
 
           Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url}) and post it with your registration form.
+
         post_only_pay_by_card_countries: |
           ##Send your registration
 
@@ -291,17 +292,20 @@ en-GB:
           Post your registration form, supporting documents and the fee to the British embassy.
 
           Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url}) and post it with your registration form.
-          
-        post_only_united-arab-emirates: |
-          ##Send your registration
-          
-          Post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate} in Dubai.
 
-          You must use recorded delivery or a courier, and arrange for your application to arrive between 8am and 1pm. You’ll need to organise the return delivery of your documents (eg by including a pre-paid envelope or through the courier).
+        post_only_philippines: |
+          ##Send your registration
+
+          Post your registration form, supporting documents and the fee to the British Embassy. You should use a courier and include a pre-paid return courier envelope.
+
+          Pay by cash or bank cheque made payable to ‘British Embassy’. Credit cards, personal or company cheques aren’t accepted.
+
         cash_only: |
           %You can only pay by cash, which must be in local currency.%
         cheque_only: |
           You must pay by personal cheque.
+        pay_by_bank_draft: |
+          Pay by bank draft made payable to ‘The Foreign and Commonwealth Office’.
         cash_and_card: |
           You can pay by cash or credit card, but not by personal cheque.
         footnote_another_country: |
@@ -337,7 +341,7 @@ en-GB:
           - the hospital declaration of live birth (if the hospital’s name is not on your child’s birth certificate)
         oru_documents_variant_spain: |
           - the child’s full local birth certificate (‘certificación literal’) - it must have both parents’ names
-       
+
         oru_documents_variant_united-arab-emirates: |
           - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs
 
@@ -383,7 +387,7 @@ en-GB:
           You’ll need to provide originals and a photocopy of each document.
 
           ##Cost
-          
+
           Service | Fee
           -|-
           Register a birth | £105
@@ -412,7 +416,7 @@ en-GB:
           $!You must register the birth in the country where the child was born. You'll be given a local birth certificate.$!
 
           You can also register the birth with the UK authorities. You must:
-         
+
           s1. Check that you have the right documents.
           s2. Print out and fill in the birth registration form.
           s3. Pay online.
@@ -422,11 +426,11 @@ en-GB:
           ##1. Check your documents
 
           ^Send English translations of all foreign documents. %{translator_link}. Don't send laminated documents.^
-          
+
           You must send the original copies of:
 
           %{oru_documents_variant}
-          
+
           - the long version of the parent’s birth certificate showing the child’s grandparents’ details (for parents who were born in the UK)
           - the parent’s naturalisation or registration certificate (for parents who weren’t born in the UK)
           - the child’s grandparents’ birth certificates and marriage certificate, unless the parent’s British nationality is based on registration, naturalisation or the parent’s immigration status (for British parents who were born after 1 January 1983)
@@ -435,55 +439,55 @@ en-GB:
           - change of name documents (if either parent has ever changed their name)
           - a letter from the parent’s employer if they’re working abroad as a UK civil servant, EU civil servant, diplomat or member of HM Forces (for British parents)
           - written evidence if the parent was born overseas while one of their own parents was working abroad as a UK civil servant, EU civil servant, diplomat or member of HM Forces (for British parents)
-          
+
           You must also send photocopies of:
-          
+
           - the photo page of the child’s British passport if they have one
           - the photo page of the parent’s current passport (for British parents)
           - the birth certificate or the photo page of the parent’s current passport (for parents who aren’t British)
-          
+
           %Your application will be rejected if the documents aren’t authentic, don’t confirm the child’s identity or don’t prove that the child has a claim to British nationality. The registration fee won’t be refunded.%
 
-          
+
           ##2. Fill in the application form
 
           Print out and fill in the [application form](/government/publications/application-to-register-an-overseas-birth).
 
 
           ##3. Pay
-          
+
           You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you are unable to pay online.
-          
+
           The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office or the National Records Office of Scotland, but only from September the year after you register.
-          
+
           Once you’ve paid you will be given a reference number to use on your birth registration form. You’ll also be able to scan and email your documents to check that you have the right ones.
-          
+
           Service | Fee
           -|-
           Register a birth | £105
           Copy of a birth registration certificate | £65
 
           You must also pay for your documents to be returned to you.
-          
+
           Postage destination | Fee
           -|-
           UK | £4.50
           Europe | £12.50
           Rest of world | £22
-          
+
           +[data_partial:button:button_data]
 
           ##4. Send your registration
-          
+
           Post the registration form and documents by secure post to:
 
 
           %{oru_address}
 
           ##Return of your documents
-          
+
           It usually takes 5 working days for the birth to be registered with the UK authorities, once the Overseas Registration Unit has received your form and the right documents. They’ll contact you within the 5 working days if they need more information.
-          
+
           Your documents will be returned to you by secure courier after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them.
 
       commonwealth_result:
@@ -511,4 +515,4 @@ en-GB:
 
           You can’t currently register the birth with the UK authorities.
 
-          The local birth certificate, with a [certified translation](/certifying-a-document), should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{registration_country_name_lowercase_prefix}.  
+          The local birth certificate, with a [certified translation](/certifying-a-document), should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{registration_country_name_lowercase_prefix}.
