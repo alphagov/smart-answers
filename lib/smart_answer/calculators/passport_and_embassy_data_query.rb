@@ -6,7 +6,7 @@ module SmartAnswer::Calculators
 
     def apply_in_neighbouring_countries?
       SmartAnswer::Predicate::RespondedWith.new(
-        %w(british-indian-ocean-territory kyrgyzstan north-korea south-georgia-and-south-sandwich-islands)
+        %w(british-indian-ocean-territory north-korea south-georgia-and-south-sandwich-islands)
       )
     end
 
@@ -82,7 +82,7 @@ module SmartAnswer::Calculators
     end
 
     def self.passport_data
-      @passport_data ||= YAML.load_file(Rails.root.join("lib", "data", "passport_data.yml"))
+      @passport_data ||= YAML.load_file(Rails.root.join("lib", "data", "passport_data_v2.yml"))
     end
   end
 end
