@@ -1960,7 +1960,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :gulf_states_os_consular_cni, :gulf_states_os_consular_cni_local_resident_partner_not_irish, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_may_ask, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :affirmation_os_partner_not_british, :fee_table_45_70_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  context "Now Lithuania allows same sex marriage" do
+  context "ceremony in Lithuania, partner same sex, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('lithuania', read_fixture_file('worldwide/lithuania_organisations.json'))
       add_response 'lithuania'
@@ -1972,6 +1972,19 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     should "go to outcome_ss_marriage" do
       assert_current_node :outcome_ss_marriage
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+    end
+  end
+  context "ceremony in Lithuania, partner same sex, partner not british" do
+    setup do
+      worldwide_api_has_organisations_for_location('lithuania', read_fixture_file('worldwide/lithuania_organisations.json'))
+      add_response 'lithuania'
+      add_response 'other'
+      add_response 'lithuania'
+      add_response 'partner_local'
+      add_response 'same_sex'
+    end
+    should "go to outcome 'no same sex marriage allowed' because partner is not british" do
+      assert_current_node :outcome_cp_all_other_countries
     end
   end
   context "Testing if the address box shows the Belarus one" do

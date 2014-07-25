@@ -26,7 +26,7 @@ country_select :country_of_ceremony?, exclude_countries: exclude_countries do
   end
 
   calculate :marriage_and_partnership_phrases do
-    if data_query.ss_marriage_countries?(ceremony_country)
+    if data_query.ss_marriage_countries?(ceremony_country) | data_query.ss_marriage_countries_when_couple_british?(ceremony_country)
       "ss_marriage"
     elsif data_query.ss_marriage_and_partnership?(ceremony_country)
       "ss_marriage_and_partnership"
@@ -240,6 +240,9 @@ multiple_choice :partner_opposite_or_same_sex? do
   define_predicate(:ss_marriage_countries?) {
     data_query.ss_marriage_countries?(ceremony_country)
   }
+  define_predicate(:ss_marriage_countries_when_couple_british?) {
+    data_query.ss_marriage_countries_when_couple_british?(ceremony_country) & %w(partner_british).include?(partner_nationality)
+  }
   define_predicate(:ss_marriage_and_partnership?) {
     data_query.ss_marriage_and_partnership?(ceremony_country)
   }
@@ -251,10 +254,7 @@ multiple_choice :partner_opposite_or_same_sex? do
   next_node_if(:outcome_ss_marriage_not_possible, ss_marriage_not_possible?)
 
   next_node_if(:outcome_ss_marriage,
-    (
-      variable_matches(:residency_uk_region, %w(uk_england uk_scotland uk_ni uk_wales uk_iom uk_ci)) |
-      variable_matches(:resident_of, "other")
-    ) & ( ss_marriage_countries? | ss_marriage_and_partnership?)
+    ss_marriage_countries? | ss_marriage_countries_when_couple_british? | ss_marriage_and_partnership?
   )
 
   next_node_if(:outcome_os_consular_cni, variable_matches(:ceremony_country, "spain"))
