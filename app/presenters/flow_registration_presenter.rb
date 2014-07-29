@@ -29,7 +29,7 @@ class FlowRegistrationPresenter
     lookup_translation("meta.description")
   end
 
-  NODE_PRESENTER_METHODS = [:title, :subtitle, :body, :hint]
+  NODE_PRESENTER_METHODS = [:title, :body, :hint]
 
   def indexable_content
     HTMLEntities.new.decode(

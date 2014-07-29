@@ -98,16 +98,6 @@ module SmartAnswer
       assert !NodePresenter.new("flow.test", Question::Date.new(:missing)).has_body?, "missing has no body"
     end
 
-    test "Node subtitle looked up" do
-      presenter = NodePresenter.new("flow.test", Question::Date.new(:example_question?))
-      assert_equal 'This is the subtitle', presenter.subtitle
-    end
-
-    test "Can check if a node has subtitle" do
-      assert NodePresenter.new("flow.test", Question::Date.new(:example_question?)).has_subtitle?
-      assert !NodePresenter.new("flow.test", Question::Date.new(:missing)).has_subtitle?
-    end
-
     test "Node hint looked up from translation file" do
       question = Question::Date.new(:example_question?)
       presenter = NodePresenter.new("flow.test", question)
