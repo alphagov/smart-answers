@@ -40,7 +40,9 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(aruba slovakia curacao bonaire-st-eustatius-saba st-maarten taiwan czech-republic argentina cote-d-ivoire)
 
-    SS_MARRIAGE_COUNTRIES = %w(australia azerbaijan bolivia chile china colombia dominican-republic estonia kosovo latvia lithuania mongolia montenegro nicaragua russia san-marino hungary serbia)
+    SS_MARRIAGE_COUNTRIES = %w(australia azerbaijan bolivia chile china colombia dominican-republic estonia kosovo latvia mongolia montenegro nicaragua russia san-marino hungary serbia)
+
+    SS_MARRIAGE_COUNTRIES_WHEN_COUPLE_BRITISH = %w(lithuania)
 
     SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(cambodia costa-rica peru philippines vietnam japan)
 
@@ -58,6 +60,10 @@ module SmartAnswer::Calculators
 
     def ss_marriage_countries?(country_slug)
       SS_MARRIAGE_COUNTRIES.include?(country_slug)
+    end
+
+    def ss_marriage_countries_when_couple_british?(country_slug)
+      SS_MARRIAGE_COUNTRIES_WHEN_COUPLE_BRITISH.include?(country_slug)
     end
 
     def ss_marriage_and_partnership?(country_slug)
