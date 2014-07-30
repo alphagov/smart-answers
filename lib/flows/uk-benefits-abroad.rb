@@ -54,19 +54,19 @@ multiple_choice :going_or_already_abroad? do
   next_node :which_benefit?
 end
 
-# Q2
+# Q2 going_abroad and Q3 already_abroad
 multiple_choice :which_benefit? do
   option :jsa
   option :pension
-  option :winter_fuel_payment => :which_country? # Q4
-  option :maternity_benefits => :which_country? # Q3b
-  option :child_benefit => :which_country? # Q3b
-  option :iidb => :iidb_already_claiming? # Q22
-  option :ssp => :which_country? # Q11
-  option :esa => :esa_how_long_abroad? # Q20
-  option :disability_benefits => :db_how_long_abroad? # Q24
-  option :bereavement_benefits => :which_country? # Q3b
-  option :tax_credits => :eligible_for_tax_credits? # Q14
+  option :winter_fuel_payment => :which_country? # Country Question - Shared
+  option :maternity_benefits => :which_country? # Country Question - Shared
+  option :child_benefit => :which_country? # Country Question - Shared
+  option :iidb => :iidb_already_claiming? # Q26 going_abroad and Q25 already_abroad
+  option :ssp => :which_country? # Country Question - Shared
+  option :esa => :esa_how_long_abroad? # Q24 going_abroad and Q23 already_abroad
+  option :disability_benefits => :db_how_long_abroad? # Q28 going_abroad and Q27 already_abroad
+  option :bereavement_benefits => :which_country? # Country Question - Shared
+  option :tax_credits => :eligible_for_tax_credits? # Q17 going_abroad and Q16 already_abroad
   option :income_support
 
   save_input_as :benefit
@@ -80,9 +80,9 @@ multiple_choice :which_benefit? do
   end
 
   on_condition(going_abroad) do
-    next_node_if(:jsa_how_long_abroad?, responded_with('jsa'))
+    next_node_if(:jsa_how_long_abroad?, responded_with('jsa')) # Q3 going_abroad
     next_node_if(:pension_going_abroad_outcome, responded_with('pension')) # A2 going_abroad
-    next_node_if(:is_how_long_abroad?, responded_with('income_support'))
+    next_node_if(:is_how_long_abroad?, responded_with('income_support')) # Q32 going_abroad
   end
   on_condition(already_abroad) do
     next_node_if(:which_country?, responded_with('jsa'))
@@ -91,6 +91,7 @@ multiple_choice :which_benefit? do
   end
 end
 
+## Country Question - Shared
 country_select :which_country?,additional_countries: additional_countries, exclude_countries: exclude_countries do
 
   save_input_as :country
@@ -114,8 +115,8 @@ country_select :which_country?,additional_countries: additional_countries, exclu
   end
 #maternity
   on_condition(variable_matches(:benefit, 'maternity_benefits')) do
-    next_node_if(:working_for_a_uk_employer?, responded_with_eea_country)
-    next_node(:employer_paying_ni?)
+    next_node_if(:working_for_a_uk_employer?, responded_with_eea_country) # Q8 going_abroad and Q7 already_abroad
+    next_node(:employer_paying_ni?) # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
   end
 #wfp
   on_condition(variable_matches(:benefit, 'winter_fuel_payment')) do
@@ -124,7 +125,7 @@ country_select :which_country?,additional_countries: additional_countries, exclu
   end
 #child benefit
   on_condition(variable_matches(:benefit, 'child_benefit')) do
-    next_node_if(:do_either_of_the_following_apply?, responded_with_eea_country) # Q10
+    next_node_if(:do_either_of_the_following_apply?, responded_with_eea_country) # Q13 going_abroad and Q12 already_abroad
     on_condition(responded_with_former_yugoslavia) do
       next_node_if(:child_benefit_fy_going_abroad_outcome, going_abroad) # A14 going_abroad
       next_node(:child_benefit_fy_already_abroad_outcome) # A12 already_abroad
@@ -148,18 +149,18 @@ country_select :which_country?,additional_countries: additional_countries, exclu
   end
 #disability benefits
   on_condition(variable_matches(:benefit, 'disability_benefits')) do
-    next_node_if(:db_claiming_benefits?, responded_with_eea_country)
+    next_node_if(:db_claiming_benefits?, responded_with_eea_country) # Q30 going_abroad and Q29 already_abroad
     next_node_if(:db_going_abroad_other_outcome, going_abroad) # A36 going_abroad
     next_node(:db_already_abroad_other_outcome) # A35 already_abroad
   end
 #ssp
   on_condition(variable_matches(:benefit, 'ssp')) do
-    next_node_if(:working_for_uk_employer_ssp?, responded_with_eea_country) # Q12
-    next_node(:employer_paying_ni?) # Q13
+    next_node_if(:working_for_uk_employer_ssp?, responded_with_eea_country) # Q15 going_abroad and Q14 already_abroad
+    next_node(:employer_paying_ni?) # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
   end
 #tax credits
   on_condition(variable_matches(:benefit, 'tax_credits')) do
-    next_node_if(:tax_credits_currently_claiming?, responded_with_eea_country) # Q18
+    next_node_if(:tax_credits_currently_claiming?, responded_with_eea_country) # Q20 already_abroad
     next_node(:tax_credits_unlikely_outcome) # A21 already_abroad and A23 going_abroad
   end
 #esa
@@ -188,19 +189,19 @@ country_select :which_country?,additional_countries: additional_countries, exclu
   end
 end
 
-# Q3
+# Q8 going_abroad and Q7 already_abroad
 multiple_choice :working_for_a_uk_employer? do
-  option yes: :eligible_for_smp?
+  option yes: :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
   option no: :maternity_benefits_maternity_allowance_outcome # A10 going_abroad and A8 already_abroad
 end
 
-# Q4
+# Q9 going_abroad and Q8 already_abroad
 multiple_choice :eligible_for_smp? do
   option yes: :maternity_benefits_eea_entitled_outcome # A11 going_abroad and A9 already_abroad
   option no: :maternity_benefits_maternity_allowance_outcome # A10 going_abroad and A8 already_abroad
 end
 
-# Q5
+# Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
 multiple_choice :employer_paying_ni? do
   option :yes
   option :no
@@ -217,7 +218,7 @@ multiple_choice :employer_paying_ni? do
     end
   end
   #not SSP benefits
-  next_node_if(:eligible_for_smp?, responded_with('yes'))
+  next_node_if(:eligible_for_smp?, responded_with('yes')) # Q9 going_abroad and Q8 already_abroad
   on_condition(variable_matches(:country, countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey))) do
     on_condition(already_abroad) do
       next_node(:maternity_benefits_social_security_already_abroad_outcome) # A10 already_abroad
@@ -227,13 +228,13 @@ multiple_choice :employer_paying_ni? do
   next_node(:maternity_benefits_not_entitled_outcome) # A13 going_abroad and A11 already_abroad
 end
 
-# Q6
+# Q13 going_abroad and Q12 already_abroad
 multiple_choice :do_either_of_the_following_apply? do
   option yes: :child_benefit_entitled_outcome # A17 going_abroad and A15 already_abroad
   option no: :child_benefit_not_entitled_outcome # A18 going_abroad and A16 already_abroad
 end
 
-# Q7
+# Q15 going_abroad and Q14 already_abroad
 multiple_choice :working_for_uk_employer_ssp? do
   option :yes
   option :no
@@ -248,39 +249,39 @@ multiple_choice :working_for_uk_employer_ssp? do
   end
 end
 
-# Q8
+# Q17 going_abroad and Q16 already_abroad
 multiple_choice :eligible_for_tax_credits? do
   option :crown_servant => :tax_credits_crown_servant_outcome # A19 already_abroad
   option :cross_border_worker => :tax_credits_cross_border_worker_outcome # A20 already_abroad
-  option :none_of_the_above => :tax_credits_how_long_abroad?
+  option :none_of_the_above => :tax_credits_how_long_abroad? # Q18 going_abroad and Q17 already_abroad
 end
 
-# Q9
+# Q19 going_abroad and Q18 already_abroad
 multiple_choice :tax_credits_children? do
   option yes: :which_country? # Q17
   option no: :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
 end
 
-# Q10
+# Q20 already_abroad
 multiple_choice :tax_credits_currently_claiming? do
   option yes: :tax_credits_eea_entitled_outcome # A22 already_abroad and A24 going_abroad
   option no: :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
 end
 
-# Q11
+# Q23 going_abroad and Q22 already_abroad
 multiple_choice :tax_credits_why_going_abroad? do
   option tax_credits_holiday: :tax_credits_holiday_outcome # A23 already_abroad and A25 going_abroad and A26 going_abroad
   option tax_credits_medical_treatment: :tax_credits_medical_death_outcome #A24 already_abroad
   option tax_credits_death: :tax_credits_medical_death_outcome #A24 already_abroad
 end
 
-# Q12
+# Q26 going_abroad and Q25 already_abroad
 multiple_choice :iidb_already_claiming? do
-  option yes: :which_country? # Q3b
+  option yes: :which_country? # Shared question
   option no: :iidb_maybe_outcome # A30 already_abroad and A31 going_abroad
 end
 
-# Q13
+# Q30 going_abroad and Q29 already_abroad
 multiple_choice :db_claiming_benefits? do
   option :yes
   option :no
@@ -295,38 +296,38 @@ multiple_choice :db_claiming_benefits? do
   end
 end
 
-# Q14
+# Q33 going_abroad
 multiple_choice :is_claiming_benefits? do
   option yes: :is_claiming_benefits_outcome # A43 going_abroad
-  option no: :is_either_of_the_following? # Q30
+  option no: :is_either_of_the_following? # Q34 going_abroad
 end
 
-# Q15
+# Q34 going_abroad
 multiple_choice :is_either_of_the_following? do
-  option yes: :is_abroad_for_treatment? # Q31
-  option no: :is_any_of_the_following_apply? # Q33
+  option yes: :is_abroad_for_treatment? # Q35 going_abroad
+  option no: :is_any_of_the_following_apply? # Q37 going_abroad
 end
 
-# Q16
+# Q35 going_abroad
 multiple_choice :is_abroad_for_treatment? do
   option yes: :is_abroad_for_treatment_outcome # A44 going_abroad
-  option no: :is_work_or_sick_pay? # Q32
+  option no: :is_work_or_sick_pay? # Q36 going_abroad
 end
 
-# Q17
+# Q36 going_abroad
 multiple_choice :is_work_or_sick_pay? do
   option yes: :is_abroad_for_treatment_outcome # A44 going_abroad
   option no: :is_not_eligible_outcome # A45 going_abroad
 end
 
-# Q18
+# Q37 going_abroad
 multiple_choice :is_any_of_the_following_apply? do
   option yes: :is_not_eligible_outcome # A45 going_abroad
   option no: :is_abroad_for_treatment_outcome # A44 going_abroad
 end
 
 # Going abroad questions
-# Going abroad Q1 JSA
+# Going abroad Q3 going_abroad
 multiple_choice :jsa_how_long_abroad? do
   option :less_than_a_year_medical
   option :less_than_a_year_other
@@ -338,13 +339,13 @@ multiple_choice :jsa_how_long_abroad? do
   next_node_if(:jsa_less_than_a_year_other_outcome, responded_with("less_than_a_year_other")) # A4 going_abroad
   next_node_if(:which_country?, responded_with("more_than_a_year"))
 end
-# Going abroad Q2 tax credits
+# Going abroad Q18 (tax credits) and Q17 already_abroad
 multiple_choice :tax_credits_how_long_abroad? do
-  option tax_credits_up_to_a_year: :tax_credits_why_going_abroad? # Q19
-  option tax_credits_more_than_a_year: :tax_credits_children? # Q16
+  option tax_credits_up_to_a_year: :tax_credits_why_going_abroad? #Q23 going_abroad and Q22 already_abroad
+  option tax_credits_more_than_a_year: :tax_credits_children? # Q19 going_abroad and Q18 already_abroad
 end
 
-# Going abroad Q3 ESA
+# Going abroad Q24 going_abroad (ESA) and Q23 already_abroad
 multiple_choice :esa_how_long_abroad? do
   option :esa_under_a_year_medical
   option :esa_under_a_year_other
@@ -361,7 +362,7 @@ multiple_choice :esa_how_long_abroad? do
   next_node(:which_country?)
 end
 
-# Going abroad Q4 Disability Benefits
+# Going abroad Q28 going_abroad (Disability Benefits) and Q27 already_abroad
 multiple_choice :db_how_long_abroad? do
   option :temporary
   option :permanent => :which_country? # Q25
@@ -370,10 +371,10 @@ multiple_choice :db_how_long_abroad? do
   next_node(:db_already_abroad_temporary_outcome) # A34 already_abroad
 end
 
-# Going abroad Q5 Income Support
+# Going abroad Q32 going_abroad (Income Support)
 multiple_choice :is_how_long_abroad? do
   option is_under_a_year_medical: :is_under_a_year_medical_outcome # A42 going_abroad
-  option is_under_a_year_other: :is_claiming_benefits? # Q29
+  option is_under_a_year_other: :is_claiming_benefits? # Q33 going_abroad
   option is_more_than_a_year: :is_more_than_a_year_outcome # A41 going_abroad
 end
 
