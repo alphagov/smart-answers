@@ -111,11 +111,11 @@ en-GB:
         australia_ss_relationships: |
           You can’t have a same-sex marriage in a British embassy or consulate if you’re already in one of these relationships:
 
-          * civil partnership (Australian Capital Territory) 
-          * relationship registered under the Relationships Register Act 2010 (New South Wales) 
-          * civil partnership (Queensland) 
-          * significant relationship (Tasmania) 
-          * registered domestic relationship (Victoria) 
+          * civil partnership (Australian Capital Territory)
+          * relationship registered under the Relationships Register Act 2010 (New South Wales)
+          * civil partnership (Queensland)
+          * significant relationship (Tasmania)
+          * registered domestic relationship (Victoria)
 #Reusable phrases
     #titles
         marriage_title: Marriage in %{country_name_lowercase_prefix}
@@ -187,14 +187,14 @@ en-GB:
           ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
         affirmation_os_translation_in_local_language_portugal: |
           $C
-          British Embassy  
-          Rua de São Bernardo 33  
-          1249-082 Lisboa  
-          Portugal  
+          British Embassy
+          Rua de São Bernardo 33
+          1249-082 Lisboa
+          Portugal
 
-          Telephone: +351 21 392 40 00  
-          Fax: +351 21 392 40 21  
-          <portugal.consulate@fco.gov.uk>: (Consular enquiries only, not Visas or Passports)  
+          Telephone: +351 21 392 40 00
+          Fax: +351 21 392 40 21
+          <portugal.consulate@fco.gov.uk>: (Consular enquiries only, not Visas or Passports)
           Email: <ppa.lisbon@fco.gov.uk>
           $C
 
@@ -1056,7 +1056,7 @@ en-GB:
 
         affirmation_os_partner_british: |
           ^Your partner will probably need to get an affirmation as well.^
-          
+
         affirmation_os_partner_not_british: |
           ^Your partner will probably need to get an equivalent document from their national authorities.^
 
@@ -1077,16 +1077,6 @@ en-GB:
 
         affirmation_os_download_affidavit_philippines: |
           The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can print and fill in (but not sign) the [affidavit/affirmation for marriage form](/government/publications/marriage-in-the-philippines) in advance.
-
-        # affirmation_os_divorced_or_widowed: |
-        #   If you’ve been divorced or widowed, you’ll also need:
-
-        #   - a [decree absolute or final order](/copy-decree-absolute-final-order), or
-        #   - the [death certificate](/order-copy-birth-death-marriage-certificate/)
-
-        #   ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
-
-        #   You’ll also need to provide evidence if you’ve changed your name by deed poll.
 
         docs_decree_and_death_certificate: |
           If you’ve been divorced or widowed, you’ll also need:
