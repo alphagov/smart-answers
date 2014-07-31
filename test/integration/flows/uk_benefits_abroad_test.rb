@@ -108,7 +108,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           add_response 'austria'
         end
         should "take you to eligible outcome" do
-          assert_current_node :wfp_eea_eligible_outcome
+          assert_current_node :wfp_going_abroad_outcome
         end
       end
       context "answer other country" do
@@ -1340,6 +1340,16 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "take you to other country outcome" do
         assert_current_node :esa_already_abroad_other_outcome
+      end
+    end
+    context "living abroad for more than a year, former yugoslavia country" do
+      setup do
+        add_response 'esa'
+        add_response 'esa_more_than_a_year'
+        add_response 'kosovo'
+      end
+      should "take you to former yugoslavia outcome" do
+        assert_current_node :esa_already_abroad_ss_outcome
       end
     end
 
