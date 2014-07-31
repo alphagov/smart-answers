@@ -43,7 +43,7 @@ en-GB:
 
           You could get [Working Tax Credit](/working-tax-credit) if you either:
 
-          - live in Switzerland or an [European Economic Area](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) (EEA) country and travel to the UK to work
+          - live in Switzerland or an [European Economic Area](/eu-eea) (EEA) country and travel to the UK to work
           - travel abroad to work, but are ‘ordinarily resident' in the UK
 
           ^Ordinarily resident means you normally live in the UK, and plan to stay for the time being.^
@@ -75,7 +75,7 @@ en-GB:
         tax_credits_going_abroad_helpline: |
 
 
-          $C
+          $A
           **Tax Credits Helpline**
           Telephone: 0345 300 3900
           Textphone: 0345 300 3909
@@ -83,18 +83,22 @@ en-GB:
           Monday to Friday, 8am to 8pm
           Saturday, 8am to 4pm
           Find out about [call charges](/call-charges)
-          $C
+          $A
         tax_credits_already_abroad_helpline: |
 
 
-          $C
+          $A
           **Tax Credits Helpline**
           From outside the UK: +44 2890 538 192
           Monday to Friday, 8am to 8pm
           Saturday, 8am to 4pm
-          $C
+          $A
 
         iidb_maybe_text: "continued to"
+
+# Shared Which Country? question
+      which_country?:
+        title: %{question_titles}
 
 # Q1
       going_or_already_abroad?:
@@ -191,12 +195,12 @@ en-GB:
 # Q33 going_abroad
       is_claiming_benefits?:
         title: |
-          Are you travelling abroad with a partner who is getting Income Support with one of the following premiums:
+          Are you travelling abroad with a partner who is getting Income Support with one of the following:
         body: |
-          - the [Pensioner premium](/income-support/what-youll-get)
-          - the [Higher Pensioner premium](/income-support/what-youll-get)
-          - the [Disability premium](/disability-premiums-income-support/eligibility)
-          - the [Severe Disability premium](/disability-premiums-income-support/eligibility)
+          - [Pensioner premium](/income-support/what-youll-get)
+          - [Higher Pensioner premium](/income-support/what-youll-get)
+          - [Disability premium](/disability-premiums-income-support/eligibility)
+          - [Severe Disability premium](/disability-premiums-income-support/eligibility)
         hint: |
           Your partner must be getting the premium, not you.
 # Q34 going_abroad
@@ -269,63 +273,8 @@ en-GB:
 # A3 going_abroad
       jsa_less_than_a_year_medical_outcome:
         body: |
-          You can't claim [income-related JSA] abroad.
+          You can't claim [income-based JSA](/jobseekers-allowance/overview) abroad.
 
-          You can get [contribution-based JSA](/jobseekers-allowance)for up to 3 months if you're going abroad to look for work and you:
-
-          - are entitled to it on the day you go abroad
-          - register as a jobseeker at least 4 weeks before you leave
-          - are looking for work in the UK up to the day you leave
-          - register at the equivalent of a Jobcentre in the country you're going to
-          - follow the other country's rules on registering and looking for work
-
-          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) that you want to move and get JSA while you're abroad.
-
-          You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in [country].
-
-          $C
-          Jobseekers and Benefit Enhancement Section (JBES)
-          Room TC013
-          International Pension Centre
-          Tyneview Park
-          Newcastle Upon Tyne
-          NE98 1BA
-          $C
-
-          *[JSA]: Jobseeker's Allowance
-          *[JBES]: Jobseekers and Benefit Enhancement Section
-# A4 going_abroad
-      jsa_less_than_a_year_other_outcome:
-        body: |
-          You can't claim [income-related JSA] abroad.
-
-          You can get [contribution-based JSA](/jobseekers-allowance)for up to 3 months if you're going abroad to look for work and you:
-
-          - are entitled to it on the day you go abroad
-          - register as a jobseeker at least 4 weeks before you leave
-          - are looking for work in the UK up to the day you leave
-          - register at the equivalent of a Jobcentre in the country you're going to
-          - follow the other country's rules on registering and looking for work
-
-          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) that you want to move and get JSA while you're abroad.
-
-          You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in [country].
-
-          $C
-          Jobseekers and Benefit Enhancement Section (JBES)
-          Room TC013
-          International Pension Centre
-          Tyneview Park
-          Newcastle Upon Tyne
-          NE98 1BA
-          $C
-
-
-          *[JSA]: Jobseeker's Allowance
-          *[JBES]: Jobseekers and Benefit Enhancement Section
-# A5 going_abroad
-      jsa_eea_going_abroad_outcome:
-        body: |
           You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months if you're going abroad to look for work and you:
 
           - are entitled to it on the day you go abroad
@@ -336,22 +285,81 @@ en-GB:
 
           Tell your local [Jobcentre Plus](/contact-jobcentre-plus) that you want to move and get JSA while you're abroad.
 
-          You'll  also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in [country].
+          You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
-          $C
+
+          $A
           Jobseekers and Benefit Enhancement Section (JBES)
           Room TC013
           International Pension Centre
           Tyneview Park
           Newcastle Upon Tyne
           NE98 1BA
-          $C
+          $A
+
+          *[JSA]: Jobseeker's Allowance
+          *[JBES]: Jobseekers and Benefit Enhancement Section
+# A4 going_abroad
+      jsa_less_than_a_year_other_outcome:
+        body: |
+          You can't claim [income-based JSA](/jobseekers-allowance/overview) abroad.
+
+          You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months if you're going abroad to look for work and you:
+
+          - are entitled to it on the day you go abroad
+          - register as a jobseeker at least 4 weeks before you leave
+          - are looking for work in the UK up to the day you leave
+          - register at the equivalent of a Jobcentre in the country you're going to
+          - follow the other country's rules on registering and looking for work
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) that you want to move and get JSA while you're abroad.
+
+          You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
+
+
+          $A
+          Jobseekers and Benefit Enhancement Section (JBES)
+          Room TC013
+          International Pension Centre
+          Tyneview Park
+          Newcastle Upon Tyne
+          NE98 1BA
+          $A
+
+          *[JSA]: Jobseeker's Allowance
+          *[JBES]: Jobseekers and Benefit Enhancement Section
+# A5 going_abroad
+      jsa_eea_going_abroad_outcome:
+        body: |
+          You can’t claim [income-based JSA](/jobseekers-allowance/overview) abroad.
+
+          You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months if you're going abroad to look for work and you:
+
+          - are entitled to it on the day you go abroad
+          - register as a jobseeker at least 4 weeks before you leave
+          - are looking for work in the UK up to the day you leave
+          - register at the equivalent of a Jobcentre in the country you're going to
+          - follow the other country's rules on registering and looking for work
+
+          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) that you want to move and get JSA while you're abroad.
+
+          You'll  also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
+
+
+          $A
+          Jobseekers and Benefit Enhancement Section (JBES)
+          Room TC013
+          International Pension Centre
+          Tyneview Park
+          Newcastle Upon Tyne
+          NE98 1BA
+          $A
 
           *[JSA]: Jobseeker's Allowance
 # A3 already_abroad
       jsa_eea_already_abroad_outcome:
         body: |
-          You can't get JSA while you're abroad. You may qualify for unemployment benefits in %{country_name} because of the agreements between [EEA countries](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) and Switzerland.
+          You can't get JSA while you're abroad. You may qualify for unemployment benefits in %{country_name} because of the agreements between [EEA countries](/eu-eea) and Switzerland.
 
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
@@ -367,7 +375,7 @@ en-GB:
 # A4 already_abroad
       jsa_social_security_already_abroad_outcome:
         body: |
-          You can't get JSA abroad. You may qualify for unemployment benefits because of the agreements between the [EEA countries](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) and Switzerland.
+          You can't get JSA abroad. You may qualify for unemployment benefits because of the agreements between the [EEA countries](/eu-eea) and Switzerland.
 
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
@@ -394,14 +402,23 @@ en-GB:
         body: |
           You can get [Winter Fuel Payments](/winter-fuel-payment) while you’re abroad if you have a genuine link with the UK, eg if you’ve lived and worked in the UK for most of your life.
 
-          You must be living in an [EEA country](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+          You must be living in an [EEA country](/eu-eea) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
 
           Contact the [International Pension Centre](/international-pension-centre) to set up your claim.
 
 # A8 going_abroad and A6 already_abroad
       wfp_not_eligible_outcome:
         body: |
-          You can't get Winter Fuel Payments while you're abroad unless you live in the [European Economic Area (EEA)](http://www.companieshouse.gov.uk/about/miscellaneous/listeeaCountries.shtml) or Switzerland.
+          You can't get Winter Fuel Payments while you're abroad unless you live in the [European Economic Area (EEA)](/eu-eea) or Switzerland.
+
+# A9 going_abroad
+      wfp_going_abroad_outcome:
+        body: |
+          You can get the [Winter Fuel Payment](/winter-fuel-payment/eligibility) if you have a genuine link with the UK, eg if you’ve lived and worked in the UK for most of your life.
+
+          You must be living in an [European Economic Area (EEA)](/eu-eaa) country or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+
+          Contact the [International Pension Centre](/international-pension-centre) to transfer your  claim abroad.
 
 # A10 going_abroad and A8 already_abroad
       maternity_benefits_maternity_allowance_outcome:
@@ -544,14 +561,15 @@ en-GB:
 
           Contact the Tax Credits Helpline to claim.
 
-          $C
+
+          $A
           **Tax Credits Helpline**
           Telephone: 0345 300 3900
           Textphone: 0345 300 3909
           Outside the UK: +44 2890 538 192
           Monday to Friday, 8am to 8pm
           Saturday 8am to 4pm
-          $C
+          $A
 
 # A23 already_abroad and A25 going_abroad
       tax_credits_holiday_outcome:
@@ -632,6 +650,14 @@ en-GB:
           You may be able to get benefits from %{country_name} if you've been paying into a local social security insurance scheme.  Contact the local authorities to find out more.
 
           *[ESA]: Employment Support Allowance
+
+# A28 already_abroad
+      esa_already_abroad_ss_outcome:
+        body: |
+          You can’t claim ESA. If you were receiving [Incapacity Benefit](/incapacity-benefit) while living in %{country_name}, you may be asked to transition from Incapacity Benefit to ESA (contributory).
+
+          You may also be able to get benefits from %{country_name} if you’ve paid into a local social security insurance scheme. Contact the local authorities to find out more.
+
 # A30 going_abroad
       esa_going_abroad_other_outcome:
         body: |

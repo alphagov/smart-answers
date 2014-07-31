@@ -120,7 +120,10 @@ country_select :which_country?,additional_countries: additional_countries, exclu
   end
 #wfp
   on_condition(variable_matches(:benefit, 'winter_fuel_payment')) do
-    next_node_if(:wfp_eea_eligible_outcome, responded_with_eea_country) # A7 already_abroad
+    on_condition(responded_with_eea_country) do
+      next_node_if(:wfp_going_abroad_outcome, going_abroad) # A9 going_abroad
+      next_node(:wfp_eea_eligible_outcome) # A7 already_abroad
+    end
     next_node(:wfp_not_eligible_outcome) # A8 going_abroad and A6 already_abroad
   end
 #child benefit
@@ -171,6 +174,7 @@ country_select :which_country?,additional_countries: additional_countries, exclu
     end
     on_condition(already_abroad) do
       next_node_if(:esa_already_abroad_eea_outcome, responded_with_eea_country) # A27 already_abroad
+      next_node_if(:esa_already_abroad_ss_outcome, responded_with_former_yugoslavia) # A28 already_abroad
       next_node(:esa_already_abroad_other_outcome) # A29 already_abroad
     end
   end
@@ -385,6 +389,7 @@ outcome :jsa_eea_going_abroad_outcome # A5 going_abroad
 outcome :jsa_social_security_going_abroad_outcome # A6 going_abroad
 outcome :jsa_not_entitled_outcome # A7 going_abroad and A5 already_abroad
 outcome :wfp_not_eligible_outcome # A8 going_abroad and A6 already_abroad
+outcome :wfp_going_abroad_outcome # A9 going_abroad
 outcome :maternity_benefits_maternity_allowance_outcome # A10 going_abroad and A8 already_abroad
 outcome :maternity_benefits_social_security_going_abroad_outcome # A12 going_abroad
 outcome :maternity_benefits_not_entitled_outcome # A13 going_abroad and A11 already_abroad
@@ -449,6 +454,7 @@ end
 outcome :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
 outcome :esa_already_abroad_under_a_year_other_outcome # A26 already_abroad
 outcome :esa_already_abroad_eea_outcome # A27 already_abroad
+outcome :esa_already_abroad_ss_outcome # A28 already_abroad
 outcome :esa_already_abroad_other_outcome # A29 already_abroad
 outcome :iidb_maybe_outcome # A 30 already_abroad and A31 going_abroad
 outcome :iidb_already_abroad_eea_outcome # A31 already_abroad
