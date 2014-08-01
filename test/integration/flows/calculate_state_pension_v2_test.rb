@@ -1315,5 +1315,20 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :less_than_ten, :reduced_rate_election, :lived_or_worked_overseas, :too_few_qy_enough_remaining_years_a]
       end
     end
+
+    context "male and new state pension - should ask lived or worked outside uk" do
+      setup do
+        add_response :male
+        add_response Date.parse('6 April 1951')
+        add_response 5
+        add_response 0
+        add_response :no
+        add_response 0
+        add_response :yes # lived or worked outside uk
+      end
+      should "go to amount_result" do
+        assert_current_node :amount_result
+      end
+    end
   end #amount calculation
 end #ask which calculation
