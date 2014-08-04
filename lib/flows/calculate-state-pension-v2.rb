@@ -436,7 +436,7 @@ value_question :years_of_work? do
   end
 
   define_predicate(:new_rules_and_less_than_10_ni?) {
-    (ni < 10) && (calculator.state_pension_date > Date.parse('6 April 2016'))
+    (ni < 10) && (calculator.state_pension_date >= Date.parse('6 April 2016'))
   }
 
   next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
