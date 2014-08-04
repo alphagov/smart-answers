@@ -1332,6 +1332,13 @@ en-GB:
             Telephone: (+44) 207 008 1500
           $C
 
+        body_libya: |
+          You can’t apply for a British passport from Libya at this time.
+
+          You should apply in a neighbouring country of your choice.
+
+          If you need more information read the [Foreign Commonwealth Office travel advice](/foreign-travel-advice/libya).
+
         body_syria: |
           You can’t apply for a British passport from Syria at this time.
 
