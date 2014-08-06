@@ -1,7 +1,7 @@
 module Smartdown
   class Node
 
-    attr_reader :title
+    attr_reader :title ,:elements, :front_matter
 
     def initialize(node)
       node_elements = node.elements.clone
@@ -19,14 +19,8 @@ module Smartdown
     end
 
     def body
-      body_elements = []
-      for element in elements
-        if smartdown_element?(element)
-          break
-        end
-        body_elements << element
-      end
-      build_govspeak(body_elements)
+      elements_before_smartdown = elements.take_while{|element| smartdown_element?(element)}
+      build_govspeak(elements_before_smartdown)
     end
 
     def has_body?
@@ -38,21 +32,9 @@ module Smartdown
     end
 
     def devolved_body
-      # if no split element is found, don't do a devolved body
-      element_index = -1
-
-      elements.each_with_index { |element, index|
-        if smartdown_element?(element)
-          element_index = index
-          break
-        end
-      }
-      after_button_elements = elements[element_index..-1]
-
-      build_govspeak(after_button_elements)
+      elements_after_smartdown = elements.drop_while{|element| !smartdown_element?(element)}
+      build_govspeak(elements_after_smartdown)
     end
-
-    attr_reader :elements, :front_matter
 
   private
 
