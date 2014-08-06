@@ -15,7 +15,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       within 'h1' do
         assert_page_has_content("The Bridge of Death")
       end
-      assert page.has_selector?("h2", text: "Avoid the Gorge of Eternal Peril!!!")
       within '.intro' do
         within('h2') { assert_page_has_content("STOP!") }
         assert_page_has_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")

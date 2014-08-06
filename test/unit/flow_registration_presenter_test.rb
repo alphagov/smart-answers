@@ -67,13 +67,6 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
       assert_match %r{NODE_3_TITLE}, @content
     end
 
-    should "include all node subtitles" do
-      @content = @presenter.indexable_content
-      assert_match %r{NODE_1_SUBTITLE}, @content
-      assert_match %r{NODE_2_SUBTITLE}, @content
-      assert_match %r{NODE_3_SUBTITLE}, @content
-    end
-
     should "include the flow body and all node bodies" do
       @content = @presenter.indexable_content
       assert_match %r{FLOW_BODY}, @content

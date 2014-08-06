@@ -45,14 +45,6 @@ class NodePresenter
     @node.to_response(input)
   end
 
-  def subtitle
-    translate!('subtitle')
-  end
-
-  def has_subtitle?
-    !!subtitle
-  end
-
   def title
     translate!('title') || @node.name.to_s.humanize
   end

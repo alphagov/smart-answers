@@ -41,20 +41,12 @@ class SmartAnswerPresenter
     lookup_translation(:title) || @flow.name.to_s.humanize
   end
 
-  def subtitle
-    lookup_translation(:subtitle)
-  end
-
   def body
     markdown_for('body')
   end
 
   def devolved_body
     markdown_for('devolved_body')
-  end
-
-  def has_subtitle?
-    !!subtitle
   end
 
   def has_body?
