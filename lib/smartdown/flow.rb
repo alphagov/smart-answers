@@ -1,7 +1,6 @@
 require 'smartdown'
 require 'smartdown/engine'
 
-module Smartdown
   class Flow
 
     def initialize(name)
