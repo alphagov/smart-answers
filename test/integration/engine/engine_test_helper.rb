@@ -5,7 +5,7 @@ class EngineIntegrationTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::ContentApi
 
   setup do
-    fixture_flows_path = Rails.root.join(*%w{test fixtures flows})
+    fixture_flows_path = Rails.root.join(*%w{test fixtures smart_answer_flows})
     FLOW_REGISTRY_OPTIONS[:load_path] = fixture_flows_path
     SmartAnswer::FlowRegistry.reset_instance
 

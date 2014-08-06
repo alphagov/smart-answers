@@ -12,6 +12,7 @@ gem 'govuk_frontend_toolkit', '1.3.0'
 gem 'airbrake', '3.1.15'
 gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.1'
+gem 'smartdown'
 
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
