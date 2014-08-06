@@ -99,7 +99,7 @@ private
   end
 
   def smartdown_question(name)
-    Smartdown::Registry.check(name)
+    Smartdown::Registry.check(name.to_s)
   end
 
 end
