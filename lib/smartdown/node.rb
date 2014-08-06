@@ -19,7 +19,7 @@ module Smartdown
     end
 
     def body
-      elements_before_smartdown = elements.take_while{|element| smartdown_element?(element)}
+      elements_before_smartdown = elements.take_while{|element| !smartdown_element?(element)}
       build_govspeak(elements_before_smartdown)
     end
 
