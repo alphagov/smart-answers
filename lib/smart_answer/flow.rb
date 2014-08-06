@@ -12,7 +12,7 @@ module SmartAnswer
     end
 
     def use_shared_logic(filename)
-      eval File.read(Rails.root.join('lib', 'flows', 'shared_logic', "#{filename}.rb")), binding
+      eval File.read(Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "#{filename}.rb")), binding
     end
 
     def name(name = nil)

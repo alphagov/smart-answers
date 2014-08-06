@@ -4,10 +4,10 @@ namespace :version do
   DELIM = "********************************************"
   USAGE = "rake version:<task>['<flow name>']"
   NO_FLOW_NAME_ERR_MSG = "Please supply a flow name.\n\n$ #{USAGE}"
-  FLOWS_PATH = File.join(File.dirname(__FILE__), '../', 'flows/')
+  FLOWS_PATH = File.join(File.dirname(__FILE__), '../', 'smart_answer_flows/')
   CALCULATORS_PATH = File.join(File.dirname(__FILE__), '../', 'smart_answer/calculators/')
   TEST_PATH = File.join(File.dirname(__FILE__), '../../', 'test/')
-  FLOWS_TEST_PATH = File.join(TEST_PATH, 'integration/flows/')
+  FLOWS_TEST_PATH = File.join(TEST_PATH, 'integration/smart_answer_flows/')
   UNIT_TEST_PATH = File.join(TEST_PATH, 'unit/calculators/')
   LOCALES_PATH = File.join(FLOWS_PATH, "locales/en/")
 

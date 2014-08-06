@@ -70,7 +70,7 @@ namespace :links do
       broken = check_links(links_to_check, broken, file)
     else
       base_path = File.expand_path("#{pwd}/lib")
-      Dir.glob("#{base_path}/flows/locales/**/*.yml") { |file|
+      Dir.glob("#{base_path}/smart_answer_flows/locales/**/*.yml") { |file|
         puts "Checking #{file}"
         links_to_check = check_locales_file(IO.read(file))
         broken = check_links(links_to_check, broken, file)
