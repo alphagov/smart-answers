@@ -1,4 +1,4 @@
-module Smartdown
+module SmartdownAdapter
   class Registry
 
     def self.check(name)
