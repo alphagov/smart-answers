@@ -4,8 +4,21 @@ Smart Answers
 Toolkit for building smart answers. Have a look at
 [`test/unit/flow_test.rb`](smart-answers/blob/master/test/unit/flow_test.rb) for example usage.
 
-Flows are stored in `lib/flows/*.rb`. Corresponding text is in
-`lib/flows/locales/*.yml`.
+This application supports two styles of writing and executing smart answers:
+
+**Ruby and YAML-based smart answer flows**
+
+Smart answer flows are stored in `lib/smart_answer_flows/*.rb`. Corresponding text is in
+`lib/smart_answer_flows/locales/*.yml`.
+The code responsible for executing the flow of those questions is in the `lib` folder of this project.
+
+**Smartdown-based smart answer flows**
+
+Smart answer flows are stored in `lib/smart_answer_flows/*.rb`. Corresponding text is in
+`lib/smart_answer_flows/locales/*.yml`.
+The code reponsisble for executing the flow of those questions is in the [smartdown gem](https://github.com/alphagov/smartdown).
+
+Smart answers are by default expected to be "old-style". To enable a new smart answer in smartdown, register it in the smartdown registry (`lib/smartdown/registry.rb`).
 
 Testing
 ------------

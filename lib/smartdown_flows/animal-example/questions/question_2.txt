@@ -1,0 +1,11 @@
+# Are you trained for Lions?
+
+Think very carefully.
+
+* yes: Yes
+* no: No
+
+* question_1 is 'lion'
+  * question_2 is 'yes' => outcome_trained_with_lions
+  * otherwise => outcome_untrained_with_lions
+* otherwise => outcome_tigers_are_fine
