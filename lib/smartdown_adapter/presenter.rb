@@ -1,8 +1,6 @@
-require 'smartdown'
-require 'smartdown/engine'
 require 'gds_api/helpers'
 
-module Smartdown
+module SmartdownAdapter
 
   class Presenter
     include GdsApi::Helpers

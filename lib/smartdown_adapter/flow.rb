@@ -1,6 +1,7 @@
 require 'smartdown'
 require 'smartdown/engine'
 
+module SmartdownAdapter
   class Flow
 
     def initialize(name)
@@ -52,7 +53,34 @@ require 'smartdown/engine'
       status == 'published'
     end
 
+    def nodes
+      @smartdown_flow.nodes.map{ |node| transform_node(node) }
+                           .select{ |node| (node.is_a? MultipleChoice) || (node.is_a? Outcome)}
+    end
+
+    def questions
+      nodes.select{ |node| node.is_a? MultipleChoice }
+    end
+
+    def outcomes
+      nodes.select{ |node| node.is_a? Outcome}
+    end
+
   private
+
+    def transform_node(node)
+      if node.elements.any?{|element| element.is_a? Smartdown::Model::Element::StartButton}
+        Coversheet.new(node)
+      elsif node.elements.any?{|element| element.is_a? Smartdown::Model::NextNodeRules}
+        if node.elements.any?{|element| element.is_a? Smartdown::Model::Element::MultipleChoice}
+          MultipleChoice.new(node)
+        else
+          #TODO: support other types of questions
+        end
+      else
+        Outcome.new(node)
+      end
+    end
 
     def coversheet
       @coversheet ||= Coversheet.new(@smartdown_flow.coversheet)
