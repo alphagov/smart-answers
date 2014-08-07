@@ -54,7 +54,7 @@ module SmartdownAdapter
           text << word_wrap(node.title.to_s)
           text << "\n\n"
           text << node.options.map do |option|
-            "( ) #{option}"
+            "( ) #{option.value}: #{option.label}"
           end.join("\n")
         when SmartdownAdapter::Outcome
           candidate_texts = [
