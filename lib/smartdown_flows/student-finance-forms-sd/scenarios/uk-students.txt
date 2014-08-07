@@ -1,0 +1,159 @@
+#UK full-time students
+
+type_of_student: uk-full-time
+form_needed_for_1: apply-loans-grants
+what_year: year-1314
+continuing_student: yes
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: apply-loans-grants
+what_year: year-1314
+continuing_student: no
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: apply-loans-grants
+what_year: year_1415
+continuing_student: yes
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: apply-loans-grants
+what_year: year_1415
+continuing_student: no
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: proof-identity
+what_year: year-1314
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: proof-identity
+what_year: year_1415
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: income-details
+what_year: year-1314
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: income-details
+what_year: year_1415
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: apply-dsa
+what_year: year-1314
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: apply-dsa
+what_year: year_1415
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: dsa-expenses
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: apply-ccg
+what_year: year-1314
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: apply-ccg
+what_year: year_1415
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: ccg-expenses
+outcome
+
+type_of_student: uk-full-time
+form_needed_for_1: travel-grant
+outcome
+
+#UK part-time students
+
+type_of_student: uk-part-time
+form_needed_for_2: apply-loans-grants
+what_year: year-1314
+continuing_student: yes
+pt_course_start: course-start-before-01092012
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: apply-loans-grants
+what_year: year-1314
+continuing_student: yes
+pt_course_start: course-start-after-01092012
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: apply-loans-grants
+what_year: year-1314
+continuing_student: no
+pt_course_start: course-start-before-01092012
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: apply-loans-grants
+what_year: year-1314
+continuing_student: no
+pt_course_start: course-start-after-01092012
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: apply-loans-grants
+what_year: year_1415
+continuing_student: yes
+pt_course_start: course-start-before-01092012
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: apply-loans-grants
+what_year: year_1415
+continuing_student: yes
+pt_course_start: course-start-after-01092012
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: apply-loans-grants
+what_year: year_1415
+continuing_student: no
+pt_course_start: course-start-before-01092012
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: apply-loans-grants
+what_year: year_1415
+continuing_student: no
+pt_course_start: course-start-after-01092012
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: proof-identity
+what_year: year-1314
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: proof-identity
+what_year: year_1415
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: apply-dsa
+what_year: year-1314
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: apply-dsa
+what_year: year_1415
+outcome
+
+type_of_student: uk-part-time
+form_needed_for_2: dsa-expenses
+outcome

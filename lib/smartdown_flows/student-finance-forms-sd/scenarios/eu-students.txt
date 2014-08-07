@@ -1,0 +1,7 @@
+#EU full-time students
+
+type_of_student: eu-full-time
+
+#EU part-time students
+
+type_of_student: eu-part-time
