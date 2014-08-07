@@ -20,7 +20,6 @@ what_year: year_1415
 continuing_student: no
 outcome_eu_ft_1415_new
 
-
 #EU part-time students
 
 type_of_student: eu-part-time
