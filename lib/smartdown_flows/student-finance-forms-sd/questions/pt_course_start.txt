@@ -1,0 +1,13 @@
+# Did your part-time course start before 1 September 2012?
+
+* course-start-before-01092012: Yes
+* course-start-after-01092012: No
+
+* year_required is 'year-1314'
+  * pt_course_start is 'course-start-before-01092012' => outcome_uk_pt_1314_grant
+  * continuing_student_state is 'continuing-student' => outcome_uk_pt_1314_continuing
+  * continuing_student_state is 'new-student' => outcome_uk_pt_1314_new
+* year_required is 'year-1415'
+  * pt_course_start is 'course-start-before-01092012' => outcome_uk_pt_1415_grant
+  * continuing_student_state is 'continuing-student' => outcome_uk_pt_1415_continuing
+  * continuing_student_state is 'new-student' => outcome_uk_pt_1415_new

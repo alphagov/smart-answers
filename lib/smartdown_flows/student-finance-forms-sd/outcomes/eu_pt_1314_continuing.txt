@@ -1,0 +1,30 @@
+# EU part-time student
+
+To apply for a Tuition Fee Loan use form EUPTLC.
+
+Academic year | Form
+- | -
+2013 to 2014 | [EUPTLC - form (PDF, 900KB)](http://www.sfengland.slc.co.uk/media/596584/eu_ptlc_form_1314_d.pdf)
+2013 to 2014 | [EUPTLC - guidance notes (PDF, 500KB)](http://www.sfengland.slc.co.uk/media/596587/eu_ptlc_notes_1314_d.pdf)
+
+If you started your course before 1 September 2012 you may be eligible for a Tuition Fee Grant. Apply using the form EUPTG1.
+
+Academic year | Form
+- | -
+2013 to 2014 | [EUPTG1 - form (PDF, 421KB)](http://www.sfengland.slc.co.uk/media/635675/euptg1_1314_d.pdf)
+2013 to 2014 | [EUPTG1 - guidance notes (PDF, 115KB)](http://www.sfengland.slc.co.uk/media/640499/eu_ptg1_notes_1314_d.pdf)
+
+##Additional information
+
+You may need to include additional information on the following forms.
+
+Form | When to use the form
+- | -
+[EUTFLR - form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/560156/eu_tuitionfeelrf_1314_d.pdf) | To change the amount of loan you want to apply for
+[Evidence factsheet (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/560168/eu_evidence_factsheet_1314_d.pdf) | List of evidence to send with your application - eg proof of identity or income
+[Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/560159/eu_certifier_checklist_1314_d.pdf) | Get the person who verifies your evidence to sign this form
+[EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/560153/eu_co1_1314_d.pdf) | To update your course, name and other details
+
+^You can apply up to 9 months after the start of your course.^
+
+%{form_destination}

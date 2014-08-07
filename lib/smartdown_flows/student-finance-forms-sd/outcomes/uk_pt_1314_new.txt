@@ -1,0 +1,13 @@
+# Student finance – application form
+
+You should [apply online](/apply-online-for-student-finance) for a Tuition Fee Loan. If you can’t apply online, use form PTL1.
+
+Academic Year | Form
+- | -
+2013 to 2014 | [Apply online](/apply-online-for-student-finance)
+2013 to 2014 | [PTL1 - form (PDF, 400KB)](http://www.sfengland.slc.co.uk/media/596780/sfe_ptl1_form_d.pdf)
+2013 to 2014 | [PTL1 - guidance notes (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/596326/sfe_ptl1_notes_1314_d.pdf)
+
+^You can apply up to 9 months after the start of your course.^
+
+%{form_destination}

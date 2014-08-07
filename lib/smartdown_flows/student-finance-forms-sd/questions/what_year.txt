@@ -1,0 +1,20 @@
+# What academic year do you want funding for?
+
+* year-1314: 2013 to 2014
+* year-1415: 2014 to 2015
+
+* student_type in {uk-full-time uk-part-time}
+* what_year is 'year-1314'
+* student_type is 'uk-part-time'
+      * form_required is 'proof-identity' => outcome_proof_identity_1314_pt
+      * form_required is 'apply-dsa' => outcome_dsa_1314_pt
+    * form_required is 'proof-identity' => outcome_proof_identity_1314
+    * form_required is 'income-details' => outcome_parent_partner_1314
+    * form_required is 'apply-dsa' => outcome_dsa_1314
+    * form_required is 'apply-ccg' => outcome_ccg_1314
+* student_type is 'uk-part-time'
+    * form_required is 'apply-dsa' => outcome_dsa_1415_pt
+  * form_required is 'proof-identity' => outcome_proof_identity_1415
+  * form_required is 'income-details' => outcome_parent_partner_1415
+  * form_required is 'apply-dsa' => outcome_dsa_1415
+  * form_required is 'apply-ccg' => outcome_ccg_1415
