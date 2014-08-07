@@ -1,7 +1,43 @@
 #EU full-time students
 
 type_of_student: eu-full-time
+what_year: year_1314
+continuing_student: yes
+outcome
+
+type_of_student: eu-full-time
+what_year: year_1415
+continuing_student: no
+outcome
+
+type_of_student: eu-full-time
+what_year: year_1314
+continuing_student: yes
+outcome
+
+type_of_student: eu-full-time
+what_year: year_1415
+continuing_student: no
+outcome
 
 #EU part-time students
 
 type_of_student: eu-part-time
+what_year: year_1314
+continuing_student: yes
+outcome
+
+type_of_student: eu-part-time
+what_year: year_1415
+continuing_student: no
+outcome
+
+type_of_student: eu-part-time
+what_year: year_1314
+continuing_student: yes
+outcome
+
+type_of_student: eu-part-time
+what_year: year_1415
+continuing_student: no
+outcome
