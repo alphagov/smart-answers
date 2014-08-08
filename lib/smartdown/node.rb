@@ -20,7 +20,7 @@ module Smartdown
 
     def body
       elements_before_smartdown = elements.take_while{|element| !smartdown_element?(element)}
-      build_govspeak(elements_before_smartdown)
+      build_govspeak(elements_before_smartdown) unless elements_before_smartdown.empty?
     end
 
     def has_body?
