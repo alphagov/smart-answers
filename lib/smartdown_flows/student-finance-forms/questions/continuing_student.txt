@@ -1,19 +1,30 @@
 # Are you a continuing student?
 
+[choice: continuing_student]
 * continuing-student: Yes
 * new-student: No
 
-* student_type is 'uk-part-time'
-  * form_required is 'apply-loans-grants' => pt_course_start?
-* form_required is 'apply-loans-grants'
-      * continuing_student is 'continuing-student' => outcome_uk_ft_1314_continuing
-* student_type is 'eu-full-time'
+* type_of_student is 'eu-full-time'
+  * what_year is 'year-1314'
     * continuing_student is 'continuing-student' => outcome_eu_ft_1314_continuing
-* student_type is 'eu-part-time'
-    * continuing_student is 'continuing-student' => outcome_eu_pt_1314_continuing
-* form_required is 'apply-loans-grants'
-      * continuing_student is 'continuing-student' => outcome_uk_ft_1415_continuing
-* student_type is 'eu-full-time'
+    * continuing_student is 'new-student' => outcome_eu_ft_1314_new
+  * what_year is 'year-1415'
     * continuing_student is 'continuing-student' => outcome_eu_ft_1415_continuing
-* student_type is 'eu-part-time'
+    * continuing_student is 'new-student' => outcome_eu_ft_1415_new
+* type_of_student is 'eu-part-time'
+  * what_year is 'year-1314'
+    * continuing_student is 'continuing-student' => outcome_eu_pt_1314_continuing
+    * continuing_student is 'new-student' => outcome_eu_pt_1314_new
+  * what_year is 'year-1415'
     * continuing_student is 'continuing-student' => outcome_eu_pt_1415_continuing
+    * continuing_student is 'new-student' => outcome_eu_pt_1415_new
+* type_of_student is 'uk-full-time'
+  * what_year is 'year-1314'
+    * form_needed_for_1 is 'apply-loans-grants'
+      * continuing_student is 'continuing-student' => outcome_uk_ft_1314_continuing
+      * continuing_student is 'new-student' => outcome_uk_ft_1314_new
+  * what_year is 'year-1415'
+    * form_needed_for_1 is 'apply-loans-grants'
+      * continuing_student is 'continuing-student' => outcome_uk_ft_1415_continuing
+      * continuing_student is 'new-student' => outcome_uk_ft_1415_new
+* type_of_student is 'uk-part-time' => pt_course_start

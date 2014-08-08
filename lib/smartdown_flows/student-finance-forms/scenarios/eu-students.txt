@@ -1,43 +1,39 @@
-#EU full-time students
+type_of_student: eu-full-time
+what_year: year-1314
+continuing_student: continuing-student
+outcome_eu_ft_1314_continuing:
 
 type_of_student: eu-full-time
-what_year: year_1314
-continuing_student: yes
-outcome_eu_ft_1314_continuing
+what_year: year-1314
+continuing_student: new-student
+outcome_eu_ft_1314_new:
 
 type_of_student: eu-full-time
-what_year: year_1314
-continuing_student: no
-outcome_eu_ft_1314_new
+what_year: year-1415
+continuing_student: continuing-student
+outcome_eu_ft_1415_continuing:
 
 type_of_student: eu-full-time
-what_year: year_1415
-continuing_student: yes
-outcome_eu_ft_1415_continuing
-
-type_of_student: eu-full-time
-what_year: year_1415
-continuing_student: no
-outcome_eu_ft_1415_new
-
-#EU part-time students
+what_year: year-1415
+continuing_student: new-student
+outcome_eu_ft_1415_new:
 
 type_of_student: eu-part-time
-what_year: year_1314
-continuing_student: yes
-outcome_eu_pt_1314_continuing
+what_year: year-1314
+continuing_student: continuing-student
+outcome_eu_pt_1314_continuing:
 
 type_of_student: eu-part-time
-what_year: year_1314
-continuing_student: no
-outcome_eu_pt_1314_new
+what_year: year-1314
+continuing_student: new-student
+outcome_eu_pt_1314_new:
 
 type_of_student: eu-part-time
-what_year: year_1415
-continuing_student: yes
-outcome_eu_pt_1415_continuing
+what_year: year-1415
+continuing_student: continuing-student
+outcome_eu_pt_1415_continuing:
 
 type_of_student: eu-part-time
-what_year: year_1415
-continuing_student: no
-outcome_eu_pt_1415_new
+what_year: year-1415
+continuing_student: new-student
+outcome_eu_pt_1415_new:

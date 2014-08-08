@@ -1,5 +1,6 @@
 # What type of a student are you?
 
+[choice: type_of_student]
 * uk-full-time: English student - full-time
 * uk-part-time: English student - part-time
 * eu-full-time: EU student - full-time
