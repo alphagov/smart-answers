@@ -10,28 +10,39 @@ class ValidationTest < ActionController::TestCase
     @controller = SmartAnswersController.new
   end
 
+  def get_smartanswer_content(question_name, started=false, responses=[])
+    get_content(question_name, false, started, responses)
+  end
+
+  def get_smartdown_content(question_name, started=false, responses=[])
+    get_content(question_name, true, started, responses)
+  end
+
+  def get_content(question_name, is_smartdown, started, responses)
+    @controller.stubs(:smartdown_question).returns(is_smartdown)
+    params = { id: question_name}
+    if started
+      params.merge!(started: "y")
+    end
+    unless responses.empty?
+      params.merge!(responses: responses)
+    end
+    get :show, params
+    response.body
+  end
+
   should "compare coversheet content" do
-    smartdown_name = "student-finance-forms"
-    smartanswer_name = "student-finance-forms"
-    @controller.stubs(:smartdown_question).returns(false)
-    get :show, { id: smartanswer_name }
-    smartanswer_content = response.body
-    @controller.stubs(:smartdown_question).returns(true)
-    get :show, { id: smartdown_name }
-    smartdown_content = response.body
+    question_name = "student-finance-forms"
+    smartanswer_content = get_smartanswer_content(question_name)
+    smartdown_content = get_smartdown_content(question_name)
     error_message_diff = Diffy::Diff.new(smartanswer_content, smartdown_content)
     assert_equal smartanswer_content, smartdown_content, message = error_message_diff
   end
 
   should "the first question page" do
-    smartdown_name = "student-finance-forms"
-    smartanswer_name = "student-finance-forms"
-    @controller.stubs(:smartdown_question).returns(false)
-    get :show, { id: smartanswer_name, started: "y" }
-    smartanswer_content = response.body
-    @controller.stubs(:smartdown_question).returns(true)
-    get :show, { id: smartdown_name, started: "y" }
-    smartdown_content = response.body
+    question_name = "student-finance-forms"
+    smartanswer_content = get_smartanswer_content(question_name, true)
+    smartdown_content = get_smartdown_content(question_name, true)
     error_message_diff = Diffy::Diff.new(smartanswer_content, smartdown_content)
     assert_equal smartanswer_content, smartdown_content, message = error_message_diff
   end
@@ -39,14 +50,9 @@ class ValidationTest < ActionController::TestCase
 
   ["uk-full-time", "uk-part-time", "eu-full-time", "eu-part-time"].each do |answer|
     should "second question page after answer #{answer}" do
-      smartdown_name = "student-finance-forms"
-      smartanswer_name = "student-finance-forms"
-      @controller.stubs(:smartdown_question).returns(false)
-      get :show, { id: smartanswer_name, started: "y", responses: answer }
-      smartanswer_content = response.body
-      @controller.stubs(:smartdown_question).returns(true)
-      get :show, { id: smartdown_name, started: "y", responses: answer  }
-      smartdown_content = response.body
+      question_name = "student-finance-forms"
+      smartanswer_content = get_smartanswer_content(question_name, true, answer)
+      smartdown_content = get_smartdown_content(question_name, true, answer)
       error_message_diff = Diffy::Diff.new(smartanswer_content, smartdown_content)
       assert_equal smartanswer_content, smartdown_content, message = error_message_diff
     end
