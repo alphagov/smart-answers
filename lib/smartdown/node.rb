@@ -39,7 +39,8 @@ module Smartdown
   private
 
     def markdown_element?(element)
-      (element.is_a? Smartdown::Model::Element::MarkdownParagraph) || (element.is_a? Smartdown::Model::Element::MarkdownHeading)
+      (element.is_a? Smartdown::Model::Element::MarkdownParagraph) ||
+      (element.is_a? Smartdown::Model::Element::MarkdownHeading)
     end
 
     def smartdown_element?(element)
