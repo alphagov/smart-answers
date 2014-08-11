@@ -19,8 +19,8 @@ module Smartdown
     end
 
     def body
-      elements_before_smartdown = elements.take_while{|element| smartdown_element?(element)}
-      build_govspeak(elements_before_smartdown)
+      elements_before_smartdown = elements.take_while{|element| !smartdown_element?(element)}
+      build_govspeak(elements_before_smartdown) unless elements_before_smartdown.empty?
     end
 
     def has_body?
@@ -39,7 +39,8 @@ module Smartdown
   private
 
     def markdown_element?(element)
-      (element.is_a? Smartdown::Model::Element::MarkdownParagraph) || (element.is_a? Smartdown::Model::Element::MarkdownHeading)
+      (element.is_a? Smartdown::Model::Element::MarkdownParagraph) ||
+      (element.is_a? Smartdown::Model::Element::MarkdownHeading)
     end
 
     def smartdown_element?(element)
