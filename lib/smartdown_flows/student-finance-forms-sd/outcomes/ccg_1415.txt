@@ -1,0 +1,9 @@
+# Childcare Grant
+
+To apply, estimate your childcare costs on form CCG1 after you've completed your main student finance application.
+
+Academic year | Form
+- | -
+2014 to 2015 | [CCG1 - form (PDF, 107KB)](http://www.sfengland.slc.co.uk/media/682910/sfe_ccg1_1415_d.pdf)
+
+%{form_destination}

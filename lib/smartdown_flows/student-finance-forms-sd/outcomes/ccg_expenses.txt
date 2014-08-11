@@ -1,0 +1,9 @@
+# Childcare Grant - cost confirmation
+
+At the end of each term confirm your actual childcare costs. Use the CCG2 form for the academic year the costs relate to.
+
+Academic Year | Form
+- | -
+2013 to 2014 | [CCG2 – cost confirmation form (PDF, 125KB)](http://www.sfengland.slc.co.uk/media/650001/sfe_ccg2_1314_d.pdf)
+
+%{form_destination}

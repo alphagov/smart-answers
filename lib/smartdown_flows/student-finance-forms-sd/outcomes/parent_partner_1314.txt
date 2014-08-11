@@ -1,0 +1,17 @@
+# Parents and partners - forms
+
+Some student finance (eg a Maintenance Grant) is based on income.
+
+You must send your income details for the 2011 to 2012 tax year. Do this online as part of the student's [online application](/apply-online-for-student-finance). If you can't do it online, use form PFF2.
+
+If you think your income has dropped by 15% or more since the 2011 to 2012 tax year you’ll need to do both of the following:
+
++ submit your 2011 to 2012 income details online or using form PFF2
++ complete a CYI form (to ask for the student finance to be based on your expected 2013 to 2014 tax year income)
+
+Academic year | Form
+- | -
+2013 to 2014 | [PFF2 - income details form (PDF, 120 KB)](http://www.sfengland.slc.co.uk/media/559149/sfe_pff2_1314_d.pdf)
+2013 to 2014 | [CYI - current tax year income details form (PDF, 150KB)](http://www.sfengland.slc.co.uk/media/592412/sfe_cyi_1314_d.pdf)
+
+%{form_destination}
