@@ -1,7 +1,7 @@
-module Smartdown
+module SmartdownAdapter
   class Node
 
-    attr_reader :title ,:elements, :front_matter
+    attr_reader :title ,:elements, :front_matter, :name
 
     def initialize(node)
       node_elements = node.elements.clone
@@ -12,6 +12,7 @@ module Smartdown
       node_elements.delete(headings.first) #Remove page title
       @elements = node_elements
       @front_matter = node.front_matter
+      @name = node.name
     end
 
     def has_title?
@@ -34,6 +35,14 @@ module Smartdown
     def devolved_body
       elements_after_smartdown = elements.drop_while{|element| !smartdown_element?(element)}
       build_govspeak(elements_after_smartdown)
+    end
+
+    def next_nodes
+      elements.select{ |element| element.is_a? Smartdown::Model::NextNodeRules }
+    end
+
+    def permitted_next_nodes
+      next_nodes
     end
 
   private

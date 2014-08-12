@@ -1,10 +1,15 @@
-module Smartdown
+module SmartdownAdapter
   class MultipleChoice < Question
     def options
       question = elements.find{|element| element.is_a? Smartdown::Model::Element::MultipleChoice}
       question.choices.map do |choice|
         OpenStruct.new(:label => choice[1], :value => choice[0])
       end
+    end
+
+    def name
+      question = elements.find{|element| element.is_a? Smartdown::Model::Element::MultipleChoice}
+      question.name
     end
 
     def partial_template_name

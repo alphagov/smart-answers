@@ -38,12 +38,20 @@ class SmartAnswersController < ApplicationController
   def visualise
     respond_to do |format|
       format.html {
-        @graph_presenter = GraphPresenter.new(@smart_answer)
+        if smartdown_question(@name)
+          @graph_presenter = SmartdownAdapter::GraphPresenter.new(@name.to_s)
+        else
+          @graph_presenter = GraphPresenter.new(@smart_answer)
+        end
         @graph_data = @graph_presenter.to_hash
         render layout: true
       }
       format.gv {
-        render text: GraphvizPresenter.new(@smart_answer).to_gv
+        if smartdown_question(@name)
+          render text: GraphvizPresenter.new(@smart_answer).to_gv
+        else
+          render text: SmartdownAdapter::GraphvizPresenter.new(@smart_answer).to_gv
+        end
       }
     end
   end
@@ -64,7 +72,7 @@ private
   def find_smart_answer
     @name = params[:id].to_sym
     if smartdown_question(@name)
-      @presenter = Smartdown::Presenter.new(@name.to_s, request)
+      @presenter = SmartdownAdapter::Presenter.new(@name.to_s, request)
     else
       @smart_answer = flow_registry.find(@name.to_s)
       @presenter = SmartAnswerPresenter.new(request, @smart_answer)
@@ -99,7 +107,7 @@ private
   end
 
   def smartdown_question(name)
-    Smartdown::Registry.check(name.to_s)
+    SmartdownAdapter::Registry.check(name.to_s)
   end
 
 end

@@ -1,4 +1,4 @@
-module Smartdown
+module SmartdownAdapter
   class Outcome < Node
 
     def has_next_steps?

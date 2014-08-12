@@ -1,4 +1,4 @@
-module Smartdown
+module SmartdownAdapter
   class State
 
     attr_reader :responses
