@@ -91,7 +91,7 @@ en-GB:
       ## Q4
       continuing_student?:
         title: Are you a continuing student?
-        hint: You’re usually a continuing student if you got student finance last year.
+        body: You’re usually a continuing student if you got student finance last year.
         options:
           "continuing-student": "Yes"
           "new-student": "No"
