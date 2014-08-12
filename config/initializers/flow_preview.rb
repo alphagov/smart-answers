@@ -1,4 +1,4 @@
-FLOW_REGISTRY_OPTIONS = {show_drafts: true}
+FLOW_REGISTRY_OPTIONS = {show_drafts: true, show_transitions: false}
 
 # Uncomment the following to run smartanswers with the test flows instead of the real ones
 #

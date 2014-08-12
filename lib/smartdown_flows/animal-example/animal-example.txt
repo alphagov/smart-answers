@@ -1,6 +1,6 @@
 meta_description: Animals eh?
 satisfies_need: 100982
-status: published
+status: draft
 
 # A simple example of smartdown
 
@@ -18,10 +18,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 * To know the kind of feline you have
 * Any animal training certification documents
 
-[start: question_1?]
+[start: question_1]
 
 ## Devolved body
 
 Which is really just body content after the start button
-
-* otherwise => question_1

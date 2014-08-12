@@ -1,3 +1,6 @@
+require 'smartdown'
+require 'smartdown/engine'
+
 module Smartdown
   class Flow
 
@@ -35,13 +38,19 @@ module Smartdown
     end
 
     def status
-      if front_matter.has_attribute('status')
-        front_matter.status
-      end
+      front_matter.status
     end
 
     def draft?
       status == 'draft'
+    end
+
+    def transition?
+      status == 'transition'
+    end
+
+    def published?
+      status == 'published'
     end
 
   private

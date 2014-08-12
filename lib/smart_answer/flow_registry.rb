@@ -12,7 +12,8 @@ module SmartAnswer
 
     def initialize(options = {})
       @load_path = Pathname.new(options[:load_path] || Rails.root.join('lib', 'smart_answer_flows'))
-      @show_drafts = options[:show_drafts]
+      @show_drafts = options.fetch(:show_drafts, false)
+      @show_transitions = options.fetch(:show_transitions, false)
       preload_flows! if Rails.env.production? or options[:preload_flows]
     end
     attr_reader :load_path
@@ -30,6 +31,7 @@ module SmartAnswer
     def find_by_name(name)
       flow = @preloaded ? preloaded(name) : build_flow(name)
       return nil if flow && flow.draft? && !@show_drafts
+      return nil if flow && flow.transition? && !@show_transitions
       flow
     end
 
