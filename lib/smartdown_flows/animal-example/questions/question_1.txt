@@ -2,6 +2,7 @@
 
 Check the serial number by the tail.
 
+[choice: question_1]
 * lion: Lion
 * tiger: Tiger
 * cat: Cat

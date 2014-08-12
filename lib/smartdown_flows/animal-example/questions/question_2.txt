@@ -2,6 +2,7 @@
 
 Think very carefully.
 
+[choice: question_2]
 * yes: Yes
 * no: No
 
