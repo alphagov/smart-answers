@@ -1,4 +1,4 @@
-module Smartdown
+module SmartdownAdapter
   class PreviousQuestion < Node
 
     attr_reader :response

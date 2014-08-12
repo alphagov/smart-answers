@@ -1,4 +1,4 @@
-module Smartdown
+module SmartdownAdapter
   class Question < Node
 
     def has_hint?
