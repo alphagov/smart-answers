@@ -8,11 +8,11 @@ This application supports two styles of writing and executing smart answers:
 
 **Ruby and YAML-based smart answer flows**
 
-For more information, please go to the [Ruby/YAML SmartAnswer README](OLD-STYLE-README.md)
+For more information, please go to the [Ruby/YAML SmartAnswer README](lib/smart_answer_flows/SMART-ANSWER-README.md)
 
 **Smartdown-based smart answer flows**
 
-For more information, please go to the [Smartdown SmartAnswer README](SMARTDOWN-README.md)
+For more information, please go to the [Smartdown SmartAnswer README](lib/smartdown_flows/SMARTDOWN-README.md)
 
 **Switching from one style to another**
 
