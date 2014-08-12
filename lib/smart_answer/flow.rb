@@ -12,7 +12,7 @@ module SmartAnswer
     end
 
     def use_shared_logic(filename)
-      eval File.read(Rails.root.join('lib', 'flows', 'shared_logic', "#{filename}.rb")), binding
+      eval File.read(Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "#{filename}.rb")), binding
     end
 
     def name(name = nil)
@@ -28,9 +28,14 @@ module SmartAnswer
       status == :draft
     end
 
+    #Status for a question being transitioned from smart-answer to smartdown: do not publish
+    def transition?
+      status == :transition
+    end
+
     def status(s = nil)
       if s
-        raise Flow::InvalidStatus unless [:published, :draft].include? s
+        raise Flow::InvalidStatus unless [:published, :draft, :transition].include? s
         @status = s
       end
 

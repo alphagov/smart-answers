@@ -1,0 +1,13 @@
+# What type of feline do you have?
+
+Check the serial number by the tail.
+
+[choice: question_1]
+* lion: Lion
+* tiger: Tiger
+* cat: Cat
+
+This is an optional note after question (new feature)
+
+* question_1 in {lion tiger} => question_2
+* otherwise => outcome_safe_pet

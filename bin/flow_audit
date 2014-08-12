@@ -19,8 +19,8 @@ invocation of the permitted_next_nodes function to declare them.
 
 e.g.
 
-$ ./bin/flow_audit lib/flows/register-a-birth.rb
-lib/flows/register-a-birth.rb:15:1
+$ ./bin/flow_audit lib/smart_answer_flows/register-a-birth.rb
+lib/smart_answer_flows/register-a-birth.rb:15:1
   country_select(country_of_birth?)
   Missing: no_embassy_result, commonwealth_result, who_has_british_nationality?
 

@@ -125,6 +125,20 @@ class FlowTest < ActiveSupport::TestCase
     assert s.draft?
   end
 
+  test "should not be transition" do
+    s = SmartAnswer::Flow.new {}
+
+    refute s.transition?
+  end
+
+  test "should be transition if status is transition" do
+    s = SmartAnswer::Flow.new do
+      status :transition
+    end
+
+    assert s.transition?
+  end
+
   test "should have a status" do
     s = SmartAnswer::Flow.new do
       status :published
@@ -271,7 +285,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "should allow using shared logic" do
-    File.stubs(:read).with(Rails.root.join('lib', 'flows', 'shared_logic', "test_flow_logic.rb")).returns(<<-EOT)
+    File.stubs(:read).with(Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "test_flow_logic.rb")).returns(<<-EOT)
 multiple_choice :do_you_like_chocolate? do
   option :yes => :sweet_tooth
   option :no => :savoury_tooth
