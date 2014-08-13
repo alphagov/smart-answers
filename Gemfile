@@ -47,7 +47,7 @@ group :test do
   gem 'simplecov-rcov', '~> 0.2.3', :require => false
   gem 'poltergeist', '1.3.0'
   gem 'timecop'
-  gem 'diffy'
+  gem 'diffy', '3.0.6'
 end
 
 group :development do
