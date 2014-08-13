@@ -27,7 +27,11 @@ module SmartAnswer::Calculators
 
     CASH_AND_CARD_COUNTRIES = %w(estonia)
 
+    FOOTNOTE_EXCLUSIONS = %w(afghanistan cambodia central-african-republic chad comoros dominican-republic east-timor eritrea haiti kosovo laos lesotho liberia madagascar montenegro paraguay samoa slovenia somalia swaziland taiwan tajikistan western-sahara)
+
     ORU_TRANSITIONED_COUNTRIES = %w(american-samoa andorra aruba belgium bonaire-st-eustatius-saba brunei burma cambodia curacao china denmark fiji finland france french-guiana french-polynesia germany greece guadeloupe hong-kong iceland indonesia italy japan kiribati liechtenstein luxembourg macao malaysia marshall-islands martinique mayotte micronesia monaco mongolia nauru netherlands north-korea norway papua-new-guinea portugal reunion samoa san-marino singapore solomon-islands south-korea spain st-maarten st-pierre-and-miquelon sweden switzerland taiwan thailand timor-leste tonga tuvalu united-arab-emirates usa vanuatu vietnam wallis-and-futuna)
+
+    ORU_TRANSITION_EXCEPTIONS = %w(north-korea)
 
     ORU_DOCUMENTS_VARIANT_COUNTRIES = %w(andorra belgium france italy monaco netherlands portugal spain united-arab-emirates usa)
 

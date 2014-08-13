@@ -4,12 +4,9 @@ satisfies_need "101003"
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
 translator_query = SmartAnswer::Calculators::TranslatorLinks.new
-exclusions = %w(afghanistan cambodia central-african-republic chad comoros
-                dominican-republic east-timor eritrea haiti kosovo laos lesotho
-                liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
-                taiwan tajikistan western-sahara)
 country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
 exclude_countries = %w(holy-see british-antarctic-territory)
+
 
 # Q1
 country_select :country_of_birth?, exclude_countries: exclude_countries do
@@ -250,7 +247,7 @@ outcome :embassy_result do
     end
   end
   precalculate :footnote do
-    if exclusions.include?(registration_country)
+    if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_death)
       PhraseList.new(:footnote_exceptions)
     elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
       PhraseList.new(:footnote_caribbean)

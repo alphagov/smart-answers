@@ -4,14 +4,9 @@ status :draft
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
 translator_query = SmartAnswer::Calculators::TranslatorLinksV2.new
-exclusions = %w(afghanistan cambodia central-african-republic chad comoros
-                dominican-republic east-timor eritrea haiti kosovo laos lesotho
-                liberia madagascar montenegro paraguay samoa slovenia somalia
-                swaziland taiwan tajikistan western-sahara)
 country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
 exclude_countries = %w(holy-see british-antarctic-territory)
 modified_card_only_countries = %w(czech-republic slovakia hungary poland switzerland)
-oru_transition_exceptions = %w(north-korea)
 
 # Q1
 multiple_choice :where_did_the_death_happen? do
@@ -90,7 +85,7 @@ multiple_choice :where_are_you_now? do
     responses.last == 'in_the_uk'
   end
 
-  on_condition(->(_) { oru_transition_exceptions.include?(country_of_death) }) do
+  on_condition(->(_) { reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(country_of_death) }) do
     next_node_if(:embassy_result, responded_with('same_country'))
   end
 
@@ -315,7 +310,7 @@ outcome :embassy_result do
   end
 
   precalculate :footnote do
-    if exclusions.include?(country_of_death)
+    if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_death)
       PhraseList.new(:footnote_exceptions)
     elsif country_of_death != current_location and reg_data_query.eastern_caribbean_countries?(country_of_death) and reg_data_query.eastern_caribbean_countries?(current_location)
       PhraseList.new(:footnote_caribbean)
