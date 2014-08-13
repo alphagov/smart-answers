@@ -220,24 +220,11 @@ en-GB:
           - their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
-        documents_list_embassy_sweden: |
-          - a local death certificate (dödsbevis or dödsorsaksintyg) - this can be obtained from the hospital
-          - the person’s British passport
-          - their full length British birth, naturalisation or registration certificate
-          - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
-
-        documents_list_embassy_netherlands: |
-          - an international version of the local death certificate (not a certificate issued by a doctor)
-          - the person’s passport
-          - their full UK birth, naturalisation or registration certificate
-          - their marriage certificate, if applicable
-          - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
-
-        documents_list_embassy_malaysia: |
-          - a local death certificate (not a certificate issued by a doctor)
-          - the person’s passport
-          - their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
-          - proof of next of kin (birth certificate or marriage certificate), or written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+        documents_list_embassy_north-korea: |
+          - a death certificate issued by Pyongyang Friendship Hospital
+          - a photocopy of the photo page of the passport of the person who died
+          - their original full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
+          - written permission from the person’s next of kin or the executor of their estate (if you’re not next of kin or the executor)
 
         go_to_the_embassy_heading_text: |
 
