@@ -11,7 +11,7 @@ exclusions = %w(afghanistan cambodia central-african-republic chad comoros
 country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
 exclude_countries = %w(holy-see british-antarctic-territory)
 modified_card_only_countries = %w(czech-republic slovakia hungary poland switzerland)
-oru_transition_exceptions = SmartAnswer::Predicate::RespondedWith.new(%w(north-korea))
+oru_transition_exceptions = %w(north-korea)
 
 # Q1
 multiple_choice :where_did_the_death_happen? do
@@ -90,11 +90,10 @@ multiple_choice :where_are_you_now? do
     responses.last == 'in_the_uk'
   end
 
-  define_predicate(:oru_transition_exceptions_and_same_country?) do |response|
-    oru_transition_exceptions && response == "same_country"
+  on_condition(->(_) { oru_transition_exceptions.include?(country_of_death) }) do
+    next_node_if(:embassy_result, responded_with('same_country'))
   end
 
-  next_node_if(:embassy_result, oru_transition_exceptions_and_same_country?)
   next_node_if(:oru_result, reg_data_query.died_in_oru_transitioned_country? | responded_with('in_the_uk'))
   next_node_if(:embassy_result, responded_with('same_country'))
   next_node(:which_country_are_you_in_now?)
@@ -161,6 +160,14 @@ outcome :oru_result do
       PhraseList.new(:oru_address_uk)
     else
       PhraseList.new(:oru_address_abroad)
+    end
+  end
+
+  precalculate :oru_documents_variant_death do
+    if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH.include?(country_of_death)
+      PhraseList.new(:"oru_documents_variant_#{country_of_death}")
+    else
+      PhraseList.new(:oru_documents_death)
     end
   end
 end

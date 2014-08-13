@@ -349,6 +349,12 @@ en-GB:
             United Kingdom
           $A
 
+        oru_documents_death: |
+          - the original local death certificate (not a certificate issued by a doctor)
+
+        oru_documents_variant_papua-new-guinea: |
+          - the hospital medical death record
+
 # Outcomes
 #
       uk_result:
@@ -437,7 +443,8 @@ en-GB:
 
           You must provide:
 
-          - the original local death certificate (not a certificate issued by a doctor)
+          %{oru_documents_variant_death}
+
           - a photocopy of the photo page of the passport of the person who died
           - their original full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
           - written permission from the person’s next of kin or the executor of their estate (if you’re not next of kin or the executor)
