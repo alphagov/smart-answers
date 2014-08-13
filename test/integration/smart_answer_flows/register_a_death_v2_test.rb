@@ -440,14 +440,36 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       setup do
         worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
         add_response 'north-korea'
-        add_response 'same_country'
       end
-      should "give the embassy result (this is an exception to ORU transition)" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:"documents_list_embassy_north-korea"]
+      context "still in North Korea" do
+        should "give the embassy result (this is an exception to ORU transition)" do
+          add_response 'same_country'
+          assert_current_node :embassy_result
+          assert_phrase_list :documents_required_embassy_result, [:"documents_list_embassy_north-korea"]
+        end
       end
-    end # Answer Italy
+      context "in another country" do
+        should "give the ORU result" do
+          add_response 'another_country'
+          assert_current_node :oru_result
+          assert_phrase_list :oru_courier_text, [:"oru_courier_text_north-korea", :oru_courier_text_common]
+        end
+      end
+    end # Answer North Korea
 
+    context "died in austria, user in north-korea" do
+      setup do
+        worldwide_api_has_organisations_for_location('austria', read_fixture_file('worldwide/austria_organisations.json'))
+        add_response 'austria'
+        add_response 'another_country'
+        worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
+        add_response 'north-korea'
+      end
+      should "take you to the embassy outcome with specific phrasing" do
+        assert_current_node :embassy_result
+        assert_phrase_list :footnote, [:footnote_oru_variants_intro, :"footnote_oru_variants_north-korea", :footnote_oru_variants_out]
+      end
+    end
 
   end # Overseas
 end

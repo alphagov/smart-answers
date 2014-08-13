@@ -33,6 +33,8 @@ module SmartAnswer::Calculators
 
     ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH = %w(papua-new-guinea)
 
+    ORU_COURIER_VARIANTS_DEATH = %w(cambodia north-korea papua-new-guinea)
+
     attr_reader :data
 
     def initialize

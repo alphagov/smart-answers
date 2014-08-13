@@ -155,6 +155,14 @@ outcome :oru_result do
     end
   end
 
+  precalculate :oru_documents_variant_death do
+    if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH.include?(country_of_death)
+      PhraseList.new(:"oru_documents_variant_#{country_of_death}")
+    else
+      PhraseList.new(:oru_documents_death)
+    end
+  end
+
   precalculate :oru_address do
     if in_the_uk
       PhraseList.new(:oru_address_uk)
@@ -163,12 +171,14 @@ outcome :oru_result do
     end
   end
 
-  precalculate :oru_documents_variant_death do
-    if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH.include?(country_of_death)
-      PhraseList.new(:"oru_documents_variant_#{country_of_death}")
+  precalculate :oru_courier_text do
+    phrases = PhraseList.new
+    if reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(country_of_death)
+      phrases << :"oru_courier_text_#{country_of_death}" << :oru_courier_text_common
     else
-      PhraseList.new(:oru_documents_death)
+      phrases << :oru_courier_text_default
     end
+    phrases
   end
 end
 
@@ -309,6 +319,10 @@ outcome :embassy_result do
       PhraseList.new(:footnote_exceptions)
     elsif country_of_death != current_location and reg_data_query.eastern_caribbean_countries?(country_of_death) and reg_data_query.eastern_caribbean_countries?(current_location)
       PhraseList.new(:footnote_caribbean)
+    elsif reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(current_location) and ! reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(country_of_death)
+      PhraseList.new(:footnote_oru_variants_intro,
+                      :"footnote_oru_variants_#{current_location}",
+                      :footnote_oru_variants_out)
     elsif another_country
       PhraseList.new(:footnote_another_country)
     else
