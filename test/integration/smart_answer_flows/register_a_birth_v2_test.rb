@@ -8,12 +8,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan american-samoa andorra australia barbados belize bonaire-st-eustatius-saba cameroon central-african-republic el-salvador estonia guatemala grenada ireland iran laos libya maldives netherlands pakistan philippines serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates usa yemen)
+    @location_slugs = %w(afghanistan andorra australia barbados belize el-salvador estonia guatemala grenada iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'register-a-birth-v2'
-  end
-
-  setup do
     setup_for_testing_flow 'register-a-birth-v2'
   end
 
@@ -184,16 +180,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_current_node :embassy_result
     end
   end # Pakistan
-  context "answer Central African Republic now in the UK" do
-    should "give the ORU result" do
-      add_response "central-african-republic"
-      add_response "mother_and_father"
-      add_response "yes"
-      add_response "in_the_uk"
-      assert_current_node :oru_result
-      assert_state_variable :british_national_parent, 'mother_and_father'
-    end
-  end # Central African Republic
+
   context "answer Belize" do
     should "give the embassy result" do
       worldwide_api_has_organisations_for_location('belize', read_fixture_file('worldwide/belize_organisations.json'))
@@ -322,35 +309,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :birth_registration_form, [:birth_registration_form]
     end
   end
-  context "child born in usa, parent in usa" do
-    should "give the embassy result with usa birth reg form" do
-      worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
-      add_response 'usa'
-      add_response 'father'
-      add_response 'yes'
-      add_response 'same_country'
-      assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_usa]
-      assert_phrase_list :oru_address, [:oru_address_abroad]
-      assert_phrase_list :translator_link, [:no_translator_link]
-      assert_state_variable :translator_link_url, nil
-    end
-  end
-  # testing for delivery return form in Spain
-  context "child born in italy, parents in spain" do
-    should "give the embassy result with italy delivery return form form" do
-      worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
-      add_response 'spain'
-      add_response 'mother_and_father'
-      add_response 'yes'
-      add_response 'same_country'
-      assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_spain"]
-      assert_phrase_list :oru_address, [:oru_address_abroad]
-      assert_phrase_list :translator_link, [:approved_translator_link]
-      assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
-    end
-  end
+
   context "answer Netherlands" do
     should "go to oru result" do
       worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
@@ -404,45 +363,4 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
     end
   end # UAE
 
-  context "answer american-samoa" do
-    should "go to oru result" do
-      worldwide_api_has_organisations_for_location('american-samoa', read_fixture_file('worldwide/american-samoa_organisations.json'))
-      add_response "american-samoa"
-      add_response "mother_and_father"
-      add_response "yes"
-      add_response "in_the_uk"
-      assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:oru_documents]
-      assert_phrase_list :oru_address, [:oru_address_uk]
-      assert_phrase_list :translator_link, [:no_translator_link]
-      assert_state_variable :translator_link_url, nil
-    end
-  end # american samoa
-
-  context "answer bonaire-st-eustatius-saba" do
-    should "also go to oru result" do
-      worldwide_api_has_organisations_for_location('/bonaire-st-eustatius-saba', read_fixture_file('worldwide/bonaire-st-eustatius-saba_organisations.json'))
-      add_response "bonaire-st-eustatius-saba"
-      add_response "mother_and_father"
-      add_response "yes"
-      add_response "same_country"
-      assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:oru_documents]
-      assert_phrase_list :oru_address, [:oru_address_abroad]
-      assert_phrase_list :translator_link, [:no_translator_link]
-      assert_state_variable :translator_link_url, nil
-    end
-  end
-  context "answer bonaire-st-eustatius-saba" do
-    should "also go to oru result" do
-      worldwide_api_has_organisations_for_location('philippines', read_fixture_file('worldwide/philippines_organisations.json'))
-      add_response "philippines"
-      add_response "mother"
-      add_response "yes"
-      add_response "same_country"
-      assert_current_node :embassy_result
-      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_philippines]
-      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-    end
-  end
 end

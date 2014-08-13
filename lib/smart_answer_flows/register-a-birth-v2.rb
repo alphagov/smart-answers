@@ -252,6 +252,10 @@ outcome :embassy_result do
       PhraseList.new(:footnote_exceptions)
     elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
       PhraseList.new(:footnote_caribbean)
+    elsif reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(registration_country) and ! reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(country_of_birth)
+      PhraseList.new(:footnote_oru_variants_intro,
+                      :"footnote_oru_variants_#{registration_country}",
+                      :footnote_oru_variants_out)
     elsif another_country
       PhraseList.new(:footnote_another_country)
     else
@@ -298,6 +302,16 @@ outcome :oru_result do
     else
       PhraseList.new(:oru_address_abroad)
     end
+  end
+
+  precalculate :oru_courier_text do
+    phrases = PhraseList.new
+    if reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(country_of_birth)
+      phrases << :"oru_courier_text_#{country_of_birth}" << :oru_courier_text_common
+    else
+      phrases << :oru_courier_text_default
+    end
+    phrases
   end
 
 end
