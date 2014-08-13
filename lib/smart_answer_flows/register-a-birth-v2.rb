@@ -98,6 +98,10 @@ multiple_choice :where_are_you_now? do
     responses.last == 'in_the_uk'
   end
 
+  on_condition(->(_) { reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(country_of_birth) }) do
+    next_node_if(:embassy_result, responded_with('same_country'))
+  end
+
   next_node_if(:oru_result, reg_data_query.born_in_oru_transitioned_country? | responded_with('in_the_uk'))
   next_node_if(:embassy_result, responded_with('same_country'))
   next_node(:which_country?)
@@ -144,7 +148,7 @@ outcome :embassy_result do
     end
   end
   precalculate :documents_you_must_provide do
-    checklist_countries = %w(bangladesh finland japan kuwait libya pakistan philippines sweden taiwan turkey)
+    checklist_countries = %w(bangladesh finland japan kuwait libya north-korea pakistan philippines sweden taiwan turkey)
     key = "documents_you_must_provide_"
     key += (checklist_countries.include?(registration_country) ? registration_country : "all")
     PhraseList.new(key.to_sym)
@@ -247,7 +251,7 @@ outcome :embassy_result do
     end
   end
   precalculate :footnote do
-    if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_death)
+    if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_birth)
       PhraseList.new(:footnote_exceptions)
     elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
       PhraseList.new(:footnote_caribbean)
