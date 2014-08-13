@@ -8,7 +8,7 @@ module SmartdownAdapter
       headings = node_elements.select {
           |element| element.is_a? Smartdown::Model::Element::MarkdownHeading
       }
-      @title = headings.first.content if headings.first
+      @title = headings.first.content.to_s if headings.first
       node_elements.delete(headings.first) #Remove page title
       @elements = node_elements
       @front_matter = node.front_matter
