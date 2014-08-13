@@ -148,13 +148,10 @@ outcome :embassy_result do
     end
   end
   precalculate :documents_you_must_provide do
-    checklist_countries = %w(bangladesh finland japan kuwait libya north-korea pakistan philippines sweden taiwan turkey)
+    checklist_countries = %w(bangladesh kuwait libya north-korea pakistan philippines turkey)
     key = "documents_you_must_provide_"
     key += (checklist_countries.include?(registration_country) ? registration_country : "all")
     PhraseList.new(key.to_sym)
-  end
-  precalculate :documents_footnote do
-    %w(japan sweden).include?(registration_country) ? PhraseList.new(:"docs_footnote_#{registration_country}") : ''
   end
   precalculate :clickbook_data do
     reg_data_query.clickbook(registration_country)
