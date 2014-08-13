@@ -32,7 +32,3 @@ County Durham
 England
 DL1 9AZ
 $A
-
-
-[next_steps]
-[end_next_steps]
