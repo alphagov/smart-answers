@@ -28,6 +28,8 @@ en-GB:
           father: Father only
           mother_and_father: Mother and father
           neither: Neither
+        body: |
+          If the British parent was born abroad, they may be a British citizen ‘by descent’. This means they may not be allowed to pass on their British nationality to a child also born abroad. [Check if the parent is a British citizen](/check-british-citizen).
       country_of_birth?:
         title: Which country was the child born in?
       married_couple_or_civil_partnership?:
@@ -167,8 +169,6 @@ en-GB:
           - an international marriage certificate (if you’re married) - not the Dutch ‘marriage booklet’ (‘trouwboekje’) - any foreign documents may need to be translated into English
           - divorce documents (if either of you has ever been divorced)
           - a change of name document (if either of you has ever changed your name)
-
-
 
         documents_you_must_provide_all: |
           You and the other parent must provide:
@@ -434,7 +434,6 @@ en-GB:
 
           - the long version of the parent’s birth certificate showing the child’s grandparents’ details (for parents who were born in the UK)
           - the parent’s naturalisation or registration certificate (for parents who weren’t born in the UK)
-          - the child’s grandparents’ birth certificates and marriage certificate, unless the parent’s British nationality is based on registration, naturalisation or the parent’s immigration status (for British parents who were born after 1 January 1983)
           - the parents’ marriage or civil partnership certificate (if applicable)
           - evidence that the parents’ previous marriages or civil partnerships have ended (eg divorce or death certificates)
           - change of name documents (if either parent has ever changed their name)
