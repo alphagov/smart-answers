@@ -24,7 +24,6 @@ class PrecalculationsTest < EngineIntegrationTest
 
       within '.current-question' do
         within 'h2' do
-          within('.question-number') { assert_page_has_content "1" }
           assert_page_has_content "How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
         end
         within '.question-body' do
@@ -39,7 +38,6 @@ class PrecalculationsTest < EngineIntegrationTest
 
       within '.current-question' do
         within 'h2' do
-          within('.question-number') { assert_page_has_content "2" }
           assert_page_has_content "How many woodchucks do you have?"
         end
         within '.question-body' do

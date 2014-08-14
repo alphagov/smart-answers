@@ -37,7 +37,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
 
       within '.current-question' do
         within 'h2' do
-          within('.question-number') { assert_page_has_content "1" }
           assert_page_has_content "What...is your name?"
         end
         within '.question-body' do
@@ -54,7 +53,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         within('.start-again') { assert page.has_link?("Start again", href: '/bridge-of-death') }
         within 'ol li.done' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
@@ -64,7 +62,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
 
       within '.current-question' do
         within 'h2' do
-          within('.question-number') { assert_page_has_content "2" }
           assert_page_has_content "What...is your quest?"
         end
         within '.question-body' do
@@ -86,7 +83,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         within('.start-again') { assert page.has_link?("Start again", href: '/bridge-of-death') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
@@ -94,7 +90,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "2" }
             assert_page_has_content "What...is your quest?"
           end
           within('.answer') { assert_page_has_content "To seek the Holy Grail" }
@@ -104,7 +99,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
 
       within '.current-question' do
         within 'h2' do
-          within('.question-number') { assert_page_has_content "3" }
           assert_page_has_content "What...is your favorite colour?"
         end
         within '.question-body' do
@@ -126,7 +120,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         within('.start-again') { assert page.has_link?("Start again", href: '/bridge-of-death') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
@@ -134,7 +127,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "2" }
             assert_page_has_content "What...is your quest?"
           end
           within('.answer') { assert_page_has_content "To seek the Holy Grail" }
@@ -142,7 +134,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
         end
         within 'ol li.done:nth-child(3)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "3" }
             assert_page_has_content "What...is your favorite colour?"
           end
           within('.answer') { assert_page_has_content "Blue" }
@@ -174,7 +165,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       within('.start-again') { assert page.has_link?("Start again", href: '/bridge-of-death') }
       within 'ol li.done:nth-child(1)' do
         within 'h3' do
-          within('.question-number') { assert_page_has_content "1" }
           assert_page_has_content "What...is your name?"
         end
         within('.answer') { assert_page_has_content "Robin" }
@@ -182,7 +172,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       end
       within 'ol li.done:nth-child(2)' do
         within 'h3' do
-          within('.question-number') { assert_page_has_content "2" }
           assert_page_has_content "What...is your quest?"
         end
         within('.answer') { assert_page_has_content "To seek the Holy Grail" }
@@ -192,7 +181,6 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
 
     within '.current-question' do
       within 'h2' do
-        within('.question-number') { assert_page_has_content "3" }
         assert_page_has_content "What...is the capital of Assyria?"
       end
       within '.question-body' do

@@ -105,7 +105,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "display first question after starting" do
       get :show, id: 'sample', started: 'y'
-      assert_select ".step.current h2", /1\s+Do you like chocolate\?/
+      assert_select ".step.current h2", /Do you like chocolate\?/
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
     end
@@ -160,7 +160,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "display question" do
         get :show, id: 'sample', started: 'y'
-        assert_select ".step.current h2", /1\s+When\?/
+        assert_select ".step.current h2", /When\?/
         assert_select "select[name='response[day]']"
         assert_select "select[name='response[month]']"
         assert_select "select[name='response[year]']"
@@ -198,7 +198,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       context "no response given" do
         should "redisplay question" do
           submit_response(day: "", month: "", year: "")
-          assert_select ".step.current h2", /1\s+When\?/
+          assert_select ".step.current h2", /When\?/
         end
 
         should "show an error message" do
@@ -225,7 +225,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "display collapsed question, and format number" do
         get :show, id: 'sample', started: 'y', responses: "2011-01-01"
-        assert_select ".done", /1\s*When\?\s+1 January 2011/
+        assert_select ".done", /When\?\s+1 January 2011/
       end
     end
 
@@ -244,7 +244,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "display question" do
         get :show, id: 'sample', started: 'y'
-        assert_select ".step.current h2", /1\s+How many green bottles\?/
+        assert_select ".step.current h2", /How many green bottles\?/
         assert_select "input[type=text][name=response]"
       end
 
@@ -255,7 +255,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "display collapsed question, and format number" do
         get :show, id: 'sample', started: 'y', responses: "12345"
-        assert_select ".done", /1\s*How many green bottles\?\s+12,345/
+        assert_select ".done", /How many green bottles\?\s+12,345/
       end
 
       context "label in translation file" do
@@ -298,13 +298,13 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "display question" do
         get :show, id: 'sample', started: 'y'
-        assert_select ".step.current h2", /1\s+How much\?/
+        assert_select ".step.current h2", /How much\?/
         assert_select "input[type=text][name=response]"
       end
 
       should "show a validation error if invalid input" do
         submit_response "bad_number"
-        assert_select ".step.current h2", /1\s+How much\?/
+        assert_select ".step.current h2", /How much\?/
         assert_select "body", /Please answer this question/
       end
 
@@ -335,7 +335,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "display question" do
         get :show, id: 'sample', started: 'y'
-        assert_select ".step.current h2", /1\s+How much\?/
+        assert_select ".step.current h2", /How much\?/
         assert_select "input[type=text][name='response[amount]']"
         assert_select "select[name='response[period]']"
       end
@@ -348,7 +348,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
 
         should "show a validation error if invalid amount" do
-          assert_select ".step.current h2", /1\s+How much\?/
+          assert_select ".step.current h2", /How much\?/
           assert_select ".error", /No, really, how much\?/
         end
       end
@@ -356,14 +356,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
       context "error message not overridden in translation file" do
         should "show a generic message" do
           submit_response amount: "bad_number"
-          assert_select ".step.current h2", /1\s+How much\?/
+          assert_select ".step.current h2", /How much\?/
           assert_select ".error", /Please answer this question/
         end
       end
 
       should "show a validation error if invalid period" do
         submit_response amount: "1", period: "bad_period"
-        assert_select ".step.current h2", /1\s+How much\?/
+        assert_select ".step.current h2", /How much\?/
         assert_select ".error", /Please answer this question/
       end
 
@@ -376,7 +376,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         setup { get :show, id: 'sample', started: 'y', responses: "1.0-month" }
 
         should "show response summary" do
-          assert_select ".done", /1\s*How much\?\s+£1 per month/
+          assert_select ".done", /How much\?\s+£1 per month/
         end
 
         should "have cache headers set to 30 mins for inner pages" do
@@ -418,11 +418,11 @@ class SmartAnswersControllerTest < ActionController::TestCase
       setup { get :show, id: 'sample', started: 'y', responses: "no" }
 
       should "show response summary" do
-        assert_select ".done", /1\s*Do you like chocolate\?\s+no/
+        assert_select ".done", /Do you like chocolate\?\s+no/
       end
 
       should "show the next question" do
-        assert_select ".current", /2\s+Do you like jam\?/
+        assert_select ".current", /Do you like jam\?/
       end
 
       should "link back to change the response" do
