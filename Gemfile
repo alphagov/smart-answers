@@ -13,6 +13,7 @@ gem 'airbrake', '3.1.15'
 gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.1'
 gem 'smartdown', '0.0.4'
+gem 'diffy', '3.0.6'
 
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
@@ -47,7 +48,6 @@ group :test do
   gem 'simplecov-rcov', '~> 0.2.3', :require => false
   gem 'poltergeist', '1.3.0'
   gem 'timecop'
-  gem 'diffy', '3.0.6'
 end
 
 group :development do
