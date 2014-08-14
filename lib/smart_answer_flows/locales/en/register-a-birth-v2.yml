@@ -258,7 +258,10 @@ en-GB:
           Post your registration form, supporting documents and the fee to the British embassy.
 
           Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url}) and post it with your registration form.
+        post_only_japan: |
+          ##Send your registration
 
+          You can also post your registration form, supporting documents and the fee to the British Embassy Tokyo if you’re living in eastern Japan, or to the British Consulate General Osaka if you’re living in western Japan.
         post_only_philippines: |
           ##Send your registration
 
