@@ -106,8 +106,8 @@ class SmartAnswersControllerTest < ActionController::TestCase
     should "display first question after starting" do
       get :show, id: 'sample', started: 'y'
       assert_select ".step.current h2", /1\s+Do you like chocolate\?/
-      assert_select "input[name=response][value=yes]"
-      assert_select "input[name=response][value=no]"
+      assert_select "input[name=response_1][value=yes]"
+      assert_select "input[name=response_1][value=no]"
     end
 
     should "show outcome when smart answer is complete so that 'smartanswerOutcome' JS event is fired" do

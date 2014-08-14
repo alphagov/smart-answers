@@ -11,8 +11,13 @@ gem 'govuk_frontend_toolkit', '1.3.0'
 gem 'airbrake', '3.1.15'
 gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.1'
-gem 'smartdown', '0.0.4'
 gem 'diffy', '3.0.6'
+
+if ENV['SMARTDOWN_DEV']
+  gem 'smartdown', :path => '../smartdown'
+else
+  gem 'smartdown', '0.2.0'
+end
 
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
