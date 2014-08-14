@@ -31,7 +31,7 @@ module SmartdownAdapter
     end
 
     def current_node
-      @current_node ||= smartdown_state.current_node_transformed
+      @current_node ||= smartdown_state.current_node
     end
 
     def current_state
@@ -94,10 +94,15 @@ module SmartdownAdapter
         responses += split_responses
       end
 
-      # get form submission request: this supposes there is only one response
+      # get form submission request: one response
       if request[:response]
         responses << request[:response]
       end
+
+      #get form submission request: for multiple responses
+      response_array = request.query_parameters.select { |key| key.to_s.match(/^response_\d+/) }
+                                                .map { |response_key| response_key[1] }
+      responses += response_array unless response_array.empty?
       responses
     end
 

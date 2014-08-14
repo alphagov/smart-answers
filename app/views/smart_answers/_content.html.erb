@@ -21,6 +21,22 @@
   <% if @presenter.finished? %>
     <%= render partial: "result" %>
   <% else %>
-    <%= render partial: "current_question", locals: {question: @presenter.current_node} %>
+    <% if @presenter.current_node.respond_to?('questions') %>
+      <div class="step current" data-step="employment-status">
+        <%= form_tag calculate_current_question_path(@presenter), :method => :get %>
+          <div class="current-question" id="current-question">
+            <% @presenter.current_node.questions.each do |question| %>
+              <%= render partial: "current_smartdown_question", locals: {question: question} %>
+            <% end %>
+            <div class="next-question">
+              <input type="hidden" name="next" value="1" />
+              <button type="submit" class="medium button">Next step</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    <% else %>
+      <%= render partial: "current_question", locals: {question: @presenter.current_node} %>
+    <% end %>
   <% end %>
 <% end %>
