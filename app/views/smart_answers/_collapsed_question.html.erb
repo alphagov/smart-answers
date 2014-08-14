@@ -15,6 +15,8 @@
     <div class="answer"><%= question.response_label(@presenter.accepted_responses[question_counter]) %></div>
   <%- end -%>
   <p class="undo">
-    <%= link_to "Change this answer", @presenter.change_collapsed_question_link(question_counter + 1) %>
+    <%- if !question.respond_to?('modifiable?') || question.modifiable? -%>
+      <%= link_to "Change this answer", @presenter.change_collapsed_question_link(question_counter + 1) %>
+    <%- end -%>
   </p>
 </li>

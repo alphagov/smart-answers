@@ -1,11 +1,17 @@
 module SmartdownAdapter
-  class PreviousQuestion < Node
+  class PreviousQuestion
 
-    attr_reader :response
+    attr_reader :response, :title
 
-    def initialize(node, response)
-      super(node)
+    def initialize(title, question_element, response, modifiable)
+      @title = title
+      @question_element = question_element
       @response = response
+      @modifiable = modifiable
+    end
+
+    def modifiable?
+      @modifiable
     end
 
     #TODO
@@ -14,8 +20,7 @@ module SmartdownAdapter
     end
 
     def response_label(value=response)
-      question_element = elements.find{ |element| element.is_a? Smartdown::Model::Element::MultipleChoice }
-      question_element.choices.fetch(value)
+      @question_element.choices.fetch(value)
     end
 
   end

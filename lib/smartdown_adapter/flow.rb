@@ -19,7 +19,7 @@ module SmartdownAdapter
     def state(started, responses)
       #TODO: we are explicitly promoting parts of Smartdown state, we will add new ones as they are needed
       state = smartdown_state(started, responses)
-      State.new(node_by_name(state.get(:current_node)),
+      State.new(transform_node(node_by_name(state.get(:current_node))),
                 previous_question_nodes_for(state),
                 responses
       )
@@ -73,7 +73,7 @@ module SmartdownAdapter
         Coversheet.new(node)
       elsif node.elements.any?{|element| element.is_a? Smartdown::Model::NextNodeRules}
         if node.elements.any?{|element| element.is_a? Smartdown::Model::Element::MultipleChoice}
-          MultipleChoice.new(node)
+          QuestionPage.new(node)
         else
           #TODO: support other types of questions
         end
