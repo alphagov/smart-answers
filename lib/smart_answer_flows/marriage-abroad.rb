@@ -792,7 +792,7 @@ outcome :outcome_os_affirmation do
     phrases << :affirmation_os_all_what_you_need_to_do
     phrases << :affirmation_os_uae if %w(united-arab-emirates).include?(ceremony_country)
 #What you need to do section
-    if %w(south-korea).include?(ceremony_country)
+    if %w(china south-korea).include?(ceremony_country)
       phrases << :what_you_need_to_do_will_ask
     elsif %w(turkey egypt).include?(ceremony_country)
       phrases << :what_you_need_to_do
@@ -812,6 +812,9 @@ outcome :outcome_os_affirmation do
         phrases << :make_an_appointment
       else
         phrases << :appointment_for_affidavit
+      end
+      if %(china).include?(ceremony_country)
+        phrases << :appointment_for_affidavit_china_addition
       end
       if %w(turkey).include?(ceremony_country)
         phrases << :affirmation_appointment_book_at_following
@@ -868,7 +871,7 @@ outcome :outcome_os_affirmation do
       end
     end
 #fee tables
-    if %w(turkey vietnam thailand south-korea).include?(ceremony_country)
+    if %w(china south-korea thailand turkey vietnam).include?(ceremony_country)
       phrases << :fee_table_affidavit_55
     elsif %w(philippines).include?(ceremony_country)
       phrases << :fee_table_55_70
