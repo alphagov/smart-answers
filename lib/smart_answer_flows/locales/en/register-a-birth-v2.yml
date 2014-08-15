@@ -187,8 +187,17 @@ en-GB:
           ##Go to the %{embassy_high_commission_or_consulate}
         registering_all: |
           Book an appointment at the %{embassy_high_commission_or_consulate} and bring the registration form, supporting documents and the fee.
-        registering_hong_kong: |
+        registering_hong-kong: |
           Bring the registration form, supporting documents and the fee.
+        registering_japan: |
+          Book an appointment by email at the British Embassy Tokyo.
+
+          Include your first name and last name and 3 alternative dates and times. You’ll receive an email confirming your appointment.
+
+          $C
+          **British Embassy Tokyo**
+          <consular.tokyo@fco.gov.uk>
+          $C
         registering_clickbooks: |
           Book an appointment online at the British embassy or consulate in:
 

@@ -180,8 +180,8 @@ outcome :embassy_result do
         phrases << :registering_clickbooks
       elsif clickbook_data
         phrases << :registering_clickbook
-      elsif registration_country == 'hong-kong'
-        phrases << :registering_hong_kong
+      elsif %w(hong-kong japan).include?(registration_country)
+        phrases << :"registering_#{registration_country}"
       else
         phrases << :registering_all
       end
