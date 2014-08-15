@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
 
     NO_POSTAL_COUNTRIES = %w(barbados costa-rica malaysia papua-new-guinea sweden tanzania thailand)
 
-    POST_ONLY_COUNTRIES = %w(czech-republic hungary new-caledonia philippines poland slovakia)
+    POST_ONLY_COUNTRIES = %w(czech-republic hungary japan new-caledonia philippines poland slovakia)
 
     COUNTRIES_WITH_TRADE_CULTURAL_OFFICES = %w(taiwan)
 
