@@ -1575,10 +1575,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'china'
       add_response 'partner_local'
       add_response 'opposite_sex'
-      assert outcome_body.at_css("ul li a[href='https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing']")
-      assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_china_local_resident, :consular_cni_os_local_resident_not_italy_germany, :clickbook_links, :list_of_documents_to_provide_passport_proof_of_residence_for_both, :consular_cni_os_not_uk_resident_ceremony_not_germany, :evidence_of_nationality_or_residence_china, :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany, :consular_cni_os_local_resident_not_germany_or_italy_or_spain]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_china_partner_local, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_current_node :outcome_os_affirmation
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_will_ask, :appointment_for_affidavit, :appointment_for_affidavit_china_addition, :affirmation_os_translation_in_local_language, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :affirmation_os_partner_not_british, :fee_table_affidavit_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   #testing for japan
