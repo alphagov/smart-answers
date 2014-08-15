@@ -813,7 +813,7 @@ outcome :outcome_os_affirmation do
       else
         phrases << :appointment_for_affidavit
       end
-      if %(china).include?(ceremony_country)
+      if %(china).include?(ceremony_country) and %w(partner_local).include?(partner_nationality)
         phrases << :appointment_for_affidavit_china_addition
       end
       if %w(turkey).include?(ceremony_country)
