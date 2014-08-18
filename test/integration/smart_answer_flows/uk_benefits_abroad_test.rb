@@ -523,6 +523,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
             should "ask you what country you're moving to" do
               assert_current_node :which_country?
+              assert_phrase_list :country_question_title, [:going_abroad_country_question_title]
             end
             context "answer EEA country" do
               setup do

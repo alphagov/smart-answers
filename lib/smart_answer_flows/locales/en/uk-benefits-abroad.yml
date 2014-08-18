@@ -25,6 +25,8 @@ en-GB:
         already_abroad_country_question_title: Which country are you living in?
         going_abroad_how_long_question_title: How long are you going abroad for?
         already_abroad_how_long_question_title: How long will you be living abroad for?
+        why_going_abroad_title: Why are you going abroad?
+        why_already_abroad_title: Why have you gone abroad?
         disability_benefits_how_long_question_title: How long will you be abroad for?
         ci_going_abroad_question_title: Where are you moving?
         ci_already_abroad_question_title: Where are you living?
@@ -96,9 +98,9 @@ en-GB:
 
         iidb_maybe_text: "continued to"
 
-# Shared Which Country? question
+# Shared Country question
       which_country?:
-        title: %{question_titles}
+        title: %{country_question_title}
 
 # Q1
       going_or_already_abroad?:
@@ -178,7 +180,7 @@ en-GB:
           - Severe Disablement Allowance
 # Q23 going_abroad and Q22 already_abroad
       tax_credits_why_going_abroad?:
-        title: Why have you gone abroad?
+        title: Why have you gone abroad? %{why_abroad}
         options:
           tax_credits_holiday: A holiday or business trip
           tax_credits_medical_treatment: For medical treatment for yourself, your partner or your child

@@ -28,7 +28,7 @@ multiple_choice :going_or_already_abroad? do
   option :already_abroad
   save_input_as :going_or_already_abroad
 
-  calculate :question_titles do
+  calculate :country_question_title do
     PhraseList.new(:"#{going_or_already_abroad}_country_question_title")
   end
 
