@@ -148,7 +148,13 @@ outcome :outcome_work_y do
 end
 outcome :outcome_work_m
 outcome :outcome_work_n
-outcome :outcome_transit_leaving_airport
+outcome :outcome_transit_leaving_airport do
+  precalculate :colombia_transit_added_text do
+    if %w(colombia).include?(passport_country)
+      PhraseList.new(:colombia_transit_added_text)
+    end
+  end
+end
 outcome :outcome_transit_not_leaving_airport
 outcome :outcome_joining_family_y
 outcome :outcome_joining_family_m
