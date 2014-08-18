@@ -76,23 +76,23 @@ en-GB:
           You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn't have.
         tax_credits_going_abroad_helpline: |
 
-          $A
-          **Tax Credits Helpline**
-          Telephone: 0345 300 3900
-          Textphone: 0345 300 3909
-          Outside the UK call +44 2890 538 192
-          Monday to Friday, 8am to 8pm
-          Saturday, 8am to 4pm
-          Find out about [call charges](/call-charges)
-          $A
+          $C
+          **Tax Credits Helpline**  
+          Telephone: 0345 300 3900  
+          Textphone: 0345 300 3909  
+          Outside the UK call +44 2890 538 192  
+          Monday to Friday, 8am to 8pm  
+          Saturday, 8am to 4pm  
+          Find out about [call charges](/call-charges)  
+          $C
         tax_credits_already_abroad_helpline: |
 
-          $A
-          **Tax Credits Helpline**
-          From outside the UK: +44 2890 538 192
-          Monday to Friday, 8am to 8pm
-          Saturday, 8am to 4pm
-          $A
+          $C
+          **Tax Credits Helpline**  
+          From outside the UK: +44 2890 538 192  
+          Monday to Friday, 8am to 8pm  
+          Saturday, 8am to 4pm  
+          $C
 
         iidb_maybe_text: "continued to"
 
@@ -288,12 +288,12 @@ en-GB:
           You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
           $A
-          Jobseekers and Benefit Enhancement Section (JBES)
-          Room TC013
-          International Pension Centre
-          Tyneview Park
-          Newcastle Upon Tyne
-          NE98 1BA
+          Jobseekers and Benefit Enhancement Section (JBES)  
+          Room TC013  
+          International Pension Centre  
+          Tyneview Park  
+          Newcastle Upon Tyne  
+          NE98 1BA  
           $A
 
           *[JSA]: Jobseeker's Allowance
@@ -316,12 +316,12 @@ en-GB:
           You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
           $A
-          Jobseekers and Benefit Enhancement Section (JBES)
-          Room TC013
-          International Pension Centre
-          Tyneview Park
-          Newcastle Upon Tyne
-          NE98 1BA
+          Jobseekers and Benefit Enhancement Section (JBES)  
+          Room TC013  
+          International Pension Centre  
+          Tyneview Park  
+          Newcastle Upon Tyne  
+          NE98 1BA  
           $A
 
           *[JSA]: Jobseeker's Allowance
@@ -344,12 +344,12 @@ en-GB:
           You'll  also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
           $A
-          Jobseekers and Benefit Enhancement Section (JBES)
-          Room TC013
-          International Pension Centre
-          Tyneview Park
-          Newcastle Upon Tyne
-          NE98 1BA
+          Jobseekers and Benefit Enhancement Section (JBES)  
+          Room TC013  
+          International Pension Centre  
+          Tyneview Park  
+          Newcastle Upon Tyne  
+          NE98 1BA  
           $A
 
           *[JSA]: Jobseeker's Allowance
@@ -559,14 +559,14 @@ en-GB:
           Contact the Tax Credits Helpline to claim.
 
 
-          $A
-          **Tax Credits Helpline**
-          Telephone: 0345 300 3900
-          Textphone: 0345 300 3909
-          Outside the UK: +44 2890 538 192
-          Monday to Friday, 8am to 8pm
-          Saturday 8am to 4pm
-          $A
+          $C
+          **Tax Credits Helpline**  
+          Telephone: 0345 300 3900  
+          Textphone: 0345 300 3909  
+          Outside the UK: +44 2890 538 192  
+          Monday to Friday, 8am to 8pm  
+          Saturday 8am to 4pm  
+          $C
 
 # A23 already_abroad and A25 going_abroad
       tax_credits_holiday_outcome:
@@ -708,10 +708,10 @@ en-GB:
 
 
           $A
-          Jobcentre Plus Barrow IIDB Centre
-          Pittman Way
-          Preston
-          PR11 2AB
+          Jobcentre Plus Barrow IIDB Centre  
+          Pittman Way  
+          Preston  
+          PR11 2AB  
           $A
 
           ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
@@ -722,10 +722,10 @@ en-GB:
 
 
           $A
-          Jobcentre Plus Barnsley IIDB Centre
-          Brightside Lane
-          Sheffield
-          S99 1AB
+          Jobcentre Plus Barnsley IIDB Centre  
+          Brightside Lane  
+          Sheffield  
+          S99 1AB  
           $A
 
           Find out about [call charges](/call-charges).
@@ -754,10 +754,10 @@ en-GB:
 
 
           $A
-          Jobcentre Plus Barrow IIDB Centre
-          Pittman Way
-          Preston
-          PR11 2AB
+          Jobcentre Plus Barrow IIDB Centre  
+          Pittman Way  
+          Preston  
+          PR11 2AB  
           $A
 
           ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
@@ -768,10 +768,10 @@ en-GB:
 
 
           $A
-          Jobcentre Plus Barnsley IIDB Centre
-          Brightside Lane
-          Sheffield
-          S99 1AB
+          Jobcentre Plus Barnsley IIDB Centre  
+          Brightside Lane  
+          Sheffield  
+          S99 1AB  
           $A
 
           Find out about [call charges](/call-charges).
