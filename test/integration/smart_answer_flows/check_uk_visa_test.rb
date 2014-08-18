@@ -8,7 +8,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia canada china colombia croatia mexico south-africa turkey yemen oman united-arab-emirates qatar taiwan venezuela)
+    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa turkey yemen oman united-arab-emirates qatar taiwan venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'check-uk-visa'
   end
@@ -593,6 +593,16 @@ end
       end
     end
   end
+  context "check taiwan goes to outcome work n" do
+    setup do
+      add_response 'taiwan'
+      add_response 'work'
+      add_response 'six_months_or_less'
+    end
+    should "go to ouctome work n" do
+      assert_current_node :outcome_work_n
+    end
+  end
   context "outcome venezuela exception transit" do
     setup do
       add_response 'venezuela'
@@ -643,6 +653,16 @@ end
     end
     should "go to outcome_transit_leaving_airport" do
       assert_current_node :outcome_transit_leaving_airport
+      assert_phrase_list :colombia_transit_added_text, [:colombia_transit_added_text]
+    end
+  end
+  context "check for diplomatic and government business travellers" do
+    setup do
+      add_response 'bolivia'
+      add_response 'diplomatic'
+    end
+    should "go to diplomatic and government outcome" do
+      assert_current_node :outcome_diplomatic_business
     end
   end
 end
