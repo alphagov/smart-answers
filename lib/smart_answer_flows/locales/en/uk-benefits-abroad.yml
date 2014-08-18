@@ -76,7 +76,6 @@ en-GB:
           You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn't have.
         tax_credits_going_abroad_helpline: |
 
-
           $A
           **Tax Credits Helpline**
           Telephone: 0345 300 3900
@@ -87,7 +86,6 @@ en-GB:
           Find out about [call charges](/call-charges)
           $A
         tax_credits_already_abroad_helpline: |
-
 
           $A
           **Tax Credits Helpline**
@@ -289,7 +287,6 @@ en-GB:
 
           You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
-
           $A
           Jobseekers and Benefit Enhancement Section (JBES)
           Room TC013
@@ -318,7 +315,6 @@ en-GB:
 
           You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
-
           $A
           Jobseekers and Benefit Enhancement Section (JBES)
           Room TC013
@@ -346,7 +342,6 @@ en-GB:
           Tell your local [Jobcentre Plus](/contact-jobcentre-plus) that you want to move and get JSA while you're abroad.
 
           You'll  also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
-
 
           $A
           Jobseekers and Benefit Enhancement Section (JBES)
@@ -404,7 +399,7 @@ en-GB:
         body: |
           You can get [Winter Fuel Payments](/winter-fuel-payment) while you’re abroad if you have a genuine link with the UK, eg if you’ve lived and worked in the UK for most of your life.
 
-          You must be living in an [EEA country](/eu-eea) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+          You must be living in an [EEA country](/eu-eea) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.  
 
           Contact the [International Pension Centre](/international-pension-centre) to set up your claim.
 
@@ -418,9 +413,9 @@ en-GB:
         body: |
           You can get the [Winter Fuel Payment](/winter-fuel-payment/eligibility) if you have a genuine link with the UK, eg if you’ve lived and worked in the UK for most of your life.
 
-          You must be living in an [European Economic Area (EEA)](/eu-eaa) country or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+          You must be living in an [European Economic Area (EEA)](/eu-eea) country or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
 
-          Contact the [International Pension Centre](/international-pension-centre) to transfer your  claim abroad.
+          Contact the [International Pension Centre](/international-pension-centre) to transfer your claim abroad.
 
 # A10 going_abroad and A8 already_abroad
       maternity_benefits_maternity_allowance_outcome:
