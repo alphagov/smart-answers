@@ -473,6 +473,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
           end
           should "ask why are you going abroad" do
             assert_current_node :tax_credits_why_going_abroad?
+            assert_phrase_list :why_abroad_question_title, [:why_going_abroad_title]
           end
           context "answer holiday" do
             setup do

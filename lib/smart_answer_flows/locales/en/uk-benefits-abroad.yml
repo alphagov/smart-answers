@@ -180,7 +180,7 @@ en-GB:
           - Severe Disablement Allowance
 # Q23 going_abroad and Q22 already_abroad
       tax_credits_why_going_abroad?:
-        title: Why have you gone abroad? %{why_abroad}
+        title: %{why_abroad_question_title}
         options:
           tax_credits_holiday: A holiday or business trip
           tax_credits_medical_treatment: For medical treatment for yourself, your partner or your child

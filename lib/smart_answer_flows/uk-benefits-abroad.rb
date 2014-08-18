@@ -31,6 +31,9 @@ multiple_choice :going_or_already_abroad? do
   calculate :country_question_title do
     PhraseList.new(:"#{going_or_already_abroad}_country_question_title")
   end
+  calculate :why_abroad_question_title do
+    PhraseList.new(:"why_#{going_or_already_abroad}_title")
+  end
 
 
   calculate :already_abroad_text do
