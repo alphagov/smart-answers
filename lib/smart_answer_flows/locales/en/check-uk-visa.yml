@@ -111,6 +111,15 @@ en-GB:
 
           ^If the bio data page in your passport doesn’t include a personal ID number, you must [apply for a transit visa](/transit-visa).^
 
+        colombia_transit_added_text: |
+          One of the following must also apply:
+
+          - you’re travelling to Australia, Canada, New Zealand or the USA and have a valid visa for that country
+          - you’re travelling from Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
+          - you have a valid US permanent residence card issued on or after 21 April 1998 (or an I-797 extension letter issued by the Bureau of Citizenship if it’s expired)
+          - you have a valid Canadian permanent resident card issued on or after 28 June 2002
+          - you have a valid uniform format category D visa for entry to a state in the European Economic Area (EEA)
+          - you have a valid uniform format residence permit issued by an EEA state
 
       title: Check if you need a UK visa
       meta:
@@ -132,6 +141,7 @@ en-GB:
           medical: "Get private medical treatment"
           transit: "Transit (on your way to somewhere else)"
           family: "Join partner or family for a long stay"
+          diplomatic: "For official diplomatic or government business (including transit through the UK)"
 
       staying_for_how_long?:
         title: |
@@ -261,14 +271,13 @@ en-GB:
 
       outcome_work_n:
         title: |
-          You’ll need a visa to work or do business or academic research in the UK
+          You may need a visa work or do business or academic research in the UK.
         body: |
-
           Whether you need a visa depends on your circumstances.
 
           ## Business visits
 
-          You don't need a visa if you're coming to the UK for activities allowed under the following categories:
+          You don't need a visa if you're coming to the UK for activities allowed under the following visas:
 
           - a [business or academic visitor](/business-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training or academic research
           - a [sports visitor](/sports-visit-visa)
@@ -307,6 +316,8 @@ en-GB:
           -  have a confirmed onward flight which leaves within 24 hours
           -  have the correct documents for your destination (eg a visa for that country)
 
+          %{colombia_transit_added_text}
+
           %The ‘transit without visa concession’ is decided by the immigration officer at the border. You won’t be allowed to transit if they decide you need a visa, so you might want to apply for a transit visa before you travel.%
 
       outcome_transit_not_leaving_airport:
@@ -318,8 +329,9 @@ en-GB:
 
           You won’t need a visa if you:
 
-          - are travelling to Australia, Canada, New Zealand or the USA and have a valid visa for that country
-          - are travelling from Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
+          - are travelling to Canada, New Zealand or the USA and have a valid visa for that country
+          - are travelling from Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
+          - are travelling to or from Australia and you have an Australian visa sticker in your passport - Australian e-visas and paper confirmation slips aren't accepted by UK border control
           - have a valid US permanent residence card issued on or after 21 April 1998 (or an I-797 extension letter issued by the Bureau of Citizenship if it’s expired)
           - have a valid Canadian permanent resident card issued on or after 28 June 2002
           - have a valid uniform format category D visa for entry to a state in the European Economic Area (EEA)
@@ -340,8 +352,9 @@ en-GB:
 
           One of the following must also apply:
 
-          - you’re travelling to Australia, Canada, New Zealand or the USA and have a valid visa for that country
-          - you’re travelling from Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
+          - you’re travelling to Canada, New Zealand or the USA and have a valid visa for that country
+          - you’re travelling from Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
+          - you're travelling to or from Australia and you have an Australian visa sticker in your passport - Australian e-visas and paper confirmation slips aren't accepted by UK border control
           - you have a valid US permanent residence card issued on or after 21 April 1998 (or an I-797 extension letter issued by the Bureau of Citizenship if it’s expired)
           - you have a valid Canadian permanent resident card issued on or after 28 June 2002
           - you have a valid uniform format category D visa for entry to a state in the European Economic Area (EEA)
@@ -469,3 +482,10 @@ en-GB:
           However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
 
           ^If the bio data page in your passport doesn't include a personal ID number, you must [apply for a short visit visa](/browse/visas-immigration/short-visit-visas).^
+
+      outcome_diplomatic_business:
+        title: Diplomatic Business
+        body: |
+          You won’t need a visa to come to the UK for a posting or to transit through the UK if you’re going to or returning from a posting in another country.
+
+          Your partner or family members may need a [visa to join you](/government/collections/visa-application-forms-diplomats-and-official-visits).

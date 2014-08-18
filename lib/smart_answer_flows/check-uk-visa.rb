@@ -33,6 +33,7 @@ multiple_choice :purpose_of_visit? do
   option :marriage
   option :school
   option :medical
+  option diplomatic: :outcome_diplomatic_business
   save_input_as :purpose_of_visit_answer
 
   calculate :reason_of_staying do
@@ -110,10 +111,14 @@ multiple_choice :staying_for_how_long? do
       next_node_if(:outcome_no_visa_needed) { (country_group_ukot + country_group_non_visa_national).include?(passport_country) }
     end
     on_condition(->(_) { purpose_of_visit_answer == 'work' }) do
+      #outcome 5.5 work N no visa needed
+      next_node_if(:outcome_work_n) {
+        ( (country_group_ukot +
+          country_group_non_visa_national) |
+          %w(taiwan) ).include?(passport_country)
+      }
       # outcome 5 work m visa needed short courses
       next_node_if(:outcome_work_m) { (country_group_datv + country_group_visa_national).include?(passport_country) }
-      #outcome 5.5 work N no visa needed
-      next_node_if(:outcome_work_n) { (country_group_ukot + country_group_non_visa_national).include?(passport_country) }
     end
   end
 end
@@ -143,7 +148,13 @@ outcome :outcome_work_y do
 end
 outcome :outcome_work_m
 outcome :outcome_work_n
-outcome :outcome_transit_leaving_airport
+outcome :outcome_transit_leaving_airport do
+  precalculate :colombia_transit_added_text do
+    if %w(colombia).include?(passport_country)
+      PhraseList.new(:colombia_transit_added_text)
+    end
+  end
+end
 outcome :outcome_transit_not_leaving_airport
 outcome :outcome_joining_family_y
 outcome :outcome_joining_family_m
@@ -192,3 +203,4 @@ outcome :outcome_visit_waiver do
 end
 outcome :outcome_transit_leaving_airport_datv
 outcome :outcome_taiwan_exception
+outcome :outcome_diplomatic_business
