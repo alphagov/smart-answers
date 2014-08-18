@@ -8,7 +8,7 @@ en-GB:
         paternity_warning: |
           ^ Your employee will not be able to collect Ordinary Statutory Paternity Pay or Statutory Adoption Pay while collecting Statutory Sick Pay. ^
         enough_notice: |
-          You don’t have to pay until the day you get your employees [proof of illness](/sick-leave-pay-employees/notice-and-fit-notes). You’ll have to pay any withheld amounts by the end of your employees entitlement to sick pay.
+          You don’t have to pay until your employee tells you that they’re ill. You’ll have to pay any withheld amounts by the end of your employees entitlement to sick pay if your employee is sick for more than 28 weeks.
         esa: |
           They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
         ssp_link: |
@@ -125,6 +125,8 @@ en-GB:
         title: Was your employee off sick within the previous 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
         body: |
           These are called ‘linked Periods of Incapacity for Work (PIW)’. Check if an employee’s [PIW links to a previous one.](/government/publications/statutory-sick-pay-tables-for-linking-periods-of-incapacity-for-work)
+
+          *[PIW]: Period of Incapacity for Work
 
       # Question 11.1
       linked_sickness_start_date?:
