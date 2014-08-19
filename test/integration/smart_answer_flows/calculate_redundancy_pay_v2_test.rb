@@ -343,8 +343,8 @@ class CalculateRedundancyPayV2Test < ActiveSupport::TestCase
           setup do
             add_response 18
           end
-          should "fail on 4 years" do
-            add_response 4
+          should "fail on 7 years" do
+            add_response 7
             assert_current_node_is_error
           end
           should "fail on 20 years" do
@@ -435,5 +435,14 @@ class CalculateRedundancyPayV2Test < ActiveSupport::TestCase
         assert_current_node :age_of_employee?
       end
     end
+
+    context "13 years old, 1 year of work" do
+      should "give not entitled to redundancy pay outcome" do
+        add_response '2013-01-01'
+        add_response '13'
+        add_response '1'
+        assert_current_node :done_no_statutory
+      end
+    end # After Feb 2013
   end
 end

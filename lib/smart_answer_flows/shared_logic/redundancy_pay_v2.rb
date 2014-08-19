@@ -17,11 +17,11 @@ end
 value_question :age_of_employee? do
   calculate :employee_age do
     age = responses.last.to_i
-    raise InvalidResponse if age < 16 or age > 100
+    raise InvalidResponse if age < 13 or age > 100
     age
   end
   calculate :years_available do
-    employee_age - 15
+    employee_age - 12
   end
   next_node :years_employed?
 end
