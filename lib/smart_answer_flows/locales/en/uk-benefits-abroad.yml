@@ -25,6 +25,8 @@ en-GB:
         already_abroad_country_question_title: Which country are you living in?
         going_abroad_how_long_question_title: How long are you going abroad for?
         already_abroad_how_long_question_title: How long will you be living abroad for?
+        why_going_abroad_title: Why are you going abroad?
+        why_already_abroad_title: Why have you gone abroad?
         disability_benefits_how_long_question_title: How long will you be abroad for?
         ci_going_abroad_question_title: Where are you moving?
         ci_already_abroad_question_title: Where are you living?
@@ -74,31 +76,29 @@ en-GB:
           You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn't have.
         tax_credits_going_abroad_helpline: |
 
-
-          $A
-          **Tax Credits Helpline**
-          Telephone: 0345 300 3900
-          Textphone: 0345 300 3909
-          Outside the UK call +44 2890 538 192
-          Monday to Friday, 8am to 8pm
-          Saturday, 8am to 4pm
-          Find out about [call charges](/call-charges)
-          $A
+          $C
+          **Tax Credits Helpline**  
+          Telephone: 0345 300 3900  
+          Textphone: 0345 300 3909  
+          Outside the UK call +44 2890 538 192  
+          Monday to Friday, 8am to 8pm  
+          Saturday, 8am to 4pm  
+          Find out about [call charges](/call-charges)  
+          $C
         tax_credits_already_abroad_helpline: |
 
-
-          $A
-          **Tax Credits Helpline**
-          From outside the UK: +44 2890 538 192
-          Monday to Friday, 8am to 8pm
-          Saturday, 8am to 4pm
-          $A
+          $C
+          **Tax Credits Helpline**  
+          From outside the UK: +44 2890 538 192  
+          Monday to Friday, 8am to 8pm  
+          Saturday, 8am to 4pm  
+          $C
 
         iidb_maybe_text: "continued to"
 
-# Shared Which Country? question
+# Shared Country question
       which_country?:
-        title: %{question_titles}
+        title: %{country_question_title}
 
 # Q1
       going_or_already_abroad?:
@@ -178,7 +178,7 @@ en-GB:
           - Severe Disablement Allowance
 # Q23 going_abroad and Q22 already_abroad
       tax_credits_why_going_abroad?:
-        title: Why have you gone abroad?
+        title: %{why_abroad_question_title}
         options:
           tax_credits_holiday: A holiday or business trip
           tax_credits_medical_treatment: For medical treatment for yourself, your partner or your child
@@ -287,14 +287,13 @@ en-GB:
 
           You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
-
           $A
-          Jobseekers and Benefit Enhancement Section (JBES)
-          Room TC013
-          International Pension Centre
-          Tyneview Park
-          Newcastle Upon Tyne
-          NE98 1BA
+          Jobseekers and Benefit Enhancement Section (JBES)  
+          Room TC013  
+          International Pension Centre  
+          Tyneview Park  
+          Newcastle Upon Tyne  
+          NE98 1BA  
           $A
 
           *[JSA]: Jobseeker's Allowance
@@ -316,14 +315,13 @@ en-GB:
 
           You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
-
           $A
-          Jobseekers and Benefit Enhancement Section (JBES)
-          Room TC013
-          International Pension Centre
-          Tyneview Park
-          Newcastle Upon Tyne
-          NE98 1BA
+          Jobseekers and Benefit Enhancement Section (JBES)  
+          Room TC013  
+          International Pension Centre  
+          Tyneview Park  
+          Newcastle Upon Tyne  
+          NE98 1BA  
           $A
 
           *[JSA]: Jobseeker's Allowance
@@ -345,14 +343,13 @@ en-GB:
 
           You'll  also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
-
           $A
-          Jobseekers and Benefit Enhancement Section (JBES)
-          Room TC013
-          International Pension Centre
-          Tyneview Park
-          Newcastle Upon Tyne
-          NE98 1BA
+          Jobseekers and Benefit Enhancement Section (JBES)  
+          Room TC013  
+          International Pension Centre  
+          Tyneview Park  
+          Newcastle Upon Tyne  
+          NE98 1BA  
           $A
 
           *[JSA]: Jobseeker's Allowance
@@ -402,7 +399,7 @@ en-GB:
         body: |
           You can get [Winter Fuel Payments](/winter-fuel-payment) while you’re abroad if you have a genuine link with the UK, eg if you’ve lived and worked in the UK for most of your life.
 
-          You must be living in an [EEA country](/eu-eea) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+          You must be living in an [EEA country](/eu-eea) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.  
 
           Contact the [International Pension Centre](/international-pension-centre) to set up your claim.
 
@@ -416,9 +413,9 @@ en-GB:
         body: |
           You can get the [Winter Fuel Payment](/winter-fuel-payment/eligibility) if you have a genuine link with the UK, eg if you’ve lived and worked in the UK for most of your life.
 
-          You must be living in an [European Economic Area (EEA)](/eu-eaa) country or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
+          You must be living in an [European Economic Area (EEA)](/eu-eea) country or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.
 
-          Contact the [International Pension Centre](/international-pension-centre) to transfer your  claim abroad.
+          Contact the [International Pension Centre](/international-pension-centre) to transfer your claim abroad.
 
 # A10 going_abroad and A8 already_abroad
       maternity_benefits_maternity_allowance_outcome:
@@ -562,14 +559,14 @@ en-GB:
           Contact the Tax Credits Helpline to claim.
 
 
-          $A
-          **Tax Credits Helpline**
-          Telephone: 0345 300 3900
-          Textphone: 0345 300 3909
-          Outside the UK: +44 2890 538 192
-          Monday to Friday, 8am to 8pm
-          Saturday 8am to 4pm
-          $A
+          $C
+          **Tax Credits Helpline**  
+          Telephone: 0345 300 3900  
+          Textphone: 0345 300 3909  
+          Outside the UK: +44 2890 538 192  
+          Monday to Friday, 8am to 8pm  
+          Saturday 8am to 4pm  
+          $C
 
 # A23 already_abroad and A25 going_abroad
       tax_credits_holiday_outcome:
@@ -711,10 +708,10 @@ en-GB:
 
 
           $A
-          Jobcentre Plus Barrow IIDB Centre
-          Pittman Way
-          Preston
-          PR11 2AB
+          Jobcentre Plus Barrow IIDB Centre  
+          Pittman Way  
+          Preston  
+          PR11 2AB  
           $A
 
           ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
@@ -725,10 +722,10 @@ en-GB:
 
 
           $A
-          Jobcentre Plus Barnsley IIDB Centre
-          Brightside Lane
-          Sheffield
-          S99 1AB
+          Jobcentre Plus Barnsley IIDB Centre  
+          Brightside Lane  
+          Sheffield  
+          S99 1AB  
           $A
 
           Find out about [call charges](/call-charges).
@@ -757,10 +754,10 @@ en-GB:
 
 
           $A
-          Jobcentre Plus Barrow IIDB Centre
-          Pittman Way
-          Preston
-          PR11 2AB
+          Jobcentre Plus Barrow IIDB Centre  
+          Pittman Way  
+          Preston  
+          PR11 2AB  
           $A
 
           ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
@@ -771,10 +768,10 @@ en-GB:
 
 
           $A
-          Jobcentre Plus Barnsley IIDB Centre
-          Brightside Lane
-          Sheffield
-          S99 1AB
+          Jobcentre Plus Barnsley IIDB Centre  
+          Brightside Lane  
+          Sheffield  
+          S99 1AB  
           $A
 
           Find out about [call charges](/call-charges).
