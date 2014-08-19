@@ -23,8 +23,14 @@ end
 
 # Question 2
 multiple_choice :employee_tell_within_limit? do
-  option yes: :employee_work_different_days? # Question 3
-    option no: :didnt_tell_soon_enough # Answer 3
+  option :yes
+  option :no
+
+  calculate :enough_notice_of_absence do
+    responses.last == 'yes'
+  end
+
+  next_node(:employee_work_different_days?)
 end
 
 # Question 3
@@ -255,9 +261,6 @@ outcome :already_getting_maternity
 # Answer 2
 outcome :must_be_sick_for_4_days
 
-# Answer 3
-outcome :didnt_tell_soon_enough
-
 # Answer 4
 outcome :not_regular_schedule
 
@@ -275,12 +278,16 @@ outcome :entitled_to_sick_pay do
   precalculate :pattern_days do calculator.pattern_days end
   precalculate :pattern_days_total do calculator.pattern_days * 28 end
 
+  precalculate :proof_of_illness do
+    PhraseList.new(:enough_notice) unless enough_notice_of_absence
+  end
+
+  precalculate :entitled_to_esa do
+    PhraseList.new(:esa) if enough_notice_of_absence
+  end
+
   precalculate :paternity_adoption_warning do
-    if paternity_maternity_warning
-      PhraseList.new(:paternity_warning)
-    else
-      PhraseList.new
-    end
+    PhraseList.new(:paternity_warning) if paternity_maternity_warning
   end
 end
 

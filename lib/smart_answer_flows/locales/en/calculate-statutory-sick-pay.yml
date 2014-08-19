@@ -7,6 +7,10 @@ en-GB:
       phrases:
         paternity_warning: |
           ^ Your employee will not be able to collect Ordinary Statutory Paternity Pay or Statutory Adoption Pay while collecting Statutory Sick Pay. ^
+        enough_notice: |
+          You don’t have to pay until your employee tells you that they’re ill. You’ll have to pay any withheld amounts by the end of your employees entitlement to sick pay if your employee is sick for more than 28 weeks.
+        esa: |
+          They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
         ssp_link: |
 
 
@@ -122,6 +126,8 @@ en-GB:
         body: |
           These are called ‘linked Periods of Incapacity for Work (PIW)’. Check if an employee’s [PIW links to a previous one.](/government/publications/statutory-sick-pay-tables-for-linking-periods-of-incapacity-for-work)
 
+          *[PIW]: Period of Incapacity for Work
+
       # Question 11.1
       linked_sickness_start_date?:
         title: Enter the start date for this linked period of sickness.
@@ -154,13 +160,6 @@ en-GB:
         body: |
           Your employee must be sick for at least 4 days in a row to get Statutory Sick Pay.
 
-      # Answer 3
-      didnt_tell_soon_enough:
-        body: |
-          Your employee isn’t entitled to statutory sick pay because they didn’t tell you they were sick soon enough.
-
-          You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
-
       # Answer 4
       not_regular_schedule:
         body: |
@@ -181,6 +180,7 @@ en-GB:
 
           Your employee is entitled to SSP for %{days_paid} days out of %{normal_workdays_out} working days taken off sick between %{sick_start_date} and %{sick_end_date}
 
+          %{proof_of_illness}
 
           Week ending | SSP amount
           -|-
@@ -191,7 +191,7 @@ en-GB:
 
           %{paternity_adoption_warning}
 
-          SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of %{pattern_days_total} days. After that you must give them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA).](/employment-support-allowance)
+          SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of %{pattern_days_total} days. After that you must give them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of SSP ending. %{entitled_to_esa}
 
           There are also [records you must keep](/sick-leave-pay-employees/entitlement) and rules on [proof of illness](/sick-leave-pay-employees/notice-and-fit-notes) you can ask for.
 
