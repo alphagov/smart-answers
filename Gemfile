@@ -37,7 +37,7 @@ end
 if ENV['SMARTDOWN_DEV']
   gem 'smartdown', :path => '../smartdown'
 else
-  gem 'smartdown', '0.1.0'
+  gem 'smartdown', '0.1.1'
 end
 
 gem 'lrucache', '0.1.4'
