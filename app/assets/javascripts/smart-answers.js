@@ -1,3 +1,6 @@
+//= require vendor/polyfills/bind
+//= require govuk/selection-buttons
+
 function browserSupportsHtml5HistoryApi() {
   return !! (history && history.replaceState && history.pushState);
 }
@@ -158,4 +161,7 @@ $(document).ready(function() {
   }
 
   contentPosition.init();
+
+  var $buttons = $("label input[type='radio'], label input[type='checkbox']");
+  GOVUK.selectionButtons($buttons);
 });
