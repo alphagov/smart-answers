@@ -12,8 +12,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
     assert_current_node :which_calculation?
   end
 
-  #Age
-  #
+  # #Age
   context "age calculation" do
     setup do
       add_response :age
@@ -1168,7 +1167,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 5
         add_response 0
         add_response 'no'
-        assert_current_node :amount_result
+        add_response 'no'
         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :less_than_ten, :too_few_qy_enough_remaining_years_a]
       end # less than 10 years NI
 
@@ -1181,18 +1180,6 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 0
         assert_current_node :amount_result
         assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a, :automatic_years_phrase]
-      end
-
-      should "show results for not enough qualifying years and not enough remaining years" do
-        add_response :male
-        add_response (Date.today - 64.years)
-        add_response 5
-        add_response 0
-        add_response 'no'
-        add_response 0
-        assert_current_node :amount_result
-        assert_phrase_list :result_text, [:too_few_qy_not_enough_remaining_years, :automatic_years_phrase]
-        assert_state_variable :enough_qualifying_years, nil
       end
 
       should "show results form additional HMRC test case" do
@@ -1307,7 +1294,6 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 0 # years of NI
         add_response 0 # Years of unemployment
         add_response :no # claimed benefit
-        add_response 0 # years worked between 16 and 19
         add_response :yes # lived or worked abroad
       end
       should "go to outcome and show correct phrases" do
@@ -1323,11 +1309,51 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 5
         add_response 0
         add_response :no
-        add_response 0
-        add_response :yes # lived or worked outside uk
       end
       should "go to amount_result" do
-        assert_current_node :amount_result
+        assert_current_node :lived_or_worked_outside_uk?
+      end
+    end
+
+    context "Non automatic ni group and born on 29th of February (dynamic date group)" do
+      setup do
+        add_response :female
+        add_response Date.parse('29 February 1960')
+        add_response :no
+        add_response 0
+        add_response 0
+        add_response :no
+      end
+      should "ask if worked abroad" do
+        assert_current_node :lived_or_worked_outside_uk?
+        assert_state_variable :state_pension_date, Date.parse("01 Mar 2026")
+      end
+    end
+    context "Non automatic ni group (with child benefit) and born on 29th of February (dynami date group)" do
+      setup do
+        add_response :female
+        add_response Date.parse('29 February 1964')
+        add_response 0
+        add_response 0
+        add_response :yes
+        add_response 0
+        add_response 0
+        add_response 0
+      end
+      should "ask if worked abroad" do
+        assert_current_node :lived_or_worked_outside_uk?
+        assert_state_variable :state_pension_date, Date.parse("01 Mar 2031")
+      end
+    end
+    context "Check state pension age date if born on 29th of february (static date group)" do
+      setup do
+        add_response :female
+        add_response Date.parse('29 February 1952')
+      end
+      should "show pension age reached outcome with correct pension age date" do
+        assert_current_node :reached_state_pension_age
+        assert_state_variable :state_pension_date, Date.parse("06 Jan 2014")
+        assert_state_variable :dob, "1952-02-29"
       end
     end
   end #amount calculation
