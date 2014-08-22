@@ -477,6 +477,7 @@ outcome :near_state_pension_age do
 end
 
 outcome :reached_state_pension_age
+
 outcome :too_young do
   precalculate :weekly_rate do
     sprintf("%.2f", calculator.current_weekly_rate)
