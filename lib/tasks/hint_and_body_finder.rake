@@ -16,4 +16,25 @@ namespace :hint_and_body_finder do
             end
         end
     end
+
+    desc "todo"
+    task :find_raw => :environment do
+
+        flow_registry = SmartAnswer::FlowRegistry.new(FLOW_REGISTRY_OPTIONS)
+        flow_registry.flows.each do |flow|
+            file_path = "lib/smart_answer_flows/locales/en/#{flow.name}.yml"
+            if !File.exists?(file_path)
+                puts "Couldn't find matching yml file for #{flow.name}"
+                next
+            end
+            yml_flow = YAML.load_file(file_path)["en-GB"]["flow"][flow.name]
+
+            questions = yml_flow.select { |key, val| key.ends_with? "?" }
+            questions.each do |question_name, question|
+                if question['hint'].present? and question['body'].present?
+                    puts "#{flow.name}.#{question_name}"
+                end
+            end
+        end
+    end
 end
