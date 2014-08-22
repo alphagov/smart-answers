@@ -1,8 +1,11 @@
 namespace :hint_and_body_finder do
+
+    registry_options = {show_drafts: false, show_transitions: false}
+
     desc "todo"
     task :find => :environment do
 
-        flow_registry = SmartAnswer::FlowRegistry.new(FLOW_REGISTRY_OPTIONS)
+        flow_registry = SmartAnswer::FlowRegistry.new(registry_options)
         flow_registry.flows.each do |flow|
             flow.questions.each do |question|
                 question = QuestionPresenter.new("flow.#{flow.name}", question)
@@ -20,7 +23,7 @@ namespace :hint_and_body_finder do
     desc "todo"
     task :find_raw => :environment do
 
-        flow_registry = SmartAnswer::FlowRegistry.new(FLOW_REGISTRY_OPTIONS)
+        flow_registry = SmartAnswer::FlowRegistry.new(registry_options)
         flow_registry.flows.each do |flow|
             file_path = "lib/smart_answer_flows/locales/en/#{flow.name}.yml"
             if !File.exists?(file_path)
