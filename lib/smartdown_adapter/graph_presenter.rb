@@ -2,7 +2,7 @@ module SmartdownAdapter
   class GraphPresenter
     def initialize(name)
       @name = name
-      @flow = Smartdown::Api::Flow.new(name)
+      @flow = SmartdownAdapter::Registry.build_flow(name)
     end
 
     def labels

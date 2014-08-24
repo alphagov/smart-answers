@@ -27,7 +27,7 @@ module SmartdownAdapter
       @name = name
       @started = request[:started]
       responses = responses_from_request(request)
-      @smartdown_flow = Smartdown::Api::Flow.new(name)
+      @smartdown_flow = SmartdownAdapter::Registry.build_flow(name.to_s)
       @smartdown_state = @smartdown_flow.state(started, responses)
     end
 
