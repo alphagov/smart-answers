@@ -6,16 +6,29 @@ namespace :panopticon do
     require 'gds_api/panopticon'
     logger = GdsApi::Base.logger = Logger.new(STDERR).tap { |l| l.level = Logger::INFO }
     logger.info "Registering with panopticon..."
-    flow_registry = SmartAnswer::FlowRegistry.new(FLOW_REGISTRY_OPTIONS)
     registerer = GdsApi::Panopticon::Registerer.new(owning_app: "smartanswers", kind: "smart-answer")
-    flow_registry.flows.each do |flow|
-      registerable = FlowRegistrationPresenter.new(flow)
-      registerer.register(registerable)
-    end
 
-    smartdown_flows = SmartdownAdapter::Registry.flows.each do |flow|
-      registerable = SmartdownAdapter::FlowRegistrationPresenter.new(flow)
+    unique_registerables.each { |registerable|
       registerer.register(registerable)
-    end
+    }
+  end
+
+  def unique_registerables
+    # Picks smartdown of smart_answer for any dupe keys, same as routing behaviour
+    smart_answer_registrables.merge(smartdown_registrables).values
+  end
+
+  def smart_answer_registrables
+    flow_registry = SmartAnswer::FlowRegistry.new(FLOW_REGISTRY_OPTIONS)
+
+    Hash[flow_registry.flows.collect { |flow|
+      [flow.name, FlowRegistrationPresenter.new(flow)]
+    }]
+  end
+
+  def smartdown_registrables
+    Hash[SmartdownAdapter::Registry.flows.collect { |flow|
+      [flow.name, SmartdownAdapter::FlowRegistrationPresenter.new(flow)]
+    }]
   end
 end
