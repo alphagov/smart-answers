@@ -7,10 +7,14 @@ namespace :panopticon do
     logger = GdsApi::Base.logger = Logger.new(STDERR).tap { |l| l.level = Logger::INFO }
     logger.info "Registering with panopticon..."
     flow_registry = SmartAnswer::FlowRegistry.new(FLOW_REGISTRY_OPTIONS)
-    #TODO: register smartdown questions?
     registerer = GdsApi::Panopticon::Registerer.new(owning_app: "smartanswers", kind: "smart-answer")
     flow_registry.flows.each do |flow|
       registerable = FlowRegistrationPresenter.new(flow)
+      registerer.register(registerable)
+    end
+
+    smartdown_flows = SmartdownAdapter::Registry.flows.each do |flow|
+      registerable = SmartdownAdapter::FlowRegistrationPresenter.new(flow)
       registerer.register(registerable)
     end
   end
