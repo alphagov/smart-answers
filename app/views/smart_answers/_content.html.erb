@@ -15,12 +15,24 @@
   <div class="done-questions">
     <% if @presenter.current_question_number > 1 %><div class="start-again"><%= link_to "Start again", smart_answer_path(params[:id]) %></div><% end %>
     <ol>
-      <%= render partial: "collapsed_question", collection: @presenter.collapsed_questions, as: :question %>
+      <%= render partial: "collapsed_question", collection: @presenter.collapsed_question_pages, as: :question_page %>
     </ol>
   </div>
   <% if @presenter.finished? %>
     <%= render partial: "result" %>
   <% else %>
-    <%= render partial: "current_question", locals: {question: @presenter.current_node} %>
+    <div class="step current" data-step="employment-status">
+      <%= form_tag calculate_current_question_path(@presenter), :method => :get %>
+        <div class="current-question" id="current-question">
+          <% @presenter.questions.each do |question| %>
+            <%= render partial: "current_question", locals: {question: question} %>
+          <% end %>
+          <div class="next-question">
+            <input type="hidden" name="next" value="1" />
+            <button type="submit" class="medium button">Next step</button>
+          </div>
+        </div>
+      </form>
+    </div>
   <% end %>
 <% end %>
