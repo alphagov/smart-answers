@@ -1,3 +1,5 @@
+require 'smartdown/api/flow'
+
 module SmartdownAdapter
   class Registry
 
@@ -10,7 +12,9 @@ module SmartdownAdapter
 
     def self.smartdown_transition_questions
       smartdown_questions.select { |smartdown_question_name|
-        smartdown_flow = Flow.new(smartdown_question_name)
+        coversheet_path = Rails.root.join('lib', 'smartdown_flows', smartdown_question_name, "#{smartdown_question_name}.txt")
+        input = Smartdown::Api::DirectoryInput.new(coversheet_path)
+        smartdown_flow = Smartdown::Api::Flow.new(input)
         smartdown_flow.transition?
       }
     end
@@ -20,7 +24,9 @@ module SmartdownAdapter
       show_transitions = options.fetch(:show_transitions, false)
       use_smartdown_question = false
       if self.smartdown_questions.include? name
-        smartdown_flow = Flow.new(name)
+        coversheet_path = Rails.root.join('lib', 'smartdown_flows', name, "#{name}.txt")
+        input = Smartdown::Api::DirectoryInput.new(coversheet_path)
+        smartdown_flow = Smartdown::Api::Flow.new(input)
         use_smartdown_question = (smartdown_flow && smartdown_flow.draft? && show_drafts) ||
         (smartdown_flow && smartdown_flow.transition? && show_transitions) ||
         (smartdown_flow && smartdown_flow.published?)

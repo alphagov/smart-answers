@@ -1,4 +1,9 @@
 class QuestionPresenter < NodePresenter
+
+  def number
+    @state.path.size + 1
+  end
+
   def response_label(value)
     value
   end

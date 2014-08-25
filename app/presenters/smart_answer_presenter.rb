@@ -84,6 +84,12 @@ class SmartAnswerPresenter
     end
   end
 
+  def collapsed_question_pages
+    collapsed_questions.map do |collapsed_question|
+      OpenStruct.new(:questions => [collapsed_question])
+    end
+  end
+
   def collapsed_questions
     @flow.path(all_responses).map do |name|
       presenter_for(@flow.node(name))
@@ -121,6 +127,10 @@ class SmartAnswerPresenter
     current_state.path.size + 1
   end
 
+  def questions
+    (current_node.is_a? QuestionPresenter) ? [current_node] : []
+  end
+
   def current_node
     presenter_for(@flow.node(current_state.current_node))
   end
@@ -135,14 +145,16 @@ class SmartAnswerPresenter
   end
 
   def normalize_responses_param
-    case params[:responses]
-    when NilClass
-      []
-    when Array
-      params[:responses]
-    else
-      params[:responses].to_s.split('/')
+    responses = []
+    if params[:responses]
+      split_responses = request[:responses].split("/")
+      responses += split_responses
     end
+    #get form submission request: for multiple responses
+    response_array = params.select { |key| key.to_s.match(/^response_\d+/) }
+                            .map { |response_key| response_key[1] }
+    responses += response_array unless response_array.empty?
+    responses
   end
 
   def accepted_responses
@@ -156,4 +168,5 @@ class SmartAnswerPresenter
       end
     end
   end
+
 end
