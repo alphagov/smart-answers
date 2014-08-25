@@ -71,10 +71,11 @@ private
 
   def find_smart_answer
     @name = params[:id].to_sym
-    if smartdown_question(@name)
-      @presenter = SmartdownAdapter::Presenter.new(@name.to_s, request)
+    name = @name.to_s
+    if smartdown_question(name)
+      @presenter = SmartdownAdapter::Presenter.new(name, request)
     else
-      @smart_answer = flow_registry.find(@name.to_s)
+      @smart_answer = flow_registry.find(name)
       @presenter = SmartAnswerPresenter.new(request, @smart_answer)
     end
   end
