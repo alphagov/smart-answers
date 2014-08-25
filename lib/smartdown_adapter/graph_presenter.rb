@@ -2,7 +2,7 @@ module SmartdownAdapter
   class GraphPresenter
     def initialize(name)
       @name = name
-      @flow = Flow.new(name)
+      @flow = SmartdownAdapter::Registry.build_flow(name)
     end
 
     def labels
@@ -12,7 +12,7 @@ module SmartdownAdapter
     def adjacency_list
       @adjacency_list ||= begin
         adjacency_list = {}
-        @flow.questions.each do |node|
+        @flow.question_pages.each do |node|
           adjacency_list[node.name.to_s] = []
           node.next_nodes.each do |nextnode|
             nextnode.rules.each do |rule|
@@ -28,7 +28,7 @@ module SmartdownAdapter
     end
 
     def visualisable?
-      @flow.questions.all? do |node|
+      @flow.question_pages.all? do |node|
         node.permitted_next_nodes.any?
       end
     end
@@ -76,13 +76,20 @@ module SmartdownAdapter
     def graph_label_text(node)
       text = node.class.to_s.split("::").last + "\n-\n"
       case node
-        when SmartdownAdapter::MultipleChoice
-          text << word_wrap(node.title.to_s)
-          text << "\n\n"
-          text << node.options.map do |option|
-            "( ) #{option.value}: #{option.label}"
-          end.join("\n")
-        when SmartdownAdapter::Outcome
+        when Smartdown::Api::QuestionPage
+          if node.questions.count > 1
+            text << word_wrap(node.title.to_s)
+            text << "\n\n"
+          end
+          node.questions.each do |question|
+            text << word_wrap(question.title.to_s)
+            text << "\n\n"
+            text << question.options.map do |option|
+              "( ) #{option.value}: #{option.label}"
+            end.join("\n")
+            text << "\n\n"
+          end
+        when Smartdown::Api::Outcome
           candidate_texts = [
               node.title.to_s,
               node.name.to_s
