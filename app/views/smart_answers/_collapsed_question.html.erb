@@ -1,20 +1,24 @@
 <li class="done">
-  <h3 class="question">
-    <span class="question-number"><%= question_counter + 1 %></span><%= question.title %>
-  </h3>
-
-  <%- if question.multiple_responses? -%>
-    <div class="answer multiple">
-      <ul>
-        <%- question.response_labels(@presenter.accepted_responses[question_counter]).each do |label| -%>
-          <li><%= label %></li>
-        <%- end -%>
-      </ul>
-    </div>
-  <%- else -%>
-    <div class="answer"><%= question.response_label(@presenter.accepted_responses[question_counter]) %></div>
-  <%- end -%>
+  <% question_page.questions.each_with_index do |question, question_index|%>
+    <h3 class="question">
+      <% if question_index == 0 %>
+        <span class="question-number"><%= question_page_counter + 1 %></span>
+      <% end %>
+      <%= question.title %>
+    </h3>
+    <%- if question.multiple_responses? -%>
+      <div class="answer multiple">
+        <ul>
+          <%- question.response_labels(@presenter.accepted_responses[question_page_counter]).each do |label| -%>
+            <li><%= label %></li>
+          <%- end -%>
+        </ul>
+      </div>
+    <%- else -%>
+      <div class="answer"><%= question.response_label(@presenter.accepted_responses[question_page_counter]) %></div>
+    <%- end -%>
+  <% end %>
   <p class="undo">
-    <%= link_to "Change this answer", @presenter.change_collapsed_question_link(question_counter + 1) %>
+    <%= link_to "Change this answer", @presenter.change_collapsed_question_link(question_page_counter + 1) %>
   </p>
 </li>

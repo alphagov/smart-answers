@@ -17,7 +17,6 @@ module SmartdownAdapter
 
     # These methods don't share the name the presenter callees expect, alias
     def_delegator :@smartdown_state, :responses, :accepted_responses
-    def_delegator :@smartdown_state, :previous_questions, :collapsed_questions
 
     # The current node in the flow
     def_delegators :current_node, :body, :has_body?, :devolved_body, :has_devolved_body?
@@ -25,13 +24,17 @@ module SmartdownAdapter
     def initialize(name, request)
       @name = name
       @started = request[:started]
-      responses = responses_from_request(request)
-      @smartdown_flow = Flow.new(name)
-      @smartdown_state = @smartdown_flow.state(started, responses)
+      @responses = responses_from_request(request)
+      @smartdown_flow = SmartdownAdapter::Registry.build_flow(name)
+      @smartdown_state = @smartdown_flow.state(started, @responses)
+    end
+
+    def questions
+      current_node.questions
     end
 
     def current_node
-      @current_node ||= smartdown_state.current_node_transformed
+      @current_node ||= presenter_for_current_node
     end
 
     def current_state
@@ -41,6 +44,10 @@ module SmartdownAdapter
         :responses => smartdown_state.responses
         # This is missing :error
       )
+    end
+
+    def collapsed_question_pages
+      presenters_for_previous_nodes
     end
 
     #COPY/PASTE from old presenter
@@ -82,6 +89,7 @@ module SmartdownAdapter
 
     private
 
+    #TODO: extract this somewhere else, a lot in common with smart answer presenter
     def responses_from_request(request)
       responses = []
       if request[:params]
@@ -94,11 +102,33 @@ module SmartdownAdapter
         responses += split_responses
       end
 
-      # get form submission request: this supposes there is only one response
+      # get form submission request: one response
       if request[:response]
         responses << request[:response]
       end
+
+      #get form submission request: for multiple responses
+      response_array = request.query_parameters.select { |key| key.to_s.match(/^response_\d+/) }
+                                                .map { |response_key| response_key[1] }
+      responses += response_array unless response_array.empty?
       responses
+    end
+
+    def presenter_for_current_node
+      smartdown_node = smartdown_state.current_node
+      case smartdown_node
+        when Smartdown::Api::QuestionPage
+          QuestionPagePresenter.new(smartdown_flow, smartdown_node)
+        else
+          NodePresenter.new(smartdown_node)
+      end
+
+    end
+
+    def presenters_for_previous_nodes
+      smartdown_state.previous_question_pages(@responses).map do |smartdown_previous_question_page|
+        PreviousQuestionPagePresenter.new(smartdown_previous_question_page)
+      end
     end
 
   end

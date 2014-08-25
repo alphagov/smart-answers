@@ -1,33 +1,23 @@
-<div class="step current" data-step="employment-status">
-  <%= form_tag calculate_current_question_path(@presenter), :method => :get %>
-    <div class="current-question" id="current-question">
-      <h2>
-        <span class="question-number"><%= @presenter.current_question_number %> </span><%= question.title %>
-      </h2>
-      <div class="question-body">
-        <% if question.has_body? %>
-          <%= question.body %>
-        <% end %>
+<h2>
+  <span class="question-number"><%=question.number%> </span><%= question.title %>
+</h2>
+<div class="question-body">
+  <% if question.has_body? %>
+    <%= question.body %>
+  <% end %>
 
-        <% if question.has_hint? %>
-          <p class="hint"><%= question.hint %></p>
-        <% end %>
+  <% if question.has_hint? %>
+    <p class="hint"><%= question.hint %></p>
+  <% end %>
 
-        <div class="<%= @presenter.error && 'error' %>">
-          <% if @presenter.error %>
-            <p class="error-message" id="current-error" role="alert">
-              <%= @presenter.error %>
-            </p>
-          <% end %>
+  <div class="<%= @presenter.error && 'error' %>">
+    <% if @presenter.error %>
+      <p class="error-message" id="current-error" role="alert">
+        <%= @presenter.error %>
+      </p>
+    <% end %>
 
-          <%= render partial: question.partial_template_name, locals: { question: question } %>
-        </div>
-      </div>
+    <%= render partial: question.partial_template_name, locals: { question: question } %>
+  </div>
 
-      <div class="next-question">
-        <input type="hidden" name="next" value="1" />
-        <button type="submit" class="medium button">Next step</button>
-      </div>
-    </div>
-  </form>
 </div>
