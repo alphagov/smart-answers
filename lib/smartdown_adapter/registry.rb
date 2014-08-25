@@ -13,7 +13,7 @@ module SmartdownAdapter
     def self.smartdown_transition_questions
       smartdown_questions.select { |smartdown_question_name|
         coversheet_path = Rails.root.join('lib', 'smartdown_flows', smartdown_question_name, "#{smartdown_question_name}.txt")
-        input = Smartdown::Parser::DirectoryInput.new(coversheet_path)
+        input = Smartdown::Api::DirectoryInput.new(coversheet_path)
         smartdown_flow = Smartdown::Api::Flow.new(input)
         smartdown_flow.transition?
       }
@@ -25,7 +25,7 @@ module SmartdownAdapter
       use_smartdown_question = false
       if self.smartdown_questions.include? name
         coversheet_path = Rails.root.join('lib', 'smartdown_flows', name, "#{name}.txt")
-        input = Smartdown::Parser::DirectoryInput.new(coversheet_path)
+        input = Smartdown::Api::DirectoryInput.new(coversheet_path)
         smartdown_flow = Smartdown::Api::Flow.new(input)
         use_smartdown_question = (smartdown_flow && smartdown_flow.draft? && show_drafts) ||
         (smartdown_flow && smartdown_flow.transition? && show_transitions) ||
