@@ -37,5 +37,13 @@ module SmartdownAdapter
       end
       use_smartdown_question
     end
+
+    def self.check_transition_question(name)
+      if smartdown_questions.include? name
+        smartdown_flow = build_flow(name)
+        return smartdown_flow && smartdown_flow.transition?
+      end
+      false
+    end
   end
 end

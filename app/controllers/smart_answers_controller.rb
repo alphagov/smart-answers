@@ -40,6 +40,9 @@ class SmartAnswersController < ApplicationController
       format.html {
         if smartdown_question(@name)
           @graph_presenter = SmartdownAdapter::GraphPresenter.new(@name.to_s)
+        elsif (@name.to_s.end_with? "-transition") && smartdown_transition_question(@name.to_s.chomp("-transition"))
+          @transition = true
+          @graph_presenter = SmartdownAdapter::GraphPresenter.new(@name.to_s.chomp("-transition"))
         else
           @graph_presenter = GraphPresenter.new(@smart_answer)
         end
@@ -49,6 +52,9 @@ class SmartAnswersController < ApplicationController
       format.gv {
         if smartdown_question(@name)
           render text: SmartdownAdapter::GraphvizPresenter.new(@name.to_s).to_gv
+        elsif (@name.to_s.end_with? "-transition") && smartdown_transition_question(@name.to_s.chomp("-transition"))
+          @transition = true
+          render text: SmartdownAdapter::GraphvizPresenter.new(@name.to_s.chomp("-transition")).to_gv
         else
           render text: GraphvizPresenter.new(@smart_answer).to_gv
         end
@@ -74,6 +80,9 @@ private
     name = @name.to_s
     if smartdown_question(name)
       @presenter = SmartdownAdapter::Presenter.new(name, request)
+    elsif (name.end_with? "-transition") && smartdown_transition_question(name.chomp("-transition"))
+      @transition = true
+      @presenter = SmartdownAdapter::Presenter.new(name.chomp("-transition"), request)
     else
       @smart_answer = flow_registry.find(name)
       @presenter = SmartAnswerPresenter.new(request, @smart_answer)
@@ -85,10 +94,11 @@ private
   end
 
   def redirect_response_to_canonical_url
+    name = (@transition && !(@name.to_s.end_with? "-transition")) ? @name.to_s+"-transition" : @name.to_s
     if params[:next] && ! @presenter.current_state.error
       set_expiry
       redirect_to action: :show,
-        id: @name,
+        id: name.to_sym,
         started: 'y',
         responses: @presenter.current_state.responses,
         protocol: (request.ssl? || Rails.env.production?) ? 'https' : 'http'
@@ -109,6 +119,10 @@ private
 
   def smartdown_question(name)
     SmartdownAdapter::Registry.check(name.to_s)
+  end
+
+  def smartdown_transition_question(name)
+    SmartdownAdapter::Registry.check_transition_question(name.to_s)
   end
 
 end

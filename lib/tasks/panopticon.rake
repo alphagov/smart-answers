@@ -30,7 +30,7 @@ namespace :panopticon do
     show_transitions = FLOW_REGISTRY_OPTIONS.fetch(:show_transitions, false)
     Hash[SmartdownAdapter::Registry.flows(FLOW_REGISTRY_OPTIONS).collect { |flow|
       if flow.transition? && show_transitions
-        [flow.name, SmartdownAdapter::FlowRegistrationPresenter.new(flow, flow.name)]
+        [flow.name, SmartdownAdapter::FlowRegistrationPresenter.new(flow, flow.name + "-transition")]
       elsif flow.draft? && show_drafts
         [flow.name, SmartdownAdapter::FlowRegistrationPresenter.new(flow)]
       end
