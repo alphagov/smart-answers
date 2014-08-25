@@ -4,8 +4,9 @@ module SmartdownAdapter
 
     def_delegators :@smartdown_question, :title, :body, :hint, :options
 
-    def initialize(flow, smartdown_question)
+    def initialize(flow, previous_question_pages, smartdown_question_page, smartdown_question)
       @flow = flow
+      @all_question_pages = previous_question_pages + [smartdown_question_page]
       @smartdown_question = smartdown_question
     end
 
@@ -34,16 +35,16 @@ module SmartdownAdapter
 
     private
 
-    attr_reader :flow, :smartdown_question
+    attr_reader :flow, :all_question_pages, :smartdown_question
 
     def index_of_current_question_in_flow
-      flow.question_pages.map(&:questions).flatten.each_with_index do |question, index|
+      all_question_pages.map(&:questions).flatten.each_with_index do |question, index|
         return index if question.title == smartdown_question.title
       end
     end
 
     def index_of_current_question_in_page
-      flow.question_pages.each do |question_page|
+      all_question_pages.each do |question_page|
         question_page.questions.each_with_index do |question, index|
           return index if question.title == smartdown_question.title
         end

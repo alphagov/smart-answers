@@ -1,7 +1,7 @@
 class QuestionPresenter < NodePresenter
 
-  def number
-    @state.path.size + 1
+  def number(question_page_index=@state.path.size + 1, question_index=0)
+    question_page_index + question_index
   end
 
   def response_label(value)

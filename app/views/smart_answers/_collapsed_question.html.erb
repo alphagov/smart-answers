@@ -1,5 +1,6 @@
 <li class="done">
   <% question_page.questions.each_with_index do |question, question_index|%>
+    <% response_index = question.number(question_page_counter, question_index) %>
     <h3 class="question">
       <% if question_index == 0 %>
         <span class="question-number"><%= question_page_counter + 1 %></span>
@@ -9,13 +10,13 @@
     <%- if question.multiple_responses? -%>
       <div class="answer multiple">
         <ul>
-          <%- question.response_labels(@presenter.accepted_responses[question_page_counter]).each do |label| -%>
+          <%- question.response_labels(@presenter.accepted_responses[response_index]).each do |label| -%>
             <li><%= label %></li>
           <%- end -%>
         </ul>
       </div>
     <%- else -%>
-      <div class="answer"><%= question.response_label(@presenter.accepted_responses[question_page_counter]) %></div>
+      <div class="answer"><%= question.response_label(@presenter.accepted_responses[response_index]) %></div>
     <%- end -%>
   <% end %>
   <p class="undo">
