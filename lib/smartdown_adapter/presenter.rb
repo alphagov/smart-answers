@@ -25,9 +25,7 @@ module SmartdownAdapter
       @name = name
       @started = request[:started]
       @responses = responses_from_request(request)
-      coversheet_path = Rails.root.join('lib', 'smartdown_flows', @name, "#{name}.txt")
-      input = Smartdown::Parser::DirectoryInput.new(coversheet_path)
-      @smartdown_flow = Smartdown::Api::Flow.new(input)
+      @smartdown_flow = SmartdownAdapter::Registry.build_flow(name)
       @smartdown_state = @smartdown_flow.state(started, @responses)
     end
 
