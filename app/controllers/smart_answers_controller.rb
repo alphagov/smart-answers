@@ -48,9 +48,9 @@ class SmartAnswersController < ApplicationController
       }
       format.gv {
         if smartdown_question(@name)
-          render text: GraphvizPresenter.new(@smart_answer).to_gv
+          render text: SmartdownAdapter::GraphvizPresenter.new(@name.to_s).to_gv
         else
-          render text: SmartdownAdapter::GraphvizPresenter.new(@smart_answer).to_gv
+          render text: GraphvizPresenter.new(@smart_answer).to_gv
         end
       }
     end
