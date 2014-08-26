@@ -20,6 +20,8 @@ module SmartdownAdapter
       case smartdown_question
       when Smartdown::Api::MultipleChoice
         "multiple_choice_question"
+      when Smartdown::Api::DateQuestion
+        "date_question"
       end
     end
 

@@ -11,7 +11,7 @@
   <% end %>
   <% unless question.defaulted_year? %>
     <label for="response_year">Year
-      <%= select_year default_for_date(prefill_value_for(question, :year)) || question.default, prefix: 'response', prompt: '', :start_year => @presenter.current_node.start_date.year, :end_year => @presenter.current_node.end_date.year %>
+      <%= select_year default_for_date(prefill_value_for(question, :year)) || question.default, prefix: 'response', prompt: '', :start_year => question.start_date.year, :end_year => question.end_date.year %>
     </label>
   <% end %>
 </fieldset>

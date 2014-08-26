@@ -7,7 +7,12 @@ module SmartdownAdapter
 
     def questions
       @smartdown_question_page.questions.map do |smartdown_question|
-        QuestionPresenter.new(smartdown_question)
+        case smartdown_question
+        when Smartdown::Api::DateQuestion
+          DateQuestionPresenter.new(smartdown_question)
+        else
+          QuestionPresenter.new(smartdown_question)
+        end
       end
     end
   end

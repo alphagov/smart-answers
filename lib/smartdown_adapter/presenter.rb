@@ -24,9 +24,9 @@ module SmartdownAdapter
     def initialize(name, request)
       @name = name
       @started = request[:started]
-      @responses = responses_from_request(request)
+      @processed_responses = process_inputs(responses_from_request(request))
       @smartdown_flow = SmartdownAdapter::Registry.build_flow(name)
-      @smartdown_state = @smartdown_flow.state(started, @responses)
+      @smartdown_state = @smartdown_flow.state(started, @processed_responses)
     end
 
     def questions
@@ -89,7 +89,6 @@ module SmartdownAdapter
 
     private
 
-    #TODO: extract this somewhere else, a lot in common with smart answer presenter
     def responses_from_request(request)
       responses = []
       if request[:params]
@@ -114,6 +113,17 @@ module SmartdownAdapter
       responses
     end
 
+    def process_inputs(responses)
+      responses.map do |response|
+        date_match = /day=(\d*)&month=(\d*)&year=(\d*)/.match(response)
+        if date_match
+          "#{date_match[3]}-#{date_match[2]}-#{date_match[1]}"
+        else
+          response
+        end
+      end
+    end
+
     def presenter_for_current_node
       smartdown_node = smartdown_state.current_node
       case smartdown_node
@@ -126,7 +136,7 @@ module SmartdownAdapter
     end
 
     def presenters_for_previous_nodes
-      smartdown_state.previous_question_pages(@responses).map do |smartdown_previous_question_page|
+      smartdown_state.previous_question_pages(@processed_responses).map do |smartdown_previous_question_page|
         PreviousQuestionPagePresenter.new(smartdown_previous_question_page)
       end
     end
