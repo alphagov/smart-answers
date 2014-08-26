@@ -1,3 +1,5 @@
+require 'html/sanitizer'
+
 module SmartdownAdapter
   class FlowRegistrationPresenter
 
@@ -30,12 +32,25 @@ module SmartdownAdapter
     end
 
     def indexable_content
-      # tbc
-      # previously took title/body from all nodes - is that even useful?
+      node_text(coversheet)
     end
 
     def state
       'live'
+    end
+
+  private
+
+    def coversheet
+      @flow.state(false, []).current_node
+    end
+
+    def node_text(node)
+      HTML::FullSanitizer.new.sanitize(node_html(node))
+    end
+
+    def node_html(node)
+      [node.body, node.devolved_body].join("\n")
     end
   end
 end
