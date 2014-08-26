@@ -1,14 +1,14 @@
 <ul class="options">
   <% question.options.each.with_index do |option, i| %>
     <li>
-      <% if number == 0 %>
-        <label for="response_<%= i %>">
-          <%= radio_button_tag "response", option.value, prefill_value_is?(option.value), id: "response_#{i}" %>
+      <% if number %>
+        <label for="response_<%=number%>_<%= i %>">
+          <%= radio_button_tag "response_#{number}", option.value, prefill_value_is?(option.value), id: "response_#{number}_#{i}" %>
           <%= option.label %>
         </label>
       <% else %>
-        <label for="response_<%=number%>_<%= i %>">
-          <%= radio_button_tag "response_#{number}", option.value, prefill_value_is?(option.value), id: "response_#{number}_#{i}" %>
+        <label for="response_<%= i %>">
+          <%= radio_button_tag "response", option.value, prefill_value_is?(option.value), id: "response_#{i}" %>
           <%= option.label %>
         </label>
       <% end %>
