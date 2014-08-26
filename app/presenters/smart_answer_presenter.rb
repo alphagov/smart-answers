@@ -166,4 +166,7 @@ class SmartAnswerPresenter
       end
     end
   end
+
+  def page_title
+  end
 end

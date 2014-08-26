@@ -25,6 +25,7 @@
   <% if @presenter.finished? %>
     <%= render partial: "result" %>
   <% else %>
+    <h2><%= @presenter.page_title %></h2>
     <div class="step current" data-step="employment-status">
       <%= form_tag calculate_current_question_path(@presenter), :method => :get %>
         <div class="current-question" id="current-question">

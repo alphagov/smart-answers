@@ -1,5 +1,8 @@
 module SmartdownAdapter
   class QuestionPagePresenter
+    extend Forwardable
+
+    def_delegators :@smartdown_question_page, :title
 
     def initialize(smartdown_question_page)
       @smartdown_question_page = smartdown_question_page
