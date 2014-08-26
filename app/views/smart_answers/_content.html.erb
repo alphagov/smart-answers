@@ -15,7 +15,11 @@
   <div class="done-questions">
     <% if @presenter.current_question_number > 1 %><div class="start-again"><%= link_to "Start again", smart_answer_path(params[:id]) %></div><% end %>
     <ol>
-      <%= render partial: "collapsed_question", collection: @presenter.collapsed_question_pages, as: :question_page %>
+      <% number_questions_so_far = 0 %>
+      <% @presenter.collapsed_question_pages.each do |question_page| %>
+        <%= render partial: "collapsed_question", locals: {question_page: question_page, number_questions_so_far: number_questions_so_far} %>
+        <% number_questions_so_far += question_page.questions.count %>
+      <% end %>
     </ol>
   </div>
   <% if @presenter.finished? %>
