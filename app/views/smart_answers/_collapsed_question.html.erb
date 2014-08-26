@@ -1,21 +1,21 @@
 <li class="done">
-  <% question_page.questions.each do |question|%>
+  <% question_page.questions.each_with_index do |question, question_index|%>
     <h3 class="question">
       <%= question.title %>
     </h3>
     <%- if question.multiple_responses? -%>
       <div class="answer multiple">
         <ul>
-          <%- question.response_labels(@presenter.accepted_responses[question_page_counter]).each do |label| -%>
+          <%- question.response_labels(@presenter.accepted_responses[number_questions_so_far + question_index]).each do |label| -%>
             <li><%= label %></li>
           <%- end -%>
         </ul>
       </div>
     <%- else -%>
-      <div class="answer"><%= question.response_label(@presenter.accepted_responses[question_page_counter]) %></div>
+      <div class="answer"><%= question.response_label(@presenter.accepted_responses[number_questions_so_far + question_index]) %></div>
     <%- end -%>
   <% end %>
   <p class="undo">
-    <%= link_to "Change this answer", @presenter.change_collapsed_question_link(question_page_counter + 1) %>
+    <%= link_to "Change this answer", @presenter.change_collapsed_question_link(number_questions_so_far + 1) %>
   </p>
 </li>
