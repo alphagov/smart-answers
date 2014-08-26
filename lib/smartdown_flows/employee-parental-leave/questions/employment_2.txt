@@ -1,93 +1,91 @@
-#Employment partner/adopter
+# Employment partner/adopter
 
-##Job before %{minimum_start_date}
+# Job before %{minimum_start_date}
 
 [choice: job_before_x_2]
 * yes: Yes
 * no: No
 
-## Job after %{minimum_end_date}
+# Job after %{minimum_end_date}
 
 [choice: job_after_y_2]
 * yes: Yes
 * no: No
 
-## Salary
+# Salary
 
 [salary : salary_2]
 
-## >LER, 8 weeks
+# >LER, 8 weeks
 
 [choice: ler_2]
 * yes: Yes
 * no: No
 
-# Next node
-
-* employment_status_2 is “employee”
-  * job_before_x_2 is "yes" AND job_after_y_2 is "yes" AND ler_2 is "yes"
-    * employment_status_1 is "employee" => leave_both
+* employment_status_2 is 'employee'
+  * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
+    * employment_status_1 is 'employee' => leave_both
     * employment_status_1 {worker agency unemployed self-employed} => leave_2
   * otherwise
-    * employment_status_1 is “employee”
-      * job_after_y_1 is "yes"
+    * employment_status_1 is 'employee'
+      * job_after_y_1 is 'yes'
         * due_date >= 05/04/2015 => employment_2_more
         * otherwise => leave_1
-      * job_after_y_1 is “no”
-        * circumstance is “birth”
-          * earnings_employment_1 is "yes" => outcome_birth_ma
-          * earnings_employment_1 is "no" => outcome_birth_nothing
-        * circumstance is “adoption” => outcome_adoption_nothing
+      * job_after_y_1 is 'no'
+        * circumstance is 'birth'
+          * earnings_employment_1 is 'yes' => outcome_birth_ma
+          * earnings_employment_1 is 'no' => outcome_birth_nothing
+        * circumstance is 'adoption' => outcome_adoption_nothing
     * employment_status_1 in {agent worker}
-      * circumstance is “birth”
-        * job_before_x_1 is "yes" AND job_after_y_1 is "yes" AND ler_1 is "yes"
+      * circumstance is 'birth'
+        * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
           * due_date >= 05/04/2015 => employment_2_more
           * otherwise => outcome_birth_pay
         * otherwise
-          * earnings_employment_1 is "yes" => outcome_birth_ma
-          * earnings_employment_1 is "no" => outcome_birth_nothing
-      * circumstance is “adoption”
-        * job_before_x_1 is "yes" AND job_after_y_1 is "yes" AND ler_1 is "yes"
+          * earnings_employment_1 is 'yes' => outcome_birth_ma
+          * earnings_employment_1 is 'no' => outcome_birth_nothing
+      * circumstance is 'adoption'
+        * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
           * due_date >= 05/04/2015 => employment_2_more
           * otherwise => outcome_adoption_pay
         * otherwise => outcome_adoption_nothing
 * employment_status_2 in {worker agent}
-  * job_before_x_2 is "yes" AND job_after_y_2 is "yes" AND ler_2 is "yes"
-    * employment_status_1 is "employee"
-      * job_after_y_1 is "yes" => leave_1
-      * job_after_y_1 is “no”
-        * circumstance is “birth”
-          * earnings_employment_1 is "yes" => outcome_birth_ma_patpay
-          * earnings_employment_1 is "no" => outcome_birth_patpay
-        * circumstance is “adoption” => outcome_adoption_patpay
+  * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
+    * employment_status_1 is 'employee'
+      * job_after_y_1 is 'yes' => leave_1
+      * job_after_y_1 is 'no'
+        * circumstance is 'birth'
+          * earnings_employment_1 is 'yes' => outcome_birth_ma_patpay
+          * earnings_employment_1 is 'no' => outcome_birth_patpay
+        * circumstance is 'adoption' => outcome_adoption_patpay
     * employment_status_1 in {worker agency unemployed self-employed}
-      * circumstance is “birth”
-        * earnings_employment_1 is "yes" => outcome_birth_ma_patpay
-        * earnings_employment_1 is "no" => outcome_birth_patpay
-      * circumstance is “adoption” => outcome_adoption_patpay
+      * circumstance is 'birth'
+        * earnings_employment_1 is 'yes' => outcome_birth_ma_patpay
+        * earnings_employment_1 is 'no' => outcome_birth_patpay
+      * circumstance is 'adoption' => outcome_adoption_patpay
   * otherwise
-    * employment_status_1 is "employee"
-          * job_after_y_1 is "yes" => leave_1
-          * job_after_y_1 is “no”
-            * circumstance is “birth”
-              * earnings_employment_1 is "yes" => outcome_birth_ma
-              * earnings_employment_1 is "no" => outcome_birth_nothing
-            * circumstance is “adoption” => outcome_adoption_nothing
-        * employment_status_1 in {worker agency unemployed self-employed}
-          * circumstance is “birth”
-            * earnings_employment_1 is "yes" => outcome_birth_ma
-            * earnings_employment_1 is "no" => outcome_birth_nothing
-          * circumstance is “adoption” => outcome_adoption_nothing
+    * employment_status_1 is 'employee'
+      * job_after_y_1 is 'yes' => leave_1
+      * job_after_y_1 is 'no'
+        * circumstance is 'birth'
+          * earnings_employment_1 is 'yes' => outcome_birth_ma
+          * earnings_employment_1 is 'no' => outcome_birth_nothing
+        * circumstance is 'adoption' => outcome_adoption_nothing
+    * employment_status_1 in {worker agency unemployed self-employed}
+      * circumstance is 'birth'
+        * earnings_employment_1 is 'yes' => outcome_birth_ma
+        * earnings_employment_1 is 'no' => outcome_birth_nothing
+      * circumstance is 'adoption' => outcome_adoption_nothing
 * employment_status_2 in {unemployed self-employed}
-  * employment_status_1 is "employee"
-    * job_after_y_1 is "yes" => leave_1
-    * job_after_y_1 is “no”
-      * circumstance is “birth”
-        * earnings_employment_1 is "yes" => outcome_birth_ma
-        * earnings_employment_1 is "no" => outcome_birth_nothing
-      * circumstance is “adoption” => outcome_adoption_nothing
+  * employment_status_1 is 'employee'
+    * job_after_y_1 is 'yes' => leave_1
+    * job_after_y_1 is 'no'
+      * circumstance is 'birth'
+        * earnings_employment_1 is 'yes' => outcome_birth_ma
+        * earnings_employment_1 is 'no' => outcome_birth_nothing
+      * circumstance is 'adoption' => outcome_adoption_nothing
   * employment_status_1 in {worker agency unemployed self-employed}
-    * circumstance is “birth”
-      * earnings_employment_1 is "yes" => outcome_birth_ma
-      * earnings_employment_1 is "no" => outcome_birth_nothing
-    * circumstance is “adoption” => outcome_adoption_nothing
+    * circumstance is 'birth'
+      * earnings_employment_1 is 'yes' => outcome_birth_ma
+      * earnings_employment_1 is 'no' => outcome_birth_nothing
+    * circumstance is 'adoption' => outcome_adoption_nothing

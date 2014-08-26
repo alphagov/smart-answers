@@ -1,10 +1,8 @@
 # Due date
 
-## When is the baby due?
+# When is the baby due?
 
 [date: due_date]
 
-# Next node
-
-* single_parent is "yes" => employment_single
-* single_parent is "no" => employment_both
+* single_parent is 'yes' => employment_single
+* single_parent is 'no' => employment_both

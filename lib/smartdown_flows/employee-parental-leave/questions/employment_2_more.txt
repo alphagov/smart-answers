@@ -1,15 +1,13 @@
-#Further employment details partner/adopter
+# Further employment details partner/adopter
 
-##>390 66 weeks
+# >390 66 weeks
 
 [choice: earnings_employment_2]
 * yes: Yes
 * no: No
 
-# Next node
-
-* employment_1 is "employee"
-  * job_after_y_1 is "yes" => leave_1
-  * job_after_y_1 is “no” => TODO
-* employment_1 {self-employed unemployed} => TODO
-* employment_1 in [“worker”, “agency”] => TODO
+* employment_1 is 'employee'
+  * job_after_y_1 is 'yes' => leave_1
+  * job_after_y_1 is 'no' => TODO
+* employment_1 in {self-employed unemployed} => TODO
+* employment_1 in { worker agency} => TODO

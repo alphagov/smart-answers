@@ -1,18 +1,16 @@
 # Circumstances
 
-## Birth or adoption?
+# Birth or adoption?
 
 [choice: circumstance]
-* birth: birth
+* birth: Birth
 * adoption: Adoption
 
-## Are you a single parent?
+# Are you a single parent?
 
 [choice: single_parent]
 * yes: Yes
 * no: No
 
-# Next node
-
-* circumstance is "birth" => due_date
-* circumstance is "adoption" => adoption_dates
+* circumstance is 'birth' => due_date
+* circumstance is 'adoption' => adoption_dates

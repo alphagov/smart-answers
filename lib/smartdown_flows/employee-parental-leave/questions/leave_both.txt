@@ -1,53 +1,50 @@
 # Leave
 
-## Date leave planned mother/principal adopter
+# Date leave planned mother/principal adopter
 
 [date:date_leave_1]
 
-## Date leave planned partner
+# Date leave planned partner
 
 [date:date_leave_2]
-
-## Amount leave planned
-[amount_leave: amount_leave_2]
 
 # Next node
 
 * circumstance is "adoption"
-  * job_before_x_1 is "yes" AND job_after_y_1 is "yes" AND ler_1 is "yes"
+  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
     * match_date >= 05/04/2015
-      * earnings_employment_2 is "yes"
-        * earnings_employment_1 is "yes" => outcome_adoption_leave_pay_spl_patpay_patleave_patspl
-        * earnings_employment_1 is "no" => outcome_adoption_leave_pay_spl_patpay_patleave
+      * earnings_employment_2 is 'yes'
+        * earnings_employment_1 is 'yes' => outcome_adoption_leave_pay_spl_patpay_patleave_patspl
+        * earnings_employment_1 is 'no' => outcome_adoption_leave_pay_spl_patpay_patleave
       * otherwise
-        * earnings_employment_1 is "yes" => outcome_adoption_leave_pay_patpay_patleave_patspl
-        * earnings_employment_1 is "no" => outcome_adoption_leave_pay_patpay_patleave
+        * earnings_employment_1 is 'yes' => outcome_adoption_leave_pay_patpay_patleave_patspl
+        * earnings_employment_1 is 'no' => outcome_adoption_leave_pay_patpay_patleave
     * otherwise => outcome_adoption_leave_pay_patpay_patleave_additional
   * otherwise
     * match_date >= 05/04/2015
-      * earnings_employment_2 is "yes"
-        * earnings_employment_1 is "yes" => outcome_adoption_leave_spl_patpay_patleave_patspl
-        * earnings_employment_1 is "no" => outcome_adoption_leave_spl_patpay_patleave
+      * earnings_employment_2 is 'yes'
+        * earnings_employment_1 is 'yes' => outcome_adoption_leave_spl_patpay_patleave_patspl
+        * earnings_employment_1 is 'no' => outcome_adoption_leave_spl_patpay_patleave
       * otherwise
-        * earnings_employment_1 is "yes" => outcome_adoption_leave_patpay_patleave_patspl
-        * earnings_employment_1 is "no" => outcome_adoption_leave_patpay_patleave
+        * earnings_employment_1 is 'yes' => outcome_adoption_leave_patpay_patleave_patspl
+        * earnings_employment_1 is 'no' => outcome_adoption_leave_patpay_patleave
     * otherwise => outcome_adoption_leave_patpay_patleave_additional
 * circumstance is "birth"
-  * job_before_x_1 is "yes" AND job_after_y_1 is "yes" AND ler_1 is "yes"
+  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
     * due_date >= 05/04/2015
-      * earnings_employment_2 is "yes"
-        * earnings_employment_1 is "yes" => outcome_birth_leave_pay_spl_patpay_patleave_patspl
-        * earnings_employment_1 is "no" => outcome_birth_leave_pay_spl_patpay_patleave
+      * earnings_employment_2 is 'yes'
+        * earnings_employment_1 is 'yes' => outcome_birth_leave_pay_spl_patpay_patleave_patspl
+        * earnings_employment_1 is 'no' => outcome_birth_leave_pay_spl_patpay_patleave
       * otherwise
-        * earnings_employment_1 is "yes" => outcome_birth_leave_pay_patpay_patleave_patspl
-        * earnings_employment_1 is "no" => outcome_birth_leave_pay_patpay_patleave
+        * earnings_employment_1 is 'yes' => outcome_birth_leave_pay_patpay_patleave_patspl
+        * earnings_employment_1 is 'no' => outcome_birth_leave_pay_patpay_patleave
     * otherwise => outcome_birth_leave_pay_patpay_patleave_additional
   * otherwise
     * due_date >= 05/04/2015
-      * earnings_employment_2 is "yes"
-        * earnings_employment_1 is "yes" => outcome_birth_ma_leave_spl_patpay_patleave_patspl
-        * earnings_employment_1 is "no" => outcome_birth_leave_spl_patpay_patleave
+      * earnings_employment_2 is 'yes'
+        * earnings_employment_1 is 'yes' => outcome_birth_ma_leave_spl_patpay_patleave_patspl
+        * earnings_employment_1 is 'no' => outcome_birth_leave_spl_patpay_patleave
       * otherwise
-        * earnings_employment_1 is "yes" => outcome_birth_ma_leave_patpay_patleave_patspl
-        * earnings_employment_1 is "no" => outcome_birth_leave_patpay_patleave
+        * earnings_employment_1 is 'yes' => outcome_birth_ma_leave_patpay_patleave_patspl
+        * earnings_employment_1 is 'no' => outcome_birth_leave_patpay_patleave
     * otherwise => outcome_birth_leave_patpay_patleave_additional

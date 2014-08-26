@@ -1,6 +1,6 @@
 # Employment
 
-##What’s the employment status of the mother or PRINCIPAL ADOPTER?
+# What’s the employment status of the mother or PRINCIPAL ADOPTER?
 
 [choice: employment_status_1]
 * employee: Employee contract
@@ -9,7 +9,7 @@
 * self-employed: Self-employed
 * unemployed: Unemployed
 
-##Mother's partner/other adopter employment
+# Mother's partner/other adopter employment
 
 [choice: employment_status_2]
 * employee: Employee contract
@@ -18,11 +18,9 @@
 * self-employed: Self-employed
 * unemployed: Unemployed
 
-# Next node
-
 * employment_status_1 in {employee worker agency} => employment_1
 * employment_status_1 in {self-employed unemployed}
-  * circumstance is "birth" => employment_1_more
-  * circumstance is "adoption"
+  * circumstance is 'birth' => employment_1_more
+  * circumstance is 'adoption'
     * employment_status_2 in {employee worker agency} => employment_1_more
     * employment_status_2 in {self-employed unemployed} => outcome_adoption_nothing

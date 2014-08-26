@@ -1,6 +1,6 @@
 # Employment
 
-##What’s your employment status?
+# What’s your employment status?
 
 Read about the [types of employment](https://www.gov.uk/employment-status) if you aren’t sure what your employment status is.
 
@@ -11,10 +11,7 @@ Read about the [types of employment](https://www.gov.uk/employment-status) if yo
 * self-employed: Self-employed
 * unemployed: Unemployed
 
-
-# Next node
-
 * employment_status_1 in {employee worker agency} => employment_1
 * employment_status_1 in {self-employed unemployed}
-  * circumstance is "birth" => employment_1_more
-  * circumstance is "adoption" => outcome_adoption_nothing
+  * circumstance is 'birth' => employment_1_more
+  * circumstance is 'adoption' => outcome_adoption_nothing
