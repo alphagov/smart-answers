@@ -1,0 +1,14 @@
+# Adoption dates
+
+## When were you matched with the child?
+
+[date: match_date]
+
+## When will the child start to live with you?
+
+[date: placement_date]
+
+# Next node
+
+* single_parent is "yes" => employment_single
+* single_parent is "no" => employment_both
