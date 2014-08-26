@@ -38,5 +38,10 @@ module SmartdownAdapter
       end
       use_smartdown_question
     end
+
+    def self.flows
+      # @TODO: Refactor, this calls build_flow twice
+      self.smartdown_questions.map { |name| build_flow(name) if check(name) }.compact
+    end
   end
 end
