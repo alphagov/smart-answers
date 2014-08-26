@@ -115,9 +115,8 @@ module SmartdownAdapter
 
     def process_inputs(responses)
       responses.map do |response|
-        date_match = /day=(\d*)&month=(\d*)&year=(\d*)/.match(response)
-        if date_match
-          "#{date_match[3]}-#{date_match[2]}-#{date_match[1]}"
+        if response.is_a? Hash
+          "#{response[:year]}-#{response[:month]}-#{response[:day]}"
         else
           response
         end
