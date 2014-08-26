@@ -1315,10 +1315,10 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       end
     end
 
-    context "check new non automatic ni group" do
+    context "Non automatic ni group and born on 29th of February (dynamic date group)" do
       setup do
         add_response :female
-        add_response Date.parse('6 April 1960')
+        add_response Date.parse('29 February 1960')
         add_response :no
         add_response 0
         add_response 0
@@ -1326,13 +1326,13 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       end
       should "ask if worked abroad" do
         assert_current_node :lived_or_worked_outside_uk?
+        assert_state_variable :state_pension_date, Date.parse("01 Mar 2026")
       end
     end
-    context "check new non automatic ni group" do
+    context "Non automatic ni group (with child benefit) and born on 29th of February (dynami date group)" do
       setup do
         add_response :female
-        add_response Date.parse('6 April 1960')
-        add_response :no
+        add_response Date.parse('29 February 1964')
         add_response 0
         add_response 0
         add_response :yes
@@ -1342,6 +1342,18 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       end
       should "ask if worked abroad" do
         assert_current_node :lived_or_worked_outside_uk?
+        assert_state_variable :state_pension_date, Date.parse("01 Mar 2031")
+      end
+    end
+    context "Check state pension age date if born on 29th of february (static date group)" do
+      setup do
+        add_response :female
+        add_response Date.parse('29 February 1952')
+      end
+      should "show pension age reached outcome with correct pension age date" do
+        assert_current_node :reached_state_pension_age
+        assert_state_variable :state_pension_date, Date.parse("06 Jan 2014")
+        assert_state_variable :dob, "1952-02-29"
       end
     end
   end #amount calculation
