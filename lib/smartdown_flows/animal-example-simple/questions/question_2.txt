@@ -1,12 +1,10 @@
-# Are you trained for Lions?
+# Are you trained for lions?
 
-Think very carefully.
-
-[choice: question_2]
+[choice: trained_for_lions]
 * yes: Yes
 * no: No
 
 * question_1 is 'lion'
-  * question_2 is 'yes' => outcome_trained_with_lions
+  * trained_for_lions is 'yes' => outcome_trained_with_lions
   * otherwise => outcome_untrained_with_lions
 * otherwise => outcome_tigers_are_fine

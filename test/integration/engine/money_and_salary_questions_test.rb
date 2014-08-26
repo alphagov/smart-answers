@@ -9,7 +9,6 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
 
       within '.current-question' do
         within 'h2' do
-          within('.question-number') { assert_page_has_content "1" }
           assert_page_has_content "How much do you earn?"
         end
         within '.question-body' do
@@ -28,7 +27,6 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
         within('.start-again') { assert page.has_link?("Start again", href: '/money-and-salary-sample') }
         within 'ol li.done' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "How much do you earn?"
           end
           within('.answer') { assert_page_has_content "£5,000 per month" }
@@ -38,7 +36,6 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
 
       within '.current-question' do
         within 'h2' do
-          within('.question-number') { assert_page_has_content "2" }
           assert_page_has_content "What size bonus do you want?"
         end
         within '.question-body' do
@@ -55,7 +52,6 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
         within('.start-again') { assert page.has_link?("Start again", href: '/money-and-salary-sample') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "How much do you earn?"
           end
           within('.answer') { assert_page_has_content "£5,000 per month" }
@@ -63,7 +59,6 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "2" }
             assert_page_has_content "What size bonus do you want?"
           end
           within('.answer') { assert_page_has_content "£1,000,000" }

@@ -9,7 +9,6 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       within '.current-question' do
         within 'h2' do
-          within('.question-number') { assert_page_has_content "1" }
           assert_page_has_content "What do you want on your pizza?"
         end
         within '.question-body' do
@@ -33,7 +32,6 @@ class CheckboxQuestionsTest < EngineIntegrationTest
         within('.start-again') { assert page.has_link?("Start again", href: '/checkbox-sample') }
         within 'ol li.done' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What do you want on your pizza?"
           end
           within '.answer' do
@@ -60,7 +58,6 @@ class CheckboxQuestionsTest < EngineIntegrationTest
         within('.start-again') { assert page.has_link?("Start again", href: '/checkbox-sample') }
         within 'ol li.done' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What do you want on your pizza?"
           end
           within('.answer') { assert_page_has_content "none" }

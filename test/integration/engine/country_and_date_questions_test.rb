@@ -24,7 +24,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
       within '.current-question' do
         within 'h2' do
-          within('.question-number') { assert_page_has_content "1" }
           assert_page_has_content "Which country do you live in?"
         end
       end
@@ -49,7 +48,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         within('.start-again') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "Which country do you live in?"
           end
           within('.answer') { assert_page_has_content "Belarus" }
@@ -59,7 +57,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
       within '.current-question' do
         within 'h2' do
-          within('.question-number') { assert_page_has_content "2" }
           assert_page_has_content "What date did you move there?"
         end
       end
@@ -82,7 +79,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         within('.start-again') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "Which country do you live in?"
           end
           within('.answer') { assert_page_has_content "Belarus" }
@@ -91,7 +87,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "2" }
             assert_page_has_content "What date did you move there?"
           end
 
@@ -102,7 +97,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
       within '.current-question' do
         within 'h2' do
-          within('.question-number') { assert_page_has_content "3" }
           assert_page_has_content "Which country were you born in?"
         end
       end
@@ -127,7 +121,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         within('.start-again') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "Which country do you live in?"
           end
           within('.answer') { assert_page_has_content "Belarus" }
@@ -136,7 +129,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "2" }
             assert_page_has_content "What date did you move there?"
           end
 
@@ -146,7 +138,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
         within 'ol li.done:nth-child(3)' do
           within 'h3' do
-            within('.question-number') { assert_page_has_content "3" }
             assert_page_has_content "Which country were you born in?"
           end
 
@@ -175,7 +166,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
     within '.current-question' do
       within 'h2' do
-        within('.question-number') { assert_page_has_content "1" }
         assert_page_has_content "Which country do you live in?"
       end
     end
@@ -193,7 +183,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       within('.start-again') { assert page.has_link?("Start again", href: '/country-legacy-sample') }
       within 'ol li.done:nth-child(1)' do
         within 'h3' do
-          within('.question-number') { assert_page_has_content "1" }
           assert_page_has_content "Which country do you live in?"
         end
         within('.answer') { assert_page_has_content "Belarus" }
@@ -203,7 +192,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
     within '.current-question' do
       within 'h2' do
-        within('.question-number') { assert_page_has_content "2" }
         assert_page_has_content "Which country were you born in?"
         assert page.has_xpath? "//select/option[@value = 'united-kingdom']"
       end
