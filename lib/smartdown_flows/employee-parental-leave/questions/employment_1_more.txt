@@ -21,9 +21,9 @@
     * circumstance is 'adoption' => outcome_adoption_nothing
 * single_parent is 'no'
   * employment_status_2 in {employee worker contract} => employment_2
-  * employment_status_2 in {self-employed unemployed} =>
-    * employment_status_1 is {employee worker agency} =>
-      * match_date >= 05/04/2015 => employment_2_more
+  * employment_status_2 in {self-employed unemployed}
+    * employment_status_1 in {employee worker agency}
+      * match_date is '2015-4-5' => employment_2_more
       * otherwise => leave_1
     * employment_status_1 is 'self-employed'
       * circumstance is 'birth'

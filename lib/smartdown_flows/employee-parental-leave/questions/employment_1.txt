@@ -1,12 +1,12 @@
 # Employment mother/principal adopter
 
-# Job before %{minimum_start_date}
+# Job before TODO: minimum_start_date
 
 [choice: job_before_x_1]
 * yes: Yes
 * no: No
 
-# Job after %{minimum_end_date}
+# Job after TODO: minimum_end_date
 
 [choice: job_after_y_1]
 * yes: Yes
@@ -14,7 +14,9 @@
 
 # Salary
 
-[salary : salary_1]
+TODO: this should be a salary
+
+[date: salary_1]
 
 # >LER, 8 weeks
 
@@ -22,25 +24,27 @@
 * yes: Yes
 * no: No
 
-* job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+TODO:  job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+
+* job_before_x_1 is 'yes'
   * single_parent is 'yes' => leave_1
   * single_parent is 'no'
     * employment_status_2 in {employee worker agency} => employment_2
     * employment_status_2 in {self-employed unemployed}
       * circumstance is 'birth'
-        * due_date >= 05/04/2015 => employment_2_more
+        * due_date is '2015-4-5' => employment_2_more
         * otherwise => leave_1
       * circumstance is 'adoption'
-        * placement_date >= 05/04/2015 => employment_2_more
+        * placement_date is '2015-4-5' => employment_2_more
         * otherwise => leave_1
 * otherwise
   * circumstance is 'birth' => employment_1_more
   * circumstance is 'adoption'
     * single_parent is 'yes'
-      * placement_date >= 05/04/2015 => outcome_adoption_leave
+      * placement_date is '2015-4-5' => outcome_adoption_leave
       * otherwise => outcome_adoption_nothing
     * single_parent is 'no'
       * employment_status_2 in {employee worker agency} => employment_1_more
       * employment_status_2 in {self-employed unemployed}
-        * placement_date >= 05/04/2015 => outcome_adoption_leave
+        * placement_date is '2015-4-5' => outcome_adoption_leave
         * otherwise => outcome_adoption_nothing
