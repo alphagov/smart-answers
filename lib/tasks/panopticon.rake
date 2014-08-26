@@ -8,7 +8,10 @@ namespace :panopticon do
     logger.info "Registering with panopticon..."
     registerer = GdsApi::Panopticon::Registerer.new(owning_app: "smartanswers", kind: "smart-answer")
 
+    puts "Looking up flows, with options: #{FLOW_REGISTRY_OPTIONS}"
+
     unique_registerables.each { |registerable|
+      puts "Registering flow: #{registerable.slug} => #{registerable.title}"
       registerer.register(registerable)
     }
   end
