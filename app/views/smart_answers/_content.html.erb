@@ -29,7 +29,7 @@
               <%= render partial: "current_question", locals: {question: question, number: question_index + 1} %>
             <% end %>
           <% else %>
-            <%= render partial: "current_question", locals: {question: @presenter.questions.first, number: 0} %>
+            <%= render partial: "current_question", locals: {question: @presenter.questions.first, number: nil} %>
           <% end %>
           <div class="next-question">
             <input type="hidden" name="next" value="1" />
