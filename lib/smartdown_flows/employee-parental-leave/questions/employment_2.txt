@@ -14,7 +14,7 @@
 
 # Salary
 
-[salary : salary_2]
+[salary: salary_2]
 
 # >LER, 8 weeks
 

@@ -22,6 +22,8 @@ module SmartdownAdapter
         "multiple_choice_question"
       when Smartdown::Api::DateQuestion
         "date_question"
+        when Smartdown::Api::SalaryQuestion
+        "salary_question"
       end
     end
 

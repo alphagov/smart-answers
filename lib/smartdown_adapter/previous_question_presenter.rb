@@ -16,8 +16,11 @@ module SmartdownAdapter
     def response_label(response_key)
       case smartdown_previous_question.question
         when Smartdown::Api::MultipleChoice
+          p smartdown_previous_question.question
           smartdown_previous_question.options.find{|option| option.value == response_key}.label
         when Smartdown::Api::DateQuestion
+          response_key
+        when Smartdown::Api::SalaryQuestion
           response_key
       end
     end

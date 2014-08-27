@@ -116,7 +116,11 @@ module SmartdownAdapter
     def process_inputs(responses)
       responses.map do |response|
         if response.is_a? Hash
-          "#{response[:year]}-#{response[:month]}-#{response[:day]}"
+          if response.has_key?(:day)
+            "#{response[:year]}-#{response[:month]}-#{response[:day]}"
+          elsif response.has_key?(:amount)
+            "#{response[:amount]}-#{response[:period]}"
+          end
         else
           response
         end
