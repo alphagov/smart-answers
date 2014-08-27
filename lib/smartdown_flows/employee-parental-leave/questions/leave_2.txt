@@ -1,0 +1,36 @@
+# Leave
+
+# Date leave planned
+
+[date:date_leave_2]
+
+* circumstance is 'adoption'
+  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+    * match_date >= '2015-4-5'
+      * earnings_employment_2 is 'yes'
+        * earnings_employment_1 is 'yes' => outcome_adoption_pay_spl_patleave_patpay_patspl
+        * earnings_employment_1 is 'no' => outcome_adoption_pay_spl_patleave_patpay
+      * earnings_employment_2 is 'no'
+        * earnings_employment_1 is 'yes' => outcome_adoption_pay_patleave_patpay_patspl
+        * earnings_employment_1 is 'no' => outcome_adoption_pay_patleave_patpay
+    * otherwise => outcome_adoption_pay_patleave_patpay_additional
+  * otherwise
+    * match_date >= '2015-4-5'
+      * earnings_employment_1 is 'yes' => outcome_adoption_patleave_patpay_patspl
+      * earnings_employment_1 is 'no' => outcome_adoption_patleave_patpay
+    * otherwise => outcome_adoption_patleave_patpay_additional
+* circumstance is 'birth'
+  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+    * match_date >= '2015-4-5'
+      * earnings_employment_2 is 'yes'
+        * earnings_employment_1 is 'yes' => outcome_birth_pay_spl_patleave_patpay_patspl
+        * earnings_employment_1 is 'no' => outcome_birth_pay_spl_patleave_patpay
+      * earnings_employment_2 is 'no'
+        * earnings_employment_1 is 'yes' => outcome_birth_pay_patleave_patpay_patspl
+        * earnings_employment_1 is 'no' => outcome_birth_pay_patleave_patpay
+    * otherwise => outcome_adoption_pay_patleave_patpay_additional
+  * otherwise
+    * match_date >= '2015-4-5'
+      * earnings_employment_1 is 'yes' => outcome_birth_ma_patleave_patpay_patspl
+      * earnings_employment_1 is 'no' => outcome_birth_patleave_patpay
+    * otherwise => outcome_birth_patleave_patpay_additional
