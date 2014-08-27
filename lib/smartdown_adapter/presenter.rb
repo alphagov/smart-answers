@@ -33,6 +33,10 @@ module SmartdownAdapter
       current_node.questions
     end
 
+    def page_title
+      current_node.title
+    end
+
     def current_node
       @current_node ||= presenter_for_current_node
     end
