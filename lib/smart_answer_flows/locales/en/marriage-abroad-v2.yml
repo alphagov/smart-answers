@@ -146,15 +146,14 @@ en-GB:
       #what you need to do phrases
         what_you_need_to_do: |
           ##What you need to do
-        what_you_need_to_do_may_ask: |
+        what_you_need_to_do_affirmation: |
           ##What you need to do
 
           You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
-
-        what_you_need_to_do_will_ask: |
+        what_you_need_to_do_affidavit: |
           ##What you need to do
 
-          You will be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
+          You may be asked to provide an ‘affidavit for marriage’ document to prove you’re allowed to marry.
         make_an_appointment: |
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
       #affidavit phrases
@@ -187,6 +186,10 @@ en-GB:
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
+        affidavit_os_translation_in_local_language: |
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
+          ^You might need to get your affidavit [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
         affirmation_os_translation_in_local_language_portugal: |
           $C
           British Embassy
@@ -229,6 +232,19 @@ en-GB:
           Service | Fee
           -|-
           Affidavit for marriage | £55
+
+        fee_table_affirmation_65: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Affirmation for marriage | £65
+        fee_table_affidavit_65: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Affidavit for marriage | £65
 
       #other phrases
         partner_equivalent_document: |
@@ -590,7 +606,7 @@ en-GB:
           You might need to exchange your UK-issued CNI for one that’s valid in Montenegro at the British Embassy in Podgorica.
 
           Contact the embassy to make an appointment. You’ll need to pay the fee for issuing a CNI or equivalent - see below. Check with the local authorities to make sure they’ll accept your UK-issued CNI, and whether it needs to be:
-        consular_cni_os_uk_resident_poland_kazak_kyrg: |
+        consular_cni_os_uk_legalisation_check_with_authorities: |
           ###Legalisation and translation
 
           You should check with the local authorities in %{country_name_lowercase_prefix} to see if your CNI needs to be:
