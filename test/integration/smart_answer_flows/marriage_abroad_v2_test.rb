@@ -8,7 +8,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(american-samoa argentina anguilla armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma cambodia canada china cote-d-ivoire croatia cyprus czech-republic denmark egypt estonia finland france germany indonesia iran ireland italy japan jordan kazakhstan latvia lebanon lithuania mayotte mexico monaco netherlands nicaragua north-korea guatemala paraguay peru philippines poland portugal qatar russia saudi-arabia serbia slovakia south-africa st-maarten south-korea spain sweden switzerland thailand turkey united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
+    @location_slugs = %w(american-samoa argentina anguilla armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma cambodia canada china cote-d-ivoire croatia cyprus czech-republic denmark egypt estonia finland france germany indonesia iran ireland italy japan jordan kazakhstan latvia lebanon lithuania mayotte mexico monaco morocco netherlands nicaragua north-korea guatemala paraguay peru philippines poland portugal qatar russia saudi-arabia serbia slovakia south-africa st-maarten south-korea spain sweden switzerland thailand turkey united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad-v2'
   end
@@ -2033,7 +2033,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_current_node :outcome_cp_all_other_countries
     end
   end
-  context "Testing if the address box shows the Belarus' address" do
+  context "test Belarus' address box" do
     setup do
       worldwide_api_has_organisations_for_location('belarus', read_fixture_file('worldwide/belarus_organisations.json'))
       worldwide_api_has_organisations_for_location('armenia', read_fixture_file('worldwide/armenia_organisations.json'))
@@ -2048,6 +2048,21 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_start, [:other_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_foreign_resident_ceremony_not_germany_italy, :consular_cni_os_foreign_resident_ceremony_country_not_germany, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany, :consular_cni_os_foreign_resident_ceremony_not_italy]
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_foreign_commonwealth_roi_resident, :pay_by_cash_or_credit_card_no_cheque]
       assert_match /37, Karl Marx Street/, outcome_body
+    end
+  end
+
+  context "test morocco outcome" do
+    setup do
+      worldwide_api_has_organisations_for_location('morocco', read_fixture_file('worldwide/morocco_organisations.json'))
+      add_response 'morocco'
+      add_response 'uk'
+      add_response 'uk_england'
+      add_response 'partner_british'
+      add_response 'opposite_sex'
+    end
+    should "go to os affirmation outcome" do
+      assert_current_node :outcome_os_affirmation
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :contact_marriage_officer, :affirmation_os_translation_in_local_language, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :morocco_affidavit_length, :affirmation_os_partner_british, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 end

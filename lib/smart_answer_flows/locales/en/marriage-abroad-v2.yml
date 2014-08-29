@@ -19,21 +19,19 @@ en-GB:
         *[GRO]:General Register Office
 
       phrases:
-#marriage & marriage and partnership phrases
         ceremony_type_marriage: Marriage
         ceremony_type_civil_partnership: Civil partnership
         clickbook_link: |
           [Book an appointment online](%{clickbook_data})
         clickbook_links: |
           +[data_partial:clickbooks:clickbook_data]
-#same sex marriage phrases
+# same sex marriage phrases
         title_ss_marriage: Same-sex marriage
         title_ss_marriage_and_partnership: Same-sex marriage and civil partnership
         able_to_ss_marriage: |
           You may be able to get married at the British embassy or consulate in %{country_name_lowercase_prefix}.
         able_to_ss_marriage_and_partnership: |
           You may be able to register a civil partnership or get married at the British embassy or consulate in %{country_name_lowercase_prefix}.
-#common for both
         documents_needed_ss_british: |
           ##What documents you’ll need
 
@@ -52,7 +50,7 @@ en-GB:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
-#marriage & marriage and partnership phrases
+# marriage & marriage and partnership phrases
         what_to_do_ss_marriage: |
           ##What you need to do
 
@@ -67,10 +65,9 @@ en-GB:
 
           -  a notice of registration
           -  a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry or enter into a civil partnership
-#common for both
         will_display_in_14_days: |
           Once you’ve submitted these and paid the registration fee (read the fees table on this page), the embassy or consulate will display your notice publicly for 14 days.
-#marriage & marriage and partnership phrases
+# marriage & marriage and partnership phrases
         no_objection_in_14_days_ss_marriage: |
           As long as nobody registers an objection during the 14 days, the registration officer can then register your marriage any time until 3 months after you gave notice.
         no_objection_in_14_days_ss_marriage_and_partnership: |
@@ -79,10 +76,9 @@ en-GB:
           You’ll need to provide two witnesses and pay a fee to register your marriage. You’ll need to pay an additional fee for your marriage certificate (read the fees table on this page).
         provide_two_witnesses_ss_marriage_and_partnership: |
           You’ll need to provide 2 witnesses and pay a fee to register your marriage or civil partnership. You’ll need to pay an additional fee for your marriage or civil partnership certificate (read the fees table on this page).
-#common for both
         ss_marriage_footnote: |
           ^All same-sex marriages must take place under English and Welsh law even if you live in or are from Scotland or Northern Ireland. Tell the embassy or consulate which law you want to get married under at your appointment.^
-#marriage & marriage and partnership phrases
+# marriage & marriage and partnership phrases
         fees_table_ss_marriage: |
           ##Fees
 
@@ -99,7 +95,7 @@ en-GB:
           Receiving a notice of registration | £65
           Registering a marriage or civil partnership | £140
           Issuing a marriage or civil partnership certificate | £65
-#extra marriage & marriage and partnership phrases
+# additional marriage & marriage and partnership phrases
         fees_table_ss_marriage_alt: |
           ##Fees
 
@@ -116,16 +112,16 @@ en-GB:
           * civil partnership (Queensland)
           * significant relationship (Tasmania)
           * registered domestic relationship (Victoria)
-#Reusable phrases
-    #titles
+# Reusable phrases
+# titles
         marriage_title: Marriage in %{country_name_lowercase_prefix}
         same_sex_marriage_title: Same-sex in %{country_name_lowercase_prefix}
-    #embassies
+# embassies
         contact_embassy_or_consulate: |
           Contact your local embassy or consulate to make an appointment.
         embassies_data: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-    #payment methods
+# payment methods
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
         pay_in_local_currency: |
@@ -136,14 +132,16 @@ en-GB:
           You can pay by cash (euros only) or credit card (but not Visa Electron).
         pay_in_cash_or_manager_cheque: |
           You can pay in cash or with a bank manager's cheque made payable to 'British Embassy'.
-    #fees
+        pay_in_cash_visa_or_mastercard: |
+          ^You can pay by cash in the local currency in %{country_name_lowercase_prefix}. You can also pay by Visa or Mastercard, other types of credit card and debit cards are not accepted.^
+#fees
         list_of_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
         list_of_consular_kazakhstan: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
         list_of_consular_fees_france: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/france-consular-fees).
-      #what you need to do phrases
+# "what you need to do" phrases
         what_you_need_to_do: |
           ##What you need to do
         what_you_need_to_do_affirmation: |
@@ -156,7 +154,7 @@ en-GB:
           You may be asked to provide an ‘affidavit for marriage’ document to prove you’re allowed to marry.
         make_an_appointment: |
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
-      #affidavit phrases
+# affidavit phrases
         complete_affidavit: |
           You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit.  Take the completed form with you to your appointment.
 
@@ -177,7 +175,7 @@ en-GB:
         appointment_for_affidavit_notary: |
           Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
 
-      #partner affirmation phrases
+# partner affirmation phrases
         partner_affirmation_needed: |
           ^Your partner will need to get an affirmation as well.^
         partner_affidavit_needed: |
@@ -204,7 +202,7 @@ en-GB:
           $C
 
           ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
-      #fee tables
+# fee tables
         fee_table_45_70_55: |
           ##Fees
 
@@ -232,21 +230,30 @@ en-GB:
           Service | Fee
           -|-
           Affidavit for marriage | £55
-
-        fee_table_affirmation_65: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Affirmation for marriage | £65
         fee_table_affidavit_65: |
           ##Fees
 
           Service | Fee
           -|-
           Affidavit for marriage | £65
+        fee_table_affirmation_55: |
+          ##Fees
 
-      #other phrases
+          Service | Fee
+          -|-
+          Affirmation for marriage | £55
+        fee_table_affirmation_65: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Affirmation for marriage | £65
+
+#other phrases
+        contact_marriage_officer: |
+          You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
+        morocco_affidavit_length: |
+          ^An 'affirmation for marriage' document issued in Morocco is valid for 3 months.^
         partner_equivalent_document: |
           ^Your partner will probably need to get an equivalent document from their national authorities.^
         partner_declaration: |
@@ -279,7 +286,7 @@ en-GB:
           Make an [appointment online](https://ukincroatia.clickbook.net/sub/ukincroatia) at the British Embassy Zagreb.
         contact_civil_register_office_portugal: |
           Contact your nearest [Civil Register Office](http://www.irn.mj.pt/IRN/sections/irn/a_registral/servicos-externos-docs/contactos/contactos-dos-servicos-civil/) in Portugal to find out about local marriage laws, including what documents you’ll need.
-#book online phrases
+# "book online" phrases
         book_online_bolivia: |
           Make an [appointment online](https://britishembassylapaz.clickbook.net/sub/britishembassylapaz) at the British Embassy in La Paz.
         book_online_chile: |
@@ -998,7 +1005,7 @@ en-GB:
           You can pay by cash or credit card in Moscow, but not by personal cheque.
 
           You can pay by credit card only in St Petersburg and Ekaterinburg.
-# France phrases
+# France and French Overseas Territories phrases
         fot_os_all: |
           %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
 # Affirmation to marry phrases

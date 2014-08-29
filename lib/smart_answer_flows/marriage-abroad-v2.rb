@@ -762,8 +762,10 @@ outcome :outcome_os_consular_cni do
       end
     end
     if not data_query.countries_without_consular_facilities?(ceremony_country)
-      if %w(armenia bosnia-and-herzegovina cambodia iceland kazakhstan latvia luxembourg slovenia tunisia tajikistan).include?(ceremony_country)
+      if %w(armenia bosnia-and-herzegovina cambodia iceland kazakhstan latvia slovenia tunisia tajikistan).include?(ceremony_country)
         phrases << :pay_in_local_currency_ceremony_country_name
+      elsif %w(luxembourg).include?(ceremony_country)
+        phrases << :pay_in_cash_visa_or_mastercard
       elsif %w(russia).include?(ceremony_country)
         phrases << :consular_cni_os_fees_russia
       elsif %w(cote-d-ivoire).exclude?(ceremony_country)
@@ -841,6 +843,7 @@ outcome :outcome_os_affirmation do
       elsif %w(finland).include?(ceremony_country) && %w(partner_irish).include?(partner_nationality) && %w(uk).include?(resident_of)
         phrases << :affidavit_os_translation_in_local_language
       else
+        phrases << :contact_marriage_officer if %w(morocco).include?(ceremony_country)
         phrases << :affirmation_os_translation_in_local_language
       end
     end
@@ -869,22 +872,25 @@ outcome :outcome_os_affirmation do
     end
     if not %w(egypt).include?(ceremony_country)
       if %w(turkey).include?(ceremony_country)
-        if not %w(partner_british).include?(partner_nationality)
-          phrases << :affirmation_os_partner_not_british_turkey
-        else
+        if %w(partner_british).include?(partner_nationality)
           phrases << :affirmation_os_partner
+        else
+          phrases << :affirmation_os_partner_not_british_turkey
         end
       else
-        if not %w(partner_british).include?(partner_nationality)
-          phrases << :affirmation_os_partner_not_british
-        else
+        phrases << :morocco_affidavit_length if %w(morocco).include?(ceremony_country)
+        if %w(partner_british).include?(partner_nationality)
           phrases << :affirmation_os_partner_british
+        else
+          phrases << :affirmation_os_partner_not_british
         end
       end
     end
 #fee tables
     if %w(china south-korea thailand turkey vietnam).include?(ceremony_country)
       phrases << :fee_table_affidavit_55
+    elsif %w(morocco).include?(ceremony_country)
+      phrases << :fee_table_affirmation_55
     elsif %w(finland).include?(ceremony_country)
       if %w(partner_irish).include?(partner_nationality) && %w(uk).include?(resident_of)
         phrases << :fee_table_affidavit_65
@@ -1020,8 +1026,10 @@ outcome :outcome_cp_cp_or_equivalent do
         phrases << :list_of_consular_fees
       end
     end
-    if %w(iceland luxembourg slovenia).include?(ceremony_country)
+    if %w(iceland slovenia).include?(ceremony_country)
       phrases << :pay_in_local_currency
+    elsif %w(luxembourg).include?(ceremony_country)
+      phrases << :pay_in_cash_visa_or_mastercard
     elsif %w(czech-republic cote-d-ivoire).exclude?(ceremony_country)
       phrases << :pay_by_cash_or_credit_card_no_cheque
     end

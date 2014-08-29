@@ -15,11 +15,11 @@ module SmartAnswer::Calculators
 
     OS_NO_CONSULAR_CNI_COUNTRIES = %w(argentina czech-republic democratic-republic-of-congo mexico senegal slovakia taiwan usa uruguay)
 
-    OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo costa-rica cote-d-ivoire curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq israel kosovo laos liberia liechtenstein macao madagascar mali marshall-islands mauritania micronesia monaco morocco nicaragua niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara)
+    OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo costa-rica cote-d-ivoire curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq israel kosovo laos liberia liechtenstein macao madagascar mali marshall-islands mauritania micronesia monaco nicaragua niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara)
 
     OS_OTHER_COUNTRIES = %w(burma north-korea iran somalia syria yemen saudi-arabia)
 
-    OS_AFFIRMATION_COUNTRIES = %w(china egypt lebanon finland mongolia peru philippines portugal qatar south-korea thailand turkey united-arab-emirates vietnam)
+    OS_AFFIRMATION_COUNTRIES = %w(china egypt lebanon finland mongolia morocco peru philippines portugal qatar south-korea thailand turkey united-arab-emirates vietnam)
 
     CP_EQUIVALENT_COUNTRIES = %w(austria belgium brazil colombia czech-republic denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia sweden)
 
