@@ -12,8 +12,8 @@ module SmartdownAdapter
     end
 
     def self.smartdown_transition_questions
-      smartdown_questions.select { |smartdown_question_name|
-        build_flow(name)
+      smartdown_questions.select { |name|
+        smartdown_flow = build_flow(name)
         smartdown_flow.transition?
       }
     end
