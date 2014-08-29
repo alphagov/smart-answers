@@ -135,16 +135,16 @@ module SmartdownAdapter
       smartdown_node = smartdown_state.current_node
       case smartdown_node
         when Smartdown::Api::QuestionPage
-          QuestionPagePresenter.new(smartdown_node)
+          SmartdownAdapter::QuestionPagePresenter.new(smartdown_node)
         else
-          NodePresenter.new(smartdown_node)
+          SmartdownAdapter::NodePresenter.new(smartdown_node)
       end
 
     end
 
     def presenters_for_previous_nodes
       smartdown_state.previous_question_pages(@processed_responses).map do |smartdown_previous_question_page|
-        PreviousQuestionPagePresenter.new(smartdown_previous_question_page)
+        SmartdownAdapter::PreviousQuestionPagePresenter.new(smartdown_previous_question_page)
       end
     end
 

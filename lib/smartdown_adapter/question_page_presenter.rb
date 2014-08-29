@@ -12,9 +12,9 @@ module SmartdownAdapter
       @smartdown_question_page.questions.map do |smartdown_question|
         case smartdown_question
         when Smartdown::Api::DateQuestion
-          DateQuestionPresenter.new(smartdown_question)
+          SmartdownAdapter::DateQuestionPresenter.new(smartdown_question)
         else
-          QuestionPresenter.new(smartdown_question)
+          SmartdownAdapter::QuestionPresenter.new(smartdown_question)
         end
       end
     end
