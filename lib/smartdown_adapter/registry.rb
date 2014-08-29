@@ -25,6 +25,7 @@ module SmartdownAdapter
     end
 
     def self.check(name, options = FLOW_REGISTRY_OPTIONS)
+      binding.pry
       show_drafts = options.fetch(:show_drafts, false)
       show_transitions = options.fetch(:show_transitions, false)
       use_smartdown_question = false
