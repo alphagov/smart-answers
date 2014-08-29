@@ -6,7 +6,7 @@ module SmartdownAdapter
 
     def questions
       @smartdown_previous_question_page.questions.map do |smartdown_previous_question|
-        PreviousQuestionPresenter.new(smartdown_previous_question)
+        SmartdownAdapter::PreviousQuestionPresenter.new(smartdown_previous_question)
       end
     end
   end
