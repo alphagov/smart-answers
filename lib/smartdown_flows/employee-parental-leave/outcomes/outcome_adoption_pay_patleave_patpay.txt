@@ -1,0 +1,23 @@
+# Outcome adoption pay patleave patpay
+
+## Adoption
+
+%{snippet_adoption}
+
+## Pay
+
+the mother or principal adopter is entitled to pay
+
+%{snippet_pay}
+
+## Patleave
+
+the partner is entitled to paternity leave
+
+%{snippet_patleave}
+
+## Patpay
+
+the partner is entitled to paternity pay
+
+%{snippet_patpay}

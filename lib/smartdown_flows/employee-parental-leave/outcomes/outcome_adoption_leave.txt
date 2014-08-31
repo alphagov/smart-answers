@@ -1,0 +1,11 @@
+# Outcome adoption leave
+
+## Adoption
+
+%{snippet_adoption}
+
+## Leave
+
+the mother or principal adopter is entitled to leave
+
+%{snippet_leave}

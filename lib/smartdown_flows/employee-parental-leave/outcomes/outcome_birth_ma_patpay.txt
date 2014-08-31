@@ -1,0 +1,17 @@
+# Outcome birth ma patpay
+
+## Birth
+
+%{snippet_birth}
+
+## Ma
+
+the mother is entitled to maternity allowance
+
+%{snippet_ma}
+
+## Patpay
+
+the partner is entitled to paternity pay
+
+%{snippet_patpay}

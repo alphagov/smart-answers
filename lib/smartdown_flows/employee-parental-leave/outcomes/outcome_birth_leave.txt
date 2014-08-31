@@ -1,0 +1,11 @@
+# Outcome birth leave
+
+## Birth
+
+%{snippet_birth}
+
+## Leave
+
+the mother or principal adopter is entitled to leave
+
+%{snippet_leave}

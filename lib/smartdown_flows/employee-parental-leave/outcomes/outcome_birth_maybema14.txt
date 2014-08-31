@@ -1,0 +1,9 @@
+# Outcome birth maybema14
+
+## Birth
+
+%{snippet_birth}
+
+## Maybema14
+
+%{snippet_maybema14}

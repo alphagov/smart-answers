@@ -1,0 +1,9 @@
+# Outcome birth nothing
+
+## Birth
+
+%{snippet_birth}
+
+## Nothing
+
+%{snippet_nothing}

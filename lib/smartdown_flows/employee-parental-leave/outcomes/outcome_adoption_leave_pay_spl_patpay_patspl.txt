@@ -1,0 +1,35 @@
+# Outcome adoption leave pay spl patpay patspl
+
+## Adoption
+
+%{snippet_adoption}
+
+## Leave
+
+the mother or principal adopter is entitled to leave
+
+%{snippet_leave}
+
+## Pay
+
+the mother or principal adopter is entitled to pay
+
+%{snippet_pay}
+
+## Spl
+
+the mother or principal adopter is entitled to shared parental leave (if entitled to leave) and shared parental pay (if entitled to pay)
+
+%{snippet_spl}
+
+## Patpay
+
+the partner is entitled to paternity pay
+
+%{snippet_patpay}
+
+## Patspl
+
+the partner is entitled to shared parental leave (if entitled to leave) and shared parental pay (if entitled to pay)
+
+%{snippet_patspl}

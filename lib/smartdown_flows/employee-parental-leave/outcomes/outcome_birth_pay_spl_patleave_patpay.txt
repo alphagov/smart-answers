@@ -1,0 +1,29 @@
+# Outcome birth pay spl patleave patpay
+
+## Birth
+
+%{snippet_birth}
+
+## Pay
+
+the mother or principal adopter is entitled to pay
+
+%{snippet_pay}
+
+## Spl
+
+the mother or principal adopter is entitled to shared parental leave (if entitled to leave) and shared parental pay (if entitled to pay)
+
+%{snippet_spl}
+
+## Patleave
+
+the partner is entitled to paternity leave
+
+%{snippet_patleave}
+
+## Patpay
+
+the partner is entitled to paternity pay
+
+%{snippet_patpay}

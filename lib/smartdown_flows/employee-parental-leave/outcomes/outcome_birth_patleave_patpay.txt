@@ -1,0 +1,17 @@
+# Outcome birth patleave patpay
+
+## Birth
+
+%{snippet_birth}
+
+## Patleave
+
+the partner is entitled to paternity leave
+
+%{snippet_patleave}
+
+## Patpay
+
+the partner is entitled to paternity pay
+
+%{snippet_patpay}

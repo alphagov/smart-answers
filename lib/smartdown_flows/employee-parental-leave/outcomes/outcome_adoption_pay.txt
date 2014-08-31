@@ -1,0 +1,11 @@
+# Outcome adoption pay
+
+## Adoption
+
+%{snippet_adoption}
+
+## Pay
+
+the mother or principal adopter is entitled to pay
+
+%{snippet_pay}
