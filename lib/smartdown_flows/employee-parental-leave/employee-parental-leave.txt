@@ -3,6 +3,7 @@ status: draft
 
 # Employee parental leave
 
-TODO: write content
+A draft of the Smart Answer for Shared Parental Leave. This is a working in
+progress and has not been published yet and is only available on preview.
 
 [start: circumstances]
