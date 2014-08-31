@@ -1,0 +1,11 @@
+# Outcome birth patpay
+
+## Birth
+
+SNIPPET{_birth}
+
+## Patpay
+
+the partner is entitled to paternity pay
+
+SNIPPET{_patpay}

@@ -1,0 +1,11 @@
+# Outcome birth ma
+
+## Birth
+
+SNIPPET{_birth}
+
+## Ma
+
+the mother is entitled to maternity allowance
+
+SNIPPET{_ma}

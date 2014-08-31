@@ -1,0 +1,17 @@
+# Outcome adoption patleave patpay
+
+## Adoption
+
+SNIPPET{_adoption}
+
+## Patleave
+
+the partner is entitled to paternity leave
+
+SNIPPET{_patleave}
+
+## Patpay
+
+the partner is entitled to paternity pay
+
+SNIPPET{_patpay}

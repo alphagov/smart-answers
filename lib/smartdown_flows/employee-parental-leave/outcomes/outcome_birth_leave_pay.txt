@@ -1,0 +1,17 @@
+# Outcome birth leave pay
+
+## Birth
+
+SNIPPET{_birth}
+
+## Leave
+
+the mother or principal adopter is entitled to leave
+
+SNIPPET{_leave}
+
+## Pay
+
+the mother or principal adopter is entitled to pay
+
+SNIPPET{_pay}
