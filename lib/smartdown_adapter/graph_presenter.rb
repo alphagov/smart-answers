@@ -84,9 +84,17 @@ module SmartdownAdapter
           node.questions.each do |question|
             text << word_wrap(question.title.to_s)
             text << "\n\n"
-            text << question.options.map do |option|
-              "( ) #{option.value}: #{option.label}"
-            end.join("\n")
+            case question
+            when Smartdown::Api::MultipleChoice
+              text << question.options.map do |option|
+                "( ) #{option.value}: #{option.label}"
+              end.join("\n")
+            when Smartdown::Api::DateQuestion
+              text << "[ Date:    ]"
+            when Smartdown::Api::SalaryQuestion
+            else
+              text << "[ Unkown Question ]"
+            end
             text << "\n\n"
           end
         when Smartdown::Api::Outcome
