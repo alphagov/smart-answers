@@ -1,0 +1,41 @@
+# Outcome birth ma leave spl patpay patleave patspl
+
+## Birth
+
+%{snippet_birth}
+
+## Ma
+
+the mother is entitled to maternity allowance
+
+%{snippet_ma}
+
+## Leave
+
+the mother or principal adopter is entitled to leave
+
+%{snippet_leave}
+
+## Spl
+
+the mother or principal adopter is entitled to shared parental leave (if entitled to leave) and shared parental pay (if entitled to pay)
+
+%{snippet_spl}
+
+## Patpay
+
+the partner is entitled to paternity pay
+
+%{snippet_patpay}
+
+## Patleave
+
+the partner is entitled to paternity leave
+
+%{snippet_patleave}
+
+## Patspl
+
+the partner is entitled to shared parental leave (if entitled to leave) and shared parental pay (if entitled to pay)
+
+%{snippet_patspl}

@@ -1,0 +1,17 @@
+# Outcome birth ma leave
+
+## Birth
+
+%{snippet_birth}
+
+## Ma
+
+the mother is entitled to maternity allowance
+
+%{snippet_ma}
+
+## Leave
+
+the mother or principal adopter is entitled to leave
+
+%{snippet_leave}

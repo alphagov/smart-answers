@@ -1,0 +1,17 @@
+# Outcome adoption leave pay
+
+## Adoption
+
+%{snippet_adoption}
+
+## Leave
+
+the mother or principal adopter is entitled to leave
+
+%{snippet_leave}
+
+## Pay
+
+the mother or principal adopter is entitled to pay
+
+%{snippet_pay}

@@ -1,0 +1,11 @@
+# Outcome birth ma
+
+## Birth
+
+%{snippet_birth}
+
+## Ma
+
+the mother is entitled to maternity allowance
+
+%{snippet_ma}
