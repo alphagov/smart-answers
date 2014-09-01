@@ -68,6 +68,10 @@ module SmartdownAdapter
           "#{predicate.name}"
         when Smartdown::Model::Predicate::SetMembership
           "#{predicate.varname} in [#{predicate.values.join(",")}]"
+        when Smartdown::Model::Predicate::Combined
+          "( #{predicate.predicates.map { |p| predicate_label(p) }.join(' AND ')} )"
+        when Smartdown::Model::Predicate::Comparison::Base
+          comparison_predicate_type(predicate)
         else
           "Unknown predicate type #{predicate}"
       end
@@ -113,6 +117,20 @@ module SmartdownAdapter
       text.split("\n").collect! do |line|
         line.length > line_width ? line.gsub(/(.{1,#{line_width}})(\s+|$)/, "\\1\n").strip : line
       end * "\n"
+    end
+
+  private
+
+    def comparison_predicate_type(predicate)
+      # @TODO: This should live on Predicates in smartdown, maybe as .`humanise`
+      type = predicate.class.name.split('::').last
+      comparison_symbols = {
+        'GreaterOrEqual' => '>=',
+        'Greater' => '>',
+        'LessOrEqual' => '<=',
+        'Less' => '<',
+      }
+      "#{predicate.varname} #{comparison_symbols[type]} #{predicate.value}"
     end
 
   end
