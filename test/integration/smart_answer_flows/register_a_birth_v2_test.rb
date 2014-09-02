@@ -281,7 +281,6 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response 'same_country'
       assert_state_variable :registration_country, "laos"
       assert_state_variable :registration_country_name, "Laos"
-      assert_phrase_list :cash_only, [:cash_only]
     end
   end
   context "maldives, where you have to register in sri lanka" do

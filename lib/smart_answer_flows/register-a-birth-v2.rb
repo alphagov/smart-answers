@@ -252,6 +252,7 @@ outcome :embassy_result do
     if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_birth)
       phrases = PhraseList.new(:footnote_exceptions)
       phrases << :"footnote_oru_variants_#{registration_country}" if reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(registration_country)
+      phrases
     elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
       PhraseList.new(:footnote_caribbean)
     elsif reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(registration_country) and ! reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(country_of_birth)
