@@ -8,7 +8,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil dominica egypt france iran italy libya morocco north-korea slovakia spain st-kitts-and-nevis)
+    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil dominica egypt france germany iran italy libya morocco north-korea slovakia spain st-kitts-and-nevis)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-death-v2'
   end
@@ -310,8 +310,9 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         worldwide_api_has_organisations_for_location('france', read_fixture_file('worldwide/france_organisations.json'))
         add_response 'andorra'
         add_response 'another_country'
+        add_response 'france'
       end
-      should "give the embassy result and be done" do
+      should "give the oru result and be done" do
         assert_current_node :oru_result
         assert_phrase_list :oru_address, [:oru_address_abroad]
         assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
@@ -451,6 +452,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       context "in another country" do
         should "give the ORU result" do
           add_response 'another_country'
+          add_response 'italy'
           assert_current_node :oru_result
           assert_phrase_list :oru_courier_text, [:"oru_courier_text_north-korea", :oru_courier_text_common]
         end
