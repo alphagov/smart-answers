@@ -8,7 +8,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia barbados belize el-salvador estonia guatemala grenada iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates)
+    @location_slugs = %w(afghanistan andorra australia barbados belize el-salvador estonia germany guatemala grenada iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth-v2'
   end
@@ -363,4 +363,15 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
     end
   end # UAE
 
+  context "answer oru country and in another country" do
+    should "ask which country the user is in now" do
+      worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
+      add_response "united-arab-emirates"
+      add_response "mother_and_father"
+      add_response "yes"
+      add_response "another_country"
+      add_response "germany"
+      assert_current_node :oru_result
+    end
+  end
 end
