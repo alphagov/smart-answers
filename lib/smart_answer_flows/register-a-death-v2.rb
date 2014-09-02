@@ -74,7 +74,7 @@ end
 # Q5
 multiple_choice :where_are_you_now? do
   option :same_country
-  option :another_country
+  option another_country: :which_country_are_you_in_now?
   option :in_the_uk
 
   calculate :another_country do
@@ -111,6 +111,7 @@ country_select :which_country_are_you_in_now?, exclude_countries: exclude_countr
     end
   end
 
+  next_node_if(:oru_result, reg_data_query.died_in_oru_transitioned_country?)
   next_node :embassy_result
 end
 
@@ -311,7 +312,9 @@ outcome :embassy_result do
 
   precalculate :footnote do
     if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_death)
-      PhraseList.new(:footnote_exceptions)
+      phrases = PhraseList.new(:footnote_exceptions)
+      phrases << :"footnote_oru_variants_#{current_location}" if reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(current_location)
+      phrases
     elsif country_of_death != current_location and reg_data_query.eastern_caribbean_countries?(country_of_death) and reg_data_query.eastern_caribbean_countries?(current_location)
       PhraseList.new(:footnote_caribbean)
     elsif reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(current_location) and ! reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(country_of_death)

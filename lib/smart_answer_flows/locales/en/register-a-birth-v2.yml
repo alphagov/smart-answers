@@ -141,6 +141,7 @@ en-GB:
           You must provide the original copies of:
 
           - the child’s full local birth certificate - it must have both parents’ names
+          - a birth certificate issued by Pyongyang Friendship Hospital
           - the long version of the parent’s birth certificate showing the child’s grandparents’ details (for parents who were born in the UK)
           - the parent’s naturalisation or registration certificate (for parents who weren’t born in the UK)
           - the parents’ marriage or civil partnership certificate (if applicable)
@@ -195,7 +196,7 @@ en-GB:
           Include your first name and last name and 3 alternative dates and times. You’ll receive an email confirming your appointment.
 
           $C
-          **British Embassy Tokyo**  
+          **British Embassy Tokyo**
           <consular.tokyo@fco.gov.uk>
           $C
         registering_clickbooks: |
@@ -301,7 +302,7 @@ en-GB:
         footnote_oru_variants_cambodia: |
           Your documents will be returned to the British Embassy in Phnom Penh after the death has been registered.
         footnote_oru_variants_north-korea: |
-          Your documents will be returned to the British Embassy in Pyongyang after the death has been registered.
+          Your documents will be returned to the British Embassy in Pyongyang after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
         footnote_oru_variants_papua-new-guinea: |
           Your documents will be returned to the British Embassy in Port Moresby after the death has been registered.
         birth_registration_form: |
@@ -317,7 +318,7 @@ en-GB:
         oru_documents_variant_belgium: |
           - the child’s full local birth certificate (‘copie d’acte’ or ‘afschrift van een akte’) - it must have both parents’ names
         oru_documents_variant_denmark: |
-          - the child's full local birth certificate ('fødsel og navneattest') 
+          - the child's full local birth certificate ('fødsel og navneattest') - it must have both parents' names
           - confirmation from the hospital or clinic where the child was born - eg a letter or live birth notification
         oru_documents_variant_finland: |
           - a birth certificate issued by the hospital
@@ -327,7 +328,7 @@ en-GB:
         oru_documents_variant_italy: |
           - the child’s long international birth certificate (not the standard short version) - it must have both parents’ names
         oru_documents_variant_japan: |
-          - the child’s local birth certificate ('shussetodoke kisaijiko shomeisho') - it must have the name and address of the hospital 
+          - the child’s local birth certificate ('shussetodoke kisaijiko shomeisho') - it must have the name and address of the hospital
           - a copy of the family register ('koseki tohon') which has been certified by the ward office (if one of the parents is Japanese)
           - a [name confirmation form](/government/publications/birth-registration-name-confirmation-form) that says how you would like the child’s full name to be registered, if the name differs from the name on the local birth certificate or Japanese family register (the rules are on the form)
         oru_documents_variant_monaco: |

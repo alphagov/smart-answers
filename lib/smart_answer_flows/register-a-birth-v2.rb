@@ -87,7 +87,7 @@ end
 # Q5
 multiple_choice :where_are_you_now? do
   option :same_country
-  option :another_country
+  option another_country: :which_country?
   option :in_the_uk
 
   calculate :another_country do
@@ -123,6 +123,7 @@ country_select :which_country?, exclude_countries: exclude_countries do
     end
   end
 
+  next_node_if(:oru_result, reg_data_query.born_in_oru_transitioned_country?)
   next_node_if(:no_embassy_result, country_has_no_embassy)
   next_node(:embassy_result)
 end
@@ -249,7 +250,9 @@ outcome :embassy_result do
   end
   precalculate :footnote do
     if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_birth)
-      PhraseList.new(:footnote_exceptions)
+      phrases = PhraseList.new(:footnote_exceptions)
+      phrases << :"footnote_oru_variants_#{registration_country}" if reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(registration_country)
+      phrases
     elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
       PhraseList.new(:footnote_caribbean)
     elsif reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(registration_country) and ! reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(country_of_birth)
@@ -306,8 +309,8 @@ outcome :oru_result do
 
   precalculate :oru_courier_text do
     phrases = PhraseList.new
-    if reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(country_of_birth)
-      phrases << :"oru_courier_text_#{country_of_birth}" << :oru_courier_text_common
+    if reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(registration_country)
+      phrases << :"oru_courier_text_#{registration_country}" << :oru_courier_text_common
     else
       phrases << :oru_courier_text_default
     end
