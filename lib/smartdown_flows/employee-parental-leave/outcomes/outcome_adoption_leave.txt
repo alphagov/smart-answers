@@ -1,0 +1,11 @@
+# Outcome adoption leave
+
+## Adoption
+
+SNIPPET{_adoption}
+
+## Leave
+
+the mother or principal adopter is entitled to leave
+
+SNIPPET{_leave}

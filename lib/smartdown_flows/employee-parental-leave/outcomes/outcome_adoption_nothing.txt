@@ -1,1 +1,9 @@
 # Outcome adoption nothing
+
+## Adoption
+
+SNIPPET{_adoption}
+
+## Nothing
+
+SNIPPET{_nothing}

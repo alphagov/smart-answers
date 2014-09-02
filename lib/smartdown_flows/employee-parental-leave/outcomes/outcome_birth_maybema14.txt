@@ -1,0 +1,9 @@
+# Outcome birth maybema14
+
+## Birth
+
+SNIPPET{_birth}
+
+## Maybema14
+
+SNIPPET{_maybema14}

@@ -1,0 +1,11 @@
+# Outcome adoption pay
+
+## Adoption
+
+SNIPPET{_adoption}
+
+## Pay
+
+the mother or principal adopter is entitled to pay
+
+SNIPPET{_pay}
