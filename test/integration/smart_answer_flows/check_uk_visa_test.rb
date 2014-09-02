@@ -391,7 +391,7 @@ end
     end
       should "take you to outcome visit waiver" do
       assert_current_node :outcome_visit_waiver
-        assert_phrase_list :if_exception, [:electronic_visa_waiver]
+        assert_phrase_list :if_exception, [:electronic_visa_waiver, :apply_for_visitor_visa]
     end
   end
 

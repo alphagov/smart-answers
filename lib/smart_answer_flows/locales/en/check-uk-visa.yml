@@ -9,7 +9,7 @@ en-GB:
         epassport_visa_not_needed_title: |
           You won’t need a visa if you have an ePassport
         electronic_visa_waiver_needed_title: |
-          You’ll need an electronic visa waiver (EVW)
+          You’ll need an electronic visa waiver (EVW)  or a visitor visa
         passport_bio_visa_not_needed_title: |
           You won't need a visa if your passport has a personal ID number on the bio data page.
 
@@ -33,8 +33,16 @@ en-GB:
           You can apply for a [Turkish business person visa](/turkish-worker) if you want to come and set up a business in the UK.
 
         electronic_visa_waiver: |
+          You can enter the UK with either an electronic visa waiver (EVW) or a visitor visa
+
+          ###EVW
+
           You must [apply for an EVW](https://www.visa4uk.fco.gov.uk/) online at least 48 hours before you travel.
 
+        apply_for_visitor_visa: |
+          ###Visitor visa
+
+          Apply for a [general visit visa](/general-visit-visa).
         epassport_general_visit_reason: |
           However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
           ^If you don’t have an ePassport, you must [apply for a short visit visa](/browse/visas-immigration/short-visit-visas).^
@@ -266,6 +274,9 @@ en-GB:
           - in a [work experience role](/tier-5-government-authorised-exchange)
           - for a [charity](/tier-5-temporary-worker-charity-worker-visa)
           - for a [religious organisation](/tier-5-religious)
+          - as a [domestic worker in a private household](/domestic-workers-in-a-private-household-visa)
+          - in a [role in your overseas employer’s UK branch](/tier-2-intracompany-transfer-worker-visa)
+          - in a [skilled job](/tier-2-general)
 
           You can also apply for an [international agreement](/tier-5-international-agreement) visa if you’ll be doing work covered by international law while in the UK (eg working for a foreign government or as a private servant in a diplomatic household).
 
@@ -299,6 +310,9 @@ en-GB:
           - in a [work experience role](/tier-5-government-authorised-exchange)
           - for a [charity](/tier-5-temporary-worker-charity-worker-visa)
           - for a [religious organisation](/tier-5-religious)
+          - as a [domestic worker in a private household](/domestic-workers-in-a-private-household-visa)
+          - in a [role in your overseas employer’s UK branch](/tier-2-intracompany-transfer-worker-visa)
+          - in a [skilled job](/tier-2-general)
 
           You can also apply for an [international agreement visa](/tier-5-international-agreement) if you'll be doing work covered by international law while in the UK (eg working for a foreign government or as a private servant in a diplomatic household).
 

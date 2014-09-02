@@ -188,7 +188,7 @@ outcome :outcome_visit_waiver do
         PhraseList.new(:passport_bio_not_crossing_border)
       end
     elsif %w(oman qatar united-arab-emirates).include?(passport_country)
-      PhraseList.new(:electronic_visa_waiver)
+      PhraseList.new(:electronic_visa_waiver, :apply_for_visitor_visa)
     end
   end
   precalculate :outcome_title do
