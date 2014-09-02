@@ -1,5 +1,5 @@
 module SmartdownAdapter
-  class GraphvizPresenter < SmartdownAdaptor::GraphPresenter
+  class GraphvizPresenter < SmartdownAdapter::GraphPresenter
     def initialize(name)
       @name = name
       @flow = SmartdownAdapter::Registry.build_flow(name)
