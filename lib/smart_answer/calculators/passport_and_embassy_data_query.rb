@@ -82,7 +82,7 @@ module SmartAnswer::Calculators
     end
 
     def self.passport_data
-      @passport_data ||= YAML.load_file(Rails.root.join("lib", "data", "passport_data_v2.yml"))
+      @passport_data ||= YAML.load_file(Rails.root.join("lib", "data", "passport_data.yml"))
     end
   end
 end
