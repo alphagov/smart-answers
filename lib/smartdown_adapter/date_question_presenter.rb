@@ -1,5 +1,5 @@
 module SmartdownAdapter
-  class DateQuestionPresenter < QuestionPresenter
+  class DateQuestionPresenter < SmartdownAdaptor::QuestionPresenter
     #TODO: range should be specified in smartdown and taken from there
     #these are only defaults
     #in the future we will want to specify in smartdown start/end etc,,,
