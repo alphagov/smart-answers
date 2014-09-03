@@ -30,7 +30,7 @@ namespace :panopticon do
   end
 
   def smartdown_registrables
-    Hash[SmartdownAdapter::Registry.flows.collect { |flow|
+    Hash[SmartdownAdapter::Registry.instance.flows.collect { |flow|
       [flow.name, SmartdownAdapter::FlowRegistrationPresenter.new(flow)]
     }]
   end

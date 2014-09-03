@@ -4,7 +4,8 @@ namespace :smartanswer_smartdown do
   desc "Compare the HTML for all listed scenarios of two questions"
   task :compare => :environment do
     result = {}
-    SmartdownAdapter::Registry.smartdown_transition_questions.each do |smartdown_transition_question|
+    SmartdownAdapter::Registry::FLOW_REGISTRY_OPTIONS = { preload_flows: true }
+    SmartdownAdapter::Registry.instance.flows.select { |f| f.transition? }.each do |smartdown_transition_question|
       errors = 0
       helper = SmartdownAdapter::SmartAnswerCompareHelper.new(smartdown_transition_question)
 
