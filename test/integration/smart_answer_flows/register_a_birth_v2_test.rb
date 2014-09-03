@@ -371,6 +371,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "another_country"
       add_response "germany"
       assert_current_node :oru_result
+      assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
     end
   end
 end
