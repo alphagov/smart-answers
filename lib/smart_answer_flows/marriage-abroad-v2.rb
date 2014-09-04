@@ -218,8 +218,8 @@ multiple_choice :partner_opposite_or_same_sex? do
   end
 
 
-  define_predicate(:uk_resident_finnish_or_british_partner_finland_ceremony) {
-    (ceremony_country == "finland") & (resident_of == "uk") & %w(partner_local partner_british).include?(partner_nationality)
+  define_predicate(:ceremony_in_finland_uk_resident_partner_not_irish) {
+    (ceremony_country == "finland") & (resident_of == "uk") & %w(partner_british partner_other partner_local).include?(partner_nationality)
   }
 
   next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
@@ -231,7 +231,7 @@ multiple_choice :partner_opposite_or_same_sex? do
     next_node_if(:outcome_os_consular_cni, ->(_) {
       data_query.os_consular_cni_countries?(ceremony_country) or (%w(uk).include?(resident_of) and data_query.os_no_marriage_related_consular_services?(ceremony_country))
      })
-    next_node_if(:outcome_os_consular_cni, uk_resident_finnish_or_british_partner_finland_ceremony)
+    next_node_if(:outcome_os_consular_cni, ceremony_in_finland_uk_resident_partner_not_irish)
     next_node_if(:outcome_os_affirmation, ->(_) { data_query.os_affirmation_countries?(ceremony_country) })
     next_node_if(:outcome_os_commonwealth, ->(_) { data_query.commonwealth_country?(ceremony_country) or %w(zimbabwe).include?(ceremony_country) })
     next_node_if(:outcome_os_bot, ->(_) { data_query.british_overseas_territories?(ceremony_country) })
@@ -705,10 +705,15 @@ outcome :outcome_os_consular_cni do
     if data_query.commonwealth_country?(residency_country) or %w(ireland).include?(residency_country) and %w(italy).include?(ceremony_country)
       phrases << :italy_os_consular_cni_four
     end
-    if %w(uk).include?(resident_of) and %w(partner_british).include?(partner_nationality) and %w(italy).exclude?(ceremony_country)
-      phrases << :consular_cni_os_partner_british
+    if %w(italy).exclude?(ceremony_country) and %w(uk).include?(resident_of)
+      if "partner_british" == partner_nationality or ("partner_local" == partner_nationality and "finland" == ceremony_country)
+        phrases << :partner_will_need_a_cni
+      end
+      if ("partner_other" == partner_nationality and "finland" == ceremony_country)
+        phrases << :partner_equivalent_document
+      end
     end
-    if %w(partner_british).include?(partner_nationality) and %w(italy germany).exclude?(ceremony_country)
+    if %w(partner_british).include?(partner_nationality) and %w(italy germany finland).exclude?(ceremony_country)
       phrases << :consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british
     end
     if ceremony_country != residency_country and %w(other).include?(resident_of) and %w(partner_british).include?(partner_nationality) and %w(italy).include?(ceremony_country)
@@ -768,6 +773,8 @@ outcome :outcome_os_consular_cni do
         phrases << :pay_in_cash_visa_or_mastercard
       elsif %w(russia).include?(ceremony_country)
         phrases << :consular_cni_os_fees_russia
+      elsif %w(finland).include?(ceremony_country)
+        phrases << :pay_in_euros_or_visa_electron
       elsif %w(cote-d-ivoire).exclude?(ceremony_country)
         phrases << :pay_by_cash_or_credit_card_no_cheque
       end

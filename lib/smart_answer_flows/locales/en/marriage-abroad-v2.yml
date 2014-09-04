@@ -543,7 +543,6 @@ en-GB:
 
           ^A CNI issued in England, Wales or Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
 
-          They’ll post your notice, and as long as nobody has registered an objection after a specified number of days (normally 15 or 21), they’ll  issue your CNI.
         cni_posted_if_no_objection_14_days: |
           You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
 
@@ -561,7 +560,6 @@ en-GB:
 
           ^A CNI issued in Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
 
-          They’ll post your notice, and as long as nobody has registered an objection after a specified number of days (normally 15 or 21), they’ll  issue your CNI.
         consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three: |
           ###Getting a statutory declaration
 
@@ -624,7 +622,7 @@ en-GB:
 
           You should also check if it needs to be:
         consular_cni_os_uk_resident_not_italy_or_portugal: |
-          - ‘[legalised](/get-document-legalised)’ (certified as genuine) by the FCO
+          - ‘[legalised](/get-document-legalised)’ (certified as genuine)
           - translated - [find a translator abroad](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
 
           You should also check with the local authorities to find out if you need to provide legalised and translated copies of any other documents.
@@ -924,7 +922,7 @@ en-GB:
 
           They’ll contact you to arrange collection or delivery, and will normally aim to to issue the Nulla Osta within 20 days.
 
-        consular_cni_os_partner_british: |
+        partner_will_need_a_cni: |
           ^Your partner will need to get their own CNI.^
         consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british: |
           ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
