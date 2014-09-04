@@ -850,7 +850,7 @@ outcome :outcome_os_affirmation do
     if %w(finland).include?(ceremony_country)
       multiple_clickbooks ? phrases << :clickbook_links : phrases << :clickbook_link
     end
-    if not (%w(turkey).include?(ceremony_country) or %w(portugal).include?(residency_country))
+    unless (%w(turkey).include?(ceremony_country) or %w(portugal).include?(residency_country))
       if %w(portugal).include?(ceremony_country)
         phrases << :affirmation_os_translation_in_local_language_portugal
       elsif %w(egypt).include?(ceremony_country)
@@ -888,7 +888,7 @@ outcome :outcome_os_affirmation do
         end
       end
     end
-    if not %w(egypt).include?(ceremony_country)
+    unless %w(egypt).include?(ceremony_country)
       if %w(turkey).include?(ceremony_country)
         if %w(partner_british).include?(partner_nationality)
           phrases << :affirmation_os_partner
@@ -1041,7 +1041,7 @@ outcome :outcome_cp_cp_or_equivalent do
       phrases << :cp_or_equivalent_cp_naturalisation
     end
     phrases << :cp_or_equivalent_cp_all_fees
-    if not (%w{czech-republic}.include?(ceremony_country) || data_query.countries_without_consular_facilities?(ceremony_country))
+    unless (%w{czech-republic}.include?(ceremony_country) || data_query.countries_without_consular_facilities?(ceremony_country))
       if %w(monaco).include?(ceremony_country)
         phrases << :list_of_consular_fees_france
       else
@@ -1125,7 +1125,7 @@ outcome :outcome_cp_commonwealth_countries do
       end
       phrases << :commonwealth_countries_cp_australia_five
     end
-    phrases << :embassies_data if not %w(australia).include?(ceremony_country)
+    phrases << :embassies_data unless %w(australia).include?(ceremony_country)
     phrases << :commonwealth_countries_cp_naturalisation if %w(partner_british).exclude?(partner_nationality)
     phrases << :commonwealth_countries_cp_australia_six if %w(australia).include?(ceremony_country)
     phrases
@@ -1149,11 +1149,11 @@ outcome :outcome_cp_consular do
         multiple_clickbooks ? phrases << :clickbook_links : phrases << :clickbook_link
       end
     end
-    phrases << :embassies_data if not reg_data_query.clickbook(ceremony_country)
+    phrases << :embassies_data unless reg_data_query.clickbook(ceremony_country)
     phrases << :consular_cp_all_documents unless %w(japan).include?(ceremony_country)
     phrases << :consular_cp_partner_not_british if %w(partner_british).exclude?(partner_nationality)
     phrases << :consular_cp_all_what_you_need_to_do
-    phrases << :consular_cp_naturalisation if not %w(partner_british).include?(partner_nationality)
+    phrases << :consular_cp_naturalisation unless %w(partner_british).include?(partner_nationality)
     if %w(vietnam thailand south-korea).include?(ceremony_country)
       phrases << :fee_table_affidavit_55
     else
