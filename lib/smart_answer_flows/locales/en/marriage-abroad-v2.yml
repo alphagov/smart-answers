@@ -254,8 +254,10 @@ en-GB:
           You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
         morocco_affidavit_length: |
           ^An 'affirmation for marriage' document issued in Morocco is valid for 3 months.^
-        partner_equivalent_document: |
+        callout_partner_equivalent_document: |
           ^Your partner will probably need to get an equivalent document from their national authorities.^
+        partner_equivalent_document: |
+          Your partner will probably need to get an equivalent document from their national authorities.
         partner_declaration: |
           ^Your partner will need to make a declaration as well.^
         what_to_do_croatia: |
@@ -277,8 +279,8 @@ en-GB:
           If you’ve been divorced or widowed, you’ll need to provide:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
-          - evidence of nationality or residence where your divorce took place if it was outside the UK
-          - evidence if you’ve changed your name by deed poll.
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
+          - evidence if you’ve changed your name by deed poll
 
         make_appointment_online_philippines: |
           Make an [appointment online](http://britishembassymanila.clickbook.net/) or contact the embassy directly.
@@ -1011,10 +1013,22 @@ en-GB:
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
+        affirmation_os_uk_resident_ceremony_in_morocco: |
+          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
+
+          You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         affirmation_os_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         affirmation_os_other_resident: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
+        affirmation_os_other_resident_ceremony_in_morocco: |
+          Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
+
+          You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         affirmation_os_legalised_in_turkey: |

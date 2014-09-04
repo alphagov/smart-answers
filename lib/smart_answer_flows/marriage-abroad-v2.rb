@@ -710,7 +710,7 @@ outcome :outcome_os_consular_cni do
         phrases << :partner_will_need_a_cni
       end
       if ("partner_other" == partner_nationality and "finland" == ceremony_country)
-        phrases << :partner_equivalent_document
+        phrases << :callout_partner_equivalent_document
       end
     end
     if %w(partner_british).include?(partner_nationality) and %w(italy germany finland).exclude?(ceremony_country)
@@ -799,14 +799,22 @@ outcome :outcome_os_affirmation do
     if %w(portugal).include?(ceremony_country)
       phrases << :contact_civil_register_office_portugal
     elsif %w(uk).include?(resident_of)
-      phrases << :affirmation_os_uk_resident
+      if %w(morocco).include?(ceremony_country)
+        phrases << :affirmation_os_uk_resident_ceremony_in_morocco
+      else
+        phrases << :affirmation_os_uk_resident
+      end
     elsif (ceremony_country == residency_country) or %w(qatar).include?(ceremony_country)
       phrases << :affirmation_os_local_resident
       if %w(qatar).include?(ceremony_country)
         phrases << :gulf_states_os_consular_cni << :gulf_states_os_consular_cni_local_resident_partner_not_irish
       end
     elsif ceremony_country != residency_country and %w(uk).exclude?(resident_of)
-      phrases << :affirmation_os_other_resident
+      if %w(morocco).include?(ceremony_country)
+        phrases << :affirmation_os_other_resident_ceremony_in_morocco
+      else
+        phrases << :affirmation_os_other_resident
+      end
     end
     phrases << :affirmation_os_all_what_you_need_to_do
     phrases << :affirmation_os_uae if %w(united-arab-emirates).include?(ceremony_country)
@@ -850,7 +858,6 @@ outcome :outcome_os_affirmation do
       elsif %w(finland).include?(ceremony_country) && %w(partner_irish).include?(partner_nationality) && %w(uk).include?(resident_of)
         phrases << :affidavit_os_translation_in_local_language
       else
-        phrases << :contact_marriage_officer if %w(morocco).include?(ceremony_country)
         phrases << :affirmation_os_translation_in_local_language
       end
     end
@@ -866,14 +873,18 @@ outcome :outcome_os_affirmation do
     if %w(turkey).include?(ceremony_country)
       phrases << :documents_for_divorced_or_widowed
     else
-      phrases << :docs_decree_and_death_certificate
-      phrases << :divorced_or_widowed_evidences unless %w(egypt).include?(ceremony_country)
-      phrases << :change_of_name_evidence
+      if %w(morocco).include?(ceremony_country)
+        phrases << :documents_for_divorced_or_widowed
+      else
+        phrases << :docs_decree_and_death_certificate
+      end
+      phrases << :divorced_or_widowed_evidences unless %w(egypt morocco).include?(ceremony_country)
+      phrases << :change_of_name_evidence unless %w(morocco).include?(ceremony_country)
       if %w(egypt).include?(ceremony_country)
         if %w(partner_british).include?(partner_nationality)
           phrases << :partner_declaration
         else
-          phrases << :partner_equivalent_document
+          phrases << :callout_partner_equivalent_document
         end
       end
     end
@@ -885,11 +896,15 @@ outcome :outcome_os_affirmation do
           phrases << :affirmation_os_partner_not_british_turkey
         end
       else
-        phrases << :morocco_affidavit_length if %w(morocco).include?(ceremony_country)
-        if %w(partner_british).include?(partner_nationality)
-          phrases << :affirmation_os_partner_british
+        if %w(morocco).include?(ceremony_country)
+          phrases << :morocco_affidavit_length
+          phrases << :partner_equivalent_document
         else
-          phrases << :affirmation_os_partner_not_british
+          if %w(partner_british).include?(partner_nationality)
+            phrases << :affirmation_os_partner_british
+          else
+            phrases << :affirmation_os_partner_not_british
+          end
         end
       end
     end
