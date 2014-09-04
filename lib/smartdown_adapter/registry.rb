@@ -37,7 +37,7 @@ module SmartdownAdapter
 
     def flows
       if @preloaded
-        @preloaded
+        @preloaded.values
       else
         available_flows.map { |f| build_flow(f) }
       end
