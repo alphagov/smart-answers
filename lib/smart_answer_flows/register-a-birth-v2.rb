@@ -255,7 +255,7 @@ outcome :embassy_result do
       phrases
     elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
       PhraseList.new(:footnote_caribbean)
-    elsif reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(registration_country) and ! reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(country_of_birth)
+    elsif reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) and ! reg_data_query.class::ORU_COURIER_VARIANTS.include?(country_of_birth)
       PhraseList.new(:footnote_oru_variants_intro,
                       :"footnote_oru_variants_#{registration_country}",
                       :footnote_oru_variants_out)
@@ -309,7 +309,7 @@ outcome :oru_result do
 
   precalculate :oru_courier_text do
     phrases = PhraseList.new
-    if reg_data_query.class::ORU_COURIER_VARIANTS_DEATH.include?(registration_country)
+    if reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) && !in_the_uk
       phrases << :"oru_courier_text_#{registration_country}" << :oru_courier_text_common
     else
       phrases << :oru_courier_text_default
