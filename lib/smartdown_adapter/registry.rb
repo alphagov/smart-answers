@@ -4,39 +4,78 @@ require 'smartdown/api/directory_input'
 module SmartdownAdapter
   class Registry
 
-    def self.smartdown_questions
-      smartdown_directory_path = Rails.root.join('lib', 'smartdown_flows')
-      Dir.entries(smartdown_directory_path).select {|entry|
-        File.directory? File.join(smartdown_directory_path, entry) and !(entry =='.' || entry == '..')
-      }
+    def self.instance
+      @instance ||= new(FLOW_REGISTRY_OPTIONS)
     end
 
-    def self.smartdown_transition_questions
-      smartdown_questions.select { |name|
-        smartdown_flow = build_flow(name)
-        smartdown_flow.transition?
-      }
+    def self.reset_instance
+      @instance = nil
     end
 
-    def self.build_flow(name)
-      coversheet_path = Rails.root.join('lib', 'smartdown_flows', name, "#{name}.txt")
-      input = Smartdown::Api::DirectoryInput.new(coversheet_path)
+    def initialize(options = {})
+      @load_path = Pathname.new(options[:load_path] || Rails.root.join('lib', 'smartdown_flows'))
+      @show_drafts = options.fetch(:show_drafts, false)
+      @show_transitions = options.fetch(:show_transitions, false)
+      preload_flows! if options.fetch(:preload_flows, Rails.env.production?)
+    end
+
+    private_class_method :new
+
+    def check(name, options = FLOW_REGISTRY_OPTIONS)
+      return unless available?(name)
+
+      flow = @preloaded ? @preloaded[name] : build_flow(name)
+
+      return true if flow.published?
+      return true if @show_transitions && flow.transition?
+      return true if @show_drafts && (flow.draft? || flow.transition?)
+    end
+
+    def find(name)
+      find_by_name(name) if check(name)
+    end
+
+    def flows
+      if @preloaded
+        @preloaded
+      else
+        available_flows.map { |f| build_flow(f) }
+      end
+    end
+
+    private
+
+    def find_by_name(name)
+      @preloaded ? @preloaded[name] : build_flow(name)
+    end
+
+    def build_flow(name)
+      input = Smartdown::Api::DirectoryInput.new(coversheet_path(name))
       Smartdown::Api::Flow.new(input)
     end
 
-    def self.check(name, options = FLOW_REGISTRY_OPTIONS)
-      return unless self.smartdown_questions.include? name
-
-      flow = self.build_flow(name)
-
-      return true if flow.published?
-      return true if options[:show_transitions] && flow.transition?
-      return true if options[:show_drafts] && (flow.draft? || flow.transition?)
+    def coversheet_path(name)
+      @load_path.join(name, "#{name}.txt")
     end
 
-    def self.flows
-      # @TODO: Refactor, this calls build_flow twice
-      self.smartdown_questions.map { |name| build_flow(name) if check(name) }.compact
+    def available?(name)
+      if @preloaded
+        @preloaded.has_key?(name)
+      else
+        available_flows.include?(name)
+      end
+    end
+
+    def available_flows
+      flow_paths = Dir[@load_path.join('*')].select { |p| File.directory?(@load_path.join(p)) }
+      flow_paths.map { |p| File.basename(p) }
+    end
+
+    def preload_flows!
+      @preloaded = {}
+      available_flows.each do |flow_name|
+        @preloaded[flow_name] = build_flow(flow_name)
+      end
     end
   end
 end

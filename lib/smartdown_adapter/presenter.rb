@@ -25,7 +25,7 @@ module SmartdownAdapter
       @name = name
       @started = request[:started]
       @processed_responses = process_inputs(responses_from_request(request))
-      @smartdown_flow = SmartdownAdapter::Registry.build_flow(name)
+      @smartdown_flow = SmartdownAdapter::Registry.instance.find(name)
       @smartdown_state = @smartdown_flow.state(started, @processed_responses)
     end
 

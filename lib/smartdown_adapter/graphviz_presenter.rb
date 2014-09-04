@@ -2,7 +2,7 @@ module SmartdownAdapter
   class GraphvizPresenter < SmartdownAdapter::GraphPresenter
     def initialize(name)
       @name = name
-      @flow = SmartdownAdapter::Registry.build_flow(name)
+      @flow = SmartdownAdapter::Registry.instance.find(name)
     end
 
     def to_gv

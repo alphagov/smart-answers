@@ -107,7 +107,7 @@ private
   end
 
   def smartdown_question(name)
-    SmartdownAdapter::Registry.check(name.to_s)
+    SmartdownAdapter::Registry.instance.check(name.to_s)
   end
 
 end
