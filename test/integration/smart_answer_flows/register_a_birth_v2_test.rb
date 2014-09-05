@@ -150,7 +150,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "same_country"
       assert_current_node :embassy_result
       assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-      assert_state_variable :registration_country_name, "Afghanistan"
+      assert_state_variable :registration_country_name_lowercase_prefix, "Afghanistan"
       assert_state_variable :british_national_parent, 'mother_and_father'
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
@@ -266,7 +266,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_state_variable :registration_country, "guatemala"
-      assert_state_variable :registration_country_name, "Guatemala"
+      assert_state_variable :registration_country_name_lowercase_prefix, "Guatemala"
     end
   end
 
@@ -280,7 +280,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_state_variable :registration_country, "laos"
-      assert_state_variable :registration_country_name, "Laos"
+      assert_state_variable :registration_country_name_lowercase_prefix, "Laos"
     end
   end
   context "maldives, where you have to register in sri lanka" do
@@ -293,7 +293,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_state_variable :registration_country, "sri-lanka"
-      assert_state_variable :registration_country_name, "Sri Lanka"
+      assert_state_variable :registration_country_name_lowercase_prefix, "Sri Lanka"
     end
   end
   context "child born in grenada, parent in St kitts" do

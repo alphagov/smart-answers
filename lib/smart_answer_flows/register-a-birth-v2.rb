@@ -1,7 +1,7 @@
 status :draft
 satisfies_need "101003"
 
-data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
+country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
 translator_query = SmartAnswer::Calculators::TranslatorLinks.new
 country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
@@ -16,15 +16,8 @@ country_select :country_of_birth?, exclude_countries: exclude_countries do
     reg_data_query.registration_country_slug(responses.last)
   end
 
-  calculate :registration_country_name do
-    WorldLocation.all.find { |c| c.slug == registration_country }.name
-  end
   calculate :registration_country_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(registration_country)
-      "the #{registration_country_name}"
-    else
-      registration_country_name
-    end
+    country_name_query.definitive_article(registration_country)
   end
 
   calculate :birth_registration_form do
@@ -112,15 +105,9 @@ country_select :which_country?, exclude_countries: exclude_countries do
   calculate :registration_country do
     reg_data_query.registration_country_slug(responses.last)
   end
-  calculate :registration_country_name do
-    WorldLocation.all.find { |c| c.slug == registration_country }.name
-  end
+
   calculate :registration_country_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(registration_country)
-      "the #{registration_country_name}"
-    else
-      registration_country_name
-    end
+    country_name_query.definitive_article(registration_country)
   end
 
   next_node_if(:oru_result, reg_data_query.born_in_oru_transitioned_country?)

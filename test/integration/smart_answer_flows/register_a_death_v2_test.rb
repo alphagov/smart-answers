@@ -180,7 +180,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         add_response 'australia'
       end
       should "give the commonwealth result" do
-        assert_state_variable :current_location_name, "Australia"
+        assert_state_variable :current_location_name_lowercase_prefix, "Australia"
         assert_current_node :commonwealth_result
       end
     end # Australia (commonwealth country)
@@ -190,7 +190,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         add_response 'spain'
       end
       should "ask where you are now" do
-        assert_state_variable :current_location_name, "Spain"
+        assert_state_variable :current_location_name_lowercase_prefix, "Spain"
         assert_current_node :where_are_you_now?
       end
       context "answer same country" do
@@ -223,7 +223,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         add_response 'morocco'
       end
       should "ask where are you now" do
-        assert_state_variable :current_location_name, "Morocco"
+        assert_state_variable :current_location_name_lowercase_prefix, "Morocco"
         assert_current_node :where_are_you_now?
       end
       context "answer ORU office in the uk" do
