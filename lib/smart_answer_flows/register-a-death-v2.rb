@@ -1,7 +1,7 @@
 satisfies_need "101006"
 status :draft
 
-data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
+country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
 translator_query = SmartAnswer::Calculators::TranslatorLinksV2.new
 country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
@@ -46,24 +46,13 @@ country_select :which_country?, exclude_countries: exclude_countries do
   calculate :current_location do
     reg_data_query.registration_country_slug(responses.last) || responses.last
   end
-  calculate :current_location_name do
-    WorldLocation.all.find { |c| c.slug == current_location }.name
-  end
 
   calculate :current_location_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(country_of_death)
-      "the #{current_location_name}"
-    else
-      current_location_name
-    end
+    country_name_query.definitive_article(country_of_death)
   end
 
   calculate :death_country_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(country_of_death)
-      "the #{current_location_name}"
-    else
-      current_location_name
-    end
+    current_location_name_lowercase_prefix
   end
 
   next_node_if(:commonwealth_result, reg_data_query.responded_with_commonwealth_country?)
@@ -99,16 +88,9 @@ country_select :which_country_are_you_in_now?, exclude_countries: exclude_countr
   calculate :current_location do
     reg_data_query.registration_country_slug(responses.last) || responses.last
   end
-  calculate :current_location_name do
-    WorldLocation.all.find { |c| c.slug == current_location }.name
-  end
 
   calculate :current_location_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(country_of_death)
-      "the #{current_location_name}"
-    else
-      current_location_name
-    end
+    country_name_query.definitive_article(current_location)
   end
 
   next_node_if(:oru_result, reg_data_query.died_in_oru_transitioned_country?)
