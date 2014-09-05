@@ -220,24 +220,11 @@ en-GB:
           - their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
           - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
 
-        documents_list_embassy_sweden: |
-          - a local death certificate (dödsbevis or dödsorsaksintyg) - this can be obtained from the hospital
-          - the person’s British passport
-          - their full length British birth, naturalisation or registration certificate
-          - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
-
-        documents_list_embassy_netherlands: |
-          - an international version of the local death certificate (not a certificate issued by a doctor)
-          - the person’s passport
-          - their full UK birth, naturalisation or registration certificate
-          - their marriage certificate, if applicable
-          - written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
-
-        documents_list_embassy_malaysia: |
-          - a local death certificate (not a certificate issued by a doctor)
-          - the person’s passport
-          - their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
-          - proof of next of kin (birth certificate or marriage certificate), or written permission from the person’s next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+        documents_list_embassy_north-korea: |
+          - a death certificate issued by Pyongyang Friendship Hospital
+          - a photocopy of the photo page of the passport of the person who died
+          - their original full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
+          - written permission from the person’s next of kin or the executor of their estate (if you’re not next of kin or the executor)
 
         go_to_the_embassy_heading_text: |
 
@@ -339,6 +326,16 @@ en-GB:
           ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the death will be registered.^
         footnote: |
           ^It takes about 3 working days for the death to be officially registered.^
+        footnote_oru_variants_intro: |
+          ^Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.^
+        footnote_oru_variants_out: |
+          You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
+        footnote_oru_variants_cambodia: |
+          Your documents will be returned to the British Embassy in Phnom Penh after the death has been registered.
+        footnote_oru_variants_north-korea: |
+          Your documents will be returned to the British Embassy in Pyongyang after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
+        footnote_oru_variants_papua-new-guinea: |
+          Your documents will be returned to the British Embassy in Port Moresby after the death has been registered.
         reg_footnote: |
          Your application will be sent to the %{embassy_high_commission_or_consulate} in %{death_country_name_lowercase_prefix} to be registered there.
         approved_translator_link: Use an [approved translator](%{translator_link_url}) and include their name and address with your application
@@ -361,6 +358,22 @@ en-GB:
             MK19 7BH
             United Kingdom
           $A
+
+        oru_documents_death: |
+          - the original local death certificate (not a certificate issued by a doctor)
+        oru_documents_variant_papua-new-guinea: |
+          - the hospital medical death record
+
+        oru_courier_text_default: |
+          Your documents will be returned to you by secure courier after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them.
+        oru_courier_text_common: |
+          You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
+        oru_courier_text_cambodia: |
+          Your documents will be returned to the British Embassy in Phnom Penh after the death has been registered.
+        oru_courier_text_north-korea: |
+          Your documents will be returned to the British Embassy in Pyongyang after the death has been registered.
+        oru_courier_text_papua-new-guinea: |
+          Your documents will be returned to the British Embassy in Port Moresby after the death has been registered.
 
 # Outcomes
 #
@@ -450,7 +463,8 @@ en-GB:
 
           You must provide:
 
-          - the original local death certificate (not a certificate issued by a doctor)
+          %{oru_documents_variant_death}
+
           - a photocopy of the photo page of the passport of the person who died
           - their original full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
           - written permission from the person’s next of kin or the executor of their estate (if you’re not next of kin or the executor)
@@ -494,7 +508,7 @@ en-GB:
 
           It usually takes 3 working days for the death to be registered in the UK, once the Overseas Registration Unit has received your form and the right documents. They’ll contact you within the 3 working days if they need more information.
 
-          Your documents will be returned to you by secure courier after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them.
+          %{oru_courier_text}
 
       no_embassy_result:
         body: |

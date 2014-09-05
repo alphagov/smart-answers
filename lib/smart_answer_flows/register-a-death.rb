@@ -1,13 +1,9 @@
 satisfies_need "101006"
 status :published
 
-data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
+country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 translator_query = SmartAnswer::Calculators::TranslatorLinks.new
-exclusions = %w(afghanistan cambodia central-african-republic chad comoros
-                dominican-republic east-timor eritrea haiti kosovo laos lesotho
-                liberia madagascar montenegro paraguay samoa slovenia somalia
-                swaziland taiwan tajikistan western-sahara)
 country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
 exclude_countries = %w(holy-see british-antarctic-territory)
 modified_card_only_countries = %w(czech-republic slovakia hungary poland switzerland)
@@ -50,24 +46,13 @@ country_select :which_country?, exclude_countries: exclude_countries do
   calculate :current_location do
     reg_data_query.registration_country_slug(responses.last) || responses.last
   end
-  calculate :current_location_name do
-    WorldLocation.all.find { |c| c.slug == current_location }.name
-  end
 
   calculate :current_location_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(country_of_death)
-      "the #{current_location_name}"
-    else
-      current_location_name
-    end
+    country_name_query.definitive_article(country_of_death)
   end
 
   calculate :death_country_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(country_of_death)
-      "the #{current_location_name}"
-    else
-      current_location_name
-    end
+    current_location_name_lowercase_prefix
   end
 
   next_node_if(:commonwealth_result, reg_data_query.responded_with_commonwealth_country?)
@@ -78,7 +63,7 @@ end
 # Q5
 multiple_choice :where_are_you_now? do
   option :same_country
-  option :another_country
+  option another_country: :which_country_are_you_in_now?
   option :in_the_uk
 
   calculate :another_country do
@@ -87,6 +72,10 @@ multiple_choice :where_are_you_now? do
 
   calculate :in_the_uk do
     responses.last == 'in_the_uk'
+  end
+
+  on_condition(->(_) { reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(country_of_death) }) do
+    next_node_if(:embassy_result, responded_with('same_country'))
   end
 
   next_node_if(:oru_result, reg_data_query.died_in_oru_transitioned_country? | responded_with('in_the_uk'))
@@ -99,18 +88,12 @@ country_select :which_country_are_you_in_now?, exclude_countries: exclude_countr
   calculate :current_location do
     reg_data_query.registration_country_slug(responses.last) || responses.last
   end
-  calculate :current_location_name do
-    WorldLocation.all.find { |c| c.slug == current_location }.name
-  end
 
   calculate :current_location_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(country_of_death)
-      "the #{current_location_name}"
-    else
-      current_location_name
-    end
+    country_name_query.definitive_article(current_location)
   end
 
+  next_node_if(:oru_result, reg_data_query.died_in_oru_transitioned_country?)
   next_node :embassy_result
 end
 
@@ -150,12 +133,30 @@ outcome :oru_result do
     end
   end
 
+  precalculate :oru_documents_variant_death do
+    if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH.include?(country_of_death)
+      PhraseList.new(:"oru_documents_variant_#{country_of_death}")
+    else
+      PhraseList.new(:oru_documents_death)
+    end
+  end
+
   precalculate :oru_address do
     if in_the_uk
       PhraseList.new(:oru_address_uk)
     else
       PhraseList.new(:oru_address_abroad)
     end
+  end
+
+  precalculate :oru_courier_text do
+    phrases = PhraseList.new
+    if reg_data_query.class::ORU_COURIER_VARIANTS.include?(current_location) && !in_the_uk
+      phrases << :"oru_courier_text_#{current_location}" << :oru_courier_text_common
+    else
+      phrases << :oru_courier_text_default
+    end
+    phrases
   end
 end
 
@@ -164,12 +165,8 @@ outcome :embassy_result do
     phrases = PhraseList.new
     if current_location == 'libya'
       phrases << :documents_list_embassy_libya
-    elsif current_location == 'sweden'
-      phrases << :documents_list_embassy_sweden
-      elsif current_location == 'netherlands'
-      phrases << :documents_list_embassy_netherlands
-    elsif current_location == 'malaysia'
-      phrases << :documents_list_embassy_malaysia
+    elsif current_location == 'north-korea'
+      phrases << :"documents_list_embassy_north-korea"
     else
       phrases << :documents_list_embassy
     end
@@ -296,10 +293,16 @@ outcome :embassy_result do
   end
 
   precalculate :footnote do
-    if exclusions.include?(country_of_death)
-      PhraseList.new(:footnote_exceptions)
+    if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_death)
+      phrases = PhraseList.new(:footnote_exceptions)
+      phrases << :"footnote_oru_variants_#{current_location}" if reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(current_location)
+      phrases
     elsif country_of_death != current_location and reg_data_query.eastern_caribbean_countries?(country_of_death) and reg_data_query.eastern_caribbean_countries?(current_location)
       PhraseList.new(:footnote_caribbean)
+    elsif reg_data_query.class::ORU_COURIER_VARIANTS.include?(current_location) and ! reg_data_query.class::ORU_COURIER_VARIANTS.include?(country_of_death)
+      PhraseList.new(:footnote_oru_variants_intro,
+                      :"footnote_oru_variants_#{current_location}",
+                      :footnote_oru_variants_out)
     elsif another_country
       PhraseList.new(:footnote_another_country)
     else

@@ -8,7 +8,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil china dominica egypt france germany hong-kong indonesia iran italy libya malaysia morocco netherlands slovakia spain st-kitts-and-nevis sweden taiwan usa)
+    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil dominica egypt france germany iran italy libya morocco north-korea slovakia spain st-kitts-and-nevis)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-death'
   end
@@ -180,7 +180,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'australia'
       end
       should "give the commonwealth result" do
-        assert_state_variable :current_location_name, "Australia"
+        assert_state_variable :current_location_name_lowercase_prefix, "Australia"
         assert_current_node :commonwealth_result
       end
     end # Australia (commonwealth country)
@@ -190,7 +190,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'spain'
       end
       should "ask where you are now" do
-        assert_state_variable :current_location_name, "Spain"
+        assert_state_variable :current_location_name_lowercase_prefix, "Spain"
         assert_current_node :where_are_you_now?
       end
       context "answer same country" do
@@ -217,13 +217,13 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end # Answer ORU
     end # Answer Spain
 
-    context "answer Morocco" do
+    context "answer Morocco - currently in the UK" do
       setup do
         worldwide_api_has_organisations_for_location('morocco', read_fixture_file('worldwide/morocco_organisations.json'))
         add_response 'morocco'
       end
       should "ask where are you now" do
-        assert_state_variable :current_location_name, "Morocco"
+        assert_state_variable :current_location_name_lowercase_prefix, "Morocco"
         assert_current_node :where_are_you_now?
       end
       context "answer ORU office in the uk" do
@@ -238,7 +238,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end # Answer ORU
     end # Morocco
 
-    context "answer Argentina" do
+    context "answer Argentina - currently in Argentina" do
       setup do
         worldwide_api_has_organisations_for_location('argentina', read_fixture_file('worldwide/argentina_organisations.json'))
         add_response 'argentina'
@@ -255,26 +255,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :organisation, expected_location.fco_organisation
       end
     end # Answer Argentina
-    context "answer China" do
-      setup do
-        worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
-        add_response 'china'
-        add_response 'same_country'
-      end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British embassy or consulate"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_phrase_list :clickbook, [:clickbooks]
-        assert_state_variable :death_country_name_lowercase_prefix, 'China'
-        assert outcome_body.at_css("ul li a[href='https://www.clickbook.net/dev/bc.nsf/sub/BritEmBeijing']")
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        expected_location = WorldLocation.find('china')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
-      end
-    end # Answer China
     context "answer Austria" do
       setup do
         worldwide_api_has_organisations_for_location('austria', read_fixture_file('worldwide/austria_organisations.json'))
@@ -324,11 +304,13 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :translator_link_url, "/government/publications/italy-list-of-lawyers"
       end
     end # Answer Italy
-    context "death occurred in Andorra" do
+
+    context "death occurred in Andorra, but they are now in France" do
       setup do
-        worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
+        worldwide_api_has_organisations_for_location('france', read_fixture_file('worldwide/france_organisations.json'))
         add_response 'andorra'
-        add_response 'same_country'
+        add_response 'another_country'
+        add_response 'france'
       end
       should "give the oru result and be done" do
         assert_current_node :oru_result
@@ -337,21 +319,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
-    end # Answer Andorra
-    context "death occurred in Andorra, but they are now in France" do
-      setup do
-        worldwide_api_has_organisations_for_location('france', read_fixture_file('worldwide/france_organisations.json'))
-        add_response 'andorra'
-        add_response 'another_country'
-      end
-      should "give the embassy result and be done" do
-        assert_current_node :oru_result
-        assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
-        assert_phrase_list :translator_link, [:approved_translator_link]
-        assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
-      end
     end # Answer Andorra, now in France
+
     context "answer Afghanistan" do
       setup do
         worldwide_api_has_organisations_for_location('afghanistan', read_fixture_file('worldwide/afghanistan_organisations.json'))
@@ -410,45 +379,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :organisation, expected_location.fco_organisation
       end
     end # Answer Libya
-    context "answer Sweden" do
-      setup do
-        worldwide_api_has_organisations_for_location('sweden', read_fixture_file('worldwide/sweden_organisations.json'))
-        add_response 'sweden'
-        add_response 'same_country'
-      end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy_sweden]
-        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_phrase_list :clickbook, [:clickbook]
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, nil
-        assert_phrase_list :postal, [:postal_intro, :postal_registration_sweden]
-        expected_location = WorldLocation.find('sweden')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
-      end
-    end # Answer Sweden
-    context "answer Hong Kong" do
-      setup do
-        worldwide_api_has_organisations_for_location('hong-kong', read_fixture_file('worldwide/hong-kong_organisations.json'))
-        add_response 'hong-kong'
-        add_response 'same_country'
-      end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy_hong_kong]
-        assert_state_variable :clickbook, ''
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, nil
-        expected_location = WorldLocation.find('hong-kong')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
-      end
-    end # Answer Hong Kong
     context "answer Brazil" do
       setup do
         worldwide_api_has_organisations_for_location('brazil', read_fixture_file('worldwide/brazil_organisations.json'))
@@ -469,48 +399,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :organisation, expected_location.fco_organisation
       end
     end # Answer Brazil
-    context "answer Germany" do
-      setup do
-        worldwide_api_has_organisations_for_location('germany', read_fixture_file('worldwide/germany_organisations.json'))
-        add_response 'germany'
-        add_response 'same_country'
-      end
-      should "give the ORU result and be done" do
-        assert_current_node :oru_result
-        assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
-        assert_phrase_list :translator_link, [:approved_translator_link]
-        assert_state_variable :translator_link_url, "/government/publications/germany-list-of-lawyers"
-      end
-    end # Answer Germany
-    context "answer USA" do
-      setup do
-        worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
-        add_response 'usa'
-        add_response 'same_country'
-      end
-      should "give the oru result and be done" do
-        assert_current_node :oru_result
-        assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
-        assert_phrase_list :translator_link, [:no_translator_link]
-        assert_state_variable :translator_link_url, nil
-      end
-    end # Answer USA
-    context "answer Netherlands" do
-      setup do
-        worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
-        add_response 'netherlands'
-        add_response 'same_country'
-      end
-      should "give the ORU result and be done" do
-        assert_current_node :oru_result
-        assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
-        assert_phrase_list :translator_link, [:approved_translator_link]
-        assert_state_variable :translator_link_url, "/government/publications/netherlands-list-of-lawyers"
-      end
-    end # Answer Netherlands
+
     context "answer death in dominica, user in st kitts" do
       setup do
         worldwide_api_has_organisations_for_location('barbados', read_fixture_file('worldwide/barbados_organisations.json'))
@@ -533,71 +422,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :organisation, expected_location.fco_organisation
       end
     end # Answer Dominica
-    context "answer death in malaysia, user in same country" do
-      setup do
-        worldwide_api_has_organisations_for_location('malaysia', read_fixture_file('worldwide/malaysia_organisations.json'))
-        add_response 'malaysia'
-        add_response 'same_country'
-      end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy_malaysia]
-        assert_state_variable :embassy_high_commission_or_consulate, "British high commission"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_state_variable :clickbook, ''
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, nil
-        assert_state_variable :cash_only, ''
-        assert_phrase_list :footnote, [:footnote]
-        expected_location = WorldLocation.find('malaysia')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
-      end
-    end # Answer Malaysia
-    context "answer death in indonesia, user in same country" do
-      setup do
-        worldwide_api_has_organisations_for_location('indonesia', read_fixture_file('worldwide/indonesia_organisations.json'))
-        add_response 'indonesia'
-        add_response 'same_country'
-      end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_state_variable :clickbook, ''
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, nil
-        assert_state_variable :cash_only, ''
-        assert_phrase_list :footnote, [:footnote]
-        assert_match /British Embassy Jakarta/, outcome_body
-        expected_location = WorldLocation.find('indonesia')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
-      end
-    end # Answer Taiwan
-    context "answer death in taiwan, user in same country" do
-      setup do
-        worldwide_api_has_organisations_for_location('taiwan', read_fixture_file('worldwide/taiwan_organisations.json'))
-        add_response 'taiwan'
-        add_response 'same_country'
-      end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British Trade & Cultural Office"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_state_variable :clickbook, ''
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, nil
-        assert_phrase_list :cash_only, [:cheque_only]
-        assert_phrase_list :footnote, [:footnote_exceptions]
-        expected_location = WorldLocation.find('taiwan')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
-      end
-    end # Answer Taiwan
-
     context "answer death in Egypt, user in Belgium" do
       setup do
         worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
@@ -612,5 +436,42 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_state_variable :current_location, 'belgium'
       end
     end # Death in Egypt user in Belgium
+
+    context "answer North Korea" do
+      setup do
+        worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
+        add_response 'north-korea'
+      end
+      context "still in North Korea" do
+        should "give the embassy result (this is an exception to ORU transition)" do
+          add_response 'same_country'
+          assert_current_node :embassy_result
+          assert_phrase_list :documents_required_embassy_result, [:"documents_list_embassy_north-korea"]
+        end
+      end
+      context "in another country" do
+        should "give the ORU result" do
+          add_response 'another_country'
+          add_response 'italy'
+          assert_current_node :oru_result
+          assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
+        end
+      end
+    end # Answer North Korea
+
+    context "died in austria, user in north-korea" do
+      setup do
+        worldwide_api_has_organisations_for_location('austria', read_fixture_file('worldwide/austria_organisations.json'))
+        add_response 'austria'
+        add_response 'another_country'
+        worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
+        add_response 'north-korea'
+      end
+      should "take you to the embassy outcome with specific phrasing" do
+        assert_current_node :embassy_result
+        assert_phrase_list :footnote, [:footnote_oru_variants_intro, :"footnote_oru_variants_north-korea", :footnote_oru_variants_out]
+      end
+    end
+
   end # Overseas
 end

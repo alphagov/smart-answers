@@ -1,13 +1,9 @@
 status :published
 satisfies_need "101003"
 
-data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
+country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 translator_query = SmartAnswer::Calculators::TranslatorLinks.new
-exclusions = %w(afghanistan cambodia central-african-republic chad comoros
-                dominican-republic east-timor eritrea haiti kosovo laos lesotho
-                liberia madagascar montenegro paraguay samoa slovenia somalia swaziland
-                taiwan tajikistan western-sahara)
 country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
 exclude_countries = %w(holy-see british-antarctic-territory)
 
@@ -19,15 +15,8 @@ country_select :country_of_birth?, exclude_countries: exclude_countries do
     reg_data_query.registration_country_slug(responses.last)
   end
 
-  calculate :registration_country_name do
-    WorldLocation.all.find { |c| c.slug == registration_country }.name
-  end
   calculate :registration_country_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(registration_country)
-      "the #{registration_country_name}"
-    else
-      registration_country_name
-    end
+    country_name_query.definitive_article(registration_country)
   end
 
   calculate :birth_registration_form do
@@ -90,7 +79,7 @@ end
 # Q5
 multiple_choice :where_are_you_now? do
   option :same_country
-  option :another_country
+  option another_country: :which_country?
   option :in_the_uk
 
   calculate :another_country do
@@ -99,6 +88,10 @@ multiple_choice :where_are_you_now? do
 
   calculate :in_the_uk do
     responses.last == 'in_the_uk'
+  end
+
+  on_condition(->(_) { reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(country_of_birth) }) do
+    next_node_if(:embassy_result, responded_with('same_country'))
   end
 
   next_node_if(:oru_result, reg_data_query.born_in_oru_transitioned_country? | responded_with('in_the_uk'))
@@ -111,17 +104,12 @@ country_select :which_country?, exclude_countries: exclude_countries do
   calculate :registration_country do
     reg_data_query.registration_country_slug(responses.last)
   end
-  calculate :registration_country_name do
-    WorldLocation.all.find { |c| c.slug == registration_country }.name
-  end
+
   calculate :registration_country_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(registration_country)
-      "the #{registration_country_name}"
-    else
-      registration_country_name
-    end
+    country_name_query.definitive_article(registration_country)
   end
 
+  next_node_if(:oru_result, reg_data_query.born_in_oru_transitioned_country?)
   next_node_if(:no_embassy_result, country_has_no_embassy)
   next_node(:embassy_result)
 end
@@ -147,13 +135,10 @@ outcome :embassy_result do
     end
   end
   precalculate :documents_you_must_provide do
-    checklist_countries = %w(bangladesh finland japan kuwait libya pakistan philippines sweden taiwan turkey)
+    checklist_countries = %w(bangladesh kuwait libya north-korea pakistan philippines turkey)
     key = "documents_you_must_provide_"
     key += (checklist_countries.include?(registration_country) ? registration_country : "all")
     PhraseList.new(key.to_sym)
-  end
-  precalculate :documents_footnote do
-    %w(japan sweden).include?(registration_country) ? PhraseList.new(:"docs_footnote_#{registration_country}") : ''
   end
   precalculate :clickbook_data do
     reg_data_query.clickbook(registration_country)
@@ -182,8 +167,8 @@ outcome :embassy_result do
         phrases << :registering_clickbooks
       elsif clickbook_data
         phrases << :registering_clickbook
-      elsif registration_country == 'hong-kong'
-        phrases << :registering_hong_kong
+      elsif %w(hong-kong japan).include?(registration_country)
+        phrases << :"registering_#{registration_country}"
       else
         phrases << :registering_all
       end
@@ -250,10 +235,16 @@ outcome :embassy_result do
     end
   end
   precalculate :footnote do
-    if exclusions.include?(registration_country)
-      PhraseList.new(:footnote_exceptions)
+    if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_birth)
+      phrases = PhraseList.new(:footnote_exceptions)
+      phrases << :"footnote_oru_variants_#{registration_country}" if reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(registration_country)
+      phrases
     elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
       PhraseList.new(:footnote_caribbean)
+    elsif reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) and ! reg_data_query.class::ORU_COURIER_VARIANTS.include?(country_of_birth)
+      PhraseList.new(:footnote_oru_variants_intro,
+                      :"footnote_oru_variants_#{registration_country}",
+                      :footnote_oru_variants_out)
     elsif another_country
       PhraseList.new(:footnote_another_country)
     else
@@ -300,6 +291,16 @@ outcome :oru_result do
     else
       PhraseList.new(:oru_address_abroad)
     end
+  end
+
+  precalculate :oru_courier_text do
+    phrases = PhraseList.new
+    if reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) && !in_the_uk
+      phrases << :"oru_courier_text_#{registration_country}" << :oru_courier_text_common
+    else
+      phrases << :oru_courier_text_default
+    end
+    phrases
   end
 
 end
