@@ -244,7 +244,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
-      assert_phrase_list :commonwealth_os_outcome, [:uk_resident_os_ceremony_not_zimbabwe, :commonwealth_os_all_cni, :commonwealth_os_other_countries_south_africe, :commonwealth_os_naturalisation]
+      assert_phrase_list :commonwealth_os_outcome, [:uk_resident_os_ceremony_not_zimbabwe, :commonwealth_os_all_cni, :commonwealth_os_other_countries_south_africa, :commonwealth_os_naturalisation]
     end
   end
   context "resident in cyprus, ceremony in cyprus" do
