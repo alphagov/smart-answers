@@ -1,8 +1,8 @@
 status :draft
 satisfies_need "101000"
 
-data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
-reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
+data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
+reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 exclude_countries = %w(holy-see british-antarctic-territory the-occupied-palestinian-territories)
 
 # Q1
@@ -39,8 +39,8 @@ country_select :country_of_ceremony?, exclude_countries: exclude_countries do
   calculate :country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(ceremony_country)
       "the #{ceremony_country_name}"
-    elsif SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM.has_key?(ceremony_country)
-      SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM[ceremony_country]
+    elsif SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM.has_key?(ceremony_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM[ceremony_country]
     else
       ceremony_country_name
     end
@@ -155,8 +155,8 @@ country_select :residency_nonuk?, exclude_countries: exclude_countries do
   calculate :residency_country_name_lowercase_prefix do
     if data_query.countries_with_definitive_articles?(residency_country)
       "the #{residency_country_name}"
-    elsif SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM.has_key?(residency_country)
-      SmartAnswer::Calculators::MarriageAbroadDataQueryV2::COUNTRY_NAME_TRANSFORM[residency_country]
+    elsif SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM.has_key?(residency_country)
+      SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM[residency_country]
     else
       residency_country_name
     end

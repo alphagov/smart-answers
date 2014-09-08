@@ -89,7 +89,7 @@ module SmartAnswer::Calculators
       context "oru document variant countries" do
         should "be true for Netherlands" do
           assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('netherlands')
-          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('cambodia')
+          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('austria')
         end
 
         should "be true for Belgium" do
