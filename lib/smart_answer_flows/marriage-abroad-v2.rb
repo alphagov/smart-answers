@@ -1,7 +1,8 @@
 status :draft
 satisfies_need "101000"
 
-data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
+data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
+country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
 exclude_countries = %w(holy-see british-antarctic-territory the-occupied-palestinian-territories)
 
@@ -36,21 +37,19 @@ country_select :country_of_ceremony?, exclude_countries: exclude_countries do
   calculate :ceremony_country_name do
     location.name
   end
+
   calculate :country_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(ceremony_country)
-      "the #{ceremony_country_name}"
-    elsif SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM.has_key?(ceremony_country)
-      SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM[ceremony_country]
+    if country_name_query.class::COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(ceremony_country)
+      country_name_query.definitive_article(ceremony_country)
+    elsif country_name_query.class::FRIENDLY_COUNTRY_NAME.has_key?(ceremony_country)
+      country_name_query.class::FRIENDLY_COUNTRY_NAME[ceremony_country]
     else
       ceremony_country_name
     end
   end
+
   calculate :country_name_uppercase_prefix do
-    if data_query.countries_with_definitive_articles?(ceremony_country)
-      "The #{ceremony_country_name}"
-    else
-      country_name_lowercase_prefix
-    end
+    country_name_query.definitive_article(ceremony_country, true)
   end
 
   calculate :country_name_partner_residence do
@@ -148,15 +147,15 @@ country_select :residency_nonuk?, exclude_countries: exclude_countries do
     end
   end
 
-
   calculate :residency_country_name do
     location.name
   end
+
   calculate :residency_country_name_lowercase_prefix do
-    if data_query.countries_with_definitive_articles?(residency_country)
-      "the #{residency_country_name}"
-    elsif SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM.has_key?(residency_country)
-      SmartAnswer::Calculators::MarriageAbroadDataQuery::COUNTRY_NAME_TRANSFORM[residency_country]
+    if country_name_query.class::COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(residency_country)
+      country_name_query.definitive_article(residency_country)
+    elsif country_name_query.class::FRIENDLY_COUNTRY_NAME.has_key?(residency_country)
+      country_name_query.class::FRIENDLY_COUNTRY_NAME[residency_country]
     else
       residency_country_name
     end
