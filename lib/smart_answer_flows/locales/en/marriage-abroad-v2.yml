@@ -133,7 +133,7 @@ en-GB:
         pay_in_cash_or_manager_cheque: |
           You can pay in cash or with a bank manager's cheque made payable to 'British Embassy'.
         pay_in_cash_visa_or_mastercard: |
-          ^You can pay by cash in the local currency in %{country_name_lowercase_prefix}. You can also pay by Visa or Mastercard, other types of credit card and debit cards are not accepted.^
+          ^You can pay by cash in the local currency in %{country_name_lowercase_prefix}. You can also pay by Visa or Mastercard - other types of credit cards and debit cards are not accepted.^
 #fees
         list_of_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
@@ -250,8 +250,6 @@ en-GB:
           Affirmation for marriage | £65
 
 #other phrases
-        contact_marriage_officer: |
-          You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
         morocco_affidavit_length: |
           ^An 'affirmation for marriage' document issued in Morocco is valid for 3 months.^
         callout_partner_equivalent_document: |
@@ -1018,7 +1016,7 @@ en-GB:
 
           You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country})^
         affirmation_os_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         affirmation_os_other_resident: |
@@ -1030,7 +1028,7 @@ en-GB:
 
           You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country})^
         affirmation_os_legalised_in_turkey: |
           You’ll need to get your affidavit ‘legalised’ (certified as genuine) by the local authorities, this is usually done on the same day - the embassy or consulate should be able to give you advice.
         affirmation_os_uk_resident_two: |
