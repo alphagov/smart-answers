@@ -126,7 +126,7 @@ end
 # Q3b
 country_select :residency_nonuk?, exclude_countries: exclude_countries do
   save_input_as :residency_country
-  countries_that_show_their_embassies_data = %w(belarus brazil dominican-republic egypt el-salvador ethiopia finland honduras hungary indonesia south-korea latvia lebanon mongolia nepal oman panama peru philippines qatar slovakia thailand united-arab-emirates vietnam portugal)
+  countries_that_show_their_embassies_data = %w(belarus brazil dominican-republic egypt el-salvador ethiopia finland honduras hungary indonesia south-korea latvia lebanon mongolia morocco nepal oman panama peru philippines qatar slovakia thailand united-arab-emirates vietnam portugal)
   calculate :location do
     if countries_that_show_their_embassies_data.include?(ceremony_country) and resident_of == 'other'
       loc = WorldLocation.find(ceremony_country)
@@ -815,7 +815,7 @@ outcome :outcome_os_affirmation do
         phrases << :affirmation_os_other_resident
       end
     end
-    phrases << :affirmation_os_all_what_you_need_to_do
+    phrases << :affirmation_os_all_what_you_need_to_do unless ceremony_country == 'morocco'
     phrases << :affirmation_os_uae if ceremony_country == 'united-arab-emirates'
 #What you need to do section
     if %w(turkey egypt).include?(ceremony_country)
