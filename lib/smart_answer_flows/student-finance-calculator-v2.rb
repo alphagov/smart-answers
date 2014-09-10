@@ -2,15 +2,15 @@ status :draft
 satisfies_need "100133"
 
 max_maintainence_loan_amounts = {
-  "2013-2014" => {
-    "at-home" => 4375,
-    "away-outside-london" => 5500,
-    "away-in-london" => 7675
-  },
   "2014-2015" => {
     "at-home" => 4418,
     "away-outside-london" => 5555,
     "away-in-london" => 7751
+  },
+  "2015-2016" => {
+    "at-home" => 4565,
+    "away-outside-london" => 5740,
+    "away-in-london" => 8009
   }
 }
 
@@ -93,32 +93,18 @@ money_question :whats_your_household_income? do
 
   calculate :maintenance_grant_amount do
     household_income = responses.last
-    case start_date
-    when "2013-2014"
-      # decreases from max by £1 for each complete £5.33 of income above £25k
-      # min of £50 at £42611
-      if household_income <= 25000
-        Money.new('3354')
-      else
-        if household_income > 42611
-          Money.new ('0')
-        else
-          Money.new(3354 - ((household_income - 25000) / 5.33).floor)
-        end
-      end
+    # 2015-16 rates are the same as 2014-15:
+    # max of £3,387 for income up to £25,000 then,
+    # £1 less than max for each whole £5.28 above £25000 up to £42,611
+    # min grant is £50 for income = £42,620
+    # no grant for  income above £42,620
+    if household_income <= 25000
+      Money.new('3387')
     else
-      # 2014-15:max of £3,387 for income up to £25,000 then,
-      # £1 less than max for each whole £5.28 above £25000 up to £42,611
-      # min grant is £50 for income = £42,620
-      # no grant for  income above £42,620
-      if household_income <= 25000
-        Money.new('3387')
+      if household_income > 42620
+        Money.new('0')
       else
-        if household_income > 42620
-          Money.new('0')
-        else
-          Money.new(3387 - ((household_income - 25000) / 5.28).floor)
-        end
+        Money.new(3387 - ((household_income - 25000) / 5.28).floor)
       end
     end
   end
