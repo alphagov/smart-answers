@@ -16,8 +16,8 @@ max_maintainence_loan_amounts = {
 
 #Q1
 multiple_choice :when_does_your_course_start? do
-  option :"2013-2014"
   option :"2014-2015"
+  option :"2015-2016"
 
   save_input_as :start_date
   next_node :what_type_of_student_are_you?
@@ -83,14 +83,6 @@ end
 #Q5
 money_question :whats_your_household_income? do
 
-  calculate :household_income_figure do
-    if responses.last <= 25000
-      PhraseList.new(:uk_students_body_text_with_nsp)
-    else
-      PhraseList.new(:uk_students_body_text_no_nsp)
-    end
-  end
-
   calculate :maintenance_grant_amount do
     household_income = responses.last
     # 2015-16 rates are the same as 2014-15:
@@ -117,7 +109,7 @@ money_question :whats_your_household_income? do
     else
       # reduce maintenance loan by £1 for each full £9.90 of income above £42875 until loan reaches 65% of max, when no further reduction applies
       min_loan_amount = (0.65 * max_maintenance_loan_amount.value).floor # to match the reference table
-      reduced_loan_amount = max_maintenance_loan_amount - ((responses.last - 42875) / 9.90).floor
+      reduced_loan_amount = max_maintenance_loan_amount - ((responses.last - 42875) / 9.59).floor
       if reduced_loan_amount > min_loan_amount
         Money.new (reduced_loan_amount)
       else
@@ -191,7 +183,7 @@ end
 
 outcome :outcome_uk_full_time_students do
   precalculate :students_body_text do
-    PhraseList.new(:uk_students_body_text)
+    PhraseList.new(:uk_students_body_text_start)
   end
   precalculate :uk_full_time_students do
     phrases = PhraseList.new
@@ -219,6 +211,7 @@ outcome :outcome_uk_full_time_students do
       elsif course_studied == 'social-work'
         phrases << :social_work
       end
+    phrases << :uk_students_body_text_end
     phrases
     end
   end
@@ -248,7 +241,7 @@ outcome :outcome_uk_all_students do
         phrases << :social_work
       end
     end
-    phrases << :uk_students_body_text_no_nsp
+    phrases << :uk_students_body_text_end
     phrases
   end
 end

@@ -13,15 +13,15 @@ class StudentFinanceCalculatorV2Test < ActiveSupport::TestCase
     assert_current_node :when_does_your_course_start?
   end
 
-  context "course starting between 2013 and 2014" do
+  context "course starting between 2015 and 2016" do
     setup do
-      add_response '2013-2014'
+      add_response '2015-2016'
     end
     should "ask what sort of a student you are" do
       assert_current_node :what_type_of_student_are_you?
     end
 
-    context "full-time uk student between 2013 and 2014" do
+    context "full-time uk student between 2015 and 2016" do
       setup do
         add_response 'uk-full-time'
       end
@@ -51,9 +51,9 @@ class StudentFinanceCalculatorV2Test < ActiveSupport::TestCase
           end
 
           context "household income higher than limit" do
-            should "reduce the maintenance loan amount by £1 for every £9.90 over the threshold" do
+            should "reduce the maintenance loan amount by £1 for every £9.59 over the threshold" do
               add_response '43875'
-              assert_state_variable :maintenance_loan_amount, 4274
+              assert_state_variable :maintenance_loan_amount, 4461
             end
           end
 
@@ -77,12 +77,11 @@ class StudentFinanceCalculatorV2Test < ActiveSupport::TestCase
                 assert_current_node :outcome_uk_full_time_students
                 assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan, :maintenance_grant]
                 assert_state_variable :tuition_fee_amount, 7500
-                assert_state_variable :max_maintenance_loan_amount, 4375
-                assert_state_variable :maintenance_loan_amount, 2698 #4375 - (maintenance_grant_amount/2.0).floor
-                #assert_state_variable :maintenance_grant_amount, 3354
-                assert_phrase_list :students_body_text, [:uk_students_body_text]
-                assert_phrase_list :uk_full_time_students, [:additional_benefits, :"children_under_17_2013-2014", :"dependant_adult_2013-2014", :has_disability, :low_income, :teacher_training]
-                assert_phrase_list :household_income_figure, [:uk_students_body_text_with_nsp]
+                assert_state_variable :max_maintenance_loan_amount, 4565
+                assert_state_variable :maintenance_loan_amount, 2872 #4565 - (maintenance_grant_amount/2.0).floor
+                assert_state_variable :maintenance_grant_amount, 3387
+                assert_phrase_list :students_body_text, [:uk_students_body_text_start]
+                assert_phrase_list :uk_full_time_students, [:additional_benefits, :"children_under_17_2015-2016", :"dependant_adult_2015-2016", :has_disability, :low_income, :teacher_training, :uk_students_body_text_end]
               end # end should
             end # end context children
           end # end context income
@@ -102,7 +101,7 @@ class StudentFinanceCalculatorV2Test < ActiveSupport::TestCase
         assert_phrase_list :eligible_finance, [:tuition_fee_loan]
         assert_state_variable :tuition_fee_amount, 6000
         assert_phrase_list :students_body_text, [:uk_students_body_text]
-        assert_phrase_list :uk_all_students, [:additional_benefits, :has_disability, :low_income, :dental_medical_healthcare, :uk_students_body_text_no_nsp]
+        assert_phrase_list :uk_all_students, [:additional_benefits, :has_disability, :low_income, :dental_medical_healthcare, :uk_students_body_text_end]
       end
     end
 
@@ -117,8 +116,8 @@ class StudentFinanceCalculatorV2Test < ActiveSupport::TestCase
         assert_current_node :outcome_uk_all_students
         assert_phrase_list :eligible_finance, [:tuition_fee_loan]
         assert_state_variable :tuition_fee_amount, 6000
-                assert_phrase_list :students_body_text, [:uk_students_body_text]
-        assert_phrase_list :uk_all_students, [:no_additional_benefits, :uk_students_body_text_no_nsp]
+        assert_phrase_list :students_body_text, [:uk_students_body_text]
+        assert_phrase_list :uk_all_students, [:no_additional_benefits, :uk_students_body_text_end]
       end
     end
 

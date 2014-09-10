@@ -5,7 +5,7 @@ en-GB:
         description: Student finance calculator - get a quick estimate of what student loans, grants, bursaries and other funding you could get - for full-time, part-time and EU students
       title: Student finance calculator
       body: |
-        This calculator is for students from England or the European Union (EU) starting a new course in the 2015 to 2016 academic year.
+        This calculator is for students from England or the European Union (EU) starting a new course in the 2014 to 2015 or 2015 to 2016 academic year.
 
         Use the student finance calculator to estimate:
 
@@ -22,8 +22,8 @@ en-GB:
       when_does_your_course_start?:
         title: When does your course start?
         options:
-          "2013-2014": "Between September 2013 and August 2014"
           "2014-2015": "Between September 2014 and August 2015"
+          "2015-2016": "Between September 2015 and August 2016"
 
 
 #Q2
@@ -52,8 +52,8 @@ en-GB:
 #Q5
       whats_your_household_income?:
         title: What's your annual household income?
-        hint: This is your parents’ or partner’s income plus your own. It affects how much Maintenance Grant (help with living costs) you get.
-        error_message: Please enter a number, don’t enter ‘£’.
+        hint: This is your parents’ or partner’s income plus your own. It affects how much Maintenance Loan and Maintenance Grant (help with living costs) you get.
+        error_message: Enter a number - don’t use the £ sign.
 
 #Q6a
       do_any_of_the_following_apply_uk_full_time_students_only?:
@@ -69,8 +69,8 @@ en-GB:
       do_any_of_the_following_apply_all_uk_students?:
         title: Do any of the following apply (you might get extra funding)?
         options:
-          "has-disability": "You’ve a disability, health condition or learning difficulty -  eg dyslexia"
-          "low-income": "You’re on low income - eg you find it hard to pay for basics like food and accommodation"
+          "has-disability": "You have a disability, health condition or learning difficulty, eg dyslexia"
+          "low-income": "You’re on a low income, eg you find it hard to pay for food and accommodation"
           "no": "None of these"
 
 #Q7
@@ -78,7 +78,7 @@ en-GB:
         title: Are you studying one of these courses?
         options:
           "teacher-training": "Teacher training"
-          "dental-medical-healthcare": "Dental, medical, or healthcare"
+          "dental-medical-healthcare": "Dental, medical or healthcare"
           "social-work": "Social work"
           "none-of-the-above": " None of these"
 
@@ -90,47 +90,40 @@ en-GB:
         maintenance_grant: |
           - %{maintenance_grant_amount} Maintenance Grant (for living costs)
         additional_benefits: |
-          You could get extra grants and allowances:
+          You could get:
 
-
-        children_under_17_2012-2013: |
-          - up to £148.75 a week (1 child) or up to £255 a week (2 or more children) [Childcare Grant](/childcare-grant)
-          - up to £1,508 per year [Parents’ Learning Allowance](/parents-learning-allowance)
-          - [Child Tax Credit](/child-tax-credit)
-        children_under_17_2013-2014: |
-          - up to £148.75 a week (1 child) or up to £255 a week (2 or more children) [Childcare Grant](/childcare-grant)
-          - up to £1,508 per year [Parents’ Learning Allowance](/parents-learning-allowance)
-          - [Child Tax Credit](/child-tax-credit)
         children_under_17_2014-2015: |
           - up to £150.23 a week (1 child) or up to £257.55 a week (2 or more children) [Childcare Grant](/childcare-grant)
           - up to £1,523 per year [Parents’ Learning Allowance](/parents-learning-allowance)
           - [Child Tax Credit](/child-tax-credit)
-        dependant_adult_2012-2013: |
-          - up to £2,642 per year [Adult Dependant's Grant](/adult-dependants-grant)
-        dependant_adult_2013-2014: |
-          - up to £2,642 per year [Adult Dependant's Grant](/adult-dependants-grant)
+        children_under_17_2015-2016: |
+          - up to £155.24 a week (1 child) or up to £266.15 a week (2 or more children) [Childcare Grant](/childcare-grant)
+          - up to £1,573 per year [Parents’ Learning Allowance](/parents-learning-allowance)
+          - [Child Tax Credit](/child-tax-credit)
         dependant_adult_2014-2015: |
-          - up to £2,668 per year [Adult Dependant's Grant](/adult-dependants-grant)
+          - up to £2,668 per year [Adult Dependant’s Grant](/adult-dependants-grant)
+        dependant_adult_2015-2016: |
+          - up to £2,757 per year [Adult Dependant’s Grant](/adult-dependants-grant)
         has_disability: |
           - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
         low_income: |
-          - [extra help with costs while studying](/access-to-learning-fund)
+          - [University and college hardship funds](/extra-money-pay-university/university-and-college-hardship-funds) (extra help with costs while studying)
         teacher_training: |
           - [Funding for teacher training](/teacher-training-funding)
         dental_medical_healthcare: |
           - [NHS Bursary](/nhs-bursaries) (NHS funding towards your fees and living costs)
         social_work: |
           - [Social Work Bursary](/social-work-bursaries) (NHS funding towards your fees and living costs)
-        uk_students_body_text: |
+        uk_students_body_text_start: |
           $!
-          Your estimated student finance is below - you must apply to find out exactly what you’ll get.
+          This is an estimate of your student finance. You must apply to find out exactly what you'll get.
           $!
 
           ##Student finance
 
           You could get per year:
 
-        uk_students_body_text_no_nsp: |
+        uk_students_body_text_end: |
           ^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - check if you [qualify](/student-finance/who-qualifies).^
 
           ##Extra help
@@ -141,41 +134,23 @@ en-GB:
 
           Use the [Family Action grant search](http://www.family-action.org.uk/section.aspx?id=21211) to check whether you qualify for funding from a charitable trust.
 
-          ^Student loans have to be paid back - things like grants, bursaries and allowances don’t.^
+          ^Student loans have to be paid back - grants, bursaries and allowances don’t.^
 
           ##Your next steps
 
-          - How to [apply](/apply-for-student-finance ) for student finance
-          - Check if you [qualify](/student-finance/eligibility)
-
-        uk_students_body_text_with_nsp: |
-          ^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - check if you [qualify](/student-finance/who-qualifies).^
-
-          ##Extra help
-
-          You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college including up to £1,000 from the National Scholarship Programme.
-
-          You might be able to get [help with the costs of travel for study or work placements](/travel-grants-medical-dental-students-england) as part of your course.
-
-          Use the [Family Action grant search](http://www.family-action.org.uk/section.aspx?id=21211) to check whether you qualify for funding from a charitable trust.
-
-          ^Student loans have to be paid back - things like grants, bursaries and allowances don’t.^
-
-          ##Your next steps
-
-          - How to [apply](/apply-for-student-finance) for student finance
-          - Check if you [qualify](/student-finance/who-qualifies)
+          s1. Find out how to [apply](/apply-for-student-finance) for student finance
+          s2. Check if you [qualify](/student-finance/who-qualifies) for student finance
 
         no_additional_benefits: |
           You don’t qualify for extra grants and allowances.
         eu_students_body_text: |
           $!
-          Your estimated student finance is below - you must apply to find out exactly what you’ll get.
+          This is an estimate of your student finance. You must apply to find out exactly what you'll get.
           $!
 
           ##Tuition costs
 
-          You could get a Tuition Fee Loan - %{tuition_fee_amount} a year.
+          You could get a Tuition Fee Loan - %{tuition_fee_amount} per year.
 
           The loan pays for the cost of your course and must be paid back.
         eu_full_time_students: |
@@ -195,8 +170,8 @@ en-GB:
 
           ##Your next steps
 
-          - How to [apply](/apply-for-student-finance) for student finance
-          - Check if you [qualify](/student-finance/who-qualifies) for student finance
+          s1. Find out how to [apply](/apply-for-student-finance) for student finance
+          s2. Check if you [qualify](/student-finance/who-qualifies) for student finance
 
           ^Usually, you’ll only get student finance if you’re doing your first higher education qualification.^
 
@@ -209,7 +184,6 @@ en-GB:
           ###Extra student funding
 
           %{uk_full_time_students}
-          %{household_income_figure}
 
       outcome_uk_all_students:
         body: |
