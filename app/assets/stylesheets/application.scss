@@ -1,0 +1,30 @@
+// frontend_toolkit
+@import "conditionals";
+@import "typography";
+
+// Styles
+//
+// The more generic SmartAnswer CSS is in Static _multi_step.scss
+// Currently for previous answers block
+.smart_answer {
+  .previous-answers {
+    margin-left: 1em;
+    float: left;
+  }
+
+  .start-again {
+    float: right;
+    margin-right: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.25em;
+  }
+
+  @include media(mobile) {
+    @include core-16;
+  }
+
+  .done-questions ol,
+  .upcoming-questions ol {
+    clear: both;
+  }
+}
