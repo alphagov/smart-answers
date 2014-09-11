@@ -1,6 +1,6 @@
 # Circumstances
 
-# Birth or adoption?
+# Are you giving birth or adopting?
 
 [choice: circumstance]
 * birth: Birth

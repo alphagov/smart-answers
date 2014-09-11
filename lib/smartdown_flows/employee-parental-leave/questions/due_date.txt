@@ -1,6 +1,6 @@
 # Due date
 
-# When is the baby due?
+# When is your baby’s due date?
 
 [date: due_date]
 
