@@ -1,6 +1,6 @@
 # Employment
 
-# What’s the employment status of the mother or PRINCIPAL ADOPTER?
+# What’s the employment status of the mother or primary adopter?
 
 [choice: employment_status_1]
 * employee: Employee contract
@@ -9,7 +9,7 @@
 * self-employed: Self-employed
 * unemployed: Unemployed
 
-# Mother's partner/other adopter employment
+# What’s the employment status of the mother’s or primary adopter’s partner?
 
 [choice: employment_status_2]
 * employee: Employee contract

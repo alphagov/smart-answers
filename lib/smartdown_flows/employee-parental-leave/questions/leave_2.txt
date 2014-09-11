@@ -1,8 +1,12 @@
 # Leave
 
-# Date leave planned
+# When does the mother’s or primary adopter’s partner want to start their leave?
 
 [date:date_leave_2]
+
+# How much leave does the mother’s or primary adopter’s partner plan to take?
+
+[amount_leave: amount_leave_2]
 
 * circumstance is 'adoption'
   * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'

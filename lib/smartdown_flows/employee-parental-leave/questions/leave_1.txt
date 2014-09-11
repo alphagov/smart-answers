@@ -1,6 +1,6 @@
 # Leave
 
-# Date leave planned
+# When does the mother or primary adopter want to start their leave?
 
 [date: date_leave_1]
 
