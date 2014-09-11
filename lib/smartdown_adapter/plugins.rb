@@ -5,8 +5,8 @@ module SmartdownAdapter
         "years_until_training_forgotten"
       end
 
-      def call(state)
-        (Date.parse(state.get("training_date")).year + 20) - Time.zone.now.year
+      def call(training_date)
+        (Date.parse(training_date).year + 20) - Time.zone.now.year
       end
     end
   end
