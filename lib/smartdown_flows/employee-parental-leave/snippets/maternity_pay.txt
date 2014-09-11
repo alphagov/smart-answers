@@ -1,0 +1,24 @@
+##Maternity pay
+
+The mother can get up to 39 weeks of Statutory Maternity Pay (SMP) from her employer.
+
+Key facts | Estimated amount
+- | -
+Maternity pay dates | %{date_leave_1} to %{end_of_maternity_leave}(date_leave_1)}
+First 6 weeks | %{rate_of_smp(salary_1)}
+Next 33 weeks | %{rate_of_smp(salary_1)}
+Total estimated SMP | {total_smp(rate_of_smp)}
+Tell your employer by | {notice_date_smp(due_date)}
+
+Tax and National Insurance will be deducted.
+
+To claim SMP the mother must give her employer at least 28 day’s notice.
+
+%This is an estimate, the mother’s employer will confirm if she qualifies and how much she’ll get.%
+###Extra help
+The mother could also get:
+a £500 [Sure Start Maternity Grant](/sure-start-maternity-grant) (usually if it’s her first child)
+benefits while she’s not working
+Child Tax Credits - after the baby is born
+Child Benefit - after the baby is born
+Use the [benefits calculators](/benefits-calculators) to check what benefits or tax credits the mother can get.
