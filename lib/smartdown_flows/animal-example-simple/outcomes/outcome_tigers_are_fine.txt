@@ -2,8 +2,8 @@
 
 You haven't trained with tigers, but you'll be alright, probably.
 
-[next_steps]
-###You bought a tiger? Seriously?
+{{snippet: example-block}}
 
-[Your nearest hospital](https://gov.uk/hospital)
+[next_steps]
+{{snippet: example-inline}}
 [end_next_steps]
