@@ -4,9 +4,9 @@ The mother can get up to 39 weeks of Statutory Maternity Pay (SMP) from her empl
 
 Key facts | Estimated amount
 - | -
-Maternity pay dates | %{date_leave_1} to %{end_of_maternity_leave}(date_leave_1)}
-First 6 weeks | %{rate_of_smp(salary_1)}
-Next 33 weeks | %{rate_of_smp(salary_1)}
+Maternity pay dates | !{date_leave_1} to !{end_of_maternity_leave}(date_leave_1)}
+First 6 weeks | !{rate_of_smp(salary_1)}
+Next 33 weeks | !{rate_of_smp(salary_1)}
 Total estimated SMP | {total_smp(rate_of_smp)}
 Tell your employer by | {notice_date_smp(due_date)}
 

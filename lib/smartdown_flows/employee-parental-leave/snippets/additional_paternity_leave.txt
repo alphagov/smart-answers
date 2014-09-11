@@ -2,4 +2,4 @@ If the mother or primary adopter returns to work early, their partner may be abl
 
 Leave | Key dates
 - | -
-Additional Paternity Leave must be used between | %{start_of_additional_paternity_leave(due_date)} to %{end_of_additional_paternity_leave(due_date)}
+Additional Paternity Leave must be used between | !{start_of_additional_paternity_leave(due_date)} to !{end_of_additional_paternity_leave(due_date)}

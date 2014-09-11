@@ -1,12 +1,12 @@
 # Employment partner/adopter
 
-# Did the mother’s or primary adopter’s partner start their job before {todo_minimum_start_date}?
+# Did the mother’s or primary adopter’s partner start their job before !{todo_minimum_start_date}?
 
 [choice: job_before_x_2]
 * yes: Yes
 * no: No
 
-# Did the mother’s or primary adopter’s partner leave their job after {todo_minimum_end_date}?
+# Did the mother’s or primary adopter’s partner leave their job after !{todo_minimum_end_date}?
 
 [choice: job_after_y_2]
 * yes: Yes

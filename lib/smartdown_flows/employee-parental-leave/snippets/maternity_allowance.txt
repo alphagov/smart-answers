@@ -4,10 +4,10 @@ The mother can get Maternity Allowance from the government for up to 39 weeks.
 
 Maternity Allowance | Key facts
 - | -
-Maternity Allowance dates | %{period_of_maternity_allowance}
-Weekly rate | %{rate_of_pay}
-Total estimated allowance | %{total_maternity_allowance}
-Tell your employer by | %{notice_maternity_allowance}
+Maternity Allowance dates | !{period_of_maternity_allowance}
+Weekly rate | !{rate_of_pay}
+Total estimated allowance | !{total_maternity_allowance}
+Tell your employer by | !{notice_maternity_allowance}
 
 %This is an estimate, the mother must claim Maternity Allowance to find out if she qualifies and what she’ll get.%
 

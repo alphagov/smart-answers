@@ -4,9 +4,9 @@ The mother’s partner can get up to 2 weeks of Statutory Paternity Pay. This wi
 
 Pay | Key facts
 - | -
-Paternity pay dates | %{date_leave_2} to %{end_of_paternity_leave(date_leave_2)}
-Weekly rate | %{rate_of_paternity_pay(salary_2)}
-Latest date to give notice of a change of dates | %{paternity_pay_notice_date(date_leave_2)}
+Paternity pay dates | !{date_leave_2} to !{end_of_paternity_leave(date_leave_2)}
+Weekly rate | !{rate_of_paternity_pay(salary_2)}
+Latest date to give notice of a change of dates | !{paternity_pay_notice_date(date_leave_2)}
 
 %This is an estimate, their employer will confirm if they qualify and how much they’ll get.%
 
