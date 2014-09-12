@@ -3,28 +3,40 @@
 @import "typography";
 
 // Styles
-//
 // The more generic SmartAnswer CSS is in Static _multi_step.scss
-// Currently for previous answers block
+
 .smart_answer {
+  // Previous answers block
   .previous-answers {
-    margin-left: 1em;
-    float: left;
+    h2 {
+      @include core-19;
+      padding-left: 32px;
+      @include media(mobile) {
+        padding-left: 16px;
+      }
+    }
   }
 
-  .start-again {
-    float: right;
-    margin-right: 2em;
-    margin-top: 0.5em;
-    margin-bottom: 0.25em;
+  .previous-answers-top {
+    margin-bottom: 1.5em;
   }
 
-  @include media(mobile) {
-    @include core-16;
+  // Current question
+  .page-title {
+    margin-top: 0;
+    @include bold-24;
+    padding-left: 32px;
+    @include media(mobile) {
+      padding-left: 16px;
+    }
   }
 
-  .done-questions ol,
-  .upcoming-questions ol {
-    clear: both;
+  .current-question {
+    margin: 1.5em 0 0 0;
+    padding: 0;
+
+    .question {
+      margin: .5em 0 2em 0;
+    }
   }
 }
