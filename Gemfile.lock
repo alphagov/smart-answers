@@ -39,6 +39,11 @@ GEM
       addressable (~> 2.2.3)
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     blankslate (2.1.2.4)
     builder (3.0.4)
     capybara (2.1.0)
@@ -51,6 +56,7 @@ GEM
       builder (>= 2.1.2)
     coderay (1.1.0)
     crack (0.3.2)
+    debug_inspector (0.0.2)
     diffy (3.0.6)
     erubis (2.7.0)
     eventmachine (1.0.3)
@@ -237,6 +243,8 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake (= 3.1.15)
+  better_errors
+  binding_of_caller
   capybara (= 2.1.0)
   ci_reporter
   diffy (= 3.0.6)
