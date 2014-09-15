@@ -1,8 +1,8 @@
 <li class="done">
+  <h3 class="question">
+    <%= question_page.title %>
+  </h3>
   <% question_page.questions.each_with_index do |question, question_index|%>
-    <h3 class="question">
-      <%= question.title %>
-    </h3>
     <%- if question.multiple_responses? -%>
       <div class="answer multiple">
         <ul>
