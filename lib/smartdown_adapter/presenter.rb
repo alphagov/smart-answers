@@ -76,13 +76,24 @@ module SmartdownAdapter
     # -- end probably deprecated methods
 
     # Template helper that is aware of state, eg, name, responses
-    def change_collapsed_question_link(question_number)
-      smart_answer_path(
-          id: name,
-          started: 'y',
-          responses: accepted_responses[0...question_number - 1],
-          previous_response: accepted_responses[question_number - 1]
+    def change_collapsed_question_link(question_number, number_questions_changed_page)
+      responses_up_to_changed_page = accepted_responses[0...question_number - 1]
+      number_responses_to_keep = question_number + number_questions_changed_page
+      responses_including_changed_page =  accepted_responses[0...number_responses_to_keep -1]
+      previous_responses_hash = {}
+      responses_including_changed_page
+        .last(number_questions_changed_page)
+        .each_with_index do |response, response_index|
+          previous_responses_hash["previous_response_#{response_index + 1}"] = response
+        end
+
+      url_hash = previous_responses_hash.merge(
+        id: name,
+        started: 'y',
+        responses:  responses_up_to_changed_page,
       )
+
+      smart_answer_path(url_hash)
     end
 
     #TODO: implement once we have error handling

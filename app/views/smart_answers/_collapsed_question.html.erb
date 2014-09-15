@@ -16,6 +16,6 @@
     <%- end -%>
   <% end %>
   <p class="undo">
-    <%= link_to "Change this answer", @presenter.change_collapsed_question_link(number_questions_so_far + 1) %>
+    <%= link_to "Change this answer", @presenter.change_collapsed_question_link(number_questions_so_far + 1, question_page.questions.count) %>
   </p>
 </li>
