@@ -13,6 +13,8 @@ module SmartdownAdapter
         case smartdown_question
         when Smartdown::Api::DateQuestion
           SmartdownAdapter::DateQuestionPresenter.new(smartdown_question)
+        when Smartdown::Api::SalaryQuestion
+          SmartdownAdapter::SalaryQuestionPresenter.new(smartdown_question)
         else
           SmartdownAdapter::QuestionPresenter.new(smartdown_question)
         end
