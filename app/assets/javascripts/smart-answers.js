@@ -46,16 +46,15 @@ $(document).ready(function() {
   }
 
   $('#current-error').focus();
+
   // helper functions
   function toJsonUrl(url) {
     var parts = url.split('?');
     var json_url = parts[0].replace(/\/$/, "") + ".json";
-
     if (parts[1]) {
       json_url += "?";
       json_url += parts[1];
     }
-
     return window.location.protocol + "//" + window.location.host + json_url;
   }
 
@@ -79,8 +78,6 @@ $(document).ready(function() {
       data: params,
       timeout: 10000,
       error: function(jqXHR, textStatus, errorStr) {
-        console.log("nope");
-        console.log(errorStr);
         var paramStr = $.param(params);
         redirectToNonAjax(url.replace('.json', '?' + paramStr).replace('??', '?'));
       },
