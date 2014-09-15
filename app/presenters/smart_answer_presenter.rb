@@ -86,7 +86,7 @@ class SmartAnswerPresenter
 
   def collapsed_question_pages
     collapsed_questions.map do |collapsed_question|
-      OpenStruct.new(:questions => [collapsed_question])
+      OpenStruct.new(:questions => [collapsed_question], :title => collapsed_question.title)
     end
   end
 

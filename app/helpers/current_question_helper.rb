@@ -13,9 +13,17 @@ module CurrentQuestionHelper
     end
   end
 
-  def prefill_value_is?(value)
-    if params[:previous_response]
-      params[:previous_response] == value
+  def previous_response_key(question_number)
+    if question_number
+      previous_response_key = "previous_response_#{question_number}".to_sym
+    else
+      previous_response_key = :previous_response
+    end
+  end
+
+  def prefill_value_is?(value, question_number = nil)
+    if params[previous_response_key(question_number)]
+      params[previous_response_key(question_number)] == value
     elsif params[:response]
       params[:response] == value
     end

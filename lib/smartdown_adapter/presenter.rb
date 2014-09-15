@@ -76,7 +76,7 @@ module SmartdownAdapter
     # -- end probably deprecated methods
 
     # Template helper that is aware of state, eg, name, responses
-    def change_collapsed_question_link(question_number, number_questions_changed_page)
+    def change_collapsed_question_link(question_number, number_questions_changed_page = 1)
       responses_up_to_changed_page = accepted_responses[0...question_number - 1]
       number_responses_to_keep = question_number + number_questions_changed_page
       responses_including_changed_page =  accepted_responses[0...number_responses_to_keep -1]
