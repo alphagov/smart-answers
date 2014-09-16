@@ -1,0 +1,25 @@
+##Adoption pay
+
+Key facts | Estimated amount
+- | -
+Adoption pay dates | !{period_of_adoption_pay}
+Tell your employer by | {notice_date_sap}
+First 6 weeks | !{amount_first_6_weeks}
+Next 33 weeks | !{amount_next_33_weeks}
+Total estimated SAP | {total_sap}
+
+Tax and National Insurance will be deducted.
+
+To claim SAP you must give your employer at least 28 day’s notice.
+
+%This is an estimate, the primary adopter’s employer will confirm if they qualify and how much they’ll get.%
+
+###Extra help
+
+The primary adopter could also get:
+
+* benefits while they’re not working
+* Child Tax Credits
+* Child Benefit
+
+Use a [benefits calculator](/benefits-calculators) to check what benefits or tax credits the primary adopter can get.

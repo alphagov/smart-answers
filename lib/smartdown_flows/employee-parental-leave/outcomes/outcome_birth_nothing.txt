@@ -1,9 +1,26 @@
-# Outcome birth nothing
+$IF single_parent is 'yes'
 
-## Birth
+The mother can’t get maternity leave, pay or allowance. She could get:
 
-SNIPPET{_birth}
+$ELSE
 
-## Nothing
+The mother can’t get maternity leave, pay or allowance. The partner can’t get paternity leave or pay.
 
-SNIPPET{_nothing}
+They could get:
+
+$ENDIF
+
+- a £500 Sure Start Maternity Grant (usually if it’s her first child)
+- benefits while she’s not working
+- Child Tax Credits - after the baby is born
+- Child Benefit - after the baby is born
+
+$IF single_parent is 'yes'
+
+Use the [benefits calculators](/benefits-calculators) to check what benefits or tax credits the mother can get.
+
+$ELSE
+
+Use the [benefits calculators](/benefits-calculators) to check what benefits or tax credits the mother and her partner can get.
+
+$ENDIF
