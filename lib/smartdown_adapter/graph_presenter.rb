@@ -56,25 +56,14 @@ module SmartdownAdapter
 
     def rule_label(rule, parent_rules)
       all_rules = parent_rules.push(rule)
-      predicate_labels = all_rules.map(&:predicate).map{ |predicate| predicate_label(predicate) }
-      predicate_labels.join(" AND ")
-    end
-
-    def predicate_label(predicate)
-      case predicate
-        when Smartdown::Model::Predicate::Equality
-          "#{predicate.varname} is #{predicate.expected_value}"
-        when Smartdown::Model::Predicate::Named
-          "#{predicate.name}"
-        when Smartdown::Model::Predicate::SetMembership
-          "#{predicate.varname} in [#{predicate.values.join(",")}]"
-        when Smartdown::Model::Predicate::Combined
-          "( #{predicate.predicates.map { |p| predicate_label(p) }.join(' AND ')} )"
-        when Smartdown::Model::Predicate::Comparison::Base
-          comparison_predicate_type(predicate)
+      all_rules.map(&:predicate).map{ |predicate|
+        # Fixed in smartdown, but not released yet
+        if predicate.is_a? Smartdown::Model::Predicate::Otherwise
+          "otherwise"
         else
-          "Unknown predicate type #{predicate}"
-      end
+          predicate.humanize
+        end
+      }.join(" AND ")
     end
 
     def graph_label_text(node)
@@ -118,20 +107,5 @@ module SmartdownAdapter
         line.length > line_width ? line.gsub(/(.{1,#{line_width}})(\s+|$)/, "\\1\n").strip : line
       end * "\n"
     end
-
-  private
-
-    def comparison_predicate_type(predicate)
-      # @TODO: This should live on Predicates in smartdown, maybe as .`humanise`
-      type = predicate.class.name.split('::').last
-      comparison_symbols = {
-        'GreaterOrEqual' => '>=',
-        'Greater' => '>',
-        'LessOrEqual' => '<=',
-        'Less' => '<',
-      }
-      "#{predicate.varname} #{comparison_symbols[type]} #{predicate.value}"
-    end
-
   end
 end
