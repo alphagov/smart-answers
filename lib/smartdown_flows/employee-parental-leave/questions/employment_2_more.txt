@@ -6,8 +6,8 @@
 * yes: Yes
 * no: No
 
-* employment_1 is 'employee'
+* employment_status_1 is 'employee'
   * job_after_y_1 is 'yes' => leave_1
   * job_after_y_1 is 'no' => TODO
-* employment_1 in {self-employed unemployed} => TODO
-* employment_1 in {worker agency} => TODO
+* employment_status_1 in {self-employed unemployed} => TODO
+* employment_status_1 in {worker agency} => TODO
