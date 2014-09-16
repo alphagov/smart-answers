@@ -28,12 +28,10 @@
   * employment_status_2 in {employee worker agency} => employment_2
   * employment_status_2 in {self-employed unemployed}
     * employment_status_1 in {employee worker agency}
-      * circumstance is 'adoption'
-        * match_date >= '2015-4-5' => employment_2_more
-        * otherwise => leave_1
+      * circumstance is 'adoption' => outcome_adoption_nothing
       * circumstance is 'birth'
-        * due_date >= '2015-4-5' => employment_2_more
-        * otherwise => leave_1
+        * earnings_employment_1 is 'yes' => outcome_birth_ma
+        * earnings_employment_1 is 'no' => outcome_birth_nothing
     * employment_status_1 is 'self-employed'
       * circumstance is 'birth'
         * earnings_employment_1 is 'yes' => outcome_birth_ma

@@ -24,11 +24,24 @@
 * circumstance is 'birth'
   * employment_status_1 is 'employee'
     * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-      * due_date >= '2015-4-5' => TODO
+      * due_date >= '2015-4-5' => outcome_birth_leave_pay_spl_patleave_patpay_patspl
+      * otherwise => outcome_birth_leave_pay_patleave_patpay_additional
+    * otherwise
+      * due_date >= '2015-4-5'
+        * earnings_employment_1 is 'yes' => outcome_birth_ma_patleave_patpay_patspl
+        * earnings_employment_1 is 'no' => outcome_birth_patleave_patpay
+      * otherwise => outcome_birth_patleave_patpay_additional
+  * employment_status_1 in {worker agency}
+    * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+      * due_date >= '2015-4-5' => outcome_birth_pay_spl_patleave_patpay_patspl
       * otherwise => outcome_adoption_pay_patleave_patpay_additional
     * otherwise
       * due_date >= '2015-4-5'
         * earnings_employment_1 is 'yes' => outcome_birth_ma_patleave_patpay_patspl
         * earnings_employment_1 is 'no' => outcome_birth_patleave_patpay
       * otherwise => outcome_birth_patleave_patpay_additional
-  * otherwise => TODO
+  * employment_status_1 in {self-employed unemployed}
+    * due_date >= '2015-4-5'
+      * earnings_employment_1 is 'yes' => outcome_birth_ma_patleave_patpay_patspl
+      * earnings_employment_1 is 'no' => outcome_birth_patleave_patpay
+    * otherwise => outcome_birth_patleave_patpay_additional
