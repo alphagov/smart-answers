@@ -32,7 +32,45 @@
       * earnings_employment_1 is 'yes' => outcome_birth_ma_leave
       * earnings_employment_1 is 'no' => outcome_birth_leave
   * single_parent is 'no'
-    * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => TODO
+    * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+      * employment_status_2 in {employee worker agency}
+        * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
+          * employment_status_2 is 'employee'
+            * employment_status_1 is 'employee'
+              * due_date >= '2015-4-5' => outcome_birth_leave_pay_spl_patleave_patpay_patspl
+              * otherwise => outcome_birth_leave_pay_patleave_patpay_additional
+            * employment_status_1 in {worker agency}
+              * due_date >= '2015-4-5' => outcome_birth_pay_spl_patleave_patpay_patspl
+              * otherwise => outcome_birth_pay_patleave_patpay_additional
+          * employment_status_2 in {worker agency}
+            * employment_status_1 is 'employee'
+              * due_date >= '2015-4-5' => outcome_birth_leave_pay_spl_patpay_patspl
+              * otherwise => outcome_birth_leave_pay_patpay_additional
+            * employment_status_1 in {worker agency}
+              * due_date >= '2015-4-5' => outcome_birth_pay_spl_patpay_patspl
+              * otherwise => outcome_birth_pay_patpay_additional
+        * otherwise
+          * employment_status_1 is 'employee'
+            * due_date >= '2015-4-5'
+              * earnings_employment_2 is 'yes' => outcome_birth_leave_pay_spl
+              * earnings_employment_2 is 'no' => outcome_birth_leave_pay
+            * otherwise => outcome_birth_leave_pay
+          * employment_status_1 in {worker agency}
+            * due_date >= '2015-4-5'
+              * earnings_employment_2 is 'yes' => outcome_birth_pay_spl
+              * earnings_employment_2 is 'no' => outcome_birth_pay
+            * otherwise => outcome_birth_pay
+      * otherwise
+        * employment_status_1 is 'employee'
+          * due_date >= '2015-4-5'
+            * earnings_employment_2 is 'yes' => outcome_birth_leave_pay_spl
+            * earnings_employment_2 is 'no' => outcome_birth_leave_pay
+          * otherwise => outcome_birth_leave_pay
+        * employment_status_1 in {worker agency}
+          * due_date >= '2015-4-5'
+            * earnings_employment_2 is 'yes' => outcome_birth_pay_spl
+            * earnings_employment_2 is 'no' => outcome_birth_pay
+          * otherwise => outcome_birth_pay
     * otherwise
       * earnings_employment_1 is 'yes' => outcome_birth_ma_leave
       * earnings_employment_1 is 'no' => outcome_birth_leave
