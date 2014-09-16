@@ -23,7 +23,11 @@
 * no: No
 
 * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-  * single_parent is 'yes' => leave_1
+  * single_parent is 'yes'
+    * employment_status_1 is 'employee' => leave_1
+    * otherwise
+      * circumstance is 'birth' => outcome_birth_pay
+      * circumstance is 'adoption' => TODO
   * single_parent is 'no'
     * employment_status_2 in {employee worker agency} => employment_2
     * employment_status_2 in {self-employed unemployed}
