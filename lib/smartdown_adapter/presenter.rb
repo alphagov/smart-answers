@@ -84,7 +84,8 @@ module SmartdownAdapter
       responses_including_changed_page
         .last(number_questions_changed_page)
         .each_with_index do |response, response_index|
-          previous_responses_hash["previous_response_#{response_index + 1}"] = response
+          answer_number = responses_including_changed_page.last(number_questions_changed_page).size > 1 ? "_#{response_index + 1}" : ""
+          previous_responses_hash["previous_response#{answer_number}"] = response
         end
 
       url_hash = previous_responses_hash.merge(
