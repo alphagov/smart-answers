@@ -1016,7 +1016,7 @@ en-GB:
 
           You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country})^
+          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).^
         affirmation_os_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         affirmation_os_other_resident: |
