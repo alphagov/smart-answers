@@ -1,0 +1,9 @@
+# Outcome mat-leave mat-pay mat-shared-leave mat-shared-pay
+
+SNIPPET{_mat-leave}
+
+SNIPPET{_mat-pay}
+
+SNIPPET{_mat-shared-leave}
+
+SNIPPET{_mat-shared-pay}

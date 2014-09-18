@@ -1,0 +1,3 @@
+# Outcome birth-nothing
+
+SNIPPET{_birth-nothing}

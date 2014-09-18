@@ -23,4 +23,4 @@
   * circumstance is 'birth' => employment_1_more
   * circumstance is 'adoption'
     * employment_status_2 in {employee worker agency} => employment_1_more
-    * employment_status_2 in {self-employed unemployed} => outcome_adoption_nothing
+    * employment_status_2 in {self-employed unemployed} => outcome_adopt-nothing

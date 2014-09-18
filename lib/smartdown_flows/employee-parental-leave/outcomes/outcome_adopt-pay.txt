@@ -1,0 +1,3 @@
+# Outcome adopt-pay
+
+SNIPPET{_adopt-pay}

@@ -1,0 +1,3 @@
+# Outcome mat-leave
+
+SNIPPET{_mat-leave}

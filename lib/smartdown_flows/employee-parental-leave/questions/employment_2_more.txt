@@ -8,13 +8,20 @@
 
 * employment_status_1 is 'employee'
   * job_after_y_1 is 'yes' => leave_1
-* employment_status_1 in {self-employed unemployed} => TODO
 * employment_status_1 in {worker agency}
   * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
     * circumstance is 'birth'
       * due_date >= '2015-4-5'
-        * earnings_employment_2 is 'yes' => outcome_birth_pay_spl
-        * earnings_employment_2 is 'no' => outcome_birth_pay
-      * otherwise => outcome_birth_pay
-    * circumstance is 'adoption' => TODO
-  * otherwise => TODO
+        * earnings_employment_2 is 'yes' => outcome_mat-pay_shared-mat-pay
+        * earnings_employment_2 is 'no' => outcome_mat-pay
+      * otherwise => outcome_mat-pay
+    * circumstance is 'adoption'
+      * match_date >= '2015-4-5'
+        * earnings_employment_2 is 'yes' => outcome_adopt-pay_shared-mat-pay
+        * earnings_employment_2 is 'no' => outcome_adopt-pay
+      * otherwise => outcome_adopt-pay
+  * otherwise
+    * circumstance is 'birth'
+      * earnings_employment_2 is 'yes' => outcome_mat-allowance
+      * earnings_employment_2 is 'no' => outcome_birth-nothing
+    * circumstance is 'adoption' => outcome_adopt-nothing

@@ -1,0 +1,5 @@
+# Outcome mat-pay shared-mat-pay
+
+SNIPPET{_mat-pay}
+
+SNIPPET{_shared-mat-pay}
