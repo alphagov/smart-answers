@@ -70,7 +70,7 @@ $(document).ready(function() {
   function reloadQuestions(url, params) {
     var url = toJsonUrl(url);
 
-    addLoading('<p>Loading next step&hellip;</p>');
+    addLoading('<p class="next-step">Loading next step&hellip;</p>');
 
     $.ajax(url, {
       type: 'GET',
