@@ -2,9 +2,24 @@ meta_description: Employee parental leave
 status: draft
 satisfies_need: 101018
 
-# Employee parental leave
+# Calculate your leave and pay when you have a child or adopt
 
-A draft of the Smart Answer for Shared Parental Leave. This is a working in
-progress and has not been published yet and is only available on preview.
+Use this tool to find out: 
+
+* if you can get maternity, paternity, adoption or shared parental leave
+* how much pay you can get if you take leave
+
+Shared parental leave and pay are only available in England, Scotland and Wales. 
+
+## Before you start
+
+You’ll need information about your partner if you’ll share the care of the child with them. You’ll need to know:
+
+* their employment status (eg employed)
+* the date they started work
+* the date they finished work (if they’ve finished)
+* how much they earn
+* when they want to go on leave
+* how much leave they want to take
 
 [start: circumstances]
