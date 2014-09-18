@@ -16,7 +16,8 @@ module SmartdownAdapter
         combinations = generate_next_combinations(smartdown_flow, combinations)
       end
       p "#{@outcomes} combinations generated"
-      p "#{@errors.count} errors"
+      p "#{@errors.count/2} errors"
+      p @errors
     end
 
   private
@@ -55,7 +56,8 @@ module SmartdownAdapter
             p state.current_node.name
             p "======================="
           end
-        rescue Exception
+        rescue Exception => e
+          @errors << e.to_s
           @errors << combination
         end
       end

@@ -1,9 +1,0 @@
-# Outcome birth nothing
-
-## Birth
-
-SNIPPET{_birth}
-
-## Nothing
-
-SNIPPET{_nothing}

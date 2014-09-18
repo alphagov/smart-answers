@@ -1,0 +1,5 @@
+# Outcome adopt-leave adopt-pay-pre-5-april
+
+SNIPPET{_adopt-leave}
+
+SNIPPET{_adopt-pay-pre-5-april}

@@ -14,4 +14,4 @@ Read about the [types of employment](https://www.gov.uk/employment-status) if yo
 * employment_status_1 in {employee worker agency} => employment_1
 * employment_status_1 in {self-employed unemployed}
   * circumstance is 'birth' => employment_1_more
-  * circumstance is 'adoption' => outcome_adoption_nothing
+  * circumstance is 'adoption' => outcome_adopt-nothing

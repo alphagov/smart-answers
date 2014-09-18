@@ -26,8 +26,10 @@
   * single_parent is 'yes'
     * employment_status_1 is 'employee' => leave_1
     * otherwise
-      * circumstance is 'birth' => outcome_birth_pay
-      * circumstance is 'adoption' => TODO
+      * circumstance is 'birth' => outcome_mat-pay
+      * circumstance is 'adoption'
+        * match_date >= '2015-4-5' => outcome_adopt-pay
+        * otherwise => outcome_adopt-pay-pre-5-april
   * single_parent is 'no'
     * employment_status_2 in {employee worker agency} => employment_2
     * employment_status_2 in {self-employed unemployed}
@@ -35,16 +37,16 @@
         * due_date >= '2015-4-5' => employment_2_more
         * otherwise => leave_1
       * circumstance is 'adoption'
-        * placement_date >= '2015-4-5' => employment_2_more
+        * match_date >= '2015-4-5' => employment_2_more
         * otherwise => leave_1
 * otherwise
   * circumstance is 'birth' => employment_1_more
   * circumstance is 'adoption'
     * single_parent is 'yes'
-      * placement_date >= '2015-4-5' => outcome_adoption_leave
-      * otherwise => outcome_adoption_nothing
+      * match_date >= '2015-4-5' => outcome_adopt-leave
+      * otherwise => outcome_adopt-nothing
     * single_parent is 'no'
       * employment_status_2 in {employee worker agency} => employment_1_more
       * employment_status_2 in {self-employed unemployed}
-        * placement_date >= '2015-4-5' => outcome_adoption_leave
-        * otherwise => outcome_adoption_nothing
+        * match_date >= '2015-4-5' => outcome_adopt-leave
+        * otherwise => outcome_adopt-nothing
