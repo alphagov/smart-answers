@@ -27,17 +27,6 @@ module SmartAnswer::Calculators
 
     CP_CONSULAR_COUNTRIES = %w(bulgaria cambodia costa-rica croatia cyprus guatemala japan latvia moldova panama peru philippines turkmenistan venezuela vietnam)
 
-    COUNTRIES_WITH_DEFINITIVE_ARTICLES = %w(bahamas british-virgin-islands cayman-islands czech-republic democratic-republic-of-congo dominican-republic falkland-islands gambia maldives marshall-islands netherlands philippines seychelles solomon-islands south-georgia-and-south-sandwich-islands turks-and-caicos-islands united-arab-emirates)
-
-    COUNTRY_NAME_TRANSFORM = {
-      "democratic-republic-of-congo" => "Democratic Republic of Congo",
-      "cote-d-ivoire" => "Cote d'Ivoire",
-      "pitcairn" => "Pitcairn Island",
-      "south-korea" => "South Korea",
-      "st-helena-ascension-and-tristan-da-cunha" => "St Helena, Ascension and Tristan da Cunha",
-      "usa" => "the USA"
-    }
-
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(aruba slovakia curacao bonaire-st-eustatius-saba st-maarten taiwan czech-republic argentina cote-d-ivoire)
 
     SS_MARRIAGE_COUNTRIES = %w(australia azerbaijan bolivia chile china colombia dominican-republic estonia kosovo latvia mongolia montenegro nicaragua russia san-marino hungary serbia)
@@ -128,10 +117,6 @@ module SmartAnswer::Calculators
 
     def cp_consular_countries?(country_slug)
       CP_CONSULAR_COUNTRIES.include?(country_slug)
-    end
-
-    def countries_with_definitive_articles?(country_slug)
-      COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(country_slug)
     end
 
     def os_affirmation_countries?(country_slug)
