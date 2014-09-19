@@ -56,7 +56,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
-   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Lancelot") }
+   within('.undo') { assert page.has_link?("Change", href: "/bridge-of-death/y/?previous_response=Lancelot") }
         end
       end
 
@@ -86,14 +86,14 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
-   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Lancelot") }
+   within('.undo') { assert page.has_link?("Change", href: "/bridge-of-death/y/?previous_response=Lancelot") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
             assert_page_has_content "What...is your quest?"
           end
           within('.answer') { assert_page_has_content "To seek the Holy Grail" }
-   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
+   within('.undo') { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
         end
       end
 
@@ -123,21 +123,21 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Lancelot" }
-   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Lancelot") }
+   within('.undo') { assert page.has_link?("Change", href: "/bridge-of-death/y/?previous_response=Lancelot") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
             assert_page_has_content "What...is your quest?"
           end
           within('.answer') { assert_page_has_content "To seek the Holy Grail" }
-   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
+   within('.undo') { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot?previous_response=to_seek_the_holy_grail") }
         end
         within 'ol li.done:nth-child(3)' do
           within 'h3' do
             assert_page_has_content "What...is your favorite colour?"
           end
           within('.answer') { assert_page_has_content "Blue" }
-   within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail?previous_response=blue") }
+   within('.undo') { assert page.has_link?("Change", href: "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail?previous_response=blue") }
         end
       end
 
@@ -168,14 +168,14 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your name?"
         end
         within('.answer') { assert_page_has_content "Robin" }
- within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/?previous_response=Robin") }
+ within('.undo') { assert page.has_link?("Change", href: "/bridge-of-death/y/?previous_response=Robin") }
       end
       within 'ol li.done:nth-child(2)' do
         within 'h3' do
           assert_page_has_content "What...is your quest?"
         end
         within('.answer') { assert_page_has_content "To seek the Holy Grail" }
- within('.undo') { assert page.has_link?("Change this answer", href: "/bridge-of-death/y/Robin?previous_response=to_seek_the_holy_grail") }
+ within('.undo') { assert page.has_link?("Change", href: "/bridge-of-death/y/Robin?previous_response=to_seek_the_holy_grail") }
       end
     end
 

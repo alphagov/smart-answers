@@ -3,7 +3,7 @@
     <li>
       <% if number %>
         <label for="response_<%=number%>_<%= i %>" class="selectable">
-          <%= radio_button_tag "response_#{number}", option.value, prefill_value_is?(option.value), id: "response_#{number}_#{i}" %>
+          <%= radio_button_tag "response_#{number}", option.value, prefill_value_is?(option.value, number), id: "response_#{number}_#{i}" %>
           <%= option.label %>
         </label>
       <% else %>

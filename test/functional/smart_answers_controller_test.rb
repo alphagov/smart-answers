@@ -426,7 +426,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "link back to change the response" do
-        assert_select ".done a", /Change this/ do |link_nodes|
+        assert_select ".done a", /Change/ do |link_nodes|
           assert_equal '/sample/y/?previous_response=no', link_nodes.first['href']
         end
       end

@@ -76,10 +76,10 @@ $(document).ready(function() {
       type: 'GET',
       dataType:'json',
       data: params,
-      timeout: 5000,
+      timeout: 10000,
       error: function(jqXHR, textStatus, errorStr) {
         var paramStr = $.param(params);
-        redirectToNonAjax(url.replace('.json', '?' + paramStr));
+        redirectToNonAjax(url.replace('.json', '?' + paramStr).replace('??', '?'));
       },
       success: function(data, textStatus, jqXHR) {
         addToHistory(data);

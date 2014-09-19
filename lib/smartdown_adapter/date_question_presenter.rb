@@ -26,5 +26,16 @@ module SmartdownAdapter
     def end_date
       3.years.from_now
     end
+
+    def to_response(input)
+        date = ::Date.parse(input)
+        {
+          day: date.day,
+          month: date.month,
+          year: date.year
+        }
+      rescue
+        nil
+      end
   end
 end

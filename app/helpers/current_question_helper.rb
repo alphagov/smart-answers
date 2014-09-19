@@ -5,25 +5,25 @@ module CurrentQuestionHelper
     smart_answer_path(attrs)
   end
 
-  def prefill_value_for_date(field_name)
-    if params[:previous_response]
-      Date.parse(params[:previous_response])
+  def previous_response_key(question_number)
+    if question_number
+      previous_response_key = "previous_response_#{question_number}".to_sym
     else
-      prefill_value_for(field_name) && prefill_value_for(field_name).to_i
+      previous_response_key = :previous_response
     end
   end
 
-  def prefill_value_is?(value)
-    if params[:previous_response]
-      params[:previous_response] == value
+  def prefill_value_is?(value, question_number = nil)
+    if params[previous_response_key(question_number)]
+      params[previous_response_key(question_number)] == value
     elsif params[:response]
       params[:response] == value
     end
   end
 
-  def prefill_value_includes?(question, value)
-    if params[:previous_response]
-      question.to_response(params[:previous_response]).include?(value)
+  def prefill_value_includes?(question, value, question_number = nil)
+    if params[previous_response_key(question_number)]
+      question.to_response(params[previous_response_key(question_number)]).include?(value)
     elsif params[:response]
       params[:response].include?(value)
     end
@@ -33,11 +33,11 @@ module CurrentQuestionHelper
     value.blank? ? nil : value.to_i
   end
 
-  def prefill_value_for(question, attribute = nil)
-    response = if params[:previous_response]
-                 question.to_response(params[:previous_response])
+  def prefill_value_for(question, question_number = nil, attribute = nil)
+    response = if params[previous_response_key(question_number)]
+      question.to_response(params[previous_response_key(question_number)])
     elsif params[:response]
-                 params[:response]
+      params[:response]
     end
     if !response.blank? && attribute
       begin
