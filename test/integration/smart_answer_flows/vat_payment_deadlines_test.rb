@@ -84,4 +84,16 @@ class VatPaymentDeadlinesTest < ActiveSupport::TestCase
       assert_state_variable :funds_cleared_by, "31 May 2013"
     end
   end
+
+  context "given a date that's the end of a month" do
+    setup do
+      add_response '2014-07-31'
+    end
+    should "give 2 September as last payment date" do
+      add_response 'bacs-direct-credit'
+      assert_current_node :result_bacs_direct_credit
+      assert_state_variable :last_payment_date, "2 September 2014"
+      assert_state_variable :funds_received_by, "5 September 2014"
+    end
+  end
 end
