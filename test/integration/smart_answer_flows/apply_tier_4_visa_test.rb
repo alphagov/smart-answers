@@ -34,10 +34,10 @@ class ApplyTier4VisaTest < ActiveSupport::TestCase
       setup do
         add_response "1GC8FDP33"
       end
-      should "show outcome with online and switching general phraselists" do
+      should "show outcome with post and switching general phraselists" do
         assert_state_variable :sponsor_name, "Alpha Omega College"
         assert_state_variable :sponsor_id, "1GC8FDP33"
-        assert_phrase_list :application_link, [:online_and_switch_link]
+        assert_phrase_list :application_link, [:post_and_switch_link]
         assert_phrase_list :extend_or_switch_visa, [:you_must_be_in_uk, :general_switch]
         assert_current_node :outcome
       end
@@ -82,10 +82,10 @@ class ApplyTier4VisaTest < ActiveSupport::TestCase
       add_response "extend_general"
       add_response "GFHRH18H5"
     end
-    should "show outcome with extending child phraselists" do
+    should "show outcome with extending child phraselists and online link" do
       assert_state_variable :sponsor_name, "Kaplan International Colleges Cambridge"
       assert_state_variable :sponsor_id, "GFHRH18H5"
-      assert_phrase_list :application_link, [:post_and_extend_link]
+      assert_phrase_list :application_link, [:online_and_extend_link]
       assert_phrase_list :extend_or_switch_visa, [:general_extend]
       assert_current_node :outcome
     end
