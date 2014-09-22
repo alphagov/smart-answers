@@ -772,7 +772,7 @@
       <td>worker</td>
       <td>✔</td>
       <td>✘</td>
-      <td>- Maternity pay<br />- spl<br />- Paternity pay<br />- patspl</td>
+      <td>- Maternity pay<br />- Mother shared parental pay<br />- Paternity pay<br />- Partner shared parental pay</td>
     </tr>
     <tr>
       <td>05/04/2015</td>
@@ -782,7 +782,7 @@
       <td>unemployed</td>
       <td>✔</td>
       <td>✔</td>
-      <td>- Maternity pay<br />- shared-mat-pay</td>
+      <td>- Maternity pay<br />- Mother shared parental pay</td>
     </tr>
     <tr>
       <td>05/04/2015</td>
@@ -792,7 +792,7 @@
       <td>employee</td>
       <td>&nbsp;</td>
       <td>✔</td>
-      <td>- Maternity pay<br />- shared-mat-pay</td>
+      <td>- Maternity pay<br />- Mother shared parental pay</td>
     </tr>
     <tr>
       <td>05/04/2015</td>
@@ -802,7 +802,7 @@
       <td>worker</td>
       <td>&nbsp;</td>
       <td>✔</td>
-      <td>- Maternity pay<br />- shared-mat-pay</td>
+      <td>- Maternity pay<br />- Mother shared parental pay</td>
     </tr>
     <tr>
       <td>05/04/2015</td>
@@ -1232,7 +1232,7 @@
       <td>employee</td>
       <td>✔</td>
       <td>✔</td>
-      <td>- Maternity pay<br />- shared-mat-pay<br />- Paternity leave<br />- Paternity pay<br />- patspl</td>
+      <td>- Maternity pay<br />- Mother shared parental pay<br />- Paternity leave<br />- Paternity pay<br />- Partner shared parental leave<br />- Partner shared parental pay</td>
     </tr>
     <tr>
       <td>05/04/2015</td>
@@ -1242,7 +1242,7 @@
       <td>worker</td>
       <td>✔</td>
       <td>✔</td>
-      <td>- Maternity allowance<br />- Paternity pay<br />- shared-pat-pay</td>
+      <td>- Maternity allowance<br />- Paternity pay<br />- Partner shared parental pay</td>
     </tr>
     <tr>
       <td>05/04/2015</td>
@@ -1252,7 +1252,7 @@
       <td>employee</td>
       <td>✔</td>
       <td>✔</td>
-      <td>- Maternity allowance<br />- Paternity leave<br />- Paternity pay<br />- patspl</td>
+      <td>- Maternity allowance<br />- Paternity leave<br />- Paternity pay<br />- Partner shared parental leave<br />- Partner shared parental pay</td>
     </tr>
     <tr>
       <td>05/04/2015</td>
@@ -1262,7 +1262,17 @@
       <td>employee</td>
       <td>✔</td>
       <td>✔</td>
-      <td>- Maternity allowance<br />- Paternity leave<br />- Paternity pay<br />- patspl</td>
+      <td>- Maternity allowance<br />- Paternity leave<br />- Paternity pay<br />- Partner shared parental leave<br />- Partner shared parental pay</td>
+    </tr>
+    <tr>
+      <td>05/04/2015</td>
+      <td>worker</td>
+      <td>&nbsp;</td>
+      <td>✔</td>
+      <td>employee</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>- Maternity allowance<br />- Paternity leave<br />- Paternity pay<br />- Partner shared parental leave<br />- Partner shared parental pay</td>
     </tr>
     <tr>
       <td>05/04/2014</td>
@@ -1333,16 +1343,6 @@
       <td>✔</td>
       <td>✘</td>
       <td>- Maternity leave<br />- Paternity pay<br />- Paternity leave</td>
-    </tr>
-    <tr>
-      <td>05/04/2015</td>
-      <td>worker</td>
-      <td>&nbsp;</td>
-      <td>✔</td>
-      <td>employee</td>
-      <td>✔</td>
-      <td>✘</td>
-      <td>- Maternity allowance<br />- Paternity leave<br />- Paternity pay<br />- Partner shared parental leave<br />- Partner shared parental pay</td>
     </tr>
     <tr>
       <td>05/04/2014</td>

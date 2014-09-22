@@ -74,10 +74,10 @@ Match date | Principal adopter status | PA: Continuity | PA: E&E | Partner statu
 05/04/2014 |employee |✔ |✘ |worker | |✘ |- Principal adopter leave<br>- Principal adopter pay
 05/04/2015 |employee |✔ |✘ |worker | |✘ |- Principal adopter leave<br>- Principal adopter pay
 05/04/2014 |employee |✔ |✘ |worker | |✘ |- Principal adopter leave<br>- Adoption pay (pre 05/04)
-05/04/2015 |worker |✔ |✘ |worker |✔ |✘ |- Principal adopter pay<br>- spl<br>- Paternity pay<br>- patspl
-05/04/2015 |worker |✔ |✘ |unemployed |✔ |✔ |- Principal adopter pay<br>- shared-mat-pay
-05/04/2015 |worker |✔ |✘ |employee | |✔ |- Principal adopter pay<br>- shared-mat-pay
-05/04/2015 |worker |✔ |✘ |worker | |✔ |- Principal adopter pay<br>- shared-mat-pay
+05/04/2015 |worker |✔ |✘ |worker |✔ |✘ |- Principal adopter pay<br>- Mother shared parental pay<br>- Paternity pay<br>- Partner shared parental pay
+05/04/2015 |worker |✔ |✘ |unemployed |✔ |✔ |- Principal adopter pay<br>- Mother shared parental pay
+05/04/2015 |worker |✔ |✘ |employee | |✔ |- Principal adopter pay<br>- Mother shared parental pay
+05/04/2015 |worker |✔ |✘ |worker | |✔ |- Principal adopter pay<br>- Mother shared parental pay
 05/04/2015 |self-employed |✔ |✔ |worker |✔ |✔ |- Paternity pay
 05/04/2015 |self-employed |✔ |✘ |worker |✔ |✔ |- Paternity pay
 05/04/2015 |unemployed |✔ |✔ |worker |✔ |✔ |- Paternity pay
@@ -99,7 +99,7 @@ Match date | Principal adopter status | PA: Continuity | PA: E&E | Partner statu
 05/04/2015 |employee |✔ |✘ |employee | |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Mother shared parental leave<br>- Mother shared parental pay
 05/04/2015 |employee |✔ |✘ |worker | |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Mother shared parental leave<br>- Mother shared parental pay
 05/04/2015 |worker |✔ |✘ |employee |✔ |✔ |- Principal adopter pay<br>- Mother shared parental pay<br>- Paternity leave<br>- Paternity pay<br>- Partner shared parental leave<br>- Partner shared parental pay
-05/04/2015 |worker | |✔ |worker |✔ |✔ |- Paternity pay<br>- shared-pat-pay
+05/04/2015 |worker | |✔ |worker |✔ |✔ |- Paternity pay<br>- Partner shared parental pay
 05/04/2015 |self-employed | |✔ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Partner shared parental leave<br>- Partner shared parental pay
 05/04/2015 |unemployed | |✔ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Partner shared parental leave<br>- Partner shared parental pay
 05/04/2015 |worker | |✔ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Partner shared parental leave<br>- Partner shared parental pay

@@ -1,0 +1,7 @@
+# Outcome mat-allowance pat-pay pat-shared-pay
+
+SNIPPET{_mat-allowance}
+
+SNIPPET{_pat-pay}
+
+SNIPPET{_pat-shared-pay}

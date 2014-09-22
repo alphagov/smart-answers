@@ -1,6 +1,6 @@
 # Outcome adopt-leave adopt-pay mat-shared-leave mat-shared-pay
 
-{{ snippet: }}
+SNIPPET{_adopt-leave}
 
 SNIPPET{_adopt-pay}
 

@@ -1,0 +1,9 @@
+# Outcome adopt-pay mat-shared-pay pat-pay pat-shared-pay
+
+SNIPPET{_adopt-pay}
+
+SNIPPET{_mat-shared-pay}
+
+SNIPPET{_pat-pay}
+
+SNIPPET{_pat-shared-pay}

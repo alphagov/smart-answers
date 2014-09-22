@@ -1,0 +1,5 @@
+# Outcome pat-pay pat-shared-pay
+
+SNIPPET{_pat-pay}
+
+SNIPPET{_pat-shared-pay}

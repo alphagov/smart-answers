@@ -1,6 +1,30 @@
 circumstance: birth
 single_parent: no
 due_date: 2015-4-5
+employment_status_1: self-employed
+employment_status_2: employee
+earnings_employment_1: yes
+job_before_x_2: yes
+job_after_y_2: yes
+salary_2: 400-week
+ler_2: yes
+date_leave_2: 2015-4-5
+
+circumstance: birth
+single_parent: no
+due_date: 2015-4-5
+employment_status_1: unemployed
+employment_status_2: employee
+earnings_employment_1: yes
+job_before_x_2: yes
+job_after_y_2: yes
+salary_2: 400-week
+ler_2: yes
+date_leave_2: 2015-4-5
+
+circumstance: birth
+single_parent: no
+due_date: 2015-4-5
 employment_status_1: worker
 employment_status_2: employee
 job_before_x_1: yes

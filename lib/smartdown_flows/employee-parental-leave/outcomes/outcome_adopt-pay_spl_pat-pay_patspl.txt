@@ -1,9 +1,0 @@
-# Outcome adopt-pay spl pat-pay patspl
-
-SNIPPET{_adopt-pay}
-
-SNIPPET{_spl}
-
-SNIPPET{_pat-pay}
-
-SNIPPET{_patspl}

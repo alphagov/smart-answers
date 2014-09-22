@@ -37,7 +37,7 @@
         * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
           * employment_status_2 is 'employee'
             * employment_status_1 is 'employee'
-              * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_spl_patleave_pat-pay_patspl
+              * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
               * otherwise => outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
             * employment_status_1 in {worker agency}
               * due_date >= '2015-4-5' => outcome_mat-pay_mat-shared-pay_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay

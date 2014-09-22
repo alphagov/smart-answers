@@ -1,9 +1,0 @@
-# Outcome mat-allowance pat-leave pat-pay patspl
-
-SNIPPET{_mat-allowance}
-
-SNIPPET{_pat-leave}
-
-SNIPPET{_pat-pay}
-
-SNIPPET{_patspl}

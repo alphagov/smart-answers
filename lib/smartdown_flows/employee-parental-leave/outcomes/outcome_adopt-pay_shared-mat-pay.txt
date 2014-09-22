@@ -1,5 +1,0 @@
-# Outcome adopt-pay shared-mat-pay
-
-SNIPPET{_adopt-pay}
-
-SNIPPET{_shared-mat-pay}

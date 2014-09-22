@@ -12,12 +12,12 @@
   * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
     * circumstance is 'birth'
       * due_date >= '2015-4-5'
-        * earnings_employment_2 is 'yes' => outcome_mat-pay_shared-mat-pay
+        * earnings_employment_2 is 'yes' => outcome_mat-pay_mat-shared-pay
         * earnings_employment_2 is 'no' => outcome_mat-pay
       * otherwise => outcome_mat-pay
     * circumstance is 'adoption'
       * match_date >= '2015-4-5'
-        * earnings_employment_2 is 'yes' => outcome_adopt-pay_shared-mat-pay
+        * earnings_employment_2 is 'yes' => outcome_adopt-pay_mat-shared-pay
         * earnings_employment_2 is 'no' => outcome_adopt-pay
       * otherwise => outcome_adopt-pay
   * otherwise
