@@ -1,13 +1,13 @@
 namespace :smartdown_generate_scenarios do
 
-  def generate(name, combinations)
-    generator = SmartdownAdapter::ScenarioGenerator.new("employee-parental-leave", EMPLOYEE_PARENTAL_LEAVE_COMBINATIONS)
+  def generate(name, combinations, human_readable_snippet_names)
+    generator = SmartdownAdapter::ScenarioGenerator.new(name, combinations, human_readable_snippet_names)
     generator.perform
   end
 
   desc "Generate Factcheck scenarios for employee parental leave"
   task :employee_parental_leave => :environment do
-    EMPLOYEE_PARENTAL_LEAVE_COMBINATIONS = {
+    combinations = {
       :circumstance => ["adoption", "birth"],
       :single_parent => ["yes", "no"],
       :due_date => ["2015-4-5", "2014-4-5"],
@@ -28,6 +28,25 @@ namespace :smartdown_generate_scenarios do
       :date_leave_1 => ["2015-4-5"],
       :date_leave_2 => ["2015-4-5"],
     }
-    generate("employee-parental-leave", EMPLOYEE_PARENTAL_LEAVE_COMBINATIONS)
+    human_readable_snippet_names = {
+      "birth-nothing" => "Nothing",
+      "adopt-nothing" => "Nothing",
+      "adopt-pay-pre-5-april" => "Adoption pay (pre 05/04)",
+      "mat-allowance-14-weeks" => "Maternity allowance 14 weeks",
+      "adopt-leave" => "Principal adopter leave",
+      "adopt-pay" => "Principal adopter pay",
+      "mat-allowance" => "Maternity allowance",
+      "mat-pay" => "Maternity pay",
+      "mat-leave" => "Maternity leave",
+      "mat-shared-leave" => "Mother shared parental leave",
+      "mat-shared-pay" => "Mother shared parental pay",
+      "pat-leave" => "Paternity leave",
+      "pat-pay" => "Paternity pay",
+      "additional-pat-pay" => "Additional paternity pay",
+      "additional-pat-leave" => "Additional paternity leave",
+      "pat-shared-leave" => "Partner shared parental leave",
+      "pat-shared-pay" => "Partner shared parental pay",
+    }
+    generate("employee-parental-leave", combinations, human_readable_snippet_names)
   end
 end

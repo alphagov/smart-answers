@@ -1,0 +1,10 @@
+circumstance: adoption
+single_parent: yes
+match_date: 2014-4-5
+placement_date: 2014-4-5
+employment_status_1: employee
+job_before_x_1: yes
+job_after_y_1: yes
+salary_1: 400-week
+ler_1: yes
+date_leave_1: 2015-4-5
