@@ -1,15 +1,16 @@
 ##Adoption pay
 
-The primary adopter can get up to 39 weeks of Statutory Adoption Pay (SAP).
-
-Pay | Key facts
+Key facts | Estimated amount
 - | -
-Adoption pay dates | !{date_leave_1} to {end_of_adoption_pay(date_leave_1)}
-Latest date to give notice | {notice_date_sap(date_leave_1)}
-Weekly rate | !{rate_of_sap(salary_1)}
-Total estimated SAP | !{total_sap(rate_of_sap(salary_1))}
+Adoption pay dates | %{date_leave_1} to %{end_of_adoption_pay(date_leave_1)}
+First 6 weeks | %{rate_of_sap(salary_1)}
+Next 33 weeks | %{rate_of_sap(salary_1)}
+Total estimated SAP | {total_sap(rate_of_sap)}
+Tell your employer by | {notice_date_sap(match_date)}
 
 Tax and National Insurance will be deducted.
+
+To claim SAP you must give your employer at least 28 day’s notice.
 
 %This is an estimate, the primary adopter’s employer will confirm if they qualify and how much they’ll get.%
 

@@ -1,0 +1,40 @@
+##Adoption leave
+
+The primary adopter can take up to 52 weeks of Statutory Adoption Leave.
+
+Leave | Key dates
+- | -
+Ordinary Adoption Leave (first 26 weeks) | %{date_leave_1} to %{end_of_ordinary_leave(date_leave_1)}
+Additional Adoption Leave (last 26 weeks) | %{start_of_additional_leave(date_leave_1)} to {%end_of_additional_leave(date_leave_1)}
+Earliest leave can start | %{earliest_start(placement_date)}
+Latest date to give notice | %{qualifying_week(match_date)}
+
+The primary adopter could get more leave if their employer has a company adoption leave scheme.
+
+snippet_adoption_pay_before_april_5
+snippet_adopt-pay-pre-5-april
+
+##Adoption pay
+
+The primary adopter can get up to 39 weeks of Statutory Adoption Pay (SAP).
+
+Pay | Key facts
+- | -
+Adoption pay dates | %{date_leave_1} to {end_of_adoption_pay(date_leave_1)}
+Latest date to give notice | {notice_date_sap(date_leave_1)}
+Weekly rate | %{rate_of_sap(salary_1)}
+Total estimated SAP | %{total_sap(rate_of_sap(salary_1))}
+
+Tax and National Insurance will be deducted.
+
+%This is an estimate, the primary adopter’s employer will confirm if they qualify and how much they’ll get.%
+
+###Extra help
+
+The primary adopter could also get:
+
+* benefits while they’re not working
+* Child Tax Credits
+* Child Benefit
+
+Use a [benefits calculator](/benefits-calculators) to check what benefits or tax credits the primary adopter can get.

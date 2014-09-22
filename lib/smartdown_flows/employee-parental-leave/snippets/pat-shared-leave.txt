@@ -14,5 +14,5 @@ They must tell their employer at least 8 weeks before you want to start your fir
 
 Leave | Key dates
 - | -
-Shared Parental Leave must be used between | !{due_date} to !{end_of_shared_parental_leave(due_date)}
+Shared Parental Leave must be used between | %{due_date} to %{end_of_shared_parental_leave(due_date)}
 Latest date to give notice | 8 weeks before the first block of SPL
