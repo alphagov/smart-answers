@@ -1,30 +1,47 @@
 status :published
 satisfies_need "100865"
 
-data_query = Calculators::StatePensionTopupDataQuery.new()
+calculator = Calculators::StatePensionTopupCalculator.new()
 
 #Q1
 date_question :dob_age? do
-  from { 101.years.ago }
-  to { Date.today }
+  from { 110.years.ago }
+  to { Date.today - 18.years }
 
   save_input_as :date_of_birth
 
-  next_node do |response|
-    dob = Date.parse(response)
-    if (dob < (Date.parse('2015-10-12') - 101.years))
-      :outcome_age_limit_reached_birth
-    elsif (dob > Date.parse('1953-04-06'))
-      :outcome_pension_age_not_reached
-    else
-      :how_much_extra_per_week?
-    end
+  define_predicate(:age_limit_reached?) do |response|
+    Date.parse(response) < calculator.class::OLDEST_DOB
   end
+
+  define_predicate(:too_young?) do |response|
+    Date.parse(response) > calculator.class::FEMALE_YOUNGEST_DOB
+  end
+
+  next_node_if(:outcome_age_limit_reached_birth, age_limit_reached?)
+  next_node_if(:outcome_pension_age_not_reached, too_young?)
+  next_node :gender?
 end
 
 #Q2
+multiple_choice :gender? do
+  option :male
+  option :female
+
+  save_input_as :gender
+
+  define_predicate(:male_and_too_young?) do |response|
+    (response == "male") &
+    (Date.parse(date_of_birth) > calculator.class::MALE_YOUNGEST_DOB)
+  end
+
+  next_node_if(:outcome_pension_age_not_reached, male_and_too_young?)
+  next_node :how_much_extra_per_week?
+end
+
+#Q3
 money_question :how_much_extra_per_week? do
-  save_input_as :money_wanted
+  save_input_as :weekly_amount
 
   calculate :integer_value do
     money = responses.last.to_f
@@ -32,84 +49,30 @@ money_question :how_much_extra_per_week? do
       raise SmartAnswer::InvalidResponse
     end
   end
-  next_node :date_of_lump_sum_payment?
-end
 
-#Q3
-date_question :date_of_lump_sum_payment? do
-  from { Date.parse('12 Oct 2015') }
-  to { Date.parse('01 April 2017') }
-
-  save_input_as :age_at_date_of_payment
-
-  calculate :date_of_payment do
-    Date.parse(responses.last)
+  calculate :retirement_age do
+    calculator.retirement_age(gender)
   end
 
-  next_node do |response|
-    date_paying = Date.parse(response)
-    dob = Date.parse(date_of_birth)
-
-    if date_paying < Date.parse('2015-10-12') or date_paying > Date.parse('2017-04-01')
-      raise SmartAnswer::InvalidResponse
-    elsif (date_paying.year - dob.year) > 100
-      :outcome_age_limit_reached_payment
-    else
-      :gender?
-    end
-  end
-end
-
-#Q4
-multiple_choice :gender? do
-  option :male
-  option :female
-
-  save_input_as :gender
-
-  calculate :age_at_date_of_payment do
-    date_paying = Date.parse(age_at_date_of_payment)
-    dob = Date.parse(date_of_birth)
-    age_when_paying = (date_paying.year - dob.year)
-    age_when_paying
+  calculate :body_phrase do
+    PhraseList.new(:body_phrase)
   end
 
-  next_node do |response|
-
-    dob = Date.parse(date_of_birth)
-    if (response == "male") and (dob > Date.parse('1951-04-06'))
-      :outcome_pension_age_not_reached
-    else
-      :outcome_qualified_for_top_up_calculations
-    end
-  end
+  next_node :outcome_topup_calculations
 end
 
 #A1
-outcome :outcome_qualified_for_top_up_calculations do
+outcome :outcome_topup_calculations do
+  precalculate :amount_and_age do
+    # Only needed for formatting amount
+    self.class.send :include, ActionView::Helpers::NumberHelper
 
-  precalculate :weekly_amount do
-    sprintf("%.0f", money_wanted)
-  end
-
-  precalculate :rate_at_time_of_paying do
-    money = money_wanted.to_f
-    total = data_query.age_and_rates(age_at_date_of_payment) * money
-
-    total_money = SmartAnswer::Money.new(total)
+    calculator.lump_sum_and_age(Date.parse(date_of_birth), weekly_amount).map do |amount_and_age|
+      %Q(- #{number_to_currency(amount_and_age[:amount], precision: 0)} when you're #{amount_and_age[:age]})
+    end.join("\n")
   end
 end
-
 #A2
 outcome :outcome_pension_age_not_reached
-
 #A3
 outcome :outcome_age_limit_reached_birth
-
-#A4
-outcome :outcome_age_limit_reached_payment do
-
-  precalculate :age_at_date_of_payment do
-    Date.parse(age_at_date_of_payment)
-  end
-end
