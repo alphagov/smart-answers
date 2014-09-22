@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
@@ -12,9 +13,9 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     assert_current_node :dob_age?
   end
 
-  context "older than 100 years" do
+  context "older than limit" do
     setup do
-      add_response Date.parse('1900-02-02')
+      add_response Date.parse('1914-10-12')
     end
     should "bring you to age limit reached outcome" do
       assert_current_node :outcome_age_limit_reached_birth
@@ -35,120 +36,110 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       add_response Date.parse('1950-02-02')
     end
     should "bring you to how_much_per_week question" do
-      assert_current_node :how_much_extra_per_week?
+      assert_current_node :gender?
     end
 
-    context "correct amount inserted" do
+    context "gender inserted" do
       setup do
-        add_response 10
+        add_response "male"
       end
-      should "bring you to date_of_lump_sum_payment question" do
-        assert_current_node :date_of_lump_sum_payment?
+      should "ask you topup amount" do
+        assert_current_node :how_much_extra_per_week?
 
       end
-
-      context "correct date of payment inserted" do
+      context "correct top up amount inserted" do
         setup do
-          add_response Date.parse('2016-02-02')
+          add_response 10
         end
-        should "bring you to gender question" do
-          assert_current_node :gender?
+        should "bring you to results outcome" do
+          assert_current_node :outcome_topup_calculations
+          assert_state_variable :weekly_amount, 10.0
+          assert_state_variable :date_of_birth, "1950-02-02"
+          assert_state_variable :amount_and_age, "- £8,900 when you're 65\n- £8,710 when you're 66\n- £8,470 when you're 67"
         end
-
-        context "gender inserted" do
-          setup do
-            add_response :female
-          end
-          should "bring you to final outcome and show result" do
-            assert_current_node :outcome_qualified_for_top_up_calculations
-            assert_state_variable :rate_at_time_of_paying, 8710.0
-            assert_state_variable :age_at_date_of_payment, 66
-            assert_state_variable :date_of_payment, Date.parse('2016-02-02')
-            assert_state_variable :weekly_amount, "10"
-          end
-        end
-      end
-
-      context "incorrect date of payment inserted(outside of range)" do
-        setup do
-          add_response Date.parse('2015-02-02')
-        end
-        should "raise error_message" do
-          assert_current_node_is_error
-        end
-      end
-    end
-
-    context "invalid amount (not integer) inserted" do
-      setup do
-        add_response 10.1
-      end
-      should "raise error_message" do
-        assert_current_node_is_error
-      end
-    end
-
-    context "invalid amount (outside of range) inserted" do
-      setup do
-        add_response 30
-      end
-      should "raise error_message" do
-        assert_current_node_is_error
       end
     end
   end
-
-  context "Female, dob 22/03/53 can reach outcome" do
+  context "Man turns 65 on 5 April 2016 = DOB 5/4/1951 = *just old enough*" do
     setup do
-      add_response Date.parse('1953-03-22')
-      add_response 25
-      add_response Date.parse('2015-10-12')
-      add_response :female
+      add_response Date.parse('1951-04-05')
+      add_response "male"
+      add_response 1
     end
-    should "bring you to final result outcome" do
-      assert_current_node :outcome_qualified_for_top_up_calculations
-      assert_state_variable :rate_at_time_of_paying, 23350.0
-      assert_state_variable :age_at_date_of_payment, 62
-      assert_state_variable :weekly_amount, "25"
+    should "show one rate" do
+      assert_current_node :outcome_topup_calculations
+      assert_state_variable :amount_and_age, "- £890 when you're 65"
     end
   end
-
-  context "Check if a 63 years WOMAN is allowed to use the tool" do
+  context "Man turns 65 on 6 April 2016 = DOB 6/4/1951 = not old enough" do
     setup do
-      add_response Date.parse('1953-02-02')
-      add_response 20
-      add_response Date.parse('2016-02-02')
-      add_response :female
+      add_response Date.parse('1951-04-06')
+      add_response "male"
     end
-    should "bring you to final result outcome" do
-      assert_current_node :outcome_qualified_for_top_up_calculations
-      assert_state_variable :rate_at_time_of_paying, 18680.0
-      assert_state_variable :age_at_date_of_payment, 63
-      assert_state_variable :weekly_amount, "20"
-    end
-  end
-  context "check if a 62 years old MAN is NOT allowed to use the tool" do
-    setup do
-      add_response Date.parse('1953-02-02')
-      add_response 10
-      add_response Date.parse('2016-02-02')
-      add_response :male
-    end
-    should "bring you to age limit not reached outcome" do
+    should "show age not reached outcome" do
       assert_current_node :outcome_pension_age_not_reached
-      assert_state_variable :age_at_date_of_payment, 63
     end
   end
-
-  context "check 13 October 1914 dob not allowed to use tool" do
+  context "Woman turns 63 on 5 April 2016 = DOB 5/4/1953 = *just* old enough" do
     setup do
-      add_response Date.parse('1914-10-13') # Young enough
-      add_response 10
-      add_response Date.parse('2015-10-14') # Too old at payment date
+      add_response Date.parse('1953-04-05')
+      add_response "female"
+      add_response 1
     end
-
-    should "go to outcome" do
-      assert_current_node :outcome_age_limit_reached_payment
+    should "should show one rate only" do
+      assert_current_node :outcome_topup_calculations
+      assert_state_variable :amount_and_age, "- £934 when you're 63"
+    end
+  end
+  context "Woman turns 63 on 6 April 2016 = DOB 6/4/1953 = not old enough" do
+    setup do
+      add_response Date.parse('1953-04-06')
+    end
+    should "show age not reached outcome" do
+      assert_current_node :outcome_pension_age_not_reached
+    end
+  end
+  context "Anyone turns 101 on 2 April 2017 = DOB 2/4/1916 = Old limit for 2 - show rates for 99 & 100" do
+    setup do
+      add_response Date.parse('1916-04-02')
+      add_response "male"
+      add_response 1
+    end
+    should "show two rates" do
+      assert_current_node :outcome_topup_calculations
+      assert_state_variable :amount_and_age, "- £137 when you're 99\n- £127 when you're 100"
+      assert_state_variable :gender, "male"
+    end
+  end
+  context "Anyone who is 100y11m21d on 12 Oct 2015 = DOB 13/10/1914 = just young enough for 100 rate" do
+    setup do
+      add_response Date.parse('1914-10-13')
+      add_response "male"
+      add_response 1
+    end
+    should "show one rate" do
+      assert_current_node :outcome_topup_calculations
+      assert_state_variable :amount_and_age, "- £127 when you're 100"
+      assert_state_variable :gender, "male"
+    end
+  end
+  context "Woman who is 62 on 6 April 2016 = DOB 7/4/1953 = new rules (A2)" do
+    setup do
+      add_response Date.parse('1953-04-07')
+    end
+    should "show both rates" do
+      assert_current_node :outcome_pension_age_not_reached
+    end
+  end
+  context "Male born 13/10/1940 needs 3 rates" do
+    setup do
+      add_response Date.parse('1940-10-14')
+      add_response "male"
+      add_response 1
+    end
+    should "go to calculations outcome and show 3 rates" do
+      assert_current_node :outcome_topup_calculations
+      assert_state_variable :amount_and_age, "- £694 when you're 74\n- £674 when you're 75\n- £646 when you're 76"
     end
   end
 end
