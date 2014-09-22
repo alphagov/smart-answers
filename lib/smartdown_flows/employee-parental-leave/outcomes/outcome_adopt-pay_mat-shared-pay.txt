@@ -1,5 +1,5 @@
 # Outcome adopt-pay mat-shared-pay
 
-SNIPPET{_adopt-pay}
+{{snippet: adopt-pay}}
 
-SNIPPET{_mat-shared-pay}
+{{snippet: mat-shared-pay}}

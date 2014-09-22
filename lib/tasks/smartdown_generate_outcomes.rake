@@ -37,7 +37,7 @@ namespace :smartdown_generate_outcomes do
       title = "\# #{node_name.humanize}"
 
       node_content = ([title] + node_aspects.map { |aspect|
-        "SNIPPET{_#{aspect}}"}).join("\n\n")
+        "{{snippet: #{aspect}}}"}).join("\n\n")
 
       File.write(node_filepath, node_content)
     end

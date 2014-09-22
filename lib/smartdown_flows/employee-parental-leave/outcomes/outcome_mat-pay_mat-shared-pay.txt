@@ -1,5 +1,5 @@
 # Outcome mat-pay mat-shared-pay
 
-SNIPPET{_mat-pay}
+{{snippet: mat-pay}}
 
-SNIPPET{_mat-shared-pay}
+{{snippet: mat-shared-pay}}

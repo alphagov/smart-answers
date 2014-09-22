@@ -1,13 +1,13 @@
 # Outcome adopt-leave adopt-pay pat-pay pat-leave additional-pat-pay additional-pat-leave
 
-SNIPPET{_adopt-leave}
+{{snippet: adopt-leave}}
 
-SNIPPET{_adopt-pay}
+{{snippet: adopt-pay}}
 
-SNIPPET{_pat-pay}
+{{snippet: pat-pay}}
 
-SNIPPET{_pat-leave}
+{{snippet: pat-leave}}
 
-SNIPPET{_additional-pat-pay}
+{{snippet: additional-pat-pay}}
 
-SNIPPET{_additional-pat-leave}
+{{snippet: additional-pat-leave}}

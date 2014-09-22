@@ -1,5 +1,5 @@
 # Outcome pat-leave pat-pay
 
-SNIPPET{_pat-leave}
+{{snippet: pat-leave}}
 
-SNIPPET{_pat-pay}
+{{snippet: pat-pay}}

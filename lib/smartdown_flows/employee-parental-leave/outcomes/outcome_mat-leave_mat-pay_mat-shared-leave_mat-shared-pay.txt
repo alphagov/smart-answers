@@ -1,9 +1,9 @@
 # Outcome mat-leave mat-pay mat-shared-leave mat-shared-pay
 
-SNIPPET{_mat-leave}
+{{snippet: mat-leave}}
 
-SNIPPET{_mat-pay}
+{{snippet: mat-pay}}
 
-SNIPPET{_mat-shared-leave}
+{{snippet: mat-shared-leave}}
 
-SNIPPET{_mat-shared-pay}
+{{snippet: mat-shared-pay}}

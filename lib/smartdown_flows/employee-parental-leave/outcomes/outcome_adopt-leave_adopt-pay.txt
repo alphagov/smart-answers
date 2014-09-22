@@ -1,5 +1,5 @@
 # Outcome adopt-leave adopt-pay
 
-SNIPPET{_adopt-leave}
+{{snippet: adopt-leave}}
 
-SNIPPET{_adopt-pay}
+{{snippet: adopt-pay}}

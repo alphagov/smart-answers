@@ -1,5 +1,5 @@
 # Outcome mat-leave mat-pay
 
-SNIPPET{_mat-leave}
+{{snippet: mat-leave}}
 
-SNIPPET{_mat-pay}
+{{snippet: mat-pay}}

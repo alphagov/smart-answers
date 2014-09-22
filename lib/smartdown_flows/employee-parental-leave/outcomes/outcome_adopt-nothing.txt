@@ -1,3 +1,3 @@
 # Outcome adopt-nothing
 
-SNIPPET{_adopt-nothing}
+{{snippet: adopt-nothing}}

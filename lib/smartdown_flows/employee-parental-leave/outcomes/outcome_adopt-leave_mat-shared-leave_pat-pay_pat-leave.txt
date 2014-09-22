@@ -1,9 +1,9 @@
 # Outcome adopt-leave mat-shared-leave pat-pay pat-leave
 
-SNIPPET{_adopt-leave}
+{{snippet: adopt-leave}}
 
-SNIPPET{_mat-shared-leave}
+{{snippet: mat-shared-leave}}
 
-SNIPPET{_pat-pay}
+{{snippet: pat-pay}}
 
-SNIPPET{_pat-leave}
+{{snippet: pat-leave}}
