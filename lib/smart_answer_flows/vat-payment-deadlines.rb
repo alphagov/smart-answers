@@ -1,4 +1,4 @@
-status :draft
+status :published
 satisfies_need "100624"
 
 date_question :when_does_your_vat_accounting_period_end? do
