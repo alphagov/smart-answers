@@ -39,7 +39,7 @@ module SmartdownAdapter
       if @preloaded
         @preloaded.values
       else
-        available_flows.map { |f| build_flow(f) }
+        available_flows.select{ |n| check(n) }.map { |f| build_flow(f) }
       end
     end
 
@@ -74,7 +74,7 @@ module SmartdownAdapter
     def preload_flows!
       @preloaded = {}
       available_flows.each do |flow_name|
-        @preloaded[flow_name] = build_flow(flow_name)
+        @preloaded[flow_name] = build_flow(flow_name) if check(flow_name)
       end
     end
 
