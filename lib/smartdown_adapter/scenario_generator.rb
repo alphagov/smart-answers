@@ -1,5 +1,3 @@
-require 'pry'
-
 module SmartdownAdapter
   class ScenarioGenerator
 
