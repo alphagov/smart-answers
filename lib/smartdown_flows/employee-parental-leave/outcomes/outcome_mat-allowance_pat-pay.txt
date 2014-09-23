@@ -1,5 +1,0 @@
-# Outcome mat-allowance pat-pay
-
-{{snippet: mat-allowance}}
-
-{{snippet: pat-pay}}

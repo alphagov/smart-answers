@@ -1,5 +1,0 @@
-# Outcome pat-pay pat-shared-pay
-
-{{snippet: pat-pay}}
-
-{{snippet: pat-shared-pay}}

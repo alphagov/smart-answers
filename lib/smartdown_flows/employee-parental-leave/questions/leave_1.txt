@@ -14,17 +14,17 @@
     * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
       * match_date >= '2015-4-5'
         * employment_status_2 in {employee self-employed unemployed}
-          * earnings_employment_2 is 'yes' => outcome_adopt-leave_adopt-pay_mat-shared-leave_mat-shared-pay
+          * earnings_employment_2 is 'yes' => outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay
           * earnings_employment_2 is 'no' => outcome_adopt-leave_adopt-pay
         * employment_status_2 in {worker agency}
-          * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes' => outcome_adopt-leave_adopt-pay_mat-shared-leave_mat-shared-pay_pat-pay_pat-shared-pay
+          * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes' => outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay_pat-pay_pat-shared-pay
           * otherwise
-            * earnings_employment_2 is 'yes' => outcome_adopt-leave_adopt-pay_mat-shared-leave_mat-shared-pay
+            * earnings_employment_2 is 'yes' => outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay
             * earnings_employment_2 is 'no' => outcome_adopt-leave_adopt-pay
       * otherwise => outcome_adopt-leave_adopt-pay
     * otherwise
-     * match_date >= '2015-4-5' => outcome_adopt-leave
-     * otherwise => outcome_adopt-nothing
+      * match_date >= '2015-4-5' => outcome_adopt-leave
+      * otherwise => outcome_adopt-nothing
 * circumstance is 'birth'
   * single_parent is 'yes'
     * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => outcome_mat-leave_mat-pay

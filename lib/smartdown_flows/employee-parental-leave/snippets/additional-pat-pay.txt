@@ -4,7 +4,7 @@ The mother’s or primary adopter’s partner can get pay while they’re on Add
 
 Pay | Key facts
 - | -
-Additional Statutory Paternity Pay is available until | %{end_of_pay(date_leave_1)}
+Additional Statutory Paternity Pay is available until | %{end_of_pay(date_leave_2)}
 Weekly rate  | %{rate_of_paternity_pay(salary_2)}
 
 %This is an estimate, their employer will confirm if they qualify and how much they’ll get.%

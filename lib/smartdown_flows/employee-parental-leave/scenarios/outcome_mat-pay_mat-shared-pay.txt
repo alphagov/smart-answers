@@ -8,6 +8,7 @@ job_after_y_1: yes
 salary_1: 400-week
 ler_1: yes
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -23,6 +24,7 @@ job_after_y_2: yes
 salary_2: 400-week
 ler_2: no
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -38,6 +40,7 @@ job_after_y_2: no
 salary_2: 400-week
 ler_2: yes
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -53,6 +56,7 @@ job_after_y_2: no
 salary_2: 400-week
 ler_2: no
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -68,6 +72,7 @@ job_after_y_2: yes
 salary_2: 400-week
 ler_2: yes
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -83,6 +88,7 @@ job_after_y_2: yes
 salary_2: 400-week
 ler_2: no
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -98,6 +104,7 @@ job_after_y_2: no
 salary_2: 400-week
 ler_2: yes
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -113,6 +120,7 @@ job_after_y_2: no
 salary_2: 400-week
 ler_2: no
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -128,6 +136,7 @@ job_after_y_2: yes
 salary_2: 400-week
 ler_2: no
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -143,6 +152,7 @@ job_after_y_2: no
 salary_2: 400-week
 ler_2: yes
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -158,6 +168,7 @@ job_after_y_2: no
 salary_2: 400-week
 ler_2: no
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -173,6 +184,7 @@ job_after_y_2: yes
 salary_2: 400-week
 ler_2: yes
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -188,6 +200,7 @@ job_after_y_2: yes
 salary_2: 400-week
 ler_2: no
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -203,6 +216,7 @@ job_after_y_2: no
 salary_2: 400-week
 ler_2: yes
 earnings_employment_2: yes
+date_leave_1: 2015-4-5
 
 circumstance: birth
 single_parent: no
@@ -218,3 +232,4 @@ job_after_y_2: no
 salary_2: 400-week
 ler_2: no
 earnings_employment_2: yes
+date_leave_1: 2015-4-5

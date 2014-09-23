@@ -1,0 +1,9 @@
+# Outcome adopt-pat-leave pat-pay adopt-pat-shared-leave pat-shared-pay
+
+{{snippet: adopt-pat-leave}}
+
+{{snippet: pat-pay}}
+
+{{snippet: adopt-pat-shared-leave}}
+
+{{snippet: pat-shared-pay}}

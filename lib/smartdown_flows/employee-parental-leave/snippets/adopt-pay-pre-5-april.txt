@@ -7,7 +7,7 @@ Pay | Key facts
 Adoption pay dates | %{date_leave_1} to {end_of_adoption_pay(date_leave_1)}
 Latest date to give notice | {notice_date_sap(date_leave_1)}
 Weekly rate | %{rate_of_sap(salary_1)}
-Total estimated SAP | %{total_sap(rate_of_sap(salary_1))}
+Total estimated SAP | %{total_sap(salary_1)}
 
 Tax and National Insurance will be deducted.
 

@@ -19,6 +19,9 @@ module SmartdownAdapter
         combinations = generate_next_combinations(smartdown_flow, combinations)
       end
       p "#{@errors.count/2} errors"
+      @errors.each do |error|
+        puts error
+      end
       smartdown_flow_path = File.join(smartdown_flow_path(smartdown_flow.name))
       humanized_combinations(@outcomes, smartdown_flow_path)
       @outcomes.keys.each do |key|
@@ -114,8 +117,7 @@ module SmartdownAdapter
         combination_hash[:circumstance] == "birth"
       end
       node_filepath = File.join(smartdown_flow_path, "factcheck", "birth_factcheck.txt")
-      birth_html = Govspeak::Document.new(format_birth_hashes(birth_hashes)).to_html.html_safe
-      File.write(node_filepath, birth_html)
+      File.write(node_filepath, format_birth_hashes(birth_hashes))
       node_filepath = File.join(smartdown_flow_path, "factcheck", "adoption_factcheck.txt")
       File.write(node_filepath, format_adoption_hashes(adoption_hashes))
     end
@@ -176,7 +178,7 @@ module SmartdownAdapter
 
     def human_readable_description(outcome_name)
       outcome_name.split("_")[1..-1].map do |snippet_name|
-        "- " + @human_readable_snippet_names.fetch(snippet_name, snippet_name)
+        "- " + @human_readable_snippet_names.fetch(snippet_name)
       end.join("<br>")
     end
 

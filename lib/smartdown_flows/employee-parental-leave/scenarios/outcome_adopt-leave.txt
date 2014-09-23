@@ -3,40 +3,11 @@ single_parent: yes
 match_date: 2015-4-5
 placement_date: 2014-4-5
 employment_status_1: employee
-job_before_x_1: yes
-job_after_y_1: yes
-salary_1: 400-week
-ler_1: no
-
-circumstance: adoption
-single_parent: yes
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: employee
-job_before_x_1: yes
-job_after_y_1: no
-salary_1: 400-week
-ler_1: yes
-
-circumstance: adoption
-single_parent: yes
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: employee
-job_before_x_1: yes
-job_after_y_1: no
-salary_1: 400-week
-ler_1: no
-
-circumstance: adoption
-single_parent: yes
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: employee
 job_before_x_1: no
 job_after_y_1: yes
 salary_1: 400-week
 ler_1: yes
+date_leave_1: 2015-4-5
 
 circumstance: adoption
 single_parent: yes
@@ -47,6 +18,7 @@ job_before_x_1: no
 job_after_y_1: yes
 salary_1: 400-week
 ler_1: no
+date_leave_1: 2015-4-5
 
 circumstance: adoption
 single_parent: yes
@@ -57,6 +29,7 @@ job_before_x_1: no
 job_after_y_1: no
 salary_1: 400-week
 ler_1: yes
+date_leave_1: 2015-4-5
 
 circumstance: adoption
 single_parent: yes
@@ -67,36 +40,7 @@ job_before_x_1: no
 job_after_y_1: no
 salary_1: 400-week
 ler_1: no
-
-circumstance: adoption
-single_parent: yes
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: worker
-job_before_x_1: yes
-job_after_y_1: yes
-salary_1: 400-week
-ler_1: no
-
-circumstance: adoption
-single_parent: yes
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: worker
-job_before_x_1: yes
-job_after_y_1: no
-salary_1: 400-week
-ler_1: yes
-
-circumstance: adoption
-single_parent: yes
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: worker
-job_before_x_1: yes
-job_after_y_1: no
-salary_1: 400-week
-ler_1: no
+date_leave_1: 2015-4-5
 
 circumstance: adoption
 single_parent: yes
@@ -107,6 +51,7 @@ job_before_x_1: no
 job_after_y_1: yes
 salary_1: 400-week
 ler_1: yes
+date_leave_1: 2015-4-5
 
 circumstance: adoption
 single_parent: yes
@@ -117,6 +62,7 @@ job_before_x_1: no
 job_after_y_1: yes
 salary_1: 400-week
 ler_1: no
+date_leave_1: 2015-4-5
 
 circumstance: adoption
 single_parent: yes
@@ -127,6 +73,7 @@ job_before_x_1: no
 job_after_y_1: no
 salary_1: 400-week
 ler_1: yes
+date_leave_1: 2015-4-5
 
 circumstance: adoption
 single_parent: yes
@@ -137,176 +84,6 @@ job_before_x_1: no
 job_after_y_1: no
 salary_1: 400-week
 ler_1: no
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: employee
-employment_status_2: unemployed
-job_before_x_1: yes
-job_after_y_1: yes
-salary_1: 400-week
-ler_1: no
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: employee
-employment_status_2: unemployed
-job_before_x_1: yes
-job_after_y_1: no
-salary_1: 400-week
-ler_1: yes
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: employee
-employment_status_2: unemployed
-job_before_x_1: yes
-job_after_y_1: no
-salary_1: 400-week
-ler_1: no
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: employee
-employment_status_2: unemployed
-job_before_x_1: no
-job_after_y_1: yes
-salary_1: 400-week
-ler_1: yes
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: employee
-employment_status_2: unemployed
-job_before_x_1: no
-job_after_y_1: yes
-salary_1: 400-week
-ler_1: no
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: employee
-employment_status_2: unemployed
-job_before_x_1: no
-job_after_y_1: no
-salary_1: 400-week
-ler_1: yes
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: employee
-employment_status_2: unemployed
-job_before_x_1: no
-job_after_y_1: no
-salary_1: 400-week
-ler_1: no
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: worker
-employment_status_2: unemployed
-job_before_x_1: yes
-job_after_y_1: yes
-salary_1: 400-week
-ler_1: no
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: worker
-employment_status_2: unemployed
-job_before_x_1: yes
-job_after_y_1: no
-salary_1: 400-week
-ler_1: yes
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: worker
-employment_status_2: unemployed
-job_before_x_1: yes
-job_after_y_1: no
-salary_1: 400-week
-ler_1: no
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: worker
-employment_status_2: unemployed
-job_before_x_1: no
-job_after_y_1: yes
-salary_1: 400-week
-ler_1: yes
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: worker
-employment_status_2: unemployed
-job_before_x_1: no
-job_after_y_1: yes
-salary_1: 400-week
-ler_1: no
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: worker
-employment_status_2: unemployed
-job_before_x_1: no
-job_after_y_1: no
-salary_1: 400-week
-ler_1: yes
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: worker
-employment_status_2: unemployed
-job_before_x_1: no
-job_after_y_1: no
-salary_1: 400-week
-ler_1: no
-
-circumstance: adoption
-single_parent: no
-match_date: 2015-4-5
-placement_date: 2014-4-5
-employment_status_1: employee
-employment_status_2: worker
-job_before_x_1: yes
-job_after_y_1: yes
-salary_1: 400-week
-ler_1: no
-earnings_employment_1: yes
-job_before_x_2: yes
-job_after_y_2: yes
-salary_2: 400-week
-ler_2: yes
 date_leave_1: 2015-4-5
 
 circumstance: adoption
@@ -314,16 +91,11 @@ single_parent: no
 match_date: 2015-4-5
 placement_date: 2014-4-5
 employment_status_1: employee
-employment_status_2: worker
+employment_status_2: unemployed
 job_before_x_1: yes
 job_after_y_1: yes
 salary_1: 400-week
 ler_1: no
-earnings_employment_1: no
-job_before_x_2: yes
-job_after_y_2: yes
-salary_2: 400-week
-ler_2: yes
 date_leave_1: 2015-4-5
 
 circumstance: adoption
@@ -331,16 +103,35 @@ single_parent: no
 match_date: 2015-4-5
 placement_date: 2014-4-5
 employment_status_1: employee
-employment_status_2: worker
+employment_status_2: unemployed
+job_before_x_1: yes
+job_after_y_1: no
+salary_1: 400-week
+ler_1: yes
+date_leave_1: 2015-4-5
+
+circumstance: adoption
+single_parent: no
+match_date: 2015-4-5
+placement_date: 2014-4-5
+employment_status_1: employee
+employment_status_2: unemployed
+job_before_x_1: yes
+job_after_y_1: no
+salary_1: 400-week
+ler_1: no
+date_leave_1: 2015-4-5
+
+circumstance: adoption
+single_parent: no
+match_date: 2015-4-5
+placement_date: 2014-4-5
+employment_status_1: employee
+employment_status_2: unemployed
 job_before_x_1: no
 job_after_y_1: yes
 salary_1: 400-week
 ler_1: yes
-earnings_employment_1: yes
-job_before_x_2: yes
-job_after_y_2: yes
-salary_2: 400-week
-ler_2: yes
 date_leave_1: 2015-4-5
 
 circumstance: adoption
@@ -348,50 +139,119 @@ single_parent: no
 match_date: 2015-4-5
 placement_date: 2014-4-5
 employment_status_1: employee
-employment_status_2: worker
+employment_status_2: unemployed
+job_before_x_1: no
+job_after_y_1: yes
+salary_1: 400-week
+ler_1: no
+date_leave_1: 2015-4-5
+
+circumstance: adoption
+single_parent: no
+match_date: 2015-4-5
+placement_date: 2014-4-5
+employment_status_1: employee
+employment_status_2: unemployed
+job_before_x_1: no
+job_after_y_1: no
+salary_1: 400-week
+ler_1: yes
+date_leave_1: 2015-4-5
+
+circumstance: adoption
+single_parent: no
+match_date: 2015-4-5
+placement_date: 2014-4-5
+employment_status_1: employee
+employment_status_2: unemployed
+job_before_x_1: no
+job_after_y_1: no
+salary_1: 400-week
+ler_1: no
+date_leave_1: 2015-4-5
+
+circumstance: adoption
+single_parent: no
+match_date: 2015-4-5
+placement_date: 2014-4-5
+employment_status_1: worker
+employment_status_2: unemployed
+job_before_x_1: yes
+job_after_y_1: yes
+salary_1: 400-week
+ler_1: no
+date_leave_1: 2015-4-5
+
+circumstance: adoption
+single_parent: no
+match_date: 2015-4-5
+placement_date: 2014-4-5
+employment_status_1: worker
+employment_status_2: unemployed
+job_before_x_1: yes
+job_after_y_1: no
+salary_1: 400-week
+ler_1: yes
+date_leave_1: 2015-4-5
+
+circumstance: adoption
+single_parent: no
+match_date: 2015-4-5
+placement_date: 2014-4-5
+employment_status_1: worker
+employment_status_2: unemployed
+job_before_x_1: yes
+job_after_y_1: no
+salary_1: 400-week
+ler_1: no
+date_leave_1: 2015-4-5
+
+circumstance: adoption
+single_parent: no
+match_date: 2015-4-5
+placement_date: 2014-4-5
+employment_status_1: worker
+employment_status_2: unemployed
 job_before_x_1: no
 job_after_y_1: yes
 salary_1: 400-week
 ler_1: yes
-earnings_employment_1: no
-job_before_x_2: yes
-job_after_y_2: yes
-salary_2: 400-week
-ler_2: yes
 date_leave_1: 2015-4-5
 
 circumstance: adoption
 single_parent: no
 match_date: 2015-4-5
 placement_date: 2014-4-5
-employment_status_1: employee
-employment_status_2: worker
+employment_status_1: worker
+employment_status_2: unemployed
 job_before_x_1: no
 job_after_y_1: yes
 salary_1: 400-week
 ler_1: no
-earnings_employment_1: yes
-job_before_x_2: yes
-job_after_y_2: yes
-salary_2: 400-week
-ler_2: yes
 date_leave_1: 2015-4-5
 
 circumstance: adoption
 single_parent: no
 match_date: 2015-4-5
 placement_date: 2014-4-5
-employment_status_1: employee
-employment_status_2: worker
+employment_status_1: worker
+employment_status_2: unemployed
 job_before_x_1: no
-job_after_y_1: yes
+job_after_y_1: no
+salary_1: 400-week
+ler_1: yes
+date_leave_1: 2015-4-5
+
+circumstance: adoption
+single_parent: no
+match_date: 2015-4-5
+placement_date: 2014-4-5
+employment_status_1: worker
+employment_status_2: unemployed
+job_before_x_1: no
+job_after_y_1: no
 salary_1: 400-week
 ler_1: no
-earnings_employment_1: no
-job_before_x_2: yes
-job_after_y_2: yes
-salary_2: 400-week
-ler_2: yes
 date_leave_1: 2015-4-5
 
 circumstance: adoption

@@ -5,6 +5,6 @@ The mother can take up to 52 weeks of Statutory Maternity Leave.
 Leave | Key dates
 - | -
 Ordinary Maternity Leave (first 26 weeks) | %{date_leave_1} to %{end_of_ordinary_leave(date_leave_1)}
-Additional Maternity Leave (last 26 weeks) | %{start_of_additional_leave} to %{end_of_additional_leave(date _leave_1)}
+Additional Maternity Leave (last 26 weeks) | %{start_of_additional_leave} to %{end_of_additional_leave(date_leave_1)}
 Earliest leave can start | %{earliest_start(due_date)}
 Latest date to give notice | %{qualifying_week(due_date)}

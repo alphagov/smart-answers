@@ -1,6 +1,7 @@
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: self-employed
 employment_status_2: employee
 earnings_employment_1: yes
@@ -10,9 +11,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: self-employed
 employment_status_2: worker
 earnings_employment_1: yes
@@ -22,9 +24,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: unemployed
 employment_status_2: employee
 earnings_employment_1: yes
@@ -34,9 +37,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: unemployed
 employment_status_2: worker
 earnings_employment_1: yes
@@ -46,9 +50,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: worker
 job_before_x_1: yes
@@ -62,9 +67,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: worker
 job_before_x_1: yes
@@ -78,9 +84,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: worker
 job_before_x_1: no
@@ -94,9 +101,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: worker
 job_before_x_1: no
@@ -110,9 +118,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: employee
 job_before_x_1: yes
@@ -126,9 +135,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: employee
 job_before_x_1: yes
@@ -142,9 +152,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: employee
 job_before_x_1: yes
@@ -158,9 +169,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: employee
 job_before_x_1: no
@@ -174,9 +186,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: employee
 job_before_x_1: no
@@ -190,9 +203,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: employee
 job_before_x_1: no
@@ -206,9 +220,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: employee
 job_before_x_1: no
@@ -222,9 +237,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: worker
 job_before_x_1: yes
@@ -238,9 +254,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: worker
 job_before_x_1: yes
@@ -254,9 +271,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: worker
 job_before_x_1: yes
@@ -270,9 +288,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: worker
 job_before_x_1: no
@@ -286,9 +305,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: worker
 job_before_x_1: no
@@ -302,9 +322,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: worker
 job_before_x_1: no
@@ -318,9 +339,10 @@ salary_2: 400-week
 ler_2: yes
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2015-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: worker
 employment_status_2: worker
 job_before_x_1: no

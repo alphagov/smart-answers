@@ -1,5 +1,0 @@
-# Outcome adopt-pay mat-shared-pay
-
-{{snippet: adopt-pay}}
-
-{{snippet: mat-shared-pay}}

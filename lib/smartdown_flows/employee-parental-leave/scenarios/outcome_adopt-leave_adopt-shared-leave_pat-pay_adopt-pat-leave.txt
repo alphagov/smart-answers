@@ -1,6 +1,7 @@
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2014-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: employee
 job_before_x_1: yes
@@ -15,9 +16,10 @@ ler_2: yes
 date_leave_1: 2015-4-5
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2014-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: employee
 job_before_x_1: yes
@@ -32,9 +34,10 @@ ler_2: yes
 date_leave_1: 2015-4-5
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2014-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: employee
 job_before_x_1: yes
@@ -49,9 +52,10 @@ ler_2: yes
 date_leave_1: 2015-4-5
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2014-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: employee
 job_before_x_1: no
@@ -66,9 +70,10 @@ ler_2: yes
 date_leave_1: 2015-4-5
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2014-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: employee
 job_before_x_1: no
@@ -83,9 +88,10 @@ ler_2: yes
 date_leave_1: 2015-4-5
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2014-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: employee
 job_before_x_1: no
@@ -100,9 +106,10 @@ ler_2: yes
 date_leave_1: 2015-4-5
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2014-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: employee
 job_before_x_1: no
@@ -117,9 +124,10 @@ ler_2: yes
 date_leave_1: 2015-4-5
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2014-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: worker
 job_before_x_1: yes
@@ -134,9 +142,10 @@ ler_2: yes
 date_leave_1: 2015-4-5
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2014-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: worker
 job_before_x_1: no
@@ -151,9 +160,10 @@ ler_2: yes
 date_leave_1: 2015-4-5
 date_leave_2: 2015-4-5
 
-circumstance: birth
+circumstance: adoption
 single_parent: no
-due_date: 2014-4-5
+match_date: 2015-4-5
+placement_date: 2014-4-5
 employment_status_1: employee
 employment_status_2: worker
 job_before_x_1: no

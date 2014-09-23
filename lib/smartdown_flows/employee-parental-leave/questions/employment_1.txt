@@ -23,13 +23,7 @@
 * no: No
 
 * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-  * single_parent is 'yes'
-    * employment_status_1 is 'employee' => leave_1
-    * otherwise
-      * circumstance is 'birth' => outcome_mat-pay
-      * circumstance is 'adoption'
-        * match_date >= '2015-4-5' => outcome_adopt-pay
-        * otherwise => outcome_adopt-pay-pre-5-april
+  * single_parent is 'yes' => leave_1
   * single_parent is 'no'
     * employment_status_2 in {employee worker agency} => employment_2
     * employment_status_2 in {self-employed unemployed}
@@ -43,10 +37,10 @@
   * circumstance is 'birth' => employment_1_more
   * circumstance is 'adoption'
     * single_parent is 'yes'
-      * match_date >= '2015-4-5' => outcome_adopt-leave
+      * match_date >= '2015-4-5' => leave_1
       * otherwise => outcome_adopt-nothing
     * single_parent is 'no'
       * employment_status_2 in {employee worker agency} => employment_1_more
       * employment_status_2 in {self-employed unemployed}
-        * match_date >= '2015-4-5' => outcome_adopt-leave
+        * match_date >= '2015-4-5' => leave_1
         * otherwise => outcome_adopt-nothing

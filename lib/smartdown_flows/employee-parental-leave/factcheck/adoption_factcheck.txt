@@ -44,13 +44,26 @@ Match date | Principal adopter status | PA: Continuity | PA: E&E | Partner statu
 05/04/2014 |worker | |✘ |employee | | |- Nothing
 05/04/2014 |worker | |✔ |worker | | |- Nothing
 05/04/2014 |worker | |✘ |worker | | |- Nothing
-05/04/2014 |employee | |✔ |worker |✔ | |- Nothing
-05/04/2014 |employee | |✘ |worker |✔ | |- Nothing
-05/04/2015 |employee | |✘ |worker |✔ | |- Principal adopter leave
-05/04/2015 |worker | |✘ |worker |✔ | |- Principal adopter leave
-05/04/2015 |employee | |✘ |unemployed |✔ | |- Principal adopter leave
-05/04/2015 |worker | |✘ |unemployed |✔ | |- Principal adopter leave
-05/04/2015 |employee | |✔ |worker |✔ | |- Principal adopter leave
+05/04/2015 |employee |✔ |✘ |worker | | |- Principal adopter leave<br>- Principal adopter pay
+05/04/2015 |employee | |✘ |worker | | |- Principal adopter leave<br>- Principal adopter pay
+05/04/2015 |worker |✔ |✘ |worker | | |- Principal adopter leave<br>- Principal adopter pay
+05/04/2015 |worker | |✘ |worker | | |- Principal adopter leave<br>- Principal adopter pay
+05/04/2014 |employee |✔ |✘ |unemployed | | |- Principal adopter leave<br>- Principal adopter pay
+05/04/2014 |worker |✔ |✘ |unemployed | | |- Principal adopter leave<br>- Principal adopter pay
+05/04/2015 |employee |✔ |✘ |unemployed | |✘ |- Principal adopter leave<br>- Principal adopter pay
+05/04/2015 |worker |✔ |✘ |unemployed | |✘ |- Principal adopter leave<br>- Principal adopter pay
+05/04/2014 |employee |✔ |✘ |employee | |✘ |- Principal adopter leave<br>- Principal adopter pay
+05/04/2014 |employee |✔ |✘ |worker | |✘ |- Principal adopter leave<br>- Principal adopter pay
+05/04/2014 |worker |✔ |✘ |employee | |✘ |- Principal adopter leave<br>- Principal adopter pay
+05/04/2014 |worker |✔ |✘ |worker | |✘ |- Principal adopter leave<br>- Principal adopter pay
+05/04/2015 |employee |✔ |✘ |employee | |✘ |- Principal adopter leave<br>- Principal adopter pay
+05/04/2015 |employee |✔ |✘ |worker | |✘ |- Principal adopter leave<br>- Principal adopter pay
+05/04/2015 |worker |✔ |✘ |employee | |✘ |- Principal adopter leave<br>- Principal adopter pay
+05/04/2015 |worker |✔ |✘ |worker | |✘ |- Principal adopter leave<br>- Principal adopter pay
+05/04/2015 |employee | |✘ |worker | |✘ |- Principal adopter leave
+05/04/2015 |worker | |✘ |worker | |✘ |- Principal adopter leave
+05/04/2015 |employee | |✘ |unemployed | |✘ |- Principal adopter leave
+05/04/2015 |worker | |✘ |unemployed | |✘ |- Principal adopter leave
 05/04/2015 |employee | |✔ |employee | |✔ |- Principal adopter leave
 05/04/2015 |employee | |✔ |employee | |✘ |- Principal adopter leave
 05/04/2015 |employee | |✘ |employee | |✔ |- Principal adopter leave
@@ -58,64 +71,55 @@ Match date | Principal adopter status | PA: Continuity | PA: E&E | Partner statu
 05/04/2015 |employee | |✔ |worker | |✔ |- Principal adopter leave
 05/04/2015 |employee | |✔ |worker | |✘ |- Principal adopter leave
 05/04/2015 |employee | |✘ |worker | |✔ |- Principal adopter leave
-05/04/2015 |employee | |✘ |worker | |✘ |- Principal adopter leave
-05/04/2015 |worker |✔ |✘ |worker | |✘ |- Principal adopter pay
-05/04/2015 |worker |✔ |✘ |unemployed | |✘ |- Principal adopter pay
-05/04/2014 |worker |✔ |✘ |worker | |✘ |- Principal adopter pay
-05/04/2015 |worker |✔ |✘ |employee | |✘ |- Principal adopter pay
-05/04/2014 |worker |✔ |✘ |worker | |✘ |- Adoption pay (pre 05/04)
-05/04/2014 |worker |✔ |✘ |employee | |✘ |- Adoption pay (pre 05/04)
-05/04/2015 |employee |✔ |✘ |employee | |✘ |- Principal adopter leave<br>- Principal adopter pay
-05/04/2014 |employee |✔ |✘ |unemployed | |✘ |- Principal adopter leave<br>- Principal adopter pay
-05/04/2014 |worker |✔ |✘ |unemployed | |✘ |- Principal adopter leave<br>- Principal adopter pay
-05/04/2015 |employee |✔ |✘ |unemployed | |✘ |- Principal adopter leave<br>- Principal adopter pay
-05/04/2014 |employee |✔ |✘ |employee | |✘ |- Principal adopter leave<br>- Principal adopter pay
-05/04/2014 |employee |✔ |✘ |worker |✔ |✘ |- Principal adopter leave<br>- Principal adopter pay
-05/04/2014 |employee |✔ |✘ |worker | |✘ |- Principal adopter leave<br>- Principal adopter pay
-05/04/2015 |employee |✔ |✘ |worker | |✘ |- Principal adopter leave<br>- Principal adopter pay
 05/04/2014 |employee |✔ |✘ |worker | |✘ |- Principal adopter leave<br>- Adoption pay (pre 05/04)
-05/04/2015 |worker |✔ |✘ |worker |✔ |✘ |- Principal adopter pay<br>- Mother shared parental pay<br>- Paternity pay<br>- Partner shared parental pay
-05/04/2015 |worker |✔ |✘ |unemployed |✔ |✔ |- Principal adopter pay<br>- Mother shared parental pay
-05/04/2015 |worker |✔ |✘ |employee | |✔ |- Principal adopter pay<br>- Mother shared parental pay
-05/04/2015 |worker |✔ |✘ |worker | |✔ |- Principal adopter pay<br>- Mother shared parental pay
-05/04/2015 |self-employed |✔ |✔ |worker |✔ |✔ |- Paternity pay
-05/04/2015 |self-employed |✔ |✘ |worker |✔ |✔ |- Paternity pay
-05/04/2015 |unemployed |✔ |✔ |worker |✔ |✔ |- Paternity pay
-05/04/2015 |unemployed |✔ |✘ |worker |✔ |✔ |- Paternity pay
-05/04/2014 |self-employed |✔ |✔ |worker |✔ |✔ |- Paternity pay
-05/04/2014 |self-employed |✔ |✘ |worker |✔ |✔ |- Paternity pay
-05/04/2014 |unemployed |✔ |✔ |worker |✔ |✔ |- Paternity pay
-05/04/2014 |unemployed |✔ |✘ |worker |✔ |✔ |- Paternity pay
-05/04/2015 |employee | |✔ |worker |✔ |✔ |- Paternity pay
-05/04/2015 |employee | |✘ |worker |✔ |✔ |- Paternity pay
-05/04/2015 |worker | |✘ |worker |✔ |✔ |- Paternity pay
-05/04/2014 |employee | |✔ |worker |✔ |✔ |- Paternity pay
-05/04/2014 |employee | |✘ |worker |✔ |✔ |- Paternity pay
-05/04/2014 |worker | |✘ |worker |✔ |✔ |- Paternity pay
-05/04/2014 |worker |✔ |✘ |worker |✔ |✔ |- Principal adopter pay<br>- Paternity pay<br>- Additional paternity pay
-05/04/2015 |employee |✔ |✘ |employee |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Mother shared parental leave<br>- Mother shared parental pay<br>- Paternity pay<br>- Paternity leave<br>- Additional paternity pay<br>- Additional paternity leave
-05/04/2015 |employee |✔ |✘ |worker |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Mother shared parental leave<br>- Mother shared parental pay<br>- Paternity pay<br>- Partner shared parental pay
-05/04/2015 |employee |✔ |✘ |unemployed |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Mother shared parental leave<br>- Mother shared parental pay
-05/04/2015 |employee |✔ |✘ |employee | |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Mother shared parental leave<br>- Mother shared parental pay
-05/04/2015 |employee |✔ |✘ |worker | |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Mother shared parental leave<br>- Mother shared parental pay
-05/04/2015 |worker |✔ |✘ |employee |✔ |✔ |- Principal adopter pay<br>- Mother shared parental pay<br>- Paternity leave<br>- Paternity pay<br>- Partner shared parental leave<br>- Partner shared parental pay
-05/04/2015 |worker | |✔ |worker |✔ |✔ |- Paternity pay<br>- Partner shared parental pay
-05/04/2015 |self-employed | |✔ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Partner shared parental leave<br>- Partner shared parental pay
-05/04/2015 |unemployed | |✔ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Partner shared parental leave<br>- Partner shared parental pay
-05/04/2015 |worker | |✔ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Partner shared parental leave<br>- Partner shared parental pay
-05/04/2015 |self-employed | |✘ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay
-05/04/2015 |unemployed | |✘ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay
-05/04/2015 |worker | |✘ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay
-05/04/2014 |employee |✔ |✘ |employee |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Paternity pay<br>- Paternity leave<br>- Additional paternity pay<br>- Additional paternity leave
-05/04/2014 |employee | |✔ |employee |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Paternity pay<br>- Paternity leave<br>- Additional paternity pay<br>- Additional paternity leave
-05/04/2014 |employee | |✘ |employee |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Paternity pay<br>- Paternity leave<br>- Additional paternity pay<br>- Additional paternity leave
-05/04/2014 |worker |✔ |✘ |employee |✔ |✔ |- Maternity pay<br>- Paternity leave<br>- Paternity pay<br>- Additional paternity leave<br>- Additional paternity pay
-05/04/2014 |worker | |✔ |worker |✔ |✔ |- Paternity pay<br>- Additional paternity pay
-05/04/2014 |self-employed | |✔ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Additional paternity leave<br>- Additional paternity pay
-05/04/2014 |self-employed | |✘ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Additional paternity leave<br>- Additional paternity pay
-05/04/2014 |unemployed | |✔ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Additional paternity leave<br>- Additional paternity pay
-05/04/2014 |unemployed | |✘ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Additional paternity leave<br>- Additional paternity pay
-05/04/2014 |worker | |✔ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Additional paternity leave<br>- Additional paternity pay
-05/04/2014 |worker | |✘ |employee |✔ |✔ |- Paternity leave<br>- Paternity pay<br>- Additional paternity leave<br>- Additional paternity pay
-05/04/2015 |employee | |✔ |employee |✔ |✔ |- Principal adopter leave<br>- Mother shared parental leave<br>- Paternity pay<br>- Paternity leave<br>- Partner shared parental pay<br>- Partner shared parental pay
-05/04/2015 |employee | |✘ |employee |✔ |✔ |- Principal adopter leave<br>- Mother shared parental leave<br>- Paternity pay<br>- Paternity leave
+05/04/2014 |worker |✔ |✘ |worker | |✘ |- Principal adopter leave<br>- Adoption pay (pre 05/04)
+05/04/2015 |employee |✔ |✘ |employee |✔ |✘ |- Principal adopter leave<br>- Principal adopter pay<br>- Principal adopter shared parental leave<br>- Principal adopter shared parental pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2015 |employee |✔ |✘ |worker |✔ |✘ |- Principal adopter leave<br>- Principal adopter pay<br>- Principal adopter shared parental leave<br>- Principal adopter shared parental pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2015 |worker |✔ |✘ |employee |✔ |✘ |- Principal adopter leave<br>- Principal adopter pay<br>- Principal adopter shared parental leave<br>- Principal adopter shared parental pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2015 |worker |✔ |✘ |worker |✔ |✘ |- Principal adopter leave<br>- Principal adopter pay<br>- Principal adopter shared parental leave<br>- Principal adopter shared parental pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2015 |employee |✔ |✘ |unemployed |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Principal adopter shared parental leave<br>- Principal adopter shared parental pay
+05/04/2015 |worker |✔ |✘ |unemployed |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Principal adopter shared parental leave<br>- Principal adopter shared parental pay
+05/04/2015 |employee |✔ |✘ |employee | |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Principal adopter shared parental leave<br>- Principal adopter shared parental pay
+05/04/2015 |employee |✔ |✘ |worker | |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Principal adopter shared parental leave<br>- Principal adopter shared parental pay
+05/04/2015 |worker |✔ |✘ |employee | |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Principal adopter shared parental leave<br>- Principal adopter shared parental pay
+05/04/2015 |worker |✔ |✘ |worker | |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Principal adopter shared parental leave<br>- Principal adopter shared parental pay
+05/04/2015 |self-employed |✔ |✔ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter shared parental leave<br>- Partner shared parental pay
+05/04/2015 |self-employed |✔ |✔ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter shared parental leave<br>- Partner shared parental pay
+05/04/2015 |unemployed |✔ |✔ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter shared parental leave<br>- Partner shared parental pay
+05/04/2015 |unemployed |✔ |✔ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter shared parental leave<br>- Partner shared parental pay
+05/04/2015 |employee | |✔ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter shared parental leave<br>- Partner shared parental pay
+05/04/2015 |worker | |✔ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter shared parental leave<br>- Partner shared parental pay
+05/04/2015 |worker | |✔ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter shared parental leave<br>- Partner shared parental pay
+05/04/2015 |self-employed | |✘ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay
+05/04/2015 |self-employed | |✘ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay
+05/04/2015 |unemployed | |✘ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay
+05/04/2015 |unemployed | |✘ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay
+05/04/2015 |employee | |✘ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay
+05/04/2015 |worker | |✘ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay
+05/04/2015 |worker | |✘ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay
+05/04/2014 |employee |✔ |✘ |employee |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2014 |employee |✔ |✘ |worker |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2014 |worker |✔ |✘ |employee |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2014 |worker |✔ |✘ |worker |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2014 |employee | |✔ |employee |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2014 |employee | |✘ |employee |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2014 |employee | |✔ |worker |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2014 |employee | |✘ |worker |✔ |✔ |- Principal adopter leave<br>- Principal adopter pay<br>- Paternity pay<br>- Adopter paternity leave<br>- Additional paternity pay<br>- Adopter additional paternity leave
+05/04/2014 |self-employed | |✔ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |self-employed | |✘ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |self-employed | |✔ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |self-employed | |✘ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |unemployed | |✔ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |unemployed | |✘ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |unemployed | |✔ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |unemployed | |✘ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |employee | |✔ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |employee | |✘ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |worker | |✔ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |worker | |✘ |employee |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |worker | |✔ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2014 |worker | |✘ |worker |✔ |✔ |- Adopter paternity leave<br>- Paternity pay<br>- Adopter additional paternity leave<br>- Additional paternity pay
+05/04/2015 |employee | |✔ |employee |✔ |✔ |- Principal adopter leave<br>- Principal adopter shared parental leave<br>- Paternity pay<br>- Adopter paternity leave<br>- Partner shared parental pay
+05/04/2015 |employee | |✔ |worker |✔ |✔ |- Principal adopter leave<br>- Principal adopter shared parental leave<br>- Paternity pay<br>- Adopter paternity leave<br>- Partner shared parental pay
+05/04/2015 |employee | |✘ |employee |✔ |✔ |- Principal adopter leave<br>- Principal adopter shared parental leave<br>- Paternity pay<br>- Adopter paternity leave
+05/04/2015 |employee | |✘ |worker |✔ |✔ |- Principal adopter leave<br>- Principal adopter shared parental leave<br>- Paternity pay<br>- Adopter paternity leave

@@ -59,12 +59,10 @@ class SmartAnswersController < ApplicationController
   def factcheck
     respond_to do |format|
       format.html {
-        if smartdown_question(@name)
           birth_factcheck_path = Rails.root.join('lib', 'smartdown_flows', @name.to_s, "factcheck", "birth_factcheck.txt")
           adoption_factcheck_path = Rails.root.join('lib', 'smartdown_flows', @name.to_s, "factcheck", "adoption_factcheck.txt")
           contents = File.read(adoption_factcheck_path) + "\n\n" + File.read(birth_factcheck_path)
           @content = Govspeak::Document.new(contents).to_html.html_safe
-        end
       }
     end
   end

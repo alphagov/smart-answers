@@ -1,7 +1,0 @@
-# Outcome adopt-pay pat-pay additional-pat-pay
-
-{{snippet: adopt-pay}}
-
-{{snippet: pat-pay}}
-
-{{snippet: additional-pat-pay}}
