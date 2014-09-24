@@ -439,7 +439,7 @@ outcome :outcome_os_consular_cni do
   precalculate :consular_cni_os_start do
     phrases = PhraseList.new
 
-    cni_posted_after_7_days_countries = %w(albania algeria angola austria azerbaijan bahrain bolivia bosnia-herzegovina cambodia chile croatia cuba ecuador estonia georgia greece hong-kong iceland iran italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia montenegro nicaragua norway poland russia spain sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+    cni_posted_after_7_days_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-herzegovina bulgaria cambodia chile croatia cuba ecuador estonia georgia greece hong-kong iceland iran italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia montenegro nicaragua norway poland russia spain sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
     cni_posted_after_14_days_countries = %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
     not_italy_or_spain = %w(italy spain).exclude?(ceremony_country)
     ceremony_not_germany_or_not_resident_other = (ceremony_country != 'germany' or resident_of != 'other')
@@ -515,10 +515,8 @@ outcome :outcome_os_consular_cni do
     if resident_of =='uk'
       if cni_posted_after_14_days_countries.include?(ceremony_country)
         phrases << :cni_posted_if_no_objection_14_days
-      elsif cni_posted_after_7_days_countries.include?(ceremony_country)
-        phrases << :cni_posted_if_no_objection_7_days
-      elsif partner_nationality != 'partner_irish'
-        phrases << :uk_resident_partner_not_irish_os_consular_cni_three
+      elsif cni_posted_after_7_days_countries.include?(ceremony_country) or partner_nationality != 'partner_irish'
+        phrases << :cni_at_local_register_office
       elsif partner_nationality == 'partner_irish'and %w(uk_scotland uk_ni).include?(residency_uk_region)
         phrases << :scotland_ni_resident_partner_irish_os_consular_cni_three
       end
