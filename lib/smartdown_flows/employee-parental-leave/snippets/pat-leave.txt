@@ -1,7 +1,7 @@
 ##Paternity leave
 
-The mother’s or primary adopter’s partner can take up to 2 weeks of Ordinary Paternity Leave.
-%{minus_three_days(due_date)}
+The mother’s or primary adopter’s partner can take up to 2 weeks of Ordinary Paternity Leave. 
+
 Leave | Key dates
 - | -
 Ordinary Paternity leave | %{date_leave_2} to %{end_of_paternity_leave(date_leave_2)}

@@ -9,6 +9,14 @@ module SmartdownAdapter
         (Date.parse(training_date).year + 20) - Time.zone.now.year
       end
     end
+    class ClaimDateMaternityAllowance
+      def self.key
+        "claim_date_maternity_allowance"
+      end
+      def call(date)
+        "TODO_claim_date_maternity_allowance"
+      end
+    end
     class EarliestStart
       def self.key
         "earliest_start"
@@ -33,12 +41,28 @@ module SmartdownAdapter
         "TODO_end_of_additional_paternity_leave"
       end
     end
-    class EndOfMaternityLeave
+    class EndOfAdditionalPaternityPay
       def self.key
-        "end_of_maternity_leave"
+        "end_of_additional_paternity_pay"
       end
-      def call(date_leave_1)
-        "TODO_end_of_maternity_leave"
+      def call(date)
+        "TODO_end_of_additional_paternity_pay"
+      end
+    end
+    class EndOfMaternityAllowance
+      def self.key
+        "end_of_maternity_allowance"
+      end
+      def call(date)
+        "TODO_end_of_maternity_allowance"
+      end
+    end
+    class EndOfMaternityPay
+      def self.key
+        "end_of_maternity_pay"
+      end
+      def call(date)
+        "TODO_end_of_maternity_pay"
       end
     end
     class EndOfOrdinaryLeave
@@ -57,14 +81,6 @@ module SmartdownAdapter
         "TODO_end_of_paternity_leave"
       end
     end
-    class EndOfPay
-      def self.key
-        "end_of_pay"
-      end
-      def call(date)
-        "TODO_end_of_pay"
-      end
-    end
     class EndOfSharedParentalLeave
       def self.key
         "end_of_shared_parental_leave"
@@ -79,14 +95,6 @@ module SmartdownAdapter
       end
       def call(date)
         "TODO_latest_pat_leave"
-      end
-    end
-    class MinusThreeDays
-      def self.key
-        "minus_three_days"
-      end
-      def call(date)
-        "TODO_minus_three_days"
       end
     end
     class NoticeDateSap
@@ -129,14 +137,6 @@ module SmartdownAdapter
         "TODO_paternity_pay_notice_date"
       end
     end
-    class PeriodOfMaternityAllowance
-      def self.key
-        "period_of_maternity_allowance"
-      end
-      def call
-        "TODO_period_of_maternity_allowance"
-      end
-    end
     class QualifyingWeek
       def self.key
         "qualifying_week"
@@ -153,12 +153,12 @@ module SmartdownAdapter
         "TODO_rate_of_paternity_pay"
       end
     end
-    class RateOfPay
+    class RateOfMaternityAllowance
       def self.key
-        "rate_of_pay"
+        "rate_of_maternity_allowance"
       end
-      def call
-        "TODO_rate_of_pay"
+      def call(salary_1)
+        "TODO_rate_of_maternity_allowance"
       end
     end
     class RateOfSap
@@ -169,12 +169,20 @@ module SmartdownAdapter
         "TODO_rate_of_sap"
       end
     end
-    class RateOfSmp
+    class RateOfSmp6Weeks
       def self.key
-        "rate_of_smp"
+        "rate_of_smp_6_weeks"
       end
       def call(salary_1)
-        "TODO_rate_of_smp"
+        "TODO_rate_of_smp_6_weeks"
+      end
+    end
+    class RateOfSmp33Weeks
+      def self.key
+        "rate_of_smp_33_weeks"
+      end
+      def call(salary_1)
+        "TODO_rate_of_smp_33_weeks"
       end
     end
     class StartOfAdditionalLeave
@@ -193,11 +201,19 @@ module SmartdownAdapter
         "TODO_start_of_additional_paternity_leave"
       end
     end
+    class StartOfMaternityAllowance
+      def self.key
+        "start_of_maternity_allowance"
+      end
+      def call(date)
+        "TODO_start_of_maternity_allowance"
+      end
+    end
     class TotalMaternityAllowance
       def self.key
         "total_maternity_allowance"
       end
-      def call
+      def call(salary_1)
         "TODO_total_maternity_allowance"
       end
     end
