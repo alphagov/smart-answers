@@ -45,7 +45,7 @@
   }
 
   // Smartdown specific previous answers block
-  .done-questions {
+  .done-questions-spl {
     table {
       margin-left: 2em;
       width: auto;
@@ -66,15 +66,12 @@
       tbody {
         td {
           border-bottom: none;
-          line-height: 0.5;
-          padding-right: 1em;
+          padding: 0 1em 0.25em inherit;
         }
 
         .section-title {
           @include bold-14;
-          line-height: 0.5;
-          padding-top: 1em;
-          padding-bottom: 0.5em;
+          padding-top: 0.5em;
         }
 
         .section {
@@ -87,6 +84,7 @@
         text-align: right;
         width: 40%;
         padding-right: 0;
+        padding-top: 0.5em;
       }
     }
   }
