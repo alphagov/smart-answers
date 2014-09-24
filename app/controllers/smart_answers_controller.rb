@@ -72,7 +72,7 @@ private
   def find_smart_answer
     @name = params[:id].to_sym
     if smartdown_question(@name)
-      @presenter = SmartdownAdapter::Presenter.new(@name.to_s, request)
+      @presenter = SmartdownAdapter::Presenter.new(smartdown_flow(@name), request)
     else
       @smart_answer = flow_registry.find(@name.to_s)
       @presenter = SmartAnswerPresenter.new(request, @smart_answer)
@@ -106,8 +106,16 @@ private
     set_slimmer_headers(template: 'header_footer_only')
   end
 
+  def smartdown_registry
+    @registry ||= SmartdownAdapter::Registry.instance
+  end
+
   def smartdown_question(name)
-    SmartdownAdapter::Registry.instance.check(name.to_s)
+    smartdown_registry.check(name.to_s)
+  end
+
+  def smartdown_flow(name)
+    smartdown_registry.find(name.to_s)
   end
 
 end
