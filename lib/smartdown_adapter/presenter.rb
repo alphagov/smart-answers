@@ -7,10 +7,10 @@ module SmartdownAdapter
     extend Forwardable
     include Rails.application.routes.url_helpers
 
-    attr_accessor :name, :started, :smartdown_flow, :smartdown_state
+    attr_accessor :started, :smartdown_flow, :smartdown_state
 
     # The same for all nodes/views
-    def_delegators :@smartdown_flow, :title, :meta_description, :need_id
+    def_delegators :@smartdown_flow, :name, :title, :meta_description, :need_id
 
     # Where you are in the flow
     def_delegators :@smartdown_state, :current_question_number, :started?, :finished?
@@ -21,11 +21,10 @@ module SmartdownAdapter
     # The current node in the flow
     def_delegators :current_node, :body, :has_body?, :devolved_body, :has_devolved_body?
 
-    def initialize(name, request)
-      @name = name
+    def initialize(smartdown_flow, request)
+      @smartdown_flow = smartdown_flow
       @started = request[:started]
       @processed_responses = process_inputs(responses_from_request(request))
-      @smartdown_flow = SmartdownAdapter::Registry.instance.find(name)
       @smartdown_state = @smartdown_flow.state(started, @processed_responses)
     end
 

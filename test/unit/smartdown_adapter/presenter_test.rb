@@ -7,7 +7,7 @@ module SmartdownAdapter
     context "initialize" do
       setup do
         silence_warnings do
-          SmartdownAdapter::Registry::FLOW_REGISTRY_OPTIONS = { 
+          SmartdownAdapter::Registry::FLOW_REGISTRY_OPTIONS = {
             show_drafts: true,
             preload_flows: true,
             load_path: Rails.root.join('test', 'fixtures', 'smartdown_flows')
@@ -18,12 +18,12 @@ module SmartdownAdapter
         setup do
           request = { started: false } 
           request.stubs(:query_parameters).returns({})
-          @presenter = SmartdownAdapter::Presenter.new('animal-example-simple', request)
+          @flow = SmartdownAdapter::Registry.instance.find('animal-example-simple')
+          @presenter = SmartdownAdapter::Presenter.new(@flow, request)
         end
         should "initialize sets internal state" do
           assert_equal "animal-example-simple", @presenter.name
           refute @presenter.started
-          assert_equal SmartdownAdapter::Registry.instance.find('animal-example-simple'), @presenter.smartdown_flow
           assert_equal Smartdown::Api::Coversheet, @presenter.smartdown_state.current_node.class
           assert_empty @presenter.smartdown_state.responses
         end
@@ -32,12 +32,12 @@ module SmartdownAdapter
         setup do
           request = { started: true, response: 'lion', params: "" } 
           request.stubs(:query_parameters).returns({})
-          @presenter = SmartdownAdapter::Presenter.new('animal-example-simple', request)
+          @flow = SmartdownAdapter::Registry.instance.find('animal-example-simple')
+          @presenter = SmartdownAdapter::Presenter.new(@flow, request)
         end
         should "initialize sets internal state" do
           assert_equal "animal-example-simple", @presenter.name
           assert @presenter.started
-          assert_equal SmartdownAdapter::Registry.instance.find('animal-example-simple'), @presenter.smartdown_flow
           assert_equal Smartdown::Api::QuestionPage, @presenter.smartdown_state.current_node.class
           assert_equal ["lion"], @presenter.smartdown_state.responses
         end
@@ -46,12 +46,12 @@ module SmartdownAdapter
         setup do
           request = { started: true, responses: 'lion', params: "" } 
           request.stubs(:query_parameters).returns({ 'response_1' => 'yes' })
-          @presenter = SmartdownAdapter::Presenter.new('animal-example-simple', request)
+          @flow = SmartdownAdapter::Registry.instance.find('animal-example-simple')
+          @presenter = SmartdownAdapter::Presenter.new(@flow, request)
         end
         should "initialize sets internal state" do
           assert_equal "animal-example-simple", @presenter.name
           assert @presenter.started
-          assert_equal SmartdownAdapter::Registry.instance.find('animal-example-simple'), @presenter.smartdown_flow
           assert_equal Smartdown::Api::Outcome, @presenter.smartdown_state.current_node.class
           assert_equal ["lion", "yes"], @presenter.smartdown_state.responses
         end
