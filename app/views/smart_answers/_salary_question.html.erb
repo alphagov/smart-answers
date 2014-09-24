@@ -1,10 +1,11 @@
+
 <fieldset>
   <% response_prefix = number ? "response_#{number}" : "response" %>
   <label for="response_amount">
     &pound; <%= text_field_tag(response_prefix+"[amount]", nil, size: 5, value: prefill_value_for(question, number, :amount)) %>
   </label>
   <label for="response_period">
-  per <select name="<%=response_prefix%>[period]">
+  per <select name="<%=response_prefix%>[period]" id="response_period">
     <%= options_for_select %w{week month}, prefill_value_for(question, number, :period) %>
   </select>
   </label>

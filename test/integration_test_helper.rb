@@ -7,6 +7,9 @@ Capybara.default_driver = :rack_test
 
 require 'capybara/poltergeist'
 
+require 'gds_api/test_helpers/content_api'
+require 'helpers/test_fixtures_helper'
+
 # This additional configuration is a protective measure while
 # we have invalid ssl certs in the preview environment, it
 # will ignore ssl errors when requesting scripts from
@@ -20,6 +23,8 @@ Capybara.javascript_driver = :poltergeist
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
+  include GdsApi::TestHelpers::ContentApi
+  include TestFixturesHelper
 
   teardown do
     Capybara.use_default_driver

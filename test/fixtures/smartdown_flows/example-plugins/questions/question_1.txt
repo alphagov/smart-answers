@@ -1,0 +1,7 @@
+# Amazing page title
+
+# How much do you earn?
+
+[salary: earnings]
+
+* otherwise => the_outcome
