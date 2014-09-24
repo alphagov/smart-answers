@@ -17,14 +17,6 @@ module SmartdownAdapter
         "TODO_earliest_start"
       end
     end
-    class EndOfAdoptionPay
-      def self.key
-        "end_of_adoption_pay"
-      end
-      def call(date_leave_1)
-        "TODO_end_of_adoption_pay"
-      end
-    end
     class EndOfAdditionalLeave
       def self.key
         "end_of_additional_leave"
@@ -95,6 +87,22 @@ module SmartdownAdapter
       end
       def call(date)
         "TODO_minus_three_days"
+      end
+    end
+    class NoticeDateSap
+      def self.key
+        "notice_date_sap"
+      end
+      def call(date)
+        "TODO_notice_date_sap"
+      end
+    end
+    class NoticeDateSmp
+      def self.key
+        "notice_date_smp"
+      end
+      def call(date)
+        "TODO_notice_date_sap"
       end
     end
     class NoticeMaternityAllowance
@@ -199,6 +207,14 @@ module SmartdownAdapter
       end
       def call(salary_1)
         "TODO_total_sap"
+      end
+    end
+    class TotalSmp
+      def self.key
+        "total_smp"
+      end
+      def call(salary_1)
+        "TODO_total_smp"
       end
     end
   end

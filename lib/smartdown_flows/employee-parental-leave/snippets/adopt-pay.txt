@@ -2,11 +2,11 @@
 
 Key facts | Estimated amount
 - | -
-Adoption pay dates | %{date_leave_1} to %{end_of_adoption_pay(date_leave_1)}
+Adoption pay dates | %{date_leave_1} to %{end_of_pay(date_leave_1)}
 First 6 weeks | %{rate_of_sap(salary_1)}
 Next 33 weeks | %{rate_of_sap(salary_1)}
-Total estimated SAP | {total_sap(rate_of_sap)}
-Tell your employer by | {notice_date_sap(match_date)}
+Total estimated SAP | %{total_sap(salary_1)}
+Tell your employer by | %{notice_date_sap(match_date)}
 
 Tax and National Insurance will be deducted.
 
