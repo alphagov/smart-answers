@@ -43,4 +43,49 @@
       margin: .5em 0 2em 0;
     }
   }
+
+  // Smartdown specific previous answers block
+  .done-questions-spl {
+    table {
+      margin-left: 2em;
+      width: auto;
+      @include media(mobile) {
+        margin-left: 1.25em;
+        width: 90%;
+      }
+
+      .previous-answers-title {
+        @include bold-19;
+      }
+
+      thead th {
+        border-bottom: none;
+        @include core-19
+      }
+
+      tbody {
+        td {
+          border-bottom: none;
+          padding: 0 1em 0.25em inherit;
+        }
+
+        .section-title {
+          @include bold-14;
+          padding-top: 0.5em;
+        }
+
+        .section {
+          border-top: 1px solid;
+          border-color: inherit;
+        }
+      }
+
+      .link-right {
+        text-align: right;
+        width: 40%;
+        padding-right: 0;
+        padding-top: 0.5em;
+      }
+    }
+  }
 }
