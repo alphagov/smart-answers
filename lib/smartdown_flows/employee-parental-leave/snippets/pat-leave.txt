@@ -4,7 +4,7 @@ The mother’s or primary adopter’s partner can take up to 2 weeks of Ordinary
 
 Leave | Key dates
 - | -
-Ordinary Paternity leave | %{date_leave_2} to %{end_of_paternity_leave(date_leave_2)}
+Ordinary Paternity leave | %{date_leave_2} to %{end_of_paternity_leave(date_leave_2 amount_leave_2)}
 Latest date to give notice | %{paternity_leave_notice_date(due_date)}
 Paternity leave must be used between| %{due_date} to %{latest_pat_leave(due_date)}
 

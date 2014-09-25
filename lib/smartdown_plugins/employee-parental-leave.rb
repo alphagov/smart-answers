@@ -1,123 +1,141 @@
 module SmartdownPlugins
   module EmployeeParentalLeave
     def self.claim_date_maternity_allowance(date)
-      "TODO_claim_date_maternity_allowance"
+      date - 14.weeks
     end
 
     def self.earliest_start(placement_date)
-      "TODO_earliest_start"
+      placement_date - 14.days
+    end
+
+    def self.end_of_14_week_maternity_allowance(date)
+      date + 14.weeks
     end
 
     def self.end_of_additional_leave(date_leave_1)
-      "TODO_end_of_additional_leave"
+      date_leave_1 + 52.weeks
     end
 
     def self.end_of_additional_paternity_leave(date)
-      "TODO_end_of_additional_paternity_leave"
+      date + 1.year
     end
 
-    def self.end_of_additional_paternity_pay(date)
-      "TODO_end_of_additional_paternity_pay"
+    def self.end_of_additional_paternity_pay_from_leave(date_leave_1)
+      date_leave_1 + 52.weeks
+    end
+
+    def self.end_of_additional_paternity_pay_from_match_date(match_date)
+      "TODO_end_of_additional_paternity_pay_from_match_date"
+    end
+
+    def self.end_of_additional_paternity_pay_from_due_date(date)
+      date + 28.weeks
     end
 
     def self.end_of_adoption_pay(date)
-      "TODO_end_of_adoption_pay"
+      date + 39.weeks
     end
 
     def self.end_of_maternity_allowance(date)
-      "TODO_end_of_maternity_allowance"
+      date + 28.weeks
     end
 
     def self.end_of_maternity_pay(date)
-      "TODO_end_of_maternity_pay"
+      date + 39.weeks
     end
 
     def self.end_of_ordinary_leave(date_leave_1)
-      "TODO_end_of_ordinary_leave"
+      date_leave_1 + 26.weeks
     end
 
-    def self.end_of_paternity_leave(date_leave_2)
-      "TODO_end_of_paternity_leave"
+    def self.end_of_paternity_leave(date_leave_2, amount_leave_2)
+      if amount_leave_2 == "2-week"
+        date_leave_2 + 2.weeks
+      elsif amount_leave_2 == "1-week"
+        date_leave_2 + 1.week
+      else
+        date_leave_2
+      end
     end
 
     def self.end_of_shared_parental_leave(date)
-      "TODO_end_of_shared_parental_leave"
+      date + 1.year
     end
 
     def self.latest_pat_leave(date)
-      "TODO_latest_pat_leave"
+      date + 56.days
     end
 
     def self.notice_date_sap(date)
-      "TODO_notice_date_sap"
+      date - 28.days
     end
 
     def self.notice_date_smp(date)
-      "TODO_notice_date_sap"
-    end
-
-    def self.notice_maternity_allowance
-      "TODO_notice_maternity_allowance"
+      date - 28.days
     end
 
     def self.paternity_leave_notice_date(date)
-      "TODO_paternity_leave_notice_date"
+      preceding_monday = date - (date.value.wday - 1).days
+      preceding_monday - 15.weeks
     end
 
     def self.paternity_pay_notice_date(date_leave_2)
-      "TODO_paternity_pay_notice_date"
-    end
-
-    def self.period_of_maternity_allowance
-      "TODO_period_of_maternity_allowance"
+      date_leave_2 - 28.days
     end
 
     def self.qualifying_week(match_date)
-      "TODO_qualifying_week"
+      match_date + 7.days
     end
 
     def self.rate_of_paternity_pay(salary_2)
-      "TODO_rate_of_paternity_pay"
+      nine_tenths_weekly_salary_capped_at_138_point_18(salary_2)
     end
 
     def self.rate_of_maternity_allowance(salary_1_66_weeks)
-      "TODO_rate_of_maternity_allowance"
+      nine_tenths_weekly_salary_capped_at_138_point_18(salary_1_66_weeks)
     end
 
     def self.rate_of_sap(salary_1)
-      "TODO_rate_of_sap"
+      nine_tenths_weekly_salary_capped_at_138_point_18(salary_1)
     end
 
     def self.rate_of_smp_6_weeks(salary_1)
-      "TODO_rate_of_smp_6_weeks"
+      (salary_1.value / 52) * 0.9
     end
 
     def self.rate_of_smp_33_weeks(salary_1)
-      "TODO_rate_of_smp_33_weeks"
+      nine_tenths_weekly_salary_capped_at_138_point_18(salary_1)
     end
 
     def self.start_of_additional_leave(date_leave_1)
-      "TODO_start_of_additional_leave"
+      date_leave_1 + 26.weeks + 1.day
     end
 
     def self.start_of_additional_paternity_leave(date)
-      "TODO_start_of_additional_paternity_leave"
+      date + 20.weeks
     end
 
     def self.start_of_maternity_allowance(date)
-      "TODO_start_of_maternity_allowance"
+      date - 11.weeks
     end
 
     def self.total_maternity_allowance(salary_1_66_weeks)
-      "TODO_total_maternity_allowance"
+      rate_of_maternity_allowance(salary_1_66_weeks) * 39
     end
 
     def self.total_sap(salary_1)
-      "TODO_total_sap"
+      rate_of_sap(salary_1) * 39
     end
 
     def self.total_smp(salary_1)
-      "TODO_total_smp"
+      (rate_of_smp_6_weeks(salary_1) * 6) + (rate_of_smp_33_weeks(salary_1) * 33)
+    end
+
+  private
+    def self.nine_tenths_weekly_salary_capped_at_138_point_18(salary)
+      weekly_salary = salary.value / 52
+      rate = weekly_salary * 0.9
+      rate < 138.18 ? rate : 138.18
     end
   end
 end
