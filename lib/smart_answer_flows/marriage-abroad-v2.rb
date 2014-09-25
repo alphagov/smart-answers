@@ -559,7 +559,7 @@ outcome :outcome_os_consular_cni do
       if ceremony_country == 'croatia'
         phrases << :consular_cni_os_local_resident_table
       elsif %w(germany italy kazakhstan russia).exclude?(ceremony_country)
-        phrases << :consular_cni_os_local_resident_not_italy_germany
+        phrases << :consular_cni_os_foreign_resident_ceremony_not_germany_italy << :check_with_embassy_or_consulate
       end
       phrases << :"#{ceremony_country}_os_local_resident" if %w(kazakhstan russia).include?(ceremony_country)
       unless %w(germany italy japan russia spain).include?(ceremony_country)
@@ -619,6 +619,10 @@ outcome :outcome_os_consular_cni do
         phrases << :consular_cni_os_commonwealth_or_ireland_resident_non_british_partner
       end
     end
+    if ceremony_country == residency_country and %w(germany italy japan spain).exclude?(ceremony_country) and cni_posted_after_7_days_countries.include?(ceremony_country)
+      phrases << :living_in_residence_country_3_days
+    end
+
     if ceremony_country == residency_country and %w(germany italy japan spain).exclude?(ceremony_country) or (data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country and ceremony_country != 'germany')
       phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident
     end

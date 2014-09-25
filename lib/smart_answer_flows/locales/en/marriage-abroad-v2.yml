@@ -174,7 +174,6 @@ en-GB:
           Your partner will need to bring a Hukou book (family registration book).
         appointment_for_affidavit_notary: |
           Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
-
 # partner affirmation phrases
         partner_affirmation_needed: |
           ^Your partner will need to get an affirmation as well.^
@@ -248,8 +247,11 @@ en-GB:
           Service | Fee
           -|-
           Affirmation for marriage | £65
-
 #other phrases
+        living_in_residence_country_3_days: |
+          You need to have been living in your country of residence for 3 days.
+        check_with_embassy_or_consulate: |
+          Check with your nearest British embassy or consulate to find out if they can do this for you.
         morocco_affidavit_length: |
           ^An 'affirmation for marriage' document issued in Morocco is valid for 3 months.^
         callout_partner_equivalent_document: |
