@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 module SmartdownAdapter
   class SmartAnswerCompareHelper
 
@@ -8,7 +10,7 @@ module SmartdownAdapter
     end
 
     def get_smartanswer_content(started=false, responses=[])
-      get_content(@question_name, false, started, responses)
+      get_content(@question_name.chomp('-transition'), false, started, responses)
     end
 
     def get_smartdown_content(started=false, responses=[])
@@ -34,7 +36,6 @@ module SmartdownAdapter
   private
 
     def get_content(question_name, is_smartdown, started, responses)
-      FLOW_REGISTRY_OPTIONS[:show_transitions] = is_smartdown
       url = "/#{question_name}"
       if started
         url += "/y"
@@ -43,7 +44,27 @@ module SmartdownAdapter
         url += "/"+responses.join("/")
       end
       @session.get url
-      @session.response.body
+      normalise_content(@session.response.body, is_smartdown)
+    end
+
+    def normalise_content(html, is_smartdown)
+      # This removes sidebar/breadcrumb/analytics differences (as transition
+      # has no artefact for content to be inserted for)
+      # It would be preferable to stub out the artefact fetching call somehow..
+      doc = Nokogiri::HTML(@session.response.body)
+      doc.css(".related-positioning").remove
+      doc.css("#global-breadcrumb").remove
+      doc.css("#ga-params").remove
+      response = doc.to_s
+
+      # Removing by ID leaves some noise which we have to regex out
+      response.gsub!("<!-- related -->\n<!-- end related -->\n\n  ", "")
+
+      if is_smartdown
+        # Remove the transition slug, which will cause diffs in lots of hrefs
+        response.gsub!('-transition', '')
+      end
+      response
     end
 
     def get_file_as_string(filename)

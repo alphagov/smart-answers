@@ -60,6 +60,7 @@ group :development do
   gem 'rubocop'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'nokogiri', '1.5.11'
 end
 
 group :assets do

@@ -258,6 +258,7 @@ DEPENDENCIES
   logstasher (= 0.4.8)
   lrucache (= 0.1.4)
   mocha (= 0.13.3)
+  nokogiri (= 1.5.11)
   parser
   plek (= 1.7.0)
   poltergeist (= 1.3.0)
