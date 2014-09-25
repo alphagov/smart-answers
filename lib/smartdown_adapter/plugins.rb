@@ -49,6 +49,14 @@ module SmartdownAdapter
         "TODO_end_of_additional_paternity_pay"
       end
     end
+    class EndOfAdoptionPay
+      def self.key
+        "end_of_adoption_pay"
+      end
+      def call(date)
+        "TODO_end_of_adoption_pay"
+      end
+    end
     class EndOfMaternityAllowance
       def self.key
         "end_of_maternity_allowance"

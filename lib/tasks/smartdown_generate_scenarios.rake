@@ -6,7 +6,7 @@ namespace :smartdown_generate_scenarios do
   end
 
   def smartdown_flow_path(flow_name)
-    Rails.root.join('lib', 'smartdown_flows', flow_name)
+    Rails.root.join('..', "smart-answers-factcheck", flow_name)
   end
 
   desc "Generate scenarios for employee parental leave"
