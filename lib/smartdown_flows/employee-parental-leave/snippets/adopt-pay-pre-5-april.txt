@@ -1,0 +1,24 @@
+##Adoption pay
+
+The primary adopter can get up to 39 weeks of Statutory Adoption Pay (SAP).
+
+Pay | Key facts
+- | -
+Adoption pay dates | %{date_leave_1} to %{end_of_adoption_pay(date_leave_1)}
+Latest date to give notice | %{notice_date_sap(date_leave_1)}
+Weekly rate | %{rate_of_sap(salary_1)}
+Total estimated SAP | %{total_sap(salary_1)}
+
+Tax and National Insurance will be deducted.
+
+%This is an estimate, the primary adopter’s employer will confirm if they qualify and how much they’ll get.%
+
+###Extra help
+
+The primary adopter could also get:
+
+* benefits while they’re not working
+* Child Tax Credits
+* Child Benefit
+
+Use a [benefits calculator](/benefits-calculators) to check what benefits or tax credits the primary adopter can get.

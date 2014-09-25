@@ -1,0 +1,7 @@
+# Outcome mat-pay pat-pay additional-pat-pay
+
+{{snippet: mat-pay}}
+
+{{snippet: pat-pay}}
+
+{{snippet: additional-pat-pay}}

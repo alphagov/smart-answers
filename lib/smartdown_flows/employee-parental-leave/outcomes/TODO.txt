@@ -1,9 +1,0 @@
-# Missing step (TODO)
-
-This is a placeholder for a missing step in the SPL flow. It should be replaced
-by real content.
-
-You're seeing this because the outcome (or next question) you're supposed to see
-is missing.
-
-This helps us track where that happens, and handle the fact a step is missing.

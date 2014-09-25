@@ -1,0 +1,13 @@
+# Outcome mat-pay mat-shared-pay pat-leave pat-pay pat-shared-leave pat-shared-pay
+
+{{snippet: mat-pay}}
+
+{{snippet: mat-shared-pay}}
+
+{{snippet: pat-leave}}
+
+{{snippet: pat-pay}}
+
+{{snippet: pat-shared-leave}}
+
+{{snippet: pat-shared-pay}}

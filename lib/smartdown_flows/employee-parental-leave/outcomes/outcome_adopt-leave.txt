@@ -1,0 +1,3 @@
+# Outcome adopt-leave
+
+{{snippet: adopt-leave}}

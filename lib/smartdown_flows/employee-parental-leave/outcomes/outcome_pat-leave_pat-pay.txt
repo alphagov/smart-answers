@@ -1,0 +1,5 @@
+# Outcome pat-leave pat-pay
+
+{{snippet: pat-leave}}
+
+{{snippet: pat-pay}}

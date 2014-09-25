@@ -7,31 +7,38 @@
 * no: No
 
 * single_parent is 'yes'
-  * employment_status_1 in {employee worker agent}
+  * employment_status_1 is 'employee'
     * job_after_y_1 is 'yes' => leave_1
     * job_after_y_1 is 'no'
       * circumstance is 'birth'
-        * earnings_employment_1 is 'yes' => outcome_birth_ma
-        * earnings_employment_1 is 'no' => outcome_birth_nothing
-      * circumstance is 'adoption' => outcome_adoption_nothing
+        * earnings_employment_1 is 'yes' => outcome_mat-allowance
+        * earnings_employment_1 is 'no' => outcome_birth-nothing
+      * circumstance is 'adoption' => outcome_adopt-nothing
+  * employment_status_1 in {worker agency}
+    * circumstance is 'birth'
+      * earnings_employment_1 is 'yes' => outcome_mat-allowance
+      * earnings_employment_1 is 'no' => outcome_birth-nothing
+    * circumstance is 'adoption' => outcome_adopt-nothing
   * employment_status_1 in {self-employed unemployed}
     * circumstance is 'birth'
-      * earnings_employment_1 is 'yes' => outcome_birth_ma
-      * earnings_employment_1 is 'no' => outcome_birth_nothing
-    * circumstance is 'adoption' => outcome_adoption_nothing
+      * earnings_employment_1 is 'yes' => outcome_mat-allowance
+      * earnings_employment_1 is 'no' => outcome_birth-nothing
+    * circumstance is 'adoption' => outcome_adopt-nothing
 * single_parent is 'no'
-  * employment_status_2 in {employee worker contract} => employment_2
+  * employment_status_2 in {employee worker agency} => employment_2
   * employment_status_2 in {self-employed unemployed}
     * employment_status_1 in {employee worker agency}
-      * match_date >= '2015-4-5' => employment_2_more
-      * otherwise => leave_1
+      * circumstance is 'adoption' => outcome_adopt-nothing
+      * circumstance is 'birth'
+        * earnings_employment_1 is 'yes' => outcome_mat-allowance
+        * earnings_employment_1 is 'no' => outcome_birth-nothing
     * employment_status_1 is 'self-employed'
       * circumstance is 'birth'
-        * earnings_employment_1 is 'yes' => outcome_birth_ma
-        * earnings_employment_1 is 'no' => outcome_birth_nothing
-      * circumstance is 'adoption' => outcome_adoption_nothing
+        * earnings_employment_1 is 'yes' => outcome_mat-allowance
+        * earnings_employment_1 is 'no' => outcome_birth-nothing
+      * circumstance is 'adoption' => outcome_adopt-nothing
     * employment_status_1 is 'unemployed'
       * circumstance is 'birth'
-        * earnings_employment_1 is 'yes' => outcome_birth_ma
-        * earnings_employment_1 is 'no' => outcome_birth_maybema14
-      * circumstance is 'adoption' => outcome_adoption_nothing
+        * earnings_employment_1 is 'yes' => outcome_mat-allowance
+        * earnings_employment_1 is 'no' => outcome_mat-allowance-14-weeks
+      * circumstance is 'adoption' => outcome_adopt-nothing
