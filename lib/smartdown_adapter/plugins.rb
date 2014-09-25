@@ -145,6 +145,14 @@ module SmartdownAdapter
         "TODO_paternity_pay_notice_date"
       end
     end
+    class PeriodOfMaternityAllowance
+      def self.key
+        "period_of_maternity_allowance"
+      end
+      def call
+        "TODO_period_of_maternity_allowance"
+      end
+    end
     class QualifyingWeek
       def self.key
         "qualifying_week"
