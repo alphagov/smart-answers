@@ -8,9 +8,9 @@ module SmartdownAdapter
 
     def perform
       combinations = @combination_generator.perform
-      smartdown_flow_path = File.join(smartdown_flow_path(@name))
+      smartdown_factcheck_path = File.join(smartdown_factcheck_path(@name))
       combinations.keys.each do |key|
-        node_filepath = File.join(smartdown_flow_path, "scenarios", "#{key}.txt")
+        node_filepath = File.join(smartdown_factcheck_path, "scenarios", "#{key}.txt")
         File.write(node_filepath, format_combinations(combinations[key]))
       end
     end

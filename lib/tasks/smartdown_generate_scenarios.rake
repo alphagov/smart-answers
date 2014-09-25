@@ -5,7 +5,7 @@ namespace :smartdown_generate_scenarios do
     generator.perform
   end
 
-  def smartdown_flow_path(flow_name)
+  def smartdown_factcheck_path(flow_name)
     Rails.root.join('..', "smart-answers-factcheck", flow_name)
   end
 

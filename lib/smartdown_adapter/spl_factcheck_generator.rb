@@ -9,13 +9,13 @@ module SmartdownAdapter
 
     def perform
       combinations = @combination_generator.perform
-      smartdown_flow_path = File.join(smartdown_flow_path(@name))
-      generate_factcheck_files(combinations, smartdown_flow_path)
+      smartdown_factcheck_path = File.join(smartdown_factcheck_path(@name))
+      generate_factcheck_files(combinations, smartdown_factcheck_path)
     end
 
   private
 
-    def generate_factcheck_files(outcomes, smartdown_flow_path)
+    def generate_factcheck_files(outcomes, smartdown_factcheck_path)
       combination_hashes = []
       outcomes.keys.each do |key|
         outcomes[key].each do |combination|
@@ -28,9 +28,9 @@ module SmartdownAdapter
       birth_hashes = combination_hashes.select do |combination_hash|
         combination_hash[:circumstance] == "birth"
       end
-      node_filepath = File.join(smartdown_flow_path, "factcheck", "birth_factcheck.txt")
+      node_filepath = File.join(smartdown_factcheck_path, "factcheck", "birth_factcheck.txt")
       File.write(node_filepath, format_birth_hashes(birth_hashes))
-      node_filepath = File.join(smartdown_flow_path, "factcheck", "adoption_factcheck.txt")
+      node_filepath = File.join(smartdown_factcheck_path, "factcheck", "adoption_factcheck.txt")
       File.write(node_filepath, format_adoption_hashes(adoption_hashes))
     end
 
