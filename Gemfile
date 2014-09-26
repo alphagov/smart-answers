@@ -16,7 +16,7 @@ gem 'diffy', '3.0.6'
 if ENV['SMARTDOWN_DEV']
   gem 'smartdown', :path => '../smartdown'
 else
-  gem 'smartdown', '0.5.1'
+  gem 'smartdown', '0.5.2'
 end
 
 if ENV['API_DEV']
@@ -60,6 +60,7 @@ group :development do
   gem 'rubocop'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'nokogiri', '1.5.11'
 end
 
 group :assets do
