@@ -2,6 +2,22 @@
 @import "conditionals";
 @import "typography";
 
+// Short term fix. Needs removing in the future.
+$is-ie: false !default;
+@mixin media-down($size: false, $max-width: false, $min-width: false) {
+  @if $is-ie == false {
+    @if $size == mobile {
+      @media (max-width: 640px){
+        @content;
+      }
+    } @else if $size == tablet {
+      @media (max-width: 800px){
+        @content;
+      }
+    }
+  }
+}
+
 // Styles
 // The more generic SmartAnswer CSS is in Static _multi_step.scss
 
@@ -46,14 +62,17 @@
 
   // Smartdown specific previous answers block
   .done-questions-spl {
+    margin-right: 15em;
+    padding: 0 10em 1em 2em;
+    @include media-down(tablet) {
+      margin-right: 10em;
+      padding: 0 1em 1em 1em;
+    }
+    @include media(mobile) {
+      margin-right: 1.5em;
+      padding: 0 1em 1em 1em;
+    }
     table {
-      margin-left: 2em;
-      width: auto;
-      @include media(mobile) {
-        margin-left: 1.25em;
-        width: 90%;
-      }
-
       .previous-answers-title {
         @include bold-19;
       }
