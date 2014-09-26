@@ -4,7 +4,7 @@ require_relative '../../test_helper'
 
 module SmartdownAdapter
   class RegistryTest < ActiveSupport::TestCase
-    
+
     def test_options
       {
         load_path: Rails.root.join("test", "fixtures", "smartdown_flows").to_s,
@@ -15,7 +15,7 @@ module SmartdownAdapter
     def reset_registry(options={})
       SmartdownAdapter::Registry.reset_instance
       silence_warnings do
-        SmartdownAdapter::Registry.const_set(:FLOW_REGISTRY_OPTIONS, test_options.merge(options))    
+        SmartdownAdapter::Registry.const_set(:FLOW_REGISTRY_OPTIONS, test_options.merge(options))
       end
     end
 
@@ -30,7 +30,7 @@ module SmartdownAdapter
     end
     test "flows are loaded dynamically depending on registry options" do
       reset_registry
-      flow1 = SmartdownAdapter::Registry.instance.find("animal-example-simple")            
+      flow1 = SmartdownAdapter::Registry.instance.find("animal-example-simple")
       flow2 = SmartdownAdapter::Registry.instance.find("animal-example-simple")
       assert_equal Smartdown::Api::Flow, flow1.class
       assert_equal Smartdown::Api::Flow, flow2.class
@@ -38,7 +38,7 @@ module SmartdownAdapter
     end
     test "flows are cacheable depending on registry options" do
       reset_registry(preload_flows: true)
-      flow1 = SmartdownAdapter::Registry.instance.find("animal-example-simple")            
+      flow1 = SmartdownAdapter::Registry.instance.find("animal-example-simple")
       flow2 = SmartdownAdapter::Registry.instance.find("animal-example-simple")
       assert_equal Smartdown::Api::Flow, flow1.class
       assert_equal Smartdown::Api::Flow, flow2.class
@@ -46,13 +46,13 @@ module SmartdownAdapter
     end
     test "flows method includes and excludes drafts by config" do
       reset_registry(show_drafts: true)
-      flows = SmartdownAdapter::Registry.instance.flows
-      assert_equal 1,  flows.size
-      assert_kind_of Enumerable, flows 
+      assert SmartdownAdapter::Registry.instance.flows.any? { |flow| flow.name == 'animal-example-simple' }
+
       reset_registry(show_drafts: false)
-      assert_empty  SmartdownAdapter::Registry.instance.flows
+      refute SmartdownAdapter::Registry.instance.flows.any? { |flow| flow.name == 'animal-example-simple' }
+
       reset_registry(show_drafts: false, preload_flows: true)
-      assert_empty  SmartdownAdapter::Registry.instance.flows
+      refute SmartdownAdapter::Registry.instance.flows.any? { |flow| flow.name == 'animal-example-simple' }
     end
   end
 end

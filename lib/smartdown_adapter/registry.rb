@@ -51,7 +51,7 @@ module SmartdownAdapter
 
     def build_flow(name)
       input = Smartdown::Api::DirectoryInput.new(coversheet_path(name))
-      Smartdown::Api::Flow.new(input, build_plugins)
+      Smartdown::Api::Flow.new(input, get_plugins(name))
     end
 
     def coversheet_path(name)
@@ -80,13 +80,8 @@ module SmartdownAdapter
     end
 
   private
-    def build_plugins
-      {}.tap {|plugins|
-        SmartdownAdapter::Plugins.constants.each { |plugin_name|
-          plugin = SmartdownAdapter::Plugins.const_get plugin_name
-          plugins[plugin.key] = plugin.new
-        }
-      }
+    def get_plugins(flow_name)
+      PluginFactory.for(flow_name)
     end
   end
 end

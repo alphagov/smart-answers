@@ -1,0 +1,3 @@
+# Outcome with plugins
+
+If you were luckier, you would earn %{multiply_by_10(earnings)} per year.
