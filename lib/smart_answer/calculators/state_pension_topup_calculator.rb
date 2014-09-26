@@ -23,7 +23,7 @@ module SmartAnswer::Calculators
     end
 
     def lump_sum_amount(age, weekly_amount)
-      data_query = StatePensionTopupDataQueryV2.new()
+      data_query = StatePensionTopupDataQuery.new()
       if data_query.age_and_rates(age)
         total = data_query.age_and_rates(age) * weekly_amount.to_f
       else
@@ -34,6 +34,7 @@ module SmartAnswer::Calculators
 
     def lump_sum_and_age(dob, weekly_amount)
       rows = []
+      dob = leap_year_birthday?(dob) ? dob + 1.day : dob
       age = age_at_date(dob, TOPUP_START_DATE)
       (TOPUP_START_DATE.year..TOPUP_END_DATE.year).each do |year|
         break if age > UPPER_AGE || birthday_after_topup_end?(dob, age)
@@ -56,6 +57,10 @@ module SmartAnswer::Calculators
         years = years - 1
       end
       years
+    end
+
+    def leap_year_birthday?(dob)
+      Date.new(dob.year).leap? && (dob.month == 2 && dob.day == 29)
     end
   end
 end

@@ -3,8 +3,8 @@ module SmartAnswer::Calculators
 
     attr_reader :data
 
-   def initialize
-     @data = self.class.age_and_rates_data
+    def initialize
+      @data = self.class.age_and_rates_data
     end
 
     def age_and_rates(age)
