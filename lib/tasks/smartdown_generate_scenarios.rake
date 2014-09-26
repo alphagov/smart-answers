@@ -24,6 +24,7 @@ namespace :smartdown_generate_scenarios do
       :salary_1 => ["400-week"],
       :ler_1 => ["yes", "no"],
       :earnings_employment_1 => ["yes", "no"],
+      :salary_1_66_weeks => ["400-week"],
       :job_before_x_2 => ["yes", "no"],
       :job_after_y_2 => ["yes", "no"],
       :salary_2 => ["400-week"],
@@ -31,6 +32,7 @@ namespace :smartdown_generate_scenarios do
       :earnings_employment_2 => ["yes", "no"],
       :date_leave_1 => ["2015-4-5"],
       :date_leave_2 => ["2015-4-5"],
+      :amount_leave_2 => ["1-week", "2-week"]
     }
     generate("employee-parental-leave", combinations)
   end
@@ -50,6 +52,7 @@ namespace :smartdown_generate_scenarios do
       :salary_1 => ["400-week"],
       :ler_1 => ["yes", "no"],
       :earnings_employment_1 => ["yes", "no"],
+      :salary_1_66_weeks => ["400-week"],
       :job_before_x_2 => ["yes", "no"],
       :job_after_y_2 => ["yes", "no"],
       :salary_2 => ["400-week"],
@@ -57,6 +60,7 @@ namespace :smartdown_generate_scenarios do
       :earnings_employment_2 => ["yes", "no"],
       :date_leave_1 => ["2015-4-5"],
       :date_leave_2 => ["2015-4-5"],
+      :amount_leave_2 => ["1-week", "2-week"]
     }
     human_readable_snippet_names = {
       "birth-nothing" => "Nothing",

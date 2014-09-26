@@ -4,6 +4,12 @@
 
 [date:date_leave_2]
 
+# How much paternity leave is the mother's or primary adopter's partner planning on taking?
+
+[choice: amount_leave_2]
+* 1-week: 1 week
+* 2-weeks: 2 weeks
+
 * circumstance is 'adoption'
   * employment_status_1 in {agency worker}
     * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'

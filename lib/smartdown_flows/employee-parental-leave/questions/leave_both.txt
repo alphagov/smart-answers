@@ -8,6 +8,12 @@
 
 [date:date_leave_2]
 
+# How much paternity leave is the mother's or primary adopter's partner planning on taking?
+
+[choice: amount_leave_2]
+* 1-week: 1 week
+* 2-weeks: 2 weeks
+
 * circumstance is 'birth'
   * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
     * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay_pat-pay_pat-leave_pat-shared-leave_pat-shared-pay

@@ -80,7 +80,7 @@ module SmartdownPlugins
       "TODO_rate_of_paternity_pay"
     end
 
-    def self.rate_of_maternity_allowance(salary_1)
+    def self.rate_of_maternity_allowance(salary_1_66_weeks)
       "TODO_rate_of_maternity_allowance"
     end
 
@@ -108,7 +108,7 @@ module SmartdownPlugins
       "TODO_start_of_maternity_allowance"
     end
 
-    def self.total_maternity_allowance(salary_1)
+    def self.total_maternity_allowance(salary_1_66_weeks)
       "TODO_total_maternity_allowance"
     end
 
