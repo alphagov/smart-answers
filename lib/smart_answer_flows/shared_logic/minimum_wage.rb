@@ -8,12 +8,14 @@ end
 # Q1A
 multiple_choice :past_payment_date? do
 
-  option "2013-10-01"
-  option "2012-10-01"
-  option "2011-10-01"
-  option "2010-10-01"
-  option "2009-10-01"
-  option "2008-10-01"
+  year = 1.year.ago.year
+  # Rate changes take place on 1st Oct.
+  year -= 1 if Date.today.month < 10
+
+  6.times do
+    option "#{year}-10-01"
+    year -= 1
+  end
 
   save_input_as :payment_date
 
@@ -266,7 +268,7 @@ multiple_choice :is_provided_with_accommodation? do
   end
 
   calculate :minimum_hourly_rate do
-    calculator.format_money calculator.minimum_hourly_rate
+    calculator.minimum_hourly_rate
   end
 
   calculate :total_hourly_rate do
@@ -309,7 +311,7 @@ multiple_choice :was_provided_with_accommodation? do
   end
 
   calculate :minimum_hourly_rate do
-    calculator.format_money calculator.minimum_hourly_rate
+    calculator.minimum_hourly_rate
   end
 
   calculate :total_hourly_rate do
