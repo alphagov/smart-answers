@@ -1,6 +1,6 @@
 meta_description: Download Student Finance England application forms and guidance notes - including forms PN1, PR1, PTG1, PFF2 and CYI
 satisfies_need: 100982
-status: transition
+status: published
 
 # Student finance forms
 
