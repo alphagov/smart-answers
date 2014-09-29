@@ -52,21 +52,21 @@ class VatPaymentDeadlinesV2Test < ActiveSupport::TestCase
     should "give result for online debit or credit card" do
       add_response 'online-debit-credit-card'
       assert_current_node :result_online_debit_credit_card
-      assert_state_variable :last_payment_date, "4 June 2013"
+      assert_state_variable :last_payment_date, "5 June 2013"
       assert_state_variable :funds_received_by, "7 June 2013"
     end
 
     should "give result for BACS Direct Credit" do
       add_response 'bacs-direct-credit'
       assert_current_node :result_bacs_direct_credit
-      assert_state_variable :last_payment_date, "4 June 2013"
+      assert_state_variable :last_payment_date, "5 June 2013"
       assert_state_variable :funds_received_by, "7 June 2013"
     end
 
     should "give result for Bank Giro" do
       add_response 'bank-giro'
       assert_current_node :result_bank_giro
-      assert_state_variable :last_payment_date, "4 June 2013"
+      assert_state_variable :last_payment_date, "5 June 2013"
       assert_state_variable :funds_received_by, "7 June 2013"
     end
 
@@ -92,7 +92,7 @@ class VatPaymentDeadlinesV2Test < ActiveSupport::TestCase
     should "give 2 September as last payment date" do
       add_response 'bacs-direct-credit'
       assert_current_node :result_bacs_direct_credit
-      assert_state_variable :last_payment_date, "2 September 2014"
+      assert_state_variable :last_payment_date, "3 September 2014"
       assert_state_variable :funds_received_by, "5 September 2014"
     end
   end
