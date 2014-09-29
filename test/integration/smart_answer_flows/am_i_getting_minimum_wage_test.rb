@@ -65,12 +65,12 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       context "answer invalid for Q3 how old" do
         should "not accept 0 age" do
           add_response 0
-          assert_current_node :how_old_are_you?, error: true
+   assert_current_node :how_old_are_you?, error: true
         end
 
         should "not accept age > 200" do
           add_response 250
-          assert_current_node :how_old_are_you?, error: true
+   assert_current_node :how_old_are_you?, error: true
         end
 
       end
@@ -262,37 +262,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_state_variable "minimum_hourly_rate", 6.08
           assert_state_variable "total_hourly_rate", 6.07
           assert_state_variable "above_minimum_wage", false
-        end
-      end
-
-      # test minimum wage rates
-      context "22 years old, 2013-2014 minimum wage" do
-        setup do
-          Timecop.travel('30 Sep 2014')
-          add_response 22
-          add_response 20
-          add_response 120
-          add_response 30
-          add_response 0
-          add_response "no"
-        end
-        should "show current minimum wage rate" do
-          assert_state_variable "minimum_hourly_rate", "6.31"
-        end
-      end
-
-      context "22 years old, 2014-2015 minimum wage" do
-        setup do
-          Timecop.travel('01 Oct 2014')
-          add_response 22
-          add_response 20
-          add_response 120
-          add_response 30
-          add_response 0
-          add_response "no"
-        end
-        should "show current minimum wage rate" do
-          assert_state_variable "minimum_hourly_rate", "6.50"
         end
       end
 
