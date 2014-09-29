@@ -654,7 +654,7 @@ en-GB:
 
           ###Applying for a CNI from the consulate
 
-          You’ll normally need to have been resident in Kazakhstan for at least 21 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
+          You’ll normally need to have been resident in Kazakhstan for at least 3 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
         russia_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_residency_country}.
 
@@ -673,7 +673,7 @@ en-GB:
 
           ###Applying for a Nulla Osta from the embassy
 
-          You’ll need to have been resident in Italy for at least 21 days. You can then book an appointment at the British Embassy in Rome.
+          You’ll need to have been resident in Italy for at least 3 days. You can then book an appointment at the British Embassy in Rome.
 
           [Book an appointment online in Rome](https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome).
         consular_cni_os_foreign_resident_ceremony_not_germany_italy: |
@@ -797,7 +797,7 @@ en-GB:
 
           The consulate will contact you to arrange an appointment to make an oath or affidavit (written statement of facts) stating that you’re free to marry once they’ve received your application. You’ll need to bring the following supporting documents:
 
-          - your passport, showing that you’ve been in Japan for at least 21 days (if you’ve been outside of Japan for a short period and recently returned, a residence visa is normally acceptable)
+          - your passport, showing that you’ve been in Japan for at least 3 days (if you’ve been outside of Japan for a short period and recently returned, a residence visa is normally acceptable)
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
           - evidence of parental consent if you’re below the age you can legally get married without consent in the country you’re from (eg 18 in England and Wales)
           - equivalent documents for your partner
@@ -830,7 +830,7 @@ en-GB:
 
           - your passport
           - your partner’s passport or national identity document
-          - a ‘certificado de empadronamiento’ (town hall registration certificate) or Spanish police residence certificate (green document with your NIE number address) issued at least 21 days ago
+          - a ‘certificado de empadronamiento’ (town hall registration certificate) or Spanish police residence certificate (green document with your NIE number address) issued at least 3 days ago
 
           ^The Civil Registry will usually ask you for a certificado de empadronamiento issued in the last 3 months.^
         consular_cni_os_not_uk_resident_ceremony_not_germany: |
@@ -846,7 +846,7 @@ en-GB:
 
           ###What happens next
 
-          The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 21 days, and if nobody has raised an objection, they’ll issue your CNI. There’s an additional fee for this.
+          The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 7 days, and if nobody has raised an objection, they’ll issue your CNI. There’s an additional fee for this.
         consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany: |
           The %{embassy_or_consulate_residency_country} will provide you with forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the forms in advance.
 
@@ -856,14 +856,20 @@ en-GB:
 
           [Download ‘Affidavit for marriage’ (PDF, 58KB)](/government/uploads/system/uploads/attachment_data/file/136830/affidavit2012.pdf)
           $D
-        consular_cni_os_local_resident_not_germany_or_italy_or_spain: |
+
+        display_notice_of_marriage_7_days: |
+          ###What happens next
+
+          The %{embassy_or_consulate_residency_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
+
+        display_notice_of_marriage_21_days: |
           ###What happens next
 
           The %{embassy_or_consulate_residency_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
         consular_cni_os_local_resident_italy_two: |
           ###What happens next
 
-          The embassy will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then issue the Nulla Osta, as long as nobody has registered an objection. There’s an additional fee for this.
+          The embassy will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the Nulla Osta, as long as nobody has registered an objection. There’s an additional fee for this.
         consular_cni_os_foreign_resident_ceremony_not_italy: |
           ###What happens next
 
