@@ -1,0 +1,110 @@
+en-GB:
+  flow:
+    vat-payment-deadlines-v2:
+      meta:
+        description: "Work out the VAT payment deadline for your accounting period."
+      title: "VAT payment deadline calculator"
+      body: |
+        Work out the VAT payment deadline for your accounting period.
+
+        You can't use this calculator if you make payments on account or use the annual
+        accounting scheme.
+
+      when_does_your_vat_accounting_period_end?:
+        title: "When does your VAT accounting period end?"
+        error_message: "Your accounting period must end at the last day of the month."
+
+      how_do_you_want_to_pay?:
+        title: "How do you want to pay?"
+        options:
+          direct-debit: "Direct debit"
+          online-telephone-banking: "Online or telephone banking (Faster Payments)"
+          online-debit-credit-card: "Online debit or credit card (BillPay)"
+          bacs-direct-credit: "Bacs direct credit"
+          bank-giro: "Bank Giro"
+          chaps: "CHAPS"
+          cheque: "Cheque"
+
+      result_direct_debit:
+        title: "Paying by direct debit"
+        body: |
+          The last date you can set up a direct debit is %{last_dd_setup_date}.
+
+          The date the money will be taken from your account is %{funds_taken}.
+
+          ^You must set up your direct debit before you submit your next VAT online return.^
+
+          You only need to set up the direct debit once.
+
+          Read more about [how to pay your VAT.](/pay-vat)
+
+      result_online_telephone_banking:
+        title: "Paying online or by telephone banking"
+        body: |
+          The last date you can pay is %{last_payment_date}.
+
+          You need your VAT registration number as the payment reference.
+
+          Read more about [how to pay your VAT.](/pay-vat)
+
+      result_online_debit_credit_card:
+        title: "Paying by online debit or credit card"
+        body: |
+          The last date you can pay is %{last_payment_date}.
+
+          The money must have cleared by %{funds_received_by}.
+
+          Read more about [how to pay your VAT.](/pay-vat)
+
+      result_bacs_direct_credit:
+        title: "Paying by Bacs Direct Credit"
+        body: |
+          The last date you can pay is %{last_payment_date}.
+
+          The money must have cleared by %{funds_received_by}.
+
+          You need your VAT registration number as the payment reference.
+
+          ^Check beforehand how long it takes to send a payment and what your daily transfer limit is.^
+
+          Read more about [how to pay your VAT.](/pay-vat)
+
+      result_bank_giro:
+        title: "Paying by Bank Giro"
+        body: |
+          The last date you can pay is %{last_payment_date}.
+
+          The money must have cleared by %{funds_received_by}.
+
+          You’ll need a book of paying-in slips from HMRC with your VAT number and HRMC’s account details.
+
+          To order the slips can take up to 6 weeks.
+
+          Read more about [how to pay your VAT and how to order paying-in slips.](/pay-vat)
+
+      result_chaps:
+        title: "Paying by CHAPS"
+        body: |
+          The last date you can pay is %{last_payment_date}.
+
+          HMRC must receive the money by %{funds_received_by}.
+
+          You need your VAT registration number as the payment reference.
+
+          CHAPS payments usually reach HMRC the same working day if you pay within your bank’s processing times.
+
+          ^Check your bank’s transaction limits and processing times before making a payment.^
+
+          Read more about [how to pay your VAT.](/pay-vat)
+      result_cheque:
+        title: "Paying by cheque"
+        body: |
+          You can only pay by cheque if you’re exempt from submitting online VAT returns. If you need to pay by cheque for any other reason, pay by Bank Giro.
+
+          The last day you can post your cheque is %{last_posting_date}.
+
+          Your cheque must have cleared by %{funds_cleared_by}.
+
+          ^The date your cheque clears is the day when your payment reach HRMC’s account. It’s not the day when they get your cheque in the post.^
+
+          Read more about [how to pay your VAT.](/pay-vat)
