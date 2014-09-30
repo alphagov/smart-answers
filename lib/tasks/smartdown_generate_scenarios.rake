@@ -82,6 +82,8 @@ namespace :smartdown_generate_scenarios do
       "pat-leave" => "Paternity leave",
       "pat-pay" => "Paternity pay",
       "additional-pat-pay" => "Additional paternity pay",
+      "additional-pat-pay-from-due-date" => "Additional paternity pay",
+      "additional-pat-pay-from-match-date" => "Additional paternity pay",
       "additional-pat-leave" => "Additional paternity leave",
       "pat-shared-leave" => "Partner shared parental leave",
       "pat-shared-pay" => "Partner shared parental pay",

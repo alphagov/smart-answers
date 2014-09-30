@@ -4,7 +4,7 @@ The mother can get Maternity Allowance from the government for up to 14 weeks.
 
 Maternity Allowance | Key facts
 - | -
-Maternity Allowance dates | %{period_of_maternity_allowance}
+Maternity Allowance dates | %{start_of_maternity_allowance(due_date)} to %{end_of_14_week_maternity_allowance}(due_date)}
 Weekly rate | £27
 Total allowance | £378
 
