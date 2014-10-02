@@ -6,12 +6,12 @@ They can’t start before %{earliest_start(placement_date)} or after %{match_dat
 
 [date: date_leave_1]
 
-* single_parent is 'no'
+* two_carers is 'no'
   * job_before_x_1 is 'yes'
     * match_date >= '2015-4-5' => outcome_adopt-leave_adopt-pay
     * otherwise => outcome_adopt-leave_adopt-pay-pre-5-april
   * otherwise => outcome_adopt-leave
-* single_parent is 'yes'
+* two_carers is 'yes'
   * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
     * match_date >= '2015-4-5'
       * employment_status_2 in {employee self-employed unemployed}

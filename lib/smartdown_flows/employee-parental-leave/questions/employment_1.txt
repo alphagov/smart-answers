@@ -25,10 +25,10 @@ This is your total take-home pay before any deductions, eg tax.
 * no: No
 
 * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-  * single_parent is 'no'
+  * two_carers is 'no'
     * circumstance is 'birth' => leave_1
     * circumstance is 'adoption' => leave_1_adoption
-  * single_parent is 'yes'
+  * two_carers is 'yes'
     * employment_status_2 in {employee worker agency} => employment_2
     * employment_status_2 in {self-employed unemployed}
       * circumstance is 'birth'
@@ -40,10 +40,10 @@ This is your total take-home pay before any deductions, eg tax.
 * otherwise
   * circumstance is 'birth' => employment_1_more
   * circumstance is 'adoption'
-    * single_parent is 'no'
+    * two_carers is 'no'
       * match_date >= '2015-4-5' => leave_1_adoption
       * otherwise => outcome_adopt-nothing
-    * single_parent is 'yes'
+    * two_carers is 'yes'
       * employment_status_2 in {employee worker agency} => employment_1_more_adoption
       * employment_status_2 in {self-employed unemployed}
         * match_date >= '2015-4-5' => leave_1_adoption

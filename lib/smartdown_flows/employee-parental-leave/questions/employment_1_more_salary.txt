@@ -4,7 +4,7 @@
 
 [salary: salary_1_66_weeks]
 
-* single_parent is 'no' => outcome_mat-allowance
-* single_parent is 'yes'
+* two_carers is 'no' => outcome_mat-allowance
+* two_carers is 'yes'
   * employment_status_2 in {employee worker agency} => employment_2
   * employment_status_2 in {self-employed unemployed} => outcome_mat-allowance

@@ -4,5 +4,5 @@
 
 [date: due_date]
 
-* single_parent is 'no' => employment_single
-* single_parent is 'yes' => employment_both
+* two_carers is 'no' => employment_single
+* two_carers is 'yes' => employment_both

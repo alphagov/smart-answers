@@ -6,7 +6,7 @@
 * yes: Yes
 * no: No
 
-* single_parent is 'no'
+* two_carers is 'no'
   * employment_status_1 is 'employee'
     * job_after_y_1 is 'yes' => employment_1_more_salary
     * job_after_y_1 is 'no'
@@ -18,7 +18,7 @@
   * employment_status_1 in {self-employed unemployed}
     * earnings_employment_1 is 'yes' => employment_1_more_salary
     * earnings_employment_1 is 'no' => outcome_birth-nothing
-* single_parent is 'yes'
+* two_carers is 'yes'
   * employment_status_2 in {employee worker agency}
     * earnings_employment_1 is 'yes' => employment_1_more_salary
     * earnings_employment_1 is 'no' => employment_2

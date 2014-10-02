@@ -12,9 +12,9 @@
 - the child’s other parent
 - your partner (if they live with you and the child)
 
-[choice: single_parent]
-* no: Yes
-* yes: No
+[choice: two_carers]
+* yes: Yes
+* no: No
 
 * circumstance is 'birth' => due_date
 * circumstance is 'adoption' => adoption_dates
