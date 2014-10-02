@@ -3,6 +3,7 @@ require 'test_helper'
 require 'smartdown_plugins/employee-parental-leave'
 
 module SmartdownPlugins
+  #TODO: MISSING TESTS
   class EmployeeParentalLeaveTest < ActiveSupport::TestCase
     test "claim_date_maternity_allowance returns a date 14 weeks before given date" do
       date = Smartdown::Model::Answer::Date.new(:question, "2014-1-1")
@@ -74,16 +75,10 @@ module SmartdownPlugins
       assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.end_of_ordinary_leave(date_leave_1)
     end
 
-    test "end_of_paternity_leave returns a date 2 weeks after the given date_leave_2 when called with 2-week" do
+    test "end_of_paternity_leave returns a date 2 weeks after the given date_leave_2" do
       date_leave_2 = Smartdown::Model::Answer::Date.new(:question, "2014-1-1")
       expected = Smartdown::Model::Answer::Date.new(:question, "2014-1-15")
-      assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.end_of_paternity_leave(date_leave_2, "2-week")
-    end
-
-    test "end_of_paternity_leave returns a date 2 weeks after the given date_leave_2 when called with 1-week" do
-      date_leave_2 = Smartdown::Model::Answer::Date.new(:question, "2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new(:question, "2014-1-8")
-      assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.end_of_paternity_leave(date_leave_2, "1-week")
+      assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.end_of_paternity_leave(date_leave_2)
     end
 
     test "end_of_shared_parental_leave returns a date 1 year after the given date" do

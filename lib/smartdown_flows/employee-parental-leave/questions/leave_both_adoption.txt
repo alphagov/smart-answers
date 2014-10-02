@@ -1,0 +1,20 @@
+# Leave
+
+# When does the primary adopter want to start their leave?
+
+They can’t start before %{earliest_start(placement_date)} or after %{match_date}.
+
+[date:date_leave_1]
+
+# When does the primary adopter’s partner want to start their leave?
+
+They can’t start before %{match_date} or end after %{latest_pat_leave}.
+
+[date:date_leave_2]
+
+* match_date >= '2015-4-5'
+  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay_pat-pay_adopt-pat-leave_additional-pat-pay_adopt-additional-pat-leave
+  * otherwise
+    * earnings_employment_1 is 'yes' => outcome_adopt-leave_adopt-shared-leave_pat-pay_adopt-pat-leave_pat-shared-pay
+    * earnings_employment_1 is 'no' => outcome_adopt-leave_adopt-shared-leave_pat-pay_adopt-pat-leave
+* otherwise => outcome_adopt-leave_adopt-pay_pat-pay_adopt-pat-leave_additional-pat-pay_adopt-additional-pat-leave

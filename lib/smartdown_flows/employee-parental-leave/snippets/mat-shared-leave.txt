@@ -1,18 +1,18 @@
 ##Shared Parental Leave
 
-The mother or primary adopter can take [Shared Parental Leave](/shared-parental-leave-and-pay) (SPL) if they have:
+The mother can take [Shared Parental Leave](/shared-parental-leave-and-pay) (SPL) if she has:
 
-- ended any maternity or adoption leave by returning to work
-- given ‘binding notice’ (a decision that can’t normally be changed) to their employer of the date when they plan to end any maternity or adoption leave
+- ended maternity leave by returning to work
+- given ‘binding notice’ (a decision that can’t normally be changed) to her employer of the date when she plans to end maternity leave
 - ended maternity pay or Maternity Allowance
 
-It lasts for up to 52 weeks, minus any weeks of maternity or adoption leave they’ve taken.
+SPL lasts for up to 52 weeks, minus any weeks of maternity leave taken by the mother. 
 
-They can take SPL in up to three blocks instead of a single stretch. Each of these blocks can be split up further if their employer agrees, for example so that they can work on a pattern of one week on and one week off.
+She can take SPL in up to three blocks. Each of these blocks can be split up further if her employer agrees. 
 
-The mother or primary adopter must tell their employer at least 8 weeks before they want to start their first block of SPL.
+The mother and her partner can share SPL if they both qualify for it.
 
-Leave | Key dates
+ | Dates
 - | -
 Shared Parental Leave must be used between | %{due_date} to %{end_of_shared_parental_leave(due_date)}
-Latest date to give notice | 8 weeks before the first block of SPL
+Tell your employer | 8 weeks before the first block of SPL

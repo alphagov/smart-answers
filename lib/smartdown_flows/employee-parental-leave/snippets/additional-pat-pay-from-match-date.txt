@@ -1,10 +1,10 @@
 ##Additional Statutory Paternity Pay
 
-The mother’s or primary adopter’s partner can get pay while they’re on Additional Paternity Leave. The pay stops when the mother’s maternity or adoption pay would have ended.
+The mother’s partner can get [Additional Statutory Paternity Pay](/paternity-pay-leave/pay) while they’re on Additional Paternity Leave. The pay stops when the mother’s maternity or adoption pay would have ended.
 
-Pay | Key facts
+ | Dates and amounts
 - | -
 Additional Statutory Paternity Pay is available until | %{end_of_additional_paternity_pay_from_match_date(match_date)}
 Weekly rate  | %{rate_of_paternity_pay(salary_2)}
 
-%This is an estimate, their employer will confirm if they qualify and how much they’ll get.%
+%This is an estimate, the partner’s employer will confirm if they qualify and how much they’ll get.%

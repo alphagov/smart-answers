@@ -1,34 +1,24 @@
 # Leave
 
-# When does the mother or primary adopter want to start their leave?
+# When does the mother want to start their leave?
+
+They can’t start before %{earliest_start} or after %{due_date}.
 
 [date:date_leave_1]
 
-# When does the mother’s or primary adopter’s partner want to start their leave?
+# When does the mother’s partner want to start their leave?
+
+They can’t start before %{due_date} or end after %{latest_pat_leave}.
 
 [date:date_leave_2]
 
-# How much paternity leave is the mother's or primary adopter's partner planning on taking?
-
-[choice: amount_leave_2]
-* 1-week: 1 week
-* 2-weeks: 2 weeks
-
-* circumstance is 'birth'
-  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-    * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay_pat-pay_pat-leave_pat-shared-leave_pat-shared-pay
-    * otherwise => outcome_mat-leave_mat-pay_pat-pay_pat-leave_additional-pat-pay_additional-pat-leave
+* job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+  * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay_pat-pay_pat-leave_pat-shared-leave_pat-shared-pay
+  * otherwise => outcome_mat-leave_mat-pay_pat-pay_pat-leave_additional-pat-pay_additional-pat-leave
+* otherwise
+  * due_date >= '2015-4-5'
+    * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_pat-leave_pat-shared-leave_pat-shared-pay
+    * earnings_employment_1 is 'no' => outcome_mat-leave_pat-pay_pat-leave
   * otherwise
-    * due_date >= '2015-4-5'
-      * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_pat-leave_pat-shared-leave_pat-shared-pay
-      * earnings_employment_1 is 'no' => outcome_mat-leave_pat-pay_pat-leave
-    * otherwise
-      * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_pat-leave_additional-pat-pay_additional-pat-leave
-      * earnings_employment_1 is 'no' => outcome_mat-leave_pat-pay_pat-leave_additional-pat-pay_additional-pat-leave
-* circumstance is 'adoption'
-  * match_date >= '2015-4-5'
-    * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay_pat-pay_adopt-pat-leave_additional-pat-pay_adopt-additional-pat-leave
-    * otherwise
-      * earnings_employment_1 is 'yes' => outcome_adopt-leave_adopt-shared-leave_pat-pay_adopt-pat-leave_pat-shared-pay
-      * earnings_employment_1 is 'no' => outcome_adopt-leave_adopt-shared-leave_pat-pay_adopt-pat-leave
-  * otherwise => outcome_adopt-leave_adopt-pay_pat-pay_adopt-pat-leave_additional-pat-pay_adopt-additional-pat-leave
+    * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_pat-leave_additional-pat-pay_additional-pat-leave
+    * earnings_employment_1 is 'no' => outcome_mat-leave_pat-pay_pat-leave_additional-pat-pay_additional-pat-leave

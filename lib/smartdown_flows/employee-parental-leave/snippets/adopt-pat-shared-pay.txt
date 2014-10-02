@@ -1,0 +1,7 @@
+##Shared parental pay
+
+The primary adopter’s partner will get [Shared Parental Pay](/shared-parental-leave-and-pay/overview) if they take Shared Parental Leave. It lasts for up to 39 weeks, minus any weeks of adoption pay the primary adopter has received.
+
+| Amount
+- | -
+ShPP | %{rate_of_shpp(salary_2)}

@@ -1,46 +1,34 @@
-# Employment details mother/principal adopter
+# Employment details mother
 
-# >390 66 weeks
+# Will the mother have earned at least £390 in any 13 week period between %{earnings_test_start_date} and %{due_date}?
 
 [choice: earnings_employment_1]
 * yes: Yes
 * no: No
 
-* single_parent is 'yes'
+* single_parent is 'no'
   * employment_status_1 is 'employee'
     * job_after_y_1 is 'yes' => employment_1_more_salary
     * job_after_y_1 is 'no'
-      * circumstance is 'birth'
-        * earnings_employment_1 is 'yes' => employment_1_more_salary
-        * earnings_employment_1 is 'no' => outcome_birth-nothing
-      * circumstance is 'adoption' => outcome_adopt-nothing
+      * earnings_employment_1 is 'yes' => employment_1_more_salary
+      * earnings_employment_1 is 'no' => outcome_birth-nothing
   * employment_status_1 in {worker agency}
-    * circumstance is 'birth'
-      * earnings_employment_1 is 'yes' => employment_1_more_salary
-      * earnings_employment_1 is 'no' => outcome_birth-nothing
-    * circumstance is 'adoption' => outcome_adopt-nothing
+    * earnings_employment_1 is 'yes' => employment_1_more_salary
+    * earnings_employment_1 is 'no' => outcome_birth-nothing
   * employment_status_1 in {self-employed unemployed}
-    * circumstance is 'birth'
-      * earnings_employment_1 is 'yes' => employment_1_more_salary
-      * earnings_employment_1 is 'no' => outcome_birth-nothing
-    * circumstance is 'adoption' => outcome_adopt-nothing
-* single_parent is 'no'
+    * earnings_employment_1 is 'yes' => employment_1_more_salary
+    * earnings_employment_1 is 'no' => outcome_birth-nothing
+* single_parent is 'yes'
   * employment_status_2 in {employee worker agency}
     * earnings_employment_1 is 'yes' => employment_1_more_salary
     * earnings_employment_1 is 'no' => employment_2
   * employment_status_2 in {self-employed unemployed}
     * employment_status_1 in {employee worker agency}
-      * circumstance is 'adoption' => outcome_adopt-nothing
-      * circumstance is 'birth'
-        * earnings_employment_1 is 'yes' => employment_1_more_salary
-        * earnings_employment_1 is 'no' => outcome_birth-nothing
+      * earnings_employment_1 is 'yes' => employment_1_more_salary
+      * earnings_employment_1 is 'no' => outcome_birth-nothing
     * employment_status_1 is 'self-employed'
-      * circumstance is 'birth'
-        * earnings_employment_1 is 'yes' => employment_1_more_salary
-        * earnings_employment_1 is 'no' => outcome_birth-nothing
-      * circumstance is 'adoption' => outcome_adopt-nothing
+      * earnings_employment_1 is 'yes' => employment_1_more_salary
+      * earnings_employment_1 is 'no' => outcome_birth-nothing
     * employment_status_1 is 'unemployed'
-      * circumstance is 'birth'
-        * earnings_employment_1 is 'yes' => employment_1_more_salary
-        * earnings_employment_1 is 'no' => outcome_mat-allowance-14-weeks
-      * circumstance is 'adoption' => outcome_adopt-nothing
+      * earnings_employment_1 is 'yes' => employment_1_more_salary
+      * earnings_employment_1 is 'no' => outcome_mat-allowance-14-weeks

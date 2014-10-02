@@ -1,17 +1,17 @@
-##Maternity allowance
+##Maternity Allowance
 
-The mother can get Maternity Allowance from the government for up to 39 weeks.
+The mother can get [Maternity Allowance](/maternity-allowance) from the government for up to 39 weeks.
 
-Maternity Allowance | Key facts
+ | Dates and amounts
 - | -
-Maternity Allowance dates | %{start_of_maternity_allowance(due_date)} to %{end_of_maternity_allowance}(due_date)}
+Maternity Allowance can start on | %{start_of_maternity_allowance(due_date)}
 Weekly rate | %{rate_of_maternity_allowance(salary_1_66_weeks)}
 Total estimated allowance | %{total_maternity_allowance(salary_1_66_weeks)}
 Claim from | %{claim_date_maternity_allowance(due_date)}
 
 %This is an estimate, the mother must claim Maternity Allowance to find out if she qualifies and what she’ll get.%
 
-The mother won’t have to pay tax on her Maternity Allowance. She can claim Maternity Allowance as soon as she’s been pregnant for 26 weeks.
+The mother won’t have to pay tax on her Maternity Allowance. She can claim it as soon as she’s been pregnant for 26 weeks.
 
 ###Extra help
 

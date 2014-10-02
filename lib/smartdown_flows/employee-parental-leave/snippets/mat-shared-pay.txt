@@ -1,3 +1,7 @@
 ##Shared Parental Pay
 
-The mother or primary adopter will get Statutory Shared Parental Pay (ShPP) if they take SPL. It lasts for up to 39 weeks, minus any weeks of maternity pay, adoption pay or Maternity Allowance they’ve received.
+The mother will get Statutory Shared Parental Pay (ShPP) if they take Shared Parental Leave (SPL). It lasts for up to 39 weeks, minus any weeks of maternity pay or Maternity Allowance they’ve received.
+
+| Amount
+- | - 
+ShPP | %{rate_of_shpp(salary_1)} 

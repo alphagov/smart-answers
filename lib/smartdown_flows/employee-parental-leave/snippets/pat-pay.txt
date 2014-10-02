@@ -1,12 +1,12 @@
 ##Paternity pay
 
-The mother’s or primary adopter’s partner can get up to 2 weeks of Statutory Paternity Pay. This will usually be paid while they’re on ordinary paternity leave.
+The mother’s partner can get up to 2 weeks of [Statutory Paternity Pay](/paternity-pay-leave/pay). This will usually be paid while they’re on paternity leave.
 
-Pay | Key facts
+ | Dates and amounts
 - | -
-Paternity pay dates | %{date_leave_2} to %{end_of_paternity_leave(date_leave_2 amount_leave_2)}
+Statutory Paternity Pay dates | %{date_leave_2} up to %{end_of_paternity_leave(date_leave_2)}
 Weekly rate | %{rate_of_paternity_pay(salary_2)}
-Latest date to give notice of a change of dates | %{paternity_pay_notice_date(date_leave_2)}
+Tell your employer by | %{paternity_pay_notice_date(date_leave_2)}
 
 %This is an estimate, their employer will confirm if they qualify and how much they’ll get.%
 

@@ -1,17 +1,14 @@
-# Further employment details partner/adopter
+# Further employment details partner
 
-# >390 66 weeks
+# Will the mother’s partner have earned at least £390 in any 13 week period between %{earnings_test_start_date} and %{due_date}?
 
 [choice: earnings_employment_2]
 * yes: Yes
 * no: No
 
-* employment_status_1 is 'employee'
-  * job_after_y_1 is 'yes' => leave_1
+* employment_status_1 is 'employee' => leave_1
 * employment_status_1 in {worker agency}
   * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_1
   * otherwise
-    * circumstance is 'birth'
-      * earnings_employment_2 is 'yes' => outcome_mat-allowance
-      * earnings_employment_2 is 'no' => outcome_birth-nothing
-    * circumstance is 'adoption' => outcome_adopt-nothing
+    * earnings_employment_2 is 'yes' => outcome_mat-allowance
+    * earnings_employment_2 is 'no' => outcome_birth-nothing

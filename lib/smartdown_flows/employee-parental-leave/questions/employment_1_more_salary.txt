@@ -1,10 +1,10 @@
-# Salary details mother/principal adopter
+# Salary details mother
 
-How much did you earn between X and Y (66 weeks range before due_date or match_date)?
+# How much did you earn between %{earnings_test_start_date} and %{due_date}?
 
 [salary: salary_1_66_weeks]
 
-* single_parent is 'yes' => outcome_mat-allowance
-* single_parent is 'no'
+* single_parent is 'no' => outcome_mat-allowance
+* single_parent is 'yes'
   * employment_status_2 in {employee worker agency} => employment_2
   * employment_status_2 in {self-employed unemployed} => outcome_mat-allowance
