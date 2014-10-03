@@ -112,10 +112,6 @@ date_question :dob_age? do
     calc.under_20_years_old?
   end
 
-  define_predicate(:non_automatic_ni_age_group?){
-    (Date.parse('1959-04-06')..Date.parse('1992-04-05')).cover?(Date.parse(dob))
-  }
-
   validate { |response| Date.parse(response) <= Date.today }
 
   next_node_if(:too_young, under_20_years_old?)
@@ -171,7 +167,8 @@ date_question :dob_amount? do
   end
 
   define_predicate(:woman_and_born_in_date_range?) do |response|
-    (Date.parse('6 April 1953')..Date.parse('5 April 1961')).cover?(Date.parse(response)) && gender == "female"
+    calc = Calculators::StatePensionAmountCalculatorV2.new(gender: gender, dob: response)
+    calc.woman_born_in_married_stamp_era?
   end
 
   next_node_if(:pay_reduced_ni_rate?, woman_and_born_in_date_range?)
@@ -294,17 +291,17 @@ multiple_choice :received_child_benefit? do
     ni_years_to_date_from_dob
   end
 
-  define_predicate(:three_year_credit_age?) {
-    calculator.three_year_credit_age?
+  define_predicate(:automatic_ni?) {
+    calculator.automatic_ni_age_group?
   }
 
-  define_predicate(:non_automatic_ni?){
-    :non_automatic_ni_age_group and ni < 10
+  define_predicate(:new_rules_and_less_than_10_ni?) {
+    calculator.new_rules_and_less_than_10_ni? ni
   }
 
   next_node_if(:years_of_benefit?, responded_with("yes"))
-  next_node_if(:lived_or_worked_outside_uk?, non_automatic_ni?)
-  next_node_if(:amount_result, three_year_credit_age?)
+  next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
+  next_node_if(:amount_result, automatic_ni?)
   next_node :years_of_work?
 end
 
@@ -421,11 +418,11 @@ value_question :years_of_carers_allowance? do
       calculator.three_year_credit_age?
   }
 
-  define_predicate(:non_automatic_ni?){
-    :non_automatic_ni_age_group and ni < 10
+  define_predicate(:new_rules_and_less_than_10_ni?) {
+    calculator.new_rules_and_less_than_10_ni? ni
   }
 
-  next_node_if(:lived_or_worked_outside_uk?, non_automatic_ni?)
+  next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
   next_node_if(:amount_result, enough_years_credits_or_three_year_credit?)
   next_node :years_of_work?
 end

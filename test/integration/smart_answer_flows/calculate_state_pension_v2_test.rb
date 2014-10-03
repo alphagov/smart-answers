@@ -253,6 +253,35 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_current_node :dob_amount?
       end
 
+      context 'Born after 1992-04-05' do
+        context "more than 10 years NI contributions" do
+          setup do
+            Timecop.travel('2030-04-06')
+            add_response Date.parse('1999-04-06')
+            add_response 11
+            add_response 0
+            add_response :no
+          end
+
+          should "take me to years of work" do
+            assert_current_node :years_of_work?
+          end
+        end
+
+        context "less than 10 years NI contributions" do
+          setup do
+            add_response Date.parse('1992-04-06')
+            add_response 2
+            add_response 0
+            add_response :no
+          end
+
+          should "take me to lived or worked outside the UK" do
+            assert_current_node :lived_or_worked_outside_uk?
+          end
+        end
+      end
+
       context "give a date in the future" do
         should "raise an error" do
           add_response (Date.today + 1).to_s
