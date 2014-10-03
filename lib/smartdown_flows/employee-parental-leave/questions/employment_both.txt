@@ -1,13 +1,13 @@
 # Employment
 
-Read about [employment statuses](gov.uk/employment-status) if you aren’t sure which one applies.
+Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
 
 # What’s the employment status of the mother or primary adopter?
 
 The primary adopter is the person who wants to take adoption leave.
 
 [choice: employment_status_1]
-* employee: Employee X XX contract
+* employee: Employee contract
 * worker: Worker contract
 * agency: Agency worker
 * self-employed: Self-employed

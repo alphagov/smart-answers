@@ -1,6 +1,6 @@
 # Leave
 
-# When does the mother’s or primary adopter’s partner want to start their leave?
+# When does the primary adopter’s partner want to start their leave?
 
 They can’t start before %{match_date} or end after %{latest_pat_leave}.
 
