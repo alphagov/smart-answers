@@ -3,7 +3,7 @@
 # Are you having a baby or adopting?
 
 [choice: circumstance]
-* birth: birth
+* birth: Birth
 * adoption: Adoption
 
 # Will you care for the child with either:
