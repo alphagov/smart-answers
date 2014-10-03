@@ -25,7 +25,7 @@ This is your total take-home pay before any deductions, eg tax.
 * no: No
 
 * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-  * two_carers is 'no' => leave_1
+  * two_carers is 'no' => leave_1_adoption
   * two_carers is 'yes'
     * employment_status_2 in {employee worker agency} => employment_2_adoption
     * employment_status_2 in {self-employed unemployed}
