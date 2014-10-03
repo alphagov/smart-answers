@@ -4,7 +4,7 @@ The mother’s partner can get [Additional Statutory Paternity Pay](/paternity-p
 
  | Dates and amounts
 - | -
-Additional Statutory Paternity Pay is available until | %{end_of_additional_paternity_pay_from_due_date(due_date)}
+Additional Statutory Paternity Pay is available until | %{end_of_additional_paternity_pay_from_match_or_due_date(due_date)}
 Weekly rate  | %{rate_of_paternity_pay(salary_2)}
 
 %This is an estimate, the partner’s employer will confirm if they qualify and how much they’ll get.%

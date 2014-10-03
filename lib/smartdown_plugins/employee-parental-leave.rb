@@ -1,38 +1,35 @@
 module SmartdownPlugins
   module EmployeeParentalLeave
+
     def self.claim_date_maternity_allowance(date)
       date - 14.weeks
     end
 
-    def self.earliest_start(placement_date)
-      placement_date - 14.days
+    def self.earliest_start(date)
+      date - 11.weeks
     end
 
-    def self.earnings_test_start_date
-      "TODO"
+    def self.earnings_test_start_date(date)
+      date - 66.weeks
     end
 
     def self.end_of_14_week_maternity_allowance(date)
       date + 14.weeks
     end
 
-    def self.end_of_additional_leave(date_leave_1)
-      date_leave_1 + 52.weeks
+    def self.end_of_additional_leave(date)
+      date + 52.weeks
     end
 
     def self.end_of_additional_paternity_leave(date)
       date + 1.year
     end
 
-    def self.end_of_additional_paternity_pay_from_leave(date_leave_1)
-      date_leave_1 + 52.weeks
+    def self.end_of_additional_paternity_pay_from_leave(date)
+      date + 52.weeks
     end
 
-    def self.end_of_additional_paternity_pay_from_match_date(match_date)
-      "TODO_end_of_additional_paternity_pay_from_match_date"
-    end
-
-    def self.end_of_additional_paternity_pay_from_due_date(date)
+    def self.end_of_additional_paternity_pay_from_match_or_due_date(date)
       date + 28.weeks
     end
 
@@ -48,12 +45,12 @@ module SmartdownPlugins
       date + 39.weeks
     end
 
-    def self.end_of_ordinary_leave(date_leave_1)
-      date_leave_1 + 26.weeks
+    def self.end_of_ordinary_leave(date)
+      date + 26.weeks
     end
 
-    def self.end_of_paternity_leave(date_leave_2)
-      date_leave_2 + 2.weeks
+    def self.end_of_paternity_leave(date)
+      date + 2.weeks
     end
 
     def self.end_of_shared_parental_leave(date)
@@ -64,12 +61,12 @@ module SmartdownPlugins
       date + 56.days
     end
 
-    def self.minimum_start_date
-      "TODO"
+    def self.minimum_start_date(date)
+      date - 41.weeks
     end
 
-    def self.minimum_end_date
-      "TODO"
+    def self.minimum_end_date(date)
+      date - 15.weeks
     end
 
     def self.notice_date_sap(date)
@@ -106,7 +103,7 @@ module SmartdownPlugins
     end
 
     def self.rate_of_shpp(salary)
-      "TODO"
+      nine_tenths_weekly_salary_capped_at_138_point_18(salary)
     end
 
     def self.rate_of_smp_6_weeks(salary_1)
