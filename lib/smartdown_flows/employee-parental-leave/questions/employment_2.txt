@@ -1,18 +1,18 @@
 # Employment partner/adopter
 
-# Did the mother’s or primary adopter’s partner start their job before !{todo_minimum_start_date}?
+# Did the mother’s or primary adopter’s partner start their current or most recent job before %{minimum_start_date}?
 
 [choice: job_before_x_2]
 * yes: Yes
 * no: No
 
-# Did the mother’s or primary adopter’s partner leave their job after !{todo_minimum_end_date}?
+# Was the mother’s or primary adopter’s partner still working in that job on %{minimum_end_date}?
 
 [choice: job_after_y_2]
 * yes: Yes
 * no: No
 
-# How much does the mother’s or primary adopter’s partner earn?
+# How much does the mother’s or primary adopter’s partner earn after tax?
 
 [salary: salary_2]
 
@@ -24,11 +24,19 @@
 
 * employment_status_2 is 'employee'
   * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
-    * employment_status_1 is 'employee' => leave_both
+    * employment_status_1 is 'employee'
+      * circumstance is 'birth' => leave_both
+      * circumstance is 'adoption' => leave_both_adoption
     * employment_status_1 in {worker agency}
-      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_both
-      * otherwise => leave_2
-    * employment_status_1 in {unemployed self-employed} => leave_2
+      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+        * circumstance is 'birth' => leave_both
+        * circumstance is 'adoption' => leave_both_adoption
+      * otherwise
+        * circumstance is 'birth' => leave_2
+        * circumstance is 'adoption' => leave_2_adoption
+    * employment_status_1 in {unemployed self-employed}
+      * circumstance is 'birth' => leave_2
+      * circumstance is 'adoption' => leave_2_adoption
   * otherwise
     * employment_status_1 is 'employee'
       * job_after_y_1 is 'yes'
@@ -36,8 +44,8 @@
           * due_date >= '2015-4-5' => employment_2_more
           * otherwise => leave_1
         * circumstance is 'adoption'
-          * match_date >= '2015-4-5' => employment_2_more
-          * otherwise => leave_1
+          * match_date >= '2015-4-5' => employment_2_more_adoption
+          * otherwise => leave_1_adoption
       * job_after_y_1 is 'no'
         * circumstance is 'birth'
           * earnings_employment_1 is 'yes' => outcome_mat-allowance
@@ -53,8 +61,8 @@
           * earnings_employment_1 is 'no' => outcome_birth-nothing
       * circumstance is 'adoption'
         * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-          * match_date >= '2015-4-5' => employment_2_more
-          * otherwise => leave_1
+          * match_date >= '2015-4-5' => employment_2_more_adoption
+          * otherwise => leave_1_adoption
         * otherwise => outcome_adopt-nothing
     * employment_status_1 in {unemployed self-employed}
       * circumstance is 'birth'
@@ -64,20 +72,30 @@
 * employment_status_2 in {worker agency}
   * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
     * employment_status_1 is 'employee'
-      * job_after_y_1 is 'yes' => leave_both
-      * job_after_y_1 is 'no' => leave_2
+      * job_after_y_1 is 'yes'
+        * circumstance is 'birth' => leave_both
+        * circumstance is 'adoption' => leave_both_adoption
+      * job_after_y_1 is 'no'
+        * circumstance is 'birth' => leave_2
+        * circumstance is 'adoption' => leave_2_adoption
     * employment_status_1 in {worker agency}
-      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_both
-      * otherwise => leave_2
-    * employment_status_1 in {unemployed self-employed} => leave_2
+      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+        * circumstance is 'birth' => leave_both
+        * circumstance is 'adoption' => leave_both_adoption
+      * otherwise
+        * circumstance is 'birth' => leave_2
+        * circumstance is 'adoption' => leave_2_adoption
+    * employment_status_1 in {unemployed self-employed}
+      * circumstance is 'birth' => leave_2
+      * circumstance is 'adoption' => leave_2_adoption
   * otherwise
     * employment_status_1 is 'employee'
       * job_after_y_1 is 'yes'
         * circumstance is 'birth' => employment_2_more
         * circumstance is 'adoption'
-          * match_date >= '2015-4-5' => employment_2_more
+          * match_date >= '2015-4-5' => employment_2_more_adoption
           * otherwise
-            * job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_1
+            * job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_1_adoption
             * otherwise => outcome_adopt-nothing
       * job_after_y_1 is 'no'
         * circumstance is 'birth'
@@ -94,8 +112,8 @@
           * earnings_employment_1 is 'no' => outcome_birth-nothing
       * circumstance is 'adoption'
         * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-          * match_date >= '2015-4-5' => employment_2_more
-          * otherwise => leave_1
+          * match_date >= '2015-4-5' => employment_2_more_adoption
+          * otherwise => leave_1_adoption
         * otherwise => outcome_adopt-nothing
     * employment_status_1 in {unemployed self-employed}
       * circumstance is 'birth'
@@ -104,7 +122,9 @@
       * circumstance is 'adoption' => outcome_adopt-nothing
 * employment_status_2 in {unemployed self-employed}
   * employment_status_1 is 'employee'
-    * job_after_y_1 is 'yes' => leave_1
+    * job_after_y_1 is 'yes'
+      * circumstance is 'birth' => leave_1
+      * circumstance is 'adoption' => leave_1_adoption
     * job_after_y_1 is 'no'
       * circumstance is 'birth'
         * earnings_employment_1 is 'yes' => outcome_mat-allowance
@@ -120,7 +140,7 @@
         * earnings_employment_1 is 'no' => outcome_birth-nothing
     * circumstance is 'adoption'
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-        * match_date >= '2015-4-5' => employment_2_more
+        * match_date >= '2015-4-5' => employment_2_more_adoption
         * otherwise => outcome_adopt-pay
       * otherwise
         * earnings_employment_1 is 'yes' => outcome_mat-allowance

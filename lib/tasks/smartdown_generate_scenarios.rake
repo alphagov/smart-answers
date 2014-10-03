@@ -13,7 +13,7 @@ namespace :smartdown_generate_scenarios do
   task :employee_parental_leave => :environment do
     combinations = {
       :circumstance => ["adoption", "birth"],
-      :single_parent => ["yes", "no"],
+      :two_carers => ["yes", "no"],
       :due_date => ["2015-4-5", "2014-4-5"],
       :match_date => ["2015-4-5", "2014-4-5"],
       :placement_date => ["2014-4-5"],
@@ -41,7 +41,7 @@ namespace :smartdown_generate_scenarios do
   task :employee_parental_leave_factcheck => :environment do
     combinations = {
       :circumstance => ["adoption", "birth"],
-      :single_parent => ["yes", "no"],
+      :two_carers => ["yes", "no"],
       :due_date => ["2015-4-5", "2014-4-5"],
       :match_date => ["2015-4-5", "2014-4-5"],
       :placement_date => ["2014-4-5"],

@@ -8,6 +8,10 @@ module SmartdownPlugins
       placement_date - 14.days
     end
 
+    def self.earnings_test_start_date
+      "TODO"
+    end
+
     def self.end_of_14_week_maternity_allowance(date)
       date + 14.weeks
     end
@@ -48,14 +52,8 @@ module SmartdownPlugins
       date_leave_1 + 26.weeks
     end
 
-    def self.end_of_paternity_leave(date_leave_2, amount_leave_2)
-      if amount_leave_2 == "2-week"
-        date_leave_2 + 2.weeks
-      elsif amount_leave_2 == "1-week"
-        date_leave_2 + 1.week
-      else
-        date_leave_2
-      end
+    def self.end_of_paternity_leave(date_leave_2)
+      date_leave_2 + 2.weeks
     end
 
     def self.end_of_shared_parental_leave(date)
@@ -64,6 +62,14 @@ module SmartdownPlugins
 
     def self.latest_pat_leave(date)
       date + 56.days
+    end
+
+    def self.minimum_start_date
+      "TODO"
+    end
+
+    def self.minimum_end_date
+      "TODO"
     end
 
     def self.notice_date_sap(date)
@@ -97,6 +103,10 @@ module SmartdownPlugins
 
     def self.rate_of_sap(salary_1)
       nine_tenths_weekly_salary_capped_at_138_point_18(salary_1)
+    end
+
+    def self.rate_of_shpp(salary)
+      "TODO"
     end
 
     def self.rate_of_smp_6_weeks(salary_1)

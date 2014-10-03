@@ -1,14 +1,18 @@
 # Circumstances
 
-# Are you giving birth or adopting?
+# Are you having a baby or adopting?
 
 [choice: circumstance]
-* birth: Birth
+* birth: birth
 * adoption: Adoption
 
-# Are you a single parent?
+# Will you care for the child with either:
 
-[choice: single_parent]
+- your husband, wife, civil partner or joint adopter
+- the child’s other parent
+- your partner (if they live with you and the child)
+
+[choice: two_carers]
 * yes: Yes
 * no: No
 
