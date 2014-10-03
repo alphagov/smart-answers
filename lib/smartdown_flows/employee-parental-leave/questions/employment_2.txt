@@ -1,18 +1,18 @@
-# Employment partner/adopter
+# Employment partner
 
-# Did the mother’s or primary adopter’s partner start their current or most recent job before %{minimum_start_date(due_date)}?
+# Did the mother’s partner start their current or most recent job before %{minimum_start_date(due_date)}?
 
 [choice: job_before_x_2]
 * yes: Yes
 * no: No
 
-# Was the mother’s or primary adopter’s partner still working in that job on %{minimum_end_date(due_date)}?
+# Was the mother’s partner still working in that job on %{minimum_end_date(due_date)}?
 
 [choice: job_after_y_2]
 * yes: Yes
 * no: No
 
-# How much does the mother’s or primary adopter’s partner earn after tax?
+# How much does the mother’s partner earn after tax?
 
 [salary: salary_2]
 
