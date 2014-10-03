@@ -16,7 +16,7 @@
 
 [salary: salary_2]
 
-# >LER, 8 weeks
+# Does the mother's partner earn more than the Lower Earnings Limit?
 
 [choice: ler_2]
 * yes: Yes
