@@ -22,7 +22,9 @@ The partner may get a short period of leave and be able to share the maternity o
 * self-employed: Self-employed
 * unemployed: Unemployed
 
-* employment_status_1 in {employee worker agency} => employment_1
+* employment_status_1 in {employee worker agency}
+  * circumstance is 'birth' => employment_1
+  * circumstance is 'adoption' => employment_1_adoption
 * employment_status_1 in {self-employed unemployed}
   * circumstance is 'birth' => employment_1_more
   * circumstance is 'adoption'
