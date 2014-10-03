@@ -15,7 +15,7 @@ module SmartAnswer
       end
       @amount = Money.new(amount)
       @period = period || 'week'
-      raise InvalidResponse, "Sorry, I couldn't understand that salary period", caller unless %w{month week}.include?(@period)
+      raise InvalidResponse, "Sorry, I couldn't understand that salary period", caller unless %w{year month week}.include?(@period)
     end
 
     def <=>(other)
@@ -34,6 +34,8 @@ module SmartAnswer
         @amount
       when "month"
         Money.new((@amount.value * 12) / 52)
+      when "year"
+        Money.new(@amount.value / 52)
       end
     end
   end
