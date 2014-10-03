@@ -1,0 +1,42 @@
+# Employment mother/principal adopter
+
+# Did the mother or primary adopter start their current or most recent job before %{minimum_start_date(match_date)}?
+
+[choice: job_before_x_1]
+* yes: Yes
+* no: No
+
+# Was the mother or primary adopter still working in that job on %{minimum_end_date(match_date)}?
+
+[choice: job_after_y_1]
+* yes: Yes
+* no: No
+
+# How much does the mother or primary adopter earn?
+
+This is your total take-home pay before any deductions, eg tax.
+
+[salary: salary_1]
+
+# Does the mother or primary adopter earn more than the Lower Earnings Limit?
+
+[choice: ler_1]
+* yes: Yes
+* no: No
+
+* job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+  * two_carers is 'no' => leave_1
+  * two_carers is 'yes'
+    * employment_status_2 in {employee worker agency} => employment_2_adoption
+    * employment_status_2 in {self-employed unemployed}
+      * match_date >= '2015-4-5' => employment_2_more_adoption
+      * otherwise => leave_1_adoption
+* otherwise
+  * two_carers is 'no'
+    * match_date >= '2015-4-5' => leave_1_adoption
+    * otherwise => outcome_adopt-nothing
+  * two_carers is 'yes'
+    * employment_status_2 in {employee worker agency} => employment_1_more_adoption
+    * employment_status_2 in {self-employed unemployed}
+      * match_date >= '2015-4-5' => leave_1_adoption
+      * otherwise => outcome_adopt-nothing

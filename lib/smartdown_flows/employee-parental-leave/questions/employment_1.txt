@@ -1,12 +1,12 @@
 # Employment mother/principal adopter
 
-# Did the mother or primary adopter start their current or most recent job before %{minimum_start_date}?
+# Did the mother or primary adopter start their current or most recent job before %{minimum_start_date(due_date)}?
 
 [choice: job_before_x_1]
 * yes: Yes
 * no: No
 
-# Was the mother or primary adopter still working in that job on %{minimum_end_date}?
+# Was the mother or primary adopter still working in that job on %{minimum_end_date(due_date)}?
 
 [choice: job_after_y_1]
 * yes: Yes
@@ -31,20 +31,6 @@ This is your total take-home pay before any deductions, eg tax.
   * two_carers is 'yes'
     * employment_status_2 in {employee worker agency} => employment_2
     * employment_status_2 in {self-employed unemployed}
-      * circumstance is 'birth'
-        * due_date >= '2015-4-5' => employment_2_more
-        * otherwise => leave_1
-      * circumstance is 'adoption'
-        * match_date >= '2015-4-5' => employment_2_more_adoption
-        * otherwise => leave_1_adoption
-* otherwise
-  * circumstance is 'birth' => employment_1_more
-  * circumstance is 'adoption'
-    * two_carers is 'no'
-      * match_date >= '2015-4-5' => leave_1_adoption
-      * otherwise => outcome_adopt-nothing
-    * two_carers is 'yes'
-      * employment_status_2 in {employee worker agency} => employment_1_more_adoption
-      * employment_status_2 in {self-employed unemployed}
-        * match_date >= '2015-4-5' => leave_1_adoption
-        * otherwise => outcome_adopt-nothing
+      * due_date >= '2015-4-5' => employment_2_more
+      * otherwise => leave_1
+* otherwise => employment_1_more
