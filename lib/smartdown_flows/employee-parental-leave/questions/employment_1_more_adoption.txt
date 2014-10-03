@@ -1,6 +1,6 @@
 # Employment details principal adopter
 
-# Will the principal adopter have earned at least £390 in any 13 week period between %{earnings_test_start_date} and %{match_date}?
+# Will the principal adopter have earned at least £390 in any 13 week period between %{earnings_test_start_date(match_date)} and %{match_date}?
 
 [choice: earnings_employment_1]
 * yes: Yes
