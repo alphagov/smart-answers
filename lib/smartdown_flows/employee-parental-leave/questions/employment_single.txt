@@ -2,7 +2,7 @@
 
 # What is the employment status of the mother or primary adopter?
 
-Read about [employment statuses](https://www.gov.uk/employment-status) if you aren’t sure which one applies.
+Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
 
 [choice: employment_status_1]
 * employee: Employee contract
