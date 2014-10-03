@@ -35,22 +35,24 @@ module SmartdownAdapter
     end
 
     def format_adoption_hashes(adoption_hashes)
+      ordered_adoption_hashes = order_adoption_hashes(adoption_hashes)
       lines = []
       lines << "##Adoption \n"
       lines << "Match date | Principal adopter status | PA: Continuity | PA: E&E | Partner status | P: Continuity | P: E&E | Outcome"
       lines << "-|-"
-      adoption_hashes.each do |adoption_hash|
+      ordered_adoption_hashes.each do |adoption_hash|
         lines << format_adoption_hash(adoption_hash)
       end
       lines.uniq.join("\n")
     end
 
     def format_birth_hashes(birth_hashes)
+      ordered_birth_hashes = order_birth_hashes(birth_hashes)
       lines = []
       lines << "##Birth \n"
       lines << "Due date | Mother status | M: Continuity | M: E&E | Partner status | P: Continuity | P: E&E | Outcome"
       lines << "-|-"
-      birth_hashes.each do |birth_hash|
+      ordered_birth_hashes.each do |birth_hash|
         lines << format_birth_hash(birth_hash)
       end
       lines.uniq.join("\n")
@@ -80,6 +82,18 @@ module SmartdownAdapter
       result += "#{tick_or_cross(birth_hash[:earnings_employment_2])} |"
       result += "#{human_readable_description(birth_hash[:outcome])}"
       result
+    end
+
+    def order_adoption_hashes(hashes)
+      hashes.sort { |a,b|
+        [a[:match_date], a[:employment_status_1], a[:employment_status_2]]  <=> [b[:match_date], b[:employment_status_1], b[:employment_status_2]]
+      }
+    end
+
+    def order_birth_hashes(hashes)
+      hashes.sort { |a,b|
+        [a[:due_date], a[:employment_status_1], a[:employment_status_2]]  <=> [b[:due_date], b[:employment_status_1], b[:employment_status_2]]
+      }
     end
 
     def human_readable_description(outcome_name)
