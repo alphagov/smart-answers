@@ -5,7 +5,7 @@
   </label>
   <label for="response_period">
   per <select name="<%=response_prefix%>[period]">
-    <%= options_for_select %w{week month}, prefill_value_for(question, number, :period) %>
+    <%= options_for_select %w{week month year}, prefill_value_for(question, number, :period) %>
   </select>
   </label>
 </fieldset>

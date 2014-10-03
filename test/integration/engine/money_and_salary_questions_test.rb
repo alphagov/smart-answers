@@ -13,7 +13,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
         end
         within '.question-body' do
           assert page.has_field?("£", type: "text")
-   assert page.has_select?("per", options: %w(week month))
+   assert page.has_select?("per", options: %w(week month year))
         end
       end
 
