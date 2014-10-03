@@ -296,7 +296,8 @@ multiple_choice :received_child_benefit? do
   }
 
   define_predicate(:new_rules_and_less_than_10_ni?) {
-    calculator.new_rules_and_less_than_10_ni? ni
+    ni_and_credits = ni + calculator.starting_credits
+    calculator.new_rules_and_less_than_10_ni? ni_and_credits
   }
 
   next_node_if(:years_of_benefit?, responded_with("yes"))
@@ -447,7 +448,7 @@ value_question :years_of_work? do
   end
 
   define_predicate(:new_rules_and_less_than_10_ni?) {
-    (ni < 10) && (calculator.state_pension_date >= Date.parse('6 April 2016'))
+    calculator.new_rules_and_less_than_10_ni? ni
   }
 
   next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
