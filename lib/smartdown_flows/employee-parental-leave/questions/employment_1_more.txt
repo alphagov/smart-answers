@@ -1,6 +1,6 @@
 # Employment details mother
 
-# Will the mother have earned at least £390 in any 13 week period between %{earnings_test_start_date} and %{due_date}?
+# Will the mother have earned at least £390 in any 13 week period between %{earnings_test_start_date(due_date)} and %{due_date}?
 
 [choice: earnings_employment_1]
 * yes: Yes
