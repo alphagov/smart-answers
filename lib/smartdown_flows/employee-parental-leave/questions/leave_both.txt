@@ -13,12 +13,12 @@ They can’t start before %{due_date} or end after %{latest_pat_leave(due_date)}
 [date:date_leave_2]
 
 * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-  * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay_pat-pay_pat-leave_pat-shared-leave_pat-shared-pay
-  * otherwise => outcome_mat-leave_mat-pay_pat-pay_pat-leave_additional-pat-pay_additional-pat-leave
+  * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
+  * otherwise => outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-pay_additional-pat-leave
 * otherwise
   * due_date >= '2015-4-5'
-    * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_pat-leave_pat-shared-leave_pat-shared-pay
-    * earnings_employment_1 is 'no' => outcome_mat-leave_pat-pay_pat-leave
+    * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
+    * earnings_employment_1 is 'no' => outcome_mat-leave_pat-leave_pat-pay
   * otherwise
-    * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_pat-leave_additional-pat-pay_additional-pat-leave
-    * earnings_employment_1 is 'no' => outcome_mat-leave_pat-pay_pat-leave_additional-pat-pay_additional-pat-leave
+    * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-pay_additional-pat-leave
+    * earnings_employment_1 is 'no' => outcome_mat-leave_pat-leave_pat-pay_additional-pat-pay_additional-pat-leave
