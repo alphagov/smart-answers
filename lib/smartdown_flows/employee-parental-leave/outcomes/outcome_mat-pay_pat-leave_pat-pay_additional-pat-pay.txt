@@ -1,5 +1,3 @@
-# Outcome mat-pay pat-leave pat-pay additional-pat-pay
-
 {{snippet: mat-pay}}
 
 {{snippet: pat-leave}}
