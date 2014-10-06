@@ -2,7 +2,7 @@
 
 # When does the primary adopter’s partner want to start their leave?
 
-They can’t start before %{match_date} or end after %{latest_pat_leave}.
+They can’t start before %{match_date} or end after %{latest_pat_leave(match_date)}.
 
 [date:date_leave_2]
 

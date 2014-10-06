@@ -2,7 +2,7 @@
 
 # When does the mother’s partner want to start their leave?
 
-They can’t start before %{due_date} or end after %{latest_pat_leave}.
+They can’t start before %{due_date} or end after %{latest_pat_leave(due_date)}.
 
 [date:date_leave_2]
 
