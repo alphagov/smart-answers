@@ -1,0 +1,28 @@
+# Employment
+
+# What’s the employment status of the primary adopter?
+
+The primary adopter is the person who wants to take adoption leave.
+
+[choice: employment_status_1]
+* employee: Employee contract
+* worker: Worker contract
+* agency: Agency worker
+* self-employed: Self-employed
+* unemployed: Unemployed
+
+# What’s the employment status of the primary adopter’s partner?
+
+The partner may get a short period of leave and be able to share the adoption leave.
+
+[choice: employment_status_2]
+* employee: Employee contract
+* worker: Worker contract
+* agency: Agency worker
+* self-employed: Self-employed
+* unemployed: Unemployed
+
+* employment_status_1 in {employee worker agency} => employment_1_adoption
+* employment_status_1 in {self-employed unemployed}
+  * employment_status_2 in {employee worker agency} => employment_1_more_adoption
+  * employment_status_2 in {self-employed unemployed} => outcome_adopt-nothing
