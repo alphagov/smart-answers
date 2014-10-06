@@ -1,24 +1,24 @@
-# Employment mother/principal adopter
+# Employment mother
 
-# Did the mother or primary adopter start their current or most recent job before %{minimum_start_date(due_date)}?
+# Did the mother start their current or most recent job before %{minimum_start_date(due_date)}?
 
 [choice: job_before_x_1]
 * yes: Yes
 * no: No
 
-# Was the mother or primary adopter still working in that job on %{minimum_end_date(due_date)}?
+# Was the mother still working in that job on %{minimum_end_date(due_date)}?
 
 [choice: job_after_y_1]
 * yes: Yes
 * no: No
 
-# How much does the mother or primary adopter earn?
+# How much does the mother earn?
 
 This is your total take-home pay before any deductions, eg tax.
 
 [salary: salary_1]
 
-# Does the mother or primary adopter earn more than the Lower Earnings Limit?
+# Does the mother earn more than the Lower Earnings Limit?
 
 [choice: ler_1]
 * yes: Yes
