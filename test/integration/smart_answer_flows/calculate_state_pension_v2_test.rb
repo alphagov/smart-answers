@@ -232,6 +232,13 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_current_node :age_result
         assert_state_variable :state_pension_age, "67 years"
       end
+
+      should "show the correct number of days for people born on 29th February" do
+        add_response :female
+        add_response Date.parse('29 February 1952')
+        assert_current_node :age_result
+        assert_state_variable :state_pension_age, '61 years, 10 months, 8 days'
+      end
     end
   end # age calculation
 
