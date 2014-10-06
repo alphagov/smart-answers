@@ -26,13 +26,13 @@ module SmartAnswer::Calculators
       should "calculate last_payment_date where end of month is not a work day" do
         ['bank-giro'].each do |pay_method|
           calc = VatPaymentDeadlines.new(Date.parse('2013-10-31'), pay_method)
-          assert_equal Date.parse('2013-12-03'), calc.last_payment_date
+          assert_equal Date.parse('2013-12-04'), calc.last_payment_date
 
           calc = VatPaymentDeadlines.new(Date.parse('2014-04-30'), pay_method)
-          assert_equal Date.parse('2014-06-03'), calc.last_payment_date
+          assert_equal Date.parse('2014-06-04'), calc.last_payment_date
 
           calc = VatPaymentDeadlines.new(Date.parse('2014-07-31'), pay_method)
-          assert_equal Date.parse('2014-09-02'), calc.last_payment_date
+          assert_equal Date.parse('2014-09-03'), calc.last_payment_date
         end
       end
     end
@@ -84,7 +84,7 @@ module SmartAnswer::Calculators
       context "dates for #{method}" do
         should "calculate last_payment_date as end_of_month_after(end_date) + 7 calendar days - 3 working days" do
           calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), method)
-          assert_equal Date.parse('2013-06-04'), calc.last_payment_date
+          assert_equal Date.parse('2013-06-05'), calc.last_payment_date
         end
 
         should "calculate funds_received_by as end_of_month_after(end_date) + 7 days if that's a work day" do
@@ -103,22 +103,6 @@ module SmartAnswer::Calculators
       setup do
         @method = 'chaps'
       end
-
-      # should "calculate last_payment_date as end_of_month_after(end_date) + 7 days" do
-      #   calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-      #   assert_equal Date.parse('2013-06-07'), calc.last_payment_date
-      # end
-
-      # should "calculate funds_received_by as end_of_month_after(end_date) + 7 days" do
-      #   calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), @method)
-      #   assert_equal Date.parse('2013-06-07'), calc.funds_received_by
-      # end
-
-      # #date falling in weekend
-      # should "calculate funds_received_by as end_of_month_after(end_date) + 7 days = falls in weekend therefore result is preceding working day" do
-      #   calc = VatPaymentDeadlines.new(Date.parse('2015-04-30'), @method)
-      #   assert_equal Date.parse('2015-06-05'), calc.funds_received_by
-      # end
 
       should "The last date you can pay is [period_end_date + 1 calendar month + 7 calendar days. If the 7th is a BH or WE go back to the last preceding working day. Same for either payment date and funds_received_by date" do
         calc = VatPaymentDeadlines.new(Date.parse('2013-11-30'), @method)
