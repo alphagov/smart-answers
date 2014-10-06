@@ -2,10 +2,10 @@
 
 {{snippet: mat-leave}}
 
-{{snippet: pat-pay}}
-
 {{snippet: pat-leave}}
 
-{{snippet: additional-pat-pay}}
+{{snippet: pat-pay}}
 
 {{snippet: additional-pat-leave}}
+
+{{snippet: additional-pat-pay}}
