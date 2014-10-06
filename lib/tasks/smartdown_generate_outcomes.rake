@@ -34,10 +34,8 @@ namespace :smartdown_generate_outcomes do
       node_filepath = File.join(smartdown_flow_path(flow.name), "outcomes", "#{node_name}.txt")
       _, *node_aspects = node_name.split('_')
 
-      title = "\# #{node_name.humanize}"
-
-      node_content = ([title] + node_aspects.map { |aspect|
-        "{{snippet: #{aspect}}}"}).join("\n\n")+"\n"
+      node_content = node_aspects.map { |aspect|
+        "{{snippet: #{aspect}}}"}.join("\n\n")+"\n"
 
       File.write(node_filepath, node_content)
     end

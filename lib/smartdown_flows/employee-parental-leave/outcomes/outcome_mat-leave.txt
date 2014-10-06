@@ -1,3 +1,1 @@
-# Outcome mat-leave
-
 {{snippet: mat-leave}}

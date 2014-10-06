@@ -1,3 +1,1 @@
-# Outcome adopt-nothing
-
 {{snippet: adopt-nothing}}
