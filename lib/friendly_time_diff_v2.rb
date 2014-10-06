@@ -51,13 +51,7 @@ private
 
     def whole_days_away
       closest_month_anniversary_before_to_date = (from_date >> month_difference)
-      days = (to_date - closest_month_anniversary_before_to_date).to_i
-      days -= 1 if leap_year_birthday?
-      days
-    end
-
-    def leap_year_birthday?
-      Date.new(from_date.year).leap? && (from_date.month == 2 && from_date.day == 29)
+      (to_date - closest_month_anniversary_before_to_date).to_i
     end
   end
 end

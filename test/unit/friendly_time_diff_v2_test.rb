@@ -59,6 +59,6 @@ class FriendlyTimeDiffTestV2 < MiniTest::Unit::TestCase
 
   should "avoid edge cases for 29th feb" do
     assert_equal "4 years", friendly_time_diff_v2(Date.parse('2004-02-29'), Date.parse("2008-02-29"))
-    assert_equal "4 years", friendly_time_diff_v2(Date.parse('2004-02-29'), Date.parse("2008-03-01"))
+    assert_equal "4 years, 1 day", friendly_time_diff_v2(Date.parse('2004-02-29'), Date.parse("2008-03-01"))
   end
 end

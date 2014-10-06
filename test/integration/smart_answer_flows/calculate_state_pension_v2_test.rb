@@ -232,6 +232,13 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         assert_current_node :age_result
         assert_state_variable :state_pension_age, "67 years"
       end
+
+      should "show the correct number of days for people born on 29th February" do
+        add_response :female
+        add_response Date.parse('29 February 1952')
+        assert_current_node :age_result
+        assert_state_variable :state_pension_age, '61 years, 10 months, 8 days'
+      end
     end
   end # age calculation
 
@@ -251,6 +258,49 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
 
       should "ask for date of birth" do
         assert_current_node :dob_amount?
+      end
+
+      context 'between 7 and 10 years NI including credits
+               born within automatic NI age group (1959-04-06 - 1992-04-05)' do
+        setup do
+          add_response Date.parse('1971-08-02')
+          add_response 8
+          add_response 0
+          add_response :no
+        end
+
+        should "take me to Amount Result without asking Have you lived or worked outside the UK?" do
+          assert_current_node :amount_result
+        end
+      end
+
+      context 'Born after 1992-04-05' do
+        context "more than 10 years NI contributions" do
+          setup do
+            Timecop.travel('2030-04-06')
+            add_response Date.parse('1999-04-06')
+            add_response 11
+            add_response 0
+            add_response :no
+          end
+
+          should "take me to years of work" do
+            assert_current_node :years_of_work?
+          end
+        end
+
+        context "less than 10 years NI contributions" do
+          setup do
+            add_response Date.parse('1992-04-06')
+            add_response 2
+            add_response 0
+            add_response :no
+          end
+
+          should "take me to lived or worked outside the UK" do
+            assert_current_node :lived_or_worked_outside_uk?
+          end
+        end
       end
 
       context "give a date in the future" do
