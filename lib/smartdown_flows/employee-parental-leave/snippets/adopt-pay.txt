@@ -6,7 +6,7 @@ The primary adopter can get up to 39 weeks of [adoption pay](/adoption-pay-leave
 - | -
 Adoption pay dates | %{date_leave_1} to %{end_of_adoption_pay(date_leave_1)}
 Weekly rate | %{rate_of_sap(salary_1)}
-Total estimated pay | %{total_sap(rate_of_sap)}
+Total estimated pay | %{total_sap(salary_1)}
 Tell your employer by | %{notice_date_sap(match_date)}
 
 Tax and National Insurance will be deducted. 
