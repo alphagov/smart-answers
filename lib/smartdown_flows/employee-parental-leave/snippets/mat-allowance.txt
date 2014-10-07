@@ -1,25 +1,25 @@
-##Maternity Allowance
+##Maternity allowance
 
-The mother can get [Maternity Allowance](/maternity-allowance) from the government for up to 39 weeks.
+The mother can get [maternity allowance](/maternity-allowance) from the government for up to 39 weeks.
 
  | Dates and amounts
 - | -
-Maternity Allowance can start on | %{start_of_maternity_allowance(due_date)}
+Maternity allowance can start on | %{start_of_maternity_allowance(due_date)}
 Weekly rate | %{rate_of_maternity_allowance(salary_1_66_weeks)}
 Total estimated allowance | %{total_maternity_allowance(salary_1_66_weeks)}
 Claim from | %{claim_date_maternity_allowance(due_date)}
 
-%The mother must claim Maternity Allowance to find out if she qualifies and what she’ll get.%
+%The mother must claim maternity allowance to find out if she qualifies and what she’ll get.%
 
-The mother won’t have to pay tax on her Maternity Allowance. She can claim it as soon as she’s been pregnant for 26 weeks.
+The mother won’t have to pay tax on her maternity allowance.
 
 ###Extra help
 
 The mother could also get:
 
-- a £500 Sure Start Maternity Grant (usually if it’s her first child)
+- a £500 [Sure Start Maternity Grant](/sure-start-maternity-grant) (usually if it’s her first child)
 - benefits while she’s not working
-- Child Tax Credits - after the baby is born
-- Child Benefit - after the baby is born
+- Child Tax Credits (after the baby is born)
+- Child Benefit (after the baby is born)
 
 Use the [benefits calculators](/benefits-calculators) to check what benefits or tax credits the mother can get.

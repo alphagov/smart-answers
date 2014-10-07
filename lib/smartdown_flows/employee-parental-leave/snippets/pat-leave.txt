@@ -1,10 +1,10 @@
 ##Paternity leave
 
-The mother’s partner can take up to 2 weeks of [Ordinary Paternity Leave](/paternity-pay-leave/leave). 
+The mother’s partner can take up to 2 weeks of [ordinary paternity leave](/paternity-pay-leave/leave). 
 
  | Dates
 - | -
-Ordinary Paternity leave | %{date_leave_2} up to %{end_of_paternity_leave(date_leave_2)}
+Ordinary paternity leave | %{date_leave_2} up to %{end_of_paternity_leave(date_leave_2)}
 Tell your employer by | %{paternity_leave_notice_date(due_date)}
 Paternity leave must be used between| %{due_date} to %{latest_pat_leave(due_date)}
 
