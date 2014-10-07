@@ -89,11 +89,20 @@ module SmartAnswer
           assert_equal 1, call_count
         end
 
-        should "take a lambda" do
-          call_count = 0
-          predicate = Callable.new("label", ->(_) { call_count += 1 })
-          predicate.call(@state, nil)
-          assert_equal 1, call_count
+        context "take a lambda" do
+          should "accept a lambda with arity of 1" do
+            call_count = 0
+            predicate = Callable.new("label", ->(_) { call_count += 1 })
+            predicate.call(@state, nil)
+            assert_equal 1, call_count
+          end
+
+          should "accept a lambda with arity of 0" do
+            call_count = 0
+            predicate = Callable.new("label", -> { call_count += 1 })
+            predicate.call(@state, nil)
+            assert_equal 1, call_count
+          end
         end
 
         should "evaluate its callable in the context of the given state" do
