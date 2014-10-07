@@ -1,7 +1,7 @@
 ##Shared parental pay (partner)
 
 The mother’s partner qualifies for [Statutory Shared Parental Pay](/shared-parental-leave-and-pay/overview) (ShPP). It lasts for up to 39 weeks, minus any weeks of maternity pay or Maternity Allowance the mother has received.
- 
+
 | Amount
-- | - 
+- | -
 ShPP | %{rate_of_shpp(salary_2)}

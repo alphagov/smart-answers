@@ -3,5 +3,5 @@
 The mother qualifies for [Statutory Shared Parental Pay](/shared-parental-leave-and-pay/overview) (ShPP). It lasts for up to 39 weeks, minus any weeks of maternity pay or Maternity Allowance they’ve received.
 
 | Amount
-- | - 
+- | -
 Shared parental pay | %{rate_of_shpp(salary_1)}
