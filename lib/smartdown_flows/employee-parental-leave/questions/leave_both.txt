@@ -1,12 +1,12 @@
 # Leave
 
-# When does the mother want to start their leave?
+# When does the mother want to start maternity leave?
 
 They can’t start before %{earliest_start(due_date)} or after %{due_date}.
 
 [date:date_leave_1]
 
-# When does the mother’s partner want to start their leave?
+# When does the mother’s partner want to start paternity leave?
 
 They can’t start before %{due_date} or end after %{latest_pat_leave(due_date)}.
 

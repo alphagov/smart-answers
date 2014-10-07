@@ -1,12 +1,14 @@
-# Circumstances
+# Your circumstances
 
 # Are you having a baby or adopting?
 
 [choice: circumstance]
-* birth: Birth
+* birth: birth
 * adoption: Adoption
 
-# Will you care for the child with either:
+# Will you care for the child with a partner?
+
+To qualify for Shared Parental Leave you’ll need to share the care of your child with:
 
 - your husband, wife, civil partner or joint adopter
 - the child’s other parent

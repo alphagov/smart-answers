@@ -1,4 +1,4 @@
-# Further employment details partner
+# Partner’s employment details
 
 # Will the mother’s partner have earned at least £390 in any 13 week period between %{earnings_test_start_date(due_date)} and %{due_date}?
 

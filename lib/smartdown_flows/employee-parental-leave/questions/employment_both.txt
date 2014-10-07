@@ -1,6 +1,8 @@
-# Employment
+# Your employment statuses
 
 # What’s the employment status of the mother?
+
+Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
 
 [choice: employment_status_1]
 * employee: Employee contract
@@ -10,6 +12,8 @@
 * unemployed: Unemployed
 
 # What’s the employment status of the mother’s partner?
+
+The partner may get a short period of leave and be able to share the maternity leave.
 
 [choice: employment_status_2]
 * employee: Employee contract
