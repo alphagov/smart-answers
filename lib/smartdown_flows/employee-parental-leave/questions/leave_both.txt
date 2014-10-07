@@ -8,7 +8,9 @@ They can’t start before %{earliest_start(due_date)} or after %{due_date}.
 
 # When does the mother’s partner want to start paternity leave?
 
-They can’t start before %{due_date} or end after %{latest_pat_leave(due_date)}.
+Paternity leave can last for up to two weeks. It can’t start before %{due_date} or end after %{latest_pat_leave(due_date)}.
+
+Enter %{due_date} if the mother’s partner doesn’t want to take paternity leave.
 
 [date:date_leave_2]
 

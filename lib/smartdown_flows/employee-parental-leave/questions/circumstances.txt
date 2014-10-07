@@ -3,12 +3,12 @@
 # Are you having a baby or adopting?
 
 [choice: circumstance]
-* birth: birth
+* birth: Birth
 * adoption: Adoption
 
 # Will you care for the child with a partner?
 
-To qualify for Shared Parental Leave you’ll need to share the care of your child with:
+To qualify for shared parental leave you’ll need to share the care of your child with:
 
 - your husband, wife, civil partner or joint adopter
 - the child’s other parent
