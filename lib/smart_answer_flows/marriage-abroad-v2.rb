@@ -676,7 +676,7 @@ outcome :outcome_os_consular_cni do
       elsif residency_country == 'italy'
         phrases << :consular_cni_os_local_resident_italy_two
       elsif %w(germany spain).exclude?(residency_country)
-        phrases << :display_notice_of_marriage_21_days
+        phrases << :display_notice_of_marriage_7_days
       end
     end
     if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country
