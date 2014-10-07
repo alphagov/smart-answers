@@ -782,7 +782,7 @@ outcome :outcome_os_consular_cni do
         phrases << :consular_cni_os_fees_russia
       elsif ceremony_country == 'finland'
         phrases << :pay_in_euros_or_visa_electron
-      elsif ceremony_country != 'cote-d-ivoire'
+      elsif !%w(cote-d-ivoire burundi).include? ceremony_country
         phrases << :pay_by_cash_or_credit_card_no_cheque
       end
     end
