@@ -1,4 +1,4 @@
-# Salary details mother
+# Mother’s salary details
 
 # How much did you earn between %{earnings_test_start_date(due_date)} and %{due_date}?
 

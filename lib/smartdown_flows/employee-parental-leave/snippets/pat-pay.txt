@@ -8,7 +8,7 @@ Statutory Paternity Pay dates | %{date_leave_2} up to %{end_of_paternity_leave(d
 Weekly rate | %{rate_of_paternity_pay(salary_2)}
 Tell your employer by | %{paternity_pay_notice_date(date_leave_2)}
 
-%This is an estimate, their employer will confirm if they qualify and how much they’ll get.%
+%Their employer will confirm if they qualify and how much they’ll get.%
 
 ###Extra help
 

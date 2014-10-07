@@ -96,6 +96,12 @@ module SmartdownPlugins
       assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.latest_pat_leave(date)
     end
 
+    test "lower_earnings_start returns a date 23 weeks after the given date" do
+      date = Smartdown::Model::Answer::Date.new(:question, "2014-1-1")
+      expected = Smartdown::Model::Answer::Date.new(:question, "2013-7-24")
+      assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.lower_earnings_start(date)
+    end
+
     test "minimum_start_date returns a date 41 weeks before the given date" do
       date = Smartdown::Model::Answer::Date.new(:question, "2014-1-1")
       expected = Smartdown::Model::Answer::Date.new(:question, "2013-3-20")

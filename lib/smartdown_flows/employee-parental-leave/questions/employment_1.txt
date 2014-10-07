@@ -1,24 +1,24 @@
-# Employment mother
+# Mother’s employment details
 
-# Did the mother start their current or most recent job before %{minimum_start_date(due_date)}?
+# Did the mother start her current or most recent job before %{minimum_start_date(due_date)}?
 
 [choice: job_before_x_1]
 * yes: Yes
 * no: No
 
-# Was the mother still working in that job on %{minimum_end_date(due_date)}?
+# Was the mother (or will she be) still working in that job on %{minimum_end_date(due_date)}?
 
 [choice: job_after_y_1]
 * yes: Yes
 * no: No
 
-# How much does the mother earn?
+# How much does the mother earn (or did she earn, if she’s left her job)?
 
-This is your total take-home pay before any deductions, eg tax.
+This is her total take-home pay before any deductions, eg tax.
 
 [salary: salary_1]
 
-# Does the mother earn more than the Lower Earnings Limit?
+# Has the mother earned (or will she have earned) more than £109 per week between %{lower_earnings_start(due_date)} and %{minimum_end_date(due_date)}?
 
 [choice: ler_1]
 * yes: Yes

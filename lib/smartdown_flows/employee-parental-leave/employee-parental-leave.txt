@@ -13,13 +13,15 @@ Shared parental leave and pay are only available in England, Scotland and Wales.
 
 ## Before you start
 
-You’ll need information about you and your partner (if you’ll share the care of the child with them). You’ll need to know:
+You’ll need to know:
 
-* their employment statuses (eg employed or worker)
-* the dates they started their current jobs
-* the dates they finished work (if they’ve finished)
-* how much they earn
-* when they want their leave to start
-* how much leave they want to take
+* your employment status (eg employed or worker)
+* the date you started your current job
+* the date you finished work (if you’ve finished)
+* how much you earn
+* when you want your leave to start
+* how much leave you want to take
+
+^ You’ll need the same information about your partner if you plan to share the care of the child with them.^
 
 [start: circumstances]
