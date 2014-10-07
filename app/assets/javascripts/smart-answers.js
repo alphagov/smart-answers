@@ -136,7 +136,7 @@ $(document).ready(function() {
     correctOffscreen: function() {
       $latestQuestion = $('.smart_answer .done-questions li.done:last-child');
       if (!$latestQuestion.length) {
-        $latestQuestion = $('.smart_answer .step.current');
+        $latestQuestion = $('body');
       }
 
       if(this.latestQuestionIsOffScreen($latestQuestion)) {
