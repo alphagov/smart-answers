@@ -65,7 +65,7 @@ module SmartdownPlugins
     end
 
     def self.lower_earnings_start(date)
-      date - 23.weeks
+      build_date_answer(date - 23.weeks)
     end
 
     def self.minimum_start_date(date)
