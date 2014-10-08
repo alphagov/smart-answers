@@ -112,7 +112,7 @@ multiple_choice :residency_uk? do
 
   on_condition(responded_with(%w{uk_iom uk_ci})) do
     next_node_if(:what_is_your_partners_nationality?,
-      ->(_) {
+      -> {
         data_query.os_other_countries?(ceremony_country) ||
         data_query.ss_marriage_countries?(ceremony_country) ||
         data_query.ss_marriage_and_partnership?(ceremony_country) ||
@@ -230,18 +230,18 @@ multiple_choice :partner_opposite_or_same_sex? do
   next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
   on_condition(responded_with('opposite_sex')) do
     next_node_if(:outcome_os_indonesia, variable_matches(:ceremony_country, "indonesia"))
-    next_node_if(:outcome_os_consular_cni, ->(_) {
+    next_node_if(:outcome_os_consular_cni, -> {
       data_query.os_consular_cni_countries?(ceremony_country) or (resident_of == 'uk' and data_query.os_no_marriage_related_consular_services?(ceremony_country))
      })
     next_node_if(:outcome_os_consular_cni, ceremony_in_finland_uk_resident_partner_not_irish)
     next_node_if(:outcome_os_consular_cni, ceremony_in_mexico_partner_british)
-    next_node_if(:outcome_os_affirmation, ->(_) { data_query.os_affirmation_countries?(ceremony_country) })
-    next_node_if(:outcome_os_commonwealth, ->(_) { data_query.commonwealth_country?(ceremony_country) or ceremony_country == 'zimbabwe' })
-    next_node_if(:outcome_os_bot, ->(_) { data_query.british_overseas_territories?(ceremony_country) })
-    next_node_if(:outcome_os_no_cni, ->(_) {
+    next_node_if(:outcome_os_affirmation, -> { data_query.os_affirmation_countries?(ceremony_country) })
+    next_node_if(:outcome_os_commonwealth, -> { data_query.commonwealth_country?(ceremony_country) or ceremony_country == 'zimbabwe' })
+    next_node_if(:outcome_os_bot, -> { data_query.british_overseas_territories?(ceremony_country) })
+    next_node_if(:outcome_os_no_cni, -> {
       data_query.os_no_consular_cni_countries?(ceremony_country) or (resident_of == 'other' and data_query.os_no_marriage_related_consular_services?(ceremony_country))
     })
-    next_node_if(:outcome_os_other_countries, ->(_) {
+    next_node_if(:outcome_os_other_countries, -> {
       data_query.os_other_countries?(ceremony_country)
     })
   end
@@ -274,16 +274,16 @@ multiple_choice :partner_opposite_or_same_sex? do
 
   next_node_if(:outcome_os_consular_cni, variable_matches(:ceremony_country, "spain"))
 
-  next_node_if(:outcome_cp_cp_or_equivalent, ->(_) {
+  next_node_if(:outcome_cp_cp_or_equivalent, -> {
     data_query.cp_equivalent_countries?(ceremony_country)
   })
-  next_node_if(:outcome_cp_no_cni, ->(_) {
+  next_node_if(:outcome_cp_no_cni, -> {
     data_query.cp_cni_not_required_countries?(ceremony_country)
   })
-  next_node_if(:outcome_cp_commonwealth_countries, ->(_) {
+  next_node_if(:outcome_cp_commonwealth_countries, -> {
     %w(canada new-zealand south-africa).include?(ceremony_country)
   })
-  next_node_if(:outcome_cp_consular, ->(_) {
+  next_node_if(:outcome_cp_consular, -> {
     data_query.cp_consular_countries?(ceremony_country)
   })
   next_node(:outcome_cp_all_other_countries)
@@ -676,7 +676,7 @@ outcome :outcome_os_consular_cni do
       elsif residency_country == 'italy'
         phrases << :consular_cni_os_local_resident_italy_two
       elsif %w(germany spain).exclude?(residency_country)
-        phrases << :display_notice_of_marriage_21_days
+        phrases << :display_notice_of_marriage_7_days
       end
     end
     if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country
