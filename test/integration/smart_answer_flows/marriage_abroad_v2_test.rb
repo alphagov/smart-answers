@@ -1011,6 +1011,21 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :documents_for_divorced_or_widowed, :affirmation_os_partner_not_british, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+  #testing for ceremony in Cambodia, resident anywhere, partner other
+  context "ceremony in Cambodia, resident in Cambodia, partner other" do
+    setup do
+      worldwide_api_has_organisations_for_location('cambodia', read_fixture_file('worldwide/cambodia_organisations.json'))
+      add_response 'cambodia'
+      add_response 'other'
+      add_response 'cambodia'
+      add_response 'partner_other'
+      add_response 'opposite_sex'
+    end
+    should "go to os affirmation outcome" do
+      assert_current_node :outcome_os_affirmation
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :documents_for_divorced_or_widowed, :affirmation_os_partner_not_british, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+    end
+  end
 
   #tests for no cni or consular services
   #testing for dutch caribbean islands

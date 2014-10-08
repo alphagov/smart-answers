@@ -820,7 +820,7 @@ outcome :outcome_os_affirmation do
         phrases << :affirmation_os_other_resident
       end
     end
-    phrases << :affirmation_os_all_what_you_need_to_do unless %w(morocco ecuador).include? ceremony_country
+    phrases << :affirmation_os_all_what_you_need_to_do unless %w(cambodia ecuador morocco ).include? ceremony_country
     phrases << :affirmation_os_uae if ceremony_country == 'united-arab-emirates'
 #What you need to do section
     if %w(turkey egypt).include?(ceremony_country)
@@ -877,13 +877,13 @@ outcome :outcome_os_affirmation do
     if ceremony_country == 'turkey'
       phrases << :documents_for_divorced_or_widowed
     else
-      if %w(morocco ecuador).include? ceremony_country
+      if %w(cambodia ecuador morocco).include? ceremony_country
         phrases << :documents_for_divorced_or_widowed
       else
         phrases << :docs_decree_and_death_certificate
       end
-      phrases << :divorced_or_widowed_evidences unless %w(egypt ecuador morocco).include?(ceremony_country)
-      phrases << :change_of_name_evidence unless %w(morocco ecuador).include?(ceremony_country)
+      phrases << :divorced_or_widowed_evidences unless %w(cambodia ecuador egypt morocco).include?(ceremony_country)
+      phrases << :change_of_name_evidence unless %w(cambodia ecuador morocco).include?(ceremony_country)
       if ceremony_country == 'egypt'
         if partner_nationality == 'partner_british'
           phrases << :partner_declaration
@@ -915,7 +915,7 @@ outcome :outcome_os_affirmation do
 #fee tables
     if %w(china south-korea thailand turkey vietnam).include?(ceremony_country)
       phrases << :fee_table_affidavit_55
-    elsif %w(morocco ecuador).include? ceremony_country
+    elsif %w(cambodia ecuador morocco).include? ceremony_country
       phrases << :fee_table_affirmation_55
     elsif ceremony_country == 'finland'
       if partner_nationality == 'partner_irish' and resident_of == 'uk'
