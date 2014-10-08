@@ -449,9 +449,6 @@ outcome :outcome_os_consular_cni do
     ceremony_not_germany_or_not_resident_other = (ceremony_country != 'germany' or resident_of != 'other')
     ceremony_and_residency_in_croatia = (ceremony_country == 'croatia' and residency_country == 'croatia')
 
-    if (ceremony_country == 'ecuador') and (partner_nationality == 'partner_local') and (residency_country != 'ecuador')
-      phrases << :ecuador_os_consular_cni
-    end
     if (resident_of == 'uk') and (ceremony_country != 'italy') and not data_query.dutch_caribbean_islands?(ceremony_country)
       phrases << :uk_resident_os_consular_cni
     elsif residency_country == ceremony_country and ceremony_country != 'italy'
@@ -823,7 +820,7 @@ outcome :outcome_os_affirmation do
         phrases << :affirmation_os_other_resident
       end
     end
-    phrases << :affirmation_os_all_what_you_need_to_do unless ceremony_country == 'morocco'
+    phrases << :affirmation_os_all_what_you_need_to_do unless %w(morocco ecuador).include? ceremony_country
     phrases << :affirmation_os_uae if ceremony_country == 'united-arab-emirates'
 #What you need to do section
     if %w(turkey egypt).include?(ceremony_country)
@@ -880,13 +877,13 @@ outcome :outcome_os_affirmation do
     if ceremony_country == 'turkey'
       phrases << :documents_for_divorced_or_widowed
     else
-      if ceremony_country == 'morocco'
+      if %w(morocco ecuador).include? ceremony_country
         phrases << :documents_for_divorced_or_widowed
       else
         phrases << :docs_decree_and_death_certificate
       end
-      phrases << :divorced_or_widowed_evidences unless %w(egypt morocco).include?(ceremony_country)
-      phrases << :change_of_name_evidence unless ceremony_country == 'morocco'
+      phrases << :divorced_or_widowed_evidences unless %w(egypt ecuador morocco).include?(ceremony_country)
+      phrases << :change_of_name_evidence unless %w(morocco ecuador).include?(ceremony_country)
       if ceremony_country == 'egypt'
         if partner_nationality == 'partner_british'
           phrases << :partner_declaration
@@ -918,7 +915,7 @@ outcome :outcome_os_affirmation do
 #fee tables
     if %w(china south-korea thailand turkey vietnam).include?(ceremony_country)
       phrases << :fee_table_affidavit_55
-    elsif ceremony_country == 'morocco'
+    elsif %w(morocco ecuador).include? ceremony_country
       phrases << :fee_table_affirmation_55
     elsif ceremony_country == 'finland'
       if partner_nationality == 'partner_irish' and resident_of == 'uk'

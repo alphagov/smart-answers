@@ -1,0 +1,140 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-in-ecuador",
+      "title": "British Embassy Quito",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-07T22:29:56+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-in-ecuador",
+      "details": {
+        "slug": "british-embassy-in-ecuador"
+      },
+      "offices": {
+        "main": {
+          "title": "British Embassy",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-in-ecuador/office/british-embassy",
+          "details": {
+            "email": "",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>Consular opening hours: Monday to Thursday, 09.00 to 11.00 </p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2014:</p>\n\n<table><tbody>\n<tr>\n<td>Date</td>\n    </tr>\n<tr>\n<td>Wednesday 01  January</td>\n    </tr>\n<tr>\n<td>Monday  3  March</td>\n    </tr>\n<tr>\n<td>Tuesday 4  March</td>\n    </tr>\n<tr>\n<td>Friday 18 April</td>\n    </tr>\n<tr>\n<td>Monday 21 April</td>\n    </tr>\n<tr>\n<td>Thursday 01 May</td>\n    </tr>\n<tr>\n<td>Friday  23 May</td>\n    </tr>\n<tr>\n<td>Monday 25 August*</td>\n    </tr>\n<tr>\n<td>Friday 10 October</td>\n    </tr>\n<tr>\n<td>Monday 3 November</td>\n    </tr>\n<tr>\n<td>Friday 05 December</td>\n    </tr>\n<tr>\n<td>Wednesday 24 December</td>\n    </tr>\n<tr>\n<td>Thursday 25 December</td>\n    </tr>\n<tr>\n<td>Friday 26 December</td>\n    </tr>\n</tbody></table></div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Citiplaza Building,\r\nNaciones Unidas Avenue and Rep\u00fablica de El Salvador,\r\n14th Floor\r\n(Consular Section 12th floor)\r\nPO Box 17-17-830\r\nQuito",
+              "postal-code": "",
+              "locality": "",
+              "region": "",
+              "country-name": "Ecuador"
+            },
+            "label": {
+              "value": "Citiplaza Building,\r\nNaciones Unidas Avenue and Rep\u00fablica de El Salvador,\r\n14th Floor\r\n(Consular Section 12th floor)\r\nPO Box 17-17-830\r\nQuito\nEcuador"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Switchboard",
+              "number": "(593) (2) 2970 800 / 801 "
+            }
+          ],
+          "services": [
+            
+          ]
+        },
+        "other": [
+          
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-ecuador",
+      "title": "UK Trade & Investment Ecuador",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-06-11T18:41:30+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-ecuador",
+      "details": {
+        "slug": "uk-trade-investment-ecuador"
+      },
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Ecuador",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-ecuador/office/uk-trade-investment-ecuador",
+          "details": {
+            "email": "",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy Quito",
+              "street-address": "Naciones Unidas Ave. and Republica de El Salvador\r\nEdificio Citiplaza, 14th floor",
+              "postal-code": "",
+              "locality": "",
+              "region": "Quito",
+              "country-name": "Ecuador"
+            },
+            "label": {
+              "value": "British Embassy Quito\nNaciones Unidas Ave. and Republica de El Salvador\r\nEdificio Citiplaza, 14th floor\nQuito\nEcuador"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Switchboard",
+              "number": "(593) (2) 2970 800"
+            },
+            {
+              "label": "Switchboard (alternative)",
+              "number": "(593) (2) 2970 801"
+            }
+          ],
+          "services": [
+            
+          ]
+        },
+        "other": [
+          
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/ecuador/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}
