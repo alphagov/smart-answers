@@ -804,28 +804,30 @@ end
 outcome :outcome_os_affirmation do
   precalculate :affirmation_os_outcome do
     phrases = PhraseList.new
-    if ceremony_country == 'portugal'
-      phrases << :contact_civil_register_office_portugal
-    elsif resident_of == 'uk'
-      if ceremony_country == 'morocco'
-        phrases << :affirmation_os_uk_resident_ceremony_in_morocco
-      else
-        phrases << :affirmation_os_uk_resident
+    unless ceremony_country == 'colombia'
+      if ceremony_country == 'portugal'
+        phrases << :contact_civil_register_office_portugal
+      elsif resident_of == 'uk'
+        if ceremony_country == 'morocco'
+          phrases << :affirmation_os_uk_resident_ceremony_in_morocco
+        else
+          phrases << :affirmation_os_uk_resident
+        end
+      elsif (ceremony_country == residency_country) or ceremony_country == 'qatar'
+        phrases << :affirmation_os_local_resident
+        if ceremony_country == 'qatar'
+          phrases << :gulf_states_os_consular_cni << :gulf_states_os_consular_cni_local_resident_partner_not_irish
+        end
+      elsif ceremony_country != residency_country and resident_of != 'uk'
+        if ceremony_country == 'morocco'
+          phrases << :affirmation_os_other_resident_ceremony_in_morocco
+        else
+          phrases << :affirmation_os_other_resident
+        end
       end
-    elsif (ceremony_country == residency_country) or ceremony_country == 'qatar'
-      phrases << :affirmation_os_local_resident
-      if ceremony_country == 'qatar'
-        phrases << :gulf_states_os_consular_cni << :gulf_states_os_consular_cni_local_resident_partner_not_irish
-      end
-    elsif ceremony_country != residency_country and resident_of != 'uk'
-      if ceremony_country == 'morocco'
-        phrases << :affirmation_os_other_resident_ceremony_in_morocco
-      else
-        phrases << :affirmation_os_other_resident
-      end
+      phrases << :affirmation_os_all_what_you_need_to_do unless %w(cambodia ecuador morocco ).include? ceremony_country
+      phrases << :affirmation_os_uae if ceremony_country == 'united-arab-emirates'
     end
-    phrases << :affirmation_os_all_what_you_need_to_do unless %w(cambodia ecuador morocco ).include? ceremony_country
-    phrases << :affirmation_os_uae if ceremony_country == 'united-arab-emirates'
 #What you need to do section
     if %w(turkey egypt).include?(ceremony_country)
       phrases << :what_you_need_to_do
@@ -918,6 +920,7 @@ outcome :outcome_os_affirmation do
               phrases << :affirmation_os_partner_not_british
             end
           end
+          phrases << :consular_cni_os_all_names_but_germany if ceremony_country == 'colombia'
         end
       end
     end
