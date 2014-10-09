@@ -588,7 +588,11 @@ outcome :outcome_os_consular_cni do
       end
       if ceremony_country != 'germany'
         if cni_posted_after_7_days_countries.include?(ceremony_country)
-          phrases << :consular_cni_os_foreign_resident_3_days
+          if ceremony_country == 'macedonia'
+            phrases << :consular_cni_os_foreign_resident_3_days_macedonia
+          else
+            phrases << :consular_cni_os_foreign_resident_3_days
+          end
         else
           phrases << :consular_cni_os_foreign_resident_ceremony_country_not_germany
         end

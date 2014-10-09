@@ -718,6 +718,21 @@ en-GB:
           ###Giving notice of marriage
 
           You need to have been living in your country of residence for 3 days.
+        consular_cni_os_foreign_resident_3_days_macedonia: |
+          Contact the British Embassy in Macedonia to get advice
+
+          $C
+
+          British embassy Macedonia
+          Telephone: + 389 (2) 3299 299
+          consular.skopje@fco.gov.uk
+          $C
+
+          %You can't book an appointment to get advice at the embassy in person.%
+
+          ###Giving notice of marriage
+
+          You need to have been living in your country of residence for 3 days.
         consular_cni_os_commonwealth_resident: |
           If you need a certificate to prove you’re allowed to marry, you’ll have to give notice of your intended marriage in the country where you live.
 
