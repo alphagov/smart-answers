@@ -293,8 +293,25 @@ en-GB:
           Make an [appointment online](https://britishembassylapaz.clickbook.net/sub/britishembassylapaz) at the British Embassy in La Paz.
         book_online_chile: |
           Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsant) at the British Embassy in Santiago.
+        book_online_china_non_local_prelude:
+          Make an appointment online at your local British embassy or consulate in China to swear an affirmation/affadavit (written statement of facts) that you're free to marry. You'll need to bring your passport and pay a fee.
+        book_online_china_local_prelude:
+          Make an appointment online at the British embassy or consulate in China nearest to the address in your partner's Hukou (family registration) book, to swear an affirmation/affadavit (written statement of facts) that you're free to marry. You'll need to bring your passport, your partner's Hukou and pay a fee.
         book_online_china: |
           Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britembeijing?OpenDocument&cb_referer=) at the British Embassy Beijing.
+        book_online_china_affirmation_affidavit: |
+          - [Beijing](http://britembeijing.clickbook.net/)
+          - [Chongqing](http://britconchongqing.clickbook.net/)
+          - [Guangzhou](http://britconguangzhou.clickbook.net/)
+          - [Shanghai](http://britconshanghai.clickbook.net/)
+
+          You’ll need to complete an [‘Affirmation for marriage’](/government/publications/affirmation-form-china) (non-religious) form or an [‘Affidavit for marriage’](/government/publications/affidavit-form-china) (religious) form in English. Email the completed form to the embassy you have made your appointment with.
+
+          - Beijing - (consular.beijing@fco.gov.uk)
+          - Chongqing - (consular.chongqing@fco.gov.uk)
+          - Guangzhou - (consular.guangzhou@fco.gov.uk)
+          - Shanghai - (consular.shanghai@fco.gov.uk)
+
         book_online_colombia: |
           Make an [appointment online](https://britishembassybogota.clickbook.net/sub/britishembassybogota) at the British Embassy in Colombia.
         book_online_costa-rica: |
@@ -1070,6 +1087,9 @@ en-GB:
 
         affirmation_os_partner_british: |
           ^Your partner will probably need to get an affirmation as well.^
+
+        affirmation_affidavit_os_partner: |
+          ^Your partner will probably need to get an affirmation or affidavit as well.^
 
         affirmation_os_partner_not_british: |
           ^Your partner will probably need to get an equivalent document from their national authorities.^

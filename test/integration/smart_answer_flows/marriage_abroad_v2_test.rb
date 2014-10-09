@@ -1624,8 +1624,32 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_phrase_list :iom_ci_os_outcome, [:iom_ci_os_all, :iom_ci_os_resident_of_ci, :iom_ci_os_ceremony_italy]
     end
   end
-  #testing for china living outside uk
-  context "ceremony in china, resident in china" do
+  #testing for china
+  context "ceremony in china, partner is not from china, opposite sex" do
+    should "render multiple clickbooks" do
+      worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
+      add_response 'china'
+      add_response 'uk'
+      add_response 'uk_england'
+      add_response 'partner_irish'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_os_affirmation
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :book_online_china_non_local_prelude, :book_online_china_affirmation_affidavit, :documents_for_divorced_or_widowed, :change_of_name_evidence, :affirmation_affidavit_os_partner, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+    end
+  end
+  context "ceremony in china, partner is not from china, same sex" do
+    should "render multiple clickbooks" do
+      worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
+      add_response 'china'
+      add_response 'uk'
+      add_response 'uk_england'
+      add_response 'partner_irish'
+      add_response 'same_sex'
+      assert_current_node :outcome_ss_marriage
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :book_online_china, :documents_needed_ss_not_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+    end
+  end
+  context "ceremony in china, partner is national of china" do
     should "render multiple clickbooks" do
       worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
       add_response 'china'
@@ -1634,7 +1658,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :appointment_for_affidavit_china_addition, :affirmation_os_translation_in_local_language, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :affirmation_os_partner_not_british, :fee_table_affidavit_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :book_online_china_local_prelude, :book_online_china_affirmation_affidavit, :documents_for_divorced_or_widowed, :change_of_name_evidence, :affirmation_os_partner_not_british, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   #testing for japan

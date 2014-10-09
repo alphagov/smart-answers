@@ -844,15 +844,16 @@ outcome :outcome_os_affirmation do
       else
         phrases << :appointment_for_affidavit
       end
-      if ceremony_country == 'china' and partner_nationality == 'partner_local'
-        phrases << :appointment_for_affidavit_china_addition
-      end
       if ceremony_country == 'turkey'
         phrases << :affirmation_appointment_book_at_following
       end
     end
     if ceremony_country == 'finland'
       multiple_clickbooks ? phrases << :clickbook_links : phrases << :clickbook_link
+    end
+    if ceremony_country == 'china'
+      prelude = "book_online_china_#{partner_nationality != 'partner_local' ? 'non_' : ''}local_prelude".to_sym
+      phrases << prelude << :book_online_china_affirmation_affidavit
     end
     unless (ceremony_country == 'turkey' or residency_country == 'portugal')
       if ceremony_country == 'portugal'
@@ -861,7 +862,7 @@ outcome :outcome_os_affirmation do
         phrases << :embassies_data
       elsif ceremony_country == 'finland' and partner_nationality == 'partner_irish' and resident_of == 'uk'
         phrases << :affidavit_os_translation_in_local_language
-      else
+      elsif ceremony_country != 'china'
         phrases << :affirmation_os_translation_in_local_language
       end
     end
@@ -877,12 +878,12 @@ outcome :outcome_os_affirmation do
     if ceremony_country == 'turkey'
       phrases << :documents_for_divorced_or_widowed
     else
-      if %w(cambodia ecuador morocco).include? ceremony_country
+      if %w(cambodia china ecuador morocco).include? ceremony_country
         phrases << :documents_for_divorced_or_widowed
       else
         phrases << :docs_decree_and_death_certificate
       end
-      phrases << :divorced_or_widowed_evidences unless %w(cambodia ecuador egypt morocco).include?(ceremony_country)
+      phrases << :divorced_or_widowed_evidences unless %w(cambodia china ecuador egypt morocco).include?(ceremony_country)
       phrases << :change_of_name_evidence unless %w(cambodia ecuador morocco).include?(ceremony_country)
       if ceremony_country == 'egypt'
         if partner_nationality == 'partner_british'
@@ -907,13 +908,17 @@ outcome :outcome_os_affirmation do
           if partner_nationality == 'partner_british'
             phrases << :affirmation_os_partner_british
           else
-            phrases << :affirmation_os_partner_not_british
+            if ceremony_country == 'china' && partner_nationality != 'partner_local'
+              phrases << :affirmation_affidavit_os_partner
+            else
+              phrases << :affirmation_os_partner_not_british
+            end
           end
         end
       end
     end
 #fee tables
-    if %w(china south-korea thailand turkey vietnam).include?(ceremony_country)
+    if %w(south-korea thailand turkey vietnam).include?(ceremony_country)
       phrases << :fee_table_affidavit_55
     elsif %w(cambodia ecuador morocco).include? ceremony_country
       phrases << :fee_table_affirmation_55
