@@ -1,7 +1,11 @@
 module SmartAnswer::Calculators
   class MarriageAbroadDataQueryV2
 
-    COMMONWEALTH_COUNTRIES = %w(antigua-and-barbuda australia bahamas bangladesh barbados belize botswana brunei cameroon canada cyprus dominica fiji gambia ghana grenada guyana india jamaica kenya kiribati lesotho malawi malaysia maldives malta mauritius mozambique namibia nauru new-zealand nigeria pakistan papua-new-guinea st-kitts-and-nevis st-lucia st-vincent-and-the-grenadines samoa seychelles sierra-leone singapore solomon-islands south-africa sri-lanka swaziland tanzania tonga trinidad-and-tobago tuvalu uganda vanuatu zambia)
+
+    COMMONWEALTH_COUNTRIES = %w(antigua-and-barbuda australia bahamas bangladesh barbados belize botswana brunei cameroon canada cyprus dominica fiji gambia ghana grenada guyana india jamaica kenya kiribati lesotho malawi malaysia maldives malta mauritius mozambique namibia nauru new-zealand nigeria pakistan papua-new-guinea samoa seychelles sierra-leone singapore solomon-islands south-africa sri-lanka st-kitts-and-nevis st-lucia st-vincent-and-the-grenadines  swaziland tanzania tonga trinidad-and-tobago tuvalu uganda vanuatu zambia)
+
+    REQUIRES_7_DAY_NOTICE_CEREMONY_COUNTRIES = (COMMONWEALTH_COUNTRIES - %w(brunei gambia)) + %w(ireland rwanda st-lucia)
+    REQUIRED_7_DAY_NOTICE_RESIDENCY_COUNTRIES = %w(albania algeria, angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgeria croatia cuba ecuador estonia georgia greece hong-kong iceland iran italy japan kazakhstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua norway poland russia serbia spain sweden tajikistan tunisia tuekmenistan, ukraine uzbekistan venezuela)
 
     BRITISH_OVERSEAS_TERRITORIES = %w(anguilla bermuda british-antarctic-territory british-indian-ocean-territory british-virgin-islands cayman-islands falkland-islands gibraltar montserrat pitcairn-island st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
 
@@ -125,6 +129,11 @@ module SmartAnswer::Calculators
 
     def countries_without_consular_facilities?(country_slug)
       COUNTRIES_WITHOUT_CONSULAR_FACILITIES.include?(country_slug)
+    end
+
+    def requires_7_day_notice?(ceremony_country_slug, residency_country_slug)
+      REQUIRES_7_DAY_NOTICE_CEREMONY_COUNTRIES.include?(ceremony_country_slug) &&
+        REQUIRED_7_DAY_NOTICE_RESIDENCY_COUNTRIES.include?(residency_country_slug)
     end
   end
 end
