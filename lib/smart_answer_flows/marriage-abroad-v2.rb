@@ -713,13 +713,8 @@ outcome :outcome_os_consular_cni do
     if data_query.commonwealth_country?(residency_country) or residency_country == 'ireland' and ceremony_country == 'italy'
       phrases << :italy_os_consular_cni_four
     end
-    if ceremony_country != 'italy' and resident_of == 'uk'
-      if "partner_british" == partner_nationality or ("partner_local" == partner_nationality and "finland" == ceremony_country)
-        phrases << :partner_will_need_a_cni
-      end
-      if ("partner_other" == partner_nationality and "finland" == ceremony_country)
+    if ceremony_country != 'italy' and resident_of == 'uk' and "partner_other" == partner_nationality and "finland" == ceremony_country
         phrases << :callout_partner_equivalent_document
-      end
     end
     if partner_nationality == 'partner_british' and %w(italy germany finland).exclude?(ceremony_country)
       phrases << :consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british
