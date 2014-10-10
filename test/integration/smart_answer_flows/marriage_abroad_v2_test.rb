@@ -432,6 +432,20 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+  context "ceremony in germany, partner not german, same sex" do
+    setup do
+      worldwide_api_has_organisations_for_location('germany', read_fixture_file('worldwide/germany_organisations.json'))
+      add_response 'germany'
+      add_response 'other'
+      add_response 'germany'
+      add_response 'partner_other'
+      add_response 'same_sex'
+    end
+    should "go to cp or equivalent outcome" do
+      assert_current_node :outcome_ss_marriage
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_ss_not_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+    end
+  end
   #variants for uk residency (again)
   context "ceremony in azerbaijan, resident in scotland, partner non-irish" do
     setup do
