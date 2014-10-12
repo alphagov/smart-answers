@@ -26,5 +26,5 @@ The partner may get a short period of leave and be able to share the adoption le
 
 * employment_status_1 in {employee worker agency} => employment_1_adoption
 * employment_status_1 in {self-employed unemployed}
-  * employment_status_2 in {employee worker agency} => employment_1_more_adoption
+  * employment_status_2 in {employee worker agency} => employment_2_adoption
   * employment_status_2 in {self-employed unemployed} => outcome_adopt-nothing

@@ -7,22 +7,22 @@ They can’t start before %{earliest_start(placement_date)} or after %{match_dat
 [date: date_leave_1]
 
 * two_carers is 'no'
-  * job_before_x_1 is 'yes'
-    * match_date >= '2015-4-5' => outcome_adopt-leave_adopt-pay
-    * otherwise => outcome_adopt-leave_adopt-pay-pre-5-april
-  * otherwise => outcome_adopt-leave
+  * match_date >= '2015-4-5'
+    * employment_status_1 is 'employee' => outcome_adopt-leave_adopt-pay
+    * employment_status_1 in {worker agency} => outcome_adopt-pay
+  * otherwise
+    * employment_status_1 is 'employee' => outcome_adopt-leave_adopt-pay-pre-5-april
+    * employment_status_1 in {worker agency} => outcome_adopt-pay-pre-5-april
 * two_carers is 'yes'
-  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-    * match_date >= '2015-4-5'
-      * employment_status_2 in {employee self-employed unemployed}
+  * match_date >= '2015-4-5'
+    * employment_status_1 is 'employee'
+      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
         * earnings_employment_2 is 'yes' => outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay
         * earnings_employment_2 is 'no' => outcome_adopt-leave_adopt-pay
-      * employment_status_2 in {worker agency}
-        * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes' => outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay_pat-pay_pat-shared-pay
-        * otherwise
-          * earnings_employment_2 is 'yes' => outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay
-          * earnings_employment_2 is 'no' => outcome_adopt-leave_adopt-pay
-    * otherwise => outcome_adopt-leave_adopt-pay
+      * otherwise => outcome_adopt-leave
+    * employment_status_1 in {worker agency}
+      * earnings_employment_2 is 'yes' => outcome_adopt-pay_adopt-shared-pay
+      * earnings_employment_2 is 'no' => outcome_adopt-pay
   * otherwise
-    * match_date >= '2015-4-5' => outcome_adopt-leave
-    * otherwise => outcome_adopt-nothing
+    * employment_status_1 is 'employee' => outcome_adopt-leave_adopt-pay-pre-5-april
+    * employment_status_1 in {worker agency} => outcome_adopt-pay-pre-5-april

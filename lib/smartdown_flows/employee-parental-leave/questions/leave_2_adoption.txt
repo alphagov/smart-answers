@@ -6,17 +6,17 @@ They can’t start before %{match_date} or end after %{latest_pat_leave(match_da
 
 [date:date_leave_2]
 
-* employment_status_1 in {agency worker}
-  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-    * match_date >= '2015-4-5' => outcome_adopt-pay_adopt-shared-pay_adopt-pat-leave_pat-pay_adopt-pat-shared-leave_pat-shared-pay
-    * otherwise => outcome_adopt-pay_adopt-pat-leave_pat-pay_adopt-additional-pat-leave_additional-pat-pay-from-match-date
-  * otherwise
-    * match_date >= '2015-4-5'
+* match_date >= '2015-4-5'
+  * employment_status_2 is 'employee'
+    * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
       * earnings_employment_1 is 'yes' => outcome_adopt-pat-leave_pat-pay_adopt-pat-shared-leave_pat-shared-pay
       * earnings_employment_1 is 'no' => outcome_adopt-pat-leave_pat-pay
-    * otherwise => outcome_adopt-pat-leave_pat-pay_adopt-additional-pat-leave_additional-pat-pay-from-match-date
-* employment_status_1 in {self-employed unemployed employee}
-  * match_date >= '2015-4-5'
-    * earnings_employment_1 is 'yes' => outcome_adopt-pat-leave_pat-pay_adopt-pat-shared-leave_pat-shared-pay
-    * earnings_employment_1 is 'no' => outcome_adopt-pat-leave_pat-pay
-  * otherwise => outcome_adopt-pat-leave_pat-pay_adopt-additional-pat-leave_additional-pat-pay-from-match-date
+    * otherwise => outcome_adopt-pat-leave_pat-pay
+  * employment_status_2 in {worker agency}
+    * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
+      * earnings_employment_1 is 'yes' => outcome_pat-pay_pat-shared-pay
+      * earnings_employment_1 is 'no' =>  outcome_pat-pay
+    * otherwise => outcome_pat-pay
+* otherwise
+  * employment_status_2 is 'employee' => outcome_adopt-pat-leave_pat-pay_adopt-additional-pat-leave_additional-pat-pay-from-match-date
+  * employment_status_2 in {worker agency} => outcome_pat-pay_additional-pat-pay-from-match-date

@@ -33,10 +33,18 @@ This is your total take-home pay before any deductions, eg tax.
       * otherwise => leave_1_adoption
 * otherwise
   * two_carers is 'no'
-    * match_date >= '2015-4-5' => leave_1_adoption
+    * match_date >= '2015-4-5'
+      * job_after_y_1 is 'yes' => leave_1_adoption
+      * job_after_y_1 is 'no' => outcome_adopt-nothing
     * otherwise => outcome_adopt-nothing
   * two_carers is 'yes'
-    * employment_status_2 in {employee worker agency} => employment_1_more_adoption
+    * employment_status_2 in {employee worker agency} => employment_2_adoption
     * employment_status_2 in {self-employed unemployed}
-      * match_date >= '2015-4-5' => leave_1_adoption
+      * match_date >= '2015-4-5'
+        * employment_status_1 is 'employee'
+          * job_after_y_1 is 'yes' => leave_1_adoption
+          * job_after_y_1 is 'no' => outcome_adopt-nothing
+        * employment_status_1 is 'worker'
+          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_1_adoption
+          * otherwise => outcome_adopt-nothing
       * otherwise => outcome_adopt-nothing

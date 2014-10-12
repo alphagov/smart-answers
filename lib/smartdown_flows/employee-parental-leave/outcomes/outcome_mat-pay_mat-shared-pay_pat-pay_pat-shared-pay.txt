@@ -1,0 +1,7 @@
+{{snippet: mat-pay}}
+
+{{snippet: mat-shared-pay}}
+
+{{snippet: pat-pay}}
+
+{{snippet: pat-shared-pay}}

@@ -1,0 +1,3 @@
+{{snippet: pat-pay}}
+
+{{snippet: pat-shared-pay}}
