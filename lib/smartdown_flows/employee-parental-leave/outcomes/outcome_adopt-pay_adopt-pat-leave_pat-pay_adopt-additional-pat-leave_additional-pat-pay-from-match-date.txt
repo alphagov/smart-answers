@@ -1,9 +1,0 @@
-{{snippet: adopt-pay}}
-
-{{snippet: adopt-pat-leave}}
-
-{{snippet: pat-pay}}
-
-{{snippet: adopt-additional-pat-leave}}
-
-{{snippet: additional-pat-pay-from-match-date}}

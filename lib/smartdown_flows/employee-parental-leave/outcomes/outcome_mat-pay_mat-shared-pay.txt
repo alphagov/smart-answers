@@ -1,3 +1,0 @@
-{{snippet: mat-pay}}
-
-{{snippet: mat-shared-pay}}
