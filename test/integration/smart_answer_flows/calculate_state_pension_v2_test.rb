@@ -292,13 +292,13 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         context "less than 10 years NI contributions" do
           setup do
             add_response Date.parse('1992-04-06')
-            add_response 2
+            add_response 0
             add_response 0
             add_response :no
           end
 
-          should "take me to lived or worked outside the UK" do
-            assert_current_node :lived_or_worked_outside_uk?
+          should "take me to lived years of work" do
+            assert_current_node :years_of_work?
           end
         end
       end

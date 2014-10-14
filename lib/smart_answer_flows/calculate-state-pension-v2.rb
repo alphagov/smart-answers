@@ -297,7 +297,7 @@ multiple_choice :received_child_benefit? do
 
   define_predicate(:new_rules_and_less_than_10_ni?) {
     ni_and_credits = ni + calculator.starting_credits
-    calculator.new_rules_and_less_than_10_ni? ni_and_credits
+    calculator.new_rules_and_less_than_10_ni?(ni_and_credits) && !calculator.credit_band
   }
 
   next_node_if(:years_of_benefit?, responded_with("yes"))
