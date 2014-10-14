@@ -126,7 +126,7 @@ end
 # Q3b
 country_select :residency_nonuk?, exclude_countries: exclude_countries do
   save_input_as :residency_country
-  countries_that_show_their_embassies_data = %w(belarus brazil dominican-republic egypt el-salvador ethiopia finland honduras hungary indonesia south-korea latvia lebanon mongolia morocco nepal oman panama peru philippines qatar slovakia thailand united-arab-emirates vietnam portugal)
+  countries_that_show_their_embassies_data = %w(belarus brazil cambodia colombia dominican-republic egypt el-salvador ethiopia finland germany honduras hungary indonesia south-korea latvia lebanon mongolia morocco nepal oman panama peru philippines qatar slovakia thailand united-arab-emirates vietnam portugal)
   calculate :location do
     if countries_that_show_their_embassies_data.include?(ceremony_country) and resident_of == 'other'
       loc = WorldLocation.find(ceremony_country)
@@ -804,7 +804,9 @@ end
 outcome :outcome_os_affirmation do
   precalculate :affirmation_os_outcome do
     phrases = PhraseList.new
-    unless ceremony_country == 'colombia'
+    if ceremony_country == 'colombia'
+      phrases << :uk_resident_os_consular_cni << :get_legal_advice
+    else
       if ceremony_country == 'portugal'
         phrases << :contact_civil_register_office_portugal
       elsif resident_of == 'uk'
@@ -829,7 +831,7 @@ outcome :outcome_os_affirmation do
       phrases << :affirmation_os_uae if ceremony_country == 'united-arab-emirates'
     end
 #What you need to do section
-    if %w(turkey egypt).include?(ceremony_country)
+    if %w(turkey egypt china).include?(ceremony_country)
       phrases << :what_you_need_to_do
     elsif ceremony_country == 'finland' and partner_nationality == 'partner_irish' and resident_of == 'uk'
       phrases << :what_you_need_to_do_affidavit
@@ -847,7 +849,7 @@ outcome :outcome_os_affirmation do
         phrases << :book_online_portugal
       elsif ceremony_country == 'egypt'
         phrases << :make_an_appointment
-      else
+      elsif ceremony_country != 'china'
         phrases << :appointment_for_affidavit
       end
       if ceremony_country == 'turkey'
@@ -868,6 +870,10 @@ outcome :outcome_os_affirmation do
         phrases << :embassies_data
       elsif ceremony_country == 'finland' and partner_nationality == 'partner_irish' and resident_of == 'uk'
         phrases << :affidavit_os_translation_in_local_language
+      elsif ceremony_country == 'cambodia'
+        phrases << :affidavit_os_translation_in_local_language_without_warning
+        phrases << :cambodia_consular_cni_os_partner_local
+        phrases << :affirmation_os_translation_in_local_language_warning
       elsif ceremony_country != 'china'
         phrases << :affirmation_os_translation_in_local_language
       end
@@ -884,8 +890,13 @@ outcome :outcome_os_affirmation do
     if ceremony_country == 'turkey'
       phrases << :documents_for_divorced_or_widowed
     else
-      if %w(cambodia china ecuador morocco).include? ceremony_country
+      if %w(ecuador morocco).include? ceremony_country
         phrases << :documents_for_divorced_or_widowed
+      elsif ceremony_country == 'cambodia'
+        phrases << :documents_for_divorced_or_widowed_cambodia
+        phrases << :change_of_name_evidence
+      elsif ceremony_country == 'china'
+        phrases << :documents_for_divorced_or_widowed_china
       else
         phrases << :docs_decree_and_death_certificate
       end
@@ -917,6 +928,8 @@ outcome :outcome_os_affirmation do
             if ceremony_country == 'china' && partner_nationality != 'partner_local'
               phrases << :affirmation_affidavit_os_partner
             else
+              phrases << :partner_equivalent_document_warning
+              phrases << :consular_cni_os_all_names_but_germany if ceremony_country == 'ecuador'
               phrases << :affirmation_os_partner_not_british
             end
           end
@@ -924,6 +937,7 @@ outcome :outcome_os_affirmation do
         end
       end
     end
+    phrases << :consular_cni_os_all_names_but_germany if ceremony_country == 'cambodia'
 #fee tables
     if %w(south-korea thailand turkey vietnam).include?(ceremony_country)
       phrases << :fee_table_affidavit_55
@@ -1209,6 +1223,8 @@ outcome :outcome_ss_marriage do
       phrases << :consular_cp_japan
     elsif data_query.ss_clickbook_countries?(ceremony_country)
       phrases << :"book_online_#{ceremony_country}"
+    elsif ceremony_country == 'germany'
+      phrases << :contact_british_embassy_or_consulate_berlin << :embassies_data
     else
       phrases << :contact_embassy_or_consulate << :embassies_data
     end
