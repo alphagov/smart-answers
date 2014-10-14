@@ -16,7 +16,7 @@
 
 [salary: salary_2]
 
-# Has the mother’s partner earned (or will they have earned) more than £109 per week between %{lower_earnings_start(due_date)} and %{minimum_end_date(due_date)}?
+# Has the mother’s partner earned (or will they have earned) more than £111 per week between %{lower_earnings_start(due_date)} and %{minimum_end_date(due_date)}?
 
 [choice: ler_2]
 * yes: Yes

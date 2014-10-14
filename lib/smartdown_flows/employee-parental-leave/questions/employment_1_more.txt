@@ -1,10 +1,12 @@
 # Mother’s employment details
 
-# Will the mother have earned at least £390 in any 13 week period between %{earnings_test_start_date(due_date)} and %{due_date}?
+# Will the mother have earned at least £30 per week in any 13 weeks between %{earnings_test_start_date(due_date)} and %{due_date}?
 
 [choice: earnings_employment_1]
 * yes: Yes
 * no: No
+
+The 13 weeks don’t need to be in a row.
 
 * two_carers is 'no'
   * employment_status_1 is 'employee'
