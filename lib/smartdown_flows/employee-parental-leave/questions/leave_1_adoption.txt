@@ -9,10 +9,10 @@ They can’t start before %{earliest_start(placement_date)} or after %{match_dat
 * two_carers is 'no'
   * match_date >= '2015-4-5'
     * employment_status_1 is 'employee' => outcome_adopt-leave_adopt-pay
-    * employment_status_1 in {worker agency} => outcome_adopt-pay
+    * employment_status_1 is 'worker' => outcome_adopt-pay
   * otherwise
     * employment_status_1 is 'employee' => outcome_adopt-leave_adopt-pay-pre-5-april
-    * employment_status_1 in {worker agency} => outcome_adopt-pay-pre-5-april
+    * employment_status_1 is 'worker' => outcome_adopt-pay-pre-5-april
 * two_carers is 'yes'
   * match_date >= '2015-4-5'
     * employment_status_1 is 'employee'
@@ -20,9 +20,9 @@ They can’t start before %{earliest_start(placement_date)} or after %{match_dat
         * earnings_employment_2 is 'yes' => outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay
         * earnings_employment_2 is 'no' => outcome_adopt-leave_adopt-pay
       * otherwise => outcome_adopt-leave
-    * employment_status_1 in {worker agency}
+    * employment_status_1 is 'worker'
       * earnings_employment_2 is 'yes' => outcome_adopt-pay_adopt-shared-pay
       * earnings_employment_2 is 'no' => outcome_adopt-pay
   * otherwise
     * employment_status_1 is 'employee' => outcome_adopt-leave_adopt-pay-pre-5-april
-    * employment_status_1 in {worker agency} => outcome_adopt-pay-pre-5-april
+    * employment_status_1 is 'worker' => outcome_adopt-pay-pre-5-april

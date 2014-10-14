@@ -12,11 +12,11 @@ They can’t start before %{match_date} or end after %{latest_pat_leave(match_da
       * earnings_employment_1 is 'yes' => outcome_adopt-pat-leave_pat-pay_adopt-pat-shared-leave_pat-shared-pay
       * earnings_employment_1 is 'no' => outcome_adopt-pat-leave_pat-pay
     * otherwise => outcome_adopt-pat-leave_pat-pay
-  * employment_status_2 in {worker agency}
+  * employment_status_2 is 'worker'
     * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
       * earnings_employment_1 is 'yes' => outcome_pat-pay_pat-shared-pay
       * earnings_employment_1 is 'no' =>  outcome_pat-pay
     * otherwise => outcome_pat-pay
 * otherwise
   * employment_status_2 is 'employee' => outcome_adopt-pat-leave_pat-pay_adopt-additional-pat-leave_additional-pat-pay-from-match-date
-  * employment_status_2 in {worker agency} => outcome_pat-pay_additional-pat-pay-from-match-date
+  * employment_status_2 is 'worker' => outcome_pat-pay_additional-pat-pay-from-match-date
