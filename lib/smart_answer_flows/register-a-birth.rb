@@ -67,11 +67,11 @@ date_question :childs_date_of_birth? do
   from { Date.today }
   to { 50.years.ago(Date.today) }
 
-  after_july_2006 = SmartAnswer::Predicate::Callable.new("after 1 July 2006") do |response|
+  before_july_2006 = SmartAnswer::Predicate::Callable.new("before 1 July 2006") do |response|
     Date.new(2006, 07, 01) > Date.parse(response)
   end
 
-  next_node_if(:homeoffice_result, after_july_2006)
+  next_node_if(:homeoffice_result, before_july_2006)
 
   next_node(:where_are_you_now?)
 end
