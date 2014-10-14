@@ -35,7 +35,7 @@ module SmartdownAdapter
 
     def generate_next_combinations(smartdown_flow, combinations)
       new_combinations = []
-      combinations.each_with_index do |combination, combination_index|
+      combinations.each do |combination|
         answers = combination.map do |hash|
           hash.values.first
         end

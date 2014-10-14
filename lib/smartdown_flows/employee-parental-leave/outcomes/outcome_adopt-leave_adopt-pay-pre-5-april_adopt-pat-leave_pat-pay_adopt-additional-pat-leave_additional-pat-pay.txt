@@ -1,4 +1,6 @@
-{{snippet: adopt-pay}}
+{{snippet: adopt-leave}}
+
+{{snippet: adopt-pay-pre-5-april}}
 
 {{snippet: adopt-pat-leave}}
 
@@ -6,4 +8,4 @@
 
 {{snippet: adopt-additional-pat-leave}}
 
-{{snippet: additional-pat-pay-from-match-date}}
+{{snippet: additional-pat-pay}}

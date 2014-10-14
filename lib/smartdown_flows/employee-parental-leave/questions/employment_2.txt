@@ -24,7 +24,9 @@
 
 * employment_status_2 is 'employee'
   * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
-    * employment_status_1 is 'employee' => leave_both
+    * employment_status_1 is 'employee'
+      * job_after_y_1 is 'yes' => leave_both
+      * job_after_y_1 is 'no' => leave_2
     * employment_status_1 in {worker agency}
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_both
       * otherwise => leave_2
@@ -32,7 +34,9 @@
   * otherwise
     * employment_status_1 is 'employee'
       * job_after_y_1 is 'yes'
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5'
+          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => employment_2_more
+          * otherwise => leave_1
         * otherwise => leave_1
       * job_after_y_1 is 'no'
         * earnings_employment_1 is 'yes' => outcome_mat-allowance
@@ -58,7 +62,11 @@
     * employment_status_1 in {unemployed self-employed} => leave_2
   * otherwise
     * employment_status_1 is 'employee'
-      * job_after_y_1 is 'yes' => employment_2_more
+      * job_after_y_1 is 'yes'
+        * due_date >= '2015-4-5'
+          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => employment_2_more
+          * otherwise => leave_1
+        * otherwise => leave_1
       * job_after_y_1 is 'no'
         * earnings_employment_1 is 'yes' => outcome_mat-allowance
         * earnings_employment_1 is 'no' => outcome_birth-nothing
