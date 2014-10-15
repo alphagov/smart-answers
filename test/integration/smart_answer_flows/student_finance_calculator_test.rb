@@ -100,7 +100,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         assert_current_node :outcome_uk_all_students
         assert_phrase_list :eligible_finance, [:tuition_fee_loan]
         assert_state_variable :tuition_fee_amount, 6000
-        assert_phrase_list :students_body_text, [:uk_students_body_text]
+        assert_phrase_list :students_body_text, [:uk_students_body_text_start]
         assert_phrase_list :uk_all_students, [:additional_benefits, :has_disability, :low_income, :dental_medical_healthcare, :uk_students_body_text_end]
       end
     end
@@ -116,7 +116,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         assert_current_node :outcome_uk_all_students
         assert_phrase_list :eligible_finance, [:tuition_fee_loan]
         assert_state_variable :tuition_fee_amount, 6000
-        assert_phrase_list :students_body_text, [:uk_students_body_text]
+        assert_phrase_list :students_body_text, [:uk_students_body_text_start]
         assert_phrase_list :uk_all_students, [:no_additional_benefits, :uk_students_body_text_end]
       end
     end
