@@ -7,7 +7,7 @@
 * no: No
 
 * employment_status_1 is 'employee' => leave_1
-* employment_status_1 in {worker agency}
+* employment_status_1 is 'worker'
   * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_1
   * otherwise
     * earnings_employment_2 is 'yes' => outcome_mat-allowance

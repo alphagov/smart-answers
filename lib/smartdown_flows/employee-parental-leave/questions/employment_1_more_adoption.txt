@@ -1,10 +1,12 @@
-# Employment details principal adopter
+# Primary adopter’s employment details
 
-# Will the principal adopter have earned at least £390 in any 13 week period between %{earnings_test_start_date(match_date)} and %{match_date}?
+# Will the principal adopter have earned at least £30 per week in any 13 weeks between %{earnings_test_start_date(match_date)} and %{match_date}?
 
 [choice: earnings_employment_1]
 * yes: Yes
 * no: No
 
-* employment_status_2 in {employee worker agency} => leave_2_adoption
+The 13 weeks don’t need to be in a row.
+
+* employment_status_2 in {employee worker} => leave_2_adoption
 * employment_status_2 in {self-employed unemployed} => outcome_adopt-nothing

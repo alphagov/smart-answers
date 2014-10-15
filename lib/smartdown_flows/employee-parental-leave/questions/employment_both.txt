@@ -2,25 +2,23 @@
 
 # What’s the employment status of the mother?
 
-Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
-
 [choice: employment_status_1]
-* employee: Employee contract
-* worker: Worker contract
-* agency: Agency worker
+* employee: Employee
+* worker: Worker or agency worker
 * self-employed: Self-employed
 * unemployed: Unemployed
+
+Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
 
 # What’s the employment status of the mother’s partner?
 
-The partner may get a short period of leave and be able to share the maternity leave.
-
 [choice: employment_status_2]
-* employee: Employee contract
-* worker: Worker contract
-* agency: Agency worker
+* employee: Employee
+* worker: Worker or agency worker
 * self-employed: Self-employed
 * unemployed: Unemployed
 
-* employment_status_1 in {employee worker agency} => employment_1
+Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
+
+* employment_status_1 in {employee worker} => employment_1
 * employment_status_1 in {self-employed unemployed} => employment_1_more

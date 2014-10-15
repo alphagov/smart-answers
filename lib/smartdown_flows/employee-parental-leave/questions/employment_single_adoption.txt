@@ -1,15 +1,14 @@
-# Your employment status
+# Employment status
 
 # What’s the employment status of the adopter?
 
-Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
-
 [choice: employment_status_1]
-* employee: Employee contract
-* worker: Worker contract
-* agency: Agency worker
+* employee: Employee
+* worker: Worker or agency worker
 * self-employed: Self-employed
 * unemployed: Unemployed
 
-* employment_status_1 in {employee worker agency} => employment_1_adoption
+Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
+
+* employment_status_1 in {employee worker} => employment_1_adoption
 * employment_status_1 in {self-employed unemployed} => outcome_adopt-nothing

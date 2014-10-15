@@ -17,8 +17,8 @@ namespace :smartdown_generate_scenarios do
       :due_date => ["2015-4-5", "2014-4-5"],
       :match_date => ["2015-4-5", "2014-4-5"],
       :placement_date => ["2014-4-5"],
-      :employment_status_1 => ["employee", "worker", "self-employed", "unemployed"], #omitting agency as identical to worker
-      :employment_status_2 => ["employee", "worker", "self-employed", "unemployed"], #omitting agency as identical to worker
+      :employment_status_1 => ["employee", "worker", "self-employed", "unemployed"],
+      :employment_status_2 => ["employee", "worker", "self-employed", "unemployed"],
       :job_before_x_1 => ["yes", "no"],
       :job_after_y_1 => ["yes", "no"],
       :salary_1 => ["400-week"],
@@ -47,8 +47,8 @@ namespace :smartdown_generate_scenarios do
         :due_date => [date],
         :match_date => [date],
         :placement_date => ["2014-4-5"],
-        :employment_status_1 => ["employee", "worker", "self-employed", "unemployed"], #omitting agency as identical to worker
-        :employment_status_2 => ["employee", "worker", "self-employed", "unemployed"], #omitting agency as identical to worker
+        :employment_status_1 => ["employee", "worker", "self-employed", "unemployed"],
+        :employment_status_2 => ["employee", "worker", "self-employed", "unemployed"],
         :job_before_x_1 => ["yes", "no"],
         :job_after_y_1 => ["yes", "no"],
         :salary_1 => ["400-week"],

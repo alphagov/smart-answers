@@ -14,11 +14,11 @@
 
 # How much does the mother earn (or did she earn, if she’s left her job)?
 
-This is her total take-home pay before any deductions, eg tax.
-
 [salary: salary_1]
 
-# Has the mother earned (or will she have earned) more than £109 per week between %{lower_earnings_start(due_date)} and %{minimum_end_date(due_date)}?
+This is her total take-home pay before any deductions, eg tax.
+
+# Has the mother earned (or will she have earned) more than £111 per week between %{lower_earnings_start(due_date)} and %{minimum_end_date(due_date)}?
 
 [choice: ler_1]
 * yes: Yes
@@ -29,7 +29,7 @@ This is her total take-home pay before any deductions, eg tax.
     * circumstance is 'birth' => leave_1
     * circumstance is 'adoption' => leave_1_adoption
   * two_carers is 'yes'
-    * employment_status_2 in {employee worker agency} => employment_2
+    * employment_status_2 in {employee worker} => employment_2
     * employment_status_2 in {self-employed unemployed}
       * due_date >= '2015-4-5' => employment_2_more
       * otherwise => leave_1

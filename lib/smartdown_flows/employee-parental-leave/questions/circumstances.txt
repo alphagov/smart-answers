@@ -8,15 +8,15 @@
 
 # Will you care for the child with a partner?
 
-To qualify for shared parental leave you’ll need to share the care of your child with:
+[choice: two_carers]
+* yes: Yes
+* no: No
+
+The partner must be one of the following:
 
 - your husband, wife, civil partner or joint adopter
 - the child’s other parent
 - your partner (if they live with you and the child)
-
-[choice: two_carers]
-* yes: Yes
-* no: No
 
 * circumstance is 'birth' => due_date
 * circumstance is 'adoption' => adoption_dates

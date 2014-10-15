@@ -1,4 +1,4 @@
-# Employment adopter
+# Primary adopter’s partner employment
 
 # Did the primary adopter’s partner start their current or most recent job before %{minimum_start_date(match_date)}?
 
@@ -6,17 +6,17 @@
 * yes: Yes
 * no: No
 
-# Was the primary adopter’s partner still working in that job on %{minimum_end_date(match_date)}?
+# Was the primary adopter’s partner (or will they be) still working in that job on %{minimum_end_date(match_date)}?
 
 [choice: job_after_y_2]
 * yes: Yes
 * no: No
 
-# How much does the primary adopter’s partner earn after tax?
+# How much does the primary adopter’s partner earn after tax (or did they earn, if they’ve left their job)?
 
 [salary: salary_2]
 
-# Does the primary adopter's partner earn more than the Lower Earnings Limit?
+# Has the primary adopter’s partner earned (or will they have earned) more than £111 per week between %{lower_earnings_start(match_date)} and %{minimum_end_date(match_date)}?
 
 [choice: ler_2]
 * yes: Yes
@@ -31,7 +31,7 @@
       * otherwise
         * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_both_adoption
         * otherwise => leave_2_adoption
-    * employment_status_1 in {worker agency}
+    * employment_status_1 is 'worker'
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_both_adoption
       * otherwise => employment_1_more_adoption
     * employment_status_1 in {unemployed self-employed} => employment_1_more_adoption
@@ -43,18 +43,18 @@
           * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_1_adoption
           * otherwise => outcome_adopt-nothing
       * job_after_y_1 is 'no' => outcome_adopt-nothing
-    * employment_status_1 in {agency worker}
+    * employment_status_1 is 'worker'
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
         * match_date >= '2015-4-5' => employment_2_more_adoption
         * otherwise => leave_1_adoption
       * otherwise => outcome_adopt-nothing
     * employment_status_1 in {unemployed self-employed} => outcome_adopt-nothing
-* employment_status_2 in {worker agency}
+* employment_status_2 is 'worker'
   * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
     * employment_status_1 is 'employee'
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_both_adoption
       * otherwise => employment_1_more_adoption
-    * employment_status_1 in {worker agency}
+    * employment_status_1 is 'worker'
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_both_adoption
       * otherwise => employment_1_more_adoption
     * employment_status_1 in {unemployed self-employed} => employment_1_more_adoption
@@ -66,7 +66,7 @@
           * job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_1_adoption
           * otherwise => outcome_adopt-nothing
       * job_after_y_1 is 'no' => outcome_adopt-nothing
-    * employment_status_1 in {worker agency}
+    * employment_status_1 is 'worker'
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
         * match_date >= '2015-4-5' => employment_2_more_adoption
         * otherwise => leave_1_adoption
@@ -76,7 +76,7 @@
   * employment_status_1 is 'employee'
     * job_after_y_1 is 'yes' => leave_1_adoption
     * job_after_y_1 is 'no' => outcome_adopt-nothing
-  * employment_status_1 in {worker agency}
+  * employment_status_1 is 'worker'
     * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
       * match_date >= '2015-4-5' => employment_1_more_adoption
       * otherwise => outcome_adopt-pay
