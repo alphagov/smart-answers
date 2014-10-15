@@ -24,6 +24,8 @@ module SmartdownAdapter
         when Smartdown::Api::SalaryQuestion
           salary_array = response_key.split("-")
           "#{salary_array[0]} per #{salary_array[1]}"
+        when Smartdown::Api::TextQuestion
+          response_key
       end
     end
 
