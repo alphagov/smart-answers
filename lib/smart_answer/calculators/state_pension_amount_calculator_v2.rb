@@ -122,30 +122,24 @@ module SmartAnswer::Calculators
       ( dob >= Date.parse('1993-04-06') and dob <= Date.parse('1994-04-05'))
     end
 
+     CREDIT_BANDS= [
+                    { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1, validate: 0 },
+                    { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1, validate: 0 },
+                    { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2, validate: 1 },
+                    { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2, validate: 1 },
+                   ]
+
     # these people get different starting credits based on when they were born and what they answer to Q10
-    def credit_bands
-      [
-        { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1, validate: 0 },
-        { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1, validate: 0 },
-        { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2, validate: 1 },
-        { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2, validate: 1 }
-      ]
+    def credit_band
+      CREDIT_BANDS.find { |c| c[:min] <= dob and c[:max] >= dob }
     end
 
     def calc_qualifying_years_credit(entered_num = 0)
-      credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
-      if credit_band
-        case credit_band[:validate]
-        when 0
-          entered_num > 0 ? 0 : 1
-        when 1
-          rval = (1..2).find { |c| c + entered_num == 2 }
-          entered_num < 2 ? rval : 0
-        else
-          0
-        end
+      return 0 unless credit_band && entered_num < 2
+      if entered_num == 0
+        credit_band[:validate] + 1
       else
-        0
+        credit_band[:validate] == 1 ? 1 : 0
       end
     end
 
