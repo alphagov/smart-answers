@@ -219,7 +219,7 @@ end
 
 outcome :outcome_uk_all_students do
   precalculate :students_body_text do
-    PhraseList.new(:uk_students_body_text)
+    PhraseList.new(:uk_students_body_text_start)
   end
   precalculate :uk_all_students do
     phrases = PhraseList.new
