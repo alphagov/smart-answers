@@ -16,7 +16,7 @@ require 'helpers/test_fixtures_helper'
 # assets-origin.preview.*
 #
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, { phantomjs_options: ['--ignore-ssl-errors=yes'] })
+  Capybara::Poltergeist::Driver.new(app, { phantomjs_options: ['--ssl-protocol=TLSv1', '--ignore-ssl-errors=yes'] })
 end
 
 Capybara.javascript_driver = :poltergeist
