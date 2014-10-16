@@ -76,6 +76,10 @@ module SmartdownPlugins
       build_date_answer(date - 15.weeks)
     end
 
+    def self.notice_adopt_leave(date)
+      build_date_answer(date + 7.days)
+    end
+
     def self.notice_date_sap(date)
       build_date_answer(date - 28.days)
     end
@@ -93,8 +97,8 @@ module SmartdownPlugins
       build_date_answer(date_leave_2 - 28.days)
     end
 
-    def self.qualifying_week(match_date)
-      build_date_answer(match_date + 7.days)
+    def self.qualifying_week(date)
+      build_date_answer(date - 15.weeks)
     end
 
     def self.rate_of_paternity_pay(salary_2)
@@ -131,6 +135,10 @@ module SmartdownPlugins
 
     def self.start_of_maternity_allowance(date)
       build_date_answer(date - 11.weeks)
+    end
+
+    def self.total_aspp(salary_2)
+      rate_of_paternity_pay(salary_2) * 26
     end
 
     def self.total_maternity_allowance(salary_1_66_weeks)

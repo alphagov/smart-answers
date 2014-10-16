@@ -1,12 +1,11 @@
 ##Paternity pay
 
-The mother’s partner can get up to 2 weeks of [statutory paternity pay](/paternity-pay-leave/pay). This will usually be paid while they’re on paternity leave.
+The mother’s partner can get up to 2 weeks of [statutory paternity pay](/paternity-pay-leave/pay). 
 
  | Dates and amounts
 - | -
-Statutory paternity pay dates | todo
 Weekly rate | %{rate_of_paternity_pay(salary_2)}
-Tell your employer by | todo
+Tell the partner’s employer by | 28 days before they want to start paternity pay
 
 %Their employer will confirm if they qualify and how much they’ll get.%
 

@@ -27,7 +27,7 @@
     * employment_status_1 is 'employee'
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
         * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
-        * otherwise => outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
+        * otherwise => outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay-from-due-date
       * otherwise
         * job_after_y_1 is 'yes'
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
@@ -42,7 +42,7 @@
     * employment_status_1 is 'worker'
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
         * due_date >= '2015-4-5' => outcome_mat-pay_mat-shared-pay_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
-        * otherwise => outcome_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
+        * otherwise => outcome_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay-from-due-date
       * otherwise
         * due_date >= '2015-4-5'
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
@@ -88,7 +88,7 @@
     * employment_status_1 is 'employee'
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
         * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay_pat-pay_pat-shared-pay
-        * otherwise => outcome_mat-leave_mat-pay_pat-pay_additional-pat-pay
+        * otherwise => outcome_mat-leave_mat-pay_pat-pay_additional-pat-pay-from-due-date
       * otherwise
         * job_after_y_1 is 'yes'
           * due_date >= '2015-4-5'
@@ -107,7 +107,7 @@
     * employment_status_1 is 'worker'
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
         * due_date >= '2015-4-5' => outcome_mat-pay_mat-shared-pay_pat-pay_pat-shared-pay
-        * otherwise => outcome_mat-pay_pat-pay_additional-pat-pay
+        * otherwise => outcome_mat-pay_pat-pay_additional-pat-pay-from-due-date
       * otherwise
         * due_date >= '2015-4-5'
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-pay_pat-shared-pay
