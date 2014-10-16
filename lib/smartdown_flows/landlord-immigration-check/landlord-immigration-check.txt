@@ -1,0 +1,6 @@
+meta_description: You need to check if a tenant is allowed to rent private residential property in the UK
+satisfies_need: 102373
+status: draft
+
+[start: question_1]
+
