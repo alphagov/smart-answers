@@ -3,7 +3,6 @@
 # What’s the employment status of the mother?
 
 [choice: employment_status_1]
-
 * employee: Employee
 * worker: Worker or agency worker
 * self-employed: Self-employed

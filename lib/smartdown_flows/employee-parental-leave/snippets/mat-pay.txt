@@ -4,7 +4,7 @@ The mother can get up to 39 weeks of [maternity pay](/maternity-pay-leave/pay) f
 
  | Dates and amounts
 - | -
-Maternity pay dates | %{date_leave_1} to %{end_of_maternity_pay(date_leave_1)}
+Maternity pay dates | todo
 First 6 weeks | %{rate_of_smp_6_weeks(salary_1)} 
 Next 33 weeks | %{rate_of_smp_33_weeks(salary_1)}
 Total estimated pay | %{total_smp(salary_1)}

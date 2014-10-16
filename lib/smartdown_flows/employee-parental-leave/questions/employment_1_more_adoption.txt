@@ -8,5 +8,5 @@
 
 The 13 weeks don’t need to be in a row.
 
-* employment_status_2 in {employee worker} => leave_2_adoption
+* employment_status_2 in {employee worker} => outcome_adopt-nothing
 * employment_status_2 in {self-employed unemployed} => outcome_adopt-nothing
