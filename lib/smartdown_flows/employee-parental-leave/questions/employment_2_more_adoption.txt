@@ -6,7 +6,7 @@
 * yes: Yes
 * no: No
 
-* employment_status_1 is 'employee' => leave_1_adoption
+* employment_status_1 is 'employee' => outcome_adopt-nothing
 * employment_status_1 is 'worker'
-  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => leave_1_adoption
+  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => outcome_adopt-nothing
   * otherwise => outcome_adopt-nothing

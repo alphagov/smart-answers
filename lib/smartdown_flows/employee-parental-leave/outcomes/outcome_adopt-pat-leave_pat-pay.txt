@@ -1,3 +1,0 @@
-{{snippet: adopt-pat-leave}}
-
-{{snippet: pat-pay}}

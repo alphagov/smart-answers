@@ -15,4 +15,4 @@ The mother and her partner can share SPL if they both qualify for it.
  | Dates
 - | -
 Shared parental leave must be used between | %{due_date} to %{end_of_shared_parental_leave(due_date)}
-Tell your employer | 8 weeks before the first block of SPL
+Tell the partner’s employer | 8 weeks before the first block of SPL

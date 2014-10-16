@@ -30,9 +30,6 @@ namespace :smartdown_generate_scenarios do
       :salary_2 => ["400-week"],
       :ler_2 => ["yes", "no"],
       :earnings_employment_2 => ["yes", "no"],
-      :date_leave_1 => ["2015-4-5"],
-      :date_leave_2 => ["2015-4-5"],
-      :amount_leave_2 => ["1-week", "2-week"]
     }
     generate("employee-parental-leave", combinations)
   end
@@ -60,9 +57,6 @@ namespace :smartdown_generate_scenarios do
         :salary_2 => ["400-week"],
         :ler_2 => ["yes", "no"],
         :earnings_employment_2 => ["yes", "no"],
-        :date_leave_1 => ["2015-4-5"],
-        :date_leave_2 => ["2015-4-5"],
-        :amount_leave_2 => ["1-week", "2-week"]
       }
       human_readable_snippet_names = {
         "birth-nothing" => "Nothing",
@@ -83,7 +77,6 @@ namespace :smartdown_generate_scenarios do
         "adopt-shared-pay" => "Principal adopter shared parental pay",
         "pat-leave" => "Paternity leave",
         "pat-pay" => "Paternity pay",
-        "additional-pat-pay" => "Additional paternity pay",
         "additional-pat-pay-from-due-date" => "Additional paternity pay",
         "additional-pat-pay-from-match-date" => "Additional paternity pay",
         "additional-pat-leave" => "Additional paternity leave",

@@ -1,6 +1,6 @@
 ##Shared Parental Leave
 
-The primary adopter’s partner can take [Shared Parental Leave](/shared-parental-leave-and-pay) (SPL) if the primary adopter has:
+The primary adopter’s partner can take [shared parental leave](/shared-parental-leave-and-pay) (SPL) if the primary adopter has:
 
 - ended their adoption leave by returning to work
 - given ‘binding notice’ (a decision that can’t normally be changed) to her employer of the date when they plan to end their adoption leave
@@ -14,4 +14,4 @@ The primary adopter and their partner can share SPL if they both qualify for it.
  | Dates
 - | -
 Shared Parental Leave must be used between | %{match_date} to %{end_of_shared_parental_leave(match_date)}
-Tell your employer | 8 weeks before the first block of SPL
+Tell the primary adopter’s employer | 8 weeks before the first block of SPL

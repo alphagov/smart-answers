@@ -114,6 +114,12 @@ module SmartdownPlugins
       assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.minimum_end_date(date)
     end
 
+    test "notice_adopt_leave returns a date 7 days after the given date_leave_1" do
+      date = Smartdown::Model::Answer::Date.new("2014-1-1")
+      expected = Smartdown::Model::Answer::Date.new("2014-1-8")
+      assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.notice_adopt_leave(date)
+    end
+
     test "notice_date_sap returns a date 28 days before the given date_leave_1" do
       date = Smartdown::Model::Answer::Date.new("2014-1-1")
       expected = Smartdown::Model::Answer::Date.new("2013-12-4")
@@ -138,10 +144,10 @@ module SmartdownPlugins
       assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.paternity_pay_notice_date(date_leave_2)
     end
 
-    test "qualifying_week returns a date 7 days after the given match_date" do
-      match_date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-8")
-      assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.qualifying_week(match_date)
+    test "qualifying_week returns a date 15 weeks before the given date" do
+      date = Smartdown::Model::Answer::Date.new("2014-1-1")
+      expected = Smartdown::Model::Answer::Date.new("2013-9-18")
+      assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.qualifying_week(date)
     end
 
     test "rate_of_paternity_pay returns 138.18 when 90% of the given weekly salary is higher than £138.18" do
@@ -215,6 +221,12 @@ module SmartdownPlugins
       date = Smartdown::Model::Answer::Date.new("2014-1-1")
       expected = Smartdown::Model::Answer::Date.new("2013-10-16")
       assert_equal expected, SmartdownPlugins::EmployeeParentalLeave.start_of_maternity_allowance(date)
+    end
+
+    test "total_aspp returns the rate_of_paternity_pay * 26" do
+      salary = Smartdown::Model::Answer::Salary.new("200-week")
+      SmartdownPlugins::EmployeeParentalLeave.stubs(:rate_of_paternity_pay).with(salary).returns(138.18)
+      assert_equal 138.18 * 26, SmartdownPlugins::EmployeeParentalLeave.total_aspp(salary)
     end
 
     test "total_maternity_allowance returns the rate_of_maternity_allowance * 39" do
