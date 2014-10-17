@@ -45,11 +45,14 @@ module SmartdownAdapter
       ordered_adoption_hashes = order_adoption_hashes(adoption_hashes)
       lines = []
       lines << "##Adoption \n"
-      lines << "PA status | PA C | PA W | PA E&E | P status | P C | P W | P E&E | Outcome"
+      lines << "PA status | PA C | PA W | PA E&E | P status | P C | P W | P E&E | Outcome | URL"
       lines << "-|-"
+      line_content = []
       ordered_adoption_hashes.each do |adoption_hash|
-        lines << format_adoption_hash(adoption_hash)
+        line_content << format_adoption_hash(adoption_hash)
       end
+      unique_line_content = remove_duplicate_circumstances(line_content)
+      lines += unique_line_content.map{ |line_array| line_array.join(" | ") }
       lines.uniq.join("\n")
     end
 
@@ -57,55 +60,60 @@ module SmartdownAdapter
       ordered_birth_hashes = order_birth_hashes(birth_hashes)
       lines = []
       lines << "##Birth \n"
-      lines << "M status | M C | M W | M E&E | P status | P C | P W | P E&E | Outcome"
+      lines << "M status | M C | M W | M E&E | P status | P C | P W | P E&E | Outcome | URL"
       lines << "-|-"
+      line_content = []
       ordered_birth_hashes.each do |birth_hash|
-        lines << format_birth_hash(birth_hash)
+        line_content << format_birth_hash(birth_hash)
       end
+      unique_line_content = remove_duplicate_circumstances(line_content)
+      lines += unique_line_content.map{ |line_array| line_array.join(" | ") }
       lines.uniq.join("\n")
     end
 
     def format_adoption_hash(adoption_hash)
-      result = ""
-      result += "#{adoption_hash[:employment_status_1]} |"
+      result = []
+      result << adoption_hash[:employment_status_1]
       if adoption_hash[:job_before_x_1]
-        result += "#{tick_or_cross(adoption_hash[:job_before_x_1] == "yes" && adoption_hash[:job_after_y_1] == "yes" && adoption_hash[:ler_1] == "yes") } |"
-        result += "#{tick_or_cross(adoption_hash[:job_after_y_1] == "yes") } |"
+        result << tick_or_cross(adoption_hash[:job_before_x_1] == "yes" && adoption_hash[:job_after_y_1] == "yes" && adoption_hash[:ler_1] == "yes")
+        result << tick_or_cross(adoption_hash[:job_after_y_1] == "yes")
       else
-        result += " | |"
+        result += [nil, nil]
       end
-      result += "#{tick_or_cross(adoption_hash[:earnings_employment_1])} |"
-      result += "#{adoption_hash[:employment_status_2]} |"
+      result << tick_or_cross(adoption_hash[:earnings_employment_1])
+      result << adoption_hash[:employment_status_2]
       if adoption_hash[:job_before_x_2]
-        result += "#{tick_or_cross(adoption_hash[:job_before_x_2] == "yes" && adoption_hash[:job_after_y_2] == "yes" && adoption_hash[:ler_2] == "yes") } |"
-        result += "#{tick_or_cross(adoption_hash[:job_after_y_2] == "yes") } |"
+        result << tick_or_cross(adoption_hash[:job_before_x_2] == "yes" && adoption_hash[:job_after_y_2] == "yes" && adoption_hash[:ler_2] == "yes")
+        result << tick_or_cross(adoption_hash[:job_after_y_2] == "yes")
       else
-        result += " | |"
+        result += [nil, nil]
       end
-      result += "#{tick_or_cross(adoption_hash[:earnings_employment_2])} |"
-      result += "#{human_readable_description(adoption_hash[:outcome])}"
+      result << tick_or_cross(adoption_hash[:earnings_employment_2])
+      result << human_readable_description(adoption_hash[:outcome])
+      result << url_from_hash(adoption_hash)
       result
     end
 
     def format_birth_hash(birth_hash)
-      result = ""
-      result += "#{birth_hash[:employment_status_1]} |"
+      result = []
+      result << birth_hash[:employment_status_1]
       if birth_hash[:job_before_x_1]
-        result += "#{tick_or_cross(birth_hash[:job_before_x_1] == "yes" && birth_hash[:job_after_y_1] == "yes" && birth_hash[:ler_1] == "yes") } |"
-        result += "#{tick_or_cross(birth_hash[:job_after_y_1] == "yes") } |"
+        result << tick_or_cross(birth_hash[:job_before_x_1] == "yes" && birth_hash[:job_after_y_1] == "yes" && birth_hash[:ler_1] == "yes")
+        result << tick_or_cross(birth_hash[:job_after_y_1] == "yes")
       else
-        result += " | |"
+        result << [nil, nil]
       end
-      result += "#{tick_or_cross(birth_hash[:earnings_employment_1])} |"
-      result += "#{birth_hash[:employment_status_2]} |"
+      result << tick_or_cross(birth_hash[:earnings_employment_1])
+      result << birth_hash[:employment_status_2]
       if birth_hash[:job_before_x_2]
-        result += "#{tick_or_cross(birth_hash[:job_before_x_2] == "yes" && birth_hash[:job_after_y_2] == "yes" && birth_hash[:ler_2] == "yes") } |"
-        result += "#{tick_or_cross(birth_hash[:job_after_y_2] == "yes") } |"
+        result << tick_or_cross(birth_hash[:job_before_x_2] == "yes" && birth_hash[:job_after_y_2] == "yes" && birth_hash[:ler_2] == "yes")
+        result << tick_or_cross(birth_hash[:job_after_y_2] == "yes")
       else
-        result += " | |"
+        result << [nil, nil]
       end
-      result += "#{tick_or_cross(birth_hash[:earnings_employment_2])} |"
-      result += "#{human_readable_description(birth_hash[:outcome])}"
+      result << tick_or_cross(birth_hash[:earnings_employment_2])
+      result << human_readable_description(birth_hash[:outcome])
+      result << url_from_hash(birth_hash)
       result
     end
 
@@ -119,6 +127,17 @@ module SmartdownAdapter
       hashes.sort { |a,b|
         [a[:due_date], a[:employment_status_1], a[:employment_status_2] || ""]  <=> [b[:due_date], b[:employment_status_1], b[:employment_status_2] || ""]
       }
+    end
+
+    def url_from_hash(hash)
+      "[link](https://www.preview.alphagov.co.uk/employee-parental-leave/y/#{hash.values[0..-2].join("/")})"
+    end
+
+    def remove_duplicate_circumstances(line_content_array)
+      #Identical legal circumstances will have different URLs
+      #Omit last element of the line content (URL) to determine unicity
+      grouped_line_content = line_content_array.group_by { |line_content| line_content[0..-2] }
+      grouped_line_content.values.map(&:first)
     end
 
     def human_readable_description(outcome_name)
