@@ -6,7 +6,9 @@
 * yes: Yes
 * no: No
 
-* employment_status_1 is 'employee' => outcome_adopt-nothing
+* employment_status_1 is 'employee'
+  * earnings_employment_2 is 'yes' => outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay
+  * earnings_employment_2 is 'no' => outcome_adopt-leave_adopt-pay
 * employment_status_1 is 'worker'
-  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => outcome_adopt-nothing
-  * otherwise => outcome_adopt-nothing
+  * earnings_employment_2 is 'yes' => outcome_adopt-pay_adopt-shared-pay
+  * earnings_employment_2 is 'no' => outcome_adopt-pay
