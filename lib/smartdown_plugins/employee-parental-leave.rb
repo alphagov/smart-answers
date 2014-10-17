@@ -138,7 +138,7 @@ module SmartdownPlugins
     end
 
     def self.total_aspp(salary_2)
-      rate_of_paternity_pay(salary_2) * 26
+      build_money_answer(rate_of_paternity_pay(salary_2) * 26)
     end
 
     def self.total_maternity_allowance(salary_1_66_weeks)
