@@ -6,4 +6,4 @@
 
 {{snippet: additional-pat-leave}}
 
-{{snippet: additional-pat-pay-from-due-date}}
+{{snippet: additional-pat-pay}}

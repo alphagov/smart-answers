@@ -1,0 +1,3 @@
+{{snippet: adopt-pat-pay}}
+
+{{snippet: adopt-additional-pat-pay}}
