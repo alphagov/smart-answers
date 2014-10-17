@@ -45,14 +45,14 @@ module SmartdownAdapter
       ordered_adoption_hashes = order_adoption_hashes(adoption_hashes)
       lines = []
       lines << "##Adoption \n"
-      lines << "PA status | PA C | PA W | PA E&E | P status | P C | P W | P E&E | Outcome | URL"
+      lines << "Nb | PA status | PA C | PA W | PA E&E | P status | P C | P W | P E&E | Outcome | URL"
       lines << "-|-"
       line_content = []
       ordered_adoption_hashes.each do |adoption_hash|
         line_content << format_adoption_hash(adoption_hash)
       end
       unique_line_content = remove_duplicate_circumstances(line_content)
-      lines += unique_line_content.map{ |line_array| line_array.join(" | ") }
+      lines += unique_line_content.each.with_index(1).map{ |line_array, i| ([i]+line_array).join(" | ") }
       lines.uniq.join("\n")
     end
 
@@ -60,14 +60,14 @@ module SmartdownAdapter
       ordered_birth_hashes = order_birth_hashes(birth_hashes)
       lines = []
       lines << "##Birth \n"
-      lines << "M status | M C | M W | M E&E | P status | P C | P W | P E&E | Outcome | URL"
+      lines << "Nb | M status | M C | M W | M E&E | P status | P C | P W | P E&E | Outcome | URL"
       lines << "-|-"
       line_content = []
       ordered_birth_hashes.each do |birth_hash|
         line_content << format_birth_hash(birth_hash)
       end
       unique_line_content = remove_duplicate_circumstances(line_content)
-      lines += unique_line_content.map{ |line_array| line_array.join(" | ") }
+      lines += unique_line_content.each.with_index(1).map{ |line_array, i| ([i]+line_array).join(" | ") }
       lines.uniq.join("\n")
     end
 
