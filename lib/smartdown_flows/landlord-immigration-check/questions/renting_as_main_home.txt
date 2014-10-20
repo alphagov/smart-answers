@@ -1,0 +1,18 @@
+# Is the tenant renting the property as their main home?
+
+This includes:
+
+- tenancy agreement
+- a lease
+- a licence
+- sub-lease or sub-tenancy
+- lodgers
+- paying house guests 
+- a family member with the tenant as their main home
+
+[choice: main_home]
+* yes: Yes
+* no: No
+
+* main_home is 'yes' => tenant_over_18
+* main_home is 'no' => property_type

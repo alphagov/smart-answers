@@ -1,0 +1,8 @@
+# Does the tenant have a Home Office letter confirming the person has an outstanding immigration application appeal which allows them to stay in the UK?
+
+[choice: immigration_application]
+* yes: Yes
+* no: No
+
+* immigration_application is 'yes' => outcome_can_rent
+* immigration_application is 'no' => outcome_can_rent_for_12_months

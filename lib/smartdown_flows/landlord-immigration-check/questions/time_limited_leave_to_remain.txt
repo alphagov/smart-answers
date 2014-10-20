@@ -1,0 +1,12 @@
+# Does the tenant have any of the following:
+
+- a current passport endorsed to show that the tenant can stay in the UK
+- a current Biometric Residence Permit issued by the Home Office to the tenant showing that the tenant can currently stay in the UK
+- an Immigration Status Document issued by the Home Office with an endorsement showing the person can currently stay in the UK
+
+[choice: time_limited_to_remain]
+* yes: Yes
+* no: No
+
+* time_limited_to_remain is 'yes' => outcome_can_rent_but_check_will_be_needed_again
+* time_limited_to_remain is 'no' => residence_card_or_eu_eea_swiss_family_member

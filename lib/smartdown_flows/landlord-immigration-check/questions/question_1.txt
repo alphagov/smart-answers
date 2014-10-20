@@ -1,6 +1,0 @@
-# Choose your council
-
-[text: postcode]
-
-* valid_postcode(postcode) => question_2
-* otherwise => outcome

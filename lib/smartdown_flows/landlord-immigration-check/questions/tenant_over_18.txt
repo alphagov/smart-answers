@@ -1,0 +1,9 @@
+# Is the tenant at least 18?
+
+[choice: tenant_over_18]
+* yes: Yes
+* no: No
+
+* tenant_over_18 is 'yes' => uk_passport
+* tenant_over_18 is 'no' => outcome_check_not_needed_when_under_18
+

@@ -1,0 +1,10 @@
+# Does the tenant have a current Residence Card that is issued by the Home Office to a non-EEA national who is the family member of an EU, EEA or Swiss national?
+
+This includes a current Accession Card or Derivative Card. 
+
+[choice: has_residence_card_or_eu_eea_swiss_family_member]
+* yes: Yes
+* no: No
+
+* has_residence_card_or_eu_eea_swiss_family_member is 'yes' => outcome_can_rent_for_12_months
+* has_residence_card_or_eu_eea_swiss_family_member is 'no' => outcome_check_not_needed
