@@ -4,4 +4,3 @@
 
 * valid_postcode(postcode) => renting_as_main_home
 * otherwise => outcome_check_not_needed
-
