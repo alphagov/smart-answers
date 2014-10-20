@@ -604,6 +604,12 @@ outcome :outcome_os_consular_cni do
 
     if data_query.commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != 'germany' and ceremony_country != residency_country
       phrases << :consular_cni_os_commonwealth_resident
+      phrases << :os_notice_of_marriage
+      if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country)
+        phrases << :os_notice_of_marriage_7_day_wait
+      else
+        phrases << :os_notice_of_marriage_21_day_wait
+      end
     end
 
     if data_query.commonwealth_country?(residency_country) and partner_nationality == 'partner_british' and ceremony_country != residency_country and ceremony_country != 'germany'
@@ -873,7 +879,7 @@ outcome :outcome_os_affirmation do
       elsif ceremony_country == 'cambodia'
         phrases << :affidavit_os_translation_in_local_language_without_warning
         phrases << :cambodia_consular_cni_os_partner_local
-        phrases << :affirmation_os_translation_in_local_language_warning
+        phrases << :affirmation_os_translation_in_local_language_text
       elsif ceremony_country != 'china'
         phrases << :affirmation_os_translation_in_local_language
       end
@@ -895,12 +901,12 @@ outcome :outcome_os_affirmation do
       elsif ceremony_country == 'cambodia'
         phrases << :documents_for_divorced_or_widowed_cambodia
         phrases << :change_of_name_evidence
-      elsif ceremony_country == 'china'
-        phrases << :documents_for_divorced_or_widowed_china
+      elsif %w(china colombia).include?(ceremony_country)
+        phrases << :documents_for_divorced_or_widowed_china_colombia
       else
         phrases << :docs_decree_and_death_certificate
       end
-      phrases << :divorced_or_widowed_evidences unless %w(cambodia china ecuador egypt morocco).include?(ceremony_country)
+      phrases << :divorced_or_widowed_evidences unless %w(cambodia china colombia ecuador egypt morocco).include?(ceremony_country)
       phrases << :change_of_name_evidence unless %w(cambodia ecuador morocco).include?(ceremony_country)
       if ceremony_country == 'egypt'
         if partner_nationality == 'partner_british'
@@ -929,15 +935,20 @@ outcome :outcome_os_affirmation do
               phrases << :affirmation_affidavit_os_partner
             else
               phrases << :partner_equivalent_document_warning
-              phrases << :consular_cni_os_all_names_but_germany if ceremony_country == 'ecuador'
+              phrases << :consular_cni_os_all_names_but_germany if %w(ecuador colombia).include?(ceremony_country)
               phrases << :affirmation_os_partner_not_british
             end
           end
-          phrases << :consular_cni_os_all_names_but_germany if ceremony_country == 'colombia'
         end
       end
     end
     phrases << :consular_cni_os_all_names_but_germany if ceremony_country == 'cambodia'
+
+    if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country) && data_query.commonwealth_country?(residency_country)
+      phrases << :os_notice_of_marriage
+      phrases << :os_notice_of_marriage_7_day_wait
+    end
+
 #fee tables
     if %w(south-korea thailand turkey vietnam).include?(ceremony_country)
       phrases << :fee_table_affidavit_55
@@ -1012,6 +1023,12 @@ outcome :outcome_os_no_cni do
     if data_query.requires_7_day_notice?(ceremony_country,residency_country)
       phrases << :display_notice_of_marriage_7_days
     end
+
+    if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country) && data_query.commonwealth_country?(residency_country)
+      phrases << :os_notice_of_marriage
+      phrases << :os_notice_of_marriage_7_day_wait
+    end
+
     phrases
   end
 end
@@ -1231,6 +1248,8 @@ outcome :outcome_ss_marriage do
     unless ceremony_country == 'japan'
       if partner_nationality == 'partner_british'
         phrases << :documents_needed_ss_british
+      elsif ceremony_country == 'germany'
+        phrases << :documents_needed_ss_not_british_germany_same_sex
       else
         phrases << :documents_needed_ss_not_british
       end
