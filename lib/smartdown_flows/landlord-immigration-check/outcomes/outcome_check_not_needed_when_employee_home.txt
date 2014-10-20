@@ -2,4 +2,4 @@ You don’t have to make a check on the tenant if you’re providing accommodati
 
 You will have to carry out a check on any adult dependents of the tenant if they aren’t being trained or employed. 
 
-You can read the landlord’s [code of practice](/government/publications/right-to-rent-landlords-code-of-practice) on making checks for more information.
+{{snippet: landlord-code-of-practice}}

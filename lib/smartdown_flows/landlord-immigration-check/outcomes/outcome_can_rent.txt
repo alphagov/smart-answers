@@ -4,4 +4,4 @@ You need to make a copy of the [relevant parts of the documents](/check-tenant-r
 
 You don’t have to make this check again.
 
-You can read the landlord’s [code of practice](/government/publications/right-to-rent-landlords-code-of-practice) on making checks for more information.
+{{snippet: landlord-code-of-practice}}
