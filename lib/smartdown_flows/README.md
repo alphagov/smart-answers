@@ -5,6 +5,17 @@ Smartdown flows are stored in `lib/smartdown_flows`.
 
 The code responsible for executing the flow of those questions is in the [smartdown gem](https://github.com/alphagov/smartdown).
 
+##Smartdown scenarios check
+
+A smartdown content test has been created to run through the test scenarios on all Smartdown questions and ensure they still pass.
+To run only that test, use the command:
+
+```rake test TEST=test/unit/smartdown_content/smartdown_scenarios_test.rb```
+
+For every smartdown flow, this goes through all the scenarios defined for them and:
+- checks each set of questions has been asked in the right order
+- checks the right outcome has been reached given the answers
+
 ##Employee parental leave
 
 Three tools specific to the employee parental leave tool were developed to facilitate question writing and fact-checking.
