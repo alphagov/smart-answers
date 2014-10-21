@@ -5,4 +5,4 @@
 * no: No
 
 * has_asylum_card is 'yes' => outcome_can_rent_for_12_months
-* has_asylum_card is 'no' => outcome_check_not_needed
+* has_asylum_card is 'no' => certificate_of_application
