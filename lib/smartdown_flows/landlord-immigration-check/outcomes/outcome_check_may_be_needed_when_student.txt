@@ -1,6 +1,6 @@
-You don’t have to make a check if the student is:
+You don’t have to make a check if the student is in:
 
-- in a halls of residence
+- a halls of residence
 - any accommodation provided by their educational institution
 - any private accommodation agreed between the educational institution and the landlord
 
