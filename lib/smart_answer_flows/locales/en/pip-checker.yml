@@ -31,6 +31,14 @@ en-GB:
           - ML (Motherwell)
           - TD (Galashiels)
           - YO (York)
+          
+          On 17 November 2014 the scheme will be expanded to include postcodes beginning with:
+
+          - CH (Chester) 
+          - HD (Huddersfield) 
+          - L (Liverpool) 
+          - M (Manchester)
+        
         scheme_postcodes_pre_3rd_feb_2014: |
           - DG (Dumfries and Galloway)
           - EH (Edinburgh)
