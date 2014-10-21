@@ -1,0 +1,8 @@
+# Does the tenant have a passport or national identity card showing that they’re the named person of a national of the EEA or Switzerland?
+
+[choice: eea_switzerland]
+* yes: Yes
+* no: No
+
+* eea_switzerland is 'yes' => outcome_can_rent
+* eea_switzerland is 'no' => documents_exempting_from_immigration_control

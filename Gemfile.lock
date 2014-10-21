@@ -69,7 +69,7 @@ GEM
       rack (~> 1.1)
     faye-websocket (0.4.7)
       eventmachine (>= 0.12.0)
-    gds-api-adapters (8.2.1)
+    gds-api-adapters (10.16.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -249,7 +249,7 @@ DEPENDENCIES
   ci_reporter
   diffy (= 3.0.6)
   extlib (= 0.9.16)
-  gds-api-adapters (= 8.2.1)
+  gds-api-adapters (= 10.16.0)
   google-api-client
   govspeak (~> 1.6.2)
   govuk_frontend_toolkit (= 1.6.0)
