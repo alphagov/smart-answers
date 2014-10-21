@@ -7,4 +7,4 @@ This includes a current Accession Card or Derivative Card.
 * no: No
 
 * has_residence_card_or_eu_eea_swiss_family_member is 'yes' => outcome_can_rent_for_12_months
-* has_residence_card_or_eu_eea_swiss_family_member is 'no' => outcome_check_not_needed
+* has_residence_card_or_eu_eea_swiss_family_member is 'no' => asylum_registration_card
