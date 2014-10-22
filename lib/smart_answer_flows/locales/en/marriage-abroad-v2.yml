@@ -193,7 +193,7 @@ en-GB:
         affirmation_os_translation_in_local_language: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
-          You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
+          You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
         affidavit_os_translation_in_local_language_without_warning: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         affirmation_os_translation_in_local_language_text: |
@@ -298,6 +298,10 @@ en-GB:
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
           - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
           - evidence if you’ve changed your name by deed poll
+        documents_for_divorced_or_widowed_ecuador: |
+          If you’ve been divorced or widowed, you’ll need to provide:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
         documents_for_divorced_or_widowed_cambodia: |
           If you’ve been divorced or widowed, you’ll need to provide:
 
@@ -746,10 +750,13 @@ en-GB:
 
           You need to have been living in your country of residence for 3 days.
         consular_cni_os_foreign_resident_3_days_macedonia: |
-          Contact the British embassy in Macedonia to get advice:
+          Contact the British Embassy in Macedonia to get advice:
 
-          $C Telephone: + 389 (2) 3299 299 $C
-          $C Email: <consular.skopje@fco.gov.uk> $C
+          $C
+          British Embassy Macedonia  
+          Telephone: + 389 (2) 3299 299  
+          <consular.skopje@fco.gov.uk>  
+          $C
 
           %You can't book an appointment to get advice at the embassy in person.%
 
