@@ -1,0 +1,419 @@
+
+// Short term fix. Needs removing in the future.
+$is-ie: false !default;
+@mixin media-down($size: false, $max-width: false, $min-width: false) {
+  @if $is-ie == false {
+    @if $size == mobile {
+      @media (max-width: 640px){
+        @content;
+      }
+    } @else if $size == tablet {
+      @media (max-width: 800px){
+        @content;
+      }
+    }
+  }
+}
+
+// Styles
+// The more generic SmartAnswer CSS is in Static _multi_step.scss
+
+.smart_answer {
+  // Previous answers block
+  .previous-answers {
+    h2 {
+      @include core-19;
+      padding-left: 32px;
+      @include media(mobile) {
+        padding-left: 16px;
+      }
+    }
+  }
+
+  .previous-answers-top {
+    margin-bottom: 1.5em;
+  }
+
+  .start-again {
+    width: auto;
+  }
+
+  // Current question
+  .page-title {
+    margin-top: 0;
+    @include bold-24;
+    padding-left: 32px;
+    @include media(mobile) {
+      padding-left: 16px;
+    }
+  }
+
+  .current-question {
+    margin: 1.5em 0 0 0;
+    padding: 0;
+
+    .question {
+      margin: .5em 0 2em 0;
+    }
+  }
+
+  // Smartdown specific previous answers block
+  .done-questions-spl {
+    margin-right: 15em;
+    padding: 0 10em 1em 2em;
+    @include media-down(tablet) {
+      margin-right: 10em;
+      padding: 0 1em 1em 1em;
+    }
+    @include media(mobile) {
+      margin-right: 1.5em;
+      padding: 0 1em 1em 1em;
+    }
+    table {
+      .previous-answers-title {
+        @include bold-19;
+      }
+
+      thead th {
+        border-bottom: none;
+        @include core-19
+      }
+
+      tbody {
+        td {
+          border-bottom: none;
+          padding: 0 1em 0.25em inherit;
+        }
+
+        .section-title {
+          @include bold-14;
+          padding-top: 0.5em;
+        }
+
+        .section {
+          border-top: 1px solid;
+          border-color: inherit;
+        }
+      }
+
+      .link-right {
+        text-align: right;
+        width: 40%;
+        padding-right: 0;
+        padding-top: 0.5em;
+      }
+    }
+  }
+
+  .hint {
+    @include core-16;
+    display: block;
+  }
+
+  .done-questions {
+    position: relative;
+  }
+
+  .start-again {
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: -2.5em;
+    height: 2.5em;
+    width: 11em;
+
+    a {
+      @include core-19($line-height: 40 / 19, $line-height-640: 40 / 13);
+      display: block;
+      text-align: center;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    @include media-down(mobile) {
+      position: static;
+      width: auto;
+      padding: 0 1em;
+
+      a {
+        text-align: right;
+      }
+    }
+  }
+
+  .question-number {
+    padding-right: 0.5em;
+  }
+
+  .done-questions ol,
+  .upcoming-questions ol {
+    background-color: #fff;
+    margin: 0;
+    padding: 0 0 0 1em;
+    position: relative;
+    z-index: 1;
+
+    li {
+      list-style: none;
+      position: relative;
+      padding: 0.75em 1.5em 0.75em 1em;
+
+      @include media-down(mobile) {
+        padding: 0.5em 1em;
+      }
+
+      h3 {
+        @include core-16;
+      }
+
+    &.done {
+      background: #D5ECEA;
+      border-bottom: solid 1px #b6d6d2;
+      overflow: hidden;
+      padding-right: 9.5em;
+
+        .answer {
+          @include bold-16;
+          color: #315843;
+          display: block;
+          margin: 0 0.5em 0 1em;
+
+          &.multiple {
+            display: block;
+
+            ul {
+              margin-top: 0;
+
+              li {
+                margin: 0;
+                padding: 0;
+              }
+            }
+          }
+        }
+
+        @include ie-lte(8) {
+          list-style: none;
+          position: relative;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  .upcoming-questions ol {
+
+    li {
+      background-color: #f0e7d7;
+      border-bottom: solid 1px #dac39c;
+    }
+  }
+
+  .question .question-number {
+    font-weight: normal;
+  }
+
+  li.done .undo {
+    position: absolute;
+    top: (0.75em/0.9);
+    right: (1.5em/0.9);
+    margin: 0;
+    @include core-14;
+
+    @include ie-lte(8) {
+      margin: 0;
+    }
+
+    @include ie-lte(6) {
+      position: absolute;
+      right: 1em;
+    }
+
+    a {
+      color: $text-colour;
+      display: block;
+    }
+  }
+
+  li.done .answer ul {
+    margin: 0.5em 0 0 -2.1em;
+    padding-left: 2.1em;
+  }
+
+  li.done:hover .undo a {
+    color: inherit;
+  }
+
+  .step.current {
+    background-color: #fff;
+    margin-right: 15em;
+    padding: 0 10em 1em 2em;
+    position: relative;
+
+    @include media-down(tablet) {
+      margin-right: 0;
+      padding: 0 1em 1em 1em;
+    }
+  }
+
+  @include ie(6) {
+    .smart-answer-questions .current {
+      background-color: #fff;
+      margin-right: 15em;
+      padding: 0 2em 1em 5em;
+      position: relative;
+      zoom: 1;
+    }
+  }
+
+  .question-body + p input.button {
+    margin-top: 0.5em;
+  }
+
+  .current-question {
+    padding: 1.5em 0 1em 0;
+
+    h2 {
+      border: none;
+      @include bold-19;
+      margin-top: 0;
+      margin-bottom: 1em;
+      position: relative;
+
+      .question-number {
+        padding-right: 0.25em;
+        font-weight: 400;
+      }
+
+      @include ie-lte(8) {
+        line-height: 1.2em;
+      }
+    }
+
+    ul {
+      label {
+        margin-left: 0.25em;
+      }
+
+      select {
+        margin-right: 0.25em;
+      }
+
+      /* this is the multiple choice selector */
+      &.options {
+        @extend %contain-floats;
+        list-style: none;
+        padding: 0; /* this aligns optional questions with gutter */
+
+        li {
+          line-height: 1.5em;
+          margin: 0.5em 0;
+        }
+      }
+
+      &.optional-date {
+        li {
+          fieldset { display: inline; }
+        }
+      }
+    }
+  }
+
+  .next-question {
+    margin: 1.5em 0 0.5em 0;
+  }
+
+  /*
+   * results / outcome
+   */
+
+  .outcome {
+    background-color: #fff;
+    float: none;
+    margin-right: 0;
+    min-height: 480px;
+
+    .inner {
+      padding-top: 2em;
+    }
+  }
+
+
+  .next-steps {
+    right: -24em;
+    top: 0;
+    margin-top: 2em;
+
+    .inner {
+      padding-top: 0.5em;
+      padding-bottom: 1em;
+      padding-right: 1em;
+
+      ul {
+        padding: 0;
+        list-style: none;
+        list-style-image: none;
+
+        li {
+          font-size: 1em;
+          margin-top: 0;
+          margin-left: 0;
+        }
+      }
+
+      @include media-down(tablet) {
+        margin: 1em -1em 1.5em -1em;
+        padding: 0.25em 1em 0.25em 1em;
+      }
+
+    }
+  }
+
+
+  .article-container {
+    @extend %contain-floats
+  }
+
+  /*
+   * errors messages
+   */
+  article .error {
+    border:1px solid #B01117;
+    background-color:#FFF3CF;
+    color:#B01117;
+    margin: 0 0 -0.5em -0.5em;
+    padding: 0.5em;
+
+    ul {
+      margin-bottom: 0;
+    }
+  }
+
+  .error-message {
+    margin-top: 0;
+    color:#B01117;
+  }
+
+  /*
+   * calculators
+   */
+  .calculator article {
+    min-height: 0;
+  }
+
+  /*
+   * loading indicators
+   */
+  .loading .next-step {
+    @include inline-block;
+    line-height: 1.5em;
+    height: 32px;
+    margin: 0 0 0 1.3em;
+    padding: 0;
+    vertical-align: top;
+  }
+
+}
