@@ -217,6 +217,9 @@ multiple_choice :partner_opposite_or_same_sex? do
   end
 
 
+  define_predicate(:ceremony_in_colombia_partner_not_local) {
+    (ceremony_country == "colombia") & (partner_nationality != "partner_local")
+  }
   define_predicate(:ceremony_in_finland_uk_resident_partner_not_irish) {
     (ceremony_country == "finland") & (resident_of == "uk") & %w(partner_british partner_other partner_local).include?(partner_nationality)
   }
@@ -233,6 +236,7 @@ multiple_choice :partner_opposite_or_same_sex? do
     next_node_if(:outcome_os_consular_cni, -> {
       data_query.os_consular_cni_countries?(ceremony_country) or (resident_of == 'uk' and data_query.os_no_marriage_related_consular_services?(ceremony_country))
      })
+    next_node_if(:outcome_os_consular_cni, ceremony_in_colombia_partner_not_local)
     next_node_if(:outcome_os_consular_cni, ceremony_in_finland_uk_resident_partner_not_irish)
     next_node_if(:outcome_os_consular_cni, ceremony_in_mexico_partner_british)
     next_node_if(:outcome_os_affirmation, -> { data_query.os_affirmation_countries?(ceremony_country) })
@@ -246,6 +250,9 @@ multiple_choice :partner_opposite_or_same_sex? do
     })
   end
 
+  define_predicate(:ss_marriage_germany_partner_local?) {
+    (ceremony_country == "germany") & (partner_nationality == "partner_local") & (ceremony_type != 'opposite_sex')
+  }
   define_predicate(:ss_marriage_countries?) {
     data_query.ss_marriage_countries?(ceremony_country)
   }
@@ -267,6 +274,8 @@ multiple_choice :partner_opposite_or_same_sex? do
   next_node_if(:outcome_os_affirmation, uk_resident_irish_partner_finland_ss_ceremony)
 
   next_node_if(:outcome_ss_marriage_not_possible, ss_marriage_not_possible?)
+
+  next_node_if(:outcome_cp_cp_or_equivalent, ss_marriage_germany_partner_local?)
 
   next_node_if(:outcome_ss_marriage,
     ss_marriage_countries? | ss_marriage_countries_when_couple_british? | ss_marriage_and_partnership?
@@ -896,8 +905,10 @@ outcome :outcome_os_affirmation do
     if ceremony_country == 'turkey'
       phrases << :documents_for_divorced_or_widowed
     else
-      if %w(ecuador morocco).include? ceremony_country
+      if ceremony_country == 'morocco'
         phrases << :documents_for_divorced_or_widowed
+      elsif ceremony_country == 'ecuador'
+        phrases << :documents_for_divorced_or_widowed_ecuador
       elsif ceremony_country == 'cambodia'
         phrases << :documents_for_divorced_or_widowed_cambodia
         phrases << :change_of_name_evidence
@@ -916,6 +927,12 @@ outcome :outcome_os_affirmation do
         end
       end
     end
+
+    if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country) && data_query.commonwealth_country?(residency_country)
+      phrases << :os_notice_of_marriage
+      phrases << :os_notice_of_marriage_7_day_wait
+    end
+
     unless ceremony_country == 'egypt'
       if ceremony_country == 'turkey'
         if partner_nationality == 'partner_british'
@@ -944,10 +961,6 @@ outcome :outcome_os_affirmation do
     end
     phrases << :consular_cni_os_all_names_but_germany if ceremony_country == 'cambodia'
 
-    if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country) && data_query.commonwealth_country?(residency_country)
-      phrases << :os_notice_of_marriage
-      phrases << :os_notice_of_marriage_7_day_wait
-    end
 
 #fee tables
     if %w(south-korea thailand turkey vietnam).include?(ceremony_country)
@@ -1009,6 +1022,12 @@ outcome :outcome_os_no_cni do
       end
     end
     phrases << :get_legal_advice << :cni_os_consular_facilities_unavailable
+
+    if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country) && data_query.commonwealth_country?(residency_country)
+      phrases << :os_notice_of_marriage
+      phrases << :os_notice_of_marriage_7_day_wait
+    end
+
     unless data_query.countries_without_consular_facilities?(ceremony_country)
       if ceremony_country == 'monaco'
         phrases << :list_of_consular_fees_france
@@ -1022,11 +1041,6 @@ outcome :outcome_os_no_cni do
     end
     if data_query.requires_7_day_notice?(ceremony_country,residency_country)
       phrases << :display_notice_of_marriage_7_days
-    end
-
-    if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country) && data_query.commonwealth_country?(residency_country)
-      phrases << :os_notice_of_marriage
-      phrases << :os_notice_of_marriage_7_day_wait
     end
 
     phrases
