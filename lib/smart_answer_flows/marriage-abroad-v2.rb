@@ -612,7 +612,11 @@ outcome :outcome_os_consular_cni do
     end
 
     if data_query.commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != 'germany' and ceremony_country != residency_country
-      phrases << :consular_cni_os_commonwealth_resident
+      if ceremony_country == 'macedonia'
+        phrases << :consular_cni_os_foreign_resident_3_days_macedonia
+      else
+        phrases << :consular_cni_os_commonwealth_resident
+      end
       phrases << :os_notice_of_marriage
       if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country)
         phrases << :os_notice_of_marriage_7_day_wait
@@ -926,11 +930,6 @@ outcome :outcome_os_affirmation do
           phrases << :callout_partner_equivalent_document
         end
       end
-    end
-
-    if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country) && data_query.commonwealth_country?(residency_country)
-      phrases << :os_notice_of_marriage
-      phrases << :os_notice_of_marriage_7_day_wait
     end
 
     unless ceremony_country == 'egypt'
