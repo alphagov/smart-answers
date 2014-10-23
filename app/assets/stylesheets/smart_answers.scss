@@ -21,6 +21,7 @@ $is-ie: false !default;
 .smart_answer {
   // Previous answers block
   .previous-answers {
+    // h2 is used for multiple questions on a page
     h2 {
       @include core-19;
       padding-left: 32px;
@@ -35,7 +36,7 @@ $is-ie: false !default;
   }
 
   .start-again {
-    width: auto;
+    width: auto; // this is overidden below in another statement targeting start-again
   }
 
   // Current question
@@ -45,15 +46,6 @@ $is-ie: false !default;
     padding-left: 32px;
     @include media(mobile) {
       padding-left: 16px;
-    }
-  }
-
-  .current-question {
-    margin: 1.5em 0 0 0;
-    padding: 0;
-
-    .question {
-      margin: .5em 0 2em 0;
     }
   }
 
@@ -275,12 +267,16 @@ $is-ie: false !default;
 
   .current-question {
     padding: 1.5em 0 1em 0;
+    margin: 1.5em 0 0 0;
+
+    .question {
+      margin: .5em 0 2em 0;
+    }
 
     h2 {
       border: none;
       @include bold-19;
-      margin-top: 0;
-      margin-bottom: 1em;
+      margin: 0 0 1em;
       position: relative;
 
       .question-number {
@@ -333,11 +329,11 @@ $is-ie: false !default;
   .outcome {
     background-color: #fff;
     float: none;
-    margin-right: 0;
+    margin: 0;
     min-height: 480px;
 
     .inner {
-      padding-top: 2em;
+      padding: 2em 0 2em 2em;
     }
   }
 
@@ -374,7 +370,7 @@ $is-ie: false !default;
 
 
   .article-container {
-    @extend %contain-floats
+    @extend %contain-floats;
   }
 
   /*
