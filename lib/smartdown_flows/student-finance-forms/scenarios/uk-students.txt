@@ -54,7 +54,7 @@ outcome_dsa_1415
 
 - type_of_student: uk-full-time
 - form_needed_for_1: dsa-expenses
-outcome_dsa_expenses:
+outcome_dsa_expenses
 
 - type_of_student: uk-full-time
 - form_needed_for_1: dsa-expenses
