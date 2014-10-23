@@ -928,11 +928,6 @@ outcome :outcome_os_affirmation do
       end
     end
 
-    if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country) && data_query.commonwealth_country?(residency_country)
-      phrases << :os_notice_of_marriage
-      phrases << :os_notice_of_marriage_7_day_wait
-    end
-
     unless ceremony_country == 'egypt'
       if ceremony_country == 'turkey'
         if partner_nationality == 'partner_british'
