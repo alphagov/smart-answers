@@ -6,5 +6,5 @@
 
 * question_1 is 'lion'
   * trained_for_lions is 'yes' => outcome_trained_with_lions
-  * otherwise => outcome_untrained_with_lions
+  * otherwise => question_3
 * otherwise => outcome_tigers_are_fine

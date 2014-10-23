@@ -2,47 +2,48 @@
 outcome_check_not_needed
 
 - postcode: B1 1PW
-- renting_as_main_home: yes
+- main_home: yes
 - tenant_over_18: yes
-- uk_passport: no
-- uk_citizen_with_right_to_abode: no
-- registration_or_naturalisation_certificate: no
-- tenant_nationality: eu_eea_switzerland
-- documents_exempting_from_immigration_control: no
-- other_documents_for_indefinite_leave_to_remain: no
-- time_limited_leave_to_remain: no
-- residence_card_or_eu_eea_swiss_family_member: no
-outcome_outcome_check_not_needed
+- has_uk_passport: no
+- right_to_abode: no
+- has_certificate: no
+- tenant_country: eu_eea_switzerland
+- has_documents: no
+- has_other_documents: no
+- time_limited_to_remain: no
+- has_residence_card_or_eu_eea_swiss_family_member: no
+- has_asylum_card: no
+- has_certificate_of_application: no
+- immigration_application: no
+outcome_can_rent_for_12_months
 
-- postcode: B43 7BH
-- renting_as_main_home: no
+- postcode: B1 1PW
+- main_home: no
 - property_type: holiday_accommodation
 outcome_check_not_needed_if_holiday_or_under_3_months
 
-- postcode: B43 7DD
-- renting_as_main_home: no
+- postcode: B1 1PW
+- main_home: no
 - property_type: 7_year_lease_property
 outcome_check_needed_if_break_clause
 
-- postcode: WS4 1AG
-- renting_as_main_home: no
+- postcode: B1 1PW
+- main_home: no
 - property_type: mobile_home
 outcome_check_not_needed_when_mobile_home
 
-- postcode: WV1 1EQ
-- renting_as_main_home: no
+- postcode: B1 1PW
+- main_home: no
 - property_type: student_accommodation
 outcome_check_may_be_needed_when_student
 
 - postcode: B1 1PW
-- renting_as_main_home: yes
+- main_home: yes
 - tenant_over_18: no
 outcome_check_not_needed_when_under_18
 
 - postcode: B1 1PW
-- renting_as_main_home: yes
+- main_home: yes
 - tenant_over_18: yes
-outcome_check_not_needed_when_under_18
-
-- uk_passport: yes
+- has_uk_passport: yes
 outcome_can_rent

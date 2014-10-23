@@ -14,7 +14,7 @@
 * property_type is 'social_housing' => outcome_check_not_needed
 * property_type is 'care_home' => outcome_check_not_needed_when_care_home
 * property_type is 'hostel_or_refuge' => outcome_check_not_needed_when_hostel_refuge
-* property_type is 'mobile_home' => outcome_check_not_needed_when_mobile_home_
+* property_type is 'mobile_home' => outcome_check_not_needed_when_mobile_home
 * property_type is 'employee_accommodation' => outcome_check_not_needed_when_employee_home
 * property_type is 'student_accommodation' => outcome_check_may_be_needed_when_student
 * property_type is '7_year_lease_property' => outcome_check_needed_if_break_clause
