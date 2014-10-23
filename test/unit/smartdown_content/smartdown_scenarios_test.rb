@@ -1,6 +1,13 @@
 require 'test_helper'
+require 'gds_api/test_helpers/imminence'
 
 class SmartdownScenariosTest < ActiveSupport::TestCase
+  include GdsApi::TestHelpers::Imminence
+
+  setup do
+    imminence_has_areas_for_postcode("WC2B%206SE", [])
+    imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council" }])
+  end
 
   SmartdownAdapter::Registry::FLOW_REGISTRY_OPTIONS = {
     preload_flows: true,
