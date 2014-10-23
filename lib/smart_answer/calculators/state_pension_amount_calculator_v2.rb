@@ -105,6 +105,10 @@ module SmartAnswer::Calculators
       dob > 20.years.ago
     end
 
+    def credit_age?
+      dob < Date.parse('1959-04-06') || dob > Date.parse('1992-04-05')
+    end
+
     # these people always get 3 years of starting credits
     def three_year_credit_age?
       dob >= Date.parse('1959-04-06') and dob <= Date.parse('1992-04-05')

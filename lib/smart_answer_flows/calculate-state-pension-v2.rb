@@ -299,8 +299,11 @@ multiple_choice :received_child_benefit? do
     ni_and_credits = ni + calculator.starting_credits
     calculator.new_rules_and_less_than_10_ni?(ni_and_credits) && !calculator.credit_band
   }
+  
+  define_predicate(:credit_age?) { calculator.credit_age? }
 
   next_node_if(:years_of_benefit?, responded_with("yes"))
+  next_node_if(:years_of_work?, credit_age?)
   next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
   next_node_if(:amount_result, automatic_ni?)
   next_node :years_of_work?
@@ -423,6 +426,9 @@ value_question :years_of_carers_allowance? do
     calculator.new_rules_and_less_than_10_ni? ni
   }
 
+  define_predicate(:credit_age?) { calculator.credit_age? }
+
+  next_node_if(:years_of_work?, credit_age?)
   next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
   next_node_if(:amount_result, enough_years_credits_or_three_year_credit?)
   next_node :years_of_work?
