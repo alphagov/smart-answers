@@ -1344,6 +1344,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 0 # years of NI
         add_response 0 # Years of unemployment
         add_response :no # claimed benefit
+        add_response 0 # years worked between 16 and 19 
         add_response :yes # lived or worked abroad
       end
       should "go to outcome and show correct phrases" do
@@ -1359,6 +1360,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 5
         add_response 0
         add_response :no
+        add_response 0
       end
       should "go to amount_result" do
         assert_current_node :lived_or_worked_outside_uk?
