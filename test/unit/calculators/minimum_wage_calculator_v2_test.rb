@@ -142,7 +142,7 @@ module SmartAnswer::Calculators
           context "historical_adjustment" do
             setup do
               @underpayment = (@underpayment * -1) if @underpayment < 0
-              @historical_adjustment = ((@underpayment / 4.92) * @calculator.per_hour_minimum_wage(Date.today)).round(2)
+              @historical_adjustment = ((@underpayment / 4.92) * @calculator.per_hour_minimum_wage(Date.parse('2010-10-01'))).round(2)
             end
 
             should "be underpayment divided by the historical minimum hourly rate times the current minimum hourly rate" do
@@ -513,7 +513,7 @@ module SmartAnswer::Calculators
           assert_equal -166.21, @calculator.accommodation_cost
           assert_equal 3.21, @calculator.total_hourly_rate
           assert_equal 741.30, @calculator.historical_entitlement
-          assert_equal 70.38, @calculator.historical_adjustment
+          assert_equal 67.51, @calculator.historical_adjustment
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
@@ -525,7 +525,7 @@ module SmartAnswer::Calculators
       setup do
         Timecop.travel(Date.parse('30 Sep 2013'))
       end
-      should "equal 10.07 historical adjustment" do
+      should "equal 9.5 historical adjustment" do
         @calculator = MinimumWageCalculatorV2.new(
           age: 0,
           date: Date.parse("1 November 2010"),
@@ -535,7 +535,7 @@ module SmartAnswer::Calculators
           is_apprentice: true)
         assert_equal 2.50, @calculator.minimum_hourly_rate
         assert_equal 2.23, @calculator.total_hourly_rate
-        assert_equal 10.07, @calculator.historical_adjustment
+        assert_equal 9.5, @calculator.historical_adjustment
       end
     end
 
@@ -751,7 +751,7 @@ module SmartAnswer::Calculators
         assert_equal 32, @calculator.underpayment
         assert_equal 5.52, (@calculator.underpayment / @calculator.per_hour_minimum_wage).round(2)
         assert_equal 6.19, @calculator.per_hour_minimum_wage(Date.today)
-        assert_equal 34.15, @calculator.historical_adjustment
+        assert_equal 32.0, @calculator.historical_adjustment
         # assert_equal 43.20, @calculator.total_underpayment
       end
 
@@ -780,7 +780,7 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.73, @calculator.minimum_hourly_rate
         assert_equal 2.5, @calculator.total_hourly_rate
-        assert_equal 139.57, @calculator.historical_adjustment
+        assert_equal 129.2, @calculator.historical_adjustment
       end
 
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2008-10-01/no/25/7/40/40.0/0/no
@@ -794,7 +794,7 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.73, @calculator.minimum_hourly_rate
         assert_equal 1, @calculator.total_hourly_rate
-        assert_equal 204.39, @calculator.historical_adjustment
+        assert_equal 189.2, @calculator.historical_adjustment
       end
 
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/28/147/741.0/0/no
@@ -808,7 +808,7 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
         assert_equal 5.04, @calculator.total_hourly_rate
-        assert_equal 52.59, @calculator.historical_adjustment
+        assert_equal 45.45, @calculator.historical_adjustment
       end
 
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/28/147/696.0/0/no
@@ -822,7 +822,7 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
         assert_equal 4.73, @calculator.total_hourly_rate
-        assert_equal 104.65, @calculator.historical_adjustment
+        assert_equal 90.45, @calculator.historical_adjustment
       end
 
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/28/147/661.0/0/no
@@ -836,7 +836,7 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
         assert_equal 4.5, @calculator.total_hourly_rate
-        assert_equal 145.15, @calculator.historical_adjustment
+        assert_equal 125.45, @calculator.historical_adjustment
       end
 
     end
