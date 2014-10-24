@@ -16,7 +16,7 @@ gem 'diffy', '3.0.6'
 if ENV['SMARTDOWN_DEV']
   gem 'smartdown', :path => '../smartdown'
 else
-  gem 'smartdown', '0.7.0'
+  gem 'smartdown', '0.7.1'
 end
 
 if ENV['API_DEV']
