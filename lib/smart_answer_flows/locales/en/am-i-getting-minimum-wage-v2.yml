@@ -1,0 +1,257 @@
+en-GB:
+  flow:
+    am-i-getting-minimum-wage-v2:
+      title: National Minimum Wage calculator for workers
+      body: |
+        Check if your pay matches the National Minimum Wage or if your employer owes you payments from past years.
+      meta:
+        description: "Check if your pay matches the National Minimum Wage or if your employer owes you payments from past years."
+      options:
+        "yes": "Yes"
+        "no": "No"
+
+      # Q1
+      what_would_you_like_to_check?:
+        title: "What would you like to check?"
+        options:
+          current_payment: "If you're getting the National Minimum Wage (from October 2014)"
+          past_payment: "If an employer owes you past payments (before October 2014)"
+      # Q1A
+      past_payment_date?:
+        title: "Which year would you like to check past payments for?"
+        hint: You can go back up to 6 years
+        options:
+          "2013-10-01": "Oct 2013 - Sep 2014"
+          "2012-10-01": "Oct 2012 - Sep 2013"
+          "2011-10-01": "Oct 2011 - Sep 2012"
+          "2010-10-01": "Oct 2010 - Sep 2011"
+          "2009-10-01": "Oct 2009 - Sep 2010"
+          "2008-10-01": "Oct 2008 - Sep 2009"
+      # Q2
+      are_you_an_apprentice?:
+        title: "Are you an apprentice?"
+        options:
+          apprentice_under_19: "Apprentice under 19"
+          apprentice_over_19: "Apprentice aged 19 and over and in your first year"
+        hint: "If you’re 19 or over and past your first year you don’t count as an apprentice for minimum wage purposes."
+      # Q2 Past
+      were_you_an_apprentice?:
+        title: "Were you an apprentice at the time?"
+        options:
+          apprentice_under_19: "Apprentice under 19"
+          apprentice_over_19: "Apprentice aged 19 and over and in your first year"
+      # Q3
+      how_old_are_you?:
+        title: How old are you?
+        suffix_label: years old
+        error_message: Please enter a whole number greater than 0
+      # Q3 Past
+      how_old_were_you?:
+        title: How old were you at the time?
+        suffix_label: years old
+        error_message: Please enter a whole number greater than 0
+      # Q4
+      how_often_do_you_get_paid?:
+        title: "How often do you get paid?"
+        hint: |
+          You get paid every
+        suffix_label: days
+        error_message: Please enter a number between 1 and 31.
+        body: |
+          This is your pay period.
+      # Q4 Past
+      how_often_did_you_get_paid?:
+        title: "How often did you get paid?"
+        hint: |
+          You get paid every
+        suffix_label: days
+        body: |
+          This is your pay period.
+        error_message: Please enter a number between 1 and 31.
+      # Q5
+      how_many_hours_do_you_work?:
+        title: "How many hours do you work during the pay period?"
+        hint: |
+          Don’t include any overtime or other extra hours you might work.
+        suffix_label: hours
+        error_message: Please enter a number
+        error_hours: Please enter the number of hours you actually work during the pay period.
+      # Q5 Past
+      how_many_hours_did_you_work?:
+        title: "How many hours did you work during the pay period?"
+        hint: |
+          Don’t include any overtime or other extra hours you worked.
+        suffix_label: hours
+        error_message: Please enter a number
+        error_hours: Please enter the number of hours you actually worked during the pay period.
+      # Q6
+      how_much_are_you_paid_during_pay_period?:
+        title: "How much do you get paid before tax in the pay period?"
+        hint: "Don’t include payments for overtime or anything extra to your pay, eg money for clothes or goods."
+        suffix_label: in the pay period
+        error_message: Please enter a number
+      # Q6 Past
+      how_much_were_you_paid_during_pay_period?:
+        title: "How much were you paid in the pay period?"
+        hint: "Don’t include payments for overtime or anything extra to your pay, eg money for clothes or goods."
+        suffix_label: in the pay period
+        error_message: Please enter a number
+      # Q7
+      how_many_hours_overtime_do_you_work?:
+        title: "How many hours of overtime do you work during the pay period?"
+        hint: "If you don’t work overtime enter 0"
+        suffix_label: hours
+        error_message: Please enter a number
+      # Q7 Past
+      how_many_hours_overtime_did_you_work?:
+        title: "How many hours of overtime did you work during the pay period?"
+        hint: "If you didn’t work overtime enter 0"
+        suffix_label: hours
+        error_message: Please enter a number
+      # Q8
+      what_is_overtime_pay_per_hour?:
+        title: "How much do you get paid for overtime per hour?"
+        suffix_label: per hour
+        error_message: Please enter a number
+      # Q8 Past
+      what_was_overtime_pay_per_hour?:
+        title: "How much did you get paid for overtime per hour?"
+        suffix_label: per hour
+        error_message: Please enter a number
+      # Q9
+      is_provided_with_accommodation?:
+        title: "Does your employer provide you with accommodation?"
+        options:
+          yes_free: "Yes, the accommodation is free"
+          yes_charged: "Yes, the accommodation is charged for"
+      # Q9 Past
+      was_provided_with_accommodation?:
+        title: "Did your employer provide you with accommodation?"
+        options:
+          yes_free: "Yes, the accommodation was free"
+          yes_charged: "Yes, the accommodation was charged for"
+      # Q10
+      current_accommodation_charge?:
+        title: "How much does your employer charge for accommodation per day?"
+        suffix_label: per day
+        error_message: Please enter a number greater than 0
+      # Q10 Past
+      past_accommodation_charge?:
+        title: "How much did your employer charge for accommodation per day?"
+        suffix_label: per day
+        error_message: Please enter a number greater than 0
+      # Q11
+      current_accommodation_usage?:
+        title: "How many days per week do you live in the accommodation?"
+        suffix_label: days per week
+        error_message: 7 is the highest number of days you can enter.
+      # Q11 Past
+      past_accommodation_usage?:
+        title: "How many days per week did you live in the accommodation?"
+        suffix_label: days per week
+        error_message: 7 is the highest number of days you can enter.
+      # Current result over minimum wage
+      current_payment_above:
+        body: |
+          $C
+          You are getting the National Minimum Wage.
+          $C
+
+          The National Minimum Wage per hour for your age | Your actual pay
+          - | -
+          £%{minimum_hourly_rate} | £%{total_hourly_rate}
+
+          If you work overtime or your employer provides you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
+
+          This result is an estimate. If you have any questions, call the confidential helpline:
+
+
+          $C
+          Pay and Work Rights Helpline
+          Telephone: 0800 917 2368
+          [Find out about call charges](/call-charges)
+          $C
+
+
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work).
+      current_payment_below:
+        body: |
+          $C
+          You aren't getting the National Minimum Wage.
+          $C
+
+          The National Minimum Wage per hour for your age | Your actual pay | For each pay period your employer owes you
+          - | - | -
+          £%{minimum_hourly_rate} | £%{total_hourly_rate} * | £%{total_underpayment}
+
+          \* This figure has been rounded to the nearest penny.
+
+          If you work overtime or your employer provides you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
+
+          This result is an estimate. If you have any questions, call the confidential helpline:
+
+
+          $C
+          Pay and Work Rights Helpline
+          Telephone: 0800 917 2368
+          [Find out about call charges](/call-charges)
+          $C
+
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work).
+      past_payment_above:
+        body: |
+          $C
+          You were getting the National Minimum Wage.
+
+          Your employer doesn’t owe you any past payments.
+          $C
+
+          The National Minimum Wage per hour at the time | Your actual pay
+          - | -
+          £%{minimum_hourly_rate} | £%{total_hourly_rate}
+
+          If you worked overtime or your employer provided you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
+
+          This result is an estimate. If you have any questions, call the confidential helpline:
+
+
+          $C
+          Pay and Work Rights Helpline
+          Telephone: 0800 917 2368
+          [Find out about call charges](/call-charges)
+          $C
+
+
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work).
+      past_payment_below:
+        body: |
+          $C
+          You weren't getting the National Minimum Wage.
+          $C
+
+
+          The National Minimum Wage per hour at the time | Your actual pay | For each pay period your employer owes you
+          - | -
+          £%{minimum_hourly_rate} | £%{total_hourly_rate} * | £%{total_underpayment}
+
+          \* This figure has been rounded to the nearest penny.
+
+          This calculation includes an additional amount you’re entitled to by law for past payments. If you worked overtime or your employer provided you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
+
+          This result is an estimate. If you have any questions, call the confidential helpline:
+
+
+          $C
+          Pay and Work Rights Helpline
+          Telephone: 0800 917 2368
+          [Find out about call charges](/call-charges)
+          $C
+
+          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work).
+      does_not_apply_to_historical_apprentices:
+        body: "There was no National Minimum Wage rate for apprentices before 1 October 2010. Your employer doesn't owe you any past payments."
+
+      under_school_leaving_age:
+        body: You must be at least [school leaving age](/know-when-you-can-leave-school) to be entitled to the National Minimum Wage.
+      under_school_leaving_age_past:
+        body: You must have been at least [school leaving age](/know-when-you-can-leave-school) at the time to be entitled to the National Minimum Wage.
