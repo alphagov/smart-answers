@@ -190,7 +190,7 @@ outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pay
+outcome_adopt-leave_adopt-pay_adopt-pat-leave_adopt-pat-pay_adopt-both-shared-leave_adopt-both-shared-pay
 
 #Principal adopter employee, passes continuity test, passes lower earnings test
 #Adopter worker, passes continuity test, passes lower earnings test
@@ -208,7 +208,7 @@ outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay_adopt-pat-leav
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay_adopt-pat-pay_adopt-pat-shared-pay
+outcome_adopt-leave_adopt-pay_adopt-pat-pay_adopt-shared-leave_adopt-both-shared-pay
 
 #Principal adopter self-employed
 #Adopter self-employed
@@ -302,7 +302,7 @@ outcome_adopt-pat-leave_adopt-pat-pay
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_adopt-pay_adopt-shared-pay_adopt-pat-pay_adopt-pat-shared-pay
+outcome_adopt-pay_adopt-pat-pay_adopt-both-shared-pay
 
 #Principal adopter worker, passes continuity test, passes lower earnings test
 #Adopter employee, passes continuity test, passes lower earnings test
@@ -320,7 +320,7 @@ outcome_adopt-pay_adopt-shared-pay_adopt-pat-pay_adopt-pat-shared-pay
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_adopt-pay_adopt-shared-pay_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pay
+outcome_adopt-pay_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-both-shared-pay
 
 #Principal adopter worker, passes continuity test, passes lower earnings test
 #Adopter self-employed, passes employment and earnings test

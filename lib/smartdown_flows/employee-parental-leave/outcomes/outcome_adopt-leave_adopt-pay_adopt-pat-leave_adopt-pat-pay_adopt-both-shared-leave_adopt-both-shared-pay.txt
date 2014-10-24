@@ -1,0 +1,11 @@
+{{snippet: adopt-leave}}
+
+{{snippet: adopt-pay}}
+
+{{snippet: adopt-pat-leave}}
+
+{{snippet: adopt-pat-pay}}
+
+{{snippet: adopt-both-shared-leave}}
+
+{{snippet: adopt-both-shared-pay}}

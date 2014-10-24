@@ -1,16 +1,10 @@
-##Shared parental leave (partner)
+##Shared parental leave (partner only)
 
-The mother’s partner can take [shared parental leave](/shared-parental-leave-and-pay) (SPL) if the mother has:
+The mother’s partner can take [shared parental leave](/shared-parental-leave-and-pay) (SPL). It lasts for up to 52 weeks, minus any weeks of maternity leave taken by the mother. 
 
-- ended any maternity leave by returning to work
-- given ‘binding notice’ (a decision that can’t normally be changed) to her employer of the date when she plans to end any maternity leave
-- ended maternity pay or maternity allowance
+The partner can take SPL in up to three blocks, going back to work between the blocks.
 
-SPL lasts for up to 52 weeks, minus any weeks of maternity leave taken by the mother. 
-
-The partner can take SPL in up to three blocks, going back to work between the blocks. Each block can be split up further if their employer agrees. 
-
-The mother and her partner can share SPL if they both qualify for it.
+^The mother can’t take SPL.^
 
  | Dates
 - | -
