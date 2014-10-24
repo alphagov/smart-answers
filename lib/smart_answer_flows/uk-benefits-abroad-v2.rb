@@ -169,10 +169,12 @@ country_select :which_country?,additional_countries: additional_countries, exclu
     next_node_if(:tax_credits_currently_claiming?, responded_with_eea_country) # Q20 already_abroad
     next_node(:tax_credits_unlikely_outcome) # A21 already_abroad and A23 going_abroad
   end
-#esa
+#esa ##############################
   on_condition(variable_matches(:benefit, 'esa')) do
     on_condition(going_abroad) do
       next_node_if(:esa_going_abroad_eea_outcome, responded_with_eea_country) # A29 going_abroad
+      next_node_if(:esa_going_abroad_eea_outcome, responded_with_former_yugoslavia)
+      next_node_if(:esa_going_abroad_eea_outcome, responded_with(%w(barbados guernsey israel jersey jamaica turkey usa)))
       next_node(:esa_going_abroad_other_outcome) # A30 going_abroad
     end
     on_condition(already_abroad) do

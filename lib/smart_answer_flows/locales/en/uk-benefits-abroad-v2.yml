@@ -52,8 +52,9 @@ en-GB:
 
           ##Child Tax Credit
 
-          You could get Child Tax Credit if:
-
+          You could get [Child Tax Credit](/child-tax-credit) if:
+          
+          - you are ordinarily resident in the UK
           - you work in the UK and pay [National Insurance contributions](/national-insurance) here
           - your child lives in an EEA country or in Switzerland and depends on you to support them
 
@@ -109,7 +110,7 @@ en-GB:
 
 # Q2 already_abroad and Q3 going_abroad
       which_benefit?:
-        title: Which benefit would you like to claim?
+        title: Which benefit will you be claiming?
         options:
           jsa: "Jobseeker's Allowance (JSA)"
           pension: "State Pension"
@@ -275,7 +276,7 @@ en-GB:
         body: |
           You can't claim [income-based JSA](/jobseekers-allowance/overview) abroad.
 
-          You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months if you're going abroad to look for work and you:
+          You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months  if you’re going to an [EEA country](/eu-eea) or Jersey or Guernsey to look for work and you:
 
           - are entitled to it on the day you go abroad
           - register as a jobseeker at least 4 weeks before you leave
@@ -303,7 +304,7 @@ en-GB:
         body: |
           You can't claim [income-based JSA](/jobseekers-allowance/overview) abroad.
 
-          You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months if you're going abroad to look for work and you:
+          You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months  if you’re going to an [EEA country](/eu-eea) or Jersey or Guernsey to look for work and you:
 
           - are entitled to it on the day you go abroad
           - register as a jobseeker at least 4 weeks before you leave
