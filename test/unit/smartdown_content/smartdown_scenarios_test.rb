@@ -50,8 +50,8 @@ class SmartdownScenariosTest < ActiveSupport::TestCase
       state  = flow.state(true, answers)
       assert (state.current_node.is_a? Smartdown::Api::Outcome),
              "Expected an outcome when running flow #{flow.name} with answers #{answers}"
-      assert_equal state.current_node.name,
-                   outcome,
+      assert_equal outcome,
+                   state.current_node.name,
                    "In flow #{flow.name} with answers #{answers}, outcome #{state.current_node.name} was reached and not #{outcome}"
     end
   end
