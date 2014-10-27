@@ -16,7 +16,7 @@ module SmartdownAdapter
     end
 
     def default
-      Date.today
+      nil
     end
 
     def start_date
