@@ -1,6 +1,7 @@
 module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
+    FLOW_DIR = Rails.root.join('lib', 'smart_answer_flows')
 
     def self.instance
       @instance ||= new(FLOW_REGISTRY_OPTIONS)
@@ -11,7 +12,7 @@ module SmartAnswer
     end
 
     def initialize(options = {})
-      @load_path = Pathname.new(options[:load_path] || Rails.root.join('lib', 'smart_answer_flows'))
+      @load_path = Pathname.new(options[:load_path] || FLOW_DIR)
       @show_drafts = options.fetch(:show_drafts, false)
       @show_transitions = options.fetch(:show_transitions, false)
       preload_flows! if Rails.env.production? or options[:preload_flows]
@@ -25,6 +26,12 @@ module SmartAnswer
 
     def flows
       available_flows.map { |s| find_by_name(s) }.compact
+    end
+
+    def available_flows
+      Dir[@load_path.join('*.rb')].map do |path|
+        File.basename(path, ".rb")
+      end
     end
 
   private
@@ -48,12 +55,6 @@ module SmartAnswer
       Flow.new do
         eval(File.read(absolute_path), binding, absolute_path)
         name(name)
-      end
-    end
-
-    def available_flows
-      Dir[@load_path.join('*.rb')].map do |path|
-        File.basename(path, ".rb")
       end
     end
 
