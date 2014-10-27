@@ -14,10 +14,10 @@
       <p class="hint"><%= question.hint %></p>
     <% end %>
 
-    <div class="<%= @presenter.error && 'error' %>">
-      <% if @presenter.error %>
+    <div class="<%= question.error && 'error' %>">
+      <% if question.error %>
         <p class="error-message" id="current-error" role="alert">
-          <%= @presenter.error %>
+          <%= question.error %>
         </p>
       <% end %>
 

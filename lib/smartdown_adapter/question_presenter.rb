@@ -16,6 +16,11 @@ module SmartdownAdapter
       !!hint
     end
 
+    #TODO: implement once we have error handling
+    def error
+      nil
+    end
+
     def partial_template_name
       case smartdown_question
       when Smartdown::Api::MultipleChoice
