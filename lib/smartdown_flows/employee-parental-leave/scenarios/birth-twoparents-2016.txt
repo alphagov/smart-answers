@@ -338,7 +338,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
+outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
 
 #Mother employee, passes continuity test, passes lower earnings test
 #Partner worker, passes continuity test, passes lower earnings test
@@ -355,7 +355,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay_pat-leave_pat-pay_pat-
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay_pat-pay_pat-shared-pay
+outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
 
 #Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
 #Partner employee, passes continuity test, passes lower earnings test
@@ -454,7 +454,7 @@ outcome_mat-pay_mat-shared-pay
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_mat-pay_mat-shared-pay_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
+outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
 
 #Mother worker, passes continuity test, passes lower earnings test
 #Partner worker, passes continuity test, passes lower earnings test
@@ -471,7 +471,7 @@ outcome_mat-pay_mat-shared-pay_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_mat-pay_mat-shared-pay_pat-pay_pat-shared-pay
+outcome_mat-pay_pat-pay_both-shared-pay
 
 #Mother self-employed, does not pass earnings and employment test
 #Partner employee, passes continuity test, passes lower earnings test

@@ -1,15 +1,10 @@
-##Shared Parental Leave
+##Shared Parental Leave (partner only)
 
-The primary adopter’s partner can take [shared parental leave](/shared-parental-leave-and-pay) (SPL) if the primary adopter has:
+The primary adopter’s partner can take [shared parental leave](/shared-parental-leave-and-pay) (SPL). It lasts for up to 52 weeks, minus any weeks of adoption leave taken by the primary adopter. 
 
-- ended their adoption leave by returning to work
-- given ‘binding notice’ (a decision that can’t normally be changed) to her employer of the date when they plan to end their adoption leave
+The partner can take SPL in up to three blocks, going back to work between the blocks.
 
-SPL lasts for up to 52 weeks, minus any weeks of adoption leave taken by the primary adopter. 
-
-The partner can take SPL in up to three blocks, going back to work between the blocks. Each block can be split up further if their employer agrees. 
-
-The primary adopter and their partner can share SPL if they both qualify for it.
+^The primary adopter can’t take SPL.^
 
  | Dates
 - | -
