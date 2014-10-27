@@ -146,7 +146,7 @@ money_question :how_much_are_you_paid_during_pay_period? do
     if amount_paid < 0
       raise SmartAnswer::InvalidResponse
     end
-    Calculators::MinimumWageCalculator.new({
+    Calculators::MinimumWageCalculatorV2.new({
       age: age.to_i,
       pay_frequency: pay_frequency,
       basic_hours: basic_hours,
@@ -166,7 +166,7 @@ money_question :how_much_were_you_paid_during_pay_period? do
     if amount_paid < 0
       raise SmartAnswer::InvalidResponse
     end
-    Calculators::MinimumWageCalculator.new({
+    Calculators::MinimumWageCalculatorV2.new({
       age: age.to_i,
       date: Date.parse(payment_date),
       pay_frequency: pay_frequency,
