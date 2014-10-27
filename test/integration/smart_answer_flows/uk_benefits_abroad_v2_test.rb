@@ -1364,6 +1364,17 @@ class UKBenefitsAbroadV2Test < ActiveSupport::TestCase
       end
     end
 
+    context "living abroad for more than a year, jersey" do
+      setup do
+        add_response 'esa'
+        add_response 'esa_more_than_a_year'
+        add_response 'jersey'
+      end
+      should "take you to former yugoslavia outcome" do
+        assert_current_node :esa_already_abroad_ss_outcome
+      end
+    end
+
     # IIDB
     context "answer not claiming IIDB" do
       setup do

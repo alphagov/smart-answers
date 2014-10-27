@@ -146,7 +146,7 @@ en-GB:
         title: Do either of the following apply to you?
         body: |
           * you're employed or self-employed and paying National Insurance contributions in the UK
-          * you're currently receiving at least one of the following UK benefits (Jobseeker's Allowance, Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit)
+          * you're currently receiving at least one of the following UK benefits (Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit)
 
 # Q15 going_abroad and Q14 already_abroad
       working_for_uk_employer_ssp?:
@@ -357,7 +357,7 @@ en-GB:
 # A3 already_abroad
       jsa_eea_already_abroad_outcome:
         body: |
-          You can't get JSA while you're abroad. You may qualify for unemployment benefits in %{country_name} because of the agreements between [EEA countries](/eu-eea) and Switzerland.
+          You can't get JSA while you're abroad. You may qualify for unemployment benefits in %{country_name}.
 
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
@@ -831,7 +831,7 @@ en-GB:
 
           * [Attendance Allowance](/attendance-allowance)
           * [Carer's Allowance](/carers-allowance)
-          * [Disability Living Allowance](/dla-disability-living-allowance-benefit) - care component
+          * [Disability Living Allowance](/dla-disability-living-allowance-benefit)
           * [Personal Independence Payment](/pip)
 
           You may be able to get benefits from %{country_name} if you've been paying into a local insurance scheme.  Contact the local authorities to find out if you qualify.

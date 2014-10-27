@@ -180,6 +180,7 @@ country_select :which_country?,additional_countries: additional_countries, exclu
     on_condition(already_abroad) do
       next_node_if(:esa_already_abroad_eea_outcome, responded_with_eea_country) # A27 already_abroad
       next_node_if(:esa_already_abroad_ss_outcome, responded_with_former_yugoslavia) # A28 already_abroad
+      next_node_if(:esa_already_abroad_ss_outcome, responded_with(%w(barbados jersey guernsey jamaica turkey usa)))
       next_node(:esa_already_abroad_other_outcome) # A29 already_abroad
     end
   end
