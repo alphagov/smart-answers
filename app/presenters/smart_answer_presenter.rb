@@ -77,13 +77,6 @@ class SmartAnswerPresenter
     @current_state ||= @flow.process(all_responses)
   end
 
-  def error
-    if current_state.error.present?
-      current_node.translate!(current_state.error.to_sym) || current_node.error_message ||
-        I18n.translate('flow.defaults.error_message')
-    end
-  end
-
   def collapsed_question_pages
     collapsed_questions.map do |collapsed_question|
       OpenStruct.new(:questions => [collapsed_question])

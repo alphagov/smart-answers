@@ -96,12 +96,6 @@ module SmartdownAdapter
       smart_answer_path(url_hash)
     end
 
-    #TODO: implement once we have error handling
-    # Should be moved on to question nodes, only they have errors
-    def error
-      nil
-    end
-
     private
 
     def responses_from_request(request)
