@@ -10,7 +10,7 @@ module SmartdownAdapter
     end
     context "to_response" do
       should "strip leading and trailing whitespace" do
-        presenter = SmartdownAdapter::TextQuestionPresenter.new("foo")
+        presenter = SmartdownAdapter::TextQuestionPresenter.new("foo", nil)
         assert_equal "blah blah blah", presenter.to_response(" blah blah blah  ")
       end
     end

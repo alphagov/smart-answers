@@ -21,8 +21,14 @@ module SmartdownAdapter
     def initialize(smartdown_flow, request)
       @smartdown_flow = smartdown_flow
       @started = request[:started]
-      @processed_responses = process_inputs(responses_from_request(request))
-      @smartdown_state = @smartdown_flow.state(started, @processed_responses)
+      previous_smartdown_inputs = process_inputs(responses_from_url(request))
+      @previous_smartdown_state = @smartdown_flow.state(started, previous_smartdown_inputs)
+      @responses_url_and_request = process_inputs(responses_from_request(request))
+      @smartdown_state = @smartdown_flow.state(started, @responses_url_and_request)
+    end
+
+    def accepted_responses
+      @smartdown_state.accepted_responses
     end
 
     def questions
@@ -45,8 +51,8 @@ module SmartdownAdapter
       # current state is only used for responses and error, which are both
       # available on state and could be called directly, requires controller change
       OpenStruct.new(
-        :responses => smartdown_state.accepted_responses
-        # This is missing :error
+        :responses => accepted_responses,
+        :unaccepted_responses => @smartdown_state.current_answers.map(&:value),
       )
     end
 
@@ -100,6 +106,11 @@ module SmartdownAdapter
     private
 
     def responses_from_request(request)
+      responses_from_url(request) +
+      responses_from_query_params(request)
+    end
+
+    def responses_from_url(request)
       responses = []
       if request[:params]
         responses += request[:params].split("/")
@@ -110,16 +121,27 @@ module SmartdownAdapter
         split_responses = request[:responses].split("/")
         responses += split_responses
       end
+      responses
+    end
 
+    def responses_from_query_params(request)
+      responses = []
       # get form submission request: one response
       if request[:response]
         responses << request[:response]
       end
 
       #get form submission request: for multiple responses
-      response_array = request.query_parameters.select { |key| key.to_s.match(/^response_\d+/) }
-                                                .map { |response_key| response_key[1] }
-      responses += response_array unless response_array.empty?
+      if request[:next]
+        (@previous_smartdown_state.current_node.questions.count - responses.count).times do |index|
+          responses << request.query_parameters["response_#{index+1}"] || nil
+        end
+      elsif !request.query_parameters.select { |key| key.to_s.match(/^previous_response_\d+/) }.empty?
+        @previous_smartdown_state.current_node.questions.count.times do |index|
+          responses << request["previous_response_#{index+1}"] || nil
+        end
+        responses
+      end
       responses
     end
 
@@ -139,13 +161,13 @@ module SmartdownAdapter
 
     def presenter_for_current_node
       smartdown_node = smartdown_state.current_node
+      current_smartdown_answers = smartdown_state.current_answers
       case smartdown_node
         when Smartdown::Api::QuestionPage
-          SmartdownAdapter::QuestionPagePresenter.new(smartdown_node)
+          SmartdownAdapter::QuestionPagePresenter.new(smartdown_node, current_smartdown_answers)
         else
           SmartdownAdapter::NodePresenter.new(smartdown_node)
       end
-
     end
 
     def presenters_for_previous_nodes
