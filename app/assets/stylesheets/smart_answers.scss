@@ -75,6 +75,7 @@ $is-ie: false !default;
         td {
           border-bottom: none;
           padding: 0 1em 0.25em inherit;
+          width: 60%;
         }
 
         .section-title {
@@ -90,9 +91,10 @@ $is-ie: false !default;
 
       .link-right {
         text-align: right;
-        width: 40%;
+        width: 10%;
         padding-right: 0;
-        padding-top: 0.5em;
+        padding-top: 0.5em; // if smartdown
+        // padding-top: 0.0em; // if smartanswer
       }
     }
   }

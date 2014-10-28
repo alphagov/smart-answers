@@ -1,4 +1,5 @@
-<tr class="section">
+<%- if question_page.title -%>
+<tr class="section" colspan="3">
   <td class="section-title">
     <%= question_page.title %>
   </td>
@@ -10,8 +11,9 @@
     <% end %>
   </td>
 </tr>
+<% end %>
 <% question_page.questions.each_with_index do |question, question_index|%>
-  <tr>
+  <tr class="answers" colspan="3">
     <td><%= question.title %></td>
     <%- if question.multiple_responses? -%>
       <%- question.response_labels(@presenter.accepted_responses[number_questions_so_far + question_index]).each do |label| -%>
@@ -20,5 +22,14 @@
     <%- else -%>
       <td><%= question.response_label(@presenter.accepted_responses[number_questions_so_far + question_index]) %></td>
     <%- end -%>
+    <td class="link-right" colspan="2">
+    <%- if !question_page.title -%>
+      <% if question_page.questions.count == 1 %>
+        <%= link_to "Change", @presenter.change_collapsed_question_link(number_questions_so_far + 1) %>
+      <% else %>
+        <%= link_to "Change", @presenter.change_collapsed_question_link(number_questions_so_far + 1, question_page.questions.count) %>
+      <% end %>
+    <% end %>
+  </td>
   </tr>
 <% end %>
