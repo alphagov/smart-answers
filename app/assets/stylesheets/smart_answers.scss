@@ -78,6 +78,10 @@ $is-ie: false !default;
           width: 60%;
         }
 
+        .no-title{
+          padding: 0.5em 0.3em 0.3em inherit;
+        }
+
         .section-title {
           @include bold-14;
           padding-top: 0.5em;
@@ -87,15 +91,24 @@ $is-ie: false !default;
           border-top: 1px solid;
           border-color: inherit;
         }
+        .no-title-answer{
+          border-top: 1px solid;
+          border-color: inherit;
+        }
       }
 
       .link-right {
         text-align: right;
         width: 10%;
         padding-right: 0;
-        padding-top: 0.5em; // if smartdown
-        // padding-top: 0.0em; // if smartanswer
+        padding-top: 0.5em;
       }
+      .link-right-no-title {
+        text-align: right;
+        width: 10%;
+        padding-right: 0;
+      }
+
     }
   }
 
