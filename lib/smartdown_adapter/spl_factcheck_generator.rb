@@ -45,7 +45,7 @@ module SmartdownAdapter
       ordered_adoption_hashes = order_adoption_hashes(adoption_hashes)
       lines = []
       lines << "##Adoption \n"
-      lines << "Nb | PA status | PA C | PA W | PA E&E | P status | P C | P W | P E&E | Outcome | URL"
+      lines << "Nb | PA status | PA C | PA LE | PA W | PA E&E | P status | P C | P LE | P W | P E&E | Outcome | URL"
       lines << "-|-"
       line_content = []
       ordered_adoption_hashes.each do |adoption_hash|
@@ -60,7 +60,7 @@ module SmartdownAdapter
       ordered_birth_hashes = order_birth_hashes(birth_hashes)
       lines = []
       lines << "##Birth \n"
-      lines << "Nb | M status | M C | M W | M E&E | P status | P C | P W | P E&E | Outcome | URL"
+      lines << "Nb | M status | M C | M LE | M W | M E&E | P status | P C | P LE | P W | P E&E | Outcome | URL"
       lines << "-|-"
       line_content = []
       ordered_birth_hashes.each do |birth_hash|
@@ -75,18 +75,20 @@ module SmartdownAdapter
       result = []
       result << adoption_hash[:employment_status_1]
       if adoption_hash[:job_before_x_1]
-        result << tick_or_cross(adoption_hash[:job_before_x_1] == "yes" && adoption_hash[:job_after_y_1] == "yes" && adoption_hash[:ler_1] == "yes")
+        result << tick_or_cross(adoption_hash[:job_before_x_1] == "yes" && adoption_hash[:job_after_y_1] == "yes")
+        result << tick_or_cross(adoption_hash[:ler_1] == "yes")
         result << tick_or_cross(adoption_hash[:job_after_y_1] == "yes")
       else
-        result += [nil, nil]
+        result += [nil, nil, nil]
       end
       result << tick_or_cross(adoption_hash[:earnings_employment_1])
       result << adoption_hash[:employment_status_2]
       if adoption_hash[:job_before_x_2]
-        result << tick_or_cross(adoption_hash[:job_before_x_2] == "yes" && adoption_hash[:job_after_y_2] == "yes" && adoption_hash[:ler_2] == "yes")
+        result << tick_or_cross(adoption_hash[:job_before_x_2] == "yes" && adoption_hash[:job_after_y_2] == "yes")
+        result << tick_or_cross(adoption_hash[:ler_2] == "yes")
         result << tick_or_cross(adoption_hash[:job_after_y_2] == "yes")
       else
-        result += [nil, nil]
+        result += [nil, nil, nil]
       end
       result << tick_or_cross(adoption_hash[:earnings_employment_2])
       result << human_readable_description(adoption_hash[:outcome])
@@ -98,18 +100,20 @@ module SmartdownAdapter
       result = []
       result << birth_hash[:employment_status_1]
       if birth_hash[:job_before_x_1]
-        result << tick_or_cross(birth_hash[:job_before_x_1] == "yes" && birth_hash[:job_after_y_1] == "yes" && birth_hash[:ler_1] == "yes")
+        result << tick_or_cross(birth_hash[:job_before_x_1] == "yes" && birth_hash[:job_after_y_1] == "yes")
+        result << tick_or_cross(birth_hash[:ler_1] == "yes")
         result << tick_or_cross(birth_hash[:job_after_y_1] == "yes")
       else
-        result << [nil, nil]
+        result << [nil, nil, nil]
       end
       result << tick_or_cross(birth_hash[:earnings_employment_1])
       result << birth_hash[:employment_status_2]
       if birth_hash[:job_before_x_2]
-        result << tick_or_cross(birth_hash[:job_before_x_2] == "yes" && birth_hash[:job_after_y_2] == "yes" && birth_hash[:ler_2] == "yes")
+        result << tick_or_cross(birth_hash[:job_before_x_2] == "yes" && birth_hash[:job_after_y_2] == "yes")
+        result << tick_or_cross(birth_hash[:ler_2] == "yes")
         result << tick_or_cross(birth_hash[:job_after_y_2] == "yes")
       else
-        result << [nil, nil]
+        result << [nil, nil, nil]
       end
       result << tick_or_cross(birth_hash[:earnings_employment_2])
       result << human_readable_description(birth_hash[:outcome])
