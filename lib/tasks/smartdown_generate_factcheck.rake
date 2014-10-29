@@ -1,4 +1,4 @@
-namespace :smartdown_generate_scenarios do
+namespace :smartdown_generate_factcheck do
 
   def generate(name, combinations)
     generator = SmartdownAdapter::ScenarioGenerator.new(name, combinations)
@@ -9,33 +9,8 @@ namespace :smartdown_generate_scenarios do
     Rails.root.join('..', "smart-answers-factcheck", flow_name)
   end
 
-  desc "Generate scenarios for employee parental leave"
-  task :employee_parental_leave => :environment do
-    combinations = {
-      :circumstance => ["adoption", "birth"],
-      :two_carers => ["yes", "no"],
-      :due_date => ["2015-4-5", "2014-4-5"],
-      :match_date => ["2015-4-5", "2014-4-5"],
-      :placement_date => ["2014-4-5"],
-      :employment_status_1 => ["employee", "worker", "self-employed", "unemployed"],
-      :employment_status_2 => ["employee", "worker", "self-employed", "unemployed"],
-      :job_before_x_1 => ["yes", "no"],
-      :job_after_y_1 => ["yes", "no"],
-      :salary_1 => ["400-week"],
-      :ler_1 => ["yes", "no"],
-      :earnings_employment_1 => ["yes", "no"],
-      :salary_1_66_weeks => ["400-week"],
-      :job_before_x_2 => ["yes", "no"],
-      :job_after_y_2 => ["yes", "no"],
-      :salary_2 => ["400-week"],
-      :ler_2 => ["yes", "no"],
-      :earnings_employment_2 => ["yes", "no"],
-    }
-    generate("employee-parental-leave", combinations)
-  end
-
   desc "Generate factcheck files for employee parental leave"
-  task :employee_parental_leave_factcheck => :environment do
+  task :employee_parental_leave => :environment do
     dates = ["2015-4-5", "2014-4-5"]
     dates.each do |date|
       combinations = {

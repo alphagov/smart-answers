@@ -31,7 +31,7 @@ be listed for that outcome.
 
 ###Factcheck table generation
 
-```rake smartdown_generate_scenarios:employee_parental_leave_factcheck```
+```rake smartdown_generate_factcheck:employee_parental_leave```
 
 ####Output of the tool
 
@@ -50,13 +50,3 @@ paternity, adoption, shared parental leave and pay the user(s) is/are eligible f
 We have chosen for each question in the employee parental leave a selection of answers that can affect the outcome of the tool.
 This is not an exhaustive list of possible answers. As the tool evolves and more legal rules are added, **possible answers
 that can affect the outcome of the flow should be added to the combinations to have an accurate and complete factcheck table**.
-
-###Scenario generation
-
-```rake smartdown_generate_scenarios:employee_parental_leave```
-
-This rake task prints out test scenarios files (one file per possible outcomes) to the ```smart-answers-factcheck``` project.
-All those scenarios are created by using the same combination generator as the factcheck rake task.
-
-The output is meant to be a helper when writing test scenarios for employee parental leave, and can be deprecated
-once good test scenarios are put in place for that smart answer.
