@@ -1,9 +1,11 @@
 <%- if question_page.title -%>
-  <tr class="section" colspan="3">
+  <tr class="section">
     <td class="section-title">
       <%= question_page.title %>
     </td>
-    <td class="link-right" colspan="3">
+    <td>
+    </td>
+    <td class="link-right">
       <% if question_page.questions.count == 1 %>
         <%= link_to "Change", @presenter.change_collapsed_question_link(number_questions_so_far + 1) %>
       <% else %>
@@ -15,20 +17,20 @@
 
 <% question_page.questions.each_with_index do |question, question_index|%>
   <%- if !question_page.title -%> 
-    <tr class="no-title-answer" colspan="3">
-    <td class="no-title">
+    <tr class="section">
   <% else %>
-    <tr class="answer" colspan="3">
-    <td>
+    <tr>
   <% end %>
-    <%= question.title %></td>
+    <td><%= question.title %></td>
     <%- if question.multiple_responses? -%>
+      <td><ul>
       <%- question.response_labels(@presenter.accepted_responses[number_questions_so_far + question_index]).each do |label| -%>
-        <td><%= label question_index%></td>
+        <li><%= label %></li>
       <%- end -%>
+      </ul></td>
     <%- else -%>
     <%- if !question_page.title -%> 
-      <td class="no-title">
+      <td>
     <% else %>
       <td>
     <%- end -%>
@@ -36,7 +38,7 @@
     <%- end -%>
 
     <%- if !question_page.title -%>
-      <td class="link-right no-title">
+      <td class="link-right">
         <% if question_page.questions.count == 1 %>
           <%= link_to "Change", @presenter.change_collapsed_question_link(number_questions_so_far + 1) %>
         <% else %>
