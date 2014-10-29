@@ -8,7 +8,7 @@ namespace :smartanswer_smartdown do
     SmartdownAdapter::Registry.instance.flows.select { |f| f.transition? }.each do |smartdown_transition_question|
       smartdown_transition_question_name = smartdown_transition_question.name
       errors = 0
-      helper = SmartdownAdapter::SmartAnswerCompareHelper.new(smartdown_transition_question_name)
+      helper = SmartdownAdapter::SmartAnswerCompareHelper.new(smartdown_transition_question)
 
       #Coversheet
       smartanswer_content = helper.get_smartanswer_content
@@ -31,20 +31,21 @@ namespace :smartanswer_smartdown do
       end
 
       #All answer scenarios
-      helper.scenario_sequences.each do |responses|
-        smartanswer_content = helper.get_smartanswer_content(true, responses)
+      helper.scenario_answer_sequences.each do |answer_groups|
+        flattened_answers = answer_groups.flatten
+        smartanswer_content = helper.get_smartanswer_content(true, flattened_answers)
         begin
-          smartdown_content = helper.get_smartdown_content(true, responses)
+          smartdown_content = helper.get_smartdown_content(true, flattened_answers)
         rescue Smartdown::Engine::UndefinedValue
-          p "Undefined smartdown value for #{responses.join(", ")} for question #{smartdown_transition_question_name}"
+          p "Undefined smartdown value for #{flattened_answers.join(", ")} for question #{smartdown_transition_question_name}"
           errors+=1
         rescue Smartdown::Engine::IndeterminateNextNode
-          p "Unedefined smartdown next node for #{responses.join(", ")} for question #{smartdown_transition_question_name}"
+          p "Unedefined smartdown next node for #{flattened_answers.join(", ")} for question #{smartdown_transition_question_name}"
           errors+=1
         end
         error_message_diff = Diffy::Diff.new(smartanswer_content, smartdown_content, :context => 1)
         if smartanswer_content != smartdown_content
-          p "Error for #{responses.join(", ")} for question #{smartdown_transition_question_name}"
+          p "Error for #{flattened_answers.join(", ")} for question #{smartdown_transition_question_name}"
           p error_message_diff
           errors+=1
         end

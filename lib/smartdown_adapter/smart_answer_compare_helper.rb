@@ -3,9 +3,10 @@ require 'nokogiri'
 module SmartdownAdapter
   class SmartAnswerCompareHelper
 
-    def initialize(question_name)
+    def initialize(smartdown_flow)
       @controller = SmartAnswersController.new
-      @question_name = question_name
+      @smartdown_flow = smartdown_flow
+      @question_name = smartdown_flow.name
       @session = ActionDispatch::Integration::Session.new(Rails.application)
     end
 
@@ -17,20 +18,17 @@ module SmartdownAdapter
       get_content(@question_name, true, started, responses)
     end
 
-    def scenario_sequences
-      scenario_folder_path = Rails.root.join('lib', 'smartdown_flows', @question_name, "scenarios", "*")
-      scenario_strings = Dir[scenario_folder_path].map do |filename|
-        get_file_as_string(filename).split("\n\n")
-      end.flatten
-      result = []
-      scenario_strings.each do |scenario_string|
-        responses = YAML::load(scenario_string+"\n").values.compact
-        (0..responses.length).each do |i|
-          result << responses[0..i]
+    def scenario_answer_sequences
+      answer_groups = []
+      @smartdown_flow.scenario_sets.each do |scenario_set|
+        scenario_set.scenarios.each_with_index do |scenario, scenario_index|
+          scenario.question_groups.each_with_index do |question_group, question_index|
+            answer_groups << question_group.flatten.map(&:answer)
+          end
         end
       end
-      result.uniq!
-      result
+      answer_groups.uniq!
+      answer_groups
     end
 
   private
