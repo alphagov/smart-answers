@@ -98,7 +98,7 @@ outcome_mat-allowance_mat-leave
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_mat-allowance_mat-leave_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
+outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
 #Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
 #Partner worker, passes continuity test, passes lower earnings test
@@ -299,7 +299,7 @@ outcome_mat-leave_mat-pay_pat-pay_additional-pat-pay
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_mat-leave_pat-leave_pat-pay
+outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
 #Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
 #Partner worker, passes continuity test, passes lower earnings test
