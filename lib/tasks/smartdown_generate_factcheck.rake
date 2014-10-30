@@ -1,41 +1,7 @@
-namespace :smartdown_generate_scenarios do
-
-  def generate(name, combinations)
-    generator = SmartdownAdapter::ScenarioGenerator.new(name, combinations)
-    generator.perform
-  end
-
-  def smartdown_factcheck_path(flow_name)
-    Rails.root.join('..', "smart-answers-factcheck", flow_name)
-  end
-
-  desc "Generate scenarios for employee parental leave"
-  task :employee_parental_leave => :environment do
-    combinations = {
-      :circumstance => ["adoption", "birth"],
-      :two_carers => ["yes", "no"],
-      :due_date => ["2015-4-5", "2014-4-5"],
-      :match_date => ["2015-4-5", "2014-4-5"],
-      :placement_date => ["2014-4-5"],
-      :employment_status_1 => ["employee", "worker", "self-employed", "unemployed"],
-      :employment_status_2 => ["employee", "worker", "self-employed", "unemployed"],
-      :job_before_x_1 => ["yes", "no"],
-      :job_after_y_1 => ["yes", "no"],
-      :salary_1 => ["400-week"],
-      :ler_1 => ["yes", "no"],
-      :earnings_employment_1 => ["yes", "no"],
-      :salary_1_66_weeks => ["400-week"],
-      :job_before_x_2 => ["yes", "no"],
-      :job_after_y_2 => ["yes", "no"],
-      :salary_2 => ["400-week"],
-      :ler_2 => ["yes", "no"],
-      :earnings_employment_2 => ["yes", "no"],
-    }
-    generate("employee-parental-leave", combinations)
-  end
+namespace :smartdown_generate_factcheck do
 
   desc "Generate factcheck files for employee parental leave"
-  task :employee_parental_leave_factcheck => :environment do
+  task :employee_parental_leave => :environment do
     dates = ["2015-4-5", "2014-4-5"]
     dates.each do |date|
       combinations = {
@@ -84,10 +50,10 @@ namespace :smartdown_generate_scenarios do
         "additional-pat-leave" => "Additional paternity leave",
         "pat-shared-leave" => "Partner shared parental leave",
         "pat-shared-pay" => "Partner shared parental pay",
-        "both-shared-leave" => "Mother shared parental leave\n- Partner shared parental leave",
-        "both-shared-pay" => "Mother shared parental pay\n- Partner shared parental pay",
-        "adopt-both-shared-leave" => "Principal adopter shared parental leave\n- Adopter shared parental leave",
-        "adopt-both-shared-pay" => "Principal adopter shared parental pay\n- Adopter shared parental pay",
+        "both-shared-leave" => "Mother shared parental leave<br>- Partner shared parental leave",
+        "both-shared-pay" => "Mother shared parental pay<br>- Partner shared parental pay",
+        "adopt-both-shared-leave" => "Principal adopter shared parental leave<br>- Adopter shared parental leave",
+        "adopt-both-shared-pay" => "Principal adopter shared parental pay<br>- Adopter shared parental pay",
       }
       generator = SmartdownAdapter::SplFactcheckGenerator.new("employee-parental-leave", date, combinations, human_readable_snippet_names)
       generator.perform
