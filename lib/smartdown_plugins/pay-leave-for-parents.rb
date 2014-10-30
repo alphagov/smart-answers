@@ -2,7 +2,7 @@ require 'smartdown/model/answer/money'
 require 'smartdown/model/answer/date'
 
 module SmartdownPlugins
-  module EmployeeParentalLeave
+  module PayLeaveForParents
 
     def self.claim_date_maternity_allowance(date)
       build_date_answer(date - 14.weeks)
