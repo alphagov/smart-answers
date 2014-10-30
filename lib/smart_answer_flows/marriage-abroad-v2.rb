@@ -569,10 +569,12 @@ outcome :outcome_os_consular_cni do
     end
 
     if ceremony_country == residency_country
-      if ceremony_country == 'croatia'
-        phrases << :consular_cni_os_local_resident_table
-      elsif %w(germany italy kazakhstan russia).exclude?(ceremony_country)
-        phrases << :consular_cni_os_foreign_resident_ceremony_not_germany_italy << :check_with_embassy_or_consulate
+      unless ceremony_country == 'macedonia'
+        if ceremony_country == 'croatia'
+          phrases << :consular_cni_os_local_resident_table
+        elsif %w(germany italy kazakhstan russia).exclude?(ceremony_country)
+          phrases << :consular_cni_os_foreign_resident_ceremony_not_germany_italy << :check_with_embassy_or_consulate
+        end
       end
       phrases << :"#{ceremony_country}_os_local_resident" if %w(kazakhstan russia).include?(ceremony_country)
       unless %w(germany italy japan russia spain).include?(ceremony_country)
@@ -585,6 +587,8 @@ outcome :outcome_os_consular_cni do
         end
         if ceremony_country == 'croatia'
           phrases << :make_appointment_online_croatia
+        elsif ceremony_country == 'macedonia'
+          phrases << :consular_cni_os_foreign_resident_3_days_macedonia
         elsif not reg_data_query.clickbook(ceremony_country)
           phrases << :embassies_data
         end
@@ -602,6 +606,7 @@ outcome :outcome_os_consular_cni do
         if cni_posted_after_7_days_countries.include?(ceremony_country)
           if ceremony_country == 'macedonia'
             phrases << :consular_cni_os_foreign_resident_3_days_macedonia
+            phrases << :consular_cni_os_foreign_resident_3_days_macedonia_giving_notice
           else
             phrases << :consular_cni_os_foreign_resident_3_days
           end
