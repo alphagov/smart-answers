@@ -1,20 +1,27 @@
 <% if @presenter.current_question_number > 1 %>
-<div class="previous-answers <%= "previous-answers-top" unless with_title %>">
-  <% if with_title %>
-    <h2>Previous answers</h2>
-  <% end %>
-
-  <div class="done-questions">
-    <div class="start-again">
-      <%= link_to "Start again", smart_answer_path(params[:id]) %>
+  <div class="previous-answers <%= "previous-answers-top" unless with_title %>">
+    <div class="done-questions">
+      <article>
+        <table>
+          <thead>
+            <tr>
+              <th class="previous-answers-title">
+                <% if with_title %>Previous answers<% end %>
+              </th>
+              <th class="link-right" colspan="2">
+                <%= link_to "Start again", smart_answer_path(params[:id]) %>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% number_questions_so_far = 0 %>
+            <% @presenter.collapsed_question_pages.each do |question_page| %>
+              <%= render partial: "collapsed_question", locals: {question_page: question_page, number_questions_so_far: number_questions_so_far} %>
+              <% number_questions_so_far += question_page.questions.count %>
+            <% end %>
+          </tbody>
+        </table>
+      </article>
     </div>
-    <ol>
-      <% number_questions_so_far = 0 %>
-      <% @presenter.collapsed_question_pages.each do |question_page| %>
-        <%= render partial: "collapsed_question", locals: {question_page: question_page, number_questions_so_far: number_questions_so_far} %>
-        <% number_questions_so_far += question_page.questions.count %>
-      <% end %>
-    </ol>
   </div>
-</div>
 <% end %>

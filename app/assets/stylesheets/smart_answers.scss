@@ -22,6 +22,7 @@ $is-ie: false !default;
   // Previous answers block
   .previous-answers {
     // h2 is used for multiple questions on a page
+    max-width: 38em;
     h2 {
       @include core-19;
       padding-left: 32px;
@@ -29,6 +30,14 @@ $is-ie: false !default;
         padding-left: 16px;
       }
     }
+  }
+
+  .outcome {
+    min-height: 0px;
+  }
+
+  article {
+    min-height: 0px;
   }
 
   .previous-answers-top {
@@ -50,18 +59,20 @@ $is-ie: false !default;
   }
 
   // Smartdown specific previous answers block
-  .done-questions-spl {
-    margin-right: 15em;
-    padding: 0 10em 1em 2em;
+  .done-questions {
+    margin: 0;
+    padding: 0 0 1em 2em;
     @include media-down(tablet) {
-      margin-right: 10em;
-      padding: 0 1em 1em 1em;
+      padding: 0 1em 1em 2em;
     }
     @include media(mobile) {
       margin-right: 1.5em;
-      padding: 0 1em 1em 1em;
+      padding: 0 0 1em 1em;
     }
+
     table {
+      width: auto;
+
       .previous-answers-title {
         @include bold-19;
       }
@@ -71,28 +82,43 @@ $is-ie: false !default;
         @include core-19
       }
 
-      tbody {
-        td {
-          border-bottom: none;
-          padding: 0 1em 0.25em inherit;
-        }
-
-        .section-title {
-          @include bold-14;
-          padding-top: 0.5em;
-        }
-
-        .section {
-          border-top: 1px solid;
-          border-color: inherit;
-        }
-      }
-
       .link-right {
         text-align: right;
-        width: 40%;
         padding-right: 0;
-        padding-top: 0.5em;
+      }
+
+      tbody {
+        td {
+          border: none;
+          padding: 0 1em 0.25em inherit;
+          width: 50%;
+
+          &.section-title {
+            @include bold-14;
+            padding-top: 0.5em;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            li {
+              @include core-14;
+              padding: 0;
+              margin: 0;
+            }
+          }
+        }
+        .section {
+          border-top: 1px solid $border-colour;
+          td {
+            padding: 0.5em 1em 0.3em inherit;
+            width: 40%;
+            &.link-right {
+              width: 10%;
+              padding-right: 0;
+            }
+          }
+        }
       }
     }
   }
@@ -100,10 +126,6 @@ $is-ie: false !default;
   .hint {
     @include core-16;
     display: block;
-  }
-
-  .done-questions {
-    position: relative;
   }
 
   .start-again {
@@ -330,7 +352,6 @@ $is-ie: false !default;
     background-color: #fff;
     float: none;
     margin: 0;
-    min-height: 480px;
 
     .inner {
       padding: 2em 0 2em 2em;
