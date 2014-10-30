@@ -1,4 +1,4 @@
-meta_description: Employee parental leave
+meta_description: Pay and leave for parents
 status: draft
 satisfies_need: 101018
 
