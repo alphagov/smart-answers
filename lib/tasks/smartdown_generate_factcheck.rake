@@ -59,10 +59,10 @@ namespace :smartdown_generate_factcheck do
         "additional-pat-leave" => "Additional paternity leave",
         "pat-shared-leave" => "Partner shared parental leave",
         "pat-shared-pay" => "Partner shared parental pay",
-        "both-shared-leave" => "Mother shared parental leave\n- Partner shared parental leave",
-        "both-shared-pay" => "Mother shared parental pay\n- Partner shared parental pay",
-        "adopt-both-shared-leave" => "Principal adopter shared parental leave\n- Adopter shared parental leave",
-        "adopt-both-shared-pay" => "Principal adopter shared parental pay\n- Adopter shared parental pay",
+        "both-shared-leave" => "Mother shared parental leave<br>- Partner shared parental leave",
+        "both-shared-pay" => "Mother shared parental pay<br>- Partner shared parental pay",
+        "adopt-both-shared-leave" => "Principal adopter shared parental leave<br>- Adopter shared parental leave",
+        "adopt-both-shared-pay" => "Principal adopter shared parental pay<br>- Adopter shared parental pay",
       }
       generator = SmartdownAdapter::SplFactcheckGenerator.new("employee-parental-leave", date, combinations, human_readable_snippet_names)
       generator.perform
