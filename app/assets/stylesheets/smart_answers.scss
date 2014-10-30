@@ -32,6 +32,14 @@ $is-ie: false !default;
     }
   }
 
+  .outcome {
+    min-height: 0px;
+  }
+
+  article {
+    min-height: 0px;
+  }
+
   .previous-answers-top {
     margin-bottom: 1.5em;
   }
@@ -51,7 +59,7 @@ $is-ie: false !default;
   }
 
   // Smartdown specific previous answers block
-  .done-questions-spl {
+  .done-questions {
     margin: 0;
     padding: 0 0 1em 2em;
     @include media-down(tablet) {
@@ -118,10 +126,6 @@ $is-ie: false !default;
   .hint {
     @include core-16;
     display: block;
-  }
-
-  .done-questions {
-    position: relative;
   }
 
   .start-again {
@@ -348,7 +352,6 @@ $is-ie: false !default;
     background-color: #fff;
     float: none;
     margin: 0;
-    min-height: 480px;
 
     .inner {
       padding: 2em 0 2em 2em;
