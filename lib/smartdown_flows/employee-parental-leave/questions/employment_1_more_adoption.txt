@@ -12,13 +12,21 @@ The 13 weeks don’t need to be in a row.
   * job_after_y_1 is 'yes'
     * employment_status_2 is 'employee'
       * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
-        * earnings_employment_1 is 'yes' => outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pay
-        * earnings_employment_1 is 'no' => outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay
+        * earnings_employment_1 is 'yes'
+          * job_before_x_1 is 'no' => outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pay
+          * job_before_x_1 is 'yes' => outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay_adopt-both-shared-leave_adopt-pat-shared-pay
+        * earnings_employment_1 is 'no'
+          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' => outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay_adopt-shared-leave
+          * otherwise => outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay
       * otherwise => outcome_adopt-leave
     * employment_status_2 is 'worker'
       * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
-        * earnings_employment_1 is 'yes' => outcome_adopt-leave_adopt-pat-pay_adopt-pat-shared-pay
-        * earnings_employment_1 is 'no' => outcome_adopt-leave_adopt-pat-pay
+        * earnings_employment_1 is 'yes'
+          * job_before_x_1 is 'no' => outcome_adopt-leave_adopt-pat-pay_adopt-pat-shared-pay
+          * job_before_x_1 is 'yes' => outcome_adopt-leave_adopt-pat-pay_adopt-shared-leave_adopt-pat-shared-pay
+        * earnings_employment_1 is 'no'
+          * job_before_x_1 is 'no' => outcome_adopt-leave_adopt-pat-pay
+          * job_before_x_1 is 'yes' => outcome_adopt-leave_adopt-pat-pay_adopt-shared-leave
       * otherwise => outcome_adopt-leave
   * otherwise
     * employment_status_2 is 'employee'
