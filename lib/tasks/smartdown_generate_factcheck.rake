@@ -1,7 +1,8 @@
 namespace :smartdown_generate_factcheck do
 
-  desc "Generate factcheck files for employee parental leave"
-  task :employee_parental_leave => :environment do
+  desc "Generate factcheck files for pay and leave for parents"
+  task :pay_leave_for_parents => :environment do
+
     dates = ["2015-4-5", "2014-4-5"]
     dates.each do |date|
       combinations = {
@@ -55,7 +56,7 @@ namespace :smartdown_generate_factcheck do
         "adopt-both-shared-leave" => "Principal adopter shared parental leave<br>- Adopter shared parental leave",
         "adopt-both-shared-pay" => "Principal adopter shared parental pay<br>- Adopter shared parental pay",
       }
-      generator = SmartdownAdapter::SplFactcheckGenerator.new("employee-parental-leave", date, combinations, human_readable_snippet_names)
+      generator = SmartdownAdapter::SplFactcheckGenerator.new("pay-leave-for-parents", date, combinations, human_readable_snippet_names)
       generator.perform
     end
   end
