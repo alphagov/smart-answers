@@ -1,14 +1,5 @@
 namespace :smartdown_generate_factcheck do
 
-  def generate(name, combinations)
-    generator = SmartdownAdapter::ScenarioGenerator.new(name, combinations)
-    generator.perform
-  end
-
-  def smartdown_factcheck_path(flow_name)
-    Rails.root.join('..', "smart-answers-factcheck", flow_name)
-  end
-
   desc "Generate factcheck files for employee parental leave"
   task :employee_parental_leave => :environment do
     dates = ["2015-4-5", "2014-4-5"]
