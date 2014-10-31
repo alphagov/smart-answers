@@ -20,7 +20,7 @@ module SmartdownAdapter
 
       # Evaluate the plugin file in the context of a module to catch objects created during evaluation
       evaluating_module = Module.new do
-        module_eval plugin_file_content, plugin_file_path
+        module_eval plugin_file_content, plugin_file_path.to_s
       end
 
       if plugin_module = get_descendant_constant_named(evaluating_module, module_name_from_slug(flow_slug))
