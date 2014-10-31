@@ -3,7 +3,6 @@ require 'smartdown/api/directory_input'
 
 module SmartdownAdapter
   class Registry
-    FLOW_DIR = Rails.root.join 'lib', 'smartdown_flows'
 
     def self.instance
       @instance ||= new(FLOW_REGISTRY_OPTIONS)
@@ -14,7 +13,7 @@ module SmartdownAdapter
     end
 
     def initialize(options = {})
-      @load_path = Pathname.new(options[:load_path] || FLOW_DIR)
+      @load_path = Pathname.new(options[:load_path] || Rails.root.join('lib', 'smartdown_flows'))
       @show_drafts = options.fetch(:show_drafts, false)
       @show_transitions = options.fetch(:show_transitions, false)
       preload_flows! if options.fetch(:preload_flows, Rails.env.production?)
