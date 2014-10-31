@@ -2,7 +2,7 @@ module SmartdownAdapter
   class QuestionPresenter
     extend Forwardable
 
-    def_delegators :@smartdown_question, :title, :body, :hint, :options
+    def_delegators :@smartdown_question, :title, :body, :hint, :options, :post_body
 
     def initialize(smartdown_question)
       @smartdown_question = smartdown_question

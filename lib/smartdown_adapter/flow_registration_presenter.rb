@@ -50,7 +50,7 @@ module SmartdownAdapter
     end
 
     def node_html(node)
-      [node.body, node.devolved_body].join("\n")
+      [node.body, node.post_body].join("\n")
     end
   end
 end

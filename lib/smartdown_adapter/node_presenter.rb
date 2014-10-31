@@ -2,7 +2,7 @@ module SmartdownAdapter
   class NodePresenter
     extend Forwardable
 
-    def_delegators :@smartdown_node, :body, :devolved_body, :title, :next_steps
+    def_delegators :@smartdown_node, :body, :title, :next_steps, :post_body
 
     def initialize(smartdown_node)
       @smartdown_node = smartdown_node
@@ -12,8 +12,8 @@ module SmartdownAdapter
       !!body
     end
 
-    def has_devolved_body?
-      !!devolved_body
+    def has_post_body?
+      !!post_body
     end
 
     def has_title?
