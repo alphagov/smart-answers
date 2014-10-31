@@ -1,5 +1,5 @@
 module SmartdownAdapter
-  class SplFactcheckGenerator
+  class PayLeaveParentsFactcheckGenerator
 
     def initialize(question_name, due_or_match_date, answer_combinations, human_readable_snippet_names)
       @name = question_name
