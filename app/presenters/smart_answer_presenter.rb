@@ -45,16 +45,16 @@ class SmartAnswerPresenter
     markdown_for('body')
   end
 
-  def devolved_body
-    markdown_for('devolved_body')
+  def post_body
+    markdown_for('post_body')
   end
 
   def has_body?
     !!body
   end
 
-  def has_devolved_body?
-    !!devolved_body
+  def has_post_body?
+    !!post_body
   end
 
   def has_meta_description?

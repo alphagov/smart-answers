@@ -7,7 +7,7 @@ en-GB:
 
       body: |
         Find contact details and locations of British embassies, consulates and high commissions abroad.
-      devolved_body: |
+      post_body: |
         Embassies can help if:
 
         - you or someone you know has been arrested or hospitalised

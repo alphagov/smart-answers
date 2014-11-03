@@ -16,7 +16,7 @@ digraph "<%= tree.title %>" {
 <% # Render the answers (edges)
 
    tree.nodes.select {|name, node| node.is_a? Question}.each_pair do |name, node| %>
-    <% node.answers.each_pair do |answer_name, leads_to| %>
+    <% node.previous_answers.each_pair do |answer_name, leads_to| %>
     <%= no_q(node.name) %> -> <%= no_q(leads_to) %> [label="<%= no_q(answer_name.to_s.humanize) %>"];
     <% end %>
 <% end %>
