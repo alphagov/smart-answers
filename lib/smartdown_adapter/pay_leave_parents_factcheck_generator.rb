@@ -1,5 +1,5 @@
 module SmartdownAdapter
-  class SplFactcheckGenerator
+  class PayLeaveParentsFactcheckGenerator
 
     def initialize(question_name, due_or_match_date, answer_combinations, human_readable_snippet_names)
       @name = question_name
@@ -134,7 +134,7 @@ module SmartdownAdapter
     end
 
     def url_from_hash(hash)
-      "[link](https://www.preview.alphagov.co.uk/employee-parental-leave/y/#{hash.values[0..-2].join("/")})"
+      "[link](https://www.preview.alphagov.co.uk/pay-leave-for-parents/y/#{hash.values[0..-2].join("/")})"
     end
 
     def remove_duplicate_circumstances(line_content_array)

@@ -16,22 +16,21 @@ For every smartdown flow, this goes through all the scenarios defined for them a
 - checks each set of questions has been asked in the right order
 - checks the right outcome has been reached given the answers
 
-##Employee parental leave
+##Pay and leave for parents
 
-Three tools specific to the employee parental leave tool were developed to facilitate question writing and fact-checking.
+Three tools specific to the pay and leave for parents tool were developed to facilitate question writing and fact-checking.
 
 ###Outcome generation
 
-```rake smartdown_generate_outcomes:employee_parental_leave```
+```rake smartdown_generate_outcomes:pay_leave_for_parents```
 
-This command goes through all the outcomes listed in the Employee parental leave questions and generates outcome files that
+This command goes through all the outcomes listed in the Pay and leave for parents questions and generates outcome files that
 are prepopulated with snippets.
-For the employee parental leave, we use the convention of naming each outcome as an `_`-separated string of all snippets to
-be listed for that outcome.
+For the pay and leave for parents, we use the convention of naming each outcome as an `_`-separated string of all snippets to be listed for that outcome.
 
 ###Factcheck table generation
 
-```rake smartdown_generate_factcheck:employee_parental_leave```
+```rake smartdown_generate_factcheck:pay_leave_for_parents```
 
 ####Output of the tool
 
@@ -47,6 +46,6 @@ paternity, adoption, shared parental leave and pay the user(s) is/are eligible f
 
 ####How possible combinations are generated
 
-We have chosen for each question in the employee parental leave a selection of answers that can affect the outcome of the tool.
+We have chosen for each question in the pay and leave for parents a selection of answers that can affect the outcome of the tool.
 This is not an exhaustive list of possible answers. As the tool evolves and more legal rules are added, **possible answers
 that can affect the outcome of the flow should be added to the combinations to have an accurate and complete factcheck table**.
