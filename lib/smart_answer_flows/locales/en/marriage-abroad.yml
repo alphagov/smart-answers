@@ -41,6 +41,15 @@ en-GB:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
+        documents_needed_ss_not_british_germany_same_sex: |
+          ##What documents you’ll need
+
+          You’ll need proof that you’ve been resident in the area covered by the embassy or consulate for at least 7 days, like an employer’s letter or a bank statement.
+
+          You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order)
+          - the [death certificate](/order-copy-birth-death-marriage-certificate/)
         documents_needed_ss_not_british: |
           ##What documents you’ll need
 
@@ -117,6 +126,8 @@ en-GB:
         marriage_title: Marriage in %{country_name_lowercase_prefix}
         same_sex_marriage_title: Same-sex in %{country_name_lowercase_prefix}
 # embassies
+        contact_british_embassy_or_consulate_berlin: |
+          Contact the British Embassy in Berlin to make an appointment.
         contact_embassy_or_consulate: |
           Contact your local embassy or consulate to make an appointment.
         embassies_data: |
@@ -182,6 +193,12 @@ en-GB:
         affirmation_os_translation_in_local_language: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
+          You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
+        affidavit_os_translation_in_local_language_without_warning: |
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+        affirmation_os_translation_in_local_language_text: |
+          You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
+        affirmation_os_translation_in_local_language_warning: |
           ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
         affidavit_os_translation_in_local_language: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
@@ -281,6 +298,23 @@ en-GB:
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
           - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
           - evidence if you’ve changed your name by deed poll
+        documents_for_divorced_or_widowed_ecuador: |
+          If you’ve been divorced or widowed, you’ll need to provide:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
+          
+          You’ll also need to provide evidence if you’ve changed your name by deed poll.
+        documents_for_divorced_or_widowed_cambodia: |
+          If you’ve been divorced or widowed, you’ll need to provide:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
+        documents_for_divorced_or_widowed_china_colombia: |
+          If you’ve been divorced or widowed, you’ll need to provide:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
 
         make_appointment_online_philippines: |
           Make an [appointment online](http://britishembassymanila.clickbook.net/) or contact the embassy directly.
@@ -293,8 +327,25 @@ en-GB:
           Make an [appointment online](https://britishembassylapaz.clickbook.net/sub/britishembassylapaz) at the British Embassy in La Paz.
         book_online_chile: |
           Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsant) at the British Embassy in Santiago.
+        book_online_china_non_local_prelude:
+          Make an appointment online at your local British embassy or consulate in China to swear an affirmation/affadavit (written statement of facts) that you're free to marry. You'll need to bring your passport and pay a fee.
+        book_online_china_local_prelude:
+          Make an appointment online at the British embassy or consulate in China nearest to the address in your partner's Hukou (family registration) book, to swear an affirmation/affadavit (written statement of facts) that you're free to marry. You'll need to bring your passport, your partner's Hukou and pay a fee.
         book_online_china: |
           Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britembeijing?OpenDocument&cb_referer=) at the British Embassy Beijing.
+        book_online_china_affirmation_affidavit: |
+          - [Beijing](http://britembeijing.clickbook.net/)
+          - [Chongqing](http://britconchongqing.clickbook.net/)
+          - [Guangzhou](http://britconguangzhou.clickbook.net/)
+          - [Shanghai](http://britconshanghai.clickbook.net/)
+
+          You’ll need to complete an [‘Affirmation for marriage’](/government/publications/affirmation-form-china) (non-religious) form or an [‘Affidavit for marriage’](/government/publications/affidavit-form-china) (religious) form in English. Email the completed form to the embassy you have made your appointment with.
+
+          - Beijing - <consular.beijing@fco.gov.uk>
+          - Chongqing - <consular.chongqing@fco.gov.uk>
+          - Guangzhou - <consular.guangzhou@fco.gov.uk>
+          - Shanghai - <consular.shanghai@fco.gov.uk>
+
         book_online_colombia: |
           Make an [appointment online](https://britishembassybogota.clickbook.net/sub/britishembassybogota) at the British Embassy in Colombia.
         book_online_costa-rica: |
@@ -701,6 +752,20 @@ en-GB:
           ###Giving notice of marriage
 
           You need to have been living in your country of residence for 3 days.
+        consular_cni_os_foreign_resident_3_days_macedonia: |
+          Contact the British Embassy in Macedonia to get advice:
+
+          $C
+          British Embassy Macedonia  
+          Telephone: + 389 (2) 3299 299  
+          <consular.skopje@fco.gov.uk>  
+          $C
+
+          %You can't book an appointment to get advice at the embassy in person.%
+        consular_cni_os_foreign_resident_3_days_macedonia_giving_notice: |
+          ###Giving notice of marriage
+
+          You need to have been living in your country of residence for 3 days.
         consular_cni_os_commonwealth_resident: |
           If you need a certificate to prove you’re allowed to marry, you’ll have to give notice of your intended marriage in the country where you live.
 
@@ -709,7 +774,7 @@ en-GB:
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ^Not all high commissions are able to do this - if they can’t, they may be able to give you advice on other ways you can get a certificate.^
-
+        os_notice_of_marriage: |
           ###Giving notice of marriage
 
           You’ll need to place a public announcement of your marriage in a local newspaper where you live for 1 week. If possible (and appropriate), this should be in English and the local language. It’s easier to do this in a weekly newspaper, as otherwise the announcement needs to appear for 7 consecutive days.
@@ -734,7 +799,9 @@ en-GB:
 
           (High Commission address)
           $E
-
+        os_notice_of_marriage_7_day_wait: |
+          You need to wait 7 days after placing the announcement to allow for any objections to be registered. You’ll then need to swear an oath or affidavit (written statement of facts) in front of a local solicitor or public notary stating that you’re free to marry.
+        os_notice_of_marriage_21_day_wait: |
           You need to wait 21 days after placing the announcement to allow for any objections to be registered. You’ll then need to swear an oath or affidavit (written statement of facts) in front of a local solicitor or public notary stating that you’re free to marry.
         consular_cni_os_commonwealth_resident_british_partner: |
           ^You’ll both need to place separate announcements and swear separate oaths if you’re both British nationals.^
@@ -791,6 +858,13 @@ en-GB:
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
           - equivalent documents for your partner
+
+        cambodia_consular_cni_os_partner_local: |
+          You'll need to pay a fee and bring the following to your appointment:
+
+            - your passport
+            - your [birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+            - proof of residence, eg a residence certificate - check with the embassy or consulate for advice
 
         japan_consular_cni_os_local_resident: |
           To book an appointment, complete the [marriage questionnaire](/government/publications/marriage-questionnaire-japan). Send it by email, fax or post following the instructions on the form, along with copies of the requested documents.
@@ -942,7 +1016,7 @@ en-GB:
         consular_cni_os_other_resident_partner_british_ceremony_italy: |
           ^Your partner will need to follow the same process to get their own Nulla Osta.^
         consular_cni_os_all_names_but_germany: |
-          %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+          The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).
         consular_cni_os_other_resident_ceremony_not_italy: |
           You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in %{country_name_lowercase_prefix}.
         consular_cni_os_ceremony_belgium: |
@@ -1046,8 +1120,6 @@ en-GB:
           You’ll need to get your affidavit ‘legalised’ (certified as genuine) by the local authorities, this is usually done on the same day - the embassy or consulate should be able to give you advice.
         affirmation_os_uk_resident_two: |
           ^You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/) before making any plans.^
-        affirmation_os_not_uk_resident: |
-          ^You should get legal advice before making any plans.^
         affirmation_os_all_what_you_need_to_do: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
         affirmation_os_uae: |
@@ -1071,9 +1143,13 @@ en-GB:
         affirmation_os_partner_british: |
           ^Your partner will probably need to get an affirmation as well.^
 
-        affirmation_os_partner_not_british: |
+        affirmation_affidavit_os_partner: |
+          ^Your partner will probably need to get an affirmation or affidavit as well.^
+
+        partner_equivalent_document_warning: |
           ^Your partner will probably need to get an equivalent document from their national authorities.^
 
+        affirmation_os_partner_not_british: |
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
@@ -1095,10 +1171,9 @@ en-GB:
         docs_decree_and_death_certificate: |
           If you’ve been divorced or widowed, you’ll also need:
 
-          - a [decree absolute or final order](/copy-decree-absolute-final-order), or
-          - the [death certificate](/order-copy-birth-death-marriage-certificate/)
+          - a [decree absolute or final order](/copy-decree-absolute-final-order) or the [death certificate](/order-copy-birth-death-marriage-certificate/)
         divorced_or_widowed_evidences: |
-          ^You’ll also need to provide evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
         change_of_name_evidence: |
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
 
