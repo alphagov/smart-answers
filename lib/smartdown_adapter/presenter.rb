@@ -15,9 +15,6 @@ module SmartdownAdapter
     # Where you are in the flow
     def_delegators :@smartdown_state, :current_question_number, :started?, :finished?
 
-    # These methods don't share the name the presenter callees expect, alias
-    def_delegator :@smartdown_state, :responses, :accepted_responses
-
     # The current node in the flow
     def_delegators :current_node, :body, :has_body?, :post_body, :has_post_body?
 
@@ -38,6 +35,10 @@ module SmartdownAdapter
 
     def current_node
       @current_node ||= presenter_for_current_node
+    end
+
+    def accepted_responses
+      smartdown_state.accepted_responses
     end
 
     def current_state
@@ -148,7 +149,7 @@ module SmartdownAdapter
     end
 
     def presenters_for_previous_nodes
-      smartdown_state.previous_question_pages(@processed_responses).map do |smartdown_previous_question_page|
+      smartdown_state.previous_question_pages.map do |smartdown_previous_question_page|
         SmartdownAdapter::PreviousQuestionPagePresenter.new(smartdown_previous_question_page)
       end
     end
