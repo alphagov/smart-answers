@@ -16,6 +16,10 @@ module SmartdownAdapter
       !!hint
     end
 
+    def has_post_body?
+      !!post_body
+    end
+
     #TODO: implement once we have error handling
     def error
       nil
