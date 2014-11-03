@@ -44,7 +44,7 @@ module SmartdownAdapter
       # current state is only used for responses and error, which are both
       # available on state and could be called directly, requires controller change
       OpenStruct.new(
-        :responses => smartdown_state.responses
+        :responses => smartdown_state.accepted_responses
         # This is missing :error
       )
     end
