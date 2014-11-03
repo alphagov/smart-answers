@@ -16,24 +16,20 @@
 <% end %>
 
 <% question_page.questions.each_with_index do |question, question_index|%>
-  <%- if !question_page.title -%> 
+  <%- if !question_page.title -%>
     <tr class="section">
   <% else %>
     <tr>
   <% end %>
-    <td><%= question.title %></td>
+    <td class="previous-question-title"><%= question.title %></td>
     <%- if question.multiple_responses? -%>
-      <td><ul>
+      <td class="previous-question-body"><ul>
       <%- question.response_labels(@presenter.accepted_responses[number_questions_so_far + question_index]).each do |label| -%>
         <li><%= label %></li>
       <%- end -%>
       </ul></td>
     <%- else -%>
-    <%- if !question_page.title -%> 
-      <td>
-    <% else %>
-      <td>
-    <%- end -%>
+      <td class="previous-question-body">
       <%= question.response_label(@presenter.accepted_responses[number_questions_so_far + question_index]) %></td>
     <%- end -%>
 

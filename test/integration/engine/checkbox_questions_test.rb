@@ -13,9 +13,9 @@ class CheckboxQuestionsTest < EngineIntegrationTest
         end
         within '.question-body' do
           assert page.has_field?("Ham", type: 'checkbox', with: "ham")
-   assert page.has_field?("Peppers", type: 'checkbox', with: "peppers")
-   assert page.has_field?("Ice Cream!!!", type: 'checkbox', with: "ice_cream")
-   assert page.has_field?("Pepperoni", type: 'checkbox', with: "pepperoni")
+          assert page.has_field?("Peppers", type: 'checkbox', with: "peppers")
+          assert page.has_field?("Ice Cream!!!", type: 'checkbox', with: "ice_cream")
+          assert page.has_field?("Pepperoni", type: 'checkbox', with: "pepperoni")
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["Ham", "Peppers", "Ice Cream!!!", "Pepperoni"], options
@@ -29,19 +29,19 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       assert_current_url "/checkbox-sample/y/ham,pepperoni"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", href: '/checkbox-sample') }
-        within 'ol li.done' do
-          within 'h3' do
+        within('.link-right.restart') { assert page.has_link?("Start again", href: '/checkbox-sample') }
+        within 'tr.section' do
+          within 'td.previous-question-title' do
             assert_page_has_content "What do you want on your pizza?"
           end
-          within '.answer' do
+          within 'td.previous-question-body' do
             assert_equal ['Ham', 'Pepperoni'], page.all("li").map(&:text)
           end
-   within('.undo') { assert page.has_link?("Change", href: "/checkbox-sample/y/?previous_response=ham%2Cpepperoni") }
+          within('.link-right') { assert page.has_link?("Change", href: "/checkbox-sample/y/?previous_response=ham%2Cpepperoni") }
         end
       end
 
-      within '.outcome' do
+      within '.outcome:nth-child(1)' do
         assert_page_has_content "Ok, your pizza is on its way"
         assert_page_has_content "You chose to have ham,pepperoni on your pizza."
       end
@@ -55,17 +55,17 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       assert_current_url "/checkbox-sample/y/none"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", href: '/checkbox-sample') }
-        within 'ol li.done' do
-          within 'h3' do
+        within('.link-right.restart') { assert page.has_link?("Start again", href: '/checkbox-sample') }
+        within 'tr.section' do
+          within 'td.previous-question-title' do
             assert_page_has_content "What do you want on your pizza?"
           end
-          within('.answer') { assert_page_has_content "none" }
-   within('.undo') { assert page.has_link?("Change", href: "/checkbox-sample/y/?previous_response=none") }
+          within('td.previous-question-body') { assert_page_has_content "none" }
+          within('.link-right') { assert page.has_link?("Change", href: "/checkbox-sample/y/?previous_response=none") }
         end
       end
 
-      within '.outcome' do
+      within '.outcome:nth-child(1)' do
         assert_page_has_content "Ok, your margherita pizza is on its way"
       end
     end
@@ -79,7 +79,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     click_on "Next step"
 
     assert_current_url "/checkbox-sample/y/ham,ice_cream"
-    within '.outcome' do
+    within '.outcome:nth-child(1)' do
       assert_page_has_content "No way. That's disgusting!"
     end
   end
