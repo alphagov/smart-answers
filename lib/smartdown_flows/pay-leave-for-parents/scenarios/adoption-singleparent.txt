@@ -16,7 +16,7 @@ outcome_adopt-pay-pre-5-april
 - match_date: 2016-1-1
   placement_date: 2016-1-1
 - employment_status_1: self-employed
-outcome_adopt-nothing
+outcome_single-adopt-nothing
 
 #Principal adopter employee, does not pass continuity test, passes lower earnings test
 - circumstance: adoption
@@ -28,7 +28,7 @@ outcome_adopt-nothing
   job_after_y_1: no
   salary_1: 400-week
   ler_1: yes
-outcome_adopt-nothing
+outcome_single-adopt-nothing
 
 #Principal adopter employee, in 2014, passes continuity test, passes lower earnings test
 - circumstance: adoption

@@ -9,17 +9,4 @@ Weekly rate | %{rate_of_maternity_allowance(salary_1_66_weeks)}
 Total estimated allowance | %{total_maternity_allowance(salary_1_66_weeks)}
 The mother can claim from | %{claim_date_maternity_allowance(due_date)}
 
-%The mother must claim maternity allowance to find out if she qualifies and what she’ll get.%
-
 The mother won’t have to pay tax on her maternity allowance.
-
-###Extra help
-
-The mother could also get:
-
-- a £500 [Sure Start Maternity Grant](/sure-start-maternity-grant) (usually if it’s her first child)
-- benefits while she’s not working
-- Child Tax Credits (after the baby is born)
-- Child Benefit (after the baby is born)
-
-Use the [benefits calculators](/benefits-calculators) to check what benefits or tax credits the mother can get.

@@ -5,4 +5,4 @@ The mother can take up to 52 weeks of [maternity leave](/maternity-pay-leave/lea
  | Dates
 - | -
 Earliest leave can start | %{earliest_start(due_date)}
-Tell the mother’s employer by | %{qualifying_week(due_date)}
+Tell the mother’s employer | %{qualifying_week(due_date)}

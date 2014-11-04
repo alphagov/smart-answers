@@ -9,3 +9,5 @@
 {{snippet: adopt-additional-pat-leave}}
 
 {{snippet: adopt-additional-pat-pay}}
+
+{{snippet: extra-help}}

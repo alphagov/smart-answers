@@ -3,3 +3,5 @@
 {{snippet: pat-pay}}
 
 {{snippet: both-shared-pay}}
+
+{{snippet: extra-help}}

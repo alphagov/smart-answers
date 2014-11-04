@@ -5,3 +5,5 @@
 {{snippet: adopt-shared-leave}}
 
 {{snippet: adopt-shared-pay}}
+
+{{snippet: extra-help}}

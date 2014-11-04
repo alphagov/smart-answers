@@ -35,7 +35,7 @@ namespace :smartdown_generate_outcomes do
       _, *node_aspects = node_name.split('_')
 
       node_content = node_aspects.map { |aspect|
-        "{{snippet: #{aspect}}}"}.join("\n\n")+"\n"
+        "{{snippet: #{aspect}}}"}.join("\n\n")+"\n\n{{snippet: extra-help}}\n"
 
       File.write(node_filepath, node_content)
     end
