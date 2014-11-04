@@ -12,7 +12,6 @@
       </h1>
     </div>
   </header>
-  <%= render "previous_answers", with_title: false unless params[:id] == "pay-leave-for-parents" %>
   <% if @presenter.finished? %>
     <%= render partial: "result" %>
   <% else %>
@@ -37,5 +36,5 @@
       </form>
     </div>
   <% end %>
-  <%= render "previous_answers_spl", with_title: true if params[:id] == "pay-leave-for-parents" %>
+  <%= render "previous_answers", with_title: true %>
 <% end %>
