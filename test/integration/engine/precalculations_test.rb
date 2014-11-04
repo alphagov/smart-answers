@@ -50,7 +50,7 @@ class PrecalculationsTest < EngineIntegrationTest
 
       assert_current_url "/precalculation-sample/y/10/42"
 
-      within '.outcome' do
+      within '.outcome:nth-child(1)' do
         within '.result-info' do
           within('h2.result-title') { assert_page_has_content "420 pieces of wood would be chucked." }
           within('.info-notice') { assert_page_has_content "42 woodchucks, each chucking 10 pieces of wood = 420 pieces of wood being chucked." }

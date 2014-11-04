@@ -45,13 +45,13 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       assert_current_url "/country-and-date-sample/y/belarus"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
-        within 'ol li.done:nth-child(1)' do
-          within 'h3' do
+        within('.link-right.restart') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
+        within 'tr.section:nth-child(1)' do
+          within 'td.previous-question-title' do
             assert_page_has_content "Which country do you live in?"
           end
-          within('.answer') { assert_page_has_content "Belarus" }
-   within('.undo') { assert page.has_link?("Change", href: "/country-and-date-sample/y/?previous_response=belarus") }
+          within('td.previous-question-body') { assert_page_has_content "Belarus" }
+          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y/?previous_response=belarus") }
         end
       end
 
@@ -76,22 +76,22 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
-        within 'ol li.done:nth-child(1)' do
-          within 'h3' do
+        within('.link-right.restart') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
+        within 'tr.section:nth-child(1)' do
+          within 'td.previous-question-title' do
             assert_page_has_content "Which country do you live in?"
           end
-          within('.answer') { assert_page_has_content "Belarus" }
-   within('.undo') { assert page.has_link?("Change", href: "/country-and-date-sample/y/?previous_response=belarus") }
+          within('td.previous-question-body') { assert_page_has_content "Belarus" }
+          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y/?previous_response=belarus") }
         end
 
-        within 'ol li.done:nth-child(2)' do
-          within 'h3' do
+        within 'tr.section:nth-child(2)' do
+          within 'td.previous-question-title' do
             assert_page_has_content "What date did you move there?"
           end
 
-          within('.answer') { assert_page_has_content "5 May 1975" }
-   within('.undo') { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
+          within('td.previous-question-body') { assert_page_has_content "5 May 1975" }
+          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
         end
       end
 
@@ -118,35 +118,35 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05/united-kingdom"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
-        within 'ol li.done:nth-child(1)' do
-          within 'h3' do
+        within('.link-right.restart') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
+        within 'tr.section:nth-child(1)' do
+          within 'td.previous-question-title' do
             assert_page_has_content "Which country do you live in?"
           end
-          within('.answer') { assert_page_has_content "Belarus" }
-   within('.undo') { assert page.has_link?("Change", href: "/country-and-date-sample/y/?previous_response=belarus") }
+          within('td.previous-question-body') { assert_page_has_content "Belarus" }
+          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y/?previous_response=belarus") }
         end
 
-        within 'ol li.done:nth-child(2)' do
-          within 'h3' do
+        within 'tr.section:nth-child(2)' do
+          within 'td.previous-question-title' do
             assert_page_has_content "What date did you move there?"
           end
 
-          within('.answer') { assert_page_has_content "5 May 1975" }
-   within('.undo') { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
+          within('td.previous-question-body') { assert_page_has_content "5 May 1975" }
+          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
         end
 
-        within 'ol li.done:nth-child(3)' do
-          within 'h3' do
+        within 'tr.section:nth-child(3)' do
+          within 'td.previous-question-title' do
             assert_page_has_content "Which country were you born in?"
           end
 
-          within('.answer') { assert_page_has_content "United Kingdom" }
-   within('.undo') { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus/1975-05-05?previous_response=united-kingdom") }
+          within('.previous-question-body') { assert_page_has_content "United Kingdom" }
+          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus/1975-05-05?previous_response=united-kingdom") }
         end
       end
 
-      within '.outcome' do
+      within '.outcome:nth-child(1)' do
         within '.result-info' do
           within('h2.result-title') { assert_page_has_content "Great - you've lived in belarus for 37 years, and were born in united-kingdom!" }
         end
@@ -180,13 +180,13 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
     assert_current_url "/country-legacy-sample/y/belarus"
 
     within '.done-questions' do
-      within('.start-again') { assert page.has_link?("Start again", href: '/country-legacy-sample') }
-      within 'ol li.done:nth-child(1)' do
-        within 'h3' do
+      within('.link-right.restart') { assert page.has_link?("Start again", href: '/country-legacy-sample') }
+      within 'tr.section:nth-child(1)' do
+        within 'td.previous-question-title' do
           assert_page_has_content "Which country do you live in?"
         end
-        within('.answer') { assert_page_has_content "Belarus" }
- within('.undo') { assert page.has_link?("Change", href: "/country-legacy-sample/y/?previous_response=belarus") }
+        within('td.previous-question-body') { assert_page_has_content "Belarus" }
+        within('.link-right') { assert page.has_link?("Change", href: "/country-legacy-sample/y/?previous_response=belarus") }
       end
     end
 
@@ -206,7 +206,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
     assert_current_url "/country-legacy-sample/y/belarus/united-kingdom"
 
-    within '.outcome' do
+    within '.outcome:nth-child(1)' do
       within '.result-info' do
         within('h2.result-title') { assert_page_has_content "Great - you live in belarus and you were born in united-kingdom!" }
       end

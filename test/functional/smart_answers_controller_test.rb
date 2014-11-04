@@ -17,12 +17,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       multiple_choice :do_you_like_chocolate? do
         option yes: :you_have_a_sweet_tooth
- option no: :do_you_like_jam?
+        option no: :do_you_like_jam?
       end
 
       multiple_choice :do_you_like_jam? do
         option yes: :you_have_a_sweet_tooth
- option no: :you_have_a_savoury_tooth
+        option no: :you_have_a_savoury_tooth
       end
 
       outcome :you_have_a_savoury_tooth
@@ -225,7 +225,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "display collapsed question, and format number" do
         get :show, id: 'sample', started: 'y', responses: "2011-01-01"
-        assert_select ".done", /When\?\s+1 January 2011/
+        assert_select ".done-questions", /When\?\s+1 January 2011/
       end
     end
 
@@ -255,7 +255,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "display collapsed question, and format number" do
         get :show, id: 'sample', started: 'y', responses: "12345"
-        assert_select ".done", /How many green bottles\?\s+12,345/
+        assert_select ".done-questions", /How many green bottles\?\s+12,345/
       end
 
       context "label in translation file" do
@@ -376,7 +376,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         setup { get :show, id: 'sample', started: 'y', responses: "1.0-month" }
 
         should "show response summary" do
-          assert_select ".done", /How much\?\s+£1 per month/
+          assert_select ".done-questions", /How much\?\s+£1 per month/
         end
 
         should "have cache headers set to 30 mins for inner pages" do
@@ -418,7 +418,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       setup { get :show, id: 'sample', started: 'y', responses: "no" }
 
       should "show response summary" do
-        assert_select ".done", /Do you like chocolate\?\s+no/
+        assert_select ".done-questions", /Do you like chocolate\?\s+no/
       end
 
       should "show the next question" do
@@ -426,7 +426,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "link back to change the response" do
-        assert_select ".done a", /Change/ do |link_nodes|
+        assert_select ".done-questions a", /Change/ do |link_nodes|
           assert_equal '/sample/y/?previous_response=no', link_nodes.first['href']
         end
       end
