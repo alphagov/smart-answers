@@ -4,7 +4,7 @@
 - due_date: 2016-1-1
 - employment_status_1: self-employed
 - earnings_employment_1: no
-outcome_birth-nothing
+outcome_single-birth-nothing
 
 #Mother employee, soon to leave job, does not pass earnings and employment test
 - circumstance: birth
@@ -16,7 +16,7 @@ outcome_birth-nothing
   salary_1: 400-week
   ler_1: yes
 - earnings_employment_1: no
-outcome_birth-nothing
+outcome_single-birth-nothing
 
 #Mother worker, does not pass earnings and employment test
 - circumstance: birth
@@ -28,7 +28,7 @@ outcome_birth-nothing
   salary_1: 400-week
   ler_1: no
 - earnings_employment_1: no
-outcome_birth-nothing
+outcome_single-birth-nothing
 
 #Mother self-employed, passes earnings and employment test
 - circumstance: birth

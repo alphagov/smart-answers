@@ -1,10 +1,8 @@
-##Additional statutory paternity pay
+##Additional paternity pay
 
-The primary adopter’s partner can get [additional statutory paternity pay](/paternity-pay-leave/pay) while they’re on additional paternity leave. The pay stops when the primary adopter’s pay would have ended.
+The primary adopter’s partner can get [additional paternity pay](/paternity-pay-leave/pay) while they’re on additional paternity leave. The pay stops when the primary adopter’s pay would have ended.
 
  | Dates and amounts
 - | -
 Weekly rate  | %{rate_of_paternity_pay(salary_2)}
 Total pay | %{total_aspp(salary_2)}
-
-%The partner’s employer will confirm if they qualify and how much they’ll get.%

@@ -7,3 +7,5 @@
 {{snippet: mat-shared-leave}}
 
 {{snippet: pat-shared-pay}}
+
+{{snippet: extra-help}}

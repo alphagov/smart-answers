@@ -42,7 +42,7 @@ This is your total take-home pay before any deductions, eg tax.
     * employment_status_1 is 'employee'
       * match_date >= '2015-4-5' => outcome_adopt-leave
       * match_date < '2015-4-5' => outcome_adopt-leave
-    * employment_status_1 is 'worker' => outcome_adopt-nothing
+    * employment_status_1 is 'worker' => outcome_single-adopt-nothing
   * two_carers is 'yes'
     * employment_status_2 in {employee worker} => employment_2_adoption
     * employment_status_2 in {self-employed unemployed}
@@ -54,8 +54,8 @@ This is your total take-home pay before any deductions, eg tax.
   * two_carers is 'no'
     * match_date >= '2015-4-5'
       * job_after_y_1 is 'yes' AND employment_status_1 is 'employee' => outcome_adopt-leave
-      * otherwise => outcome_adopt-nothing
-    * otherwise => outcome_adopt-nothing
+      * otherwise => outcome_single-adopt-nothing
+    * otherwise => outcome_single-adopt-nothing
   * two_carers is 'yes'
     * employment_status_2 in {employee worker} => employment_2_adoption
     * employment_status_2 in {self-employed unemployed}

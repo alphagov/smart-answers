@@ -4,4 +4,4 @@ The primary adopter’s partner can get [shared parental pay](/shared-parental-l
 
  | Amount
 - | -
-ShPP | %{rate_of_shpp(salary_2)}
+Shared parental pay | %{rate_of_shpp(salary_2)}

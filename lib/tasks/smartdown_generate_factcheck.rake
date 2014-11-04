@@ -32,6 +32,8 @@ namespace :smartdown_generate_factcheck do
       human_readable_snippet_names = {
         "birth-nothing" => "Nothing",
         "adopt-nothing" => "Nothing",
+        "single-birth-nothing" => "Nothing",
+        "single-adopt-nothing" => "Nothing",
         "adopt-pay-pre-5-april" => "Principal adopter pay (pre 05/04)",
         "mat-allowance-14-weeks" => "Maternity allowance 14 weeks",
         "adopt-leave" => "Principal adopter leave",
