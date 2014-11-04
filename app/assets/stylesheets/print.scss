@@ -1,0 +1,51 @@
+// PRINT STYLESHEET COMPILER
+
+
+// STYLEGUIDE
+// Mixins to be shared across gov.uk sites. Anything set in these
+// files can be used in the view files.
+
+$is-print: true;
+
+// From the https://github.com/alphagov/govuk_frontend_toolkit
+@import "_conditionals.scss";
+@import "_typography.scss";
+
+
+// Hide uneeded elements for print
+.smart_answer {
+
+  .link-right a {
+    display: none;
+  }
+
+  .page-header {
+    width: 75%;
+
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+
+  .outcome .inner {
+    padding-top: 1em;
+  }
+
+  .smart_answer .done-questions-spl {
+    padding: 0;
+    margin-right: 0;
+
+    table {
+
+      tbody  td {
+        padding: 0.25em 0.5em;
+      }
+
+      .link-right {
+        width: 20%;
+      }
+    }
+  }
+
+}
+
