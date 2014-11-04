@@ -56,6 +56,7 @@ module SmartAnswers
       joint.js
       joint.layout.DirectedGraph.js
       joint.css
+      print.css
       dagre.js
       visualise.js
       visualise.css
