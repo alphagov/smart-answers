@@ -8,6 +8,8 @@ Check the serial number by the tail.
 * lion: Lion
 * tiger: Tiger
 * cat: Cat
+* sphynx: Sphynx
+* meowth: Meowth
 
 * question_1 in {lion tiger} => question_2
 * otherwise => outcome_safe_pet
