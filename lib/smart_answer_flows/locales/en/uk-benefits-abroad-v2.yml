@@ -53,14 +53,14 @@ en-GB:
           ##Child Tax Credit
 
           You could get [Child Tax Credit](/child-tax-credit) if:
-          
+
           - you are ordinarily resident in the UK
           - you work in the UK and pay [National Insurance contributions](/national-insurance) here
           - your child lives in an EEA country or in Switzerland and depends on you to support them
 
           Contact the Tax Credits Helpline to claim.
         tax_credits_holiday_going_abroad: |
-          You can carry on getting tax credits for up to 8 weeks.
+          You may be able to carry on getting tax credits for up to 8 weeks.
         tax_credits_holiday_already_abroad: |
           You can carry on getting tax credits for up to 8 weeks after leaving the UK if you were already receiving them before you left.
         tax_credits_holiday: |
@@ -68,7 +68,7 @@ en-GB:
 
           You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn't have.
         tax_credits_medical_death_going_abroad: |
-          You can carry on getting tax credits for up to 12 weeks.
+          You may be able to carry on getting tax credits for up to 12 weeks.
         tax_credits_medical_death_already_abroad: |
           You can carry on getting tax credits for up to 12 weeks after leaving the UK if you were already receiving them before you left.
         tax_credits_medical_death: |
@@ -145,7 +145,6 @@ en-GB:
       do_either_of_the_following_apply?:
         title: Do either of the following apply to you?
         body: |
-          * you're employed or self-employed and paying National Insurance contributions in the UK
           * you're currently receiving at least one of the following UK benefits (Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit)
 
 # Q15 going_abroad and Q14 already_abroad
@@ -373,7 +372,7 @@ en-GB:
 # A4 already_abroad
       jsa_social_security_already_abroad_outcome:
         body: |
-          You can't get JSA abroad. You may qualify for unemployment benefits because of the agreements between the [EEA countries](/eu-eea) and Switzerland.
+          You can’t claim JSA from abroad. You may qualify for unemployment benefits in %{country_name}.
 
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
@@ -804,8 +803,8 @@ en-GB:
           You can claim the following benefits if you're going abroad for up to 13 weeks (or 26 weeks if it's for medical treatment):
 
           * [Attendance Allowance](/attendance-allowance)
-          * [Disability Living Allowance](/dla-disability-living-allowance-benefit) - care component
-          * [Personal Independence Payment](/pip) - daily living component
+          * [Disability Living Allowance](/dla-disability-living-allowance-benefit)
+          * [Personal Independence Payment](/pip)
 
           You can carry on claiming [Carer's Allowance](/carers-allowance) if you take up to 4 weeks holiday out of a 26-week period.
 
@@ -856,7 +855,7 @@ en-GB:
 # A39 going_abroad
       bb_going_abroad_eea_outcome:
         body: |
-          You can export bereavement benefits to %{country_name}.
+          You can export bereavement benefits to %{country_name} at the same rate as if you were living in the UK.
 
           Claim [Bereavement Allowance](/bereavement-allowance#how-to-claim), [Bereavement Payment](/bereavement-payment#how-to-claim) or [Widowed Parent's Allowance](/widowed-parents-allowance#how-to-claim) before you leave the UK.
 
