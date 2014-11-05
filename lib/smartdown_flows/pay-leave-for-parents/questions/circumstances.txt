@@ -3,8 +3,8 @@
 # Are you having a baby or adopting?
 
 [choice: circumstance]
-* birth: Birth
-* adoption: Adoption
+* birth: Having a baby
+* adoption: Adopting
 
 # Will you care for the child with a partner?
 
