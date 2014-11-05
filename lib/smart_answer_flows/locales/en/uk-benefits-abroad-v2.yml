@@ -143,7 +143,7 @@ en-GB:
 
 # Q13 going_abroad and Q12 already_abroad
       do_either_of_the_following_apply?:
-        title: Do either of the following apply to you?
+        title: Does the following apply to you?
         body: |
           * you're currently receiving at least one of the following UK benefits (Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit)
 
