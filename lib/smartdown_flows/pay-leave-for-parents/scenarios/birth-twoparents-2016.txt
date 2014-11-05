@@ -290,7 +290,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: no
-outcome_mat-leave
+outcome_mat-leave_pat-leave
 
 #Mother employee, passes continuity test, passes lower earnings test
 #Partner self-employed, does not pass earnings and employment test
