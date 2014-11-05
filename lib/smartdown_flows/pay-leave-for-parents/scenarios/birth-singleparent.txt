@@ -6,7 +6,7 @@
 - earnings_employment_1: no
 outcome_single-birth-nothing
 
-#Mother employee, soon to leave job, does not pass earnings and employment test
+#Mother employee, soon to leave job, passes lower earnings test
 - circumstance: birth
   two_carers: no
 - due_date: 2016-1-1
@@ -15,8 +15,8 @@ outcome_single-birth-nothing
   job_after_y_1: no
   salary_1: 400-week
   ler_1: yes
-- earnings_employment_1: no
-outcome_single-birth-nothing
+- salary_1_66_weeks: 400-week
+outcome_mat-allowance
 
 #Mother worker, does not pass earnings and employment test
 - circumstance: birth
