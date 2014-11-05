@@ -6,5 +6,3 @@ The primary adopter can take up to 52 weeks of [adoption leave](/adoption-pay-le
 - | -
 Earliest leave can start | %{earliest_start(placement_date)}
 Tell the primary adopter’s employer | %{notice_adopt_leave(match_date)}
-
-They could get more time off if their employer has a company adoption leave scheme.
