@@ -106,7 +106,7 @@ outcome_adopt-nothing
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: no
-outcome_adopt-nothing
+outcome_adopt-pat-leave
 
 #Principal adopter self-employed
 #Adopter employee, passes continuity test, passes lower earnings test
