@@ -52,7 +52,7 @@ module SmartdownAdapter
       # available on state and could be called directly, requires controller change
       OpenStruct.new(
         :responses => accepted_responses,
-        :unaccepted_responses => @smartdown_state.current_answers.map(&:value),
+        :unaccepted_responses => @smartdown_state.current_answers.map(&:value).map(&:to_s),
       )
     end
 
@@ -147,14 +147,18 @@ module SmartdownAdapter
 
     def process_inputs(responses)
       responses.map do |response|
-        if response.is_a? Hash
-          if response.has_key?(:day)
-            "#{response[:year]}-#{response[:month]}-#{response[:day]}"
-          elsif response.has_key?(:amount)
-            "#{response[:amount]}-#{response[:period]}"
-          end
+        if response == ''
+          nil
         else
-          response
+          if response.is_a? Hash
+            if response.has_key?(:day)
+              "#{response[:year]}-#{response[:month]}-#{response[:day]}"
+            elsif response.has_key?(:amount)
+              "#{response[:amount]}-#{response[:period]}"
+            end
+          else
+            response
+          end
         end
       end
     end

@@ -55,6 +55,19 @@ module SmartdownAdapter
           assert_equal Smartdown::Api::Outcome, @presenter.smartdown_state.current_node.class
         end
       end
+      context "a flow with an empty response" do
+        setup do
+          request = { started: true, responses: "lion", params: "", next: "y" }
+          request.stubs(:query_parameters).returns({ "response_1" => "" })
+          @flow = SmartdownAdapter::Registry.instance.find("animal-example-simple")
+          @presenter = SmartdownAdapter::Presenter.new(@flow, request)
+        end
+        should "should cast blank responses to nill before giving them to state" do
+          assert_equal ["lion"], @presenter.current_state.responses
+          assert_equal [""], @presenter.current_state.unaccepted_responses
+          assert_equal ["lion", nil], @presenter.instance_variable_get('@responses_url_and_request')
+        end
+      end
     end
   end
 end
