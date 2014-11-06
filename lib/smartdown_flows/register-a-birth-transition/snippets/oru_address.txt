@@ -1,0 +1,23 @@
+$IF where_are_you_now is 'in_the_uk'
+
+$A
+Overseas Registration Unit
+Foreign and Commonwealth Office
+PO Box 6255
+Milton Keynes
+MK10 1XX
+$A
+
+$ELSE
+
+$A
+Overseas Registration Unit
+Foreign & Commonwealth Office
+Hanslope Park
+Hanslope
+Milton Keynes
+MK19 7BH
+United Kingdom
+$A
+
+$ENDIF

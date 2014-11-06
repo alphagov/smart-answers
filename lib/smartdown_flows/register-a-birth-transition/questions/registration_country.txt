@@ -1,0 +1,7 @@
+# Which country?
+
+[country: registration_country, countries: world_locations]
+
+* oru_country(child_country) => outcome_oru_in_another_country
+* country_has_no_embassy(registration_country) => outcome_no_embassy
+* otherwise => outcome_embassy_in_another_country

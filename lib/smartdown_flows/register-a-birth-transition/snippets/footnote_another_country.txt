@@ -1,0 +1,35 @@
+$IF footnote_exclusions(child_country)
+
+^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
+
+$IF registration_country is 'north-korea'
+
+Your documents will be returned to the British Embassy in Pyongyang after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
+
+$ENDIF
+
+$ELSEIF not_same_country(child_country registration_country) AND eastern_caribbean_country(child_country) AND eastern_caribbean_country(registration_country)
+
+^It takes about 5 working days for the birth to be officially registered - your application will be sent to the High Commission in Barbados to be registered there.^
+
+$ELSEIF oru_courier_variants(registration_country) AND not_oru_courier_variants(child_country)
+
+^Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.^
+
+$IF registration_country is 'cambodia'
+
+Your documents will be returned to the British Embassy in Phnom Penh after the birth has been registered.
+
+$ELSEIF registration_country is 'papua-new-guinea'
+
+Your documents will be returned to the British Embassy in Port Moresby after the birth has been registered.
+
+$ENDIF
+
+You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
+
+$ELSE
+
+^Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.^
+
+$ENDIF

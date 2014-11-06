@@ -3,15 +3,24 @@ require 'nokogiri'
 module SmartdownAdapter
   class SmartAnswerCompareHelper
 
-    def initialize(smartdown_flow)
-      @controller = SmartAnswersController.new
+    def initialize(smartdown_flow, exceptions = {}, smartanswer_question_flow_name = nil)
       @smartdown_flow = smartdown_flow
+      #Exceptions are a hack put in place to be able to replace strings
+      #rendered in Smartdown with their equivalents in smart-answers
+      #This is mainly made to avoid very verbose diffs for
+      #minor white space differences
+      @exceptions = exceptions
       @question_name = smartdown_flow.name
+      if smartanswer_question_flow_name
+        @smartanswer_question_name = smartanswer_question_flow_name
+      else
+        @smartanswer_question_name = @question_name.chomp('-transition')
+      end
       @session = ActionDispatch::Integration::Session.new(Rails.application)
     end
 
     def get_smartanswer_content(started=false, responses=[])
-      get_content(@question_name.chomp('-transition'), false, started, responses)
+      get_content(@smartanswer_question_name, false, started, responses)
     end
 
     def get_smartdown_content(started=false, responses=[])
@@ -23,7 +32,7 @@ module SmartdownAdapter
       @smartdown_flow.scenario_sets.each do |scenario_set|
         scenario_set.scenarios.each_with_index do |scenario, scenario_index|
           scenario.question_groups.each_with_index do |question_group, question_index|
-            answer_groups << question_group.flatten.map(&:answer)
+            answer_groups << scenario.question_groups[0..question_index].flatten.map(&:answer)
           end
         end
       end
@@ -57,10 +66,12 @@ module SmartdownAdapter
 
       # Removing by ID leaves some noise which we have to regex out
       response.gsub!("<!-- related -->\n<!-- end related -->\n\n  ", "")
-
       if is_smartdown
         # Remove the transition slug, which will cause diffs in lots of hrefs
         response.gsub!('-transition', '')
+        exceptions.each do |smartdown_string, smartanswer_string|
+          response.gsub!(smartdown_string, smartanswer_string)
+        end
       end
       response
     end

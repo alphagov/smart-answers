@@ -1,0 +1,89 @@
+$IF oru_document_variants(child_country)
+
+$IF child_country is 'united-arab-emirates' AND married_or_partnership is 'no'
+
+- both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs (email <birthregistrationenquiries@fco.gov.uk> if the local authorities will not provide a birth certificate)
+
+$ELSEIF child_country is 'andorra'
+
+- the child’s full local birth certificate (‘declaració de naixement’) - it must have both parents’ names
+
+$ELSEIF child_country is 'belgium'
+
+- the child’s full local birth certificate (‘copie d’acte’ or ‘afschrift van een akte’) - it must have both parents’ names
+
+$ELSEIF child_country is 'denmark'
+
+- the child's full local birth certificate ('fødsel og navneattest') - it must have both parents' names
+- confirmation from the hospital or clinic where the child was born - eg a letter or live birth notification
+
+$ELSEIF child_country is 'finland'
+
+- a birth certificate issued by the hospital
+- an extract in English from the Population Information System which has the name of the child and the parents, issued within the last three months - you can get this from the [register office](http://www.maistraatti.fi/en/About-Local-Register-Offices/)
+
+$ELSEIF child_country is 'france'
+
+- the child’s full local birth certificate (‘copie integrale acte de naissance’) - it must have both parents’ names
+
+$ELSEIF child_country is 'italy'
+
+- the child’s long international birth certificate (not the standard short version) - it must have both parents’ names
+
+$ELSEIF child_country is 'japan'
+
+- the child’s local birth certificate ('shussetodoke kisaijiko shomeisho') - it must have the name and address of the hospital
+- a copy of the family register ('koseki tohon') which has been certified by the ward office (if one of the parents is Japanese)
+- a [name confirmation form](/government/publications/birth-registration-name-confirmation-form) that says how you would like the child’s full name to be registered, if the name differs from the name on the local birth certificate or Japanese family register (the rules are on the form)
+
+$ELSEIF child_country is 'monaco'
+
+- the child’s full local birth certificate (‘copie integrale acte de naissance’) - it must have both parents’ names
+
+$ELSEIF child_country is 'netherlands'
+
+- the Dutch version of the child’s full birth certificate (‘akte van geboorte’) and a translation of the certificate into English
+
+$ELSEIF child_country is 'portugal'
+
+- the child’s full local birth certificate (‘assento de nascimento’) - it must have both parents’ names
+- the hospital declaration of live birth (if the hospital’s name is not on your child’s birth certificate)
+
+$ELSEIF child_country is 'south_korea'
+
+- the child's birth certificate ('gi bon jung myung seo') and family relations certificate ('ga-jok-gwan-gye-jeung-myeong-seo') (if one or both parents are Korean nationals)
+- the child's hospital birth certificate with both parents' names (if neither parent is a Korean national)
+- a [name confirmation form](/government/publications/birth-registration-name-confirmation-form) that says how you would like the child’s full name to be registered, if the name differs from the name on the family relations certificate (the rules are on the form)
+
+$ELSEIF child_country is 'spain'
+
+- the child’s full local birth certificate (‘certificación literal’) - it must have both parents’ names
+
+$ELSEIF child_country is 'sweden'
+
+- a family certificate (‘familjebevis’) from the the Swedish Tax Agency (Skatteverket)
+
+$ELSEIF child_country is 'united-arab-emirates'
+
+- both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs
+
+$ELSEIF child_country is 'usa'
+
+- the child’s full local birth certificate - it must have both parents’ names
+- hospital, medical or insurance records naming the parents as the birth parents (if the birth was registered more than three months after it took place)
+
+$ELSEIF child_country is 'taiwan'
+
+- both Chinese and English versions of the child’s birth certificate - you can send a translation if the hospital doesn't issue an English version
+
+$ELSE
+
+- the child’s full local birth certificate - it must have both parents' names
+
+$ENDIF
+
+$ELSE
+
+- the child’s full local birth certificate - it must have both parents' names
+
+$ENDIF

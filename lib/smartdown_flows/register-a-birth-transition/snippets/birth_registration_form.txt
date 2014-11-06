@@ -1,0 +1,9 @@
+$IF child_country is 'usa'
+
+Download and complete the [birth registration form](/government/publications/usa-birth-registration-application).
+
+$ELSE
+
+Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
+
+$ENDIF

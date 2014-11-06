@@ -1,0 +1,5 @@
+$IF child_country is 'indonesia' AND who_has_british_nationality is 'father' AND married_or_partnership is 'no'
+
+  %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
+
+$ENDIF

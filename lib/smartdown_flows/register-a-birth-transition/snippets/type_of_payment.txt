@@ -1,0 +1,13 @@
+$IF pay_by_bank_draft(registration_country)
+
+Pay by bank draft made payable to ‘The Foreign and Commonwealth Office’.
+
+$ELSEIF cash_only(registration_country)
+
+%You can only pay by cash, which must be in local currency.%
+
+$ELSEIF cash_and_card_only(registration_country)
+
+You can pay by cash or credit card, but not by personal cheque.
+
+$ENDIF

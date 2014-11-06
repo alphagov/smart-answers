@@ -1,0 +1,13 @@
+$IF child_country is 'cambodia'
+
+Your documents will be returned to the British Embassy in Phnom Penh after the birth has been registered.
+
+$ELSEIF child_country is 'north-korea'
+
+Your documents will be returned to the British Embassy in Pyongyang after the birth has been registered.
+
+$ELSEIF child_country is 'papua-new-guinea'
+
+Your documents will be returned to the British Embassy in Port Moresby after the birth has been registered.
+
+$ENDIF

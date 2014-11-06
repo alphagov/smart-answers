@@ -1,0 +1,31 @@
+$IF child_country is 'barbados'
+
+Pay by bank draft made payable to ‘British High Commission’.
+
+$ELSEIF child_country is 'costa-rica'
+
+Pay by banker’s Draft or postal order made payable to ‘Foreign and Commonwealth Office’ . Include a stamped addressed envelope with your registration so your documents can be returned.
+
+$ELSEIF child_country is 'malaysia'
+
+Return postage costs RM10. Credit cards or company or personal cheques aren’t accepted.
+
+$ELSEIF child_country is 'papua-new-guinea'
+
+Pay by bank cheque made payable to the ‘British High Commission’. Credit cards, personal or company cheques aren’t accepted.
+
+$ELSEIF child_country is 'sweden'
+
+Pay by bankgiro made payable to the British Embassy, bankgiro number 887-8852 in Handelsbanken. Mark your payment with the surname of the applicant.
+
+Return postage costs 80 SEK.
+
+$ELSEIF child_country is 'tanzania'
+
+Pay by bank draft made payable to ‘British High Commission’.
+
+$ELSEIF child_country is 'thailand'
+
+Pay by postal order or bank draft, made payable to ‘The British Embassy, Bangkok’. Cash the postal order at the Nana Post Office (there’s a THB 200 administration fee).
+
+$ENDIF

@@ -1,0 +1,36 @@
+$!You can apply to register the birth with the %{embassy_high_commission_or_consulate(child_country)} in %{slug_with_lower_case_prefix(child_country)}.$!
+
+{{snippet: birth_registration_form}}
+
+{{snippet: documents_you_must_provide}}
+
+You’ll need to provide originals and a photocopy of each document.
+
+##Cost
+
+Service | Fee
+-|-
+Register a birth | £105
+Copy of a birth registration certificate | £65
+
+{{snippet: fees_for_consular_services}}
+
+You can order copies of the registration certificate from the %{embassy_high_commission_or_consulate(child_country)} when you register the birth.
+
+Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk) in the UK, but not until September the year after you register.
+
+##Go to the %{embassy_high_commission_or_consulate(child_country)}
+
+Book an appointment at the %{embassy_high_commission_or_consulate(child_country)} and bring the registration form, supporting documents and the fee.
+
+{{snippet: registering_declaration}}
+
+$IF where_are_you_now is 'same_country'
+
+{{snippet: postal_same_country}}
+
+$ENDIF
+
+%{embassy_data(child_country)}
+
+{{snippet: footnote_uk_or_same_country}}
