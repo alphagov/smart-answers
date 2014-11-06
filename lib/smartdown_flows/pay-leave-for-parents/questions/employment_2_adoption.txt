@@ -53,7 +53,8 @@
         * job_after_y_1 is 'yes' => outcome_adopt-leave_adopt-pat-leave_adopt-pat-shared-leave
         * otherwise => outcome_adopt-pat-leave_adopt-pat-shared-leave
       * otherwise
-        * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => outcome_adopt-leave_adopt-pay-pre-5-april_adopt-pat-leave
+        * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => outcome_adopt-leave_adopt-pay-pre-5-april_adopt-pat-leave_adopt-additional-pat-leave
+        * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' => outcome_adopt-leave_adopt-pat-leave_adopt-additional-pat-leave
         * otherwise => outcome_adopt-pat-leave
     * employment_status_1 is 'worker'
       * match_date >= '2015-4-5'
@@ -94,7 +95,9 @@
           * ler_1 is 'no' => employment_1_more_adoption
           * job_after_y_1 is 'yes' => outcome_adopt-leave_adopt-pat-pay_adopt-pat-shared-pay
           * otherwise => outcome_adopt-pat-pay_adopt-pat-shared-pay
-        * match_date < '2015-4-5' => outcome_adopt-pat-pay
+        * match_date < '2015-4-5'
+          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' => outcome_adopt-leave_adopt-pat-pay
+          * otherwise => outcome_adopt-pat-pay
     * employment_status_1 is 'worker'
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
         * match_date >= '2015-4-5' => outcome_adopt-pay_adopt-pat-pay_adopt-both-shared-pay
