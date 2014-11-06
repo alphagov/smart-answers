@@ -1,0 +1,9 @@
+$IF country_has_translator_link(child_country)
+
+^Send English translations of all foreign documents. Use an [approved translator](%{country_has_translator_link(child_country)}) and include their name and address with your application. Don't send laminated documents.^
+
+$ELSE
+
+^Send English translations of all foreign documents. Use a professional translator and include their name and address with your application. Don't send laminated documents.^
+
+$ENDIF

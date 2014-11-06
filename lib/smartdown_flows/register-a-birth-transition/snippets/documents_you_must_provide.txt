@@ -1,0 +1,105 @@
+##Documents
+
+$IF child_country is 'bangladesh'
+
+You and the other parent must provide:
+
+- your nationality certificates or full UK birth certificates showing details of your parents
+- your marriage certificate (if you’re married)
+- divorce documents (if either of you have ever been divorced)
+- your child’s local birth certificate (showing both your names)
+- your child’s hospital certificate (if born in a hospital)
+- a marriage certificate (if you’re married)
+- your current passports
+- any passports used to travel when you were married (if relevant), including any stamps, visas or observations
+- any passports used to travel at the time of your childs birth, including all stamps, visas or observations
+- a Bangladeshi ID card (if one of you is Bangladeshi and never held a passport)
+- photocopies of the data page of any British passport issued to a member of your immediate family by the British High Commission Dhaka
+- 3 identical passport-size photos
+- maternity documents
+
+$ELSEIF child_country is 'kuwait'
+
+You and the other parent must provide:
+
+- your child’s local birth certificate
+- your British birth certificates (long version) showing details of your parents
+- a naturalisation or registration certificate (if either of you were not born in the UK)
+- your current British passports
+- a copy of a passport and birth certificate (if one of you isn’t British)
+- a marriage certificate (if you’re married)
+- divorce documents (if either of you has ever been divorced)
+- a change of name document (if either of you has ever changed your name)
+
+$ELSEIF child_country is 'libya'
+
+You and the other parent must provide:
+
+- your child’s local birth certificate, translated into English and stamped by the Ministry of Foreign Affairs in Tripoli
+- your British birth certificates (long version) showing details of your parents
+- a naturalisation or registration certificate (if either of you were not born in the UK)
+- your current British passports
+- a copy of a passport or birth certificate (if one of you isn’t British)
+- a marriage certificate (if you’re married) translated into English
+- divorce documents (if either of you has ever been divorced)
+- a change of name document (if either of you has ever changed your name)
+
+$ELSEIF child_country is 'north-korea'
+
+^Provide English translations of all foreign documents. Use a professional translator and include their name and address with your application. Don’t provide laminated documents.^
+
+$ELSEIF child_country is 'pakistan'
+
+You and the other parent must provide:
+
+- your nationality certificates or full UK birth certificates showing details of your parents
+- your marriage certificate (if you’re married)
+- divorce documents (if either of you have ever been divorced)
+- your child’s local birth certificate (showing both your names)
+- your child’s hospital certificate (if born in a hospital)
+- a marriage certificate (if you’re married)
+- your current passports
+- any passports used to travel when you were married (if relevant)
+- any passports used to travel at the time of your child’s birth
+- a Pakistani ID card (if one of you is Pakistani and never held a passport)
+- photocopies of the data page of any British passport issued to a member of your immediate family by the British High Commission Islamabad
+- hospital antenatal documents and vaccination cards
+- 3 identical passport-size photos
+- family registration form "B"
+- your school leaving certificates
+- family photographs
+
+[Translated versions of Urdu documents](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers "Find a translator abroad") should also be provided.
+
+$ELSEIF child_country is 'philippines'
+
+Download [‘Documents you need to provide’](/government/publications/philippines-consular-birth-registration) to see what documents you’ll need to provide with your application.
+
+$ELSEIF child_country is 'turkey'
+
+You and the other parent must provide:
+
+- a hospital birth report
+- your child’s local birth certificate
+- your British birth certificates (long version) showing details of your parents
+- a naturalisation or registration certificate (if either of you were not born in the UK)
+- your current British passports
+- a copy of a passport or birth certificate (if one of you isn’t British)
+- a marriage certificate (if you’re married)
+- divorce documents (if either of you has ever been divorced)
+- a change of name document (if either of you has ever changed your name)
+
+$ELSE
+
+You and the other parent must provide:
+
+- your child’s local birth certificate
+- your British birth certificates (long version) showing details of your parents
+- a naturalisation or registration certificate (if either of you were not born in the UK)
+- your current British passports
+- a copy of a passport or birth certificate (if one of you isn’t British)
+- a marriage certificate (if you’re married)
+- divorce documents (if either of you has ever been divorced)
+- a change of name document (if either of you has ever changed your name)
+
+$ENDIF
