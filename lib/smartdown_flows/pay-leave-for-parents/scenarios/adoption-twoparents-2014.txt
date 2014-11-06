@@ -106,7 +106,7 @@ outcome_adopt-nothing
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: no
-outcome_adopt-nothing
+outcome_adopt-pat-leave
 
 #Principal adopter self-employed
 #Adopter employee, passes continuity test, passes lower earnings test
@@ -120,7 +120,7 @@ outcome_adopt-nothing
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_adopt-pat-leave_adopt-pat-pay_adopt-additional-pat-leave_adopt-additional-pat-pay
+outcome_adopt-pat-leave_adopt-pat-pay
 
 #Principal adopter employee, passes continuity test, does not pass lower earnings test
 #Adopter employee, passes continuity test, passes lower earnings test
@@ -138,7 +138,7 @@ outcome_adopt-pat-leave_adopt-pat-pay_adopt-additional-pat-leave_adopt-additiona
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_adopt-pat-leave_adopt-pat-pay_adopt-additional-pat-leave_adopt-additional-pat-pay
+outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay_adopt-additional-pat-leave
 
 #Principal adopter self-employed
 #Adopter worker, passes continuity test, passes lower earnings test
@@ -152,7 +152,7 @@ outcome_adopt-pat-leave_adopt-pat-pay_adopt-additional-pat-leave_adopt-additiona
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_adopt-pat-pay_adopt-additional-pat-pay
+outcome_adopt-pat-pay
 
 #Principal adopter worker, does not pass continuity test, passes lower earnings test
 #Adopter worker, passes continuity test, passes lower earnings test
@@ -170,7 +170,7 @@ outcome_adopt-pat-pay_adopt-additional-pat-pay
   job_after_y_2: yes
   salary_2: 400-week
   ler_2: yes
-outcome_adopt-pat-pay_adopt-additional-pat-pay
+outcome_adopt-pat-pay
 
 #Principal adopter worker, passes continuity test, passes lower earnings test
 #Adopter self-employed
@@ -239,3 +239,111 @@ outcome_adopt-pay-pre-5-april_adopt-pat-leave_adopt-pat-pay_adopt-additional-pat
   salary_2: 400-week
   ler_2: yes
 outcome_adopt-pay-pre-5-april_adopt-pat-pay_adopt-additional-pat-pay
+
+#Principal adopter employee, passes continuity test, passes lower earnings test
+#Adopter employee, passes continuity test, does not pass lower earnings test
+- circumstance: adoption
+  two_carers: yes
+- match_date: 2014-1-1
+  placement_date: 2014-1-1
+- employment_status_1: employee
+  employment_status_2: employee
+- job_before_x_1: yes
+  job_after_y_1: yes
+  salary_1: 400-week
+  ler_1: yes
+- job_before_x_2: yes
+  job_after_y_2: yes
+  salary_2: 400-week
+  ler_2: no
+outcome_adopt-leave_adopt-pay-pre-5-april_adopt-pat-leave_adopt-additional-pat-leave
+
+#Principal adopter employee, passes continuity test, does not pass lower earnings test
+#Adopter employee, does not pass continuity test, does not pass lower earnings test
+- circumstance: adoption
+  two_carers: yes
+- match_date: 2014-1-1
+  placement_date: 2014-1-1
+- employment_status_1: employee
+  employment_status_2: employee
+- job_before_x_1: yes
+  job_after_y_1: yes
+  salary_1: 400-week
+  ler_1: no
+- job_before_x_2: no
+  job_after_y_2: no
+  salary_2: 400-week
+  ler_2: no
+outcome_adopt-leave
+
+#Principal adopter employee, passes continuity test, does not pass lower earnings test
+#Adopter worker, does not pass continuity test, does not pass lower earnings test
+- circumstance: adoption
+  two_carers: yes
+- match_date: 2014-1-1
+  placement_date: 2014-1-1
+- employment_status_1: employee
+  employment_status_2: worker
+- job_before_x_1: yes
+  job_after_y_1: yes
+  salary_1: 400-week
+  ler_1: no
+- job_before_x_2: no
+  job_after_y_2: no
+  salary_2: 400-week
+  ler_2: no
+outcome_adopt-leave
+
+#Principal adopter worker, passes continuity test, passes lower earnings test
+#Adopter employee, passes continuity test, does not pass lower earnings test
+- circumstance: adoption
+  two_carers: yes
+- match_date: 2014-1-1
+  placement_date: 2014-1-1
+- employment_status_1: worker
+  employment_status_2: employee
+- job_before_x_1: yes
+  job_after_y_1: yes
+  salary_1: 400-week
+  ler_1: yes
+- job_before_x_2: yes
+  job_after_y_2: yes
+  salary_2: 400-week
+  ler_2: no
+outcome_adopt-pay-pre-5-april_adopt-pat-leave
+
+#Principal adopter employee, passes continuity test, does not pass lower earnings test
+#Adopter employee, passes continuity test, does not pass lower earnings test
+- circumstance: adoption
+  two_carers: yes
+- match_date: 2014-1-1
+  placement_date: 2014-1-1
+- employment_status_1: employee
+  employment_status_2: employee
+- job_before_x_1: yes
+  job_after_y_1: yes
+  salary_1: 400-week
+  ler_1: no
+- job_before_x_2: yes
+  job_after_y_2: yes
+  salary_2: 400-week
+  ler_2: no
+outcome_adopt-leave_adopt-pat-leave_adopt-additional-pat-leave
+
+#Principal adopter employee, passes continuity test, does not pass lower earnings test
+#Adopter worker, passes continuity test, passes lower earnings test
+- circumstance: adoption
+  two_carers: yes
+- match_date: 2014-1-1
+  placement_date: 2014-1-1
+- employment_status_1: employee
+  employment_status_2: worker
+- job_before_x_1: yes
+  job_after_y_1: yes
+  salary_1: 400-week
+  ler_1: no
+- job_before_x_2: yes
+  job_after_y_2: yes
+  salary_2: 400-week
+  ler_2: yes
+outcome_adopt-leave_adopt-pat-pay
