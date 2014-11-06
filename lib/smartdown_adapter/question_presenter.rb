@@ -4,8 +4,9 @@ module SmartdownAdapter
 
     def_delegators :@smartdown_question, :title, :body, :hint, :options, :post_body
 
-    def initialize(smartdown_question)
+    def initialize(smartdown_question, smartdown_answer)
       @smartdown_question = smartdown_question
+      @smartdown_answer = smartdown_answer
     end
 
     def has_body?
@@ -20,9 +21,8 @@ module SmartdownAdapter
       !!post_body
     end
 
-    #TODO: implement once we have error handling
     def error
-      nil
+      @smartdown_answer.error if @smartdown_answer
     end
 
     def partial_template_name

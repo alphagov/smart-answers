@@ -16,7 +16,7 @@ class SmartAnswersController < ApplicationController
         html_fragment = with_format('html') {
           render_to_string(partial: "content")
         }
- render json: {
+        render json: {
           url: smart_answer_path(params[:id], 'y', @presenter.current_state.responses),
           html_fragment: html_fragment,
           title: @presenter.current_node.title
@@ -25,7 +25,7 @@ class SmartAnswersController < ApplicationController
       format.ics {
         if @presenter.current_node.respond_to?(:calendar) and @presenter.current_node.has_calendar?
           response.headers['Content-Disposition'] = "attachment; filename=\"#{@name.to_s}.ics\""
-   render text: @presenter.current_node.calendar.to_ics, layout: false
+          render text: @presenter.current_node.calendar.to_ics, layout: false
         else
           error_404
         end
@@ -86,11 +86,19 @@ private
   def redirect_response_to_canonical_url
     if params[:next] && ! @presenter.current_state.error
       set_expiry
-      redirect_to action: :show,
-        id: @name,
-        started: 'y',
+      redirect_params = {
+        action:   :show,
+        id:        @name,
+        started:   "y",
         responses: @presenter.current_state.responses,
-        protocol: (request.ssl? || Rails.env.production?) ? 'https' : 'http'
+        protocol:  (request.ssl? || Rails.env.production?) ? 'https' : 'http',
+      }
+      if @presenter.current_state.unaccepted_responses
+        @presenter.current_state.unaccepted_responses.each_with_index do |unaccepted_response, index|
+          redirect_params["previous_response_#{index+1}".to_sym] = unaccepted_response.to_s
+        end
+      end
+      redirect_to redirect_params
     end
   end
 
