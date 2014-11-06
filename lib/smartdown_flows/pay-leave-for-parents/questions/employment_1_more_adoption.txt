@@ -8,7 +8,7 @@
 
 The 13 weeks don’t need to be in a row.
 
-* match_date >= '2015-4-5' AND employment_status_1 is 'employee'
+* placement_date >= '2015-4-5' AND employment_status_1 is 'employee'
   * job_after_y_1 is 'yes'
     * employment_status_2 is 'employee'
       * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
