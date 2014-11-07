@@ -1,5 +1,7 @@
 # You picked a safe pet
 
+{{snippet: example-phraselist}}
+
 Good call.
 
 # Markdown/Govspeak examples

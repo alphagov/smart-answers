@@ -17,7 +17,7 @@ gem 'filesize'
 if ENV['SMARTDOWN_DEV']
   gem 'smartdown', :path => '../smartdown'
 else
-  gem 'smartdown', '0.8.1'
+  gem 'smartdown', '0.8.2'
 end
 
 if ENV['API_DEV']
