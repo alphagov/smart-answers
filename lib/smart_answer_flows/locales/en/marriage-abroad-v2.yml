@@ -862,6 +862,14 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
           - equivalent documents for your partner
 
+        consular_cni_variant_local_resident_italy: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of of your parent’s names
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
+          - equivalent documents for your partner
+
         cambodia_consular_cni_os_partner_local: |
           You'll need to pay a fee and bring the following to your appointment:
 
@@ -918,6 +926,9 @@ en-GB:
           - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
         consular_cni_os_other_resident_ceremony_not_germany_or_spain: |
           ^You’ll also need to provide evidence of nationality or residence if a divorce or dissolution took place if outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
+
+        consular_cni_os_other_resident_ceremony_italy: |
+          You’ll also need to provide evidence of nationality or residence if a divorce or dissolution took place if outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
         spain_os_consular_cni_three: |
           Send your completed appointment request form and copies of the supporting documents to your [nearest British consulate](/notarial-and-documentary-services-guide-for-spain#where-to-send-your-request). You can send them as scanned attachments to an email or by fax. You’ll need to bring the original documents to your appointment.
 
@@ -934,6 +945,8 @@ en-GB:
           [Download ‘Affidavit for marriage’ (PDF, 58KB)](/government/uploads/system/uploads/attachment_data/file/136830/affidavit2012.pdf)
           $D
 
+        wait_300_days_before_remarrying: |
+          ^Women must wait 300 days after divorcing or the death of their husband before remarrying.^
         display_notice_of_marriage_7_days: |
           ###What happens next
 

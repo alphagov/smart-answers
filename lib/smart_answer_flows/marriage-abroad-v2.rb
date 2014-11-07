@@ -658,7 +658,9 @@ outcome :outcome_os_consular_cni do
       phrases << :living_in_residence_country_3_days
     end
 
-    if ceremony_country == residency_country and %w(germany italy japan spain).exclude?(ceremony_country) or (data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country and ceremony_country != 'germany')
+    if ceremony_country == 'italy' and resident_of == 'other'
+      phrases << :consular_cni_variant_local_resident_italy
+    elsif ceremony_country == residency_country and %w(germany japan spain).exclude?(ceremony_country) or (data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country and ceremony_country != 'germany')
       phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident
     end
 
@@ -684,12 +686,17 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_not_uk_resident_ceremony_not_germany
     end
     if resident_of == 'other'
-      if %(germany spain).exclude?(ceremony_country)
+      if ceremony_country == 'italy' and resident_of == 'other'
+        phrases << :consular_cni_os_other_resident_ceremony_italy
+      elsif %(germany spain).exclude?(ceremony_country)
         phrases << :consular_cni_os_other_resident_ceremony_not_germany_or_spain
       end
     end
     if ceremony_country == residency_country and ceremony_country == 'spain'
       phrases << :spain_os_consular_cni_three
+    end
+    if ceremony_country == 'italy' and resident_of == 'other'
+      phrases << :wait_300_days_before_remarrying
     end
     if ceremony_country == residency_country
       if %w(spain germany japan).exclude?(ceremony_country)
