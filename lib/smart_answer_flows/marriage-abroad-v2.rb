@@ -1175,6 +1175,16 @@ outcome :outcome_cp_no_cni do
 end
 
 outcome :outcome_cp_commonwealth_countries do
+
+  precalculate :tipe_of_ceremony do
+    phrases = PhraseList.new
+    if ceremony_country == 'new-zealand'
+      phrases << :title_ss_marriage_and_partnership
+    else
+      phrases << :title_civil_partnership
+    end
+  end
+
   precalculate :commonwealth_countries_cp_outcome do
     phrases = PhraseList.new
     if ceremony_country == 'australia'
@@ -1187,6 +1197,7 @@ outcome :outcome_cp_commonwealth_countries do
       phrases << :commonwealth_countries_cp_south_africa
     end
     phrases << :commonwealth_countries_cp_australia_two if ceremony_country == 'australia'
+
     if resident_of == 'uk'
       phrases << :commonwealth_countries_cp_uk_resident_two
     elsif ceremony_country == residency_country
@@ -1194,6 +1205,7 @@ outcome :outcome_cp_commonwealth_countries do
     elsif ceremony_country != residency_country and resident_of != 'uk'
       phrases << :commonwealth_countries_cp_other_resident
     end
+
     if ceremony_country == 'australia'
       phrases << :commonwealth_countries_cp_australia_three
       phrases << :commonwealth_countries_cp_australia_four
@@ -1205,6 +1217,10 @@ outcome :outcome_cp_commonwealth_countries do
       phrases << :commonwealth_countries_cp_australia_five
     end
     phrases << :embassies_data unless ceremony_country == 'australia'
+
+    if ceremony_country == 'new-zealand'
+      phrases << :commonwealth_os_all_cni
+    end
     phrases << :commonwealth_countries_cp_naturalisation if partner_nationality != 'partner_british'
     phrases << :commonwealth_countries_cp_australia_six if ceremony_country == 'australia'
     phrases
