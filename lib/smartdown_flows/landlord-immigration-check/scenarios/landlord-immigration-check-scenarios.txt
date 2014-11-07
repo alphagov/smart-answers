@@ -13,7 +13,6 @@ outcome_check_not_needed
 - time_limited_to_remain: no
 - has_residence_card_or_eu_eea_swiss_family_member: no
 - has_asylum_card: no
-- has_certificate_of_application: no
 - immigration_application: no
 outcome_can_rent_for_12_months
 

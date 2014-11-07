@@ -4,12 +4,12 @@ satisfies_need: 102373
 
 # Check if someone can rent your residential property
 
-Find out if a tenant can rent private residential property in the UK and what documents you need to check as a landlord. 
+Find out if someone can rent private residential property in the UK.
 
-This includes private residential properties that tenants will use as their main home (including house guests and sub-tenants).
+This includes private residential properties for all people aged 18 or over (including house guests and sub-tenants) who will use the property as their main home.
 
-If you’ve bought a property that has tenants you should see if a check has been carried out. You’ll be responsible for carrying out further checks on your tenants. 
+If you’ve bought a property that has tenants you should see if a check has been carried out. You’ll be responsible for carrying out [further checks on your tenants](/government/publications/right-to-rent-landlords-code-of-practice).
 
-^You can read more about the [right to work documents](/fraud-document-link) if you can’t tell what kind of document your tenant is using to rent your property.^
+^You can read more about the [right to rent documents](/fraud-document-link) if you can’t tell what kind of document your tenant is using to rent your property.^
 
 [start: postcode]
