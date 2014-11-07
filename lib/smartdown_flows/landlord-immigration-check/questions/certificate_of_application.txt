@@ -1,8 +1,0 @@
-# Does the tenant have a Certificate of Application issued within the last 6 months?
-
-[choice: has_certificate_of_application]
-* yes: Yes
-* no: No
-
-* has_certificate_of_application is 'yes' => outcome_can_rent_for_12_months
-* has_certificate_of_application is 'no' => outstanding_immigration_application

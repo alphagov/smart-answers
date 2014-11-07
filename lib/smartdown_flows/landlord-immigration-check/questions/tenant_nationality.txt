@@ -1,4 +1,4 @@
-# Is the tenant:
+# Is the person:
 
 [choice: tenant_country]
 * ci_or_iom: from the Channel Islands or Isle of Man

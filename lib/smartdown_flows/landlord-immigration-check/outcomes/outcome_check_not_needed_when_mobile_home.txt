@@ -1,5 +1,5 @@
-You don’t need to make a right to rent check if the mobile home is the tenant’s main home. 
+You don’t need to make a right to rent check if the mobile home is the person main home.
 
-A right to rent check will need to carried out if the tenant leases the mobile home to another person.
+A right to rent check will need to carried out if they lease the mobile home to another person.
 
 {{snippet: landlord-code-of-practice}}
