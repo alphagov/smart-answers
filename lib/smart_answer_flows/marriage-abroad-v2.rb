@@ -1100,14 +1100,22 @@ outcome :outcome_cp_cp_or_equivalent do
     if data_query.cp_equivalent_countries?(ceremony_country)
       phrases << :"cp_or_equivalent_cp_#{ceremony_country}"
     end
-    if resident_of == 'uk'
+
+    if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' &&resident_of == 'uk'
+      phrases << :check_travel_advice
+    elsif resident_of == 'uk'
       phrases << :cp_or_equivalent_cp_uk_resident
     elsif ceremony_country == residency_country
       phrases << :cp_or_equivalent_cp_local_resident
     elsif ceremony_country != residency_country and resident_of != 'uk'
       phrases << :cp_or_equivalent_cp_other_resident
     end
-    phrases << :cp_or_equivalent_cp_all_what_you_need_to_do
+
+    if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' &&resident_of == 'uk'
+      phrases << :what_you_need_to_do_cni << :uk_resident_partner_not_irish_os_consular_cni_three << :consular_cni_os_uk_resident_legalisation << :consular_cni_os_uk_resident_not_italy_or_portugal << :consular_cni_os_all_names_but_germany
+    else
+      phrases << :cp_or_equivalent_cp_all_what_you_need_to_do
+    end
     if partner_nationality != 'partner_british'
       phrases << :cp_or_equivalent_cp_naturalisation
     end

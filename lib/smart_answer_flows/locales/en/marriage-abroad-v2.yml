@@ -132,6 +132,8 @@ en-GB:
           Contact your local embassy or consulate to make an appointment.
         embassies_data: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+        check_travel_advice: |
+          You should check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
 # payment methods
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
@@ -1393,6 +1395,11 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
+
+        what_you_need_to_do_cni: |
+          ##What you need to do
+
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into a civil partnership or equivalent in %{country_name_lowercase_prefix}.
 
 # PACS in France or French overseas territories with PACS law
         fot_cp_all: |
