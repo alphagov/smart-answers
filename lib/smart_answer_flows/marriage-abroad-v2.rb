@@ -1315,6 +1315,7 @@ outcome :outcome_ss_marriage do
     phrases << :"what_to_do_#{marriage_and_partnership_phrases}" << :will_display_in_14_days << :"no_objection_in_14_days_#{marriage_and_partnership_phrases}" << :"provide_two_witnesses_#{marriage_and_partnership_phrases}"
     phrases << :australia_ss_relationships if ceremony_country == 'australia'
     phrases << :ss_marriage_footnote << :partner_naturalisation_in_uk << :"fees_table_#{ss_fees_table}" << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
+    phrases << :convert_cc_to_ss_marriage if %w{australia germany japan philippines russia serbia vietnam}.include?(ceremony_country)
     phrases
   end
 end
