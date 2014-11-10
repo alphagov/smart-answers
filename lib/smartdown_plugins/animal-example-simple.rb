@@ -6,6 +6,14 @@ module SmartdownPlugins
       render 'button', locals: locals
     end
 
+    def self.data_embassy(country_name)
+      location = ::WorldLocation.find('afghanistan')
+      organisation = location.fco_organisation
+      overseas_passports_embassies = organisation.offices_with_service 'Registrations of Marriage and Civil Partnerships'
+      locals = {overseas_passports_embassies: overseas_passports_embassies}
+      render 'overseas_passports_embassies', locals: locals
+    end
+
     def self.render(template_name, opts={})
       locals = opts.fetch(:locals, nil)
       ApplicationController.new.render_to_string(
