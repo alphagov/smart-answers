@@ -1441,7 +1441,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     should "go to cp or equivalent outcome" do
       assert_current_node :outcome_cp_cp_or_equivalent
       assert_state_variable :country_name_lowercase_prefix, 'the Czech Republic'
-      assert_phrase_list :cp_or_equivalent_cp_outcome, [:"cp_or_equivalent_cp_czech-republic", :cp_or_equivalent_cp_other_resident, :cp_or_equivalent_cp_all_what_you_need_to_do, :cp_or_equivalent_cp_naturalisation, :cp_or_equivalent_cp_all_fees]
+      assert_phrase_list :cp_or_equivalent_cp_outcome, [:"cp_or_equivalent_cp_czech-republic", :cp_or_equivalent_cp_uk_resident_czech_republic, :cp_or_equivalent_cp_naturalisation]
       assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end
@@ -1579,7 +1579,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to consular cni cp countries outcome" do
       assert_current_node :outcome_cp_cp_or_equivalent
-      assert_phrase_list :cp_or_equivalent_cp_outcome, [:"cp_or_equivalent_cp_czech-republic", :cp_or_equivalent_cp_uk_resident, :cp_or_equivalent_cp_all_what_you_need_to_do, :cp_or_equivalent_cp_naturalisation, :cp_or_equivalent_cp_all_fees]
+      assert_phrase_list :cp_or_equivalent_cp_outcome, [:"cp_or_equivalent_cp_czech-republic", :cp_or_equivalent_cp_uk_resident_czech_republic, :cp_or_equivalent_cp_naturalisation]
       assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end

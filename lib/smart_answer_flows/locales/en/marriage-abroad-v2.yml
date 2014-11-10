@@ -1386,6 +1386,10 @@ en-GB:
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
+        cp_or_equivalent_cp_uk_resident_czech_republic: |
+          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         cp_or_equivalent_cp_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         cp_or_equivalent_cp_other_resident: |

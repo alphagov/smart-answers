@@ -116,7 +116,7 @@ multiple_choice :residency_uk? do
         data_query.os_other_countries?(ceremony_country) ||
         data_query.ss_marriage_countries?(ceremony_country) ||
         data_query.ss_marriage_and_partnership?(ceremony_country) ||
-        ceremony_country == 'portugal'
+        %w(portugal czech-republic).include?(ceremony_country)
       })
     next_node_if(:outcome_os_iom_ci)
   end
@@ -1108,25 +1108,31 @@ outcome :outcome_cp_cp_or_equivalent do
       phrases << :"cp_or_equivalent_cp_#{ceremony_country}"
     end
 
-    if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' &&resident_of == 'uk'
+    if ceremony_country == 'brazil' and sex_of_your_partner == 'same_sex' and resident_of == 'uk'
       phrases << :check_travel_advice
+    elsif ceremony_country == 'czech-republic' and sex_of_your_partner == 'same_sex'
+      phrases << :cp_or_equivalent_cp_uk_resident_czech_republic
     elsif resident_of == 'uk'
       phrases << :cp_or_equivalent_cp_uk_resident
     elsif ceremony_country == residency_country
       phrases << :cp_or_equivalent_cp_local_resident
-    elsif ceremony_country != residency_country and resident_of != 'uk'
+    elsif ceremony_country != residency_country and resident_of == 'other'
       phrases << :cp_or_equivalent_cp_other_resident
     end
-
-    if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' &&resident_of == 'uk'
-      phrases << :what_you_need_to_do_cni << :uk_resident_partner_not_irish_os_consular_cni_three << :consular_cni_os_uk_resident_legalisation << :consular_cni_os_uk_resident_not_italy_or_portugal << :consular_cni_os_all_names_but_germany
-    else
-      phrases << :cp_or_equivalent_cp_all_what_you_need_to_do
+    unless ceremony_country == 'czech-republic' and sex_of_your_partner == 'same_sex'
+      if ceremony_country == 'brazil' and sex_of_your_partner == 'same_sex' and resident_of == 'uk'
+        phrases << :what_you_need_to_do_cni << :uk_resident_partner_not_irish_os_consular_cni_three << :consular_cni_os_uk_resident_legalisation << :consular_cni_os_uk_resident_not_italy_or_portugal << :consular_cni_os_all_names_but_germany
+      else
+        phrases << :cp_or_equivalent_cp_all_what_you_need_to_do
+      end
     end
     if partner_nationality != 'partner_british'
       phrases << :cp_or_equivalent_cp_naturalisation
     end
-    phrases << :cp_or_equivalent_cp_all_fees
+    unless ceremony_country == 'czech-republic' and sex_of_your_partner == 'same_sex'
+      phrases << :cp_or_equivalent_cp_all_fees
+    end
+
     unless (ceremony_country == 'czech-republic' or data_query.countries_without_consular_facilities?(ceremony_country))
       if ceremony_country == 'monaco'
         phrases << :list_of_consular_fees_france
