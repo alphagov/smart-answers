@@ -9,7 +9,7 @@
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_2: yes
 outcome_adopt-leave_adopt-shared-leave
 
@@ -24,7 +24,7 @@ outcome_adopt-leave_adopt-shared-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_2: no
 outcome_adopt-leave
 
@@ -39,11 +39,11 @@ outcome_adopt-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 - earnings_employment_2: yes
 outcome_adopt-leave_adopt-shared-leave
 
@@ -58,11 +58,11 @@ outcome_adopt-leave_adopt-shared-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 - earnings_employment_2: no
 outcome_adopt-leave
 
@@ -77,11 +77,11 @@ outcome_adopt-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_1: no
 outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay_adopt-shared-leave
 
@@ -96,11 +96,11 @@ outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay_adopt-shared-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_1: yes
 outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay_adopt-both-shared-leave_adopt-pat-shared-pay
 
@@ -115,11 +115,11 @@ outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay_adopt-both-shared-leave_adopt-
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_1: no
 outcome_adopt-leave_adopt-pat-pay_adopt-shared-leave
 
@@ -134,11 +134,11 @@ outcome_adopt-leave_adopt-pat-pay_adopt-shared-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_1: yes
 outcome_adopt-leave_adopt-pat-pay_adopt-shared-leave_adopt-pat-shared-pay
 
@@ -153,7 +153,7 @@ outcome_adopt-leave_adopt-pat-pay_adopt-shared-leave_adopt-pat-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - earnings_employment_2: no
 outcome_adopt-leave_adopt-pay
 
@@ -168,11 +168,11 @@ outcome_adopt-leave_adopt-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: no
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_2: no
 outcome_adopt-leave_adopt-pay
 
@@ -187,7 +187,7 @@ outcome_adopt-leave_adopt-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - earnings_employment_2: yes
 outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay
 
@@ -202,11 +202,11 @@ outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 - earnings_employment_2: yes
 outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay
 
@@ -221,11 +221,11 @@ outcome_adopt-leave_adopt-pay_adopt-shared-leave_adopt-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-leave_adopt-pay_adopt-pat-leave_adopt-pat-pay_adopt-both-shared-leave_adopt-both-shared-pay
 
 #Principal adopter employee, passes continuity test, does not lower earnings test
@@ -239,11 +239,11 @@ outcome_adopt-leave_adopt-pay_adopt-pat-leave_adopt-pat-pay_adopt-both-shared-le
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-leave_adopt-pay_adopt-pat-leave_adopt-pat-pay_adopt-both-shared-leave_adopt-both-shared-pay
 
 #Principal adopter employee, passes continuity test, passes lower earnings test
@@ -257,11 +257,11 @@ outcome_adopt-leave_adopt-pay_adopt-pat-leave_adopt-pat-pay_adopt-both-shared-le
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-leave_adopt-pay_adopt-pat-pay_adopt-shared-leave_adopt-both-shared-pay
 
 #Principal adopter self-employed
@@ -285,7 +285,7 @@ outcome_adopt-nothing
 - job_before_x_1: no
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 outcome_adopt-nothing
 
 #Principal adopter employee, does not pass continuity test
@@ -299,11 +299,11 @@ outcome_adopt-nothing
 - job_before_x_1: no
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: no
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-nothing
 
 #Principal adopter self-employed, does not pass earnings and employment test
@@ -317,7 +317,7 @@ outcome_adopt-nothing
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_1: no
 outcome_adopt-pat-leave_adopt-pat-pay
 
@@ -332,11 +332,11 @@ outcome_adopt-pat-leave_adopt-pat-pay
 - job_before_x_1: no
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_1: no
 outcome_adopt-pat-leave_adopt-pat-pay
 
@@ -351,11 +351,11 @@ outcome_adopt-pat-leave_adopt-pat-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-pay_adopt-pat-pay_adopt-both-shared-pay
 
 #Principal adopter worker, passes continuity test, passes lower earnings test
@@ -369,11 +369,11 @@ outcome_adopt-pay_adopt-pat-pay_adopt-both-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-pay_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-both-shared-pay
 
 #Principal adopter worker, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
@@ -387,11 +387,11 @@ outcome_adopt-pay_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-bot
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_1: no
 outcome_adopt-pat-leave_adopt-pat-pay
 
@@ -406,11 +406,11 @@ outcome_adopt-pat-leave_adopt-pat-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_1: yes
 outcome_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pay
 
@@ -425,7 +425,7 @@ outcome_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pa
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - earnings_employment_2: yes
 outcome_adopt-pay_adopt-shared-pay
 
@@ -440,11 +440,11 @@ outcome_adopt-pay_adopt-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: no
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_2: yes
 outcome_adopt-pay_adopt-shared-pay
 
@@ -459,7 +459,7 @@ outcome_adopt-pay_adopt-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - earnings_employment_2: no
 outcome_adopt-pay
 
@@ -474,11 +474,11 @@ outcome_adopt-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 - earnings_employment_2: no
 outcome_adopt-pay
 
@@ -493,7 +493,7 @@ outcome_adopt-pay
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_1: yes
 outcome_adopt-pat-pay_adopt-pat-shared-pay
 
@@ -508,11 +508,11 @@ outcome_adopt-pat-pay_adopt-pat-shared-pay
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-pat-pay_adopt-pat-shared-pay
 
 #Principal adopter self-employed, passes earnings and employment test
@@ -526,7 +526,7 @@ outcome_adopt-pat-pay_adopt-pat-shared-pay
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_1: no
 outcome_adopt-pat-pay
 
@@ -541,11 +541,11 @@ outcome_adopt-pat-pay
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-pat-pay_adopt-pat-shared-pay
 
 #Principal adopter self-employed, passes earnings and employment test
@@ -559,7 +559,7 @@ outcome_adopt-pat-pay_adopt-pat-shared-pay
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 - earnings_employment_1: yes
 outcome_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pay
 
@@ -574,9 +574,9 @@ outcome_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pa
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pay

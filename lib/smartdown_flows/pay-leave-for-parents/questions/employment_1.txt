@@ -20,11 +20,11 @@ This is her total take-home pay before any deductions, eg tax.
 
 # Has the mother earned (or will she have earned) more than £111 per week between %{lower_earnings_start(due_date)} and %{minimum_end_date(due_date)}?
 
-[choice: ler_1]
+[choice: lel_1]
 * yes: Yes
 * no: No
 
-* job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+* job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
   * two_carers is 'no'
     * employment_status_1 is 'employee' => outcome_mat-leave_mat-pay
     * employment_status_1 is 'worker' => outcome_mat-pay
@@ -35,5 +35,5 @@ This is her total take-home pay before any deductions, eg tax.
       * due_date < '2015-4-5'
         * employment_status_1 is 'employee' => outcome_mat-leave_mat-pay
         * employment_status_1 is 'worker' => outcome_mat-pay
-* ler_1 is 'no' => employment_1_more
-* ler_1 is 'yes' => employment_1_more_salary
+* lel_1 is 'no' => employment_1_more
+* lel_1 is 'yes' => employment_1_more_salary

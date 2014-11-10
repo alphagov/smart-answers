@@ -18,14 +18,14 @@
 
 # Has the mother’s partner earned (or will they have earned) more than £111 per week between %{lower_earnings_start(due_date)} and %{minimum_end_date(due_date)}?
 
-[choice: ler_2]
+[choice: lel_2]
 * yes: Yes
 * no: No
 
 * employment_status_2 is 'employee'
-  * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
+  * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND lel_2 is 'yes'
     * employment_status_1 is 'employee'
-      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
         * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
         * otherwise => outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes'
@@ -38,33 +38,33 @@
       * otherwise
         * job_after_y_1 is 'yes'
           * due_date >= '2015-4-5'
-            * ler_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
+            * lel_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
             * earnings_employment_1 is 'no' => outcome_mat-leave_pat-leave_pat-pay
           * otherwise
-            * ler_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave
+            * lel_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave
             * earnings_employment_1 is 'no' => outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave
         * job_after_y_1 is 'no'
           * due_date >= '2015-4-5'
-            * ler_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
+            * lel_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
             * earnings_employment_1 is 'no' => outcome_pat-leave_pat-pay
           * otherwise
-            * ler_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave
+            * lel_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave
             * earnings_employment_1 is 'no' => outcome_pat-leave_pat-pay
     * employment_status_1 is 'worker'
-      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
         * due_date >= '2015-4-5' => outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
         * otherwise => outcome_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
       * otherwise
         * due_date >= '2015-4-5'
-          * ler_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
+          * lel_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
           * earnings_employment_1 is 'no' => outcome_pat-leave_pat-pay
         * otherwise
-          * ler_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave
+          * lel_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave
           * earnings_employment_1 is 'no' => outcome_pat-leave_pat-pay
     * employment_status_1 in {unemployed self-employed}
@@ -76,45 +76,45 @@
         * earnings_employment_1 is 'no' => outcome_pat-leave_pat-pay
   * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes'
     * employment_status_1 is 'employee'
-      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
         * due_date >= '2015-4-5' => employment_2_more
         * otherwise => outcome_mat-leave_mat-pay_pat-leave_additional-pat-leave
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes'
         * due_date >= '2015-4-5' => employment_2_more
         * otherwise
-          * ler_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
+          * lel_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
           * earnings_employment_1 is 'no' => outcome_mat-leave_pat-leave_additional-pat-leave
       * otherwise
         * job_after_y_1 is 'yes'
           * due_date >= '2015-4-5'
-            * ler_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
+            * lel_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
             * earnings_employment_1 is 'no' => outcome_mat-leave_pat-leave
           * otherwise
-            * ler_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
+            * lel_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
             * earnings_employment_1 is 'no' => outcome_mat-leave_pat-leave_additional-pat-leave
         * job_after_y_1 is 'no'
           * due_date >= '2015-4-5'
-            * ler_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-shared-leave
+            * lel_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-shared-leave
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-shared-leave
             * earnings_employment_1 is 'no' => outcome_pat-leave
           * otherwise
-            * ler_1 is 'yes' => outcome_mat-allowance_pat-leave_additional-pat-leave
+            * lel_1 is 'yes' => outcome_mat-allowance_pat-leave_additional-pat-leave
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-leave_additional-pat-leave
             * earnings_employment_1 is 'no' => outcome_pat-leave
     * employment_status_1 is 'worker'
-      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
         * due_date >= '2015-4-5' => employment_2_more
         * otherwise => outcome_mat-pay_pat-leave_additional-pat-leave
       * otherwise
         * due_date >= '2015-4-5'
-          * ler_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-shared-leave
+          * lel_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-shared-leave
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-leave_pat-shared-leave
           * earnings_employment_1 is 'no' => outcome_pat-leave
         * otherwise
-          * ler_1 is 'yes' => outcome_mat-allowance_pat-leave_additional-pat-leave
+          * lel_1 is 'yes' => outcome_mat-allowance_pat-leave_additional-pat-leave
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-leave_additional-pat-leave
           * earnings_employment_1 is 'no' => outcome_pat-leave
     * employment_status_1 in {unemployed self-employed}
@@ -128,79 +128,79 @@
     * employment_status_1 is 'employee'
       * job_after_y_1 is 'yes'
         * due_date >= '2015-4-5'
-          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
-            * ler_2 is 'no' => employment_2_more
-            * ler_2 is 'yes' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
+          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
+            * lel_2 is 'no' => employment_2_more
+            * lel_2 is 'yes' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
           * otherwise
-            * ler_1 is 'yes' => outcome_mat-allowance_mat-leave
+            * lel_1 is 'yes' => outcome_mat-allowance_mat-leave
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave
             * earnings_employment_1 is 'no' => outcome_mat-leave
         * otherwise
-          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => outcome_mat-leave_mat-pay
+          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes' => outcome_mat-leave_mat-pay
           * otherwise
-            * ler_1 is 'yes' => outcome_mat-allowance_mat-leave
+            * lel_1 is 'yes' => outcome_mat-allowance_mat-leave
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave
             * earnings_employment_1 is 'no' => outcome_mat-leave
       * job_after_y_1 is 'no'
-        * ler_1 is 'yes' => outcome_mat-allowance
+        * lel_1 is 'yes' => outcome_mat-allowance
         * earnings_employment_1 is 'yes' => outcome_mat-allowance
         * earnings_employment_1 is 'no' => outcome_birth-nothing
     * employment_status_1 is 'worker'
-      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
         * due_date >= '2015-4-5' => employment_2_more
         * otherwise => outcome_mat-pay
       * otherwise
-        * ler_1 is 'yes' => outcome_mat-allowance
+        * lel_1 is 'yes' => outcome_mat-allowance
         * earnings_employment_1 is 'yes' => outcome_mat-allowance
         * earnings_employment_1 is 'no' => outcome_birth-nothing
     * employment_status_1 in {unemployed self-employed}
       * earnings_employment_1 is 'yes' => outcome_mat-allowance
       * earnings_employment_1 is 'no' => outcome_birth-nothing
 * employment_status_2 is 'worker'
-  * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND ler_2 is 'yes'
+  * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes' AND lel_2 is 'yes'
     * employment_status_1 is 'employee'
-      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
         * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
         * otherwise => outcome_mat-leave_mat-pay_pat-pay_additional-pat-pay
       * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes'
         * due_date >= '2015-4-5'
-          * ler_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
+          * lel_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
           * earnings_employment_1 is 'no' => outcome_mat-leave_pat-pay_mat-shared-leave
         * otherwise
-          * ler_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay
+          * lel_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay
           * earnings_employment_1 is 'no' => outcome_mat-leave_pat-pay
       * otherwise
         * job_after_y_1 is 'yes'
           * due_date >= '2015-4-5'
-            * ler_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_pat-shared-pay
+            * lel_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_pat-shared-pay
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay_pat-shared-pay
             * earnings_employment_1 is 'no' => outcome_mat-leave_pat-pay
           * otherwise
-            * ler_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay
+            * lel_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-pay
             * earnings_employment_1 is 'no' => outcome_mat-leave_pat-pay
         * job_after_y_1 is 'no'
           * due_date >= '2015-4-5'
-            * ler_1 is 'yes' => outcome_mat-allowance_pat-pay_pat-shared-pay
+            * lel_1 is 'yes' => outcome_mat-allowance_pat-pay_pat-shared-pay
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-pay_pat-shared-pay
             * earnings_employment_1 is 'no' => outcome_pat-pay
           * otherwise
-            * ler_1 is 'yes' => outcome_mat-allowance_pat-pay
+            * lel_1 is 'yes' => outcome_mat-allowance_pat-pay
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-pay
             * earnings_employment_1 is 'no' => outcome_pat-pay
     * employment_status_1 is 'worker'
-      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
         * due_date >= '2015-4-5' => outcome_mat-pay_pat-pay_both-shared-pay
         * otherwise => outcome_mat-pay_pat-pay_additional-pat-pay
       * otherwise
         * due_date >= '2015-4-5'
-          * ler_1 is 'yes' => outcome_mat-allowance_pat-pay_pat-shared-pay
+          * lel_1 is 'yes' => outcome_mat-allowance_pat-pay_pat-shared-pay
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-pay_pat-shared-pay
           * earnings_employment_1 is 'no' => outcome_pat-pay
         * otherwise
-          * ler_1 is 'yes' => outcome_mat-allowance_pat-pay
+          * lel_1 is 'yes' => outcome_mat-allowance_pat-pay
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_pat-pay
           * earnings_employment_1 is 'no' => outcome_pat-pay
     * employment_status_1 in {unemployed self-employed}
@@ -214,27 +214,27 @@
     * employment_status_1 is 'employee'
       * job_after_y_1 is 'yes'
         * due_date >= '2015-4-5'
-          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => employment_2_more
+          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes' => employment_2_more
           * otherwise
-            * ler_1 is 'yes' => outcome_mat-allowance_mat-leave
+            * lel_1 is 'yes' => outcome_mat-allowance_mat-leave
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave
             * earnings_employment_1 is 'no' => outcome_mat-leave
         * otherwise
-          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes' => outcome_mat-leave_mat-pay
+          * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes' => outcome_mat-leave_mat-pay
           * otherwise
-            * ler_1 is 'yes' => outcome_mat-allowance_mat-leave
+            * lel_1 is 'yes' => outcome_mat-allowance_mat-leave
             * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave
             * earnings_employment_1 is 'no' => outcome_mat-leave
       * job_after_y_1 is 'no'
-        * ler_1 is 'yes' => outcome_mat-allowance
+        * lel_1 is 'yes' => outcome_mat-allowance
         * earnings_employment_1 is 'yes' => outcome_mat-allowance
         * earnings_employment_1 is 'no' => outcome_birth-nothing
     * employment_status_1 is 'worker'
-      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+      * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
         * due_date >= '2015-4-5' => employment_2_more
         * otherwise => outcome_mat-pay
       * otherwise
-        * ler_1 is 'yes' => outcome_mat-allowance
+        * lel_1 is 'yes' => outcome_mat-allowance
         * earnings_employment_1 is 'yes' => outcome_mat-allowance
         * earnings_employment_1 is 'no' => outcome_birth-nothing
     * employment_status_1 in {unemployed self-employed}
@@ -242,24 +242,24 @@
       * earnings_employment_1 is 'no' => outcome_birth-nothing
 * employment_status_2 in {unemployed self-employed}
   * employment_status_1 is 'employee'
-    * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+    * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
       * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
       * otherwise => outcome_mat-leave_mat-pay
     * otherwise
       * job_after_y_1 is 'yes'
-        * ler_1 is 'yes' => outcome_mat-allowance_mat-leave
+        * lel_1 is 'yes' => outcome_mat-allowance_mat-leave
         * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave
         * earnings_employment_1 is 'no' => outcome_mat-leave
       * job_after_y_1 is 'no'
-        * ler_1 is 'yes' => outcome_mat-allowance
+        * lel_1 is 'yes' => outcome_mat-allowance
         * earnings_employment_1 is 'yes' => outcome_mat-allowance
         * earnings_employment_1 is 'no' => outcome_birth-nothing
   * employment_status_1 is 'worker'
-    * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+    * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
       * due_date >= '2015-4-5' => outcome_mat-pay_mat-shared-pay
       * otherwise => outcome_mat-pay
     * otherwise
-      * ler_1 is 'yes' => outcome_mat-allowance
+      * lel_1 is 'yes' => outcome_mat-allowance
       * earnings_employment_1 is 'yes' => outcome_mat-allowance
       * earnings_employment_1 is 'no' => outcome_birth-nothing
   * employment_status_1 in {unemployed self-employed}

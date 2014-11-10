@@ -7,7 +7,7 @@
 * no: No
 
 * employment_status_1 is 'employee'
-  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+  * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
     * earnings_employment_2 is 'yes' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
     * earnings_employment_2 is 'no' => outcome_mat-leave_mat-pay
   * otherwise

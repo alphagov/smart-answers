@@ -18,7 +18,7 @@ outcome_birth-nothing
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
 
@@ -32,12 +32,12 @@ outcome_mat-allowance
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: no
 - job_before_x_2: no
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 outcome_birth-nothing
 
 #Mother self-employed, passes earnings and employment test
@@ -72,7 +72,7 @@ outcome_mat-allowance
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
 
@@ -86,12 +86,12 @@ outcome_mat-allowance
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - salary_1_66_weeks: 400-week
 - job_before_x_2: yes
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 outcome_mat-allowance
 
 #Mother unemployed, passes earnings and employment test
@@ -114,7 +114,7 @@ outcome_mat-allowance-14-weeks
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - earnings_employment_2: yes
@@ -130,7 +130,7 @@ outcome_mat-allowance_mat-leave_mat-shared-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - earnings_employment_2: no
@@ -146,7 +146,7 @@ outcome_mat-allowance_mat-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: no
 - earnings_employment_2: yes
 outcome_mat-leave_mat-shared-leave
@@ -161,7 +161,7 @@ outcome_mat-leave_mat-shared-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: no
 - earnings_employment_2: no
 outcome_mat-leave
@@ -176,13 +176,13 @@ outcome_mat-leave
 - job_before_x_1: no
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - job_before_x_2: no
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 outcome_mat-allowance_mat-leave
 
 #Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
@@ -195,13 +195,13 @@ outcome_mat-allowance_mat-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-pay
 
 #Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
@@ -214,13 +214,13 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-p
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
 
 #Mother self-employed, passes earnings and employment test
@@ -235,7 +235,7 @@ outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
 
 #Mother self-employed, passes earnings and employment test
@@ -250,7 +250,7 @@ outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-allowance_pat-pay_pat-shared-pay
 
 #Mother worker, does not pass continuity test, passes earnings and employment test
@@ -263,13 +263,13 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
 - job_before_x_1: no
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-allowance_pat-pay_pat-shared-pay
 
 #Mother employee, does not pass continuity test, passes lower earnings test
@@ -282,12 +282,12 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
 - job_before_x_1: no
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - salary_1_66_weeks: 400-week
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
 
 #Mother employee, passes continuity test, passes lower earnings test
@@ -300,7 +300,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - earnings_employment_2: no
 outcome_mat-leave_mat-pay
 
@@ -314,11 +314,11 @@ outcome_mat-leave_mat-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 - earnings_employment_2: no
 outcome_mat-leave_mat-pay
 
@@ -332,7 +332,7 @@ outcome_mat-leave_mat-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - earnings_employment_2: yes
 outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 
@@ -346,11 +346,11 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: no
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 
 #Mother employee, passes continuity test, passes lower earnings test
@@ -363,11 +363,11 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
 
 #Mother employee, passes continuity test, passes lower earnings test
@@ -380,11 +380,11 @@ outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
 
 #Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
@@ -397,12 +397,12 @@ outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
 
 #Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
@@ -415,12 +415,12 @@ outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-leave_pat-pay_mat-shared-leave
 
 #Mother worker, passes continuity test, passes lower earnings test
@@ -433,7 +433,7 @@ outcome_mat-leave_pat-pay_mat-shared-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - earnings_employment_2: no
 outcome_mat-pay
 
@@ -447,7 +447,7 @@ outcome_mat-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - earnings_employment_2: yes
 outcome_mat-pay_mat-shared-pay
 
@@ -461,11 +461,11 @@ outcome_mat-pay_mat-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: no
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 - earnings_employment_2: yes
 outcome_mat-pay_mat-shared-pay
 
@@ -479,11 +479,11 @@ outcome_mat-pay_mat-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
 
 #Mother worker, passes continuity test, passes lower earnings test
@@ -496,11 +496,11 @@ outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_mat-pay_pat-pay_both-shared-pay
 
 #Mother self-employed, does not pass earnings and employment test
@@ -514,7 +514,7 @@ outcome_mat-pay_pat-pay_both-shared-pay
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_pat-leave_pat-pay
 
 #Mother self-employed, does not pass earnings and employment test
@@ -528,5 +528,5 @@ outcome_pat-leave_pat-pay
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_pat-pay
