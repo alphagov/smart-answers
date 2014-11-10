@@ -8,6 +8,13 @@ You must get a positive verification from the [Landlord’s Checking Service](/l
 
 The person will be able to stay in the property for 12 months. You’ll then have to make another check.
 
-You may get a [civil penalty](/penalties-illegal-renting) if you get a Negative Verification notice and the person isn’t allowed to rent property in the UK.
+##When the person can't rent your property 
+
+The person won’t be able to stay in the property:
+
+- if they don’t have the right documents
+- you get a negative result back from the verification check
+
+^You may get a [civil penalty](/penalties-illegal-renting) if you get a Negative Verification notice and the person isn’t allowed to rent property in the UK.^
 
 {{snippet: landlord-code-of-practice}}
