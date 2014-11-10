@@ -1,4 +1,4 @@
-# Does the tenant have a passport or national identity card showing that they’re the named person of a national of the EEA or Switzerland?
+# Does the person have a passport or national identity card that shows that they're a national of the EEA or Switzerland?
 
 [choice: eea_switzerland]
 * yes: Yes
