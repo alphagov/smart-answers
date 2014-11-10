@@ -1189,7 +1189,7 @@ end
 
 outcome :outcome_cp_commonwealth_countries do
 
-  precalculate :tipe_of_ceremony do
+  precalculate :type_of_ceremony do
     phrases = PhraseList.new
     if ceremony_country == 'new-zealand'
       phrases << :title_ss_marriage_and_partnership
