@@ -348,7 +348,7 @@ en-GB:
       ## Q5
       years_of_jsa?:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
-        hint: These are years you may have received credits towards your State Pension. Don’t count years you entered in question 4. Enter 0 if you’ve never claimed benefits.
+        hint: These are years you may have received credits towards your State Pension. Don’t count years you’ve entered already. Enter 0 if you’ve never claimed benefits.
         error_message: |
           Please enter a number. Based on your previous answers you can enter up to %{ni_years_to_date_from_dob} years. If you got benefits for more years than you can enter, enter the maximum number you’re allowed.
         suffix_label: years
