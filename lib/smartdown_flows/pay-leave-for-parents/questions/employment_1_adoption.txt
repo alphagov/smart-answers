@@ -20,11 +20,11 @@ This is their total take-home pay before any deductions, eg tax.
 
 # Has the primary adopter earned (or will they have earned) more than £111 per week between %{lower_earnings_start(match_date)} and %{minimum_end_date(match_date)}?
 
-[choice: ler_1]
+[choice: lel_1]
 * yes: Yes
 * no: No
 
-* job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'yes'
+* job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
   * two_carers is 'no'
     * employment_status_1 is 'employee'
       * match_date >= '2015-4-5' => outcome_adopt-leave_adopt-pay
@@ -37,7 +37,7 @@ This is their total take-home pay before any deductions, eg tax.
       * otherwise
         * employment_status_1 is 'employee' => outcome_adopt-leave_adopt-pay-pre-5-april
         * employment_status_1 is 'worker' => outcome_adopt-pay-pre-5-april
-* job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND ler_1 is 'no'
+* job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'no'
   * two_carers is 'no'
     * employment_status_1 is 'employee'
       * match_date >= '2015-4-5' => outcome_adopt-leave

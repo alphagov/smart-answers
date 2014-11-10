@@ -7,7 +7,7 @@
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 outcome_adopt-pay-pre-5-april
 
 #Principal adopter self-employed
@@ -27,7 +27,7 @@ outcome_single-adopt-nothing
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 outcome_single-adopt-nothing
 
 #Principal adopter employee, in 2014, passes continuity test, passes lower earnings test
@@ -39,7 +39,7 @@ outcome_single-adopt-nothing
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 outcome_adopt-leave_adopt-pay-pre-5-april
 
 #Principal adopter employee, in 2016, does not pass continuity test, does not pass lower earnings test, will still be employed
@@ -51,5 +51,5 @@ outcome_adopt-leave_adopt-pay-pre-5-april
 - job_before_x_1: no
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 outcome_adopt-leave

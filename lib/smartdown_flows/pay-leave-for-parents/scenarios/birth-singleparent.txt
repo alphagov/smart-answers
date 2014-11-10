@@ -14,7 +14,7 @@ outcome_single-birth-nothing
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
 
@@ -26,7 +26,7 @@ outcome_mat-allowance
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: no
 outcome_single-birth-nothing
 
@@ -47,7 +47,7 @@ outcome_mat-allowance
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
@@ -60,7 +60,7 @@ outcome_mat-allowance
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance_mat-leave
@@ -73,7 +73,7 @@ outcome_mat-allowance_mat-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - earnings_employment_1: no
 outcome_mat-leave
 
@@ -85,7 +85,7 @@ outcome_mat-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 outcome_mat-leave_mat-pay
 
 #Mother worker, passes continuity test, passes lower earnings test
@@ -96,5 +96,5 @@ outcome_mat-leave_mat-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 outcome_mat-pay

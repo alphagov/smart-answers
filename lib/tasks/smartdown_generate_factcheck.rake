@@ -20,13 +20,13 @@ namespace :smartdown_generate_factcheck do
         :job_before_x_1 => ["yes", "no"],
         :job_after_y_1 => ["yes", "no"],
         :salary_1 => ["400-week"],
-        :ler_1 => ["yes", "no"],
+        :lel_1 => ["yes", "no"],
         :earnings_employment_1 => ["yes", "no"],
         :salary_1_66_weeks => ["400-week"],
         :job_before_x_2 => ["yes", "no"],
         :job_after_y_2 => ["yes", "no"],
         :salary_2 => ["400-week"],
-        :ler_2 => ["yes", "no"],
+        :lel_2 => ["yes", "no"],
         :earnings_employment_2 => ["yes", "no"],
       }
       human_readable_snippet_names = {

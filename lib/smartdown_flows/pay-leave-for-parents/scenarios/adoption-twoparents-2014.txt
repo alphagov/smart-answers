@@ -9,7 +9,7 @@
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 outcome_adopt-leave_adopt-pay-pre-5-april
 
 #Principal adopter employee, passes continuity test, passes lower earnings test
@@ -23,11 +23,11 @@ outcome_adopt-leave_adopt-pay-pre-5-april
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: no
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-leave_adopt-pay-pre-5-april
 
 #Principal adopter employee, passes continuity test, passes lower earnings test
@@ -41,11 +41,11 @@ outcome_adopt-leave_adopt-pay-pre-5-april
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-leave_adopt-pay-pre-5-april_adopt-pat-leave_adopt-pat-pay_adopt-additional-pat-leave_adopt-additional-pat-pay
 
 #Principal adopter employee, passes continuity test, passes lower earnings test
@@ -59,11 +59,11 @@ outcome_adopt-leave_adopt-pay-pre-5-april_adopt-pat-leave_adopt-pat-pay_adopt-ad
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-leave_adopt-pay-pre-5-april_adopt-pat-pay_adopt-additional-pat-pay
 
 #Principal adopter self-employed
@@ -87,7 +87,7 @@ outcome_adopt-nothing
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 outcome_adopt-nothing
 
 #Principal adopter employee, does not pass continuity test
@@ -101,11 +101,11 @@ outcome_adopt-nothing
 - job_before_x_1: no
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 outcome_adopt-pat-leave
 
 #Principal adopter self-employed
@@ -119,7 +119,7 @@ outcome_adopt-pat-leave
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-pat-leave_adopt-pat-pay
 
 #Principal adopter employee, passes continuity test, does not pass lower earnings test
@@ -133,11 +133,11 @@ outcome_adopt-pat-leave_adopt-pat-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay_adopt-additional-pat-leave
 
 #Principal adopter self-employed
@@ -151,7 +151,7 @@ outcome_adopt-leave_adopt-pat-leave_adopt-pat-pay_adopt-additional-pat-leave
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-pat-pay
 
 #Principal adopter worker, does not pass continuity test, passes lower earnings test
@@ -165,11 +165,11 @@ outcome_adopt-pat-pay
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-pat-pay
 
 #Principal adopter worker, passes continuity test, passes lower earnings test
@@ -183,7 +183,7 @@ outcome_adopt-pat-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 outcome_adopt-pay-pre-5-april
 
 #Principal adopter worker, passes continuity test, passes lower earnings test
@@ -197,11 +197,11 @@ outcome_adopt-pay-pre-5-april
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: no
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 outcome_adopt-pay-pre-5-april
 
 #Principal adopter worker, passes continuity test, passes lower earnings test
@@ -215,11 +215,11 @@ outcome_adopt-pay-pre-5-april
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-pay-pre-5-april_adopt-pat-leave_adopt-pat-pay_adopt-additional-pat-leave_adopt-additional-pat-pay
 
 #Principal adopter worker, passes continuity test, passes lower earnings test
@@ -233,11 +233,11 @@ outcome_adopt-pay-pre-5-april_adopt-pat-leave_adopt-pat-pay_adopt-additional-pat
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-pay-pre-5-april_adopt-pat-pay_adopt-additional-pat-pay
 
 #Principal adopter employee, passes continuity test, passes lower earnings test
@@ -251,11 +251,11 @@ outcome_adopt-pay-pre-5-april_adopt-pat-pay_adopt-additional-pat-pay
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 outcome_adopt-leave_adopt-pay-pre-5-april_adopt-pat-leave_adopt-additional-pat-leave
 
 #Principal adopter employee, passes continuity test, does not pass lower earnings test
@@ -269,11 +269,11 @@ outcome_adopt-leave_adopt-pay-pre-5-april_adopt-pat-leave_adopt-additional-pat-l
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: no
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 outcome_adopt-leave
 
 #Principal adopter employee, passes continuity test, does not pass lower earnings test
@@ -287,11 +287,11 @@ outcome_adopt-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: no
   job_after_y_2: no
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 outcome_adopt-leave
 
 #Principal adopter worker, passes continuity test, passes lower earnings test
@@ -305,11 +305,11 @@ outcome_adopt-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: yes
+  lel_1: yes
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 outcome_adopt-pay-pre-5-april_adopt-pat-leave
 
 #Principal adopter employee, passes continuity test, does not pass lower earnings test
@@ -323,11 +323,11 @@ outcome_adopt-pay-pre-5-april_adopt-pat-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: no
+  lel_2: no
 outcome_adopt-leave_adopt-pat-leave_adopt-additional-pat-leave
 
 #Principal adopter employee, passes continuity test, does not pass lower earnings test
@@ -341,9 +341,9 @@ outcome_adopt-leave_adopt-pat-leave_adopt-additional-pat-leave
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
-  ler_1: no
+  lel_1: no
 - job_before_x_2: yes
   job_after_y_2: yes
   salary_2: 400-week
-  ler_2: yes
+  lel_2: yes
 outcome_adopt-leave_adopt-pat-pay
