@@ -310,7 +310,7 @@ outcome_adopt-leave
   job_after_y_2: yes
   salary_2: 400-week
   lel_2: no
-outcome_adopt-pay-pre-5-april_adopt-pat-leave
+outcome_adopt-pay-pre-5-april_adopt-pat-leave_adopt-additional-pat-leave
 
 #Principal adopter employee, passes continuity test, does not pass lower earnings test
 #Adopter employee, passes continuity test, does not pass lower earnings test
