@@ -1,5 +1,8 @@
 # Are you trained for lions?
 
+%{data_simple_button(type_of_feline)}
+
+
 [choice: trained_for_lions]
 * yes: Yes
 * no: No
