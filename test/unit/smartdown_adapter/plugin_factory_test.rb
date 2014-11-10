@@ -38,9 +38,11 @@ module SmartdownAdapter
 
   class PluginFactoryTestWithFileFixtures < ActiveSupport::TestCase
     # Uses fixture in /test/fixtures/smartdown_plugins
+    # Uses fixture in /test/fixtures/smartdown_plugins/includeable
 
     setup do
       SmartdownAdapter::PluginFactory.stubs(:plugin_path).returns(Rails.root.join('test/fixtures/smartdown_plugins'))
+      SmartdownAdapter::PluginFactory.stubs(:includeable_path).returns(Rails.root.join('test/fixtures/smartdown_plugins/includeables'))
     end
 
     test "When calling .for with a slug the factory does not yet know about, it should look in the plugin_path for an appropriatly named file and add the contained module" do
@@ -59,6 +61,10 @@ module SmartdownAdapter
 
     test "should ignore other modules in plugin definintion files" do
       assert SmartdownAdapter::PluginFactory.for('plugin-factory-test')['unwanted_method'].nil?
+    end
+
+    test "should include methods from includeable that have been called with extend" do
+      refute SmartdownAdapter::PluginFactory.for('plugin-factory-test')['includeable_method'].nil?
     end
   end
 end

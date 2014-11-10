@@ -16,11 +16,14 @@ module SmartdownAdapter
 
     def self.load_plugins_from_file(flow_slug)
       plugin_file_path = plugin_path.join("#{flow_slug}.rb")
-      plugin_file_content = File.read(plugin_file_path)
 
-      # Evaluate the plugin file in the context of a module to catch objects created during evaluation
+      eval_paths = includeables_file_paths
+      eval_paths << plugin_file_path
+
       evaluating_module = Module.new do
-        module_eval plugin_file_content, plugin_file_path.to_s
+        eval_paths.each do |eval_path|
+          module_eval File.read(eval_path), eval_path.to_s
+        end
       end
 
       if plugin_module = get_descendant_constant_named(evaluating_module, module_name_from_slug(flow_slug))
@@ -62,8 +65,16 @@ module SmartdownAdapter
       flow_slug.gsub('-', '_').camelize
     end
 
+    def self.includeables_file_paths
+      Dir[includeable_path + '*.rb']
+    end
+
+    def self.includeable_path
+      @@includeable_path ||= Rails.root.join('lib', 'smartdown_plugins', 'includeables')
+    end
+
     def self.plugin_path
-      @@plugin_path ||= Rails.root.join('lib/smartdown_plugins')
+      @@plugin_path ||= Rails.root.join('lib', 'smartdown_plugins')
     end
   end
 end
