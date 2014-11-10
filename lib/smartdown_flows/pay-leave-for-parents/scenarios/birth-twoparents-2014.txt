@@ -19,6 +19,7 @@ outcome_birth-nothing
   job_after_y_1: no
   salary_1: 400-week
   lel_1: yes
+- earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - job_before_x_2: no
   job_after_y_2: yes
@@ -48,6 +49,7 @@ outcome_mat-allowance
   job_after_y_1: no
   salary_1: 400-week
   lel_1: yes
+- earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - job_before_x_2: no
   job_after_y_2: yes
@@ -211,6 +213,7 @@ outcome_mat-leave
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
+- earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - job_before_x_2: no
   job_after_y_2: no
@@ -492,6 +495,7 @@ outcome_pat-pay
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
+- earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - job_before_x_2: yes
   job_after_y_2: yes

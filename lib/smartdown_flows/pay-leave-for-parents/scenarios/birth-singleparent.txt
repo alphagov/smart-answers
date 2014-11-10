@@ -15,6 +15,7 @@ outcome_single-birth-nothing
   job_after_y_1: no
   salary_1: 400-week
   lel_1: yes
+- earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
 
