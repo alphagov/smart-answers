@@ -649,16 +649,24 @@ outcome :outcome_os_consular_cni do
     end
     if data_query.commonwealth_country?(residency_country) or residency_country == 'ireland' and ceremony_country != residency_country and ceremony_country != 'germany'
       if partner_nationality == 'partner_british'
-        phrases << :consular_cni_os_commonwealth_or_ireland_resident_british_partner
+        if ceremony_country == 'italy'
+          phrases << :italy_consular_cni_os_commonwealth_or_ireland_resident_british_partner
+        else
+          phrases << :consular_cni_os_commonwealth_or_ireland_resident_british_partner
+        end
       else
-        phrases << :consular_cni_os_commonwealth_or_ireland_resident_non_british_partner
+        if ceremony_country == 'italy'
+          phrases << :italy_consular_cni_os_commonwealth_or_ireland_resident_non_british_partner
+        else
+          phrases << :consular_cni_os_commonwealth_or_ireland_resident_non_british_partner
+        end
       end
     end
     if ceremony_country == residency_country and %w(germany italy japan spain).exclude?(ceremony_country) and cni_posted_after_7_days_countries.include?(ceremony_country)
       phrases << :living_in_residence_country_3_days
     end
 
-    if ceremony_country == 'italy' and resident_of == 'other'
+    if ceremony_country == 'italy' and resident_of == 'other' and data_query.non_commonwealth_country?(residency_country)
       phrases << :consular_cni_variant_local_resident_italy
     elsif ceremony_country == residency_country and %w(germany japan spain).exclude?(ceremony_country) or (data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country and ceremony_country != 'germany')
       phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident

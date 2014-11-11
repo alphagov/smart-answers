@@ -859,6 +859,17 @@ en-GB:
           - the whole page of the newspaper your announcement appears on, including the date it was issued
           - a photocopy of your partner’s passport
 
+        italy_consular_cni_os_commonwealth_or_ireland_resident_british_partner: |
+          - your original passport (or a photocopy certified by a local solicitor if you’re sending documents in the post)
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents' names
+          - the whole page of the newspaper your announcement appears on, including the date it was issued
+          - equivalent documents for your partner
+        italy_consular_cni_os_commonwealth_or_ireland_resident_non_british_partner: |
+          - your original passport (or a photocopy certified by a local solicitor if you’re sending documents in the post)
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents' names
+          - the whole page of the newspaper your announcement appears on, including the date it was issued
+          - a photocopy of your partner’s passport
+
         consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident: |
           You’ll need to provide supporting documents, including:
 
@@ -951,7 +962,7 @@ en-GB:
           $D
 
         wait_300_days_before_remarrying: |
-          ^Women must wait 300 days after divorcing or the death of their husband before remarrying.^
+          ^If you are a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
         display_notice_of_marriage_7_days: |
           ###What happens next
 
