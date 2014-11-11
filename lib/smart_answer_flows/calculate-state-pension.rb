@@ -28,9 +28,8 @@ multiple_choice :gender? do
     end
   end
 
-  next_node do
-    calculate_age_or_amount == "age" ? :dob_age? : :dob_amount?
-  end
+  next_node_if(:dob_age?, variable_matches(:calculate_age_or_amount, "age"))
+  next_node :dob_amount?
 end
 
 # Q3:Age
@@ -54,11 +53,11 @@ date_question :dob_age? do
   end
 
   calculate :pension_credit_date do
-    calculator.state_pension_date(:female).strftime("%e %B %Y")
+    calculator.state_pension_date(:female).strftime("%-d %B %Y")
   end
 
   calculate :formatted_state_pension_date do
-    state_pension_date.strftime("%e %B %Y")
+    state_pension_date.strftime("%-d %B %Y")
   end
 
   calculate :state_pension_age do
@@ -73,10 +72,6 @@ date_question :dob_age? do
     end
   end
 
-  calculate :formatted_pension_pack_date do
-    4.months.ago(state_pension_date).strftime("%B %Y")
-  end
-
   calculate :available_ni_years do
     calculator.ni_years_to_date_from_dob
   end
@@ -85,10 +80,20 @@ date_question :dob_age? do
     phrases = PhraseList.new
     if state_pension_date > Date.today
       if state_pension_date >= Date.parse('2016-04-06')
-        phrases << :state_pension_age_is_a << :pension_credit_future
+        phrases << :state_pension_age_is_a
+        if Date.parse(pension_credit_date) > Date.today
+          phrases << :pension_credit_future
+        else
+          phrases << :pension_credit_past
+        end
         phrases << :pension_age_review
       else
-        phrases << :state_pension_age_is << :pension_credit_future
+        phrases << :state_pension_age_is
+        if Date.parse(pension_credit_date) > Date.today
+          phrases << :pension_credit_future
+        else
+          phrases << :pension_credit_past
+        end
       end
     else
       phrases << :state_pension_age_was << :pension_credit_past
@@ -97,23 +102,21 @@ date_question :dob_age? do
     phrases
   end
 
-  next_node do |response|
-    raise InvalidResponse if Date.parse(response) > Date.today
-
-    calc = Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: response)
-
-    near_pension_date = (calc.before_state_pension_date? and
-                         calc.within_four_months_one_day_from_state_pension?)
-
-    if calc.under_20_years_old?
-      :too_young
-    elsif near_pension_date
-      :near_state_pension_age
-    else
-      :age_result
-    end
+  define_predicate(:near_pension_date?) do |response|
+    calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response, qualifying_years: nil)
+    calc.before_state_pension_date? and calc.within_four_months_one_day_from_state_pension?
   end
+
+  define_predicate(:under_20_years_old?) do |response|
+    calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response, qualifying_years: nil)
+    calc.under_20_years_old?
+  end
+
+  validate { |response| Date.parse(response) <= Date.today }
+
+  next_node_if(:too_young, under_20_years_old?)
+  next_node_if(:near_state_pension_age, near_pension_date?)
+  next_node(:age_result)
 end
 
 # Q3:Amount
@@ -151,21 +154,50 @@ date_question :dob_amount? do
     calculator.ni_years_to_date_from_dob
   end
 
-  next_node do |response|
-    raise InvalidResponse if Date.parse(response) > Date.today
+  validate { |response| Date.parse(response) <= Date.today }
 
-    calc = Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: response)
-    if calc.before_state_pension_date?
-      if calc.under_20_years_old?
-        :too_young
-      else
-        :years_paid_ni?
-      end
-    else
-      :reached_state_pension_age
-    end
+  define_predicate(:before_state_pension_date?) do |response|
+    calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+    calc.before_state_pension_date?
   end
+
+  define_predicate(:under_20_years_old?) do |response|
+    calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+    calc.under_20_years_old?
+  end
+
+  define_predicate(:woman_and_born_in_date_range?) do |response|
+    calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+    calc.woman_born_in_married_stamp_era?
+  end
+
+  next_node_if(:pay_reduced_ni_rate?, woman_and_born_in_date_range?)
+  on_condition(before_state_pension_date?) do
+    next_node_if(:too_young, under_20_years_old?)
+    next_node :years_paid_ni?
+  end
+  next_node :reached_state_pension_age
+end
+
+# Q3a
+multiple_choice :pay_reduced_ni_rate? do
+  option :yes
+  option :no
+  save_input_as :pays_reduced_ni_rate
+
+  define_predicate(:before_state_pension_date?) {
+    calculator.before_state_pension_date?
+  }
+
+  define_predicate(:under_20_years_old?) {
+    calculator.under_20_years_old?
+  }
+
+  on_condition(before_state_pension_date?) do
+    next_node_if(:too_young, under_20_years_old?)
+    next_node :years_paid_ni?
+  end
+  next_node :reached_state_pension_age
 end
 
 # Q4
@@ -201,20 +233,18 @@ value_question :years_paid_ni? do
     ni_years_to_date_from_dob - responses.last.to_i
   end
 
-  next_node do |response|
-    ni = Integer(response)
-    if calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension
-      :amount_result
-    elsif calculator.no_more_available_years?(ni)
-      if calculator.three_year_credit_age?
-        :amount_result
-      else
-        :years_of_work? # Q10
-      end
-    else
-      :years_of_jsa? # Q5
-    end
+  define_predicate(:enough_years_credits_or_no_more_years?) do |response|
+    (calculator.enough_qualifying_years_and_credits?(response.to_i) && old_state_pension) ||
+      (calculator.no_more_available_years?(response.to_i) && calculator.three_year_credit_age?)
   end
+
+  define_predicate(:no_more_available_years?) do |response|
+    calculator.no_more_available_years?(response.to_i)
+  end
+
+  next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
+  next_node_if(:years_of_work?, no_more_available_years?)
+  next_node :years_of_jsa?
 end
 
 # Q5
@@ -234,25 +264,22 @@ value_question :years_of_jsa? do
     ni_years_to_date_from_dob - responses.last.to_i
   end
 
-  calculate :calc do
-    calc = Calculators::StatePensionAmountCalculator.new(
-    gender: gender, dob: dob, qualifying_years: qualifying_years)
+  next_node_calculation :ni do |response|
+    response.to_i + qualifying_years
   end
 
-  next_node do |response|
-    ni = Integer(response) + qualifying_years
-    if calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension
-      :amount_result
-    elsif calculator.no_more_available_years?(ni)
-      if calculator.three_year_credit_age?
-        :amount_result
-      else
-        :years_of_work? # Q10
-      end
-    else
-      :received_child_benefit? # Q6
-    end
-  end
+  define_predicate(:enough_years_credits_or_no_more_years?) {
+    (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
+      (calculator.no_more_available_years?(ni) && calculator.three_year_credit_age?)
+  }
+
+  define_predicate(:no_more_available_years?) {
+    calculator.no_more_available_years?(ni)
+  }
+
+  next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
+  next_node_if(:years_of_work?, no_more_available_years?)
+  next_node :received_child_benefit?
 end
 
 ## Q6
@@ -264,13 +291,22 @@ multiple_choice :received_child_benefit? do
     ni_years_to_date_from_dob
   end
 
-  next_node do |response|
-    if response == "yes"
-      :years_of_benefit?
-    else
-      (calculator.three_year_credit_age? ? :amount_result : :years_of_work?)
-    end
-  end
+  define_predicate(:automatic_ni?) {
+    calculator.automatic_ni_age_group?
+  }
+
+  define_predicate(:new_rules_and_less_than_10_ni?) {
+    ni_and_credits = ni + calculator.starting_credits
+    calculator.new_rules_and_less_than_10_ni?(ni_and_credits) && !calculator.credit_band
+  }
+  
+  define_predicate(:credit_age?) { calculator.credit_age? }
+
+  next_node_if(:years_of_benefit?, responded_with("yes"))
+  next_node_if(:years_of_work?, credit_age?)
+  next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
+  next_node_if(:amount_result, automatic_ni?)
+  next_node :years_of_work?
 end
 
 ## Q7
@@ -299,21 +335,22 @@ value_question :years_of_benefit? do
     calculator.available_years_sum(qualifying_years)
   end
 
-  next_node do |response|
-    benefit_years = Integer(response)
-    ni = (qualifying_years + benefit_years)
-    if calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension
-      :amount_result
-    elsif calculator.no_more_available_years?(ni)
-      if calculator.three_year_credit_age?
-        :amount_result
-      else
-        :years_of_work? # Q10
-      end
-    else
-      :years_of_caring? # Q8
-    end
+  next_node_calculation :ni do |response|
+    response.to_i + qualifying_years
   end
+
+  define_predicate(:enough_years_credits_or_no_more_years?) {
+    (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
+      (calculator.no_more_available_years?(ni) && calculator.three_year_credit_age?)
+  }
+
+  define_predicate(:no_more_available_years?) {
+    calculator.no_more_available_years?(ni)
+  }
+
+  next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
+  next_node_if(:years_of_work?, no_more_available_years?)
+  next_node :years_of_caring?
 end
 
 ## Q8
@@ -345,21 +382,22 @@ value_question :years_of_caring? do
     ni_years_to_date_from_dob - responses.last.to_i
   end
 
-  next_node do |response|
-    caring_years = Integer(response)
-    ni = (qualifying_years + caring_years)
-    if calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension
-      :amount_result
-    elsif calculator.no_more_available_years?(ni)
-      if calculator.three_year_credit_age?
-        :amount_result
-      else
-        :years_of_work? # Q10
-      end
-    else
-      :years_of_carers_allowance? # Q9
-    end
+  next_node_calculation :ni do |response|
+    response.to_i + qualifying_years
   end
+
+  define_predicate(:enough_years_credits_or_no_more_years?) {
+    (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
+      (calculator.no_more_available_years?(ni) && calculator.three_year_credit_age?)
+  }
+
+  define_predicate(:no_more_available_years?) {
+    calculator.no_more_available_years?(ni)
+  }
+
+  next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
+  next_node_if(:years_of_work?, no_more_available_years?)
+  next_node :years_of_carers_allowance?
 end
 
 ## Q9
@@ -375,15 +413,25 @@ value_question :years_of_carers_allowance? do
     ni_years_to_date_from_dob - responses.last.to_i
   end
 
-  next_node do |response|
-    caring_years = Integer(response)
-    ni = (qualifying_years + caring_years)
-    if calculator.three_year_credit_age? || (old_state_pension && calculator.enough_qualifying_years_and_credits?(ni))
-      :amount_result
-    else
-      :years_of_work?
-    end
+  next_node_calculation :ni do |response|
+    response.to_i + qualifying_years
   end
+
+  define_predicate(:enough_years_credits_or_three_year_credit?) {
+    (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
+      calculator.three_year_credit_age?
+  }
+
+  define_predicate(:new_rules_and_less_than_10_ni?) {
+    calculator.new_rules_and_less_than_10_ni? ni
+  }
+
+  define_predicate(:credit_age?) { calculator.credit_age? }
+
+  next_node_if(:years_of_work?, credit_age?)
+  next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
+  next_node_if(:amount_result, enough_years_credits_or_three_year_credit?)
+  next_node :years_of_work?
 end
 
 ## Q10
@@ -401,11 +449,37 @@ value_question :years_of_work? do
     qy
   end
 
-  next_node :amount_result
+  next_node_calculation :ni do |response|
+    response.to_i + qualifying_years
+  end
 
+  define_predicate(:new_rules_and_less_than_10_ni?) {
+    calculator.new_rules_and_less_than_10_ni? ni
+  }
+
+  next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
+  next_node :amount_result
 end
 
-outcome :near_state_pension_age
+## Q11
+multiple_choice :lived_or_worked_outside_uk? do
+  option :yes
+  option :no
+  save_input_as :lived_or_worked_abroad
+
+  next_node :amount_result
+end
+
+outcome :near_state_pension_age do
+  precalculate :pension_credit do
+    if Date.parse(pension_credit_date) > Date.today
+      PhraseList.new(:pension_credit_future)
+    else
+      PhraseList.new(:pension_credit_past)
+    end
+  end
+end
+
 outcome :reached_state_pension_age
 outcome :too_young do
   precalculate :weekly_rate do
@@ -413,18 +487,7 @@ outcome :too_young do
   end
 end
 
-outcome :age_result do
-  precalculate :pension_credit_statement do
-    phrases = PhraseList.new
-    if pension_credit_date > Date.today.to_s
-      phrases << :pension_credit_future
-    else
-      phrases << :pension_credit_past
-    end
-    phrases << :bus_pass
-    phrases
-  end
-end
+outcome :age_result
 
 outcome :amount_result do
   precalculate :calc do
@@ -497,9 +560,7 @@ outcome :amount_result do
 
     if calc.within_four_months_one_day_from_state_pension?
       phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years : :within_4_months_not_enough_qy_years)
-      if Date.today < calc.state_pension_date - 35
-        phrases << :pension_statement
-      end
+      phrases << :pension_statement if Date.today < calc.state_pension_date - 35
       phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years_more : :within_4_months_not_enough_qy_years_more)
       phrases << :automatic_years_phrase if auto_years_entitlement and !enough_qualifying_years
     elsif calculator.state_pension_date >= Date.parse('2016-04-06')
@@ -508,6 +569,8 @@ outcome :amount_result do
         phrases << :ten_and_greater
       else
         phrases << :less_than_ten
+        phrases << :reduced_rate_election if pays_reduced_ni_rate == "yes"
+        phrases << :lived_or_worked_overseas if lived_or_worked_abroad == "yes"
       end
       phrases << :too_few_qy_enough_remaining_years_a
       phrases << :automatic_years_phrase if auto_years_entitlement
@@ -516,7 +579,6 @@ outcome :amount_result do
       phrases << :automatic_years_phrase if auto_years_entitlement
     else
       phrases << :you_get_full_state_pension
-      phrases << :automatic_years_phrase if auto_years_entitlement
     end
     phrases
   end
