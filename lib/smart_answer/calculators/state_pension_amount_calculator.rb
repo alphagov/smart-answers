@@ -1,8 +1,8 @@
-require "data/state_pension_query"
+require "data/state_pension_query_v2"
 
 module SmartAnswer::Calculators
   class StatePensionAmountCalculator
-    include FriendlyTimeDiff
+    include FriendlyTimeDiffV2
 
     attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits
     attr_accessor :qualifying_years
@@ -13,12 +13,26 @@ module SmartAnswer::Calculators
       { min: Date.parse('7 April 2014'), max: Date.parse('6 April 2015'), amount: 113.10 }
     ]
 
+    NEW_RULES_START_DATE = Date.parse('6 April 2016')
+
     def initialize(answers)
       @gender = answers[:gender].to_sym
       @dob = DateTime.parse(answers[:dob])
       @qualifying_years = answers[:qualifying_years].to_i
       @available_years = ni_years_to_date_from_dob
       @starting_credits = allocate_starting_credits
+    end
+
+    def new_rules_and_less_than_10_ni? ni
+      (ni < 10) && (state_pension_date >= NEW_RULES_START_DATE)
+    end
+
+    def automatic_ni_age_group?
+      (Date.parse('1959-04-06')..Date.parse('1992-04-05')).cover?(dob.to_date)
+    end
+
+    def woman_born_in_married_stamp_era?
+      (Date.parse('6 April 1953')..Date.parse('5 April 1961')).cover?(dob.to_date) && gender == :female
     end
 
     def current_weekly_rate
@@ -72,11 +86,11 @@ module SmartAnswer::Calculators
     end
 
     def state_pension_date(sp_gender = gender)
-      StatePensionQuery.find(dob, sp_gender)
+      StatePensionQueryV2.find(dob, sp_gender)
     end
 
     def state_pension_age
-      friendly_time_diff(dob, state_pension_date)
+      friendly_time_diff_v2(dob, state_pension_date) ## Change to v1 after fact check
     end
 
     def before_state_pension_date?
@@ -89,6 +103,10 @@ module SmartAnswer::Calculators
 
     def under_20_years_old?
       dob > 20.years.ago
+    end
+
+    def credit_age?
+      dob < Date.parse('1959-04-06') || dob > Date.parse('1992-04-05')
     end
 
     # these people always get 3 years of starting credits
@@ -108,30 +126,24 @@ module SmartAnswer::Calculators
       ( dob >= Date.parse('1993-04-06') and dob <= Date.parse('1994-04-05'))
     end
 
+     CREDIT_BANDS= [
+                    { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1, validate: 0 },
+                    { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1, validate: 0 },
+                    { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2, validate: 1 },
+                    { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2, validate: 1 },
+                   ]
+
     # these people get different starting credits based on when they were born and what they answer to Q10
-    def credit_bands
-      [
-        { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1, validate: 0 },
-        { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1, validate: 0 },
-        { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2, validate: 1 },
-        { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2, validate: 1 }
-      ]
+    def credit_band
+      CREDIT_BANDS.find { |c| c[:min] <= dob and c[:max] >= dob }
     end
 
     def calc_qualifying_years_credit(entered_num = 0)
-      credit_band = credit_bands.find { |c| c[:min] <= dob and c[:max] >= dob }
-      if credit_band
-        case credit_band[:validate]
-        when 0
-          entered_num > 0 ? 0 : 1
-        when 1
-          rval = (1..2).find { |c| c + entered_num == 2 }
-          entered_num < 2 ? rval : 0
-        else
-          0
-        end
+      return 0 unless credit_band && entered_num < 2
+      if entered_num == 0
+        credit_band[:validate] + 1
       else
-        0
+        credit_band[:validate] == 1 ? 1 : 0
       end
     end
 
