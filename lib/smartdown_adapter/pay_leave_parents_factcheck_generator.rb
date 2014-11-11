@@ -42,7 +42,7 @@ module SmartdownAdapter
     end
 
     def format_adoption_hashes(adoption_hashes)
-      ordered_adoption_hashes = order_adoption_hashes(adoption_hashes)
+      ordered_adoption_hashes = order_hashes(adoption_hashes)
       lines = []
       lines << "##Adoption \n"
       lines << "Nb | PA status | PA C | PA LE | PA W | PA E&E | P status | P C | P LE | P W | P E&E | Outcome | URL"
@@ -57,7 +57,7 @@ module SmartdownAdapter
     end
 
     def format_birth_hashes(birth_hashes)
-      ordered_birth_hashes = order_birth_hashes(birth_hashes)
+      ordered_birth_hashes = order_hashes(birth_hashes)
       lines = []
       lines << "##Birth \n"
       lines << "Nb | M status | M C | M LE | M W | M E&E | P status | P C | P LE | P W | P E&E | Outcome | URL"
@@ -121,16 +121,33 @@ module SmartdownAdapter
       result
     end
 
-    def order_adoption_hashes(hashes)
+    def order_hashes(hashes)
       hashes.sort { |a,b|
-        [a[:match_date], a[:employment_status_1], a[:employment_status_2] || ""]  <=> [b[:match_date], b[:employment_status_1], b[:employment_status_2] || ""]
+        [
+          a[:employment_status_1],
+          a[:employment_status_2] || "",
+          a[:job_before_x_1] || "",
+          a[:job_after_y_1] || "",
+          a[:lel_1] || "",
+          a[:earnings_employment_1] || "",
+          a[:job_before_x_2] || "",
+          a[:job_after_y_2] || "",
+          a[:lel_2] || "",
+          a[:earnings_employment_2] || "",
+        ] <=>
+        [
+          b[:employment_status_1],
+          b[:employment_status_2] || "",
+          b[:job_before_x_1] || "",
+          b[:job_after_y_1] || "",
+          b[:lel_1] || "",
+          b[:earnings_employment_1] || "",
+          b[:job_before_x_2] || "",
+          b[:job_after_y_2] || "",
+          b[:lel_2] || "",
+          b[:earnings_employment_2] || "",
+        ]
        }
-    end
-
-    def order_birth_hashes(hashes)
-      hashes.sort { |a,b|
-        [a[:due_date], a[:employment_status_1], a[:employment_status_2] || ""]  <=> [b[:due_date], b[:employment_status_1], b[:employment_status_2] || ""]
-      }
     end
 
     def url_from_hash(hash)
