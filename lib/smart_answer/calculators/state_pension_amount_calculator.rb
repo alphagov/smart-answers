@@ -1,8 +1,8 @@
-require "data/state_pension_query_v2"
+require "data/state_pension_query"
 
 module SmartAnswer::Calculators
   class StatePensionAmountCalculator
-    include FriendlyTimeDiffV2
+    include FriendlyTimeDiff
 
     attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits
     attr_accessor :qualifying_years
@@ -86,11 +86,11 @@ module SmartAnswer::Calculators
     end
 
     def state_pension_date(sp_gender = gender)
-      StatePensionQueryV2.find(dob, sp_gender)
+      StatePensionQuery.find(dob, sp_gender)
     end
 
     def state_pension_age
-      friendly_time_diff_v2(dob, state_pension_date) ## Change to v1 after fact check
+      friendly_time_diff(dob, state_pension_date)
     end
 
     def before_state_pension_date?
