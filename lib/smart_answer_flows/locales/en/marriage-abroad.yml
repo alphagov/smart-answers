@@ -28,6 +28,7 @@ en-GB:
 # same sex marriage phrases
         title_ss_marriage: Same-sex marriage
         title_ss_marriage_and_partnership: Same-sex marriage and civil partnership
+        title_civil_partnership: Civil Partnership
         able_to_ss_marriage: |
           You may be able to get married at the British embassy or consulate in %{country_name_lowercase_prefix}.
         able_to_ss_marriage_and_partnership: |
@@ -59,6 +60,11 @@ en-GB:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+        convert_cc_to_ss_marriage: |
+          ##Convert a civil partnership to a same-sex marriage
+
+          If you’ve already entered into a civil partnership you may be able to convert it to a same-sex marriage - read [‘Convert a civil partnership to a same-sex marriage abroad’](/convert-civil-partnership-abroad).
 # marriage & marriage and partnership phrases
         what_to_do_ss_marriage: |
           ##What you need to do
@@ -132,6 +138,8 @@ en-GB:
           Contact your local embassy or consulate to make an appointment.
         embassies_data: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+        check_travel_advice: |
+          You should check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
 # payment methods
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
@@ -440,7 +448,7 @@ en-GB:
           - a civil partnership dissolution or annulment certificate
           - your former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
-          You’ll also need to provide evidence of nationality or residence if a divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
+          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
 
           %The name on all documents you provide must appear exactly as they do on your passport - if not, the authorities may refuse to allow the ceremony to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage or civil partnership certificate, or deed poll).%
 
@@ -851,11 +859,30 @@ en-GB:
           - the whole page of the newspaper your announcement appears on, including the date it was issued
           - a photocopy of your partner’s passport
 
+        italy_consular_cni_os_commonwealth_or_ireland_resident_british_partner: |
+          - your original passport (or a photocopy certified by a local solicitor if you’re sending documents in the post)
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents' names
+          - the whole page of the newspaper your announcement appears on, including the date it was issued
+          - equivalent documents for your partner
+        italy_consular_cni_os_commonwealth_or_ireland_resident_non_british_partner: |
+          - your original passport (or a photocopy certified by a local solicitor if you’re sending documents in the post)
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents' names
+          - the whole page of the newspaper your announcement appears on, including the date it was issued
+          - a photocopy of your partner’s passport
+
         consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident: |
           You’ll need to provide supporting documents, including:
 
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
+          - equivalent documents for your partner
+
+        consular_cni_variant_local_resident_italy: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents' names
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
           - equivalent documents for your partner
 
@@ -914,7 +941,10 @@ en-GB:
           - a civil partnership dissolution or annulment certificate
           - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
         consular_cni_os_other_resident_ceremony_not_germany_or_spain: |
-          ^You’ll also need to provide evidence of nationality or residence if a divorce or dissolution took place if outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
+          ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
+
+        consular_cni_os_other_resident_ceremony_italy: |
+          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
         spain_os_consular_cni_three: |
           Send your completed appointment request form and copies of the supporting documents to your [nearest British consulate](/notarial-and-documentary-services-guide-for-spain#where-to-send-your-request). You can send them as scanned attachments to an email or by fax. You’ll need to bring the original documents to your appointment.
 
@@ -931,6 +961,8 @@ en-GB:
           [Download ‘Affidavit for marriage’ (PDF, 58KB)](/government/uploads/system/uploads/attachment_data/file/136830/affidavit2012.pdf)
           $D
 
+        wait_300_days_before_remarrying: |
+          ^If you're a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
         display_notice_of_marriage_7_days: |
           ###What happens next
 
@@ -1370,6 +1402,10 @@ en-GB:
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
+        cp_or_equivalent_cp_uk_resident_czech_republic: |
+          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         cp_or_equivalent_cp_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         cp_or_equivalent_cp_other_resident: |
@@ -1393,6 +1429,11 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
+
+        what_you_need_to_do_cni: |
+          ##What you need to do
+
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to enter into a civil partnership or equivalent in %{country_name_lowercase_prefix}.
 
 # PACS in France or French overseas territories with PACS law
         fot_cp_all: |
@@ -1488,7 +1529,7 @@ en-GB:
           - 'domestic partnership' (in Nova Scotia)
           - 'union civile', or 'civil union' (in Quebec)
         commonwealth_countries_cp_new_zealand: |
-          Same-sex relationships in New Zealand that are recognised as civil partnerships under British law are known as 'civil union'.
+          You may be able to get married or enter into a ‘civil union’ at the British embassy or consulate in New Zealand. Civil unions are recognised as civil partnerships under British law.
         commonwealth_countries_cp_south_africa: |
           Same-sex relationships in South Africa that are recognised as civil partnerships under British law are known as:
 
@@ -1839,7 +1880,7 @@ en-GB:
           *[FCO]:Foreign &amp; Commonwealth Office
 #outcome for CP in commonwealth countries
       outcome_cp_commonwealth_countries:
-        title: Civil partnership in %{country_name_lowercase_prefix}
+        title: %{type_of_ceremony} in %{country_name_lowercase_prefix}
         body: |
           %{commonwealth_countries_cp_outcome}
 
