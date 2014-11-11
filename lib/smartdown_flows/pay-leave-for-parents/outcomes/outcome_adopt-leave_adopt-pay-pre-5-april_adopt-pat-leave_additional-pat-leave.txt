@@ -1,5 +1,9 @@
+{{snippet: adopt-leave}}
+
 {{snippet: adopt-pay-pre-5-april}}
 
 {{snippet: adopt-pat-leave}}
+
+{{snippet: additional-pat-leave}}
 
 {{snippet: extra-help}}

@@ -497,8 +497,8 @@ outcome_adopt-pay
 - earnings_employment_1: yes
 outcome_adopt-pat-pay_adopt-pat-shared-pay
 
-#Principal adopter employee, does not pass continuity test, passes lower earnings test
-#Adopter worker, passes continuity test, passes lower earnings test, passes earnings and employment test
+#Principal adopter employee, does not pass continuity test, passes lower earnings test, does not pass earnings and employment test
+#Adopter worker, passes continuity test, passes lower earnings test
 - circumstance: adoption
   two_carers: yes
 - match_date: 2016-1-1
@@ -513,7 +513,8 @@ outcome_adopt-pat-pay_adopt-pat-shared-pay
   job_after_y_2: yes
   salary_2: 400-week
   lel_2: yes
-outcome_adopt-pat-pay_adopt-pat-shared-pay
+- earnings_employment_1: no
+outcome_adopt-pat-pay
 
 #Principal adopter self-employed, passes earnings and employment test
 #Adopter worker, passe continuity test, passes lower earnings test
@@ -530,7 +531,7 @@ outcome_adopt-pat-pay_adopt-pat-shared-pay
 - earnings_employment_1: no
 outcome_adopt-pat-pay
 
-#Principal adopter employee, does not pass continuity test, passes lower earnings test
+#Principal adopter employee, does not pass continuity test, passes lower earnings test, passes earnings and employment test
 #Adopter worker, passes continuity test, passes lower earnings test
 - circumstance: adoption
   two_carers: yes
@@ -546,6 +547,7 @@ outcome_adopt-pat-pay
   job_after_y_2: yes
   salary_2: 400-week
   lel_2: yes
+- earnings_employment_1: yes
 outcome_adopt-pat-pay_adopt-pat-shared-pay
 
 #Principal adopter self-employed, passes earnings and employment test
@@ -563,7 +565,7 @@ outcome_adopt-pat-pay_adopt-pat-shared-pay
 - earnings_employment_1: yes
 outcome_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pay
 
-#Principal adopter employee, does not pass continuity test, passes lower earnings test
+#Principal adopter employee, does not pass continuity test, passes lower earnings test, passes earnings and employment test
 #Adopter employee, passes continuity test, passes lower earnings test
 - circumstance: adoption
   two_carers: yes
@@ -579,4 +581,5 @@ outcome_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pa
   job_after_y_2: yes
   salary_2: 400-week
   lel_2: yes
+- earnings_employment_1: yes
 outcome_adopt-pat-leave_adopt-pat-pay_adopt-pat-shared-leave_adopt-pat-shared-pay
