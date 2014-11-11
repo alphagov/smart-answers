@@ -276,6 +276,7 @@ DEPENDENCIES
   slimmer (= 4.1.0)
   smartdown (= 0.8.2)
   therubyracer (~> 0.12.1)
+  tilt (= 1.4.1)
   timecop
   uglifier
   unicorn (= 4.3.1)
