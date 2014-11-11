@@ -6,4 +6,6 @@
 
 {{snippet: additional-pat-leave}}
 
+{{snippet: additional-pat-pay}}
+
 {{snippet: extra-help}}
