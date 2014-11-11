@@ -11,7 +11,7 @@
     * employment_status_2 is 'employee'
       * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes'
         * earnings_employment_2 is 'yes' => outcome_mat-leave_mat-pay_pat-leave_both-shared-leave_mat-shared-pay
-        * earnings_employment_2 is 'no' => outcome_mat-leave_mat-pay_pat-leave
+        * earnings_employment_2 is 'no' => outcome_mat-leave_mat-pay_pat-leave_pat-shared-leave
       * otherwise
         * earnings_employment_2 is 'yes' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
         * earnings_employment_2 is 'no' => outcome_mat-leave_mat-pay
