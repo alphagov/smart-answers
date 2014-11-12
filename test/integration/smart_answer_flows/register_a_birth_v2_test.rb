@@ -332,7 +332,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_current_node :oru_result
       assert_phrase_list :oru_documents_variant, [:oru_documents]
       assert_phrase_list :oru_address, [:oru_address_abroad]
-      assert_phrase_list :translator_link, [:no_translator_link]
+      assert_phrase_list :translator_link, [:approved_translator_link]
+      assert_state_variable :translator_link_url, "/government/publications/list-of-translators-and-interpreters-in-serbia"
     end
   end # Serbia
   context "answer estonia" do
