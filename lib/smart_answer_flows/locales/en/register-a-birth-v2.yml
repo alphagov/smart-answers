@@ -385,6 +385,9 @@ en-GB:
         oru_courier_text_papua-new-guinea: |
           Your documents will be returned to the British Embassy in Port Moresby after the birth has been registered.
 
+        registration_can_take_3_months: |
+          Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.
+
       embassy_result:
         body: |
           $!You can apply to register the birth with the %{embassy_high_commission_or_consulate} in %{registration_country_name_lowercase_prefix}.$!
@@ -497,6 +500,8 @@ en-GB:
           %{oru_address}
 
           ##Return of your documents
+
+          %{waiting_time}
 
           It usually takes 5 working days for the birth to be registered with the UK authorities, once the Overseas Registration Unit has received your form and the right documents. They’ll contact you within the 5 working days if they need more information.
 

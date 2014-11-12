@@ -168,6 +168,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "yes"
       add_response "in_the_uk"
       assert_current_node :oru_result
+      assert_phrase_list :waiting_time, [:registration_can_take_3_months]
     end
   end # Pakistan and in UK
   context "answer Pakistan" do
@@ -375,6 +376,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "germany"
       assert_current_node :oru_result
       assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
+      assert_phrase_list :waiting_time, []
     end
   end
 end
