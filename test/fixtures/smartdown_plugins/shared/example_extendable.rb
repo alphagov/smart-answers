@@ -1,4 +1,4 @@
-module ExampleIncludeable
+module ExampleExtendable
   def includeable_method
     nil
   end

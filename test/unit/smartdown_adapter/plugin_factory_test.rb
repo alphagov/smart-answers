@@ -38,11 +38,11 @@ module SmartdownAdapter
 
   class PluginFactoryTestWithFileFixtures < ActiveSupport::TestCase
     # Uses fixture in /test/fixtures/smartdown_plugins
-    # Uses fixture in /test/fixtures/smartdown_plugins/includeable
+    # Uses fixture in /test/fixtures/smartdown_plugins/shared
 
     setup do
       SmartdownAdapter::PluginFactory.stubs(:plugin_path).returns(Rails.root.join('test/fixtures/smartdown_plugins'))
-      SmartdownAdapter::PluginFactory.stubs(:includeable_path).returns(Rails.root.join('test/fixtures/smartdown_plugins/includeables'))
+      SmartdownAdapter::PluginFactory.stubs(:extendable_path).returns(Rails.root.join('test/fixtures/smartdown_plugins/shared'))
     end
 
     test "When calling .for with a slug the factory does not yet know about, it should look in the plugin_path for an appropriatly named file and add the contained module" do

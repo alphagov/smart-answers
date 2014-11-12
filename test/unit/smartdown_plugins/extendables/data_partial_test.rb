@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'smartdown_plugins/includeables/data_partial'
+require 'smartdown_plugins/shared/data_partial'
 
 module SmartdownPlugins
   class DataPartialTest < ActiveSupport::TestCase

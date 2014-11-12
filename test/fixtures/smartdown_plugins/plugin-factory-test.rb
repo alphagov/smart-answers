@@ -1,6 +1,6 @@
 module SmartdownTestFixture
   module PluginFactoryTest
-    extend ExampleIncludeable
+    extend ExampleExtendable
 
     def self.test_method
     end

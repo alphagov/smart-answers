@@ -6,7 +6,7 @@ module TestFixturesHelper
       SmartdownAdapter::Registry.reset_instance
     end
     SmartdownAdapter::PluginFactory.stubs(:plugin_path).returns(Rails.root.join('test/fixtures/smartdown_plugins'))
-    SmartdownAdapter::PluginFactory.stubs(:includeable_path).returns(Rails.root.join('test/fixtures/smartdown_plugins/includeables'))
+    SmartdownAdapter::PluginFactory.stubs(:extendable_path).returns(Rails.root.join('test/fixtures/smartdown_plugins/shared'))
   end
 
   def stop_using_test_smartdown_flow_fixtures

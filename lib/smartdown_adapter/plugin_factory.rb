@@ -17,7 +17,7 @@ module SmartdownAdapter
     def self.load_plugins_from_file(flow_slug)
       plugin_file_path = plugin_path.join("#{flow_slug}.rb")
 
-      eval_paths = includeables_file_paths
+      eval_paths = extendables_file_paths
       eval_paths << plugin_file_path
 
       evaluating_module = Module.new do
@@ -65,12 +65,12 @@ module SmartdownAdapter
       flow_slug.gsub('-', '_').camelize
     end
 
-    def self.includeables_file_paths
-      Dir[includeable_path + '*.rb']
+    def self.extendables_file_paths
+      Dir[extendable_path + '*.rb']
     end
 
-    def self.includeable_path
-      @@includeable_path ||= Rails.root.join('lib', 'smartdown_plugins', 'includeables')
+    def self.extendable_path
+      @@extendable_path ||= Rails.root.join('lib', 'smartdown_plugins', 'shared')
     end
 
     def self.plugin_path
