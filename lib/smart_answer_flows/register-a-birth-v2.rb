@@ -259,6 +259,14 @@ outcome :oru_result do
     {text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"}
   end
 
+  precalculate :waiting_time do
+    phrases = PhraseList.new
+    if reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.exclude?(country_of_birth)
+      phrases << :registration_can_take_3_months
+    end
+    phrases
+  end
+
   precalculate :oru_documents_variant do
     if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?(country_of_birth)
       phrases = PhraseList.new
