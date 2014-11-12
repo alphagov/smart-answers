@@ -38,7 +38,7 @@ en-GB:
       # Q4
       children?:
         title: Are there any living children, grandchildren or other direct descendants (eg great-grandchildren)?
-        hint: Children include legally-adopted sons or daughters, but not stepchildren.
+        hint: Children include legally-adopted sons or daughters (but not stepchildren) and any children where the deceased had a parental role.
 
       # Q5
       parents?:
@@ -136,7 +136,7 @@ en-GB:
           * the husband, wife or civil partner gets a life interest in half of the remainder
           * the other half is then divided equally between the surviving children
 
-          If a son or daughter has already died, their children will inherit in their parent's place.
+          If a son or daughter (or other child where the deceased had a parental role) has already died, their children will inherit in their parent's place.
         next_steps: |
           %{next_step_links}
 
