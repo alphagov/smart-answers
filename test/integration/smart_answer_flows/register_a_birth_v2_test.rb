@@ -189,11 +189,10 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "no"
       add_response "2006-07-01"
       add_response "same_country"
-      assert_current_node :embassy_result
-      assert_state_variable :british_national_parent, 'father'
-      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
-      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-      assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_paternity_declaration]
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :oru_address, [:oru_address_abroad]
+      assert_phrase_list :translator_link, [:no_translator_link]
     end # Not married or CP
   end # Belize
   context "answer Libya" do
@@ -304,7 +303,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'another_country'
       add_response 'st-kitts-and-nevis'
-      assert_current_node :embassy_result
+      assert_current_node :oru_result
       assert_phrase_list :birth_registration_form, [:birth_registration_form]
     end
   end
@@ -330,9 +329,10 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "father"
       add_response "yes"
       add_response "same_country"
-      assert_current_node :embassy_result
-      assert_state_variable :british_national_parent, 'father'
-      assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_either_parent]
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :oru_address, [:oru_address_abroad]
+      assert_phrase_list :translator_link, [:no_translator_link]
     end
   end # Serbia
   context "answer estonia" do
@@ -342,8 +342,10 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "mother_and_father"
       add_response "yes"
       add_response "same_country"
-      assert_current_node :embassy_result
-      assert_phrase_list :cash_only, [:cash_and_card]
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :oru_address, [:oru_address_abroad]
+      assert_phrase_list :translator_link, [:no_translator_link]
     end
   end # Estonia
 
