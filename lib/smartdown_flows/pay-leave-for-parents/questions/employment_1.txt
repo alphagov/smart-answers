@@ -35,5 +35,4 @@ This is her total take-home pay before any deductions, eg tax.
       * due_date < '2015-4-5'
         * employment_status_1 is 'employee' => outcome_mat-leave_mat-pay
         * employment_status_1 is 'worker' => outcome_mat-pay
-* lel_1 is 'no' => employment_1_more
-* lel_1 is 'yes' => employment_1_more_salary
+* otherwise => employment_1_more
