@@ -129,15 +129,14 @@ outcome :embassy_result do
       "British embassy"
     end
   end
-  precalculate :embassy_result_indonesia_british_father_paternity do
-    if registration_country == 'indonesia' and british_national_parent == 'father' and paternity_declaration
-      PhraseList.new(:indonesia_british_father_paternity)
-    end
-  end
   precalculate :documents_you_must_provide do
     checklist_countries = %w(bangladesh kuwait libya north-korea pakistan philippines turkey)
     key = "documents_you_must_provide_"
-    key += (checklist_countries.include?(registration_country) ? registration_country : "all")
+    if checklist_countries.include?(country_of_birth)
+      key << country_of_birth
+    else
+      key << "all"
+    end
     PhraseList.new(key.to_sym)
   end
   precalculate :clickbook_data do
@@ -259,10 +258,18 @@ outcome :oru_result do
     {text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"}
   end
 
+  precalculate :embassy_result_indonesia_british_father_paternity do
+    if registration_country == 'indonesia' and british_national_parent == 'father' and paternity_declaration
+      PhraseList.new(:indonesia_british_father_paternity)
+    end
+  end
+
   precalculate :waiting_time do
     phrases = PhraseList.new
-    if reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.exclude?(country_of_birth)
+    if reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.exclude?(country_of_birth) && in_the_uk
       phrases << :registration_can_take_3_months
+    else
+      phrases << :registration_takes_5_days
     end
     phrases
   end
@@ -310,7 +317,6 @@ outcome :oru_result do
     end
     phrases
   end
-
 end
 
 outcome :commonwealth_result
