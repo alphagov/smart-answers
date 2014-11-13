@@ -1,0 +1,12 @@
+##Maternity allowance
+
+The mother can get [maternity allowance](/maternity-allowance) from the government for up to 39 weeks.
+
+ | Dates and amounts
+- | -
+Maternity allowance can start on | %{start_of_maternity_allowance(due_date)}
+Weekly rate | %{rate_of_maternity_allowance(salary_1_66_weeks)}
+Total estimated allowance | %{total_maternity_allowance(salary_1_66_weeks)}
+The mother can claim from | %{claim_date_maternity_allowance(due_date)}
+
+The mother won’t have to pay tax on her maternity allowance.
