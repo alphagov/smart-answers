@@ -1,8 +1,6 @@
-require Rails.root.join("test/fixtures/smartdown_plugins/test-global-plugins")
-
 module SmartdownTestFixture
   module PluginFactoryTest
-    include TestGlobalPlugins
+    extend ExampleExtendable
 
     def self.test_method
     end

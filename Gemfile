@@ -13,6 +13,7 @@ gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.1'
 gem 'diffy', '3.0.6'
 gem 'filesize'
+gem 'tilt', '1.4.1'
 
 if ENV['SMARTDOWN_DEV']
   gem 'smartdown', :path => '../smartdown'
