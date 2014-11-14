@@ -57,3 +57,55 @@ that can affect the outcome of the flow should be added to the combinations to h
 This rake task builds the factcheck table for the current state of the pay leave for parents smartdown flows
 and generates a diff of the factcheck tables currently in the smart-answers-factcheck project. This rake task should be used
 to ensure that when modifying the flow, outcomes are not accidentally changed in areas of the flow not meant to be modified.
+
+### Smartdown Plugins
+
+Each smartdown flow can have an optional smartdown plugin. These plugins provide helper methods that are used in the generation of smartdown questions and answers. Smartdown plugins are located within lib/smartdown_plugins/*flow_name*/
+Currently there are two types of smartdown plugins. render_time.rb and build_time.rb.
+
+lib/smartdown_plugins/*flow_name*/
+  - render_time.rb
+  - build_time.rb
+
+####Shared Plugins
+smartdown plugins also have access to a communal set of shared functions. These shared functions are located within lib/smartdown_plugins/shared/. To use a shared plugin, extend it in your flow-specific plugin: like so
+
+````
+module SmartdownPlugins
+  module ExampleFlowPlugin
+    extend SharedPlugin
+    .
+    .
+    .
+  end
+end
+````
+
+####Render Time
+
+Render time smartdown plugins are intended to be used to store functions that will be passed a users answers to question as the arguments. You could use them to render templates, perform calculations or make external HTTP requests to a data source.
+
+####Build Time
+
+Build time smartdown plugins contain methods that are available to smartdown in the parsing/building process. This means that they do not take any arguments - ie. they are just used as
+a way of injecting data to the build step, often in the form of a ruby hash.
+
+####Data Partials
+
+Will render an erb template that is located within lib/smart_answer_flows/data_partials. It accepts locals that are passed to the template.
+
+Example usage:
+
+````
+require 'uri'
+
+module FlowIdentifierName
+  extend DataPartial
+
+  def self.data_embassy(country_name)
+    location = open("http://example.com/countries/#{country_name}.json")
+    render 'data_partial_name', locals: {location: location}
+  end
+
+end
+````
