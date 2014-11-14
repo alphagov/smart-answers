@@ -6,6 +6,8 @@
 * lion: Lion
 * tiger: Tiger
 * cat: Cat
+* sphynx: Sphynx
+* meowth: Meowth
 
 * type_of_feline in {lion tiger cat} => question_2
 * otherwise => outcome_safe_pet
