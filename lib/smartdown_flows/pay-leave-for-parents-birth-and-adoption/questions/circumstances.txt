@@ -1,5 +1,11 @@
 # Your circumstances
 
+# Are you having a baby or adopting?
+
+[choice: circumstance]
+* birth: Having a baby
+* adoption: Adopting
+
 # Will you care for the child with a partner?
 
 [choice: two_carers]
@@ -12,4 +18,5 @@ The partner must be one of the following:
 - the child’s other parent
 - your partner (if they live with you and the child)
 
-* otherwise => due_date
+* circumstance is 'birth' => due_date
+* circumstance is 'adoption' => adoption_dates

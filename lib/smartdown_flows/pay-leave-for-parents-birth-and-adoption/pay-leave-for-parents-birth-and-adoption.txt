@@ -2,11 +2,11 @@ meta_description: Pay and leave for parents
 status: draft
 satisfies_need: 101018
 
-# Calculate your leave and pay when you have a child
+# Calculate your leave and pay when you have a child or adopt
 
 Find out:
 
-* if you can get maternity, paternity or shared parental leave
+* if you can get maternity, paternity, adoption or shared parental leave
 * how much pay you can get if you take leave
 
 Shared parental leave and pay are only available in England, Scotland and Wales.

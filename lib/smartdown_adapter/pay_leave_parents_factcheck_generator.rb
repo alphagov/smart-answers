@@ -27,33 +27,10 @@ module SmartdownAdapter
           combination_hash.merge(:outcome => key)
         end
       end
-      adoption_hashes = combination_hashes.select do |combination_hash|
-        combination_hash[:circumstance] == "adoption"
-      end
-      birth_hashes = combination_hashes.select do |combination_hash|
-        combination_hash[:circumstance] == "birth"
-      end
-      unique_adoption_hashes = adoption_hashes.uniq
+      birth_hashes = combination_hashes
       unique_birth_hashes = birth_hashes.uniq
       node_filepath = File.join(smartdown_factcheck_path, "factcheck", "birth_factcheck_#{@due_or_match_date}.md")
       File.write(node_filepath, format_birth_hashes(unique_birth_hashes))
-      node_filepath = File.join(smartdown_factcheck_path, "factcheck", "adoption_factcheck_#{@due_or_match_date}.md")
-      File.write(node_filepath, format_adoption_hashes(unique_adoption_hashes))
-    end
-
-    def format_adoption_hashes(adoption_hashes)
-      ordered_adoption_hashes = order_hashes(adoption_hashes)
-      lines = []
-      lines << "##Adoption \n"
-      lines << "Nb | PA status | PA C | PA LE | PA W | PA E&E | P status | P C | P LE | P W | P E&E | Outcome | URL"
-      lines << "-|-"
-      line_content = []
-      ordered_adoption_hashes.each do |adoption_hash|
-        line_content << format_adoption_hash(adoption_hash)
-      end
-      unique_line_content = remove_duplicate_circumstances(line_content)
-      lines += unique_line_content.each.with_index(1).map{ |line_array, i| ([i]+line_array).join(" | ") }
-      lines.uniq.join("\n")
     end
 
     def format_birth_hashes(birth_hashes)
@@ -69,31 +46,6 @@ module SmartdownAdapter
       unique_line_content = remove_duplicate_circumstances(line_content)
       lines += unique_line_content.each.with_index(1).map{ |line_array, i| ([i]+line_array).join(" | ") }
       lines.uniq.join("\n")
-    end
-
-    def format_adoption_hash(adoption_hash)
-      result = []
-      result << adoption_hash[:employment_status_1]
-      if adoption_hash[:job_before_x_1]
-        result << tick_or_cross(adoption_hash[:job_before_x_1] == "yes" && adoption_hash[:job_after_y_1] == "yes")
-        result << tick_or_cross(adoption_hash[:lel_1] == "yes")
-        result << tick_or_cross(adoption_hash[:job_after_y_1] == "yes")
-      else
-        result += [nil, nil, nil]
-      end
-      result << tick_or_cross(adoption_hash[:earnings_employment_1])
-      result << adoption_hash[:employment_status_2]
-      if adoption_hash[:job_before_x_2]
-        result << tick_or_cross(adoption_hash[:job_before_x_2] == "yes" && adoption_hash[:job_after_y_2] == "yes")
-        result << tick_or_cross(adoption_hash[:lel_2] == "yes")
-        result << tick_or_cross(adoption_hash[:job_after_y_2] == "yes")
-      else
-        result += [nil, nil, nil]
-      end
-      result << tick_or_cross(adoption_hash[:earnings_employment_2])
-      result << human_readable_description(adoption_hash[:outcome])
-      result << url_from_hash(adoption_hash)
-      result
     end
 
     def format_birth_hash(birth_hash)

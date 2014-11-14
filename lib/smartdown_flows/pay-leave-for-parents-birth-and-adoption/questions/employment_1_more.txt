@@ -1,0 +1,39 @@
+# Mother’s employment details
+
+# Will the mother have earned at least £30 per week in any 13 weeks between %{earnings_test_start_date(due_date)} and %{due_date}?
+
+[choice: earnings_employment_1]
+* yes: Yes
+* no: No
+
+The 13 weeks don’t need to be in a row.
+
+* two_carers is 'no'
+  * employment_status_1 is 'employee'
+    * earnings_employment_1 is 'yes' => employment_1_more_salary
+    * earnings_employment_1 is 'no'
+      * job_after_y_1 is 'yes' => outcome_mat-leave
+      * job_after_y_1 is 'no' => outcome_single-birth-nothing
+  * employment_status_1 in {worker self-employed unemployed}
+    * earnings_employment_1 is 'yes' => employment_1_more_salary
+    * earnings_employment_1 is 'no' => outcome_single-birth-nothing
+* two_carers is 'yes'
+  * employment_status_2 in {employee worker}
+    * earnings_employment_1 is 'yes' => employment_1_more_salary
+    * earnings_employment_1 is 'no' => employment_2
+  * employment_status_2 is 'self-employed'
+    * earnings_employment_1 is 'yes' => employment_1_more_salary
+    * earnings_employment_1 is 'no'
+      * employment_status_1 is 'employee'
+        * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND due_date >= '2015-4-5' => employment_2_more
+        * job_after_y_1 is 'yes' => outcome_mat-leave
+        * job_after_y_1 is 'no' => outcome_birth-nothing
+      * employment_status_1 in {worker self-employed} => outcome_birth-nothing
+      * employment_status_1 is 'unemployed' => outcome_mat-allowance-14-weeks
+  * employment_status_2 is 'unemployed'
+    * earnings_employment_1 is 'yes' => employment_1_more_salary
+    * earnings_employment_1 is 'no'
+      * employment_status_1 is 'employee'
+        * job_after_y_1 is 'yes' => outcome_mat-leave
+        * job_after_y_1 is 'no' => outcome_birth-nothing
+      * otherwise => outcome_birth-nothing
