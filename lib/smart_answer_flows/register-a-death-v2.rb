@@ -163,9 +163,9 @@ end
 outcome :embassy_result do
   precalculate :documents_required_embassy_result do
     phrases = PhraseList.new
-    if current_location == 'libya'
+    if country_of_death == 'libya'
       phrases << :documents_list_embassy_libya
-    elsif current_location == 'north-korea'
+    elsif country_of_death == 'north-korea'
       phrases << :"documents_list_embassy_north-korea"
     else
       phrases << :documents_list_embassy

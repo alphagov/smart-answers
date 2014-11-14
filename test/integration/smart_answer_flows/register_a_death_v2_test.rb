@@ -367,22 +367,21 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
         assert_state_variable :organisation, expected_location.fco_organisation
       end
     end # Answer Libya
-    context "answer Brazil" do
+    context "answer Brazil, registered in north-korea" do
       setup do
         worldwide_api_has_organisations_for_location('brazil', read_fixture_file('worldwide/brazil_organisations.json'))
+        worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
         add_response 'brazil'
-        add_response 'same_country'
+        add_response 'another_country'
+        add_response 'north-korea'
       end
       should "give the embassy result and be done" do
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British consulate general"
+        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_phrase_list :clickbook, [:clickbook]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/publications/credit-card-authorization-form"
-        assert_phrase_list :postal, [:postal_intro, :postal_registration_by_form]
-        expected_location = WorldLocation.find('brazil')
+        expected_location = WorldLocation.find('north-korea')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
       end
