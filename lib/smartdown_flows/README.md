@@ -38,8 +38,6 @@ This rake task builds four markdown documents and saves them to the ```smart-ans
 Those four markdown documents summarise the question outcomes for:
 * Birth cases before 05/04/2015
 * Birth cases after 05/04/2015
-* Adoption cases before 05/04/2015
-* Adoption cases after 05/04/2015
 
 Each markdown document is a table summarising the answers given to each question and listing what types of maternity,
 paternity, adoption, shared parental leave and pay the user(s) is/are eligible for given their answer.
@@ -49,3 +47,13 @@ paternity, adoption, shared parental leave and pay the user(s) is/are eligible f
 We have chosen for each question in the pay and leave for parents a selection of answers that can affect the outcome of the tool.
 This is not an exhaustive list of possible answers. As the tool evolves and more legal rules are added, **possible answers
 that can affect the outcome of the flow should be added to the combinations to have an accurate and complete factcheck table**.
+
+###Factcheck diff
+
+```rake smartdown_generate_factcheck:diff_pay_leave_for_parents```
+
+####Output of the tool
+
+This rake task builds the factcheck table for the current state of the pay leave for parents smartdown flows
+and generates a diff of the factcheck tables currently in the smart-answers-factcheck project. This rake task should be used
+to ensure that when modifying the flow, outcomes are not accidentally changed in areas of the flow not meant to be modified.

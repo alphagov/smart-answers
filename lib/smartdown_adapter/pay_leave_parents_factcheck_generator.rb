@@ -10,13 +10,22 @@ module SmartdownAdapter
 
     def perform
       combinations = @combination_generator.perform
+      generate_factcheck_content(combinations)
+    end
+
+    def perform_and_write_to_file
+      combinations = @combination_generator.perform
+      generate_factcheck_files(combinations)
+    end
+
+    def factcheck_file_path
       smartdown_factcheck_path = File.join(smartdown_factcheck_path(@name))
-      generate_factcheck_files(combinations, smartdown_factcheck_path)
+      File.join(smartdown_factcheck_path, "factcheck", "birth_factcheck_#{@due_or_match_date}.md")
     end
 
   private
 
-    def generate_factcheck_files(combinations, smartdown_factcheck_path)
+    def generate_factcheck_content(combinations)
       combination_hashes = []
       combinations.keys.each do |key|
         combination_hashes += combinations[key].map do |combination|
@@ -29,8 +38,12 @@ module SmartdownAdapter
       end
       birth_hashes = combination_hashes
       unique_birth_hashes = birth_hashes.uniq
-      node_filepath = File.join(smartdown_factcheck_path, "factcheck", "birth_factcheck_#{@due_or_match_date}.md")
-      File.write(node_filepath, format_birth_hashes(unique_birth_hashes))
+      format_birth_hashes(unique_birth_hashes)
+    end
+
+    def generate_factcheck_files(combinations)
+      formatted_birth_hashes = generate_factcheck_content(combinations)
+      File.write(factcheck_file_path, formatted_birth_hashes)
     end
 
     def format_birth_hashes(birth_hashes)
