@@ -334,6 +334,7 @@ en-GB:
           - the child’s full local birth certificate - it must have both parents’ names
           - hospital, medical or insurance records naming the parents as the birth parents (if the birth was registered more than three months after it took place)
         oru_address_uk: |
+
           $A
             Overseas Registration Unit
             Foreign and Commonwealth Office
@@ -342,6 +343,7 @@ en-GB:
             MK10 1XX
           $A
         oru_address_abroad: |
+
           $A
             Overseas Registration Unit
             Foreign & Commonwealth Office
