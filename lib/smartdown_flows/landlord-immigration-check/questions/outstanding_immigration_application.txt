@@ -6,5 +6,5 @@ They should also provide their Home Office reference number.
 * yes: Yes
 * no: No
 
-* immigration_application is 'yes' => outcome_can_rent
+* immigration_application is 'yes' => outcome_can_rent_for_12_months
 * immigration_application is 'no' => outcome_can_rent_for_12_months
