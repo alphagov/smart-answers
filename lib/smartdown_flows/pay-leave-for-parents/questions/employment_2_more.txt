@@ -15,7 +15,7 @@
       * otherwise
         * earnings_employment_2 is 'yes' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
         * earnings_employment_2 is 'no' => outcome_mat-leave_mat-pay
-    * otherwise
+    * employment_status_2 in {worker self-employed unemployed}
       * earnings_employment_2 is 'yes' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
       * earnings_employment_2 is 'no' => outcome_mat-leave_mat-pay
   * otherwise
@@ -27,7 +27,7 @@
         * otherwise
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_mat-shared-leave
           * earnings_employment_1 is 'no' => outcome_mat-leave_mat-shared-leave
-      * otherwise
+      * employment_status_2 in {worker self-employed unemployed}
         * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_mat-shared-leave
         * earnings_employment_1 is 'no' => outcome_mat-leave_mat-shared-leave
     * earnings_employment_2 is 'no'
@@ -38,7 +38,7 @@
         * otherwise
           * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave
           * earnings_employment_1 is 'no' => outcome_mat-leave
-      * otherwise
+      * employment_status_2 in {worker self-employed unemployed}
         * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave
         * earnings_employment_1 is 'no' => outcome_mat-leave
 * employment_status_1 is 'worker'
@@ -49,6 +49,6 @@
     * otherwise
       * earnings_employment_2 is 'yes' => outcome_mat-pay_mat-shared-pay
       * earnings_employment_2 is 'no' => outcome_mat-pay
-  * otherwise
+  * employment_status_2 in {worker self-employed unemployed}
     * earnings_employment_2 is 'yes' => outcome_mat-pay_mat-shared-pay
     * earnings_employment_2 is 'no' => outcome_mat-pay
