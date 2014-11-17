@@ -10,4 +10,5 @@
 * meowth: Meowth
 
 * type_of_feline in {lion tiger cat} => question_2
+* type_of_feline is 'meowth' => question_5
 * otherwise => outcome_safe_pet
