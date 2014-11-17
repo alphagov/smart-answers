@@ -2,7 +2,7 @@ The person may be able to rent your property.
 
 You must get a positive verification from the [Landlord’s Checking Service](/link-to-service) that the person can rent the property if:
 
-- you're reasonably satisfied that they can't show you their documents because of an outstanding appeal or application with the Home Office
+- you're reasonably satisfied that they can't show you their documents because of an outstanding immigration appeal or application with the Home Office
 - they have an Application Registration Card
 - they have a Certificate of Application that is less than 6 months old
 
@@ -15,6 +15,6 @@ The person won’t be able to stay in the property:
 - if they don’t have the right documents
 - you get a negative result back from the verification check
 
-^You may get a [civil penalty](/penalties-illegal-renting) if you get a Negative Verification notice and the person isn’t allowed to rent property in the UK.^
+^You may get a [civil penalty](/penalties-illegal-renting) if you get a Negative Verification notice and you still rent your property to the person who isn't allowed to rent property in the UK.^
 
 {{snippet: landlord-code-of-practice}}
