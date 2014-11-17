@@ -1,6 +1,6 @@
-# Does the person have a Home Office letter confirming the person has an outstanding immigration application appeal which allows them to stay in the UK?
+# Does the person have an outstanding immigration application or appeal?
 
-They should also provided their Home Office reference number.
+They should also provide their Home Office reference number.
 
 [choice: immigration_application]
 * yes: Yes
