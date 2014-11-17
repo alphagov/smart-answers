@@ -1,4 +1,4 @@
-# Is the tenant renting the property as their main home?
+# Is the person renting the property as their main or only home?
 
 This includes:
 
@@ -8,7 +8,7 @@ This includes:
 - sub-lease or sub-tenancy
 - lodgers
 - paying house guests 
-- a family member with the tenant as their main home
+- a family member livng with the tenant as their main or only home
 
 [choice: main_home]
 * yes: Yes
