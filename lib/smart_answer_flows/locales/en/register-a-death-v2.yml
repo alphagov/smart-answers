@@ -376,6 +376,13 @@ en-GB:
           Your documents will be returned to the British Embassy in Pyongyang after the death has been registered.
         oru_courier_text_papua-new-guinea: |
           Your documents will be returned to the British Embassy in Port Moresby after the death has been registered.
+        registration_can_take_3_months: |
+          Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.
+
+        registration_takes_3_days: |
+          It usually takes 3 working days for the death to be registered in the UK once the Overseas Registration Unit has received your form and the right documents.
+
+          They’ll contact you within the 3 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the death to be registered.
 
 # Outcomes
 #
@@ -508,7 +515,7 @@ en-GB:
 
           ##Return of your documents
 
-          It usually takes 3 working days for the death to be registered in the UK, once the Overseas Registration Unit has received your form and the right documents. They’ll contact you within the 3 working days if they need more information.
+          %{waiting_time}
 
           %{oru_courier_text}
 

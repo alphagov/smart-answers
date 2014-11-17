@@ -8,7 +8,7 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil dominica egypt france germany iran italy libya morocco north-korea serbia slovakia spain st-kitts-and-nevis)
+    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil dominica egypt france germany iran italy libya morocco north-korea pakistan serbia slovakia spain st-kitts-and-nevis)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-death-v2'
   end
@@ -190,6 +190,7 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
           assert_phrase_list :oru_address, [:oru_address_abroad]
           assert_phrase_list :translator_link, [:approved_translator_link]
           assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
+          assert_phrase_list :waiting_time, [:registration_takes_3_days]
         end
       end # Answer embassy
       context "answer ORU office in the uk" do
@@ -201,6 +202,7 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
           assert_phrase_list :oru_address, [:oru_address_uk]
           assert_phrase_list :translator_link, [:approved_translator_link]
           assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
+          assert_phrase_list :waiting_time, [:registration_takes_3_days]
         end
       end # Answer ORU
     end # Answer Spain
@@ -399,6 +401,15 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
         assert_state_variable :translator_link_url, "/government/publications/list-of-translators-and-interpreters-in-serbia"
       end
     end # Answer Serbia
+    context "answer Pakistan, user in the UK" do
+      should "give the oru result" do
+        worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
+        add_response "pakistan"
+        add_response "in_the_uk"
+        assert_current_node :oru_result
+        assert_phrase_list :waiting_time, [:registration_can_take_3_months]
+      end
+    end # Pakistan and in UK
     context "answer death in dominica, user in st kitts" do
       setup do
         worldwide_api_has_organisations_for_location('barbados', read_fixture_file('worldwide/barbados_organisations.json'))
@@ -445,6 +456,7 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
           add_response 'italy'
           assert_current_node :oru_result
           assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
+          assert_phrase_list :waiting_time, [:registration_takes_3_days]
         end
       end
     end # Answer North Korea
