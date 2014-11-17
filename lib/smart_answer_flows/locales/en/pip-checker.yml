@@ -23,22 +23,20 @@ en-GB:
       phrases:
         scheme_postcodes: |
           - CA (Carlisle)
+          - CH (Chester)
           - DG (Dumfries and Galloway)
           - DL (Darlington)
           - EH (Edinburgh)
+          - HD (Huddersfield)
           - HG (Harrogate)
+          - L (Liverpool)
           - LA (Lancaster)
+          - M (Manchester)
           - ML (Motherwell)
           - TD (Galashiels)
           - YO (York)
           
-          On 17 November 2014 the scheme will be expanded to include postcodes beginning with:
-
-          - CH (Chester) 
-          - HD (Huddersfield) 
-          - L (Liverpool) 
-          - M (Manchester)
-        
+  
         scheme_postcodes_pre_3rd_feb_2014: |
           - DG (Dumfries and Galloway)
           - EH (Edinburgh)
