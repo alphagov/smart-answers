@@ -8,7 +8,7 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil dominica egypt france germany iran italy libya morocco north-korea slovakia spain st-kitts-and-nevis)
+    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil dominica egypt france germany iran italy libya morocco north-korea serbia slovakia spain st-kitts-and-nevis)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-death-v2'
   end
@@ -387,6 +387,18 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
       end
     end # Answer Brazil
 
+    context "answer death in Serbia, user in the UK" do
+      setup do
+        worldwide_api_has_organisations_for_location('serbia', read_fixture_file('worldwide/serbia_organisations.json'))
+        add_response 'serbia'
+        add_response 'in_the_uk'
+      end
+      should "give the embassy result and be done" do
+        assert_phrase_list :oru_address, [:oru_address_uk]
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_state_variable :translator_link_url, "/government/publications/list-of-translators-and-interpreters-in-serbia"
+      end
+    end # Answer Serbia
     context "answer death in dominica, user in st kitts" do
       setup do
         worldwide_api_has_organisations_for_location('barbados', read_fixture_file('worldwide/barbados_organisations.json'))
