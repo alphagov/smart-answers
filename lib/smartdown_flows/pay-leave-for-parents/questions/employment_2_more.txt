@@ -20,45 +20,45 @@ The 13 weeks don’t need to be in a row.
   * job_before_x_1 is 'yes' AND job_after_y_1 is 'yes' AND lel_1 is 'yes'
     * employment_status_2 is 'employee'
       * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes'
-        * earnings_employment_2 is 'yes' => outcome_mat-leave_mat-pay_pat-leave_both-shared-leave_mat-shared-pay
-        * earnings_employment_2 is 'no' => outcome_mat-leave_mat-pay_pat-leave_pat-shared-leave
+        * earnings_employment_2 is 'yes' AND work_employment_2 is 'yes' => outcome_mat-leave_mat-pay_pat-leave_both-shared-leave_mat-shared-pay
+        * otherwise => outcome_mat-leave_mat-pay_pat-leave_pat-shared-leave
       * otherwise
-        * earnings_employment_2 is 'yes' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
-        * earnings_employment_2 is 'no' => outcome_mat-leave_mat-pay
+        * earnings_employment_2 is 'yes' AND work_employment_2 is 'yes' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
+        * otherwise => outcome_mat-leave_mat-pay
     * employment_status_2 in {worker self-employed unemployed}
-      * earnings_employment_2 is 'yes' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
-      * earnings_employment_2 is 'no' => outcome_mat-leave_mat-pay
+      * earnings_employment_2 is 'yes' AND work_employment_2 is 'yes' => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
+      * otherwise => outcome_mat-leave_mat-pay
   * otherwise
-    * earnings_employment_2 is 'yes'
+    * earnings_employment_2 is 'yes' AND work_employment_2 is 'yes'
       * employment_status_2 is 'employee'
         * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes'
-          * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_both-shared-leave
-          * earnings_employment_1 is 'no' => outcome_mat-leave_pat-leave_mat-shared-leave
+          * earnings_employment_1 is 'yes' AND work_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_both-shared-leave
+          * otherwise => outcome_mat-leave_pat-leave_mat-shared-leave
         * otherwise
-          * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_mat-shared-leave
-          * earnings_employment_1 is 'no' => outcome_mat-leave_mat-shared-leave
+          * earnings_employment_1 is 'yes' AND work_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_mat-shared-leave
+          * otherwise => outcome_mat-leave_mat-shared-leave
       * employment_status_2 in {worker self-employed unemployed}
-        * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_mat-shared-leave
-        * earnings_employment_1 is 'no' => outcome_mat-leave_mat-shared-leave
-    * earnings_employment_2 is 'no'
+        * earnings_employment_1 is 'yes' AND work_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_mat-shared-leave
+        * otherwise => outcome_mat-leave_mat-shared-leave
+    * otherwise
       * employment_status_2 is 'employee'
         * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes'
-          * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
-          * earnings_employment_1 is 'no' => outcome_mat-leave_pat-leave
+          * earnings_employment_1 is 'yes' AND work_employment_1 is 'yes' => outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
+          * otherwise => outcome_mat-leave_pat-leave
         * otherwise
-          * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave
-          * earnings_employment_1 is 'no' => outcome_mat-leave
+          * earnings_employment_1 is 'yes' AND work_employment_1 is 'yes' => outcome_mat-allowance_mat-leave
+          * otherwise => outcome_mat-leave
       * employment_status_2 in {worker self-employed unemployed}
-        * earnings_employment_1 is 'yes' => outcome_mat-allowance_mat-leave
-        * earnings_employment_1 is 'no' => outcome_mat-leave
+        * earnings_employment_1 is 'yes' AND work_employment_1 is 'yes' => outcome_mat-allowance_mat-leave
+        * otherwise => outcome_mat-leave
 * employment_status_1 is 'worker'
   * employment_status_2 is 'employee'
     * job_before_x_2 is 'yes' AND job_after_y_2 is 'yes'
-      * earnings_employment_2 is 'yes' => outcome_mat-pay_pat-leave_pat-shared-leave_mat-shared-pay
-      * earnings_employment_2 is 'no' => outcome_mat-pay_pat-leave
+      * earnings_employment_2 is 'yes' AND work_employment_2 is 'yes' => outcome_mat-pay_pat-leave_pat-shared-leave_mat-shared-pay
+      * otherwise => outcome_mat-pay_pat-leave
     * otherwise
-      * earnings_employment_2 is 'yes' => outcome_mat-pay_mat-shared-pay
-      * earnings_employment_2 is 'no' => outcome_mat-pay
+      * earnings_employment_2 is 'yes' AND work_employment_2 is 'yes' => outcome_mat-pay_mat-shared-pay
+      * otherwise => outcome_mat-pay
   * employment_status_2 in {worker self-employed unemployed}
-    * earnings_employment_2 is 'yes' => outcome_mat-pay_mat-shared-pay
-    * earnings_employment_2 is 'no' => outcome_mat-pay
+    * earnings_employment_2 is 'yes' AND work_employment_2 is 'yes' => outcome_mat-pay_mat-shared-pay
+    * otherwise => outcome_mat-pay
