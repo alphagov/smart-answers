@@ -145,7 +145,13 @@ en-GB:
       do_either_of_the_following_apply?:
         title: Does the following apply to you?
         body: |
-          * you're currently receiving at least one of the following UK benefits (Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit)
+          You're currently receiving at least one of the following UK benefits:
+          
+          - Incapacity Benefit
+          - Employment and Support Allowance 
+          - State Pension
+          - Bereavement benefits 
+          - Industrial Injuries Disablement Benefit)
 
 # Q15 going_abroad and Q14 already_abroad
       working_for_uk_employer_ssp?:
