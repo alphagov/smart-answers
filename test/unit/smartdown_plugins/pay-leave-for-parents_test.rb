@@ -6,95 +6,78 @@ module SmartdownPlugins
 
   class PayLeaveForParentsTest < ActiveSupport::TestCase
 
+    due_date = Smartdown::Model::Answer::Date.new("2015-1-1")
+
     test "continuity_start_date" do
-      due_date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
+      expected = Smartdown::Model::Answer::Date.new("2014-3-29")
       assert_equal expected, SmartdownPlugins::PayLeaveForParents.continuity_start_date(due_date)
     end
 
     test "continuity_end_date" do
-      due_date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
+      expected = Smartdown::Model::Answer::Date.new("2014-9-14")
       assert_equal expected, SmartdownPlugins::PayLeaveForParents.continuity_end_date(due_date)
     end
 
     test "earnings_employment_start_date" do
-      due_date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
+      expected = Smartdown::Model::Answer::Date.new("2013-9-22")
       assert_equal expected, SmartdownPlugins::PayLeaveForParents.earnings_employment_start_date(due_date)
     end
 
     test "earnings_employment_end_date" do
-      due_date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
+      expected = Smartdown::Model::Answer::Date.new("2014-12-27")
       assert_equal expected, SmartdownPlugins::PayLeaveForParents.earnings_employment_end_date(due_date)
     end
 
     test "lower_earnings_start_date" do
-      due_date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
+      expected = Smartdown::Model::Answer::Date.new("2014-7-26")
       assert_equal expected, SmartdownPlugins::PayLeaveForParents.lower_earnings_start_date(due_date)
     end
 
     test "lower_earnings_end_date" do
-      due_date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
+      expected = Smartdown::Model::Answer::Date.new("2014-9-20")
       assert_equal expected, SmartdownPlugins::PayLeaveForParents.lower_earnings_end_date(due_date)
     end
 
-    test "claim_date_maternity_allowance" do
-      due_date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
-      assert_equal expected, SmartdownPlugins::PayLeaveForParents.claim_date_maternity_allowance(due_date)
-    end
-
     test "earliest_start_mat_leave" do
-      due_date = Smartdown::Model::Answer::Date.new("2014-1-1" )
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
+      expected = Smartdown::Model::Answer::Date.new("2014-10-12")
       assert_equal expected, SmartdownPlugins::PayLeaveForParents.earliest_start_mat_leave(due_date)
     end
 
     test "end_of_additional_paternity_leave" do
-      due_date = Smartdown::Model::Answer::Date.new("2014-1-1" )
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
+      expected = Smartdown::Model::Answer::Date.new("2016-1-1")
       assert_equal expected, SmartdownPlugins::PayLeaveForParents.end_of_additional_paternity_leave(due_date)
     end
 
     test "end_of_shared_parental_leave" do
-      date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2015-1-1")
-      assert_equal expected, SmartdownPlugins::PayLeaveForParents.end_of_shared_parental_leave(date)
+      expected = Smartdown::Model::Answer::Date.new("2016-1-1")
+      assert_equal expected, SmartdownPlugins::PayLeaveForParents.end_of_shared_parental_leave(due_date)
     end
 
     test "latest_pat_leave" do
-      date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
-      assert_equal expected, SmartdownPlugins::PayLeaveForParents.latest_pat_leave(date)
+      expected = Smartdown::Model::Answer::Date.new("2015-2-26")
+      assert_equal expected, SmartdownPlugins::PayLeaveForParents.latest_pat_leave(due_date)
     end
 
     test "maternity_leave_notice_date" do
-      date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
-      assert_equal expected, SmartdownPlugins::PayLeaveForParents.maternity_leave_notice_date(date)
+      expected = Smartdown::Model::Answer::Date.new("2014-9-20")
+      assert_equal expected, SmartdownPlugins::PayLeaveForParents.maternity_leave_notice_date(due_date)
     end
 
     test "paternity_leave_notice_date" do
-      date = Smartdown::Model::Answer::Date.new("2014-9-25") # A Thursday
-      expected = Smartdown::Model::Answer::Date.new("2014-6-9") # A Monday, 15 weeks before Monday 2014-9-22.
-      assert_equal expected, SmartdownPlugins::PayLeaveForParents.paternity_leave_notice_date(date)
+      expected = Smartdown::Model::Answer::Date.new("2014-9-20")
+      assert_equal expected, SmartdownPlugins::PayLeaveForParents.paternity_leave_notice_date(due_date)
     end
 
-    test "start_of_additional_paternity_leave returns a date 20 weeks after the given date" do
-      date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
-      assert_equal expected, SmartdownPlugins::PayLeaveForParents.start_of_additional_paternity_leave(date)
+    test "start_of_additional_paternity_leave" do
+      expected = Smartdown::Model::Answer::Date.new("2015-5-21")
+      assert_equal expected, SmartdownPlugins::PayLeaveForParents.start_of_additional_paternity_leave(due_date)
     end
 
-    test "start_of_maternity_allowance returns a date 11 weeks before the given date" do
-      date = Smartdown::Model::Answer::Date.new("2014-1-1")
-      expected = Smartdown::Model::Answer::Date.new("2014-1-1")
-      assert_equal expected, SmartdownPlugins::PayLeaveForParents.start_of_maternity_allowance(date)
+    test "start_of_maternity_allowance" do
+      expected = Smartdown::Model::Answer::Date.new("2014-10-12")
+      assert_equal expected, SmartdownPlugins::PayLeaveForParents.start_of_maternity_allowance(due_date)
     end
+
 
     test "rate_of_maternity_allowance returns 138.18 when 90% of the given weekly salary is higher than £138.18" do
       salary_1 = Smartdown::Model::Answer::Salary.new("200-week")

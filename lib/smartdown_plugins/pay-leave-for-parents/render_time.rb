@@ -5,39 +5,35 @@ module SmartdownPlugins
   module PayLeaveForParents
 
     def self.continuity_start_date(date)
-      "TODO"
+      build_date_answer(saturday_before(date.value - 39.weeks))
     end
 
     def self.continuity_end_date(date)
-      "TODO"
+      build_date_answer(sunday_before(date.value - 15.weeks))
     end
 
     def self.lower_earnings_start_date(date)
-      "TODO"
+      build_date_answer(saturday_before(date.value - 22.weeks))
     end
 
     def self.lower_earnings_end_date(date)
-      "TODO"
+      build_date_answer(saturday_before(date.value - 14.weeks))
     end
 
     def self.earnings_employment_start_date(date)
-      "TODO"
+      build_date_answer(sunday_before(date.value - 66.weeks))
     end
 
     def self.earnings_employment_end_date(date)
-      "TODO"
-    end
-
-    def self.claim_date_maternity_allowance(date)
-      "TODO"
+      build_date_answer(saturday_before(date.value))
     end
 
     def self.earliest_start_mat_leave(date)
-      "TODO"
+      build_date_answer(sunday_before(date.value - 11.weeks))
     end
 
     def self.end_of_additional_paternity_leave(date)
-      "TODO"
+      build_date_answer(date.value + 1.year)
     end
 
     def self.end_of_shared_parental_leave(date)
@@ -45,24 +41,23 @@ module SmartdownPlugins
     end
 
     def self.latest_pat_leave(date)
-      "TODO"
+      build_date_answer(date.value + 56.days)
     end
 
     def self.maternity_leave_notice_date(date)
-      "TODO"
+      build_date_answer(saturday_before(date.value - 14.weeks))
     end
 
     def self.paternity_leave_notice_date(date)
-      preceding_monday = date.value - (date.value.wday - 1).days
-      build_date_answer(preceding_monday - 15.weeks)
+      build_date_answer(saturday_before(date.value - 14.weeks))
     end
 
     def self.start_of_additional_paternity_leave(date)
-      "TODO"
+      build_date_answer(date.value + 20.weeks)
     end
 
     def self.start_of_maternity_allowance(date)
-      "TODO"
+      build_date_answer(sunday_before(date.value - 11.weeks))
     end
 
     def self.rate_of_maternity_allowance(salary_1_66_weeks)
@@ -105,6 +100,14 @@ module SmartdownPlugins
 
     def self.build_money_answer(amount)
       Smartdown::Model::Answer::Money.new(amount)
+    end
+
+    def self.sunday_before(date)
+      date - date.wday
+    end
+
+    def self.saturday_before(date)
+      (date - date.wday) - 1.day
     end
 
     def self.nine_tenths_weekly_salary_capped_at_138_point_18(salary)
