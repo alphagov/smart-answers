@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'test_helper'
-require 'smartdown_plugins/pay-leave-for-parents'
+require 'smartdown_plugins/pay-leave-for-parents/render_time'
 
 module SmartdownPlugins
 

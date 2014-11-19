@@ -5,18 +5,28 @@ module SmartdownAdapter
     @@plugin_sets = {}
 
     def self.for(flow_slug)
-      @@plugin_sets[flow_slug] ||= load_plugins_from_file(flow_slug)
+      @@plugin_sets[flow_slug] ||= load_plugins_from_directory(flow_slug)
     end
 
-    def self.add_plugin_module(flow_slug, plugin_module)
-      @@plugin_sets[flow_slug] = build_plugin_set(plugin_module)
+    def self.add_plugin_module(flow_slug, plugin_type, plugin_module)
+      @@plugin_sets[flow_slug] ||= {}
+      @@plugin_sets[flow_slug][plugin_type] = build_plugin_set(plugin_module)
     end
 
   private
 
-    def self.load_plugins_from_file(flow_slug)
-      plugin_file_path = plugin_path.join("#{flow_slug}.rb")
+    TYPES_OF_PLUGIN = [:render_time, :build_time]
 
+    def self.load_plugins_from_directory(flow_slug)
+      thing = {}.tap do |plugin_set|
+        TYPES_OF_PLUGIN.each do |plugin_type|
+          plugin_set[plugin_type] = load_plugins_from_file flow_slug, plugin_type
+        end
+      end
+    end
+
+    def self.load_plugins_from_file flow_slug, plugin_type
+      plugin_file_path = plugin_path.join(flow_slug, "#{plugin_type}.rb")
       eval_paths = extendables_file_paths
       eval_paths << plugin_file_path
 
@@ -27,7 +37,7 @@ module SmartdownAdapter
       end
 
       if plugin_module = get_descendant_constant_named(evaluating_module, module_name_from_slug(flow_slug))
-        add_plugin_module(flow_slug, plugin_module)
+        add_plugin_module(flow_slug, plugin_type, plugin_module)
       else
         raise PluginModuleNotDefined.new("Expected #{plugin_file_path} to define a module named #{module_name_from_slug(flow_slug)}")
       end
@@ -70,7 +80,7 @@ module SmartdownAdapter
     end
 
     def self.extendable_path
-      @@extendable_path ||= Rails.root.join('lib', 'smartdown_plugins', 'shared')
+      @@extendable_path ||= plugin_path.join('shared')
     end
 
     def self.plugin_path

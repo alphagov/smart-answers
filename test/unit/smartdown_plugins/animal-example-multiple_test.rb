@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'smartdown_plugins/animal-example-multiple'
+require 'smartdown_plugins/animal-example-multiple/render_time'
 
 module SmartdownPlugins
   class AnimalExampleMultipeTest < ActiveSupport::TestCase

@@ -56,7 +56,7 @@ module SmartdownAdapter
 
     def build_flow(name)
       input = Smartdown::Api::DirectoryInput.new(coversheet_path(name))
-      Smartdown::Api::Flow.new(input, get_plugins(name))
+      Smartdown::Api::Flow.new(input, initial_state: get_render_time_plugins(name), data_module: get_build_time_plugins(name))
     end
 
     def coversheet_path(name)
@@ -80,8 +80,17 @@ module SmartdownAdapter
     end
 
   private
-    def get_plugins(flow_name)
-      PluginFactory.for(flow_name)
+    def get_render_time_plugins(flow_name)
+      plugin_factory(flow_name)[:render_time]
+    end
+
+    def get_build_time_plugins(flow_name)
+      plugin_factory(flow_name)[:build_time]
+    end
+
+    def plugin_factory(flow_name)
+      @factory ||= {}
+      @factory[flow_name] ||= PluginFactory.for(flow_name)
     end
   end
 end

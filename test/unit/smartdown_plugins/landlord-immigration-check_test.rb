@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'test_helper'
-require 'smartdown_plugins/landlord-immigration-check'
+require 'smartdown_plugins/landlord-immigration-check/render_time'
 require 'gds_api/test_helpers/imminence'
 
 
