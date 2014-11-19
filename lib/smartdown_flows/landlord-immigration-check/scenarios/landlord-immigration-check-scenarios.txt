@@ -14,7 +14,7 @@ outcome_check_not_needed
 - has_residence_card_or_eu_eea_swiss_family_member: no
 - has_asylum_card: no
 - immigration_application: no
-outcome_can_rent_for_12_months
+outcome_can_not_rent
 
 - postcode: B1 1PW
 - main_home: no
