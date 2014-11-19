@@ -71,7 +71,7 @@ module SmartdownAdapter
       else
         result << [nil, nil, nil]
       end
-      result << tick_or_cross(birth_hash[:earnings_employment_1])
+      result << tick_or_cross(birth_hash[:earnings_employment_1] == "yes" && birth_hash[:work_employment_1] == "yes")
       result << birth_hash[:employment_status_2]
       if birth_hash[:job_before_x_2]
         result << tick_or_cross(birth_hash[:job_before_x_2] == "yes" && birth_hash[:job_after_y_2] == "yes")
@@ -80,7 +80,7 @@ module SmartdownAdapter
       else
         result << [nil, nil, nil]
       end
-      result << tick_or_cross(birth_hash[:earnings_employment_2])
+      result << tick_or_cross(birth_hash[:earnings_employment_2] == "yes" && birth_hash[:work_employment_2] == "yes")
       result << human_readable_description(birth_hash[:outcome])
       result << url_from_hash(birth_hash)
       result
