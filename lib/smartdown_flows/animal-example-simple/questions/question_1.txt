@@ -12,7 +12,8 @@ Check the serial number by the tail.
 * meowth: Meowth
 * bulldog: Bulldog
 
+* type_of_feline is 'lion' => question_6
 * type_of_feline is 'bulldog' => question_4
-* type_of_feline in {lion tiger} => question_2
+* type_of_feline is 'tiger' => question_2
 * type_of_feline is 'meowth' => question_5
 * otherwise => outcome_safe_pet
