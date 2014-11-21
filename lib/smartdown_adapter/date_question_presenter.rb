@@ -20,11 +20,11 @@ module SmartdownAdapter
     end
 
     def start_date
-      1.year.ago
+      Date.new(@smartdown_question.start_year)
     end
 
     def end_date
-      3.years.from_now
+      Date.new(@smartdown_question.end_year)
     end
 
     def to_response(input)
