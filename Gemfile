@@ -52,7 +52,7 @@ group :test do
   gem 'webmock', '1.11.0', :require => false
   gem 'simplecov', '~> 0.6.4', :require => false
   gem 'simplecov-rcov', '~> 0.2.3', :require => false
-  gem 'poltergeist', '1.3.0'
+  gem 'poltergeist', '1.5.1'
   gem 'timecop'
 end
 
