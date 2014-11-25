@@ -116,7 +116,7 @@ en-GB:
           pension: "State Pension"
           winter_fuel_payment: "Winter Fuel Payment"
           maternity_benefits: "Maternity benefits"
-          child_benefit: "Child benefit"
+          child_benefit: "Child Benefit"
           iidb: "Industrial Injuries Disablement Benefit"
           ssp: "Statutory Sick Pay (SSP)"
           esa: "Employment and Support Allowance (ESA)"
@@ -127,7 +127,7 @@ en-GB:
 # Q8 going_abroad and Q7 already_abroad
       working_for_a_uk_employer?:
         title: |
-          Are you working for a UK employer and paying [Class 1 National Insurance Contributions](/national-insurance/how-much-national-insurance-you-pay)?
+          Are you working for a UK employer and paying Class 1 National Insurance Contributions?
         body: |
           If you're unsure you can read our [National Insurance Guide](/national-insurance/how-much-national-insurance-you-pay).
 # Q9 going_abroad and Q8 already_abroad
@@ -615,7 +615,7 @@ en-GB:
 # A28 going_abroad
       esa_going_abroad_under_a_year_other_outcome:
         body: |
-          You may be able to carry on getting [income-related or contribution-based ESA(/employment-support-allowance) for up to 26 weeks
+          You may be able to carry on getting [income-related or contribution-based ESA](/employment-support-allowance) for up to 26 weeks
 
           You can carry on getting [ESA](/employment-support-allowance) for up to 4 weeks.
 
@@ -707,37 +707,6 @@ en-GB:
 
           Tell the office that deals with your benefit that you're planning to move abroad.
 
-          ##Industrial Injuries Disablement Benefit centres
-
-          ###Scotland, North West England, East of England, South East England and London
-
-          Telephone: 0845 603 1358
-          Textphone: 0845 608 8551
-
-
-
-          $A
-          Jobcentre Plus Barrow IIDB Centre  
-          Pittman Way  
-          Preston  
-          PR11 2AB  
-          $A
-
-          ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
-
-          Telephone: 0845 758 5433
-          Textphone: 0845 608 8551
-
-
-
-          $A
-          Jobcentre Plus Barnsley IIDB Centre  
-          Brightside Lane  
-          Sheffield  
-          S99 1AB  
-          $A
-
-          Find out about [call charges](/call-charges).
 
 # A31 already_abroad
       iidb_already_abroad_eea_outcome:
@@ -753,37 +722,6 @@ en-GB:
 
           Tell the office that deals with your benefit that you're planning to move abroad.
 
-          ##Industrial Injuries Disablement Benefit centres
-
-          ###Scotland, North West England, East of England, South East England and London
-
-          Telephone: 0845 603 1358
-          Textphone: 0845 608 8551
-
-
-
-          $A
-          Jobcentre Plus Barrow IIDB Centre  
-          Pittman Way  
-          Preston  
-          PR11 2AB  
-          $A
-
-          ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
-
-          Telephone: 0845 758 5433
-          Textphone: 0845 608 8551
-
-
-
-          $A
-          Jobcentre Plus Barnsley IIDB Centre  
-          Brightside Lane  
-          Sheffield  
-          S99 1AB  
-          $A
-
-          Find out about [call charges](/call-charges).
 # A32 already_abroad
       iidb_already_abroad_ss_outcome:
         body: |
@@ -886,7 +824,7 @@ en-GB:
         body: |
           You can export bereavement benefits to %{country_name} although you won't get any annual increases after you've moved there.
 
-          Claim [Bereavement Allowance](/bereavement-allowance#how-to-claim), [Bereavement Payment](/bereavement-payment#how-to-claim) or [Widowed Parent's Allowance](/widowed-parents-allowance#how-to-claim) before leaving the UK.
+          Claim [Bereavement Allowance](/bereavement-allowance/how-to-claim), [Bereavement Payment](/bereavement-payment#how-to-claim) or [Widowed Parent's Allowance](/widowed-parents-allowance#how-to-claim) before leaving the UK.
 
           Once you have claimed bereavement benefits, [contact the International Pension Centre](/international-pension-centre) to find out if you can export them.
 
