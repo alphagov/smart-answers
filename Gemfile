@@ -39,7 +39,7 @@ end
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'
 else
-  gem 'govspeak', '~> 1.6.2'
+  gem 'govspeak', '~> 3.2.0'
 end
 
 gem 'lrucache', '0.1.4'
