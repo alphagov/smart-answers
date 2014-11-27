@@ -176,18 +176,6 @@ en-GB:
           **British Embassy Tokyo**
           <consular.tokyo@fco.gov.uk>
           $C
-        registering_clickbooks: |
-          Book an appointment online at the British embassy or consulate in:
-
-          +[data_partial:clickbooks:clickbook_data]
-
-          Bring the registration form, supporting documents and the fee.
-        clickbook_link: |
-          - [%{city}](%{url})
-        registering_clickbook: |
-          [Book an appointment online](%{clickbook_data}) at the %{embassy_high_commission_or_consulate}.
-
-          Bring the registration form, supporting documents and the fee.
         consular_service_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
         consular_service_fees_libya: |

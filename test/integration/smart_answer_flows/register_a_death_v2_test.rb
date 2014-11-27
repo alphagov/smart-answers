@@ -239,7 +239,6 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_phrase_list :clickbook, [:clickbook]
         expected_location = WorldLocation.find('argentina')
         assert_state_variable :location, expected_location
         assert_state_variable :organisation, expected_location.fco_organisation
@@ -255,7 +254,6 @@ class RegisterADeathTestV2 < ActiveSupport::TestCase
         assert_current_node :embassy_result
         assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
         assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_state_variable :clickbook, ''
         assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
         assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
         assert_state_variable :postal_form_url, "/government/publications/passport-credit-debit-card-payment-authorisation-slip-austria"

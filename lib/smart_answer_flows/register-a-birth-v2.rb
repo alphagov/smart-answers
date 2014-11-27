@@ -139,12 +139,7 @@ outcome :embassy_result do
     end
     PhraseList.new(key.to_sym)
   end
-  precalculate :clickbook_data do
-    reg_data_query.clickbook(registration_country)
-  end
-  precalculate :multiple_clickbooks do
-    clickbook_data and clickbook_data.class == Hash
-  end
+
   precalculate :fees_for_consular_services do
     phrases = PhraseList.new
     if registration_country == 'libya'
@@ -162,11 +157,7 @@ outcome :embassy_result do
   precalculate :go_to_the_embassy do
     unless reg_data_query.post_only_countries?(registration_country)
       phrases = PhraseList.new
-      if multiple_clickbooks
-        phrases << :registering_clickbooks
-      elsif clickbook_data
-        phrases << :registering_clickbook
-      elsif %w(hong-kong japan).include?(registration_country)
+      if %w(hong-kong japan).include?(registration_country)
         phrases << :"registering_#{registration_country}"
       else
         phrases << :registering_all
