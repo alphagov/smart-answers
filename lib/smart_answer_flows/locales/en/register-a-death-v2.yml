@@ -232,14 +232,6 @@ en-GB:
 
           ##Go to the %{embassy_high_commission_or_consulate}
 
-        clickbooks: |
-          You can book an appointment at the British embassy or consulate in:
-
-          +[data_partial:clickbooks:clickbook_data]
-
-        clickbook: |
-          [Book an appointment online](%{clickbook_data})
-
         booking_text_embassy_hong_kong: |
           Register at consulate-general - bring the registration form, supporting documents and the fee.
 
@@ -434,8 +426,6 @@ en-GB:
           %{go_to_the_embassy_heading}
 
           %{booking_text_embassy_result}
-
-          %{clickbook}
 
           %{postal}
 
