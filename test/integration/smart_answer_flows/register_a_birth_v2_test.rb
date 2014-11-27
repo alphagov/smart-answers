@@ -176,7 +176,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_state_variable :british_national_parent, 'mother_and_father'
       assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_bangladesh]
       assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-      assert_phrase_list :go_to_the_embassy, [:registering_clickbooks, :registering_either_parent]
+      assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
       assert_state_variable :postal_form_url, nil
       assert_state_variable :postal, ""
       assert_phrase_list :footnote, [:footnote_another_country]
