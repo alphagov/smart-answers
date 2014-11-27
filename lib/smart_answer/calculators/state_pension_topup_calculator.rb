@@ -12,14 +12,12 @@ module SmartAnswer::Calculators
     FEMALE_RETIREMENT_AGE = 63
     MALE_RETIREMENT_AGE = 65
 
-    def initialize
-      @retirement_age = FEMALE_RETIREMENT_AGE
-    end
-
-    attr_accessor :retirement_age
-
     def retirement_age(gender)
-      @retirement_age = MALE_RETIREMENT_AGE if gender == 'male'
+      if gender == 'female'
+        FEMALE_RETIREMENT_AGE
+      elsif gender == 'male'
+        MALE_RETIREMENT_AGE
+      end
     end
 
     def lump_sum_amount(age, weekly_amount)
@@ -32,13 +30,13 @@ module SmartAnswer::Calculators
       SmartAnswer::Money.new(total)
     end
 
-    def lump_sum_and_age(dob, weekly_amount)
+    def lump_sum_and_age(dob, weekly_amount, gender)
       rows = []
       dob = leap_year_birthday?(dob) ? dob + 1.day : dob
       age = age_at_date(dob, TOPUP_START_DATE)
       (TOPUP_START_DATE.year..TOPUP_END_DATE.year).each do |year|
         break if age > UPPER_AGE || birthday_after_topup_end?(dob, age)
-        rows << {:amount => lump_sum_amount(age, weekly_amount), :age => age} if age >= @retirement_age
+        rows << {:amount => lump_sum_amount(age, weekly_amount), :age => age} if age >= retirement_age(gender)
         age += 1
       end
       rows

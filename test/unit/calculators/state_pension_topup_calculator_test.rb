@@ -37,26 +37,24 @@ module SmartAnswer::Calculators
     context "check return value for lump sum amount and age male" do
       setup do
         @calculator = SmartAnswer::Calculators::StatePensionTopupCalculator.new
-        @calculator.retirement_age('male')
       end
 
       should "Show 2 rates for ages 85 and 86" do
-        assert_equal [{:amount=>3940.0, :age=>85}, {:amount=>3660.0, :age=>86}], @calculator.lump_sum_and_age(Date.parse('1930-04-06'), 10)
+        assert_equal [{:amount=>3940.0, :age=>85}, {:amount=>3660.0, :age=>86}], @calculator.lump_sum_and_age(Date.parse('1930-04-06'), 10, 'male')
       end
 
       should "Show rate for 65" do
-        assert_equal [{:amount=>8900.0, :age=>65}], @calculator.lump_sum_and_age(Date.parse('1951-04-06'), 10)
+        assert_equal [{:amount=>8900.0, :age=>65}], @calculator.lump_sum_and_age(Date.parse('1951-04-06'), 10, 'male')
       end
     end
 
     context "check return value for lump sum amount and age female" do
       setup do
         @calculator = SmartAnswer::Calculators::StatePensionTopupCalculator.new
-        @calculator.retirement_age('female')
       end
 
       should "Show rate for 63" do
-        assert_equal [{:amount=>9340.0, :age=>63}], @calculator.lump_sum_and_age(Date.parse('1953-04-06'), 10)
+        assert_equal [{:amount=>9340.0, :age=>63}], @calculator.lump_sum_and_age(Date.parse('1953-04-06'), 10, 'female')
       end
     end
   end

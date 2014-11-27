@@ -1,7 +1,7 @@
 status :published
 satisfies_need "100865"
 
-calculator = Calculators::StatePensionTopupCalculator.new()
+calculator = Calculators::StatePensionTopupCalculator.new
 
 #Q1
 date_question :dob_age? do
@@ -50,10 +50,6 @@ money_question :how_much_extra_per_week? do
     end
   end
 
-  calculate :retirement_age do
-    calculator.retirement_age(gender)
-  end
-
   calculate :body_phrase do
     PhraseList.new(:body_phrase)
   end
@@ -67,7 +63,7 @@ outcome :outcome_topup_calculations do
     # Only needed for formatting amount
     self.class.send :include, ActionView::Helpers::NumberHelper
 
-    calculator.lump_sum_and_age(Date.parse(date_of_birth), weekly_amount).map do |amount_and_age|
+    calculator.lump_sum_and_age(Date.parse(date_of_birth), weekly_amount, gender).map do |amount_and_age|
       %Q(- #{number_to_currency(amount_and_age[:amount], precision: 0)} when you're #{amount_and_age[:age]})
     end.join("\n")
   end
