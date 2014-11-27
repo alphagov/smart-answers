@@ -54,6 +54,7 @@ group :test do
   gem 'simplecov-rcov', '~> 0.2.3', :require => false
   gem 'poltergeist', '1.5.1'
   gem 'timecop'
+  gem 'ruby-prof'
 end
 
 group :development do
