@@ -33,34 +33,29 @@ en-GB:
           You may be able to get married at the British embassy or consulate in %{country_name_lowercase_prefix}.
         able_to_ss_marriage_and_partnership: |
           You may be able to register a civil partnership or get married at the British embassy or consulate in %{country_name_lowercase_prefix}.
-        documents_needed_ss_british: |
+        documents_needed_7_days_residency: |
           ##What documents you’ll need
 
           You’ll need proof that you’ve been resident in the area covered by the embassy or consulate for at least 7 days, like an employer’s letter or a bank statement.
+        documents_needed_21_days_residency: |
+          ##What documents you’ll need
 
+          You need to have been living in your country of residence for 21 days. You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.
+        documents_needed_ss_british: |
           You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need either:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
         documents_needed_ss_not_british_germany_same_sex: |
-          ##What documents you’ll need
-
-          You’ll need proof that you’ve been resident in the area covered by the embassy or consulate for at least 7 days, like an employer’s letter or a bank statement.
-
           You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
         documents_needed_ss_not_british: |
-          ##What documents you’ll need
-
-          You’ll need proof that you’ve been resident in the area covered by the embassy or consulate for at least 7 days, like an employer’s letter or a bank statement.
-
           You’ll both need your original passports. You’ll also need evidence that your partner is free to marry - a document from their government or their passport that says they are unmarried. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
-
         convert_cc_to_ss_marriage: |
           ##Convert a civil partnership to a same-sex marriage
 
@@ -91,6 +86,8 @@ en-GB:
           You’ll need to provide two witnesses and pay a fee to register your marriage. You’ll need to pay an additional fee for your marriage certificate (read the fees table on this page).
         provide_two_witnesses_ss_marriage_and_partnership: |
           You’ll need to provide 2 witnesses and pay a fee to register your marriage or civil partnership. You’ll need to pay an additional fee for your marriage or civil partnership certificate (read the fees table on this page).
+        ss_marriage_footnote_21_days_residency: |
+          ^All same-sex marriages must take place under English and Welsh or Scottish law even if you live in or are from Northern Ireland. Tell the embassy or consulate which law you want to get married under at your appointment.^
         ss_marriage_footnote: |
           ^All same-sex marriages must take place under English and Welsh law even if you live in or are from Scotland or Northern Ireland. Tell the embassy or consulate which law you want to get married under at your appointment.^
 # marriage & marriage and partnership phrases
@@ -1574,7 +1571,7 @@ en-GB:
 
           ###What documents you’ll need
 
-          You’ll need proof that you’ve been resident in the area covered by the embassy or consulate for at least 7 days, like an employer’s letter, passport or a bank statement.
+          You need to have been living in your country of residence for 21 days. You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.
 
           You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:
 
@@ -1587,10 +1584,6 @@ en-GB:
         consular_cp_no_clickbook_so_embassy_details: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         consular_cp_all_documents: |
-          ###What documents you’ll need
-
-          You’ll need proof that you’ve been resident in the area covered by the embassy or consulate for at least 7 days, like an employer’s letter or a bank statement.
-
           You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order), or

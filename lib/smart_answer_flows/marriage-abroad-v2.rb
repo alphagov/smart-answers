@@ -1266,7 +1266,14 @@ outcome :outcome_cp_consular do
       end
     end
     phrases << :embassies_data unless reg_data_query.clickbook(ceremony_country)
-    phrases << :consular_cp_all_documents unless ceremony_country == 'japan'
+    unless ceremony_country == 'japan'
+      if data_query.ss_21_days_residency_required_countries?(ceremony_country)
+        phrases << :documents_needed_21_days_residency
+      else
+        phrases << :documents_needed_7_days_residency
+      end
+    end
+    phrases << :consular_cp_all_documents 
     phrases << :consular_cp_partner_not_british if partner_nationality != 'partner_british'
     phrases << :consular_cp_all_what_you_need_to_do
     phrases << :consular_cp_naturalisation unless partner_nationality == 'partner_british'
@@ -1312,6 +1319,11 @@ outcome :outcome_ss_marriage do
       phrases << :contact_embassy_or_consulate << :embassies_data
     end
     unless ceremony_country == 'japan'
+      if data_query.ss_21_days_residency_required_countries?(ceremony_country)
+        phrases << :documents_needed_21_days_residency
+      else
+        phrases << :documents_needed_7_days_residency
+      end
       if partner_nationality == 'partner_british'
         phrases << :documents_needed_ss_british
       elsif ceremony_country == 'germany'
@@ -1322,7 +1334,12 @@ outcome :outcome_ss_marriage do
     end
     phrases << :"what_to_do_#{marriage_and_partnership_phrases}" << :will_display_in_14_days << :"no_objection_in_14_days_#{marriage_and_partnership_phrases}" << :"provide_two_witnesses_#{marriage_and_partnership_phrases}"
     phrases << :australia_ss_relationships if ceremony_country == 'australia'
-    phrases << :ss_marriage_footnote << :partner_naturalisation_in_uk << :"fees_table_#{ss_fees_table}" << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
+    if data_query.ss_21_days_residency_required_countries?(ceremony_country)
+      phrases << :ss_marriage_footnote_21_days_residency
+    else
+      phrases << :ss_marriage_footnote
+    end
+    phrases << :partner_naturalisation_in_uk << :"fees_table_#{ss_fees_table}" << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
     phrases << :convert_cc_to_ss_marriage if %w{australia germany japan philippines russia serbia vietnam}.include?(ceremony_country)
     phrases
   end
