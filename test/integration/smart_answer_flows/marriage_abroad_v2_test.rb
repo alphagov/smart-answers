@@ -854,7 +854,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:other_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_ireland_resident, :consular_cni_os_ireland_resident_british_partner, :consular_cni_os_ireland_resident_two, :consular_cni_os_commonwealth_or_ireland_resident_british_partner, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_ireland_resident_ceremony_not_italy]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_ceremony_belgium, :consular_cni_os_belgium_clickbook, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_foreign_commonwealth_roi_resident, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_ceremony_belgium, :embassies_data, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_foreign_commonwealth_roi_resident, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1036,7 +1036,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :appointment_for_affidavit, :affirmation_appointment_book_at_following, :complete_affidavit, :download_affidavit, :affirmation_os_legalised_in_turkey, :documents_for_divorced_or_widowed, :affirmation_os_partner_not_british_turkey, :fee_table_affidavit_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :appointment_for_affidavit, :embassies_data, :complete_affidavit, :download_affidavit, :affirmation_os_legalised_in_turkey, :documents_for_divorced_or_widowed, :affirmation_os_partner_not_british_turkey, :fee_table_affidavit_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   #testing for ceremony in Ecuador, resident anywhere, partner other
@@ -1704,7 +1704,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
   #testing for china
   context "ceremony in china, partner is not from china, opposite sex" do
-    should "render multiple clickbooks" do
+    should "render address from API" do
       worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
       add_response 'china'
       add_response 'uk'
@@ -1712,11 +1712,11 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'partner_irish'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :book_online_china_non_local_prelude, :book_online_china_affirmation_affidavit, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :affirmation_affidavit_os_partner, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :book_online_china_non_local_prelude, :book_online_china_affirmation_affidavit, :embassies_data, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :affirmation_affidavit_os_partner, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "ceremony in china, partner is not from china, same sex" do
-    should "render multiple clickbooks" do
+    should "render address from API" do
       worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
       add_response 'china'
       add_response 'uk'
@@ -1724,11 +1724,11 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'partner_irish'
       add_response 'same_sex'
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :book_online_china, :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "ceremony in china, partner is national of china" do
-    should "render multiple clickbooks" do
+    should "render address from API" do
       worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
       add_response 'china'
       add_response 'other'
@@ -1736,7 +1736,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :book_online_china_local_prelude, :book_online_china_affirmation_affidavit, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :book_online_china_local_prelude, :book_online_china_affirmation_affidavit, :embassies_data, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   #testing for japan
@@ -1749,7 +1749,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_foreign_resident_ceremony_not_germany_italy, :check_with_embassy_or_consulate, :japan_consular_cni_os_local_resident, :japan_consular_cni_os_local_resident_partner_local, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :display_notice_of_marriage_7_days]
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_foreign_resident_ceremony_not_germany_italy, :check_with_embassy_or_consulate, :embassies_data, :japan_consular_cni_os_local_resident, :japan_consular_cni_os_local_resident_partner_local, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :display_notice_of_marriage_7_days]
       assert_phrase_list :consular_cni_os_remainder, [:japan_consular_cni_os_local_resident_two, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
@@ -1838,7 +1838,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'same_sex'
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :book_online_peru, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "peru outcome mapped to lebanon" do
@@ -1908,7 +1908,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to affirmation outcome with specific fee table" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :clickbook_link, :affirmation_os_translation_in_local_language, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affirmation_65, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affirmation_65, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
     end
   end
 
@@ -1940,7 +1940,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to affirmation outcome with specific fee table" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affidavit, :appointment_for_affidavit, :clickbook_link, :affidavit_os_translation_in_local_language, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affidavit_65, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affidavit, :appointment_for_affidavit, :affidavit_os_translation_in_local_language, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affidavit_65, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
     end
   end
 
@@ -1956,7 +1956,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to affirmation outcome with specific fee table" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affidavit, :appointment_for_affidavit, :clickbook_link, :affidavit_os_translation_in_local_language, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affidavit_65, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affidavit, :appointment_for_affidavit, :affidavit_os_translation_in_local_language, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affidavit_65, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
     end
   end
 
@@ -2107,7 +2107,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to affirmation_os_outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affirmation, :book_online_portugal, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affidavit_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affidavit_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "kazakhstan should show its correct embassy page" do
@@ -2166,7 +2166,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to outcome_os_consular_cni and show specific phraselist" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :what_to_do_croatia, :consular_cni_os_local_resident_table, :make_appointment_online_croatia, :living_in_residence_country_3_days, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany, :display_notice_of_marriage_7_days]
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :what_to_do_croatia, :consular_cni_os_local_resident_table, :embassies_data, :living_in_residence_country_3_days, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany, :display_notice_of_marriage_7_days]
     end
   end
   context "Marrying in Qatar > Resident in Qatar > Partner is British > Partner is opposite sex" do

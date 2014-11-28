@@ -21,10 +21,6 @@ en-GB:
       phrases:
         ceremony_type_marriage: Marriage
         ceremony_type_civil_partnership: Civil partnership
-        clickbook_link: |
-          [Book an appointment online](%{clickbook_data})
-        clickbook_links: |
-          +[data_partial:clickbooks:clickbook_data]
 # same sex marriage phrases
         title_ss_marriage: Same-sex marriage
         title_ss_marriage_and_partnership: Same-sex marriage and civil partnership
@@ -132,7 +128,7 @@ en-GB:
         contact_british_embassy_or_consulate_berlin: |
           Contact the British Embassy in Berlin to make an appointment.
         contact_embassy_or_consulate: |
-          Contact your local embassy or consulate to make an appointment.
+          Contact the embassy or consulate to make an appointment.
         embassies_data: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         check_travel_advice: |
@@ -209,20 +205,7 @@ en-GB:
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ^You might need to get your affidavit [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
-        affirmation_os_translation_in_local_language_portugal: |
-          $C
-          British Embassy
-          Rua de São Bernardo 33
-          1249-082 Lisboa
-          Portugal
 
-          Telephone: +351 21 392 40 00
-          Fax: +351 21 392 40 21
-          <portugal.consulate@fco.gov.uk>: (Consular enquiries only, not Visas or Passports)
-          Email: <ppa.lisbon@fco.gov.uk>
-          $C
-
-          ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
 # fee tables
         fee_table_45_70_55: |
           ##Fees
@@ -321,60 +304,15 @@ en-GB:
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
           - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
 
-        make_appointment_online_philippines: |
-          Make an [appointment online](http://britishembassymanila.clickbook.net/) or contact the embassy directly.
-        make_appointment_online_croatia: |
-          Make an [appointment online](https://ukincroatia.clickbook.net/sub/ukincroatia) at the British Embassy Zagreb.
         contact_civil_register_office_portugal: |
           Contact your nearest [Civil Register Office](http://www.irn.mj.pt/IRN/sections/irn/a_registral/servicos-externos-docs/contactos/contactos-dos-servicos-civil/) in Portugal to find out about local marriage laws, including what documents you’ll need.
-# "book online" phrases
-        book_online_bolivia: |
-          Make an [appointment online](https://britishembassylapaz.clickbook.net/sub/britishembassylapaz) at the British Embassy in La Paz.
-        book_online_chile: |
-          Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsant) at the British Embassy in Santiago.
+# "book online" china phrases
         book_online_china_non_local_prelude:
-          Make an appointment online at your local British embassy or consulate in China to swear an affirmation/affadavit (written statement of facts) that you're free to marry. You'll need to bring your passport and pay a fee.
+          Make an appointment at your local British embassy or consulate in China to swear an affirmation/affadavit (written statement of facts) that you're free to marry. You'll need to bring your passport and pay a fee.
         book_online_china_local_prelude:
-          Make an appointment online at the British embassy or consulate in China nearest to the address in your partner's Hukou (family registration) book, to swear an affirmation/affadavit (written statement of facts) that you're free to marry. You'll need to bring your passport, your partner's Hukou and pay a fee.
-        book_online_china: |
-          Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britembeijing?OpenDocument&cb_referer=) at the British Embassy Beijing.
+          Make an appointment at the British embassy or consulate in China nearest to the address in your partner's Hukou (family registration) book, to swear an affirmation/affadavit (written statement of facts) that you're free to marry. You'll need to bring your passport, your partner's Hukou and pay a fee.
         book_online_china_affirmation_affidavit: |
-          - [Beijing](http://britembeijing.clickbook.net/)
-          - [Chongqing](http://britconchongqing.clickbook.net/)
-          - [Guangzhou](http://britconguangzhou.clickbook.net/)
-          - [Shanghai](http://britconshanghai.clickbook.net/)
-
-          You’ll need to complete an [‘Affirmation for marriage’](/government/publications/affirmation-form-china) (non-religious) form or an [‘Affidavit for marriage’](/government/publications/affidavit-form-china) (religious) form in English. Email the completed form to the embassy you have made your appointment with.
-
-          - Beijing - <consular.beijing@fco.gov.uk>
-          - Chongqing - <consular.chongqing@fco.gov.uk>
-          - Guangzhou - <consular.guangzhou@fco.gov.uk>
-          - Shanghai - <consular.shanghai@fco.gov.uk>
-
-        book_online_colombia: |
-          Make an [appointment online](https://britishembassybogota.clickbook.net/sub/britishembassybogota) at the British Embassy in Colombia.
-        book_online_costa-rica: |
-          Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyinsanj) at the British Embassy in San Jose.
-        book_online_mongolia: |
-          Make an [appointment online](https://britembub.clickbook.net/) at the British Embassy Ulaanbaatar.
-        book_online_montenegro: |
-          Make an [appointment online](http://ukinmne.clickbook.net/) at the British Embassy Podgorica.
-        book_online_peru: |
-          Make an [appointment online](http://britishembassyinlima.clickbook.net/) at the British Embassy in Lima.
-        book_online_philippines: |
-          Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassymanila) at the British Embassy in Manila.
-        book_online_portugal: |
-          Contact the British Consulate in Lisbon directly or make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishconsulatelis) to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
-        book_online_russia: |
-          Make an [appointment online](www.RussiaConsular.clickbook.net) at the British Embassy Moscow.
-        book_online_san-marino: |
-          Make an [appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome?OpenDocument&cb_referer=%20Book%20an%20appointment%20using%20Clickbook%22#.UoNM6uL0nk8) at the British Embassy Rome.
-        book_online_hungary: |
-          Make an [appointment online]( https://www.clickbook.net/dev/bc.nsf/sub/BRITISHEMBASSYCONSUL) at the British Embassy in Budapest.
-        book_online_serbia: |
-          Make an [appointment online](www.serbia.clickbook.net) at the Consular Section in Belgrade.
-        book_online_vietnam: |
-          Make an [appointment online](http://www.britishembassyhanoi.clickbook.net/) at the British Embassy in Hanoi.
+          You’ll need to complete an [‘Affirmation for marriage’](/government/publications/affirmation-form-china) (non-religious) form or an [‘Affidavit for marriage’](/government/publications/affidavit-form-china) (religious) form in English.
 
 # Marriage if resident of Isle of Man or Channel Islands
         iom_ci_os_all: |
@@ -428,8 +366,6 @@ en-GB:
           You may be asked to provide a civil status declaration to prove you’re allowed to enter into a civil partnership.
         switzerland_not_resident_two: |
           If you need a civil status declaration, you can get one from the British Embassy in Berne in the language of the canton where the ceremony is taking place.
-
-          [Book an appointment online](https://www.clickbook.net/sub/BRITISHCONSULATEBERN).
 
           ##Getting your civil status declaration
 
@@ -694,12 +630,6 @@ en-GB:
 
           Once you have your UK-issued CNI, the British Embassy in Manila can issue a Philippine version that will be recognised by the local authorities. You can arrange this by booking an appointment online at least 2 weeks before your visit.
 
-          [Book an appointment online](http://britishembassymanila.clickbook.net/).
-        consular_cni_os_uk_resident_ceremony_portugal: |
-          ###Getting a Portuguese version of your CNI
-
-          Once you have your UK-issued CNI, the British Consulate can issue a Portuguese version. You can arrange this by booking an appointment online.
-
         consular_cni_os_local_resident_table: |
 
           ###Applying for a CNI from the %{embassy_or_consulate_residency_country}
@@ -720,10 +650,6 @@ en-GB:
 
           Email <RussiaConsular@fco.gov.uk> to find out where your local consulate is.
 
-          Book an appointment online at the [British Embassy Moscow](https://www.clickbook.net/dev/bc.nsf/sub/RussiaConsular) or the [British Consulate St Petersburg](https://stpetersburgconsular.clickbook.net/sub/stpetersburgconsular).
-
-          Email <RussiaConsular@fco.gov.uk> to book an appointment at the British Consulate Ekaterinburg.
-
         consular_cni_os_local_resident_italy: |
           To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
 
@@ -731,7 +657,6 @@ en-GB:
 
           You’ll need to have been resident in Italy for at least 3 days. You can then book an appointment at the British Embassy in Rome.
 
-          [Book an appointment online in Rome](https://www.clickbook.net/dev/bc.nsf/sub/britishconsrome).
         consular_cni_os_foreign_resident_ceremony_not_germany_italy: |
           If you need a CNI, you’ll have to give notice of your intended marriage in the country where you live.
         consular_cni_os_foreign_resident_ceremony_country_italy: |
@@ -1024,10 +949,7 @@ en-GB:
 
           You can also pay the fee for your CNI in advance at your appointment, or send it in the post. Complete the [payment authorisation slip](/government/publications/passport-credit-debit-card-payment-authorisation-slip-japan) if you’re paying by Visa or MasterCard. If you’re paying by cash, use cash registered mail (‘Genkin Kakitome’).
 
-          Otherwise, you can make an appointment to collect your CNI in person:
-
-          - [Tokyo](https://britishembassytokyo.clickbook.net/sub/britishembassytokyo) (if you live in Eastern Japan)
-          - [Osaka](https://ukconsulateosaka.clickbook.net/sub/ukconsulateosaka) (if you live in Western Japan)
+          Otherwise, you can make an appointment to collect your CNI in person.
         italy_os_consular_cni_four: |
           You’ll then have to email the embassy with completed [credit card authorisation](/government/publications/credit-card-authorisation-form), [couple information](/government/publications/couple-information-form) and [request for consular services](/government/publications/request-for-consular-services) forms to arrange payment so they can issue your Nulla Osta.
 
@@ -1058,8 +980,6 @@ en-GB:
           - certificate of celibacy (‘certificat de celibat’ / ‘certificaat van celibaat’) - there’s no UK equivalent, but you can make a statutory declaration at the British embassy instead
 
           Check with the town hall to find out if you need any of these documents. You’ll need to make an appointment at the embassy to get them. Bring any supporting documents they ask for, and pay a fee (see below).
-        consular_cni_os_belgium_clickbook: |
-          [Book an appointment online](http://britishconsulate-gen.clickbook.net/).
         consular_cni_os_ceremony_spain: |
           ###Getting a marital status certificate
 
@@ -1095,9 +1015,6 @@ en-GB:
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-
-        consular_cni_os_vietnam_clickbook: |
-          [Book an appointment online](http://www.bcghochiminh.clickbook.net).
 
         consular_cni_os_fees_not_italy_not_uk: |
           ##Fees
@@ -1157,14 +1074,6 @@ en-GB:
           You may be able to get married at the British Embassy if you're both resident in the United Arab Emirates and can prove that there are no other suitable facilities.
 
           Contact the British Embassy in the United Arab Emirates for more information.
-
-        affirmation_appointment_book_at_following: |
-          Book your appointment at one of the following:
-
-            - [British Consulate General Istanbul](https://britishcongenistanbu.clickbook.net)
-            - [British Embassy Ankara](https://britishembassyankara.clickbook.net)
-            - [British Consulate Izmir](https://britishconsulateizmi.clickbook.net)
-            - [British Vice Consulate Antalya](https://britishviceconantaly.clickbook.net)
 
         affirmation_os_partner: |
           ^Your partner will need to get an affirmation as well.^
@@ -1566,8 +1475,7 @@ en-GB:
         consular_cp_japan: |
           Contact them to make an appointment:
 
-          - [Tokyo](https://britishembassytokyo.clickbook.net/sub/britishembassytokyo) (if you live in Eastern Japan)
-          - [Osaka](https://ukconsulateosaka.clickbook.net/sub/ukconsulateosaka) (if you live in Western Japan)
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
           ###What documents you’ll need
 
@@ -1578,7 +1486,7 @@ en-GB:
           - a [decree absolute or final order](/copy-decree-absolute-final-order), or
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
         consular_cp_vietnam: |
-          [Book an appointment online](https://www.clickbook.net/dev/bc.nsf/sub/britishembassyhanoi).
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         consular_cp_all_contact: |
           Contact them to make an appointment:
         consular_cp_no_clickbook_so_embassy_details: |
