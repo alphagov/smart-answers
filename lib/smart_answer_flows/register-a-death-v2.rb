@@ -214,22 +214,6 @@ outcome :embassy_result do
     end
   end
 
-  precalculate :clickbook_data do
-    reg_data_query.clickbook(current_location)
-  end
-
-  precalculate :clickbook do
-    if clickbook_data.nil? || modified_card_only_countries.include?(current_location)
-      ''
-    else
-      if clickbook_data.class == Hash
-        PhraseList.new :clickbooks
-      else
-        PhraseList.new :clickbook
-      end
-    end
-  end
-
   precalculate :post_only do
     if reg_data_query.post_only_countries?(current_location)
       PhraseList.new(:"post_only_#{current_location}")
