@@ -56,6 +56,7 @@ group :test do
   gem 'timecop'
   gem 'minitest', '4.7.5'
   gem 'minitest-rails', '1.0.1'
+  gem 'minitest-reporters'
 end
 
 group :development do
