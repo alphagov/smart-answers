@@ -33,6 +33,7 @@ GEM
     airbrake (3.1.15)
       builder
       multi_json
+    ansi (1.4.3)
     arel (3.0.3)
     ast (2.0.0)
     autoparse (0.3.1)
@@ -91,6 +92,7 @@ GEM
     govuk_frontend_toolkit (1.6.0)
       rails (>= 3.1.0)
       sass (>= 3.2.0)
+    hashie (3.3.2)
     hike (1.2.3)
     htmlentities (4.3.1)
     i18n (0.6.9)
@@ -115,6 +117,18 @@ GEM
     metaclass (0.0.1)
     method_source (0.8.2)
     mime-types (1.25.1)
+    minitest (4.7.5)
+    minitest-rails (1.0.1)
+      minitest (~> 4.7)
+      minitest-test (~> 1.0)
+      railties (>= 3.0, < 4.1)
+    minitest-reporters (0.14.24)
+      ansi
+      builder
+      minitest (>= 2.12, < 5.0)
+      powerbar
+    minitest-test (1.1.0)
+      minitest (~> 4.0)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
     multi_json (1.8.4)
@@ -133,6 +147,9 @@ GEM
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
     polyglot (0.3.4)
+    powerbar (1.0.11)
+      ansi (~> 1.4.0)
+      hashie (>= 1.1.0)
     powerpack (0.0.9)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -258,6 +275,9 @@ DEPENDENCIES
   json
   logstasher (= 0.4.8)
   lrucache (= 0.1.4)
+  minitest (= 4.7.5)
+  minitest-rails (= 1.0.1)
+  minitest-reporters
   mocha (= 0.13.3)
   nokogiri (= 1.5.11)
   parser

@@ -7,12 +7,14 @@ SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 SimpleCov.start 'rails'
 
 ENV["RAILS_ENV"] = "test"
+
 require File.expand_path('../../config/environment', __FILE__)
-require 'rails/test_help'
 
-require 'minitest/unit'
+require "minitest/reporters"
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
 require 'minitest/autorun'
-
+require 'minitest/unit'
 require 'mocha/setup'
 
 require 'webmock/minitest'
