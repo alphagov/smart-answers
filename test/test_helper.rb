@@ -12,6 +12,11 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'minitest/unit'
 require 'minitest/autorun'
 
+if ENV['SPEC_REPORTER']
+  require "minitest/reporters"
+  Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+end
+
 require 'mocha/setup'
 
 require 'webmock/minitest'
