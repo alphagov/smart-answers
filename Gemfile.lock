@@ -115,6 +115,13 @@ GEM
     metaclass (0.0.1)
     method_source (0.8.2)
     mime-types (1.25.1)
+    minitest (4.7.5)
+    minitest-rails (1.0.1)
+      minitest (~> 4.7)
+      minitest-test (~> 1.0)
+      railties (>= 3.0, < 4.1)
+    minitest-test (1.1.0)
+      minitest (~> 4.0)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
     multi_json (1.8.4)
@@ -258,6 +265,8 @@ DEPENDENCIES
   json
   logstasher (= 0.4.8)
   lrucache (= 0.1.4)
+  minitest (= 4.7.5)
+  minitest-rails (= 1.0.1)
   mocha (= 0.13.3)
   nokogiri (= 1.5.11)
   parser

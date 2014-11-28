@@ -54,6 +54,8 @@ group :test do
   gem 'simplecov-rcov', '~> 0.2.3', :require => false
   gem 'poltergeist', '1.5.1'
   gem 'timecop'
+  gem 'minitest', '4.7.5'
+  gem 'minitest-rails', '1.0.1'
 end
 
 group :development do
