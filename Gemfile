@@ -55,7 +55,6 @@ group :test do
   gem 'poltergeist', '1.5.1'
   gem 'timecop'
   gem 'minitest', '4.7.5'
-  gem 'minitest-rails', '1.0.1'
   gem 'minitest-reporters'
 end
 
@@ -66,6 +65,10 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'nokogiri', '1.5.11'
+end
+
+group :development, :test do
+  gem 'minitest-rails', '1.0.1'
 end
 
 group :assets do
