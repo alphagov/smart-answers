@@ -227,6 +227,7 @@ multiple_choice :partner_opposite_or_same_sex? do
   next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
   next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
   on_condition(responded_with('opposite_sex')) do
+    next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, "kosovo"))
     next_node_if(:outcome_os_indonesia, variable_matches(:ceremony_country, "indonesia"))
     next_node_if(:outcome_os_consular_cni, -> {
       data_query.os_consular_cni_countries?(ceremony_country) or (resident_of == 'uk' and data_query.os_no_marriage_related_consular_services?(ceremony_country))
@@ -381,6 +382,17 @@ outcome :outcome_os_indonesia do
       :partner_affidavit_needed,
       :fee_table_45_70_55
     )
+  end
+end
+
+outcome :outcome_os_kosovo do
+  precalculate :kosovo_os_phraselist do
+    phrases = PhraseList.new
+    if resident_of == 'uk'
+      phrases << :kosovo_uk_resident
+    else
+      phrases << :kosovo_not_uk_resident
+    end
   end
 end
 
