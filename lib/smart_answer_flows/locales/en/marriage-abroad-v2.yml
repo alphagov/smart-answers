@@ -257,6 +257,8 @@ en-GB:
           You need to have been living in your country of residence for 3 days.
         check_with_embassy_or_consulate: |
           Check with your nearest British embassy or consulate to find out if they can do this for you.
+        check_with_embassy_consulate_or_notary_public: |
+          Check with a notary public or your nearest British embassy or consulate to find out if they can do this for you.
         morocco_affidavit_length: |
           ^An 'affirmation for marriage' document issued in Morocco is valid for 3 months.^
         callout_partner_equivalent_document: |
@@ -548,6 +550,18 @@ en-GB:
           ^A CNI issued in England, Wales or Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
 
           They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
+
+        cni_at_local_register_office_notary_public: |
+          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
+
+          ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire, but you should check with the local authorities in the country where you intend to marry to find out how long a CNI is valid under local law.^
+
+        cni_posted_if_no_objection_14_days_notary_public: |
+          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
+
+          ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire, but you should check with the local authorities in the country where you intend to marry to find out how long a CNI is valid under local law.^
+
+          They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
         cni_posted_if_no_objection_7_days: |
           You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
 
@@ -683,6 +697,34 @@ en-GB:
 
           You need to have been living in your country of residence for 3 days.
         consular_cni_os_foreign_resident_3_days_macedonia: |
+          Contact a notary public or the British Embassy in Macedonia to get advice:
+
+          $C
+          British Embassy Macedonia  
+          Telephone: + 389 (2) 3299 299  
+          <consular.skopje@fco.gov.uk>  
+          $C
+
+          %You can't book an appointment to get advice at the embassy in person.%
+
+        consular_cni_os_foreign_resident_ceremony_notary_public: |
+          Check with a notary public or your nearest British embassy or consulate to find out if they can do this for you.
+
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
+          ###Giving notice of marriage
+
+          You need to have been living in your country of residence for 21 days.
+
+        consular_cni_os_foreign_resident_3_days_notary_public: |
+          Check with a notary public or your nearest British embassy or consulate to find out if they can do this for you.
+
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
+          ###Giving notice of marriage
+
+          You need to have been living in your country of residence for 3 days.
+        consular_cni_os_foreign_resident_3_days_macedonia: |
           Contact the British Embassy in Macedonia to get advice:
 
           $C
@@ -800,12 +842,20 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
           - equivalent documents for your partner
 
+        consular_cni_variant_local_resident_or_foreign_resident_notary_public: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} or notary public to find out what you need
+          - equivalent documents for your partner
+
         consular_cni_variant_local_resident_italy: |
           You’ll need to provide supporting documents, including:
 
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents' names
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} or notary publicto find out what you need
           - equivalent documents for your partner
 
         cambodia_consular_cni_os_partner_local: |
@@ -883,6 +933,18 @@ en-GB:
           [Download ‘Affidavit for marriage’ (PDF, 58KB)](/government/uploads/system/uploads/attachment_data/file/136830/affidavit2012.pdf)
           $D
 
+        consular_cni_os_download_documents_notary_public: |
+          You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
+
+          You can download and fill in (but not sign) the forms in advance.
+
+
+          $D
+          [Download ‘Notice of marriage’ (PDF, 96KB)](/government/uploads/system/uploads/attachment_data/file/136829/nom2012.pdf)
+
+          [Download ‘Affidavit for marriage’ (PDF, 58KB)](/government/uploads/system/uploads/attachment_data/file/136830/affidavit2012.pdf)
+          $D
+
         wait_300_days_before_remarrying: |
           ^If you're a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
         display_notice_of_marriage_7_days: |
@@ -910,12 +972,16 @@ en-GB:
           The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then send all of your documentation to the nearest British embassy or consulate in %{country_name_lowercase_prefix} to where you’re getting married, who will issue your CNI (as long as nobody has registered an objection).
 
           There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
-        consular_cni_os_foreign_resident_ceremony_italy: |
+
+        consular_cni_os_foreign_resident_ceremony_notary_public: |
           ###What happens next
 
-          The consulate will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then send all of your documentation to the British Embassy in Rome (as long as nobody has registered an objection).
+          The embassy or notary public will charge a fee for taking the oath.
 
-          They’ll issue your Nulla Osta. There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
+          If you give notice at a notary public, you must post the signed forms and any supporting documents to your nearest British embassy or consulate afterwards.
+
+          ^The embassy or consulate may charge a fee to return your documents to you.^
+
         consular_cni_os_commonwealth_resident_ceremony_italy: |
           ###What happens next
 
@@ -967,7 +1033,7 @@ en-GB:
         consular_cni_os_other_resident_partner_british_ceremony_italy: |
           ^Your partner will need to follow the same process to get their own Nulla Osta.^
         consular_cni_os_all_names_but_germany: |
-          The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).
+          %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
         consular_cni_os_other_resident_ceremony_not_italy: |
           You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in %{country_name_lowercase_prefix}.
         consular_cni_os_ceremony_belgium: |
