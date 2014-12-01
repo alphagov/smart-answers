@@ -11,9 +11,10 @@ Check the serial number by the tail.
 * sphynx: Sphynx
 * meowth: Meowth
 * bulldog: Bulldog
+* parrot: Parrot
 
 * type_of_feline is 'lion' => question_6
-* type_of_feline is 'bulldog' => question_4
+* type_of_feline is 'bulldog' OR type_of_feline is 'parrot' => question_4
 * type_of_feline is 'tiger' => question_2
 * type_of_feline is 'meowth' => question_5
 * otherwise => outcome_safe_pet
