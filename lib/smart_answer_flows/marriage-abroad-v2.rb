@@ -573,14 +573,18 @@ outcome :outcome_os_consular_cni do
     end
 
     if resident_of == 'uk'
-      if %w(italy finland kazakhstan kyrgyzstan montenegro poland portugal).exclude?(ceremony_country)
+      if ceremony_country == 'tunisia'
+        phrases << :tunisia_legalisation_and_translation
+      elsif ceremony_country == 'germany'
+        phrases << :germany_legalisation_and_translation
+      elsif %w(italy finland kazakhstan kyrgyzstan montenegro poland portugal).exclude?(ceremony_country)
         phrases << :consular_cni_os_uk_resident_legalisation
       elsif ceremony_country == 'montenegro'
         phrases << :consular_cni_os_uk_resident_montenegro
       elsif %w(finland kazakhstan kyrgyzstan poland).include?(ceremony_country)
         phrases << :consular_cni_os_uk_legalisation_check_with_authorities
       end
-      phrases << :consular_cni_os_uk_resident_not_italy_or_portugal if %w(italy portugal).exclude?(ceremony_country)
+      phrases << :consular_cni_os_uk_resident_not_italy_or_portugal if %w(germany italy portugal tunisia).exclude?(ceremony_country)
     end
 
     if ceremony_country == residency_country

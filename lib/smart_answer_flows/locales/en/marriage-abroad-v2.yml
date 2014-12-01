@@ -628,6 +628,20 @@ en-GB:
           ###Legalisation and translation
 
           You should check with the local authorities in %{country_name_lowercase_prefix} to see if your CNI needs to be:
+
+        germany_legalisation_and_translation: |
+          ###Translation
+
+          Check with the local authorities if you need to get your UK-issued CNI translated.
+
+          [find a translator abroad](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
+
+          You should also check with the local authorities if you need to provide [legalised](/get-document-legalised) and translated copies of any other documents.
+
+        tunisia_legalisation_and_translation: |
+          ###Legalisation and translation
+
+          You’ll need to exchange your UK-issued CNI for one that’s valid in Tunisia at the nearest British embassy to where you’re getting married.
         consular_cni_os_uk_resident_legalisation: |
           ###Legalisation and translation
 
