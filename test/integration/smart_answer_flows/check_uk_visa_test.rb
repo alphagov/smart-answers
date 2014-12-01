@@ -645,17 +645,6 @@ end
       end
     end
   end
-  context "check correct outcome for Colombia" do
-    setup do
-      add_response 'colombia'
-      add_response 'transit'
-      add_response 'yes'
-    end
-    should "go to outcome_transit_leaving_airport" do
-      assert_current_node :outcome_transit_leaving_airport
-      assert_phrase_list :colombia_transit_added_text, [:colombia_transit_added_text]
-    end
-  end
   context "check for diplomatic and government business travellers" do
     setup do
       add_response 'bolivia'
