@@ -166,9 +166,15 @@ en-GB:
           You may be asked to provide an ‘affidavit for marriage’ document to prove you’re allowed to marry.
         make_an_appointment: |
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
+
+        make_an_appointment_bring_passport_and_pay_55: |
+          Make an appointment at the local British embassy or consulate in Colombia to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
+
+        download_affidavit_forms_but_do_not_sign: |
+          You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. You can download and fill in (but not sign) the forms in advance.
 # affidavit phrases
         complete_affidavit: |
-          You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit.  Take the completed form with you to your appointment.
+          You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. Take the completed form with you to your appointment.
 
         complete_affidavit_with_download_link: |
           You’ll need to complete an [‘Affidavit for marriage’ form](/government/publications/marriage-in-%{country_name_lowercase_prefix}) that will be used for your affidavit. Take the completed form with you to your appointment.
@@ -187,6 +193,8 @@ en-GB:
         appointment_for_affidavit_notary: |
           Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
 # partner affirmation phrases
+        legalisation_and_translation: |
+          ###Legalisation and translation
         partner_affirmation_needed: |
           ^Your partner will need to get an affirmation as well.^
         partner_affidavit_needed: |
@@ -293,7 +301,7 @@ en-GB:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
           - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
-          
+
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
         documents_for_divorced_or_widowed_cambodia: |
           If you’ve been divorced or widowed, you’ll need to provide:
@@ -628,6 +636,20 @@ en-GB:
           ###Legalisation and translation
 
           You should check with the local authorities in %{country_name_lowercase_prefix} to see if your CNI needs to be:
+
+        germany_legalisation_and_translation: |
+          ###Translation
+
+          Check with the local authorities if you need to get your UK-issued CNI translated.
+
+          [Find a translator abroad](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
+
+          You should also check with the local authorities if you need to provide [legalised](/get-document-legalised) and translated copies of any other documents.
+
+        tunisia_legalisation_and_translation: |
+          ###Legalisation and translation
+
+          You’ll need to exchange your UK-issued CNI for one that’s valid in Tunisia at the nearest British embassy to where you’re getting married.
         consular_cni_os_uk_resident_legalisation: |
           ###Legalisation and translation
 
@@ -648,7 +670,7 @@ en-GB:
 
           ###Applying for a CNI from the %{embassy_or_consulate_residency_country}
 
-          You’ll need to have been resident in Croatia for at least 21 days. You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
+          You’ll need to have been resident in Croatia for at least 3 days. You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
         kazakhstan_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
 
@@ -660,9 +682,11 @@ en-GB:
 
           ###Applying for a CNI from the consulate
 
-          You’ll need to have been resident in the Russian Federation for at least 21 days. You can then book an appointment at the consulate in the district you’re resident in, to give notice of your marriage.
+          You’ll need to have been resident in the Russian Federation for at least 3 days. You can then book an appointment at the consulate in the district you’re resident in, to give notice of your marriage.
 
           Email <RussiaConsular@fco.gov.uk> to find out where your local consulate is.
+
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         consular_cni_os_local_resident_italy: |
           To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
@@ -725,7 +749,7 @@ en-GB:
 
           You need to have been living in your country of residence for 3 days.
         consular_cni_os_foreign_resident_3_days_macedonia: |
-          Contact the British Embassy in Macedonia to get advice:
+          Contact the notary public or British Embassy in Macedonia to get advice:
 
           $C
           British Embassy Macedonia  
@@ -855,7 +879,7 @@ en-GB:
 
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents' names
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} or notary publicto find out what you need
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} or notary public to find out what you need
           - equivalent documents for your partner
 
         cambodia_consular_cni_os_partner_local: |
@@ -866,6 +890,8 @@ en-GB:
             - proof of residence, eg a residence certificate - check with the embassy or consulate for advice
 
         japan_consular_cni_os_local_resident: |
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
           To book an appointment, complete the [marriage questionnaire](/government/publications/marriage-questionnaire-japan). Send it by email, fax or post following the instructions on the form, along with copies of the requested documents.
 
           The consulate will contact you to arrange an appointment to make an oath or affidavit (written statement of facts) stating that you’re free to marry once they’ve received your application. You’ll need to bring the following supporting documents:
@@ -892,13 +918,6 @@ en-GB:
         italy_consular_cni_os_partner_british: |
           You and your partner will need to provide your passports and [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate).
         consular_cni_variant_local_resident_spain: |
-          To request an appointment, fill in the CNI appointment request form and make sure you’ve got all of the necessary supporting documents.
-
-
-          $D
-          [Download 'CNI appointment request form' (DOC, 54KB)](/government/uploads/system/uploads/attachment_data/file/182250/_Appointment_request_form_for_CNI_6_.doc)
-          $D
-
           The documents you need are:
 
           - your passport
@@ -918,11 +937,18 @@ en-GB:
         consular_cni_os_other_resident_ceremony_italy: |
           You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
         spain_os_consular_cni_three: |
-          Send your completed appointment request form and copies of the supporting documents to your [nearest British consulate](/notarial-and-documentary-services-guide-for-spain#where-to-send-your-request). You can send them as scanned attachments to an email or by fax. You’ll need to bring the original documents to your appointment.
+          Send your completed CNI service request form and copies of the supporting documents to your [nearest British consulate](/notarial-and-documentary-services-guide-for-spain#where-to-send-your-request). You can send them as scanned attachments by email or by fax. You’ll need to bring the original documents to your appointment.
+
+          To request an appointment, fill in the CNI service request form and make sure you’ve got all of the necessary supporting documents.
+
+          $D
+          [Download 'CNI service request form' (DOC, 29KB)](/government/publications/certificate-of-no-impediment-service-request-form-spain)
+          $D
 
           ###What happens next
 
           The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 7 days, and if nobody has raised an objection, they’ll issue your CNI. There’s an additional fee for this.
+
         consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany: |
           The %{embassy_or_consulate_residency_country} will provide you with forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the forms in advance.
 
@@ -956,10 +982,6 @@ en-GB:
           ###What happens next
 
           The %{embassy_or_consulate_residency_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
-        consular_cni_os_local_resident_italy_two: |
-          ###What happens next
-
-          The embassy will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the Nulla Osta, as long as nobody has registered an objection. There’s an additional fee for this.
         consular_cni_os_foreign_resident_ceremony_not_italy: |
           ###What happens next
 
@@ -981,6 +1003,10 @@ en-GB:
           If you give notice at a notary public, you must post the signed forms and any supporting documents to your nearest British embassy or consulate afterwards.
 
           ^The embassy or consulate may charge a fee to return your documents to you.^
+
+          The consulate will display your notice of marriage publicly for 7 days. They’ll then send all of your documentation to the nearest British embassy or consulate in %{country_name_lowercase_prefix} to where you’re getting married, who will issue your CNI (as long as nobody has registered an objection).
+
+          There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
 
         consular_cni_os_commonwealth_resident_ceremony_italy: |
           ###What happens next
@@ -1026,6 +1052,9 @@ en-GB:
 
           They’ll contact you to arrange collection or delivery, and will normally aim to to issue the Nulla Osta within 20 days.
 
+        notary_public_will_charge_a_fee: |
+          The notary public will charge a fee for taking the oath, and then give you your notice of marriage. You should take this notice to the local authorities where you're getting married.
+
         partner_will_need_a_cni: |
           ^Your partner will need to get their own CNI.^
         consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british: |
@@ -1064,7 +1093,7 @@ en-GB:
           [Download ‘Declaración de estado civil instrucciones en Español’ (PDF, 236KB)](/government/uploads/system/uploads/attachment_data/file/136833/marital-status-declaration-instruction-sp.pdf)
           $D
 
-          You’ll also need a completed marital status certificate application form, as well as the supporting documents and the fee (see below). These are the same as the ones you need for a CNI.
+          You’ll also need a completed marital status certificate application form, as well as the supporting documents and the fee (see below).
 
           $D
           [Download 'Marital status certificate appointment request form' (DOC, 53KB)](/government/uploads/system/uploads/attachment_data/file/182249/Appointment_request_form_marital_status_marriage.doc)
@@ -1076,7 +1105,17 @@ en-GB:
 
           The civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).
 
-          You can get a [consular letter with proof of address for marriage](/notarial-and-documentary-services-guide-for-spain#proof-of-address-for-marriage) from the consulate if you need to provide this.
+          You'll need to show one of the following:
+
+          - a letter confirming your address, eg electoral roll
+          - a bank or building society statement, credit card statement
+          - a mortgage statement
+          - a council tax letter
+          - utility bills
+          - recent proof of entitlement to local or state benefits, eg tax credits, pension, education or other benefits
+
+
+
         consular_cni_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -1277,7 +1316,7 @@ en-GB:
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
           You’ll need to provide:
 
-          - proof that you’ve been resident in the area covered by the embassy for at least 21 days, eg an employer’s letter or a bank statement (you’ll also need to sign a declaration to confirm this)
+          - proof that you’ve been resident in the area covered by the embassy for at least 21 days, eg, an employer’s letter or a bank statement (you’ll also need to sign a declaration to confirm this)
           - your original passport and [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
           - proof that you’re both over the age of 16, not within prohibited degrees of relationship to each other, and there’s no other impediment to your proposed marriage
           - equivalent document for your partner
@@ -1598,6 +1637,199 @@ en-GB:
 
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{ceremony_country}-consular-fees).
 
+        kosovo_uk_resident: |
+          Contact the [Embassy of the Republic of Kosovo in London](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
+
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
+
+          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
+
+          ##What you need to do
+
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
+
+          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
+
+          ^A CNI issued in England, Wales or Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
+
+          ###Legalisation and translation
+
+          You might need to exchange your UK-issued CNI for one that’s valid in %{country_name_lowercase_prefix} at the nearest embassy or consulate to where you’re getting married.
+
+          You should also check if it needs to be:
+
+          - ‘[legalised](/get-document-legalised)’ (certified as genuine)
+          - translated - [find a translator abroad](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
+
+          You should also check with the local authorities to find out if you need to provide legalised and translated copies of any other documents.
+
+          ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
+
+          %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+
+          ##Fees
+
+          Service | Fee
+          -|-
+          Receiving a notice of marriage | £65
+          Issuing a CNI, Nulla Osta or equivalent | £65
+          Issuing any other consular letter or certificate in English | £45
+          Issuing any other consular letter or certificate in any other language | £70
+          Administering an oath or making a declaration | £55
+
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+
+          You can pay by cash or credit card, but not by personal cheque.
+
+
+        kosovo_not_uk_resident: |
+          Contact the relevant local authorities in Kosovo to find out about local marriage laws, including what documents you’ll need.
+
+          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
+
+          ##What you need to do
+
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
+
+          If you need a CNI, you’ll have to give notice of your intended marriage in the country where you live.
+
+          Check with your nearest British embassy or consulate to find out if they can do this for you.
+
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
+          You need to have been living in your country of residence for 3 days.
+
+          You’ll need to provide supporting documents, including:
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+          - proof of residence, such as a residence certificate - check with the embassy to find out what you need
+          - equivalent documents for your partner
+
+          If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order)
+          - a civil partnership dissolution or annulment certificate
+          - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
+
+          The embassy will provide you with forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the forms in advance.
+
+
+          $D
+          [Download ‘Notice of marriage’ (PDF, 96KB)](/government/uploads/system/uploads/attachment_data/file/136829/nom2012.pdf)
+
+          [Download ‘Affidavit for marriage’ (PDF, 58KB)](/government/uploads/system/uploads/attachment_data/file/136830/affidavit2012.pdf)
+          $D
+
+          ##What happens next
+
+          The embassy will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
+
+          %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+
+          You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in Kosovo.
+
+          ##Naturalisation of your partner if they move to the UK
+
+          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+
+          ##Fees
+
+          Service | Fee
+          -|-
+          Receiving a notice of marriage | £65
+          Issuing a CNI, Nulla Osta or equivalent | £65
+          Issuing any other consular letter or certificate in English | £45
+          Issuing any other consular letter or certificate in any other language | £70
+          Administering an oath or making a declaration | £55
+
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+
+          You can pay by cash or credit card, but not by personal cheque.
+
+        monaco_marriage: |
+
+          Contact the relevant local authorities to find out about local marriage laws, including what documents you'll need.
+
+          There isn't a British Embassy in Monaco. Contact the [British Embassy in Paris](/government/world/organisations/british-embassy-paris) for help with getting married in Monaco.
+
+          If you’re not in Monaco, [your closest Monegasque embassy](http://en.gouv.mc/Policy-Practice/Monaco-Worldwide/Diplomacy-and-International-Presence/bilateral-relations/All-the-countries) may be able to give you advice, or give you the contact details of the relevant local authorities.
+
+          ^You should get legal advice before making any plans.^
+
+          ##What you need to do
+
+          You may be asked to provide a certificate of custom law (‘certificat de coutume’) if you’re getting married in Monaco. You can get one of these from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
+
+          You should check with the relevant local authorities in the town where you’re getting married to find out if you need one. Either you or your partner will need to have been resident there for 40 days before the ceremony.
+
+          Some local authorities only issue a certificate of custom law less than 6 months before the date of marriage. You should check with them before you apply. If your certificate is refused because you applied too early, you will need to apply and pay again.
+
+          ^You’ll need to have a civil ceremony first if you’re getting married in a religious ceremony.^
+
+          ###Applying for a certificate of custom law from the British Embassy
+
+          s1. Download the [certificate of custom law application form](/government/publications/application-for-a-certificate-of-custom-law-for-marriage-france).
+          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
+          s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
+          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See fee 11 on [consular fees for France](/government/publications/france-consular-fees) for the current cost.
+          s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
+
+
+          ###The certificate of celibacy
+
+          The local authority might also ask you for a certificate of celibacy (‘certificat de célibat’) to prove you’re not married or in a civil partnership. There’s no equivalent to this document in British law, so you’ll need to download the official note which explains this and take it with you instead.
+
+          $D
+          [Download ‘Explanatory note in lieu of a certificate of celibacy’](/government/publications/france-explanatory-note-in-lieu-of-certificat-celibat)
+          $D
+
+          ##Naturalisation of your foreign partner if they move to the UK
+
+          If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+
+        monaco_pacs: |
+          Contact the relevant local authorities to find out about local PACS laws, including what documents you'll need.
+
+          There isn't a British Embassy in Monaco. Contact the [British Embassy in Paris](/government/world/organisations/british-embassy-paris) for help entering into a PACS in Monaco.
+
+          If you’re not in Monaco, [your closest Monegasque embassy](http://en.gouv.mc/Policy-Practice/Monaco-Worldwide/Diplomacy-and-International-Presence/bilateral-relations/All-the-countries) may be able to give you advice, or give you the contact details of the relevant local authorities.
+
+          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
+
+          ##What you need to do
+
+          You may be asked to provide a certificate of custom law (‘certificat de coutume’) if you’re entering into a PACS in Monaco. You can get one of these from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
+
+          You should check with the relevant local authorities in the town where you’re entering into a PACS to find out if you need one.
+
+          Some local authorities only issue a certificate of custom law less than 6 months before the date of your PACS. You should check with them before you apply. If your certificate is refused because you applied too early, you will need to apply and pay again.
+
+
+          ###Applying for a certificate of custom law from the British Embassy
+
+          s1. Download the [certificate of custom law application form](/government/publications/application-form-for-certificate-of-custom-law-for-pacs-france)
+          s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
+          s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
+          s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See fee 11 on [consular fees for France](/government/publications/france-consular-fees) for the current cost.
+          s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
+
+
+          ###The certificate of celibacy
+
+          The local authority might also ask you for a certificate of celibacy (‘certificat de célibat’) to prove you’re not already married or in a PACS. There’s no equivalent to this document in British law, so you’ll need to download the official note which explains this and take it with you instead.
+
+          $D
+          [Download ‘Explanatory note in lieu of a certificate of celibacy’](/government/publications/france-explanatory-note-in-lieu-of-certificat-celibat)
+          $D
+
+          ##Naturalisation of your foreign partner if they move to the UK
+
+          If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
+
+
+
 # Q1
       country_of_ceremony?:
         title: Where do you want to get married?
@@ -1674,6 +1906,30 @@ en-GB:
           Marriage in Indonesia
         body: |
           %{indonesia_os_phraselist}
+# outcome Kosovo - Opposite sex
+      outcome_os_kosovo:
+        title: |
+          Marriage in Kosovo
+        body: |
+          %{kosovo_os_phraselist}
+# outcome Brazil not living in the UK
+      outcome_brazil_not_living_in_the_uk:
+        title: |
+          Marriage in Brazil
+        body: |
+          %{brazil_phraselist_not_in_the_uk}
+# outcome Monaco
+      outcome_monaco:
+        title: |
+          %{monaco_title}
+        body: |
+          %{monaco_phraselist}
+# outcome Colombia - Opposite sex
+      outcome_os_colombia:
+        title: |
+          Marriage in Colombia
+        body: |
+          %{colombia_os_phraselist}
 # outcome Switzerland
       outcome_switzerland:
         title: |
