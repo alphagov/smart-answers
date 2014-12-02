@@ -956,8 +956,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to os affirmation outcome" do
-      assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:uk_resident_os_consular_cni, :get_legal_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :partner_equivalent_document_warning, :consular_cni_os_all_names_but_germany, :affirmation_os_partner_not_british, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_current_node :outcome_os_colombia
+      assert_phrase_list :colombia_os_phraselist, [:uk_resident_os_consular_cni, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affirmation, :make_an_appointment_bring_passport_and_pay_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :embassies_data, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation]
     end
   end
 
@@ -1169,6 +1169,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_monaco
+      assert_phrase_list :monaco_phraselist, [:monaco_pacs]
     end
   end
 

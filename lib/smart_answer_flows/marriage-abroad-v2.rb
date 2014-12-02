@@ -229,6 +229,7 @@ multiple_choice :partner_opposite_or_same_sex? do
   next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
   next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
   on_condition(responded_with('opposite_sex')) do
+    next_node_if(:outcome_os_colombia, variable_matches(:ceremony_country, "colombia"))
     next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, "kosovo"))
     next_node_if(:outcome_os_indonesia, variable_matches(:ceremony_country, "indonesia"))
     next_node_if(:outcome_os_consular_cni, -> {
@@ -395,6 +396,26 @@ outcome :outcome_os_kosovo do
     else
       phrases << :kosovo_not_uk_resident
     end
+  end
+end
+
+outcome :outcome_os_colombia do
+  precalculate :colombia_os_phraselist do
+    PhraseList.new(
+      :uk_resident_os_consular_cni,
+      :affirmation_os_all_what_you_need_to_do,
+      :what_you_need_to_do_affirmation,
+      :make_an_appointment_bring_passport_and_pay_55,
+      :list_of_consular_fees,
+      :pay_by_cash_or_credit_card_no_cheque,
+      :embassies_data,
+      :legalisation_and_translation,
+      :affirmation_os_translation_in_local_language_text,
+      :documents_for_divorced_or_widowed_china_colombia,
+      :change_of_name_evidence,
+      :consular_cni_os_all_names_but_germany,
+      :consular_cni_os_naturalisation
+    )
   end
 end
 
