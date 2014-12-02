@@ -1157,7 +1157,8 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'marriage'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_france_or_fot
+      assert_current_node :outcome_monaco
+      assert_phrase_list :monaco_phraselist, [:monaco_marriage]
     end
   end
   context "ceremony in monaco, maps to France, pacs" do
@@ -1167,7 +1168,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'pacs'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_cp_france_pacs
+      assert_current_node :outcome_monaco
     end
   end
 

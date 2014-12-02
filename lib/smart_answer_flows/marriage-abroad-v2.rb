@@ -172,7 +172,9 @@ end
 multiple_choice :marriage_or_pacs? do
   option :marriage
   option :pacs
+  save_input_as :marriage_or_pacs
 
+  next_node_if(:outcome_monaco, variable_matches(:ceremony_country, "monaco"))
   next_node_if(:outcome_os_france_or_fot, responded_with('marriage'))
   next_node(:outcome_cp_france_pacs)
 end
@@ -393,6 +395,22 @@ outcome :outcome_os_kosovo do
     else
       phrases << :kosovo_not_uk_resident
     end
+  end
+end
+
+outcome :outcome_monaco do
+
+  precalculate :monaco_title do
+    phrases = PhraseList.new
+    if marriage_or_pacs == 'marriage'
+      phrases << "Marriage in Monaco"
+    else
+      phrases << "PACS in Monaco"
+    end
+    phrases
+  end
+  precalculate :monaco_phraselist do
+    PhraseList.new(:"monaco_#{marriage_or_pacs}")
   end
 end
 
