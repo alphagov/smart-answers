@@ -224,6 +224,11 @@ multiple_choice :partner_opposite_or_same_sex? do
     (ceremony_country == "mexico") & (partner_nationality == "partner_british")
   }
 
+  define_predicate(:ceremony_in_brazil_not_resident_in_the_uk) {
+    (ceremony_country == "brazil") & (resident_of == "other")
+  }
+
+  next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
   next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
   next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
   next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
@@ -397,6 +402,19 @@ outcome :outcome_os_kosovo do
       phrases << :kosovo_not_uk_resident
     end
   end
+end
+
+outcome :outcome_brazil_not_living_in_the_uk do
+  precalculate :brazil_phraselist_not_in_the_uk do
+    phrases = PhraseList.new
+    if ceremony_country == residency_country
+      phrases << :local_resident_os_ceremony_not_zimbabwe << :consular_cni_os_download_documents_notary_public << :notary_public_will_charge_a_fee << :consular_cni_os_all_names_but_germany << :consular_cni_os_naturalisation
+    else
+      phrases << :local_resident_os_consular_cni << :check_travel_advice << :get_legal_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55 << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
+    end
+    phrases
+  end
+
 end
 
 outcome :outcome_os_colombia do
