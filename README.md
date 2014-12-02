@@ -19,6 +19,15 @@ For more information, please go to the [Smartdown SmartAnswer README](lib/smartd
 Smart answers are by default expected to be in Ruby/YAML style.
 To transition a smart answer from Ruby/YML to Smartdown style, register it in the smartdown registry (`lib/smartdown/registry.rb`).
 
+Installing
+----------
+
+NB: this assumes you are running on the GOV.UK virtual machine, not your host.
+
+```bash
+  ./install # git fetch from each dependency dir and bundle install
+```
+
 Testing
 ------------
 Run unit tests by executing the following:
