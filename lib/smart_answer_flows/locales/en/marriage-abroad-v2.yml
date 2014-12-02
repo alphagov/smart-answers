@@ -906,13 +906,6 @@ en-GB:
         italy_consular_cni_os_partner_british: |
           You and your partner will need to provide your passports and [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate).
         consular_cni_variant_local_resident_spain: |
-          To request an appointment, fill in the CNI appointment request form and make sure you’ve got all of the necessary supporting documents.
-
-
-          $D
-          [Download 'CNI appointment request form' (DOC, 54KB)](/government/uploads/system/uploads/attachment_data/file/182250/_Appointment_request_form_for_CNI_6_.doc)
-          $D
-
           The documents you need are:
 
           - your passport
@@ -932,11 +925,18 @@ en-GB:
         consular_cni_os_other_resident_ceremony_italy: |
           You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
         spain_os_consular_cni_three: |
-          Send your completed appointment request form and copies of the supporting documents to your [nearest British consulate](/notarial-and-documentary-services-guide-for-spain#where-to-send-your-request). You can send them as scanned attachments to an email or by fax. You’ll need to bring the original documents to your appointment.
+          Send your completed CNI service request form and copies of the supporting documents to your [nearest British consulate](/notarial-and-documentary-services-guide-for-spain#where-to-send-your-request). You can send them as scanned attachments by email or by fax. You’ll need to bring the original documents to your appointment.
+
+          To request an appointment, fill in the CNI service request form and make sure you’ve got all of the necessary supporting documents.
+
+          $D
+          [Download 'CNI service request form' (DOC, 29KB)](/government/publications/certificate-of-no-impediment-service-request-form-spain)
+          $D
 
           ###What happens next
 
           The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 7 days, and if nobody has raised an objection, they’ll issue your CNI. There’s an additional fee for this.
+
         consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany: |
           The %{embassy_or_consulate_residency_country} will provide you with forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the forms in advance.
 
@@ -1078,7 +1078,7 @@ en-GB:
           [Download ‘Declaración de estado civil instrucciones en Español’ (PDF, 236KB)](/government/uploads/system/uploads/attachment_data/file/136833/marital-status-declaration-instruction-sp.pdf)
           $D
 
-          You’ll also need a completed marital status certificate application form, as well as the supporting documents and the fee (see below). These are the same as the ones you need for a CNI.
+          You’ll also need a completed marital status certificate application form, as well as the supporting documents and the fee (see below).
 
           $D
           [Download 'Marital status certificate appointment request form' (DOC, 53KB)](/government/uploads/system/uploads/attachment_data/file/182249/Appointment_request_form_marital_status_marriage.doc)
@@ -1090,7 +1090,17 @@ en-GB:
 
           The civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).
 
-          You can get a [consular letter with proof of address for marriage](/notarial-and-documentary-services-guide-for-spain#proof-of-address-for-marriage) from the consulate if you need to provide this.
+          You'll need to show one of the following:
+
+          - a letter confirming your address, eg electoral roll
+          - a bank or building society statement, credit card statement
+          - a mortgage statement
+          - a council tax letter
+          - utility bills
+          - recent proof of entitlement to local or state benefits, eg tax credits, pension, education or other benefits
+
+
+
         consular_cni_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
