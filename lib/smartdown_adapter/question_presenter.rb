@@ -2,11 +2,19 @@ module SmartdownAdapter
   class QuestionPresenter
     extend Forwardable
 
-    def_delegators :@smartdown_question, :title, :body, :hint, :options, :post_body
+    def_delegators :@smartdown_question, :title, :hint, :options
 
     def initialize(smartdown_question, smartdown_answer)
       @smartdown_question = smartdown_question
       @smartdown_answer = smartdown_answer
+    end
+
+    def body
+      @smartdown_question.body && Govspeak::Document.new(smartdown_question.body).to_html.html_safe
+    end
+
+    def post_body
+      @smartdown_question.post_body && Govspeak::Document.new(smartdown_question.post_body).to_html.html_safe
     end
 
     def has_body?
