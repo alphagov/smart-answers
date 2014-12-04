@@ -1,6 +1,6 @@
 The person may be able to rent your property.
 
-You must get a positive verification from the [Landlord’s Checking Service](/link-to-service) that the person can rent the property if:
+You must get a positive verification from the [Landlord’s Checking Service](https://eforms.homeoffice.gov.uk/test/lcs-no-smart-application.ofml) that the person can rent the property if:
 
 - you're reasonably satisfied that they can't show you their documents because of an outstanding immigration appeal or application with the Home Office
 - they have an Application Registration Card
