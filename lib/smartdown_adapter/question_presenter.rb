@@ -10,11 +10,11 @@ module SmartdownAdapter
     end
 
     def body
-      @smartdown_question.body && Govspeak::Document.new(smartdown_question.body).to_html.html_safe
+      @smartdown_question.body && markdown_to_html(smartdown_question.body)
     end
 
     def post_body
-      @smartdown_question.post_body && Govspeak::Document.new(smartdown_question.post_body).to_html.html_safe
+      @smartdown_question.post_body && markdown_to_html(smartdown_question.post_body)
     end
 
     def has_body?
@@ -48,9 +48,13 @@ module SmartdownAdapter
       end
     end
 
-    private
+  private
 
     attr_reader :smartdown_question
+
+    def markdown_to_html markdown
+      Govspeak::Document.new(markdown).to_html.html_safe
+    end
 
   end
 end

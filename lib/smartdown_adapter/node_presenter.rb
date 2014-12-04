@@ -9,15 +9,15 @@ module SmartdownAdapter
     end
 
     def body
-      @smartdown_node.body && Govspeak::Document.new(@smartdown_node.body).to_html.html_safe
+      @smartdown_node.body && markdown_to_html(@smartdown_node.body)
     end
 
     def post_body
-      @smartdown_node.post_body && Govspeak::Document.new(@smartdown_node.post_body).to_html.html_safe
+      @smartdown_node.post_body && markdown_to_html(@smartdown_node.post_body)
     end
 
     def next_steps
-      @smartdown_node.next_steps && Govspeak::Document.new(@smartdown_node.next_steps).to_html.html_safe
+      @smartdown_node.next_steps && markdown_to_html(@smartdown_node.next_steps)
     end
 
     def has_body?
@@ -35,5 +35,12 @@ module SmartdownAdapter
     def has_next_steps?
       !!next_steps
     end
+
+  private
+
+    def markdown_to_html markdown
+      Govspeak::Document.new(markdown).to_html.html_safe
+    end
+
   end
 end
