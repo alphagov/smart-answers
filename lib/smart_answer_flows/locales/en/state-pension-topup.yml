@@ -5,7 +5,7 @@ en-GB:
       meta:
         description: Work out how much State Pension top ups will cost so that you can budget for your retirement
       body: |
-        From 12 October 2015 to 1 April 2017 you’ll be able to make a ‘Class 3A voluntary contribution’ to top up your State Pension by up to £25 per week.
+        From 12 October 2015 to 5 April 2017 you’ll be able to make a ‘Class 3A voluntary contribution’ to top up your State Pension by up to £25 per week.
 
         Calculate how much you’ll need to contribute. You must be:
 
@@ -41,8 +41,8 @@ en-GB:
 #Q2
       date_of_lump_sum_payment?:
         title: When will you pay your lump sum?
-        hint: This must be between 12 October 2015 and 1 April 2017.
-        error_message: Enter a date between 12 October 2015 and 1 April 2017.
+        hint: This must be between 12 October 2015 and 5 April 2017.
+        error_message: Enter a date between 12 October 2015 and 5 April 2017.
 #Q3
       how_much_extra_per_week?:
         title: How much would you like to get per week?
