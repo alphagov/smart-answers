@@ -12,7 +12,7 @@ module SmartAnswer
     end
 
     def initialize(options = {})
-      @load_path = Pathname.new(options[:load_path] || FLOW_DIR)
+      @load_path = Pathname.new(options[:smart_answer_load_path] || FLOW_DIR)
       @show_drafts = options.fetch(:show_drafts, false)
       @show_transitions = options.fetch(:show_transitions, false)
       preload_flows! if Rails.env.production? or options[:preload_flows]

@@ -6,10 +6,10 @@ module SmartdownAdapter
     context "initialize" do
       setup do
         silence_warnings do
-          SmartdownAdapter::Registry::FLOW_REGISTRY_OPTIONS = {
+          FLOW_REGISTRY_OPTIONS = {
             show_drafts: true,
             preload_flows: true,
-            load_path: Rails.root.join('test', 'fixtures', 'smartdown_flows')
+            smartdown_load_path: Rails.root.join('test', 'fixtures', 'smartdown_flows')
           }
         end
       end

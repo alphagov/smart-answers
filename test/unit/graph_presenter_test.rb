@@ -7,7 +7,7 @@ module SmartAnswer
 
     setup do
       use_only_translation_file!(fixture_file('graph_presenter_test/graph.yml'))
-      @registry = FlowRegistry.new(load_path: fixture_file('graph_presenter_test'), show_drafts: true)
+      @registry = FlowRegistry.new(smart_answer_load_path: fixture_file('graph_presenter_test'), show_drafts: true)
       @flow = @registry.find('graph')
       @presenter = GraphPresenter.new(@flow)
     end
