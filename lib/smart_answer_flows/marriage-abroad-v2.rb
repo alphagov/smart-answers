@@ -121,7 +121,7 @@ end
 # Q3b
 country_select :residency_nonuk?, exclude_countries: exclude_countries do
   save_input_as :residency_country
-  countries_that_show_their_embassies_data = %w(belarus bolivia brazil cambodia chile colombia costa-rica dominican-republic egypt el-salvador ethiopia finland germany honduras hungary indonesia mongolia montenegro peru south-korea latvia lebanon mongolia morocco nepal oman panama peru philippines portugal qatar russia serbia slovakia thailand united-arab-emirates vietnam portugal)
+  countries_that_show_their_embassies_data = %w(belarus bolivia brazil cambodia chile colombia costa-rica dominican-republic egypt el-salvador ethiopia finland germany honduras hungary indonesia mongolia montenegro peru south-korea latvia lebanon mongolia morocco nepal oman panama peru philippines portugal qatar russia saudi-arabia serbia slovakia thailand united-arab-emirates vietnam portugal)
   calculate :location do
     if countries_that_show_their_embassies_data.include?(ceremony_country) and resident_of == 'other'
       loc = WorldLocation.find(ceremony_country)
@@ -792,7 +792,7 @@ outcome :outcome_os_consular_cni do
         end
       end
     else
-      if cni_notary_public_countries.include?(ceremony_country) or ceremony_country == 'italy' or ceremony_country == 'spain' or ceremony_country == 'japan'
+      if cni_notary_public_countries.include?(ceremony_country) or ceremony_country == 'italy' or ceremony_country == 'spain' or ceremony_country == 'japan' or ceremony_country == 'macedonia'
         phrases << :consular_cni_os_download_documents_notary_public
       elsif data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != 'germany'
         phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany
@@ -811,7 +811,7 @@ outcome :outcome_os_consular_cni do
       phrases << :display_notice_of_marriage_7_days
     end
     if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country
-      if cni_notary_public_countries.include?(ceremony_country) or ceremony_country == 'italy' or ceremony_country == 'spain' or ceremony_country == 'japan'
+      if cni_notary_public_countries.include?(ceremony_country) or %w(italy japan macedonia spain).include?(ceremony_country)
         phrases << :consular_cni_os_foreign_resident_ceremony_notary_public
       elsif cni_posted_after_7_days_countries.include?(ceremony_country)
         phrases << :consular_cni_os_foreign_resident_ceremony_7_days
