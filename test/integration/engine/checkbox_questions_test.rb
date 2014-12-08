@@ -29,7 +29,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       assert_current_url "/checkbox-sample/y/ham,pepperoni"
 
       within '.done-questions' do
-        within('.link-right.restart') { assert page.has_link?("Start again", href: '/checkbox-sample') }
+        assert page.has_link?("Start again", href: '/checkbox-sample')
         within 'tr.section' do
           within 'td.previous-question-title' do
             assert_page_has_content "What do you want on your pizza?"
@@ -55,7 +55,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       assert_current_url "/checkbox-sample/y/none"
 
       within '.done-questions' do
-        within('.link-right.restart') { assert page.has_link?("Start again", href: '/checkbox-sample') }
+        assert page.has_link?("Start again", href: '/checkbox-sample')
         within 'tr.section' do
           within 'td.previous-question-title' do
             assert_page_has_content "What do you want on your pizza?"
