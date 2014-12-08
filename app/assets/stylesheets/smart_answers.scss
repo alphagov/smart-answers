@@ -48,6 +48,11 @@ $is-ie: false !default;
     width: auto; // this is overidden below in another statement targeting start-again
   }
 
+  .start-right {
+    display: block;
+    text-align: right;
+  }
+
   // Current question
   .page-title {
     margin-top: 0;
