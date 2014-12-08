@@ -24,7 +24,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
       assert_current_url "/money-and-salary-sample/y/5000.0-month"
 
       within '.done-questions' do
-        within('.link-right.restart') { assert page.has_link?("Start again", href: '/money-and-salary-sample') }
+        assert page.has_link?("Start again", href: '/money-and-salary-sample')
         within 'tr.section' do
           within 'td.previous-question-title' do
             assert_page_has_content "How much do you earn?"
@@ -49,7 +49,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
       assert_current_url "/money-and-salary-sample/y/5000.0-month/1000000.0"
 
       within '.done-questions' do
-        within('.link-right.restart') { assert page.has_link?("Start again", href: '/money-and-salary-sample') }
+        assert page.has_link?("Start again", href: '/money-and-salary-sample')
         within 'tr.section:nth-child(1)' do
           within 'td.previous-question-title' do
             assert_page_has_content "How much do you earn?"

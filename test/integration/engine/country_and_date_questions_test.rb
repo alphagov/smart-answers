@@ -45,7 +45,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       assert_current_url "/country-and-date-sample/y/belarus"
 
       within '.done-questions' do
-        within('.link-right.restart') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
+        assert page.has_link?("Start again", href: '/country-and-date-sample')
         within 'tr.section:nth-child(1)' do
           within 'td.previous-question-title' do
             assert_page_has_content "Which country do you live in?"
@@ -76,7 +76,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05"
 
       within '.done-questions' do
-        within('.link-right.restart') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
+        assert page.has_link?("Start again", href: '/country-and-date-sample')
         within 'tr.section:nth-child(1)' do
           within 'td.previous-question-title' do
             assert_page_has_content "Which country do you live in?"
@@ -118,7 +118,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05/united-kingdom"
 
       within '.done-questions' do
-        within('.link-right.restart') { assert page.has_link?("Start again", href: '/country-and-date-sample') }
+        assert page.has_link?("Start again", href: '/country-and-date-sample')
         within 'tr.section:nth-child(1)' do
           within 'td.previous-question-title' do
             assert_page_has_content "Which country do you live in?"
@@ -180,7 +180,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
     assert_current_url "/country-legacy-sample/y/belarus"
 
     within '.done-questions' do
-      within('.link-right.restart') { assert page.has_link?("Start again", href: '/country-legacy-sample') }
+      assert page.has_link?("Start again", href: '/country-legacy-sample')
       within 'tr.section:nth-child(1)' do
         within 'td.previous-question-title' do
           assert_page_has_content "Which country do you live in?"

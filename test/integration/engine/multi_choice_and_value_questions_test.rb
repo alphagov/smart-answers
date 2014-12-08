@@ -50,7 +50,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       assert_current_url "/bridge-of-death/y/Lancelot"
 
       within '.done-questions' do
-        within('.link-right.restart') { assert page.has_link?("Start again", href: '/bridge-of-death') }
+        assert page.has_link?("Start again", href: '/bridge-of-death')
         within 'tr.section' do
           within 'td.previous-question-title' do
             assert_page_has_content "What...is your name?"
@@ -80,7 +80,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail"
 
       within '.done-questions' do
-        within('.link-right.restart') { assert page.has_link?("Start again", href: '/bridge-of-death') }
+        assert page.has_link?("Start again", href: '/bridge-of-death')
         within 'tr.section:nth-child(1)' do
           within 'td.previous-question-title' do
             assert_page_has_content "What...is your name?"
@@ -117,7 +117,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/blue"
 
       within '.done-questions' do
-        within('.link-right.restart') { assert page.has_link?("Start again", href: '/bridge-of-death') }
+        assert page.has_link?("Start again", href: '/bridge-of-death')
         within 'tr.section:nth-child(1)' do
           within 'td.previous-question-title' do
             assert_page_has_content "What...is your name?"
@@ -162,7 +162,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
     assert_current_url "/bridge-of-death/y/Robin/to_seek_the_holy_grail"
 
     within '.done-questions' do
-      within('.link-right.restart') { assert page.has_link?("Start again", href: '/bridge-of-death') }
+      assert page.has_link?("Start again", href: '/bridge-of-death')
       within 'tr.section:nth-child(1)' do
         within 'td.previous-question-title' do
           assert_page_has_content "What...is your name?"
