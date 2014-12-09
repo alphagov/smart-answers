@@ -7,3 +7,12 @@ namespace "test" do
     t.test_files = Dir["test/**/*_test.rb"]
   end
 end
+
+task :test do
+  Rake::Task['test:all'].invoke
+end
+
+# Override the default task
+task :default => [] # Just in case it hasn't already been set
+Rake::Task[:default].clear
+task :default => "test:all"
