@@ -6,7 +6,7 @@ satisfies_need: 102373
 
 Find out if someone can rent private residential property in the UK.
 
-This includes private residential properties for all people aged 18 or over (including house guests and sub-tenants) who will use the property as their main home.
+This includes private residential properties for all people aged 18 or over (including house guests, lodgers and sub-tenants) who will use the property as their main home.
 
 You only have to do this check for new tenancies after 1 December 2014.  
 
