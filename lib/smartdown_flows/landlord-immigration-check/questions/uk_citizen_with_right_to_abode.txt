@@ -1,12 +1,4 @@
-# Is the person a British citizen with the right to abode?
-
-This includes:
-
-- British Nationals (overseas), eg from Hong Kong
-- British protected persons (from former British empire)
-- British subjects (eg from India before 1949)
-- British Overseas Territories citizens
-- British Overseas citizens (eg from Malaysia, Kenya)
+# Does the person have a certificate of right of abode in their passport?
 
 [choice: right_to_abode]
 * yes: Yes
