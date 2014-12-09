@@ -118,17 +118,11 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (4.7.5)
-    minitest-rails (1.0.1)
-      minitest (~> 4.7)
-      minitest-test (~> 1.0)
-      railties (>= 3.0, < 4.1)
     minitest-reporters (0.14.24)
       ansi
       builder
       minitest (>= 2.12, < 5.0)
       powerbar
-    minitest-test (1.1.0)
-      minitest (~> 4.0)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
     multi_json (1.8.4)
@@ -276,7 +270,6 @@ DEPENDENCIES
   logstasher (= 0.4.8)
   lrucache (= 0.1.4)
   minitest (= 4.7.5)
-  minitest-rails (= 1.0.1)
   minitest-reporters
   mocha (= 0.13.3)
   nokogiri (= 1.5.11)
