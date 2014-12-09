@@ -1,6 +1,6 @@
-# Does the person have a UK passport or are they a named person in their parent’s or child’s UK passport?
+# Does the person have a current or expired UK passport or are they a named person in their parent’s UK passport?
 
-A named person is someone who appears on someone else’s passport, eg a parent.
+A named person is someone who appears on someone else’s passport.
 
 [choice: has_uk_passport]
 * yes: Yes
