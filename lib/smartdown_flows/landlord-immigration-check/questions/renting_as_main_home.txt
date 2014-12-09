@@ -8,7 +8,7 @@ This includes:
 - sub-lease or sub-tenancy
 - lodgers
 - paying house guests 
-- a family member livng with the tenant as their main or only home
+- a family member living with the tenant as their main or only home
 
 [choice: main_home]
 * yes: Yes
