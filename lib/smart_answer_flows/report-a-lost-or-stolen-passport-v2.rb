@@ -16,8 +16,8 @@ multiple_choice :adult_or_child_passport? do
 
   save_input_as :age
 
-  calculate :child_advice do
-    age == 'child' ? PhraseList.new(:child_forms) : PhraseList.new
+  calculate :additional_content do
+    age == 'child' ? PhraseList.new(:child_forms) : PhraseList.new(:adult_forms)
   end
 
   next_node do

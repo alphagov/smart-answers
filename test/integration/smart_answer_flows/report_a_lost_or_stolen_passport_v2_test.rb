@@ -34,7 +34,7 @@ class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
 
         should "tell you to fill out the LS01 form" do
           assert_current_node :complete_LS01_form
-          assert_phrase_list :child_advice, []
+          assert_phrase_list :additional_content, [:adult_forms]
         end
       end
       context "child" do
@@ -43,7 +43,7 @@ class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
         end
         should "tell you to fill out the LS01 form" do
           assert_current_node :complete_LS01_form
-          assert_phrase_list :child_advice, [:child_forms]
+          assert_phrase_list :additional_content, [:child_forms]
         end
       end
     end
@@ -70,7 +70,7 @@ class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
 
         should "tell you to report it to the embassy" do
           assert_current_node :contact_the_embassy
-          assert_phrase_list :child_advice, []
+          assert_phrase_list :additional_content, [:adult_forms]
           assert_match /British Embassy Baku/, outcome_body
         end
       end
@@ -89,7 +89,7 @@ class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
 
         should "tell you to report it to the embassy" do
           assert_current_node :contact_the_embassy
-          assert_phrase_list :child_advice, [:child_forms]
+          assert_phrase_list :additional_content, [:child_forms]
         end
       end
     end
