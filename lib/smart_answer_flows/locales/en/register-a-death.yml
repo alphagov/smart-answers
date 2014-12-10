@@ -9,10 +9,12 @@ en-GB:
 
         You need to read different information if:
 
-        - the person [died in Scotland](http://www.gro-scotland.gov.uk/regscot/registering-a-death.html)
+        - the person [died in Scotland](http://www.nrscotland.gov.uk/registration/registering-a-death)
         - the person [died in Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm)
 
         If the person died on a foreign ship or aircraft, you must register the death in the country the ship or aircraft is registered in.
+
+        You can only register a death abroad if it happened on or after 1 January 1983.
 
       options:
         "yes": "Yes"
@@ -49,7 +51,7 @@ en-GB:
 
           ^Registering the death will take about 30 minutes - you might need to make an appointment.^
         intro_scotland: |
-          You should register the death within 5 days.
+          You should register the death within 8 days.
 
           You can go to any [register office](/register-offices) but if you use the one in the area where the person died you’ll be given the documents you’ll need on the day.
 
@@ -230,14 +232,6 @@ en-GB:
 
           ##Go to the %{embassy_high_commission_or_consulate}
 
-        clickbooks: |
-          You can book an appointment at the British embassy or consulate in:
-
-          +[data_partial:clickbooks:clickbook_data]
-
-        clickbook: |
-          [Book an appointment online](%{clickbook_data})
-
         booking_text_embassy_hong_kong: |
           Register at consulate-general - bring the registration form, supporting documents and the fee.
 
@@ -374,6 +368,13 @@ en-GB:
           Your documents will be returned to the British Embassy in Pyongyang after the death has been registered.
         oru_courier_text_papua-new-guinea: |
           Your documents will be returned to the British Embassy in Port Moresby after the death has been registered.
+        registration_can_take_3_months: |
+          Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.
+
+        registration_takes_3_days: |
+          It usually takes 3 working days for the death to be registered in the UK once the Overseas Registration Unit has received your form and the right documents.
+
+          They’ll contact you within the 3 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the death to be registered.
 
 # Outcomes
 #
@@ -425,8 +426,6 @@ en-GB:
           %{go_to_the_embassy_heading}
 
           %{booking_text_embassy_result}
-
-          %{clickbook}
 
           %{postal}
 
@@ -506,7 +505,7 @@ en-GB:
 
           ##Return of your documents
 
-          It usually takes 3 working days for the death to be registered in the UK, once the Overseas Registration Unit has received your form and the right documents. They’ll contact you within the 3 working days if they need more information.
+          %{waiting_time}
 
           %{oru_courier_text}
 

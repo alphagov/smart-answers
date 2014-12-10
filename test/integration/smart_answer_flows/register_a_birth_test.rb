@@ -8,7 +8,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia barbados belize el-salvador estonia germany guatemala grenada iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates)
+    @location_slugs = %w(afghanistan andorra australia bangladesh barbados belize el-salvador estonia germany guatemala grenada iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth'
   end
@@ -136,6 +136,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
             assert_phrase_list :oru_address, [:oru_address_uk]
             assert_phrase_list :translator_link, [:approved_translator_link]
             assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
+            assert_phrase_list :waiting_time, [:registration_takes_5_days]
           end
         end
       end # married
@@ -159,6 +160,27 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_state_variable :postal, ""
       assert_phrase_list :footnote, [:footnote_exceptions]
     end
+  end
+  context "born in Bangladesh but currently in Pakistan" do
+    should "give the embassy result" do
+      worldwide_api_has_organisations_for_location('bangladesh', read_fixture_file('worldwide/bangladesh_organisations.json'))
+      worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
+      add_response "bangladesh"
+      add_response "mother_and_father"
+      add_response "yes"
+      add_response "another_country"
+      add_response "pakistan"
+      assert_current_node :embassy_result
+      assert_state_variable :embassy_high_commission_or_consulate, "British high commission"
+      assert_state_variable :registration_country_name_lowercase_prefix, "Pakistan"
+      assert_state_variable :british_national_parent, 'mother_and_father'
+      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_bangladesh]
+      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
+      assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
+      assert_state_variable :postal_form_url, nil
+      assert_state_variable :postal, ""
+      assert_phrase_list :footnote, [:footnote_another_country]
+    end
   end # Afghanistan
   context "answer Pakistan" do
     should "give the oru result" do
@@ -168,6 +190,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "in_the_uk"
       assert_current_node :oru_result
+      assert_phrase_list :waiting_time, [:registration_can_take_3_months]
     end
   end # Pakistan and in UK
   context "answer Pakistan" do
@@ -189,11 +212,11 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "no"
       add_response "2006-07-01"
       add_response "same_country"
-      assert_current_node :embassy_result
-      assert_state_variable :british_national_parent, 'father'
-      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
-      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-      assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_paternity_declaration]
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :oru_address, [:oru_address_abroad]
+      assert_phrase_list :translator_link, [:no_translator_link]
+      assert_phrase_list :waiting_time, [:registration_takes_5_days]
     end # Not married or CP
   end # Belize
   context "answer Libya" do
@@ -304,7 +327,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'another_country'
       add_response 'st-kitts-and-nevis'
-      assert_current_node :embassy_result
+      assert_current_node :oru_result
       assert_phrase_list :birth_registration_form, [:birth_registration_form]
     end
   end
@@ -330,9 +353,11 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "father"
       add_response "yes"
       add_response "same_country"
-      assert_current_node :embassy_result
-      assert_state_variable :british_national_parent, 'father'
-      assert_phrase_list :go_to_the_embassy, [:registering_clickbook, :registering_either_parent]
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :oru_address, [:oru_address_abroad]
+      assert_phrase_list :translator_link, [:approved_translator_link]
+      assert_state_variable :translator_link_url, "/government/publications/list-of-translators-and-interpreters-in-serbia"
     end
   end # Serbia
   context "answer estonia" do
@@ -342,8 +367,10 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "mother_and_father"
       add_response "yes"
       add_response "same_country"
-      assert_current_node :embassy_result
-      assert_phrase_list :cash_only, [:cash_and_card]
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :oru_address, [:oru_address_abroad]
+      assert_phrase_list :translator_link, [:no_translator_link]
     end
   end # Estonia
 
@@ -372,6 +399,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "germany"
       assert_current_node :oru_result
       assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
+      assert_phrase_list :waiting_time, [:registration_takes_5_days]
     end
   end
 end

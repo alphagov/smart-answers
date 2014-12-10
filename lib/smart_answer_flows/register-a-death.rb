@@ -1,5 +1,5 @@
-satisfies_need "101006"
 status :published
+satisfies_need "101006"
 
 country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
@@ -133,6 +133,16 @@ outcome :oru_result do
     end
   end
 
+  precalculate :waiting_time do
+    phrases = PhraseList.new
+    if reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.exclude?(country_of_death) && in_the_uk
+      phrases << :registration_can_take_3_months
+    else
+      phrases << :registration_takes_3_days
+    end
+    phrases
+  end
+
   precalculate :oru_documents_variant_death do
     if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH.include?(country_of_death)
       PhraseList.new(:"oru_documents_variant_#{country_of_death}")
@@ -163,9 +173,9 @@ end
 outcome :embassy_result do
   precalculate :documents_required_embassy_result do
     phrases = PhraseList.new
-    if current_location == 'libya'
+    if country_of_death == 'libya'
       phrases << :documents_list_embassy_libya
-    elsif current_location == 'north-korea'
+    elsif country_of_death == 'north-korea'
       phrases << :"documents_list_embassy_north-korea"
     else
       phrases << :documents_list_embassy
@@ -201,22 +211,6 @@ outcome :embassy_result do
         phrases << :booking_text_embassy
       end
       phrases
-    end
-  end
-
-  precalculate :clickbook_data do
-    reg_data_query.clickbook(current_location)
-  end
-
-  precalculate :clickbook do
-    if clickbook_data.nil? || modified_card_only_countries.include?(current_location)
-      ''
-    else
-      if clickbook_data.class == Hash
-        PhraseList.new :clickbooks
-      else
-        PhraseList.new :clickbook
-      end
     end
   end
 
