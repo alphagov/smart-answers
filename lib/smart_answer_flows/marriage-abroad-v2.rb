@@ -603,7 +603,7 @@ outcome :outcome_os_consular_cni do
           phrases << :cni_posted_if_no_objection_14_days
         end
       elsif cni_posted_after_7_days_countries.include?(ceremony_country) or partner_nationality != 'partner_irish'
-        if cni_notary_public_countries.include?(ceremony_country) or ceremony_country == 'italy' or ceremony_country == 'spain'
+        if cni_notary_public_countries.include?(ceremony_country) or %w(italy japan macedonia spain).include?(ceremony_country)
           phrases << :cni_at_local_register_office_notary_public
         else
           phrases << :cni_at_local_register_office
