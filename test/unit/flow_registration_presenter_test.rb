@@ -8,7 +8,7 @@ class FlowRegistraionPresenterTest < ActiveSupport::TestCase
       File.expand_path('../../fixtures/flow_registraion_presenter_sample/flow_sample.yml', __FILE__)
     I18n.config.load_path.unshift example_translation_file
     I18n.reload!
-    registry = SmartAnswer::FlowRegistry.new(load_path: File.expand_path('../../fixtures/flow_registraion_presenter_sample', __FILE__))
+    registry = SmartAnswer::FlowRegistry.new(smart_answer_load_path: File.expand_path('../../fixtures/flow_registraion_presenter_sample', __FILE__))
     @flow = registry.flows.first
     @presenter = FlowRegistrationPresenter.new(@flow)
   end

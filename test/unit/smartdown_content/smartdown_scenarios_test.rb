@@ -9,7 +9,7 @@ class SmartdownScenariosTest < ActiveSupport::TestCase
     imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council" }])
   end
 
-  SmartdownAdapter::Registry::FLOW_REGISTRY_OPTIONS = {
+  FLOW_REGISTRY_OPTIONS = {
     preload_flows: true,
     show_drafts: true,
     show_transitions: true,

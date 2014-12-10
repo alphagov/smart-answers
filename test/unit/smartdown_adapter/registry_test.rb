@@ -7,7 +7,7 @@ module SmartdownAdapter
 
     def test_options
       {
-        load_path: Rails.root.join("test", "fixtures", "smartdown_flows").to_s,
+        smartdown_load_path: Rails.root.join("test", "fixtures", "smartdown_flows").to_s,
         show_drafts: true
       }
     end
