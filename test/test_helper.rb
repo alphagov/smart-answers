@@ -9,6 +9,8 @@ SimpleCov.start 'rails'
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 
+FLOW_REGISTRY_OPTIONS[:preload_flows] = true
+
 require 'minitest/unit'
 require 'rails/test_help'
 
