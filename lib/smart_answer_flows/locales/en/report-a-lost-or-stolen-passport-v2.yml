@@ -79,8 +79,6 @@ en-GB:
 
           Fill in form LS01 and post, fax or take it to your nearest British embassy, high commission or consulate. Check if you need to make an appointment first if you’re taking it in.
 
-          %{additional_content}
-
           You can use the [online enquiry form](https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml) to contact Her Majesty’s Passport Office for general advice.
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
