@@ -129,23 +129,17 @@ outcome :embassy_result do
       "British embassy"
     end
   end
-  precalculate :embassy_result_indonesia_british_father_paternity do
-    if registration_country == 'indonesia' and british_national_parent == 'father' and paternity_declaration
-      PhraseList.new(:indonesia_british_father_paternity)
-    end
-  end
   precalculate :documents_you_must_provide do
     checklist_countries = %w(bangladesh kuwait libya north-korea pakistan philippines turkey)
     key = "documents_you_must_provide_"
-    key += (checklist_countries.include?(registration_country) ? registration_country : "all")
+    if checklist_countries.include?(country_of_birth)
+      key << country_of_birth
+    else
+      key << "all"
+    end
     PhraseList.new(key.to_sym)
   end
-  precalculate :clickbook_data do
-    reg_data_query.clickbook(registration_country)
-  end
-  precalculate :multiple_clickbooks do
-    clickbook_data and clickbook_data.class == Hash
-  end
+
   precalculate :fees_for_consular_services do
     phrases = PhraseList.new
     if registration_country == 'libya'
@@ -163,11 +157,7 @@ outcome :embassy_result do
   precalculate :go_to_the_embassy do
     unless reg_data_query.post_only_countries?(registration_country)
       phrases = PhraseList.new
-      if multiple_clickbooks
-        phrases << :registering_clickbooks
-      elsif clickbook_data
-        phrases << :registering_clickbook
-      elsif %w(hong-kong japan).include?(registration_country)
+      if %w(hong-kong japan).include?(registration_country)
         phrases << :"registering_#{registration_country}"
       else
         phrases << :registering_all
@@ -259,6 +249,22 @@ outcome :oru_result do
     {text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"}
   end
 
+  precalculate :embassy_result_indonesia_british_father_paternity do
+    if registration_country == 'indonesia' and british_national_parent == 'father' and paternity_declaration
+      PhraseList.new(:indonesia_british_father_paternity)
+    end
+  end
+
+  precalculate :waiting_time do
+    phrases = PhraseList.new
+    if reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.exclude?(country_of_birth) && in_the_uk
+      phrases << :registration_can_take_3_months
+    else
+      phrases << :registration_takes_5_days
+    end
+    phrases
+  end
+
   precalculate :oru_documents_variant do
     if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?(country_of_birth)
       phrases = PhraseList.new
@@ -302,7 +308,6 @@ outcome :oru_result do
     end
     phrases
   end
-
 end
 
 outcome :commonwealth_result

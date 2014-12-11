@@ -77,7 +77,7 @@ module SmartAnswer::Calculators
       context "oru transition countries" do
         should "be true for Wallis and Fortuna" do
           assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('wallis-and-futuna')
-          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('grenada')
+          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('pakistan')
         end
 
         should "be true for Martinique" do
@@ -94,7 +94,7 @@ module SmartAnswer::Calculators
 
         should "be true for Belgium" do
           assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('belgium')
-          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('dominica')
+          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('india')
         end
       end
 

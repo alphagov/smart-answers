@@ -7,9 +7,11 @@ en-GB:
       body: |
         $!You must register your child’s birth according to the regulations in the country where the child was born. They’ll give you a local birth certificate.$!
 
-        This local birth certificate should be accepted in the UK, eg when you apply for a passport or register with a school or doctor. You might need to have it [translated and certified](https://www.gov.uk/certifying-a-document) if it’s not in English.
+        This local birth certificate should be accepted in the UK, eg when you apply for a passport or register with a school or doctor. You might need to have it [translated and certified](https://www.gov.uk/certifying-a-document) if it isn’t in English.
 
-        Once you’ve registered locally you may also be able to register the birth with the UK authorities. You don't need to do this but it means:
+        Once you’ve registered locally you may also be able to register the birth with the UK authorities. You can only do this if the child was born on or after 1 January 1983.
+
+        You don’t need to register with the UK authorities but it means:
 
         - the birth will be recorded with the General Register Offices or at the National Records Office of Scotland
         - you can order a consular birth registration certificate
@@ -101,17 +103,6 @@ en-GB:
           - photocopies of the data page of any British passport issued to a member of your immediate family by the British High Commission Dhaka
           - 3 identical passport-size photos
           - maternity documents
-        documents_you_must_provide_united-arab-emirates: |
-          You and the other parent must provide:
-
-          - your child’s local birth certificate in Arabic, with an English translation issued by the UAE Ministry of Health
-          - your British birth certificates (long version) showing details of your parents
-          - a naturalisation or registration certificate (if either of you were not born in the UK)
-          - your current British passports
-          - a copy of a passport or birth certificate (if one of you isn’t British)
-          - a marriage certificate (if you’re married)
-          - divorce documents (if either of you has ever been divorced)
-          - a change of name document (if either of you has ever changed your name)
         documents_you_must_provide_kuwait: |
           You and the other parent must provide:
 
@@ -157,19 +148,6 @@ en-GB:
 
           %Your application will be rejected if the documents aren’t authentic, don’t confirm the child’s identity or don’t prove that the child has a claim to British nationality. The registration fee won’t be refunded.%
 
-        documents_you_must_provide_netherlands: |
-          You and the other parent must provide:
-
-          - your child’s local birth certificate
-          - an international version of the birth certificate
-          - your British birth certificates (long version) showing details of your parents
-          - a naturalisation or registration certificate (if either of you were not born in the UK)
-          - your current British passports
-          - a passport or birth certificate (if one of you isn’t British)
-          - an international marriage certificate (if you’re married) - not the Dutch ‘marriage booklet’ (‘trouwboekje’) - any foreign documents may need to be translated into English
-          - divorce documents (if either of you has ever been divorced)
-          - a change of name document (if either of you has ever changed your name)
-
         documents_you_must_provide_all: |
           You and the other parent must provide:
 
@@ -198,18 +176,6 @@ en-GB:
           **British Embassy Tokyo**
           <consular.tokyo@fco.gov.uk>
           $C
-        registering_clickbooks: |
-          Book an appointment online at the British embassy or consulate in:
-
-          +[data_partial:clickbooks:clickbook_data]
-
-          Bring the registration form, supporting documents and the fee.
-        clickbook_link: |
-          - [%{city}](%{url})
-        registering_clickbook: |
-          [Book an appointment online](%{clickbook_data}) at the %{embassy_high_commission_or_consulate}.
-
-          Bring the registration form, supporting documents and the fee.
         consular_service_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
         consular_service_fees_libya: |
@@ -356,6 +322,7 @@ en-GB:
           - the child’s full local birth certificate - it must have both parents’ names
           - hospital, medical or insurance records naming the parents as the birth parents (if the birth was registered more than three months after it took place)
         oru_address_uk: |
+
           $A
             Overseas Registration Unit
             Foreign and Commonwealth Office
@@ -364,6 +331,7 @@ en-GB:
             MK10 1XX
           $A
         oru_address_abroad: |
+
           $A
             Overseas Registration Unit
             Foreign & Commonwealth Office
@@ -385,11 +353,18 @@ en-GB:
         oru_courier_text_papua-new-guinea: |
           Your documents will be returned to the British Embassy in Port Moresby after the birth has been registered.
 
+        registration_can_take_3_months: |
+          Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.
+
+        registration_takes_5_days: |
+          It usually takes 5 working days for the birth to be registered with the UK authorities, once the Overseas Registration Unit has received your form and the right documents.
+
+          They’ll contact you within the 5 working days if they need more information. If this happens then it could take up to 3 months for the birth to be registered.
+
+
       embassy_result:
         body: |
           $!You can apply to register the birth with the %{embassy_high_commission_or_consulate} in %{registration_country_name_lowercase_prefix}.$!
-
-          %{embassy_result_indonesia_british_father_paternity}
 
           %{birth_registration_form}
 
@@ -427,6 +402,8 @@ en-GB:
       oru_result:
         body: |
           $!You must register the birth in the country where the child was born. You'll be given a local birth certificate.$!
+
+          %{embassy_result_indonesia_british_father_paternity}
 
           You can also register the birth with the UK authorities. You must:
 
@@ -468,7 +445,7 @@ en-GB:
 
           ##3. Pay
 
-          You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you are unable to pay online.
+          You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you’re unable to pay online.
 
           The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office or the National Records Office of Scotland, but only from September the year after you register.
 
@@ -489,16 +466,16 @@ en-GB:
 
           +[data_partial:button:button_data]
 
+
           ##4. Send your registration
 
           Post the registration form and documents by secure post to:
-
 
           %{oru_address}
 
           ##Return of your documents
 
-          It usually takes 5 working days for the birth to be registered with the UK authorities, once the Overseas Registration Unit has received your form and the right documents. They’ll contact you within the 5 working days if they need more information.
+          %{waiting_time}
 
           %{oru_courier_text}
 
