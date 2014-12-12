@@ -36,9 +36,9 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
         setup do
           add_response 'no'
         end
-        should "ask where you are now and go to embassy result" do
+        should "ask where you are now and go to oru result" do
           add_response "same_country"
-          assert_current_node :embassy_result
+          assert_current_node :oru_result
         end
       end # not married/cp
     end # mother
@@ -234,19 +234,14 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
     end # Not married or CP
   end # Libya
   context "answer barbados" do
-    should "give the embassy result" do
+    should "give the oru result" do
       worldwide_api_has_organisations_for_location('barbados', read_fixture_file('worldwide/barbados_organisations.json'))
       add_response "barbados"
       add_response "father"
       add_response "yes"
       add_response "same_country"
-      assert_current_node :embassy_result
+      assert_current_node :oru_result
       assert_state_variable :british_national_parent, 'father'
-      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
-      assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
-      assert_state_variable :cash_only, ''
-      assert_phrase_list :footnote, [:footnote]
     end # Not married or CP
   end # Barbados
   context "answer united arab emirates" do

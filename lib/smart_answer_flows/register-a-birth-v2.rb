@@ -39,13 +39,8 @@ multiple_choice :who_has_british_nationality? do
   option mother_and_father: :married_couple_or_civil_partnership?
   option neither: :no_registration_result
 
-  calculate :british_national_parent do
-    if country_of_birth == 'sweden'
-      'mother_and_father'
-    else
-      responses.last
-    end
-  end
+  save_input_as :british_national_parent
+
 end
 
 # Q3
