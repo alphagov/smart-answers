@@ -3,7 +3,7 @@ en-GB:
     report-a-lost-or-stolen-passport-v2:
       meta:
         description: What you need to do if your passport has been lost or stolen and you need to travel urgently - emergency travel document and replacement passport.
-      title: Report a lost or stolen passport
+      title: Cancel a lost or stolen passport
       body: |
         You must cancel a lost or stolen passport as soon as possible.
 
@@ -26,6 +26,7 @@ en-GB:
 
           - [download a copy of form LS01](/government/publications/report-a-lost-or-stolen-passport-form-ls01) and post the completed form to Her Majesty's Passport Office - the address is on the form
           - get a copy of form LS01 from a Post Office that offers the [Check and Send service](/how-the-post-office-check-and-send-service-works)
+          - [ask for a callback](https://passportofficeforms.service.gov.uk/_/request-call-back.ofml) from Her Majesty's Passport Office
           - use the new [online service](https://www.loststolenpassport.service.gov.uk) - this service is [in beta](/help/beta)
 
           ^You’ll need a daytime telephone number and either an email address or UK mobile number to use the online service.^
@@ -48,21 +49,14 @@ en-GB:
           You must report your lost or stolen passport to Her Majesty's Passport Office.
 
           %{additional_content}
-
-          You can use the [online enquiry form](https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml) to contact Her Majesty’s Passport Office for general advice.
+          
 
           ##Replacing your passport
 
           You can apply for a replacement at the same time if you’re a British national and in the UK.
 
-          Follow the same process as [renewing a passport](/renew-adult-passport), but you:
-
-
-          - must send a completed form LS01 with your application (if you haven’t already reported it as lost)
-          - must get your application countersigned
-          - may be interviewed by Her Majesty's Passport Office to prove your identity
-          - may be asked for original supporting documents (eg birth or marriage certificates) when Her Majesty's Passport Office gets your application
-
+          Follow the same process as [renewing a passport](/renew-adult-passport) but you must send a completed form LS01 with your application (if you haven’t already reported it as lost)
+          
           ^Use the [online enquiry form](https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml) to contact Her Majesty’s Passport Office for general advice.
 
           % You can’t use the [1-day Premium service](/get-a-passport-urgently) if you’re replacing a lost passport. %
