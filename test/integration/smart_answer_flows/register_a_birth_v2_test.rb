@@ -245,19 +245,23 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
     end # Not married or CP
   end # Barbados
   context "answer united arab emirates" do
-    should "give the oru result and not married phrase" do
+    should "give the no birth certificate result with same country phrase" do
       worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
       add_response "united-arab-emirates"
       add_response "mother_and_father"
       add_response "no"
       add_response "same_country"
-      assert_current_node :oru_result
-      assert_state_variable :british_national_parent, 'mother_and_father'
-      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_uae_not_married]
-      assert_phrase_list :translator_link, [:approved_translator_link]
-      assert_state_variable :translator_link_url, "/government/publications/united-arab-emirates-list-of-lawyers"
-      assert_state_variable :country_of_birth, "united-arab-emirates"
-      assert_state_variable :paternity_declaration, true
+      assert_current_node :no_birth_certificate_result
+      assert_phrase_list :registration_exception, [:"united-arab-emirates_same_country_certificate_exception"]
+    end # Not married or CP
+    should "give the no birth certificate result with another country phrase" do
+      worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
+      add_response "united-arab-emirates"
+      add_response "mother_and_father"
+      add_response "no"
+      add_response "another_country"
+      assert_current_node :no_birth_certificate_result
+      assert_phrase_list :registration_exception, [:"united-arab-emirates_another_country_certificate_exception", :contact_fco]
     end # Not married or CP
     should "give the oru result" do
       worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
@@ -369,7 +373,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
     end
   end # Estonia
 
-  context "answer united-arab-emirates" do
+  context "answer united-arab-emirates, married" do
     should "go to oru result" do
       worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
       add_response "united-arab-emirates"
