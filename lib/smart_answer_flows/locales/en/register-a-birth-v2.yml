@@ -243,7 +243,8 @@ en-GB:
           Post your registration form, supporting documents and the fee to the British Embassy. You should use a courier and include a pre-paid return courier envelope.
 
           Pay by cash or bank cheque made payable to ‘British Embassy’. Credit cards, personal or company cheques aren’t accepted.
-
+        swear_in_moroccan_court: |
+          ^Only the mother will be named on the local birth certificate if you aren’t married. To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married.^
         cash_only: |
           %You can only pay by cash, which must be in local currency.%
         cheque_only: |
@@ -348,6 +349,8 @@ en-GB:
           You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
         oru_courier_text_cambodia: |
           Your documents will be returned to the British Embassy in Phnom Penh after the birth has been registered.
+        oru_courier_text_cameroon: |
+          Your documents will be returned to the British High Commission,Yaonde. You'll also be sent copies of the registration certificate if you've paid for them.  The High commission will contact you when your documents are ready for collection.
         oru_courier_text_north-korea: |
           Your documents will be returned to the British Embassy in Pyongyang after the birth has been registered.
         oru_courier_text_papua-new-guinea: |
@@ -473,6 +476,8 @@ en-GB:
           ##1. Check your documents
 
           ^Send English translations of all foreign documents. %{translator_link}. Don't send laminated documents.^
+
+          %{morocco_swear_in_court}
 
           You must send the original copies of:
 

@@ -8,7 +8,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia bangladesh barbados belize el-salvador estonia germany guatemala grenada iran laos libya maldives netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates)
+    @location_slugs = %w(afghanistan andorra australia bangladesh barbados belize cameroon el-salvador estonia germany guatemala grenada iran laos libya maldives morocco netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth-v2'
   end
@@ -389,7 +389,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   end # UAE
 
   context "answer oru country and in another country" do
-    should "ask which country the user is in now" do
+    should "go to oru result" do
       worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
       add_response "united-arab-emirates"
       add_response "mother_and_father"
@@ -399,6 +399,35 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_current_node :oru_result
       assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
       assert_phrase_list :waiting_time, [:registration_takes_5_days]
+    end
+  end
+
+  context "answer Morocco and in another country " do
+    should "show Morocco phraselist" do
+      worldwide_api_has_organisations_for_location('morocco', read_fixture_file('worldwide/morocco_organisations.json'))
+      add_response "morocco"
+      add_response "mother_and_father"
+      add_response "no"
+      add_response "another_country"
+      add_response "germany"
+      assert_current_node :oru_result
+      assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
+      assert_phrase_list :translator_link, [:approved_translator_link]
+      assert_phrase_list :morocco_swear_in_court, [:swear_in_moroccan_court]
+    end
+  end
+
+  context "answer Germany and in Cameroon" do
+    should "show Cameroon phraselist" do
+      worldwide_api_has_organisations_for_location('germany', read_fixture_file('worldwide/germany_organisations.json'))
+      worldwide_api_has_organisations_for_location('cameroon', read_fixture_file('worldwide/cameroon_organisations.json'))
+      add_response "germany"
+      add_response "mother_and_father"
+      add_response "no"
+      add_response "another_country"
+      add_response "cameroon"
+      assert_current_node :oru_result
+      assert_phrase_list :oru_courier_text, [:oru_courier_text_cameroon]
     end
   end
 end

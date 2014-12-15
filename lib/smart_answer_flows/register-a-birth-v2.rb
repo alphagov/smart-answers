@@ -297,6 +297,14 @@ outcome :oru_result do
     end
   end
 
+  precalculate :morocco_swear_in_court do
+    if country_of_birth == 'morocco' && paternity_declaration
+      PhraseList.new(:swear_in_moroccan_court)
+    else
+      ''
+    end
+  end
+
   precalculate :oru_address do
     if in_the_uk
       PhraseList.new(:oru_address_uk)
@@ -308,7 +316,11 @@ outcome :oru_result do
   precalculate :oru_courier_text do
     phrases = PhraseList.new
     if reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) && !in_the_uk
-      phrases << :"oru_courier_text_#{registration_country}" << :oru_courier_text_common
+      if registration_country == 'cameroon'
+        phrases << :oru_courier_text_cameroon
+      else
+        phrases << :"oru_courier_text_#{registration_country}" << :oru_courier_text_common
+      end
     else
       phrases << :oru_courier_text_default
     end
