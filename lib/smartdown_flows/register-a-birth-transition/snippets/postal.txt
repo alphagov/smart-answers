@@ -1,0 +1,37 @@
+$IF modified_card_only_country(registration_country)
+
+##Send your registration
+
+You can post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate(registration_country)}.
+
+Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url(registration_country)}) and post it with your registration form.
+
+$ELSEIF post_only(registration_country)
+
+$IF registration_country is 'philippines'
+
+##Send your registration
+
+Post your registration form, supporting documents and the fee to the British Embassy. You should use a courier and include a pre-paid return courier envelope.
+
+Pay by cash or bank cheque made payable to ‘British Embassy’. Credit cards, personal or company cheques aren’t accepted.
+
+$ENDIF
+
+$ELSEIF postal_form_url(registration_country)
+
+##Send your registration
+
+You can also post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate(registration_country)}.
+
+Pay by credit or debit card - fill in the [credit card authorisation slip](%{postal_form_url(registration_country)}) and post it with your registration form.
+
+$ELSEIF no_postal_countries(registration_country)
+
+##Send your registration
+
+You can also post your registration form, supporting documents and the fee to the %{embassy_high_commission_or_consulate(registration_country)}.
+
+{{snippet: specific_postal_info}}
+
+$ENDIF

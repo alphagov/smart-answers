@@ -1,0 +1,11 @@
+$IF married_or_partnership is 'no'
+
+The mother must register the birth. If you want the father’s name on the consular birth certificate, both parents will need to swear a paternity declaration in person at the nearest consulate.
+
+Paternity declarations are free. Contact the consulate for more details.
+
+$ELSE
+
+Either parent can register the birth.
+
+$ENDIF

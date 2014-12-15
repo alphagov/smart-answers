@@ -1,0 +1,11 @@
+$IF where_are_you_now is 'in_the_uk' AND NOT oru_country(child_country)
+
+Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.
+
+$ELSE
+
+It usually takes 5 working days for the birth to be registered with the UK authorities, once the Overseas Registration Unit has received your form and the right documents.
+
+They’ll contact you within the 5 working days if they need more information. If this happens then it could take up to 3 months for the birth to be registered.
+
+$ENDIF

@@ -1,0 +1,9 @@
+$IF footnote_exclusions(child_country)
+
+^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
+
+$ELSE
+
+^It takes about 5 working days for the birth to be officially registered.^
+
+$ENDIF

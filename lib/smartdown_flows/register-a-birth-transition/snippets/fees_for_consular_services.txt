@@ -1,0 +1,9 @@
+$IF child_country is 'libya'
+
+You can only pay fees for consular services in cash in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
+
+$ELSE
+
+You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
+
+$ENDIF

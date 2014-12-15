@@ -1,0 +1,17 @@
+$IF oru_country(registration_country) AND where_are_you_now is 'same_country'
+
+{{snippet: oru_courier_specific}}
+
+You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
+
+$ELSIF oru_country(registration_country) AND where_are_you_now is 'another_country'
+
+{{snippet: oru_courier_specific}}
+
+You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
+
+$ELSE
+
+Your documents will be returned to you by secure courier after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them.
+
+$ENDIF

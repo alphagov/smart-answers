@@ -1,0 +1,5 @@
+$!You must register the birth according to the regulations in %{slug_with_lower_case_prefix(child_country)}.$!
+
+You can’t currently register the birth with the UK authorities.
+
+The local birth certificate, with a [certified translation](/certifying-a-document), should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{slug_with_lower_case_prefix(child_country)}.

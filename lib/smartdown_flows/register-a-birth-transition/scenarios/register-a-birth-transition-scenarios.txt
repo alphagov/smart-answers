@@ -1,0 +1,1200 @@
+- child_country: iran
+outcome_no_embassy
+
+- child_country: afghanistan
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_no_embassy
+
+- child_country: afghanistan
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_no_embassy
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_no_embassy
+
+- child_country: afghanistan
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_no_embassy
+
+- child_country: afghanistan
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_no_embassy
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_no_embassy
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_no_embassy
+
+- child_country: south-africa
+outcome_commonwealth
+
+- child_country: afghanistan
+- who_has_british_nationality: neither
+outcome_cannot_register
+
+- child_country: france
+- who_has_british_nationality: neither
+outcome_cannot_register
+
+- child_country: north-korea
+- who_has_british_nationality: neither
+outcome_cannot_register
+
+- child_country: sweden
+- who_has_british_nationality: neither
+outcome_cannot_register
+
+- child_country: afghanistan
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: same_country
+outcome_embassy_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: same_country
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: in_the_uk
+outcome_oru_in_the_uk_or_same_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: france
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: france
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: france
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: france
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: france
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: france
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_embassy_in_another_country
+
+- child_country: afghanistan
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: france
+outcome_embassy_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: france
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: north-korea
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: yes
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2006
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: iran
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: australia
+outcome_oru_in_another_country
+
+- child_country: sweden
+- who_has_british_nationality: mother_and_father
+- married_or_partnership: no
+- child_date_of_birth: 25-12-2007
+- where_are_you_now: another_country
+- registration_country: france
+outcome_oru_in_another_country

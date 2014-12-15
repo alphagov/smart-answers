@@ -1,0 +1,11 @@
+# Were you married to the other parent when your child was born?
+
+[choice: married_or_partnership]
+* yes: Yes
+* no: No
+
+* child_country is 'sweden' => child_date_of_birth
+* married_or_partnership is 'no'
+  * who_has_british_nationality is 'father' => child_date_of_birth
+  * who_has_british_nationality in {mother mother_and_father neither} => where_are_you_now
+* married_or_partnership is 'yes' => where_are_you_now

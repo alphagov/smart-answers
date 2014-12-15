@@ -1,0 +1,59 @@
+$!You can apply to register the birth with the %{embassy_high_commission_or_consulate(registration_country)} in %{slug_with_lower_case_prefix(registration_country)}.$!
+
+{{snippet: birth_registration_form}}
+
+{{snippet: documents_you_must_provide}}
+
+You’ll need to provide originals and a photocopy of each document.
+
+##Cost
+
+Service | Fee
+-|-
+Register a birth | £105
+Copy of a birth registration certificate | £65
+
+{{snippet: fees_for_consular_services}}
+
+You can order copies of the registration certificate from the %{embassy_high_commission_or_consulate(registration_country)} when you register the birth.
+
+Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk) in the UK, but not until September the year after you register.
+
+##Go to the %{embassy_high_commission_or_consulate(registration_country)}
+
+$IF registration_country is 'japan'
+
+Book an appointment by email at the British Embassy Tokyo.
+
+Include your first name and last name and 3 alternative dates and times. You’ll receive an email confirming your appointment.
+
+$C
+**British Embassy Tokyo**
+<consular.tokyo@fco.gov.uk>
+$C
+
+$ELSEIF registration_country is 'hong-kong'
+
+Bring the registration form, supporting documents and the fee.
+
+$ELSE
+
+Book an appointment at the %{embassy_high_commission_or_consulate(registration_country)} and bring the registration form, supporting documents and the fee.
+
+$ENDIF
+
+{{snippet: postal}}
+
+$IF postal_return_form(registration_country)
+
+Use the [delivery return form](%{postal_return_form(registration_country)}) to get your documents delivered back to you.
+
+$ENDIF
+
+{{snippet: type_of_payment}}
+
+{{snippet: registering_declaration}}
+
+%{embassy_data(registration_country)}
+
+{{snippet: footnote_another_country}}
