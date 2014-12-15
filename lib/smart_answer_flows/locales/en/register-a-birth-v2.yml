@@ -436,6 +436,22 @@ en-GB:
         united-arab-emirates_another_country_certificate_exception: |
           You can’t get a local birth certificate if you weren’t married when you had your child.
 
+        send_registration_oru: |
+
+          ##4. Send your registration
+
+          Post the registration form and documents by secure post to:
+
+        book_appointment_at_embassy: |
+
+          ##4. Go to the British embassy
+
+          Book an appointment at the British embassy. Take your documents, registration form and the reference number for your online payment.
+
+          Staff at the embassy will check your application and send it to the Overseas Registration Unit in the UK.
+
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+
       embassy_result:
         body: |
           $!You can apply to register the birth with the %{embassy_high_commission_or_consulate} in %{registration_country_name_lowercase_prefix}.$!
@@ -541,11 +557,6 @@ en-GB:
           Rest of world | £22
 
           +[data_partial:button:button_data]
-
-
-          ##4. Send your registration
-
-          Post the registration form and documents by secure post to:
 
           %{oru_address}
 

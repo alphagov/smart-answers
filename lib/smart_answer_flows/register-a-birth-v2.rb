@@ -271,6 +271,25 @@ outcome :oru_result do
     phrases
   end
 
+  precalculate :location do
+    loc = WorldLocation.find(registration_country)
+    raise InvalidResponse unless loc
+    loc
+  end
+
+  precalculate :organisations do
+    [location.fco_organisation]
+  end
+
+  precalculate :overseas_passports_embassies do
+    if organisations and organisations.any?
+      service_title = 'Births and Deaths registration service'
+      organisations.first.offices_with_service(service_title)
+    else
+      []
+    end
+  end
+
   precalculate :oru_documents_variant do
     if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?(country_of_birth)
       phrases = PhraseList.new
@@ -306,10 +325,16 @@ outcome :oru_result do
   end
 
   precalculate :oru_address do
-    if in_the_uk
-      PhraseList.new(:oru_address_uk)
+    phrases = PhraseList.new
+    if country_of_birth == 'venezuela' && same_country
+      phrases << :book_appointment_at_embassy
     else
-      PhraseList.new(:oru_address_abroad)
+      phrases << :send_registration_oru
+      if in_the_uk
+        phrases << :oru_address_uk
+      else
+        phrases << :oru_address_abroad
+      end
     end
   end
 
