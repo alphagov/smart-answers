@@ -3,5 +3,5 @@
 [country: registration_country, countries: world_locations]
 
 * oru_country(child_country) => outcome_oru_in_another_country
-* country_has_no_embassy(registration_country) => outcome_no_embassy
+* country_has_no_embassy(registration_country) => outcome_no_embassy_in_another_country
 * otherwise => outcome_embassy_in_another_country

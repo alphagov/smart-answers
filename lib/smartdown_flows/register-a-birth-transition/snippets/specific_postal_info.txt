@@ -1,4 +1,4 @@
-$IF registration_country is 'barbados'
+$IF registration_country in {barbados antigua-and-barbuda}
 
 Pay by bank draft made payable to ‘British High Commission’.
 

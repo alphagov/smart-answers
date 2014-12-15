@@ -6,35 +6,35 @@ outcome_no_embassy
 - married_or_partnership: yes
 - where_are_you_now: another_country
 - registration_country: iran
-outcome_no_embassy
+outcome_no_embassy_in_another_country
 
 - child_country: afghanistan
 - who_has_british_nationality: mother
 - married_or_partnership: no
 - where_are_you_now: another_country
 - registration_country: iran
-outcome_no_embassy
+outcome_no_embassy_in_another_country
 
 - child_country: afghanistan
 - who_has_british_nationality: father
 - married_or_partnership: yes
 - where_are_you_now: another_country
 - registration_country: iran
-outcome_no_embassy
+outcome_no_embassy_in_another_country
 
 - child_country: afghanistan
 - who_has_british_nationality: mother_and_father
 - married_or_partnership: yes
 - where_are_you_now: another_country
 - registration_country: iran
-outcome_no_embassy
+outcome_no_embassy_in_another_country
 
 - child_country: afghanistan
 - who_has_british_nationality: mother_and_father
 - married_or_partnership: no
 - where_are_you_now: another_country
 - registration_country: iran
-outcome_no_embassy
+outcome_no_embassy_in_another_country
 
 - child_country: afghanistan
 - who_has_british_nationality: father
@@ -42,7 +42,7 @@ outcome_no_embassy
 - child_date_of_birth: 25-12-2006
 - where_are_you_now: another_country
 - registration_country: iran
-outcome_no_embassy
+outcome_no_embassy_in_another_country
 
 - child_country: afghanistan
 - who_has_british_nationality: father
@@ -50,7 +50,7 @@ outcome_no_embassy
 - child_date_of_birth: 25-12-2007
 - where_are_you_now: another_country
 - registration_country: iran
-outcome_no_embassy
+outcome_no_embassy_in_another_country
 
 - child_country: south-africa
 outcome_commonwealth

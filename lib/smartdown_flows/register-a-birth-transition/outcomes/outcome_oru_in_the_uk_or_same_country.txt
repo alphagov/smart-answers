@@ -10,6 +10,7 @@ s3. Pay online.
 s4. Post your documents and the form.
 
 
+
 ##1. Check your documents
 
 {{snippet: translator_link}}
@@ -77,5 +78,11 @@ Post the registration form and documents by secure post to:
 $IF where_are_you_now is 'in_the_uk' OR not_oru_courier_variants(child_country)
 
 {{snippet: oru_courier_text_uk}}
+
+$ENDIF
+
+$IF child_country is 'north-korea'
+
+Your documents will be returned to the British Embassy in Pyongyang after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
 
 $ENDIF

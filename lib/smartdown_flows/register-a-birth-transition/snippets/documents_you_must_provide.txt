@@ -48,6 +48,25 @@ $ELSEIF child_country is 'north-korea'
 
 ^Provide English translations of all foreign documents. Use a professional translator and include their name and address with your application. Don’t provide laminated documents.^
 
+You must provide the original copies of:
+
+- a birth certificate issued by Pyongyang Friendship Hospital
+- the long version of the parent’s birth certificate showing the child’s grandparents’ details (for parents who were born in the UK)
+- the parent’s naturalisation or registration certificate (for parents who weren’t born in the UK)
+- the parents’ marriage or civil partnership certificate (if applicable)
+- evidence that the parents’ previous marriages or civil partnerships have ended (eg divorce or death certificates)
+- change of name documents (if either parent has ever changed their name)
+- a letter from the parent’s employer if they’re working abroad as a UK civil servant, EU civil servant, diplomat or member of HM Forces (for British parents)
+- written evidence if the parent was born overseas while one of their own parents was working abroad as a UK civil servant, EU civil servant, diplomat or member of HM Forces (for British parents)
+
+You must also provide photocopies of:
+
+- the photo page of the child’s British passport if they have one
+- the photo page of the parent’s current passport (for British parents)
+- the birth certificate or the photo page of the parent’s current passport (for parents who aren’t British)
+
+%Your application will be rejected if the documents aren’t authentic, don’t confirm the child’s identity or don’t prove that the child has a claim to British nationality. The registration fee won’t be refunded.%
+
 $ELSEIF child_country is 'pakistan'
 
 You and the other parent must provide:

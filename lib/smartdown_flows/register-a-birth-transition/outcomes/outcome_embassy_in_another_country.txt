@@ -42,6 +42,8 @@ Book an appointment at the %{embassy_high_commission_or_consulate(registration_c
 
 $ENDIF
 
+{{snippet: registering_declaration}}
+
 {{snippet: postal}}
 
 $IF postal_return_form(registration_country)
@@ -51,8 +53,6 @@ Use the [delivery return form](%{postal_return_form(registration_country)}) to g
 $ENDIF
 
 {{snippet: type_of_payment}}
-
-{{snippet: registering_declaration}}
 
 %{embassy_data(registration_country)}
 
