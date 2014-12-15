@@ -9,6 +9,10 @@ $(document).ready(function() {
 
     initializeHistory();
 
+    function getCurrentSlug () {
+      return document.URL.split('/')[3].split("#")[0].split("?")[0];
+    }
+
       // events
       // get new questions on submit
       $(formSelector).live('submit', function(event) {
@@ -28,10 +32,16 @@ $(document).ready(function() {
         * Cat/Action/Label convention is taken from GOVUK.Analytics.Trackers in static
         * Slug extraction is based on position logic in GOVUK.Analytics.Trackers.smart_answer
       */
-      var slug = document.URL.split('/')[3].split("#")[0].split("?")[0];
-      window._gaq && window._gaq.push(['_trackEvent', "MS_smart_answer", slug, "Change Answer"]);
+      window._gaq && window._gaq.push(['_trackEvent', "MS_smart_answer", getCurrentSlug(), "Change Answer"]);
 
       reloadQuestions($(this).attr("href"), "");
+      return false;
+    });
+
+    // Track when a user clicks on 'Start again' link
+    $('.start-right').live('click', function() {
+      window._gaq && window._gaq.push(['_trackEvent', 'MS_smart_answer', getCurrentSlug(), 'Start again']);
+      reloadQuestions($(this).attr('href'), '');
       return false;
     });
 
