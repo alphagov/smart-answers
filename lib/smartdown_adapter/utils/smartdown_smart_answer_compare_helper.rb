@@ -59,11 +59,6 @@ module SmartdownAdapter
         if is_smartdown
           # Remove the transition slug, which will cause diffs in lots of hrefs
           response.gsub!('-transition', '')
-          response.gsub!(
-            "<p>##1. Check your documents</p>",
-            '<h2 id="check-your-documents">1. Check your documents</h2>'
-          )
-          response.gsub!("Governor’s", "Governor's")
         end
         response
       end
