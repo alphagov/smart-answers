@@ -414,6 +414,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
       assert_phrase_list :translator_link, [:approved_translator_link]
       assert_phrase_list :morocco_swear_in_court, [:swear_in_moroccan_court]
+      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_morocco]
     end
   end
 

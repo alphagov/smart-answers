@@ -291,6 +291,9 @@ en-GB:
           - an extract in English from the Population Information System which has the name of the child and the parents, issued within the last three months - you can get this from the [register office](http://www.maistraatti.fi/en/About-Local-Register-Offices/)
         oru_documents_variant_france: |
           - the child’s full local birth certificate (‘copie integrale acte de naissance’) - it must have both parents’ names
+        oru_documents_variant_israel: |
+          - the child's full local birth certificate
+          - the hospital live birth certificate (if the father isn't named on the local birth certificate)
         oru_documents_variant_italy: |
           - the child’s long international birth certificate (not the standard short version) - it must have both parents’ names
         oru_documents_variant_japan: |
@@ -299,8 +302,13 @@ en-GB:
           - a [name confirmation form](/government/publications/birth-registration-name-confirmation-form) that says how you would like the child’s full name to be registered, if the name differs from the name on the local birth certificate or Japanese family register (the rules are on the form)
         oru_documents_variant_monaco: |
           - the child’s full local birth certificate (‘copie integrale acte de naissance’) - it must have both parents’ names
+        oru_documents_variant_morocco: |
+          - the child’s full local birth certificate - it must have both parents’ names
+          - a [name confirmation form](https://www.gov.uk/government/publications/birth-registration-name-confirmation-form) that says how you would like the child's full name to be registered, if the name differs from the name on the local birth certificate
         oru_documents_variant_netherlands: |
           - the Dutch version of the child’s full birth certificate (‘akte van geboorte’) and a translation of the certificate into English
+        oru_documents_variant_poland: |
+          - the child’s full local birth certificate (‘zupelny’) - it must have both parents’ names
         oru_documents_variant_portugal: |
           - the child’s full local birth certificate (‘assento de nascimento’) - it must have both parents’ names
           - the hospital declaration of live birth (if the hospital’s name is not on your child’s birth certificate)
@@ -316,6 +324,12 @@ en-GB:
           - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs
         oru_documents_variant_taiwan: |
           - both Chinese and English versions of the child’s birth certificate - you can send a translation if the hospital doesn't issue an English version
+        oru_documents_variant_the-occupied-palestinian-territories: |
+          - the child's full local birth certificate
+          - the hospital declaration of live birth (if the father isn't named on the birth certificate)
+        oru_documents_variant_turkey: |
+          - the child’s full local birth certificate - it must have both parents’ names
+          - the hospital live birth report
         oru_documents_variant_uae_not_married: |
           - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs (email <birthregistrationenquiries@fco.gov.uk> if the local authorities will not provide a birth certificate)
 
