@@ -35,7 +35,7 @@ module SmartAnswer::Calculators
 
     ORU_DOCUMENTS_VARIANT_COUNTRIES = %w(andorra belgium denmark finland france italy japan monaco morocco netherlands poland portugal south-korea spain sweden taiwan the-occupied-palestinian-territories turkey united-arab-emirates usa)
 
-    ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH = %w(papua-new-guinea)
+    ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH = %w(papua-new-guinea poland)
 
     ORU_COURIER_VARIANTS = %w(cambodia cameroon north-korea papua-new-guinea)
 

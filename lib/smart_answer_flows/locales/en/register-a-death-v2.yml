@@ -357,6 +357,8 @@ en-GB:
           - the original local death certificate (not a certificate issued by a doctor)
         oru_documents_variant_papua-new-guinea: |
           - the hospital medical death record
+        oru_documents_variant_poland: |
+          - the full local death certificate ('zupelny')
 
         oru_courier_text_default: |
           Your documents will be returned to you by secure courier after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them.
