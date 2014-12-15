@@ -24,20 +24,6 @@ $(document).ready(function() {
         return false;
       });
 
-    // we want to start over with whatever gets provided if someone clicks to change the answer
-    $(".undo a").live('click', function() {
-      /*
-        This is short lived tracking - to help inform a design decision, should not be permanent
-
-        * Cat/Action/Label convention is taken from GOVUK.Analytics.Trackers in static
-        * Slug extraction is based on position logic in GOVUK.Analytics.Trackers.smart_answer
-      */
-      window._gaq && window._gaq.push(['_trackEvent', "MS_smart_answer", getCurrentSlug(), "Change Answer"]);
-
-      reloadQuestions($(this).attr("href"), "");
-      return false;
-    });
-
     // Track when a user clicks on 'Start again' link
     $('.start-right').live('click', function() {
       window._gaq && window._gaq.push(['_trackEvent', 'MS_smart_answer', getCurrentSlug(), 'Start again']);
