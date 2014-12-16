@@ -27,8 +27,16 @@ $(document).ready(function() {
 
     // Track when a user clicks on 'Start again' link
     $('.start-right').live('click', function() {
-      window._gaq && window._gaq.push(['_trackEvent', 'MS_smart_answer', getCurrentSlug(), 'Start again']);
-      reloadQuestions($(this).attr('href'), '');
+      window._gaq && window._gaq.push(['_trackEvent', 'MS_smart_answer', getCurrentPosition(), 'Start again']);
+      reloadQuestions($(this).attr('href'));
+      return false;
+    });
+
+    // Track when a user clicks on a 'Change Answer' link
+    $('.link-right a').live('click', function() {
+      var href = $(this).attr('href');
+      window._gaq && window._gaq.push(['_trackEvent', 'MS_smart_answer', href, 'Change Answer']);
+      reloadQuestions(href);
       return false;
     });
 
@@ -152,7 +160,7 @@ $(document).ready(function() {
         $('.meta-wrapper').show();
       });
     }
-  }
+  };
 
   contentPosition.init();
 
