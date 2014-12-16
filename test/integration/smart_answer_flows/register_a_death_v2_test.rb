@@ -8,7 +8,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil dominica egypt france germany iran italy libya morocco north-korea pakistan  poland serbia slovakia spain st-kitts-and-nevis)
+    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy libya morocco north-korea pakistan  poland serbia slovakia spain st-kitts-and-nevis)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-death-v2'
   end
@@ -344,19 +344,19 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_current_node :oru_result
       end
     end # Answer Brazil
-
-    context "Death in Poland" do
+    context "Death in Poland, currently in Cameroon" do
       setup do
-        worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
+        worldwide_api_has_organisations_for_location('cameroon', read_fixture_file('worldwide/cameroon_organisations.json'))
         add_response 'poland'
-        add_response 'same_country'
+        add_response 'another_country'
+        add_response 'cameroon'
       end
       should "give the oru result and be done" do
         assert_current_node :oru_result
-        assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
+        assert_phrase_list :oru_courier_text, [:oru_courier_text_cameroon]
         assert_phrase_list :oru_documents_variant_death, [:oru_documents_variant_poland]
       end
-    end # Answer Poland
+    end # Answer Poland, currently in Cameroon
 
     context "answer death in Serbia, user in the UK" do
       setup do
