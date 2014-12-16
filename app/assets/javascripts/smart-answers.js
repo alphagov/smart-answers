@@ -14,16 +14,16 @@ $(document).ready(function() {
       return slugArray.splice(3, slugArray.length).join('/');
     };
 
-      // events
-      // get new questions on submit
-      $(formSelector).live('submit', function(event) {
-        $('input[type=submit]', this).attr('disabled', 'disabled');
-        var form = $(this);
-        var postData = form.serializeArray();
-        reloadQuestions(form.attr('action'), postData);
-        event.preventDefault();
-        return false;
-      });
+    // events
+    // get new questions on submit
+    $(formSelector).live('submit', function(event) {
+      $('input[type=submit]', this).attr('disabled', 'disabled');
+      var form = $(this);
+      var postData = form.serializeArray();
+      reloadQuestions(form.attr('action'), postData);
+      event.preventDefault();
+      return false;
+    });
 
     // Track when a user clicks on 'Start again' link
     $('.start-right').live('click', function() {
