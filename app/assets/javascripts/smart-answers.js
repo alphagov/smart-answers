@@ -9,9 +9,10 @@ $(document).ready(function() {
 
     initializeHistory();
 
-    function getCurrentSlug () {
-      return document.URL.split('/')[3].split("#")[0].split("?")[0];
-    }
+    var getCurrentPosition = function () {
+      var slugArray = document.URL.split('/');
+      return slugArray.splice(3, slugArray.length).join('/');
+    };
 
       // events
       // get new questions on submit
