@@ -235,35 +235,9 @@ $is-ie: false !default;
     font-weight: normal;
   }
 
-  li.done .undo {
-    position: absolute;
-    top: (0.75em/0.9);
-    right: (1.5em/0.9);
-    margin: 0;
-    @include core-14;
-
-    @include ie-lte(8) {
-      margin: 0;
-    }
-
-    @include ie-lte(6) {
-      position: absolute;
-      right: 1em;
-    }
-
-    a {
-      color: $text-colour;
-      display: block;
-    }
-  }
-
   li.done .answer ul {
     margin: 0.5em 0 0 -2.1em;
     padding-left: 2.1em;
-  }
-
-  li.done:hover .undo a {
-    color: inherit;
   }
 
   .step.current {

@@ -9,39 +9,34 @@ $(document).ready(function() {
 
     initializeHistory();
 
-    function getCurrentSlug () {
-      return document.URL.split('/')[3].split("#")[0].split("?")[0];
-    }
+    var getCurrentPosition = function () {
+      var slugArray = document.URL.split('/');
+      return slugArray.splice(3, slugArray.length).join('/');
+    };
 
-      // events
-      // get new questions on submit
-      $(formSelector).live('submit', function(event) {
-        $('input[type=submit]', this).attr('disabled', 'disabled');
-        var form = $(this);
-        var postData = form.serializeArray();
-        reloadQuestions(form.attr('action'), postData);
-        event.preventDefault();
-        return false;
-      });
-
-    // we want to start over with whatever gets provided if someone clicks to change the answer
-    $(".undo a").live('click', function() {
-      /*
-        This is short lived tracking - to help inform a design decision, should not be permanent
-
-        * Cat/Action/Label convention is taken from GOVUK.Analytics.Trackers in static
-        * Slug extraction is based on position logic in GOVUK.Analytics.Trackers.smart_answer
-      */
-      window._gaq && window._gaq.push(['_trackEvent', "MS_smart_answer", getCurrentSlug(), "Change Answer"]);
-
-      reloadQuestions($(this).attr("href"), "");
+    // events
+    // get new questions on submit
+    $(formSelector).live('submit', function(event) {
+      $('input[type=submit]', this).attr('disabled', 'disabled');
+      var form = $(this);
+      var postData = form.serializeArray();
+      reloadQuestions(form.attr('action'), postData);
+      event.preventDefault();
       return false;
     });
 
     // Track when a user clicks on 'Start again' link
     $('.start-right').live('click', function() {
-      window._gaq && window._gaq.push(['_trackEvent', 'MS_smart_answer', getCurrentSlug(), 'Start again']);
-      reloadQuestions($(this).attr('href'), '');
+      window._gaq && window._gaq.push(['_trackEvent', 'MS_smart_answer', getCurrentPosition(), 'Start again']);
+      reloadQuestions($(this).attr('href'));
+      return false;
+    });
+
+    // Track when a user clicks on a 'Change Answer' link
+    $('.link-right a').live('click', function() {
+      var href = $(this).attr('href');
+      window._gaq && window._gaq.push(['_trackEvent', 'MS_smart_answer', href, 'Change Answer']);
+      reloadQuestions(href);
       return false;
     });
 
@@ -165,7 +160,7 @@ $(document).ready(function() {
         $('.meta-wrapper').show();
       });
     }
-  }
+  };
 
   contentPosition.init();
 
