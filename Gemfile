@@ -18,7 +18,7 @@ gem 'tilt', '1.4.1'
 if ENV['SMARTDOWN_DEV']
   gem 'smartdown', :path => '../smartdown'
 else
-  gem 'smartdown', '0.11.2'
+  gem 'smartdown', '0.11.4'
 end
 
 if ENV['API_DEV']

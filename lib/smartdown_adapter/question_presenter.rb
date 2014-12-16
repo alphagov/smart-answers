@@ -45,6 +45,8 @@ module SmartdownAdapter
         "salary_question"
       when Smartdown::Api::TextQuestion
         "text_question"
+      when Smartdown::Api::PostcodeQuestion
+        "postcode_question"
       end
     end
 
