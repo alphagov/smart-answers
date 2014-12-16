@@ -45,13 +45,13 @@ module SmartdownAdapter
       context "a started flow with responses" do
         setup do
           request = { started: true, responses: 'lion', params: "", next: "y" }
-          request.stubs(:query_parameters).returns({ 'response_1' => '1999-12-31' })
+          request.stubs(:query_parameters).returns({ 'response_1' => "no" })
           @presenter = SmartdownAdapter::Presenter.new(@flow, request)
         end
         should "initialize sets internal state" do
           assert_equal "animal-example-simple", @presenter.name
           assert @presenter.started
-          assert_equal ["lion", "1999-12-31"], @presenter.current_state.responses
+          assert_equal ["lion", "no"], @presenter.current_state.responses
           assert_equal Smartdown::Api::QuestionPage, @presenter.smartdown_state.current_node.class
         end
       end
