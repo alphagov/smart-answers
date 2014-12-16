@@ -14,9 +14,7 @@ module SmartdownAdapter
 
     def reset_registry(options={})
       SmartdownAdapter::Registry.reset_instance
-      silence_warnings do
-        SmartdownAdapter::Registry.const_set(:FLOW_REGISTRY_OPTIONS, test_options.merge(options))
-      end
+      SmartdownAdapter::Registry.instance(test_options.merge(options))
     end
 
     test "constructor is private" do
