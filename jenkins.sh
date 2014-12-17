@@ -12,6 +12,6 @@ export GOVUK_APP_DOMAIN=dev.gov.uk
 export GOVUK_ASSET_HOST=http://static.dev.gov.uk
 
 export DISPLAY=:99
-RAILS_ENV=test SPEC_REPORTER=true bundle exec rake test
+RAILS_ENV=test SPEC_REPORTER=true bundle exec rake
 
 bundle exec rake assets:precompile

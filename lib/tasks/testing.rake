@@ -15,4 +15,4 @@ Rake::TestTask.new("test:unit:calculators") do |t|
   t.test_files = Dir["test/unit/calculators/**/*_test.rb"]
 end
 
-task :default => :test
+task :default => ["test", "smartdown_scenarios:all"]
