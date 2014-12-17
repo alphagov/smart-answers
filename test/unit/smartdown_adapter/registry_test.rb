@@ -12,47 +12,46 @@ module SmartdownAdapter
       }
     end
 
-    def reset_registry(options={})
-      SmartdownAdapter::Registry.reset_instance
-      silence_warnings do
-        SmartdownAdapter::Registry.const_set(:FLOW_REGISTRY_OPTIONS, test_options.merge(options))
-      end
-    end
-
     test "constructor is private" do
       assert_raises NoMethodError do
         SmartdownAdapter::Registry.new
       end
     end
     test "registry is a singleton" do
+      SmartdownAdapter::Registry.reset_instance
       a, b = SmartdownAdapter::Registry.instance, SmartdownAdapter::Registry.instance
       assert_equal a, b
     end
     test "flows are loaded dynamically depending on registry options" do
-      reset_registry
-      flow1 = SmartdownAdapter::Registry.instance.find("animal-example-simple")
-      flow2 = SmartdownAdapter::Registry.instance.find("animal-example-simple")
+      SmartdownAdapter::Registry.reset_instance
+      instance = SmartdownAdapter::Registry.instance(test_options)
+      flow1 = instance.find("animal-example-simple")
+      flow2 = instance.find("animal-example-simple")
       assert_equal Smartdown::Api::Flow, flow1.class
       assert_equal Smartdown::Api::Flow, flow2.class
       refute_equal flow1, flow2
     end
     test "flows are cacheable depending on registry options" do
-      reset_registry(preload_flows: true)
-      flow1 = SmartdownAdapter::Registry.instance.find("animal-example-simple")
-      flow2 = SmartdownAdapter::Registry.instance.find("animal-example-simple")
+      SmartdownAdapter::Registry.reset_instance
+      instance = SmartdownAdapter::Registry.instance(test_options.merge(preload_flows: true))
+      flow1 = instance.find("animal-example-simple")
+      flow2 = instance.find("animal-example-simple")
       assert_equal Smartdown::Api::Flow, flow1.class
       assert_equal Smartdown::Api::Flow, flow2.class
       assert_equal flow1, flow2
     end
     test "flows method includes and excludes drafts by config" do
-      reset_registry(show_drafts: true)
-      assert SmartdownAdapter::Registry.instance.flows.any? { |flow| flow.name == 'animal-example-simple' }
+      SmartdownAdapter::Registry.reset_instance
+      instance = SmartdownAdapter::Registry.instance(test_options.merge(show_drafts: true))
+      assert instance.flows.any? { |flow| flow.name == 'animal-example-simple' }
 
-      reset_registry(show_drafts: false)
-      refute SmartdownAdapter::Registry.instance.flows.any? { |flow| flow.name == 'animal-example-simple' }
+      SmartdownAdapter::Registry.reset_instance
+      instance = SmartdownAdapter::Registry.instance(test_options.merge(show_drafts: false))
+      refute instance.flows.any? { |flow| flow.name == 'animal-example-simple' }
 
-      reset_registry(show_drafts: false, preload_flows: true)
-      refute SmartdownAdapter::Registry.instance.flows.any? { |flow| flow.name == 'animal-example-simple' }
+      SmartdownAdapter::Registry.reset_instance
+      instance = SmartdownAdapter::Registry.instance(test_options.merge(show_drafts: false, preload_flows: true))
+      refute instance.flows.any? { |flow| flow.name == 'animal-example-simple' }
     end
   end
 end

@@ -4,12 +4,17 @@ require 'smartdown/api/directory_input'
 module SmartdownAdapter
   class Registry
 
-    def self.instance
-      @instance ||= new(FLOW_REGISTRY_OPTIONS)
+    def self.instance(options = FLOW_REGISTRY_OPTIONS)
+      if @options && @options != options
+        raise "Unexpected modification of flow registry options, got #{options} and had #{@options}"
+      end
+      @options = options
+      @instance ||= new(options)
     end
 
     def self.reset_instance
       @instance = nil
+      @options = nil
     end
 
     def initialize(options = {})
@@ -21,7 +26,7 @@ module SmartdownAdapter
 
     private_class_method :new
 
-    def check(name, options = FLOW_REGISTRY_OPTIONS)
+    def check(name)
       return unless available?(name)
 
       flow = @preloaded ? @preloaded[name] : build_flow(name)
@@ -48,8 +53,7 @@ module SmartdownAdapter
       flow_paths.map { |p| File.basename(p) }
     end
 
-    private
-
+  private
     def find_by_name(name)
       @preloaded ? @preloaded[name] : build_flow(name)
     end
@@ -79,7 +83,6 @@ module SmartdownAdapter
       @preloaded.select! { |k,v| check(v.name) }
     end
 
-  private
     def get_render_time_plugins(flow_name)
       plugin_factory(flow_name)[:render_time]
     end

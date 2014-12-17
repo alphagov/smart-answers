@@ -57,16 +57,12 @@ module Benchmarker
   end
 
   def benchmark_with_and_without_preloading
-    SmartdownAdapter::Registry.const_set(:FLOW_REGISTRY_OPTIONS, REGISTRY_OPTIONS)
-    @@registry = SmartdownAdapter::Registry.instance
+    @@registry = SmartdownAdapter::Registry.instance(REGISTRY_OPTIONS)
     puts "PRELOADING TURNED OFF"
     benchmark_things
 
     SmartdownAdapter::Registry.reset_instance
-    silence_warnings do
-      SmartdownAdapter::Registry.const_set(:FLOW_REGISTRY_OPTIONS, REGISTRY_OPTIONS.merge({ preload_flows: true }))
-    end
-    @@registry = SmartdownAdapter::Registry.instance
+    @@registry = SmartdownAdapter::Registry.instance(REGISTRY_OPTIONS.merge({ preload_flows: true }))
     puts "PRELOADING TURNED ON"
     benchmark_things
 
