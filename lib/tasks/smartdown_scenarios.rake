@@ -1,7 +1,10 @@
+require 'gds_api/test_helpers/imminence'
+
 namespace :smartdown_scenarios do
 
   desc "Run all scenarios for all Smartdown questions"
   task :all => :environment do
+    setup_imminence
     report = {}
     smartdown_flows = SmartdownAdapter::Registry.instance.flows
     smartdown_flows.each do |smartdown_flow|
@@ -13,10 +16,12 @@ namespace :smartdown_scenarios do
       end
     end
     print_report(report)
+    reset_imminence
   end
 
   desc "Rename a Smartdown directory package, including coversheet"
   task :run, [:name] => :environment do |t, args|
+    setup_imminence
     report = Hash.new
     smartdown_flow = SmartdownAdapter::Registry.instance.find(args[:name])
     smartdown_flow.scenario_sets.each do |scenario_set|
@@ -26,6 +31,23 @@ namespace :smartdown_scenarios do
       end
     end
     print_report(report)
+    reset_imminence
+  end
+
+  def setup_imminence
+    @imminence = $imminence
+    $imminence = FakeImminence.new
+  end
+
+  def reset_imminence
+    $imminence = @imminence
+  end
+
+  class FakeImminence
+    def areas_for_postcode(postcode)
+      regions = postcode == "B1 1PW" ? [{"slug" => "birmingham-borough-council"}] : []
+      OpenStruct.new(:to_hash => {"results" => regions}, :code => 200)
+    end
   end
 
   def check_scenario_set(smartdown_flow, scenario_set)
@@ -66,8 +88,6 @@ namespace :smartdown_scenarios do
         end
       end
     rescue Exception => e
-      require 'pry'
-      binding.pry
       errors << "Exception thrown for answers #{answers.join(",")}"
     end
     errors
@@ -82,8 +102,6 @@ namespace :smartdown_scenarios do
         errors << "Outcome #{state.current_node.name} reached and not #{outcome} with answers #{answers.join(",")}"
       end
     rescue Exception => e
-      require 'pry'
-      binding.pry
       errors << "Exception thrown for answers #{answers.join(",")}"
     end
     errors
