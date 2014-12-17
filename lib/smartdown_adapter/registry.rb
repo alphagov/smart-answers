@@ -5,11 +5,16 @@ module SmartdownAdapter
   class Registry
 
     def self.instance(options = FLOW_REGISTRY_OPTIONS)
+      if @options && @options != options
+        raise "Unexpected modification of flow registry options, got #{options} and had #{@options}"
+      end
+      @options = options
       @instance ||= new(options)
     end
 
     def self.reset_instance
       @instance = nil
+      @options = nil
     end
 
     def initialize(options = {})
