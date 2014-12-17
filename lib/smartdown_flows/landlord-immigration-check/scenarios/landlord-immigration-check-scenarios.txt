@@ -1,7 +1,7 @@
-- postcode: WC2B 6SE
+- property: WC2B 6SE
 outcome_check_not_needed
 
-- postcode: B1 1PW
+- property: B1 1PW
 - main_home: yes
 - tenant_over_18: yes
 - has_uk_passport: no
@@ -16,32 +16,32 @@ outcome_check_not_needed
 - immigration_application: no
 outcome_can_not_rent
 
-- postcode: B1 1PW
+- property: B1 1PW
 - main_home: no
 - property_type: holiday_accommodation
 outcome_check_not_needed_if_holiday_or_under_3_months
 
-- postcode: B1 1PW
+- property: B1 1PW
 - main_home: no
 - property_type: 7_year_lease_property
 outcome_check_needed_if_break_clause
 
-- postcode: B1 1PW
+- property: B1 1PW
 - main_home: no
 - property_type: mobile_home
 outcome_check_not_needed_when_mobile_home
 
-- postcode: B1 1PW
+- property: B1 1PW
 - main_home: no
 - property_type: student_accommodation
 outcome_check_may_be_needed_when_student
 
-- postcode: B1 1PW
+- property: B1 1PW
 - main_home: yes
 - tenant_over_18: no
 outcome_check_not_needed_when_under_18
 
-- postcode: B1 1PW
+- property: B1 1PW
 - main_home: yes
 - tenant_over_18: yes
 - has_uk_passport: yes
