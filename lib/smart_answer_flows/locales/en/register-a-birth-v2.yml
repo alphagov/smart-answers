@@ -382,11 +382,9 @@ en-GB:
           A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> to find out what other proof can be accepted.
 
         jordan_same_country_certificate_exception: |
-          %You could be arrested if you aren’t married and you try to register a birth.%
+          ^It’s illegal in Jordan to have a child outside of marriage. You can’t get a local birth certificate.^
 
-          Contact the British embassy for advice.
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
 
         jordan_another_country_certificate_exception: |
 
@@ -395,7 +393,7 @@ en-GB:
         kuwait_same_country_certificate_exception: |
           ^It’s illegal in Kuwait to have a child outside of marriage or within the first 6 months of marriage. You can’t get a local birth certificate.^
 
-          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at birthregistrationenquiries@fco.gov.uk to find out what other proof can be accepted.
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
 
         kuwait_another_country_certificate_exception: |
           You can’t get a local birth certificate if you weren’t married when you had your child.
@@ -403,7 +401,7 @@ en-GB:
         oman_same_country_certificate_exception: |
           ^It’s illegal in Oman to have a child outside of marriage. You can’t get a local birth certificate.^
 
-          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at birthregistrationenquiries@fco.gov.uk to find out what other proof can be accepted.
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
 
         oman_another_country_certificate_exception: |
           You can’t get a local birth certificate if you weren’t married when you had your child.
@@ -411,27 +409,23 @@ en-GB:
         qatar_same_country_certificate_exception: |
           ^It’s illegal in Qatar to have a child outside of marriage. You can’t get a local birth certificate.^
 
-          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at birthregistrationenquiries@fco.gov.uk to find out what other proof can be accepted.
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
 
         qatar_another_country_certificate_exception: |
           You can’t get a local birth certificate if you weren’t married when you had your child.
 
         saudi-arabia_same_country_certificate_exception: |
-          %You could get the death penalty if you have a child outside of marriage in Saudi Arabia. You could be arrested if you try to register the birth.%
+          ^It’s illegal in Saudi Arabia to have a child outside of marriage. You can’t get a local birth certificate.^
 
-          Contact the British embassy for advice.
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
 
         saudi-arabia_another_country_certificate_exception: |
           You can’t get a local birth certificate if you weren’t married when you had your child.
 
         united-arab-emirates_same_country_certificate_exception: |
-          %You could be arrested if you aren’t married and you try to register a birth in the United Arab Emirates.%
+          ^It’s illegal in the United Arab Emirates to have a child outside of marriage. You can’t get a local birth certificate.^
 
-            Contact the British embassy for advice.
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
 
         united-arab-emirates_another_country_certificate_exception: |
           You can’t get a local birth certificate if you weren’t married when you had your child.
