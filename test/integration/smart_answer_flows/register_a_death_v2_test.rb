@@ -222,8 +222,8 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         end
         should "give the ORU result and be done" do
           assert_current_node :oru_result
-          assert_phrase_list :translator_link, [:no_translator_link]
-          assert_state_variable :translator_link_url, nil
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_state_variable :translator_link_url, "/government/publications/morocco-list-of-lawyers"
         end
       end # Answer ORU
     end # Morocco

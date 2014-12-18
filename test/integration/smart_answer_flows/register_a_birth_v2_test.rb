@@ -8,7 +8,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia bangladesh barbados belize cameroon el-salvador estonia germany guatemala grenada iran laos libya maldives morocco netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates venezuela)
+    @location_slugs = %w(afghanistan andorra australia bangladesh barbados belize cameroon el-salvador estonia germany guatemala grenada iran israel laos libya maldives morocco netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth-v2'
   end
@@ -60,6 +60,18 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response 'same_country'
       assert_state_variable :registration_country, 'spain'
       assert_phrase_list :oru_documents_variant, [:oru_documents_variant_andorra]
+    end
+  end # Andorra
+
+  context "answer Israel" do
+    should "show correct document variants" do
+      worldwide_api_has_organisations_for_location('israel', read_fixture_file('worldwide/israel_organisations.json'))
+      add_response 'israel'
+      add_response 'father'
+      add_response 'yes'
+      add_response 'same_country'
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_israel]
     end
   end # Andorra
 
