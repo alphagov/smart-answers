@@ -34,12 +34,34 @@ class AmIGettingMinimumWageV2Test < ActiveSupport::TestCase
       end
     end
 
-    context "answered 'apprentice over 19' to 'are you an apprentice?'" do
+    context "answered 'apprentice over 19 on first year' to 'are you an apprentice?'" do
       setup do
-        add_response :apprentice_over_19
+        add_response :apprentice_over_19_first_year
       end
       should "ask 'how often do you get paid?'" do
         assert_current_node :how_often_do_you_get_paid?
+      end
+    end
+
+    context "answered 'apprentice over 19 on second year or onwards' to 'are you an apprentice?'" do
+      setup do
+        add_response :apprentice_over_19_second_year_onwards
+      end
+      should "ask 'how often do you get paid?'" do
+        assert_current_node :how_old_are_you?
+      end
+      context "treat the user as a non apprentice'" do
+        setup do
+          add_response 22
+          add_response 20
+          add_response 120
+          add_response 30
+          add_response 0
+          add_response "no"
+        end
+        should "show current minimum wage rate" do
+          assert_state_variable "minimum_hourly_rate", "6.50"
+        end
       end
     end
 
@@ -47,7 +69,7 @@ class AmIGettingMinimumWageV2Test < ActiveSupport::TestCase
       # Q3
 
       setup do
-        add_response :no
+        add_response :not_an_apprentice
       end
 
       should "ask 'how old are you?'" do

@@ -34,8 +34,10 @@ en-GB:
       are_you_an_apprentice?:
         title: "Is the worker an apprentice?"
         options:
+          not_an_apprentice: "Not an apprentice"
           apprentice_under_19: "Apprentice under 19"
-          apprentice_over_19: "Apprentice aged 19 and over and in their first year"
+          apprentice_over_19_first_year: "Apprentice aged 19 and over in their first year"
+          apprentice_over_19_second_year_onwards: "Apprentice 19 and over in their second year or onwards"
         hint: "If they’re 19 or over and past their first year they don’t count as an apprentice for minimum wage purposes."
       # Q2 Past
       were_you_an_apprentice?:
