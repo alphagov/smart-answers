@@ -202,6 +202,7 @@ module SmartAnswer::Calculators
 
       context "male born 26 years and one month ago, no qualifying_years" do
         setup do
+          Timecop.travel(Date.parse("2013-04-06"))
           dob = Date.civil(26.years.ago.year, 3, 6).to_s
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: "male", dob: dob, qualifying_years: nil)
