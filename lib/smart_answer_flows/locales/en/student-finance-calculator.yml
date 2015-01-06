@@ -39,7 +39,7 @@ en-GB:
       how_much_are_your_tuition_fees_per_year?:
         title: How much are your tuition fees per year?
         hint: The maximum is £9,000 for full-time students and £6,750 for part-time students.
-        error_message: Please enter a number up to the maximum amount, don’t enter ‘£’
+        error_message: Please enter a number up to the maximum amount (£9,000 for full-time, £6,750 for part-time), don’t enter ‘£’
 
 #Q4
       where_will_you_live_while_studying?:
