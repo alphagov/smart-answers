@@ -10,14 +10,7 @@ Academic Year | Form
 
 ^Open University (OU) students apply to the OU for Disabled Students’ Allowances.^
 
-##Where to send your form(s)
-
-$A
-Student Finance England
-PO Box 210
-Darlington
-DL1 9HJ
-$A
+{{snippet: where-to-send-your-forms-uk}}
 
 [next_steps]
 [Disabled Student's Allowances](/disabled-students-allowances-dsas)

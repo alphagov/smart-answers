@@ -14,14 +14,7 @@ Academic year | Form
 2013 to 2014 | [PFF2 - income details form (PDF, 634KB)](http://www.sfengland.slc.co.uk/media/559149/sfe_pff2_1314_d.pdf)
 2013 to 2014 | [CYI - current tax year income details form (PDF, 525KB)](http://www.sfengland.slc.co.uk/media/592412/sfe_cyi_1314_d.pdf)
 
-##Where to send your form(s)
-
-$A
-Student Finance England
-PO Box 210
-Darlington
-DL1 9HJ
-$A
+{{snippet: where-to-send-your-forms-uk}}
 
 [next_steps]
 [How to support an application](/apply-for-student-finance/parents-and-partners)
