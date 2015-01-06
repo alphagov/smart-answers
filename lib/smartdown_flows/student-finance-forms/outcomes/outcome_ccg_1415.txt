@@ -6,14 +6,7 @@ Academic year | Form
 - | -
 2014 to 2015 | [CCG1 - form (PDF, 88KB)](http://www.sfengland.slc.co.uk/media/682910/sfe_ccg1_1415_d.pdf)
 
-##Where to send your form(s)
-
-$A
-Student Finance England
-PO Box 210
-Darlington
-DL1 9HJ
-$A
+{{snippet: where-to-send-your-forms-uk}}
 
 [next_steps]
 [Childcare Grant](/childcare-grant)
