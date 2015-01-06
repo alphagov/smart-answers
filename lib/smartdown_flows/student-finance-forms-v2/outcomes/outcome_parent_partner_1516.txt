@@ -17,14 +17,7 @@ Academic year | Form
 
 %Income means your [household income](/apply-for-student-finance/household-income).%
 
-##Where to send your form(s)
-
-$A
-Student Finance England
-PO Box 210
-Darlington
-DL1 9HJ
-$A
+{{snippet: where-to-send-your-forms-uk}}
 
 [next_steps]
 [How to support an application](/apply-for-student-finance/parents-and-partners)

@@ -9,15 +9,7 @@ Academic year | Form
 
 ^Don’t send your UK passport.^
 
-##Where to send your form(s)
-
-$A
-Student Finance England
-PO Box 210
-Darlington
-DL1 9HJ
-$A
-
+{{snippet: where-to-send-your-forms-uk}}
 
 [next_steps]
 [How to apply for student finance](/apply-for-student-finance)

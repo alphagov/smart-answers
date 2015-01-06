@@ -10,11 +10,4 @@ Academic Year | Form
 
 ^You can apply up to 9 months after the start of your course.^
 
-##Where to send your form(s)
-
-$A
-Student Finance England
-PO Box 210
-Darlington
-DL1 9HJ
-$A
+{{snippet: where-to-send-your-forms-uk}}
