@@ -228,21 +228,6 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       end # Answer ORU
     end # Morocco
 
-    context "answer Slovakia" do
-      setup do
-        worldwide_api_has_organisations_for_location('slovakia', read_fixture_file('worldwide/slovakia_organisations.json'))
-        add_response 'slovakia'
-        add_response 'same_country'
-      end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-        assert_state_variable :postal_form_url, "/government/publications/credit-card-authorisation-form--2"
-        assert_phrase_list :postal, [:post_only_pay_by_card_countries]
-      end
-    end # Answer Slovakia
     context "answer Italy" do
       setup do
         worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
