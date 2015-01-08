@@ -1,6 +1,8 @@
+---
 meta_description: You need to check if a tenant is allowed to rent private residential property in the UK
 status: draft
 satisfies_need: 102373
+---
 
 # Check if someone can rent your residential property
 
