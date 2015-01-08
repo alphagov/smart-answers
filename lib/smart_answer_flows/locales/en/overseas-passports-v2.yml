@@ -41,6 +41,10 @@ en-GB:
       which_best_describes_you_child?:
         title: Which of the following best describes you?
       phrases:
+        birth_certificate_south-africa: |
+          ^You must include your Vault birth certificate with your application – a photocopy won’t be accepted.^
+        birth_certificate_spain: |
+          ^You must include your full birth certificate (‘certificación literal’) with your application - a photocopy won’t be accepted.^
         passport_delivered_by_courier: |
           Your passport will be delivered to you by courier.
         you_may_have_to_attend_an_interview: |

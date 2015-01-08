@@ -174,6 +174,7 @@ outcome :ips_application_result_online do
     phrases = PhraseList.new(:how_to_apply_online,
                    :"how_to_apply_online_prerequisites_#{general_action}",
                    :"how_to_apply_online_guidance_doc_group_#{ips_docs_number}")
+    phrases << :"birth_certificate_#{birth_location}" if %w(south-africa spain).include?(birth_location)
     phrases << :hong_kong_id_required if %w(hong-kong).include?(current_location)
     phrases << :how_to_apply_online_guidance_doc_outro
   end
@@ -238,6 +239,9 @@ outcome :ips_application_result do
       end
       phrases << application_form.to_sym
       phrases << supporting_documents.to_sym
+      if %w(south-africa spain).include?(birth_location)
+        phrases << :"birth_certificate_#{birth_location}"
+      end
       phrases
     end
   end
