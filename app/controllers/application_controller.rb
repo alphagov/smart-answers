@@ -2,6 +2,7 @@ require "slimmer/headers"
 
 class ApplicationController < ActionController::Base
   include Slimmer::Headers
+  include Slimmer::SharedTemplates
   before_filter :set_analytics_headers
 
   rescue_from GdsApi::TimedOutException, with: :error_503

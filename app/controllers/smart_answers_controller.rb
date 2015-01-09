@@ -2,7 +2,6 @@ class SmartAnswersController < ApplicationController
   before_filter :reject_invalid_utf8
   before_filter :find_smart_answer
   before_filter :redirect_response_to_canonical_url, only: %w{show}
-  before_filter :set_alpha_header, only: %w{visualise}
   before_filter :set_header_footer_only, only: %w{visualise}
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
@@ -104,10 +103,6 @@ private
 
   def reject_invalid_utf8
     error_404 unless params[:responses].nil? or params[:responses].valid_encoding?
-  end
-
-  def set_alpha_header
-    set_slimmer_headers(alpha_label: 'before:#content header')
   end
 
   def set_header_footer_only
