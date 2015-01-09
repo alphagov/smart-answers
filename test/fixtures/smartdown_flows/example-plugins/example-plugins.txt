@@ -1,6 +1,8 @@
+---
 meta_description: Example of plugins in use?
 satisfies_need: 100982
 status: draft
+---
 
 # An example of plugins in use
 

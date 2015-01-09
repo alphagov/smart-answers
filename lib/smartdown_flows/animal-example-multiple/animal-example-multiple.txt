@@ -1,6 +1,8 @@
+---
 meta_description: Animals eh?
 satisfies_need: 100982
 status: draft
+---
 
 # A simple example of smartdown
 
