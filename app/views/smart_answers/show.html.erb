@@ -2,6 +2,7 @@
 <% content_for :head do %>
 <%= javascript_include_tag "smart-answers", defer: true %>
 <% end %>
+<% unless @presenter.started? %><div class="grid-row"><% end %>
 <main id="content" role="main">
   <div id="js-replaceable" <% if @presenter.started? %> class="smart-answer-questions group"<% end %>>
     <%= render partial: "content" %>
@@ -12,3 +13,7 @@
     <%= render :partial => 'smartanswer_metadata' %>
   </div>
 </main>
+<% unless @presenter.started? %>
+<div id="related-items"></div>
+</div>
+<% end %>
