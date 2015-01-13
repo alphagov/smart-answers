@@ -208,7 +208,7 @@ module SmartAnswer::Calculators
         end
 
         should "available_years = 7" do
-          assert_equal 7, @calculator.available_years
+          assert_equal 6, @calculator.available_years
         end
       end
 
