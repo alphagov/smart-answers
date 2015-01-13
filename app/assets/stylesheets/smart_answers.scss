@@ -57,10 +57,6 @@ $is-ie: false !default;
   .page-title {
     margin-top: 0;
     @include bold-24;
-    padding-left: 32px;
-    @include media(mobile) {
-      padding-left: 16px;
-    }
   }
 
   // Smartdown specific previous answers block
