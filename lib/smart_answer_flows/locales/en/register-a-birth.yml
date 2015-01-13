@@ -243,7 +243,8 @@ en-GB:
           Post your registration form, supporting documents and the fee to the British Embassy. You should use a courier and include a pre-paid return courier envelope.
 
           Pay by cash or bank cheque made payable to ‘British Embassy’. Credit cards, personal or company cheques aren’t accepted.
-
+        swear_in_moroccan_court: |
+          ^Only the mother will be named on the local birth certificate if you aren’t married. To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married.^
         cash_only: |
           %You can only pay by cash, which must be in local currency.%
         cheque_only: |
@@ -290,6 +291,9 @@ en-GB:
           - an extract in English from the Population Information System which has the name of the child and the parents, issued within the last three months - you can get this from the [register office](http://www.maistraatti.fi/en/About-Local-Register-Offices/)
         oru_documents_variant_france: |
           - the child’s full local birth certificate (‘copie integrale acte de naissance’) - it must have both parents’ names
+        oru_documents_variant_israel: |
+          - the child's full local birth certificate
+          - the hospital live birth certificate (if the father isn't named on the local birth certificate)
         oru_documents_variant_italy: |
           - the child’s long international birth certificate (not the standard short version) - it must have both parents’ names
         oru_documents_variant_japan: |
@@ -298,8 +302,13 @@ en-GB:
           - a [name confirmation form](/government/publications/birth-registration-name-confirmation-form) that says how you would like the child’s full name to be registered, if the name differs from the name on the local birth certificate or Japanese family register (the rules are on the form)
         oru_documents_variant_monaco: |
           - the child’s full local birth certificate (‘copie integrale acte de naissance’) - it must have both parents’ names
+        oru_documents_variant_morocco: |
+          - the child’s full local birth certificate - it must have both parents’ names
+          - a [name confirmation form](https://www.gov.uk/government/publications/birth-registration-name-confirmation-form) that says how you would like the child's full name to be registered, if the name differs from the name on the local birth certificate
         oru_documents_variant_netherlands: |
           - the Dutch version of the child’s full birth certificate (‘akte van geboorte’) and a translation of the certificate into English
+        oru_documents_variant_poland: |
+          - the child’s full local birth certificate (‘zupelny’) - it must have both parents’ names
         oru_documents_variant_portugal: |
           - the child’s full local birth certificate (‘assento de nascimento’) - it must have both parents’ names
           - the hospital declaration of live birth (if the hospital’s name is not on your child’s birth certificate)
@@ -315,6 +324,12 @@ en-GB:
           - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs
         oru_documents_variant_taiwan: |
           - both Chinese and English versions of the child’s birth certificate - you can send a translation if the hospital doesn't issue an English version
+        oru_documents_variant_the-occupied-palestinian-territories: |
+          - the child's full local birth certificate
+          - the hospital declaration of live birth (if the father isn't named on the birth certificate)
+        oru_documents_variant_turkey: |
+          - the child’s full local birth certificate - it must have both parents’ names
+          - the hospital live birth report
         oru_documents_variant_uae_not_married: |
           - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs (email <birthregistrationenquiries@fco.gov.uk> if the local authorities will not provide a birth certificate)
 
@@ -348,6 +363,8 @@ en-GB:
           You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
         oru_courier_text_cambodia: |
           Your documents will be returned to the British Embassy in Phnom Penh after the birth has been registered.
+        oru_courier_text_cameroon: |
+          Your documents will be returned to the British High Commission,Yaonde. You'll also be sent copies of the registration certificate if you've paid for them.  The High commission will contact you when your documents are ready for collection.
         oru_courier_text_north-korea: |
           Your documents will be returned to the British Embassy in Pyongyang after the birth has been registered.
         oru_courier_text_papua-new-guinea: |
@@ -361,6 +378,73 @@ en-GB:
 
           They’ll contact you within the 5 working days if they need more information. If this happens then it could take up to 3 months for the birth to be registered.
 
+        contact_fco: |
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> to find out what other proof can be accepted.
+
+        jordan_same_country_certificate_exception: |
+          ^It’s illegal in Jordan to have a child outside of marriage. You can’t get a local birth certificate.^
+
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+
+        jordan_another_country_certificate_exception: |
+
+          You can’t get a local birth certificate if you weren’t married when you had your child.
+
+        kuwait_same_country_certificate_exception: |
+          ^It’s illegal in Kuwait to have a child outside of marriage or within the first 6 months of marriage. You can’t get a local birth certificate.^
+
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+
+        kuwait_another_country_certificate_exception: |
+          You can’t get a local birth certificate if you weren’t married when you had your child.
+
+        oman_same_country_certificate_exception: |
+          ^It’s illegal in Oman to have a child outside of marriage. You can’t get a local birth certificate.^
+
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+
+        oman_another_country_certificate_exception: |
+          You can’t get a local birth certificate if you weren’t married when you had your child.
+
+        qatar_same_country_certificate_exception: |
+          ^It’s illegal in Qatar to have a child outside of marriage. You can’t get a local birth certificate.^
+
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+
+        qatar_another_country_certificate_exception: |
+          You can’t get a local birth certificate if you weren’t married when you had your child.
+
+        saudi-arabia_same_country_certificate_exception: |
+          ^It’s illegal in Saudi Arabia to have a child outside of marriage. You can’t get a local birth certificate.^
+
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+
+        saudi-arabia_another_country_certificate_exception: |
+          You can’t get a local birth certificate if you weren’t married when you had your child.
+
+        united-arab-emirates_same_country_certificate_exception: |
+          ^It’s illegal in the United Arab Emirates to have a child outside of marriage. You can’t get a local birth certificate.^
+
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+
+        united-arab-emirates_another_country_certificate_exception: |
+          You can’t get a local birth certificate if you weren’t married when you had your child.
+
+        send_registration_oru: |
+
+          ##4. Send your registration
+
+          Post the registration form and documents by secure post to:
+
+        book_appointment_at_embassy: |
+
+          ##4. Go to the British embassy
+
+          Book an appointment at the British embassy. Take your documents, registration form and the reference number for your online payment.
+
+          Staff at the embassy will check your application and send it to the Overseas Registration Unit in the UK.
+
+          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
       embassy_result:
         body: |
@@ -417,6 +501,8 @@ en-GB:
 
           ^Send English translations of all foreign documents. %{translator_link}. Don't send laminated documents.^
 
+          %{morocco_swear_in_court}
+
           You must send the original copies of:
 
           %{oru_documents_variant}
@@ -466,11 +552,6 @@ en-GB:
 
           +[data_partial:button:button_data]
 
-
-          ##4. Send your registration
-
-          Post the registration form and documents by secure post to:
-
           %{oru_address}
 
           ##Return of your documents
@@ -505,3 +586,7 @@ en-GB:
           You can’t currently register the birth with the UK authorities.
 
           The local birth certificate, with a [certified translation](/certifying-a-document), should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in %{registration_country_name_lowercase_prefix}.
+
+      no_birth_certificate_result:
+        body: |
+          %{registration_exception}
