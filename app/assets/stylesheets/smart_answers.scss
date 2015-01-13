@@ -66,14 +66,7 @@ $is-ie: false !default;
   // Smartdown specific previous answers block
   .done-questions {
     margin: 0;
-    padding: 0 0 1em 2em;
-    @include media-down(tablet) {
-      padding: 0 1em 1em 2em;
-    }
-    @include media(mobile) {
-      margin-right: 1.5em;
-      padding: 0 0 1em 1em;
-    }
+    padding: 0 0 1em;
 
     table {
       width: auto;
@@ -243,12 +236,12 @@ $is-ie: false !default;
   .step.current {
     background-color: #fff;
     margin-right: 15em;
-    padding: 0 10em 1em 2em;
+    padding: 0 10em 1em 0;
     position: relative;
 
     @include media-down(tablet) {
       margin-right: 0;
-      padding: 0 1em 1em 1em;
+      padding: 0 0 1em;
     }
   }
 
