@@ -27,6 +27,10 @@ country_select :country_of_birth?, exclude_countries: exclude_countries do
     end
   end
 
+  calculate :country_with_birth_registration_exception do
+    %w(jordan kuwait oman qatar saudi-arabia united-arab-emirates).include?(country_of_birth)
+  end
+
   next_node_if(:no_embassy_result, country_has_no_embassy)
   next_node_if(:commonwealth_result, reg_data_query.responded_with_commonwealth_country?)
   next_node(:who_has_british_nationality?)
@@ -39,13 +43,7 @@ multiple_choice :who_has_british_nationality? do
   option mother_and_father: :married_couple_or_civil_partnership?
   option neither: :no_registration_result
 
-  calculate :british_national_parent do
-    if country_of_birth == 'sweden'
-      'mother_and_father'
-    else
-      responses.last
-    end
-  end
+  save_input_as :british_national_parent
 end
 
 # Q3
@@ -58,7 +56,6 @@ multiple_choice :married_couple_or_civil_partnership? do
   end
 
   next_node_if(:childs_date_of_birth?, responded_with('no'), variable_matches(:british_national_parent, 'father'))
-  next_node_if(:childs_date_of_birth?, variable_matches(:country_of_birth, 'sweden') | (responded_with('no') & variable_matches(:british_national_parent, 'father')))
   next_node(:where_are_you_now?)
 end
 
@@ -79,8 +76,12 @@ end
 # Q5
 multiple_choice :where_are_you_now? do
   option :same_country
-  option another_country: :which_country?
+  option :another_country
   option :in_the_uk
+
+  calculate :same_country do
+    responses.last == 'same_country'
+  end
 
   calculate :another_country do
     responses.last == 'another_country'
@@ -90,10 +91,15 @@ multiple_choice :where_are_you_now? do
     responses.last == 'in_the_uk'
   end
 
+  define_predicate(:no_birth_certificate_exception) {
+    country_with_birth_registration_exception & paternity_declaration
+  }
+
+  next_node_if(:no_birth_certificate_result, no_birth_certificate_exception)
+  next_node_if(:which_country?, responded_with('another_country'))
   on_condition(->(_) { reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(country_of_birth) }) do
     next_node_if(:embassy_result, responded_with('same_country'))
   end
-
   next_node_if(:oru_result, reg_data_query.born_in_oru_transitioned_country? | responded_with('in_the_uk'))
   next_node_if(:embassy_result, responded_with('same_country'))
   next_node(:which_country?)
@@ -265,6 +271,25 @@ outcome :oru_result do
     phrases
   end
 
+  precalculate :location do
+    loc = WorldLocation.find(registration_country)
+    raise InvalidResponse unless loc
+    loc
+  end
+
+  precalculate :organisations do
+    [location.fco_organisation]
+  end
+
+  precalculate :overseas_passports_embassies do
+    if organisations and organisations.any?
+      service_title = 'Births and Deaths registration service'
+      organisations.first.offices_with_service(service_title)
+    else
+      []
+    end
+  end
+
   precalculate :oru_documents_variant do
     if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?(country_of_birth)
       phrases = PhraseList.new
@@ -291,18 +316,36 @@ outcome :oru_result do
     end
   end
 
-  precalculate :oru_address do
-    if in_the_uk
-      PhraseList.new(:oru_address_uk)
+  precalculate :morocco_swear_in_court do
+    if country_of_birth == 'morocco' && paternity_declaration
+      PhraseList.new(:swear_in_moroccan_court)
     else
-      PhraseList.new(:oru_address_abroad)
+      ''
+    end
+  end
+
+  precalculate :oru_address do
+    phrases = PhraseList.new
+    if country_of_birth == 'venezuela' && same_country
+      phrases << :book_appointment_at_embassy
+    else
+      phrases << :send_registration_oru
+      if in_the_uk
+        phrases << :oru_address_uk
+      else
+        phrases << :oru_address_abroad
+      end
     end
   end
 
   precalculate :oru_courier_text do
     phrases = PhraseList.new
     if reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) && !in_the_uk
-      phrases << :"oru_courier_text_#{registration_country}" << :oru_courier_text_common
+      if registration_country == 'cameroon'
+        phrases << :oru_courier_text_cameroon
+      else
+        phrases << :"oru_courier_text_#{registration_country}" << :oru_courier_text_common
+      end
     else
       phrases << :oru_courier_text_default
     end
@@ -314,3 +357,34 @@ outcome :commonwealth_result
 outcome :no_registration_result
 outcome :no_embassy_result
 outcome :homeoffice_result
+outcome :no_birth_certificate_result do
+
+  precalculate :location do
+    loc = WorldLocation.find(country_of_birth)
+    raise InvalidResponse unless loc
+    loc
+  end
+
+  precalculate :organisations do
+    [location.fco_organisation]
+  end
+
+  precalculate :overseas_passports_embassies do
+    if organisations and organisations.any?
+      service_title = 'Births and Deaths registration service'
+      organisations.first.offices_with_service(service_title)
+    else
+      []
+    end
+  end
+
+  precalculate :registration_exception do
+    phrases = PhraseList.new
+    if same_country
+      phrases << :"#{country_of_birth}_same_country_certificate_exception"
+    else
+      phrases << :"#{country_of_birth}_another_country_certificate_exception" << :contact_fco
+    end
+    phrases
+  end
+end
