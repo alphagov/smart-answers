@@ -1,7 +1,7 @@
 module SmartdownAdapter
   class MoneyQuestionPresenter < SmartdownAdapter::QuestionPresenter
     def to_response(input)
-      { amount: input }
+      input
     end
 
     def has_suffix_label?
