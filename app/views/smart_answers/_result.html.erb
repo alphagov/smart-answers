@@ -1,7 +1,7 @@
 <div class="article-container outcome">
   <article class="outcome group">
-    <div class="inner group">
-      <div class="result-info">
+    <div class="result-info">
+      <div class="inner group">
         <% if @presenter.current_node.has_title? %>
         <div class="summary"><h2 class="result-title"><%= @presenter.current_node.title %></h2></div>
         <% end %>
@@ -14,14 +14,14 @@
           </div>
         <% end %>
       </div>
-      <% if @presenter.current_node.has_next_steps? %>
+    </div>
+    <% if @presenter.current_node.has_next_steps? %>
+      <div class="related-wrapper">
         <div class="related next-steps">
-          <div class="inner group">
           <h2>Next steps</h2>
           <%= @presenter.current_node.next_steps %>
-          </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </article>
 </div>

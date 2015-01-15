@@ -1,3 +1,4 @@
+@import 'grid_layout';
 
 // Short term fix. Needs removing in the future.
 $is-ie: false !default;
@@ -316,13 +317,14 @@ $is-ie: false !default;
    * results / outcome
    */
 
-  .outcome {
-    background-color: #fff;
-    float: none;
-    margin: 0;
+  article.outcome {
+    @extend %grid-row;
 
-    .inner {
-      padding: 2em 0 2em 2em;
+    .result-info {
+      @include grid-column( 2/3 );
+    }
+    .related-wrapper {
+      @include grid-column( 1/3 );
     }
   }
 
@@ -335,7 +337,7 @@ $is-ie: false !default;
     .inner {
       padding-top: 0.5em;
       padding-bottom: 1em;
-      padding-right: 1em;
+      padding-right: 0;
 
       ul {
         padding: 0;
