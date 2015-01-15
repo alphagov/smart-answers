@@ -1,0 +1,6 @@
+# What is your child’s date of birth?
+
+[date: child_date_of_birth, from: 0, to: -50]
+
+* child_date_of_birth < '01-07-2006' => outcome_homeoffice
+* child_date_of_birth >= '01-07-2006' => where_are_you_now

@@ -10,19 +10,59 @@ The code responsible for executing the flow of those questions is in the [smartd
 A smartdown content test has been created to run through the test scenarios on all Smartdown questions and ensure they still pass.
 To run only that test, use the command:
 
-```rake test TEST=test/unit/smartdown_content/smartdown_scenarios_test.rb```
+```rake smartdown_scenarios:run["name_of_smartdown_flow"]```
 
 For every smartdown flow, this goes through all the scenarios defined for them and:
 - checks each set of questions has been asked in the right order
 - checks the right outcome has been reached given the answers
 
+##Register a birth
+
+Five tools specific to the register a birth tool were developed to facilitate question transition.
+
+###Scenario generation
+
+```rake register_a_birth_transition:generate_scenarios```
+
+This task runs through the smartdown flow and writes to the `smartdown_data/scenarios/register-a-birth-transition/generated_scenarios.txt` file all possible answers that could be used to go through the flow based on the combinations hardcoded in that task, and writes scenarios
+
+###Combination generation
+
+```rake register_a_birth_transition:generate_combinations```
+
+This task runs through the smartdown flow and writes to files in the `smartdown_data/combinations/register-a-birth-transition` folder all possible answers that could be used to go through the flow based on the combinations hardcoded in that task.
+
+###Comparison tools
+
+Three comparison tools have been created for register a birth. Combinations of answers are used both in the `register-a-birth-transition` Smartdown flow and the `register-a-birth` smart-answer flow, and the HTML output is compared. If any difference is spotted, an error is raised, and its URL is written to text files in the `smartdown_data/errors/register-a-birth-transition` folder.
+
+The difference between these comparison tools lies in what combinations of answers are used.
+
+1. Compare to smart-answers from scenarios
+
+```rake register_a_birth_transition:compare_to_smartanswer_from_scenarios```
+
+The answers in the register-a-birth-transition scenarios are used to run the comparison.
+
+2. Compare to smart-answers from combinations
+
+```rake register_a_birth_transition:compare_to_smartanswer_from_combinations```
+
+The answers in the register-a-birth-transition combinations are used to run the comparison.
+
+3. Compare to smart-answers from errors
+
+```rake register_a_birth_transition:compare_to_smartanswer_from_errors```
+
+The answers listed in the `smartdown_data/errors/register-a-birth-transition` are used to run the comparison.
+
 ##Pay and leave for parents
 
-Three tools specific to the pay and leave for parents tool were developed to facilitate question writing and fact-checking.
+Two tools specific to the pay and leave for parents tool were developed to facilitate question writing and fact-checking.
 
 ###Outcome generation
 
-```rake smartdown_generate_outcomes:pay_leave_for_parents```
+```rake pay_leave_for_parents:generate_outcomes```
 
 This command goes through all the outcomes listed in the Pay and leave for parents questions and generates outcome files that
 are prepopulated with snippets.
@@ -30,11 +70,11 @@ For the pay and leave for parents, we use the convention of naming each outcome 
 
 ###Factcheck table generation
 
-```rake smartdown_generate_factcheck:pay_leave_for_parents```
+```rake pay_leave_for_parents:generate_factcheck```
 
 ####Output of the tool
 
-This rake task builds four markdown documents and saves them to the ```smart-answers-factcheck``` project.
+This rake task builds four markdown documents and saves them to the ```smartdown_data/factcheck/pay_leave_for_parents``` folder.
 Those four markdown documents summarise the question outcomes for:
 * Birth cases before 05/04/2015
 * Birth cases after 05/04/2015
@@ -47,16 +87,6 @@ paternity, adoption, shared parental leave and pay the user(s) is/are eligible f
 We have chosen for each question in the pay and leave for parents a selection of answers that can affect the outcome of the tool.
 This is not an exhaustive list of possible answers. As the tool evolves and more legal rules are added, **possible answers
 that can affect the outcome of the flow should be added to the combinations to have an accurate and complete factcheck table**.
-
-###Factcheck diff
-
-```rake smartdown_generate_factcheck:diff_pay_leave_for_parents```
-
-####Output of the tool
-
-This rake task builds the factcheck table for the current state of the pay leave for parents smartdown flows
-and generates a diff of the factcheck tables currently in the smart-answers-factcheck project. This rake task should be used
-to ensure that when modifying the flow, outcomes are not accidentally changed in areas of the flow not meant to be modified.
 
 ### Smartdown Plugins
 

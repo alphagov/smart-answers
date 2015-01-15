@@ -341,22 +341,22 @@ en-GB:
         oru_address_uk: |
 
           $A
-            Overseas Registration Unit
-            Foreign and Commonwealth Office
-            PO Box 6255
-            Milton Keynes
-            MK10 1XX
+          Overseas Registration Unit
+          Foreign and Commonwealth Office
+          PO Box 6255
+          Milton Keynes
+          MK10 1XX
           $A
         oru_address_abroad: |
 
           $A
-            Overseas Registration Unit
-            Foreign & Commonwealth Office
-            Hanslope Park
-            Hanslope
-            Milton Keynes
-            MK19 7BH
-            United Kingdom
+          Overseas Registration Unit
+          Foreign & Commonwealth Office
+          Hanslope Park
+          Hanslope
+          Milton Keynes
+          MK19 7BH
+          United Kingdom
           $A
 
         oru_courier_text_default: |

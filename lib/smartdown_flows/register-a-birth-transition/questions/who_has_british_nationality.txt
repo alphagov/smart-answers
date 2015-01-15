@@ -1,0 +1,12 @@
+# Who has British nationality?
+
+If the British parent was born abroad, they may be a British citizen ‘by descent’. This means they may not be allowed to pass on their British nationality to a child also born abroad. [Check if the parent is a British citizen](/check-british-citizen).
+
+[choice: who_has_british_nationality]
+* mother: Mother only
+* father: Father only
+* mother_and_father: Mother and father
+* neither: Neither
+
+* who_has_british_nationality in {mother father mother_and_father} => married_couple_or_civil_partnership
+* who_has_british_nationality is 'neither' => outcome_cannot_register

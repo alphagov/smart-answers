@@ -1,0 +1,20 @@
+meta_description: Parents must register the birth in the country where the child was born - find out if you can also register the birth in the UK
+status: transition
+satisfies_need: 101003
+
+# Register a birth abroad
+
+$!You must register your child’s birth according to the regulations in the country where the child was born. They’ll give you a local birth certificate.$!
+
+This local birth certificate should be accepted in the UK, eg when you apply for a passport or register with a school or doctor. You might need to have it [translated and certified](https://www.gov.uk/certifying-a-document) if it isn’t in English.
+
+Once you’ve registered locally you may also be able to register the birth with the UK authorities. You can only do this if the child was born on or after 1 January 1983.
+
+You don’t need to register with the UK authorities but it means:
+
+- the birth will be recorded with the General Register Offices or at the National Records Office of Scotland
+- you can order a consular birth registration certificate
+
+^You can still [apply for a UK passport for your child](/apply-renew-passport) even if you don’t register the birth in the UK.^
+
+[start: child_country]

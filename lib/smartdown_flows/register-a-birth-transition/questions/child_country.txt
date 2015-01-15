@@ -1,0 +1,7 @@
+# Which country was the child born in?
+
+[country: child_country, countries: world_locations]
+
+* country_has_no_embassy(child_country) => outcome_no_embassy
+* commonwealth_country(child_country) => outcome_commonwealth
+* otherwise => who_has_british_nationality

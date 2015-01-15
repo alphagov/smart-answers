@@ -1,0 +1,13 @@
+# Where are you now?
+
+[choice: where_are_you_now]
+* same_country: In the country where the child was born
+* another_country: In another country
+* in_the_uk: In the UK
+
+* where_are_you_now is 'same_country'
+  * oru_exception(child_country) => outcome_embassy_in_the_uk_or_same_country
+  * oru_country(child_country) => outcome_oru_in_the_uk_or_same_country
+  * otherwise => outcome_embassy_in_the_uk_or_same_country
+* where_are_you_now is 'in_the_uk' => outcome_oru_in_the_uk_or_same_country
+* where_are_you_now is 'another_country' => registration_country
