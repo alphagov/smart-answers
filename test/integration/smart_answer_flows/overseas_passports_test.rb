@@ -297,7 +297,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'spain'
       assert_current_node :ips_application_result_online
-      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1, :how_to_apply_online_guidance_doc_outro]
+      assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1, :birth_certificate_spain, :how_to_apply_online_guidance_doc_outro]
     end
   end
 
@@ -332,7 +332,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             add_response "spain"
             assert_current_node :ips_application_result_online
             assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
-            assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1, :how_to_apply_online_guidance_doc_outro]
+            assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_1, :birth_certificate_spain, :how_to_apply_online_guidance_doc_outro]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
             assert_phrase_list :getting_your_passport, [:getting_your_passport_ips1]
             assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
