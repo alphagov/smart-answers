@@ -3,19 +3,19 @@ require_relative "flow_test_helper"
 
 TEST_CALCULATOR_DATES = {
   online_filing_deadline: {
-    :"2010-11" => Date.new(2012, 1, 31),
     :"2011-12" => Date.new(2013, 1, 31),
-    :"2012-13" => Date.new(2014, 1, 31)
+    :"2012-13" => Date.new(2014, 1, 31),
+    :"2013-14" => Date.new(2015, 1, 31),
   },
   offline_filing_deadline: {
-    :"2010-11" => Date.new(2011, 10, 31),
     :"2011-12" => Date.new(2012, 10, 31),
-    :"2012-13" => Date.new(2013, 10, 31)
+    :"2012-13" => Date.new(2013, 10, 31),
+    :"2013-14" => Date.new(2014, 10, 31),
   },
   payment_deadline: {
-    :"2010-11" => Date.new(2012, 1, 31),
     :"2011-12" => Date.new(2013, 1, 31),
-    :"2012-13" => Date.new(2014, 1, 31)
+    :"2012-13" => Date.new(2014, 1, 31),
+    :"2013-14" => Date.new(2015, 1, 31),
   },
 }
 class EstimateSelfAssessmentPenaltiesV2Test < ActiveSupport::TestCase
@@ -97,8 +97,8 @@ class EstimateSelfAssessmentPenaltiesV2Test < ActiveSupport::TestCase
             end
             should "show results" do
               assert_current_node :late
-              assert_state_variable :late_filing_penalty, 100
-              assert_state_variable :total_owed, 100
+              assert_state_variable :late_filing_penalty, 0
+              assert_state_variable :total_owed, 0
               assert_state_variable :interest, 0
               assert_state_variable :late_payment_penalty, 0
               assert_phrase_list :result_parts, [:result_part2_no_penalty]
