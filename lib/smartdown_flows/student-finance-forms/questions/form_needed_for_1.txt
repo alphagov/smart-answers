@@ -8,9 +8,9 @@
 * dsa-expenses: Claim Disabled Students’ Allowances expenses
 * apply-ccg: Apply for Childcare Grant
 * ccg-expenses: Childcare Grant costs confirmation
-* travel-grant: Travel Grant (medical and dental students only)
+* travel-grant: Travel Grant
 
 * form_needed_for_1 is 'dsa-expenses' => outcome_dsa_expenses
 * form_needed_for_1 is 'ccg-expenses' => outcome_ccg_expenses
 * form_needed_for_1 is 'travel-grant' => outcome_travel
-* otherwise => what_year
+* otherwise => what_year_uk_fulltime
