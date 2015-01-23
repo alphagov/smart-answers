@@ -115,6 +115,8 @@ $(document).ready(function() {
     if ($(".outcome").length !== 0) {
       $.event.trigger('smartanswerOutcome');
     }
+    var $blockLabels = $("input[type='radio'], input[type='checkbox']");
+    GOVUK.selectionButtons($blockLabels);
   }
 
   function initializeHistory(data) {
