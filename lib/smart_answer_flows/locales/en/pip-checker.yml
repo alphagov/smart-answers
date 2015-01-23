@@ -45,7 +45,28 @@ en-GB:
           - SR (Sunderland) 
           - WA (Warrington) 
           - WN (Wigan)
-  
+          
+         On 23 February 2015 the scheme will be expanded to include postcodes beginning with:
+         
+          - AB (Aberdeen)
+          - BB (Blackburn)
+          - BD (Bradford)
+          - DD (Dundee)
+          - DN (Doncaster)
+          - EX (Exeter)
+          - HX (Halifax)
+          - KA (Kilmarnock)
+          - KY (Kirkcaldy)
+          - LS (Leeds)
+          - PH (Perth)
+          - PL (Plymouth)
+          - PO (Portsmouth)
+          - PR (Preston)
+          - S (Sheffield)
+          - SO (Southampton)
+          - TS (Cleveland)
+          - WF (Wakefield)
+
         scheme_postcodes_pre_3rd_feb_2014: |
           - DG (Dumfries and Galloway)
           - EH (Edinburgh)
