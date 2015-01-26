@@ -15,9 +15,10 @@ module SmartAnswer::Calculators
     end
 
     def late_filing_penalty
-
       #Less than 6 months
-      if submission_method == "online"
+      if overdue_filing_days <= 0
+        result = 0
+      elsif submission_method == "online"
         if overdue_filing_days <= 89
           result = 100
         elsif overdue_filing_days <= 181
