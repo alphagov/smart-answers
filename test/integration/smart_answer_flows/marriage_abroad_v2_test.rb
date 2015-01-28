@@ -8,7 +8,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma burundi cambodia canada china cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany indonesia iran ireland italy japan jordan kazakhstan latvia lebanon lithuania macedonia mayotte mexico monaco morocco netherlands nicaragua north-korea guatemala paraguay peru philippines poland portugal qatar russia rwanda saudi-arabia serbia slovakia south-africa st-maarten south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
+    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma burundi cambodia canada china cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany indonesia iran ireland italy japan jordan kazakhstan latvia lebanon lithuania macedonia mayotte mexico monaco morocco netherlands nicaragua north-korea guatemala paraguay peru philippines poland portugal qatar russia rwanda san-marino saudi-arabia serbia slovakia south-africa st-maarten south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad-v2'
   end
@@ -1048,7 +1048,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :documents_for_divorced_or_widowed_ecuador, :partner_equivalent_document_warning, :consular_cni_os_all_names_but_germany, :affirmation_os_partner_not_british, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]    
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :affirmation_os_translation_in_local_language, :documents_for_divorced_or_widowed_ecuador, :partner_equivalent_document_warning, :consular_cni_os_all_names_but_germany, :affirmation_os_partner_not_british, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   #testing for ceremony in Cambodia, resident anywhere, partner other
@@ -2368,6 +2368,20 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     should "show 7 day notice" do
       assert_current_node :outcome_os_no_cni
       assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :get_legal_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :display_notice_of_marriage_7_days]
+    end
+  end
+
+  context "same sex marriage in San Marino is not allowed" do
+    setup do
+      worldwide_api_has_organisations_for_location('san-marino', read_fixture_file('worldwide/san-marino_organisations.json'))
+      add_response 'san-marino'
+      add_response 'uk'
+      add_response 'uk_england'
+      add_response 'partner_british'
+      add_response 'same_sex'
+    end
+    should "do not allow marriage" do
+      assert_current_node :outcome_ss_marriage_not_possible
     end
   end
 end
