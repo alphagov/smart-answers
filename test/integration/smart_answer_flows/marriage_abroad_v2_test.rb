@@ -1761,7 +1761,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'same_sex'
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :consular_cp_japan, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
+      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :consular_cp_all_contact, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
     end
   end
 

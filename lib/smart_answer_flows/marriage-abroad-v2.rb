@@ -1331,7 +1331,7 @@ outcome :outcome_cp_consular do
     elsif %w(croatia bulgaria).include?(ceremony_country) and partner_nationality == 'partner_local'
       phrases << :consular_cp_local_partner_croatia_bulgaria
     elsif ceremony_country == 'japan'
-      phrases << :consular_cp_japan
+      phrases << :consular_cp_all_contact << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
     else
       phrases << :consular_cp_all_contact
     end
@@ -1379,13 +1379,15 @@ outcome :outcome_ss_marriage do
   precalculate :ss_ceremony_body do
     phrases = PhraseList.new
     phrases << :"able_to_#{marriage_and_partnership_phrases}"
+
     if ceremony_country == 'japan'
-      phrases << :consular_cp_japan
+      phrases << :consular_cp_all_contact << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
     elsif ceremony_country == 'germany'
       phrases << :contact_british_embassy_or_consulate_berlin << :embassies_data
     else
       phrases << :contact_embassy_or_consulate << :embassies_data
     end
+
     unless ceremony_country == 'japan'
       if data_query.ss_21_days_residency_required_countries?(ceremony_country)
         phrases << :documents_needed_21_days_residency
