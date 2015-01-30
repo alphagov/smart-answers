@@ -212,8 +212,6 @@ en-GB:
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         affirmation_os_translation_in_local_language_text: |
           You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
-        affirmation_os_translation_in_local_language_warning: |
-          ^You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
         affidavit_os_translation_in_local_language: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
