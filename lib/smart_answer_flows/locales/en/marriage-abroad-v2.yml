@@ -1956,6 +1956,11 @@ en-GB:
 
           You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
 
+      outcome_ss_marriage_malta:
+        title: Same-sex marriage and civil partnership in Malta
+        body: |
+          %{ss_body}
+
 # outcome Commonwealth, opposite sex
       outcome_os_commonwealth:
         title: |
