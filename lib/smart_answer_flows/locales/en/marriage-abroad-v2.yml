@@ -204,18 +204,10 @@ en-GB:
           ^Your partner will need to get an affirmation as well.^
         partner_affidavit_needed: |
           ^Your partner will need to get an affidavit as well.^
-        affirmation_os_translation_in_local_language: |
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
-          You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
-        affidavit_os_translation_in_local_language_without_warning: |
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         affirmation_os_translation_in_local_language_text: |
           You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
-        affidavit_os_translation_in_local_language: |
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
-          ^You might need to get your affidavit [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.^
+        affidavit_os_translation_in_local_language_text: |
+          You might need to get your affidavit [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
 
 # fee tables
         fee_table_45_70_55: |

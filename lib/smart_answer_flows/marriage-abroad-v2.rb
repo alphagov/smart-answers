@@ -984,13 +984,13 @@ outcome :outcome_os_affirmation do
       if ceremony_country == 'egypt'
         phrases << :embassies_data
       elsif ceremony_country == 'finland' and partner_nationality == 'partner_irish' and resident_of == 'uk'
-        phrases << :affidavit_os_translation_in_local_language
+        phrases << :embassies_data << :affidavit_os_translation_in_local_language_text
       elsif ceremony_country == 'cambodia'
-        phrases << :affidavit_os_translation_in_local_language_without_warning
+        phrases << :embassies_data
         phrases << :cambodia_consular_cni_os_partner_local
         phrases << :affirmation_os_translation_in_local_language_text
       elsif ceremony_country != 'china'
-        phrases << :affirmation_os_translation_in_local_language
+        phrases << :embassies_data << :affirmation_os_translation_in_local_language_text
       end
     end
     phrases << :affirmation_os_download_affidavit_philippines if ceremony_country == 'philippines'
