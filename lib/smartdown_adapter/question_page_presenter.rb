@@ -21,6 +21,8 @@ module SmartdownAdapter
           SmartdownAdapter::TextQuestionPresenter.new(smartdown_question, smartdown_answer)
         when Smartdown::Api::PostcodeQuestion
           SmartdownAdapter::TextQuestionPresenter.new(smartdown_question, smartdown_answer)
+        when Smartdown::Api::MoneyQuestion
+          SmartdownAdapter::MoneyQuestionPresenter.new(smartdown_question, smartdown_answer)
         else
           SmartdownAdapter::QuestionPresenter.new(smartdown_question, smartdown_answer)
         end
