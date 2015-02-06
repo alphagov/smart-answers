@@ -37,6 +37,10 @@ en-GB:
           ##What documents you’ll need
 
           You’ll need proof that you’ve been resident in the area covered by the embassy or consulate for at least 7 days, like an employer’s letter or a bank statement.
+        documents_needed_7_days_residency_hc: |
+          ##What documents you’ll need
+
+          You’ll need proof that you’ve been resident in the area covered by the high commission for at least 7 days, like an employer’s letter or a bank statement.
         documents_needed_21_days_residency: |
           ##What documents you’ll need
 
@@ -1583,6 +1587,8 @@ en-GB:
 # CP in countries with consular CP (exc australia) phrases
         consular_cp_ceremony: |
           You may be able to register a civil partnership at the British embassy or consulate in %{country_name_lowercase_prefix}.
+        consular_cp_ceremony_hc: |
+          You may be able to register a civil partnership at the High Commission in %{country_name_lowercase_prefix}.
         consular_cp_ceremony_vietnam_partner_local: |
           %However, you can’t enter into a civil partnership with a Vietnamese national.%
         consular_cp_local_partner_croatia_bulgaria: |
@@ -1614,6 +1620,19 @@ en-GB:
           - a declaration that you and your partner will need to swear, stating that you’re legally entitled to enter into a civil partnership
 
           Once you’ve submitted these and paid the registration fee (see below), the embassy or consulate will display your notice publicly for 14 days.
+
+          As long as nobody has registered an objection after this time, the registration officer can then register your partnership any time until 3 months after the date you gave notice.
+
+          You’ll need to provide two witnesses and pay a fee to register your civil partnership. You’ll need to pay an additional fee for your civil partnership certificate (see below).
+        consular_cp_all_what_you_need_to_do_hc: |
+          ###What you need to do
+
+          Once you’ve made your appointment, the high commission will give you:
+
+          - a notice of registration
+          - a declaration that you and your partner will need to swear, stating that you’re legally entitled to enter into a civil partnership
+
+          Once you’ve submitted these and paid the registration fee (see below), the high commission will display your notice publicly for 14 days.
 
           As long as nobody has registered an objection after this time, the registration officer can then register your partnership any time until 3 months after the date you gave notice.
 

@@ -261,6 +261,20 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_phrase_list :commonwealth_os_outcome, [:local_resident_os_ceremony_not_zimbabwe, :commonwealth_os_all_cni, :commonwealth_os_other_countries_cyprus, :commonwealth_os_naturalisation]
     end
   end
+  context "resident in england, ceremony in cyprus, partner other" do
+    setup do
+      worldwide_api_has_organisations_for_location('cyprus', read_fixture_file('worldwide/cyprus_organisations.json'))
+      add_response 'cyprus'
+      add_response 'uk'
+      add_response 'uk_england'
+      add_response 'partner_other'
+      add_response 'same_sex'
+    end
+    should "go to consular cp outcome" do
+      assert_current_node :outcome_cp_consular
+      assert_phrase_list :consular_cp_outcome, [:consular_cp_ceremony_hc, :consular_cp_all_contact, :embassies_data, :documents_needed_7_days_residency_hc, :consular_cp_all_documents, :consular_cp_partner_not_british, :consular_cp_all_what_you_need_to_do_hc, :consular_cp_naturalisation, :consular_cp_all_fees, :pay_by_cash_or_credit_card_no_cheque]
+    end
+  end
   # testing for british overseas territories
   context "uk resident ceremony in british indian ocean territory" do
     setup do
