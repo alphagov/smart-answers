@@ -37,6 +37,8 @@ module SmartAnswer::Calculators
 
     SS_MARRIAGE_COUNTRIES = %w(australia azerbaijan bolivia chile china colombia dominican-republic estonia germany kosovo latvia mongolia montenegro nicaragua russia san-marino hungary serbia)
 
+    NO_SS_MARRIAGE_COUNTRIES = %w(san-marino)
+
     SS_MARRIAGE_COUNTRIES_WHEN_COUPLE_BRITISH = %w(lithuania)
 
     SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(cambodia costa-rica peru philippines vietnam japan)
@@ -80,7 +82,8 @@ module SmartAnswer::Calculators
 
     def ss_marriage_not_possible?(country_slug, partner_nationality)
       (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && partner_nationality != "partner_british") ||
-        ((SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) || %w(cambodia vietnam).include?(country_slug)) && partner_nationality == "partner_local")
+      ((SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) || %w(cambodia vietnam).include?(country_slug)) && partner_nationality == "partner_local") ||
+      NO_SS_MARRIAGE_COUNTRIES.include?(country_slug)
     end
 
     def commonwealth_country?(country_slug)
