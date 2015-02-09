@@ -275,6 +275,8 @@ multiple_choice :partner_opposite_or_same_sex? do
     (ceremony_country == 'finland') & (resident_of == 'uk') & (partner_nationality == 'partner_irish')
   }
 
+  next_node_if(:outcome_ss_marriage_malta, -> {ceremony_country == "malta"})
+
   next_node_if(:outcome_os_affirmation, uk_resident_irish_partner_finland_ss_ceremony)
 
   next_node_if(:outcome_ss_marriage_not_possible, ss_marriage_not_possible?)
@@ -960,38 +962,36 @@ outcome :outcome_os_affirmation do
     else
       phrases << :what_you_need_to_do_affirmation
     end
+
     if ceremony_country == 'turkey' and resident_of == 'uk'
       phrases << :appointment_for_affidavit_notary
     elsif ceremony_country == 'philippines'
       phrases << :contact_for_affidavit << :make_appointment_online_philippines
-    else
-      if ceremony_country == 'egypt'
-        phrases << :make_an_appointment
-      elsif ceremony_country != 'china'
-        phrases << :appointment_for_affidavit
-      end
-      if ceremony_country == 'turkey'
-        phrases << :embassies_data
-      end
-    end
-    if ceremony_country == 'china'
+    elsif ceremony_country == 'egypt'
+      phrases << :make_an_appointment
+    elsif ceremony_country == 'china'
       prelude = "book_online_china_#{partner_nationality != 'partner_local' ? 'non_' : ''}local_prelude".to_sym
-      phrases << prelude << :book_online_china_affirmation_affidavit << :embassies_data
+      phrases << prelude << :book_online_china_affirmation_affidavit
+    else
+      phrases << :appointment_for_affidavit
     end
+
     unless (ceremony_country == 'turkey' or residency_country == 'portugal')
-      if ceremony_country == 'egypt'
-        phrases << :embassies_data
-      elsif ceremony_country == 'finland' and partner_nationality == 'partner_irish' and resident_of == 'uk'
-        phrases << :affidavit_os_translation_in_local_language
+      phrases << :embassies_data
+      if ceremony_country == 'finland' and partner_nationality == 'partner_irish' and resident_of == 'uk'
+        phrases << :affidavit_os_translation_in_local_language_text
       elsif ceremony_country == 'cambodia'
-        phrases << :affidavit_os_translation_in_local_language_without_warning
         phrases << :cambodia_consular_cni_os_partner_local
         phrases << :affirmation_os_translation_in_local_language_text
-      elsif ceremony_country != 'china'
-        phrases << :affirmation_os_translation_in_local_language
+      elsif ceremony_country != 'china' and ceremony_country != 'egypt'
+        phrases << :affirmation_os_translation_in_local_language_text
       end
     end
     phrases << :affirmation_os_download_affidavit_philippines if ceremony_country == 'philippines'
+
+    if ceremony_country == 'turkey' and not resident_of == 'uk'
+      phrases << :embassies_data
+    end
     if ceremony_country == 'turkey'
       phrases << :complete_affidavit << :download_affidavit
       if residency_country == 'turkey'
@@ -999,33 +999,36 @@ outcome :outcome_os_affirmation do
       else
         phrases << :affirmation_os_legalised
       end
-    end
-    if ceremony_country == 'turkey'
       phrases << :documents_for_divorced_or_widowed
-    else
-      if ceremony_country == 'morocco'
-        phrases << :documents_for_divorced_or_widowed
-      elsif ceremony_country == 'ecuador'
-        phrases << :documents_for_divorced_or_widowed_ecuador
-      elsif ceremony_country == 'cambodia'
-        phrases << :documents_for_divorced_or_widowed_cambodia
-        phrases << :change_of_name_evidence
-      elsif %w(china colombia).include?(ceremony_country)
-        phrases << :documents_for_divorced_or_widowed_china_colombia
-      else
-        phrases << :docs_decree_and_death_certificate
-      end
-      phrases << :divorced_or_widowed_evidences unless %w(cambodia china colombia ecuador egypt morocco).include?(ceremony_country)
-      phrases << :change_of_name_evidence unless %w(cambodia ecuador morocco).include?(ceremony_country)
-      if ceremony_country == 'egypt'
-        if partner_nationality == 'partner_british'
-          phrases << :partner_declaration
-        else
-          phrases << :callout_partner_equivalent_document
-        end
-      end
     end
 
+    if ceremony_country == 'morocco'
+      phrases << :documents_for_divorced_or_widowed
+    elsif ceremony_country == 'ecuador'
+      phrases << :documents_for_divorced_or_widowed_ecuador
+    elsif ceremony_country == 'cambodia'
+      phrases << :documents_for_divorced_or_widowed_cambodia
+      phrases << :change_of_name_evidence
+    elsif %w(china colombia).include?(ceremony_country)
+      phrases << :documents_for_divorced_or_widowed_china_colombia
+    elsif ceremony_country != 'turkey'
+      phrases << :docs_decree_and_death_certificate
+    end
+
+    if not %w(cambodia china colombia ecuador egypt morocco turkey).include?(ceremony_country)
+      phrases << :divorced_or_widowed_evidences
+    end
+    if not %w(cambodia ecuador morocco turkey).include?(ceremony_country)
+      phrases << :change_of_name_evidence
+    end
+
+    if ceremony_country == 'egypt'
+      if partner_nationality == 'partner_british'
+        phrases << :partner_declaration
+      else
+        phrases << :callout_partner_equivalent_document
+      end
+    end
     unless ceremony_country == 'egypt'
       if ceremony_country == 'turkey'
         if partner_nationality == 'partner_british'
@@ -1033,27 +1036,24 @@ outcome :outcome_os_affirmation do
         else
           phrases << :affirmation_os_partner_not_british_turkey
         end
+      elsif ceremony_country == 'morocco'
+        phrases << :morocco_affidavit_length
+        phrases << :partner_equivalent_document
       else
-        if ceremony_country == 'morocco'
-          phrases << :morocco_affidavit_length
-          phrases << :partner_equivalent_document
+        if partner_nationality == 'partner_british'
+          phrases << :affirmation_os_partner_british
         else
-          if partner_nationality == 'partner_british'
-            phrases << :affirmation_os_partner_british
+          if ceremony_country == 'china' && partner_nationality != 'partner_local'
+            phrases << :affirmation_affidavit_os_partner
           else
-            if ceremony_country == 'china' && partner_nationality != 'partner_local'
-              phrases << :affirmation_affidavit_os_partner
-            else
-              phrases << :partner_equivalent_document_warning
-              phrases << :consular_cni_os_all_names_but_germany if %w(ecuador colombia).include?(ceremony_country)
-              phrases << :affirmation_os_partner_not_british
-            end
+            phrases << :partner_equivalent_document_warning
+            phrases << :consular_cni_os_all_names_but_germany if %w(ecuador colombia).include?(ceremony_country)
+            phrases << :affirmation_os_partner_not_british
           end
         end
       end
     end
     phrases << :consular_cni_os_all_names_but_germany if ceremony_country == 'cambodia'
-
 
 #fee tables
     if %w(south-korea thailand turkey vietnam).include?(ceremony_country)
@@ -1322,28 +1322,42 @@ end
 outcome :outcome_cp_consular do
   precalculate :consular_cp_outcome do
     phrases = PhraseList.new
-    phrases << :consular_cp_ceremony
+    # cyprus is a country with a high commission. This is why some of its phraselists end with 'hc', we need to refer to High Commission instead Embassy or Consulate.
+    # The logic behind it could be made prettier by creating a group of High Commission Countries or by querying the API and checking whether the country has a High Commission, a consulate, an embassy or something else.
+    # I am not going to do any of that because Marriage Abroad will (Should) be rebuilt soon, is better to keep the logic as much explicit as possible.
+
+    if ceremony_country == 'cyprus'
+      phrases << :consular_cp_ceremony_hc
+    else
+      phrases << :consular_cp_ceremony
+    end
     if ceremony_country == 'vietnam'
       phrases << :consular_cp_ceremony_vietnam_partner_local if partner_nationality == 'partner_local'
       phrases << :consular_cp_vietnam
     elsif %w(croatia bulgaria).include?(ceremony_country) and partner_nationality == 'partner_local'
       phrases << :consular_cp_local_partner_croatia_bulgaria
     elsif ceremony_country == 'japan'
-      phrases << :consular_cp_japan
+      phrases << :consular_cp_all_contact << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
     else
       phrases << :consular_cp_all_contact
     end
     phrases << :embassies_data
     unless ceremony_country == 'japan'
-      if data_query.ss_21_days_residency_required_countries?(ceremony_country)
+      if ceremony_country == 'cyprus'
+        phrases << :documents_needed_7_days_residency_hc
+      elsif data_query.ss_21_days_residency_required_countries?(ceremony_country)
         phrases << :documents_needed_21_days_residency
       else
         phrases << :documents_needed_7_days_residency
       end
     end
-    phrases << :consular_cp_all_documents 
+    phrases << :consular_cp_all_documents
     phrases << :consular_cp_partner_not_british if partner_nationality != 'partner_british'
-    phrases << :consular_cp_all_what_you_need_to_do
+    if ceremony_country == 'cyprus'
+      phrases << :consular_cp_all_what_you_need_to_do_hc
+    else
+      phrases << :consular_cp_all_what_you_need_to_do
+    end
     phrases << :consular_cp_naturalisation unless partner_nationality == 'partner_british'
     if %w(vietnam thailand south-korea).include?(ceremony_country)
       phrases << :fee_table_affidavit_55
@@ -1377,13 +1391,15 @@ outcome :outcome_ss_marriage do
   precalculate :ss_ceremony_body do
     phrases = PhraseList.new
     phrases << :"able_to_#{marriage_and_partnership_phrases}"
+
     if ceremony_country == 'japan'
-      phrases << :consular_cp_japan
+      phrases << :consular_cp_all_contact << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
     elsif ceremony_country == 'germany'
       phrases << :contact_british_embassy_or_consulate_berlin << :embassies_data
     else
       phrases << :contact_embassy_or_consulate << :embassies_data
     end
+
     unless ceremony_country == 'japan'
       if data_query.ss_21_days_residency_required_countries?(ceremony_country)
         phrases << :documents_needed_21_days_residency
@@ -1412,3 +1428,8 @@ outcome :outcome_ss_marriage do
 end
 
 outcome :outcome_ss_marriage_not_possible
+outcome :outcome_ss_marriage_malta do
+  precalculate :ss_body do
+    PhraseList.new(:able_to_ss_marriage_and_partnership_hc, :consular_cp_all_contact, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership_hc, :will_display_in_14_days_hc, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_hc, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage)
+  end
+end
