@@ -59,7 +59,7 @@ en-GB:
         opt_replacement_glazing: "- Double glazing (or secondary glazing for listed properties)"
         opt_heat_pump: "- Heat pump (air or ground source)"
         opt_biomass_boilers_heaters: "- [Biomass boilers and heaters](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Wood-fuelled-heating)"
-        opt_solar_water_heating: "- [Solar water heating](http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Solar-water-heating)"
+        opt_solar_water_heating: "- [Solar water heating](http://www.energysavingtrust.org.uk/domestic/content/solar-water-heating)"
         opt_renewal_heat: |
           If your home is well insulated you could also qualify for money towards a [renewable heating system](/renewable-heat-premium-payment) and get paid for [generating your own electricity](/feed-in-tariffs).
       #help and advice
