@@ -166,7 +166,7 @@ en-GB:
       outcome_23:
         title: The estate is shared equally between the half-brothers or half-sisters.
         body: |
-          Ie if a half-brother or half-sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
+          If a half-brother or half-sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
         next_steps: |
           %{next_step_links}
 
