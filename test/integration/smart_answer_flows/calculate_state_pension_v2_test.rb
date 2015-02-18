@@ -490,7 +490,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
                         assert_state_variable "state_pension_age", "65 years"
                         assert_state_variable "remaining_years", 5
                         assert_state_variable "pension_loss", "14.69"
-   assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a, :automatic_years_phrase]
+                        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :too_few_qy_enough_remaining_years_a, :automatic_years_phrase]
                         assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
                         assert_current_node :amount_result
                       end
@@ -584,7 +584,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       context "age = 61, NI = 20, JSA = 1" do
         setup do
           Timecop.travel("2012-08-08")
-   add_response Date.civil(61.years.ago.year, 4, 7)
+          add_response Date.civil(61.years.ago.year, 4, 7)
           add_response 20
           add_response 1
         end
@@ -691,7 +691,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       context "50 years old" do
         setup do
           Timecop.travel('2012-10-08')
-   add_response Date.civil(50.years.ago.year, 4, 7)
+          add_response Date.civil(50.years.ago.year, 4, 7)
         end
 
         should "ask for number of years paid NI" do
