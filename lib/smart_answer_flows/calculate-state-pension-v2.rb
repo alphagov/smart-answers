@@ -249,6 +249,15 @@ end
 
 # Q5
 value_question :years_of_jsa? do
+
+  calculate :carer_hint_for_women_q9 do
+    if gender == 'female' and (Date.parse(dob) < Date.parse('1962-01-01'))
+      PhraseList.new(:carers_allowance_women_hint_q9)
+    else
+      ''
+    end
+  end
+  
   calculate :qualifying_years do
     jsa_years = Integer(responses.last)
     qy = (qualifying_years + jsa_years)
@@ -567,6 +576,7 @@ outcome :amount_result do
       phrases << :too_few_qy_enough_remaining_years_a_intro
       if qualifying_years_total >= 10
         phrases << :ten_and_greater
+        phrases << :rre_entitlements if calculator.qualifies_for_rre_entitlements?
       else
         phrases << :less_than_ten
         phrases << :reduced_rate_election if pays_reduced_ni_rate == "yes"

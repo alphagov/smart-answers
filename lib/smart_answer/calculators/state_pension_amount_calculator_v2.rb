@@ -201,5 +201,12 @@ module SmartAnswer::Calculators
     def years_can_be_entered(ay, max_num)
       (ay > max_num ? max_num : ay)
     end
+
+    def qualifies_for_rre_entitlements?
+      rre_start_date = Date.new(1953,4,6)
+      rre_end_date = Date.new(1961,4,5)
+
+      true if @qualifying_years.between?(10,29) && dob.between?(rre_start_date, rre_end_date) && gender == :female
+    end
   end
 end

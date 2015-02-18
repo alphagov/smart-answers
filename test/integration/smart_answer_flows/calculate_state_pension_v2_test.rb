@@ -1353,6 +1353,24 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
       end
     end
 
+    context "Woman born between 1953-04-06 and 1961-04-05, with NI qualifying years between 10 and 29" do
+      setup do
+        Timecop.travel('2014-05-06')
+      end
+
+      should "include rre entitlements phrase" do
+        add_response :female
+        add_response Date.parse("8th February 1958")
+        add_response :yes # reduced rate election
+        add_response 15 # ni years
+        add_response 0 # jsa years
+        add_response :no # claimed benefit
+        add_response 0 # years worked between 16 and 19
+        assert_current_node :amount_result
+        assert_phrase_list :result_text, [:too_few_qy_enough_remaining_years_a_intro, :ten_and_greater, :rre_entitlements, :too_few_qy_enough_remaining_years_a]
+      end
+    end
+
     context "male and new state pension - should ask lived or worked outside uk" do
       setup do
         add_response :male

@@ -36,9 +36,12 @@ en-GB:
         pension_age_review: The State Pension age is regularly reviewed and may change in the future. This may also affect Pension Credit.
         bus_pass: |
           ##Bus pass
-          The date you qualify for a bus pass depends on where you live.
+          The date you qualify for a bus pass depends on where you live:
 
-          Check with your council when you can [apply for a bus pass](/apply-for-elderly-person-bus-pass).
+            - on %{pension_credit_date} in England
+            - when you turn 60 years old in [Scotland](http://www.transportscotland.gov.uk/public-transport/concessionary-travel-people-aged-60-or-disability),[Wales](http://wales.gov.uk/topics/transport/public/concessionary/?lang=en),[Northern Ireland](http://www.nidirect.gov.uk/free-bus-travel-and-concessions)
+
+          The dates may be different in some areas [(including London)](https://www.tfl.gov.uk/fares-and-payments/adult-discounts-and-concessions/60-london-oyster?intcmp=1763), check with your council when you can [apply for a bus pass](/apply-for-elderly-person-bus-pass).
 
           You need to check with [Transport for London](https://www.tfl.gov.uk/fares-and-payments/adult-discounts-and-concessions/60-london-oyster?intcmp=1763) if you live in Greater London.
         remaining_contributions_years_callout: |
@@ -149,6 +152,8 @@ en-GB:
 
         ten_and_greater: |
           This will be the least amount you will get under the new State Pension rules.
+        rre_entitlements: |
+          You should [check if you’ll get more](/state-pension-through-partner) for your State Pension because you paid the reduced National Insurance rate for married women and widows (married woman’s stamp.)
         less_than_ten: |
           ^You may not qualify for the new State Pension. Under the new State Pension rules [you need at least 10 years](/new-state-pension/eligibility) of National Insurance contributions.^
         reduced_rate_election: |
@@ -335,7 +340,7 @@ en-GB:
       pay_reduced_ni_rate?:
         title: Have you ever opted to pay the reduced National Insurance rate for married women and widows (also known as the married woman’s stamp)?
         hint: |
-          Choose yes if you opted not to pay Class 2 contributions while you were self-employed. You paid a lower rate of National Insurance if you opted to pay the reduced rate.
+          You should also choose yes if you opted not to pay Class 2 contributions while you were self-employed. Opting to pay the reduced rate means you chose to pay a lower rate of National Insurance while you were employed or you chose not to pay Class 2 contributions while you were self-employed.
       ## Q4
       years_paid_ni?:
         title: How many years have you worked and paid National Insurance contributions from the age of 19?

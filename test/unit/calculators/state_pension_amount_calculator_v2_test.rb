@@ -53,6 +53,16 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "female, born 1953 - 1962, from 10 to 29 qualifying years" do
+      setup do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(gender: "female", dob: "1958-02-08", qualifying_years: 15)
+      end
+
+      should "be eligible for rre entitlements" do
+        assert @calculator.qualifies_for_rre_entitlements?
+      end
+    end
+
     context "current_weekly_rate" do
       should "be 107.45 before 6th April 2013" do
         Timecop.travel(Date.parse("2013-04-05")) do
