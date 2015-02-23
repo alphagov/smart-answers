@@ -13,7 +13,7 @@ en-GB:
         "yes": "Yes"
 #Q1
       were_you_or_your_partner_born_on_or_before_6_april_1935?:
-        title: Were you or your partner born on or before 6 April 1935?
+        title: Were you or your partner born before 6 April 1935?
         hint: You must be married or in a civil partnership to qualify.
         error_message: Please choose 'Yes' or 'No'
 #Q2
@@ -71,6 +71,8 @@ en-GB:
         title: You don't qualify for Married Couple's Allowance.
         body: |
           You or your partner had to be born before 6 April 1935 to be [eligible for Married Couple's Allowance](/married-couples-allowance/eligibility).
+          
+          If you and your partner were born on or after 6 April 1935, you may be able to claim [Marriage Allowance](/marriage-allowance) instead.
 
       highest_earner_done:
         title: The highest earner qualifies for Married Couple's Allowance - they'll get %{allowance} off their tax bill.
