@@ -1,4 +1,6 @@
 SmartAnswers::Application.routes.draw do
+  match 'healthcheck', to: proc { [200, {}, ['']] }
+
   constraints id: /[a-z0-9-]+/i do
     match '/:id/visualise(.:format)', to: 'smart_answers#visualise', as: :visualise
 
