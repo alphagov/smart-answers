@@ -94,7 +94,7 @@ en-GB:
       outcome_2:
         title: The estate is shared equally between the children or their descendants.
         body: |
-          If a son or daughter has already died, their children (the grandchildren of the deceased) inherit in their parent's place.
+          If a son or daughter has already died, their children (the grandchildren of the deceased) inherit in their place.
         next_steps: |
           %{next_step_links}
 
@@ -136,7 +136,7 @@ en-GB:
           * the husband, wife or civil partner gets an absolute interest in half of the remainder
           * the other half is then divided equally between the surviving children
 
-          If a son or daughter (or other child where the deceased had a parental role) has already died, their children will inherit in their parent's place.
+          If a son or daughter (or other child where the deceased had a parental role) has already died, their children will inherit in their place.
         next_steps: |
           %{next_step_links}
 
@@ -147,7 +147,7 @@ en-GB:
 
           The remainder goes to the parent or parents.
 
-          If a son or daughter has already died, their children will inherit in their parent’s place.
+          If a son or daughter has already died, their children will inherit in their place.
         next_steps: |
           %{next_step_links}
 
@@ -166,7 +166,7 @@ en-GB:
       outcome_23:
         title: The estate is shared equally between the half-brothers or half-sisters.
         body: |
-          Ie if a half-brother or half-sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
+          If a half-brother or half-sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
         next_steps: |
           %{next_step_links}
 
@@ -195,7 +195,7 @@ en-GB:
 
           The children will get two-thirds of the rest of the estate.
 
-          If a son or daughter has already died, their children (the grandchildren of the deceased) will inherit in their parent’s place.
+          If a son or daughter has already died, their children (the grandchildren of the deceased) will inherit in their place.
         next_steps: |
           %{next_step_links}
 
@@ -284,7 +284,7 @@ en-GB:
 
           The remaining two-thirds are shared between their children.
 
-          If a son or daughter has already died, their children (the grandchildren of the deceased) will inherit in their parent’s place.
+          If a son or daughter has already died, their children (the grandchildren of the deceased) will inherit in their place.
         next_steps: |
           %{next_step_links}
 
@@ -335,7 +335,7 @@ en-GB:
       outcome_66:
         title: The estate is shared equally between the children.
         body: |
-          If a son or daughter has already died, their children (the grandchildren of the deceased) inherit in their parent’s place.
+          If a son or daughter has already died, their children (the grandchildren of the deceased) inherit in their place.
 
           They may have to pay Inheritance Tax.
         next_steps: |
