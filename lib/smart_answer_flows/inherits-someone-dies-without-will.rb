@@ -72,7 +72,7 @@ multiple_choice :children? do
     case region
     when "england-and-wales"
       if partner == "yes"
-        response == "yes" ? :outcome_20 : :parents?
+        response == "yes" ? :outcome_20 : :outcome_1
       else
         response == "yes" ? :outcome_2 : :parents?
       end
