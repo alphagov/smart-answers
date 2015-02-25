@@ -18,14 +18,8 @@ $(document).ready(function() {
       return false;
     });
 
-    $('.start-right').live('click', function() {
+    $('.start-right, .link-right a').live('click', function() {
       reloadQuestions($(this).attr('href'));
-      return false;
-    });
-
-    $('.link-right a').live('click', function() {
-      var href = $(this).attr('href');
-      reloadQuestions(href);
       return false;
     });
 
