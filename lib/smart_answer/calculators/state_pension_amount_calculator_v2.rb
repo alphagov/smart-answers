@@ -91,7 +91,7 @@ module SmartAnswer::Calculators
 
     def state_pension_age
       if birthday_on_feb_29?
-        friendly_time_diff(dob + 1.day, state_pension_date)
+        friendly_time_diff(dob, state_pension_date - 1.day)
       else
         friendly_time_diff(dob, state_pension_date)
       end

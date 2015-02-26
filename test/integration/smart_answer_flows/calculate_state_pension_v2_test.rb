@@ -237,7 +237,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response :female
         add_response Date.parse('29 February 1952')
         assert_current_node :age_result
-        assert_state_variable :state_pension_age, '61 years, 10 months, 8 days'
+        assert_state_variable :state_pension_age, '61 years, 10 months, 7 days'
       end
     end
   end # age calculation
@@ -1344,7 +1344,7 @@ class CalculateStatePensionV2Test < ActiveSupport::TestCase
         add_response 0 # years of NI
         add_response 0 # Years of unemployment
         add_response :no # claimed benefit
-        add_response 0 # years worked between 16 and 19 
+        add_response 0 # years worked between 16 and 19
         add_response :yes # lived or worked abroad
       end
       should "go to outcome and show correct phrases" do
