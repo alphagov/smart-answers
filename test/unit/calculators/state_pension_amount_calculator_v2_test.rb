@@ -599,7 +599,7 @@ module SmartAnswer::Calculators
         should "67 years; dob: 1968-02-29; pension date: 2034-03-01 " do
           @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
               gender: "male", dob: "1968-02-29", qualifying_years: nil)
-          assert_equal "67 years, 1 day", @calculator.state_pension_age
+          assert_equal "67 years", @calculator.state_pension_age
           assert_equal Date.parse("2035-03-01"), @calculator.state_pension_date
         end
 
@@ -789,6 +789,20 @@ module SmartAnswer::Calculators
 
       should "be 67 years" do
         assert_equal "67 years", @calculator.state_pension_age
+      end
+    end
+
+    context "#birthday_on_feb_29??" do
+      should "be true for a date that is a the 29th of feb" do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
+          gender: "male", dob: "29 February 1976", qualifying_years: "20")
+        assert_equal true, @calculator.birthday_on_feb_29?
+      end
+
+      should "be false for a date that is not the 29th of feb" do
+        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
+          gender: "male", dob: "7 June 1960", qualifying_years: "20")
+        assert_equal false, @calculator.birthday_on_feb_29?
       end
     end
   end
