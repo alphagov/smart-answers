@@ -14,6 +14,7 @@ gem 'rack_strip_client_ip', '0.0.1'
 gem 'diffy', '3.0.6'
 gem 'filesize'
 gem 'tilt', '1.4.1'
+gem 'syck', '1.0.5'
 
 if ENV['SMARTDOWN_DEV']
   gem 'smartdown', :path => '../smartdown'
