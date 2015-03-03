@@ -412,7 +412,7 @@ outcome :outcome_brazil_not_living_in_the_uk do
     if ceremony_country == residency_country
       phrases << :local_resident_os_ceremony_not_zimbabwe << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :consular_cni_os_all_names_but_germany << :consular_cni_os_naturalisation
     else
-      phrases << :local_resident_os_consular_cni << :check_travel_advice << :get_legal_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
+      phrases << :local_resident_os_consular_cni << :check_travel_advice << :get_legal_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
     end
     phrases
   end

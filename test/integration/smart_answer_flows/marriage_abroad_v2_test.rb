@@ -8,7 +8,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba british-indian-ocean-territory burma burundi cambodia canada china cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany indonesia iran ireland italy japan jordan kazakhstan latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea guatemala paraguay peru philippines poland portugal qatar russia rwanda san-marino saudi-arabia serbia slovakia south-africa st-maarten south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
+    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany indonesia iran ireland italy japan jordan kazakhstan latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea guatemala paraguay peru philippines poland portugal qatar russia rwanda san-marino saudi-arabia serbia slovakia south-africa st-maarten south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa vietnam wallis-and-futuna yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad-v2'
   end
@@ -2426,6 +2426,21 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "do not allow marriage" do
       assert_current_node :outcome_os_commonwealth
+    end
+  end
+
+  context "opposite sex marriage to local partner in Brazil" do
+    setup do
+      worldwide_api_has_organisations_for_location('brazil', read_fixture_file('worldwide/brazil_organisations.json'))
+      add_response 'brazil'
+      add_response 'other'
+      add_response 'usa'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+    end
+    should "divert to the correct download link for the Affidavit for Marriage document" do
+      assert_current_node :outcome_brazil_not_living_in_the_uk
+      assert_phrase_list :brazil_phraselist_not_in_the_uk, [:local_resident_os_consular_cni,:check_travel_advice,:get_legal_advice,:what_you_need_to_do,:make_an_appointment_bring_passport_and_pay_55_brazil,:list_of_consular_fees,:pay_by_cash_or_credit_card_no_cheque,:embassies_data,:download_affidavit_forms_but_do_not_sign,:download_affidavit_brazil,:documents_for_divorced_or_widowed,:affirmation_os_partner_not_british_turkey]
     end
   end
 end
