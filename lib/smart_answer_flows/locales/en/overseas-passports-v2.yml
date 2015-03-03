@@ -82,6 +82,10 @@ en-GB:
 
           When you get your new passport, send your old one to the [nearest British embassy, high commission or governors office](/government/world/organisations).
 
+        how_to_apply_incomplete_application_deadline: |
+
+          ^You'll be contacted if your application is incomplete. You must return all the missing information within 6 weeks or your application will be cancelled - you won't get a refund.^
+
         adult_fco_forms: |
           __Smart application form__
 
@@ -1486,6 +1490,8 @@ en-GB:
 
           %{how_to_apply}
 
+          %{incomplete_application_deadline}
+
           ## Getting your passport
 
           %{getting_your_passport}
@@ -1505,6 +1511,8 @@ en-GB:
           ## How to apply
 
           %{how_to_apply}
+
+          %{incomplete_application_deadline}
 
           %{send_your_application}
 
@@ -1537,6 +1545,7 @@ en-GB:
           3. Check the supporting documents you must send with your application. Non-English supporting documents must be translated into English by a professional translator.
           %{how_to_apply}
 
+          %{incomplete_application_deadline}
 
             %{fco_forms}
 
