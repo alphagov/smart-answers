@@ -3,7 +3,6 @@ function browserSupportsHtml5HistoryApi() {
 }
 
 $(document).ready(function() {
-  //_gaq.push(['_trackEvent', 'Citizen-Format-Smartanswer', 'Load']);
   if(browserSupportsHtml5HistoryApi()) {
     var formSelector = ".current form";
 
@@ -27,7 +26,7 @@ $(document).ready(function() {
 
     // Track when a user clicks on 'Start again' link
     $('.start-right').live('click', function() {
-      window._gaq && window._gaq.push(['_trackEvent', 'MS_smart_answer', getCurrentPosition(), 'Start again']);
+      GOVUK && GOVUK.analytics && GOVUK.analytics.trackEvent && GOVUK.analytics.trackEvent('MS_smart_answer', getCurrentPosition(), {label: 'Start again'});
       reloadQuestions($(this).attr('href'));
       return false;
     });
@@ -35,7 +34,7 @@ $(document).ready(function() {
     // Track when a user clicks on a 'Change Answer' link
     $('.link-right a').live('click', function() {
       var href = $(this).attr('href');
-      window._gaq && window._gaq.push(['_trackEvent', 'MS_smart_answer', href, 'Change Answer']);
+      GOVUK && GOVUK.analytics && GOVUK.analytics.trackEvent && GOVUK.analytics.trackEvent('MS_smart_answer', href, {label: 'Change Answer'});
       reloadQuestions(href);
       return false;
     });
