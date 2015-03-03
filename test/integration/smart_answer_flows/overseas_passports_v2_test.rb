@@ -862,6 +862,76 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
     end
   end # Bangladesh
 
+  context "answer Tajikistan" do
+    context "renewing a new adult passport" do
+      setup do
+        worldwide_api_has_organisations_for_location('tajikistan', read_fixture_file('worldwide/tajikistan_organisations.json'))
+        add_response 'tajikistan'
+        add_response 'renewing_new'
+        add_response 'adult'
+      end
+      should "give the correct ips result" do
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips2]
+        assert_phrase_list :cost, [:passport_courier_costs_tajikistan, :adult_passport_costs_ips2, :passport_costs_ips2]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
+        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_renew_new_colour, :send_application_embassy_address]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_tajikistan]
+      end
+    end
+  end
+
+  context "answer Turkmenistan" do
+    context "renewing a new adult passport" do
+      setup do
+        worldwide_api_has_organisations_for_location('turkmenistan', read_fixture_file('worldwide/turkmenistan_organisations.json'))
+        add_response 'turkmenistan'
+        add_response 'renewing_new'
+        add_response 'adult'
+      end
+      should "give the ips result" do
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips2]
+        assert_phrase_list :cost, [:passport_courier_costs_turkmenistan, :adult_passport_costs_ips2, :passport_costs_ips2]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
+        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_renew_new_colour, :send_application_embassy_address]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_turkmenistan]
+      end
+    end
+    context "applying for a new adult passport" do
+      setup do
+        worldwide_api_has_organisations_for_location('turkmenistan', read_fixture_file('worldwide/turkmenistan_organisations.json'))
+        add_response 'turkmenistan'
+        add_response 'applying'
+        add_response 'adult'
+        add_response 'united-kingdom'
+      end
+      should "give the ips result" do
+        assert_current_node :ips_application_result
+        assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :how_long_it_takes_ips2]
+        assert_phrase_list :cost, [:passport_courier_costs_turkmenistan, :adult_passport_costs_ips2, :passport_costs_ips2]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
+        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_turkmenistan]
+      end
+    end
+    context "replacing a lost or stolen passport for a child" do
+      setup do
+        worldwide_api_has_organisations_for_location('turkmenistan', read_fixture_file('worldwide/turkmenistan_organisations.json'))
+        add_response 'turkmenistan'
+        add_response 'replacing'
+        add_response 'child'
+      end
+      should "give the specific reference to embassy location" do
+        assert_current_node :ips_application_result
+        assert_phrase_list :cost, [:passport_courier_costs_turkmenistan, :child_passport_costs_ips2, :passport_costs_ips2]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
+        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_turkmenistan]
+      end
+    end
+  end # Turkmenistan
+
   context "answer Uzbekistan" do
     setup do
       worldwide_api_has_organisations_for_location('uzbekistan', read_fixture_file('worldwide/uzbekistan_organisations.json'))
@@ -873,10 +943,10 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_uzbekistan, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :send_your_application, [:send_application_non_uk_visa_renew_new_colour, :send_application_embassy_address]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_uzbekistan]
       end
     end
     context "applying for a new adult passport" do
@@ -886,10 +956,21 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
         assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
+        assert_phrase_list :cost, [:passport_courier_costs_uzbekistan, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
         assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_ips3]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_uzbekistan]
+      end
+    end
+    context "replacing a lost or stolen passport for a child" do
+      should "give the specific reference to embassy location" do
+        add_response 'replacing'
+        add_response 'child'
+        assert_current_node :ips_application_result
+        assert_phrase_list :cost, [:passport_courier_costs_uzbekistan, :child_passport_costs_ips3, :passport_costs_ips3]
+        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
+        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
+        assert_phrase_list :getting_your_passport, [:getting_your_passport_uzbekistan]
       end
     end
   end # Uzbekistan
