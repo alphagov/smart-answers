@@ -6,21 +6,20 @@ module SmartAnswer::Calculators
 
     attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline,
       :leave_earliest_start_date, :adoption_placement_date, :ssp_stop,
-      :matched_week, :a_employment_start
+      :matched_week, :a_employment_start, :leave_type
 
-    attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings, :a_notice_leave,
-      :last_payday, :pre_offset_payday, :pay_date, :pay_day_in_month, :pay_day_in_week,
-      :pay_method, :pay_week_in_month, :work_days
+    attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings,
+      :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date,
+        :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
 
-    LEAVE_TYPE_BIRTH = "birth"
-    LEAVE_TYPE_ADOPTION = "adoption"
+    DAYS_OF_THE_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
-    def initialize(match_or_due_date, birth_or_adoption = LEAVE_TYPE_BIRTH)
+    def initialize(match_or_due_date, leave_type = "maternity")
       expected_start = match_or_due_date - match_or_due_date.wday
       qualifying_start = 15.weeks.ago(expected_start)
 
       @due_date = @match_date = match_or_due_date
-      @leave_type = birth_or_adoption
+      @leave_type = leave_type
       @expected_week = @matched_week = expected_start .. expected_start + 6.days
       @notice_of_leave_deadline = next_saturday(qualifying_start)
       @qualifying_week = qualifying_start .. qualifying_start + 6.days
@@ -54,15 +53,24 @@ module SmartAnswer::Calculators
     end
 
     def leave_end_date
-      52.weeks.since(@leave_start_date) - 1
+      52.weeks.since(leave_start_date) - 1
     end
 
     def pay_start_date
-      @leave_start_date
+      leave_start_date
     end
 
     def pay_end_date
-      39.weeks.since(pay_start_date) - 1
+      pay_duration.weeks.since(pay_start_date) - 1
+    end
+
+    def pay_duration
+      case leave_type
+      when 'paternity', 'paternity_adoption'
+        2
+      else
+        39
+      end
     end
 
     def notice_request_pay
@@ -95,7 +103,7 @@ module SmartAnswer::Calculators
     end
 
     def lower_earning_limit_birth
-      earning_limit_rate = earning_limit_rates_birth.find { |c| c[:min] <= @due_date and c[:max] >= @due_date }
+      earning_limit_rate = earning_limit_rates_birth.find { |c| c[:min] <= @qualifying_week.last and c[:max] >= @qualifying_week.last }
       (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : earning_limit_rates_birth.last[:lower_earning_limit_rate])
     end
 
@@ -110,12 +118,12 @@ module SmartAnswer::Calculators
     end
 
     def lower_earning_limit_adoption
-      earning_limit_rate = earning_limit_rates_adoption.find { |c| c[:min] <= @due_date and c[:max] >= @due_date }
+      earning_limit_rate = earning_limit_rates_adoption.find { |c| c[:min] <= @qualifying_week.last and c[:max] >= @qualifying_week.last }
       (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : 107)
     end
 
     def lower_earning_limit
-      if @leave_type == LEAVE_TYPE_BIRTH
+      if @leave_type =~ /maternity|paternity/
         lower_earning_limit_birth
       else
         lower_earning_limit_adoption
@@ -131,10 +139,6 @@ module SmartAnswer::Calculators
       @leave_earliest_start_date = 14.days.ago(date)
     end
 
-    def adoption_leave_start_date=(date)
-      @leave_start_date = date
-    end
-
     ## Paternity
     ##
     ## Statutory paternity rate
@@ -147,7 +151,8 @@ module SmartAnswer::Calculators
     ##
     ## Statutory adoption rate
     def statutory_adoption_rate
-      statutory_maternity_rate_b
+      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
+      [current_statutory_rate, awe].min
     end
 
     def pay_period_in_days
@@ -173,7 +178,6 @@ module SmartAnswer::Calculators
 
     def paydates_and_pay
       paydates = send(:"paydates_#{pay_method}")
-
       [].tap do |ary|
         paydates.each_with_index do |paydate, index|
           # Pay period includes the date of payment hence the range starts the day after.
@@ -325,11 +329,24 @@ module SmartAnswer::Calculators
 
     # Gives the weekly rate for a date.
     def rate_for(date)
+      if leave_type == 'maternity'
+        maternity_rate_for(date)
+      else
+        paternity_padoption_adoption_rate_for(date)
+      end
+    end
+
+    def maternity_rate_for(date)
       if date < 6.weeks.since(leave_start_date)
         statutory_maternity_rate_a
       else
         [statutory_rate(date), statutory_maternity_rate_a].min
       end
+    end
+
+    def paternity_padoption_adoption_rate_for(date)
+      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
+      [statutory_rate(date), awe].min
     end
 
     def first_sunday_in_month(month, year)
