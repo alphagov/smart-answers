@@ -1845,7 +1845,7 @@ tonga:
   replacing: 8_weeks
 trinidad-and-tobago:
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_3
   app_form: hmpo_2_application_form
   online_application: true
   renewing_new: 8_weeks
