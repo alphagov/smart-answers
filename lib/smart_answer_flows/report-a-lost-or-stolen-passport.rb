@@ -4,21 +4,10 @@ satisfies_need "100221"
 exclude_countries = %w(holy-see british-antarctic-territory)
 
 multiple_choice :where_was_the_passport_lost_or_stolen? do
-  option in_the_uk: :adult_or_child_passport?
-  option abroad: :adult_or_child_passport?
+  option in_the_uk: :complete_LS01_form
+  option abroad: :which_country?
 
   save_input_as :location
-end
-
-multiple_choice :adult_or_child_passport? do
-  option :adult
-  option :child
-
-  save_input_as :age
-
-  calculate :additional_content do
-    age == 'child' ? PhraseList.new(:child_forms) : PhraseList.new(:adult_forms)
-  end
 
   next_node do
     case location
