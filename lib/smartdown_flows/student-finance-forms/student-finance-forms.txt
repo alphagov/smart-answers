@@ -28,4 +28,6 @@ $C
 <brailleandlargefonts@slc.co.uk>
 $C
 
+You can [call Student Finance England](https://www.gov.uk/contact-student-finance-england) if you want to [apply online](https://www.gov.uk/apply-online-for-student-finance) but you can't use a computer without help.
+
 * otherwise => type_of_student
