@@ -30,7 +30,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
             assert_page_has_content "How much do you earn?"
           end
           within('td.previous-question-body') { assert_page_has_content "£5,000 per month" }
-          within('.link-right') { assert page.has_link?("Change", href: "/money-and-salary-sample/y/?previous_response=5000.0-month") }
+          within('.link-right') { assert page.has_link?("Change", href: "/money-and-salary-sample/y?previous_response=5000.0-month") }
         end
       end
 
@@ -55,7 +55,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
             assert_page_has_content "How much do you earn?"
           end
           within('td.previous-question-body') { assert_page_has_content "£5,000 per month" }
-          within('.link-right') { assert page.has_link?("Change", href: "/money-and-salary-sample/y/?previous_response=5000.0-month") }
+          within('.link-right') { assert page.has_link?("Change", href: "/money-and-salary-sample/y?previous_response=5000.0-month") }
         end
         within 'tr.section:nth-child(2)' do
           within 'td.previous-question-title' do

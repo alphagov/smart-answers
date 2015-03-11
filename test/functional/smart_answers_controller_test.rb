@@ -210,7 +210,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
           should "give correct canonical url" do
             submit_json_response(day: "", month: "", year: "")
             data = JSON.parse(response.body)
-            assert_equal '/sample/y/', data['url']
+            assert_equal '/sample/y', data['url']
           end
 
           should "show an error message" do
@@ -427,7 +427,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "link back to change the response" do
         assert_select ".done-questions a", /Change/ do |link_nodes|
-          assert_equal '/sample/y/?previous_response=no', link_nodes.first['href']
+          assert_equal '/sample/y?previous_response=no', link_nodes.first['href']
         end
       end
     end
