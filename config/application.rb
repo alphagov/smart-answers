@@ -38,9 +38,6 @@ module SmartAnswers
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    # Enable the asset pipeline
-    config.assets.enabled = true
-
     # Path within public/ where assets are compiled to
     config.assets.prefix = "smartanswers"
 
