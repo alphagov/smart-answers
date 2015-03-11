@@ -1,14 +1,14 @@
 SmartAnswers::Application.routes.draw do
-  match 'healthcheck', to: proc { [200, {}, ['']] }
+  get 'healthcheck', to: proc { [200, {}, ['']] }
 
   constraints id: /[a-z0-9-]+/i do
-    match '/:id/visualise(.:format)', to: 'smart_answers#visualise', as: :visualise
+    get '/:id/visualise(.:format)', to: 'smart_answers#visualise', as: :visualise
 
-    match '/:id(/:started(/*responses)).:format',
+    get '/:id(/:started(/*responses)).:format',
       to: 'smart_answers#show',
       as: :formatted_smart_answer,
       constraints: { format: /[a-zA-Z]+/ }
 
-    match '/:id(/:started(/*responses))', to: 'smart_answers#show', as: :smart_answer
+    get '/:id(/:started(/*responses))', to: 'smart_answers#show', as: :smart_answer
   end
 end
