@@ -72,12 +72,6 @@ group :development do
   gem 'nokogiri', '1.5.11'
 end
 
-group :assets do
-  gem 'sass-rails', '4.0.0'
-  gem 'therubyracer', '~> 0.12.1'
-  gem 'uglifier'
-end
-
 if ENV['RUBY_DEBUG']
   gem 'debugger', :require => "ruby-debug"
 end
