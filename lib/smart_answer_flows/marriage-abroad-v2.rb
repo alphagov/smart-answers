@@ -814,7 +814,10 @@ outcome :outcome_os_consular_cni do
     elsif data_query.requires_7_day_notice?(ceremony_country, residency_country)
       phrases << :display_notice_of_marriage_7_days
     end
-    if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country
+    if data_query.non_commonwealth_country?(residency_country) and residency_country != residency_uk_region and ceremony_country == 'greece'
+      phrases << :consular_cni_os_foreign_resident_ceremony_notary_public_greece
+    end
+    if data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country  and ceremony_country != 'greece'
       if cni_notary_public_countries.include?(ceremony_country) or %w(italy japan macedonia spain).include?(ceremony_country)
         phrases << :consular_cni_os_foreign_resident_ceremony_notary_public
       elsif cni_posted_after_7_days_countries.include?(ceremony_country)
