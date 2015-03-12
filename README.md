@@ -52,3 +52,8 @@ Issues/todos
 ------------
 
 Please see the [github issues](https://github.com/alphagov/smart-answers/issues) page.
+
+Drafts
+------
+
+When changes need to be tested by third parties it is best to release them as a draft. There is a rake task for creating a draft flow `rake version:v2[flow]`. Once ready, the draft can be published by running `rake version:publish[flow]`
