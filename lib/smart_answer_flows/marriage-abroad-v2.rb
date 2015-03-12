@@ -385,7 +385,7 @@ end
 outcome :outcome_os_indonesia do
   precalculate :indonesia_os_phraselist do
     PhraseList.new(
-      :appointment_for_affidavit,
+      :appointment_for_affidavit_indonesia,
       :complete_affidavit_with_download_link,
       :embassies_data,
       :documents_for_divorced_or_widowed,

@@ -215,6 +215,14 @@ en-GB:
           Contact the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         appointment_for_affidavit: |
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+        appointment_for_affidavit_indonesia: |
+          Make an appointment at the local British embassy or consulate in Indonesia to swear an affidavit (written statement of facts) that you’re free to marry.
+
+          Before the appointment you’ll need to pay a fee to the British Embassy in Jakarta. You can do this by credit card or in cash in the local currency. You also need to complete 2 copies of the ‘​Affidavit for marriage’ form.​
+
+          Send one copy to the British Embassy in Jakarta by email or post. Take the other one with you when you go to your local appointment, along with your passport.
+
+          ^Allow the embassy at least 2 days to process your paperwork before turning up for your appointment.^
         appointment_for_affidavit_china_addition: |
           Your partner will need to bring a Hukou book (family registration book).
         appointment_for_affidavit_notary: |
