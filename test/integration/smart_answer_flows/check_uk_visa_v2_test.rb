@@ -8,7 +8,7 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa turkey yemen oman united-arab-emirates qatar taiwan venezuela)
+    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa stateless-or-refugee syria turkey yemen oman united-arab-emirates qatar taiwan venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'check-uk-visa-v2'
   end
@@ -224,7 +224,7 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
 
    context "choose a DATV country" do
     setup do
-      add_response 'south-africa'
+      add_response 'palestinian-territories'
     end
     should "ask what are you coming to the UK to do" do
       assert_current_node :purpose_of_visit?

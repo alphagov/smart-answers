@@ -127,6 +127,7 @@ en-GB:
 
       what_passport_do_you_have?:
         title: What passport or travel document do you have?
+        hint: If you're a refugee or don't have a passport or travel document, select stateless or refugee.
 
       purpose_of_visit?:
         title: What are you coming to the UK to do?
