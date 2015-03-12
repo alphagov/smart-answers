@@ -155,6 +155,8 @@ en-GB:
 # payment methods
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
+        pay_by_cash_or_us_dollars_only: |
+          You can only pay fees for consular services in US dollars and in cash.
         pay_in_local_currency: |
           ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
         pay_in_local_currency_ceremony_country_name: |

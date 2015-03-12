@@ -1079,12 +1079,14 @@ outcome :outcome_os_affirmation do
       if ceremony_country == 'monaco'
         phrases << :list_of_consular_fees_france
       else
-        phrases << :list_of_consular_fees
+        phrases << :list_of_consular_fees unless ceremony_country == 'cambodia'
       end
       if ceremony_country == 'finland'
         phrases << :pay_in_euros_or_visa_electron
       elsif ceremony_country == 'philippines'
         phrases << :pay_in_cash_or_manager_cheque
+      elsif ceremony_country == 'cambodia'
+        phrases << :pay_by_cash_or_us_dollars_only
       else
         phrases << :pay_by_cash_or_credit_card_no_cheque
       end

@@ -1078,7 +1078,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :cambodia_consular_cni_os_partner_local, :affirmation_os_translation_in_local_language_text, :documents_for_divorced_or_widowed_cambodia, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :consular_cni_os_all_names_but_germany, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :cambodia_consular_cni_os_partner_local, :affirmation_os_translation_in_local_language_text, :documents_for_divorced_or_widowed_cambodia, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :consular_cni_os_all_names_but_germany, :fee_table_affirmation_55, :pay_by_cash_or_us_dollars_only]
     end
   end
 
