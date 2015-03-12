@@ -103,7 +103,7 @@ multiple_choice :renewing_replacing_applying? do
 
   calculate :incomplete_application_deadline do
     phrases = PhraseList.new
-    incomplete_deadline_countries = %w(afghanistan australia austria bahrain bangladesh barbados belgium brazil canada china denmark egypt ethiopia finland france germany ghana greece hong-kong india indonesia iraq ireland israel italy jamaica japan kenya lebanon malawi malaysia netherlands new-zealand nigeria norway pakistan philippines portugal qatar russia saudi-arabia sierra-leone singapore south-africa spain sri-lanka sudan sweden switzerland thailand trinidad-and-tobago turkey uganda united-arab-emirates usa venezuela vietnam zambia zimbabwe)
+    incomplete_deadline_countries = %w(australia austria bahrain bangladesh barbados belgium brazil canada china denmark egypt ethiopia finland france germany ghana greece hong-kong india indonesia iraq ireland israel italy jamaica japan kenya laos lebanon malawi malaysia netherlands new-zealand nigeria norway pakistan philippines portugal qatar russia saudi-arabia sierra-leone singapore south-africa spain sri-lanka sudan sweden switzerland thailand trinidad-and-tobago turkey uganda united-arab-emirates usa venezuela vietnam zambia zimbabwe)
     if incomplete_deadline_countries.include?(current_location)
       phrases << :how_to_apply_incomplete_application_deadline
     end
