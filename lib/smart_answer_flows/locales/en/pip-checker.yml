@@ -22,50 +22,59 @@ en-GB:
         "yes": "Yes"
       phrases:
         scheme_postcodes: |
-          - CA (Carlisle)
-          - CH (Chester)
-          - DG (Dumfries and Galloway)
-          - DL (Darlington)
-          - EH (Edinburgh)
-          - HD (Huddersfield)
-          - HG (Harrogate)
-          - L (Liverpool)
-          - LA (Lancaster)
-          - M (Manchester)
-          - ML (Motherwell)
-          - TD (Galashiels)
-          - YO (York)
-
-          On 26 January 2015 the scheme will be expanded to include postcodes beginning with:
-
-          - DH (Durham)
-          - G (Glasgow)
-          - IV (Inverness)
-          - NE (Newcastle)
-          - SR (Sunderland)
-          - WA (Warrington)
-          - WN (Wigan)
-
-          On 23 February 2015 the scheme will be expanded to include postcodes beginning with:
-
           - AB (Aberdeen)
           - BB (Blackburn)
           - BD (Bradford)
+          - CA (Carlisle)
+          - CH (Chester)
           - DD (Dundee)
+          - DG (Dumfries and Galloway)
+          - DH (Durham
+          - DL (Darlington)
           - DN (Doncaster)
+          - EH (Edinburgh)
           - EX (Exeter)
+          - G (Glasgow
+          - HD (Huddersfield)
+          - HG (Harrogate)
           - HX (Halifax)
+          - IV (Inverness)
           - KA (Kilmarnock)
           - KY (Kirkcaldy)
+          - L (Liverpool)
+          - LA (Lancaster)
           - LS (Leeds)
+          - M (Manchester)
+          - ML (Motherwell)
+          - NE (Newcastle)
           - PH (Perth)
           - PL (Plymouth)
           - PO (Portsmouth)
           - PR (Preston)
           - S (Sheffield)
           - SO (Southampton)
+          - TD (Galashiels)
           - TS (Cleveland)
+          - SR (Sunderland
+          - WA (Warrington)
           - WF (Wakefield)
+          - WN (Wigan)
+          - YO (York)
+       
+          On 13 March 2015 the scheme will be expanded to include postcodes beginning with:
+
+          - BL (Bolton) 
+          - CW (Crewe) 
+          - FK (Falkirk) 
+          - FY (Fylde) 
+          - HU (Hull) 
+          - OL (Oldham) 
+          - SK (Stockport) 
+          - TA (Taunton) 
+          - TQ (Torquay) 
+          - TR (Truro)
+          
+ 
 
         scheme_postcodes_pre_3rd_feb_2014: |
           - DG (Dumfries and Galloway)
