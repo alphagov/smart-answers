@@ -797,7 +797,7 @@ outcome :outcome_os_consular_cni do
         end
       end
     else
-      if cni_notary_public_countries.include?(ceremony_country) or %w(italy japan macedonia spain).include?(ceremony_country) and ceremony_country != 'tunisia'
+      if cni_notary_public_countries.include?(ceremony_country) and ceremony_country != 'greece' or %w(italy japan macedonia spain).include?(ceremony_country) and ceremony_country != 'tunisia'
         phrases << :consular_cni_os_download_documents_notary_public
       elsif data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != 'germany'
         phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany
