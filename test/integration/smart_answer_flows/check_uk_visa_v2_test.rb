@@ -160,6 +160,60 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
     end
   end
 
+  context "choose a visa national country" do
+    setup do
+      add_response 'armenia'
+    end
+    should "ask what are you coming to the UK to do" do
+      assert_current_node :purpose_of_visit?
+    end
+
+    context "coming to the UK to study" do
+      setup do
+        add_response 'study'
+        add_response 'six_months_or_less'
+      end
+      should "take you to outcome study_m" do
+        assert_current_node :outcome_study_m
+      end
+    end
+
+    context "coming to the UK to work" do
+      setup do
+        add_response 'work'
+        add_response 'six_months_or_less'
+      end
+      should "take you to outcome work_m" do
+        assert_current_node :outcome_work_m
+      end
+    end
+
+    context "coming to the UK on the way somewhere else" do
+      setup do
+        add_response 'transit'
+      end
+      should "ask you if you're planning to leave the airport" do
+        assert_current_node :planning_to_leave_airport?
+      end
+      context "planning to leave airport" do
+        setup do
+          add_response 'yes'
+        end
+        should "take you to transit_leaving_airport outcome" do
+          assert_current_node :outcome_transit_leaving_airport
+        end
+      end
+      context "not planning to leave airport" do
+        setup do
+          add_response 'no'
+        end
+        should "take you to transit_not_leaving_airport outcome" do
+          assert_current_node :outcome_no_visa_needed
+        end
+      end
+    end
+  end
+
   context "choose a DATV country" do
     setup do
       add_response 'yemen'
