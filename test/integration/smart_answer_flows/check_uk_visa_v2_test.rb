@@ -51,6 +51,7 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
       end
       should "take you to work_n outcome" do
         assert_current_node :outcome_work_n
+        assert_phrase_list :if_non_visa_nationals_short_visit, [:prospective_enterpreneur_bulletpoint]
       end
     end
     context "tourism, visiting friends or family" do
@@ -462,6 +463,7 @@ end
         end
         should "take you to outcome 5.5 work N visa may be not needed" do
           assert_current_node :outcome_work_n
+          assert_phrase_blank :if_non_visa_nationals_short_visit
         end
       end
     end #end canada work reason
@@ -509,13 +511,13 @@ end
     end
   end
 
-  context "choose a Non-visa country and check for outcome_work_m" do
+  context "choose a Non-visa country and check for outcome_work_n" do
     setup do
       add_response 'mexico'
       add_response 'work'
       add_response 'six_months_or_less'
     end
-      should "take you to outcome work_m" do
+      should "take you to outcome work_n" do
       assert_current_node :outcome_work_n
     end
   end

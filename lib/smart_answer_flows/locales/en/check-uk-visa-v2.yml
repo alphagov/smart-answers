@@ -14,6 +14,9 @@ en-GB:
           You won't need a visa if your passport has a personal ID number on the bio data page.
 
       #phrases
+        prospective_enterpreneur_bulletpoint: |
+          - a [prospective entrepreneur](https://www.gov.uk/prospective-entrepreneur)
+
         study_additional_sentence: |
           However, you should bring documents with you to show at the border. See the relevant [student visa](/browse/visas-immigration/study-visas) guide to see what documents to bring.
 
@@ -284,8 +287,8 @@ en-GB:
           - a [business or academic visitor](/business-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training or academic research
           - a [sports visitor](/sports-visit-visa)
           - an [entertainer](/entertainer-visitor-visa)
-          - a [prospective entrepreneur](https://www.gov.uk/prospective-entrepreneur)
           - a visitor doing a ['permitted paid engagement'](/permitted-paid-engagement-visa) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
+          %{if_non_visa_nationals_short_visit}
 
           However, you should bring [supporting documents](/government/publications/visitor-visa-guide-to-supporting-documents) to show at the border.
 

@@ -147,7 +147,13 @@ outcome :outcome_work_y do
   end
 end
 outcome :outcome_work_m
-outcome :outcome_work_n
+outcome :outcome_work_n do
+  precalculate :if_non_visa_nationals_short_visit do
+    if country_group_non_visa_national.exclude?(passport_country)
+      PhraseList.new(:prospective_enterpreneur_bulletpoint)
+    end
+  end
+end
 outcome :outcome_transit_leaving_airport
 outcome :outcome_transit_not_leaving_airport
 outcome :outcome_joining_family_y

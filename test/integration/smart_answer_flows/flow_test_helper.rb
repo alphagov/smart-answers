@@ -59,6 +59,11 @@ module FlowTestHelper
     assert_equal expected_keys, phrase_list.phrase_keys, message
   end
 
+  def assert_phrase_blank(variable_name)
+    phrase_list = current_state.send(variable_name)
+    assert phrase_list == nil, "State variable #{variable_name} was not expected to be in the PhraseList"
+  end
+
   def assert_calendar
     assert @flow.node(current_state.current_node).evaluate_calendar(current_state).present?
   end
