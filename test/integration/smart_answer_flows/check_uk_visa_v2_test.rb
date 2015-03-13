@@ -17,6 +17,17 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
     assert_current_node :what_passport_do_you_have?
   end
 
+  context "choose Stateless or Refugee" do
+    setup do
+      add_response "stateless-or-refugee"
+    end
+
+    should "suggest to apply in country of originallity or residence" do
+      assert_state_variable "passport_country", "stateless-or-refugee"
+      skip "TODO"
+    end
+  end
+
   context "choose a UKOT country" do
     setup do
       add_response 'anguilla'
@@ -149,82 +160,9 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
     end
   end
 
-  context "choose a Visa nationals country" do
+  context "choose a DATV country" do
     setup do
       add_response 'yemen'
-    end
-    should "ask what are you coming to the UK to do" do
-      assert_current_node :purpose_of_visit?
-    end
-    context "tourism, visiting friends or family" do
-      setup do
-        add_response 'tourism'
-      end
-      should "take you to general_y outcome" do
-        assert_current_node :outcome_general_y
-      end
-    end
-    context "visiting child at school" do
-      setup do
-        add_response 'school'
-      end
-      should "take you to school_y outcome" do
-        assert_current_node :outcome_school_y
-      end
-    end
-    context "getting married" do
-      setup do
-        add_response 'marriage'
-      end
-      should "take you to the marriage outcome" do
-        assert_current_node :outcome_marriage
-      end
-    end
-    context "get private medical treatment" do
-      setup do
-        add_response 'medical'
-      end
-      should "take you to the 'medical_y' outcome" do
-        assert_current_node :outcome_medical_y
-      end
-    end
-    context "coming to the UK on the way somewhere else" do
-      setup do
-        add_response 'transit'
-      end
-      should "ask you if you're planning to leave the airport?" do
-        assert_current_node :planning_to_leave_airport?
-      end
-      context "planning to leave airport" do
-        setup do
-          add_response 'yes'
-        end
-        should "take you to 'transit_leaving_airport' outcome" do
-          assert_current_node :outcome_transit_leaving_airport_datv
-        end
-      end
-      context "not planning to leave airport" do
-        setup do
-          add_response 'no'
-        end
-        should "take you to outcome no visa needed" do
-          assert_current_node :outcome_transit_not_leaving_airport
-        end
-      end
-    end
-    context "coming to join family" do
-      setup do
-        add_response 'family'
-      end
-      should "take you to outcome Family Y" do
-        assert_current_node :outcome_joining_family_y
-      end
-    end
-  end
-
-   context "choose a DATV country" do
-    setup do
-      add_response 'palestinian-territories'
     end
     should "ask what are you coming to the UK to do" do
       assert_current_node :purpose_of_visit?
@@ -300,7 +238,7 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
         assert_current_node :outcome_medical_y
       end
     end
-    context "coming to the on the way somewhere else" do
+    context "coming to the UK on the way somewhere else" do
       setup do
         add_response 'transit'
       end
