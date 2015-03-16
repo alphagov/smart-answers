@@ -2447,6 +2447,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   context "ceremony in Greece, not resident in Uk (resident in Greece), all opposite-sex outcomes" do
     setup do
       worldwide_api_has_organisations_for_location('greece', read_fixture_file('worldwide/greece_organisations.json'))
+      worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
       add_response 'greece'
       add_response 'other'
       add_response 'usa'
@@ -2455,7 +2456,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
     should "include the Greek specific notary public phrase list" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni,:italy_os_consular_cni_ceremony_not_italy_or_spain,:consular_cni_all_what_you_need_to_do,:consular_cni_os_ceremony_not_spain_or_italy,:consular_cni_os_foreign_resident_ceremony_not_germany_italy,:check_with_embassy_consulate_or_notary_public,:embassies_data,:living_in_residence_country_3_days,:consular_cni_variant_local_resident_or_foreign_resident_notary_public,:consular_cni_os_not_uk_resident_ceremony_not_germany,:consular_cni_os_other_resident_ceremony_not_germany_or_spain,:consular_cni_os_download_documents_notary_public,:consular_cni_os_foreign_resident_ceremony_notary_public_greece]
+      assert_phrase_list :consular_cni_os_start, [:other_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_foreign_resident_ceremony_not_germany_italy, :consular_cni_os_foreign_resident_3_days_notary_public, :consular_cni_variant_local_resident_or_foreign_resident_notary_public, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany, :consular_cni_os_foreign_resident_ceremony_notary_public_greece]
     end
   end
 
