@@ -4,6 +4,7 @@
   <% content_for :head do %>
     <meta name="robots" content="noindex">
   <% end %>
+  <%= render "debug" %>
 
   <header class="page-header group">
     <div>
@@ -12,6 +13,7 @@
       </h1>
     </div>
   </header>
+
   <% if @presenter.finished? %>
     <%= render partial: "result" %>
   <% else %>

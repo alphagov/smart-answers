@@ -444,5 +444,21 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_equal @flow.node(:do_you_like_jam?).name.to_s.humanize, data['title']
       end
     end
+
+    context "debugging" do
+      should "render debug information on the page when enabled" do
+        @controller.stubs(:debug?).returns(true)
+        get :show, id: 'sample', started: 'y', responses: "no", debug: "1"
+
+        assert_select "pre.debug"
+      end
+
+      should "not render debug information on the page when not enabled" do
+        @controller.stubs(:debug?).returns(false)
+        get :show, id: 'sample', started: 'y', responses: "no", debug: nil
+
+        assert_select "pre.debug", false, "The page should not render debug information"
+      end
+    end
   end
 end
