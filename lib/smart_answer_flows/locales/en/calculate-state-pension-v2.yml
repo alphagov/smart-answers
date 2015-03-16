@@ -153,7 +153,7 @@ en-GB:
         ten_and_greater: |
           This will be the least amount you will get under the new State Pension rules.
         rre_entitlements: |
-          You should [check if you’ll get more](/state-pension-through-partner) for your State Pension because you paid the reduced National Insurance rate for married women and widows (married woman’s stamp.)
+          You should [check if you may get more](/state-pension-through-partner) for your State Pension because you paid the reduced National Insurance rate for married women and widows (married woman’s stamp.)
         less_than_ten: |
           ^You may not qualify for the new State Pension. Under the new State Pension rules [you need at least 10 years](/new-state-pension/eligibility) of National Insurance contributions.^
         reduced_rate_election: |
@@ -340,7 +340,7 @@ en-GB:
       pay_reduced_ni_rate?:
         title: Have you ever opted to pay the reduced National Insurance rate for married women and widows (also known as the married woman’s stamp)?
         hint: |
-          You should also choose yes if you opted not to pay Class 2 contributions while you were self-employed. Opting to pay the reduced rate means you chose to pay a lower rate of National Insurance while you were employed or you chose not to pay Class 2 contributions while you were self-employed.
+          Opting to pay the reduced rate means you chose to pay a lower rate of National Insurance while you were employed or you chose not to pay Class 2 contributions while you were self-employed.
       ## Q4
       years_paid_ni?:
         title: How many years have you worked and paid National Insurance contributions from the age of 19?
@@ -353,7 +353,7 @@ en-GB:
       ## Q5
       years_of_jsa?:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
-        hint: These are years you may have received credits towards your State Pension. Don’t count years you’ve entered already. Enter 0 if you’ve never claimed benefits.
+        hint: These are the years when you paid Class 1 with your wages, Class 2 if you were self employed or Class 3 if you paid voluntary contributions. Enter 0 if you haven’t paid National Insurance contributions. National Insurance credits will be automatically added for ages between 16 and 19 years old (if you’re eligible) - you don’t have to count them.
         error_message: |
           Please enter a number. Based on your previous answers you can enter up to %{ni_years_to_date_from_dob} years. If you got benefits for more years than you can enter, enter the maximum number you’re allowed.
         suffix_label: years
