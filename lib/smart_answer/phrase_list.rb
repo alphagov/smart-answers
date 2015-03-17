@@ -15,5 +15,9 @@ module SmartAnswer
       phrase_keys << phrase_key
       self
     end
+
+    def to_s
+      "#{self.class}: #{phrase_keys}"
+    end
   end
 end

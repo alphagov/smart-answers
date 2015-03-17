@@ -55,7 +55,14 @@ class SmartAnswersController < ApplicationController
     end
   end
 
+
 private
+
+  def debug?
+    Rails.env.development? && params[:debug]
+  end
+  helper_method :debug?
+
   def json_request?
     request.format == Mime::JSON
   end

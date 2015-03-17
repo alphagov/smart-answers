@@ -1,0 +1,10 @@
+<% if debug? %>
+  <article>
+    <pre class="application-notice info-notice debug">
+      Debug info:
+      <% @presenter.current_state.to_hash.each do |k, v| %>
+        <%= "#{k}: #{v.to_s}"%>
+      <% end %>
+    </pre>
+  </article>
+<% end %>
