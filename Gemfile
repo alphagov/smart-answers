@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'unicorn', '4.8.3'
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.9'
 
 gem 'rails-i18n'
 gem 'json'
@@ -50,17 +50,17 @@ end
 gem 'lrucache', '0.1.4'
 
 group :test do
+  gem 'minitest', '~> 5.1'
   gem 'capybara', '2.1.0'
   gem 'ci_reporter'
   gem 'mocha', '0.13.3', :require => false
-  gem 'shoulda', '~> 2.11.3'
+  gem 'shoulda', '~> 3.5.0'
   gem 'webmock', '1.11.0', :require => false
   gem 'simplecov', '~> 0.6.4', :require => false
   gem 'simplecov-rcov', '~> 0.2.3', :require => false
   gem 'poltergeist', '1.5.1'
   gem 'timecop'
-  gem 'minitest', '4.7.5'
-  gem 'minitest-reporters'
+  gem 'minitest-reporters', '~> 1.0.11'
 end
 
 group :development do
