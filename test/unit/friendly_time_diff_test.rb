@@ -1,6 +1,6 @@
 require_relative '../test_helper'
 
-class FriendlyTimeDiffTest < MiniTest::Unit::TestCase
+class FriendlyTimeDiffTest < Minitest::Test
   include FriendlyTimeDiff
 
   should "calculate whole years" do

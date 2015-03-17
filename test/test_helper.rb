@@ -25,13 +25,7 @@ require 'mocha/setup'
 require 'webmock/minitest'
 WebMock.disable_net_connect!(allow_localhost: true)
 
-class MiniTest::Unit::TestCase
-  include Shoulda::InstanceMethods
-  extend Shoulda::ClassMethods
-  include Shoulda::Assertions
-  extend Shoulda::Macros
-  include Shoulda::Helpers
-
+class Minitest::Test
   def teardown_with_customisations
     teardown_without_customisations
     Timecop.return

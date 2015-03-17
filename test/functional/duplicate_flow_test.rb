@@ -3,7 +3,7 @@ require_relative '../test_helper'
 require_relative '../../lib/smartdown_adapter/registry.rb'
 require_relative '../../lib/smart_answer/flow_registry.rb'
 
-class DuplicateFlowTest < Test::Unit::TestCase
+class DuplicateFlowTest < Minitest::Test
 
   should "Not have any smartdown and smartanswer flows with the same name" do
     SmartdownAdapter::Registry.reset_instance
