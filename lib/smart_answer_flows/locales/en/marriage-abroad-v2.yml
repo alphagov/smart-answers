@@ -906,6 +906,16 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
           - equivalent documents for your partner
 
+        consular_cni_variant_local_resident_jordan: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
+          - equivalent documents for your partner
+
+          ^Documents must be originals if you are getting married at the Sharia Court.^
+
         consular_cni_variant_local_resident_or_foreign_resident_notary_public: |
           You’ll need to provide supporting documents, including:
 

@@ -765,6 +765,8 @@ outcome :outcome_os_consular_cni do
     elsif ceremony_country == residency_country and %w(germany japan spain).exclude?(ceremony_country) or (data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country and ceremony_country != 'germany')
       if cni_notary_public_countries.include?(ceremony_country) or %w(japan macedonia spain).include?(ceremony_country)
         phrases << :consular_cni_variant_local_resident_or_foreign_resident_notary_public
+      elsif ceremony_country == 'jordan'
+        phrases << :consular_cni_variant_local_resident_jordan
       else
         phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident
       end
