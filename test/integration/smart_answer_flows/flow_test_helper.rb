@@ -50,7 +50,13 @@ module FlowTestHelper
   def assert_phrase_list(variable_name, expected_keys)
     phrase_list = current_state.send(variable_name)
     assert phrase_list.is_a?(SmartAnswer::PhraseList), "State variable #{variable_name} is not a PhraseList"
-    assert_equal expected_keys, phrase_list.phrase_keys
+
+    missing_keys = expected_keys - phrase_list.phrase_keys
+    unexpected_keys = phrase_list.phrase_keys - expected_keys
+    message = ""
+    message += "Missing keys: #{missing_keys}\n" if missing_keys.present?
+    message += "Unexpected keys: #{unexpected_keys}" if unexpected_keys.present?
+    assert_equal expected_keys, phrase_list.phrase_keys, message
   end
 
   def assert_calendar
