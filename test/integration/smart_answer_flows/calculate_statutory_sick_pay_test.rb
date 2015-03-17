@@ -583,7 +583,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                              " 4 May 2013|£86.70"].join("\n")
     end
 
-    should "show formatted weekly payment amounts with adjusted 3 days start amount" do
+    should "show formatted weekly payment amounts with adjusted 3 days start amount (ordinary statutory paternity pay)" do
       add_response :ordinary_statutory_paternity_pay
       add_response :yes
       add_response :no
@@ -619,7 +619,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
     end
 
-    should "show formatted weekly payment amounts with adjusted 3 days start amount" do
+    should "show formatted weekly payment amounts with adjusted 3 days start amount (additional statutory paternity pay)" do
       add_response :additional_statutory_paternity_pay
       add_response :yes
       add_response :no

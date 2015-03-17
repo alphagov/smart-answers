@@ -1197,7 +1197,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_phrase_list :result_text, [:within_4_months_enough_qy_years]
       end
 
-      should "should show the correct result" do
+      should "should show the correct result with pay_reduced_ni_rate" do
         add_response Date.parse('6 Dec 1951')
         add_response 10
         add_response 15

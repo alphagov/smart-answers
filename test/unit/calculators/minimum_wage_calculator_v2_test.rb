@@ -292,12 +292,12 @@ module SmartAnswer::Calculators
       # Scenario 4
       context "25 y/o in 2011, no accommodation, varying overtime" do
         setup do
-          @calculator = MinimumWageCalculatorV2.new(
+          @calculator = MinimumWageCalculator.new(
             age: 25, date: Date.parse('2011-10-01'), pay_frequency: 7, basic_pay: 100, basic_hours: 40)
           @calculator.overtime_hours = 10
         end
 
-        should "calculate total hourly rate accounting for overtime" do
+        should "calculate total hourly rate accounting for overtime with 20 overtime pay" do
           @calculator.overtime_hourly_rate = 2
           assert_equal 6.08, @calculator.minimum_hourly_rate
           assert_equal 20, @calculator.total_overtime_pay
@@ -305,7 +305,7 @@ module SmartAnswer::Calculators
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
-        should "calculate total hourly rate accounting for overtime" do
+        should "calculate total hourly rate accounting for overtime with 25 overtime pay" do
           @calculator.overtime_hourly_rate = 6
           assert_equal 6.08, @calculator.minimum_hourly_rate
           assert_equal 25, @calculator.total_overtime_pay
@@ -756,7 +756,7 @@ module SmartAnswer::Calculators
       end
 
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/7/40/100.0/0/no
-      should "historical_adjustment test: hours: 40; pay: 100" do
+      should "historical_adjustment test: hours: 40; pay: 100; date: 5 Aug 2008" do
         @calculator = MinimumWageCalculatorV2.new(
           age: 25,
           pay_frequency: 7,
@@ -770,7 +770,7 @@ module SmartAnswer::Calculators
       end
 
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2008-10-01/no/25/7/40/100.0/0/no
-      should "historical_adjustment test: hours: 40; pay: 100" do
+      should "historical_adjustment test: hours: 40; pay: 100; date: 5 Aug 2009" do
         @calculator = MinimumWageCalculatorV2.new(
           age: 25,
           pay_frequency: 7,

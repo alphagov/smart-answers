@@ -297,7 +297,7 @@ module SmartAnswer::Calculators
           @calculator.overtime_hours = 10
         end
 
-        should "calculate total hourly rate accounting for overtime" do
+        should "calculate total hourly rate accounting for overtime with 20 overtime pay" do
           @calculator.overtime_hourly_rate = 2
           assert_equal 6.08, @calculator.minimum_hourly_rate
           assert_equal 20, @calculator.total_overtime_pay
@@ -305,7 +305,7 @@ module SmartAnswer::Calculators
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
-        should "calculate total hourly rate accounting for overtime" do
+        should "calculate total hourly rate accounting for overtime with 25 overtime pay" do
           @calculator.overtime_hourly_rate = 6
           assert_equal 6.08, @calculator.minimum_hourly_rate
           assert_equal 25, @calculator.total_overtime_pay
@@ -322,7 +322,7 @@ module SmartAnswer::Calculators
             age: 21, date: Date.parse('2009-10-01'), pay_frequency: 12, basic_pay: 290, basic_hours: 60)
         end
 
-        should "calculate total hourly rate accounting for overtime" do
+        should "calculate total hourly rate accounting for overtime with 4.83 hourly rate" do
           assert_equal 4.83, @calculator.minimum_hourly_rate
           assert_equal 4.83, @calculator.total_hourly_rate
           assert @calculator.minimum_wage_or_above?, "should be equal to the minimum wage"
@@ -396,7 +396,7 @@ module SmartAnswer::Calculators
           @calculator.overtime_hourly_rate = 5.7
         end
 
-        should "calculate total hourly rate accounting for overtime" do
+        should "calculate total hourly rate accounting for overtime with 4.2 hourly rate" do
           assert_equal 5.73, @calculator.minimum_hourly_rate
           assert_equal 29.4, @calculator.total_overtime_pay
           assert_equal 4.2, @calculator.total_hourly_rate
@@ -428,7 +428,7 @@ module SmartAnswer::Calculators
           @calculator.overtime_hourly_rate = 4
         end
 
-        should "calculate total hourly rate accounting for overtime" do
+        should "calculate total hourly rate accounting for overtime with 3 hourly rate" do
           assert_equal 3.4, @calculator.minimum_hourly_rate
           assert_equal 24, @calculator.total_overtime_pay
           assert_equal 3, @calculator.total_hourly_rate
@@ -461,7 +461,7 @@ module SmartAnswer::Calculators
           @calculator.overtime_hourly_rate = 12
         end
 
-        should "calculate total hourly rate accounting for overtime" do
+        should "calculate total hourly rate accounting for overtime with 10.00£ hourly rate" do
           assert_equal 6.08, @calculator.minimum_hourly_rate
           assert_equal 100, @calculator.total_overtime_pay
           assert_equal 10.00, @calculator.total_hourly_rate
@@ -494,7 +494,7 @@ module SmartAnswer::Calculators
           @calculator.overtime_hourly_rate = 0
         end
 
-        should "calculate total hourly rate accounting for overtime" do
+        should "calculate total hourly rate accounting for overtime with 4£ hourly rate" do
           assert_equal 3.53, @calculator.minimum_hourly_rate
           assert_equal 0, @calculator.total_overtime_pay
           assert_equal 4.00, @calculator.total_hourly_rate
@@ -756,7 +756,7 @@ module SmartAnswer::Calculators
       end
 
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/7/40/100.0/0/no
-      should "historical_adjustment test: hours: 40; pay: 100" do
+      should "historical_adjustment test: hours: 40; pay: 100; date: 5 Aug 2008" do
         @calculator = MinimumWageCalculator.new(
           age: 25,
           pay_frequency: 7,
@@ -770,7 +770,7 @@ module SmartAnswer::Calculators
       end
 
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2008-10-01/no/25/7/40/100.0/0/no
-      should "historical_adjustment test: hours: 40; pay: 100" do
+      should "historical_adjustment test: hours: 40; pay: 100; date: 5 Aug 2009" do
         @calculator = MinimumWageCalculator.new(
           age: 25,
           pay_frequency: 7,

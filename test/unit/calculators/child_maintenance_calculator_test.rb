@@ -15,25 +15,25 @@ module SmartAnswer::Calculators
     end
 
     context "rate_type method based on income" do
-      should "give the correct rate type based on the income of the payee" do
+      should "give flat rate type based on the income of the payee" do
         @calculator = ChildMaintenanceCalculator.new(3, 'no', 'pay')
         @calculator.income = 7
         assert_equal :flat, @calculator.rate_type
       end
 
-      should "give the correct rate type based on the income of the payee" do
+      should "give reduced rate type based on the income of the payee" do
         @calculator = ChildMaintenanceCalculator.new(2, 'no', 'pay')
         @calculator.income = 126
         assert_equal :reduced, @calculator.rate_type
       end
 
-      should "give the correct rate type based on the income of the payee" do
+      should "give basic rate type based on the income of the payee" do
         @calculator = ChildMaintenanceCalculator.new(1, 'no', 'pay')
         @calculator.income = 800
         assert_equal :basic, @calculator.rate_type
       end
 
-      should "give the correct rate type based on the income of the payee" do
+      should "give basic+ rate type based on the income of the payee" do
         @calculator = ChildMaintenanceCalculator.new(1, 'no', 'pay')
         @calculator.income = 2000
         assert_equal :basic_plus, @calculator.rate_type
