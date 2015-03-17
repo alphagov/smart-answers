@@ -790,8 +790,12 @@ outcome :outcome_os_consular_cni do
       end
     end
 
-    if ceremony_country != 'germany' and resident_of == 'other'
-      phrases << :consular_cni_os_not_uk_resident_ceremony_not_germany
+    if resident_of == 'other'
+      if ceremony_country == 'jordan'
+        phrases << :consular_cni_os_not_uk_resident_ceremony_jordan
+      elsif ceremony_country != 'germany'
+        phrases << :consular_cni_os_not_uk_resident_ceremony_not_germany
+      end
     end
 
     if resident_of == 'other'
