@@ -1283,6 +1283,17 @@ en-GB:
           1 October to 31 March, Monday to Friday, 8am to 3pm (local time)
           $C
 
+        send_application_address_tajikistan: |
+          $A
+          UK Visa Application Centre
+          Hyatt Regency Dushanbe
+          6/1 Ismoili Somoni Prospekt
+          Dushanbe, 743026
+          Tajikistan
+          $A
+          $C
+          Email: <hmpotajikistan@teleperformance.com>
+          $C
         send_application_address_thailand: |
           $A
           UK Visa Application Centre
@@ -1310,6 +1321,17 @@ en-GB:
           $C
           Telephone: (+670) 331 0087
           $C
+        send_application_address_turkmenistan: |
+          $A
+          UK Visa Application Centre
+          Four Points Ak Altyn Hotel, Office 106
+          Magtymguly sayoly 141/1
+          Ashgabat
+          Turkmenistan
+          $A
+          $C
+          Email: <hmpoturkmenistan@teleperformance.com>
+          $C
         send_application_address_ukraine: |
           $A
           UK Visa Application Centre
@@ -1320,6 +1342,17 @@ en-GB:
           $A
           $C
           Email: <hmpoukraine@teleperformance.com>
+          $C
+        send_application_address_uzbekistan: |
+          $A
+          UK Visa Application Centre
+          Tashkent Plaza
+          AMIR TEMUR Street 107B
+          100084 Tashkent
+          Uzbekistan
+          $A
+          $C
+          Email: <hmpouzbekistan@teleperformance.com>
           $C
         send_application_address_venezuela: |
           $A

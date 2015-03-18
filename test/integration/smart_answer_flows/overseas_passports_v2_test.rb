@@ -875,7 +875,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips2]
         assert_phrase_list :cost, [:passport_courier_costs_tajikistan, :adult_passport_costs_ips2, :passport_costs_ips2]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_renew_new_colour, :send_application_embassy_address]
+        assert_phrase_list :send_your_application, [:send_application_address_tajikistan]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_tajikistan]
       end
     end
@@ -894,7 +894,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips2]
         assert_phrase_list :cost, [:passport_courier_costs_turkmenistan, :adult_passport_costs_ips2, :passport_costs_ips2]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_renew_new_colour, :send_application_embassy_address]
+        assert_phrase_list :send_your_application, [:send_application_address_turkmenistan]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_turkmenistan]
       end
     end
@@ -911,7 +911,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :how_long_it_takes_ips2]
         assert_phrase_list :cost, [:passport_courier_costs_turkmenistan, :adult_passport_costs_ips2, :passport_costs_ips2]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
+        assert_phrase_list :send_your_application, [:send_application_address_turkmenistan]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_turkmenistan]
       end
     end
@@ -926,7 +926,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_current_node :ips_application_result
         assert_phrase_list :cost, [:passport_courier_costs_turkmenistan, :child_passport_costs_ips2, :passport_costs_ips2]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
+        assert_phrase_list :send_your_application, [:send_application_address_turkmenistan]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_turkmenistan]
       end
     end
@@ -945,7 +945,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_uzbekistan, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_renew_new_colour, :send_application_embassy_address]
+        assert_phrase_list :send_your_application, [:send_application_address_uzbekistan]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_uzbekistan]
       end
     end
@@ -958,7 +958,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :how_long_it_takes_ips3]
         assert_phrase_list :cost, [:passport_courier_costs_uzbekistan, :adult_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
+        assert_phrase_list :send_your_application, [:send_application_address_uzbekistan]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_uzbekistan]
       end
     end
@@ -969,7 +969,7 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
         assert_current_node :ips_application_result
         assert_phrase_list :cost, [:passport_courier_costs_uzbekistan, :child_passport_costs_ips3, :passport_costs_ips3]
         assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
+        assert_phrase_list :send_your_application, [:send_application_address_uzbekistan]
         assert_phrase_list :getting_your_passport, [:getting_your_passport_uzbekistan]
       end
     end
