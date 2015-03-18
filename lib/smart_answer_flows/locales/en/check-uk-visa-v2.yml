@@ -14,6 +14,9 @@ en-GB:
           You won't need a visa if your passport has a personal ID number on the bio data page.
 
       #phrases
+        b1_b2_visa_exception: |
+          except if you have a B1 or B2 visit visa from the USA
+
         prospective_enterpreneur_bulletpoint: |
           - a [prospective entrepreneur](https://www.gov.uk/prospective-entrepreneur)
 
@@ -356,7 +359,7 @@ en-GB:
 
           You don’t need a visa if you have one of the following:
 
-          - a visa for Canada, New Zealand, Australia or the USA (this can be used for travel to any country)
+          - a visa for Canada, New Zealand, Australia or the USA (this can be used for travel to any country) %{if_syria}
           - a residence permit issued by Australia or New Zealand
           - you have a common format residence permit issued by an European Economic Area (EEA) country or Switzerland
           - a resident permit issued by Canada after 28 June 2002
@@ -372,6 +375,7 @@ en-GB:
           All visas and residence permits must be valid.
 
           %E-visas or e-residence permits are not acceptable unless your airline is able to verify it with the issuing country. Contact your airline for more information.%
+
       outcome_transit_leaving_airport_datv:
         title: You’ll need a visa to pass through the UK in transit
         body: |
@@ -387,9 +391,9 @@ en-GB:
 
           One of the following must also apply:
 
-          - you’re travelling to (or on part of a reasonable journey to) Australia, Canada, New Zealand or the USA and have a valid visa for that country
-          - you’re travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and have a valid visa for that country
-          - you’re travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
+          - you’re travelling to (or on part of a reasonable journey to) Australia, Canada, New Zealand or the USA and have a valid visa for that country %{if_syria}
+          - you’re travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and have a valid visa for that country %{if_syria}
+          - you’re travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa %{if_syria}
           - you have a residence permit issued by Australia or New Zealand
           - you have a common format residence permit issued by an European Economic Area (EEA) country or Switzerland
           - you have a residence permit issued by Canada issued after 28 June 2002

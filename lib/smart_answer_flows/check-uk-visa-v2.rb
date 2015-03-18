@@ -155,7 +155,11 @@ outcome :outcome_work_n do
   end
 end
 outcome :outcome_transit_leaving_airport
-outcome :outcome_transit_not_leaving_airport
+outcome :outcome_transit_not_leaving_airport do
+  precalculate :if_syria do
+    PhraseList.new(:b1_b2_visa_exception) if passport_country == 'syria'
+  end
+end
 outcome :outcome_joining_family_y
 outcome :outcome_joining_family_m
 outcome :outcome_joining_family_nvn
@@ -201,6 +205,10 @@ outcome :outcome_visit_waiver do
     end
   end
 end
-outcome :outcome_transit_leaving_airport_datv
+outcome :outcome_transit_leaving_airport_datv do
+  precalculate :if_syria do
+    PhraseList.new(:b1_b2_visa_exception) if passport_country == 'syria'
+  end
+end
 outcome :outcome_taiwan_exception
 outcome :outcome_diplomatic_business

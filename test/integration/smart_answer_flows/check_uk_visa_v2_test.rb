@@ -371,17 +371,17 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
     end
   end
   context "testing turkey phrase list" do
-  setup do
-    add_response "turkey"
-    add_response "work"
-    add_response "longer_than_six_months"
+    setup do
+      add_response "turkey"
+      add_response "work"
+      add_response "longer_than_six_months"
+    end
+    should "takes you to outcome_work_y" do
+      assert_current_node :outcome_work_y
+      assert_phrase_list :if_turkey, [:turkey_business_person_visa]
+    end
   end
-  should "takes you to outcome_work_y" do
-    assert_current_node :outcome_work_y
-    assert_phrase_list :if_turkey, [:turkey_business_person_visa]
-  end
-end
-    context "testing outcome visit waiver" do
+  context "testing outcome visit waiver" do
     setup do
       add_response 'oman'
       add_response 'medical'
@@ -391,7 +391,6 @@ end
         assert_phrase_list :if_exception, [:electronic_visa_waiver, :apply_for_visitor_visa]
     end
   end
-
   context "testing croatia phrase list" do
     setup do
       add_response "croatia"
@@ -643,6 +642,26 @@ end
       end
     end
   end
+
+  context "Syria transit B1 B2 visa exceptions" do
+    setup do
+      add_response 'syria'
+      add_response 'transit'
+    end
+
+    should "mention B1 and B2 visas when leaving the airport" do
+      add_response 'yes'
+      assert_current_node :outcome_transit_leaving_airport_datv
+      assert_phrase_list :if_syria, [:b1_b2_visa_exception]
+    end
+
+    should "mention B1 and B2 visas when not leaving the airport" do
+      add_response 'no'
+      assert_current_node :outcome_transit_not_leaving_airport
+      assert_phrase_list :if_syria, [:b1_b2_visa_exception]
+    end
+  end
+
   context "check for diplomatic and government business travellers" do
     setup do
       add_response 'bolivia'
