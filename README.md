@@ -23,14 +23,24 @@ To transition a smart answer from Ruby/YML to Smartdown style, register it in th
 
 If you have a URL of a Smart answer and want to debug the state of it i.e. to see PhraseList keys, saved inputs, the outcome name, append `debug=1` query parameter to the URL in development mode. This will render debug information on the Smart answer page.
 
-Installing
-----------
+Installing and running
+------------
 
 NB: this assumes you are running on the GOV.UK virtual machine, not your host.
 
 ```bash
   ./install # git fetch from each dependency dir and bundle install
 ```
+
+Run using bowler on VM from cd /var/govuk/development:
+```
+bowl smartanswers
+```
+
+Viewing a Smart Answer
+------------
+
+To view a smart answer locally if running using bowler http://smartanswers.dev.gov.uk/register-a-birth
 
 Testing
 ------------
