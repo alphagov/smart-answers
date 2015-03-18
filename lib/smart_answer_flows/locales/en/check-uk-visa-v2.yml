@@ -14,6 +14,9 @@ en-GB:
           You won't need a visa if your passport has a personal ID number on the bio data page.
 
       #phrases
+        apply_from_country_of_origin_or_residency: |
+          ^You must apply for your visa from the country you're originally from or currently resident in.^
+
         b1_b2_visa_exception: |
           except if you have a B1 or B2 visit visa from the USA
 
@@ -179,6 +182,8 @@ en-GB:
         body: |
           The visa you apply for depends on your circumstances.
 
+          %{if_refugee}
+
           Apply for a [study visa](/tier-4-general-visa) if you’re coming to the UK to study a degree or college course for longer than 6 months (or 11 months if it’s an English language course).
 
           Apply for a [child study visa](/child-study-visa) if you’re under 18.
@@ -189,6 +194,8 @@ en-GB:
         title: You’ll need a visa to study in the UK
 
         body: |
+          %{if_refugee}
+
           Apply for a [study visit](/study-visit-visa) visa if you’re studying for less than 6 months and you won’t work during your stay.
 
           You should apply as a [child visitor](/child-visit-visa) if you’re under 18.
@@ -200,6 +207,7 @@ en-GB:
           The visa you apply for depends on your circumstances.
 
           %{if_turkey}
+          %{if_refugee}
 
           ###Skilled workers
 
@@ -250,6 +258,8 @@ en-GB:
           You'll need a visa to work, do business or academic research in the UK
         body: |
           The visa you need to apply for depends on your circumstances
+
+          %{if_refugee}
 
           ##Business visits
 
@@ -320,6 +330,8 @@ en-GB:
         body: |
           You should apply for a [Visitor in Transit visa](/transit-visa) if you arrive on a flight and will pass through immigration control before you leave the UK.
 
+          %{if_refugee}
+
           ##Transiting without a visa
           You might be eligible for ‘transit without visa’ if:
 
@@ -350,6 +362,7 @@ en-GB:
           All visas and residence permits must be valid.
 
           Australian paper confirmation slips are not accepted.
+
       outcome_transit_not_leaving_airport:
         title: You’ll need a visa to pass through the UK in transit (unless you’re exempt)
         body: |
@@ -419,6 +432,8 @@ en-GB:
 
           The visa you apply for depends on your family member’s situation.
 
+          %{if_refugee}
+
           ##They’re settled in the UK
 
           Apply for a [‘family of a settled person’ visa](/join-family-in-uk) if your family member or partner is either a British citizen or from outside the European Economic Area (EEA) and settled in the UK.
@@ -430,7 +445,6 @@ en-GB:
           ##They’re from the EEA
 
           Apply for a [family permit](/family-permit) to join your family or partner for a short or long stay if they’re living in the UK.
-
 
       outcome_joining_family_m:
         title: You may need a visa to join a member of your family or partner for a long stay
@@ -477,6 +491,7 @@ en-GB:
           The visa you need to apply for depends on your circumstances.
 
           %{if_china}
+          %{if_refugee}
 
           ##Tourism and visiting friends
 
@@ -493,6 +508,8 @@ en-GB:
       outcome_marriage:
         title: You’ll need a visa to come to the UK
         body: |
+          %{if_refugee}
+
           Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner don't plan to stay in the UK longer than 6 months.
 
           Apply for a [family of a settled person visa](/join-family-in-uk) if your partner is British or settled in the UK and you wish to join them to live in the UK permanently.
@@ -509,11 +526,13 @@ en-GB:
         body:
           You should apply for the [visa for parents](/parent-of-a-child-at-school-visa) visiting children at school.
 
+          %{if_refugee}
       outcome_medical_y:
         title: You’ll need a visa to visit the UK
         body:
           You should apply for the [private medical treatment visa](/private-medical-treatment-visa).
 
+          %{if_refugee}
       outcome_medical_n:
         title: You won’t need a visa to visit the UK
         body:

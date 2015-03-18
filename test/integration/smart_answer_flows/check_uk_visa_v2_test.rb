@@ -22,9 +22,74 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
       add_response "stateless-or-refugee"
     end
 
-    should "suggest to apply in country of originallity or residence" do
-      assert_state_variable "passport_country", "stateless-or-refugee"
-      skip "TODO"
+    should "suggest to apply in country of originallity or residence for outcome_marriage" do
+      add_response 'marriage'
+
+      assert_current_node :outcome_marriage
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_study_m" do
+      add_response 'study'
+      add_response 'six_months_or_less'
+
+      assert_current_node :outcome_study_m
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_study_y" do
+      add_response 'study'
+      add_response 'longer_than_six_months'
+
+      assert_current_node :outcome_study_y
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_work_m" do
+      add_response 'work'
+      add_response 'six_months_or_less'
+      assert_current_node :outcome_work_m
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_work_y" do
+      add_response 'work'
+      add_response 'longer_than_six_months'
+      assert_current_node :outcome_work_y
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_transit_leaving_airport" do
+      add_response 'transit'
+      add_response 'yes'
+
+      assert_current_node :outcome_transit_leaving_airport
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_general_y" do
+      add_response 'tourism'
+
+      assert_current_node :outcome_general_y
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_school_y" do
+      add_response 'school'
+      assert_current_node :outcome_school_y
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_medical_y" do
+      add_response 'medical'
+      assert_current_node :outcome_medical_y
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_joining_family_y" do
+      add_response 'family'
+      assert_current_node :outcome_joining_family_y
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
   end
 
@@ -162,57 +227,58 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
   end
 
   context "choose a visa national country or refugee" do
-    ['armenia', 'stateless-or-refugee'].each do |chosen_country|
-      context "when chosen #{chosen_country}" do
+    context "when chosen armenia" do
+      setup do
+        add_response 'armenia'
+      end
+      should "ask what are you coming to the UK to do" do
+        assert_current_node :purpose_of_visit?
+      end
+
+      context "coming to the UK to study" do
         setup do
-          add_response chosen_country
+          add_response 'study'
+          add_response 'six_months_or_less'
         end
-        should "ask what are you coming to the UK to do" do
-          assert_current_node :purpose_of_visit?
+        should "take you to outcome study_m" do
+          assert_current_node :outcome_study_m
+          assert_phrase_blank :if_refugee
         end
+      end
 
-        context "coming to the UK to study" do
+      context "coming to the UK to work" do
+        setup do
+          add_response 'work'
+          add_response 'six_months_or_less'
+        end
+        should "take you to outcome work_m" do
+          assert_current_node :outcome_work_m
+          assert_phrase_blank :if_refugee
+        end
+      end
+
+      context "coming to the UK on the way somewhere else" do
+        setup do
+          add_response 'transit'
+        end
+        should "ask you if you're planning to leave the airport" do
+          assert_current_node :planning_to_leave_airport?
+        end
+        context "planning to leave airport" do
           setup do
-            add_response 'study'
-            add_response 'six_months_or_less'
+            add_response 'yes'
           end
-          should "take you to outcome study_m" do
-            assert_current_node :outcome_study_m
+          should "take you to transit_leaving_airport outcome" do
+            assert_current_node :outcome_transit_leaving_airport
+            assert_phrase_blank :if_refugee
           end
         end
-
-        context "coming to the UK to work" do
+        context "not planning to leave airport" do
           setup do
-            add_response 'work'
-            add_response 'six_months_or_less'
+            add_response 'no'
           end
-          should "take you to outcome work_m" do
-            assert_current_node :outcome_work_m
-          end
-        end
-
-        context "coming to the UK on the way somewhere else" do
-          setup do
-            add_response 'transit'
-          end
-          should "ask you if you're planning to leave the airport" do
-            assert_current_node :planning_to_leave_airport?
-          end
-          context "planning to leave airport" do
-            setup do
-              add_response 'yes'
-            end
-            should "take you to transit_leaving_airport outcome" do
-              assert_current_node :outcome_transit_leaving_airport
-            end
-          end
-          context "not planning to leave airport" do
-            setup do
-              add_response 'no'
-            end
-            should "take you to transit_not_leaving_airport outcome" do
-              assert_current_node :outcome_no_visa_needed
-            end
+          should "take you to transit_not_leaving_airport outcome" do
+            assert_current_node :outcome_no_visa_needed
           end
         end
       end
