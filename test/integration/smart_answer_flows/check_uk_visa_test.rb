@@ -8,7 +8,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa turkey yemen oman united-arab-emirates qatar taiwan venezuela)
+    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa syria turkey yemen oman united-arab-emirates qatar taiwan venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'check-uk-visa'
   end
@@ -652,6 +652,25 @@ end
     end
     should "go to diplomatic and government outcome" do
       assert_current_node :outcome_diplomatic_business
+    end
+  end
+
+  context "Syria transit B1 B2 visa exceptions" do
+    setup do
+      add_response 'syria'
+      add_response 'transit'
+    end
+
+    should "mention B1 and B2 visas when leaving the airport" do
+      add_response 'yes'
+      assert_current_node :outcome_transit_leaving_airport_datv
+      assert_phrase_list :if_syria, [:b1_b2_visa_exception]
+    end
+
+    should "mention B1 and B2 visas when not leaving the airport" do
+      add_response 'no'
+      assert_current_node :outcome_transit_not_leaving_airport
+      assert_phrase_list :if_syria, [:b1_b2_visa_exception]
     end
   end
 end
