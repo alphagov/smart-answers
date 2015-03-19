@@ -239,7 +239,7 @@ en-GB:
           You can book an appointment at the %{embassy_high_commission_or_consulate} and bring along the registration form, supporting documents and the fee.
 
         postal_intro: |
-          ###Send your registration
+          ## Send your registration
 
           You can also post your application to the %{embassy_high_commission_or_consulate}.
 
