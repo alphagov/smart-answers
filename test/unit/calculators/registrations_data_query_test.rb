@@ -2,10 +2,10 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class RegistrationsDataQueryTest < ActiveSupport::TestCase
-
     context RegistrationsDataQuery do
       setup do
-        @query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+        @described_class = SmartAnswer::Calculators::RegistrationsDataQuery
+        @query = @described_class.new
       end
       context "registration_data method" do
         should "read registrations data" do
@@ -76,24 +76,24 @@ module SmartAnswer::Calculators
 
       context "oru transition countries" do
         should "be true for Wallis and Fortuna" do
-          assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('wallis-and-futuna')
-          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('pakistan')
+          assert @described_class::ORU_TRANSITIONED_COUNTRIES.include?('wallis-and-futuna')
+          refute @described_class::ORU_TRANSITIONED_COUNTRIES.include?('pakistan')
         end
 
         should "be true for Martinique" do
-          assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('martinique')
-          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('ireland')
+          assert @described_class::ORU_TRANSITIONED_COUNTRIES.include?('martinique')
+          refute @described_class::ORU_TRANSITIONED_COUNTRIES.include?('ireland')
         end
       end
 
       context "oru document variant countries" do
         should "be true for Netherlands" do
-          assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('netherlands')
+          assert @described_class::ORU_TRANSITIONED_COUNTRIES.include?('netherlands')
         end
 
         should "be true for Belgium" do
-          assert SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('belgium')
-          refute SmartAnswer::Calculators::RegistrationsDataQuery::ORU_TRANSITIONED_COUNTRIES.include?('india')
+          assert @described_class::ORU_TRANSITIONED_COUNTRIES.include?('belgium')
+          refute @described_class::ORU_TRANSITIONED_COUNTRIES.include?('india')
         end
       end
 
