@@ -8,7 +8,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan  poland serbia slovakia spain st-kitts-and-nevis uganda)
+    @location_slugs = %w(afghanistan algeria andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan  poland serbia slovakia spain st-kitts-and-nevis uganda)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-death-v2'
   end
@@ -279,16 +279,35 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         end
       end
       context "now back in the UK" do
-        should "give the ORU result and be done" do
+        should "give the ORU result with a translator link" do
           add_response 'in_the_uk'
           assert_current_node :oru_result
           assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
           assert_phrase_list :oru_address, [:oru_address_uk]
-          assert_phrase_list :translator_link, [:no_translator_link]
-          assert_state_variable :translator_link_url, nil
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_state_variable :translator_link_url, "government/publications/afghanistan-list-of-lawyers"
         end
       end
     end # Answer Afghanistan
+
+    context "answer Algeria" do
+      setup do
+        worldwide_api_has_organisations_for_location('algeria', read_fixture_file('worldwide/algeria_organisations.json'))
+        add_response 'algeria'
+      end
+
+      context "now back in the UK" do
+        should "give the ORU result with a translator link" do
+          add_response 'in_the_uk'
+          assert_current_node :oru_result
+          assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+          assert_phrase_list :oru_address, [:oru_address_uk]
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_state_variable :translator_link_url, "government/publications/algeria-list-of-lawyers"
+        end
+      end
+    end # Answer Algeria
+
     context "answer Iran" do
       setup do
         worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
