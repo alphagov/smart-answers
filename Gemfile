@@ -34,7 +34,7 @@ gem 'extlib', '0.9.16'
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '6.0.0'
+  gem 'slimmer', '8.1.0'
 end
 
 if ENV['GOVSPEAK_DEV']
