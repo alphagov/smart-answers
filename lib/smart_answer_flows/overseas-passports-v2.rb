@@ -261,8 +261,8 @@ outcome :ips_application_result do
   end
 
   precalculate :send_your_application do
-    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burundi china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine western-sahara venezuela)
-    uk_visa_application_with_colour_pictures = %w(azerbaijan algeria bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan thailand ukraine russia venezuela)
+    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burundi china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia tajikistan thailand turkmenistan ukraine uzbekistan western-sahara venezuela)
+    uk_visa_application_with_colour_pictures = %w(azerbaijan algeria bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia venezuela)
     non_uk_visa_application_with_colour_pictures = %w(burma cuba sudan tajikistan turkmenistan uzbekistan)
     phrases = PhraseList.new
     if application_address
