@@ -90,7 +90,7 @@ en-GB:
       #Q11
       pay_same_each_time?:
         title: "Do you pay the same each time?"
-        hint: |
+        body: |
           Sometimes you may pay - or expect to pay - different amounts for childcare (known as ‘variable costs’), for example:
 
           - you regularly use childcare, but pay more during school holidays than you do at term time
