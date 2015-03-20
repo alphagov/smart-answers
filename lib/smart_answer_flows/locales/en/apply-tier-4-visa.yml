@@ -11,6 +11,8 @@ en-GB:
 
         * extending or switching to a [Tier 4 (General) student visa](/tier-4-general-visa)
         * extending or switching to a [Tier 4 (Child) student visa](/child-study-visa)
+        
+        
       phrases:
         post_and_switch_link: |
           Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
@@ -52,6 +54,8 @@ en-GB:
           Your sponsor institution is: %{sponsor_name}
 
           Your sponsor number is: %{sponsor_id}
+          
+          %You won't be able to apply online from 9am to 11.45pm on Saturday 21 March.%
 
           %{application_link}
 
