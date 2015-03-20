@@ -53,8 +53,14 @@ module SmartAnswer::Calculators
 
     SS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %(australia azerbaijan bolivia cambodia chile china colombia costa-rica dominican-republic estonia germany hungary japan kosovo latvia lithuania mongolia montenegro nicaragua peru philippines russia san-marino serbia vietnam)
 
+    OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %(jordan oman qatar united-arab-emirates yemen)
+
     def ss_21_days_residency_required_countries?(country_slug)
       SS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES.include?(country_slug)
+    end
+
+    def os_21_days_residency_required_countries?(country_slug)
+      OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES.include?(country_slug)
     end
 
     def ss_clickbook_countries?(country_slug)

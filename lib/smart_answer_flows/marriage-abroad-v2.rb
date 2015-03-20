@@ -573,6 +573,8 @@ outcome :outcome_os_consular_cni do
       phrases << :what_to_do_laos
     elsif ceremony_country == 'jordan'
       phrases << :consular_cni_os_foreign_resident_21_days_jordan
+    elsif data_query.os_21_days_residency_required_countries?(ceremony_country)
+      phrases << :consular_cni_os_ceremony_21_day_requirement
     elsif not_italy_or_spain && ceremony_not_germany_or_not_resident_other
       phrases << :consular_cni_os_ceremony_not_spain_or_italy
       if ceremony_country == 'macedonia' && !data_query.non_commonwealth_country?(residency_country)
@@ -1006,6 +1008,8 @@ outcome :outcome_os_affirmation do
       phrases << :what_you_need_to_do
     elsif ceremony_country == 'finland' and partner_nationality == 'partner_irish' and resident_of == 'uk'
       phrases << :what_you_need_to_do_affidavit
+    elsif data_query.os_21_days_residency_required_countries?(ceremony_country)
+      phrases << :what_you_need_to_do_affirmation_21_days
     else
       phrases << :what_you_need_to_do_affirmation
     end
