@@ -528,7 +528,8 @@ outcome :outcome_os_consular_cni do
     cni_posted_after_7_days_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria cambodia chile croatia cuba ecuador estonia georgia greece hong-kong iceland iran italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico montenegro nicaragua norway poland russia spain sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
     cni_notary_public_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro norway poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-    no_document_download_link_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua norway poland russia spain serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+
+    no_document_download_link_if_os_resident_of_uk_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua norway poland russia spain serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
     cni_posted_after_14_days_countries = %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
     not_italy_or_spain = %w(italy spain).exclude?(ceremony_country)
@@ -827,7 +828,9 @@ outcome :outcome_os_consular_cni do
         end
       end
     else
-      if resident_of == 'other' && cni_notary_public_countries.include?(ceremony_country) and ceremony_country != 'greece' or %w(italy japan macedonia spain).include?(ceremony_country) and ceremony_country != 'tunisia'
+      uk_resident_with_os = sex_of_your_partner == 'opposite_sex' && resident_of == 'uk'
+      uk_resident_os_no_docs = uk_resident_with_os && no_document_download_link_if_os_resident_of_uk_countries.include?(ceremony_country)
+      if !uk_resident_os_no_docs && (cni_notary_public_countries + %w(italy japan macedonia spain) - %w(greece tunisia)).include?(ceremony_country)
         phrases << :consular_cni_os_download_documents_notary_public
       elsif data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != 'germany'
         phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany
