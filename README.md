@@ -23,6 +23,10 @@ To transition a smart answer from Ruby/YML to Smartdown style, register it in th
 
 If you have a URL of a Smart answer and want to debug the state of it i.e. to see PhraseList keys, saved inputs, the outcome name, append `debug=1` query parameter to the URL in development mode. This will render debug information on the Smart answer page.
 
+**Visualising a flow**
+
+To see a visualisation of a smart answer flow, append `/visualise` to the root of a smartanswer URL e.g. `http://smartanswers.dev.gov.uk/<my-flow>/visualise/`
+
 Installing and running
 ------------
 
