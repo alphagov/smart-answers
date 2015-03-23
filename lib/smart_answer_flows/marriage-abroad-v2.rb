@@ -571,6 +571,8 @@ outcome :outcome_os_consular_cni do
       phrases << :what_to_do_croatia
     elsif ceremony_country == 'laos'
       phrases << :what_to_do_laos
+    elsif ceremony_country == 'jordan'
+      phrases << :consular_cni_os_foreign_resident_21_days_jordan
     elsif not_italy_or_spain && ceremony_not_germany_or_not_resident_other
       phrases << :consular_cni_os_ceremony_not_spain_or_italy
       if ceremony_country == 'macedonia' && !data_query.non_commonwealth_country?(residency_country)
@@ -763,6 +765,8 @@ outcome :outcome_os_consular_cni do
     elsif ceremony_country == residency_country and %w(germany japan spain).exclude?(ceremony_country) or (data_query.non_commonwealth_country?(residency_country) and residency_country != 'ireland' and ceremony_country != residency_country and ceremony_country != 'germany')
       if cni_notary_public_countries.include?(ceremony_country) or %w(japan macedonia spain).include?(ceremony_country)
         phrases << :consular_cni_variant_local_resident_or_foreign_resident_notary_public
+      elsif ceremony_country == 'jordan'
+        phrases << :consular_cni_variant_local_resident_jordan
       else
         phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident
       end
@@ -786,8 +790,12 @@ outcome :outcome_os_consular_cni do
       end
     end
 
-    if ceremony_country != 'germany' and resident_of == 'other'
-      phrases << :consular_cni_os_not_uk_resident_ceremony_not_germany
+    if resident_of == 'other'
+      if ceremony_country == 'jordan'
+        phrases << :consular_cni_os_not_uk_resident_ceremony_jordan
+      elsif ceremony_country != 'germany'
+        phrases << :consular_cni_os_not_uk_resident_ceremony_not_germany
+      end
     end
 
     if resident_of == 'other'
