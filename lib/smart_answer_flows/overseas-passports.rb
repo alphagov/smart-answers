@@ -101,6 +101,15 @@ multiple_choice :renewing_replacing_applying? do
     passport_data[application_action]
   end
 
+  calculate :incomplete_application_deadline do
+    phrases = PhraseList.new
+    incomplete_deadline_countries = %w(afghanistan australia austria bahrain bangladesh barbados belgium brazil canada china denmark egypt ethiopia finland france germany ghana greece hong-kong india indonesia iraq ireland israel italy jamaica japan kenya lebanon malawi malaysia netherlands new-zealand nigeria norway pakistan philippines portugal qatar russia saudi-arabia sierra-leone singapore south-africa spain sri-lanka sudan sweden switzerland thailand trinidad-and-tobago turkey uganda united-arab-emirates usa venezuela vietnam zambia zimbabwe)
+    if incomplete_deadline_countries.include?(current_location)
+      phrases << :how_to_apply_incomplete_application_deadline
+    end
+    phrases
+  end
+
   next_node :child_or_adult_passport?
 end
 
@@ -207,6 +216,11 @@ outcome :ips_application_result do
       PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
                     :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}",
                     :"passport_costs_ips#{ips_number}")
+
+    elsif %w(tajikistan turkmenistan uzbekistan).include?(current_location)
+      PhraseList.new(:"passport_courier_costs_#{current_location}",
+                    :"#{child_or_adult}_passport_costs_ips#{ips_number}",
+                    :"passport_costs_ips#{ips_number}")
     else
       phrases = PhraseList.new
       if uk_visa_application_centre_countries.include?(current_location)
@@ -247,8 +261,8 @@ outcome :ips_application_result do
   end
 
   precalculate :send_your_application do
-    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burundi china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine western-sahara venezuela)
-    uk_visa_application_with_colour_pictures = %w(azerbaijan algeria bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan thailand ukraine russia venezuela)
+    uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burundi china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia tajikistan thailand turkmenistan ukraine uzbekistan western-sahara venezuela)
+    uk_visa_application_with_colour_pictures = %w(azerbaijan algeria bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia venezuela)
     non_uk_visa_application_with_colour_pictures = %w(burma cuba sudan tajikistan turkmenistan uzbekistan)
     phrases = PhraseList.new
     if application_address
@@ -332,6 +346,7 @@ outcome :ips_application_result do
     uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
     collect_with_photo_id_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
     passport_delivered_by_courier_countries = %w(laos)
+    named_embassy_countries = %w(tajikistan turkmenistan uzbekistan)
 
     phrases = PhraseList.new
     if passport_delivered_by_courier_countries.include?(current_location)
@@ -354,6 +369,8 @@ outcome :ips_application_result do
       else
         phrases << :getting_your_passport_id_apply_renew_old_replace
       end
+    elsif named_embassy_countries.include?(current_location)
+        phrases << :"getting_your_passport_#{current_location}"
     elsif collect_in_person_countries.include?(current_location)
       phrases << :"getting_your_passport_#{current_location}" << :getting_your_passport_contact_and_id
     elsif collect_in_person_variant_countries.include?(current_location)
