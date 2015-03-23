@@ -57,7 +57,13 @@ Issues/todos
 
 Please see the [github issues](https://github.com/alphagov/smart-answers/issues) page.
 
-Drafts
+Making bigger changes
 ------
 
-When changes need to be tested by third parties it is best to release them as a draft. There is a rake task for creating a draft flow `rake version:v2[flow]`. Once ready, the draft can be published by running `rake version:publish[flow]`
+When making bigger changes that need to be tested before they go live it is best to release them as a draft first. There is a rake task for creating a draft flow `rake version:v2[flow]`. This is not ideal, but it allows to check the changes in the UI in the development and preview environments without affecting the production environment.
+
+Once reviewed, the draft can be published by running `rake version:publish[flow]`. This merges V2 changes into the original files. Take a look at the [rake task](https://github.com/alphagov/smart-answers/blob/master/lib/tasks/version.rake) to see the details. If you used any other V2 files that are not covered by the rake task, make sure to process them manually.
+
+**Commiting V2 -> V1 changes**
+
+To help developers track changes in files easily, it is best if you commit V2 files' removal in one commit, then commit the modifications to the original files. This creates an easy to browse diff of all the changes being published. Write a descriptive message for the second commit, as this is what the other developers will see in the file history.
