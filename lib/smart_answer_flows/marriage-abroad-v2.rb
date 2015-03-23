@@ -837,6 +837,8 @@ outcome :outcome_os_consular_cni do
     if ceremony_country == residency_country
       if ceremony_country == 'kazakhstan'
         phrases << :display_notice_of_marriage_7_days
+      elsif ceremony_country == 'greece'
+        phrases << :consular_cni_os_foreign_resident_ceremony_notary_public_greece
       elsif cni_notary_public_countries.include?(ceremony_country) or ceremony_country == 'italy' or ceremony_country == 'japan'
         phrases << :consular_cni_os_foreign_resident_ceremony_notary_public
       elsif %w(germany spain).exclude?(residency_country)
