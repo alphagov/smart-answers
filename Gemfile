@@ -19,7 +19,7 @@ gem 'syck', '1.0.5'
 if ENV['SMARTDOWN_DEV']
   gem 'smartdown', :path => '../smartdown'
 else
-  gem 'smartdown', '0.13.1'
+  gem 'smartdown', '0.14.0'
 end
 
 if ENV['API_DEV']
