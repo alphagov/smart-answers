@@ -4,6 +4,15 @@
 
 Good call.
 
+$IF type_of_feline is 'cat'
+
+{{marker: pet-is-a-cat}}
+
+You picked a kitty :3 great!
+
+$ENDIF
+
+
 ## Markdown/Govspeak examples
 
 ## H2 example
