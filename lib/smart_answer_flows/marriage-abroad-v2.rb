@@ -3,7 +3,7 @@ satisfies_need "101000"
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQueryV2.new
 country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
-reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
 exclude_countries = %w(holy-see british-antarctic-territory the-occupied-palestinian-territories)
 
 # Q1

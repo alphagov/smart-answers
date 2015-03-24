@@ -2,7 +2,7 @@ status :draft
 satisfies_need "101006"
 
 country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
-reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
+reg_data_query = SmartAnswer::Calculators::RegistrationsDataQueryV2.new
 translator_query = SmartAnswer::Calculators::TranslatorLinks.new
 country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
 exclude_countries = %w(holy-see british-antarctic-territory)

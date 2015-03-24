@@ -8,7 +8,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy libya morocco north-korea pakistan  poland serbia slovakia spain st-kitts-and-nevis)
+    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan  poland serbia slovakia spain st-kitts-and-nevis uganda)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-death-v2'
   end
@@ -425,6 +425,45 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       end
       should "take you to the embassy outcome with specific phrasing" do
         assert_current_node :oru_result
+      end
+    end
+
+    context "death in Kenya, now in the UK" do
+      setup do
+        worldwide_api_has_organisations_for_location('kenya', read_fixture_file('worldwide/kenya_organisations.json'))
+        add_response 'kenya'
+        add_response 'in_the_uk'
+      end
+
+      should "take you to the embassy outcome with custom courier message" do
+        assert_current_node :oru_result
+        assert_phrase_list :oru_courier_text, [:oru_courier_text_kenya, :oru_courier_text_common]
+      end
+    end
+
+    context "death in Nigeria, now in the UK" do
+      setup do
+        worldwide_api_has_organisations_for_location('nigeria', read_fixture_file('worldwide/nigeria_organisations.json'))
+        add_response 'nigeria'
+        add_response 'in_the_uk'
+      end
+
+      should "take you to the embassy outcome with custom courier message" do
+        assert_current_node :oru_result
+        assert_phrase_list :oru_courier_text, [:oru_courier_text_nigeria, :oru_courier_text_common]
+      end
+    end
+
+    context "death in Uganda, now in the UK" do
+      setup do
+        worldwide_api_has_organisations_for_location('uganda', read_fixture_file('worldwide/uganda_organisations.json'))
+        add_response 'uganda'
+        add_response 'in_the_uk'
+      end
+
+      should "take you to the embassy outcome with custom courier message" do
+        assert_current_node :oru_result
+        assert_phrase_list :oru_courier_text, [:oru_courier_text_uganda, :oru_courier_text_common]
       end
     end
 
