@@ -285,6 +285,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
           assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
           assert_phrase_list :oru_address, [:oru_address_uk]
           assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_phrase_list :payment_method, [:standard_payment_method]
           assert_state_variable :translator_link_url, "government/publications/afghanistan-list-of-lawyers"
         end
       end
@@ -297,12 +298,13 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       end
 
       context "now back in the UK" do
-        should "give the ORU result with a translator link" do
+        should "give the ORU result with a translator link and a custom payment method" do
           add_response 'in_the_uk'
           assert_current_node :oru_result
           assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
           assert_phrase_list :oru_address, [:oru_address_uk]
           assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_phrase_list :payment_method, [:payment_method_in_algeria]
           assert_state_variable :translator_link_url, "government/publications/algeria-list-of-lawyers"
         end
       end
@@ -359,6 +361,7 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_current_node :oru_result
         assert_phrase_list :oru_courier_text, [:oru_courier_text_cameroon]
         assert_phrase_list :oru_documents_variant_death, [:oru_documents_variant_poland]
+        assert_phrase_list :payment_method, [:standard_payment_method]
       end
     end # Answer Poland, currently in Cameroon
 

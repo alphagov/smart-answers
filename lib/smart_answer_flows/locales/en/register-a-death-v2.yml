@@ -387,6 +387,11 @@ en-GB:
 
           They’ll contact you within the 3 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the death to be registered.
 
+        standard_payment_method: |
+          Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> if you are unable to pay online.
+
+        payment_method_in_algeria: |
+          Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
 # Outcomes
 #
       uk_result:
@@ -487,7 +492,7 @@ en-GB:
 
           ###3. Pay
 
-          Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> if you are unable to pay online.
+          %{payment_method}
 
           The registration fee doesn't include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
 
