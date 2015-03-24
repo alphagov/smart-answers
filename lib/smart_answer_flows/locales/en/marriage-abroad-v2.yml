@@ -1998,6 +1998,12 @@ en-GB:
           Marriage in Kosovo
         body: |
           %{kosovo_os_phraselist}
+# outcome Laos - Opposite sex
+      outcome_os_laos:
+        title: |
+          Marriage in Laos
+        body: |
+          %{laos_os_phraselist}
 # outcome Brazil not living in the UK
       outcome_brazil_not_living_in_the_uk:
         title: |

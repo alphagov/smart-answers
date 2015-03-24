@@ -2519,10 +2519,25 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
         add_response 'partner_local'
         add_response 'opposite_sex'
       end
-      should "lead to outcome_os_consular_cni" do
-        assert_current_node :outcome_os_consular_cni
-        assert_phrase_list :consular_cni_os_start, [:uk_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :what_to_do_laos, :legalisation_and_translation, :cni_os_partner_local_legislation_documents_for_appointment, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence]
-        assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      should "lead to outcome_os_laos" do
+        assert_current_node :outcome_os_laos
+        assert_phrase_list :laos_os_phraselist, [:uk_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :what_to_do_laos, :legalisation_and_translation, :cni_os_partner_local_legislation_documents_for_appointment, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :consular_cni_os_all_names_but_germany, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :consular_cni_os_naturalisation]
+      end
+    end
+
+    context "resident in another country, opposite sex partner from Laos" do
+      setup do
+        worldwide_api_has_organisations_for_location('laos', read_fixture_file('worldwide/laos_organisations.json'))
+        worldwide_api_has_organisations_for_location('greece', read_fixture_file('worldwide/greece_organisations.json'))
+        add_response 'laos'
+        add_response 'other'
+        add_response 'greece'
+        add_response 'partner_local'
+        add_response 'opposite_sex'
+      end
+      should "lead to outcome_os_laos" do
+        assert_current_node :outcome_os_laos
+        assert_phrase_list :laos_os_phraselist, [:no_cni_os_not_dutch_caribbean_other_resident, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :what_to_do_laos, :legalisation_and_translation, :cni_os_partner_local_legislation_documents_for_appointment, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :consular_cni_os_all_names_but_germany, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :consular_cni_os_naturalisation]
       end
     end
 
