@@ -56,7 +56,7 @@ en-GB:
           ^[Supporting documents for children born in the UK](/government/publications/british-passport-child-supporting-documentation)^
           ^[Supporting documents for children born overseas](/government/publications/british-passport-child-supporting-documentation-overseas)^
 
-        passport_courier_costs_fco_europe:
+        passport_courier_costs_fco_europe: |
           You’ll have to pay a fee for your passport and a courier fee of 24 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
         adult_passport_costs_fco_europe: |
@@ -81,6 +81,10 @@ en-GB:
           You’ll need to send a photocopy of your passport, and a letter to explain why you’ve not sent the original.
 
           When you get your new passport, send your old one to the [nearest British Embassy, high commission or governors office](/government/world/organisations).
+
+        how_to_apply_incomplete_application_deadline: |
+
+          %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
 
         adult_fco_forms: |
           __Smart application form__
@@ -193,12 +197,12 @@ en-GB:
           You must pay in cash. In addition to the passport fee you’ll need to pay any local administration fees which apply from the office where you make your application.
 
         how_long_additional_time_online: |
-          Applications may take longer if:
+          Applications will take longer if:
 
           - HM Passport Office need to ask you for more information or documents
           - the photographs you send are rejected
 
-          Don’t book any travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document](/emergency-travel-document).
+          Don’t book any travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
         passport_courier_costs_ips1: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
@@ -379,6 +383,18 @@ en-GB:
           Your passport and supporting documents will be delivered to the DHL Office in Juba, South Sudan - you must collect them in person.
         getting_your_passport_st-helena-ascension-and-tristan-da-cunha: |
           Your passport will be delivered to the office where you applied - you must collect it in person.
+        getting_your_passport_tajikistan: |
+          Your passport will be delivered to the British Embassy in Dushanbe - you must collect it in person.
+
+          They'll contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you're renewing or replacing a passport, you must bring your existing passport as photo ID.
+        getting_your_passport_turkmenistan: |
+          Your passport will be delivered to the British Embassy in Ashgabat - you must collect it in person.
+
+          They'll contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you're renewing or replacing a passport, you must bring your existing passport as photo ID.
+        getting_your_passport_uzbekistan: |
+          Your passport will be delivered to the British Embassy in Tashkent - you must collect it in person.
+
+          They'll contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you're renewing or replacing a passport, you must bring your existing passport as photo ID.
         getting_your_passport_uk_visa_centre: |
           Your passport will be delivered to the UK Visa Application Centre where you applied - you must collect it in person.
         getting_your_passport_uk_visa_where_to_collect: |
@@ -458,35 +474,36 @@ en-GB:
         how_long_18_weeks: |
           Your application will take **at least** 18 weeks from when it’s received by Her Majesty's Passport Office in the UK.
         how_long_5_months: |
-          Your application will take **at least** 5 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+          Your application will take **at least** 5 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview.
         how_long_6_months: |
-          Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+          Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview.
         how_long_8_months: |
-          Your application will take **at least** 8 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview for a first adult passport.
+          Your application will take **at least** 8 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview.
         report_loss_or_theft: |
           If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
         how_long_additional_info_applying: |
-          You may have to attend an interview for a first adult passport.
+          You may have to attend an interview.
 
         how_long_additional_info_replacing: |
           If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
 
+          You may have to attend an interview.
         how_long_additional_info_renewing_old: |
-          You may have to attend an interview for a first adult passport.
+          You may have to attend an interview.
         how_long_additional_info_renewing_new: |
-          You may have to attend an interview for a first adult passport.
+          You may have to attend an interview.
 
         how_long_it_takes_ips1: |
-          Applications may take longer if:
+          Applications will take longer if:
 
           - Her Majesty's Passport Office needs to ask you for more information or documents
           - the photographs you send are rejected
 
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, apply for an [Emergency Travel Document.](/emergency-travel-document)
+          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
         how_long_it_takes_ips2: |
-          Applications may take longer if:
+          Applications will take longer if:
 
           - Her Majesty's Passport Office needs to ask you for more information or documents
           - the photographs you send are rejected
@@ -494,7 +511,7 @@ en-GB:
           Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
         how_long_it_takes_ips3: |
-          Applications may take longer if:
+          Applications will take longer if:
 
           - Her Majesty's Passport Office needs to ask you for more information or documents
           - the photographs you send are rejected
@@ -503,6 +520,21 @@ en-GB:
 
         passport_courier_costs_ips2: |
           You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
+
+        passport_courier_costs_tajikistan: |
+          You’ll have to pay a fee for your passport and a courier fee of £24.72.
+
+            The courier fee pays for your passport to be sent securely to the British Embassy in Dushanbe for you to collect.
+
+        passport_courier_costs_turkmenistan: |
+          You’ll have to pay a fee for your passport and a courier fee of £24.72.
+
+          The courier fee pays for your passport to be sent securely to the British Embassy in Ashgabat for you to collect.
+
+        passport_courier_costs_uzbekistan: |
+          You’ll have to pay a fee for your passport and a courier fee of £24.72.
+
+          The courier fee pays for your passport to be sent securely to the British Embassy in Tashkent for you to collect.
 
         adult_passport_costs_ips2: |
           | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -686,6 +718,8 @@ en-GB:
 
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
+          You'll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You'll get an email confirming your appointment.
+
         send_application_non_uk_visa_apply_renew_old_replace: |
           ## Making your application
 
@@ -700,6 +734,8 @@ en-GB:
           You must bring photo ID with you.
 
           Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
+
+          You'll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You'll get an email confirming your appointment.
 
         send_application_timor-leste: |
           ## Making your application
@@ -779,10 +815,9 @@ en-GB:
         send_application_address_belarus: |
           $A
           UK Visa Application Centre
-          President Hotel
-          Kirova st 18
-          Minsk
-          220030
+          BC Nemiga City
+          40 Nemiga street
+          Minsk 220004
           Belarus
           $A
           $C
@@ -1249,6 +1284,17 @@ en-GB:
           1 October to 31 March, Monday to Friday, 8am to 3pm (local time)
           $C
 
+        send_application_address_tajikistan: |
+          $A
+          UK Visa Application Centre
+          Hyatt Regency Dushanbe
+          6/1 Ismoili Somoni Prospekt
+          Dushanbe, 743026
+          Tajikistan
+          $A
+          $C
+          Email: <hmpotajikistan@teleperformance.com>
+          $C
         send_application_address_thailand: |
           $A
           UK Visa Application Centre
@@ -1276,6 +1322,17 @@ en-GB:
           $C
           Telephone: (+670) 331 0087
           $C
+        send_application_address_turkmenistan: |
+          $A
+          UK Visa Application Centre
+          Four Points Ak Altyn Hotel, Office 106
+          Magtymguly sayoly 141/1
+          Ashgabat
+          Turkmenistan
+          $A
+          $C
+          Email: <hmpoturkmenistan@teleperformance.com>
+          $C
         send_application_address_ukraine: |
           $A
           UK Visa Application Centre
@@ -1286,6 +1343,17 @@ en-GB:
           $A
           $C
           Email: <hmpoukraine@teleperformance.com>
+          $C
+        send_application_address_uzbekistan: |
+          $A
+          UK Visa Application Centre
+          Tashkent Plaza
+          AMIR TEMUR Street 107B
+          100084 Tashkent
+          Uzbekistan
+          $A
+          $C
+          Email: <hmpouzbekistan@teleperformance.com>
           $C
         send_application_address_venezuela: |
           $A
@@ -1460,6 +1528,8 @@ en-GB:
 
           %{how_to_apply}
 
+          %{incomplete_application_deadline}
+
           ## Getting your passport
 
           %{getting_your_passport}
@@ -1479,6 +1549,8 @@ en-GB:
           ## How to apply
 
           %{how_to_apply}
+
+          %{incomplete_application_deadline}
 
           %{send_your_application}
 
@@ -1511,8 +1583,9 @@ en-GB:
           3. Check the supporting documents you must send with your application. Non-English supporting documents must be translated into English by a professional translator.
           %{how_to_apply}
 
+          %{incomplete_application_deadline}
 
-            %{fco_forms}
+          %{fco_forms}
 
           %{supporting_documents}
 
