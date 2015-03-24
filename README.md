@@ -52,6 +52,10 @@ Run unit tests by executing the following:
 
     bundle exec rake
 
+** Fixtures **
+
+If you need to add a new worldwide organisations fixture navigate to `https://www.gov.uk/api/world/organisations/british-embassy-<capital city>`, copy over the JSON to `test/fixtures/worldwide/<country>_organisations.json` and change it to reflect the expected format based on other examples in the directory.
+
 Issues/todos
 ------------
 

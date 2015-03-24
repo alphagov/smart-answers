@@ -156,7 +156,7 @@ en-GB:
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
         pay_by_cash_or_us_dollars_only: |
-          You can only pay fees for consular services in US dollars and in cash.
+          You can only pay fees for consular services by cash in US dollars.
         pay_in_local_currency: |
           ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
         pay_in_local_currency_ceremony_country_name: |
@@ -185,6 +185,12 @@ en-GB:
           ##What you need to do
 
           You may be asked to provide an ‘affidavit for marriage’ document to prove you’re allowed to marry.
+        what_you_need_to_do_affirmation_21_days: |
+          ##What you need to do
+
+          You need to have been living in the country where you intend to marry for 21 days.
+
+          You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
         make_an_appointment: |
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
@@ -552,6 +558,10 @@ en-GB:
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
         consular_cni_all_what_you_need_to_do: |
           ##What you need to do
+        consular_cni_os_ceremony_21_day_requirement: |
+          You need to have been living in the country where you intend to marry for 21 days.
+
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry.
         consular_cni_os_ceremony_not_spain_or_italy: |
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you're allowed to marry.
         spain_os_consular_cni_two: |
@@ -1011,9 +1021,9 @@ en-GB:
 
 
           $D
-          [Download ‘Notice of marriage’ (PDF, 96KB)](/government/uploads/system/uploads/attachment_data/file/136829/nom2012.pdf)
+          [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
 
-          [Download ‘Affidavit for marriage’ (PDF, 58KB)](/government/uploads/system/uploads/attachment_data/file/136830/affidavit2012.pdf)
+          [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
           $D
 
         consular_cni_os_download_documents_notary_public: |
@@ -1023,9 +1033,9 @@ en-GB:
 
 
           $D
-          [Download ‘Notice of marriage’ (PDF, 96KB)](/government/uploads/system/uploads/attachment_data/file/136829/nom2012.pdf)
+          [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
 
-          [Download ‘Affidavit for marriage’ (PDF, 58KB)](/government/uploads/system/uploads/attachment_data/file/136830/affidavit2012.pdf)
+          [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
           $D
 
         consular_cni_os_download_affidavit_notary_public: |
@@ -1035,9 +1045,9 @@ en-GB:
 
 
           $D
-          [Download ‘Notice of marriage’ (PDF, 96KB)](/government/uploads/system/uploads/attachment_data/file/136829/nom2012.pdf)
+          [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
 
-          [Download ‘Affidavit for marriage’ (PDF, 58KB)](/government/uploads/system/uploads/attachment_data/file/136830/affidavit2012.pdf)
+          [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
           $D
 
         wait_300_days_before_remarrying: |
@@ -1793,9 +1803,9 @@ en-GB:
 
 
           $D
-          [Download ‘Notice of marriage’ (PDF, 96KB)](/government/uploads/system/uploads/attachment_data/file/136829/nom2012.pdf)
+          [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
 
-          [Download ‘Affidavit for marriage’ (PDF, 58KB)](/government/uploads/system/uploads/attachment_data/file/136830/affidavit2012.pdf)
+          [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
           $D
 
           ##What happens next
@@ -1988,6 +1998,12 @@ en-GB:
           Marriage in Kosovo
         body: |
           %{kosovo_os_phraselist}
+# outcome Laos - Opposite sex
+      outcome_os_laos:
+        title: |
+          Marriage in Laos
+        body: |
+          %{laos_os_phraselist}
 # outcome Brazil not living in the UK
       outcome_brazil_not_living_in_the_uk:
         title: |
@@ -2164,7 +2180,7 @@ en-GB:
 
 
           $D
-          [Download ‘Explanatory note in lieu of a certificate of celibacy’ (PDF, 326KB)](/government/publications/france-explanatory-note-in-lieu-of-certificat-celibat)
+          [Download ‘Explanatory note in lieu of a certificate of celibacy’](/government/publications/france-explanatory-note-in-lieu-of-certificat-celibat)
           $D
 
           ##Naturalisation of your foreign partner if they move to the UK
