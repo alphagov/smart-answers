@@ -807,11 +807,14 @@ en-GB:
         consular_cni_os_foreign_resident_21_days_jordan: |
           You need to have been living in the country where you intend to marry for 21 days.
 
-          If you’re getting married at the Sharia Court, you’ll need to provide a [single declaration document](/government/publications/single-declaration-form-for-islamic-marriages-jordan) to prove you’re allowed to marry.
+          If you’re getting married at the Sharia Court, you’ll need to provide a [single declaration document](/government/publications/single-declaration-form-for-islamic-marriages-jordan) to prove you’re allowed to marry, or a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re divorced.
 
           Make an appointment at the local British embassy or consulate to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring the single declaration, your passport, your partner’s passport and pay a fee.
 
+          ^Documents must be originals if you are getting married at the Sharia Court.^
+
           For non-Islamic marriages, you may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
+
         consular_cni_os_commonwealth_resident: |
           If you need a certificate to prove you’re allowed to marry, you’ll have to give notice of your intended marriage in the country where you live.
 
