@@ -6,6 +6,6 @@ class UkbaCountry < OpenStruct
   end
 
   def self.v2_all
-    @countries ||= YAML.load_file(Rails.root.join('lib', 'data', 'ukba_additional_countries_v2.yml')).map {|c| self.new(c) }
+    @countries_v2 ||= YAML.load_file(Rails.root.join('lib', 'data', 'ukba_additional_countries_v2.yml')).map {|c| self.new(c) }
   end
 end
