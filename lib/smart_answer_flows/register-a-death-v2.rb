@@ -172,6 +172,14 @@ outcome :oru_result do
     end
     phrases
   end
+
+  precalculate :payment_method do
+    if country_of_death == 'algeria'
+      PhraseList.new(:payment_method_in_algeria)
+    else
+      PhraseList.new(:standard_payment_method)
+    end
+  end
 end
 
 outcome :embassy_result do
