@@ -1,7 +1,0 @@
-##Shared parental pay (primary adopter only)
-
-The primary adopter can get [shared parental pay](/shared-parental-leave-and-pay). It lasts for up to 39 weeks, minus any weeks of adoption pay they’ve received.
-
-| Amount
-- | - 
-Shared parental pay | %{rate_of_shpp(salary_1)} 

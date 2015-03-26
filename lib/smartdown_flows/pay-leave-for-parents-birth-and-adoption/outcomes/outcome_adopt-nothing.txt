@@ -1,3 +1,0 @@
-{{snippet: adopt-nothing}}
-
-{{snippet: extra-help}}

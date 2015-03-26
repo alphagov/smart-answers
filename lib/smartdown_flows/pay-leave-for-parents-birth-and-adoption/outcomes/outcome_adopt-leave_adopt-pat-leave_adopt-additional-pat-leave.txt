@@ -1,7 +1,0 @@
-{{snippet: adopt-leave}}
-
-{{snippet: adopt-pat-leave}}
-
-{{snippet: adopt-additional-pat-leave}}
-
-{{snippet: extra-help}}

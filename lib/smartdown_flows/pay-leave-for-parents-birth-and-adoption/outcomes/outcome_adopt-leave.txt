@@ -1,3 +1,0 @@
-{{snippet: adopt-leave}}
-
-{{snippet: extra-help}}

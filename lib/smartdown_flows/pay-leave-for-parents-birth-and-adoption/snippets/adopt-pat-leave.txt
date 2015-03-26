@@ -1,8 +1,0 @@
-##Paternity leave
-
-The primary adopter’s partner can take up to 2 weeks of [ordinary paternity leave](/paternity-pay-leave/leave).
-
- | Dates
-- | -
-Tell the partner’s employer | %{paternity_leave_notice_date(match_date)}
-Paternity leave must be used between | %{match_date} to %{latest_pat_leave(match_date)}

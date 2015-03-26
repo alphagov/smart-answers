@@ -1,7 +1,0 @@
-{{snippet: adopt-pay}}
-
-{{snippet: adopt-pat-pay}}
-
-{{snippet: adopt-both-shared-pay}}
-
-{{snippet: extra-help}}
