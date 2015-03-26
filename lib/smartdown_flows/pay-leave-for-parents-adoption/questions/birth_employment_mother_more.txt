@@ -17,17 +17,17 @@ The 26 weeks don’t need to be in a row. They can be full or part weeks.
 The 13 weeks don’t need to be in a row.
 
 * two_carers is 'no'
-  * earnings_employment(earnings_employment_1 work_employment_1) => employment_1_more_salary
+  * earnings_employment(earnings_employment_1 work_employment_1) => birth_employment_mother_more_salary
   * employment_status_1 is 'employee'
     * job_after_y_1 is 'yes' => outcome_mat-leave
     * job_after_y_1 is 'no' => outcome_single-birth-nothing
   * employment_status_1 in {worker self-employed unemployed} => outcome_single-birth-nothing
 * two_carers is 'yes'
-  * earnings_employment(earnings_employment_1 work_employment_1) => employment_1_more_salary
-  * employment_status_2 in {employee worker} => employment_2
+  * earnings_employment(earnings_employment_1 work_employment_1) => birth_employment_mother_more_salary
+  * employment_status_2 in {employee worker} => birth_employment_partner
   * employment_status_2 in {self-employed unemployed}
     * employment_status_1 is 'employee'
-      * continuity(job_before_x_1 job_after_y_1) AND due_date >= '2015-4-5' => employment_2_more
+      * continuity(job_before_x_1 job_after_y_1) AND due_date >= '2015-4-5' => birth_employment_partner_more
       * job_after_y_1 is 'yes' => outcome_mat-leave
       * job_after_y_1 is 'no' => outcome_birth-nothing
     * employment_status_1 in {worker self-employed} => outcome_birth-nothing

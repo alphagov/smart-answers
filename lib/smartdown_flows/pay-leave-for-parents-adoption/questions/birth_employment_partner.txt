@@ -70,10 +70,10 @@ This is their total take-home pay before any deductions, eg tax.
   * continuity(job_before_x_2 job_after_y_2)
     * employment_status_1 is 'employee'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => birth_employment_partner_more
         * due_date < '2015-4-5' => outcome_mat-leave_mat-pay_pat-leave_additional-pat-leave
       * continuity(job_before_x_1 job_after_y_1)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => birth_employment_partner_more
         * due_date < '2015-4-5'
           * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave_pat-leave_additional-pat-leave
@@ -91,7 +91,7 @@ This is their total take-home pay before any deductions, eg tax.
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-leave
     * employment_status_1 is 'worker'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => birth_employment_partner_more
         * due_date < '2015-4-5' => outcome_mat-pay_pat-leave_additional-pat-leave
       * NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1)
         * earnings_employment(earnings_employment_1 work_employment_1)
@@ -107,7 +107,7 @@ This is their total take-home pay before any deductions, eg tax.
     * employment_status_1 is 'employee'
       * job_after_y_1 is 'yes'
         * due_date >= '2015-4-5'
-          * continuity(job_before_x_1 job_after_y_1) => employment_2_more
+          * continuity(job_before_x_1 job_after_y_1) => birth_employment_partner_more
           * otherwise
             * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave
             * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave
@@ -121,7 +121,7 @@ This is their total take-home pay before any deductions, eg tax.
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
     * employment_status_1 is 'worker'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => birth_employment_partner_more
         * due_date < '2015-4-5' => outcome_mat-pay
       * NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1)
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
@@ -171,11 +171,11 @@ This is their total take-home pay before any deductions, eg tax.
   * continuity(job_before_x_2 job_after_y_2)
     * employment_status_1 is 'employee'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => birth_employment_partner_more
         * due_date < '2015-4-5' => outcome_mat-leave_mat-pay
       * NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1)
         * continuity(job_before_x_1 job_after_y_1)
-          * due_date >= '2015-4-5' => employment_2_more
+          * due_date >= '2015-4-5' => birth_employment_partner_more
           * due_date < '2015-4-5' AND earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave
           * due_date < '2015-4-5' AND NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave
         * job_after_y_1 is 'yes'
@@ -186,7 +186,7 @@ This is their total take-home pay before any deductions, eg tax.
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
     * employment_status_1 is 'worker'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => birth_employment_partner_more
         * due_date < '2015-4-5' => outcome_mat-pay_pat-pay_additional-pat-pay
       * NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1)
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
@@ -198,7 +198,7 @@ This is their total take-home pay before any deductions, eg tax.
     * employment_status_1 is 'employee'
       * job_after_y_1 is 'yes'
         * due_date >= '2015-4-5'
-          * continuity(job_before_x_1 job_after_y_1) => employment_2_more
+          * continuity(job_before_x_1 job_after_y_1) => birth_employment_partner_more
           * NOT continuity(job_before_x_1 job_after_y_1)
             * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave
             * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave
@@ -212,7 +212,7 @@ This is their total take-home pay before any deductions, eg tax.
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
     * employment_status_1 is 'worker'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => birth_employment_partner_more
         * due_date < '2015-4-5' => outcome_mat-pay
       * NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1)
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
