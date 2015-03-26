@@ -53,9 +53,9 @@ group :test do
   gem 'minitest', '~> 5.1'
   gem 'capybara', '2.1.0'
   gem 'ci_reporter'
-  gem 'mocha', '0.13.3', :require => false
+  gem 'mocha', '1.1.0', :require => false
   gem 'shoulda', '~> 3.5.0'
-  gem 'webmock', '1.11.0', :require => false
+  gem 'webmock', '1.20.4', :require => false
   gem 'simplecov', '~> 0.6.4', :require => false
   gem 'simplecov-rcov', '~> 0.2.3', :require => false
   gem 'poltergeist', '1.5.1'

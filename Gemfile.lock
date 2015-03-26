@@ -120,7 +120,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    mocha (0.13.3)
+    mocha (1.1.0)
       metaclass (~> 0.0.1)
     multi_json (1.11.0)
     multipart-post (2.0.0)
@@ -246,8 +246,8 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    webmock (1.11.0)
-      addressable (>= 2.2.7)
+    webmock (1.20.4)
+      addressable (>= 2.3.6)
       crack (>= 0.3.2)
     websocket-driver (0.5.3)
       websocket-extensions (>= 0.1.0)
@@ -277,7 +277,7 @@ DEPENDENCIES
   lrucache (= 0.1.4)
   minitest (~> 5.1)
   minitest-reporters (~> 1.0.11)
-  mocha (= 0.13.3)
+  mocha (= 1.1.0)
   nokogiri (= 1.5.11)
   parser
   plek (= 1.7.0)
@@ -299,4 +299,4 @@ DEPENDENCIES
   timecop
   uglifier
   unicorn (= 4.8.3)
-  webmock (= 1.11.0)
+  webmock (= 1.20.4)
