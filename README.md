@@ -71,3 +71,8 @@ Once reviewed, the draft can be published by running `rake version:publish[flow]
 **Commiting V2 -> V1 changes**
 
 To help developers track changes in files easily, it is best if you commit V2 files' removal in one commit, then commit the modifications to the original files. This creates an easy to browse diff of all the changes being published. Write a descriptive message for the second commit, as this is what the other developers will see in the file history.
+
+
+## Detailed documentation
+
+- [How to archive a Smart Answer](docs/archiving.md)
