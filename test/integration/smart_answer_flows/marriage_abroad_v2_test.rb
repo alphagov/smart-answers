@@ -1082,19 +1082,39 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
  :affirmation_os_translation_in_local_language_text, :documents_for_divorced_or_widowed_ecuador, :partner_equivalent_document_warning, :consular_cni_os_all_names_but_germany, :affirmation_os_partner_not_british, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  #testing for ceremony in Cambodia, resident anywhere, partner other
-  context "ceremony in Cambodia, resident in Cambodia, partner other" do
+
+
+  context "ceremony in Cambodia" do
     setup do
       worldwide_api_has_organisations_for_location('cambodia', read_fixture_file('worldwide/cambodia_organisations.json'))
       add_response 'cambodia'
-      add_response 'other'
-      add_response 'cambodia'
-      add_response 'partner_other'
-      add_response 'opposite_sex'
     end
-    should "go to os affirmation outcome" do
-      assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :cni_os_partner_local_legislation_documents_for_appointment, :affirmation_os_translation_in_local_language_text, :documents_for_divorced_or_widowed_cambodia, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :consular_cni_os_all_names_but_germany, :fee_table_affirmation_55, :pay_by_cash_or_us_dollars_only]
+
+    context "resident in Cambodia, partner other" do
+      setup do
+        add_response 'other'
+        add_response 'cambodia'
+        add_response 'partner_other'
+        add_response 'opposite_sex'
+      end
+      should "go to os affirmation outcome" do
+        assert_current_node :outcome_os_affirmation
+        assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :cni_os_partner_local_legislation_documents_for_appointment, :affirmation_os_translation_in_local_language_text, :documents_for_divorced_or_widowed_cambodia, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :consular_cni_os_all_names_but_germany, :fee_table_affirmation_55, :pay_by_cash_or_us_dollars_only]
+      end
+    end
+
+    context "lives in poland, same sex marriage, non british partner" do
+      setup do
+        worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
+        add_response 'other'
+        add_response 'poland'
+        add_response 'partner_other'
+        add_response 'same_sex'
+      end
+      should "go to outcome_ss_marriage" do
+        assert_current_node :outcome_ss_marriage
+        assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :pay_by_cash_or_us_dollars_only]
+      end
     end
   end
 
@@ -2110,21 +2130,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
       assert_current_node :outcome_ss_marriage_not_possible
     end
   end
-  context "ceremony in cambodia, lives in poland, same sex marriage, non british partner" do
-    setup do
-      worldwide_api_has_organisations_for_location('cambodia', read_fixture_file('worldwide/cambodia_organisations.json'))
-      worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
-      add_response 'cambodia'
-      add_response 'other'
-      add_response 'poland'
-      add_response 'partner_other'
-      add_response 'same_sex'
-    end
-    should "go to outcome_ss_marriage" do
-      assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
-    end
-  end
+
   context "Marrying anywhere in the world > British National not living in the UK > Resident in Portugal > Partner of any nationality > Opposite sex" do
     setup do
       worldwide_api_has_organisations_for_location('portugal', read_fixture_file('worldwide/portugal_organisations.json'))
