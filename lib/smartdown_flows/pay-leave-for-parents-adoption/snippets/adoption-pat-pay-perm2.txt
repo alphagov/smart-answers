@@ -1,8 +1,10 @@
+{{marker: adoption-pat-pay-perm2}}
+
 ##Paternity pay
 
-The mother’s partner can get up to 2 weeks of [paternity pay](/paternity-pay-leave/pay). 
+The mother’s partner can get up to 2 weeks of [paternity pay](/paternity-pay-leave/pay).
 
  | Dates and amounts
 - | -
-Weekly rate | %{rate_of_paternity_pay(salary_2)}
+Weekly rate | %{rate_of_paternity_pay(salary_1)}
 Tell the partner’s employer | 28 days before they want to start paternity pay

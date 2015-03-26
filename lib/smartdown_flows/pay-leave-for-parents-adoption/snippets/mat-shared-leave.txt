@@ -1,6 +1,8 @@
+{{marker: mat-shared-leave}}
+
 ##Shared parental leave (mother only)
 
-The mother can take [shared parental leave](/shared-parental-leave-and-pay) (SPL). It lasts for up to 52 weeks, minus any weeks of maternity leave she takes. 
+The mother can take [shared parental leave](/shared-parental-leave-and-pay) (SPL). It lasts for up to 52 weeks, minus any weeks of maternity leave she takes.
 
 She can take SPL in up to 3 blocks, going back to work between the blocks.
 

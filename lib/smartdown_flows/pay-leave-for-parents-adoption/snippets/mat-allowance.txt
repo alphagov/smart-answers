@@ -1,3 +1,5 @@
+{{marker: mat-allowance}}
+
 ##Maternity allowance
 
 The mother can get [maternity allowance](/maternity-allowance) from the government for up to 39 weeks.

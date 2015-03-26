@@ -1,3 +1,5 @@
+{{marker: mat-shared-pay}}
+
 ##Shared parental pay (mother only)
 
 The mother can get [shared parental pay](/shared-parental-leave-and-pay/overview). It lasts for up to 39 weeks, minus any weeks of maternity pay or maternity allowance they’ve received.

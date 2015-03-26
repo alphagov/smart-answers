@@ -1,3 +1,5 @@
+{{marker: mat-pay}}
+
 ##Maternity pay
 
 The mother can get up to 39 weeks of [maternity pay](/maternity-pay-leave/pay).
@@ -9,4 +11,4 @@ Next 33 weeks | %{rate_of_smp_33_weeks(salary_1)} per week
 Total estimated pay | %{total_smp(salary_1)}
 Tell the mother’s employer | 28 days before they want to start maternity pay
 
-Tax and National Insurance will be deducted. 
+Tax and National Insurance will be deducted.
