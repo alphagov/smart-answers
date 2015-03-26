@@ -1,0 +1,8 @@
+# Mother’s salary details
+
+# How much did the mother earn between %{earnings_employment_start_date(due_date)} and %{earnings_employment_end_date(due_date)}?
+
+[salary: salary_1_66_weeks]
+
+* two_carers is 'no' => outcome_adoption_adopter_a
+* two_carers is 'yes' => adoption_employment_adopter_b

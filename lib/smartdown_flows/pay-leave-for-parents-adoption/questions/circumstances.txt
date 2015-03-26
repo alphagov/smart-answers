@@ -6,6 +6,12 @@
 * yes: Yes
 * no: No
 
+# Will you be adopting the child?
+
+[choice: adopting]
+* yes: Yes
+* no: No
+
 The partner must be one of the following:
 
 - your husband, wife, civil partner or joint adopter

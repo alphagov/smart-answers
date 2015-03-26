@@ -1,0 +1,26 @@
+$IF earnings_employment(earnings_employment_1 work_employment_1)
+
+{{snippet: adoption-mat-allowance}}
+
+$ENDIF
+
+
+$IF employment_status_1 in {employee worker} AND continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
+
+{{snippet: adoption-mat-pay}}
+
+$ENDIF
+
+$IF employment_status_1 is 'employee' AND continuity(job_before_x_1 job_after_y_1)
+
+{{snippet: adoption-mat-leave}}
+
+$ENDIF
+
+$IF NOT continuity(job_before_x_1 job_after_y_1) AND NOT lower_earnings(lel_1)
+
+{{snippet: adoption-single-birth-nothing}}
+
+$ENDIF
+
+{{snippet: extra-help}}

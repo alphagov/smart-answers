@@ -1,5 +1,6 @@
 #Mother self-employed, does not pass earnings and employment test
 - two_carers: no
+  adopting: no
 - due_date: 2016-1-1
 - employment_status_1: self-employed
 - work_employment_1: no
@@ -8,6 +9,7 @@ outcome_single-birth-nothing
 
 #Mother employee, soon to leave job, passes lower earnings test
 - two_carers: no
+  adopting: no
 - due_date: 2016-1-1
 - employment_status_1: employee
 - job_before_x_1: yes
@@ -21,6 +23,7 @@ outcome_mat-allowance
 
 #Mother worker, does not pass earnings and employment test
 - two_carers: no
+  adopting: no
 - due_date: 2014-4-5
 - employment_status_1: worker
 - job_before_x_1: yes
@@ -33,6 +36,7 @@ outcome_single-birth-nothing
 
 #Mother self-employed, passes earnings and employment test
 - two_carers: no
+  adopting: no
 - due_date: 2016-1-1
 - employment_status_1: self-employed
 - work_employment_1: yes
@@ -42,6 +46,7 @@ outcome_mat-allowance
 
 #Mother employee, soon to leave job, passes earnings and employment test
 - two_carers: no
+  adopting: no
 - due_date: 2016-1-1
 - employment_status_1: employee
 - job_before_x_1: yes
@@ -55,6 +60,7 @@ outcome_mat-allowance
 
 #Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
 - two_carers: no
+  adopting: no
 - due_date: 2016-1-1
 - employment_status_1: employee
 - job_before_x_1: yes
@@ -68,6 +74,7 @@ outcome_mat-allowance_mat-leave
 
 #Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
 - two_carers: no
+  adopting: no
 - due_date: 2016-1-1
 - employment_status_1: employee
 - job_before_x_1: yes
@@ -80,6 +87,7 @@ outcome_mat-leave
 
 #Mother employee, passes continuity test, passes lower earnings test
 - two_carers: no
+  adopting: no
 - due_date: 2016-1-1
 - employment_status_1: employee
 - job_before_x_1: yes
@@ -90,6 +98,7 @@ outcome_mat-leave_mat-pay
 
 #Mother worker, passes continuity test, passes lower earnings test
 - two_carers: no
+  adopting: no
 - due_date: 2016-1-1
 - employment_status_1: worker
 - job_before_x_1: yes
