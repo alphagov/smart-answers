@@ -1,0 +1,15 @@
+# Your circumstances
+
+# Will you care for the child with a partner?
+
+[choice: two_carers]
+* yes: Yes
+* no: No
+
+The partner must be one of the following:
+
+- your husband, wife, civil partner or joint adopter
+- the child’s other parent
+- your partner (if they live with you and the child)
+
+* otherwise => due_date
