@@ -298,11 +298,24 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
       end
 
       context "now back in the UK" do
-        should "give the ORU result with a translator link and a custom payment method" do
+        should "give the ORU result with a translator link and a standard payment method" do
           add_response 'in_the_uk'
           assert_current_node :oru_result
           assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
           assert_phrase_list :oru_address, [:oru_address_uk]
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_phrase_list :payment_method, [:standard_payment_method]
+          assert_state_variable :translator_link_url, "/government/publications/algeria-list-of-lawyers"
+        end
+      end
+
+      context "now in Algeria" do
+        should "give the ORU result with a translator link and a custom payment method" do
+          add_response 'another_country'
+          add_response 'algeria'
+          assert_current_node :oru_result
+          assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+          assert_phrase_list :oru_address, [:oru_address_abroad]
           assert_phrase_list :translator_link, [:approved_translator_link]
           assert_phrase_list :payment_method, [:payment_method_in_algeria]
           assert_state_variable :translator_link_url, "/government/publications/algeria-list-of-lawyers"
@@ -320,13 +333,15 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         expected_location = WorldLocation.find('iran')
       end
     end # Iran
+
     context "answer Libya" do
       setup do
         worldwide_api_has_organisations_for_location('libya', read_fixture_file('worldwide/libya_organisations.json'))
         add_response 'libya'
-        add_response 'same_country'
       end
-      should "give the oru result and a custom translators link" do
+
+      should "give the oru result and a custom translators link if currently in Libya" do
+        add_response 'same_country'
         assert_current_node :oru_result
         assert_state_variable :translator_link_url, "/government/publications/libya-list-of-translators"
         assert_phrase_list :translator_link, [:approved_translator_link]
@@ -335,6 +350,14 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         assert_phrase_list :oru_address, [:oru_address_abroad]
         assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
         assert_phrase_list :payment_method, [:standard_payment_method]
+      end
+
+      should "give a custom algerian payment method if currently in Algeria " do
+        worldwide_api_has_organisations_for_location('algeria', read_fixture_file('worldwide/algeria_organisations.json'))
+        add_response 'another_country'
+        add_response 'algeria'
+        assert_current_node :oru_result
+        assert_phrase_list :payment_method, [:payment_method_in_algeria]
       end
     end # Answer Libya
 
