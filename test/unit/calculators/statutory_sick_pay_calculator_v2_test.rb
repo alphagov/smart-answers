@@ -76,7 +76,7 @@ module SmartAnswer::Calculators
     context "daily rate test for 7 days per week worked" do
       setup do
         @start_date = Date.parse("1 October 2012")
- @calculator = StatutorySickPayCalculatorV2.new(5, @start_date, Date.parse("7 October 2012"), ['0', '1', '2', '3', '4', '5', '6'])
+        @calculator = StatutorySickPayCalculatorV2.new(5, @start_date, Date.parse("7 October 2012"), ['0', '1', '2', '3', '4', '5', '6'])
       end
 
       should "return daily rate of 12.2642" do
@@ -87,7 +87,7 @@ module SmartAnswer::Calculators
     context "daily rate test for 6 days per week worked" do
       setup do
         @start_date = Date.parse("1 October 2012")
- @calculator = StatutorySickPayCalculatorV2.new(5, @start_date, Date.parse("7 October 2012"), ['1', '2', '3', '4', '5', '6'])
+        @calculator = StatutorySickPayCalculatorV2.new(5, @start_date, Date.parse("7 October 2012"), ['1', '2', '3', '4', '5', '6'])
       end
 
       should "return daily rate of 14.3083" do
@@ -98,7 +98,7 @@ module SmartAnswer::Calculators
     context "daily rate test for 2 days per week worked" do
       setup do
         @start_date = Date.parse("1 October 2012")
- @calculator = StatutorySickPayCalculatorV2.new(5, @start_date, Date.parse("7 October 2012"), ['4', '5'])
+        @calculator = StatutorySickPayCalculatorV2.new(5, @start_date, Date.parse("7 October 2012"), ['4', '5'])
       end
 
       should "return daily rate of 42.9250" do
@@ -169,7 +169,7 @@ module SmartAnswer::Calculators
     context "historic rate test 1" do
       setup do
         @start_date = Date.parse("5 April 2012")
- @calculator = StatutorySickPayCalculatorV2.new(3, @start_date, Date.parse("10 April 2012"), ['1', '2', '3', '4', '5'])
+        @calculator = StatutorySickPayCalculatorV2.new(3, @start_date, Date.parse("10 April 2012"), ['1', '2', '3', '4', '5'])
       end
 
       should "use ssp rate and lel for 2011-12" do
@@ -182,7 +182,7 @@ module SmartAnswer::Calculators
     context "test scenario 1 - M-F, no waiting days, cross tax years" do
       setup do
         @start_date = Date.parse("26 March 2012")
- @calculator = StatutorySickPayCalculatorV2.new(0, @start_date, Date.parse("13 April 2012"), ['1', '2', '3', '4', '5'])
+        @calculator = StatutorySickPayCalculatorV2.new(0, @start_date, Date.parse("13 April 2012"), ['1', '2', '3', '4', '5'])
       end
 
       should "give correct ssp calculation" do  # 15 days with 3 waiting days, so 6 days at lower weekly rate, 6 days at higher rate
@@ -193,15 +193,26 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "test date in future" do
+    context "test date 4 May 2014" do
       setup do
         @start_date = Date.parse("4 May 2014")
- @calculator = StatutorySickPayCalculatorV2.new(3, @start_date, Date.parse("3 August 2014"), ['1', '2', '3', '4', '5'])
+        @calculator = StatutorySickPayCalculatorV2.new(3, @start_date, Date.parse("3 August 2014"), ['1', '2', '3', '4', '5'])
       end
 
       should "use ssp rate and lel for 2014-15" do
         assert_equal StatutorySickPayCalculatorV2.lower_earning_limit_on(@start_date), 111
         assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 5), 17.51
+      end
+    end
+
+    context "weekly rate fallback. When date is not covered by any known ranges" do
+      setup do
+        @start_date = Date.parse("4 May 2054")
+        @calculator = StatutorySickPayCalculatorV2.new(3, @start_date, @start_date + 1.month, ['1', '2', '3', '4', '5'])
+      end
+
+      should "use ssp rate for the latest know fiscal year (2015-16)" do
+        assert_equal 88.45, @calculator.weekly_rate_on(@start_date)
       end
     end
 
@@ -352,54 +363,78 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "LEL test 1" do
-      setup do
-        @date = Date.parse("1 April 2012")
-        @lel = StatutorySickPayCalculatorV2.lower_earning_limit_on(@date)
+    context "lower earnings limit (LEL)" do
+      context "in 2011/2012" do
+        setup do
+          @date = Date.parse("1 April 2012")
+          @lel = StatutorySickPayCalculatorV2.lower_earning_limit_on(@date)
+        end
+
+        should "be 102" do
+          assert_equal 102.00, @lel
+        end
       end
 
-      should "give correct LEL for date" do
-        assert_equal @lel, 102.00
-      end
-    end
+      context "in the beginning of 2012/2013" do
+        setup do
+          @date = Date.parse("6 April 2012")
+          @lel = StatutorySickPayCalculatorV2.lower_earning_limit_on(@date)
+        end
 
-    context "LEL test 2" do
-      setup do
-        @date = Date.parse("6 April 2012")
-        @lel = StatutorySickPayCalculatorV2.lower_earning_limit_on(@date)
-      end
-
-      should "give correct LEL for date" do
-        assert_equal @lel, 107.00
-      end
-    end
-
-    context "LEL test 3" do
-      setup do
-        @date = Date.parse("6 April 2013")
-        @lel = StatutorySickPayCalculatorV2.lower_earning_limit_on(@date)
+        should "be 107" do
+          assert_equal 107.00, @lel
+        end
       end
 
-      should "give correct LEL for date" do
-        assert_equal @lel, 109.00
-      end
-    end
+      context "in the beginning of 2013/2014" do
+        setup do
+          @date = Date.parse("6 April 2013")
+          @lel = StatutorySickPayCalculatorV2.lower_earning_limit_on(@date)
+        end
 
-    context "LEL test 4" do
-      setup do
-        @date = Date.parse("6 April 2014")
-        @lel = StatutorySickPayCalculatorV2.lower_earning_limit_on(@date)
+        should "be 109" do
+          assert_equal 109.00, @lel
+        end
       end
 
-      should "give correct LEL for date" do
-        assert_equal @lel, 111.00
+      context "in the beginning of 2014/2015" do
+        setup do
+          @date = Date.parse("6 April 2014")
+          @lel = StatutorySickPayCalculatorV2.lower_earning_limit_on(@date)
+        end
+
+        should "be 111" do
+          assert_equal 111.00, @lel
+        end
+      end
+
+      context "in the beginning of 2015/2016" do
+        setup do
+          @date = Date.parse("6 April 2015")
+          @lel = StatutorySickPayCalculatorV2.lower_earning_limit_on(@date)
+        end
+
+        should "be 112" do
+          assert_equal 112.00, @lel
+        end
+      end
+
+      context "fallback when no dates are matching" do
+        setup do
+          @date = Date.parse("6 April 2056")
+          @lel = StatutorySickPayCalculatorV2.lower_earning_limit_on(@date)
+        end
+
+        should "be the rate of the latest available fiscal year" do
+          assert_equal 112.00, @lel
+        end
       end
     end
 
     context "sick_pay_weekly_dates" do
       should "produce a list of Saturdays for the provided sick period" do
         calculator = StatutorySickPayCalculatorV2.new(
-    42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
+                      42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
 
         assert_equal [Date.parse("12 Jan 2013"),
                       Date.parse("19 Jan 2013"),
@@ -425,7 +460,7 @@ module SmartAnswer::Calculators
     context "sick_pay_weekly_amounts" do
       should "return the payable weeks by taking into account the final SSP payment" do
         calculator = StatutorySickPayCalculatorV2.new(
-    42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
+                      42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
 
         assert_equal [[Date.parse("12 Jan 2013"), 85.85],
                       [Date.parse("19 Jan 2013"), 85.85],
@@ -447,7 +482,7 @@ module SmartAnswer::Calculators
 
       should "have the same reduced value as the ssp_payment value" do
         calculator = StatutorySickPayCalculatorV2.new(
-    42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
+                      42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
 
         assert_equal calculator.ssp_payment,
                      calculator.weekly_payments.map(&:second).sum
@@ -457,7 +492,7 @@ module SmartAnswer::Calculators
     context "formatted_sick_pay_weekly_amounts" do
       should "produce a markdown (value) formatted string of weekly SSP dates and pay rates" do
         calculator = StatutorySickPayCalculatorV2.new(
-    42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
+                      42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
 
         assert_equal ["12 January 2013|£85.85",
                       "19 January 2013|£85.85",
