@@ -22,59 +22,50 @@ en-GB:
         "yes": "Yes"
       phrases:
         scheme_postcodes: |
-          - AB (Aberdeen)
-          - BB (Blackburn)
-          - BD (Bradford)
-          - CA (Carlisle)
-          - CH (Chester)
-          - DD (Dundee)
-          - DG (Dumfries and Galloway)
-          - DH (Durham
-          - DL (Darlington)
-          - DN (Doncaster)
-          - EH (Edinburgh)
-          - EX (Exeter)
-          - G (Glasgow
-          - HD (Huddersfield)
-          - HG (Harrogate)
-          - HX (Halifax)
-          - IV (Inverness)
-          - KA (Kilmarnock)
-          - KY (Kirkcaldy)
-          - L (Liverpool)
-          - LA (Lancaster)
-          - LS (Leeds)
-          - M (Manchester)
-          - ML (Motherwell)
-          - NE (Newcastle)
-          - PH (Perth)
-          - PL (Plymouth)
-          - PO (Portsmouth)
-          - PR (Preston)
-          - S (Sheffield)
-          - SO (Southampton)
-          - TD (Galashiels)
-          - TS (Cleveland)
-          - SR (Sunderland
-          - WA (Warrington)
-          - WF (Wakefield)
-          - WN (Wigan)
-          - YO (York)
-       
-          On 30 March 2015 the scheme will be expanded to include postcodes beginning with:
 
-          - BL (Bolton) 
-          - CW (Crewe) 
-          - FK (Falkirk) 
-          - FY (Fylde) 
-          - HU (Hull) 
-          - OL (Oldham) 
-          - SK (Stockport) 
-          - TA (Taunton) 
-          - TQ (Torquay) 
-          - TR (Truro)
-          
- 
+          Check if this also applies in your area.
+
+          ###East of England
+
+          From 25 May | From 22 June | From 27 July
+          - | - | -
+          CB (Cambridge), SS (Southend), CO (Colchester), CM (Chelmsford) | SG (Stevenage), HP (Hemel Hempstead), LU (Luton) | AL (St Albans), WD (Watford)
+
+          ###London
+
+          From 25 May | From 22 June | From 27 July
+          - | - | -
+          RM (Romford) | BR (Bromley),  CR (Croydon), E (London East), EC (London East Central), IG (Ilford), SE (London South East), SW (London South West), WC (London West Central) | EN (Enfield), HA (Harrow), KT (Kingston), N (London North), NW (London North West), SM (Sutton), TW (Twickenham), UB (Uxbridge), W (London West)
+
+          ###Northeast England (current postcodes)
+
+          DH (Durham), DL (Darlington), NE (Newcastle), SR (Sunderland)
+
+          ###Northwest England (current postcodes)
+
+          BL (Bolton), BB (Blackburn), CA (Carlisle), CH (Chester), CW (Crewe), L (Liverpool), LA (Lancaster), M (Manchester), OL (Oldham), PR (Preston), SK (Stockport), WA (Warrington), WN (Wigan)
+
+          ###Southeast England
+
+          Current postcodes | From 25 May | From 22 June | From 27 July
+          - | - | -
+          PO (Portsmouth), SO (Southampton) | DA (Dartford), MK (Milton Keynes) | BN (Brighton), CT (Canterbury), GU (Guildford), ME (Maidstone), OX (Oxford), RH (Redhill),  RG (Reading) | TN (Tonbridge), SL (Slough)
+
+          ###Southwest England
+
+          Current postcodes | From 25 May | From 22 June
+          - | - | -
+          EX (Exeter), PL (Plymouth), TA (Taunton), TQ (Torquay), TR (Truro) | BS (Bristol), GL (Gloucester), SN (Swindon), SP (Salisbury) |  BA (Bath), BH (Bournemouth), DT (Dorchester)
+
+          ###Yorkshire and Humber (current postcodes)
+
+          BD (Bradford), DN (Doncaster), HD (Huddersfield), HG (Harrogate), HU (Hull), HX (Halifax), LS (Leeds), S (Sheffield), TS (Cleveland), WF (Wakefield), YO (York)
+
+          ###Scotland
+
+          Current postcodes | From 25 May | From 27 July
+          - | - | -
+          AB (Aberdeen), DD (Dundee), DG (Dumfries and Galloway), EH (Edinburgh), G (Glasgow, IV (Inverness), KA (Kilmarnock), KY (Kirkcaldy), ML (Motherwell), PH (Perth), TD (Galashiels), FK (Falkirk), FY (Fylde) | PA (Paisley)  | HS (Hebrides), KW (Kirkwall), ZE (Lerwick)
 
         scheme_postcodes_pre_3rd_feb_2014: |
           - DG (Dumfries and Galloway)
@@ -151,8 +142,6 @@ en-GB:
           - West Midlands
           - East Anglia
 
-          This also applies if your postcode begins with:
-
           %{postcodes}
 
           *[DLA]: Disability Living Allowance
@@ -170,8 +159,6 @@ en-GB:
           - East Midlands
           - West Midlands
           - East Anglia
-
-          This also applies if their postcode begins with:
 
           %{postcodes}
 
@@ -204,8 +191,6 @@ en-GB:
           - East Midlands
           - West Midlands
           - East Anglia
-
-          This also applies if your postcode begins with:
 
           %{postcodes}
 
