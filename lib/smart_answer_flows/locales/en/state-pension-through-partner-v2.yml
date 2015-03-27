@@ -29,7 +29,7 @@ en-GB:
           ^Contact the [Pension Service](/contact-pension-service) for help and advice.^
 # Outcome 1
         current_rules_no_additional_pension: |
-          You might be able to increase the amount of [basic State Pension](/state-pension) to £67.80 per week if:
+          You might be able to increase the amount of [basic State Pension](/state-pension) to %{lower_basic_state_pension_rate} per week if:
 
           - your spouse or civil partner has enough National Insurance contributions
           - your spouse or civil partner was born on or after 6 April 1950 (this rule doesn’t apply to you if you’re a woman married to a man)
@@ -37,15 +37,15 @@ en-GB:
           One of the following must also apply:
 
           - you don’t qualify for any basic State Pension
-          - your basic State pension is less than £67.80 per week  
+          - your basic State pension is less than %{lower_basic_state_pension_rate} per week  
 
           You’ll get the increase when either you or your spouse or civil partner reach State Pension age, whichever is later.
 
           ##If you become widowed or your civil partner dies
 
-          You may be able to increase your basic State Pension up to £113.10 a week if:
+          You may be able to increase your basic State Pension up to %{higher_basic_state_pension_rate} a week if:
 
-          - your own basic State Pension is less than £113.10 a week
+          - your own basic State Pension is less than %{higher_basic_state_pension_rate} a week
           - your late spouse or civil partner had enough National Insurance contributions
 
           You may also inherit a portion of their [Additional State-Pension](/additional-state-pension).
@@ -56,9 +56,9 @@ en-GB:
 
           ##If you divorce your spouse or civil partner
 
-          You may be able to increase your basic State Pension up to £113.10 a week if:
+          You may be able to increase your basic State Pension up to %{higher_basic_state_pension_rate} a week if:
 
-          - your own [basic State Pension](/state-pension) is less than £113.10
+          - your own [basic State Pension](/state-pension) is less than %{higher_basic_state_pension_rate}
           - your divorced spouse or civil partner had enough National Insurance contributions (up to when your marriage or civil partnership ended)
 
           ^You won’t get the increase if you remarry or form a new civil partnership before you reach State Pension age.^
@@ -68,7 +68,7 @@ en-GB:
           You might be able to increase the amount of basic [State Pension](/state-pension) you can get if 1 of the following apply:
 
           - you don’t qualify for any [basic State Pension](/state-pension)
-          - your basic State Pension is less than £113.10 a week
+          - your basic State Pension is less than %{higher_basic_state_pension_rate} a week
 
           Your late spouse or civil partner must also have had enough National Insurance contributions.
 
@@ -102,7 +102,7 @@ en-GB:
 
 # Outcome 3
         current_rules_national_insurance_no_state_pension: |
-          You might be able to increase the amount of [basic State Pension](/state-pension) to £67.80 per week if:
+          You might be able to increase the amount of [basic State Pension](/state-pension) to %{lower_basic_state_pension_rate} per week if:
 
           - your spouse or civil partner made enough National Insurance contributions before 6 April 2016
           - your spouse or civil partner was born on or after 6 April 1950 (this rule doesn’t apply to you if you’re a woman married to a man)
@@ -110,15 +110,15 @@ en-GB:
           One of the following must also apply:
 
           - you don’t qualify for any basic State Pension
-          - your basic State pension is less than £67.80 per week
+          - your basic State pension is less than %{lower_basic_state_pension_rate} per week
 
           You’ll get the increase when either you or your spouse or civil partner reach [State Pension age](/calculate-state-pension), whichever is later.
 
           ##If you become widowed or your civil partner dies
 
-          You may be able to increase your [basic State Pension](/state-pension) up to £113.10 a week if:
+          You may be able to increase your [basic State Pension](/state-pension) up to %{higher_basic_state_pension_rate} a week if:
 
-          - your own basic State Pension is less than £113.10 a week
+          - your own basic State Pension is less than %{higher_basic_state_pension_rate} a week
           - your late spouse or civil partner made enough National Insurance contributions before 6 April 2016
 
           You may also inherit a portion of their [Additional State Pension](/additional-state-pension).
@@ -129,18 +129,18 @@ en-GB:
 
           ##If you divorce your spouse or civil partner
 
-          You may be able to increase your [basic State Pension](/state-pension) up to £113.10 a week if:
+          You may be able to increase your [basic State Pension](/state-pension) up to %{higher_basic_state_pension_rate} a week if:
 
-          - your own basic State Pension is less than £113.10 a week
+          - your own basic State Pension is less than %{higher_basic_state_pension_rate} a week
           - your divorced spouse or civil partner had enough National Insurance contributions before 6 April 2016
 
           ^You won’t get the increase if you remarry or form a new civil partnership before you reach State Pension age.^
 
 # Outcome 4
         current_rules_national_insurance_and_state_pension: |
-          You might be able to increase the amount of basic [State Pension](/state-pension) you can get up to £113.10 a week if both the following apply:
+          You might be able to increase the amount of basic [State Pension](/state-pension) you can get up to %{higher_basic_state_pension_rate} a week if both the following apply:
 
-          - your basic State Pension is less than £113.10 a week
+          - your basic State Pension is less than %{higher_basic_state_pension_rate} a week
           - your late spouse or civil partner had enough National Insurance contributions before 6 April 2016.
 
           You’ll get the increase when you [claim your State Pension.](/state-pension/how-to-claim).
@@ -199,8 +199,8 @@ en-GB:
 
           You’ll get a State Pension that will be no less than:
 
-          - the lower rate basic State Pension of £67.80 a week (if married or in a civil partnership and your partner has reached State Pension age)
-          - the rate of the basic State Pension of £113.10 a week (if widowed, divorced or your civil partnership has been dissolved)
+          - the lower rate basic State Pension of %{lower_basic_state_pension_rate} a week (if married or in a civil partnership and your partner has reached State Pension age)
+          - the rate of the basic State Pension of %{higher_basic_state_pension_rate} a week (if widowed, divorced or your civil partnership has been dissolved)
 
           You’ll also get any Additional State Pension that you built up before 6 April 2016 on top of this basic amount.
 
@@ -283,7 +283,7 @@ en-GB:
 
           You’ll get a pension that is the higher of:
 
-          - the lower rate current system basic State Pension of £67.80 a week and any Additional State Pension you built up before 6 April 2016
+          - the lower rate current system basic State Pension of %{lower_basic_state_pension_rate} a week and any Additional State Pension you built up before 6 April 2016
           - your [State Pension](/new-state-pension) under your own National Insurance contributions.
 
           ^Your pension must have been calculated under the reduced rate election rules for this to apply.^
@@ -379,9 +379,9 @@ en-GB:
         impossibility_due_to_divorce: |
           ##You reach State Pension age before 6 April 2016
 
-          You may be able to increase your basic State Pension up to £113.10 a week if:
+          You may be able to increase your basic State Pension up to %{higher_basic_state_pension_rate} a week if:
 
-          - your own basic State Pension is less than £113.10 a week
+          - your own basic State Pension is less than %{higher_basic_state_pension_rate} a week
           - your divorced spouse or civil partner had enough National Insurance contributions
 
           You’ll get the increase when either you or your former partner reach [State Pension age](/calculate-state-pension), whichever is later.
@@ -401,9 +401,9 @@ en-GB:
 
           ##You reach State Pension age before 6 April 2016
 
-          You may be able to increase your basic State Pension up to £113.10 a week if:
+          You may be able to increase your basic State Pension up to %{higher_basic_state_pension_rate} a week if:
 
-          - your own basic State Pension is less than £113.10 a week
+          - your own basic State Pension is less than %{higher_basic_state_pension_rate} a week
           - your divorced spouse or civil partner had enough National Insurance contributions
 
           You’ll get the increase when you reach [State Pension age](/calculate-state-pension).
@@ -439,7 +439,7 @@ en-GB:
 
           ##What you may get if you have a reduced rate election
 
-          You’ll get a pension that won’t be less than the full rate of the basic State Pension (under the current State Pension system) of £113.10 a week and any Additional State Pension you built up before 6 April 2016.
+          You’ll get a pension that won’t be less than the full rate of the basic State Pension (under the current State Pension system) of %{higher_basic_state_pension_rate} a week and any Additional State Pension you built up before 6 April 2016.
 
           You’ll get this when you reach State Pension age.
 
@@ -451,7 +451,7 @@ en-GB:
 
           You’ll get a pension that is the higher of:
 
-          - the lower rate current system basic State Pension of £67.80 a week and any Additional State Pension you built up before 6 April 2016
+          - the lower rate current system basic State Pension of %{lower_basic_state_pension_rate} a week and any Additional State Pension you built up before 6 April 2016
           - your [State Pension](/new-state-pension) under your own National Insurance contributions.
 
           ^Your pension must have been calculated under the reduced rate election rules for this to apply.^
