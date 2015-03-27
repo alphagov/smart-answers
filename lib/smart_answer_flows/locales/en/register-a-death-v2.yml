@@ -321,7 +321,7 @@ en-GB:
         footnote: |
           ^It takes about 3 working days for the death to be officially registered.^
         footnote_oru_variants_intro: |
-          ^Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.^
+          ^Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where the death happened to be registered there.^
         footnote_oru_variants_out: |
           You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
         footnote_oru_variants_cambodia: |
@@ -380,7 +380,7 @@ en-GB:
           Your documents will be returned to the British High Commission in Kampala after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
 
         registration_can_take_3_months: |
-          Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.
+          Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where the death happened to be registered there.
 
         registration_takes_3_days: |
           It usually takes 3 working days for the death to be registered in the UK once the Overseas Registration Unit has received your form and the right documents.
