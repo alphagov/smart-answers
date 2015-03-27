@@ -391,7 +391,6 @@ outcome :outcome_os_indonesia do
   precalculate :indonesia_os_phraselist do
     PhraseList.new(
       :appointment_for_affidavit_indonesia,
-      :complete_affidavit_with_download_link,
       :embassies_data,
       :documents_for_divorced_or_widowed,
       :partner_affidavit_needed,
@@ -1159,11 +1158,13 @@ outcome :outcome_os_affirmation do
       phrases << :affirmation_os_all_fees_45_70
     end
     unless data_query.countries_without_consular_facilities?(ceremony_country)
+
       if ceremony_country == 'monaco'
         phrases << :list_of_consular_fees_france
-      else
-        phrases << :list_of_consular_fees unless ceremony_country == 'cambodia'
+      elsif ceremony_country != 'cambodia'
+        phrases << :list_of_consular_fees
       end
+
       if ceremony_country == 'finland'
         phrases << :pay_in_euros_or_visa_electron
       elsif ceremony_country == 'philippines'
@@ -1506,7 +1507,14 @@ outcome :outcome_ss_marriage do
     else
       phrases << :ss_marriage_footnote
     end
-    phrases << :partner_naturalisation_in_uk << :"fees_table_#{ss_fees_table}" << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
+    phrases << :partner_naturalisation_in_uk << :"fees_table_#{ss_fees_table}"
+
+    if ceremony_country == 'cambodia'
+      phrases << :pay_by_cash_or_us_dollars_only
+    else
+      phrases << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
+    end
+
     phrases << :convert_cc_to_ss_marriage if %w{australia germany japan philippines russia serbia vietnam}.include?(ceremony_country)
     phrases
   end
