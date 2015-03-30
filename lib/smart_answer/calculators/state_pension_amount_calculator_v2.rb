@@ -10,7 +10,8 @@ module SmartAnswer::Calculators
     PENSION_RATES = [
       { min: Date.parse('7 April 2012'), max: Date.parse('6 April 2013'), amount: 107.45 },
       { min: Date.parse('7 April 2013'), max: Date.parse('6 April 2014'), amount: 110.15 },
-      { min: Date.parse('7 April 2014'), max: Date.parse('6 April 2015'), amount: 113.10 }
+      { min: Date.parse('7 April 2014'), max: Date.parse('6 April 2015'), amount: 113.10 },
+      { min: Date.parse('7 April 2015'), max: Date.parse('6 April 2016'), amount: 115.95 }
     ]
 
     NEW_RULES_START_DATE = Date.parse('6 April 2016')
