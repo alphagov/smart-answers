@@ -54,12 +54,25 @@ module SmartAnswer::Calculators
     end
 
     context "female, born 1953 - 1962, from 10 to 29 qualifying years" do
-      setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(gender: "female", dob: "1958-02-08", qualifying_years: 15)
+
+      context "pays reduced NI rate" do
+        setup do
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(gender: "female", dob: "1958-02-08", qualifying_years: 15, pays_reduced_ni_rate: true)
+        end
+
+        should "be eligible for rre entitlements" do
+          assert @calculator.qualifies_for_rre_entitlements?
+        end
       end
 
-      should "be eligible for rre entitlements" do
-        assert @calculator.qualifies_for_rre_entitlements?
+      context "pays full NI rate" do
+        setup do
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(gender: "female", dob: "1958-02-08", qualifying_years: 15, pays_reduced_ni_rate: false)
+        end
+
+        should "be eligible for rre entitlements" do
+          assert !@calculator.qualifies_for_rre_entitlements?
+        end
       end
     end
 
@@ -129,6 +142,34 @@ module SmartAnswer::Calculators
           assert_equal 7.54, @calculator.what_you_get
           @calculator.qualifying_years = 1
           assert_equal 3.77, @calculator.what_you_get
+        end
+      end
+
+      should "uprate on or after 8th April 2015" do
+        Timecop.travel(Date.parse("2015-04-08")) do
+          @calculator = SmartAnswer::Calculators::StatePensionAmountCalculatorV2.new(
+            gender: "male", dob: "1953-04-04", qualifying_years: 29)
+          assert_equal 112.09, @calculator.what_you_get
+          @calculator.qualifying_years = 28
+          assert_equal 108.22, @calculator.what_you_get
+          @calculator.qualifying_years = 27
+          assert_equal 104.36, @calculator.what_you_get
+          @calculator.qualifying_years = 26
+          assert_equal 100.49, @calculator.what_you_get
+          @calculator.qualifying_years = 15
+          assert_equal 57.98, @calculator.what_you_get
+          @calculator.qualifying_years = 10
+          assert_equal 38.65, @calculator.what_you_get
+          @calculator.qualifying_years = 5
+          assert_equal 19.33, @calculator.what_you_get
+          @calculator.qualifying_years = 4
+          assert_equal 15.46, @calculator.what_you_get
+          @calculator.qualifying_years = 2
+          assert_equal 7.73, @calculator.what_you_get
+          @calculator.qualifying_years = 1
+          assert_equal 3.87, @calculator.what_you_get
+          @calculator.qualifying_years = 0
+          assert_equal 0.0, @calculator.what_you_get
         end
       end
 

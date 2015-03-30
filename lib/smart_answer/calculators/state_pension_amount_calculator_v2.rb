@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class StatePensionAmountCalculatorV2
     include FriendlyTimeDiff
 
-    attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits
+    attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits, :pays_reduced_ni_rate
     attr_accessor :qualifying_years
 
     PENSION_RATES = [
@@ -22,6 +22,7 @@ module SmartAnswer::Calculators
       @qualifying_years = answers[:qualifying_years].to_i
       @available_years = ni_years_to_date_from_dob
       @starting_credits = allocate_starting_credits
+      @pays_reduced_ni_rate = answers[:pays_reduced_ni_rate]
     end
 
     def new_rules_and_less_than_10_ni? ni
@@ -215,7 +216,10 @@ module SmartAnswer::Calculators
       rre_start_date = Date.new(1953,4,6)
       rre_end_date = Date.new(1961,4,5)
 
-      true if @qualifying_years.between?(10,29) && dob.between?(rre_start_date, rre_end_date) && gender == :female
+      pays_reduced_ni_rate &&
+        gender == :female &&
+        qualifying_years.between?(10,29) &&
+        dob.between?(rre_start_date, rre_end_date)
     end
   end
 end
