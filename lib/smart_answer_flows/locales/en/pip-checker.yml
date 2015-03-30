@@ -43,7 +43,7 @@ en-GB:
 
           ###Northwest England (current postcodes)
 
-          BL (Bolton), BB (Blackburn), CA (Carlisle), CH (Chester), CW (Crewe), L (Liverpool), LA (Lancaster), M (Manchester), OL (Oldham), PR (Preston), SK (Stockport), WA (Warrington), WN (Wigan)
+          BL (Bolton), BB (Blackburn), CA (Carlisle), CH (Chester), CW (Crewe), FY (Fylde), L (Liverpool), LA (Lancaster), M (Manchester), OL (Oldham), PR (Preston), SK (Stockport), WA (Warrington), WN (Wigan)
 
           ###Southeast England
 
@@ -65,7 +65,7 @@ en-GB:
 
           Current postcodes | From 25 May | From 27 July
           - | - | -
-          AB (Aberdeen), DD (Dundee), DG (Dumfries and Galloway), EH (Edinburgh), G (Glasgow, IV (Inverness), KA (Kilmarnock), KY (Kirkcaldy), ML (Motherwell), PH (Perth), TD (Galashiels), FK (Falkirk), FY (Fylde) | PA (Paisley)  | HS (Hebrides), KW (Kirkwall), ZE (Lerwick)
+          AB (Aberdeen), DD (Dundee), DG (Dumfries and Galloway), EH (Edinburgh), G (Glasgow, IV (Inverness), KA (Kilmarnock), KY (Kirkcaldy), ML (Motherwell), PH (Perth), TD (Galashiels), FK (Falkirk) | PA (Paisley)  | HS (Hebrides), KW (Kirkwall), ZE (Lerwick)
 
         scheme_postcodes_pre_3rd_feb_2014: |
           - DG (Dumfries and Galloway)
