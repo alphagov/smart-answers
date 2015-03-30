@@ -38,6 +38,8 @@ en-GB:
         + births 15 weeks before the due date
         + [Additional paternity Leave or Pay](/additional-paternity-leave-pay-employees)
         + paternity leave or pay for [overseas adoptions](/paternity-leave-pay-employees)
+        + [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide
+        
       phrases:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
@@ -80,6 +82,8 @@ en-GB:
           Latest date to claim SMP | %{notice_request_pay}
           SMP start date due to pregnancy related illness| %{ssp_stop}
           Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
+          
+          %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
         paydates_table: |
           ## SMP calculation
@@ -106,9 +110,7 @@ en-GB:
           Send them form SMP1 within 7 days of your decision. They must get this form within 28 days of their pay request or the birth (whichever is earlier).
 
 
-          $D
-            [Download Form SMP1, Non-payment of Statutory Maternity Pay (PDF, 59KB)](http://www.dwp.gov.uk/advisers/claimforms/smp1_print.pdf){:rel="external"}
-          $D
+          $D [Download Form SMP1, Non-payment of Statutory Maternity Pay (PDF, 59KB)](http://www.dwp.gov.uk/advisers/claimforms/smp1_print.pdf) $D
 
         paternity_entitled_to_leave: |
           ##Statutory Paternity Leave
@@ -145,6 +147,7 @@ en-GB:
           %{pay_dates_and_pay}
            | **Total SPP: £%{total_spp}**
 
+          %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
         paternity_not_entitled_to_leave_or_pay_intro: |
           ##Not entitled to Statutory Paternity Pay or Leave
@@ -155,7 +158,7 @@ en-GB:
 
           You must write confirming this. Also, send them form OSP1 confirming they’re not entitled to pay within 28 days of their pay request.
 
-          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf){:rel="external"} $D
+          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
 
         # Result 3
         paternity_not_entitled_to_pay_intro: |
@@ -168,7 +171,7 @@ en-GB:
           Send them form OSPP1 confirming this within 28 days of their pay request.
 
 
-          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf){:rel="external"} $D
+          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
 
 
         adoption_leave_table: |
@@ -200,6 +203,7 @@ en-GB:
           %{pay_dates_and_pay}
            | **Total SAP: £%{total_sap}**
 
+          %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
         adoption_not_entitled_to_pay_intro: |
           ##Statutory Adoption Pay
@@ -210,7 +214,7 @@ en-GB:
           Send them form SAP1 within 7 days of your decision. They must get this form within 28 days of their pay request or the date they were matched with the child (whichever is earlier).
 
 
-          $D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf){:rel="external"} $D
+          $D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf) $D
 
       ## Q1
       what_type_of_leave?:
@@ -302,7 +306,7 @@ en-GB:
       ## Combined result for maternity leave and pay.
       maternity_leave_and_pay_result:
         next_steps: |
-          Read the [guide to Statutory Maternity Pay and Leave](/maternity-leave-pay-employees "Maternity leave and pay")
+          Read the [guide to Statutory Maternity Pay and Leave](/maternity-leave-pay-employees)
         body: |
           %{maternity_leave_info}
 
@@ -424,13 +428,13 @@ en-GB:
       ## Paternity Results:
       paternity_leave_and_pay:
         next_steps: |
-          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees "Paternity leave and pay")
+          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees")
         body: |
           %{paternity_info}
 
       paternity_not_entitled_to_leave_or_pay:
         next_steps: |
-          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees "Paternity leave and pay")
+          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
         body: |
           %{not_entitled_reason}
 
@@ -504,7 +508,7 @@ en-GB:
       ## Adoption outcomes
       adoption_leave_and_pay:
         next_steps: |
-          Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees "Adoption leave and pay")
+          Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees)
         body: |
           %{adoption_leave_info}
 
@@ -512,7 +516,7 @@ en-GB:
 
       adoption_not_entitled_to_leave_or_pay:
         next_steps: |
-          Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees "Adoption leave and pay")
+          Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees)
         body: |
           ##Not entitled to Statutory Adoption Leave and Pay
 
@@ -521,4 +525,4 @@ en-GB:
           You must write confirming this. Also, send them form SAP1 confirming they’re not entitled to pay within 28 days of their pay request.
 
 
-          $D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf){:rel="external"} $D
+          $D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf) $D
