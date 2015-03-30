@@ -301,7 +301,7 @@ module SmartAnswer::Calculators
           @calculator.overtime_hourly_rate = 2
           assert_equal 6.08, @calculator.minimum_hourly_rate
           assert_equal 20, @calculator.total_overtime_pay
-          assert_equal 2.5, @calculator.total_hourly_rate
+          assert_equal 2.0, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
@@ -766,7 +766,7 @@ module SmartAnswer::Calculators
         # underpayment
         assert_equal 5.52, @calculator.minimum_hourly_rate
         assert_equal 2.5, @calculator.total_hourly_rate
-        assert_equal 135.46, @calculator.historical_adjustment
+        assert_equal 120.8, @calculator.historical_adjustment
       end
 
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2008-10-01/no/25/7/40/100.0/0/no
