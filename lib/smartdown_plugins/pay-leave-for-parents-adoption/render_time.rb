@@ -6,6 +6,21 @@ module SmartdownPlugins
 
     #Flow helpers
 
+    def self.qualifies_for_maternity_allowance?(employment_status, earnings, work_employment, job_before, job_after, lel)
+      !qualifies_for_pay?(employment_status, job_before, job_after, lel) && earnings_employment(earnings, work_employment)
+    end
+
+    def self.qualifies_for_pay?(employment_status, job_before, job_after, lel)
+      (employment_status == 'employee' || employment_status == 'worker') &&
+      continuity(job_before, job_after) &&
+      lower_earnings(lel)
+    end
+
+    def self.qualifies_for_leave?(employment_status, job_before, job_after)
+      employment_status == 'employee' &&
+      continuity(job_before, job_after)
+    end
+
     #Continuity test
     def self.continuity(job_before, job_after)
       job_before == "yes" && job_after == "yes"

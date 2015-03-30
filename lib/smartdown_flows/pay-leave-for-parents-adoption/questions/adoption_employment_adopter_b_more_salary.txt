@@ -2,7 +2,7 @@
 
 # How much did the mother earn between %{earnings_employment_start_date(due_date)} and %{earnings_employment_end_date(due_date)}?
 
-[salary: salary_1_66_weeks]
+[salary: salary_2_66_weeks]
 
 * due_date >= '2015-4-5' => outcome_adoption_post_april_5_2015_adopter_a_adopter_b
 * due_date < '2015-4-5' => outcome_adoption_pre_april_5_2015_adopter_a_adopter_b

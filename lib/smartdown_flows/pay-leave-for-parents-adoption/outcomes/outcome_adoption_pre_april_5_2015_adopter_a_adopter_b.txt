@@ -1,4 +1,4 @@
-# Option A
+#Option A
 
 $IF employment_status_2 is 'self-employed' AND employment_status_1 is 'unemployed'
 
@@ -11,7 +11,6 @@ $IF earnings_employment(earnings_employment_1 work_employment_1)
 {{snippet: adoption-mat-allowance}}
 
 $ENDIF
-
 
 $IF employment_status_1 in {employee worker} AND continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
 
@@ -83,13 +82,13 @@ $ENDIF
 
 $IF NOT continuity(job_before_x_1 job_after_y_1) AND NOT continuity(job_before_x_2 job_after_y_2)
 
-{{snippet: adoption-birth-nothing}}
+{{snippet: adoption-nothing}}
 
 $ENDIF
 
 {{snippet: extra-help}}
 
-# Option B
+#Option B
 
 $IF employment_status_1 is 'self-employed' AND employment_status_2 is 'unemployed'
 
@@ -173,7 +172,7 @@ $ENDIF
 
 $IF NOT continuity(job_before_x_1 job_after_y_1) AND NOT continuity(job_before_x_2 job_after_y_2)
 
-{{snippet: adoption-birth-nothing}}
+{{snippet: adoption-nothing}}
 
 $ENDIF
 
