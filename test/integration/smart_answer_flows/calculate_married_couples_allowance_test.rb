@@ -103,9 +103,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
                 should "calculate allowance using calculators" do
                   SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
-                    expects(:calculate_adjusted_net_income).
-      with(30000.0, 1000.0, 500.0, 100.0).
-                    returns("Adjusted net income")
+                    expects(:calculate_adjusted_net_income)
+                      .with(30000.0, 1000.0, 500.0, 100.0)
+                      .returns("Adjusted net income")
 
                   SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
                     expects(:get_age_related_allowance).
@@ -145,9 +145,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "calculate allowance using calculators" do
               SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_adjusted_net_income).
-  with(30000.0, 40000.0, 0, 0).
-                returns("Adjusted net income")
+                expects(:calculate_adjusted_net_income)
+                  .with(30000.0, 40000.0, 0, 0)
+                  .returns("Adjusted net income")
 
               SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
                 expects(:get_age_related_allowance).
@@ -184,9 +184,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "calculate allowance using calculators" do
               SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_adjusted_net_income).
-  with(30000.0, 0, 0, 100.0).
-                returns("Adjusted net income")
+                expects(:calculate_adjusted_net_income)
+                  .with(30000.0, 0, 0, 100.0)
+                  .returns("Adjusted net income")
 
               SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
                 expects(:get_age_related_allowance).
@@ -212,9 +212,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "calculate allowance using calculators" do
               SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_adjusted_net_income).
-  with(30000.0, 0, 0, 0).
-                returns("Adjusted net income")
+                expects(:calculate_adjusted_net_income)
+                  .with(30000.0, 0, 0, 0)
+                  .returns("Adjusted net income")
 
               SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
                 expects(:get_age_related_allowance).
@@ -318,9 +318,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
                 should "calculate allowance using calculators" do
                   SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
-                    expects(:calculate_adjusted_net_income).
-      with(30000.0, 1000.0, 500.0, 100.0).
-                    returns("Adjusted net income")
+                    expects(:calculate_adjusted_net_income)
+                      .with(30000.0, 1000.0, 500.0, 100.0)
+                      .returns("Adjusted net income")
 
                   SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
                     expects(:get_age_related_allowance).
@@ -368,9 +368,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "calculate allowance using calculators" do
               SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_adjusted_net_income).
-  with(30000.0, 0, 0, 100.0).
-                returns("Adjusted net income")
+                expects(:calculate_adjusted_net_income)
+                  .with(30000.0, 0, 0, 100.0)
+                  .returns("Adjusted net income")
 
               SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
                 expects(:get_age_related_allowance).
@@ -396,9 +396,9 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "calculate allowance using calculators" do
               SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_adjusted_net_income).
-  with(30000.0, 0, 0, 0).
-                returns("Adjusted net income")
+                expects(:calculate_adjusted_net_income)
+                  .with(30000.0, 0, 0, 0)
+                  .returns("Adjusted net income")
 
               SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
                 expects(:get_age_related_allowance).
@@ -464,11 +464,10 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
       should "use the new rating values" do
         Timecop.travel("2014-04-13") do
           assert_state_variable :is_before_april_changes, false
-          assert_state_variable :personal_allowance, 10000
-          assert_state_variable :earner_limit, 27000.0
+          assert_state_variable :personal_allowance, 10_000
+          assert_state_variable :earner_limit, 27_000.0
         end
       end
     end
   end
-
 end
