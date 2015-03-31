@@ -75,4 +75,4 @@ To help developers track changes in files easily, it is best if you commit V2 fi
 
 ## Detailed documentation
 
-- [How to archive a Smart Answer](docs/archiving.md)
+- [How to archive a Smart Answer](doc/archiving.md)
