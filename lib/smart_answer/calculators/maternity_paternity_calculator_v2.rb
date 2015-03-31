@@ -98,7 +98,8 @@ module SmartAnswer::Calculators
         {min: Date.parse("17 July 2011"), max: Date.parse("14 July 2012"), lower_earning_limit_rate: 102},
         {min: Date.parse("15 July 2012"), max: Date.parse("13 July 2013"), lower_earning_limit_rate: 107},
         {min: Date.parse("14 July 2013"), max: Date.parse("5 April 2014"), lower_earning_limit_rate: 109},
-        {min: Date.parse("6 April 2014"), max: Date.parse("5 April 2015"), lower_earning_limit_rate: 111}
+        {min: Date.parse("6 April 2014"), max: Date.parse("5 April 2015"), lower_earning_limit_rate: 111},
+        {min: Date.parse("6 April 2015"), max: Date.parse("5 April 2100"), lower_earning_limit_rate: 112} ### Change year in future
       ]
     end
 
@@ -113,7 +114,8 @@ module SmartAnswer::Calculators
         {min: Date.parse("3 April 2011"), max: Date.parse("31 March 2012"), lower_earning_limit_rate: 102},
         {min: Date.parse("1 April 2012"), max: Date.parse("31 March 2013"), lower_earning_limit_rate: 107},
         {min: Date.parse("1 April 2013"), max: Date.parse("5 April 2014"), lower_earning_limit_rate: 109},
-        {min: Date.parse("6 April 2014"), max: Date.parse("5 April 2015"), lower_earning_limit_rate: 111}
+        {min: Date.parse("6 April 2014"), max: Date.parse("5 April 2015"), lower_earning_limit_rate: 111},
+        {min: Date.parse("6 April 2015"), max: Date.parse("5 April 2100"), lower_earning_limit_rate: 112} ### Change year in future
       ]
     end
 
@@ -272,7 +274,8 @@ module SmartAnswer::Calculators
       rates = [
         { min: uprating_date(2012), max: uprating_date(2013), amount: 135.45 },
         { min: uprating_date(2013), max: uprating_date(2014), amount: 136.78 },
-        { min: uprating_date(2014), max: uprating_date(2100), amount: 138.18 } ### Change year in future
+        { min: uprating_date(2014), max: uprating_date(2015), amount: 138.18 },
+        { min: uprating_date(2014), max: uprating_date(2100), amount: 139.58 } ### Change year in future
       ]
       rate = rates.find { |r| r[:min] <= date and date < r[:max] } || rates.last
       rate[:amount]
