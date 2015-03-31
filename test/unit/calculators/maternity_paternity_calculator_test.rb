@@ -464,7 +464,7 @@ module SmartAnswer::Calculators
         should "calculate last working day of the month pay dates" do
           @calculator.pay_method = 'last_working_day_of_the_month'
           @calculator.pay_day_in_week = 3 # Paid last Wednesday in the month
-   @calculator.work_days = [1, 3, 4]
+          @calculator.work_days = [1, 3, 4]
           paydates = @calculator.paydates_last_working_day_of_the_month
 
           assert_equal '2012-07-30', paydates.first.to_s
@@ -754,7 +754,8 @@ module SmartAnswer::Calculators
           assert_equal 276.36, paydates_and_pay.first[:pay]
         end
       end
-      context "test adoption table rate returned for weekly amounts" do
+
+      context "test adoption table rate returned for weekly amounts in 2013/14" do
         setup do
           @match_date = Date.parse("2 January 2014")
           @calculator = MaternityPaternityCalculator.new(@match_date, "adoption")
@@ -778,6 +779,7 @@ module SmartAnswer::Calculators
           assert_equal 138.18, paydates_and_pay.last[:pay]
         end
       end
+
       context "test adoption table rate returned for a certain weekday in each month" do
         setup do
           @match_date = Date.parse("2 January 2014")
