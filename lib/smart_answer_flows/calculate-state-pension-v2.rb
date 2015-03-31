@@ -257,7 +257,7 @@ value_question :years_of_jsa? do
       ''
     end
   end
-  
+
   calculate :qualifying_years do
     jsa_years = Integer(responses.last)
     qy = (qualifying_years + jsa_years)
@@ -308,7 +308,7 @@ multiple_choice :received_child_benefit? do
     ni_and_credits = ni + calculator.starting_credits
     calculator.new_rules_and_less_than_10_ni?(ni_and_credits) && !calculator.credit_band
   }
-  
+
   define_predicate(:credit_age?) { calculator.credit_age? }
 
   next_node_if(:years_of_benefit?, responded_with("yes"))
@@ -524,7 +524,10 @@ outcome :amount_result do
 
   precalculate :calculator do
     Calculators::StatePensionAmountCalculatorV2.new(
-      gender: gender, dob: dob, qualifying_years: (qualifying_years_total)
+      gender: gender,
+      dob: dob,
+      qualifying_years: qualifying_years_total,
+      pays_reduced_ni_rate: (pays_reduced_ni_rate.to_s == 'yes')
     )
   end
 
