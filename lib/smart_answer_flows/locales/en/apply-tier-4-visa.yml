@@ -52,7 +52,9 @@ en-GB:
           Your sponsor institution is: %{sponsor_name}
 
           Your sponsor number is: %{sponsor_id}
-
+          
+          %You won't be able to apply online from 11:59pm on Sunday 5 April to 3:30am on Tuesday 7 April.%
+          
           %{application_link}
 
           You should read the guidance before you apply:
