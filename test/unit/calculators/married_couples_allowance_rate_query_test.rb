@@ -16,11 +16,22 @@ module SmartAnswer::Calculators
       context "personal_allowance" do
         context "on 15th April 2116 (fallback)" do
           setup do
-            Timecop.travel("2116-04-05")
+            Timecop.travel("2116-04-15")
+            @query.stubs(:data).returns({ "personal_allowance" => { 2014 => 10000, 2015 => 99999 }})
           end
 
           should "be the latest known walue" do
-            assert_equal 10000, @query.personal_allowance
+            assert_equal 99999, @query.personal_allowance
+          end
+        end
+
+        context "on 5th April 2016" do
+          setup do
+            Timecop.travel("2016-04-05")
+          end
+
+          should "be 10600" do
+            assert_equal 10600, @query.personal_allowance
           end
         end
 
