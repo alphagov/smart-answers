@@ -174,7 +174,7 @@ outcome :oru_result do
   end
 
   precalculate :payment_method do
-    if country_of_death == 'algeria'
+    if !in_the_uk && current_location == 'algeria'
       PhraseList.new(:payment_method_in_algeria)
     else
       PhraseList.new(:standard_payment_method)
