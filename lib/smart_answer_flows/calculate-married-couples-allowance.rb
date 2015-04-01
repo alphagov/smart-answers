@@ -5,34 +5,17 @@ multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
   option yes: :did_you_marry_or_civil_partner_before_5_december_2005?
   option no: :sorry
 
-  calculate :is_before_april_changes do
-    Date.today < Date.civil(2014, 04, 06)
-  end
-
-  calculate :personal_allowance do
-    is_before_april_changes ? 9440 : 10000
-  end
-
-  calculate :earner_limit do
-    is_before_april_changes ? 26100.0 : 27000.0
-  end
-
   calculate :age_related_allowance_chooser do
+    rates = SmartAnswer::Calculators::MarriedCouplesAllowanceRateQuery.new
     AgeRelatedAllowanceChooser.new(
-      personal_allowance: personal_allowance,
-      over_65_allowance: 10500,
-      over_75_allowance: 10660
+      personal_allowance: rates.personal_allowance,
+      over_65_allowance: rates.over_65_allowance,
+      over_75_allowance: rates.over_75_allowance
     )
   end
 
   calculate :calculator do
-    MarriedCouplesAllowanceCalculator.new(
-      maximum_mca: (is_before_april_changes ? 7915 : 8165),
-      minimum_mca: (is_before_april_changes ? 3040 : 3140),
-      income_limit: (is_before_april_changes ? 26100 : 27000),
-      personal_allowance: personal_allowance,
-      validate_income: false
-    )
+    MarriedCouplesAllowanceCalculator.new(validate_income: false)
   end
 
 end

@@ -1,0 +1,21 @@
+---
+# the year denotes a starting year of the fiscal year
+# e.g. 2014 for 6th Apr 2014 - 5th April 2015
+personal_allowance:
+  2013: 9440
+  2014: 10000
+over_65_allowance:
+  2013: 10500
+  2014: 10500
+over_75_allowance:
+  2013: 10660
+  2014: 10660
+income_limit_for_personal_allowances:
+  2013: 26100.0
+  2014: 27000.0
+maximum_married_couple_allowance:
+  2013: 7915
+  2014: 8165
+minimum_married_couple_allowance:
+  2013: 3040
+  2014: 3140
