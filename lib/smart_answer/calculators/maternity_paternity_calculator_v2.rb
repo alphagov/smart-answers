@@ -334,8 +334,19 @@ module SmartAnswer::Calculators
     def rate_for(date)
       if leave_type == 'maternity'
         maternity_rate_for(date)
+      elsif leave_type == 'adoption'
+        adoption_rate_for(date)
       else
-        paternity_padoption_adoption_rate_for(date)
+        paternity_rate_for(date)
+      end
+    end
+
+    def adoption_rate_for(date)
+      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
+      if date < 6.weeks.since(leave_start_date) && @match_date >= Date.parse('5 April 2015')
+        awe
+      else
+        [statutory_rate(date), awe].min
       end
     end
 
@@ -347,7 +358,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    def paternity_padoption_adoption_rate_for(date)
+    def paternity_rate_for(date)
       awe = (@average_weekly_earnings.to_f * 0.9).round(2)
       [statutory_rate(date), awe].min
     end
