@@ -29,6 +29,25 @@ module SmartdownPlugins
       employment_status == 'employee' && job_after == 'yes'
     end
 
+    def self.both_qualifies_for_shared_pay?(employment_status_1, job_before_1, job_after_1, lel_1, employment_status_2, job_before_2, job_after_2, lel_2)
+      qualifies_for_pay?(employment_status_1, job_before_1, job_after_1, lel_1) &&
+      qualifies_for_pay?(employment_status_2, job_before_2, job_after_2, lel_2)
+    end
+
+    def self.both_qualifies_for_shared_leave?(employment_status_1, job_before_1, job_after_1, lel_1, work_employment_1, earnings_employment_1, employment_status_2, job_before_2, job_after_2, lel_2, work_employment_2, earnings_employment_2)
+      (qualifies_for_maternity_leave?(employment_status_1, job_after_1) ||
+      qualifies_for_leave?(employment_status_1, job_before_1, job_after_1) ||
+      qualifies_for_pay?(employment_status_1, job_before_1, job_after_1, lel_1) ||
+      qualifies_for_pay?(employment_status_2, job_before_2, job_after_2, lel_2) ||
+      qualifies_for_maternity_allowance?(employment_status_1, earnings_employment_1, work_employment_1, job_before_1, job_after_1, lel_1)) &&
+      employment_status_1 == 'employee' &&
+      continuity(job_before_1, job_after_1) &&
+      earnings_employment(earnings_employment_1, work_employment_1) &&
+      employment_status_2 == 'employee' &&
+      continuity(job_before_2, job_after_2) &&
+      earnings_employment(earnings_employment_2, work_employment_2)
+    end
+
     #Continuity test
     def self.continuity(job_before, job_after)
       job_before == "yes" && job_after == "yes"

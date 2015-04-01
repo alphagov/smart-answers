@@ -1,22 +1,24 @@
-# Option A
+#Option A
 
-$IF employment_status_2 is 'self-employed' AND employment_status_1 is 'unemployed'
+$IF qualifies_for_14_week_maternity_allowance?(employment_status_1 employment_status_2)
 
 {{snippet: adoption-mat-allowance-14-weeks}}
 
 $ENDIF
 
-$IF earnings_employment(earnings_employment_1 work_employment_1)
+$IF qualifies_for_maternity_allowance?(employment_status_1 earnings_employment_1 work_employment_1 job_before_x_1 job_after_y_1 lel_1)
 
 {{snippet: adoption-mat-allowance}}
 
 $ENDIF
 
-$IF employment_status_1 in {employee worker} AND continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
+$IF qualifies_for_pay?(employment_status_1 job_before_x_1 job_after_y_1 lel_1)
 
 {{snippet: adoption-mat-pay}}
 
-$IF NOT employment_status_2 in {employee worker} OR NOT continuity(job_before_x_2 job_after_y_2) OR NOT lower_earnings(lel_2)
+$IF NOT both_qualifies_for_shared_pay?(employment_status_1 job_before_x_1 job_after_y_1 lel_1 employment_status_2 job_before_x_2 job_after_y_2 lel_2)
+
+$IF earnings_employment(earnings_employment_2 work_employment_2)
 
 {{snippet: adoption-mat-shared-pay}}
 
@@ -24,11 +26,19 @@ $ENDIF
 
 $ENDIF
 
-$IF employment_status_1 is 'employee' AND job_after_y_1 is 'yes'
+$ENDIF
+
+$IF qualifies_for_maternity_leave?(employment_status_1 job_after_y_1)
 
 {{snippet: adoption-mat-leave}}
 
-$IF NOT employment_status_2 is 'employee' OR NOT continuity(job_before_x_2 job_after_y_2)
+$ENDIF
+
+$IF NOT both_qualifies_for_shared_leave?(employment_status_1 job_before_x_1 job_after_y_1 lel_1 work_employment_1 earnings_employment_1 employment_status_2 job_before_x_2 job_after_y_2 lel_2 work_employment_2 earnings_employment_2)
+
+$IF qualifies_for_maternity_leave?(employment_status_1 job_after_y_1) OR qualifies_for_pay?(employment_status_1 job_before_x_1 job_after_y_1 lel_1) OR qualifies_for_maternity_allowance?(employment_status_1 earnings_employment_1 work_employment_1 job_before_x_1 job_after_y_1 lel_1)
+
+$IF qualifies_for_leave?(employment_status_1 job_before_x_1 job_after_y_1) AND earnings_employment(earnings_employment_2 work_employment_2)
 
 {{snippet: adoption-mat-shared-leave}}
 
@@ -36,11 +46,16 @@ $ENDIF
 
 $ENDIF
 
-$IF employment_status_2 in {employee worker} AND continuity(job_before_x_2 job_after_y_2) AND lower_earnings(lel_2)
+$ENDIF
+
+
+$IF qualifies_for_pay?(employment_status_2 job_before_x_2 job_after_y_2 lel_2)
 
 {{snippet: adoption-pat-pay}}
 
-$IF NOT employment_status_1 in {employee worker} OR NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1)
+$IF qualifies_for_pay?(employment_status_1 job_before_x_1 job_after_y_1 lel_1) OR qualifies_for_maternity_allowance?(employment_status_1 earnings_employment_1 work_employment_1 job_before_x_1 job_after_y_1 lel_1)
+
+$IF NOT both_qualifies_for_shared_pay?(employment_status_1 job_before_x_1 job_after_y_1 lel_1 employment_status_2 job_before_x_2 job_after_y_2 lel_2)
 
 {{snippet: adoption-pat-shared-pay}}
 
@@ -48,11 +63,19 @@ $ENDIF
 
 $ENDIF
 
-$IF employment_status_2 is 'employee' AND continuity(job_before_x_2 job_after_y_2)
+$ENDIF
+
+$IF qualifies_for_leave?(employment_status_2 job_before_x_2 job_after_y_2)
 
 {{snippet: adoption-pat-leave}}
 
-$IF NOT employment_status_1 is 'employee' OR NOT continuity(job_before_x_1 job_after_y_1)
+$ENDIF
+
+$IF NOT both_qualifies_for_shared_leave?(employment_status_1 job_before_x_1 job_after_y_1 lel_1 work_employment_1 earnings_employment_1 employment_status_2 job_before_x_2 job_after_y_2 lel_2 work_employment_2 earnings_employment_2)
+
+$IF qualifies_for_maternity_leave?(employment_status_1 job_after_y_1) OR qualifies_for_pay?(employment_status_1 job_before_x_1 job_after_y_1 lel_1) OR qualifies_for_maternity_allowance?(employment_status_1 earnings_employment_1 work_employment_1 job_before_x_1 job_after_y_1 lel_1)
+
+$IF qualifies_for_leave?(employment_status_2 job_before_x_2 job_after_y_2) AND earnings_employment(earnings_employment_1 work_employment_1)
 
 {{snippet: adoption-pat-shared-leave}}
 
@@ -60,21 +83,52 @@ $ENDIF
 
 $ENDIF
 
-$IF employment_status_1 in {employee worker} AND continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1) AND employment_status_2 in {employee worker} AND continuity(job_before_x_2 job_after_y_2) AND lower_earnings(lel_2)
+$ENDIF
+
+$IF both_qualifies_for_shared_pay?(employment_status_1 job_before_x_1 job_after_y_1 lel_1 employment_status_2 job_before_x_2 job_after_y_2 lel_2)
 
 {{snippet: adoption-both-shared-pay}}
 
 $ENDIF
 
-$IF employment_status_1 is 'employee' AND continuity(job_before_x_1 job_after_y_1) AND employment_status_2 is 'employee' AND continuity(job_before_x_2 job_after_y_2)
+$IF both_qualifies_for_shared_leave?(employment_status_1 job_before_x_1 job_after_y_1 lel_1 work_employment_1 earnings_employment_1 employment_status_2 job_before_x_2 job_after_y_2 lel_2 work_employment_2 earnings_employment_2)
 
 {{snippet: adoption-both-shared-leave}}
 
 $ENDIF
 
-$IF NOT continuity(job_before_x_1 job_after_y_1) AND NOT continuity(job_before_x_2 job_after_y_2)
+
+$IF NOT both_qualifies_for_shared_pay?(employment_status_1 job_before_x_1 job_after_y_1 lel_1 employment_status_2 job_before_x_2 job_after_y_2 lel_2)
+
+$IF NOT both_qualifies_for_shared_leave?(employment_status_1 job_before_x_1 job_after_y_1 lel_1 work_employment_1 earnings_employment_1 employment_status_2 job_before_x_2 job_after_y_2 lel_2 work_employment_2 earnings_employment_2)
+
+$IF NOT qualifies_for_14_week_maternity_allowance?(employment_status_1 employment_status_2)
+
+$IF NOT qualifies_for_maternity_allowance?(employment_status_1 earnings_employment_1 work_employment_1 job_before_x_1 job_after_y_1 lel_1)
+
+$IF NOT qualifies_for_pay?(employment_status_1 job_before_x_1 job_after_y_1 lel_1)
+
+$IF NOT qualifies_for_pay?(employment_status_2 job_before_x_2 job_after_y_2 lel_2)
+
+$IF NOT qualifies_for_maternity_leave?(employment_status_1 job_after_y_1)
+
+$IF NOT qualifies_for_leave?(employment_status_2 job_before_x_2 job_after_y_2)
 
 {{snippet: adoption-nothing}}
+
+$ENDIF
+
+$ENDIF
+
+$ENDIF
+
+$ENDIF
+
+$ENDIF
+
+$ENDIF
+
+$ENDIF
 
 $ENDIF
 
@@ -82,24 +136,25 @@ $ENDIF
 
 #Option B
 
-$IF employment_status_1 is 'self-employed' AND employment_status_2 is 'unemployed'
+$IF qualifies_for_14_week_maternity_allowance?(employment_status_2 employment_status_1)
 
 {{snippet: adoption-mat-allowance-14-weeks-perm2}}
 
 $ENDIF
 
-$IF earnings_employment(earnings_employment_2 work_employment_2)
+$IF qualifies_for_maternity_allowance?(employment_status_2 earnings_employment_2 work_employment_2 job_before_x_2 job_after_y_2 lel_2)
 
 {{snippet: adoption-mat-allowance-perm2}}
 
 $ENDIF
 
-
-$IF employment_status_2 in {employee worker} AND continuity(job_before_x_2 job_after_y_2) AND lower_earnings(lel_2)
+$IF qualifies_for_pay?(employment_status_2 job_before_x_2 job_after_y_2 lel_2)
 
 {{snippet: adoption-mat-pay-perm2}}
 
-$IF NOT employment_status_1 in {employee worker} OR NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1)
+$IF NOT both_qualifies_for_shared_pay?(employment_status_2 job_before_x_2 job_after_y_2 lel_2 employment_status_1 job_before_x_1 job_after_y_1 lel_1)
+
+$IF earnings_employment(earnings_employment_1 work_employment_1)
 
 {{snippet: adoption-mat-shared-pay-perm2}}
 
@@ -107,11 +162,19 @@ $ENDIF
 
 $ENDIF
 
-$IF employment_status_2 is 'employee' AND job_after_y_2 is 'yes'
+$ENDIF
+
+$IF qualifies_for_maternity_leave?(employment_status_2 job_after_y_2)
 
 {{snippet: adoption-mat-leave-perm2}}
 
-$IF NOT employment_status_1 is 'employee' OR NOT continuity(job_before_x_1 job_after_y_1)
+$ENDIF
+
+$IF NOT both_qualifies_for_shared_leave?(employment_status_2 job_before_x_2 job_after_y_2 lel_2 work_employment_2 earnings_employment_2 employment_status_1 job_before_x_1 job_after_y_1 lel_1 work_employment_1 earnings_employment_1)
+
+$IF qualifies_for_maternity_leave?(employment_status_2 job_after_y_2) OR qualifies_for_pay?(employment_status_2 job_before_x_2 job_after_y_2 lel_2) OR qualifies_for_maternity_allowance?(employment_status_2 earnings_employment_2 work_employment_2 job_before_x_2 job_after_y_2 lel_2)
+
+$IF qualifies_for_leave?(employment_status_2 job_before_x_2 job_after_y_2) AND earnings_employment(earnings_employment_1 work_employment_1)
 
 {{snippet: adoption-mat-shared-leave-perm2}}
 
@@ -119,11 +182,16 @@ $ENDIF
 
 $ENDIF
 
-$IF employment_status_1 in {employee worker} AND continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
+$ENDIF
+
+
+$IF qualifies_for_pay?(employment_status_1 job_before_x_1 job_after_y_1 lel_1)
 
 {{snippet: adoption-pat-pay-perm2}}
 
-$IF NOT employment_status_2 in {employee worker} OR NOT continuity(job_before_x_2 job_after_y_2) OR NOT lower_earnings(lel_2)
+$IF qualifies_for_pay?(employment_status_2 job_before_x_2 job_after_y_2 lel_2) OR qualifies_for_maternity_allowance?(employment_status_2 earnings_employment_2 work_employment_2 job_before_x_2 job_after_y_2 lel_2)
+
+$IF NOT both_qualifies_for_shared_pay?(employment_status_2 job_before_x_2 job_after_y_2 lel_2 employment_status_1 job_before_x_1 job_after_y_1 lel_1)
 
 {{snippet: adoption-pat-shared-pay-perm2}}
 
@@ -131,11 +199,19 @@ $ENDIF
 
 $ENDIF
 
-$IF employment_status_1 is 'employee' AND continuity(job_before_x_1 job_after_y_1)
+$ENDIF
+
+$IF qualifies_for_leave?(employment_status_1 job_before_x_1 job_after_y_1)
 
 {{snippet: adoption-pat-leave-perm2}}
 
-$IF NOT employment_status_2 is 'employee' OR NOT continuity(job_before_x_2 job_after_y_2)
+$ENDIF
+
+$IF NOT both_qualifies_for_shared_leave?(employment_status_2 job_before_x_2 job_after_y_2 lel_2 work_employment_2 earnings_employment_2 employment_status_1 job_before_x_1 job_after_y_1 lel_1 work_employment_1 earnings_employment_1)
+
+$IF qualifies_for_maternity_leave?(employment_status_2 job_after_y_2) OR qualifies_for_pay?(employment_status_2 job_before_x_2 job_after_y_2 lel_2) OR qualifies_for_maternity_allowance?(employment_status_2 earnings_employment_2 work_employment_2 job_before_x_2 job_after_y_2 lel_2)
+
+$IF qualifies_for_leave?(employment_status_1 job_before_x_1 job_after_y_1) AND earnings_employment(earnings_employment_2 work_employment_2)
 
 {{snippet: adoption-pat-shared-leave-perm2}}
 
@@ -143,21 +219,52 @@ $ENDIF
 
 $ENDIF
 
-$IF employment_status_1 in {employee worker} AND continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1) AND employment_status_2 in {employee worker} AND continuity(job_before_x_2 job_after_y_2) AND lower_earnings(lel_2)
+$ENDIF
 
-{{snippet: adoption-both-shared-pay}}
+$IF both_qualifies_for_shared_pay?(employment_status_2 job_before_x_2 job_after_y_2 lel_2 employment_status_1 job_before_x_1 job_after_y_1 lel_1)
+
+{{snippet: adoption-both-shared-pay-perm2}}
 
 $ENDIF
 
-$IF employment_status_1 is 'employee' AND continuity(job_before_x_1 job_after_y_1) AND employment_status_2 is 'employee' AND continuity(job_before_x_2 job_after_y_2)
+$IF both_qualifies_for_shared_leave?(employment_status_2 job_before_x_2 job_after_y_2 lel_2 work_employment_2 earnings_employment_2 employment_status_1 job_before_x_1 job_after_y_1 lel_1 work_employment_1 earnings_employment_1)
 
-{{snippet: adoption-both-shared-leave}}
+{{snippet: adoption-both-shared-leave-perm2}}
 
 $ENDIF
 
-$IF NOT continuity(job_before_x_1 job_after_y_1) AND NOT continuity(job_before_x_2 job_after_y_2)
+
+$IF NOT both_qualifies_for_shared_pay?(employment_status_2 job_before_x_2 job_after_y_2 lel_2 employment_status_1 job_before_x_1 job_after_y_1 lel_1)
+
+$IF NOT both_qualifies_for_shared_leave?(employment_status_2 job_before_x_2 job_after_y_2 lel_2 work_employment_2 earnings_employment_2 employment_status_1 job_before_x_1 job_after_y_1 lel_1 work_employment_1 earnings_employment_1)
+
+$IF NOT qualifies_for_14_week_maternity_allowance?(employment_status_2 employment_status_1)
+
+$IF NOT qualifies_for_maternity_allowance?(employment_status_2 earnings_employment_2 work_employment_2 job_before_x_2 job_after_y_2 lel_2)
+
+$IF NOT qualifies_for_pay?(employment_status_2 job_before_x_2 job_after_y_2 lel_2)
+
+$IF NOT qualifies_for_pay?(employment_status_1 job_before_x_1 job_after_y_1 lel_1)
+
+$IF NOT qualifies_for_maternity_leave?(employment_status_2 job_after_y_2)
+
+$IF NOT qualifies_for_leave?(employment_status_1 job_before_x_1 job_after_y_1)
 
 {{snippet: adoption-nothing}}
+
+$ENDIF
+
+$ENDIF
+
+$ENDIF
+
+$ENDIF
+
+$ENDIF
+
+$ENDIF
+
+$ENDIF
 
 $ENDIF
 
