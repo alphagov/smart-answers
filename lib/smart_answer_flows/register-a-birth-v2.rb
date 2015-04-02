@@ -27,10 +27,6 @@ country_select :country_of_birth?, exclude_countries: exclude_countries do
     end
   end
 
-  calculate :country_with_birth_registration_exception do
-    %w(jordan kuwait oman qatar saudi-arabia united-arab-emirates).include?(country_of_birth)
-  end
-
   next_node_if(:no_embassy_result, country_has_no_embassy)
   next_node_if(:commonwealth_result, reg_data_query.responded_with_commonwealth_country?)
   next_node(:who_has_british_nationality?)
@@ -92,7 +88,7 @@ multiple_choice :where_are_you_now? do
   end
 
   define_predicate(:no_birth_certificate_exception) {
-    country_with_birth_registration_exception & paternity_declaration
+    reg_data_query.has_birth_registration_exception?(country_of_birth) & paternity_declaration
   }
 
   next_node_if(:no_birth_certificate_result, no_birth_certificate_exception)

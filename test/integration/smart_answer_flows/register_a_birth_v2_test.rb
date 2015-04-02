@@ -8,7 +8,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia bangladesh barbados belize cameroon el-salvador estonia germany guatemala grenada iran israel laos libya maldives morocco netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates venezuela)
+    @location_slugs = %w(afghanistan andorra australia bangladesh barbados belize cameroon el-salvador estonia germany guatemala grenada iran iraq israel laos libya maldives morocco netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth-v2'
   end
@@ -155,9 +155,12 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
     end # Spain
   end
   context "answer Afghanistan" do
-    should "give the ORU result" do
+    setup do
       worldwide_api_has_organisations_for_location('afghanistan', read_fixture_file('worldwide/afghanistan_organisations.json'))
       add_response "afghanistan"
+    end
+
+    should "give the ORU result" do
       add_response "mother_and_father"
       add_response "yes"
       add_response "same_country"
@@ -171,7 +174,33 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
       assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
     end
+
+    should "give the no_birth_certificate_result if the child born outside of marriage" do
+      add_response "mother"
+      add_response "no"
+      add_response "same_country"
+
+      assert_current_node :no_birth_certificate_result
+      assert_phrase_list :registration_exception, [:afghanistan_same_country_certificate_exception]
+    end
   end
+
+  context "answer Iraq" do
+    setup do
+      worldwide_api_has_organisations_for_location('iraq', read_fixture_file('worldwide/iraq_organisations.json'))
+      add_response "iraq"
+    end
+
+    should "give the no_birth_certificate_result if the child born outside of marriage" do
+      add_response "mother"
+      add_response "no"
+      add_response "same_country"
+
+      assert_current_node :no_birth_certificate_result
+      assert_phrase_list :registration_exception, [:iraq_same_country_certificate_exception]
+    end
+  end
+
   context "born in Bangladesh but currently in Pakistan" do
     should "give the ORU result" do
       worldwide_api_has_organisations_for_location('bangladesh', read_fixture_file('worldwide/bangladesh_organisations.json'))
@@ -189,24 +218,35 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
     end
   end # Afghanistan
   context "answer Pakistan" do
-    should "give the oru result" do
+    setup do
       worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
       add_response "pakistan"
+    end
+
+    should "give the oru result if currently in the UK" do
+      worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
       add_response "father"
       add_response "yes"
       add_response "in_the_uk"
       assert_current_node :oru_result
-      assert_phrase_list :waiting_time, [:registration_can_take_3_months]
+      assert_phrase_list :waiting_time, [:registration_takes_5_days]
     end
-  end # Pakistan and in UK
-  context "answer Pakistan" do
-    should "give the oru result" do
+
+    should "give the oru result if currently in Pakistan" do
       worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
-      add_response "pakistan"
       add_response "father"
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
+    end
+
+    should "give the no_birth_certificate_result if the child born outside of marriage" do
+      add_response "mother"
+      add_response "no"
+      add_response "same_country"
+
+      assert_current_node :no_birth_certificate_result
+      assert_phrase_list :registration_exception, [:pakistan_same_country_certificate_exception]
     end
   end # Pakistan
 

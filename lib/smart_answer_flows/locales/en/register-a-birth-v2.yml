@@ -383,6 +383,16 @@ en-GB:
         contact_fco: |
           A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> to find out what other proof can be accepted.
 
+        afghanistan_same_country_certificate_exception: |
+          ^It’s illegal in Afghanistan to have a child outside of marriage. You can’t get a local birth certificate.^
+
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at birthregistrationenquiries@fco.gov.uk for advice.
+
+        iraq_same_country_certificate_exception: |
+          ^It’s illegal in Iraq to register the birth of a child if the parents aren't married. You can’t get a local birth certificate.^
+
+          The parents can register the birth if they get married, even if it’s after the birth.
+
         jordan_same_country_certificate_exception: |
           ^It’s illegal in Jordan to have a child outside of marriage. You can’t get a local birth certificate.^
 
@@ -407,6 +417,12 @@ en-GB:
 
         oman_another_country_certificate_exception: |
           You can’t get a local birth certificate if you weren’t married when you had your child.
+
+
+        pakistan_same_country_certificate_exception: |
+          ^It’s illegal in Pakistan to have a child outside of marriage. You can’t get a local birth certificate.^
+
+          A local birth certificate is normally needed to register an overseas birth. Contact the FCO at birthregistrationenquiries@fco.gov.uk for advice.
 
         qatar_same_country_certificate_exception: |
           ^It’s illegal in Qatar to have a child outside of marriage. You can’t get a local birth certificate.^

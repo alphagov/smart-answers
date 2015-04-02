@@ -9,6 +9,8 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITH_CONSULATE_GENERALS = %(brazil hong-kong turkey)
 
+    COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION = %w(afghanistan iraq jordan kuwait oman pakistan qatar saudi-arabia united-arab-emirates)
+
     CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan laos latvia libya slovenia tunisia uganda)
 
     PAY_BY_BANK_DRAFT_COUNTRIES = %w(taiwan)
@@ -43,6 +45,10 @@ module SmartAnswer::Calculators
 
     def initialize
       @data = self.class.registration_data
+    end
+
+    def has_birth_registration_exception?(country_slug)
+      COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION.include?(country_slug)
     end
 
     def commonwealth_country?(country_slug)
