@@ -6,9 +6,6 @@ en-GB:
         description: Work out your State Pension age and Pension Credit qualifying age or estimate how much basic State Pension you may get
       body: |
         Calculate when you’ll reach State Pension age or Pension Credit qualifying age and how much you may get in today’s money for your basic State Pension.
-        
-        %Get a [State Pension Statement](/state-pension-statement) instead of using this calculator if you're 55 or over and making a financial decision based on [the new pension options](https://www.pensionwise.gov.uk/).%
-        
       post_body: |
         ##What you need to know:
 
@@ -31,7 +28,7 @@ en-GB:
         this_is_n_below_the_full_state_pension: This is £%{pension_loss} per week below the full State Pension.
         married_woman_text: If you are a married woman paying reduced National Insurance, don’t count any years before 2010.
         carers_allowance_women_hint: Don’t count years when you opted for the reduced National Insurance rate for married women and widows.
-        carers_allowance_women_hint_q9: Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows.
+        carers_allowance_women_ni_reduced_years_before_2010: Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows.
         will_reach_pension_age: You’ll reach State Pension age on %{formatted_state_pension_date}.
         have_reached_pension_age: You reached State Pension age on %{formatted_state_pension_date}.
         pension_credit_future: You'll reach the Pension Credit qualifying age on %{pension_credit_date}.
@@ -39,9 +36,12 @@ en-GB:
         pension_age_review: The State Pension age is regularly reviewed and may change in the future. This may also affect Pension Credit.
         bus_pass: |
           ##Bus pass
-          The date you qualify for a bus pass depends on where you live.
+          The date you qualify for a bus pass depends on where you live:
 
-          Check with your council when you can [apply for a bus pass](/apply-for-elderly-person-bus-pass).
+            - on %{pension_credit_date} in England
+            - when you turn 60 years old in [Scotland](http://www.transportscotland.gov.uk/public-transport/concessionary-travel-people-aged-60-or-disability),[Wales](http://wales.gov.uk/topics/transport/public/concessionary/?lang=en),[Northern Ireland](http://www.nidirect.gov.uk/free-bus-travel-and-concessions)
+
+          The dates may be different in some areas [(including London)](https://www.tfl.gov.uk/fares-and-payments/adult-discounts-and-concessions/60-london-oyster?intcmp=1763), check with your council when you can [apply for a bus pass](/apply-for-elderly-person-bus-pass).
 
           You need to check with [Transport for London](https://www.tfl.gov.uk/fares-and-payments/adult-discounts-and-concessions/60-london-oyster?intcmp=1763) if you live in Greater London.
         remaining_contributions_years_callout: |
@@ -152,6 +152,8 @@ en-GB:
 
         ten_and_greater: |
           This will be the least amount you will get under the new State Pension rules.
+        rre_entitlements: |
+          You should [check if you may get more](/state-pension-through-partner) for your State Pension because you paid the reduced National Insurance rate for married women and widows (married woman’s stamp.)
         less_than_ten: |
           ^You may not qualify for the new State Pension. Under the new State Pension rules [you need at least 10 years](/new-state-pension/eligibility) of National Insurance contributions.^
         reduced_rate_election: |
@@ -258,12 +260,12 @@ en-GB:
 
           ##Your State Pension estimate
 
-          You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £113.10 per week.
+          You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £115.95 per week.
 
           Basic State Pension | Your results
           - | -
           How much per week you may get | £%{pension_amount}
-          Difference to the full basic State Pension of £113.10 | £%{pension_loss}
+          Difference to the full basic State Pension of £115.95 | £%{pension_loss}
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance) you have.
 
@@ -298,7 +300,7 @@ en-GB:
 
           ##Your State Pension estimate
 
-          You have enough qualifying years to get a full basic State Pension of £113.10 per week.
+          You have enough qualifying years to get a full basic State Pension of £115.95 per week.
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance) you have.
 
@@ -338,7 +340,7 @@ en-GB:
       pay_reduced_ni_rate?:
         title: Have you ever opted to pay the reduced National Insurance rate for married women and widows (also known as the married woman’s stamp)?
         hint: |
-          Choose yes if you opted not to pay Class 2 contributions while you were self-employed. You paid a lower rate of National Insurance if you opted to pay the reduced rate.
+          Opting to pay the reduced rate means you chose to pay a lower rate of National Insurance while you were employed or you chose not to pay Class 2 contributions while you were self-employed.
       ## Q4
       years_paid_ni?:
         title: How many years have you worked and paid National Insurance contributions from the age of 19?
@@ -351,7 +353,7 @@ en-GB:
       ## Q5
       years_of_jsa?:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
-        hint: These are years you may have received credits towards your State Pension. Don’t count years you’ve entered already. Enter 0 if you’ve never claimed benefits.
+        hint: These are years you may have received credits towards your State Pension. Don’t count years you’ve entered already. Enter 0 if you’ve never claimed benefits. %{carer_hint_for_women_before_1962}
         error_message: |
           Please enter a number. Based on your previous answers you can enter up to %{ni_years_to_date_from_dob} years. If you got benefits for more years than you can enter, enter the maximum number you’re allowed.
         suffix_label: years
@@ -383,7 +385,7 @@ en-GB:
       ## Q9
       years_of_carers_allowance?:
         title: How many years have you received Carer’s Allowance?
-        hint: Enter 0 if you didn’t get any. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women_q9}
+        hint: Enter 0 if you didn’t get any. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women_before_1962}
         error_message: Please enter a number. Based on your previous answers you can enter up to %{ni_years_to_date_from_dob} years. If you got Carer’s Allowance for more years than you can enter, enter the maximum number you’re allowed.
         suffix_label: years
       ## Q10

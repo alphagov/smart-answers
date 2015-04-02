@@ -4,13 +4,14 @@ module SmartAnswer::Calculators
   class StatePensionAmountCalculator
     include FriendlyTimeDiff
 
-    attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits
+    attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits, :pays_reduced_ni_rate
     attr_accessor :qualifying_years
 
     PENSION_RATES = [
       { min: Date.parse('7 April 2012'), max: Date.parse('6 April 2013'), amount: 107.45 },
       { min: Date.parse('7 April 2013'), max: Date.parse('6 April 2014'), amount: 110.15 },
-      { min: Date.parse('7 April 2014'), max: Date.parse('6 April 2015'), amount: 113.10 }
+      { min: Date.parse('7 April 2014'), max: Date.parse('6 April 2015'), amount: 113.10 },
+      { min: Date.parse('7 April 2015'), max: Date.parse('6 April 2016'), amount: 115.95 }
     ]
 
     NEW_RULES_START_DATE = Date.parse('6 April 2016')
@@ -21,6 +22,7 @@ module SmartAnswer::Calculators
       @qualifying_years = answers[:qualifying_years].to_i
       @available_years = ni_years_to_date_from_dob
       @starting_credits = allocate_starting_credits
+      @pays_reduced_ni_rate = answers[:pays_reduced_ni_rate]
     end
 
     def new_rules_and_less_than_10_ni? ni
@@ -90,7 +92,15 @@ module SmartAnswer::Calculators
     end
 
     def state_pension_age
-      friendly_time_diff(dob, state_pension_date)
+      if birthday_on_feb_29?
+        friendly_time_diff(dob, state_pension_date - 1.day)
+      else
+        friendly_time_diff(dob, state_pension_date)
+      end
+    end
+
+    def birthday_on_feb_29?
+      dob.month == 2 and dob.day == 29
     end
 
     def before_state_pension_date?
@@ -200,6 +210,16 @@ module SmartAnswer::Calculators
 
     def years_can_be_entered(ay, max_num)
       (ay > max_num ? max_num : ay)
+    end
+
+    def qualifies_for_rre_entitlements?
+      rre_start_date = Date.new(1953,4,6)
+      rre_end_date = Date.new(1961,4,5)
+
+      pays_reduced_ni_rate &&
+        gender == :female &&
+        qualifying_years.between?(10,29) &&
+        dob.between?(rre_start_date, rre_end_date)
     end
   end
 end
