@@ -168,85 +168,112 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "specific date tests (for lower_earning_limits) for birth" do
-        should "return lower_earning_limit 107" do
-          @due_date = Date.parse("1 January 2013")
+      context "test for 2015 to 2016 rate" do
+        setup do
+          @due_date = Date.parse("1 September 2015")
+          @start_of_week_in_four_months = @due_date - @due_date.wday
           @calculator = MaternityPaternityCalculator.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 107
+          Timecop.travel('1 September 2015')
         end
 
-        should "return 109 when due is in 2013/2014 tax year" do
-          @due_date = Date.parse("14 November 2013")
+        should "calculate the paternity rate as the standard rate for 2016" do
+          @calculator.average_weekly_earnings = 500.55
+          @calculator.leave_start_date = Date.new(2016, 1, 1)
+          assert_equal 139.58, @calculator.statutory_paternity_rate
+        end
+      end
+
+      context "specific date tests (for lower_earning_limits) for birth" do
+        should "return 112 for due dates after 6/04/2015" do
+          @due_date = Date.parse("16 December 2015")
           @calculator = MaternityPaternityCalculator.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 109
+          assert_equal 112, @calculator.lower_earning_limit
         end
 
         should "return 111 for due dates after 14/07/2014" do
-          @due_date = Date.parse("14 July 2015")
+          @due_date = Date.parse("24 July 2014")
           @calculator = MaternityPaternityCalculator.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 111
+          assert_equal 111, @calculator.lower_earning_limit
         end
 
         should "return lower_earning_limit 109" do
           @due_date = Date.parse("15 July 2014")
           @calculator = MaternityPaternityCalculator.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 109
+          assert_equal 109, @calculator.lower_earning_limit
+        end
+
+        should "return 109 when due is in 2013/2014 tax year" do
+          @due_date = Date.parse("14 November 2013")
+          @calculator = MaternityPaternityCalculator.new(@due_date)
+          assert_equal 109, @calculator.lower_earning_limit
+        end
+
+        should "return lower_earning_limit 107" do
+          @due_date = Date.parse("1 January 2013")
+          @calculator = MaternityPaternityCalculator.new(@due_date)
+          assert_equal 107, @calculator.lower_earning_limit
         end
 
         should "return lower_earning_limit 107" do
           @due_date = Date.parse("15 July 2013")
           @calculator = MaternityPaternityCalculator.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 107
+          assert_equal 107, @calculator.lower_earning_limit
         end
 
         should "return lower_earning_limit 102" do
           @due_date = Date.parse("15 July 2012")
           @calculator = MaternityPaternityCalculator.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 102
+          assert_equal 102, @calculator.lower_earning_limit
         end
 
         should "return lower_earning_limit 102" do
           @due_date = Date.parse("14 July 2012")
           @calculator = MaternityPaternityCalculator.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 102
+          assert_equal 102, @calculator.lower_earning_limit
         end
 
         should "return lower_earning_limit 102" do
           @due_date = Date.parse("1 January 2012")
           @calculator = MaternityPaternityCalculator.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 102
+          assert_equal 102, @calculator.lower_earning_limit
         end
 
         should "return lower_earning_limit 97" do
           @due_date = Date.parse("1 January 2011")
           @calculator = MaternityPaternityCalculator.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 97
+          assert_equal 97, @calculator.lower_earning_limit
         end
 
         should "return lower_earning_limit 95" do
           @due_date = Date.parse("1 January 2010")
           @calculator = MaternityPaternityCalculator.new(@due_date)
-          assert_equal @calculator.lower_earning_limit, 95
+          assert_equal 95, @calculator.lower_earning_limit
         end
       end
 
       context "specific date tests (for lower_earning_limits) for adoption" do
+        should "return lower_earning_limit 112" do
+          @match_date = Date.parse("1 September 2015")
+          @calculator = MaternityPaternityCalculator.new(@match_date, "adoption")
+          assert_equal 112, @calculator.lower_earning_limit
+        end
+
         should "return lower_earning_limit 107" do
           @match_date = Date.parse("1 September 2012")
           @calculator = MaternityPaternityCalculator.new(@match_date, "adoption")
-          assert_equal @calculator.lower_earning_limit, 107
+          assert_equal 107, @calculator.lower_earning_limit
         end
 
         should "return lower_earning_limit 102" do
           @match_date = Date.parse("31 March 2012")
           @calculator = MaternityPaternityCalculator.new(@match_date, "adoption")
-          assert_equal @calculator.lower_earning_limit, 102
+          assert_equal 102, @calculator.lower_earning_limit
         end
 
         should "return lower_earning_limit 97" do
           @match_date = Date.parse("2 April 2011")
           @calculator = MaternityPaternityCalculator.new(@match_date, "adoption")
-          assert_equal @calculator.lower_earning_limit, 97
+          assert_equal 97, @calculator.lower_earning_limit
         end
       end
 
@@ -503,17 +530,19 @@ module SmartAnswer::Calculators
           assert @calculator.paydates_and_pay.last[:pay] > 0
         end
       end
+
       context "variable statutory pay rate" do
         setup do
           @calculator = MaternityPaternityCalculator.new(Date.parse('21 April 2013'))
           @calculator.leave_start_date = Date.parse('29 March 2013')
-
         end
-        context "for 2012 rates" do
-          should "give the correct rate for the period" do
+
+        context "for 2012 and before" do
+          should "return 135.45 rate" do
             assert_equal 135.45, @calculator.statutory_rate(Date.parse('6 April 2012'))
           end
         end
+
         context "correct rates for 2013/2014" do
           setup do
             Timecop.travel('1 Feb 2014')
@@ -538,7 +567,7 @@ module SmartAnswer::Calculators
 
         context "for 2043 rates" do
           should "give a default rate for a date in the future" do
-            assert_equal 138.18, @calculator.statutory_rate(Date.parse('6 April 2043'))
+            assert_equal 139.58, @calculator.statutory_rate(Date.parse('6 April 2043'))
           end
         end
       end
@@ -635,7 +664,7 @@ module SmartAnswer::Calculators
         should "calculate pay due for the last working day of the month" do
           @calculator.pay_method = 'last_working_day_of_the_month'
           @calculator.pay_day_in_week = 5
-   @calculator.work_days = [1, 2, 4]
+          @calculator.work_days = [1, 2, 4]
           @calculator.average_weekly_earnings = 250.0
 
           paydates_and_pay = @calculator.paydates_and_pay
@@ -755,6 +784,23 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "test for paternity pay monthly dates and pay uprated for 2015" do
+        setup do
+          Timecop.travel('10 April 2015')
+          @due_date = Date.parse("1 May 2015")
+          @calculator = MaternityPaternityCalculator.new(@due_date, "paternity")
+          @calculator.leave_start_date = Date.parse('1 May 2015')
+          @calculator.pay_method = "last_day_of_the_month"
+          @calculator.average_weekly_earnings = '500.00'
+        end
+
+        should "produce 1 week of pay dates and pay at maximum amount" do
+          paydates_and_pay =  @calculator.paydates_and_pay
+          assert_equal '2015-05-31', paydates_and_pay.first[:date].to_s
+          assert_equal (139.58 * 2), paydates_and_pay.first[:pay]
+        end
+      end
+
       context "test adoption table rate returned for weekly amounts in 2013/14" do
         setup do
           @match_date = Date.parse("2 January 2014")
@@ -777,6 +823,30 @@ module SmartAnswer::Calculators
           assert_equal 136.78, paydates_and_pay[9][:pay]
           assert_equal 138.18, paydates_and_pay[11][:pay]
           assert_equal 138.18, paydates_and_pay.last[:pay]
+        end
+      end
+
+      context "test adoption table rate returned for weekly amounts in 2015/16" do
+        # based on /maternity-paternity-calculator/y/adoption/no/2015-04-10/2015-04-10/yes/yes/yes/2015-04-01/2015-03-31/2015-01-31/monthly/3000.0/weekly_starting?debug=1
+        setup do
+          @match_date = Date.parse("10 Apr 2015")
+          @calculator = MaternityPaternityCalculator.new(@match_date, "adoption")
+          @calculator.pay_method = 'weekly_starting'
+          @calculator.leave_start_date = Date.parse('01 Apr 2015')
+          @calculator.pre_offset_payday = Date.parse('31 Jan 2015')
+          @calculator.last_payday = Date.parse('31 Mar 2015')
+          @calculator.adoption_placement_date = Date.parse('10 Apr 2015')
+        end
+
+        should "calculate 39 weeks of dates and pay, first 6 weeks is 90% of avg weekly pay, \
+                the remaining weeks is the minimum of 90% of avg weekly pay or 139.58" do
+
+                  expected_pay_dates = %w(2015-04-07 2015-04-14 2015-04-21 2015-04-28 2015-05-05 2015-05-12 2015-05-19 2015-05-26 2015-06-02 2015-06-09 2015-06-16 2015-06-23 2015-06-30 2015-07-07 2015-07-14 2015-07-21 2015-07-28 2015-08-04 2015-08-11 2015-08-18 2015-08-25 2015-09-01 2015-09-08 2015-09-15 2015-09-22 2015-09-29 2015-10-06 2015-10-13 2015-10-20 2015-10-27 2015-11-03 2015-11-10 2015-11-17 2015-11-24 2015-12-01 2015-12-08 2015-12-15 2015-12-22 2015-12-29)
+                  assert_equal 346.15, @calculator.calculate_average_weekly_pay('monthly', 3000).round(2)
+                  assert_equal expected_pay_dates, @calculator.paydates_and_pay.map { |p| p[:date].to_s }
+
+                  assert_equal [(346.15385 * 0.9).round(2)], @calculator.paydates_and_pay.first(6).map { |p| p[:pay] }.uniq
+                  assert_equal [139.58], @calculator.paydates_and_pay[6..-1].map { |p| p[:pay] }.uniq
         end
       end
 
