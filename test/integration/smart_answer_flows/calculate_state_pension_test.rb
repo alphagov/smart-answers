@@ -1048,6 +1048,19 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           assert_current_node :amount_result
         end
       end
+
+      context "born before 1962-01-01" do
+        setup do
+          add_response Date.parse('1961-01-01')
+          add_response :no
+          add_response 2
+        end
+
+        should "tell not to count years before 2010 with reduced NI rate" do
+          assert_current_node :years_of_jsa?
+          assert_phrase_list :carer_hint_for_women_before_1962, [:carers_allowance_women_ni_reduced_years_before_2010]
+        end
+      end
     end # female
 
     context "testing flow optimisation - at least 2 SC years" do

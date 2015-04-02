@@ -211,9 +211,9 @@ value_question :years_paid_ni? do
     end
   end
 
-  calculate :carer_hint_for_women_q9 do
+  calculate :carer_hint_for_women_before_1962 do
     if gender == 'female' and (Date.parse(dob) < Date.parse('1962-01-01'))
-      PhraseList.new(:carers_allowance_women_hint_q9)
+      PhraseList.new(:carers_allowance_women_ni_reduced_years_before_2010)
     else
       ''
     end
@@ -250,11 +250,9 @@ end
 # Q5
 value_question :years_of_jsa? do
 
-  calculate :carer_hint_for_women_q9 do
+  calculate :carer_hint_for_women_before_1962 do
     if gender == 'female' and (Date.parse(dob) < Date.parse('1962-01-01'))
-      PhraseList.new(:carers_allowance_women_hint_q9)
-    else
-      ''
+      PhraseList.new(:carers_allowance_women_ni_reduced_years_before_2010)
     end
   end
 
