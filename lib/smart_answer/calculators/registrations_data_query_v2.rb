@@ -35,7 +35,7 @@ module SmartAnswer::Calculators
 
     ORU_TRANSITION_EXCEPTIONS = %w(north-korea)
 
-    ORU_DOCUMENTS_VARIANT_COUNTRIES = %w(andorra belgium denmark finland france israel italy japan monaco morocco netherlands poland portugal south-korea spain sweden taiwan the-occupied-palestinian-territories turkey united-arab-emirates usa)
+    ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH = %w(andorra belgium denmark finland france india israel italy japan monaco morocco nepal netherlands nigeria poland portugal russia sierra-leone south-korea spain sri-lanka sweden taiwan the-occupied-palestinian-territories turkey united-arab-emirates usa)
 
     ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH = %w(papua-new-guinea poland)
 

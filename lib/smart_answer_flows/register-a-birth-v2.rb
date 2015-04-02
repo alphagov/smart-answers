@@ -287,7 +287,7 @@ outcome :oru_result do
   end
 
   precalculate :oru_documents_variant do
-    if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?(country_of_birth)
+    if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?(country_of_birth)
       phrases = PhraseList.new
       if country_of_birth == 'united-arab-emirates' && paternity_declaration
         phrases << :oru_documents_variant_uae_not_married

@@ -8,7 +8,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia bangladesh barbados belize cameroon el-salvador estonia germany guatemala grenada iran iraq israel laos libya maldives morocco netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates venezuela)
+    @location_slugs = %w(afghanistan andorra australia bangladesh barbados belize cameroon el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth-v2'
   end
@@ -381,6 +381,34 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response 'same_country'
       assert_state_variable :registration_country, "sri-lanka"
       assert_state_variable :registration_country_name_lowercase_prefix, "Sri Lanka"
+    end
+  end
+  context "Sri Lanka" do
+    setup do
+      worldwide_api_has_organisations_for_location('sri-lanka', read_fixture_file('worldwide/sri-lanka_organisations.json'))
+      add_response "sri-lanka"
+    end
+    should "show a custom documents variant" do
+      add_response 'mother'
+      add_response 'no'
+      add_response 'same_country'
+
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_sri-lanka"]
+    end
+  end
+  context "India" do
+    setup do
+      worldwide_api_has_organisations_for_location('india', read_fixture_file('worldwide/india_organisations.json'))
+      add_response "india"
+    end
+    should "show a custom documents variant" do
+      add_response 'mother'
+      add_response 'no'
+      add_response 'same_country'
+
+      assert_current_node :oru_result
+      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_india]
     end
   end
   context "child born in grenada, parent in St kitts" do

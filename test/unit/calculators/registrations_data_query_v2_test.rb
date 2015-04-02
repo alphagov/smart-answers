@@ -85,13 +85,13 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "oru document variant countries" do
+      context "oru birth documents variant countries" do
         should "be true for Netherlands" do
-          assert @described_class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?('netherlands')
+          assert @described_class::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?('netherlands')
         end
 
         should "be true for Belgium" do
-          assert @described_class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?('belgium')
+          assert @described_class::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?('belgium')
         end
       end
 
