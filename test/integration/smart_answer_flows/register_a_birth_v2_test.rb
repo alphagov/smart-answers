@@ -155,26 +155,25 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
     end # Spain
   end
   context "answer Afghanistan" do
-    should "give the embassy result" do
+    should "give the ORU result" do
       worldwide_api_has_organisations_for_location('afghanistan', read_fixture_file('worldwide/afghanistan_organisations.json'))
       add_response "afghanistan"
       add_response "mother_and_father"
       add_response "yes"
       add_response "same_country"
-      assert_current_node :embassy_result
-      assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
+      assert_current_node :oru_result
       assert_state_variable :registration_country_name_lowercase_prefix, "Afghanistan"
       assert_state_variable :british_national_parent, 'mother_and_father'
-      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_all]
-      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-      assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
-      assert_state_variable :postal_form_url, nil
-      assert_state_variable :postal, ""
-      assert_phrase_list :footnote, [:footnote_exceptions]
+      assert_phrase_list :birth_registration_form, [:birth_registration_form]
+      assert_phrase_list :waiting_time, [:registration_takes_5_days]
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :translator_link, [:no_translator_link]
+      assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
+      assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
     end
   end
   context "born in Bangladesh but currently in Pakistan" do
-    should "give the embassy result" do
+    should "give the ORU result" do
       worldwide_api_has_organisations_for_location('bangladesh', read_fixture_file('worldwide/bangladesh_organisations.json'))
       worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
       add_response "bangladesh"
@@ -182,16 +181,11 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "yes"
       add_response "another_country"
       add_response "pakistan"
-      assert_current_node :embassy_result
-      assert_state_variable :embassy_high_commission_or_consulate, "British high commission"
-      assert_state_variable :registration_country_name_lowercase_prefix, "Pakistan"
-      assert_state_variable :british_national_parent, 'mother_and_father'
-      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_bangladesh]
-      assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-      assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
-      assert_state_variable :postal_form_url, nil
-      assert_state_variable :postal, ""
-      assert_phrase_list :footnote, [:footnote_another_country]
+      assert_current_node :oru_result
+      assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
+      assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :waiting_time, [:registration_takes_5_days]
     end
   end # Afghanistan
   context "answer Pakistan" do
@@ -212,7 +206,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "father"
       add_response "yes"
       add_response "same_country"
-      assert_current_node :embassy_result
+      assert_current_node :oru_result
     end
   end # Pakistan
 
@@ -232,17 +226,18 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
     end # Not married or CP
   end # Belize
   context "answer Libya" do
-    should "give the embassy result" do
+    should "give the ORU result" do
       worldwide_api_has_organisations_for_location('libya', read_fixture_file('worldwide/libya_organisations.json'))
       add_response "libya"
       add_response "father"
       add_response "yes"
       add_response "same_country"
-      assert_current_node :embassy_result
+      assert_current_node :oru_result
       assert_state_variable :british_national_parent, 'father'
-      assert_phrase_list :fees_for_consular_services, [:consular_service_fees_libya]
-      assert_phrase_list :documents_you_must_provide, [:documents_you_must_provide_libya]
-      assert_phrase_list :go_to_the_embassy, [:registering_all, :registering_either_parent]
+      assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
+      assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
+      assert_phrase_list :oru_documents_variant, [:oru_documents]
+      assert_phrase_list :waiting_time, [:registration_takes_5_days]
     end # Not married or CP
   end # Libya
   context "answer barbados" do
