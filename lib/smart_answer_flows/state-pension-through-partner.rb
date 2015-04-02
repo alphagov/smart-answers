@@ -22,6 +22,13 @@ multiple_choice :what_is_your_marital_status? do
     answers
   end
 
+  calculate :lower_basic_state_pension_rate do
+    "£69.50"
+  end
+  calculate :higher_basic_state_pension_rate do
+    "£115.95"
+  end
+
   next_node_if(:what_is_your_gender?, responded_with("divorced"))
   next_node :when_will_you_reach_pension_age?
 end
