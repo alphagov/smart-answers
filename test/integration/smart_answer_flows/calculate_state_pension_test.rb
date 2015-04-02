@@ -260,8 +260,8 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :dob_amount?
       end
 
-      context 'between 7 and 10 years NI including credits
-               born within automatic NI age group (1959-04-06 - 1992-04-05)' do
+      context "between 7 and 10 years NI including credits \
+               born within automatic NI age group (1959-04-06 - 1992-04-05)" do
         setup do
           add_response Date.parse('1971-08-02')
           add_response 8
@@ -1344,7 +1344,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         add_response 0 # years of NI
         add_response 0 # Years of unemployment
         add_response :no # claimed benefit
-        add_response 0 # years worked between 16 and 19 
+        add_response 0 # years worked between 16 and 19
         add_response :yes # lived or worked abroad
       end
       should "go to outcome and show correct phrases" do
