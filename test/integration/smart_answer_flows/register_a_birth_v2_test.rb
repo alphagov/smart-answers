@@ -199,6 +199,15 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_current_node :no_birth_certificate_result
       assert_phrase_list :registration_exception, [:iraq_same_country_certificate_exception]
     end
+
+    should "give the no_birth_certificate_result if the child born outside of marriage and currently in another country" do
+      add_response "mother"
+      add_response "no"
+      add_response "another_country"
+
+      assert_current_node :no_birth_certificate_result
+      assert_phrase_list :registration_exception, [:iraq_another_country_certificate_exception, :contact_fco]
+    end
   end
 
   context "born in Bangladesh but currently in Pakistan" do
@@ -247,6 +256,15 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
 
       assert_current_node :no_birth_certificate_result
       assert_phrase_list :registration_exception, [:pakistan_same_country_certificate_exception]
+    end
+
+    should "give the no_birth_certificate_result if the child born outside of marriage and currently in another country" do
+      add_response "mother"
+      add_response "no"
+      add_response "another_country"
+
+      assert_current_node :no_birth_certificate_result
+      assert_phrase_list :registration_exception, [:pakistan_another_country_certificate_exception, :contact_fco]
     end
   end # Pakistan
 
