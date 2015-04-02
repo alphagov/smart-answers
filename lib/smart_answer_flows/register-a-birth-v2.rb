@@ -315,8 +315,6 @@ outcome :oru_result do
   precalculate :morocco_swear_in_court do
     if country_of_birth == 'morocco' && paternity_declaration
       PhraseList.new(:swear_in_moroccan_court)
-    else
-      ''
     end
   end
 
@@ -346,6 +344,15 @@ outcome :oru_result do
       phrases << :oru_courier_text_default
     end
     phrases
+  end
+
+  precalculate :oru_extra_documents do
+    if registration_country.in?(%w(philippines sierra-leone uganda))
+      PhraseList.new(
+        :oru_extra_documents_variant_intro,
+        :"oru_extra_documents_variant_#{registration_country}"
+      )
+    end
   end
 end
 

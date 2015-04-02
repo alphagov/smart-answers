@@ -8,7 +8,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra australia bangladesh barbados belize cameroon el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands pakistan serbia spain sri-lanka st-kitts-and-nevis thailand turkey united-arab-emirates venezuela)
+    @location_slugs = %w(afghanistan andorra australia bangladesh barbados belize cameroon el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands pakistan philippines serbia sierra-leone spain sri-lanka st-kitts-and-nevis thailand turkey uganda united-arab-emirates venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth-v2'
   end
@@ -534,6 +534,30 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "same_country"
       assert_current_node :oru_result
       assert_phrase_list :oru_address, [:book_appointment_at_embassy]
+    end
+  end
+
+  context "answer Philippines" do
+    should "show ORU outcome and require extra documents" do
+      worldwide_api_has_organisations_for_location('philippines', read_fixture_file('worldwide/philippines_organisations.json'))
+      add_response "philippines"
+      add_response "mother"
+      add_response "no"
+      add_response "same_country"
+      assert_current_node :oru_result
+      assert_phrase_list :oru_extra_documents, [:oru_extra_documents_variant_intro, :oru_extra_documents_variant_philippines]
+    end
+  end
+
+  context "answer Uganda" do
+    should "show ORU outcome and require extra documents" do
+      worldwide_api_has_organisations_for_location('uganda', read_fixture_file('worldwide/uganda_organisations.json'))
+      add_response "uganda"
+      add_response "mother"
+      add_response "no"
+      add_response "same_country"
+      assert_current_node :oru_result
+      assert_phrase_list :oru_extra_documents, [:oru_extra_documents_variant_intro, :oru_extra_documents_variant_uganda]
     end
   end
 end
