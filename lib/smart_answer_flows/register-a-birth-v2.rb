@@ -233,7 +233,7 @@ outcome :embassy_result do
       phrases
     elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
       PhraseList.new(:footnote_caribbean)
-    elsif reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) and ! reg_data_query.class::ORU_COURIER_VARIANTS.include?(country_of_birth)
+    elsif reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) and reg_data_query.class::ORU_COURIER_VARIANTS.exclude?(country_of_birth)
       PhraseList.new(:footnote_oru_variants_intro,
                       :"footnote_oru_variants_#{registration_country}",
                       :footnote_oru_variants_out)
