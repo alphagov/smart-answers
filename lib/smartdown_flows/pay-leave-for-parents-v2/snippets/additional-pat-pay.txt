@@ -1,0 +1,8 @@
+##Additional paternity pay
+
+The mother’s partner can get [additional paternity pay](/paternity-pay-leave/pay) while they’re on additional paternity leave. The pay stops when the mother’s maternity pay would have ended.
+
+ | Dates and amounts
+- | -
+Weekly rate  | %{rate_of_paternity_pay(salary_2)}
+Total pay | %{total_aspp(salary_2)}
