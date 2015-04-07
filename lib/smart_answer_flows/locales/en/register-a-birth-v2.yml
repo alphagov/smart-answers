@@ -47,6 +47,10 @@ en-GB:
       which_country?:
         title: Which country?
       phrases:
+        payment_method_in_algeria: |
+          Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
+        standard_payment_method: |
+          You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you’re unable to pay online.
         oru_outcome_standard_introduction: |
           You can also register the birth with the UK authorities. You must:
         oru_outcome_higher_risk_country_introduction: |
@@ -639,7 +643,7 @@ en-GB:
 
           ##3. Pay
 
-          You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you’re unable to pay online.
+          %{payment_method}
 
           The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office or the National Records Office of Scotland, but only from September the year after you register.
 

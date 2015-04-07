@@ -374,6 +374,14 @@ outcome :oru_result do
       )
     end
   end
+
+  precalculate :payment_method do
+    if !in_the_uk && registration_country == 'algeria'
+      PhraseList.new(:payment_method_in_algeria)
+    else
+      PhraseList.new(:standard_payment_method)
+    end
+  end
 end
 
 outcome :commonwealth_result
