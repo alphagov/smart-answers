@@ -257,9 +257,29 @@ outcome :oru_result do
     end
   end
 
+  precalculate :oru_outcome_introduction do
+    if reg_data_query.class::HIGHER_RISK_COUNTRIES.include?(registration_country)
+      if registration_country == 'libya'
+        PhraseList.new(:oru_outcome_higher_risk_country_currently_in_libya_introduction)
+      else
+        PhraseList.new(:oru_outcome_higher_risk_country_introduction)
+      end
+    else
+      PhraseList.new(:oru_outcome_standard_introduction)
+    end
+  end
+
   precalculate :waiting_time do
+    born_in_lower_risk_country = reg_data_query.class::HIGHER_RISK_COUNTRIES.exclude?(country_of_birth)
     phrases = PhraseList.new
-    if reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.exclude?(country_of_birth) && in_the_uk
+
+    if country_of_birth == 'libya'
+      phrases << :registration_duration_in_libya
+    elsif custom_waiting_time
+      phrases << :custom_registration_duration
+    elsif reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(registration_country) and born_in_lower_risk_country
+      phrases << :registration_duration_in_countries_with_an_exception
+    elsif registration_country.in?(%w[papua-new-guinea cambodia]) and born_in_lower_risk_country
       phrases << :registration_can_take_3_months
     else
       phrases << :registration_takes_5_days

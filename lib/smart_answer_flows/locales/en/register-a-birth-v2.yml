@@ -47,6 +47,20 @@ en-GB:
       which_country?:
         title: Which country?
       phrases:
+        oru_outcome_standard_introduction: |
+          You can also register the birth with the UK authorities. You must:
+        oru_outcome_higher_risk_country_introduction: |
+          You can also register the birth with the UK authorities.
+
+          ^It’s usually quicker to register the birth with the UK authorities if you [get a British passport](/overseas-passports) for the child first.^
+
+          To register the birth with the UK authorities you must:
+        oru_outcome_higher_risk_country_currently_in_libya_introduction: |
+          You can also register the birth with the UK authorities.
+
+          ^It’s usually quicker to register the birth with the UK authorities if you [get a British passport](/overseas-passports) for the child first. You can’t apply for a passport in Libya but you can apply in a neighbouring country.^
+
+          To register the birth with the UK authorities you must:
         indonesia_british_father_paternity: |
           %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
 
@@ -581,7 +595,7 @@ en-GB:
 
           %{embassy_result_indonesia_british_father_paternity}
 
-          You can also register the birth with the UK authorities. You must:
+          %{oru_outcome_introduction}
 
           s1. Check that you have the right documents.
           s2. Print out and fill in the birth registration form.

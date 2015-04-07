@@ -160,7 +160,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "afghanistan"
     end
 
-    should "give the ORU result" do
+    should "give the ORU result and phase-5-specific intro" do
       add_response "mother_and_father"
       add_response "yes"
       add_response "same_country"
@@ -173,6 +173,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :translator_link, [:no_translator_link]
       assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
       assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
+      assert_phrase_list :oru_outcome_introduction, [:oru_outcome_higher_risk_country_introduction]
+      assert_phrase_list :waiting_time, [:custom_registration_duration]
     end
 
     should "give the no_birth_certificate_result if the child born outside of marriage" do
@@ -182,6 +184,15 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
 
       assert_current_node :no_birth_certificate_result
       assert_phrase_list :registration_exception, [:afghanistan_same_country_certificate_exception]
+    end
+
+    should "give Libya-specific intro if currently there" do
+      worldwide_api_has_organisations_for_location('libya', read_fixture_file('worldwide/libya_organisations.json'))
+      add_response "mother"
+      add_response "yes"
+      add_response "another_country"
+      add_response "libya"
+      assert_phrase_list :oru_outcome_introduction, [:oru_outcome_higher_risk_country_currently_in_libya_introduction]
     end
   end
 
@@ -241,12 +252,13 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :waiting_time, [:registration_takes_5_days]
     end
 
-    should "give the oru result if currently in Pakistan" do
+    should "give the oru result with phase-5-specific introduction if currently in Pakistan" do
       worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
       add_response "father"
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
+      assert_phrase_list :oru_outcome_introduction, [:oru_outcome_higher_risk_country_introduction]
     end
 
     should "give the no_birth_certificate_result if the child born outside of marriage" do
@@ -283,8 +295,9 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :waiting_time, [:registration_takes_5_days]
     end # Not married or CP
   end # Belize
-  context "answer Libya" do
-    should "give the ORU result" do
+
+  context "answer libya" do
+    should "give the ORU result with a specific introduction" do
       worldwide_api_has_organisations_for_location('libya', read_fixture_file('worldwide/libya_organisations.json'))
       add_response "libya"
       add_response "father"
@@ -295,9 +308,10 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
       assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
       assert_phrase_list :oru_documents_variant, [:oru_documents]
-      assert_phrase_list :waiting_time, [:registration_takes_5_days]
+      assert_phrase_list :oru_outcome_introduction, [:oru_outcome_higher_risk_country_currently_in_libya_introduction]
     end # Not married or CP
   end # Libya
+
   context "answer barbados" do
     should "give the oru result" do
       worldwide_api_has_organisations_for_location('barbados', read_fixture_file('worldwide/barbados_organisations.json'))
@@ -310,27 +324,27 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
     end # Not married or CP
   end # Barbados
   context "answer united arab emirates" do
-    should "give the no birth certificate result with same country phrase" do
+    setup do
       worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
       add_response "united-arab-emirates"
+    end
+    should "give the no birth certificate result with same country phrase" do
       add_response "mother_and_father"
       add_response "no"
       add_response "same_country"
       assert_current_node :no_birth_certificate_result
       assert_phrase_list :registration_exception, [:"united-arab-emirates_same_country_certificate_exception"]
     end # Not married or CP
+
     should "give the no birth certificate result with another country phrase" do
-      worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
-      add_response "united-arab-emirates"
       add_response "mother_and_father"
       add_response "no"
       add_response "another_country"
       assert_current_node :no_birth_certificate_result
       assert_phrase_list :registration_exception, [:"united-arab-emirates_another_country_certificate_exception", :contact_fco]
     end # Not married or CP
+
     should "give the oru result" do
-      worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
-      add_response "united-arab-emirates"
       add_response "father"
       add_response "yes"
       add_response "same_country"
@@ -436,6 +450,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
       assert_phrase_list :translator_link, [:approved_translator_link]
       assert_state_variable :translator_link_url, "/government/publications/netherlands-list-of-lawyers"
+      assert_phrase_list :oru_outcome_introduction, [:oru_outcome_standard_introduction]
     end
   end # Netherlands
   context "answer serbia" do
@@ -558,6 +573,70 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "same_country"
       assert_current_node :oru_result
       assert_phrase_list :oru_extra_documents, [:oru_extra_documents_variant_intro, :oru_extra_documents_variant_uganda]
+    end
+  end
+
+  context "Registration duration" do
+    should "display custom duration if child born in a lower risk (non phase-5) country and currently in North Korea" do
+      worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
+      worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
+      add_response "netherlands"
+      add_response "mother"
+      add_response "yes"
+      add_response "another_country"
+      add_response "north-korea"
+
+      assert_current_node :oru_result
+      assert_phrase_list :waiting_time, [:registration_duration_in_countries_with_an_exception]
+    end
+
+    should "display 3 months if child born in a lower risk (non phase-5) country and currently in Cambodia" do
+      worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
+      worldwide_api_has_organisations_for_location('cambodia', read_fixture_file('worldwide/cambodia_organisations.json'))
+      add_response "netherlands"
+      add_response "mother"
+      add_response "yes"
+      add_response "another_country"
+      add_response "cambodia"
+
+      assert_current_node :oru_result
+      assert_phrase_list :waiting_time, [:registration_can_take_3_months]
+    end
+  end
+
+  context "ORU payment options" do
+    setup do
+      worldwide_api_has_organisations_for_location('algeria', read_fixture_file('worldwide/algeria_organisations.json'))
+      worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
+    end
+
+    should "display a custom payment message if currently in Algeria" do
+      add_response "netherlands"
+      add_response "mother"
+      add_response "yes"
+      add_response "another_country"
+      add_response "algeria"
+      assert_current_node :oru_result
+      assert_phrase_list :payment_method, [:payment_method_in_algeria]
+    end
+
+    should "display a default payment message if currently not in Algeria" do
+      add_response "algeria"
+      add_response "mother"
+      add_response "yes"
+      add_response "another_country"
+      add_response "netherlands"
+      assert_current_node :oru_result
+      assert_phrase_list :payment_method, [:standard_payment_method]
+    end
+
+    should "display a default payment message if child was born in Algeria but currently in the UK" do
+      add_response "algeria"
+      add_response "mother"
+      add_response "yes"
+      add_response "in_the_uk"
+      assert_current_node :oru_result
+      assert_phrase_list :payment_method, [:standard_payment_method]
     end
   end
 end

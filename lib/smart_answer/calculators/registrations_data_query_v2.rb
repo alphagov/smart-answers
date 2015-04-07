@@ -41,6 +41,8 @@ module SmartAnswer::Calculators
 
     ORU_COURIER_VARIANTS = %w(cambodia cameroon kenya nigeria north-korea papua-new-guinea uganda)
 
+    HIGHER_RISK_COUNTRIES = %w(afghanistan algeria azerbaijan bangladesh bhutan colombia india iraq kenya lebanon libya nepal new-caledonia nigeria pakistan philippines russia sierra-leone somalia south-sudan sri-lanka sudan uganda)
+
     attr_reader :data
 
     def initialize
