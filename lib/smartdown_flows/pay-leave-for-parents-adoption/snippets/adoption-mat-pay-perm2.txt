@@ -1,14 +1,14 @@
 {{marker: adoption-mat-pay-perm2}}
 
-##Maternity pay
+##Maternity pay - Adopter B
 
-The mother can get up to 39 weeks of [maternity pay](/maternity-pay-leave/pay).
+Adopter B can get up to 39 weeks of [maternity pay](/maternity-pay-leave/pay).
 
  | Dates and amounts
 - | -
 First 6 weeks | %{rate_of_smp_6_weeks(salary_2)} per week
 Next 33 weeks | %{rate_of_smp_33_weeks(salary_2)} per week
 Total estimated pay | %{total_smp(salary_2)}
-Tell the mother’s employer | 28 days before they want to start maternity pay
+Tell the Adopter B's employer | 28 days before they want to start maternity pay
 
 Tax and National Insurance will be deducted.
