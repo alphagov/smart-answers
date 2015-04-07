@@ -79,32 +79,32 @@ module SmartdownPlugins
     end
 
 
-    test "rate_of_maternity_allowance returns 138.18 when 90% of the given weekly salary is higher than £138.18" do
+    test "rate_of_maternity_allowance returns 139.58 when 90% of the given weekly salary is higher than £139.58" do
       salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-      assert_equal 138.18, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_maternity_allowance(salary_1)
+      assert_equal 139.58, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_maternity_allowance(salary_1)
     end
 
-    test "rate_of_maternity_allowance returns 90% of the given weekly salary when it is less than £138.18" do
+    test "rate_of_maternity_allowance returns 90% of the given weekly salary when it is less than £139.58" do
       salary_1 = Smartdown::Model::Answer::Salary.new("150-week")
       assert_equal 135.0, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_maternity_allowance(salary_1)
     end
 
-    test "rate_of_paternity_pay returns 138.18 when 90% of the given weekly salary is higher than £138.18" do
+    test "rate_of_paternity_pay returns 139.58 when 90% of the given weekly salary is higher than £139.58" do
       salary_2 = Smartdown::Model::Answer::Salary.new("200-week")
-      assert_equal 138.18, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_paternity_pay(salary_2)
+      assert_equal 139.58, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_paternity_pay(salary_2)
     end
 
-    test "rate_of_paternity_pay returns 90% of the given weekly salary when it is less than £138.18" do
+    test "rate_of_paternity_pay returns 90% of the given weekly salary when it is less than £139.58" do
       salary_2 = Smartdown::Model::Answer::Salary.new("150-week")
       assert_equal 135.0, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_paternity_pay(salary_2)
     end
 
-    test "rate_of_shpp returns 138.18 when 90% of the given weekly salary is higher than £138.18" do
+    test "rate_of_shpp returns 139.58 when 90% of the given weekly salary is higher than £139.58" do
       salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-      assert_equal 138.18, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_shpp(salary_1)
+      assert_equal 139.58, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_shpp(salary_1)
     end
 
-    test "rate_of_shpp returns 90% of the given weekly salary when it is less than £138.18" do
+    test "rate_of_shpp returns 90% of the given weekly salary when it is less than £139.58" do
       salary_1 = Smartdown::Model::Answer::Salary.new("150-week")
       assert_equal 135.0, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_shpp(salary_1)
     end
@@ -114,26 +114,26 @@ module SmartdownPlugins
       assert_equal 135.0, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_smp_6_weeks(salary_1)
     end
 
-    test "rate_of_smp_33_weeks returns 90% of the given weekly salary when it is less than £138.18" do
+    test "rate_of_smp_33_weeks returns 90% of the given weekly salary when it is less than £139.58" do
       salary_1 = Smartdown::Model::Answer::Salary.new("150-week")
       assert_equal 135.0, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_smp_33_weeks(salary_1)
     end
 
-    test "rate_of_smp_33_weeks returns 138.18 when 90% of the given weekly salary is higher than £138.18" do
+    test "rate_of_smp_33_weeks returns 139.58 when 90% of the given weekly salary is higher than £139.58" do
       salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-      assert_equal 138.18, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_smp_33_weeks(salary_1)
+      assert_equal 139.58, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_smp_33_weeks(salary_1)
     end
 
     test "total_aspp returns the rate_of_paternity_pay * 26" do
       salary = Smartdown::Model::Answer::Salary.new("200-week")
-      SmartdownPlugins::PayLeaveForParentsAdoption.stubs(:rate_of_paternity_pay).with(salary).returns(138.18)
-      assert_equal 138.18 * 26, SmartdownPlugins::PayLeaveForParentsAdoption.total_aspp(salary)
+      SmartdownPlugins::PayLeaveForParentsAdoption.stubs(:rate_of_paternity_pay).with(salary).returns(139.58)
+      assert_equal 139.58 * 26, SmartdownPlugins::PayLeaveForParentsAdoption.total_aspp(salary)
     end
 
     test "total_maternity_allowance returns the rate_of_maternity_allowance * 39" do
       salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-      SmartdownPlugins::PayLeaveForParentsAdoption.stubs(:rate_of_maternity_allowance).with(salary_1).returns(138.18)
-      assert_equal 138.18 * 39, SmartdownPlugins::PayLeaveForParentsAdoption.total_maternity_allowance(salary_1)
+      SmartdownPlugins::PayLeaveForParentsAdoption.stubs(:rate_of_maternity_allowance).with(salary_1).returns(139.58)
+      assert_equal 139.58 * 39, SmartdownPlugins::PayLeaveForParentsAdoption.total_maternity_allowance(salary_1)
     end
 
     test "total_smp returns the rate_of_smp_6_weeks * 6 + rate_of_smp_33_weeks * 33 (totaling 39 weeks)" do

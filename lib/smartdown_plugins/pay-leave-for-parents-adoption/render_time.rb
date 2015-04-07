@@ -125,15 +125,15 @@ module SmartdownPlugins
     #Money calculations
 
     def self.rate_of_maternity_allowance(salary_1_66_weeks)
-      build_money_answer(nine_tenths_weekly_salary_capped_at_138_point_18(salary_1_66_weeks))
+      build_money_answer(nine_tenths_weekly_salary_capped(salary_1_66_weeks))
     end
 
     def self.rate_of_paternity_pay(salary_2)
-      build_money_answer(nine_tenths_weekly_salary_capped_at_138_point_18(salary_2))
+      build_money_answer(nine_tenths_weekly_salary_capped(salary_2))
     end
 
     def self.rate_of_shpp(salary)
-      build_money_answer(nine_tenths_weekly_salary_capped_at_138_point_18(salary))
+      build_money_answer(nine_tenths_weekly_salary_capped(salary))
     end
 
     def self.rate_of_smp_6_weeks(salary_1)
@@ -141,7 +141,7 @@ module SmartdownPlugins
     end
 
     def self.rate_of_smp_33_weeks(salary_1)
-      build_money_answer(nine_tenths_weekly_salary_capped_at_138_point_18(salary_1))
+      build_money_answer(nine_tenths_weekly_salary_capped(salary_1))
     end
 
     def self.total_aspp(salary_2)
@@ -174,10 +174,10 @@ module SmartdownPlugins
       (date - date.wday) - 1.day
     end
 
-    def self.nine_tenths_weekly_salary_capped_at_138_point_18(salary)
+    def self.nine_tenths_weekly_salary_capped(salary)
       weekly_salary = salary.value / 52
       rate = weekly_salary * 0.9
-      rate < 138.18 ? rate : 138.18
+      rate < 139.58 ? rate : 139.58
     end
   end
 end
