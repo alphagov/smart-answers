@@ -43,6 +43,31 @@ module SmartAnswer::Calculators
 
     HIGHER_RISK_COUNTRIES = %w(afghanistan algeria azerbaijan bangladesh bhutan colombia india iraq kenya lebanon libya nepal new-caledonia nigeria pakistan philippines russia sierra-leone somalia south-sudan sri-lanka sudan uganda)
 
+    ORU_REGISTRATION_DURATION = {
+      "afghanistan" => "6 months",
+      "algeria" => "12 weeks",
+      "azerbaijan" => "10 weeks",
+      "bangladesh" => "8 months",
+      "bhutan" => "8 weeks",
+      "colombia" => "8 weeks",
+      "india" => "16 weeks",
+      "iraq" => "12 weeks",
+      "kenya" => "12 weeks",
+      "lebanon" => "12 weeks",
+      "libya" => "6 months",
+      "nepal" => "10 weeks",
+      "nigeria" => "14 weeks",
+      "pakistan" => "6 months",
+      "russia" => "10 weeks",
+      "sierra-leone" => "12 weeks",
+      "somalia" => "12 weeks",
+      "south-sudan" => "12 weeks",
+      "sri-lanka" => "12 weeks",
+      "sudan" => "12 weeks",
+      "philippines" => "16 weeks",
+      "uganda" => "12 weeks",
+    }
+
     attr_reader :data
 
     def initialize
@@ -134,6 +159,10 @@ module SmartAnswer::Calculators
 
     def registration_country_slug(country_slug)
       data['registration_country'][country_slug] || country_slug
+    end
+
+    def custom_registration_duration(country_slug)
+      ORU_REGISTRATION_DURATION[country_slug]
     end
 
     def self.registration_data

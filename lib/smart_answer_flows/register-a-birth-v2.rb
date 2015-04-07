@@ -269,6 +269,10 @@ outcome :oru_result do
     end
   end
 
+  precalculate :custom_waiting_time do
+    reg_data_query.custom_registration_duration(country_of_birth)
+  end
+
   precalculate :waiting_time do
     born_in_lower_risk_country = reg_data_query.class::HIGHER_RISK_COUNTRIES.exclude?(country_of_birth)
     phrases = PhraseList.new
@@ -284,6 +288,7 @@ outcome :oru_result do
     else
       phrases << :registration_takes_5_days
     end
+
     phrases
   end
 

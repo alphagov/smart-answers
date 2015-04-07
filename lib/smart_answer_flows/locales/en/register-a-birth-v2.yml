@@ -456,13 +456,28 @@ en-GB:
         oru_courier_text_uganda: |
           Your documents will be returned to the British High Commission in Kampala after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
 
+        registration_duration_in_libya: |
+          Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
+
+          * at least %{custom_waiting_time} if the child doesn’t have a British passport
+          * 5 working days if the child has a British passport
+
+          The Overseas Registration Unit will contact you if they need more information, to verify your documents or for the child to take a DNA test. If this happens then it could take longer for the birth to be registered.
+        custom_registration_duration: |
+          Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
+
+          * at least %{custom_waiting_time} if the child doesn’t have a British passport
+          * 5 working days if the child has a British passport
+
+          The Overseas Registration Unit will contact you if they need more information or if they need to verify your documents. If this happens then it could take longer for the birth to be registered.
+        registration_duration_in_countries_with_an_exception: |
+          ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
         registration_can_take_3_months: |
           Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.
-
         registration_takes_5_days: |
-          It usually takes 5 working days for the birth to be registered with the UK authorities, once the Overseas Registration Unit has received your form and the right documents.
+          It usually takes 5 working days for the birth to be registered, once the Overseas Registration Unit has received your form and the right documents.
 
-          They’ll contact you within the 5 working days if they need more information. If this happens then it could take up to 3 months for the birth to be registered.
+          They’ll contact you within the 5 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the birth to be registered.
 
         contact_fco: |
           A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> to find out what other proof can be accepted.

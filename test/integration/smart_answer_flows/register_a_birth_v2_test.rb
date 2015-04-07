@@ -8,7 +8,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cameroon el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands pakistan philippines serbia sierra-leone spain sri-lanka st-kitts-and-nevis thailand turkey uganda united-arab-emirates venezuela)
+    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines serbia sierra-leone spain sri-lanka st-kitts-and-nevis thailand turkey uganda united-arab-emirates venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth-v2'
   end
@@ -160,15 +160,15 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "afghanistan"
     end
 
-    should "give the ORU result and phase-5-specific intro" do
+    should "give the ORU result and phase-5-specific intro and custom documents return waiting time" do
       add_response "mother_and_father"
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
       assert_state_variable :registration_country_name_lowercase_prefix, "Afghanistan"
       assert_state_variable :british_national_parent, 'mother_and_father'
+      assert_state_variable :custom_waiting_time, '6 months'
       assert_phrase_list :birth_registration_form, [:birth_registration_form]
-      assert_phrase_list :waiting_time, [:registration_takes_5_days]
       assert_phrase_list :oru_documents_variant, [:oru_documents]
       assert_phrase_list :translator_link, [:no_translator_link]
       assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
@@ -234,7 +234,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
       assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
       assert_phrase_list :oru_documents_variant, [:oru_documents]
-      assert_phrase_list :waiting_time, [:registration_takes_5_days]
+      assert_phrase_list :waiting_time, [:custom_registration_duration]
+      assert_state_variable :custom_waiting_time, '8 months'
     end
   end # Afghanistan
   context "answer Pakistan" do
@@ -249,7 +250,8 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "yes"
       add_response "in_the_uk"
       assert_current_node :oru_result
-      assert_phrase_list :waiting_time, [:registration_takes_5_days]
+      assert_phrase_list :waiting_time, [:custom_registration_duration]
+      assert_state_variable :custom_waiting_time, '6 months'
     end
 
     should "give the oru result with phase-5-specific introduction if currently in Pakistan" do
@@ -297,14 +299,17 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   end # Belize
 
   context "answer libya" do
-    should "give the ORU result with a specific introduction" do
+    should "give the ORU result with a specific introduction and documents return waiting time" do
       worldwide_api_has_organisations_for_location('libya', read_fixture_file('worldwide/libya_organisations.json'))
       add_response "libya"
       add_response "father"
       add_response "yes"
       add_response "same_country"
+
       assert_current_node :oru_result
       assert_state_variable :british_national_parent, 'father'
+      assert_state_variable :custom_waiting_time, '6 months'
+      assert_phrase_list :waiting_time, [:registration_duration_in_libya]
       assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
       assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
       assert_phrase_list :oru_documents_variant, [:oru_documents]
