@@ -1,0 +1,8 @@
+##Maternity leave
+
+The mother can take up to 52 weeks of [maternity leave](/maternity-pay-leave/leave). The leave will end if the mother goes back to work.
+
+ | Dates
+- | -
+Earliest leave can start | %{earliest_start_mat_leave(due_date)}
+Tell the mother’s employer | %{maternity_leave_notice_date(due_date)}
