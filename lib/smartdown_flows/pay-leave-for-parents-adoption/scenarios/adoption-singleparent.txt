@@ -1,7 +1,8 @@
 #Adopter A self-employed, does not pass earnings and employment test
 - two_carers: no
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: self-employed
 - job_before_x_1: no
   job_after_y_1: no
@@ -16,7 +17,8 @@ has markers: adoption-single-nothing, extra-help
 #Adopter A employee, soon to leave job, passes lower earnings test
 - two_carers: no
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
 - job_before_x_1: yes
   job_after_y_1: no
@@ -31,7 +33,8 @@ has markers: adoption-mat-allowance, extra-help
 #Adopter A worker, does not pass earnings and employment test
 - two_carers: no
   adopting: yes
-- due_date: 2014-4-5
+- match_date: 2014-4-5
+  placement_date: 2014-4-5
 - employment_status_1: worker
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -46,7 +49,8 @@ has markers: adoption-single-nothing, extra-help
 #Adopter A self-employed, passes earnings and employment test
 - two_carers: no
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -61,7 +65,8 @@ has markers: adoption-mat-allowance, extra-help
 #Adopter A employee, soon to leave job, passes earnings and employment test
 - two_carers: no
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
 - job_before_x_1: yes
   job_after_y_1: no
@@ -76,7 +81,8 @@ has markers: adoption-mat-allowance, extra-help
 #Adopter A employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
 - two_carers: no
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -91,7 +97,8 @@ has markers: adoption-mat-allowance, adoption-mat-leave, extra-help
 #Adopter A employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
 - two_carers: no
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -106,7 +113,8 @@ has markers: adoption-mat-leave, extra-help
 #Adopter A employee, passes continuity test, passes lower earnings test
 - two_carers: no
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -121,7 +129,8 @@ has markers: adoption-mat-leave, adoption-mat-pay, extra-help
 #Adopter A worker, passes continuity test, passes lower earnings test
 - two_carers: no
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: worker
 - job_before_x_1: yes
   job_after_y_1: yes

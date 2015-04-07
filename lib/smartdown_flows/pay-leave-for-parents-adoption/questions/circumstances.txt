@@ -18,4 +18,5 @@ The partner must be one of the following:
 - the child’s other parent
 - your partner (if they live with you and the child)
 
-* otherwise => due_date
+* adopting is 'yes' => adoption_due_date
+* adopting is 'no' => due_date

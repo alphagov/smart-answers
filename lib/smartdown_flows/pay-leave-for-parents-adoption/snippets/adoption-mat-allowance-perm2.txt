@@ -6,7 +6,7 @@ The mother can get [maternity allowance](/maternity-allowance) from the governme
 
  | Dates and amounts
 - | -
-Maternity allowance can start on | %{start_of_maternity_allowance(due_date)}
+Maternity allowance can start on | %{start_of_maternity_allowance(match_date)}
 Weekly rate | %{rate_of_maternity_allowance(salary_2_66_weeks)}
 Total estimated allowance | %{total_maternity_allowance(salary_2_66_weeks)}
 

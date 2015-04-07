@@ -1,12 +1,12 @@
 # Mother’s employment details
 
-# Did the mother start her current or most recent job before %{continuity_start_date(due_date)}?
+# Did the mother start her current or most recent job before %{continuity_start_date(match_date)}?
 
 [choice: job_before_x_1]
 * yes: Yes
 * no: No
 
-# Was the mother (or will she be) still working in that job on %{continuity_end_date(due_date)}?
+# Was the mother (or will she be) still working in that job on %{continuity_end_date(match_date)}?
 
 [choice: job_after_y_1]
 * yes: Yes
@@ -18,7 +18,7 @@
 
 This is her total take-home pay before any deductions, eg tax.
 
-# Has the mother earned (or will she have earned) more than £111 per week between %{lower_earnings_start_date(due_date)} and %{lower_earnings_end_date(due_date)}?
+# Has the mother earned (or will she have earned) more than £111 per week between %{lower_earnings_start_date(match_date)} and %{lower_earnings_end_date(match_date)}?
 
 [choice: lel_1]
 * yes: Yes

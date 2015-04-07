@@ -6,5 +6,5 @@ If the mother returns to work early, their partner may be able to take up to 26 
 
  | Dates
 - | -
-Additional paternity leave must be used between | %{start_of_additional_paternity_leave(due_date)} to %{end_of_additional_paternity_leave(due_date)}
+Additional paternity leave must be used between | %{start_of_additional_paternity_leave(match_date)} to %{end_of_additional_paternity_leave(match_date)}
 Tell the partner’s employer | 8 weeks before they want to start additional paternity leave

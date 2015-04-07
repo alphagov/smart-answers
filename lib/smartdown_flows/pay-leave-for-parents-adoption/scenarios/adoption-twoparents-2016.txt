@@ -2,7 +2,8 @@
 #Partner self-employed
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: self-employed
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -26,7 +27,8 @@ has markers: adoption-nothing, extra-help, adoption-mat-allowance-perm2, extra-h
 #Partner self-employed
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -50,7 +52,8 @@ has markers: adoption-mat-allowance, extra-help, adoption-mat-allowance-perm2, e
 #Partner worker, does not pass continuity test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: worker
   employment_status_2: worker
 - job_before_x_1: yes
@@ -74,7 +77,8 @@ has markers: adoption-nothing, extra-help
 #Partner self-employed
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: self-employed
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -98,7 +102,8 @@ has markers: adoption-mat-allowance, extra-help, adoption-mat-allowance-perm2, e
 #Partner unemployed
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: unemployed
   employment_status_2: unemployed
 - job_before_x_1: yes
@@ -122,7 +127,8 @@ has markers: adoption-mat-allowance, extra-help, adoption-nothing, extra-help
 #Partner self-employed
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -146,7 +152,8 @@ has markers: adoption-mat-allowance, extra-help, adoption-mat-allowance-perm2, e
 #Partner worker, does not pass continuity test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: worker
 - job_before_x_1: yes
@@ -170,7 +177,8 @@ has markers: adoption-mat-allowance, extra-help, adoption-mat-allowance-perm2, e
 #Partner self-employed
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: unemployed
   employment_status_2: self-employed
 - job_before_x_1: no
@@ -194,7 +202,8 @@ has markers: adoption-mat-allowance-14-weeks, extra-help, adoption-mat-allowance
 #Partner self-employed, passes earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -218,7 +227,8 @@ has markers: adoption-mat-allowance, adoption-mat-leave, adoption-mat-shared-lea
 #Partner self-employed, does not pass earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -242,7 +252,8 @@ has markers: adoption-mat-allowance, adoption-mat-leave, extra-help, adoption-pa
 #Partner self-employed, passes earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -266,7 +277,8 @@ has markers: adoption-mat-leave, adoption-mat-shared-leave, extra-help, adoption
 #Partner self-employed, does not pass earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -290,7 +302,8 @@ has markers: adoption-mat-leave, extra-help, adoption-pat-leave-perm2, extra-hel
 #Partner worker, does not pass continuity test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: worker
 - job_before_x_1: no
@@ -314,7 +327,8 @@ has markers: adoption-mat-allowance, adoption-mat-leave, extra-help, adoption-no
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: employee
 - job_before_x_1: yes
@@ -338,7 +352,8 @@ has markers: adoption-mat-allowance, adoption-mat-leave, adoption-pat-pay, adopt
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: worker
 - job_before_x_1: yes
@@ -362,7 +377,8 @@ has markers: adoption-mat-allowance, adoption-mat-leave, adoption-mat-shared-lea
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: self-employed
   employment_status_2: employee
 - job_before_x_1: yes
@@ -386,7 +402,8 @@ has markers: adoption-mat-allowance, adoption-pat-pay, adoption-pat-shared-pay, 
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: self-employed
   employment_status_2: worker
 - job_before_x_1: yes
@@ -410,7 +427,8 @@ has markers: adoption-mat-allowance, adoption-pat-pay, adoption-pat-shared-pay, 
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: worker
   employment_status_2: worker
 - job_before_x_1: no
@@ -434,7 +452,8 @@ has markers: adoption-mat-allowance, adoption-pat-pay, adoption-pat-shared-pay, 
 #Partner employee, passes continuity test, does not pass lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: employee
 - job_before_x_1: no
@@ -458,7 +477,8 @@ has markers: adoption-mat-allowance, adoption-mat-leave, adoption-pat-leave, ado
 #Partner self-employed, does not pass earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -482,7 +502,8 @@ has markers: adoption-mat-pay, adoption-mat-leave, extra-help, adoption-pat-pay-
 #Partner self-employed, passes earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -506,7 +527,8 @@ has markers: adoption-mat-pay, adoption-mat-shared-pay, adoption-mat-leave, adop
 #Partner employee, does not pass continuity test, passes lower earnings test, passes earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: employee
 - job_before_x_1: yes
@@ -530,7 +552,8 @@ has markers: adoption-mat-pay, adoption-mat-shared-pay, adoption-mat-leave, adop
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: employee
 - job_before_x_1: yes
@@ -554,7 +577,8 @@ has markers: adoption-mat-pay, adoption-mat-leave, adoption-pat-pay, adoption-pa
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: worker
 - job_before_x_1: yes
@@ -578,7 +602,8 @@ has markers: adoption-mat-pay, adoption-mat-leave, adoption-mat-shared-leave, ad
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: employee
 - job_before_x_1: yes
@@ -602,7 +627,8 @@ has markers: adoption-mat-leave, adoption-mat-shared-leave, adoption-pat-pay, ad
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: worker
 - job_before_x_1: yes
@@ -626,7 +652,8 @@ has markers: adoption-mat-leave, adoption-mat-shared-leave, adoption-pat-pay, ex
 #Partner self-employed, does not pass earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: worker
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -650,7 +677,8 @@ has markers: adoption-mat-pay, extra-help, adoption-pat-pay-perm2, extra-help
 #Partner self-employed, passes earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: worker
   employment_status_2: self-employed
 - job_before_x_1: yes
@@ -674,7 +702,8 @@ has markers: adoption-mat-pay, adoption-mat-shared-pay, extra-help, adoption-mat
 #Partner employee, does not pass continuity test, does not pass lower earnings test, passes earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: worker
   employment_status_2: employee
 - job_before_x_1: yes
@@ -698,7 +727,8 @@ has markers: adoption-mat-pay, adoption-mat-shared-pay, extra-help, adoption-mat
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: worker
   employment_status_2: employee
 - job_before_x_1: yes
@@ -722,7 +752,8 @@ has markers: adoption-mat-pay, adoption-pat-pay, adoption-pat-leave, adoption-pa
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: worker
   employment_status_2: worker
 - job_before_x_1: yes
@@ -746,7 +777,8 @@ has markers: adoption-mat-pay, adoption-pat-pay, adoption-both-shared-pay, extra
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: self-employed
   employment_status_2: employee
 - job_before_x_1: no
@@ -770,7 +802,8 @@ has markers: adoption-pat-pay, adoption-pat-leave, extra-help, adoption-mat-pay-
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: self-employed
   employment_status_2: worker
 - job_before_x_1: no
@@ -794,7 +827,8 @@ has markers: adoption-pat-pay, extra-help, adoption-mat-pay-perm2, extra-help
 #Partner employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: employee
 - job_before_x_1: yes
@@ -818,7 +852,8 @@ has markers: adoption-mat-pay, adoption-mat-leave, adoption-pat-leave, adoption-
 #Partner worker, passes continuity test, does not pass lower earnings test, passes earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: worker
 - job_before_x_1: yes
@@ -842,7 +877,8 @@ has markers: adoption-mat-leave, adoption-mat-shared-leave, extra-help, adoption
 #Partner worker, does not pass continuity test, does not pass lower earnings test, passes earnings and employment test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: employee
   employment_status_2: worker
 - job_before_x_1: yes
@@ -866,7 +902,8 @@ has markers: adoption-mat-leave, adoption-mat-shared-leave, extra-help, adoption
 #Partner worker, passes continuity test, does not pass lower earnings test
 - two_carers: yes
   adopting: yes
-- due_date: 2016-1-1
+- match_date: 2016-1-1
+  placement_date: 2016-1-1
 - employment_status_1: worker
   employment_status_2: worker
 - job_before_x_1: no

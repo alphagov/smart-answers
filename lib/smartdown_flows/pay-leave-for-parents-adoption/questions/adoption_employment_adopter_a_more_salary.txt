@@ -1,6 +1,6 @@
 # Mother’s salary details
 
-# How much did the mother earn between %{earnings_employment_start_date(due_date)} and %{earnings_employment_end_date(due_date)}?
+# How much did the mother earn between %{earnings_employment_start_date(match_date)} and %{earnings_employment_end_date(match_date)}?
 
 [salary: salary_1_66_weeks]
 
