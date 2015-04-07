@@ -2,7 +2,7 @@ require 'smartdown/model/answer/money'
 require 'smartdown/model/answer/date'
 
 module SmartdownPlugins
-  module PayLeaveForParents
+  module PayLeaveForParentsV2
 
     #Flow helpers
 
