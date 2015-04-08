@@ -1,5 +1,0 @@
-{{snippet: adopt-pay}}
-
-{{snippet: adopt-shared-pay}}
-
-{{snippet: extra-help}}

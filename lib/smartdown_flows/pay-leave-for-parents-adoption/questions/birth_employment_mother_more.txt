@@ -1,0 +1,36 @@
+# Mother’s employment details
+
+# Did the mother work (or will she have worked) for at least 26 weeks between %{earnings_employment_start_date(due_date)} and %{earnings_employment_end_date(due_date)}?
+
+[choice: work_employment_1]
+* yes: Yes
+* no: No
+
+The 26 weeks don’t need to be in a row. They can be full or part weeks.
+
+# Did the mother earn (or will she have earned) a total of £390 or more in any 13 weeks between %{earnings_employment_start_date(due_date)} and %{earnings_employment_end_date(due_date)}?
+
+[choice: earnings_employment_1]
+* yes: Yes
+* no: No
+
+The 13 weeks don’t need to be in a row.
+
+* two_carers is 'no'
+  * earnings_employment(earnings_employment_1 work_employment_1) => birth_employment_mother_more_salary
+  * employment_status_1 is 'employee'
+    * job_after_y_1 is 'yes' => outcome_mat-leave
+    * job_after_y_1 is 'no' => outcome_single-birth-nothing
+  * employment_status_1 in {worker self-employed unemployed} => outcome_single-birth-nothing
+* two_carers is 'yes'
+  * earnings_employment(earnings_employment_1 work_employment_1) => birth_employment_mother_more_salary
+  * employment_status_2 in {employee worker} => birth_employment_partner
+  * employment_status_2 in {self-employed unemployed}
+    * employment_status_1 is 'employee'
+      * continuity(job_before_x_1 job_after_y_1) AND due_date >= '2015-4-5' => birth_employment_partner_more
+      * job_after_y_1 is 'yes' => outcome_mat-leave
+      * job_after_y_1 is 'no' => outcome_birth-nothing
+    * employment_status_1 in {worker self-employed} => outcome_birth-nothing
+    * employment_status_1 is 'unemployed'
+      * employment_status_2 is 'self-employed' => outcome_mat-allowance-14-weeks
+      * employment_status_2 is 'unemployed' => outcome_birth-nothing

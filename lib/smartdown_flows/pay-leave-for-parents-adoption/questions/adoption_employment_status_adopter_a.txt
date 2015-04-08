@@ -1,0 +1,13 @@
+# Employment status
+
+# What’s the employment status of the mother?
+
+[choice: employment_status_1]
+* employee: Employee
+* worker: Worker or agency worker
+* self-employed: Self-employed
+* unemployed: Unemployed
+
+Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
+
+* otherwise => adoption_employment_adopter_a

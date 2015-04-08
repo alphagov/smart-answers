@@ -1,0 +1,10 @@
+{{marker: adoption-mat-leave}}
+
+##Maternity leave - Adopter A
+
+Adopter A can take up to 52 weeks of [maternity leave](/maternity-pay-leave/leave). The leave will end if the mother goes back to work.
+
+ | Dates
+- | -
+Earliest leave can start | %{earliest_start_mat_leave(placement_date)}
+Tell the Adopter A's employer | %{maternity_leave_notice_date(placement_date)}

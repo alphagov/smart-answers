@@ -1,0 +1,8 @@
+# Salary details for adopter B
+
+# How much did Adopter B earn between %{earnings_employment_start_date(match_date)} and %{earnings_employment_end_date(match_date)}?
+
+[salary: salary_2_66_weeks]
+
+* match_date >= '2015-4-5' => outcome_adoption_post_april_5_2015_adopter_a_adopter_b
+* match_date < '2015-4-5' => outcome_adoption_pre_april_5_2015_adopter_a_adopter_b

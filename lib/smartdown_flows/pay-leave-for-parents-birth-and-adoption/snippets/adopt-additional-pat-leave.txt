@@ -1,7 +1,0 @@
-##Additional paternity leave
-
-If the primary adopter returns to work early, their partner may be able to take up to 26 weeks off as additional paternity leave. 
-
- | Dates
-- | -
-Additional paternity leave must be used between | %{start_of_additional_paternity_leave(match_date)} to %{end_of_additional_paternity_leave(match_date)}
