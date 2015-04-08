@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'unicorn', '4.8.3'
 
-gem 'rails', '4.1.9'
+gem 'rails', '4.2.1'
 
 gem 'rails-i18n'
 gem 'json'
@@ -44,7 +44,7 @@ end
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'
 else
-  gem 'govspeak', '~> 3.2.0'
+  gem 'govspeak', '~> 3.3.0'
 end
 
 gem 'lrucache', '0.1.4'
@@ -69,7 +69,7 @@ group :development do
   gem 'rubocop'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'nokogiri', '1.5.11'
+  gem 'nokogiri'
 end
 
 if ENV['RUBY_DEBUG']
