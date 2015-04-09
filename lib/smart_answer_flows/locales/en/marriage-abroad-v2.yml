@@ -298,7 +298,7 @@ en-GB:
           Affirmation for marriage | £65
 #other phrases
         living_in_residence_country_3_days: |
-          You need to have been living in your country of residence for 3 days.
+          You need to have been living in %{ceremony_country_name} for 3 days.
         check_with_embassy_or_consulate: |
           Check with your nearest British embassy or consulate to find out if they can do this for you.
         check_with_embassy_consulate_or_notary_public: |
@@ -753,7 +753,7 @@ en-GB:
 
           ###Giving notice of marriage
 
-          You need to have been living in your country of residence for 21 days.
+          You need to have been living in %{ceremony_country_name} for 21 days.
 
         consular_cni_os_foreign_resident_3_days: |
           Check with your nearest British embassy or consulate to find out if they can do this for you.
@@ -764,7 +764,7 @@ en-GB:
 
           ###Giving notice of marriage
 
-          You need to have been living in your country of residence for 3 days.
+          You need to have been living in %{ceremony_country_name} for 3 days.
         consular_cni_os_foreign_resident_3_days_macedonia: |
           Contact a notary public or the British Embassy in Macedonia to get advice:
 
@@ -792,7 +792,7 @@ en-GB:
 
           ###Giving notice of marriage
 
-          You need to have been living in your country of residence for 3 days.
+          You need to have been living in %{ceremony_country_name} for 3 days.
         consular_cni_os_foreign_resident_3_days_macedonia: |
           Contact a notary public or British Embassy in Macedonia to get advice:
 
@@ -806,7 +806,7 @@ en-GB:
         consular_cni_os_foreign_resident_3_days_macedonia_giving_notice: |
           ###Giving notice of marriage
 
-          You need to have been living in your country of residence for 3 days.
+          You need to have been living in %{ceremony_country_name} for 3 days.
         consular_cni_os_foreign_resident_21_days_jordan: |
           You need to have been living in the country where you intend to marry for 21 days.
 
@@ -1787,7 +1787,7 @@ en-GB:
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
-          You need to have been living in your country of residence for 3 days.
+          You need to have been living in %{ceremony_country_name} for 3 days.
 
           You’ll need to provide supporting documents, including:
 
