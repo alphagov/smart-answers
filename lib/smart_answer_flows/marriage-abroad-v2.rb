@@ -1480,6 +1480,8 @@ outcome :outcome_ss_marriage do
 
     if ceremony_country == 'japan'
       phrases << :consular_cp_all_contact << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
+    elsif ceremony_country == 'albania'
+      phrases << :appointment_booking_link_albania
     elsif ceremony_country == 'germany'
       phrases << :contact_british_embassy_or_consulate_berlin << :embassies_data
     else
@@ -1515,7 +1517,7 @@ outcome :outcome_ss_marriage do
       phrases << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
     end
 
-    phrases << :convert_cc_to_ss_marriage if %w{australia germany japan philippines russia serbia vietnam}.include?(ceremony_country)
+    phrases << :convert_cc_to_ss_marriage if %w{albania australia germany japan philippines russia serbia vietnam}.include?(ceremony_country)
     phrases
   end
 end

@@ -41,7 +41,7 @@ module SmartAnswer::Calculators
 
     SS_MARRIAGE_COUNTRIES_WHEN_COUPLE_BRITISH = %w(lithuania)
 
-    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(cambodia costa-rica peru philippines vietnam japan)
+    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia costa-rica peru philippines vietnam japan)
 
     SS_CLICKBOOK_COUNTRIES = %w(bolivia chile china colombia costa-rica hungary mongolia montenegro peru philippines russia san-marino serbia vietnam)
 
@@ -51,7 +51,7 @@ module SmartAnswer::Calculators
 
     SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B = %w(azerbaijan chile dominican-republic kosovo latvia)
 
-    SS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %(australia azerbaijan bolivia cambodia chile china colombia costa-rica dominican-republic estonia germany hungary japan kosovo latvia lithuania mongolia montenegro nicaragua peru philippines russia san-marino serbia vietnam)
+    SS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %(albania australia azerbaijan bolivia cambodia chile china colombia costa-rica dominican-republic estonia germany hungary japan kosovo latvia lithuania mongolia montenegro nicaragua peru philippines russia san-marino serbia vietnam)
 
     OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %(jordan oman qatar united-arab-emirates yemen)
 

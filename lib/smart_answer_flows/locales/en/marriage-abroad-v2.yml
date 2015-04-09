@@ -21,6 +21,8 @@ en-GB:
         *[GRO]:General Register Office
 
       phrases:
+        appointment_booking_link_albania: |
+          [Make an appointment at the embassy in Tirana](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tirana/notice-of-marriage-or-civil-partnership/slot_picker)
         ceremony_type_marriage: Marriage
         ceremony_type_civil_partnership: Civil partnership
 # same sex marriage phrases
