@@ -59,7 +59,7 @@ module SmartAnswer::Calculators
     end
 
     def what_you_get
-      what_you_get_raw.round(2)
+      BigDecimal(what_you_get_raw.to_s).round(2).to_f
     end
 
     def what_you_get_raw
@@ -72,7 +72,7 @@ module SmartAnswer::Calculators
 
     # what would you get if all remaining years to pension were qualifying years
     def what_you_would_get_if_not_full
-      what_you_would_get_if_not_full_raw.round(2)
+      BigDecimal(what_you_would_get_if_not_full_raw.to_s).round(2).to_f
     end
 
     def what_you_would_get_if_not_full_raw

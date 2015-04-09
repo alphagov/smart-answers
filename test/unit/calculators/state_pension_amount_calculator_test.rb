@@ -160,6 +160,8 @@ module SmartAnswer::Calculators
           assert_equal 57.98, @calculator.what_you_get
           @calculator.qualifying_years = 10
           assert_equal 38.65, @calculator.what_you_get
+          @calculator.qualifying_years = 9
+          assert_equal 34.79, @calculator.what_you_get
           @calculator.qualifying_years = 5
           assert_equal 19.33, @calculator.what_you_get
           @calculator.qualifying_years = 4
