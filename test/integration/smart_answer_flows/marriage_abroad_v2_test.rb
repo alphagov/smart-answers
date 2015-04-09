@@ -8,7 +8,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany greece indonesia iran ireland italy japan jordan kazakhstan laos latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda san-marino saudi-arabia serbia slovakia south-africa st-maarten south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)
+    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany greece indonesia iran ireland italy japan jordan kazakhstan laos latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda san-marino saudi-arabia serbia slovakia south-africa st-maarten south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad-v2'
   end
@@ -2563,7 +2563,7 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
   end
 
   context "Albania" do
-    should "allows same sex marriage and civil partnership conversion to marriage, has custom appointment booking link" do
+    should "allow same sex marriage and civil partnership conversion to marriage, has custom appointment booking link" do
       worldwide_api_has_organisations_for_location('albania', read_fixture_file('worldwide/albania_organisations.json'))
       add_response 'albania'
       add_response 'other'
@@ -2573,6 +2573,19 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
 
       assert_current_node :outcome_ss_marriage
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :appointment_booking_link_albania, :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
+    end
+  end
+
+  context "Costa Rica" do
+    should "indicate that same sex marriage or civil partnership is not recognised anymore" do
+      worldwide_api_has_organisations_for_location('costa-rica', read_fixture_file('worldwide/costa-rica_organisations.json'))
+      add_response 'costa-rica'
+      add_response 'other'
+      add_response 'costa-rica'
+      add_response 'partner_local'
+      add_response 'same_sex'
+
+      assert_current_node :outcome_cp_all_other_countries
     end
   end
 end
