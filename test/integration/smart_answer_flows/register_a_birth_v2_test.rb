@@ -8,7 +8,7 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines serbia sierra-leone spain sri-lanka st-kitts-and-nevis thailand turkey uganda united-arab-emirates venezuela)
+    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines serbia sierra-leone spain sri-lanka st-kitts-and-nevis thailand turkey uganda united-arab-emirates venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-birth-v2'
   end
@@ -579,6 +579,18 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
       add_response "same_country"
       assert_current_node :oru_result
       assert_phrase_list :oru_extra_documents, [:oru_extra_documents_variant_intro, :oru_extra_documents_variant_uganda]
+    end
+  end
+
+  context "Democratic Republic of Congo" do
+    should "lead to an ORU outcome with a custom translator link" do
+      worldwide_api_has_organisations_for_location('democratic-republic-of-congo', read_fixture_file('worldwide/democratic-republic-of-congo_organisations.json'))
+      add_response "democratic-republic-of-congo"
+      add_response "mother"
+      add_response "no"
+      add_response "same_country"
+      assert_current_node :oru_result
+      assert_state_variable  :translator_link_url, '/government/publications/democratic-republic-of-congo-list-of-lawyers'
     end
   end
 
