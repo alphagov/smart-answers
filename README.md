@@ -54,7 +54,7 @@ Run unit tests by executing the following:
 
 ** Fixtures **
 
-If you need to add a new worldwide organisations fixture find [it here](https://www.gov.uk/government/world/organisations), navigate to `<found_url>.json`, most likely it will be of the following format `https://www.gov.uk/api/world/organisations/british-[embassy|high-commission]-<capital city>`, copy over the JSON to `test/fixtures/worldwide/<country>_organisations.json` and change it to reflect the expected format based on other examples in the directory.
+If you need to add a new worldwide organisations fixture find [it here](https://www.gov.uk/government/world/organisations) by the country name or its capital city, navigate to `<found_url>.json`, most likely it will be of the following format `https://www.gov.uk/api/world/organisations/british-[embassy|high-commission]-<capital city>`, copy over the JSON to `test/fixtures/worldwide/<country>_organisations.json` and change it to reflect the expected format based on other examples in the directory.
 
 Issues/todos
 ------------
