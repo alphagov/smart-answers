@@ -9,6 +9,9 @@ SmartAnswers::Application.routes.draw do
       as: :formatted_smart_answer,
       constraints: { format: /[a-zA-Z]+/ }
 
-    get '/:id(/:started(/*responses))', to: 'smart_answers#show', as: :smart_answer
+    get '/:id(/:started(/*responses))',
+      to: 'smart_answers#show',
+      as: :smart_answer,
+      format: false
   end
 end
