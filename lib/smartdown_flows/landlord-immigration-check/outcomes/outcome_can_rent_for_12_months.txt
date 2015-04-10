@@ -1,10 +1,10 @@
 You must get a positive verification from the [Landlords Checking Service](https://eforms.homeoffice.gov.uk/test/lcs-no-smart-application.ofml) that the person can rent the property if:
 
-- you're reasonably satisfied that they can't show you their documents because of an outstanding immigration appeal or application with the Home Office
+- you're reasonably satisfied that they can't show you their documents because of an outstanding immigration appeal, administrative review or application with the Home Office
 - they have an Application Registration Card
 - they have a Certificate of Application that is less than 6 months old
 
-The person will be able to stay in the property for 12 months. You’ll then have to make another check.
+The person will be able to stay in the property for 12 months. The verification letter will tell you when you have to make another check.
 
 ##When the person can't rent your property 
 
