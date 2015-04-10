@@ -1,6 +1,6 @@
-# Does the person have an outstanding immigration application or appeal?
+# Does the person have an outstanding immigration application, immigration appeal or administrative review?
 
-They should also provide their Home Office reference number.
+They must also provide their Home Office reference number.
 
 [choice: immigration_application]
 * yes: Yes
