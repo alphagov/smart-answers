@@ -2,6 +2,6 @@ This person can currently rent the property.
 
 You need to make a copy of the [relevant parts of the documents](/check-tenant-right-to-rent-documents).
 
-You’ll have to make this check again when their right to stay in the UK expires.
+You’ll have to make this check again just before their right to stay in the UK expires.
 
 {{snippet: landlord-code-of-practice}}
