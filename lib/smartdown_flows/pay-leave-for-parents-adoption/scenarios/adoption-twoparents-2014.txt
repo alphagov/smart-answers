@@ -46,7 +46,7 @@ has markers: adoption-nothing, extra-help
   earnings_employment_2: no
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, extra-help, adoption-nothing, extra-help
+has markers: adoption-nothing, extra-help, adoption-nothing, extra-help
 
 #Mother self-employed, passes earnings and employment test
 #Partner self-employed
@@ -71,7 +71,7 @@ has markers: adoption-mat-allowance, extra-help, adoption-nothing, extra-help
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, extra-help, adoption-mat-allowance-perm2, extra-help
+has markers: adoption-nothing, extra-help, adoption-nothing, extra-help
 
 #Mother employee, does not pass continuity test, passes lower earnings test
 #Partner employee, does not pass continuity test, does not pass lower earnings test
@@ -96,7 +96,7 @@ has markers: adoption-mat-allowance, extra-help, adoption-mat-allowance-perm2, e
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, extra-help, adoption-mat-allowance-perm2, adoption-mat-leave-perm2, extra-help
+has markers: adoption-nothing, extra-help, adoption-mat-leave-perm2, extra-help
 
 #Mother unemployed, does not pass earnings and employment test
 #Partner self-employed
@@ -121,7 +121,7 @@ has markers: adoption-mat-allowance, extra-help, adoption-mat-allowance-perm2, a
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance-14-weeks, extra-help, adoption-mat-allowance-perm2, extra-help
+has markers: adoption-nothing, extra-help, adoption-nothing, extra-help
 
 #Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
 #Partner self-employed
@@ -146,7 +146,7 @@ has markers: adoption-mat-allowance-14-weeks, extra-help, adoption-mat-allowance
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, adoption-mat-leave, extra-help, adoption-mat-allowance-perm2, adoption-pat-leave-perm2, adoption-additional-pat-leave-perm2, extra-help
+has markers: adoption-mat-leave, extra-help, adoption-pat-leave-perm2, adoption-additional-pat-leave-perm2, extra-help
 
 #Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
 #Partner employee, passes continuity test, passes lower earnings test
@@ -171,7 +171,7 @@ has markers: adoption-mat-allowance, adoption-mat-leave, extra-help, adoption-ma
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, adoption-mat-leave, adoption-pat-pay, adoption-additional-pat-pay, adoption-pat-leave, adoption-additional-pat-leave, extra-help, adoption-mat-pay-perm2, adoption-mat-leave-perm2, adoption-pat-leave-perm2, adoption-additional-pat-leave-perm2, extra-help
+has markers: adoption-mat-leave, adoption-pat-pay, adoption-pat-leave, adoption-additional-pat-leave, extra-help, adoption-mat-pay-perm2, adoption-mat-leave-perm2, adoption-pat-leave-perm2, adoption-additional-pat-leave-perm2, extra-help
 
 #Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
 #Partner worker, passes continuity test, passes lower earnings test
@@ -196,7 +196,7 @@ has markers: adoption-mat-allowance, adoption-mat-leave, adoption-pat-pay, adopt
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, adoption-mat-leave, adoption-pat-pay, adoption-additional-pat-pay, extra-help, adoption-mat-pay-perm2, adoption-pat-leave-perm2, adoption-additional-pat-leave-perm2, extra-help
+has markers: adoption-mat-leave, adoption-pat-pay, extra-help, adoption-mat-pay-perm2, adoption-pat-leave-perm2, adoption-additional-pat-leave-perm2, extra-help
 
 #Mother self-employed, passes earnings and employment test
 #Partner employee, passes continuity test, passes lower earnings test
@@ -221,7 +221,7 @@ has markers: adoption-mat-allowance, adoption-mat-leave, adoption-pat-pay, adopt
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, adoption-pat-pay, adoption-additional-pat-pay, adoption-pat-leave, adoption-additional-pat-leave, extra-help, adoption-mat-pay-perm2, adoption-mat-leave-perm2, extra-help
+has markers: adoption-pat-pay, adoption-pat-leave, extra-help, adoption-mat-pay-perm2, adoption-mat-leave-perm2, extra-help
 
 #Mother worker, does not pass continuity test, does not pass lower earnings test, passes earnings and employment test
 #Partner employee, passes continuity test, passes lower earnings test
@@ -246,7 +246,7 @@ has markers: adoption-mat-allowance, adoption-pat-pay, adoption-additional-pat-p
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, adoption-pat-pay, adoption-additional-pat-pay, adoption-pat-leave, adoption-additional-pat-leave, extra-help, adoption-mat-pay-perm2, adoption-mat-leave-perm2, extra-help
+has markers: adoption-pat-pay, adoption-pat-leave, extra-help, adoption-mat-pay-perm2, adoption-mat-leave-perm2, extra-help
 
 #Mother self-employed, passes earnings and employment test
 #Partner worker, passes continuity test, passes lower earnings test
@@ -271,7 +271,7 @@ has markers: adoption-mat-allowance, adoption-pat-pay, adoption-additional-pat-p
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, adoption-pat-pay, adoption-additional-pat-pay, extra-help, adoption-mat-pay-perm2, extra-help
+has markers: adoption-pat-pay, extra-help, adoption-mat-pay-perm2, extra-help
 
 #Mother worker, does not pass continuity test, does not pass lower earnings test, passes earnings and employment test
 #Partner worker, passes continuity test, passes lower earnings test
@@ -296,7 +296,7 @@ has markers: adoption-mat-allowance, adoption-pat-pay, adoption-additional-pat-p
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, adoption-pat-pay, adoption-additional-pat-pay, extra-help, adoption-mat-pay-perm2, extra-help
+has markers: adoption-pat-pay, extra-help, adoption-mat-pay-perm2, extra-help
 
 #Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
 #Partner self-employed
@@ -346,7 +346,7 @@ has markers: adoption-mat-leave, extra-help, adoption-pat-leave-perm2, extra-hel
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, adoption-mat-leave, extra-help, adoption-mat-allowance-perm2, extra-help
+has markers: adoption-mat-leave, extra-help, adoption-nothing, extra-help
 
 #Mother employee, passes continuity test, passes lower earnings test
 #Partner self-employed
@@ -371,7 +371,7 @@ has markers: adoption-mat-allowance, adoption-mat-leave, extra-help, adoption-ma
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-pay, adoption-mat-leave, extra-help, adoption-mat-allowance-perm2, adoption-pat-pay-perm2, adoption-additional-pat-pay-perm2, adoption-pat-leave-perm2, adoption-additional-pat-leave-perm2, extra-help
+has markers: adoption-mat-pay, adoption-mat-leave, extra-help, adoption-pat-pay-perm2, adoption-pat-leave-perm2, adoption-additional-pat-leave-perm2, extra-help
 
 #Mother employee, passes continuity test, passes lower earnings test
 #Partner employee, passes continuity test, does not pass lower earnings test
@@ -396,7 +396,7 @@ has markers: adoption-mat-pay, adoption-mat-leave, extra-help, adoption-mat-allo
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-pay, adoption-mat-leave, adoption-pat-leave, adoption-additional-pat-leave, extra-help, adoption-mat-allowance-perm2, adoption-mat-leave-perm2, adoption-pat-pay-perm2, adoption-additional-pat-pay-perm2, adoption-pat-leave-perm2, adoption-additional-pat-leave-perm2, extra-help
+has markers: adoption-mat-pay, adoption-mat-leave, adoption-pat-leave, adoption-additional-pat-leave, extra-help, adoption-mat-leave-perm2, adoption-pat-pay-perm2, adoption-pat-leave-perm2, adoption-additional-pat-leave-perm2, extra-help
 
 #Mother employee, passes continuity test, passes lower earnings test
 #Partner employee, passes continuity test, passes lower earnings test
@@ -546,7 +546,7 @@ has markers: adoption-mat-leave, adoption-pat-pay, extra-help, adoption-mat-pay-
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-pay, extra-help, adoption-mat-allowance-perm2, adoption-pat-pay-perm2, adoption-additional-pat-pay-perm2, extra-help
+has markers: adoption-mat-pay, extra-help, adoption-pat-pay-perm2, extra-help
 
 #Mother worker, passes continuity test, passes lower earnings test
 #Partner worker, does not pass continuity test
@@ -771,7 +771,7 @@ has markers: adoption-pat-pay, extra-help, adoption-mat-pay-perm2, extra-help
   earnings_employment_2: yes
 - salary_2_66_weeks: 400-week
 outcome_adoption_pre_april_5_2015_adopter_a_adopter_b
-has markers: adoption-mat-allowance, adoption-mat-leave, adoption-pat-pay, adoption-additional-pat-pay, adoption-pat-leave, adoption-additional-pat-leave, extra-help, adoption-mat-pay-perm2, adoption-mat-leave-perm2, extra-help
+has markers: adoption-mat-leave, adoption-pat-pay, adoption-pat-leave, adoption-additional-pat-leave, extra-help, adoption-mat-pay-perm2, adoption-mat-leave-perm2, extra-help
 
 #Mother employee, does not pass continuity test, does not pass lower earnings test, does not pass earnings and employment test, still working
 #Partner employee, passes continuity test, passes lower earnings test

@@ -38,8 +38,7 @@ module SmartdownPlugins
       (qualifies_for_maternity_leave?(employment_status_1, job_after_1) ||
       qualifies_for_leave?(employment_status_1, job_before_1, job_after_1) ||
       qualifies_for_pay?(employment_status_1, job_before_1, job_after_1, lel_1) ||
-      qualifies_for_pay?(employment_status_2, job_before_2, job_after_2, lel_2) ||
-      qualifies_for_maternity_allowance?(employment_status_1, earnings_employment_1, work_employment_1, job_before_1, job_after_1, lel_1)) &&
+      qualifies_for_pay?(employment_status_2, job_before_2, job_after_2, lel_2)) &&
       employment_status_1 == 'employee' &&
       continuity(job_before_1, job_after_1) &&
       earnings_employment(earnings_employment_1, work_employment_1) &&
