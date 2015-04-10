@@ -1,4 +1,4 @@
-# Is the person at least 18?
+# Is the person at least 18 years of age?
 
 [choice: tenant_over_18]
 * yes: Yes
