@@ -231,12 +231,17 @@ multiple_choice :partner_opposite_or_same_sex? do
     (ceremony_country == "brazil") & (resident_of == "other")
   }
 
+  define_predicate(:os_marriage_with_local_in_japan) {
+    ceremony_country == 'japan' and residency_country == 'japan' and partner_nationality == 'partner_local'
+  }
+
   next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
   next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
   next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
   next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
   next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
   on_condition(responded_with('opposite_sex')) do
+    next_node_if(:outcome_os_local_japan, os_marriage_with_local_in_japan)
     next_node_if(:outcome_os_colombia, variable_matches(:ceremony_country, "colombia"))
     next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, "kosovo"))
     next_node_if(:outcome_os_indonesia, variable_matches(:ceremony_country, "indonesia"))
@@ -423,6 +428,24 @@ outcome :outcome_os_laos do
     phrases << :list_of_consular_fees
     phrases << :pay_by_cash_or_credit_card_no_cheque
     phrases << :consular_cni_os_naturalisation
+  end
+end
+
+outcome :outcome_os_local_japan do
+  precalculate :japan_os_local_phraselist do
+    PhraseList.new(
+      :local_resident_os_consular_cni,
+      :italy_os_consular_cni_ceremony_not_italy_or_spain,
+      :consular_cni_all_what_you_need_to_do,
+      :what_to_do_os_local_japan,
+      :consular_cni_os_not_uk_resident_ceremony_not_germany,
+      :what_happens_next_os_local_japan,
+      :consular_cni_os_all_names_but_germany,
+      :consular_cni_os_naturalisation,
+      :fee_table_oath_declaration_55,
+      :list_of_consular_fees,
+      :payment_methods_japan
+    )
   end
 end
 

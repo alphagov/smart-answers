@@ -1790,29 +1790,36 @@ class MarriageAbroadV2Test < ActiveSupport::TestCase
     end
   end
   #testing for japan
-  context "ceremony in japan, resident in japan" do
-    should "give os outcome with japan variants" do
+  context "ceremony in Japan" do
+    setup do
       worldwide_api_has_organisations_for_location('japan', read_fixture_file('worldwide/japan_organisations.json'))
       add_response 'japan'
       add_response 'other'
       add_response 'japan'
-      add_response 'partner_local'
-      add_response 'opposite_sex'
-      assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_foreign_resident_ceremony_not_germany_italy, :check_with_embassy_consulate_or_notary_public, :japan_consular_cni_os_local_resident, :japan_consular_cni_os_local_resident_partner_local, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :consular_cni_os_foreign_resident_ceremony_notary_public]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
-  end
-  context "ceremony in japan, resident in japan" do
-    should "give ss outcome with japan variants" do
-      worldwide_api_has_organisations_for_location('japan', read_fixture_file('worldwide/japan_organisations.json'))
-      add_response 'japan'
-      add_response 'other'
-      add_response 'japan'
-      add_response 'partner_local'
-      add_response 'same_sex'
-      assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :consular_cp_all_contact, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
+
+    context "with a local resident" do
+      setup{ add_response 'partner_local' }
+
+      should "give a japan-specific outcome" do
+        add_response 'opposite_sex'
+        assert_current_node :outcome_os_local_japan
+        assert_phrase_list :japan_os_local_phraselist, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :what_to_do_os_local_japan, :consular_cni_os_not_uk_resident_ceremony_not_germany, :what_happens_next_os_local_japan, :consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation, :fee_table_oath_declaration_55, :list_of_consular_fees, :payment_methods_japan]
+      end
+      should "give ss outcome with japan variants" do
+        add_response 'same_sex'
+        assert_current_node :outcome_ss_marriage
+        assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :consular_cp_all_contact, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
+      end
+    end
+
+    should "give CNI outcome when marrying to an opposite sex non-local partner" do
+      add_response 'partner_other'
+      add_response 'opposite_sex'
+
+      assert_current_node :outcome_os_consular_cni
+      assert_phrase_list :consular_cni_os_start, [:local_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_foreign_resident_ceremony_not_germany_italy, :check_with_embassy_consulate_or_notary_public, :japan_consular_cni_os_local_resident, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :consular_cni_os_foreign_resident_ceremony_notary_public]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
