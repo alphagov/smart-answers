@@ -434,8 +434,7 @@ end
 outcome :outcome_os_local_japan do
   precalculate :japan_os_local_phraselist do
     PhraseList.new(
-      :local_resident_os_consular_cni,
-      :italy_os_consular_cni_ceremony_not_italy_or_spain,
+      :japan_intro,
       :consular_cni_all_what_you_need_to_do,
       :what_to_do_os_local_japan,
       :consular_cni_os_not_uk_resident_ceremony_not_germany,
@@ -586,7 +585,9 @@ outcome :outcome_os_consular_cni do
     ceremony_not_germany_or_not_resident_other = (ceremony_country != 'germany' or resident_of != 'other')
     ceremony_and_residency_in_croatia = (ceremony_country == 'croatia' and residency_country == 'croatia')
 
-    if (resident_of == 'uk') and (ceremony_country != 'italy') and not data_query.dutch_caribbean_islands?(ceremony_country)
+    if ceremony_country == 'japan'
+      phrases << :japan_intro
+    elsif (resident_of == 'uk') and (ceremony_country != 'italy') and not data_query.dutch_caribbean_islands?(ceremony_country)
       phrases << :uk_resident_os_consular_cni
     elsif residency_country == ceremony_country and ceremony_country != 'italy'
       phrases << :local_resident_os_consular_cni
@@ -615,7 +616,7 @@ outcome :outcome_os_consular_cni do
       phrases << :spain_os_consular_cni_not_local_resident unless residency_country == 'spain'
     elsif ceremony_country == 'italy'
       phrases << :italy_os_consular_cni_ceremony_italy
-    else
+    elsif ceremony_country != 'japan'
       phrases << :italy_os_consular_cni_ceremony_not_italy_or_spain
     end
     phrases << :consular_cni_all_what_you_need_to_do
