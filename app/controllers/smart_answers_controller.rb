@@ -1,7 +1,7 @@
 class SmartAnswersController < ApplicationController
-  before_filter :find_smart_answer
-  before_filter :redirect_response_to_canonical_url, only: %w{show}
-  before_filter :set_header_footer_only, only: %w{visualise}
+  before_action :find_smart_answer
+  before_action :redirect_response_to_canonical_url, only: %w{show}
+  before_action :set_header_footer_only, only: %w{visualise}
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
   rescue_from SmartAnswer::InvalidNode, with: :error_404
