@@ -4,6 +4,7 @@ require 'integration_test_helper'
 class ExamplePluginsTest < ActionDispatch::IntegrationTest
   def setup
     use_test_smartdown_flow_fixtures
+    SmartdownAdapter::PluginFactory.reset_plugins_for('example-plugins')
     stub_content_api_default_artefact
   end
 
