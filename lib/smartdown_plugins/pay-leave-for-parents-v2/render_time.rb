@@ -4,6 +4,21 @@ require 'smartdown/model/answer/date'
 module SmartdownPlugins
   module PayLeaveForParentsV2
 
+    #Uprate helpers
+
+    def self.lower_earnings_amount(due_date)
+      start_date = lower_earnings_start_date(due_date).value
+      if (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(start_date)
+        build_money_answer(109)
+      elsif (Date.new(2014, 05, 06)..Date.new(2015, 05, 05)).cover?(start_date)
+        build_money_answer(111)
+      elsif (Date.new(2015, 05, 06)..Date.new(2016, 05, 05)).cover?(start_date)
+        build_money_answer(112)
+      else
+        build_money_answer(112)
+      end
+    end
+
     #Flow helpers
 
     #Continuity test

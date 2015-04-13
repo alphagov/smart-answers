@@ -8,6 +8,33 @@ module SmartdownPlugins
 
     due_date = Smartdown::Model::Answer::Date.new("2015-1-1")
 
+    context "due date in 2013-2014 range" do
+      should "return £ 109 for lower_earnings_amount" do
+        date = Smartdown::Model::Answer::Date.new("2014-1-1")
+        assert_equal 109, SmartdownPlugins::PayLeaveForParentsV2.lower_earnings_amount(date)
+      end
+    end
+
+    context "due date in 2014-2015 range" do
+      should "return £ 111 for lower_earnings_amount" do
+        date = Smartdown::Model::Answer::Date.new("2015-1-1")
+        assert_equal 111, SmartdownPlugins::PayLeaveForParentsV2.lower_earnings_amount(date)
+      end
+    end
+
+    context "due date in 2015-2016 range" do
+      should "return £ 112 for lower_earnings_amount" do
+        date = Smartdown::Model::Answer::Date.new("2016-1-1")
+        assert_equal 112, SmartdownPlugins::PayLeaveForParentsV2.lower_earnings_amount(date)
+      end
+    end
+
+    context "due date outside all ranges" do
+      should "return the latest known lower_earnings_amount" do
+        date = Smartdown::Model::Answer::Date.new("2022-1-1")
+        assert_equal 112, SmartdownPlugins::PayLeaveForParentsV2.lower_earnings_amount(date)
+      end
+    end
 
     test "continuity_start_date" do
       expected = Smartdown::Model::Answer::Date.new("2014-3-29")
