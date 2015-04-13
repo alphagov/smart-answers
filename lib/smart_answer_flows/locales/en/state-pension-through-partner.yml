@@ -197,7 +197,7 @@ en-GB:
 
           ##What you may get if you have a reduced rate election
 
-          You’ll get a State Pension that will be no less than:
+          You’ll get a State Pension that will be about the same as:
 
           - the lower rate basic State Pension of %{lower_basic_state_pension_rate} a week (if married or in a civil partnership and your partner has reached State Pension age)
           - the rate of the basic State Pension of %{higher_basic_state_pension_rate} a week (if widowed, divorced or your civil partnership has been dissolved)
@@ -216,7 +216,7 @@ en-GB:
 
           ##If you become widowed
 
-          You might be able to inherit part of your spouse or civil partner’s Additional State Pension or Protected payment if you become widowed. You must have been married or in a civil partnership with your partner before 6 April 2016.
+          You might be able to inherit part of your spouse or civil partner’s Additional State Pension or Protected Payment if you become widowed. You must have been married or in a civil partnership with your partner before 6 April 2016.
 
           ^What you might be able to inherit depends on when your spouse or civil partner reached or would have reached State Pension age.^
 
@@ -226,7 +226,7 @@ en-GB:
 
           If your spouse or civil partner reached State Pension age or died under State Pension age on or after 6 April 2016 you may be able to inherit a portion of their [Protected Payment](/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner).
 
-          ^You won’t be able to inherit either your late spouse or civil partner’s Additional State Pension or Protected payment if you remarry or form a new civil partnership before State Pension age.^
+          ^You won’t be able to inherit either your late spouse or civil partner’s Additional State Pension or Protected Payment if you remarry or form a new civil partnership before State Pension age.^
 
           ##Other help if you’re widowed
 
@@ -268,7 +268,7 @@ en-GB:
 
           ##What you may get if you have a reduced rate election
 
-          You’ll get a pension that won’t be less than:
+          You’ll get a pension that will be about the same as:
 
           - the full rate of the basic State Pension (under the current State Pension rules)
           - any Additional State Pension you built up before 6 April 2016
@@ -281,10 +281,9 @@ en-GB:
 
           ###If you remarry or form a new civil partnership before you reach State Pension age
 
-          You’ll get a pension that is the higher of:
-
-          - the lower rate current system basic State Pension of %{lower_basic_state_pension_rate} a week and any Additional State Pension you built up before 6 April 2016
-          - your [State Pension](/new-state-pension) under your own National Insurance contributions.
+          You’ll get a pension that is about the same as the lower rate current system basic State Pension of %{lower_basic_state_pension_rate} a week and any Additional State Pension you built up before 6 April 2016.
+          
+          You'll get more if your [State Pension](/new-state-pension) is higher under your own National Insurance contributions.
 
           ^Your pension must have been calculated under the reduced rate election rules for this to apply.^
 
@@ -336,7 +335,7 @@ en-GB:
 
           If you’re widowed on or after 6 April 2016 you may be able to inherit a portion of your partner’s [Protected Payment](/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner).
 
-          ^You won’t be able to inherit either your late partner’s Additional State Pension or Protected payment if you remarry before State Pension age.^
+          ^You won’t be able to inherit either your late partner’s Additional State Pension or Protected Payment if you remarry before State Pension age.^
 
           You might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you hadn’t reached State Pension age.
 
@@ -371,7 +370,7 @@ en-GB:
 
           If partner reached State Pension age or died under State Pension age on or after 6 April 2016 you may be able to inherit a portion of their [Protected Payment](/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner).
 
-          ^You won’t be able to inherit either your late spouse or civil partner’s Additional State Pension or Protected payment if you remarry before State Pension age.^
+          ^You won’t be able to inherit either your late spouse or civil partner’s Additional State Pension or Protected Payment if you remarry before State Pension age.^
 
           You also might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you haven’t yet reached State Pension age.
 
@@ -384,9 +383,7 @@ en-GB:
           - your own basic State Pension is less than %{higher_basic_state_pension_rate} a week
           - your divorced spouse or civil partner had enough National Insurance contributions
 
-          You’ll get the increase when either you or your former partner reach [State Pension age](/calculate-state-pension), whichever is later.
-
-          ^You won’t get the increase if you remarry or form a new civil partnership before you reach State Pension age.^
+          ^You won’t get the increase if you remarry or form a new civil partnership before you reach [State Pension age](/calculate-state-pension).^
 
           ##You reach State Pension age on or after 6 April 2016
 
@@ -439,7 +436,7 @@ en-GB:
 
           ##What you may get if you have a reduced rate election
 
-          You’ll get a pension that won’t be less than the full rate of the basic State Pension (under the current State Pension system) of %{higher_basic_state_pension_rate} a week and any Additional State Pension you built up before 6 April 2016.
+          You’ll get a pension that will be about the same as the full rate of the basic State Pension (under the current State Pension system) of %{higher_basic_state_pension_rate} a week and any Additional State Pension you built up before 6 April 2016.
 
           You’ll get this when you reach State Pension age.
 
@@ -449,10 +446,9 @@ en-GB:
 
           ###If you remarry or form a new civil partnership before you reach State Pension age
 
-          You’ll get a pension that is the higher of:
-
-          - the lower rate current system basic State Pension of %{lower_basic_state_pension_rate} a week and any Additional State Pension you built up before 6 April 2016
-          - your [State Pension](/new-state-pension) under your own National Insurance contributions.
+          You’ll get a pension that is about the same as the lower rate current system basic State Pension of %{lower_basic_state_pension_rate} a week and any Additional State Pension you built up before 6 April 2016.
+          
+          You'll get more if your [State Pension](/new-state-pension) is higher under your own National Insurance contributions.
 
           ^Your pension must have been calculated under the reduced rate election rules for this to apply.^
 
