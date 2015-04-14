@@ -360,10 +360,9 @@ outcome :oru_result do
   precalculate :oru_courier_text do
     phrases = PhraseList.new
     if reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) && !in_the_uk
-      if registration_country == 'cameroon'
-        phrases << :oru_courier_text_cameroon
-      else
-        phrases << :"oru_courier_text_#{registration_country}" << :oru_courier_text_common
+      phrases << :"oru_courier_text_#{registration_country}"
+      unless registration_country.in?(reg_data_query.class::ORU_COURIER_BY_HIGH_COMISSION)
+        phrases << :oru_courier_text_common
       end
     else
       phrases << :oru_courier_text_default
