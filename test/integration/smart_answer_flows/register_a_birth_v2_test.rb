@@ -559,12 +559,13 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   end
 
   context "answer Philippines" do
-    should "show ORU outcome and require extra documents" do
+    should "show ORU outcome and require extra documents regardles of the current location" do
       worldwide_api_has_organisations_for_location('philippines', read_fixture_file('worldwide/philippines_organisations.json'))
       add_response "philippines"
       add_response "mother"
       add_response "no"
-      add_response "same_country"
+      add_response "another_country"
+      add_response "belgium"
       assert_current_node :oru_result
       assert_phrase_list :oru_extra_documents, [:oru_extra_documents_variant_intro, :oru_extra_documents_variant_philippines]
     end

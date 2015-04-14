@@ -371,10 +371,10 @@ outcome :oru_result do
   end
 
   precalculate :oru_extra_documents do
-    if registration_country.in?(%w(philippines sierra-leone uganda))
+    if country_of_birth.in?(%w(philippines sierra-leone uganda))
       PhraseList.new(
         :oru_extra_documents_variant_intro,
-        :"oru_extra_documents_variant_#{registration_country}"
+        :"oru_extra_documents_variant_#{country_of_birth}"
       )
     end
   end
