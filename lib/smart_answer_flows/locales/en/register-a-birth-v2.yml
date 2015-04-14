@@ -301,16 +301,17 @@ en-GB:
         oru_extra_documents_variant_intro: |
           If the child doesn't have a British passport you must also send the original copies of:
 
-        oru_extra_documents_variant_philippines: |
+        oru_extra_documents_in_philippines_when_mother_not_british: |
           - a Certificate of No Marriage ("Cenomar") issued by the National Statistics Office (NSO) or Philippine Statistics Authority (PSA) - if the Filipino mother is single
           - an Advisory on Marriage certificate issued by the NSO or PSA - if the Filipino mother is married
+        oru_extra_documents_variant_philippines: |
           - the mother’s antenatal, postnatal and delivery notes from the hospital (eg blood test results, ultrasound scans and doctors' notes) or copies certified by the hospital if you can't get the originals
           - health cards from the hospital, doctor or clinic
           - immunisation and vaccination cards
           - a letter from the hospital confirming the birth
           - receipts from the hospital for the birth and any medical treatment (if any)
-          - photos of the child as a baby, in which the child can clearly be identified with its parents in Sierra Leone
-          - photos of the child growing up in Sierra Leone with its parents and any siblings
+          - photos of the child as a baby, in which the child can clearly be identified with its parents in the Philippines
+          - photos of the child growing up in the Philippines with its parents and any siblings
           - the parents' wedding photos (if the parents have been married)
           - photos of the mother during pregnancy (if the mother is a British citizen)
 
@@ -331,8 +332,8 @@ en-GB:
           - immunisation and vaccination cards
           - a letter from the hospital confirming the birth
           - receipts from the hospital for the birth and any medical treatment (if any)
-          - photos of the child as a baby, in which the child can clearly be identified with its parents in Sierra Leone
-          - photos of the child growing up in Sierra Leone with its parents and any siblings
+          - photos of the child as a baby, in which the child can clearly be identified with its parents in Uganda
+          - photos of the child growing up in Uganda with its parents and any siblings
           - the parents' wedding photos (if the parents have been married)
           - photos of the mother during pregnancy (if the mother is a British citizen)
 
@@ -370,10 +371,8 @@ en-GB:
           - the child’s full local birth certificate - it must have both parents’ names
           - a [name confirmation form](https://www.gov.uk/government/publications/birth-registration-name-confirmation-form) that says how you would like the child's full name to be registered, if the name differs from the name on the local birth certificate
         oru_documents_variant_nepal: |
-          - the child’s full local birth certificate - it must have both parents’ names
-          - the mother's antenatal records (eg blood test results, ultrasound scans and doctors' notes)
+          - the child’s full local birth certificate (if one parent is Nepali) - it must have both parents’ names
           - the hospital live birth certificate
-          - the hospital discharge summary (a letter from the hospital saying what treatment you had)
         oru_documents_variant_netherlands: |
           - the Dutch version of the child’s full birth certificate (‘akte van geboorte’) and a translation of the certificate into English
         oru_documents_variant_nigeria: |
@@ -444,11 +443,17 @@ en-GB:
         oru_courier_text_cambodia: |
           Your documents will be returned to the British Embassy in Phnom Penh after the birth has been registered.
         oru_courier_text_kenya: |
-          Your documents will be returned to the British High Commission in Nairobi after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
+          Your documents will be returned to the British High Commission in Nairobi after the birth has been registered.
+
+          You’ll also be sent copies of the registration certificate if you’ve paid for them. The High Commission will contact you when your documents and certificates are ready for collection.
         oru_courier_text_cameroon: |
-          Your documents will be returned to the British High Commission in Yaonde. You'll also be sent copies of the registration certificate if you've paid for them. The High Commission will contact you when your documents are ready for collection.
+          Your documents will be returned to the British High Commission in Yaonde.
+
+          You'll also be sent copies of the registration certificate if you've paid for them. The High Commission will contact you when your documents are ready for collection.
         oru_courier_text_nigeria: |
-          Your documents will be returned to the British High Commission in Lagos after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
+          Your documents will be returned to the British High Commission in Lagos after the birth has been registered.
+
+          You’ll also be sent copies of the registration certificate if you’ve paid for them. The High Commission will contact you when your documents and certificates are ready for collection.
         oru_courier_text_north-korea: |
           Your documents will be returned to the British Embassy in Pyongyang after the birth has been registered.
         oru_courier_text_papua-new-guinea: |

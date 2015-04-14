@@ -162,10 +162,9 @@ outcome :oru_result do
   precalculate :oru_courier_text do
     phrases = PhraseList.new
     if reg_data_query.class::ORU_COURIER_VARIANTS.include?(current_location)
-      if current_location == 'cameroon'
-        phrases << :oru_courier_text_cameroon
-      else
-        phrases << :"oru_courier_text_#{current_location}" << :oru_courier_text_common
+      phrases << :"oru_courier_text_#{current_location}"
+      unless current_location.in?(reg_data_query.class::ORU_COURIER_BY_HIGH_COMISSION)
+        phrases << :oru_courier_text_common
       end
     else
       phrases << :oru_courier_text_default

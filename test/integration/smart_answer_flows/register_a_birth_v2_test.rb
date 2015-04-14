@@ -559,14 +559,28 @@ class RegisterABirthV2Test < ActiveSupport::TestCase
   end
 
   context "answer Philippines" do
-    should "show ORU outcome and require extra documents" do
+    setup do
       worldwide_api_has_organisations_for_location('philippines', read_fixture_file('worldwide/philippines_organisations.json'))
       add_response "philippines"
+    end
+
+    should "show ORU outcome and require extra documents regardles of the current location" do
+      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
       add_response "mother"
       add_response "no"
-      add_response "same_country"
+      add_response "another_country"
+      add_response "australia"
       assert_current_node :oru_result
       assert_phrase_list :oru_extra_documents, [:oru_extra_documents_variant_intro, :oru_extra_documents_variant_philippines]
+    end
+
+    should "show ORU outcome and require even more extra documents if only the father is british" do
+      add_response "father"
+      add_response "no"
+      add_response "2014-03-04"
+      add_response "same_country"
+      assert_current_node :oru_result
+      assert_phrase_list :oru_extra_documents, [:oru_extra_documents_variant_intro, :oru_extra_documents_in_philippines_when_mother_not_british, :oru_extra_documents_variant_philippines]
     end
   end
 

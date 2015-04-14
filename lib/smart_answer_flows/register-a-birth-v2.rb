@@ -360,10 +360,9 @@ outcome :oru_result do
   precalculate :oru_courier_text do
     phrases = PhraseList.new
     if reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) && !in_the_uk
-      if registration_country == 'cameroon'
-        phrases << :oru_courier_text_cameroon
-      else
-        phrases << :"oru_courier_text_#{registration_country}" << :oru_courier_text_common
+      phrases << :"oru_courier_text_#{registration_country}"
+      unless registration_country.in?(reg_data_query.class::ORU_COURIER_BY_HIGH_COMISSION)
+        phrases << :oru_courier_text_common
       end
     else
       phrases << :oru_courier_text_default
@@ -372,11 +371,12 @@ outcome :oru_result do
   end
 
   precalculate :oru_extra_documents do
-    if registration_country.in?(%w(philippines sierra-leone uganda))
-      PhraseList.new(
-        :oru_extra_documents_variant_intro,
-        :"oru_extra_documents_variant_#{registration_country}"
-      )
+    if country_of_birth.in?(%w(philippines sierra-leone uganda))
+      phrases = PhraseList.new(:oru_extra_documents_variant_intro)
+      if country_of_birth == 'philippines' and british_national_parent.exclude?('mother')
+        phrases << :oru_extra_documents_in_philippines_when_mother_not_british
+      end
+      phrases << :"oru_extra_documents_variant_#{country_of_birth}"
     end
   end
 

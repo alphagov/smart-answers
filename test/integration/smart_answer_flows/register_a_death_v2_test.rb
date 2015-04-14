@@ -480,9 +480,9 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         add_response 'in_the_uk'
       end
 
-      should "take you to the embassy outcome with custom courier message" do
+      should "take you to the ORU outcome with custom courier message without common text" do
         assert_current_node :oru_result
-        assert_phrase_list :oru_courier_text, [:oru_courier_text_kenya, :oru_courier_text_common]
+        assert_phrase_list :oru_courier_text, [:oru_courier_text_kenya]
       end
     end
 
@@ -493,9 +493,9 @@ class RegisterADeathV2Test < ActiveSupport::TestCase
         add_response 'in_the_uk'
       end
 
-      should "take you to the embassy outcome with custom courier message" do
+      should "take you to the ORU outcome with custom courier message without common text" do
         assert_current_node :oru_result
-        assert_phrase_list :oru_courier_text, [:oru_courier_text_nigeria, :oru_courier_text_common]
+        assert_phrase_list :oru_courier_text, [:oru_courier_text_nigeria]
       end
     end
 
