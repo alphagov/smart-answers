@@ -1,24 +1,24 @@
-# Employment details for Adopter B
+# Your partner's Employment details
 
-# Did Adopter B start their current or most recent job before %{continuity_start_date(match_date)}?
+# Did your partner start their current or most recent job before %{continuity_start_date(match_date)}?
 
 [choice: job_before_x_2]
 * yes: Yes
 * no: No
 
-# Was Adopter B (or will they be) still working in that job on %{continuity_end_date(match_date)}?
+# Was your partner (or will they be) still working in that job on %{continuity_end_date(match_date)}?
 
 [choice: job_after_y_2]
 * yes: Yes
 * no: No
 
-# How much does Adopter B earn (or did they earn, if they’ve left their job)?
+# How much does your partner earn (or did they earn, if they’ve left their job)?
 
 [salary: salary_2]
 
 This is their total take-home pay before any deductions, eg tax.
 
-# Has Adopter B earned (or will they have earned) more than £112 per week between %{lower_earnings_start_date(match_date)} and %{lower_earnings_end_date(match_date)}?
+# Has your partner earned (or will they have earned) more than £112 per week between %{lower_earnings_start_date(match_date)} and %{lower_earnings_end_date(match_date)}?
 
 [choice: lel_2]
 * yes: Yes
