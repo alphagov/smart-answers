@@ -372,10 +372,11 @@ outcome :oru_result do
 
   precalculate :oru_extra_documents do
     if country_of_birth.in?(%w(philippines sierra-leone uganda))
-      PhraseList.new(
-        :oru_extra_documents_variant_intro,
-        :"oru_extra_documents_variant_#{country_of_birth}"
-      )
+      phrases = PhraseList.new(:oru_extra_documents_variant_intro)
+      if country_of_birth == 'philippines' and british_national_parent.exclude?('mother')
+        phrases << :oru_extra_documents_in_philippines_when_mother_not_british
+      end
+      phrases << :"oru_extra_documents_variant_#{country_of_birth}"
     end
   end
 
