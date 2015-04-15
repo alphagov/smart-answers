@@ -5,7 +5,31 @@ The mother can get [maternity allowance](/maternity-allowance) from the governme
  | Dates and amounts
 - | -
 Maternity allowance can start on | %{start_of_maternity_allowance(due_date)}
-Weekly rate | %{rate_of_maternity_allowance(salary_1_66_weeks)}
-Total estimated allowance | %{total_maternity_allowance(salary_1_66_weeks)}
+
+$IF range_in_2013_2014_fin_year?(due_date)
+
+Weekly rate (between 6 April 2013 and 5 April 2014) | %{rate_of_maternity_allowance_2013_2014(salary_1_66_weeks)}
+
+$ENDIF
+
+$IF range_in_2013_2014_fin_year?(due_date)
+
+Weekly rate (between 6 April 2014 and 5 April 2015) | %{rate_of_maternity_allowance_2014_2015(salary_1_66_weeks)}
+
+$ENDIF
+
+$IF range_in_2013_2014_fin_year?(due_date)
+
+Weekly rate (between 6 April 2015 and 5 April 2016) | %{rate_of_maternity_allowance_2015_2016(salary_1_66_weeks)}
+
+$ENDIF
+
+$IF NOT range_in_2013_2014_fin_year?(due_date) AND NOT range_in_2014_2015_fin_year?(due_date) AND NOT range_in_2015_2016_fin_year?(due_date)
+
+Weekly rate (between 6 April 2015 and 5 April 2016) | %{rate_of_maternity_allowance_2015_2016(salary_1_66_weeks)}
+
+$ENDIF
+
+Total estimated allowance | %{total_maternity_allowance(salary_1_66_weeks due_date)}
 
 The mother can claim maternity allowance as soon as she’s been pregnant for 26 weeks. She won’t have to pay tax on it.

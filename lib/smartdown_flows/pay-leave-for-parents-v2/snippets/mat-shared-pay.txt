@@ -4,4 +4,27 @@ The mother can get [shared parental pay](/shared-parental-leave-and-pay/overview
 
  | Amount
 - | -
-Shared parental pay | %{rate_of_shpp(salary_1)}
+
+$IF range_in_2013_2014_fin_year?(due_date)
+
+Shared Parental Pay (between 6 April 2013 and 5 April 2014) | %{rate_of_shpp_2013_2014(salary_1)}
+
+$ENDIF
+
+$IF range_in_2013_2014_fin_year?(due_date)
+
+Shared Parental Pay (between 6 April 2014 and 5 April 2015) | %{rate_of_shpp_2014_2015(salary_1)}
+
+$ENDIF
+
+$IF range_in_2013_2014_fin_year?(due_date)
+
+Shared Parental Pay (between 6 April 2015 and 5 April 2016) | %{rate_of_shpp_2015_2016(salary_1)}
+
+$ENDIF
+
+$IF NOT range_in_2013_2014_fin_year?(due_date) AND NOT range_in_2014_2015_fin_year?(due_date) AND NOT range_in_2015_2016_fin_year?(due_date)
+
+Shared Parental Pay (between 6 April 2015 and 5 April 2016) | %{rate_of_shpp_2015_2016(salary_1)}
+
+$ENDIF

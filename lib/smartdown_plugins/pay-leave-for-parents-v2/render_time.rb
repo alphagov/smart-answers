@@ -125,12 +125,48 @@ module SmartdownPlugins
       build_money_answer(nine_tenths_weekly_salary_capped(salary_1_66_weeks, due_date))
     end
 
+    def self.rate_of_maternity_allowance_2013_2014(salary)
+      rate_of_maternity_allowance(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2014-1-1")))
+    end
+
+    def self.rate_of_maternity_allowance_2014_2015(salary)
+      rate_of_maternity_allowance(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2015-1-1")))
+    end
+
+    def self.rate_of_maternity_allowance_2015_2016(salary)
+      rate_of_maternity_allowance(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2016-1-1")))
+    end
+
     def self.rate_of_paternity_pay(salary_2, due_date)
       build_money_answer(nine_tenths_weekly_salary_capped(salary_2, due_date))
     end
 
+    def self.rate_of_paternity_pay_2013_2014(salary)
+      rate_of_paternity_pay(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2014-1-1")))
+    end
+
+    def self.rate_of_paternity_pay_2014_2015(salary)
+      rate_of_paternity_pay(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2015-1-1")))
+    end
+
+    def self.rate_of_paternity_pay_2015_2016(salary)
+      rate_of_paternity_pay(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2016-1-1")))
+    end
+
     def self.rate_of_shpp(salary, due_date)
       build_money_answer(nine_tenths_weekly_salary_capped(salary, due_date))
+    end
+
+    def self.rate_of_shpp_2013_2014(salary)
+      rate_of_shpp(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2014-1-1")))
+    end
+
+    def self.rate_of_shpp_2014_2015(salary)
+      rate_of_shpp(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2015-1-1")))
+    end
+
+    def self.rate_of_shpp_2015_2016(salary)
+      rate_of_shpp(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2016-1-1")))
     end
 
     def self.rate_of_smp_6_weeks(salary_1)
@@ -142,28 +178,83 @@ module SmartdownPlugins
       build_money_answer(nine_tenths_weekly_salary_capped(salary_1, start_date))
     end
 
-    def self.total_aspp(salary_2, date)
-      build_money_answer(rate_of_paternity_pay(salary_2, date) * 26)
+    def self.rate_of_smp_33_weeks_2013_2014(salary_1)
+      rate_of_smp_33_weeks(salary_1, build_date_answer(Smartdown::Model::Answer::Date.new("2014-1-1")))
+    end
+
+    def self.rate_of_smp_33_weeks_2014_2015(salary_1)
+      rate_of_smp_33_weeks(salary_1, build_date_answer(Smartdown::Model::Answer::Date.new("2015-1-1")))
+    end
+
+    def self.rate_of_smp_33_weeks_2015_2016(salary_1)
+      rate_of_smp_33_weeks(salary_1, build_date_answer(Smartdown::Model::Answer::Date.new("2016-1-1")))
+    end
+
+    def self.total_aspp(salary, due_date)
+      date = due_date.value
+      pay = 0
+      # Calculate pay for each week of the 39 week duration
+      39.times do
+        if (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
+          pay += rate_of_paternity_pay_2013_2014(salary).value
+        elsif (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
+          pay += rate_of_paternity_pay_2014_2015(salary).value
+        elsif (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
+          pay += rate_of_paternity_pay_2015_2016(salary).value
+        else
+          pay += rate_of_paternity_pay_2015_2016(salary).value
+        end
+        date += 1.week
+      end
+      build_money_answer(pay)
     end
 
     def self.total_maternity_allowance(salary_1_66_weeks, due_date)
-      build_money_answer(rate_of_maternity_allowance(salary_1_66_weeks, due_date) * 39)
+      date = due_date.value
+      pay = 0
+      # Calculate pay for each week of the 39 week duration
+      39.times do
+        if (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
+          pay += rate_of_maternity_allowance_2013_2014(salary_1_66_weeks).value
+        elsif (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
+          pay += rate_of_maternity_allowance_2014_2015(salary_1_66_weeks).value
+        elsif (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
+          pay += rate_of_maternity_allowance_2015_2016(salary_1_66_weeks).value
+        else
+          pay += rate_of_maternity_allowance_2015_2016(salary_1_66_weeks).value
+        end
+        date += 1.week
+      end
+      build_money_answer(pay)
     end
 
     def self.total_smp(salary_1, due_date)
-      build_money_answer((rate_of_smp_6_weeks(salary_1) * 6) + (rate_of_smp_33_weeks(salary_1, due_date) * 33))
+      date = due_date.value
+      initial_pay = (rate_of_smp_6_weeks(salary_1) * 6)
+      week_pay = 0
+      # Calculate pay for each week of the 33 week duration
+      33.times do
+        if (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
+          week_pay += rate_of_smp_33_weeks_2013_2014(salary_1).value
+        elsif (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
+          week_pay += rate_of_smp_33_weeks_2014_2015(salary_1).value
+        elsif (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
+          week_pay += rate_of_smp_33_weeks_2015_2016(salary_1).value
+        else
+          week_pay += rate_of_smp_33_weeks_2015_2016(salary_1).value
+        end
+        date += 1.week
+      end
+      build_money_answer(initial_pay + week_pay)
     end
 
   private
 
     def self.date_in_39_week_range?(range_start, range_end, date)
-      current_date = date.value
-      in_range = false
-      39.times do
-        current_date + 1.week
-        in_range = true if (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(current_date)
-      end
-      in_range
+      start_date = date.value
+      end_date = start_date + 39.weeks
+      (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(start_date) ||
+      (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(end_date)
     end
 
     def self.build_date_answer(date)
@@ -195,7 +286,7 @@ module SmartdownPlugins
 
       weekly_salary = salary.value / 52
       rate = weekly_salary * 0.9
-      rate < max_rate ? rate : max_rate
+      [ rate, max_rate ].min
     end
   end
 end

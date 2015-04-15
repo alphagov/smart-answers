@@ -1,8 +1,32 @@
 ##Paternity pay
 
-The mother’s partner can get up to 2 weeks of [paternity pay](/paternity-pay-leave/pay). 
+The mother’s partner can get up to 2 weeks of [paternity pay](/paternity-pay-leave/pay).
 
  | Dates and amounts
 - | -
-Weekly rate | %{rate_of_paternity_pay(salary_2)}
+$IF range_in_2013_2014_fin_year?(due_date)
+
+Weekly rate (between 6 April 2013 and 5 April 2014) | %{rate_of_paternity_pay_2013_2014(salary_2)}
+
+$ENDIF
+
+$IF range_in_2013_2014_fin_year?(due_date)
+
+Weekly rate (between 6 April 2014 and 5 April 2015) | %{rate_of_paternity_pay_2014_2015(salary_2)}
+
+$ENDIF
+
+$IF range_in_2013_2014_fin_year?(due_date)
+
+Weekly rate (between 6 April 2015 and 5 April 2016) | %{rate_of_paternity_pay_2015_2016(salary_2)}
+
+$ENDIF
+
+$IF NOT range_in_2013_2014_fin_year?(due_date) AND NOT range_in_2014_2015_fin_year?(due_date) AND NOT range_in_2015_2016_fin_year?(due_date)
+
+Weekly rate (between 6 April 2015 and 5 April 2016) | %{rate_of_paternity_pay_2015_2016(salary_2)}
+
+$ENDIF
+
+
 Tell the partner’s employer | 28 days before they want to start paternity pay
