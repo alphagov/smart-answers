@@ -4,5 +4,5 @@ The mother’s partner can get [additional paternity pay](/paternity-pay-leave/p
 
  | Dates and amounts
 - | -
-Weekly rate  | %{rate_of_paternity_pay(salary_2)}
-Total pay | %{total_aspp(salary_2)}
+Weekly rate  | %{rate_of_paternity_pay(salary_2 due_date)}
+Total pay | %{total_aspp(salary_2 due_date)}
