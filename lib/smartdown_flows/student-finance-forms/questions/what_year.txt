@@ -23,8 +23,8 @@
     * what_year is 'year-1415' => outcome_proof_identity_1415
     * what_year is 'year-1516' => outcome_proof_identity_1516
   * form_needed_for_2 is 'apply-dsa'
-    * what_year is 'year-1415' => outcome_dsa_1415_pt
-    * what_year is 'year-1516' => outcome_dsa_1516_pt
+    * what_year is 'year-1415' => outcome_dsa_1415
+    * what_year is 'year-1516' => outcome_dsa_1516
   * form_needed_for_2 is 'apply-loans-grants' => continuing_student
 * type_of_student is 'eu-full-time' => continuing_student
 * type_of_student is 'eu-part-time' => continuing_student
