@@ -7,4 +7,4 @@
 * dsa-expenses: Claim Disabled Students’ Allowances expenses
 
 * form_needed_for_2 is 'dsa-expenses' => outcome_dsa_expenses
-* otherwise => what_year_uk_fulltime.txt
+* otherwise => what_year
