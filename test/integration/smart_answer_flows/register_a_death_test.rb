@@ -8,7 +8,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy libya morocco north-korea pakistan  poland serbia slovakia spain st-kitts-and-nevis)
+    @location_slugs = %w(afghanistan algeria andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan  poland serbia slovakia spain st-kitts-and-nevis uganda)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'register-a-death'
   end
@@ -265,30 +265,64 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'afghanistan'
       end
       context "currently still in the country" do
-        should "give the embassy result and be done" do
+        should "give the oru_result result and a translators link" do
           add_response 'same_country'
-          assert_current_node :embassy_result
-          assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy]
-          assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-          assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-          assert_phrase_list :fees_for_consular_services, [:consular_service_fees]
-          assert_phrase_list :footnote, [:footnote_exceptions]
-          expected_location = WorldLocation.find('afghanistan')
-          assert_state_variable :location, expected_location
-          assert_state_variable :organisation, expected_location.fco_organisation
+
+          assert_current_node :oru_result
+          assert_state_variable :translator_link_url, "/government/publications/afghanistan-list-of-lawyers"
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_phrase_list :waiting_time, [:registration_takes_3_days]
+          assert_phrase_list :oru_documents_variant_death, [:oru_documents_death]
+          assert_phrase_list :oru_address, [:oru_address_abroad]
+          assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
+          assert_phrase_list :payment_method, [:standard_payment_method]
         end
       end
       context "now back in the UK" do
-        should "give the ORU result and be done" do
+        should "give the ORU result with a translators link" do
           add_response 'in_the_uk'
           assert_current_node :oru_result
           assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
           assert_phrase_list :oru_address, [:oru_address_uk]
-          assert_phrase_list :translator_link, [:no_translator_link]
-          assert_state_variable :translator_link_url, nil
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_phrase_list :payment_method, [:standard_payment_method]
+          assert_state_variable :translator_link_url, "/government/publications/afghanistan-list-of-lawyers"
         end
       end
     end # Answer Afghanistan
+
+    context "answer Algeria" do
+      setup do
+        worldwide_api_has_organisations_for_location('algeria', read_fixture_file('worldwide/algeria_organisations.json'))
+        add_response 'algeria'
+      end
+
+      context "now back in the UK" do
+        should "give the ORU result with a translator link and a standard payment method" do
+          add_response 'in_the_uk'
+          assert_current_node :oru_result
+          assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+          assert_phrase_list :oru_address, [:oru_address_uk]
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_phrase_list :payment_method, [:standard_payment_method]
+          assert_state_variable :translator_link_url, "/government/publications/algeria-list-of-lawyers"
+        end
+      end
+
+      context "now in Algeria" do
+        should "give the ORU result with a translator link and a custom payment method" do
+          add_response 'another_country'
+          add_response 'algeria'
+          assert_current_node :oru_result
+          assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+          assert_phrase_list :oru_address, [:oru_address_abroad]
+          assert_phrase_list :translator_link, [:approved_translator_link]
+          assert_phrase_list :payment_method, [:payment_method_in_algeria]
+          assert_state_variable :translator_link_url, "/government/publications/algeria-list-of-lawyers"
+        end
+      end
+    end # Answer Algeria
+
     context "answer Iran" do
       setup do
         worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
@@ -299,24 +333,34 @@ class RegisterADeathTest < ActiveSupport::TestCase
         expected_location = WorldLocation.find('iran')
       end
     end # Iran
+
     context "answer Libya" do
       setup do
         worldwide_api_has_organisations_for_location('libya', read_fixture_file('worldwide/libya_organisations.json'))
         add_response 'libya'
-        add_response 'same_country'
       end
-      should "give the embassy result and be done" do
-        assert_current_node :embassy_result
-        assert_phrase_list :documents_required_embassy_result, [:documents_list_embassy_libya]
-        assert_state_variable :embassy_high_commission_or_consulate, "British embassy"
-        assert_phrase_list :booking_text_embassy_result, [:booking_text_embassy]
-        assert_phrase_list :fees_for_consular_services, [:consular_service_fees_libya]
-        assert_state_variable :postal_form_url, nil
-        expected_location = WorldLocation.find('libya')
-        assert_state_variable :location, expected_location
-        assert_state_variable :organisation, expected_location.fco_organisation
+
+      should "give the oru result and a custom translators link if currently in Libya" do
+        add_response 'same_country'
+        assert_current_node :oru_result
+        assert_state_variable :translator_link_url, "/government/publications/libya-list-of-translators"
+        assert_phrase_list :translator_link, [:approved_translator_link]
+        assert_phrase_list :waiting_time, [:registration_takes_3_days]
+        assert_phrase_list :oru_documents_variant_death, [:oru_documents_death]
+        assert_phrase_list :oru_address, [:oru_address_abroad]
+        assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
+        assert_phrase_list :payment_method, [:standard_payment_method]
+      end
+
+      should "give a custom algerian payment method if currently in Algeria " do
+        worldwide_api_has_organisations_for_location('algeria', read_fixture_file('worldwide/algeria_organisations.json'))
+        add_response 'another_country'
+        add_response 'algeria'
+        assert_current_node :oru_result
+        assert_phrase_list :payment_method, [:payment_method_in_algeria]
       end
     end # Answer Libya
+
     context "answer Brazil, registered in north-korea" do
       setup do
         worldwide_api_has_organisations_for_location('brazil', read_fixture_file('worldwide/brazil_organisations.json'))
@@ -340,6 +384,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :oru_result
         assert_phrase_list :oru_courier_text, [:oru_courier_text_cameroon]
         assert_phrase_list :oru_documents_variant_death, [:oru_documents_variant_poland]
+        assert_phrase_list :payment_method, [:standard_payment_method]
       end
     end # Answer Poland, currently in Cameroon
 
@@ -361,7 +406,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response "pakistan"
         add_response "in_the_uk"
         assert_current_node :oru_result
-        assert_phrase_list :waiting_time, [:registration_can_take_3_months]
+        assert_phrase_list :waiting_time, [:registration_takes_3_days]
       end
     end # Pakistan and in UK
     context "answer death in dominica, user in st kitts" do
@@ -384,7 +429,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'another_country'
         add_response 'belgium'
       end
-      should "give embassy_result" do
+      should "give oru_result" do
         assert_current_node :oru_result
         assert_state_variable :death_country_name_lowercase_prefix, 'Egypt'
         assert_state_variable :current_location_name_lowercase_prefix, 'Belgium'
@@ -425,6 +470,45 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "take you to the embassy outcome with specific phrasing" do
         assert_current_node :oru_result
+      end
+    end
+
+    context "death in Kenya, now in the UK" do
+      setup do
+        worldwide_api_has_organisations_for_location('kenya', read_fixture_file('worldwide/kenya_organisations.json'))
+        add_response 'kenya'
+        add_response 'in_the_uk'
+      end
+
+      should "take you to the ORU outcome with custom courier message without common text" do
+        assert_current_node :oru_result
+        assert_phrase_list :oru_courier_text, [:oru_courier_text_kenya]
+      end
+    end
+
+    context "death in Nigeria, now in the UK" do
+      setup do
+        worldwide_api_has_organisations_for_location('nigeria', read_fixture_file('worldwide/nigeria_organisations.json'))
+        add_response 'nigeria'
+        add_response 'in_the_uk'
+      end
+
+      should "take you to the ORU outcome with custom courier message without common text" do
+        assert_current_node :oru_result
+        assert_phrase_list :oru_courier_text, [:oru_courier_text_nigeria]
+      end
+    end
+
+    context "death in Uganda, now in the UK" do
+      setup do
+        worldwide_api_has_organisations_for_location('uganda', read_fixture_file('worldwide/uganda_organisations.json'))
+        add_response 'uganda'
+        add_response 'in_the_uk'
+      end
+
+      should "take you to the embassy outcome with custom courier message" do
+        assert_current_node :oru_result
+        assert_phrase_list :oru_courier_text, [:oru_courier_text_uganda, :oru_courier_text_common]
       end
     end
 

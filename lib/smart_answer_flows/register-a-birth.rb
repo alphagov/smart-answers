@@ -27,10 +27,6 @@ country_select :country_of_birth?, exclude_countries: exclude_countries do
     end
   end
 
-  calculate :country_with_birth_registration_exception do
-    %w(jordan kuwait oman qatar saudi-arabia united-arab-emirates).include?(country_of_birth)
-  end
-
   next_node_if(:no_embassy_result, country_has_no_embassy)
   next_node_if(:commonwealth_result, reg_data_query.responded_with_commonwealth_country?)
   next_node(:who_has_british_nationality?)
@@ -92,7 +88,7 @@ multiple_choice :where_are_you_now? do
   end
 
   define_predicate(:no_birth_certificate_exception) {
-    country_with_birth_registration_exception & paternity_declaration
+    reg_data_query.has_birth_registration_exception?(country_of_birth) & paternity_declaration
   }
 
   next_node_if(:no_birth_certificate_result, no_birth_certificate_exception)
@@ -237,7 +233,7 @@ outcome :embassy_result do
       phrases
     elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
       PhraseList.new(:footnote_caribbean)
-    elsif reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) and ! reg_data_query.class::ORU_COURIER_VARIANTS.include?(country_of_birth)
+    elsif reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) and reg_data_query.class::ORU_COURIER_VARIANTS.exclude?(country_of_birth)
       PhraseList.new(:footnote_oru_variants_intro,
                       :"footnote_oru_variants_#{registration_country}",
                       :footnote_oru_variants_out)
@@ -261,13 +257,38 @@ outcome :oru_result do
     end
   end
 
+  precalculate :oru_outcome_introduction do
+    if reg_data_query.class::HIGHER_RISK_COUNTRIES.include?(registration_country)
+      if registration_country == 'libya'
+        PhraseList.new(:oru_outcome_higher_risk_country_currently_in_libya_introduction)
+      else
+        PhraseList.new(:oru_outcome_higher_risk_country_introduction)
+      end
+    else
+      PhraseList.new(:oru_outcome_standard_introduction)
+    end
+  end
+
+  precalculate :custom_waiting_time do
+    reg_data_query.custom_registration_duration(country_of_birth)
+  end
+
   precalculate :waiting_time do
+    born_in_lower_risk_country = reg_data_query.class::HIGHER_RISK_COUNTRIES.exclude?(country_of_birth)
     phrases = PhraseList.new
-    if reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.exclude?(country_of_birth) && in_the_uk
+
+    if country_of_birth == 'libya'
+      phrases << :registration_duration_in_libya
+    elsif custom_waiting_time
+      phrases << :custom_registration_duration
+    elsif reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(registration_country) and born_in_lower_risk_country
+      phrases << :registration_duration_in_countries_with_an_exception
+    elsif registration_country.in?(%w[papua-new-guinea cambodia]) and born_in_lower_risk_country
       phrases << :registration_can_take_3_months
     else
       phrases << :registration_takes_5_days
     end
+
     phrases
   end
 
@@ -291,7 +312,7 @@ outcome :oru_result do
   end
 
   precalculate :oru_documents_variant do
-    if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES.include?(country_of_birth)
+    if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?(country_of_birth)
       phrases = PhraseList.new
       if country_of_birth == 'united-arab-emirates' && paternity_declaration
         phrases << :oru_documents_variant_uae_not_married
@@ -319,8 +340,6 @@ outcome :oru_result do
   precalculate :morocco_swear_in_court do
     if country_of_birth == 'morocco' && paternity_declaration
       PhraseList.new(:swear_in_moroccan_court)
-    else
-      ''
     end
   end
 
@@ -341,15 +360,32 @@ outcome :oru_result do
   precalculate :oru_courier_text do
     phrases = PhraseList.new
     if reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) && !in_the_uk
-      if registration_country == 'cameroon'
-        phrases << :oru_courier_text_cameroon
-      else
-        phrases << :"oru_courier_text_#{registration_country}" << :oru_courier_text_common
+      phrases << :"oru_courier_text_#{registration_country}"
+      unless registration_country.in?(reg_data_query.class::ORU_COURIER_BY_HIGH_COMISSION)
+        phrases << :oru_courier_text_common
       end
     else
       phrases << :oru_courier_text_default
     end
     phrases
+  end
+
+  precalculate :oru_extra_documents do
+    if country_of_birth.in?(%w(philippines sierra-leone uganda))
+      phrases = PhraseList.new(:oru_extra_documents_variant_intro)
+      if country_of_birth == 'philippines' and british_national_parent.exclude?('mother')
+        phrases << :oru_extra_documents_in_philippines_when_mother_not_british
+      end
+      phrases << :"oru_extra_documents_variant_#{country_of_birth}"
+    end
+  end
+
+  precalculate :payment_method do
+    if !in_the_uk && registration_country == 'algeria'
+      PhraseList.new(:payment_method_in_algeria)
+    else
+      PhraseList.new(:standard_payment_method)
+    end
   end
 end
 
