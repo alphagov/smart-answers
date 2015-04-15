@@ -1,7 +1,7 @@
 # coding:utf-8
 require_relative "../test_helper"
 
-class FlowRegistraionPresenterTest < ActiveSupport::TestCase
+class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   def setup
     @old_load_path = I18n.config.load_path.dup
     example_translation_file =

@@ -1,4 +1,4 @@
-require 'html/sanitizer'
+require 'rails/html/sanitizer'
 
 module SmartdownAdapter
   class FlowRegistrationPresenter
@@ -46,7 +46,7 @@ module SmartdownAdapter
     end
 
     def node_text(node)
-      HTML::FullSanitizer.new.sanitize(node_html(node))
+      Rails::Html::FullSanitizer.new.sanitize(node_html(node))
     end
 
     def node_html(node)
