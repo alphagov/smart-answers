@@ -4,4 +4,4 @@ The mother’s partner can get [shared parental pay](/shared-parental-leave-and-
 
  | Amount
 - | -
-Shared parental pay | %{rate_of_shpp(salary_2)}
+Shared parental pay | %{rate_of_shpp(salary_2 due_date)}
