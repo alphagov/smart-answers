@@ -239,7 +239,7 @@ en-GB:
           You can book an appointment at the %{embassy_high_commission_or_consulate} and bring along the registration form, supporting documents and the fee.
 
         postal_intro: |
-          ###Send your registration
+          ## Send your registration
 
           You can also post your application to the %{embassy_high_commission_or_consulate}.
 
@@ -367,11 +367,24 @@ en-GB:
         oru_courier_text_cambodia: |
           Your documents will be returned to the British Embassy in Phnom Penh after the death has been registered.
         oru_courier_text_cameroon: |
-          Your documents will be returned to the British High Commission in Yaonde. You'll also be sent copies of the registration certificate if you've paid for them. The High Commission will contact you when your documents are ready for collection.
+          Your documents will be returned to the British High Commission in Yaonde.
+
+          You’ll also be sent copies of the registration certificate if you’ve paid for them. The High Commission will contact you when your documents are ready for collection.
+        oru_courier_text_kenya: |
+          Your documents will be returned to the British High Commission in Nairobi after the death has been registered.
+
+          You’ll also be sent copies of the registration certificate if you’ve paid for them. The High Commission will contact you when your documents and certificates are ready for collection.
+        oru_courier_text_nigeria: |
+          Your documents will be returned to the British High Commission in Lagos after the death has been registered.
+
+          You’ll also be sent copies of the registration certificate if you’ve paid for them. The High Commission will contact you when your documents and certificates are ready for collection.
         oru_courier_text_north-korea: |
           Your documents will be returned to the British Embassy in Pyongyang after the death has been registered.
         oru_courier_text_papua-new-guinea: |
           Your documents will be returned to the British Embassy in Port Moresby after the death has been registered.
+        oru_courier_text_uganda: |
+          Your documents will be returned to the British High Commission in Kampala after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
+
         registration_can_take_3_months: |
           Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where the death happened to be registered there.
 
@@ -380,6 +393,11 @@ en-GB:
 
           They’ll contact you within the 3 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the death to be registered.
 
+        standard_payment_method: |
+          Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> if you are unable to pay online.
+
+        payment_method_in_algeria: |
+          Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
 # Outcomes
 #
       uk_result:
@@ -456,7 +474,7 @@ en-GB:
 
           s1. Check that you have the right documents.
           s2. Print out and fill in the forms.
-          s3. Pay online.
+          s3. Pay.
           s4. Post your documents and the forms.
 
 
@@ -480,7 +498,7 @@ en-GB:
 
           ###3. Pay
 
-          Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> if you are unable to pay online.
+          %{payment_method}
 
           The registration fee doesn't include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
 

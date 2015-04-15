@@ -9,6 +9,8 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITH_CONSULATE_GENERALS = %(brazil hong-kong turkey)
 
+    COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION = %w(afghanistan iraq jordan kuwait oman pakistan qatar saudi-arabia united-arab-emirates)
+
     CASH_ONLY_COUNTRIES = %w(armenia bosnia-and-herzegovina botswana brunei cambodia iceland kazakhstan laos latvia libya slovenia tunisia uganda)
 
     PAY_BY_BANK_DRAFT_COUNTRIES = %w(taiwan)
@@ -29,20 +31,53 @@ module SmartAnswer::Calculators
 
     FOOTNOTE_EXCLUSIONS = %w(afghanistan cambodia central-african-republic chad comoros dominican-republic east-timor eritrea haiti kosovo laos lesotho liberia madagascar montenegro north-korea paraguay samoa slovenia somalia swaziland taiwan tajikistan western-sahara)
 
-    ORU_TRANSITIONED_COUNTRIES = %w(albania american-samoa andorra angola antigua-and-barbuda argentina armenia aruba austria bahamas bahrain barbados belarus belgium belize benin bolivia bonaire-st-eustatius-saba bosnia-and-herzegovina botswana brazil brunei bulgaria burkina-faso burma burundi cambodia cameroon cape-verde central-african-republic chad chile china comoros congo congo-(democratic-republic) costa-rica cote-d-ivoire croatia cuba curacao cyprus czech-republic denmark djibouti dominica dominican-republic ecuador egypt el-salvador equatorial-guinea eritrea estonia ethiopia fiji finland france french-guiana french-polynesia gabon gambia georgia ghana germany greece grenada guadeloupe guatemala guinea guinea-bissau guyana haiti honduras hong-kong hungary iceland indonesia iran israel italy jamaica japan jordan kazakhstan kiribati kosovo kuwait kyrgyzstan laos latvia lesotho liberia liechtenstein lithuania luxembourg macao macedonia madagascar malawi malaysia maldives mali malta marshall-islands martinique mauritania mauritius mayotte mexico micronesia moldova monaco mongolia montenegro morocco mozambique namibia nauru netherlands nicaragua niger north-korea norway oman palau panama papua-new-guinea paraguay peru poland portugal qatar reunion romania rwanda samoa san-marino sao-tome-and-principe saudi-arabia senegal serbia seychelles singapore slovakia slovenia solomon-islands south-korea spain st-kitts-and-nevis st-lucia st-maarten st-pierre-and-miquelon st-vincent-and-the-grenadines suriname swaziland sweden switzerland syria taiwan tajikistan tanzania thailand the-occupied-palestinian-territories timor-leste togo tonga trinidad-and-tobago tunisia turkey turkmenistan tuvalu ukraine united-arab-emirates usa uruguay uzbekistan vanuatu venezuela vietnam wallis-and-futuna western-sahara yemen zambia zimbabwe)
+    ORU_TRANSITIONED_COUNTRIES = %w(afghanistan albania algeria american-samoa andorra angola antigua-and-barbuda argentina armenia aruba austria azerbaijan bahamas bahrain bangladesh barbados belarus belgium belize benin bhutan bolivia bonaire-st-eustatius-saba bosnia-and-herzegovina botswana brazil brunei bulgaria burkina-faso burma burundi cambodia cameroon cape-verde central-african-republic chad chile china colombia comoros congo costa-rica cote-d-ivoire croatia cuba curacao cyprus czech-republic democratic-republic-of-congo denmark djibouti dominica dominican-republic ecuador egypt el-salvador equatorial-guinea eritrea estonia ethiopia fiji finland france french-guiana french-polynesia gabon gambia georgia germany ghana greece grenada guadeloupe guatemala guinea guinea-bissau guyana haiti honduras hong-kong hungary iceland india indonesia iran iraq israel italy jamaica japan jordan kazakhstan kenya kiribati kosovo kuwait kyrgyzstan laos latvia lebanon lesotho liberia libya liechtenstein lithuania luxembourg macao macedonia madagascar malawi malaysia maldives mali malta marshall-islands martinique mauritania mauritius mayotte mexico micronesia moldova monaco mongolia montenegro morocco mozambique namibia nauru nepal netherlands new-caledonia nicaragua niger nigeria north-korea norway oman pakistan palau panama papua-new-guinea paraguay peru philippines poland portugal qatar reunion romania russia rwanda samoa san-marino sao-tome-and-principe saudi-arabia senegal serbia seychelles sierra-leone singapore slovakia slovenia solomon-islands somalia south-korea south-sudan spain sri-lanka st-kitts-and-nevis st-lucia st-maarten st-pierre-and-miquelon st-vincent-and-the-grenadines sudan suriname swaziland sweden switzerland syria taiwan tajikistan tanzania thailand the-occupied-palestinian-territories timor-leste togo tonga trinidad-and-tobago tunisia turkey turkmenistan tuvalu uganda ukraine united-arab-emirates uruguay usa uzbekistan vanuatu venezuela vietnam wallis-and-futuna western-sahara yemen zambia zimbabwe)
 
     ORU_TRANSITION_EXCEPTIONS = %w(north-korea)
 
-    ORU_DOCUMENTS_VARIANT_COUNTRIES = %w(andorra belgium denmark finland france israel italy japan monaco morocco netherlands poland portugal south-korea spain sweden taiwan the-occupied-palestinian-territories turkey united-arab-emirates usa)
+    ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH = %w(andorra belgium denmark finland france india israel italy japan monaco morocco nepal netherlands nigeria poland portugal russia sierra-leone south-korea spain sri-lanka sweden taiwan the-occupied-palestinian-territories turkey united-arab-emirates usa)
 
     ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH = %w(papua-new-guinea poland)
 
-    ORU_COURIER_VARIANTS = %w(cambodia cameroon north-korea papua-new-guinea)
+    ORU_COURIER_VARIANTS = %w(cambodia cameroon kenya nigeria north-korea papua-new-guinea uganda)
+
+    ORU_COURIER_BY_HIGH_COMISSION = %w(cameroon kenya nigeria)
+
+    HIGHER_RISK_COUNTRIES = %w(afghanistan algeria azerbaijan bangladesh bhutan colombia india iraq kenya lebanon libya nepal new-caledonia nigeria pakistan philippines russia sierra-leone somalia south-sudan sri-lanka sudan uganda)
+
+    ORU_REGISTRATION_DURATION = {
+      "afghanistan" => "6 months",
+      "algeria" => "12 weeks",
+      "azerbaijan" => "10 weeks",
+      "bangladesh" => "8 months",
+      "bhutan" => "8 weeks",
+      "colombia" => "8 weeks",
+      "india" => "16 weeks",
+      "iraq" => "12 weeks",
+      "kenya" => "12 weeks",
+      "lebanon" => "12 weeks",
+      "libya" => "6 months",
+      "nepal" => "10 weeks",
+      "nigeria" => "14 weeks",
+      "pakistan" => "6 months",
+      "russia" => "10 weeks",
+      "sierra-leone" => "12 weeks",
+      "somalia" => "12 weeks",
+      "south-sudan" => "12 weeks",
+      "sri-lanka" => "12 weeks",
+      "sudan" => "12 weeks",
+      "philippines" => "16 weeks",
+      "uganda" => "12 weeks",
+    }
 
     attr_reader :data
 
     def initialize
       @data = self.class.registration_data
+    end
+
+    def has_birth_registration_exception?(country_slug)
+      COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION.include?(country_slug)
     end
 
     def commonwealth_country?(country_slug)
@@ -126,6 +161,10 @@ module SmartAnswer::Calculators
 
     def registration_country_slug(country_slug)
       data['registration_country'][country_slug] || country_slug
+    end
+
+    def custom_registration_duration(country_slug)
+      ORU_REGISTRATION_DURATION[country_slug]
     end
 
     def self.registration_data
