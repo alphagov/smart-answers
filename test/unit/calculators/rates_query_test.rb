@@ -39,6 +39,49 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "when loading rates with exact dates" do
+        should "be 1 for 2013-01-31" do
+          test_rate = SmartAnswer::Calculators::RatesQuery.new('exact_date_rates', relevant_date: Date.parse('2013-01-31'))
+          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
+          assert_equal 1, test_rate.rates.rate
+        end
+
+        should "be 2 for 2013-02-01" do
+          test_rate = SmartAnswer::Calculators::RatesQuery.new('exact_date_rates', relevant_date: Date.parse('2013-02-01'))
+          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
+          assert_equal 2, test_rate.rates.rate
+        end
+
+        should "be the latest known rate (2) for uncovered future dates" do
+          test_rate = SmartAnswer::Calculators::RatesQuery.new('exact_date_rates', relevant_date: Date.parse('2113-03-12'))
+          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
+          assert_equal 2, test_rate.rates.rate
+        end
+      end
+
+      context "when loading rates with standard fiscal year dates" do
+        should "be 1 and 100.0 for 2014-04-06" do
+          test_rate = SmartAnswer::Calculators::RatesQuery.new('standard_date_rates', relevant_date: Date.parse('2014-04-06'))
+          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
+          assert_equal 1, test_rate.rates.one_rate
+          assert_equal 100.0, test_rate.rates.another_rate
+        end
+
+        should "be 2 and 200.0 for 2015-04-06" do
+          test_rate = SmartAnswer::Calculators::RatesQuery.new('standard_date_rates', relevant_date: Date.parse('2015-04-06'))
+          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
+          assert_equal 2, test_rate.rates.one_rate
+          assert_equal 200.0, test_rate.rates.another_rate
+        end
+
+        should "be the latest known rates (2 and 200.0) for uncovered future dates" do
+          test_rate = SmartAnswer::Calculators::RatesQuery.new('standard_date_rates', relevant_date: Date.parse('2115-04-06'))
+          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
+          assert_equal 2, test_rate.rates.one_rate
+          assert_equal 200.0, test_rate.rates.another_rate
+        end
+      end
+
       context "Married couples allowance" do
         setup do
           @query = SmartAnswer::Calculators::RatesQuery.new('married_couples_allowance')
