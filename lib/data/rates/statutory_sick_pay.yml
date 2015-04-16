@@ -1,0 +1,16 @@
+---
+# the year denotes the starting year of the fiscal year
+# e.g. 2014 for 6th Apr 2014 - 5th April 2015
+lower_earning_limit_rate:
+  2010: 97
+  2011: 102
+  2012: 107
+  2013: 109
+  2014: 111
+  2015: 112
+ssp_weekly_rate:
+  2011: 81.60
+  2012: 85.85
+  2013: 86.70
+  2014: 87.55
+  2015: 88.45

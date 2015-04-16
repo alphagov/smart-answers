@@ -14,22 +14,13 @@ module SmartAnswer::Calculators
       @payable_days = init_payable_days
     end
 
-    def self.earning_limit_rates
-      [
-        {min: Date.parse("6 April 2010"), max: Date.parse("5 April 2011"), lower_earning_limit_rate: 97},
-        {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), lower_earning_limit_rate: 102},
-        {min: Date.parse("6 April 2012"), max: Date.parse("5 April 2013"), lower_earning_limit_rate: 107},
-        {min: Date.parse("6 April 2013"), max: Date.parse("5 April 2014"), lower_earning_limit_rate: 109},
-        {min: Date.parse("6 April 2014"), max: Date.parse("5 April 2015"), lower_earning_limit_rate: 111},
-        {min: Date.parse("6 April 2015"), max: Date.parse("5 April 2016"), lower_earning_limit_rate: 112}
-      ]
-    end
-
     # define as static so we don't have to instantiate the calculator too early in the flow
     def self.lower_earning_limit_on(date)
-      earning_limit_rate = earning_limit_rates.find { |c| c[:min] <= date and c[:max] >= date }
-      earning_limit_rate ||= earning_limit_rates.sort_by(&:max).last
-      earning_limit_rate[:lower_earning_limit_rate]
+      SmartAnswer::Calculators::RatesQuery.new('statutory_sick_pay', relevant_date: date).rates.lower_earning_limit_rate
+    end
+
+    def weekly_rate_on(date)
+      SmartAnswer::Calculators::RatesQuery.new('statutory_sick_pay', relevant_date: date).rates.ssp_weekly_rate
     end
 
     def self.months_between(start_date, end_date)
@@ -56,23 +47,6 @@ module SmartAnswer::Calculators
         relevant_period_to, relevant_period_from = args.values_at(:relevant_period_to, :relevant_period_from)
         pay / (Date.parse(relevant_period_to) - Date.parse(relevant_period_from)).to_i * 7
       end
-    end
-
-    # ssp weekly rate changes on 6 April each year
-    def ssp_rates
-      [
-        {min: Date.parse("6 April 2011"), max: Date.parse("5 April 2012"), ssp_weekly_rate: 81.60},
-        {min: Date.parse("6 April 2012"), max: Date.parse("5 April 2013"), ssp_weekly_rate: 85.85},
-        {min: Date.parse("6 April 2013"), max: Date.parse("5 April 2014"), ssp_weekly_rate: 86.70},
-        {min: Date.parse("6 April 2014"), max: Date.parse("5 April 2015"), ssp_weekly_rate: 87.55},
-        {min: Date.parse("6 April 2015"), max: Date.parse("5 April 2016"), ssp_weekly_rate: 88.45}
-      ]
-    end
-
-    def weekly_rate_on(date)
-      rate = ssp_rates.find { |c| c[:min] <= date and c[:max] >= date }
-      rate ||= ssp_rates.sort_by(&:max).last
-      rate[:ssp_weekly_rate]
     end
 
     def daily_rate_from_weekly(weekly_rate, pattern_days)

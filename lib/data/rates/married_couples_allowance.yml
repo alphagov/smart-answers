@@ -1,5 +1,5 @@
 ---
-# the year denotes a starting year of the fiscal year
+# the year denotes the starting year of the fiscal year
 # e.g. 2014 for 6th Apr 2014 - 5th April 2015
 personal_allowance:
   2013: 9440
