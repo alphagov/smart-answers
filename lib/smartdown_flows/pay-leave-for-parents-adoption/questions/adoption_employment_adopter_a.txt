@@ -1,6 +1,6 @@
 # Your Employment details
 
-# Did You start their current or most recent job before %{continuity_start_date(match_date)}?
+# Did you start their current or most recent job before %{continuity_start_date(match_date)}?
 
 [choice: job_before_x_1]
 * yes: Yes

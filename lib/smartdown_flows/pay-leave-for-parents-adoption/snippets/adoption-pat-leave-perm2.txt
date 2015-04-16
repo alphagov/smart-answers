@@ -1,10 +1,10 @@
 {{marker: adoption-pat-leave-perm2}}
 
-##Paternity leave - Adopter A
+##Paternity leave - You
 
-Adopter A can take up to 2 weeks of [ordinary paternity leave](/paternity-pay-leave/leave).
+You can take up to 2 weeks of [ordinary paternity leave](/paternity-pay-leave/leave).
 
  | Dates
 - | -
 Paternity leave must be used between | %{placement_date} to %{latest_pat_leave(placement_date)}
-Tell Adopter A's employer | %{paternity_leave_notice_date(placement_date)}
+Tell your employer | %{paternity_leave_notice_date(placement_date)}

@@ -1,10 +1,10 @@
 {{marker: adoption-pat-pay-perm2}}
 
-##Paternity pay - Adopter A
+##Paternity pay - You
 
-Adopter A can get up to 2 weeks of [paternity pay](/paternity-pay-leave/pay).
+You can get up to 2 weeks of [paternity pay](/paternity-pay-leave/pay).
 
  | Dates and amounts
 - | -
 Weekly rate | %{rate_of_paternity_pay(salary_1)}
-Tell Adopter A's employer | 28 days before they want to start paternity pay
+Tell your employer | 28 days before they want to start paternity pay

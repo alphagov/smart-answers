@@ -1,10 +1,10 @@
 {{marker: adoption-additional-pat-leave}}
 
-##Additional paternity leave - Adopter B
+##Additional paternity leave - Your Partner
 
-If Adopter A returns to work early, their partner may be able to take up to 26 weeks off as [additional paternity leave](/paternity-pay-leave/leave).
+If you return to work early, your partner may be able to take up to 26 weeks off as [additional paternity leave](/paternity-pay-leave/leave).
 
  | Dates
 - | -
 Additional paternity leave must be used between | %{start_of_additional_paternity_leave(match_date)} to %{end_of_additional_paternity_leave(match_date)}
-Tell the Adopter B's employer | 8 weeks before they want to start additional paternity leave
+Tell the your partner's employer | 8 weeks before they want to start additional paternity leave

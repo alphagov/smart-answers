@@ -1,8 +1,8 @@
 {{marker: adoption-mat-shared-pay}}
 
-##Shared parental pay (Adopter A only) - Adopter A
+##Shared parental pay (Only you) - You
 
-Adopter A can get [shared parental pay](/shared-parental-leave-and-pay/overview). It lasts for up to 39 weeks, minus any weeks of maternity pay or maternity allowance they’ve received.
+You can get [shared parental pay](/shared-parental-leave-and-pay/overview). It lasts for up to 39 weeks, minus any weeks of maternity pay or maternity allowance they’ve received.
 
  | Amount
 - | -
