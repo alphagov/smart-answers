@@ -3,14 +3,6 @@ include ActionView::Helpers::NumberHelper
 
 module SmartAnswer::Calculators
   class RedundancyCalculator
-
-    AMOUNTS = [
-      OpenStruct.new(start_date: Date.new(2012, 01, 01), end_date: Date.new(2013, 01, 31), max: "12,900", rate: 430),
-      OpenStruct.new(start_date: Date.new(2013, 02, 01), end_date: Date.new(2014, 04, 05), max: "13,500", rate: 450),
-      OpenStruct.new(start_date: Date.new(2014, 04, 06), end_date: Date.new(2015, 04, 05), max: "13,920", rate: 464),
-      OpenStruct.new(start_date: Date.new(2015, 04, 06), end_date: Date.new(2130, 12, 31), max: "13,920", rate: 475)
-    ]
-
     attr_reader :pay, :number_of_weeks_entitlement
 
     def initialize(rate, age, years, weekly_pay)
@@ -42,7 +34,7 @@ module SmartAnswer::Calculators
     end
 
     def self.redundancy_rates(date)
-      AMOUNTS.find { |r| r.start_date <= date and r.end_date >= date }
+      RatesQuery.new('redundancy_pay', relevant_date: date).rates
     end
 
   end
