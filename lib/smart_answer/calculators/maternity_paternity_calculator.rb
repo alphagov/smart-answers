@@ -91,37 +91,13 @@ module SmartAnswer::Calculators
       [current_statutory_rate, statutory_maternity_rate].min
     end
 
-    def earning_limit_rates_birth
-      [
-        {min: Date.parse("17 July 2009"), max: Date.parse("16 July 2010"), lower_earning_limit_rate: 95},
-        {min: Date.parse("17 July 2010"), max: Date.parse("16 July 2011"), lower_earning_limit_rate: 97},
-        {min: Date.parse("17 July 2011"), max: Date.parse("14 July 2012"), lower_earning_limit_rate: 102},
-        {min: Date.parse("15 July 2012"), max: Date.parse("13 July 2013"), lower_earning_limit_rate: 107},
-        {min: Date.parse("14 July 2013"), max: Date.parse("5 April 2014"), lower_earning_limit_rate: 109},
-        {min: Date.parse("6 April 2014"), max: Date.parse("5 April 2015"), lower_earning_limit_rate: 111},
-        {min: Date.parse("6 April 2015"), max: Date.parse("5 April 2100"), lower_earning_limit_rate: 112} ### Change year in future
-      ]
-    end
 
     def lower_earning_limit_birth
-      earning_limit_rate = earning_limit_rates_birth.find { |c| c[:min] <= @qualifying_week.last and c[:max] >= @qualifying_week.last }
-      (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : earning_limit_rates_birth.last[:lower_earning_limit_rate])
-    end
-
-    def earning_limit_rates_adoption
-      [
-        {min: Date.parse("3 April 2010"), max: Date.parse("2 April 2011"), lower_earning_limit_rate: 97},
-        {min: Date.parse("3 April 2011"), max: Date.parse("31 March 2012"), lower_earning_limit_rate: 102},
-        {min: Date.parse("1 April 2012"), max: Date.parse("31 March 2013"), lower_earning_limit_rate: 107},
-        {min: Date.parse("1 April 2013"), max: Date.parse("5 April 2014"), lower_earning_limit_rate: 109},
-        {min: Date.parse("6 April 2014"), max: Date.parse("5 April 2015"), lower_earning_limit_rate: 111},
-        {min: Date.parse("6 April 2015"), max: Date.parse("5 April 2100"), lower_earning_limit_rate: 112} ### Change year in future
-      ]
+      RatesQuery.new('maternity_paternity_birth', relevant_date: @qualifying_week.last).rates.lower_earning_limit_rate
     end
 
     def lower_earning_limit_adoption
-      earning_limit_rate = earning_limit_rates_adoption.find { |c| c[:min] <= @qualifying_week.last and c[:max] >= @qualifying_week.last }
-      (earning_limit_rate ? earning_limit_rate[:lower_earning_limit_rate] : 107)
+      RatesQuery.new('maternity_paternity_adoption', relevant_date: @qualifying_week.last).rates.lower_earning_limit_rate
     end
 
     def lower_earning_limit
