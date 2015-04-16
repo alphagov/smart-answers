@@ -1,0 +1,11 @@
+---
+# the year denotes the starting year of the fiscal year
+# e.g. 2014 for 6th Apr 2014 - 5th April 2015
+weekly_rate:
+  2012: 107.45
+  2013: 110.15
+  2014: 113.10
+  2015: 115.95
+lower_weekly_rate:
+  2014: 67.80
+  2015: 69.50

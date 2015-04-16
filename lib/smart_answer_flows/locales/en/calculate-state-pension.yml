@@ -263,12 +263,12 @@ en-GB:
 
           ##Your State Pension estimate
 
-          You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £115.95 per week.
+          You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £%{weekly_state_pension_rate} per week.
 
           Basic State Pension | Your results
           - | -
           How much per week you may get | £%{pension_amount}
-          Difference to the full basic State Pension of £115.95 | £%{pension_loss}
+          Difference to the full basic State Pension of £%{weekly_state_pension_rate} | £%{pension_loss}
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance) you have.
 
@@ -303,7 +303,7 @@ en-GB:
 
           ##Your State Pension estimate
 
-          You have enough qualifying years to get a full basic State Pension of £115.95 per week.
+          You have enough qualifying years to get a full basic State Pension of £%{weekly_state_pension_rate} per week.
 
           How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance) you have.
 

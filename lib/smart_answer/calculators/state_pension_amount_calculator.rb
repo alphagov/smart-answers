@@ -7,13 +7,6 @@ module SmartAnswer::Calculators
     attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits, :pays_reduced_ni_rate
     attr_accessor :qualifying_years
 
-    PENSION_RATES = [
-      { min: Date.parse('7 April 2012'), max: Date.parse('6 April 2013'), amount: 107.45 },
-      { min: Date.parse('7 April 2013'), max: Date.parse('6 April 2014'), amount: 110.15 },
-      { min: Date.parse('7 April 2014'), max: Date.parse('6 April 2015'), amount: 113.10 },
-      { min: Date.parse('7 April 2015'), max: Date.parse('6 April 2016'), amount: 115.95 }
-    ]
-
     NEW_RULES_START_DATE = Date.parse('6 April 2016')
 
     def initialize(answers)
@@ -38,11 +31,7 @@ module SmartAnswer::Calculators
     end
 
     def current_weekly_rate
-      rate = PENSION_RATES.find { |r|
-        r[:min] < Date.today and Date.today < r[:max]
-      } || PENSION_RATES.last
-
-      rate[:amount]
+      @current_weekly_rate ||= SmartAnswer::Calculators::RatesQuery.new('state_pension', relevant_date: Date.today).rates.weekly_rate
     end
 
     # Everyone needs 30 qualifying years in all cases - no need to worry about old rules

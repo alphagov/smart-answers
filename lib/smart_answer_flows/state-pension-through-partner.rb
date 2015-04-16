@@ -23,10 +23,12 @@ multiple_choice :what_is_your_marital_status? do
   end
 
   calculate :lower_basic_state_pension_rate do
-    "£69.50"
+    rate = SmartAnswer::Calculators::RatesQuery.new('state_pension', relevant_date: Date.today).rates.lower_weekly_rate
+    "£#{rate}"
   end
   calculate :higher_basic_state_pension_rate do
-    "£115.95"
+    rate = SmartAnswer::Calculators::RatesQuery.new('state_pension', relevant_date: Date.today).rates.weekly_rate
+    "£#{rate}"
   end
 
   next_node_if(:what_is_your_gender?, responded_with("divorced"))

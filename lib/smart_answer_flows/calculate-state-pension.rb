@@ -9,6 +9,10 @@ multiple_choice :which_calculation? do
   option :age
   option :amount
 
+  calculate :weekly_state_pension_rate do
+    SmartAnswer::Calculators::RatesQuery.new('state_pension', relevant_date: Date.today).rates.weekly_rate
+  end
+
   next_node :gender?
 end
 
