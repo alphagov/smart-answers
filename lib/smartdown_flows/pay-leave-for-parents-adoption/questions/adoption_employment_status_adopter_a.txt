@@ -1,6 +1,6 @@
 # Employment status
 
-# What’s the employment status of the mother?
+# What is your employment status?
 
 [choice: employment_status_1]
 * employee: Employee

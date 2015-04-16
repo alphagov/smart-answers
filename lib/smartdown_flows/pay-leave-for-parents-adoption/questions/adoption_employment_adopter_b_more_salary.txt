@@ -1,6 +1,6 @@
-# Salary details for adopter B
+# Your partner's Salary details
 
-# How much did Adopter B earn between %{earnings_employment_start_date(match_date)} and %{earnings_employment_end_date(match_date)}?
+# How much did your partner earn between %{earnings_employment_start_date(match_date)} and %{earnings_employment_end_date(match_date)}?
 
 [salary: salary_2_66_weeks]
 

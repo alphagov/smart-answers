@@ -1,10 +1,10 @@
 {{marker: adoption-mat-leave-perm2}}
 
-##Maternity leave - Adopter B
+##Adoption leave - Your Partner
 
-Adopter B can take up to 52 weeks of [maternity leave](/maternity-pay-leave/leave). The leave will end if the mother goes back to work.
+Your partner can take up to 52 weeks of [adoption leave](/adoption-pay-leave/leave). The leave will end if your partner goes back to work.
 
  | Dates
 - | -
 Earliest leave can start | %{earliest_start_mat_leave(placement_date)}
-Tell Adopter B's employer | %{maternity_leave_notice_date(placement_date)}
+Tell your partner's employer | %{maternity_leave_notice_date(placement_date)}

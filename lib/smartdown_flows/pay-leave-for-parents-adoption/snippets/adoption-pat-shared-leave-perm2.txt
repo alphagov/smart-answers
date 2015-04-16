@@ -1,14 +1,14 @@
 {{marker: adoption-pat-shared-leave-perm2}}
 
-##Shared parental leave (Adopter A only) - Adopter A
+##Shared parental leave (You only) - You
 
-Adopter A can take [shared parental leave](/shared-parental-leave-and-pay) (SPL). It lasts for up to 52 weeks, minus any weeks of maternity leave taken by the mother.
+You can take [shared parental leave](/shared-parental-leave-and-pay) (SPL). It lasts for up to 52 weeks, minus any weeks of maternity leave taken by the mother.
 
 The partner can take SPL in up to 3 blocks, going back to work between the blocks.
 
-^Adopter B can’t take SPL.^
+^Your partner can’t take SPL.^
 
  | Dates
 - | -
 Shared parental leave must be used between | %{placement_date} to %{end_of_shared_parental_leave(placement_date)}
-Tell Adopter A's employer | 8 weeks before the first block of SPL
+Tell you employer | 8 weeks before the first block of SPL

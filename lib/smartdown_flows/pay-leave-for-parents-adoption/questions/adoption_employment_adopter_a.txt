@@ -1,24 +1,24 @@
-# Employment details for Adopter A
+# Your Employment details
 
-# Did Adopter A start their current or most recent job before %{continuity_start_date(match_date)}?
+# Did you start their current or most recent job before %{continuity_start_date(match_date)}?
 
 [choice: job_before_x_1]
 * yes: Yes
 * no: No
 
-# Was Adopter A (or will they be) still working in that job on %{continuity_end_date(match_date)}?
+# Were you (or will you be) still working in that job on %{continuity_end_date(match_date)}?
 
 [choice: job_after_y_1]
 * yes: Yes
 * no: No
 
-# How much does Adopter A earn (or did she earn, if she’s left her job)?
+# How much do you earn (or did she earn, if she’s left her job)?
 
 [salary: salary_1]
 
-This is their total take-home pay before any deductions, eg tax.
+This is your total take-home pay before any deductions, eg tax.
 
-# Has Adopter A earned (or will they have earned) more than £112 per week between %{lower_earnings_start_date(match_date)} and %{lower_earnings_end_date(match_date)}?
+# Have you earned (or will you have earned) more than £112 per week between %{lower_earnings_start_date(match_date)} and %{lower_earnings_end_date(match_date)}?
 
 [choice: lel_1]
 * yes: Yes
