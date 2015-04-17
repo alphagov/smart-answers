@@ -1,4 +1,4 @@
-# Your Employment details
+# Your employment details
 
 # Did you work (or will you have worked) for at least 26 weeks between %{earnings_employment_start_date(match_date)} and %{earnings_employment_end_date(match_date)}?
 

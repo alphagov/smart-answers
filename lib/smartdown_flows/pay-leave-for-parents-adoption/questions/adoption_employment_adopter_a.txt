@@ -1,6 +1,6 @@
-# Your Employment details
+# Your employment details
 
-# Did you start their current or most recent job before %{continuity_start_date(match_date)}?
+# Did you start your current or most recent job before %{continuity_start_date(match_date)}?
 
 [choice: job_before_x_1]
 * yes: Yes
@@ -12,7 +12,7 @@
 * yes: Yes
 * no: No
 
-# How much do you earn (or did she earn, if she’s left her job)?
+# How much do you earn (or did you earn, if she’s left her job)?
 
 [salary: salary_1]
 

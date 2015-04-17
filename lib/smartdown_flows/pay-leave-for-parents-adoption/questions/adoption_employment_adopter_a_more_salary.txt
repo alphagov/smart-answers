@@ -1,4 +1,4 @@
-# Your Salary details
+# Your salary details
 
 # How much did you earn between %{earnings_employment_start_date(match_date)} and %{earnings_employment_end_date(match_date)}?
 

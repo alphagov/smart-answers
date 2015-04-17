@@ -1,4 +1,4 @@
-# Your partner's Employment details
+# Your partner's employment details
 
 # Did your partner start their current or most recent job before %{continuity_start_date(match_date)}?
 

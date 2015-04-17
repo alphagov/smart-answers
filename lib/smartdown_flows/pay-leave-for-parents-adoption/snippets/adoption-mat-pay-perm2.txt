@@ -1,6 +1,6 @@
 {{marker: adoption-mat-pay-perm2}}
 
-##Adoption pay - Your partner
+##Adoption pay - your partner
 
 Your partner can get up to 39 weeks of [adoption pay](/adoption-pay-leave/pay).
 
@@ -9,6 +9,6 @@ Your partner can get up to 39 weeks of [adoption pay](/adoption-pay-leave/pay).
 First 6 weeks | %{rate_of_smp_6_weeks(salary_2)} per week
 Next 33 weeks | %{rate_of_smp_33_weeks(salary_2)} per week
 Total estimated pay | %{total_smp(salary_2)}
-Tell the your partner's employer | 28 days before they want to start maternity pay
+Tell your partner's employer | 28 days before they want to start maternity pay
 
 Tax and National Insurance will be deducted.
