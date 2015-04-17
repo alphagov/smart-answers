@@ -12,13 +12,13 @@ Weekly rate (between 6 April 2013 and 5 April 2014) | %{rate_of_maternity_allowa
 
 $ENDIF
 
-$IF range_in_2013_2014_fin_year?(due_date)
+$IF range_in_2014_2015_fin_year?(due_date)
 
 Weekly rate (between 6 April 2014 and 5 April 2015) | %{rate_of_maternity_allowance_2014_2015(salary_1_66_weeks)}
 
 $ENDIF
 
-$IF range_in_2013_2014_fin_year?(due_date)
+$IF range_in_2015_2016_fin_year?(due_date)
 
 Weekly rate (between 6 April 2015 and 5 April 2016) | %{rate_of_maternity_allowance_2015_2016(salary_1_66_weeks)}
 
