@@ -655,11 +655,6 @@ en-GB:
           ^A CNI issued in England, Wales or Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
 
           They’ll post your notice, and as long as nobody has registered an objection after 7 days, they’ll issue your CNI.
-        scotland_ni_resident_partner_irish_os_consular_cni_three: |
-          You can normally get a CNI by giving a notice of marriage at local registrar if you live in [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
-
-          ^A CNI issued in Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
-
         consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three: |
           ###Getting a statutory declaration
 
