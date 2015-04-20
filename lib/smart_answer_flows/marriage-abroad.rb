@@ -219,8 +219,8 @@ multiple_choice :partner_opposite_or_same_sex? do
   define_predicate(:ceremony_in_colombia_partner_not_local) {
     (ceremony_country == "colombia") & (partner_nationality != "partner_local")
   }
-  define_predicate(:ceremony_in_finland_uk_resident_partner_not_irish) {
-    (ceremony_country == "finland") & (resident_of == "uk") & %w(partner_british partner_other partner_local).include?(partner_nationality)
+  define_predicate(:ceremony_in_finland_uk_resident) {
+    (ceremony_country == "finland") & (resident_of == "uk")
   }
   define_predicate(:ceremony_in_mexico_partner_british) {
     (ceremony_country == "mexico") & (partner_nationality == "partner_british")
@@ -245,7 +245,7 @@ multiple_choice :partner_opposite_or_same_sex? do
       data_query.os_consular_cni_countries?(ceremony_country) or (resident_of == 'uk' and data_query.os_no_marriage_related_consular_services?(ceremony_country))
     })
     next_node_if(:outcome_os_consular_cni, ceremony_in_colombia_partner_not_local)
-    next_node_if(:outcome_os_consular_cni, ceremony_in_finland_uk_resident_partner_not_irish)
+    next_node_if(:outcome_os_consular_cni, ceremony_in_finland_uk_resident)
     next_node_if(:outcome_os_consular_cni, ceremony_in_mexico_partner_british)
     next_node_if(:outcome_os_affirmation, -> { data_query.os_affirmation_countries?(ceremony_country) })
     next_node_if(:outcome_os_commonwealth, -> { data_query.commonwealth_country?(ceremony_country) or ceremony_country == 'zimbabwe' })
