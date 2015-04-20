@@ -575,7 +575,7 @@ en-GB:
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
         gulf_states_os_consular_cni: |
           ^There are no civil marriages in %{country_name_lowercase_prefix}, but you can get married through a religious ceremony at a church or Sharia court.^
-        gulf_states_os_consular_cni_local_resident_partner_not_irish: |
+        gulf_states_os_consular_cni_local_resident: |
           You may be able to get married at the British Embassy if you're both resident in %{country_name_lowercase_prefix} and can prove that there are no other suitable facilities.
 
           Contact the British Embassy in %{country_name_lowercase_prefix} for more information.

@@ -601,8 +601,8 @@ outcome :outcome_os_consular_cni do
 
     if %w(jordan oman qatar).include?(ceremony_country)
       phrases << :gulf_states_os_consular_cni
-      if residency_country == ceremony_country and partner_nationality != 'partner_irish'
-        phrases << :gulf_states_os_consular_cni_local_resident_partner_not_irish
+      if residency_country == ceremony_country
+        phrases << :gulf_states_os_consular_cni_local_resident
       end
     end
 
@@ -1046,7 +1046,7 @@ outcome :outcome_os_affirmation do
       elsif (ceremony_country == residency_country) or ceremony_country == 'qatar'
         phrases << :affirmation_os_local_resident
         if ceremony_country == 'qatar'
-          phrases << :gulf_states_os_consular_cni << :gulf_states_os_consular_cni_local_resident_partner_not_irish
+          phrases << :gulf_states_os_consular_cni << :gulf_states_os_consular_cni_local_resident
         end
       elsif ceremony_country != residency_country and resident_of != 'uk'
         if ceremony_country == 'morocco'
