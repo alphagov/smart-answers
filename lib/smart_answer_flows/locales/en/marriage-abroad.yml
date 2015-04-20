@@ -1338,14 +1338,7 @@ en-GB:
 
           The British Embassy in Saudi Arabia may also be able to give you advice.
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        other_countries_os_saudi_arabia_local_resident_partner_irish: |
-          ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can’t get married at the British Embassy in Saudi Arabia if one of you is an Irish national, as the Irish authorities do not recognise consular marriages.^
-
-          Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
-
-          The British Embassy in Saudi Arabia may also be able to give you advice.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        other_countries_os_saudi_arabia_local_resident_partner_not_irish: |
+        other_countries_os_saudi_arabia_local_resident: |
           One of you must be a Muslim to get married under local laws in Saudi Arabia. Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
           ##Getting married at the British Embassy
@@ -1371,11 +1364,11 @@ en-GB:
           As long as nobody has registered an objection after this time, the consular officer can then perform the marriage ceremony any time until 3 months after the date you gave notice.
 
           You’ll need to pay additional fees for the marriage ceremony and to get your marriage certificate (see below).
-        other_countries_os_saudi_arabia_local_resident_partner_not_irish_or_british: |
+        other_countries_os_saudi_arabia_local_resident_partner_not_british: |
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-        other_countries_os_saudi_arabia_local_resident_partner_not_irish_two: |
+        other_countries_os_saudi_arabia_local_resident_two: |
           ##Fees
 
           Service | Fee
