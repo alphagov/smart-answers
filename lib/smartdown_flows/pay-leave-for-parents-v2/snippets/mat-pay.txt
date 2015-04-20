@@ -2,8 +2,8 @@
 
 The mother can get up to 39 weeks of [maternity pay](/maternity-pay-leave/pay).
 
- | Dates and amounts
-- | -
+###Dates and amounts
+
 First 6 weeks | %{rate_of_smp_6_weeks(salary_1)} per week
 
 $IF range_in_2013_2014_fin_year?(due_date)
