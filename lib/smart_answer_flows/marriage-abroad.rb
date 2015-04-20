@@ -817,8 +817,8 @@ outcome :outcome_os_consular_cni do
       if ceremony_country == 'italy'
         if partner_nationality == 'partner_local'
           phrases << :italy_consular_cni_os_partner_local
-        elsif %w(partner_irish partner_other).include?(partner_nationality)
-          phrases << :italy_consular_cni_os_partner_other_or_irish
+        elsif partner_nationality == 'partner_other'
+          phrases << :italy_consular_cni_os_partner_other
         elsif partner_nationality == 'partner_british'
           phrases << :italy_consular_cni_os_partner_british
         end
