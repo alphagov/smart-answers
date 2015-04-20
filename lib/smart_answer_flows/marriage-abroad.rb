@@ -1033,9 +1033,7 @@ outcome :outcome_os_affirmation do
 
     unless (ceremony_country == 'turkey' or residency_country == 'portugal')
       phrases << :embassies_data
-      if ceremony_country == 'finland' and partner_nationality == 'partner_irish' and resident_of == 'uk'
-        phrases << :affidavit_os_translation_in_local_language_text
-      elsif ceremony_country == 'cambodia'
+      if ceremony_country == 'cambodia'
         phrases << :cni_os_partner_local_legislation_documents_for_appointment
         phrases << :affirmation_os_translation_in_local_language_text
       elsif ceremony_country != 'china' and ceremony_country != 'egypt'
