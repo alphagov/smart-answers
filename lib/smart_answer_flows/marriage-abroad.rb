@@ -679,12 +679,6 @@ outcome :outcome_os_consular_cni do
       end
     end
 
-    if ceremony_country != 'italy' and partner_nationality == 'partner_irish'
-      if %w(uk_england uk_wales).include?(residency_uk_region)
-        phrases << :consular_cni_os_england_or_wales_resident_not_italy
-      end
-    end
-
     if resident_of == 'uk'
       if ceremony_country == 'tunisia'
         phrases << :tunisia_legalisation_and_translation
