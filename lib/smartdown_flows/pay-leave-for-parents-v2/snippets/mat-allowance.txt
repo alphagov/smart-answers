@@ -2,8 +2,8 @@
 
 The mother can get [maternity allowance](/maternity-allowance) from the government for up to 39 weeks.
 
- | Dates and amounts
-- | -
+###Dates and amounts
+
 Maternity allowance can start on | %{start_of_maternity_allowance(due_date)}
 
 $IF range_in_2013_2014_fin_year?(due_date)
