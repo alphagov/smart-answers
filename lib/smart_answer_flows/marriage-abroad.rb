@@ -635,14 +635,12 @@ outcome :outcome_os_consular_cni do
         else
           phrases << :cni_posted_if_no_objection_14_days
         end
-      elsif cni_posted_after_7_days_countries.include?(ceremony_country) or partner_nationality != 'partner_irish'
+      else
         if cni_notary_public_countries.include?(ceremony_country) or %w(italy japan macedonia spain).include?(ceremony_country)
           phrases << :cni_at_local_register_office_notary_public
         else
           phrases << :cni_at_local_register_office
         end
-      elsif partner_nationality == 'partner_irish' and %w(uk_scotland uk_ni).include?(residency_uk_region)
-        phrases << :scotland_ni_resident_partner_irish_os_consular_cni_three
       end
 
       if ceremony_country == 'italy'
