@@ -12,7 +12,7 @@
 * yes: Yes
 * no: No
 
-# How much do you earn (or did you earn, if she’s left her job)?
+# How much do you earn (or did you earn, if you’ve left your job)?
 
 [salary: salary_1]
 
