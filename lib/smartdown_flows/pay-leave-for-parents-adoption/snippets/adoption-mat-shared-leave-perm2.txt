@@ -1,6 +1,6 @@
 {{marker: adoption-mat-shared-leave-perm2}}
 
-##Shared parental leave (Your partner only) - Your partner
+##Shared parental leave (your partner only) - your partner
 
 Your partner can take [shared parental leave](/shared-parental-leave-and-pay) (SPL). It lasts for up to 52 weeks, minus any weeks of maternity leave she takes.
 

@@ -1,4 +1,4 @@
-# Your partner's Salary details
+# Your partner's salary details
 
 # How much did your partner earn between %{earnings_employment_start_date(match_date)} and %{earnings_employment_end_date(match_date)}?
 

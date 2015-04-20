@@ -1,10 +1,10 @@
 {{marker: adoption-additional-pat-leave-perm2}}
 
-##Additional paternity leave - You
+##Additional paternity leave - you
 
 If your partner returns to work early, you may be able to take up to 26 weeks off as [additional paternity leave](/paternity-pay-leave/leave).
 
  | Dates
 - | -
 Additional paternity leave must be used between | %{start_of_additional_paternity_leave(match_date)} to %{end_of_additional_paternity_leave(match_date)}
-Tell the your employer | 8 weeks before they want to start additional paternity leave
+Tell your employer | 8 weeks before they want to start additional paternity leave
