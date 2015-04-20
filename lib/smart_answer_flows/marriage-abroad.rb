@@ -1114,11 +1114,7 @@ outcome :outcome_os_affirmation do
     elsif %w(cambodia ecuador morocco).include? ceremony_country
       phrases << :fee_table_affirmation_55
     elsif ceremony_country == 'finland'
-      if partner_nationality == 'partner_irish' and resident_of == 'uk'
-        phrases << :fee_table_affidavit_65
-      else
-        phrases << :fee_table_affirmation_65
-      end
+      phrases << :fee_table_affirmation_65
     elsif ceremony_country == 'philippines'
       phrases << :fee_table_55_70
     elsif ceremony_country == 'qatar'
