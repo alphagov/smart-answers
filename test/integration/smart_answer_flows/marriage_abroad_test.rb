@@ -414,14 +414,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
   #variants for denmark
-  context "ceremony in denmark, resident in canada, partner irish" do
+  context "ceremony in denmark, resident in canada, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('denmark', read_fixture_file('worldwide/denmark_organisations.json'))
       worldwide_api_has_organisations_for_location('canada', read_fixture_file('worldwide/canada_organisations.json'))
       add_response 'denmark'
       add_response 'other'
       add_response 'canada'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
@@ -431,13 +431,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
   #variants for germany
-  context "ceremony in germany, resident in germany, partner irish" do
+  context "ceremony in germany, resident in germany, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('germany', read_fixture_file('worldwide/germany_organisations.json'))
       add_response 'germany'
       add_response 'other'
       add_response 'germany'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
@@ -490,34 +490,18 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  context "ceremony in azerbaijan, resident in northern ireland, partner irish" do
+  context "ceremony in azerbaijan, resident in northern ireland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('azerbaijan', read_fixture_file('worldwide/azerbaijan_organisations.json'))
       add_response 'azerbaijan'
       add_response 'uk'
       add_response 'uk_ni'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:uk_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :cni_at_local_register_office_notary_public, :consular_cni_os_uk_resident_legalisation, :consular_cni_os_uk_resident_not_italy_or_portugal]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
-    end
-  end
-  #variant for england and wales, irish partner - ceremony not italy
-  context "ceremony in guatemala, resident in wales, partner irish" do
-    setup do
-      worldwide_api_has_organisations_for_location('guatemala', read_fixture_file('worldwide/guatemala_organisations.json'))
-      add_response 'guatemala'
-      add_response 'uk'
-      add_response 'uk_wales'
-      add_response 'partner_irish'
-      add_response 'opposite_sex'
-    end
-    should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:uk_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_england_or_wales_resident_not_italy, :consular_cni_os_uk_resident_legalisation, :consular_cni_os_uk_resident_not_italy_or_portugal]
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
@@ -990,15 +974,15 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:affirmation_os_local_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :make_an_appointment, :embassies_data, :docs_decree_and_death_certificate, :change_of_name_evidence, :partner_declaration, :fee_table_45_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  #testing for ceremony in lebanon, other resident, partner irish
-  context "ceremony in lebanon, resident in poland, partner irish" do
+  #testing for ceremony in lebanon, other resident, partner other
+  context "ceremony in lebanon, resident in poland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('lebanon', read_fixture_file('worldwide/lebanon_organisations.json'))
       worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'lebanon'
       add_response 'other'
       add_response 'poland'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to os affirmation outcome" do
@@ -1149,15 +1133,15 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :no_cni_os_outcome, [:no_cni_os_dutch_caribbean_islands, :no_cni_os_dutch_caribbean_islands_local_resident, :get_legal_advice, :cni_os_consular_facilities_unavailable]
     end
   end
-  #testing for ceremony in aruba, other resident, partner irish
-  context "ceremony in aruba, resident in poland, partner irish" do
+  #testing for ceremony in aruba, other resident, partner other
+  context "ceremony in aruba, resident in poland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
       worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'aruba'
       add_response 'other'
       add_response 'poland'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
@@ -1259,14 +1243,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   #testing for ceremony in usa
-  context "ceremony in usa, resident in poland, partner irish" do
+  context "ceremony in usa, resident in poland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
       worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'usa'
       add_response 'other'
       add_response 'poland'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
@@ -1276,14 +1260,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   #testing for ceremony in argentina
-  context "ceremony in argentina, resident in poland, partner irish" do
+  context "ceremony in argentina, resident in poland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('argentina', read_fixture_file('worldwide/argentina_organisations.json'))
       worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'argentina'
       add_response 'other'
       add_response 'poland'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
@@ -1380,21 +1364,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_other_countries
       assert_phrase_list :other_countries_os_outcome, [:other_countries_os_ceremony_saudia_arabia_not_local_resident]
-    end
-  end
-  #testing for saudi arabia, local resident, partner irish
-  context "ceremony in saudi arabia, resident in saudi arabia, partner irish" do
-    setup do
-      worldwide_api_has_organisations_for_location('saudi-arabia', read_fixture_file('worldwide/saudi-arabia_organisations.json'))
-      add_response 'saudi-arabia'
-      add_response 'other'
-      add_response 'saudi-arabia'
-      add_response 'partner_irish'
-      add_response 'opposite_sex'
-    end
-    should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_other_countries
-      assert_phrase_list :other_countries_os_outcome, [:other_countries_os_saudi_arabia_local_resident_partner_irish]
     end
   end
   #testing for saudi arabia, local resident, partner british
@@ -1495,14 +1464,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end
-  #testing for ceremony in sweden, sweden resident, irish partner
-  context "ceremony in sweden, resident in sweden, partner irish" do
+  #testing for ceremony in sweden, sweden resident, partner other
+  context "ceremony in sweden, resident in sweden, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('sweden', read_fixture_file('worldwide/sweden_organisations.json'))
       add_response 'sweden'
       add_response 'other'
       add_response 'sweden'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'same_sex'
     end
     should "go to cp or equivalent os outcome" do
@@ -1695,14 +1664,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   #testing for nicaragua
-  context "ceremony in nicaragua, resident in poland, partner irish" do
+  context "ceremony in nicaragua, resident in poland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('nicaragua', read_fixture_file('worldwide/nicaragua_organisations.json'))
       worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
       add_response 'nicaragua'
       add_response 'other'
       add_response 'poland'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
@@ -1978,35 +1947,19 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in finland, resident in the UK, partner Irish OS" do
+  context "ceremony in finland, resident in the UK, partner other, SS" do
     setup do
       worldwide_api_has_organisations_for_location('finland', read_fixture_file('worldwide/finland_organisations.json'))
       worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
       add_response 'finland'
       add_response 'uk'
       add_response 'uk_england'
-      add_response 'partner_irish'
-      add_response 'opposite_sex'
-    end
-    should "go to affirmation outcome with specific fee table" do
-      assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affidavit, :appointment_for_affidavit, :embassies_data, :affidavit_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affidavit_65, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
-    end
-  end
-
-  context "ceremony in finland, resident in the UK, partner Irish SS" do
-    setup do
-      worldwide_api_has_organisations_for_location('finland', read_fixture_file('worldwide/finland_organisations.json'))
-      worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
-      add_response 'finland'
-      add_response 'uk'
-      add_response 'uk_england'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'same_sex'
     end
     should "go to affirmation outcome with specific fee table" do
-      assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do_affidavit, :appointment_for_affidavit, :embassies_data, :affidavit_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affidavit_65, :list_of_consular_fees, :pay_in_euros_or_visa_electron]
+      assert_current_node :outcome_cp_cp_or_equivalent
+      assert_phrase_list :cp_or_equivalent_cp_outcome, [:"cp_or_equivalent_cp_finland", :cp_or_equivalent_cp_uk_resident, :cp_or_equivalent_cp_all_what_you_need_to_do, :cp_or_equivalent_cp_naturalisation, :cp_or_equivalent_cp_all_fees, :list_of_consular_fees , :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -2088,13 +2041,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_fees_not_italy_not_uk]
     end
   end
-  context "ceremony in azerbaijan, resident in northern ireland, partner irish" do
+  context "ceremony in azerbaijan, resident in northern ireland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('azerbaijan', read_fixture_file('worldwide/azerbaijan_organisations.json'))
       add_response 'azerbaijan'
       add_response 'uk'
       add_response 'uk_ni'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'same_sex'
     end
     should "go to outcome_ss_marriage" do
