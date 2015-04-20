@@ -607,14 +607,12 @@ outcome :outcome_os_consular_cni do
       phrases << :spain_os_consular_cni_two
     elsif ceremony_country == 'italy'
       if resident_of == 'uk'
-        if (partner_nationality != partner_irish) or (%w(uk_scotland uk_ni).include?(residency_uk_region) and partner_nationality == 'partner_irish')
-          phrases << :italy_os_consular_cni_uk_resident
-        end
+        phrases << :italy_os_consular_cni_uk_resident
       end
       if resident_of == 'uk' and partner_nationality == 'partner_british'
         phrases << :italy_os_consular_cni_uk_resident_two
       end
-      if resident_of != 'uk' or (resident_of == 'uk' and partner_nationality == 'partner_irish' and %w(uk_scotland uk_ni).exclude?(residency_uk_region))
+      if resident_of != 'uk'
         phrases << :italy_os_consular_cni_uk_resident_three
       end
     end
