@@ -1043,8 +1043,6 @@ outcome :outcome_os_affirmation do
     #What you need to do section
     if %w(turkey egypt china).include?(ceremony_country)
       phrases << :what_you_need_to_do
-    elsif ceremony_country == 'finland' and partner_nationality == 'partner_irish' and resident_of == 'uk'
-      phrases << :what_you_need_to_do_affidavit
     elsif data_query.os_21_days_residency_required_countries?(ceremony_country)
       phrases << :what_you_need_to_do_affirmation_21_days
     else
