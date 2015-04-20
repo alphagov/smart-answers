@@ -14,9 +14,6 @@ You’re usually a continuing student if you got student finance last year.
     * continuing_student is 'continuing-student' => outcome_eu_ft_1516_continuing
     * continuing_student is 'new-student' => outcome_eu_ft_1516_new
 * type_of_student is 'eu-part-time'
-  * what_year is 'year-1314'
-    * continuing_student is 'continuing-student' => outcome_eu_pt_1314_continuing
-    * continuing_student is 'new-student' => outcome_eu_pt_1314_new
   * what_year is 'year-1415'
     * continuing_student is 'continuing-student' => outcome_eu_pt_1415_continuing
     * continuing_student is 'new-student' => outcome_eu_pt_1415_new

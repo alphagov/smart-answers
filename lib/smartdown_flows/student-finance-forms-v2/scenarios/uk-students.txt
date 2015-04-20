@@ -88,34 +88,6 @@ outcome_travel
 
 - type_of_student: uk-part-time
 - form_needed_for_2: apply-loans-grants
-- what_year: year-1314
-- continuing_student: continuing-student
-- pt_course_start: course-start-before-01092012
-outcome_uk_pt_1314_grant
-
-- type_of_student: uk-part-time
-- form_needed_for_2: apply-loans-grants
-- what_year: year-1314
-- continuing_student: continuing-student
-- pt_course_start: course-start-after-01092012
-outcome_uk_pt_1314_continuing
-
-- type_of_student: uk-part-time
-- form_needed_for_2: apply-loans-grants
-- what_year: year-1314
-- continuing_student: new-student
-- pt_course_start: course-start-before-01092012
-outcome_uk_pt_1314_grant
-
-- type_of_student: uk-part-time
-- form_needed_for_2: apply-loans-grants
-- what_year: year-1314
-- continuing_student: new-student
-- pt_course_start: course-start-after-01092012
-outcome_uk_pt_1314_new
-
-- type_of_student: uk-part-time
-- form_needed_for_2: apply-loans-grants
 - what_year: year-1415
 - continuing_student: continuing-student
 - pt_course_start: course-start-before-01092012
@@ -144,18 +116,8 @@ outcome_uk_pt_1415_new
 
 - type_of_student: uk-part-time
 - form_needed_for_2: proof-identity
-- what_year: year-1314
-outcome_proof_identity_1314
-
-- type_of_student: uk-part-time
-- form_needed_for_2: proof-identity
 - what_year: year-1415
 outcome_proof_identity_1415
-
-- type_of_student: uk-part-time
-- form_needed_for_2: apply-dsa
-- what_year: year-1314
-outcome_dsa_1314_pt
 
 - type_of_student: uk-part-time
 - form_needed_for_2: apply-dsa
