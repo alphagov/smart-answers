@@ -275,13 +275,7 @@ multiple_choice :partner_opposite_or_same_sex? do
     data_query.ss_marriage_not_possible?(ceremony_country, partner_nationality)
   }
 
-  define_predicate(:uk_resident_irish_partner_finland_ss_ceremony) {
-    (ceremony_country == 'finland') & (resident_of == 'uk') & (partner_nationality == 'partner_irish')
-  }
-
   next_node_if(:outcome_ss_marriage_malta, -> {ceremony_country == "malta"})
-
-  next_node_if(:outcome_os_affirmation, uk_resident_irish_partner_finland_ss_ceremony)
 
   next_node_if(:outcome_ss_marriage_not_possible, ss_marriage_not_possible?)
 
