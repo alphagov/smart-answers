@@ -1246,17 +1246,11 @@ outcome :outcome_os_other_countries do
       if ceremony_country != residency_country
         phrases << :other_countries_os_ceremony_saudia_arabia_not_local_resident
       else
-        if partner_nationality == 'partner_irish'
-          phrases << :other_countries_os_saudi_arabia_local_resident_partner_irish
-        else
-          phrases << :other_countries_os_saudi_arabia_local_resident_partner_not_irish
+        phrases << :other_countries_os_saudi_arabia_local_resident
+        if partner_nationality != 'partner_british'
+          phrases << :other_countries_os_saudi_arabia_local_resident_partner_not_british
         end
-        if %w(partner_irish partner_british).exclude?(partner_nationality)
-          phrases << :other_countries_os_saudi_arabia_local_resident_partner_not_irish_or_british
-        end
-        if partner_nationality != 'partner_irish'
-          phrases << :other_countries_os_saudi_arabia_local_resident_partner_not_irish_two
-        end
+        phrases << :other_countries_os_saudi_arabia_local_resident_two
       end
     end
     phrases
