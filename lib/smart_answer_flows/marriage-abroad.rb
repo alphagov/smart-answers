@@ -189,7 +189,6 @@ end
 # Q4
 multiple_choice :what_is_your_partners_nationality? do
   option :partner_british
-  option :partner_irish
   option :partner_local
   option :partner_other
 
