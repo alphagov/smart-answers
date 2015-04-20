@@ -8,5 +8,5 @@
 
 * type_of_student is 'uk-full-time' => form_needed_for_1
 * type_of_student is 'uk-part-time' => form_needed_for_2
-* type_of_student is 'eu-full-time' => what_year_eu_fulltime
+* type_of_student is 'eu-full-time' => what_year
 * type_of_student is 'eu-part-time' => what_year

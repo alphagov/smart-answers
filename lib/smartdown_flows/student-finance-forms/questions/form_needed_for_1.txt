@@ -13,4 +13,4 @@
 * form_needed_for_1 is 'dsa-expenses' => outcome_dsa_expenses
 * form_needed_for_1 is 'ccg-expenses' => outcome_ccg_expenses
 * form_needed_for_1 is 'travel-grant' => outcome_travel
-* otherwise => what_year_uk_fulltime
+* otherwise => what_year
