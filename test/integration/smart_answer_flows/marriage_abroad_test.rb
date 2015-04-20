@@ -1377,7 +1377,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_other_countries
-      assert_phrase_list :other_countries_os_outcome, [:other_countries_os_saudi_arabia_local_resident_partner_not_irish, :other_countries_os_saudi_arabia_local_resident_partner_not_irish_two]
+      assert_phrase_list :other_countries_os_outcome, [:other_countries_os_saudi_arabia_local_resident, :other_countries_os_saudi_arabia_local_resident_two]
     end
   end
   #testing for saudi arabia, local resident, partner other
@@ -1392,7 +1392,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_other_countries
-      assert_phrase_list :other_countries_os_outcome, [:other_countries_os_saudi_arabia_local_resident_partner_not_irish, :other_countries_os_saudi_arabia_local_resident_partner_not_irish_or_british, :other_countries_os_saudi_arabia_local_resident_partner_not_irish_two]
+      assert_phrase_list :other_countries_os_outcome, [:other_countries_os_saudi_arabia_local_resident, :other_countries_os_saudi_arabia_local_resident_partner_not_british, :other_countries_os_saudi_arabia_local_resident_two]
     end
   end
 
