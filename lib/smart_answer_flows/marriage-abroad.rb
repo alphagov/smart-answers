@@ -1278,7 +1278,7 @@ outcome :outcome_cp_cp_or_equivalent do
     end
     unless ceremony_country == 'czech-republic' and sex_of_your_partner == 'same_sex'
       if ceremony_country == 'brazil' and sex_of_your_partner == 'same_sex' and resident_of == 'uk'
-        phrases << :what_you_need_to_do_cni << :uk_resident_partner_not_irish_os_consular_cni_three << :consular_cni_os_uk_resident_legalisation << :consular_cni_os_uk_resident_not_italy_or_portugal << :consular_cni_os_all_names_but_germany
+        phrases << :what_you_need_to_do_cni << :uk_resident_os_consular_cni_three << :consular_cni_os_uk_resident_legalisation << :consular_cni_os_uk_resident_not_italy_or_portugal << :consular_cni_os_all_names_but_germany
       else
         phrases << :cp_or_equivalent_cp_all_what_you_need_to_do
       end
