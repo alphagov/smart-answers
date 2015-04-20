@@ -252,7 +252,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'cyprus'
       add_response 'other'
       add_response 'cyprus'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to commonwealth os outcome" do
@@ -295,7 +295,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'anguilla'
       add_response 'other'
       add_response 'anguilla'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to bos os outcome" do
@@ -1581,7 +1581,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :no_cni_required_cp_outcome, [:"no_cni_required_cp_bonaire-st-eustatius-saba", :no_cni_required_all_legal_advice, :no_cni_required_all_what_you_need_to_do, :no_cni_required_cp_dutch_islands, :no_cni_required_cp_dutch_islands_local_resident, :no_cni_required_cp_all_consular_facilities]
     end
   end
-  #testing for ceremony in bonaire, other resident, irish partner
+  #testing for ceremony in bonaire, other resident, other partner
   context "ceremony in bonaire, resident in mexico, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('bonaire-st-eustatius-saba', read_fixture_file('worldwide/bonaire-st-eustatius-saba_organisations.json'))
@@ -1589,7 +1589,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'bonaire-st-eustatius-saba'
       add_response 'other'
       add_response 'mexico'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'same_sex'
     end
     should "go to cp no cni required outcome" do
@@ -1758,7 +1758,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'china'
       add_response 'uk'
       add_response 'uk_england'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
       assert_phrase_list :affirmation_os_outcome, [:affirmation_os_uk_resident, :affirmation_os_all_what_you_need_to_do, :what_you_need_to_do, :book_online_china_non_local_prelude, :book_online_china_affirmation_affidavit, :embassies_data, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :affirmation_affidavit_os_partner, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
@@ -1770,7 +1770,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'china'
       add_response 'uk'
       add_response 'uk_england'
-      add_response 'partner_irish'
+      add_response 'partner_other'
       add_response 'same_sex'
       assert_current_node :outcome_ss_marriage
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
