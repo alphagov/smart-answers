@@ -106,22 +106,27 @@ multiple_choice :parents? do
 
   save_input_as :parents
 
-  next_node do |response|
-    case region
-    when "england-and-wales"
-      if partner == "yes"
-        response == "yes" ? :outcome_21 : :siblings?
-      else
-        response == "yes" ? :outcome_3 : :siblings?
-      end
-    when "scotland"
-      :siblings?
-    when "northern-ireland"
-      if partner == "yes"
-        response == "yes" ? :outcome_63 : :siblings_including_mixed_parents?
-      else
-        response == "yes" ? :outcome_3 : :siblings?
-      end
+  on_condition(variable_matches(:region, 'england-and-wales')) do
+    on_condition(variable_matches(:partner, 'yes')) do
+      next_node_if(:outcome_21, responded_with('yes'))
+      next_node_if(:siblings?, responded_with('no'))
+    end
+    on_condition(variable_matches(:partner, 'no')) do
+      next_node_if(:outcome_3, responded_with('yes'))
+      next_node_if(:siblings?, responded_with('no'))
+    end
+  end
+  on_condition(variable_matches(:region, 'scotland')) do
+    next_node :siblings?
+  end
+  on_condition(variable_matches(:region, 'northern-ireland')) do
+    on_condition(variable_matches(:partner, 'yes')) do
+      next_node_if(:outcome_63, responded_with('yes'))
+      next_node_if(:siblings_including_mixed_parents?, responded_with('no'))
+    end
+    on_condition(variable_matches(:partner, 'no')) do
+      next_node_if(:outcome_3, responded_with('yes'))
+      next_node_if(:siblings?, responded_with('no'))
     end
   end
 end
