@@ -74,10 +74,10 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
       assert_current_node :outcome_transit_refugee_not_leaving_airport
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_general_y" do
+    should "suggest to apply in country of originallity or residence for outcome_standard_visit" do
       add_response 'tourism'
 
-      assert_current_node :outcome_general_y
+      assert_current_node :outcome_standard_visit
       assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
 
@@ -322,7 +322,7 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
         add_response 'tourism'
       end
       should "take you to general_y outcome" do
-        assert_current_node :outcome_general_y
+        assert_current_node :outcome_standard_visit
       end
       context "Chinese passport" do
         setup do
@@ -331,7 +331,7 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
           add_response "tourism"
         end
         should "take insert an additional phrase" do
-          assert_current_node :outcome_general_y
+          assert_current_node :outcome_standard_visit
           assert_phrase_list :if_china, [:china_tour_group]
         end
       end
@@ -535,7 +535,6 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
         end
         should "take you to outcome 5.5 work N visa may be not needed" do
           assert_current_node :outcome_work_n
-          assert_phrase_blank :if_non_visa_nationals_short_visit
         end
       end
     end #end canada work reason
@@ -691,7 +690,7 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
         add_response 'tourism'
       end
       should "take you to tourism outcome without personalised phraselist" do
-        assert_current_node :outcome_general_y
+        assert_current_node :outcome_standard_visit
         assert_state_variable :if_exception, nil
       end
     end

@@ -60,7 +60,7 @@ multiple_choice :purpose_of_visit? do
     next_node_if(:outcome_medical_n, responded_with('medical'))
   end
   next_node_if(:outcome_school_y, responded_with('school'))
-  next_node_if(:outcome_general_y, responded_with('tourism'))
+  next_node_if(:outcome_standard_visit, responded_with('tourism'))
   next_node_if(:outcome_marriage, responded_with('marriage'))
   next_node_if(:outcome_medical_y, responded_with('medical'))
 
@@ -171,7 +171,7 @@ outcome :outcome_joining_family_y
 outcome :outcome_joining_family_m
 outcome :outcome_joining_family_nvn
 outcome :outcome_visit_business_n
-outcome :outcome_general_y do
+outcome :outcome_standard_visit do
   precalculate :if_china do
     if %w(china).include?(passport_country)
       PhraseList.new(:china_tour_group)

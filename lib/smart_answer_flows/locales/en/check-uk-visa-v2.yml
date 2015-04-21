@@ -185,10 +185,10 @@ en-GB:
           %{if_refugee}
 
           Apply for a [Short-term Study visa](/study-visit-visa) if you’re either:
-          
+
           - under 18 years old
           - studying for an English language course for less than 11 months
-          
+
       outcome_study_m:
         title: You’ll need a visa to study in the UK
 
@@ -543,7 +543,7 @@ en-GB:
 
           Apply for a [family permit](/family-permit) to join your family or partner for a short or long stay if they’re living in the UK.
 
-      outcome_general_y:
+      outcome_standard_visit:
         title: You’ll need a visa to come to the UK
         body: |
           The visa you need to apply for depends on your circumstances.
