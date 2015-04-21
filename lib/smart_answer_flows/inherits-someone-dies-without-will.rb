@@ -275,9 +275,8 @@ multiple_choice :more_than_one_child? do
 
   save_input_as :more_than_one_child
 
-  next_node do |response|
-    response == "yes" ? :outcome_61 : :outcome_62
-  end
+  next_node_if(:outcome_61, responded_with('yes'))
+  next_node_if(:outcome_62, responded_with('no'))
 end
 
 outcome :outcome_1
