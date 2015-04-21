@@ -146,7 +146,7 @@ GEM
     parslet (1.6.2)
       blankslate (>= 2.0, <= 4.0)
     plek (1.7.0)
-    poltergeist (1.5.1)
+    poltergeist (1.6.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
@@ -273,7 +273,7 @@ GEM
     webmock (1.20.4)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
-    websocket-driver (0.5.3)
+    websocket-driver (0.5.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     xpath (2.0.0)
@@ -305,7 +305,7 @@ DEPENDENCIES
   nokogiri
   parser
   plek (= 1.7.0)
-  poltergeist (= 1.5.1)
+  poltergeist (= 1.6.0)
   pry
   rack_strip_client_ip (= 0.0.1)
   rails (= 4.2.1)
