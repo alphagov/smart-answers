@@ -138,34 +138,46 @@ multiple_choice :siblings? do
 
   save_input_as :siblings
 
-  next_node do |response|
-    case region
-    when "england-and-wales"
-      if partner == "yes"
-        response == "yes" ? :outcome_22 : :outcome_1
-      else
-        response == "yes" ? :outcome_4 : :half_siblings?
+  on_condition(variable_matches(:region, 'england-and-wales')) do
+    on_condition(variable_matches(:partner, 'yes')) do
+      next_node_if(:outcome_22, responded_with('yes'))
+      next_node_if(:outcome_1, responded_with('no'))
+    end
+    on_condition(variable_matches(:partner, 'no')) do
+      next_node_if(:outcome_4, responded_with('yes'))
+      next_node_if(:half_siblings?, responded_with('no'))
+    end
+  end
+  on_condition(variable_matches(:region, 'scotland')) do
+    on_condition(variable_matches(:partner, 'yes')) do
+      on_condition(variable_matches(:parents, 'yes')) do
+        next_node_if(:outcome_43, responded_with('yes'))
+        next_node_if(:outcome_42, responded_with('no'))
       end
-    when "scotland"
-      if partner == "yes"
-        if parents == "yes"
-          response == "yes" ? :outcome_43 : :outcome_42
-        else
-          response == "yes" ? :outcome_41 : :outcome_1
-        end
-      else
-        if parents == "yes"
-          response == "yes" ? :outcome_44 : :outcome_3
-        else
-          response == "yes" ? :outcome_4 : :aunts_or_uncles?
-        end
+      on_condition(variable_matches(:parents, 'no')) do
+        next_node_if(:outcome_41, responded_with('yes'))
+        next_node_if(:outcome_1, responded_with('no'))
       end
-    when "northern-ireland"
-      if partner == "yes"
-        response == "yes" ? :outcome_64 : :outcome_65
-      else
-        response == "yes" ? :outcome_4 : :grandparents?
+    end
+    on_condition(variable_matches(:partner, 'no')) do
+      on_condition(variable_matches(:parents, 'yes')) do
+        next_node_if(:outcome_44, responded_with('yes'))
+        next_node_if(:outcome_3, responded_with('no'))
       end
+      on_condition(variable_matches(:parents, 'no')) do
+        next_node_if(:outcome_4, responded_with('yes'))
+        next_node_if(:aunts_or_uncles?, responded_with('no'))
+      end
+    end
+  end
+  on_condition(variable_matches(:region, 'northern-ireland')) do
+    on_condition(variable_matches(:partner, 'yes')) do
+      next_node_if(:outcome_64, responded_with('yes'))
+      next_node_if(:outcome_65, responded_with('no'))
+    end
+    on_condition(variable_matches(:partner, 'no')) do
+      next_node_if(:outcome_4, responded_with('yes'))
+      next_node_if(:grandparents?, responded_with('no'))
     end
   end
 end
