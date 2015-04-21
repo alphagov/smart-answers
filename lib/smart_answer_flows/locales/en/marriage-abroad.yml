@@ -181,10 +181,6 @@ en-GB:
           ##What you need to do
 
           You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
-        what_you_need_to_do_affidavit: |
-          ##What you need to do
-
-          You may be asked to provide an ‘affidavit for marriage’ document to prove you’re allowed to marry.
         what_you_need_to_do_affirmation_21_days: |
           ##What you need to do
 
@@ -244,8 +240,6 @@ en-GB:
           ^Your partner will need to get an affidavit as well.^
         affirmation_os_translation_in_local_language_text: |
           You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
-        affidavit_os_translation_in_local_language_text: |
-          You might need to get your affidavit [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
 
 # fee tables
         fee_table_45_70_55: |
@@ -275,12 +269,6 @@ en-GB:
           Service | Fee
           -|-
           Affidavit for marriage | £55
-        fee_table_affidavit_65: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Affidavit for marriage | £65
         fee_table_affirmation_55: |
           ##Fees
 
@@ -540,7 +528,7 @@ en-GB:
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
         gulf_states_os_consular_cni: |
           ^There are no civil marriages in %{country_name_lowercase_prefix}, but you can get married through a religious ceremony at a church or Sharia court.^
-        gulf_states_os_consular_cni_local_resident_partner_not_irish: |
+        gulf_states_os_consular_cni_local_resident: |
           You may be able to get married at the British Embassy if you're both resident in %{country_name_lowercase_prefix} and can prove that there are no other suitable facilities.
 
           Contact the British Embassy in %{country_name_lowercase_prefix} for more information.
@@ -586,7 +574,7 @@ en-GB:
           If the Standesamt does ask you for a CNI (‘Ehefähigkeitszeugnis’), refer them to the relevant part of the [German Civil Code](http://www.gesetze-im-internet.de/bgb/__1309.html) (‘Bürgerliches Gesetzbuch’). This is published on the Stuttgart Higher Regional Court (‘Oberlandesgericht’) website, but it applies to the whole of Germany.
 
           Check with the Higher Regional Court where you're getting married if they don't accept this.
-        uk_resident_partner_not_irish_os_consular_cni_three: |
+        uk_resident_os_consular_cni_three: |
           You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
 
           ^A CNI issued in England, Wales or Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
@@ -620,12 +608,7 @@ en-GB:
           ^A CNI issued in England, Wales or Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
 
           They’ll post your notice, and as long as nobody has registered an objection after 7 days, they’ll issue your CNI.
-        scotland_ni_resident_partner_irish_os_consular_cni_three: |
-          You can normally get a CNI by giving a notice of marriage at local registrar if you live in [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
-
-          ^A CNI issued in Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
-
-        consular_cni_os_scotland_or_ni_partner_irish_or_partner_not_irish_three: |
+        consular_cni_os_resident_in_uk_ceremony_in_italy: |
           ###Getting a statutory declaration
 
           While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
@@ -640,36 +623,6 @@ en-GB:
           You’ll need to get your statutory declaration and CNI '[legalised](/get-document-legalised)' (certified as genuine) by the Foreign & Commonwealth Office (FCO).
 
           You’ll also need to get your CNI [translated](/government/publications/italy-list-of-lawyers) and sworn before the Italian courts or an Italian Justice of the Peace.
-        consular_cni_os_england_or_wales_partner_irish_three: |
-          You need to get a Nulla Osta by applying to the Foreign & Commonwealth Office (FCO) in London if your partner is Irish and you live in England or Wales.
-
-          Your partner should contact the Irish authorities to get their Nulla Osta.
-
-          ###Applying for a Nulla Osta from the FCO
-
-          s1. [Download ‘Nulla Osta application form’ (DOT, 61KB)](/government/uploads/system/uploads/attachment_data/file/136828/nulla-osta-form.doc).
-          s2. Place a public announcement of your marriage in your local newspaper for at least 1 week, as described on the form.
-          s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/) - there’s an example on the form.
-          s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
-          s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s6. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
-          s7. FCO will forward your Nulla Osta application to the British Embassy in Rome. They'll aim to issue the Nulla Osta within 20 days, and contact you to arrange payment (see fees below).
-          s8. They’ll then send it to the town hall (‘comune’) in Italy where you’re getting married - or another address (such as your wedding planner) if you ask them to. It’s normally valid for 6 months, but you should check this with the comune.
-        consular_cni_os_england_or_wales_resident_not_italy: |
-          You need to get a CNI from the Foreign & Commonwealth Office (FCO) in London if your partner is Irish and you live in England or Wales.
-
-          Your partner should contact the Irish authorities to obtain their CNI.
-
-          ###Applying for a CNI from the FCO
-
-          s1. [Download ‘Certificate of no impediment application form’ (DOT, 60KB)](/government/uploads/system/uploads/attachment_data/file/136828/nulla-osta-form.doc).
-          s2. Place a public announcement of your marriage in your local newspaper for at least 1 week, as described on the form.
-          s3. Swear an affidavit (written statement of facts) in front of a [solicitor](http://www.lawsociety.org.uk/find-a-solicitor/) - there’s an example on the form.
-          s4. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
-          s5. You’ll also need to include a pre-paid, self-addressed special delivery envelope, or a £10 postage fee, so the FCO can return your documents.
-          s6. Send your completed form to the FCO with your supporting documents and payment. [You can pay by credit card online](/pay-foreign-marriage-certificates), or send a postal order or bank draft for £65 (or £75 if you’re paying the postage) made payable to ‘FCO’. Personal cheques aren’t accepted. The address is on the form.
-          s7. The FCO will forward your application to the local British embassy or consulate where you’re getting married, usually within 20 days - they’ll let you know when it’s ready to collect.
-          s8. The embassy or consulate will charge you an additional fee when you pick it up. It’s normally valid for 3 months, but you should check this with the local authorities.
         consular_cni_os_uk_resident_montenegro: |
           ###Getting a Montenegrin version of your CNI
 
@@ -972,7 +925,7 @@ en-GB:
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
           - a copy of your partner’s ID card and Certificato di Stato Libero from the comune
           - a copy of your partner’s Nulla Osta, if possible
-        italy_consular_cni_os_partner_other_or_irish: |
+        italy_consular_cni_os_partner_other: |
           You’ll need to provide supporting documents, including:
 
           - your passport
@@ -1385,14 +1338,7 @@ en-GB:
 
           The British Embassy in Saudi Arabia may also be able to give you advice.
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        other_countries_os_saudi_arabia_local_resident_partner_irish: |
-          ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can’t get married at the British Embassy in Saudi Arabia if one of you is an Irish national, as the Irish authorities do not recognise consular marriages.^
-
-          Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
-
-          The British Embassy in Saudi Arabia may also be able to give you advice.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        other_countries_os_saudi_arabia_local_resident_partner_not_irish: |
+        other_countries_os_saudi_arabia_local_resident: |
           One of you must be a Muslim to get married under local laws in Saudi Arabia. Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
           ##Getting married at the British Embassy
@@ -1418,11 +1364,11 @@ en-GB:
           As long as nobody has registered an objection after this time, the consular officer can then perform the marriage ceremony any time until 3 months after the date you gave notice.
 
           You’ll need to pay additional fees for the marriage ceremony and to get your marriage certificate (see below).
-        other_countries_os_saudi_arabia_local_resident_partner_not_irish_or_british: |
+        other_countries_os_saudi_arabia_local_resident_partner_not_british: |
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-        other_countries_os_saudi_arabia_local_resident_partner_not_irish_two: |
+        other_countries_os_saudi_arabia_local_resident_two: |
           ##Fees
 
           Service | Fee
