@@ -51,7 +51,7 @@ en-GB:
         apply_for_visitor_visa: |
           ###Visitor visa
 
-          Apply for a [general visit visa](/general-visit-visa).
+          Apply for a [Standard Visitor visa](/standard-visitor-visa).
         epassport_general_visit_reason: |
           However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
           ^If you don’t have an ePassport, you must [apply for a short visit visa](/browse/visas-immigration/short-visit-visas).^
@@ -184,21 +184,18 @@ en-GB:
 
           %{if_refugee}
 
-          Apply for a [study visa](/tier-4-general-visa) if you’re coming to the UK to study a degree or college course for longer than 6 months (or 11 months if it’s an English language course).
-
-          Apply for a [child study visa](/child-study-visa) if you’re under 18.
-
-          ^If you’re studying an English language course for less than 11 months, you can apply for a [study visit](/study-visit-visa) visa.^
-
+          Apply for a [Short-term Study visa](/study-visit-visa) if you’re either:
+          
+          - under 18 years old
+          - studying for an English language course for less than 11 months
+          
       outcome_study_m:
         title: You’ll need a visa to study in the UK
 
         body: |
           %{if_refugee}
 
-          Apply for a [study visit](/study-visit-visa) visa if you’re studying for less than 6 months and you won’t work during your stay.
-
-          You should apply as a [child visitor](/child-visit-visa) if you’re under 18.
+          Apply for a [Short-term Study visa](/study-visit-visa) visa if you’re studying for less than 6 months and you won’t work during your stay.
 
       outcome_work_y:
         title: You’ll need a visa to work or do business or academic research in the UK
@@ -265,11 +262,8 @@ en-GB:
 
           You can apply for a visa as:
 
-          - a [business or academic visitor](/business-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training or academic research
-          - a [sports visitor](/sports-visit-visa)
-          - an [entertainer](/entertainer-visitor-visa)
-          - a [prospective entrepreneur](/prospective-entrepreneur)
-          - a visitor doing a [‘permitted paid engagement’](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/paid-engage/) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
+          - a [Standard Visitor visa](/standard-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training, academic research or a sabbatical
+          - a visitor doing a [‘permitted paid engagement’](/permitted-paid-engagement-visa) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
 
           ##Temporary workers
 
@@ -297,9 +291,7 @@ en-GB:
 
           You don't need a visa if you're coming to the UK for activities allowed under the following visas:
 
-          - a [business or academic visitor](/business-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training or academic research
-          - a [sports visitor](/sports-visit-visa)
-          - an [entertainer](/entertainer-visitor-visa)
+          - a [business or academic visitor](/business-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training, academic research or a sabbatical
           - a visitor doing a ['permitted paid engagement'](/permitted-paid-engagement-visa) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
           %{if_non_visa_nationals_short_visit}
 
@@ -561,22 +553,18 @@ en-GB:
 
           ##Tourism and visiting friends
 
-          Apply for a [general visit visa](https://www.gov.uk/general-visit-visa) if you’re visiting the UK for a holiday or to visit friends.
+          Apply for a [Standard Visitor visa](/standard-visitor-visa) if you’re visiting the UK for a holiday or to visit friends.
 
           ##Visiting family
 
           Apply for a [family visit visa](/family-visit-visa) if you plan to visit your family or partner (eg spouse) while you’re in the UK.
-
-          ##If you’re under 18
-
-          Apply for a [child visit visa](/child-visit-visa).
 
       outcome_marriage:
         title: You’ll need a visa to come to the UK
         body: |
           %{if_refugee}
 
-          Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner don't plan to stay in the UK longer than 6 months.
+          Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married in the UK.
 
           Apply for a [family of a settled person visa](/join-family-in-uk) if your partner is British or settled in the UK and you wish to join them to live in the UK permanently.
 
@@ -596,13 +584,13 @@ en-GB:
       outcome_medical_y:
         title: You’ll need a visa to visit the UK
         body:
-          You should apply for the [private medical treatment visa](/private-medical-treatment-visa).
+          You should apply for a [Standard Visitor visa](/standard-visitor-visa).
 
           %{if_refugee}
       outcome_medical_n:
         title: You won’t need a visa to visit the UK
         body:
-          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a Private Medical Treatment Visitor visa, to show to officers at the UK border.
+          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a [Standard Visitor visa](/standard-visitor-visa), to show to officers at the UK border.
 
       outcome_visit_waiver:
         title: |
@@ -616,7 +604,7 @@ en-GB:
 
           However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
 
-          ^If the bio data page in your passport doesn't include a personal ID number, you must [apply for a short visit visa](/browse/visas-immigration/short-visit-visas).^
+          ^If the bio data page in your passport doesn't include a personal ID number, you must [apply for a Short-term Study visa](/study-visit-visa).^
 
       outcome_diplomatic_business:
         title: Diplomatic Business
