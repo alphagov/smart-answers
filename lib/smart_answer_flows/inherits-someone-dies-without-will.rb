@@ -253,9 +253,8 @@ multiple_choice :half_aunts_or_uncles? do
 
   save_input_as :half_aunts_or_uncles
 
-  next_node do |response|
-    response == "yes" ? :outcome_24 : :outcome_25
-  end
+  next_node_if(:outcome_24, responded_with('yes'))
+  next_node_if(:outcome_25, responded_with('no'))
 end
 
 # Q40
