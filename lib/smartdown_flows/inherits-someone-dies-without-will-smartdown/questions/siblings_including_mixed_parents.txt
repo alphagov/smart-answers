@@ -1,0 +1,8 @@
+# Did the deceased have any brothers or sisters?
+
+[choice: siblings_including_mixed_parents]
+* yes: Yes
+* no: No
+
+* siblings_including_mixed_parents is 'yes' => outcome_64
+* siblings_including_mixed_parents is 'no' => outcome_65

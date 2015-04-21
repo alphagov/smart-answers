@@ -1,0 +1,15 @@
+# Are there any living grandparents?
+
+[choice: grandparents]
+* yes: Yes
+* no: No
+
+* region is 'england-and-wales'
+  * grandparents is 'yes' => outcome_5
+  * grandparents is 'no' => aunts_or_uncles
+* region is 'scotland'
+  * grandparents is 'yes' => outcome_5
+  * grandparents is 'no' => great_aunts_or_uncles
+* region is 'northern-ireland'
+  * grandparents is 'yes' => outcome_5
+  * grandparents is 'no' => aunts_or_uncles

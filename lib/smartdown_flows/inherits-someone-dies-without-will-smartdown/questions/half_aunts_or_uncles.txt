@@ -1,0 +1,8 @@
+# Did the deceased have any half-aunts or half-uncles?
+
+[choice: half_aunts_or_uncles]
+* yes: Yes
+* no: No
+
+* half_aunts_or_uncles is 'yes' => outcome_24
+* half_aunts_or_uncles is 'no' => outcome_25

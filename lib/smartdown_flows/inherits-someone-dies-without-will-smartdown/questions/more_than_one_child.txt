@@ -1,0 +1,8 @@
+# Did they have more than one child?
+
+[choice: more_than_one_child]
+* yes: Yes
+* no: No
+
+* more_than_one_child is 'yes' => outcome_61
+* more_than_one_child is 'no' => outcome_62
