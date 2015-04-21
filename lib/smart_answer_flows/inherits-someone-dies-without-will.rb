@@ -189,9 +189,8 @@ multiple_choice :siblings_including_mixed_parents? do
 
   save_input_as :siblings
 
-  next_node do |response|
-    response == "yes" ? :outcome_64 : :outcome_65
-  end
+  next_node_if(:outcome_64, responded_with('yes'))
+  next_node_if(:outcome_65, responded_with('no'))
 end
 
 # Q7
