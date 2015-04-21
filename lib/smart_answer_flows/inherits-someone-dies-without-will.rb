@@ -242,9 +242,8 @@ multiple_choice :half_siblings? do
 
   save_input_as :half_siblings
 
-  next_node do |response|
-    response == "yes" ? :outcome_23 : :grandparents?
-  end
+  next_node_if(:outcome_23, responded_with('yes'))
+  next_node_if(:grandparents?, responded_with('no'))
 end
 
 # Q21
