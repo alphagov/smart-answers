@@ -200,15 +200,17 @@ multiple_choice :grandparents? do
 
   save_input_as :grandparents
 
-  next_node do |response|
-    case region
-    when "england-and-wales"
-      response == "yes" ? :outcome_5 : :aunts_or_uncles?
-    when "scotland"
-      response == "yes" ? :outcome_5 : :great_aunts_or_uncles?
-    when "northern-ireland"
-      response == "yes" ? :outcome_5 : :aunts_or_uncles?
-    end
+  on_condition(variable_matches(:region, 'england-and-wales')) do
+    next_node_if(:outcome_5, responded_with('yes'))
+    next_node_if(:aunts_or_uncles?, responded_with('no'))
+  end
+  on_condition(variable_matches(:region, 'scotland')) do
+    next_node_if(:outcome_5, responded_with('yes'))
+    next_node_if(:great_aunts_or_uncles?, responded_with('no'))
+  end
+  on_condition(variable_matches(:region, 'northern-ireland')) do
+    next_node_if(:outcome_5, responded_with('yes'))
+    next_node_if(:aunts_or_uncles?, responded_with('no'))
   end
 end
 
