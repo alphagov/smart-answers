@@ -584,6 +584,7 @@ outcome :outcome_os_consular_cni do
     not_italy_or_spain = %w(italy spain).exclude?(ceremony_country)
     ceremony_not_germany_or_not_resident_other = (ceremony_country != 'germany' or resident_of != 'other')
     ceremony_and_residency_in_croatia = (ceremony_country == 'croatia' and residency_country == 'croatia')
+    countries_with_custom_residency_req_text = %w(croatia germany italy japan kazakhstan oman russia spain)
 
     if ceremony_country == 'japan'
       phrases << :japan_intro
@@ -811,8 +812,8 @@ outcome :outcome_os_consular_cni do
       end
     end
 
-    if ceremony_country == residency_country and %w(croatia germany italy japan spain russia).exclude?(ceremony_country) and cni_posted_after_7_days_countries.include?(ceremony_country)
-      phrases << :living_in_residence_country_3_days
+    if ceremony_country == residency_country and countries_with_custom_residency_req_text.exclude?(ceremony_country)
+      phrases << :living_in_ceremony_country_3_days
     end
 
     if ceremony_country == 'italy' and resident_of == 'other' and data_query.non_commonwealth_country?(residency_country)
