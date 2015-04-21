@@ -26,13 +26,12 @@ multiple_choice :partner? do
 
   save_input_as :partner
 
-  next_node do |response|
-    case region
-    when "england-and-wales", "northern-ireland"
-      response == "yes" ? :estate_over_250000? : :children?
-    when "scotland"
-      :children?
-    end
+  on_condition(variable_matches(:region, 'england-and-wales') | variable_matches(:region, 'northern-ireland')) do
+    next_node_if(:estate_over_250000?, responded_with('yes'))
+    next_node_if(:children?, responded_with('no'))
+  end
+  on_condition(variable_matches(:region, 'scotland')) do
+    next_node(:children?)
   end
 end
 
