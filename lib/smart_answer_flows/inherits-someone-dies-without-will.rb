@@ -264,9 +264,8 @@ multiple_choice :great_aunts_or_uncles? do
 
   save_input_as :great_aunts_or_uncles
 
-  next_node do |response|
-    response == "yes" ? :outcome_45 : :outcome_46
-  end
+  next_node_if(:outcome_45, responded_with('yes'))
+  next_node_if(:outcome_46, responded_with('no'))
 end
 
 # Q60
