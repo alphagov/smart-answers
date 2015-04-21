@@ -50,13 +50,13 @@ multiple_choice :estate_over_250000? do
     end
   end
 
-  next_node do |response|
-    case region
-    when "england-and-wales"
-      response == "yes" ? :children? : :outcome_1
-    when "northern-ireland"
-      response == "yes" ? :children? : :outcome_60
-    end
+  on_condition(variable_matches(:region, 'england-and-wales')) do
+    next_node_if(:children?, responded_with('yes'))
+    next_node_if(:outcome_1, responded_with('no'))
+  end
+  on_condition(variable_matches(:region, 'northern-ireland')) do
+    next_node_if(:children?, responded_with('yes'))
+    next_node_if(:outcome_60, responded_with('no'))
   end
 end
 
