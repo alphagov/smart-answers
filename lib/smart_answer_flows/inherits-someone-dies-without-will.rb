@@ -221,15 +221,17 @@ multiple_choice :aunts_or_uncles? do
 
   save_input_as :aunts_or_uncles
 
-  next_node do |response|
-    case region
-    when "england-and-wales"
-      response == "yes" ? :outcome_6 : :half_aunts_or_uncles?
-    when "scotland"
-      response == "yes" ? :outcome_6 : :grandparents?
-    when "northern-ireland"
-      response == "yes" ? :outcome_6 : :outcome_67
-    end
+  on_condition(variable_matches(:region, 'england-and-wales')) do
+    next_node_if(:outcome_6, responded_with('yes'))
+    next_node_if(:half_aunts_or_uncles?, responded_with('no'))
+  end
+  on_condition(variable_matches(:region, 'scotland')) do
+    next_node_if(:outcome_6, responded_with('yes'))
+    next_node_if(:grandparents?, responded_with('no'))
+  end
+  on_condition(variable_matches(:region, 'northern-ireland')) do
+    next_node_if(:outcome_6, responded_with('yes'))
+    next_node_if(:outcome_67, responded_with('no'))
   end
 end
 
