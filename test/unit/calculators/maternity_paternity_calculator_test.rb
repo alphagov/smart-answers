@@ -168,7 +168,7 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "test for 2015 to 2016 rate" do
+      context "2015 to 2016 lower earning limit rate" do
         setup do
           @due_date = Date.parse("1 September 2015")
           @start_of_week_in_four_months = @due_date - @due_date.wday
@@ -208,31 +208,31 @@ module SmartAnswer::Calculators
           assert_equal 109, @calculator.lower_earning_limit
         end
 
-        should "return lower_earning_limit 107" do
+        should "return lower_earning_limit 107 on 1 January 2013" do
           @due_date = Date.parse("1 January 2013")
           @calculator = MaternityPaternityCalculator.new(@due_date)
           assert_equal 107, @calculator.lower_earning_limit
         end
 
-        should "return lower_earning_limit 107" do
+        should "return lower_earning_limit 107 on 15 July 2013" do
           @due_date = Date.parse("15 July 2013")
           @calculator = MaternityPaternityCalculator.new(@due_date)
           assert_equal 107, @calculator.lower_earning_limit
         end
 
-        should "return lower_earning_limit 102" do
+        should "return lower_earning_limit 102 base on due date 15 July 2012" do
           @due_date = Date.parse("15 July 2012")
           @calculator = MaternityPaternityCalculator.new(@due_date)
           assert_equal 102, @calculator.lower_earning_limit
         end
 
-        should "return lower_earning_limit 102" do
+        should "return lower_earning_limit 102 base on due date 14 July 2012" do
           @due_date = Date.parse("14 July 2012")
           @calculator = MaternityPaternityCalculator.new(@due_date)
           assert_equal 102, @calculator.lower_earning_limit
         end
 
-        should "return lower_earning_limit 102" do
+        should "return lower_earning_limit 102 base on due date 1 January 2012" do
           @due_date = Date.parse("1 January 2012")
           @calculator = MaternityPaternityCalculator.new(@due_date)
           assert_equal 102, @calculator.lower_earning_limit
@@ -252,7 +252,7 @@ module SmartAnswer::Calculators
       end
 
       context "specific date tests (for lower_earning_limits) for adoption" do
-        should "return lower_earning_limit 112" do
+        should "return lower_earning_limit 112 on 1 September 2015" do
           @match_date = Date.parse("1 September 2015")
           @calculator = MaternityPaternityCalculator.new(@match_date, "adoption")
           assert_equal 112, @calculator.lower_earning_limit
@@ -264,7 +264,7 @@ module SmartAnswer::Calculators
           assert_equal 107, @calculator.lower_earning_limit
         end
 
-        should "return lower_earning_limit 102" do
+        should "return lower_earning_limit 102 based on match date 31 March 2012" do
           @match_date = Date.parse("31 March 2012")
           @calculator = MaternityPaternityCalculator.new(@match_date, "adoption")
           assert_equal 102, @calculator.lower_earning_limit

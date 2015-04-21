@@ -13,6 +13,10 @@ module SmartdownAdapter
       @@plugin_sets[flow_slug][plugin_type] = build_plugin_set(plugin_module)
     end
 
+    def self.reset_plugins_for(flow_slug)
+      @@plugin_sets[flow_slug] = nil
+    end
+
   private
 
     TYPES_OF_PLUGIN = [:render_time, :build_time]

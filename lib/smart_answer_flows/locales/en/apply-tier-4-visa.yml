@@ -52,8 +52,7 @@ en-GB:
           Your sponsor institution is: %{sponsor_name}
 
           Your sponsor number is: %{sponsor_id}
-          
-          
+
           %{application_link}
 
           You should read the guidance before you apply:

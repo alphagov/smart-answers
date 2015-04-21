@@ -20,14 +20,14 @@ class PlanAdoptionLeaveTest < ActiveSupport::TestCase
         add_response @match_date
       end
 
-      should "error on child_arrival_date before child_match_date" do
+      should "error on child_arrival_date 3 months before child_match_date" do
         add_response 3.months.ago
         assert_current_node_is_error
       end
 
-      should "error on child_arrival_date before child_match_date" do
+      should "error on child_arrival_date 4 months before child_match_date" do
         add_response 4.months.ago
- assert_current_node_is_error
+        assert_current_node_is_error
       end
 
       should "be on child_arrival_date?" do
@@ -40,23 +40,23 @@ class PlanAdoptionLeaveTest < ActiveSupport::TestCase
           add_response @arrival_date
         end
 
- should "be on leave_start?" do
-   assert_current_node :leave_start?
- end
+       should "be on leave_start?" do
+         assert_current_node :leave_start?
+       end
 
         should "error on leave_start over 14 days before" do
           add_response 15.days.ago(@arrival_date)
           assert_current_node_is_error
         end
 
- context "set 2 weeks to leave_start?" do
-   setup do
+        context "set 2 weeks to leave_start?" do
+          setup do
             add_response 14.days.ago(@arrival_date)
           end
-   should "go to outcome" do
-     assert_current_node :adoption_leave_details
-   end
- end
+          should "go to outcome" do
+            assert_current_node :adoption_leave_details
+          end
+        end
 
       end
     end

@@ -56,7 +56,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('td.previous-question-body') { assert_page_has_content "Lancelot" }
-          within('.link-right') { assert page.has_link?("Change", href: "/bridge-of-death/y/?previous_response=Lancelot") }
+          within('.link-right') { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
         end
       end
 
@@ -86,7 +86,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('td.previous-question-body') { assert_page_has_content "Lancelot" }
-          within('.link-right') { assert page.has_link?("Change", href: "/bridge-of-death/y/?previous_response=Lancelot") }
+          within('.link-right') { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
         end
         within 'tr.section:nth-child(2)' do
           within 'td.previous-question-title' do
@@ -123,7 +123,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('td.previous-question-body') { assert_page_has_content "Lancelot" }
-          within('.link-right') { assert page.has_link?("Change", href: "/bridge-of-death/y/?previous_response=Lancelot") }
+          within('.link-right') { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Lancelot") }
         end
         within 'tr.section:nth-child(2)' do
           within 'td.previous-question-title' do
@@ -168,7 +168,7 @@ class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest
           assert_page_has_content "What...is your name?"
         end
         within('td.previous-question-body') { assert_page_has_content "Robin" }
-        within('.link-right') { assert page.has_link?("Change", href: "/bridge-of-death/y/?previous_response=Robin") }
+        within('.link-right') { assert page.has_link?("Change", href: "/bridge-of-death/y?previous_response=Robin") }
       end
       within 'tr.section:nth-child(2)' do
         within 'td.previous-question-title' do

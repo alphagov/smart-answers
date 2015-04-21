@@ -61,19 +61,19 @@ class AdditionalCommodityCodeTest < ActiveSupport::TestCase
           add_response 55
           assert_state_variable "commodity_code", "747"
         end
-        should "give the commodity code result" do
+        should "give the commodity code result 40" do
           add_response 40
           assert_current_node :commodity_code_result
         end
-        should "give the commodity code result" do
+        should "give the commodity code result 55" do
           add_response 55
           assert_current_node :commodity_code_result
         end
-        should "give the commodity code result" do
+        should "give the commodity code result 70" do
           add_response 70
           assert_current_node :commodity_code_result
         end
-        should "give the commodity code result" do
+        should "give the commodity code result 85" do
           add_response 85
           assert_current_node :commodity_code_result
         end

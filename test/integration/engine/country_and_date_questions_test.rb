@@ -51,7 +51,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
             assert_page_has_content "Which country do you live in?"
           end
           within('td.previous-question-body') { assert_page_has_content "Belarus" }
-          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y/?previous_response=belarus") }
+          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
         end
       end
 
@@ -82,7 +82,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
             assert_page_has_content "Which country do you live in?"
           end
           within('td.previous-question-body') { assert_page_has_content "Belarus" }
-          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y/?previous_response=belarus") }
+          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
         end
 
         within 'tr.section:nth-child(2)' do
@@ -124,7 +124,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
             assert_page_has_content "Which country do you live in?"
           end
           within('td.previous-question-body') { assert_page_has_content "Belarus" }
-          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y/?previous_response=belarus") }
+          within('.link-right') { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
         end
 
         within 'tr.section:nth-child(2)' do
@@ -186,7 +186,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
           assert_page_has_content "Which country do you live in?"
         end
         within('td.previous-question-body') { assert_page_has_content "Belarus" }
-        within('.link-right') { assert page.has_link?("Change", href: "/country-legacy-sample/y/?previous_response=belarus") }
+        within('.link-right') { assert page.has_link?("Change", href: "/country-legacy-sample/y?previous_response=belarus") }
       end
     end
 
