@@ -5,3 +5,6 @@ They also get half of the amount left over.
 The remainder goes to the parent or parents.
 
 If a son or daughter has already died, their children will inherit in their place.
+
+
+{{snippet: next_steps_wills_and_inheritance_tax_links}}
