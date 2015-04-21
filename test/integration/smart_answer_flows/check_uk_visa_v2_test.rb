@@ -67,6 +67,13 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
       assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
 
+    should "suggests to get a Direct Airside Transit visa if not leaving the airport" do
+      add_response 'transit'
+      add_response 'no'
+
+      assert_current_node :outcome_transit_refugee_not_leaving_airport
+    end
+
     should "suggest to apply in country of originallity or residence for outcome_general_y" do
       add_response 'tourism'
 

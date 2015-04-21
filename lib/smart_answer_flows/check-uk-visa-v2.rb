@@ -91,6 +91,7 @@ multiple_choice :planning_to_leave_airport? do
     next_node_if(:outcome_transit_leaving_airport_datv) { country_group_datv.include?(passport_country) }
   end
   on_condition(responded_with('no')) do
+    next_node_if(:outcome_transit_refugee_not_leaving_airport) { passport_country == 'stateless-or-refugee' }
     next_node_if(:outcome_transit_not_leaving_airport) { country_group_datv.include?(passport_country) }
     next_node_if(:outcome_no_visa_needed) { country_group_visa_national.include?(passport_country) }
   end
@@ -218,3 +219,4 @@ outcome :outcome_transit_leaving_airport_datv do
 end
 outcome :outcome_taiwan_exception
 outcome :outcome_diplomatic_business
+outcome :outcome_transit_refugee_not_leaving_airport
