@@ -1,7 +1,7 @@
 status :draft
 satisfies_need "100131"
 
-data_query = Calculators::PassportAndEmbassyDataQuery.new
+data_query = Calculators::PassportAndEmbassyDataQueryV2.new
 
 exclude_countries = %w(holy-see british-antarctic-territory)
 
@@ -11,8 +11,8 @@ country_select :which_country_are_you_in?, exclude_countries: exclude_countries 
 
   calculate :location do
     loc = WorldLocation.find(current_location)
-    if Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES.has_key?(current_location)
-      loc = WorldLocation.find(Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES[current_location])
+    if Calculators::PassportAndEmbassyDataQueryV2::ALT_EMBASSIES.has_key?(current_location)
+      loc = WorldLocation.find(Calculators::PassportAndEmbassyDataQueryV2::ALT_EMBASSIES[current_location])
     end
     raise InvalidResponse unless loc
     loc
@@ -345,8 +345,8 @@ outcome :ips_application_result do
     collect_in_person_variant_countries = %w(burundi india jordan pitcairn-island)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea st-helena-ascension-and-tristan-da-cunha)
     uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan lebanon mauritania morocco pakistan russia thailand ukraine venezuela western-sahara)
-    uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
-    collect_with_photo_id_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
+    uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda)
+    collect_with_photo_id_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda)
     passport_delivered_by_courier_countries = %w(laos)
     named_embassy_countries = %w(tajikistan turkmenistan uzbekistan)
 
@@ -492,15 +492,11 @@ outcome :result do
     phrases
   end
   precalculate :making_application_additional do
-    if current_location == 'yemen'
-      PhraseList.new(:making_application_additional_yemen)
-    else
-      ''
-    end
+    ''
   end
   precalculate :supporting_documents do
     phrase = ['supporting_documents', application_type]
-    phrase << general_action if %w(iraq yemen zambia).include?(application_type)
+    phrase << general_action if %w(iraq zambia).include?(application_type)
     PhraseList.new(phrase.join('_').to_sym)
   end
   precalculate :making_application do
@@ -513,8 +509,6 @@ outcome :result do
     phrases = PhraseList.new
     if %w(cuba libya morocco tunisia).include?(current_location)
       phrases << :helpline_exceptions
-    elsif current_location == 'yemen'
-      phrases << :helpline_exception_yemen
     else
       phrases << :helpline_intro << :"helpline_#{passport_data['helpline']}"
     end
