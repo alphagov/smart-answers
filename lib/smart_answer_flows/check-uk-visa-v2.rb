@@ -60,7 +60,7 @@ multiple_choice :purpose_of_visit? do
     next_node_if(:outcome_medical_n, responded_with('medical'))
   end
   next_node_if(:outcome_school_y, responded_with('school'))
-  next_node_if(:outcome_general_y, responded_with('tourism'))
+  next_node_if(:outcome_standard_visit, responded_with('tourism'))
   next_node_if(:outcome_marriage, responded_with('marriage'))
   next_node_if(:outcome_medical_y, responded_with('medical'))
 
@@ -91,6 +91,7 @@ multiple_choice :planning_to_leave_airport? do
     next_node_if(:outcome_transit_leaving_airport_datv) { country_group_datv.include?(passport_country) }
   end
   on_condition(responded_with('no')) do
+    next_node_if(:outcome_transit_refugee_not_leaving_airport) { passport_country == 'stateless-or-refugee' }
     next_node_if(:outcome_transit_not_leaving_airport) { country_group_datv.include?(passport_country) }
     next_node_if(:outcome_no_visa_needed) { country_group_visa_national.include?(passport_country) }
   end
@@ -153,13 +154,7 @@ outcome :outcome_work_y do
   end
 end
 outcome :outcome_work_m
-outcome :outcome_work_n do
-  precalculate :if_non_visa_nationals_short_visit do
-    if country_group_non_visa_national.exclude?(passport_country)
-      PhraseList.new(:prospective_enterpreneur_bulletpoint)
-    end
-  end
-end
+outcome :outcome_work_n
 outcome :outcome_transit_leaving_airport
 outcome :outcome_transit_not_leaving_airport do
   precalculate :if_syria do
@@ -170,7 +165,7 @@ outcome :outcome_joining_family_y
 outcome :outcome_joining_family_m
 outcome :outcome_joining_family_nvn
 outcome :outcome_visit_business_n
-outcome :outcome_general_y do
+outcome :outcome_standard_visit do
   precalculate :if_china do
     if %w(china).include?(passport_country)
       PhraseList.new(:china_tour_group)
@@ -218,3 +213,4 @@ outcome :outcome_transit_leaving_airport_datv do
 end
 outcome :outcome_taiwan_exception
 outcome :outcome_diplomatic_business
+outcome :outcome_transit_refugee_not_leaving_airport
