@@ -251,16 +251,16 @@ en-GB:
         title: |
           You'll need a visa to work, do business or academic research in the UK
         body: |
-          The visa you need to apply for depends on your circumstances
+          The visa you need to apply for depends on your circumstances.
 
           %{if_refugee}
 
           ##Business visits
 
-          You can apply for a visa as:
+          You can apply:
 
-          - a [Standard Visitor visa](/standard-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training, academic research or a sabbatical
-          - a visitor doing a [‘permitted paid engagement’](/permitted-paid-engagement-visa) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
+          - for a [Standard Visitor visa](/standard-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training, academic research or a sabbatical
+          - as a visitor doing a [‘permitted paid engagement’](/permitted-paid-engagement-visa) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
 
           ##Temporary workers
 
