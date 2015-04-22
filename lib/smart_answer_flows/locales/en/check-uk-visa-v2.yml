@@ -20,9 +20,6 @@ en-GB:
         b1_b2_visa_exception: |
           except if you have a B1 or B2 visit visa from the USA
 
-        prospective_enterpreneur_bulletpoint: |
-          - a [prospective entrepreneur](https://www.gov.uk/prospective-entrepreneur)
-
         study_additional_sentence: |
           However, you should bring documents with you to show at the border. See the relevant [student visa](/browse/visas-immigration/study-visas) guide to see what documents to bring.
 
@@ -291,9 +288,8 @@ en-GB:
 
           You don't need a visa if you're coming to the UK for activities allowed under the following visas:
 
-          - a [business or academic visitor](/business-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training, academic research or a sabbatical
-          - a visitor doing a ['permitted paid engagement'](/permitted-paid-engagement-visa) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
-          %{if_non_visa_nationals_short_visit}
+          - a [Standard Visitor visa](/standard-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training, academic research or a sabbatical
+          - a [‘permitted paid engagement’](/permitted-paid-engagement-visa) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
 
           However, you should bring [supporting documents](/government/publications/visitor-visa-guide-to-supporting-documents) to show at the border.
 

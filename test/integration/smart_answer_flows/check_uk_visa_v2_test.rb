@@ -123,7 +123,6 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
       end
       should "take you to work_n outcome" do
         assert_current_node :outcome_work_n
-        assert_phrase_list :if_non_visa_nationals_short_visit, [:prospective_enterpreneur_bulletpoint]
       end
     end
     context "tourism, visiting friends or family" do
