@@ -1,7 +1,11 @@
 Smart Answers
 =============
 
-Toolkit for building smart answers. Have a look at
+> Smart answers are a great tool for content designers to present complex information in a quick and simple way. Defining what they are – decision trees? calculators? tools? is immaterial – what they do is provide a reusable technical framework to build a quick and simple answer to a complex question.
+
+Read more in [a blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
+
+Have a look at
 [`test/unit/flow_test.rb`](test/unit/flow_test.rb) for example usage.
 
 This application supports two styles of writing and executing smart answers:
