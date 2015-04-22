@@ -18,7 +18,7 @@
       * siblings is 'no' => outcome_42
     * parents is 'no'
       * siblings is 'yes' => outcome_41
-      * siblings is 'no' => outcome_1
+      * siblings is 'no' => outcome_1_scotland
   * partner is 'no'
     * parents is 'yes'
       * siblings is 'yes' => outcome_44

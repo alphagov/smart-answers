@@ -10,7 +10,7 @@ outcome_40
 - children: no
 - parents: no
 - siblings: no
-outcome_1
+outcome_1_scotland
 
 # Partner, No Children, No Parents, Siblings
 - region: scotland
