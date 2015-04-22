@@ -1,0 +1,97 @@
+# Partner, Estate under 250,000
+- region: northern-ireland
+- partner: yes
+- estate_over_250000: no
+outcome_60
+
+# Partner, Estate over 250,000, More than 1 Child
+- region: northern-ireland
+- partner: yes
+- estate_over_250000: yes
+- children: yes
+- more_than_one_child: yes
+outcome_61
+
+# Partner, Estate over 250,000, 1 Child
+- region: northern-ireland
+- partner: yes
+- estate_over_250000: yes
+- children: yes
+- more_than_one_child: no
+outcome_62
+
+# Partner, Estate over 250,000, No Children, Parents
+- region: northern-ireland
+- partner: yes
+- estate_over_250000: yes
+- children: no
+- parents: yes
+outcome_63
+
+# Partner, Estate over 250,000, No Children, No Parents, Siblings
+- region: northern-ireland
+- partner: yes
+- estate_over_250000: yes
+- children: no
+- parents: no
+- siblings_including_mixed_parents: yes
+outcome_64
+
+# Partner, Estate over 250,000, No Children, No Parents, No Siblings
+- region: northern-ireland
+- partner: yes
+- estate_over_250000: yes
+- children: no
+- parents: no
+- siblings_including_mixed_parents: no
+outcome_65
+
+# No Partner, Children
+- region: northern-ireland
+- partner: no
+- children: yes
+outcome_66
+
+# No Partner, No Children, Parents
+- region: northern-ireland
+- partner: no
+- children: no
+- parents: yes
+outcome_3
+
+# No Partner, No Children, No Parents, Siblings
+- region: northern-ireland
+- partner: no
+- children: no
+- parents: no
+- siblings: yes
+outcome_4
+
+# No Partner, No Children, No Parents, No Siblings, Grandparents
+- region: northern-ireland
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- grandparents: yes
+outcome_5
+
+# No Partner, No Children, No Parents, No Siblings, No Grandparents, Aunts or Uncles
+- region: northern-ireland
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- grandparents: no
+- aunts_or_uncles: yes
+outcome_6
+
+# No Partner, No Children, No Parents, No Siblings, No Grandparents, No Aunts or Uncles
+- region: northern-ireland
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- grandparents: no
+- aunts_or_uncles: no
+outcome_67
