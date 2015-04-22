@@ -3,43 +3,7 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class RatesQueryTest < ActiveSupport::TestCase
     context SmartAnswer::Calculators::RatesQuery do
-      context "#relevant_fiscal_year" do
-        setup do
-          @query = SmartAnswer::Calculators::RatesQuery.new('whatever')
-        end
-
-        context "on 5th April 2013" do
-          setup do
-            Timecop.travel("2013-04-05")
-          end
-
-          should "be 2012" do
-            assert_equal 2012, @query.relevant_fiscal_year
-          end
-        end
-
-        context "on 6th April 2013" do
-          setup do
-            Timecop.travel("2013-04-06")
-          end
-
-          should "be 2013" do
-            assert_equal 2013, @query.relevant_fiscal_year
-          end
-        end
-
-        context "on 6th April 2014" do
-          setup do
-            Timecop.travel("2014-04-06")
-          end
-
-          should "be 2014" do
-            assert_equal 2014, @query.relevant_fiscal_year
-          end
-        end
-      end
-
-      context "when loading rates with exact dates" do
+      context "#rates" do
         should "be 1 for 2013-01-31" do
           test_rate = SmartAnswer::Calculators::RatesQuery.new('exact_date_rates', relevant_date: Date.parse('2013-01-31'))
           test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
@@ -59,29 +23,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "when loading rates with standard fiscal year dates" do
-        should "be 1 and 100.0 for 2014-04-06" do
-          test_rate = SmartAnswer::Calculators::RatesQuery.new('standard_date_rates', relevant_date: Date.parse('2014-04-06'))
-          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
-          assert_equal 1, test_rate.rates.one_rate
-          assert_equal 100.0, test_rate.rates.another_rate
-        end
-
-        should "be 2 and 200.0 for 2015-04-06" do
-          test_rate = SmartAnswer::Calculators::RatesQuery.new('standard_date_rates', relevant_date: Date.parse('2015-04-06'))
-          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
-          assert_equal 2, test_rate.rates.one_rate
-          assert_equal 200.0, test_rate.rates.another_rate
-        end
-
-        should "be the latest known rates (2 and 200.0) for uncovered future dates" do
-          test_rate = SmartAnswer::Calculators::RatesQuery.new('standard_date_rates', relevant_date: Date.parse('2115-04-06'))
-          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
-          assert_equal 2, test_rate.rates.one_rate
-          assert_equal 200.0, test_rate.rates.another_rate
-        end
-      end
-
       context "Married couples allowance" do
         setup do
           @query = SmartAnswer::Calculators::RatesQuery.new('married_couples_allowance')
@@ -97,11 +38,10 @@ module SmartAnswer::Calculators
           context "on 15th April 2116 (fallback)" do
             setup do
               Timecop.travel("2116-04-15")
-              @query.stubs(:data).returns({ "personal_allowance" => { 2014 => 10000, 2015 => 99999 }})
             end
 
             should "be the latest known walue" do
-              assert_equal 99999, @query.rates.personal_allowance
+              assert @query.rates.personal_allowance.is_a?(Numeric)
             end
           end
 
