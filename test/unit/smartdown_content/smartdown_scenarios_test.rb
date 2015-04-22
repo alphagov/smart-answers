@@ -9,6 +9,9 @@ class SmartdownScenariosTest < ActiveSupport::TestCase
     imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council" }])
   end
 
+  smartdown_flow_to_test = ENV['SMARTDOWN_FLOW_TO_TEST']
+  run_all_tests = smartdown_flow_to_test.nil?
+
   flow_registry_options = {
     preload_flows: true,
     show_drafts: true,
@@ -17,6 +20,8 @@ class SmartdownScenariosTest < ActiveSupport::TestCase
   SmartdownAdapter::Registry.reset_instance
   smartdown_flows = SmartdownAdapter::Registry.instance(flow_registry_options).flows
   smartdown_flows.each do |smartdown_flow|
+    next unless run_all_tests || smartdown_flow.name == smartdown_flow_to_test
+
     smartdown_flow.scenario_sets.each do |scenario_set|
       scenario_set.scenarios.each_with_index do |scenario, scenario_index|
         description = scenario.description.empty? ? scenario_index+1 : scenario.description
