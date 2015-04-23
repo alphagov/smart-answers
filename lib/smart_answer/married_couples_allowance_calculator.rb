@@ -62,7 +62,7 @@ module SmartAnswer
     end
 
     def rates
-      @rates ||= SmartAnswer::Calculators::MarriedCouplesAllowanceRateQuery.new
+      @rates ||= SmartAnswer::Calculators::RatesQuery.new('married_couples_allowance').rates
     end
   end
 end

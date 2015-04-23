@@ -1,0 +1,22 @@
+---
+- start_date: 2009-07-17
+  end_date: 2010-07-16
+  lower_earning_limit_rate: 95
+- start_date: 2010-07-17
+  end_date: 2011-07-16
+  lower_earning_limit_rate: 97
+- start_date: 2011-07-17
+  end_date: 2012-07-14
+  lower_earning_limit_rate: 102
+- start_date: 2012-07-15
+  end_date: 2013-07-13
+  lower_earning_limit_rate: 107
+- start_date: 2013-07-14
+  end_date: 2014-04-05
+  lower_earning_limit_rate: 109
+- start_date: 2014-04-06
+  end_date: 2015-04-05
+  lower_earning_limit_rate: 111
+- start_date: 2015-04-06
+  end_date: 2100-04-05
+  lower_earning_limit_rate: 112

@@ -6,7 +6,7 @@ multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
   option no: :sorry
 
   calculate :age_related_allowance_chooser do
-    rates = SmartAnswer::Calculators::MarriedCouplesAllowanceRateQuery.new
+    rates = SmartAnswer::Calculators::RatesQuery.new('married_couples_allowance').rates
     AgeRelatedAllowanceChooser.new(
       personal_allowance: rates.personal_allowance,
       over_65_allowance: rates.over_65_allowance,

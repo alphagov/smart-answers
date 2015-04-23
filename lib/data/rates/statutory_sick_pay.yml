@@ -1,0 +1,30 @@
+---
+- start_date: 2010-04-06
+  end_date: 2011-04-05
+  lower_earning_limit_rate: 97
+  # ssp_weekly_rate value unknown
+
+- start_date: 2011-04-06
+  end_date: 2012-04-05
+  lower_earning_limit_rate: 102
+  ssp_weekly_rate: 81.60
+
+- start_date: 2012-04-06
+  end_date: 2013-04-05
+  lower_earning_limit_rate: 107
+  ssp_weekly_rate: 85.85
+
+- start_date: 2013-04-06
+  end_date: 2014-04-05
+  lower_earning_limit_rate: 109
+  ssp_weekly_rate: 86.70
+
+- start_date: 2014-04-06
+  end_date: 2015-04-05
+  lower_earning_limit_rate: 111
+  ssp_weekly_rate: 87.55
+
+- start_date: 2014-04-06
+  end_date: 2015-04-05
+  lower_earning_limit_rate: 112
+  ssp_weekly_rate: 88.45
