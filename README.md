@@ -60,6 +60,21 @@ Run unit tests by executing the following:
 
 If you need to add a new worldwide organisations fixture find [it here](https://www.gov.uk/government/world/organisations) by the country name or its capital city, navigate to `<found_url>.json`, most likely it will be of the following format `https://www.gov.uk/api/world/organisations/british-[embassy|high-commission]-<capital city>`, copy over the JSON to `test/fixtures/worldwide/<country>_organisations.json` and change it to reflect the expected format based on other examples in the directory.
 
+### Testing Smartdown flows
+
+Smartdown flows are tested using [scenarios][smartdown-scenarios] in the flow directories.
+
+Test all Smartdown flows by running:
+
+    bundle exec ruby -Itest test/unit/smartdown_content/smartdown_scenarios_test.rb
+
+Test a single Smartdown flow by running:
+
+     SMARTDOWN_FLOW_TO_TEST=<name-of-smartdown-flow> \
+     bundle exec ruby -Itest test/unit/smartdown_content/smartdown_scenarios_test.rb
+
+[smartdown-scenarios]: https://github.com/alphagov/smartdown/blob/master/doc/scenarios.md
+
 Issues/todos
 ------------
 
