@@ -142,7 +142,7 @@ en-GB:
           work: "Work, academic visit or business"
           tourism: "Tourism, including visiting friends or family"
           school: "Visit your child at school"
-          marriage: "Get married"
+          marriage: "Get married or enter into a civil partnership"
           medical: "Get private medical treatment"
           transit: "Transit (on your way to somewhere else)"
           family: "Join partner or family for a long stay"
@@ -181,10 +181,11 @@ en-GB:
 
           %{if_refugee}
 
-          Apply for a [Short-term Study visa](/study-visit-visa) if you’re either:
+          Apply for a [study visa](/tier-4-general-visa) if you’re coming to the UK to study a university or college course for more than 6 months, or more than 11 months if it’s an English language course.
 
-          - under 18 years old
-          - studying for an English language course for less than 11 months
+          You can apply for a [Short-term Study visa](/study-visit-visa) if you’re 18 or over and studying an English language course for 11 months or less.
+
+          You can also apply for a [child study visa](/child-study-visa) if you’re under 18.
 
       outcome_study_m:
         title: You’ll need a visa to study in the UK
@@ -192,8 +193,9 @@ en-GB:
         body: |
           %{if_refugee}
 
-          Apply for a [Short-term Study visa](/study-visit-visa) visa if you’re studying for less than 6 months and you won’t work during your stay.
+          Apply for a [Short-term Study visa](/study-visit-visa) if you are studying for 6 months or less.
 
+          You should apply as a [child visitor](/child-visit-visa) if you’re under 18.
       outcome_work_y:
         title: You’ll need a visa to work or do business or academic research in the UK
         body: |
@@ -542,25 +544,18 @@ en-GB:
       outcome_standard_visit:
         title: You’ll need a visa to come to the UK
         body: |
-          The visa you need to apply for depends on your circumstances.
+
+          Apply for a [Standard Visitor visa](/standard-visitor-visa) if you’re visiting the UK for a holiday or to visit family or friends.
 
           %{if_china}
           %{if_refugee}
-
-          ##Tourism and visiting friends
-
-          Apply for a [Standard Visitor visa](/standard-visitor-visa) if you’re visiting the UK for a holiday or to visit friends.
-
-          ##Visiting family
-
-          Apply for a [family visit visa](/family-visit-visa) if you plan to visit your family or partner (eg spouse) while you’re in the UK.
 
       outcome_marriage:
         title: You’ll need a visa to come to the UK
         body: |
           %{if_refugee}
 
-          Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married in the UK.
+          Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married or enter into a civil partnership in the UK.
 
           Apply for a [family of a settled person visa](/join-family-in-uk) if your partner is British or settled in the UK and you wish to join them to live in the UK permanently.
 
