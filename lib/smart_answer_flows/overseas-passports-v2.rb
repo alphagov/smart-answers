@@ -292,6 +292,8 @@ outcome :ips_application_result do
         if passport_data['application_office']
           if %w(western-sahara).include?(current_location)
             phrases << :send_application_uk_visa_renew_old_replace_colour_western_sahara
+          elsif %w(laos).include?(current_location)
+            phrases << :send_application_uk_visa_apply_renew_old_replace_colour_laos
           elsif uk_visa_application_with_colour_pictures.include?(current_location)
             phrases << :send_application_uk_visa_apply_renew_old_replace_colour
           else
