@@ -1,11 +1,10 @@
 module SmartAnswer::Calculators
   class RatesQuery
-    def initialize(rates_filename, relevant_date: nil)
+    def initialize(rates_filename)
       @rates_filename = rates_filename
-      @relevant_date = relevant_date
     end
 
-    def rates
+    def rates(relevant_date = Date.today)
       return @rates if @rates
       rates = data.find do |rates_hash|
         rates_hash[:start_date] <= relevant_date && rates_hash[:end_date] >= relevant_date
@@ -23,10 +22,6 @@ module SmartAnswer::Calculators
 
     def data
       @data ||= YAML.load_file(Rails.root.join(load_path, "#{@rates_filename}.yml")).map(&:with_indifferent_access)
-    end
-
-    def relevant_date
-      @relevant_date ||= Date.today
     end
   end
 end

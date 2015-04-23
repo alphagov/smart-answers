@@ -23,11 +23,11 @@ multiple_choice :what_is_your_marital_status? do
   end
 
   calculate :lower_basic_state_pension_rate do
-    rate = SmartAnswer::Calculators::RatesQuery.new('state_pension', relevant_date: Date.today).rates.lower_weekly_rate
+    rate = SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.lower_weekly_rate
     "£#{rate}"
   end
   calculate :higher_basic_state_pension_rate do
-    rate = SmartAnswer::Calculators::RatesQuery.new('state_pension', relevant_date: Date.today).rates.weekly_rate
+    rate = SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.weekly_rate
     "£#{rate}"
   end
 

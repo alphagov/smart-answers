@@ -16,11 +16,11 @@ module SmartAnswer::Calculators
 
     # define as static so we don't have to instantiate the calculator too early in the flow
     def self.lower_earning_limit_on(date)
-      SmartAnswer::Calculators::RatesQuery.new('statutory_sick_pay', relevant_date: date).rates.lower_earning_limit_rate
+      SmartAnswer::Calculators::RatesQuery.new('statutory_sick_pay').rates(date).lower_earning_limit_rate
     end
 
     def weekly_rate_on(date)
-      SmartAnswer::Calculators::RatesQuery.new('statutory_sick_pay', relevant_date: date).rates.ssp_weekly_rate
+      SmartAnswer::Calculators::RatesQuery.new('statutory_sick_pay').rates(date).ssp_weekly_rate
     end
 
     def self.months_between(start_date, end_date)

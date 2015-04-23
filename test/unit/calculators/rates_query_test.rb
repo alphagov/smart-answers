@@ -5,21 +5,21 @@ module SmartAnswer::Calculators
     context SmartAnswer::Calculators::RatesQuery do
       context "#rates" do
         should "be 1 for 2013-01-31" do
-          test_rate = SmartAnswer::Calculators::RatesQuery.new('exact_date_rates', relevant_date: Date.parse('2013-01-31'))
+          test_rate = SmartAnswer::Calculators::RatesQuery.new('exact_date_rates')
           test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
-          assert_equal 1, test_rate.rates.rate
+          assert_equal 1, test_rate.rates(Date.parse('2013-01-31')).rate
         end
 
         should "be 2 for 2013-02-01" do
-          test_rate = SmartAnswer::Calculators::RatesQuery.new('exact_date_rates', relevant_date: Date.parse('2013-02-01'))
+          test_rate = SmartAnswer::Calculators::RatesQuery.new('exact_date_rates')
           test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
-          assert_equal 2, test_rate.rates.rate
+          assert_equal 2, test_rate.rates(Date.parse('2013-02-01')).rate
         end
 
         should "be the latest known rate (2) for uncovered future dates" do
-          test_rate = SmartAnswer::Calculators::RatesQuery.new('exact_date_rates', relevant_date: Date.parse('2113-03-12'))
+          test_rate = SmartAnswer::Calculators::RatesQuery.new('exact_date_rates')
           test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
-          assert_equal 2, test_rate.rates.rate
+          assert_equal 2, test_rate.rates(Date.parse('2113-03-12')).rate
         end
       end
 
@@ -35,44 +35,20 @@ module SmartAnswer::Calculators
         end
 
         context "personal_allowance" do
-          context "on 15th April 2116 (fallback)" do
-            setup do
-              Timecop.travel("2116-04-15")
-            end
-
-            should "be the latest known walue" do
-              assert @query.rates.personal_allowance.is_a?(Numeric)
-            end
+          should "be the latest known walue on 15th April 2116 (fallback)" do
+            assert @query.rates(Date.parse("2116-04-15")).personal_allowance.is_a?(Numeric)
           end
 
-          context "on 5th April 2016" do
-            setup do
-              Timecop.travel("2016-04-05")
-            end
-
-            should "be 10600" do
-              assert_equal 10600, @query.rates.personal_allowance
-            end
+          should "be 10600 on 5th April 2016" do
+            assert_equal 10600, @query.rates(Date.parse("2016-04-05")).personal_allowance
           end
 
-          context "on 6th April 2013" do
-            setup do
-              Timecop.travel("2013-04-06")
-            end
-
-            should "be 9440" do
-              assert_equal 9440, @query.rates.personal_allowance
-            end
+          should "be 9440 on 6th April 2013" do
+            assert_equal 9440, @query.rates(Date.parse("2013-04-06")).personal_allowance
           end
 
-          context "on 6th April 2014" do
-            setup do
-              Timecop.travel("2014-04-06")
-            end
-
-            should "be 10000" do
-              assert_equal 10000, @query.rates.personal_allowance
-            end
+          should "be 10000 on 6th April 2014" do
+            assert_equal 10000, @query.rates(Date.parse("2014-04-06")).personal_allowance
           end
         end
       end

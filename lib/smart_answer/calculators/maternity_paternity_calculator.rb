@@ -93,11 +93,11 @@ module SmartAnswer::Calculators
 
 
     def lower_earning_limit_birth
-      RatesQuery.new('maternity_paternity_birth', relevant_date: @qualifying_week.last).rates.lower_earning_limit_rate
+      RatesQuery.new('maternity_paternity_birth').rates(@qualifying_week.last).lower_earning_limit_rate
     end
 
     def lower_earning_limit_adoption
-      RatesQuery.new('maternity_paternity_adoption', relevant_date: @qualifying_week.last).rates.lower_earning_limit_rate
+      RatesQuery.new('maternity_paternity_adoption').rates(@qualifying_week.last).lower_earning_limit_rate
     end
 
     def lower_earning_limit

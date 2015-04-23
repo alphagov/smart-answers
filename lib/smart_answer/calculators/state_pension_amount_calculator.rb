@@ -31,7 +31,7 @@ module SmartAnswer::Calculators
     end
 
     def current_weekly_rate
-      @current_weekly_rate ||= SmartAnswer::Calculators::RatesQuery.new('state_pension', relevant_date: Date.today).rates.weekly_rate
+      @current_weekly_rate ||= SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.weekly_rate
     end
 
     # Everyone needs 30 qualifying years in all cases - no need to worry about old rules

@@ -34,8 +34,7 @@ module SmartAnswer::Calculators
     end
 
     def self.redundancy_rates(date)
-      RatesQuery.new('redundancy_pay', relevant_date: date).rates
+      RatesQuery.new('redundancy_pay').rates(date)
     end
-
   end
 end
