@@ -1,6 +1,7 @@
 require 'erubis'
 
 class OutcomePresenter < NodePresenter
+  include ActionView::Helpers::NumberHelper
 
   def title
     translate!('title')
@@ -25,7 +26,28 @@ class OutcomePresenter < NodePresenter
     calendar.present?
   end
 
+  def has_body?
+    use_template? || super()
+  end
+
+  def body
+    if use_template?
+      erb_template_path = Rails.root.join("lib/smart_answer_flows/#{@node.flow_name}/#{name}.txt.erb")
+      template = File.read(erb_template_path)
+      govspeak = ERB.new(template).result(binding)
+      GovspeakPresenter.new(govspeak).html
+    else
+      super()
+    end
+  end
+
   private
+
+  attr_reader :state
+
+  def use_template?
+    @node.use_template?
+  end
 
   def render_data_partial(partial, variable_name)
     data = @state.send(variable_name.to_sym)

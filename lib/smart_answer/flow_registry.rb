@@ -53,8 +53,8 @@ module SmartAnswer
     def build_flow(name)
       absolute_path = @load_path.join("#{name}.rb").to_s
       Flow.new do
-        eval(File.read(absolute_path), binding, absolute_path)
         name(name)
+        eval(File.read(absolute_path), binding, absolute_path)
       end
     end
 
