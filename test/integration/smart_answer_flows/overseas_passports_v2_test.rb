@@ -1270,12 +1270,44 @@ class OverseasPassportsV2Test < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('laos', read_fixture_file('worldwide/laos_organisations.json'))
       add_response 'laos'
     end
+
     context "renewing_new adult" do
       should "have custom phrase for send_application_uk_visa_renew_new_colour_laos" do
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
         assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour_laos, :send_application_address_laos]
+      end
+    end
+
+    context "replacing adult" do
+      should "have custom phrase for send_application_uk_visa_renew_new_colour_laos" do
+        add_response 'replacing'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour_laos, :send_application_address_laos]
+      end
+    end
+
+    context "renewing_old adult" do
+      should "have custom phrase for send_application_uk_visa_renew_new_colour_laos" do
+        add_response 'renewing_old'
+        add_response 'adult'
+        add_response 'laos'
+
+        assert_current_node :ips_application_result
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour_laos, :send_application_address_laos]
+      end
+    end
+
+    context "applying adult" do
+      should "have custom phrase for send_application_uk_visa_renew_new_colour_laos" do
+        add_response 'applying'
+        add_response 'adult'
+        add_response 'laos'
+
+        assert_current_node :ips_application_result
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour_laos, :send_application_address_laos]
       end
     end
   end
