@@ -23,7 +23,7 @@ gem 'uglifier'
 if ENV['SMARTDOWN_DEV']
   gem 'smartdown', :path => '../smartdown'
 else
-  gem 'smartdown', '0.14.0'
+  gem 'smartdown', '~> 0.15.1'
 end
 
 if ENV['API_DEV']
