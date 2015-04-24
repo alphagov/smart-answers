@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class PassportAndEmbassyDataQuery
     def ineligible_country?
-      SmartAnswer::Predicate::RespondedWith.new(%w{iran libya syria})
+      SmartAnswer::Predicate::RespondedWith.new(%w{iran libya syria yemen})
     end
 
     def apply_in_neighbouring_countries?
@@ -28,7 +28,7 @@ module SmartAnswer::Calculators
     }
 
     RETAIN_PASSPORT_COUNTRIES = %w(angola brazil burundi cuba
-    egypt eritrea georgia iraq lebanon libya morocco rwanda sri-lanka sudan timor-leste tunisia uganda yemen zambia)
+    egypt eritrea georgia iraq lebanon libya morocco rwanda sri-lanka sudan timor-leste tunisia uganda zambia)
 
     RETAIN_PASSPORT_COUNTRIES_HURRICANES = %w(anguilla antigua-and-barbuda bahamas bermuda bonaire-st-eustatius-saba british-virgin-islands cayman-islands curacao dominica dominican-republic french-guiana grenada guadeloupe guyana haiti martinique mexico montserrat st-maarten st-kitts-and-nevis st-lucia st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands)
 
