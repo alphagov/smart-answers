@@ -8,7 +8,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon china congo georgia greece haiti hong-kong india iran iraq ireland italy jamaica jordan kenya kyrgyzstan malta nepal nigeria pakistan pitcairn-island saudi-arabia syria south-africa spain sri-lanka st-helena-ascension-and-tristan-da-cunha tajikistan tanzania timor-leste turkey turkmenistan ukraine united-kingdom united-arab-emirates usa uzbekistan yemen zimbabwe venezuela vietnam zambia)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon china congo georgia greece haiti hong-kong india iran iraq ireland italy jamaica jordan kenya kyrgyzstan laos malta nepal nigeria pakistan pitcairn-island saudi-arabia syria south-africa spain sri-lanka st-helena-ascension-and-tristan-da-cunha tajikistan tanzania timor-leste turkey turkmenistan ukraine united-kingdom united-arab-emirates usa uzbekistan yemen zimbabwe venezuela vietnam zambia)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports'
   end
@@ -608,6 +608,15 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # nepal (IPS1 with custom phrases)
 
+  context "answer Yemen" do
+    should "give a bespoke outcome stating an application is not possible in Yemen" do
+      worldwide_api_has_organisations_for_location('yemen', read_fixture_file('worldwide/yemen_organisations.json'))
+      add_response 'yemen'
+      assert_current_node :cannot_apply
+      assert_phrase_list :body_text, [:body_yemen]
+    end
+  end # Yemen - no application outcome
+
   context "answer Iran" do
     should "give a bespoke outcome stating an application is not possible in Iran" do
       worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
@@ -670,23 +679,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       assert_match /Millburngate House/, outcome_body
     end
   end # Kenya (custom phrases)
-
-  context "answer Yemen, applying, adult passport" do
-    should "give the IPS application result with custom phrases" do
-      worldwide_api_has_organisations_for_location('yemen', read_fixture_file('worldwide/yemen_organisations.json'))
-      add_response 'yemen'
-      add_response 'applying'
-      add_response 'adult'
-      add_response 'united-kingdom'
-      assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_it_takes_ips1]
-      assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :send_your_application, [:send_application_durham]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_yemen, :getting_your_passport_uk_visa_where_to_collect, :getting_your_passport_id_apply_renew_old_replace]
-      assert_match /Millburngate House/, outcome_body
-    end
-  end # Yemen
 
   context "answer Haiti, renewing new, adult passport" do
     should "give the ips result" do
@@ -1257,6 +1249,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
     end # replacing child
   end # Pakistan tests
+
   context "test for Hong-Kong" do
     setup do
       worldwide_api_has_organisations_for_location('hong-kong', read_fixture_file('worldwide/hong-kong_organisations.json'))
@@ -1268,6 +1261,53 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         assert_current_node :ips_application_result_online
         assert_phrase_list :how_to_apply, [:how_to_apply_online,:how_to_apply_online_prerequisites_renewing, :how_to_apply_online_guidance_doc_group_2, :hong_kong_id_required, :how_to_apply_online_guidance_doc_outro]
+      end
+    end
+  end
+
+  context "test for Laos" do
+    setup do
+      worldwide_api_has_organisations_for_location('laos', read_fixture_file('worldwide/laos_organisations.json'))
+      add_response 'laos'
+    end
+
+    context "renewing_new adult" do
+      should "have custom phrase for send_application_uk_visa_renew_new_colour_laos" do
+        add_response 'renewing_new'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour_laos, :send_application_address_laos]
+      end
+    end
+
+    context "replacing adult" do
+      should "have custom phrase for send_application_uk_visa_renew_new_colour_laos" do
+        add_response 'replacing'
+        add_response 'adult'
+        assert_current_node :ips_application_result
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour_laos, :send_application_address_laos]
+      end
+    end
+
+    context "renewing_old adult" do
+      should "have custom phrase for send_application_uk_visa_renew_new_colour_laos" do
+        add_response 'renewing_old'
+        add_response 'adult'
+        add_response 'laos'
+
+        assert_current_node :ips_application_result
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour_laos, :send_application_address_laos]
+      end
+    end
+
+    context "applying adult" do
+      should "have custom phrase for send_application_uk_visa_renew_new_colour_laos" do
+        add_response 'applying'
+        add_response 'adult'
+        add_response 'laos'
+
+        assert_current_node :ips_application_result
+        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour_laos, :send_application_address_laos]
       end
     end
   end

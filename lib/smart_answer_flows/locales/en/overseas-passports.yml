@@ -530,7 +530,7 @@ en-GB:
           The courier fee pays for your passport to be sent securely to the British Embassy in Ashgabat for you to collect.
 
         passport_courier_costs_uzbekistan: |
-          You’ll have to pay a fee for your passport and a courier fee of £24.72.
+          You’ll have to pay a fee for your passport and a courier fee of £23.01.
 
           The courier fee pays for your passport to be sent securely to the British Embassy in Tashkent for you to collect.
 
@@ -671,6 +671,18 @@ en-GB:
           You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
 
           You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
+        send_application_uk_visa_renew_new_colour_laos: |
+          ## Making your application
+
+          You must apply in person. If you’re unable to, someone else can go on your behalf. You must bring photo ID with you.
+
+          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
+
+          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
+
+          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
+
+          You’ll need to book an appointment by email. Include your first name and last name. You will receive an email confirming your appointment.
         send_application_uk_visa_renew_new_colour_western_sahara: |
           ## Making your application
 
@@ -765,6 +777,15 @@ en-GB:
           Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
 
           You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
+
+        send_application_uk_visa_apply_renew_old_replace_colour_laos: |
+          ## Making your application
+          You must apply in person. If you’re unable to, someone else can go on your behalf.
+          You must bring photo ID with you.
+
+          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
+
+          You’ll need to book an appointment by email. Include your first name and last name. You will receive an email confirming your appointment.
 
         send_application_address_algeria: |
           $A
@@ -1415,6 +1436,13 @@ en-GB:
           You should apply in a neighbouring country of your choice.
 
           If you need more information read the [Foreign Commonwealth Office travel advice](/foreign-travel-advice/libya).
+
+        body_yemen: |
+          You can’t apply for a British passport from Yemen at this time.
+
+          You should apply in a neighbouring country of your choice.
+
+          If you need more information read the [Foreign Commonwealth Office travel advice](/foreign-travel-advice/yemen).
 
         body_syria: |
           You can’t apply for a British passport from Syria at this time.

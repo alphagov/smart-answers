@@ -272,6 +272,8 @@ outcome :ips_application_result do
         if passport_data['application_office']
           if %w(western-sahara).include?(current_location)
             phrases << :send_application_uk_visa_renew_new_colour_western_sahara
+          elsif %w(laos).include?(current_location)
+            phrases << :send_application_uk_visa_renew_new_colour_laos
           elsif uk_visa_application_with_colour_pictures.include?(current_location)
             phrases << :send_application_uk_visa_renew_new_colour
           else
@@ -290,6 +292,8 @@ outcome :ips_application_result do
         if passport_data['application_office']
           if %w(western-sahara).include?(current_location)
             phrases << :send_application_uk_visa_renew_old_replace_colour_western_sahara
+          elsif %w(laos).include?(current_location)
+            phrases << :send_application_uk_visa_apply_renew_old_replace_colour_laos
           elsif uk_visa_application_with_colour_pictures.include?(current_location)
             phrases << :send_application_uk_visa_apply_renew_old_replace_colour
           else
@@ -343,8 +347,8 @@ outcome :ips_application_result do
     collect_in_person_variant_countries = %w(burundi india jordan pitcairn-island)
     collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea st-helena-ascension-and-tristan-da-cunha)
     uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan lebanon mauritania morocco pakistan russia thailand ukraine venezuela western-sahara)
-    uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
-    collect_with_photo_id_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda yemen)
+    uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda)
+    collect_with_photo_id_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda)
     passport_delivered_by_courier_countries = %w(laos)
     named_embassy_countries = %w(tajikistan turkmenistan uzbekistan)
 
@@ -490,15 +494,11 @@ outcome :result do
     phrases
   end
   precalculate :making_application_additional do
-    if current_location == 'yemen'
-      PhraseList.new(:making_application_additional_yemen)
-    else
-      ''
-    end
+    ''
   end
   precalculate :supporting_documents do
     phrase = ['supporting_documents', application_type]
-    phrase << general_action if %w(iraq yemen zambia).include?(application_type)
+    phrase << general_action if %w(iraq zambia).include?(application_type)
     PhraseList.new(phrase.join('_').to_sym)
   end
   precalculate :making_application do
@@ -511,8 +511,6 @@ outcome :result do
     phrases = PhraseList.new
     if %w(cuba libya morocco tunisia).include?(current_location)
       phrases << :helpline_exceptions
-    elsif current_location == 'yemen'
-      phrases << :helpline_exception_yemen
     else
       phrases << :helpline_intro << :"helpline_#{passport_data['helpline']}"
     end
