@@ -3,21 +3,27 @@ satisfies_need "100982"
 
 additional_countries = UkbaCountry.all
 
-exclude_countries = %w(american-samoa british-antarctic-territory british-indian-ocean-territory french-guiana french-polynesia gibraltar guadeloupe holy-see martinique mayotte new-caledonia reunion st-pierre-and-miquelon wallis-and-futuna western-sahara)
+exclude_countries = %w(american-samoa british-antarctic-territory british-indian-ocean-territory french-guiana french-polynesia gibraltar guadeloupe holy-see martinique mayotte new-caledonia reunion st-pierre-and-miquelon the-occupied-palestinian-territories wallis-and-futuna western-sahara)
 
 country_group_ukot = %w(anguilla bermuda british-dependent-territories-citizen british-overseas-citizen british-protected-person british-virgin-islands cayman-islands falkland-islands montserrat st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
 
 country_group_non_visa_national = %w(andorra antigua-and-barbuda argentina aruba australia bahamas barbados belize bonaire-st-eustatius-saba botswana brazil british-national-overseas brunei canada chile costa-rica curacao dominica timor-leste el-salvador grenada guatemala honduras hong-kong hong-kong-(british-national-overseas) israel japan kiribati south-korea macao malaysia maldives marshall-islands mauritius mexico micronesia monaco namibia nauru new-zealand nicaragua palau panama papua-new-guinea paraguay pitcairn-island st-kitts-and-nevis st-lucia st-maarten st-vincent-and-the-grenadines samoa san-marino seychelles singapore solomon-islands tonga trinidad-and-tobago tuvalu usa uruguay vanuatu vatican-city)
 
-country_group_visa_national = %w(armenia azerbaijan bahrain benin bhutan bolivia bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad colombia comoros cuba djibouti dominican-republic ecuador equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan north-korea kuwait kyrgyzstan laos madagascar mali  montenegro mauritania morocco mozambique niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia)
+country_group_visa_national = %w(stateless-or-refugee armenia azerbaijan bahrain benin bhutan bolivia bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad colombia comoros cuba djibouti dominican-republic ecuador equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan north-korea kuwait kyrgyzstan laos madagascar mali  montenegro mauritania morocco mozambique niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia)
 
-country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus burma burundi cameroon china congo cyprus-north democratic-republic-of-congo egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq cote-d-ivoire jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia nepal nigeria the-occupied-palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe)
+country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus burma burundi cameroon china congo cyprus-north democratic-republic-of-congo egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq cote-d-ivoire jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia nepal nigeria palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe)
 
 country_group_eea = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 
 # Q1
 country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: exclude_countries do
   save_input_as :passport_country
+
+  calculate :if_refugee do
+    if passport_country == 'stateless-or-refugee'
+      PhraseList.new(:apply_from_country_of_origin_or_residency)
+    end
+  end
 
   next_node_if(:outcome_no_visa_needed, country_in(country_group_eea))
   next_node(:purpose_of_visit?)
@@ -54,7 +60,7 @@ multiple_choice :purpose_of_visit? do
     next_node_if(:outcome_medical_n, responded_with('medical'))
   end
   next_node_if(:outcome_school_y, responded_with('school'))
-  next_node_if(:outcome_general_y, responded_with('tourism'))
+  next_node_if(:outcome_standard_visit, responded_with('tourism'))
   next_node_if(:outcome_marriage, responded_with('marriage'))
   next_node_if(:outcome_medical_y, responded_with('medical'))
 
@@ -85,6 +91,7 @@ multiple_choice :planning_to_leave_airport? do
     next_node_if(:outcome_transit_leaving_airport_datv) { country_group_datv.include?(passport_country) }
   end
   on_condition(responded_with('no')) do
+    next_node_if(:outcome_transit_refugee_not_leaving_airport) { passport_country == 'stateless-or-refugee' }
     next_node_if(:outcome_transit_not_leaving_airport) { country_group_datv.include?(passport_country) }
     next_node_if(:outcome_no_visa_needed) { country_group_visa_national.include?(passport_country) }
   end
@@ -158,7 +165,7 @@ outcome :outcome_joining_family_y
 outcome :outcome_joining_family_m
 outcome :outcome_joining_family_nvn
 outcome :outcome_visit_business_n
-outcome :outcome_general_y do
+outcome :outcome_standard_visit do
   precalculate :if_china do
     if %w(china).include?(passport_country)
       PhraseList.new(:china_tour_group)
@@ -206,3 +213,4 @@ outcome :outcome_transit_leaving_airport_datv do
 end
 outcome :outcome_taiwan_exception
 outcome :outcome_diplomatic_business
+outcome :outcome_transit_refugee_not_leaving_airport
