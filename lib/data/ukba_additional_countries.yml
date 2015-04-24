@@ -1,4 +1,4 @@
---- 
+---
 - :name: British dependent territories citizen
   :slug: british-dependent-territories-citizen
 - :name: British national overseas
@@ -11,5 +11,9 @@
   :slug: cyprus-north
 - :name: Hong Kong (British national overseas)
   :slug: hong-kong-(british-national-overseas)
+- :name: Palestinian Territories
+  :slug: palestinian-territories
+- :name: Stateless or Refugee
+  :slug: stateless-or-refugee
 - :name: Vatican City
   :slug: vatican-city

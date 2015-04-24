@@ -14,6 +14,9 @@ en-GB:
           You won't need a visa if your passport has a personal ID number on the bio data page.
 
       #phrases
+        apply_from_country_of_origin_or_residency: |
+          ^You must apply for your visa from the country you're originally from or currently living in.^
+
         b1_b2_visa_exception: |
           except if you have a B1 or B2 visit visa from the USA
 
@@ -45,7 +48,7 @@ en-GB:
         apply_for_visitor_visa: |
           ###Visitor visa
 
-          Apply for a [general visit visa](/general-visit-visa).
+          Apply for a [Standard Visitor visa](/standard-visitor-visa).
         epassport_general_visit_reason: |
           However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
           ^If you don’t have an ePassport, you must [apply for a short visit visa](/browse/visas-immigration/short-visit-visas).^
@@ -129,7 +132,8 @@ en-GB:
         You may need a visa to come to the UK to visit, study or work.
 
       what_passport_do_you_have?:
-        title: What passport do you have?
+        title: What passport or travel document do you have?
+        hint: If you're a refugee or don't have a passport or travel document, select stateless or refugee.
 
       purpose_of_visit?:
         title: What are you coming to the UK to do?
@@ -138,7 +142,7 @@ en-GB:
           work: "Work, academic visit or business"
           tourism: "Tourism, including visiting friends or family"
           school: "Visit your child at school"
-          marriage: "Get married"
+          marriage: "Get married or enter into a civil partnership"
           medical: "Get private medical treatment"
           transit: "Transit (on your way to somewhere else)"
           family: "Join partner or family for a long stay"
@@ -175,20 +179,23 @@ en-GB:
         body: |
           The visa you apply for depends on your circumstances.
 
-          Apply for a [study visa](/tier-4-general-visa) if you’re coming to the UK to study a degree or college course for longer than 6 months (or 11 months if it’s an English language course).
+          %{if_refugee}
 
-          Apply for a [child study visa](/child-study-visa) if you’re under 18.
+          Apply for a [study visa](/tier-4-general-visa) if you’re coming to the UK to study a university or college course for more than 6 months, or more than 11 months if it’s an English language course.
 
-          ^If you’re studying an English language course for less than 11 months, you can apply for a [study visit](/study-visit-visa) visa.^
+          You can apply for a [Short-term Study visa](/study-visit-visa) if you’re 18 or over and studying an English language course for 11 months or less.
+
+          You can also apply for a [child study visa](/child-study-visa) if you’re under 18.
 
       outcome_study_m:
         title: You’ll need a visa to study in the UK
 
         body: |
-          Apply for a [study visit](/study-visit-visa) visa if you’re studying for less than 6 months and you won’t work during your stay.
+          %{if_refugee}
+
+          Apply for a [Short-term Study visa](/study-visit-visa) if you are studying for 6 months or less.
 
           You should apply as a [child visitor](/child-visit-visa) if you’re under 18.
-
       outcome_work_y:
         title: You’ll need a visa to work or do business or academic research in the UK
         body: |
@@ -196,6 +203,7 @@ en-GB:
           The visa you apply for depends on your circumstances.
 
           %{if_turkey}
+          %{if_refugee}
 
           ###Skilled workers
 
@@ -245,17 +253,16 @@ en-GB:
         title: |
           You'll need a visa to work, do business or academic research in the UK
         body: |
-          The visa you need to apply for depends on your circumstances
+          The visa you need to apply for depends on your circumstances.
+
+          %{if_refugee}
 
           ##Business visits
 
-          You can apply for a visa as:
+          You can apply:
 
-          - a [business or academic visitor](/business-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training or academic research
-          - a [sports visitor](/sports-visit-visa)
-          - an [entertainer](/entertainer-visitor-visa)
-          - a [prospective entrepreneur](/prospective-entrepreneur)
-          - a visitor doing a [‘permitted paid engagement’](http://www.ukba.homeoffice.gov.uk/visas-immigration/visiting/paid-engage/) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
+          - for a [Standard Visitor visa](/standard-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training, academic research or a sabbatical
+          - as a visitor doing a [‘permitted paid engagement’](/permitted-paid-engagement-visa) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
 
           ##Temporary workers
 
@@ -283,11 +290,8 @@ en-GB:
 
           You don't need a visa if you're coming to the UK for activities allowed under the following visas:
 
-          - a [business or academic visitor](/business-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training or academic research
-          - a [sports visitor](/sports-visit-visa)
-          - an [entertainer](/entertainer-visitor-visa)
-          - a [prospective entrepreneur](https://www.gov.uk/prospective-entrepreneur)
-          - a visitor doing a ['permitted paid engagement'](/permitted-paid-engagement-visa) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
+          - a [Standard Visitor visa](/standard-visitor-visa) - eg if you’re coming to the UK for conferences, meetings, training, academic research or a sabbatical
+          - a [‘permitted paid engagement’](/permitted-paid-engagement-visa) (you must have been invited to the UK because of your expertise) - you can only stay for up to 1 month
 
           However, you should bring [supporting documents](/government/publications/visitor-visa-guide-to-supporting-documents) to show at the border.
 
@@ -315,6 +319,8 @@ en-GB:
         title: You’ll need a visa to pass through the UK in transit
         body: |
           You should apply for a [Visitor in Transit visa](/transit-visa) if you arrive on a flight and will pass through immigration control before you leave the UK.
+
+          %{if_refugee}
 
           ##Transiting without a visa
           You might be eligible for ‘transit without visa’ if:
@@ -346,6 +352,7 @@ en-GB:
           All visas and residence permits must be valid.
 
           Australian paper confirmation slips are not accepted.
+
       outcome_transit_not_leaving_airport:
         title: You’ll need a visa to pass through the UK in transit (unless you’re exempt)
         body: |
@@ -371,6 +378,73 @@ en-GB:
           All visas and residence permits must be valid.
 
           %E-visas or e-residence permits are not acceptable unless your airline is able to verify it with the issuing country. Contact your airline for more information.%
+
+      outcome_transit_refugee_not_leaving_airport:
+        title: You may need a Direct Airside Transit Visa
+        body: |
+          You’ll need a [Direct Airside Transit visa](/transit-visa/direct-airside-transit-visa) if you’re a refugee and originally from one of these countries:
+
+          * Afghanistan
+          * Albania
+          * Algeria
+          * Angola
+          * Bangladesh
+          * Belarus
+          * Burma (Myanmar)
+          * Burundi
+          * Cameroon
+          * China - unless you have a diplomatic passport or you’re travelling with a Chinese government minister on an Official Visit to the UK and you have a service or public affairs passport
+          * Congo
+          * Democratic Republic of Congo or former Republic of Zaire
+          * Cyprus
+          * Egypt
+          * Eritrea
+          * Ethiopia
+          * Gambia
+          * Ghana
+          * Guinea
+          * Guinea-Bissau
+          * India  - unless you have a diplomatic or official passport
+          * Iran
+          * Iraq
+          * Ivory Coast
+          * Jamaica
+          * Kenya
+          * Kosovo
+          * Lebanon
+          * Lesotho
+          * Liberia
+          * Libya
+          * Macedonia
+          * Malawi
+          * Moldova
+          * Mongolia
+          * Nepal
+          * Nigeria
+          * Pakistan
+          * Palestinian Territories
+          * Rwanda
+          * Senegal
+          * Serbia
+          * Sierra Leone
+          * Somalia
+          * South Africa
+          * South Sudan
+          * Sri Lanka
+          * Sudan
+          * Swaziland
+          * Syria
+          * Tanzania
+          * Turkey - unless you have a diplomatic passport
+          * Uganda
+          * Venezuela - unless you have a biometric passport
+          * Vietnam  - unless you have a diplomatic passport
+          * Yemen
+          * Zimbabwe
+
+
+          Otherwise you don't need a visa.
+
       outcome_transit_leaving_airport_datv:
         title: You’ll need a visa to pass through the UK in transit
         body: |
@@ -414,6 +488,8 @@ en-GB:
 
           The visa you apply for depends on your family member’s situation.
 
+          %{if_refugee}
+
           ##They’re settled in the UK
 
           Apply for a [‘family of a settled person’ visa](/join-family-in-uk) if your family member or partner is either a British citizen or from outside the European Economic Area (EEA) and settled in the UK.
@@ -425,7 +501,6 @@ en-GB:
           ##They’re from the EEA
 
           Apply for a [family permit](/family-permit) to join your family or partner for a short or long stay if they’re living in the UK.
-
 
       outcome_joining_family_m:
         title: You may need a visa to join a member of your family or partner for a long stay
@@ -466,29 +541,21 @@ en-GB:
 
           Apply for a [family permit](/family-permit) to join your family or partner for a short or long stay if they’re living in the UK.
 
-      outcome_general_y:
+      outcome_standard_visit:
         title: You’ll need a visa to come to the UK
         body: |
-          The visa you need to apply for depends on your circumstances.
+
+          Apply for a [Standard Visitor visa](/standard-visitor-visa) if you’re visiting the UK for a holiday or to visit family or friends.
 
           %{if_china}
-
-          ##Tourism and visiting friends
-
-          Apply for a [general visit visa](https://www.gov.uk/general-visit-visa) if you’re visiting the UK for a holiday or to visit friends.
-
-          ##Visiting family
-
-          Apply for a [family visit visa](/family-visit-visa) if you plan to visit your family or partner (eg spouse) while you’re in the UK.
-
-          ##If you’re under 18
-
-          Apply for a [child visit visa](/child-visit-visa).
+          %{if_refugee}
 
       outcome_marriage:
         title: You’ll need a visa to come to the UK
         body: |
-          Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner don't plan to stay in the UK longer than 6 months.
+          %{if_refugee}
+
+          Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married or enter into a civil partnership in the UK.
 
           Apply for a [family of a settled person visa](/join-family-in-uk) if your partner is British or settled in the UK and you wish to join them to live in the UK permanently.
 
@@ -504,15 +571,17 @@ en-GB:
         body:
           You should apply for the [visa for parents](/parent-of-a-child-at-school-visa) visiting children at school.
 
+          %{if_refugee}
       outcome_medical_y:
         title: You’ll need a visa to visit the UK
         body:
-          You should apply for the [private medical treatment visa](/private-medical-treatment-visa).
+          You should apply for a [Standard Visitor visa](/standard-visitor-visa).
 
+          %{if_refugee}
       outcome_medical_n:
         title: You won’t need a visa to visit the UK
         body:
-          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a Private Medical Treatment Visitor visa, to show to officers at the UK border.
+          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a [Standard Visitor visa](/standard-visitor-visa), to show to officers at the UK border.
 
       outcome_visit_waiver:
         title: |
@@ -526,7 +595,7 @@ en-GB:
 
           However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
 
-          ^If the bio data page in your passport doesn't include a personal ID number, you must [apply for a short visit visa](/browse/visas-immigration/short-visit-visas).^
+          ^If the bio data page in your passport doesn't include a personal ID number, you must [apply for a Short-term Study visa](/study-visit-visa).^
 
       outcome_diplomatic_business:
         title: Diplomatic Business

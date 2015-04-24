@@ -8,13 +8,96 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa syria turkey yemen oman united-arab-emirates qatar taiwan venezuela)
+    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa stateless-or-refugee syria turkey yemen oman united-arab-emirates qatar taiwan venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'check-uk-visa'
   end
 
   should "ask what passport do you have" do
     assert_current_node :what_passport_do_you_have?
+  end
+
+  context "choose Stateless or Refugee" do
+    setup do
+      add_response "stateless-or-refugee"
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_marriage" do
+      add_response 'marriage'
+
+      assert_current_node :outcome_marriage
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_study_m" do
+      add_response 'study'
+      add_response 'six_months_or_less'
+
+      assert_current_node :outcome_study_m
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_study_y" do
+      add_response 'study'
+      add_response 'longer_than_six_months'
+
+      assert_current_node :outcome_study_y
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_work_m" do
+      add_response 'work'
+      add_response 'six_months_or_less'
+      assert_current_node :outcome_work_m
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_work_y" do
+      add_response 'work'
+      add_response 'longer_than_six_months'
+      assert_current_node :outcome_work_y
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_transit_leaving_airport" do
+      add_response 'transit'
+      add_response 'yes'
+
+      assert_current_node :outcome_transit_leaving_airport
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggests to get a Direct Airside Transit visa if not leaving the airport" do
+      add_response 'transit'
+      add_response 'no'
+
+      assert_current_node :outcome_transit_refugee_not_leaving_airport
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_standard_visit" do
+      add_response 'tourism'
+
+      assert_current_node :outcome_standard_visit
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_school_y" do
+      add_response 'school'
+      assert_current_node :outcome_school_y
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_medical_y" do
+      add_response 'medical'
+      assert_current_node :outcome_medical_y
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
+
+    should "suggest to apply in country of originallity or residence for outcome_joining_family_y" do
+      add_response 'family'
+      assert_current_node :outcome_joining_family_y
+      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
+    end
   end
 
   context "choose a UKOT country" do
@@ -149,82 +232,68 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
   end
 
-  context "choose a Visa nationals country" do
-    setup do
-      add_response 'yemen'
-    end
-    should "ask what are you coming to the UK to do" do
-      assert_current_node :purpose_of_visit?
-    end
-    context "tourism, visiting friends or family" do
+  context "choose a visa national country or refugee" do
+    context "when chosen armenia" do
       setup do
-        add_response 'tourism'
+        add_response 'armenia'
       end
-      should "take you to general_y outcome" do
-        assert_current_node :outcome_general_y
+      should "ask what are you coming to the UK to do" do
+        assert_current_node :purpose_of_visit?
       end
-    end
-    context "visiting child at school" do
-      setup do
-        add_response 'school'
-      end
-      should "take you to school_y outcome" do
-        assert_current_node :outcome_school_y
-      end
-    end
-    context "getting married" do
-      setup do
-        add_response 'marriage'
-      end
-      should "take you to the marriage outcome" do
-        assert_current_node :outcome_marriage
-      end
-    end
-    context "get private medical treatment" do
-      setup do
-        add_response 'medical'
-      end
-      should "take you to the 'medical_y' outcome" do
-        assert_current_node :outcome_medical_y
-      end
-    end
-    context "coming to the UK on the way somewhere else" do
-      setup do
-        add_response 'transit'
-      end
-      should "ask you if you're planning to leave the airport?" do
-        assert_current_node :planning_to_leave_airport?
-      end
-      context "planning to leave airport" do
+
+      context "coming to the UK to study" do
         setup do
-          add_response 'yes'
+          add_response 'study'
+          add_response 'six_months_or_less'
         end
-        should "take you to 'transit_leaving_airport' outcome" do
-          assert_current_node :outcome_transit_leaving_airport_datv
+        should "take you to outcome study_m" do
+          assert_current_node :outcome_study_m
+          assert_phrase_blank :if_refugee
         end
       end
-      context "not planning to leave airport" do
+
+      context "coming to the UK to work" do
         setup do
-          add_response 'no'
+          add_response 'work'
+          add_response 'six_months_or_less'
         end
-        should "take you to outcome no visa needed" do
-          assert_current_node :outcome_transit_not_leaving_airport
+        should "take you to outcome work_m" do
+          assert_current_node :outcome_work_m
+          assert_phrase_blank :if_refugee
         end
       end
-    end
-    context "coming to join family" do
-      setup do
-        add_response 'family'
-      end
-      should "take you to outcome Family Y" do
-        assert_current_node :outcome_joining_family_y
+
+      context "coming to the UK on the way somewhere else" do
+        setup do
+          add_response 'transit'
+        end
+        should "ask you if you're planning to leave the airport" do
+          assert_current_node :planning_to_leave_airport?
+        end
+        context "planning to leave airport" do
+          setup do
+            add_response 'yes'
+          end
+          should "take you to transit_leaving_airport outcome" do
+            assert_current_node :outcome_transit_leaving_airport
+            assert_phrase_blank :if_refugee
+          end
+        end
+        context "not planning to leave airport" do
+          setup do
+            add_response 'no'
+          end
+          should "take you to transit_not_leaving_airport outcome" do
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
       end
     end
   end
 
-   context "choose a DATV country" do
+  context "choose a DATV country" do
     setup do
-      add_response 'south-africa'
+      add_response 'yemen'
     end
     should "ask what are you coming to the UK to do" do
       assert_current_node :purpose_of_visit?
@@ -252,7 +321,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'tourism'
       end
       should "take you to general_y outcome" do
-        assert_current_node :outcome_general_y
+        assert_current_node :outcome_standard_visit
       end
       context "Chinese passport" do
         setup do
@@ -261,7 +330,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response "tourism"
         end
         should "take insert an additional phrase" do
-          assert_current_node :outcome_general_y
+          assert_current_node :outcome_standard_visit
           assert_phrase_list :if_china, [:china_tour_group]
         end
       end
@@ -300,7 +369,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         assert_current_node :outcome_medical_y
       end
     end
-    context "coming to the on the way somewhere else" do
+    context "coming to the UK on the way somewhere else" do
       setup do
         add_response 'transit'
       end
@@ -374,17 +443,17 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
   end
   context "testing turkey phrase list" do
-  setup do
-    add_response "turkey"
-    add_response "work"
-    add_response "longer_than_six_months"
+    setup do
+      add_response "turkey"
+      add_response "work"
+      add_response "longer_than_six_months"
+    end
+    should "takes you to outcome_work_y" do
+      assert_current_node :outcome_work_y
+      assert_phrase_list :if_turkey, [:turkey_business_person_visa]
+    end
   end
-  should "takes you to outcome_work_y" do
-    assert_current_node :outcome_work_y
-    assert_phrase_list :if_turkey, [:turkey_business_person_visa]
-  end
-end
-    context "testing outcome visit waiver" do
+  context "testing outcome visit waiver" do
     setup do
       add_response 'oman'
       add_response 'medical'
@@ -394,7 +463,6 @@ end
         assert_phrase_list :if_exception, [:electronic_visa_waiver, :apply_for_visitor_visa]
     end
   end
-
   context "testing croatia phrase list" do
     setup do
       add_response "croatia"
@@ -513,13 +581,13 @@ end
     end
   end
 
-  context "choose a Non-visa country and check for outcome_work_m" do
+  context "choose a Non-visa country and check for outcome_work_n" do
     setup do
       add_response 'mexico'
       add_response 'work'
       add_response 'six_months_or_less'
     end
-      should "take you to outcome work_m" do
+      should "take you to outcome work_n" do
       assert_current_node :outcome_work_n
     end
   end
@@ -621,7 +689,7 @@ end
         add_response 'tourism'
       end
       should "take you to tourism outcome without personalised phraselist" do
-        assert_current_node :outcome_general_y
+        assert_current_node :outcome_standard_visit
         assert_state_variable :if_exception, nil
       end
     end
@@ -645,15 +713,6 @@ end
       end
     end
   end
-  context "check for diplomatic and government business travellers" do
-    setup do
-      add_response 'bolivia'
-      add_response 'diplomatic'
-    end
-    should "go to diplomatic and government outcome" do
-      assert_current_node :outcome_diplomatic_business
-    end
-  end
 
   context "Syria transit B1 B2 visa exceptions" do
     setup do
@@ -671,6 +730,16 @@ end
       add_response 'no'
       assert_current_node :outcome_transit_not_leaving_airport
       assert_phrase_list :if_syria, [:b1_b2_visa_exception]
+    end
+  end
+
+  context "check for diplomatic and government business travellers" do
+    setup do
+      add_response 'bolivia'
+      add_response 'diplomatic'
+    end
+    should "go to diplomatic and government outcome" do
+      assert_current_node :outcome_diplomatic_business
     end
   end
 end
