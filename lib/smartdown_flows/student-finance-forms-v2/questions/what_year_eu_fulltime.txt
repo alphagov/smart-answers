@@ -1,7 +1,0 @@
-# What academic year do you want funding for?
-
-[choice: what_year]
-* year-1516: 2015 to 2016
-* year-1415: 2014 to 2015
-
-* type_of_student is 'eu-full-time' => continuing_student
