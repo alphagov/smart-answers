@@ -95,3 +95,17 @@ To help developers track changes in files easily, it is best if you commit V2 fi
 ## Detailed documentation
 
 - [How to archive a Smart Answer](doc/archiving.md)
+
+## Deploying to Heroku
+
+    heroku apps:create --region eu
+
+    heroku config:set GOVUK_APP_DOMAIN=preview.alphagov.co.uk
+    heroku config:set PLEK_SERVICE_CONTENTAPI_URI=https://www.gov.uk/api
+    heroku config:set PLEK_SERVICE_STATIC_URI=https://assets-origin.preview.alphagov.co.uk
+    heroku config:set RUNNING_ON_HEROKU=true
+
+    git push heroku <your-local-branch>:master
+
+    # *NOTE.* You'll need to add the path to a Smart Answer, e.g. /marriage-abroad
+    heroku apps:open
