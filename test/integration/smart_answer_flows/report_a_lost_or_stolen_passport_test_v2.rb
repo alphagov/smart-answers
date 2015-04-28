@@ -2,7 +2,7 @@ require_relative "../../test_helper"
 require_relative "flow_test_helper"
 require 'gds_api/test_helpers/worldwide'
 
-class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
+class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
@@ -11,7 +11,7 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
     worldwide_api_has_locations(@location_slugs)
     json = read_fixture_file('worldwide/azerbaijan_organisations.json')
     worldwide_api_has_organisations_for_location('azerbaijan', json)
-    setup_for_testing_flow "report-a-lost-or-stolen-passport"
+    setup_for_testing_flow "report-a-lost-or-stolen-passport-v2"
   end
 
   should "ask where the passport was lost or stolen" do
