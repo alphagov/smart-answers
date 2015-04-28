@@ -797,16 +797,6 @@ en-GB:
           ###Giving notice of marriage
 
           You need to have been living in %{ceremony_country_name} for at least 3 days.
-        consular_cni_os_foreign_resident_3_days_macedonia: |
-          Contact a notary public or the British Embassy in Macedonia to get advice:
-
-          $C
-          British Embassy Macedonia
-          Telephone: + 389 (2) 3299 299
-          <consular.skopje@fco.gov.uk>
-          $C
-
-          %You can't book an appointment to get advice at the embassy in person.%
 
         consular_cni_os_foreign_resident_ceremony_notary_public: |
           Check with a notary public or your nearest British embassy or consulate to find out if they can do this for you.
@@ -817,15 +807,11 @@ en-GB:
 
           You need to have been living in your country of residence for 21 days.
 
-        consular_cni_os_foreign_resident_3_days_notary_public: |
+        consular_cni_os_foreign_resident_standard_ceremony_notary_public: |
           Check with a notary public or your nearest British embassy or consulate to find out if they can do this for you.
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
-          ###Giving notice of marriage
-
-          You need to have been living in %{ceremony_country_name} for at least 3 days.
-        consular_cni_os_foreign_resident_3_days_macedonia: |
+        consular_cni_os_foreign_macedonia: |
           Contact a notary public or British Embassy in Macedonia to get advice:
 
           $C
@@ -835,10 +821,9 @@ en-GB:
           $C
 
           %You can't book an appointment to get advice at the embassy in person.%
-        consular_cni_os_foreign_resident_3_days_macedonia_giving_notice: |
+        giving_notice_of_marriage: |
           ###Giving notice of marriage
 
-          You need to have been living in %{ceremony_country_name} for at least 3 days.
         consular_cni_os_foreign_resident_21_days_jordan: |
           You need to have been living in the country where you intend to marry for 21 days.
 
