@@ -7,10 +7,12 @@ class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(azerbaijan)
+    @location_slugs = %w(azerbaijan canada)
     worldwide_api_has_locations(@location_slugs)
-    json = read_fixture_file('worldwide/azerbaijan_organisations.json')
-    worldwide_api_has_organisations_for_location('azerbaijan', json)
+    @location_slugs.each do |location|
+      json = read_fixture_file("worldwide/#{location}_organisations.json")
+      worldwide_api_has_organisations_for_location(location, json)
+    end
     setup_for_testing_flow "report-a-lost-or-stolen-passport-v2"
   end
 
@@ -45,6 +47,27 @@ class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
       should "tell you to report it to the embassy" do
         assert_current_node :contact_the_embassy
         assert_match /British Embassy Baku/, outcome_body
+      end
+    end
+  end
+
+  context "abroad" do
+    setup do
+      add_response :abroad
+    end
+
+    should "ask in which country has been lost/stolen" do
+      assert_current_node :which_country?
+    end
+
+    context "in Canada" do
+      setup do
+        add_response "canada"
+      end
+
+      should "tell you to fill in a form and visit the embassy" do
+        assert_current_node :contact_the_embassy_canada
+        assert_match /Fill in form LS01 and post it to your nearest British embassy, high commission or consulate./, outcome_body
       end
     end
   end
