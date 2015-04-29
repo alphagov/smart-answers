@@ -34,6 +34,7 @@ class SmartdownScenariosTest < ActiveSupport::TestCase
           answers = scenario.question_groups.flatten.map(&:answer)
           outcome_is_reached(smartdown_flow, answers, scenario.outcome)
           markers_are_included(smartdown_flow, answers, scenario.markers)
+          exact_markers_are_included(smartdown_flow, answers, scenario.exact_markers) if scenario.exact_markers.any?
         end
       end
     end
@@ -67,6 +68,13 @@ class SmartdownScenariosTest < ActiveSupport::TestCase
     state  = flow.state(true, answers)
     actual_markers = state.current_node.markers.map(&:marker_name)
     assert_empty (expected_markers - actual_markers),
+      "In flow #{flow.name} with answers #{answers} markers #{expected_markers} were expected but #{actual_markers} was received"
+  end
+
+  def exact_markers_are_included(flow, answers, expected_markers)
+    state  = flow.state(true, answers)
+    actual_markers = state.current_node.markers.map(&:marker_name)
+    assert_empty ((expected_markers - actual_markers) + (actual_markers - expected_markers)),
       "In flow #{flow.name} with answers #{answers} markers #{expected_markers} were expected but #{actual_markers} was received"
   end
 end
