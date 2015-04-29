@@ -95,3 +95,11 @@ To help developers track changes in files easily, it is best if you commit V2 fi
 ## Detailed documentation
 
 - [How to archive a Smart Answer](doc/archiving.md)
+
+## Deploying to Heroku
+
+The 'startup_heroku.sh' shell script will create and configure an app on Heroku, push the __current branch___ and open the marriage-abroad Smart Answer in the browser.
+
+Once deployed you'll need to use the standard `git push` mechanism to deploy your changes.
+
+    ./startup_heroku.sh
