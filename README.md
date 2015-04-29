@@ -98,14 +98,8 @@ To help developers track changes in files easily, it is best if you commit V2 fi
 
 ## Deploying to Heroku
 
-    heroku apps:create --region eu
+The 'startup_heroku.sh' shell script will create and configure an app on Heroku, push the __current branch___ and open the marriage-abroad Smart Answer in the browser.
 
-    heroku config:set GOVUK_APP_DOMAIN=preview.alphagov.co.uk
-    heroku config:set PLEK_SERVICE_CONTENTAPI_URI=https://www.gov.uk/api
-    heroku config:set PLEK_SERVICE_STATIC_URI=https://assets-origin.preview.alphagov.co.uk
-    heroku config:set RUNNING_ON_HEROKU=true
+Once deployed you'll need to use the standard `git push` mechanism to deploy your changes.
 
-    git push heroku <your-local-branch>:master
-
-    # *NOTE.* You'll need to add the path to a Smart Answer, e.g. /marriage-abroad
-    heroku apps:open
+    ./startup_heroku.sh
