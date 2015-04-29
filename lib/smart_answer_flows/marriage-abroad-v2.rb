@@ -1,3 +1,9 @@
+# Abbreviations used in this smart answer:
+# CNI - Certificate of No Impediment
+# FCO - Foreign & Commonwealth Office
+# OS - Opposite Sex
+# SS - Same Sex
+
 status :draft
 satisfies_need "101000"
 
