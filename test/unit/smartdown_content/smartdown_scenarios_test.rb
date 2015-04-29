@@ -39,6 +39,7 @@ class SmartdownScenariosTest < ActiveSupport::TestCase
       end
     end
   end
+  SmartdownAdapter::Registry.reset_instance
 
   def questions_are_asked(flow, answers, question_names)
     assert_nothing_raised("Exception was thrown when running flow #{flow.name} with answers #{answers}") do
