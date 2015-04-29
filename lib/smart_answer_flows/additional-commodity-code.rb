@@ -16,19 +16,19 @@ multiple_choice :question_1 do
   next_node do |response|
     case response.to_i
     when 25
-      :how_much_sucrose_2?
+      :how_much_sucrose_0_to_50?
     when 50
-      :how_much_sucrose_3?
+      :how_much_sucrose_0_to_30?
     when 75
-      :how_much_sucrose_4?
+      :how_much_sucrose_0_to_5?
     else
-      :how_much_sucrose_1?
+      :how_much_sucrose_0_to_70?
     end
   end
 end
 
 # Q2ab
-multiple_choice :how_much_sucrose_1? do
+multiple_choice :how_much_sucrose_0_to_70? do
   title "How much sucrose, invert sugar or isoglucose does the product contain?"
   hint "The values represent % by weight"
 
@@ -44,7 +44,7 @@ multiple_choice :how_much_sucrose_1? do
 end
 
 # Q2c
-multiple_choice :how_much_sucrose_2? do
+multiple_choice :how_much_sucrose_0_to_50? do
   title "How much sucrose, invert sugar or isoglucose does the product contain?"
   hint "The values represent % by weight"
 
@@ -59,7 +59,7 @@ multiple_choice :how_much_sucrose_2? do
 end
 
 # Q2d
-multiple_choice :how_much_sucrose_3? do
+multiple_choice :how_much_sucrose_0_to_30? do
   title "How much sucrose, invert sugar or isoglucose does the product contain?"
   hint "The values represent % by weight"
 
@@ -73,7 +73,7 @@ multiple_choice :how_much_sucrose_3? do
 end
 
 # Q2e
-multiple_choice :how_much_sucrose_4? do
+multiple_choice :how_much_sucrose_0_to_5? do
   title "How much sucrose, invert sugar or isoglucose does the product contain?"
   hint "The values represent % by weight"
 
