@@ -98,7 +98,7 @@ To help developers track changes in files easily, it is best if you commit V2 fi
 
 ## Deploying to Heroku
 
-    heroku apps:create
+    heroku apps:create --region eu
 
     heroku config:set GOVUK_APP_DOMAIN=preview.alphagov.co.uk
     heroku config:set PLEK_SERVICE_CONTENTAPI_URI=https://www.gov.uk/api
