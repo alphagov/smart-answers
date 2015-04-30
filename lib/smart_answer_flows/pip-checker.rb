@@ -11,8 +11,8 @@ multiple_choice :are_you_getting_dla? do
     Calculators::PIPDates.new
   end
 
-  calculate :getting_dla do
-    responses.last == 'yes'
+  calculate :getting_dla do |response|
+    response == 'yes'
   end
 
   calculate :postcodes do

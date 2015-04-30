@@ -43,8 +43,8 @@ end
 money_question :how_much_extra_per_week? do
   save_input_as :weekly_amount
 
-  calculate :integer_value do
-    money = responses.last.to_f
+  calculate :integer_value do |response|
+    money = response.to_f
     if (money % 1 != 0) or (money > 25 or money < 1)
       raise SmartAnswer::InvalidResponse
     end

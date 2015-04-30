@@ -16,8 +16,8 @@ multiple_choice :are_you_paying_or_receiving? do
       PhraseList.new(:"#{paying_or_receiving}_collect_and_pay_service")
     end
 
-  calculate :enforcement_charge do
-    if responses.last == "pay"
+  calculate :enforcement_charge do |response|
+    if response == "pay"
       PhraseList.new(:enforcement_charge)
     end
   end
@@ -39,9 +39,9 @@ multiple_choice :how_many_children_paid_for? do
     PhraseList.new(:"#{paying_or_receiving}_hint")
   end
 
-  calculate :number_of_children do
+  calculate :number_of_children do |response|
     ## to_i will look for the first integer in the string
-    responses.last.to_i
+    response.to_i
   end
 
   next_node :gets_benefits?
@@ -89,11 +89,11 @@ value_question :how_many_other_children_in_payees_household? do
     PhraseList.new(:"#{paying_or_receiving}_number_of_children")
   end
 
-  calculate :calculator do
+  calculate :calculator do |response|
     # if converting to int messes things up, raise invalid response
     # this deals with nil input through the API
-    raise SmartAnswer::InvalidResponse if responses.last.to_i.to_s != responses.last
-    calculator.number_of_other_children = responses.last.to_i
+    raise SmartAnswer::InvalidResponse if response.to_i.to_s != response
+    calculator.number_of_other_children = response.to_i
     calculator
   end
   next_node :how_many_nights_children_stay_with_payee?
@@ -111,8 +111,8 @@ multiple_choice :how_many_nights_children_stay_with_payee? do
     PhraseList.new(:"#{paying_or_receiving}_how_many_nights")
   end
 
-  calculate :child_maintenance_payment do
-    calculator.number_of_shared_care_nights = responses.last.to_i
+  calculate :child_maintenance_payment do |response|
+    calculator.number_of_shared_care_nights = response.to_i
     sprintf("%.0f", calculator.calculate_maintenance_payment)
   end
 

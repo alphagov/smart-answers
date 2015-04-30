@@ -26,8 +26,8 @@ checkbox_question :type_of_expense? do
   option :using_home_for_business
   option :live_on_business_premises
 
-  calculate :list_of_expenses do
-    responses.last == "none" ? [] : responses.last.split(",")
+  calculate :list_of_expenses do |response|
+    response == "none" ? [] : response.split(",")
   end
 
   next_node do |response|
@@ -77,8 +77,8 @@ multiple_choice :capital_allowances? do
   option :yes
   option :no
 
-  calculate :capital_allowance_claimed do
-    responses.last == "yes" and (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
+  calculate :capital_allowance_claimed do |response|
+    response == "yes" and (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
   end
 
   next_node do |response|
@@ -119,8 +119,8 @@ multiple_choice :is_vehicle_green? do
   option :yes
   option :no
 
-  calculate :vehicle_is_green do
-    responses.last == "yes"
+  calculate :vehicle_is_green do |response|
+    response == "yes"
   end
 
   next_node :price_of_vehicle?
@@ -151,8 +151,8 @@ end
 #Q8 - vehicle private use time
 value_question :vehicle_business_use_time? do
   # deduct percentage amount from [green_cost] or [dirty_cost] and store as [green_write_off] or [dirty_write_off]
-  calculate :business_use_percent do
-    responses.last.to_f
+  calculate :business_use_percent do |response|
+    response.to_f
   end
   calculate :green_vehicle_write_off do
     vehicle_is_green ? Money.new(green_vehicle_price * ( business_use_percent / 100)) : nil
@@ -174,8 +174,8 @@ value_question :drive_business_miles_car_van? do
   # Calculation:
   # [user input 1-10,000] x 0.45
   # [user input > 10,001]  x 0.25
-  calculate :simple_vehicle_costs do
-    answer = responses.last.gsub(",", "").to_f
+  calculate :simple_vehicle_costs do |response|
+    answer = response.gsub(",", "").to_f
     if answer <= 10000
       Money.new(answer * 0.45)
     else
@@ -198,8 +198,8 @@ end
 
 #Q10 - miles to drive for business motorcycle
 value_question :drive_business_miles_motorcycle? do
-  calculate :simple_motorcycle_costs do
-    Money.new(responses.last.gsub(",", "").to_f * 0.24)
+  calculate :simple_motorcycle_costs do |response|
+    Money.new(response.gsub(",", "").to_f * 0.24)
   end
   next_node do
     if list_of_expenses.include?("using_home_for_business")
@@ -215,8 +215,8 @@ end
 #Q11 - hours for home work
 value_question :hours_work_home? do
 
-  calculate :hours_worked_home do
-    responses.last.gsub(",", "").to_f
+  calculate :hours_worked_home do |response|
+    response.gsub(",", "").to_f
   end
 
   calculate :simple_home_costs do
@@ -260,8 +260,8 @@ end
 
 #Q14 - people who live on business premises?
 value_question :people_live_on_premises? do
-  calculate :live_on_premises do
-    responses.last.to_i
+  calculate :live_on_premises do |response|
+    response.to_i
   end
 
   calculate :simple_business_costs do

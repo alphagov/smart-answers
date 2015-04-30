@@ -38,14 +38,14 @@ value_question :sponsor_id? do
     Calculators::StaticDataQuery.new("apply_tier_4_visa_data").data
   end
 
-  calculate :sponsor_name do
-    name = data["post"].merge(data["online"])[responses.last]
+  calculate :sponsor_name do |response|
+    name = data["post"].merge(data["online"])[response]
     raise InvalidResponse, :error unless name
     name
   end
 
-  calculate :post_or_online do
-    if data["post"].keys.include?(responses.last)
+  calculate :post_or_online do |response|
+    if data["post"].keys.include?(response)
       "post"
     else
       "online"

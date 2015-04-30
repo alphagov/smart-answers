@@ -6,8 +6,8 @@ date_question :baby_due_date_maternity? do
   from { 1.year.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
-  calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(Date.parse(responses.last))
+  calculate :calculator do |response|
+    Calculators::MaternityPaternityCalculator.new(Date.parse(response))
   end
   next_node :employment_contract?
 end
@@ -16,8 +16,8 @@ end
 multiple_choice :employment_contract? do
   option :yes
   option :no
-  calculate :maternity_leave_info do
-    if responses.last == 'yes'
+  calculate :maternity_leave_info do |response|
+    if response == 'yes'
       PhraseList.new(:maternity_leave_table)
     else
       PhraseList.new(:not_entitled_to_statutory_maternity_leave)
@@ -35,8 +35,8 @@ date_question :date_leave_starts? do
     calculator.leave_earliest_start_date
   end
 
-  calculate :leave_start_date do
-    ls_date = Date.parse(responses.last)
+  calculate :leave_start_date do |response|
+    ls_date = Date.parse(response)
     raise SmartAnswer::InvalidResponse if ls_date < leave_earliest_start_date
     calculator.leave_start_date = ls_date
     calculator.leave_start_date
@@ -71,8 +71,8 @@ end
 multiple_choice :did_the_employee_work_for_you? do
   option yes: :is_the_employee_on_your_payroll?
   option no: :maternity_leave_and_pay_result
-  calculate :not_entitled_to_pay_reason do
-    responses.last == 'no' ? :not_worked_long_enough : nil
+  calculate :not_entitled_to_pay_reason do |response|
+    response == 'no' ? :not_worked_long_enough : nil
   end
 end
 
@@ -81,8 +81,8 @@ multiple_choice :is_the_employee_on_your_payroll? do
   option yes: :last_normal_payday? # NOTE: goes to shared questions
   option no: :maternity_leave_and_pay_result
 
-  calculate :not_entitled_to_pay_reason do
-    responses.last == 'no' ? :must_be_on_payroll : nil
+  calculate :not_entitled_to_pay_reason do |response|
+    response == 'no' ? :must_be_on_payroll : nil
   end
 
   calculate :to_saturday do
@@ -95,8 +95,8 @@ date_question :last_normal_payday? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
-  calculate :last_payday do
-    calculator.last_payday = Date.parse(responses.last)
+  calculate :last_payday do |response|
+    calculator.last_payday = Date.parse(response)
     raise SmartAnswer::InvalidResponse if calculator.last_payday > Date.parse(to_saturday)
     calculator.last_payday
   end
@@ -112,8 +112,8 @@ date_question :payday_eight_weeks? do
     calculator.format_date_day calculator.payday_offset
   end
 
-  calculate :last_payday_eight_weeks do
-    payday = Date.parse(responses.last)
+  calculate :last_payday_eight_weeks do |response|
+    payday = Date.parse(response)
     payday += 1 if leave_type == 'maternity'
     raise SmartAnswer::InvalidResponse if payday > Date.parse(payday_offset)
     calculator.pre_offset_payday = payday
@@ -140,8 +140,8 @@ end
 
 ## QM9 Maternity only onwards
 money_question :earnings_for_pay_period? do
-  calculate :calculator do
-    calculator.calculate_average_weekly_pay(pay_pattern, responses.last)
+  calculate :calculator do |response|
+    calculator.calculate_average_weekly_pay(pay_pattern, response)
     calculator
   end
   calculate :average_weekly_earnings do
@@ -166,8 +166,8 @@ end
 
 ## QM11
 date_question :when_is_your_employees_next_pay_day? do
-  calculate :next_pay_day do
-    calculator.pay_date = Date.parse(responses.last)
+  calculate :next_pay_day do |response|
+    calculator.pay_date = Date.parse(response)
     calculator.pay_date
   end
 
@@ -187,8 +187,8 @@ end
 
 ## QM13
 value_question :what_specific_date_each_month_is_the_employee_paid? do
-  calculate :pay_day_in_month do
-    day = responses.last.to_i
+  calculate :pay_day_in_month do |response|
+    day = response.to_i
     raise InvalidResponse unless day > 0 and day < 32
     calculator.pay_day_in_month = day
   end
@@ -200,9 +200,9 @@ end
 checkbox_question :what_days_does_the_employee_work? do
   (0...days_of_the_week.size).each { |i| option i.to_s.to_sym }
 
-  calculate :last_day_in_week_worked do
-    calculator.work_days = responses.last.split(",").map(&:to_i)
-    calculator.pay_day_in_week = responses.last.split(",").sort.last.to_i
+  calculate :last_day_in_week_worked do |response|
+    calculator.work_days = response.split(",").map(&:to_i)
+    calculator.pay_day_in_week = response.split(",").sort.last.to_i
   end
   next_node :maternity_leave_and_pay_result
 end
@@ -211,9 +211,9 @@ end
 multiple_choice :what_particular_day_of_the_month_is_the_employee_paid? do
   days_of_the_week.each { |d| option d.to_sym }
 
-  calculate :pay_day_in_week do
-    calculator.pay_day_in_week = days_of_the_week.index(responses.last)
-    responses.last
+  calculate :pay_day_in_week do |response|
+    calculator.pay_day_in_week = days_of_the_week.index(response)
+    response
   end
   next_node :which_week_in_month_is_the_employee_paid?
 end
@@ -226,8 +226,8 @@ multiple_choice :which_week_in_month_is_the_employee_paid? do
   option :"fourth"
   option :"last"
 
-  calculate :pay_week_in_month do
-    calculator.pay_week_in_month = responses.last
+  calculate :pay_week_in_month do |response|
+    calculator.pay_week_in_month = response
   end
   next_node :maternity_leave_and_pay_result
 end

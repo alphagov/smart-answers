@@ -9,14 +9,14 @@ multiple_choice :what_are_you_looking_for? do
   option :all_help
   save_input_as :which_help
 
-  calculate :bills_help do
-    %w(help_with_fuel_bill).include?(responses.last) ? :bills_help : nil
+  calculate :bills_help do |response|
+    %w(help_with_fuel_bill).include?(response) ? :bills_help : nil
   end
-  calculate :measure_help do
-    %w(help_energy_efficiency help_boiler_measure).include?(responses.last) ? :measure_help : nil
+  calculate :measure_help do |response|
+    %w(help_energy_efficiency help_boiler_measure).include?(response) ? :measure_help : nil
   end
-  calculate :both_help do
-    %w(all_help).include?(responses.last) ? :both_help : nil
+  calculate :both_help do |response|
+    %w(all_help).include?(response) ? :both_help : nil
   end
 
   calculate :warm_home_discount_amount do
@@ -38,8 +38,8 @@ checkbox_question :what_are_your_circumstances? do
   option :permission
   option :social_housing
 
-  calculate :circumstances do
-    responses.last.split(",")
+  calculate :circumstances do |response|
+    response.split(",")
   end
 
   calculate :benefits_claimed do
@@ -68,8 +68,8 @@ checkbox_question :what_are_your_circumstances_without_bills_help? do
   option :property
   option :permission
 
-  calculate :circumstances do
-    responses.last.split(",")
+  calculate :circumstances do |response|
+    response.split(",")
   end
 
   calculate :benefits_claimed do
@@ -94,8 +94,8 @@ date_question :date_of_birth? do
   from { 100.years.ago }
   to { Date.today }
 
-  calculate :age_variant do
-    dob = Date.parse(responses.last)
+  calculate :age_variant do |response|
+    dob = Date.parse(response)
     if dob < Date.new(1951, 7, 5)
       :winter_fuel_payment
     elsif dob < 60.years.ago(Date.today + 1)
@@ -117,11 +117,11 @@ checkbox_question :which_benefits? do
   option :child_tax_credit
   option :working_tax_credit
 
-  calculate :benefits_claimed do
-    responses.last.split(",")
+  calculate :benefits_claimed do |response|
+    response.split(",")
   end
-  calculate :incomesupp_jobseekers_2 do
-    if %w(working_tax_credit).include?(responses.last)
+  calculate :incomesupp_jobseekers_2 do |response|
+    if %w(working_tax_credit).include?(response)
       if age_variant == :over_60
         :incomesupp_jobseekers_2
       end
@@ -156,14 +156,14 @@ checkbox_question :disabled_or_have_children? do
   option :pensioner_premium
   option :work_support_esa
 
-  calculate :incomesupp_jobseekers_1 do
-    case responses.last
+  calculate :incomesupp_jobseekers_1 do |response|
+    case response
     when 'disabled', 'disabled_child', 'child_under_5', 'pensioner_premium'
       :incomesupp_jobseekers_1
     end
   end
-  calculate :incomesupp_jobseekers_2 do
-    case responses.last
+  calculate :incomesupp_jobseekers_2 do |response|
+    case response
     when 'child_under_16', 'work_support_esa'
       if circumstances.include?('social_housing') || (benefits_claimed.include?('working_tax_credit') && age_variant != :over_60)
         nil
@@ -184,14 +184,14 @@ multiple_choice :when_property_built? do
   option :"before-1940"
   save_input_as :property_age
 
-  calculate :modern do
-    %w(on-or-after-1995).include?(responses.last)
+  calculate :modern do |response|
+    %w(on-or-after-1995).include?(response)
   end
-  calculate :older do
-    %w(1940s-1984).include?(responses.last)
+  calculate :older do |response|
+    %w(1940s-1984).include?(response)
   end
-  calculate :historic do
-    %w(before-1940).include?(responses.last)
+  calculate :historic do |response|
+    %w(before-1940).include?(response)
   end
 
   next_node :type_of_property?
@@ -229,8 +229,8 @@ checkbox_question :home_features_modern? do
   option :loft_attic_conversion
   option :draught_proofing
 
-  calculate :features do
-    responses.last.split(",")
+  calculate :features do |response|
+    response.split(",")
   end
 
   define_predicate(:modern_and_gas_and_electric_heating?) do |response|
@@ -272,8 +272,8 @@ checkbox_question :home_features_historic? do
   option :modern_boiler
   option :draught_proofing
 
-  calculate :features do
-    responses.last.split(",")
+  calculate :features do |response|
+    response.split(",")
   end
 
   define_predicate(:measure_help_and_property_permission_circumstance?) do
@@ -311,8 +311,8 @@ checkbox_question :home_features_older? do
   option :modern_boiler
   option :draught_proofing
 
-  calculate :features do
-    responses.last.split(",")
+  calculate :features do |response|
+    response.split(",")
   end
 
   define_predicate(:measure_help_and_property_permission_circumstance?) do

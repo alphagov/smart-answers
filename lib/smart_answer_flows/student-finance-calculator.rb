@@ -37,13 +37,13 @@ end
 #Q3
 money_question :how_much_are_your_tuition_fees_per_year? do
 
-  calculate :tuition_fee_amount do
+  calculate :tuition_fee_amount do |response|
     if course_type == "uk-full-time" or course_type == 'eu-full-time'
-      raise SmartAnswer::InvalidResponse if responses.last > 9000
+      raise SmartAnswer::InvalidResponse if response > 9000
     else
-      raise SmartAnswer::InvalidResponse if responses.last > 6750
+      raise SmartAnswer::InvalidResponse if response > 6750
     end
-    Money.new(responses.last)
+    Money.new(response)
   end
 
   calculate :eligible_finance do
@@ -68,9 +68,9 @@ multiple_choice :where_will_you_live_while_studying? do
   option :'away-outside-london'
   option :'away-in-london'
 
-  calculate :max_maintenance_loan_amount do
+  calculate :max_maintenance_loan_amount do |response|
     begin
-      Money.new(max_maintainence_loan_amounts[start_date][responses.last].to_s)
+      Money.new(max_maintainence_loan_amounts[start_date][response].to_s)
     rescue
       raise SmartAnswer::InvalidResponse
     end
@@ -83,8 +83,8 @@ end
 #Q5
 money_question :whats_your_household_income? do
 
-  calculate :maintenance_grant_amount do
-    household_income = responses.last
+  calculate :maintenance_grant_amount do |response|
+    household_income = response
     # 2015-16 rates are the same as 2014-15:
     # max of £3,387 for income up to £25,000 then,
     # £1 less than max for each whole £5.28 above £25000 up to £42,611
@@ -102,14 +102,14 @@ money_question :whats_your_household_income? do
   end
 
   # loan amount depends on maintenance grant amount and household income
-  calculate :maintenance_loan_amount do
-    if responses.last <= 42875
+  calculate :maintenance_loan_amount do |response|
+    if response <= 42875
       # reduce maintenance loan by £0.5 for each £1 of maintenance grant
       Money.new ( max_maintenance_loan_amount - (maintenance_grant_amount.value / 2.0).floor)
     else
       # reduce maintenance loan by £1 for each full £9.90 of income above £42875 until loan reaches 65% of max, when no further reduction applies
       min_loan_amount = (0.65 * max_maintenance_loan_amount.value).floor # to match the reference table
-      reduced_loan_amount = max_maintenance_loan_amount - ((responses.last - 42875) / 9.59).floor
+      reduced_loan_amount = max_maintenance_loan_amount - ((response - 42875) / 9.59).floor
       if reduced_loan_amount > min_loan_amount
         Money.new (reduced_loan_amount)
       else
@@ -139,8 +139,8 @@ checkbox_question :do_any_of_the_following_apply_uk_full_time_students_only? do
   option :"low-income"
   option :"no"
 
-  calculate :uk_ft_circumstances do
-    responses.last.split(',')
+  calculate :uk_ft_circumstances do |response|
+    response.split(',')
   end
 
   next_node :what_course_are_you_studying?
@@ -152,8 +152,8 @@ checkbox_question :do_any_of_the_following_apply_all_uk_students? do
   option :"low-income"
   option :"no"
 
-  calculate :all_uk_students_circumstances do
-    responses.last.split(',')
+  calculate :all_uk_students_circumstances do |response|
+    response.split(',')
   end
 
   next_node :what_course_are_you_studying?

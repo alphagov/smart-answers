@@ -1,8 +1,8 @@
 date_question :date_of_redundancy? do
   from { Date.civil(2012, 1, 1) }
   to { Date.today }
-  calculate :rates do
-    Calculators::RedundancyCalculator.redundancy_rates(Date.parse(responses.last))
+  calculate :rates do |response|
+    Calculators::RedundancyCalculator.redundancy_rates(Date.parse(response))
   end
   calculate :rate do
     rates.rate
@@ -15,8 +15,8 @@ date_question :date_of_redundancy? do
 end
 
 value_question :age_of_employee? do
-  calculate :employee_age do
-    age = responses.last.to_i
+  calculate :employee_age do |response|
+    age = response.to_i
     raise InvalidResponse if age < 16 or age > 100
     age
   end
@@ -30,8 +30,8 @@ end
 # Using Float(response) instead will fail with an ArgumentError that will be handled by the flow controller
 value_question :years_employed? do
   save_input_as :years_employed
-  calculate :years_employed do
-    ye = Float(responses.last).floor
+  calculate :years_employed do |response|
+    ye = Float(response).floor
     raise InvalidResponse if ye.to_i > years_available
     ye
   end
@@ -45,8 +45,8 @@ value_question :years_employed? do
 end
 
 money_question :weekly_pay_before_tax? do
-  calculate :calculator do
-    Calculators::RedundancyCalculator.new(rate, employee_age, years_employed, responses.last)
+  calculate :calculator do |response|
+    Calculators::RedundancyCalculator.new(rate, employee_age, years_employed, response)
   end
   calculate :statutory_redundancy_pay do
     calculator.format_money(calculator.pay.to_f)

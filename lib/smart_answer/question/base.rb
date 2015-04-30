@@ -59,7 +59,7 @@ module SmartAnswer
           state.save_input_as @save_input_as if @save_input_as
         end
         @calculations.each do |calculation|
-          new_state = calculation.evaluate(new_state)
+          new_state = calculation.evaluate(new_state, input)
         end
         new_state
       end

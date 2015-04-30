@@ -5,8 +5,8 @@ date_question :when_does_your_vat_accounting_period_end? do
   default_day -1
   next_node :how_do_you_want_to_pay?
 
-  calculate :period_end_date do
-    date = Date.parse(responses.last)
+  calculate :period_end_date do |response|
+    date = Date.parse(response)
     raise InvalidResponse unless date == date.end_of_month
     date
   end
@@ -21,8 +21,8 @@ multiple_choice :how_do_you_want_to_pay? do
   option :'chaps' => :result_chaps
   option :'cheque' => :result_cheque
 
-  calculate :calculator do
-    Calculators::VatPaymentDeadlines.new(period_end_date, responses.last)
+  calculate :calculator do |response|
+    Calculators::VatPaymentDeadlines.new(period_end_date, response)
   end
 
   calculate :last_payment_date do

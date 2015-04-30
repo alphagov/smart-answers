@@ -100,6 +100,19 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
   test "Can calculate other variables based on input" do
     q = SmartAnswer::Question::Base.new(:favourite_colour?) do
+      calculate :complementary_colour do |response|
+        response == :red ? :green : :red
+      end
+      next_node :done
+    end
+    initial_state = SmartAnswer::State.new(q.name)
+    new_state = q.transition(initial_state, :red)
+    assert_equal :green, new_state.complementary_colour
+    assert new_state.frozen?
+  end
+
+  test "Can calculate other variables based on saved input" do
+    q = SmartAnswer::Question::Base.new(:favourite_colour?) do
       save_input_as :colour_preference
       calculate :complementary_colour do
         colour_preference == :red ? :green : :red

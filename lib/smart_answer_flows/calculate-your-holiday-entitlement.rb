@@ -34,8 +34,8 @@ end
 
 # Q3
 value_question :how_many_days_per_week? do
-  calculate :days_per_week do
-    days_per_week = Float(responses.last)
+  calculate :days_per_week do |response|
+    days_per_week = Float(response)
     raise InvalidResponse if days_per_week <= 0 or days_per_week > 7
     days_per_week
   end
@@ -84,7 +84,7 @@ date_question :what_is_your_leaving_date? do
   to { Date.civil(1.year.since(Date.today).year, 12, 31) }
   save_input_as :leaving_date
 
-  next_node do |response|
+  next_node do
     if holiday_period == "starting-and-leaving"
       case calculation_basis
       when "days-worked-per-week"
@@ -105,7 +105,7 @@ date_question :when_does_your_leave_year_start? do
   from { Date.civil(1.year.ago.year, 1, 1) }
   to { Date.civil(1.year.since(Date.today).year, 12, 31) }
   save_input_as :leave_year_start_date
-  next_node do |response|
+  next_node do
     case calculation_basis
     when "days-worked-per-week"
       :how_many_days_per_week?
@@ -119,9 +119,9 @@ end
 
 # Q10
 value_question :how_many_hours_per_week? do
-  calculate :calculator do
+  calculate :calculator do |response|
     Calculators::HolidayEntitlement.new(
-      hours_per_week: Float(responses.last),
+      hours_per_week: Float(response),
       start_date: start_date,
       leaving_date: leaving_date,
       leave_year_start_date: leave_year_start_date
@@ -143,8 +143,8 @@ value_question :how_many_hours_per_week? do
 end
 
 value_question :casual_or_irregular_hours? do
-  calculate :total_hours do
-    hours = Float(responses.last)
+  calculate :total_hours do |response|
+    hours = Float(response)
     raise InvalidResponse if hours <= 0
     hours
   end
@@ -164,8 +164,8 @@ value_question :casual_or_irregular_hours? do
 end
 
 value_question :annualised_hours? do
-  calculate :total_hours do
-    hours = Float(responses.last)
+  calculate :total_hours do |response|
+    hours = Float(response)
     raise InvalidResponse if hours <= 0
     hours
   end
@@ -188,8 +188,8 @@ value_question :annualised_hours? do
 end
 
 value_question :compressed_hours_how_many_hours_per_week? do
-  calculate :hours_per_week do
-    hours = Float(responses.last)
+  calculate :hours_per_week do |response|
+    hours = Float(response)
     raise InvalidResponse if hours <= 0 or hours > 168
     hours
   end
@@ -197,8 +197,8 @@ value_question :compressed_hours_how_many_hours_per_week? do
 end
 
 value_question :compressed_hours_how_many_days_per_week? do
-  calculate :days_per_week do
-    days = Float(responses.last)
+  calculate :days_per_week do |response|
+    days = Float(response)
     raise InvalidResponse if days <= 0 or days > 7
     days
   end
@@ -235,8 +235,8 @@ multiple_choice :shift_worker_basis? do
 end
 
 value_question :shift_worker_hours_per_shift? do
-  calculate :hours_per_shift do
-    hours_per_shift = Float(responses.last)
+  calculate :hours_per_shift do |response|
+    hours_per_shift = Float(response)
     raise InvalidResponse if hours_per_shift <= 0
     hours_per_shift
   end
@@ -244,8 +244,8 @@ value_question :shift_worker_hours_per_shift? do
 end
 
 value_question :shift_worker_shifts_per_shift_pattern? do
-  calculate :shifts_per_shift_pattern do
-    shifts = Integer(responses.last)
+  calculate :shifts_per_shift_pattern do |response|
+    shifts = Integer(response)
     raise InvalidResponse if shifts <= 0
     shifts
   end
@@ -253,8 +253,8 @@ value_question :shift_worker_shifts_per_shift_pattern? do
 end
 
 value_question :shift_worker_days_per_shift_pattern? do
-  calculate :days_per_shift_pattern do
-    days = Float(responses.last)
+  calculate :days_per_shift_pattern do |response|
+    days = Float(response)
     raise InvalidResponse if days < shifts_per_shift_pattern
     days
   end

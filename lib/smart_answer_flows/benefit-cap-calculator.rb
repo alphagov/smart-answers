@@ -63,8 +63,8 @@ checkbox_question :receiving_non_exemption_benefits? do
   option :widow_pension
   option :widows_aged
 
-  calculate :benefit_related_questions do
-    questions = responses.last.split(",").map { |r| :"#{r}_amount?" }
+  calculate :benefit_related_questions do |response|
+    questions = response.split(",").map { |r| :"#{r}_amount?" }
     questions << :housing_benefit_amount? if housing_benefit == 'yes'
     questions << :single_couple_lone_parent?
     questions.shift
@@ -92,8 +92,8 @@ end
 #Q5a
 money_question :bereavement_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -104,8 +104,8 @@ end
 #Q5b
 money_question :carers_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -116,8 +116,8 @@ end
 #Q5c
 money_question :child_benefit_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -128,8 +128,8 @@ end
 #Q5d
 money_question :child_tax_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -140,8 +140,8 @@ end
 #Q5e
 money_question :esa_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -152,8 +152,8 @@ end
 #Q5f
 money_question :guardian_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -164,8 +164,8 @@ end
 #Q5g
 money_question :incapacity_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -176,8 +176,8 @@ end
 #Q5h
 money_question :income_support_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -188,8 +188,8 @@ end
 #Q5i
 money_question :jsa_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -200,8 +200,8 @@ end
 #Q5j
 money_question :maternity_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -212,8 +212,8 @@ end
 #Q5k
 money_question :sda_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -224,8 +224,8 @@ end
 #Q5l
 money_question :widowed_mother_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -236,8 +236,8 @@ end
 #Q5m
 money_question :widowed_parent_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -248,8 +248,8 @@ end
 #Q5n
 money_question :widow_pension_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -260,8 +260,8 @@ end
 #Q5o
 money_question :widows_aged_amount? do
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -274,8 +274,8 @@ money_question :housing_benefit_amount? do
 
   save_input_as :housing_benefit_amount
 
-  calculate :total_benefits do
-    total_benefits + responses.last.to_f
+  calculate :total_benefits do |response|
+    total_benefits + response.to_f
   end
 
   next_node do
@@ -289,8 +289,8 @@ multiple_choice :single_couple_lone_parent? do
   option :couple
   option :parent
 
-  calculate :benefit_cap do
-    if responses.last == 'single'
+  calculate :benefit_cap do |response|
+    if response == 'single'
       benefit_cap = 350
     else
       benefit_cap = 500

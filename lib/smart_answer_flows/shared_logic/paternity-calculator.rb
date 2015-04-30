@@ -8,8 +8,8 @@ end
 
 ## QP1
 date_question :baby_due_date_paternity? do
-  calculate :due_date do
-    Date.parse(responses.last)
+  calculate :due_date do |response|
+    Date.parse(response)
   end
 
   calculate :calculator do
@@ -21,8 +21,8 @@ end
 
 ## QAP1 - Paternity Adoption
 date_question :employee_date_matched_paternity_adoption? do
-  calculate :matched_date do
-    Date.parse(responses.last)
+  calculate :matched_date do |response|
+    Date.parse(response)
   end
 
   calculate :calculator do
@@ -42,8 +42,8 @@ end
 
 ## QP2
 date_question :baby_birth_date_paternity? do
-  calculate :date_of_birth do
-    Date.parse(responses.last)
+  calculate :date_of_birth do |response|
+    Date.parse(response)
   end
 
   calculate :calculator do
@@ -57,8 +57,8 @@ end
 ## QAP2 - Paternity Adoption
 date_question :padoption_date_of_adoption_placement? do
 
-  calculate :ap_adoption_date do
-    placement_date = Date.parse(responses.last)
+  calculate :ap_adoption_date do |response|
+    placement_date = Date.parse(response)
     raise SmartAnswer::InvalidResponse if placement_date < matched_date
     calculator.adoption_placement_date = placement_date
     placement_date
@@ -135,8 +135,8 @@ multiple_choice :employee_on_payroll_paternity? do
     paternity_adoption? ? 'adoption' : 'notice-period'
   end
 
-  calculate :not_entitled_reason do
-    if responses.last == 'no' && has_contract == 'no'
+  calculate :not_entitled_reason do |response|
+    if response == 'no' && has_contract == 'no'
       PhraseList.new(
         :paternity_not_entitled_to_leave,
         :paternity_not_entitled_to_pay_intro,
@@ -172,8 +172,8 @@ multiple_choice :employee_still_employed_on_birth_date? do
   option :no
   save_input_as :employed_dob
 
-  calculate :not_entitled_reason do
-    if responses.last == 'no' and has_contract == 'no'
+  calculate :not_entitled_reason do |response|
+    if response == 'no' and has_contract == 'no'
       PhraseList.new(
         :paternity_not_entitled_to_leave,
         :paternity_not_entitled_to_pay_intro,
@@ -194,8 +194,8 @@ date_question :employee_start_paternity? do
 
   save_input_as :employee_leave_start
 
-  calculate :leave_start_date do
-    calculator.leave_start_date = Date.parse(responses.last)
+  calculate :leave_start_date do |response|
+    calculator.leave_start_date = Date.parse(response)
     if paternity_adoption?
       raise SmartAnswer::InvalidResponse if calculator.leave_start_date < ap_adoption_date
     else
@@ -217,9 +217,9 @@ multiple_choice :employee_paternity_length? do
   option :two_weeks
   save_input_as :leave_amount
 
-  calculate :leave_end_date do
+  calculate :leave_end_date do |response|
     unless leave_start_date.nil?
-      if responses.last == 'one_week'
+      if response == 'one_week'
         1.week.since(leave_start_date)
       else
         2.weeks.since(leave_start_date)
@@ -257,8 +257,8 @@ date_question :last_normal_payday_paternity? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
-  calculate :calculator do
-    calculator.last_payday = Date.parse(responses.last)
+  calculate :calculator do |response|
+    calculator.last_payday = Date.parse(response)
     raise SmartAnswer::InvalidResponse if calculator.last_payday > Date.parse(to_saturday)
     calculator
   end
@@ -275,8 +275,8 @@ date_question :payday_eight_weeks_paternity? do
     calculator.payday_offset
   end
 
-  calculate :pre_offset_payday do
-    payday = Date.parse(responses.last)
+  calculate :pre_offset_payday do |response|
+    payday = Date.parse(response)
     raise SmartAnswer::InvalidResponse if payday > calculator.payday_offset
     calculator.pre_offset_payday = payday
     payday
@@ -297,8 +297,8 @@ multiple_choice :pay_frequency_paternity? do
   option monthly: :earnings_for_pay_period_paternity?
   save_input_as :pay_pattern
 
-  calculate :calculator do
-    calculator.pay_method = responses.last
+  calculate :calculator do |response|
+    calculator.pay_method = response
     calculator
   end
 
@@ -339,8 +339,8 @@ date_question :next_pay_day_paternity? do
   to { 2.years.since(Date.today) }
   save_input_as :next_pay_day
 
-  calculate :calculator do
-    calculator.pay_date = Date.parse(responses.last)
+  calculate :calculator do |response|
+    calculator.pay_date = Date.parse(response)
     calculator
   end
   next_node :paternity_leave_and_pay
@@ -363,8 +363,8 @@ end
 ## QP17
 value_question :specific_date_each_month_paternity? do
 
-  calculate :pay_day_in_month do
-    day = responses.last.to_i
+  calculate :pay_day_in_month do |response|
+    day = response.to_i
     raise InvalidResponse unless day > 0 and day < 32
     calculator.pay_day_in_month = day
   end
@@ -377,9 +377,9 @@ end
 checkbox_question :days_of_the_week_paternity? do
   (0...days_of_the_week.size).each { |i| option i.to_s.to_sym }
 
-  calculate :last_day_in_week_worked do
-    calculator.work_days = responses.last.split(",").map(&:to_i)
-    calculator.pay_day_in_week = responses.last.split(",").sort.last.to_i
+  calculate :last_day_in_week_worked do |response|
+    calculator.work_days = response.split(",").map(&:to_i)
+    calculator.pay_day_in_week = response.split(",").sort.last.to_i
   end
 
   next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
@@ -396,9 +396,9 @@ multiple_choice :day_of_the_month_paternity? do
   option :"5"
   option :"6"
 
-  calculate :pay_day_in_week do
-    calculator.pay_day_in_week = responses.last.to_i
-    days_of_the_week[responses.last.to_i]
+  calculate :pay_day_in_week do |response|
+    calculator.pay_day_in_week = response.to_i
+    days_of_the_week[response.to_i]
   end
 
   next_node :pay_date_options_paternity?
@@ -412,8 +412,8 @@ multiple_choice :pay_date_options_paternity? do
   option :"fourth"
   option :"last"
 
-  calculate :pay_week_in_month do
-    calculator.pay_week_in_month = responses.last
+  calculate :pay_week_in_month do |response|
+    calculator.pay_week_in_month = response
   end
 
   next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))

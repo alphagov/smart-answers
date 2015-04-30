@@ -52,10 +52,10 @@ end
 
 # Q3
 value_question :how_old_are_you? do
-  calculate :age do
+  calculate :age do |response|
     # Fail-hard cast to Integer here will raise
     # an exception and show the appropriate error.
-    age = Integer(responses.last)
+    age = Integer(response)
     if age <= 0 || age > 200
       raise SmartAnswer::InvalidResponse
     end
@@ -72,10 +72,10 @@ end
 
 # Q3 Past
 value_question :how_old_were_you? do
-  calculate :age do
+  calculate :age do |response|
     # Fail-hard cast to Integer here will raise
     # an exception and show the appropriate error.
-    age = Integer(responses.last)
+    age = Integer(response)
     if age <= 0
       raise SmartAnswer::InvalidResponse
     end
@@ -93,8 +93,8 @@ end
 
 # Q4
 value_question :how_often_do_you_get_paid? do
-  calculate :pay_frequency do
-    pay_frequency = responses.last.to_i
+  calculate :pay_frequency do |response|
+    pay_frequency = response.to_i
     if pay_frequency < 1 or pay_frequency > 31
       raise SmartAnswer::InvalidResponse
     end
@@ -105,8 +105,8 @@ end
 
 # Q4 Past
 value_question :how_often_did_you_get_paid? do
-  calculate :pay_frequency do
-    pay_frequency = responses.last.to_i
+  calculate :pay_frequency do |response|
+    pay_frequency = response.to_i
     if pay_frequency < 1 or pay_frequency > 31
       raise SmartAnswer::InvalidResponse
     end
@@ -117,8 +117,8 @@ end
 
 # Q5
 value_question :how_many_hours_do_you_work? do
-  calculate :basic_hours do
-    basic_hours = Float(responses.last)
+  calculate :basic_hours do |response|
+    basic_hours = Float(response)
     if basic_hours < 0 or basic_hours > (pay_frequency * 16)
       raise SmartAnswer::InvalidResponse, :error_hours
     end
@@ -129,8 +129,8 @@ end
 
 # Q5 Past
 value_question :how_many_hours_did_you_work? do
-  calculate :basic_hours do
-    basic_hours = Float(responses.last)
+  calculate :basic_hours do |response|
+    basic_hours = Float(response)
     if basic_hours < 0 or basic_hours > (pay_frequency * 16)
       raise SmartAnswer::InvalidResponse, :error_hours
     end
@@ -142,8 +142,8 @@ end
 # Q6
 money_question :how_much_are_you_paid_during_pay_period? do
 
-  calculate :calculator do
-    amount_paid = Float(responses.last)
+  calculate :calculator do |response|
+    amount_paid = Float(response)
     if amount_paid < 0
       raise SmartAnswer::InvalidResponse
     end
@@ -163,8 +163,8 @@ end
 # Q6 Past
 money_question :how_much_were_you_paid_during_pay_period? do
 
-  calculate :calculator do
-    amount_paid = Float(responses.last)
+  calculate :calculator do |response|
+    amount_paid = Float(response)
     if amount_paid < 0
       raise SmartAnswer::InvalidResponse
     end
@@ -184,8 +184,8 @@ end
 # Q7
 value_question :how_many_hours_overtime_do_you_work? do
 
-  calculate :overtime_hours do
-    overtime_hours = Float(responses.last)
+  calculate :overtime_hours do |response|
+    overtime_hours = Float(response)
     if overtime_hours < 0
       raise SmartAnswer::InvalidResponse
     end
@@ -205,8 +205,8 @@ end
 value_question :how_many_hours_overtime_did_you_work? do
   save_input_as :overtime_hours
 
-  calculate :overtime_hours do
-    overtime_hours = Float(responses.last)
+  calculate :overtime_hours do |response|
+    overtime_hours = Float(response)
     if overtime_hours < 0
       raise SmartAnswer::InvalidResponse
     end
@@ -226,8 +226,8 @@ end
 money_question :what_is_overtime_pay_per_hour? do
   save_input_as :overtime_rate
 
-  calculate :overtime_rate do
-    overtime_hourly_rate = Float(responses.last)
+  calculate :overtime_rate do |response|
+    overtime_hourly_rate = Float(response)
     if overtime_hourly_rate < 0
       raise SmartAnswer::InvalidResponse
     end
@@ -241,8 +241,8 @@ end
 money_question :what_was_overtime_pay_per_hour? do
   save_input_as :overtime_rate
 
-  calculate :overtime_rate do
-    overtime_hourly_rate = Float(responses.last)
+  calculate :overtime_rate do |response|
+    overtime_hourly_rate = Float(response)
     if overtime_hourly_rate < 0
       raise SmartAnswer::InvalidResponse
     end
@@ -259,8 +259,8 @@ multiple_choice :is_provided_with_accommodation? do
   option "yes_free"
   option "yes_charged"
 
-  calculate :accommodation_provided do
-    responses.last != 'no'
+  calculate :accommodation_provided do |response|
+    response != 'no'
   end
 
   calculate :total_hours do
@@ -302,8 +302,8 @@ multiple_choice :was_provided_with_accommodation? do
   option "yes_free"
   option "yes_charged"
 
-  calculate :accommodation_provided do
-    responses.last != 'no'
+  calculate :accommodation_provided do |response|
+    response != 'no'
   end
 
   calculate :total_hours do
@@ -341,8 +341,8 @@ end
 
 # Q10
 money_question :current_accommodation_charge? do
-  calculate :accommodation_charge do
-    accommodation_charge = Float(responses.last)
+  calculate :accommodation_charge do |response|
+    accommodation_charge = Float(response)
     if accommodation_charge <= 0
       raise SmartAnswer::InvalidResponse
     end
@@ -353,8 +353,8 @@ end
 
 # Q10 Past
 money_question :past_accommodation_charge? do
-  calculate :accommodation_charge do
-    accommodation_charge = Float(responses.last)
+  calculate :accommodation_charge do |response|
+    accommodation_charge = Float(response)
     if accommodation_charge <= 0
       raise SmartAnswer::InvalidResponse
     end
@@ -368,8 +368,8 @@ value_question :current_accommodation_usage? do
 
   save_input_as :accommodation_usage
 
-  calculate :calculator do
-    days_per_week = Integer(responses.last)
+  calculate :calculator do |response|
+    days_per_week = Integer(response)
     if days_per_week < 0 or days_per_week > 7
       raise SmartAnswer::InvalidResponse
     end
@@ -410,8 +410,8 @@ value_question :past_accommodation_usage? do
 
   save_input_as :accommodation_usage
 
-  calculate :calculator do
-    days_per_week = Integer(responses.last)
+  calculate :calculator do |response|
+    days_per_week = Integer(response)
     if days_per_week < 0 or days_per_week > 7
       raise SmartAnswer::InvalidResponse
     end

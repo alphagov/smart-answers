@@ -36,20 +36,20 @@ multiple_choice :going_or_already_abroad? do
   end
 
 
-  calculate :already_abroad_text do
-    if responses.last == 'already_abroad'
+  calculate :already_abroad_text do |response|
+    if response == 'already_abroad'
       PhraseList.new(:already_abroad_text)
       end
   end
 
-  calculate :already_abroad_text_two do
-    if responses.last == 'already_abroad'
+  calculate :already_abroad_text_two do |response|
+    if response == 'already_abroad'
       PhraseList.new(:already_abroad_text_two)
     end
   end
 
-  calculate :iidb_maybe do
-    if responses.last == 'already_abroad'
+  calculate :iidb_maybe do |response|
+    if response == 'already_abroad'
       PhraseList.new(:iidb_maybe_text)
     end
   end

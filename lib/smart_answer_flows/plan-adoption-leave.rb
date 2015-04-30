@@ -8,19 +8,19 @@ date_question :child_match_date? do
 end
 
 date_question :child_arrival_date? do
-  calculate :arrival_date do
-    raise InvalidResponse if Date.parse(responses.last) <= Date.parse(match_date)
-    responses.last
+  calculate :arrival_date do |response|
+    raise InvalidResponse if Date.parse(response) <= Date.parse(match_date)
+    response
   end
 
   next_node :leave_start?
 end
 
 date_question :leave_start? do
-  calculate :start_date do
-    dist = (Date.parse(arrival_date) - Date.parse(responses.last)).to_i
+  calculate :start_date do |response|
+    dist = (Date.parse(arrival_date) - Date.parse(response)).to_i
     raise InvalidResponse unless (1..14).include? dist
-    responses.last
+    response
   end
 
   calculate :calculator do

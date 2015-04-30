@@ -26,10 +26,10 @@ multiple_choice :which_year? do
 
   save_input_as :tax_year
 
-  calculate :start_of_next_tax_year do
-    if responses.last == '2011-12'
+  calculate :start_of_next_tax_year do |response|
+    if response == '2011-12'
       Date.new(2012, 4, 6)
-    elsif responses.last == '2012-13'
+    elsif response == '2012-13'
       Date.new(2013, 4, 6)
     else
       Date.new(2014, 4, 6)
@@ -39,10 +39,10 @@ multiple_choice :which_year? do
     start_of_next_tax_year.strftime("%e %B %Y")
   end
 
-  calculate :one_year_after_start_date_for_penalties do
-    if responses.last == '2011-12'
+  calculate :one_year_after_start_date_for_penalties do |response|
+    if response == '2011-12'
       Date.new(2014, 2, 01)
-    elsif responses.last == '2012-13'
+    elsif response == '2012-13'
       Date.new(2015, 2, 01)
     else
       Date.new(2016, 2, 01)
@@ -106,12 +106,12 @@ end
 money_question :how_much_tax? do
   save_input_as :estimated_bill
 
-  calculate :calculator do
+  calculate :calculator do |response|
     Calculators::SelfAssessmentPenalties.new(
       submission_method: submission_method,
       filing_date: filing_date,
       payment_date: payment_date,
-      estimated_bill: responses.last,
+      estimated_bill: response,
       dates: calculator_dates,
       tax_year: tax_year
     )

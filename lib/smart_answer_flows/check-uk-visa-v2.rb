@@ -42,10 +42,10 @@ multiple_choice :purpose_of_visit? do
   option diplomatic: :outcome_diplomatic_business
   save_input_as :purpose_of_visit_answer
 
-  calculate :reason_of_staying do
-    if responses.last == 'study'
+  calculate :reason_of_staying do |response|
+    if response == 'study'
       PhraseList.new(:study_reason)
-    elsif responses.last == 'work'
+    elsif response == 'work'
       PhraseList.new(:work_reason)
     end
   end

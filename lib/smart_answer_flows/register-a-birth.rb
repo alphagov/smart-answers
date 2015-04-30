@@ -11,8 +11,8 @@ exclude_countries = %w(holy-see british-antarctic-territory)
 country_select :country_of_birth?, exclude_countries: exclude_countries do
   save_input_as :country_of_birth
 
-  calculate :registration_country do
-    reg_data_query.registration_country_slug(responses.last)
+  calculate :registration_country do |response|
+    reg_data_query.registration_country_slug(response)
   end
 
   calculate :registration_country_name_lowercase_prefix do
@@ -47,8 +47,8 @@ multiple_choice :married_couple_or_civil_partnership? do
   option :yes
   option :no
 
-  calculate :paternity_declaration do
-    responses.last == 'no'
+  calculate :paternity_declaration do |response|
+    response == 'no'
   end
 
   next_node_if(:childs_date_of_birth?, responded_with('no'), variable_matches(:british_national_parent, 'father'))
@@ -75,16 +75,16 @@ multiple_choice :where_are_you_now? do
   option :another_country
   option :in_the_uk
 
-  calculate :same_country do
-    responses.last == 'same_country'
+  calculate :same_country do |response|
+    response == 'same_country'
   end
 
-  calculate :another_country do
-    responses.last == 'another_country'
+  calculate :another_country do |response|
+    response == 'another_country'
   end
 
-  calculate :in_the_uk do
-    responses.last == 'in_the_uk'
+  calculate :in_the_uk do |response|
+    response == 'in_the_uk'
   end
 
   define_predicate(:no_birth_certificate_exception) {
@@ -103,8 +103,8 @@ end
 
 # Q6
 country_select :which_country?, exclude_countries: exclude_countries do
-  calculate :registration_country do
-    reg_data_query.registration_country_slug(responses.last)
+  calculate :registration_country do |response|
+    reg_data_query.registration_country_slug(response)
   end
 
   calculate :registration_country_name_lowercase_prefix do

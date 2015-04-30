@@ -17,8 +17,8 @@ multiple_choice :inheritance_tax? do
   option :yes
   option :no
 
-  calculate :inheritance_tax do
-    responses.last == "yes"
+  calculate :inheritance_tax do |response|
+    response == "yes"
   end
 
   next_node do
@@ -37,8 +37,8 @@ multiple_choice :amount_left_en_sco? do
 
   save_input_as :amount_left
 
-  calculate :fee_section do
-    if responses.last == "under_five_thousand"
+  calculate :fee_section do |response|
+    if response == "under_five_thousand"
       PhraseList.new(:no_fee)
     else
       PhraseList.new(:fee_info_eng_sco)
@@ -63,8 +63,8 @@ multiple_choice :which_ni_county? do
   option :fermanagh_londonderry_tyrone
   option :antrim_armagh_down
 
-  calculate :where_to_apply do
-    if responses.last == "fermanagh_londonderry_tyrone"
+  calculate :where_to_apply do |response|
+    if response == "fermanagh_londonderry_tyrone"
       PhraseList.new(:apply_in_fermanagh_londonderry_tyrone)
     else
       PhraseList.new(:apply_in_antrim_armagh_down)
@@ -79,8 +79,8 @@ multiple_choice :amount_left_ni? do
   option :under_ten_thousand
   option :ten_thousand_or_more
 
-  calculate :fee_section do
-    if responses.last == "under_ten_thousand"
+  calculate :fee_section do |response|
+    if response == "under_ten_thousand"
       PhraseList.new(:no_fee)
     else
       PhraseList.new(:fee_info_ni)
