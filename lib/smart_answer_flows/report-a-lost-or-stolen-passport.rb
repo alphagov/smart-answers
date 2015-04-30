@@ -28,9 +28,13 @@ country_select :which_country?, exclude_countries: exclude_countries do
     else
       []
     end
+
   end
+
+  next_node_if(:contact_the_embassy_canada, responded_with('canada'))
   next_node :contact_the_embassy
 end
 
 outcome :contact_the_embassy
+outcome :contact_the_embassy_canada
 outcome :complete_LS01_form
