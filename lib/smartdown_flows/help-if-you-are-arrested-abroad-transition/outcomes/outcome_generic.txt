@@ -32,7 +32,7 @@ The FCO and British consulate can offer help to arrested persons or prisoners. T
 
 --Country Downloads--
 
---Generic Downloads--
+{{snippet: common_downloads}}
 
 ##What the FCO and British consulate can’t do
 
