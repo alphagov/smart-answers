@@ -2,6 +2,6 @@
 
 [country: country_of_arrest, countries: world_locations]
 
-* country is 'iran' => outcome_iran
-* country is 'syria' => outcome_syria
+* country_of_arrest is 'iran' => outcome_iran
+* country_of_arrest is 'syria' => outcome_syria
 * otherwise => outcome_generic
