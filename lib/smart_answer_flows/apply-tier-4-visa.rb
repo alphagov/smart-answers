@@ -38,15 +38,15 @@ module SmartAnswer
 
         save_input_as :sponsor_id
 
-        calculate :data do
+        precalculate :data do
           Calculators::StaticDataQuery.new("apply_tier_4_visa_data").data
         end
 
-        calculate :sponsor_name do |response|
-          name = data["post"].merge(data["online"])[response]
-          raise InvalidResponse, :error unless name
-          name
+        next_node_calculation :sponsor_name do |response|
+          data["post"].merge(data["online"])[response]
         end
+
+        validate(:error) { sponsor_name.present? }
 
         calculate :post_or_online do |response|
           if data["post"].keys.include?(response)
