@@ -13,7 +13,7 @@ class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
       json = read_fixture_file("worldwide/#{location}_organisations.json")
       worldwide_api_has_organisations_for_location(location, json)
     end
-    setup_for_testing_flow "report-a-lost-or-stolen-passport-v2"
+    setup_for_testing_flow "report-a-lost-or-stolen-passport"
   end
 
   should "ask where the passport was lost or stolen" do
