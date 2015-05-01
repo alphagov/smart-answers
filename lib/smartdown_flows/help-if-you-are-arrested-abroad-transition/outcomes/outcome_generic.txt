@@ -30,7 +30,20 @@ The FCO and British consulate can offer help to arrested persons or prisoners. T
 - helping British prisoners apply for a transfer to UK where possible
 - visiting prisoners when needed
 
---Country Downloads--
+##Download prisoner packs and other helpful information
+
+The FCO has produced guides explaining the legal and prison system in different countries for British nationals arrested abroad.
+
+%{pdf(country_of_arrest)}
+%{doc(country_of_arrest)}
+%{benefits(country_of_arrest)}
+%{judicial(country_of_arrest)}
+%{prison(country_of_arrest)}
+%{police(country_of_arrest)}
+%{consul(country_of_arrest)}
+%{lawyer(country_of_arrest)}
+
+%{region_links(country_of_arrest)}
 
 {{snippet: common_downloads}}
 
