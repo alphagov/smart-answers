@@ -21,9 +21,11 @@ en-GB:
         *[GRO]:General Register Office
 
       phrases:
+        appointment_booking_link_albania: |
+          [Make an appointment at the embassy in Tirana](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tirana/notice-of-marriage-or-civil-partnership/slot_picker)
         ceremony_type_marriage: Marriage
         ceremony_type_civil_partnership: Civil partnership
-# same sex marriage phrases
+
         title_ss_marriage: Same-sex marriage
         title_ss_marriage_and_partnership: Same-sex marriage and civil partnership
         title_civil_partnership: Civil Partnership
@@ -33,6 +35,7 @@ en-GB:
           You may be able to register a civil partnership or get married at the British embassy or consulate in %{country_name_lowercase_prefix}.
         able_to_ss_marriage_and_partnership_hc: |
           You may be able to register a civil partnership or get married at the High Commission of %{country_name_lowercase_prefix}.
+
         documents_needed_7_days_residency: |
           ##What documents you’ll need
 
@@ -153,6 +156,8 @@ en-GB:
         check_travel_advice: |
           You should check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
 # payment methods
+        payment_methods_japan: |
+          You can pay by credit card, but not by personal cheque. The embassy in Tokyo will also accept cash.
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
         pay_by_cash_or_us_dollars_only: |
@@ -293,9 +298,15 @@ en-GB:
           Service | Fee
           -|-
           Affirmation for marriage | £65
+        fee_table_oath_declaration_55: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Administering an oath or making a declaration | £55
 #other phrases
         living_in_residence_country_3_days: |
-          You need to have been living in your country of residence for 3 days.
+          You need to have been living in %{ceremony_country_name} for at least 3 days.
         check_with_embassy_or_consulate: |
           Check with your nearest British embassy or consulate to find out if they can do this for you.
         check_with_embassy_consulate_or_notary_public: |
@@ -312,6 +323,23 @@ en-GB:
           You may be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
 
           The local registrar may also need a certificate of custom and law, which confirms the marriage is valid - the Embassy in Zagreb can provide this.
+        what_to_do_os_local_japan: |
+          Make an appointment at the British embassy in Tokyo or British consulate-general in Osaka to swear an affirmation/affidavit (written statement of facts) that you’re free to marry.
+
+          [Make an appointment at the embassy in Tokyo](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tokyo/oaths-affirmations-and-affidavits/slot_picker)
+
+          [Make an appointment at the consulate-general in Osaka](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-osaka/oaths-affirmations-and-affidavits/slot_picker)
+
+          You can [download and fill in a form](/government/publications/affidavitaffirmation-of-marital-status-japan) for an ‘Affirmation for marriage’ (non-religious) or an ‘Affidavit for marriage’ (religious) before your appointment. Don’t sign it - you’ll do that at the appointment.
+
+          You’ll need to bring:
+
+          - your UK passport
+          - proof of residence showing your current address, such as a residence card
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+          - evidence of parental consent if you’re below the age you can legally get married without consent in the country you’re from (eg 18 in England and Wales)
+          - evidence if you’ve changed your name (eg by deed poll)
+
         what_to_do_laos: |
           You may be asked to provide an [affirmation of freedom to marry document](/government/publications/information-for-british-nationals-intending-to-marry-in-laos) to prove you’re allowed to marry.
 
@@ -520,6 +548,13 @@ en-GB:
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
 # Marriage in a country with consular CNI phrases
+        japan_intro:
+          Contact your [nearest embassy or consulate](http://www.mofa.go.jp/about/emb_cons/over/index.html) of Japan to find out about local marriage laws, including what documents you’ll need.
+
+
+          You should also check the [travel advice for Japan](/foreign-travel-advice/japan) before making any plans.
+
+          ^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
         ecuador_os_consular_cni: |
           %Marriage between an Ecuadorian citizen and a foreign national is only allowed if you’ve been resident in Ecuador for at least 75 consecutive days - unless you already have a registered child with an Ecuadorian citizen.%
         uk_resident_os_consular_cni: |
@@ -712,19 +747,19 @@ en-GB:
 
           ###Applying for a CNI from the %{embassy_or_consulate_residency_country}
 
-          You’ll need to have been resident in Croatia for at least 3 days. You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
+          You’ll need to have been living in Croatia for at least 3 days. You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
         kazakhstan_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
 
           ###Applying for a CNI from the consulate
 
-          You’ll normally need to have been resident in Kazakhstan for at least 3 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
+          You’ll normally need to have been living in Kazakhstan for at least 3 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
         russia_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_residency_country}.
 
           ###Applying for a CNI from the consulate
 
-          You’ll need to have been resident in the Russian Federation for at least 3 days. You can then book an appointment at the consulate in the district you’re resident in, to give notice of your marriage.
+          You’ll need to have been living in the Russian Federation for at least 3 days. You can then book an appointment at the consulate in the district you’re living, to give notice of your marriage.
 
           Email <RussiaConsular@fco.gov.uk> to find out where your local consulate is.
 
@@ -735,7 +770,7 @@ en-GB:
 
           ###Applying for a Nulla Osta from the embassy
 
-          You’ll need to have been resident in Italy for at least 3 days. You can then book an appointment at the British Embassy in Rome.
+          You’ll need to have been living in Italy for at least 3 days. You can then book an appointment at the British Embassy in Rome.
 
         consular_cni_os_foreign_resident_ceremony_not_germany_italy: |
           If you need a CNI, you’ll have to give notice of your intended marriage in the country where you live.
@@ -750,7 +785,7 @@ en-GB:
 
           ###Giving notice of marriage
 
-          You need to have been living in your country of residence for 21 days.
+          You need to have been living in %{ceremony_country_name} for at least 21 days.
 
         consular_cni_os_foreign_resident_3_days: |
           Check with your nearest British embassy or consulate to find out if they can do this for you.
@@ -761,17 +796,7 @@ en-GB:
 
           ###Giving notice of marriage
 
-          You need to have been living in your country of residence for 3 days.
-        consular_cni_os_foreign_resident_3_days_macedonia: |
-          Contact a notary public or the British Embassy in Macedonia to get advice:
-
-          $C
-          British Embassy Macedonia
-          Telephone: + 389 (2) 3299 299
-          <consular.skopje@fco.gov.uk>
-          $C
-
-          %You can't book an appointment to get advice at the embassy in person.%
+          You need to have been living in %{ceremony_country_name} for at least 3 days.
 
         consular_cni_os_foreign_resident_ceremony_notary_public: |
           Check with a notary public or your nearest British embassy or consulate to find out if they can do this for you.
@@ -789,7 +814,7 @@ en-GB:
 
           ###Giving notice of marriage
 
-          You need to have been living in your country of residence for 3 days.
+          You need to have been living in %{ceremony_country_name} for at least 3 days.
         consular_cni_os_foreign_resident_3_days_macedonia: |
           Contact a notary public or British Embassy in Macedonia to get advice:
 
@@ -803,7 +828,7 @@ en-GB:
         consular_cni_os_foreign_resident_3_days_macedonia_giving_notice: |
           ###Giving notice of marriage
 
-          You need to have been living in your country of residence for 3 days.
+          You need to have been living in %{ceremony_country_name} for at least 3 days.
         consular_cni_os_foreign_resident_21_days_jordan: |
           You need to have been living in the country where you intend to marry for 21 days.
 
@@ -1055,6 +1080,10 @@ en-GB:
 
         wait_300_days_before_remarrying: |
           ^If you're a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
+        what_happens_next_os_local_japan: |
+          ###What happens next
+
+          The embassy will charge a fee for taking the oath, and then give you your notice of marriage. You should take this to the local authorities where you’re getting married. You’ll need to bring your passport.
         display_notice_of_marriage_7_days: |
           ###What happens next
 
@@ -1784,7 +1813,7 @@ en-GB:
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
-          You need to have been living in your country of residence for 3 days.
+          You need to have been living in %{ceremony_country_name} for at least 3 days.
 
           You’ll need to provide supporting documents, including:
 
@@ -1982,7 +2011,12 @@ en-GB:
           %{ceremony_type} in Netherlands
         body: |
           %{netherlands_phraselist}
-
+# outcome Japan - Opposite sex, local resident and partner
+      outcome_os_local_japan:
+        title: |
+          Marriage in Japan
+        body: |
+          %{japan_os_local_phraselist}
 # outcome Ireland
       outcome_ireland:
         title: |

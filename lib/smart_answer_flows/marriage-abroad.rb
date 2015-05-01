@@ -1,3 +1,10 @@
+# Abbreviations used in this smart answer:
+# CNI - Certificate of No Impediment
+# CP - Civil Partnership
+# FCO - Foreign & Commonwealth Office
+# OS - Opposite Sex
+# SS - Same Sex
+
 status :published
 satisfies_need "101000"
 
@@ -231,12 +238,17 @@ multiple_choice :partner_opposite_or_same_sex? do
     (ceremony_country == "brazil") & (resident_of == "other")
   }
 
+  define_predicate(:os_marriage_with_local_in_japan) {
+    ceremony_country == 'japan' and residency_country == 'japan' and partner_nationality == 'partner_local'
+  }
+
   next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
   next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
   next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
   next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
   next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
   on_condition(responded_with('opposite_sex')) do
+    next_node_if(:outcome_os_local_japan, os_marriage_with_local_in_japan)
     next_node_if(:outcome_os_colombia, variable_matches(:ceremony_country, "colombia"))
     next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, "kosovo"))
     next_node_if(:outcome_os_indonesia, variable_matches(:ceremony_country, "indonesia"))
@@ -426,6 +438,23 @@ outcome :outcome_os_laos do
   end
 end
 
+outcome :outcome_os_local_japan do
+  precalculate :japan_os_local_phraselist do
+    PhraseList.new(
+      :japan_intro,
+      :consular_cni_all_what_you_need_to_do,
+      :what_to_do_os_local_japan,
+      :consular_cni_os_not_uk_resident_ceremony_not_germany,
+      :what_happens_next_os_local_japan,
+      :consular_cni_os_all_names_but_germany,
+      :consular_cni_os_naturalisation,
+      :fee_table_oath_declaration_55,
+      :list_of_consular_fees,
+      :payment_methods_japan
+    )
+  end
+end
+
 outcome :outcome_os_kosovo do
   precalculate :kosovo_os_phraselist do
     phrases = PhraseList.new
@@ -563,7 +592,9 @@ outcome :outcome_os_consular_cni do
     ceremony_not_germany_or_not_resident_other = (ceremony_country != 'germany' or resident_of != 'other')
     ceremony_and_residency_in_croatia = (ceremony_country == 'croatia' and residency_country == 'croatia')
 
-    if (resident_of == 'uk') and (ceremony_country != 'italy') and not data_query.dutch_caribbean_islands?(ceremony_country)
+    if ceremony_country == 'japan'
+      phrases << :japan_intro
+    elsif (resident_of == 'uk') and (ceremony_country != 'italy') and not data_query.dutch_caribbean_islands?(ceremony_country)
       phrases << :uk_resident_os_consular_cni
     elsif residency_country == ceremony_country and ceremony_country != 'italy'
       phrases << :local_resident_os_consular_cni
@@ -592,7 +623,7 @@ outcome :outcome_os_consular_cni do
       phrases << :spain_os_consular_cni_not_local_resident unless residency_country == 'spain'
     elsif ceremony_country == 'italy'
       phrases << :italy_os_consular_cni_ceremony_italy
-    else
+    elsif ceremony_country != 'japan'
       phrases << :italy_os_consular_cni_ceremony_not_italy_or_spain
     end
     phrases << :consular_cni_all_what_you_need_to_do
@@ -1480,6 +1511,8 @@ outcome :outcome_ss_marriage do
 
     if ceremony_country == 'japan'
       phrases << :consular_cp_all_contact << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
+    elsif ceremony_country == 'albania'
+      phrases << :appointment_booking_link_albania
     elsif ceremony_country == 'germany'
       phrases << :contact_british_embassy_or_consulate_berlin << :embassies_data
     else
@@ -1515,7 +1548,7 @@ outcome :outcome_ss_marriage do
       phrases << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
     end
 
-    phrases << :convert_cc_to_ss_marriage if %w{australia germany japan philippines russia serbia vietnam}.include?(ceremony_country)
+    phrases << :convert_cc_to_ss_marriage if %w{albania australia germany japan philippines russia serbia vietnam}.include?(ceremony_country)
     phrases
   end
 end
