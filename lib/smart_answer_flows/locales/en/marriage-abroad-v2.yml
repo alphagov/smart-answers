@@ -305,7 +305,7 @@ en-GB:
           -|-
           Administering an oath or making a declaration | £55
 #other phrases
-        living_in_ceremony_country_3_days: |
+        living_in_residence_country_3_days: |
           You need to have been living in %{ceremony_country_name} for at least 3 days.
         check_with_embassy_or_consulate: |
           Check with your nearest British embassy or consulate to find out if they can do this for you.
