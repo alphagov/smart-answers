@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
     COMMONWEALTH_COUNTRIES = %w(antigua-and-barbuda australia bahamas bangladesh barbados belize botswana brunei cameroon canada cyprus dominica fiji gambia ghana grenada guyana india jamaica kenya kiribati lesotho malawi malaysia maldives malta mauritius mozambique namibia nauru new-zealand nigeria pakistan papua-new-guinea samoa seychelles sierra-leone singapore solomon-islands south-africa sri-lanka st-kitts-and-nevis st-lucia st-vincent-and-the-grenadines  swaziland tanzania tonga trinidad-and-tobago tuvalu uganda vanuatu zambia)
 
     REQUIRES_7_DAY_NOTICE_CEREMONY_COUNTRIES = (COMMONWEALTH_COUNTRIES - %w(brunei gambia)) + %w(ireland rwanda st-lucia)
-    REQUIRED_7_DAY_NOTICE_RESIDENCY_COUNTRIES = %w(albania algeria, angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgeria croatia cuba ecuador estonia georgia greece hong-kong iceland iran italy japan kazakhstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua norway poland russia serbia spain sweden tajikistan tunisia tuekmenistan, ukraine uzbekistan venezuela)
+    REQUIRED_7_DAY_NOTICE_RESIDENCY_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgeria croatia cuba ecuador estonia georgia greece hong-kong iceland iran italy japan kazakhstan libya lithuania luxembourg macedonia mexico montenegro nicaragua norway poland russia spain sweden tajikistan tunisia tuekmenistan ukraine uzbekistan venezuela)
 
     BRITISH_OVERSEAS_TERRITORIES = %w(anguilla bermuda british-antarctic-territory british-indian-ocean-territory british-virgin-islands cayman-islands falkland-islands gibraltar montserrat pitcairn-island st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
 
@@ -31,7 +31,7 @@ module SmartAnswer::Calculators
 
     CP_CNI_NOT_REQUIRED_COUNTRIES = %w(argentina mexico uruguay usa andorra bonaire-st-eustatius-saba liechtenstein burundi )
 
-    CP_CONSULAR_COUNTRIES = %w(bulgaria cambodia costa-rica croatia cyprus guatemala japan latvia moldova panama peru philippines venezuela vietnam)
+    CP_CONSULAR_COUNTRIES = %w(bulgaria cambodia croatia cyprus guatemala japan latvia moldova panama peru philippines venezuela vietnam)
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(aruba slovakia curacao bonaire-st-eustatius-saba st-maarten taiwan czech-republic argentina cote-d-ivoire burundi)
 
@@ -41,7 +41,7 @@ module SmartAnswer::Calculators
 
     SS_MARRIAGE_COUNTRIES_WHEN_COUPLE_BRITISH = %w(lithuania)
 
-    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(cambodia costa-rica peru philippines vietnam japan)
+    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia peru philippines vietnam japan)
 
     SS_CLICKBOOK_COUNTRIES = %w(bolivia chile china colombia costa-rica hungary mongolia montenegro peru philippines russia san-marino serbia vietnam)
 
@@ -51,7 +51,7 @@ module SmartAnswer::Calculators
 
     SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B = %w(azerbaijan chile dominican-republic kosovo latvia)
 
-    SS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %(australia azerbaijan bolivia cambodia chile china colombia costa-rica dominican-republic estonia germany hungary japan kosovo latvia lithuania mongolia montenegro nicaragua peru philippines russia san-marino serbia vietnam)
+    SS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %(albania australia azerbaijan bolivia cambodia chile china colombia costa-rica dominican-republic estonia germany hungary japan kosovo latvia lithuania mongolia montenegro nicaragua peru philippines russia san-marino serbia vietnam)
 
     OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %(jordan oman qatar united-arab-emirates yemen)
 
