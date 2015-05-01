@@ -82,25 +82,6 @@ multiple_choice :how_much_milk_fat? do
   option 70
   option 85
 
-  calculate :calculator do
-    Calculators::CommodityCodeCalculator.new(
-      starch_glucose_weight: starch_glucose_weight,
-      sucrose_weight: sucrose_weight,
-      milk_fat_weight: responses.last,
-      milk_protein_weight: 0)
-  end
-
-  calculate :commodity_code do
-    calculator.commodity_code
-  end
-  calculate :conditional_result do
-    if commodity_code == 'X'
-      PhraseList.new(:result_with_no_commodity_code)
-    else
-      PhraseList.new(:result_with_commodity_code)
-    end
-  end
-
   save_input_as :milk_fat_weight
 
   next_node do |response|
@@ -130,17 +111,8 @@ multiple_choice :how_much_milk_protein_ab? do
   option 30
   option 60
 
-  calculate :commodity_code do
-    calculator.milk_protein_weight = responses.last.to_i
-    calculator.commodity_code
-  end
-  calculate :conditional_result do
-    if commodity_code == 'X'
-      PhraseList.new(:result_with_no_commodity_code)
-    else
-      PhraseList.new(:result_with_commodity_code)
-    end
-  end
+  save_input_as :milk_protein_weight
+
   next_node :commodity_code_result
 end
 
@@ -150,17 +122,8 @@ multiple_choice :how_much_milk_protein_c? do
   option 2
   option 12
 
-  calculate :commodity_code do
-    calculator.milk_protein_weight = responses.last.to_i
-    calculator.commodity_code
-  end
-  calculate :conditional_result do
-    if commodity_code == 'X'
-      PhraseList.new(:result_with_no_commodity_code)
-    else
-      PhraseList.new(:result_with_commodity_code)
-    end
-  end
+  save_input_as :milk_protein_weight
+
   next_node :commodity_code_result
 end
 
@@ -170,17 +133,8 @@ multiple_choice :how_much_milk_protein_d? do
   option 4
   option 15
 
-  calculate :commodity_code do
-    calculator.milk_protein_weight = responses.last.to_i
-    calculator.commodity_code
-  end
-  calculate :conditional_result do
-    if commodity_code == 'X'
-      PhraseList.new(:result_with_no_commodity_code)
-    else
-      PhraseList.new(:result_with_commodity_code)
-    end
-  end
+  save_input_as :milk_protein_weight
+
   next_node :commodity_code_result
 end
 
@@ -190,17 +144,8 @@ multiple_choice :how_much_milk_protein_ef? do
   option 6
   option 18
 
-  calculate :commodity_code do
-    calculator.milk_protein_weight = responses.last.to_i
-    calculator.commodity_code
-  end
-  calculate :conditional_result do
-    if commodity_code == 'X'
-      PhraseList.new(:result_with_no_commodity_code)
-    else
-      PhraseList.new(:result_with_commodity_code)
-    end
-  end
+  save_input_as :milk_protein_weight
+
   next_node :commodity_code_result
 end
 
@@ -209,21 +154,32 @@ multiple_choice :how_much_milk_protein_gh? do
   option 0
   option 6
 
-  calculate :commodity_code do
-    calculator.milk_protein_weight = responses.last.to_i
+  save_input_as :milk_protein_weight
+
+  next_node :commodity_code_result
+end
+
+outcome :commodity_code_result do
+  precalculate :calculator do
+    Calculators::CommodityCodeCalculator.new(
+      starch_glucose_weight: starch_glucose_weight,
+      sucrose_weight: sucrose_weight,
+      milk_fat_weight: milk_fat_weight,
+      milk_protein_weight: milk_protein_weight || 0)
+  end
+
+  precalculate :commodity_code do
     calculator.commodity_code
   end
-  calculate :conditional_result do
+
+  precalculate :conditional_result do
     if commodity_code == 'X'
       PhraseList.new(:result_with_no_commodity_code)
     else
       PhraseList.new(:result_with_commodity_code)
     end
   end
-  next_node :commodity_code_result
-end
 
-outcome :commodity_code_result do
   precalculate :additional_info do
     if commodity_code != 'X'
       PhraseList.new(:result_explanation_code)
