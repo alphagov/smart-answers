@@ -2,7 +2,7 @@
 - start_date: 2010-04-06
   end_date: 2011-04-05
   lower_earning_limit_rate: 97
-  # ssp_weekly_rate value unknown
+  ssp_weekly_rate: 79.15
 
 - start_date: 2011-04-06
   end_date: 2012-04-05
