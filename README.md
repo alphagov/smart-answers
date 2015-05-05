@@ -1,5 +1,4 @@
-Smart Answers
-=============
+# Smart Answers
 
 > Smart answers are a great tool for content designers to present complex information in a quick and simple way. Defining what they are – decision trees? calculators? tools? is immaterial – what they do is provide a reusable technical framework to build a quick and simple answer to a complex question.
 
@@ -31,8 +30,7 @@ If you have a URL of a Smart answer and want to debug the state of it i.e. to se
 
 To see a visualisation of a smart answer flow, append `/visualise` to the root of a smartanswer URL e.g. `http://smartanswers.dev.gov.uk/<my-flow>/visualise/`
 
-Installing and running
-------------
+## Installing and running
 
 NB: this assumes you are running on the GOV.UK virtual machine, not your host.
 
@@ -45,13 +43,12 @@ Run using bowler on VM from cd /var/govuk/development:
 bowl smartanswers
 ```
 
-Viewing a Smart Answer
-------------
+## Viewing a Smart Answer
 
 To view a smart answer locally if running using bowler http://smartanswers.dev.gov.uk/register-a-birth
 
-Testing
-------------
+## Testing
+
 Run unit tests by executing the following:
 
     bundle exec rake
@@ -75,13 +72,11 @@ Test a single Smartdown flow by running:
 
 [smartdown-scenarios]: https://github.com/alphagov/smartdown/blob/master/doc/scenarios.md
 
-Issues/todos
-------------
+## Issues/todos
 
 Please see the [github issues](https://github.com/alphagov/smart-answers/issues) page.
 
-Making bigger changes
-------
+## Making bigger changes
 
 When making bigger changes that need to be tested before they go live it is best to release them as a draft first. There is a rake task for creating a draft flow `rake version:v2[flow]`. This is not ideal, but it allows to check the changes in the UI in the development and preview environments without affecting the production environment.
 
