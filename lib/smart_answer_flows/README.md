@@ -19,7 +19,7 @@ Use `calculate` to store data for use with subsequent nodes.
 The flow below illustrates the data available to the different Question node methods.
 
     multiple_choice :question_1 do
-      option :q1_answer
+      option :q1_option
 
       next_node :question_2
 
@@ -29,17 +29,17 @@ The flow below illustrates the data available to the different Question node met
     end
 
     multiple_choice :question_2 do
-      option :q2_answer
+      option :q2_option
 
       precalculate :q2_precalculated_answer do
-        # responses            => ['q1_answer']
+        # responses            => ['q1_option']
         # q1_calculated_answer => 'q1-calculated-answer'
 
         'q2-precalculated-answer'
       end
 
       next_node_calculation :q2_next_node_calculated_answer do
-        # responses               => ['q1_answer']
+        # responses               => ['q1_option']
         # q1_calculated_answer    => 'q1-calculated-answer'
         # q2_precalculated_answer => 'q2-precalculated-answer'
 
@@ -47,32 +47,32 @@ The flow below illustrates the data available to the different Question node met
       end
 
       validate do |response|
-        # response                       => 'q2_answer'
-        # responses                      => ['q1_answer']
+        # response                       => 'q2_option'
+        # responses                      => ['q1_option']
         # q1_calculated_answer           => 'q1-calculated-answer'
         # q2_precalculated_answer        => 'q2-precalculated-answer'
         # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
       end
 
       define_predicate :q2_named_predicate do |response|
-        # response                       => 'q2_answer'
-        # responses                      => ['q1_answer']
+        # response                       => 'q2_option'
+        # responses                      => ['q1_option']
         # q1_calculated_answer           => 'q1-calculated-answer'
         # q2_precalculated_answer        => 'q2-precalculated-answer'
         # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
       end
 
       next_node do |response|
-        # response                       => 'q2_answer'
-        # responses                      => ['q1_answer']
+        # response                       => 'q2_option'
+        # responses                      => ['q1_option']
         # q1_calculated_answer           => 'q1-calculated-answer'
         # q2_precalculated_answer        => 'q2-precalculated-answer'
         # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
       end
 
       calculate :q2_calculated_answer do |response|
-        # response                       => 'q2_answer'
-        # responses                      => ['q1_answer', 'q2_answer']
+        # response                       => 'q2_option'
+        # responses                      => ['q1_option', 'q2_option']
         # q1_calculated_answer           => 'q1-calculated-answer'
         # q2_precalculated_answer        => 'q2-precalculated-answer'
         # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
