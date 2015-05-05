@@ -8,6 +8,77 @@ The code responsible for executing the flow of those questions is in the `lib` f
 
 ## Smart answer syntax
 
+### Storing data for later use
+
+You can use the `precalculate`, 'next_node_calculation` and `calculate` methods to store data for later use.
+
+Use `precalculate` or `next_node_calculation` to store data for use within the same node.
+
+Use `calculate` to store data for use with subsequent nodes.
+
+The flow below illustrates the data available to the different Question node methods.
+
+    multiple_choice :question_1 do
+      option :q1_answer
+
+      next_node :question_2
+
+      calculate :q1_calculated_answer do
+        'q1-calculated-answer'
+      end
+    end
+
+    multiple_choice :question_2 do
+      option :q2_answer
+
+      precalculate :q2_precalculated_answer do
+        # responses            => ['q1_answer']
+        # q1_calculated_answer => 'q1-calculated-answer'
+
+        'q2-precalculated-answer'
+      end
+
+      next_node_calculation :q2_next_node_calculated_answer do
+        # responses               => ['q1_answer']
+        # q1_calculated_answer    => 'q1-calculated-answer'
+        # q2_precalculated_answer => 'q2-precalculated-answer'
+
+        'q2-next-node-calculated-answer'
+      end
+
+      validate do |response|
+        # response                       => 'q2_answer'
+        # responses                      => ['q1_answer']
+        # q1_calculated_answer           => 'q1-calculated-answer'
+        # q2_precalculated_answer        => 'q2-precalculated-answer'
+        # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
+      end
+
+      define_predicate :q2_named_predicate do |response|
+        # response                       => 'q2_answer'
+        # responses                      => ['q1_answer']
+        # q1_calculated_answer           => 'q1-calculated-answer'
+        # q2_precalculated_answer        => 'q2-precalculated-answer'
+        # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
+      end
+
+      next_node do |response|
+        # response                       => 'q2_answer'
+        # responses                      => ['q1_answer']
+        # q1_calculated_answer           => 'q1-calculated-answer'
+        # q2_precalculated_answer        => 'q2-precalculated-answer'
+        # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
+      end
+
+      calculate :q2_calculated_answer do |response|
+        # response                       => 'q2_answer'
+        # responses                      => ['q1_answer', 'q2_answer']
+        # q1_calculated_answer           => 'q1-calculated-answer'
+        # q2_precalculated_answer        => 'q2-precalculated-answer'
+        # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
+      end
+    end
+
 ### Question types
 
 * `multiple_choice` - choose a single value from a list of values. Response is a string.
