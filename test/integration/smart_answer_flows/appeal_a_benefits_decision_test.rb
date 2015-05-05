@@ -141,7 +141,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
 
         context "the statement was requested less than a month ago" do
           setup do
-            add_response 21.days.ago # Statement requested 21 days ago
+            add_response 21.days.ago.to_date # Statement requested 21 days ago
           end
 
           # Q6
@@ -151,7 +151,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
 
           context "the statement was received within one month and the decision letter was received less than one month and 14 days ago" do
             setup do
-              add_response 7.days.ago # Statement received 7 days ago
+              add_response 7.days.ago.to_date # Statement received 7 days ago
             end
 
             # Q7
@@ -172,7 +172,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       #
       context "answer 'written statement' to 'had written explanation?'" do
         setup do
-          add_response 3.months.ago # Date of decision letter, 3 months ago
+          add_response 3.months.ago.to_date # Date of decision letter, 3 months ago
           add_response :written_explanation
         end
 
@@ -183,7 +183,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
 
         context "the statement was requested more than a month ago" do
           setup do
-            add_response 21.days.ago(1.month.ago) # Statement requested a month and 21 days ago
+            add_response 21.days.ago(1.month.ago).to_date # Statement requested a month and 21 days ago
           end
 
           # Q6
@@ -193,7 +193,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
 
           context "the statement was received after one month and 14 days have since passed" do
             setup do
-              add_response 15.days.ago # Statement received 15 days ago
+              add_response 15.days.ago.to_date # Statement received 15 days ago
               assert_state_variable("appeal_expiry_date", nil)
             end
 
@@ -211,7 +211,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       #
       context "answer 'written statement' to 'had written explanation?'" do
         setup do
-          add_response 3.months.ago # Date of decision letter, 3 months ago
+          add_response 3.months.ago.to_date # Date of decision letter, 3 months ago
           add_response :written_explanation
         end
 
@@ -222,7 +222,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
 
         context "the statement was requested more than a month ago" do
           setup do
-            add_response 21.days.ago(1.month.ago) # Statement requested a month and 21 days ago
+            add_response 21.days.ago(1.month.ago).to_date # Statement requested a month and 21 days ago
           end
 
           # Q6
@@ -232,7 +232,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
 
           context "the statement was received after one month and 14 days have noy yet passed" do
             setup do
-              add_response 7.days.ago # Statement received 7 days ago
+              add_response 7.days.ago.to_date # Statement received 7 days ago
             end
 
             # Q7
@@ -254,7 +254,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       #
       context "answer 'written statement' to 'had written explanation?'" do
         setup do
-          add_response 2.months.ago # Date of decision letter, 2 months ago
+          add_response 2.months.ago.to_date # Date of decision letter, 2 months ago
           add_response :written_explanation
         end
 
@@ -265,7 +265,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
 
         context "the statement was requested more than a month ago" do
           setup do
-            @request_date = 21.days.ago(1.month.ago)
+            @request_date = 21.days.ago(1.month.ago).to_date
             add_response @request_date # Statement requested one month and 21 days ago
           end
 
@@ -276,7 +276,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
 
           context "received before requested error" do
             setup do
-              add_response 23.days.ago(1.month.ago) # should throw an error
+              add_response 23.days.ago(1.month.ago).to_date # should throw an error
             end
 
             should "show an error" do
@@ -287,7 +287,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
 
           context "the statement was received within one month and the decision letter was received more than one month and 14 days ago" do
             setup do
-              add_response 15.days.ago(1.month.ago) # Statement received one month and 15 days ago (received within a month)
+              add_response 15.days.ago(1.month.ago).to_date # Statement received one month and 15 days ago (received within a month)
             end
 
             # Q7
