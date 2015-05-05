@@ -1,5 +1,4 @@
-Ruby/YAML Smart Answers
-=============
+# Ruby/YAML Smart Answers
 
 README for Ruby and YAML-based smart answer flows
 
