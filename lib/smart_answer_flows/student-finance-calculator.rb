@@ -181,6 +181,8 @@ multiple_choice :what_course_are_you_studying? do
 
 end
 
+use_outcome_templates
+
 outcome :outcome_uk_full_time_students do
   precalculate :students_body_text do
     PhraseList.new(:uk_students_body_text_start)
