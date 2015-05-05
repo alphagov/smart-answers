@@ -69,9 +69,11 @@ next_node(:blue)
 
 Here's a truth table for the above scenario:
 
+```
 |       | Yellow | other
 | Red   | orange | red
 | other | blue   | blue
+```
 
 ### Defining named predicates
 
