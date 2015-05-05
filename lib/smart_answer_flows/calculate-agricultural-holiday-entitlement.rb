@@ -17,10 +17,10 @@ multiple_choice :how_many_days_per_week? do
   option "2-days"
   option "1-day"
 
-  calculate :days_worked_per_week do
+  calculate :days_worked_per_week do |response|
     # XXX: this is a bit nasty and takes advantage of the fact that
     # to_i only looks for the very first integer
-    responses.last.to_i
+    response.to_i
   end
 
   next_node :worked_for_same_employer?
@@ -31,8 +31,8 @@ date_question :what_date_does_holiday_start? do
   to { Date.civil(Date.today.year + 1, 12, 31) }
   save_input_as :holiday_start_date
 
-  calculate :weeks_from_october_1 do
-    calculator.weeks_worked(responses.last)
+  calculate :weeks_from_october_1 do |response|
+    calculator.weeks_worked(response)
   end
 
   next_node :how_many_total_days?
@@ -42,8 +42,8 @@ multiple_choice :worked_for_same_employer? do
   option "same-employer" => :done
   option "multiple-employers" => :how_many_weeks_at_current_employer?
 
-  calculate :holiday_entitlement_days do
-    if responses.last == 'same-employer'
+  calculate :holiday_entitlement_days do |response|
+    if response == 'same-employer'
       # This is calculated as a flat number based on the days you work
       # per week
       if !days_worked_per_week.nil?
@@ -63,11 +63,11 @@ value_question :how_many_total_days? do
     calculator.available_days
   end
 
-  calculate :total_days_worked do
-    if Integer(responses.last) > available_days
+  calculate :total_days_worked do |response|
+    if Integer(response) > available_days
       raise SmartAnswer::InvalidResponse
     end
-    responses.last
+    response
   end
 
   next_node :worked_for_same_employer?
@@ -76,9 +76,9 @@ end
 value_question :how_many_weeks_at_current_employer? do
   next_node :done
 
-  calculate :holiday_entitlement_days do
+  calculate :holiday_entitlement_days do |response|
     #Has to be less than a full year
-    if (Integer(responses.last) > 51)
+    if (Integer(response) > 51)
       raise SmartAnswer::InvalidResponse
     end
     if !days_worked_per_week.nil?
@@ -86,7 +86,7 @@ value_question :how_many_weeks_at_current_employer? do
     elsif !weeks_from_october_1.nil?
       days = calculator.holiday_days (total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
     end
-    sprintf("%.1f", (days * (Integer(responses.last) / 52.0)).round(10))
+    sprintf("%.1f", (days * (Integer(response) / 52.0)).round(10))
   end
 end
 

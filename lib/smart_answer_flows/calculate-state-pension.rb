@@ -24,8 +24,8 @@ multiple_choice :gender? do
   option :female
 
   # optional text to include in a hint for a later question
-  calculate :if_married_woman do
-    if responses.last.eql? 'female'
+  calculate :if_married_woman do |response|
+    if response.eql? 'female'
       PhraseList.new(:married_woman_text)
     else
       ''
@@ -223,18 +223,18 @@ value_question :years_paid_ni? do
     end
   end
 
-  calculate :qualifying_years do
-    ni_years = Integer(responses.last)
+  calculate :qualifying_years do |response|
+    ni_years = Integer(response)
     raise InvalidResponse if ni_years < 0 or ni_years > ni_years_to_date_from_dob
     ni_years
   end
 
-  calculate :available_ni_years do
-    calculator.available_years_sum(Integer(responses.last))
+  calculate :available_ni_years do |response|
+    calculator.available_years_sum(Integer(response))
   end
 
-  calculate :ni_years_to_date_from_dob do
-    ni_years_to_date_from_dob - responses.last.to_i
+  calculate :ni_years_to_date_from_dob do |response|
+    ni_years_to_date_from_dob - response.to_i
   end
 
   define_predicate(:enough_years_credits_or_no_more_years?) do |response|
@@ -260,8 +260,8 @@ value_question :years_of_jsa? do
     end
   end
 
-  calculate :qualifying_years do
-    jsa_years = Integer(responses.last)
+  calculate :qualifying_years do |response|
+    jsa_years = Integer(response)
     qy = (qualifying_years + jsa_years)
     raise InvalidResponse if jsa_years < 0 or !(calculator.has_available_years?(qy)) #jsa_years > available_ni_years #70
     qy
@@ -271,8 +271,8 @@ value_question :years_of_jsa? do
     calculator.available_years_sum(qualifying_years)
   end
 
-  calculate :ni_years_to_date_from_dob do
-    ni_years_to_date_from_dob - responses.last.to_i
+  calculate :ni_years_to_date_from_dob do |response|
+    ni_years_to_date_from_dob - response.to_i
   end
 
   next_node_calculation :ni do |response|
@@ -327,12 +327,12 @@ value_question :years_of_benefit? do
     calculator.years_can_be_entered(available_ni_years, 22)
   end
 
-  calculate :ni_years_to_date_from_dob do
-    ni_years_to_date_from_dob - responses.last.to_i
+  calculate :ni_years_to_date_from_dob do |response|
+    ni_years_to_date_from_dob - response.to_i
   end
 
-  calculate :qualifying_years do
-    benefit_years = Integer(responses.last)
+  calculate :qualifying_years do |response|
+    benefit_years = Integer(response)
     qy = (benefit_years + qualifying_years)
     if benefit_years > 22 and calculator.has_available_years?(qy)
       raise InvalidResponse, :error_maximum_hrp_years
@@ -378,8 +378,8 @@ value_question :years_of_caring? do
     calculator.years_can_be_entered(available_ni_years, allowed_caring_years)
   end
 
-  calculate :qualifying_years do
-    caring_years = Integer(responses.last)
+  calculate :qualifying_years do |response|
+    caring_years = Integer(response)
     qy = (caring_years + qualifying_years)
     raise InvalidResponse if (caring_years < 0 or (caring_years > allowed_caring_years) or !(calculator.has_available_years?(qy)))
     qy
@@ -389,8 +389,8 @@ value_question :years_of_caring? do
     calculator.available_years_sum(qualifying_years)
   end
 
-  calculate :ni_years_to_date_from_dob do
-    ni_years_to_date_from_dob - responses.last.to_i
+  calculate :ni_years_to_date_from_dob do |response|
+    ni_years_to_date_from_dob - response.to_i
   end
 
   next_node_calculation :ni do |response|
@@ -413,15 +413,15 @@ end
 
 ## Q9
 value_question :years_of_carers_allowance? do
-  calculate :qualifying_years do
-    caring_years = Integer(responses.last)
+  calculate :qualifying_years do |response|
+    caring_years = Integer(response)
     qy = (caring_years + qualifying_years)
     raise InvalidResponse if caring_years < 0 or !(calculator.has_available_years?(qy))
     qy
   end
 
-  calculate :ni_years_to_date_from_dob do
-    ni_years_to_date_from_dob - responses.last.to_i
+  calculate :ni_years_to_date_from_dob do |response|
+    ni_years_to_date_from_dob - response.to_i
   end
 
   next_node_calculation :ni do |response|
@@ -449,12 +449,12 @@ end
 value_question :years_of_work? do
   save_input_as :years_of_work_entered
 
-  calculate :ni_years_to_date_from_dob do
-    calculator.ni_years_to_date_from_dob - Integer(responses.last)
+  calculate :ni_years_to_date_from_dob do |response|
+    calculator.ni_years_to_date_from_dob - Integer(response)
   end
 
-  calculate :qualifying_years do
-    work_years = Integer(responses.last)
+  calculate :qualifying_years do |response|
+    work_years = Integer(response)
     qy = (work_years + qualifying_years)
     raise InvalidResponse if (work_years < 0 or work_years > 3)
     qy

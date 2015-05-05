@@ -13,8 +13,8 @@ checkbox_question :is_your_employee_getting? do
     # this avoids lots of content duplication in the YML
     PhraseList.new(:ssp_link)
   end
-  calculate :paternity_maternity_warning do
-    (responses.last.split(",") & %w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
+  calculate :paternity_maternity_warning do |response|
+    (response.split(",") & %w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
   end
   next_node_if(:employee_tell_within_limit?,
     response_is_one_of(%w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}))
@@ -26,8 +26,8 @@ multiple_choice :employee_tell_within_limit? do
   option :yes
   option :no
 
-  calculate :enough_notice_of_absence do
-    responses.last == 'yes'
+  calculate :enough_notice_of_absence do |response|
+    response == 'yes'
   end
 
   next_node(:employee_work_different_days?)
@@ -43,8 +43,8 @@ end
 date_question :first_sick_day? do
   from { Date.new(2011, 1, 1) }
   to { Date.today }
-  calculate :sick_start_date do
-    Date.parse(responses.last).strftime("%e %B %Y")
+  calculate :sick_start_date do |response|
+    Date.parse(response).strftime("%e %B %Y")
   end
 
   next_node :last_sick_day?
@@ -55,8 +55,8 @@ end
 date_question :last_sick_day? do
   from { Date.new(2011, 1, 1) }
   to { Date.today }
-  calculate :sick_end_date do
-    Date.parse(responses.last).strftime("%e %B %Y")
+  calculate :sick_end_date do |response|
+    Date.parse(response).strftime("%e %B %Y")
   end
 
   next_node_calculation(:days_sick) do |response|
@@ -97,8 +97,8 @@ date_question :last_payday_before_sickness? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 
-  calculate :relevant_period_to do
-    Date.parse(responses.last).strftime("%e %B %Y")
+  calculate :relevant_period_to do |response|
+    Date.parse(response).strftime("%e %B %Y")
   end
 
   calculate :pay_day_offset do
@@ -124,8 +124,8 @@ date_question :last_payday_before_offset? do
   validate { |payday| Date.parse(payday) <= Date.parse(pay_day_offset) }
 
   # input plus 1 day = relevant_period_from
-  calculate :relevant_period_from do
-    (Date.parse(responses.last) + 1.day).strftime("%e %B %Y")
+  calculate :relevant_period_from do |response|
+    (Date.parse(response) + 1.day).strftime("%e %B %Y")
   end
 
   calculate :monthly_pattern_payments do
@@ -161,9 +161,9 @@ end
 value_question :contractual_days_covered_by_earnings? do
   save_input_as :contractual_earnings_days
 
-  calculate :employee_average_weekly_earnings do
+  calculate :employee_average_weekly_earnings do |response|
     pay = relevant_contractual_pay
-    days_worked = responses.last
+    days_worked = response
     Calculators::StatutorySickPayCalculator.contractual_earnings_awe(pay, days_worked)
   end
   next_node :off_sick_4_days?
@@ -179,9 +179,9 @@ end
 # Question 8.1
 value_question :days_covered_by_earnings? do
 
-  calculate :employee_average_weekly_earnings do
+  calculate :employee_average_weekly_earnings do |response|
     pay = earnings
-    days_worked = responses.last.to_i
+    days_worked = response.to_i
     Calculators::StatutorySickPayCalculator.total_earnings_awe(pay, days_worked)
   end
 
@@ -224,8 +224,8 @@ checkbox_question :usual_work_days? do
     Money.new(calculator.ssp_payment)
   end
 
-  calculate :formatted_sick_pay_weekly_amounts do
-    calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), responses.last.split(","))
+  calculate :formatted_sick_pay_weekly_amounts do |response|
+    calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), response.split(","))
 
     if calculator.ssp_payment > 0
       calculator.formatted_sick_pay_weekly_amounts

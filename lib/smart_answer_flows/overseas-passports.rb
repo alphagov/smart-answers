@@ -54,8 +54,8 @@ multiple_choice :renewing_replacing_applying? do
     end
   end
 
-  calculate :general_action do
-    responses.last =~ /^renewing_/ ? 'renewing' : responses.last
+  calculate :general_action do |response|
+    response =~ /^renewing_/ ? 'renewing' : response
   end
 
   calculate :passport_data do
@@ -120,11 +120,11 @@ multiple_choice :child_or_adult_passport? do
 
   save_input_as :child_or_adult
 
-  calculate :fco_forms do
+  calculate :fco_forms do |response|
     if %w(nigeria).include?(current_location)
-      PhraseList.new(:"#{responses.last}_fco_forms_nigeria")
+      PhraseList.new(:"#{response}_fco_forms_nigeria")
     else
-      PhraseList.new(:"#{responses.last}_fco_forms")
+      PhraseList.new(:"#{response}_fco_forms")
     end
   end
 
@@ -141,12 +141,12 @@ end
 country_select :country_of_birth?, include_uk: true, exclude_countries: exclude_countries do
   save_input_as :birth_location
 
-  calculate :application_group do
-    data_query.find_passport_data(responses.last)['group']
+  calculate :application_group do |response|
+    data_query.find_passport_data(response)['group']
   end
 
-  calculate :supporting_documents do
-    responses.last == 'united-kingdom' ? supporting_documents : application_group
+  calculate :supporting_documents do |response|
+    response == 'united-kingdom' ? supporting_documents : application_group
   end
 
   calculate :ips_docs_number do

@@ -76,8 +76,8 @@ end
 date_question :when_did_you_ask_for_it? do
   from { 5.years.ago }
   to { Date.today }
-  calculate :written_explanation_request_date do
-    Date.parse(responses.last).strftime("%e %B %Y")
+  calculate :written_explanation_request_date do |response|
+    Date.parse(response).strftime("%e %B %Y")
   end
   next_node :when_did_you_get_it?
 end
@@ -89,9 +89,9 @@ date_question :when_did_you_get_it? do
   from { 5.years.ago }
   to { Date.today }
 
-  calculate :appeal_expiry_date do
+  calculate :appeal_expiry_date do |response|
     decision_date = Date.parse(decision_letter_date)
-    received_date = Date.parse(responses.last)
+    received_date = Date.parse(response)
     request_date = Date.parse(written_explanation_request_date)
     raise InvalidResponse if received_date < request_date
     received_within_a_month = received_date < 1.month.since(request_date)

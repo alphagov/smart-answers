@@ -6,8 +6,8 @@ end
 
 ## QA1
 date_question :date_of_adoption_match? do
-  calculate :match_date do
-    Date.parse(responses.last)
+  calculate :match_date do |response|
+    Date.parse(response)
   end
   calculate :calculator do
     Calculators::MaternityPaternityCalculator.new(match_date, "adoption")
@@ -18,8 +18,8 @@ end
 
 ## QA2
 date_question :date_of_adoption_placement? do
-  calculate :adoption_placement_date do
-    placement_date = Date.parse(responses.last)
+  calculate :adoption_placement_date do |response|
+    placement_date = Date.parse(response)
     raise SmartAnswer::InvalidResponse if placement_date < match_date
     calculator.adoption_placement_date = placement_date
     placement_date
@@ -53,8 +53,8 @@ multiple_choice :adoption_employment_contract? do
   save_input_as :employee_has_contract_adoption
 
   #not entitled to leave if no contract; keep asking questions to check eligibility
-  calculate :adoption_leave_info do
-    if responses.last == 'no'
+  calculate :adoption_leave_info do |response|
+    if response == 'no'
       PhraseList.new(:adoption_not_entitled_to_leave)
     end
   end
@@ -69,8 +69,8 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
 
   save_input_as :on_payroll
 
-  calculate :adoption_pay_info do
-    if responses.last == 'no'
+  calculate :adoption_pay_info do |response|
+    if response == 'no'
       PhraseList.new(
         :adoption_not_entitled_to_pay_intro,
         :must_be_on_payroll,
@@ -93,8 +93,8 @@ end
 
 ## QA6
 date_question :adoption_date_leave_starts? do
-  calculate :adoption_date_leave_starts do
-    ald_start = Date.parse(responses.last)
+  calculate :adoption_date_leave_starts do |response|
+    ald_start = Date.parse(response)
     raise SmartAnswer::InvalidResponse if ald_start < Date.parse(a_leave_earliest_start)
     calculator.leave_start_date = ald_start
   end
@@ -140,8 +140,8 @@ date_question :last_normal_payday_adoption? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
-  calculate :last_payday do
-    calculator.last_payday = Date.parse(responses.last)
+  calculate :last_payday do |response|
+    calculator.last_payday = Date.parse(response)
     raise SmartAnswer::InvalidResponse if calculator.last_payday > Date.parse(to_saturday)
     calculator.last_payday
   end
@@ -157,8 +157,8 @@ date_question :payday_eight_weeks_adoption? do
     calculator.format_date_day calculator.payday_offset
   end
 
-  calculate :last_payday_eight_weeks do
-    payday = Date.parse(responses.last)
+  calculate :last_payday_eight_weeks do |response|
+    payday = Date.parse(response)
     raise SmartAnswer::InvalidResponse if payday > Date.parse(payday_offset)
     calculator.pre_offset_payday = payday
     payday
@@ -179,8 +179,8 @@ multiple_choice :pay_frequency_adoption? do
   option monthly: :earnings_for_pay_period_adoption?
   save_input_as :pay_pattern
 
-  calculate :calculator do
-    calculator.pay_method = responses.last
+  calculate :calculator do |response|
+    calculator.pay_method = response
     calculator
   end
 end

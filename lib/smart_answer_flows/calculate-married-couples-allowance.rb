@@ -24,8 +24,8 @@ multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
   option yes: :whats_the_husbands_date_of_birth?
   option no: :whats_the_highest_earners_date_of_birth?
 
-  calculate :income_measure do
-    case responses.last
+  calculate :income_measure do |response|
+    case response
     when 'yes' then "husband"
     when 'no' then "highest earner"
     else
@@ -53,8 +53,8 @@ end
 money_question :whats_the_husbands_income? do
   save_input_as :income
 
-  calculate :income_greater_than_0 do
-    raise SmartAnswer::InvalidResponse if responses.last < 1
+  calculate :income_greater_than_0 do |response|
+    raise SmartAnswer::InvalidResponse if response < 1
   end
 
   next_node do |response|
@@ -70,8 +70,8 @@ end
 money_question :whats_the_highest_earners_income? do
   save_input_as :income
 
-  calculate :income_greater_than_0 do
-    raise SmartAnswer::InvalidResponse if responses.last < 1
+  calculate :income_greater_than_0 do |response|
+    raise SmartAnswer::InvalidResponse if response < 1
   end
 
   next_node do |response|
@@ -102,8 +102,8 @@ money_question :how_much_expected_contributions_with_tax_relief? do
 end
 
 money_question :how_much_expected_gift_aided_donations? do
-  calculate :income do
-    calculator.calculate_adjusted_net_income(income.to_f, (gross_pension_contributions.to_f || 0), (net_pension_contributions.to_f || 0), responses.last)
+  calculate :income do |response|
+    calculator.calculate_adjusted_net_income(income.to_f, (gross_pension_contributions.to_f || 0), (net_pension_contributions.to_f || 0), response)
   end
 
   next_node do |response|

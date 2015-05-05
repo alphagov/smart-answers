@@ -204,16 +204,16 @@ multiple_choice :partner_opposite_or_same_sex? do
 
   save_input_as :sex_of_your_partner
 
-  calculate :ceremony_type do
-    if responses.last == 'opposite_sex'
+  calculate :ceremony_type do |response|
+    if response == 'opposite_sex'
       PhraseList.new(:ceremony_type_marriage)
     else
       PhraseList.new(:ceremony_type_civil_partnership)
     end
   end
 
-  calculate :ceremony_type_lowercase do
-    if responses.last == 'opposite_sex'
+  calculate :ceremony_type_lowercase do |response|
+    if response == 'opposite_sex'
       "marriage"
     else
       "civil partnership"

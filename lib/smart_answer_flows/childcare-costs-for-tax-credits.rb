@@ -41,24 +41,24 @@ end
 
 #Q6
 money_question :how_much_12_months_1? do
-  calculate :weekly_cost do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+  calculate :weekly_cost do |response|
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
   end
   next_node :weekly_costs_are_x #O4
 end
 
 #Q7
 money_question :how_much_52_weeks_1? do
-  calculate :weekly_cost do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+  calculate :weekly_cost do |response|
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
   end
   next_node :weekly_costs_are_x #O4
 end
 
 #Q8
 money_question :how_much_52_weeks_2? do
-  calculate :weekly_cost do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+  calculate :weekly_cost do |response|
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
   end
 
   next_node do |response|
@@ -69,8 +69,8 @@ end
 
 #Q9
 money_question :how_much_12_months_2? do
-  calculate :weekly_cost do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+  calculate :weekly_cost do |response|
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
   end
   next_node do |response|
     amount = Money.new(response)
@@ -80,8 +80,8 @@ end
 
 #Q10
 money_question :how_much_each_month? do
-  calculate :weekly_cost do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(responses.last)
+  calculate :weekly_cost do |response|
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(response)
   end
   next_node :weekly_costs_are_x #O4
 end
@@ -105,8 +105,8 @@ end
 
 #Q13
 money_question :how_much_fortnightly? do
-  calculate :weekly_cost do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_fortnightly(responses.last)
+  calculate :weekly_cost do |response|
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_fortnightly(response)
   end
 
   next_node :weekly_costs_are_x #O4
@@ -114,32 +114,32 @@ end
 
 #Q14
 money_question :how_much_4_weeks? do
-  calculate :weekly_cost do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_four_weekly(responses.last)
+  calculate :weekly_cost do |response|
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_four_weekly(response)
   end
   next_node :weekly_costs_are_x #04
 end
 
 #Q15
 money_question :how_much_yearly? do
-  calculate :weekly_cost do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+  calculate :weekly_cost do |response|
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
   end
   next_node :weekly_costs_are_x #O4
 end
 
 #Q16
 money_question :how_much_spent_last_12_months? do
-  calculate :weekly_cost do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(responses.last)
+  calculate :weekly_cost do |response|
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
   end
   next_node :weekly_costs_are_x #O4
 end
 
 #Q17
 money_question :new_weekly_costs? do
-  calculate :new_weekly_costs do
-    Float(responses.last).ceil
+  calculate :new_weekly_costs do |response|
+    Float(response).ceil
   end
   next_node do |response|
     amount = Money.new(response)
@@ -151,8 +151,8 @@ end
 money_question :old_weekly_amount_1? do
   # get weekly amount from Q8 or Q9 (whichever the user answered)
   # calculate different using input from Q18
-  calculate :old_weekly_cost do
-    Float(responses.last).ceil
+  calculate :old_weekly_cost do |response|
+    Float(response).ceil
   end
 
   calculate :weekly_difference do
@@ -168,8 +168,8 @@ end
 
 #Q19
 money_question :new_monthly_cost? do
-  calculate :new_weekly_costs do
-    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(responses.last)
+  calculate :new_weekly_costs do |response|
+    SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(response)
   end
 
   next_node do |response|
@@ -180,8 +180,8 @@ end
 
 #Q20
 money_question :old_weekly_amount_2? do
-  calculate :old_weekly_costs do
-    Float(responses.last).ceil
+  calculate :old_weekly_costs do |response|
+    Float(response).ceil
   end
 
   calculate :weekly_difference do
@@ -199,8 +199,8 @@ end
 
 #Q21
 money_question :old_weekly_amount_3? do
-  calculate :old_weekly_costs do
-    Float(responses.last).ceil
+  calculate :old_weekly_costs do |response|
+    Float(response).ceil
   end
 
   calculate :weekly_difference do

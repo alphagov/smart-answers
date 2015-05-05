@@ -21,8 +21,8 @@ end
 multiple_choice :did_the_person_die_at_home_hospital? do
   option :at_home_hospital
   option :elsewhere
-  calculate :died_at_home_hospital do
-    responses.last == 'at_home_hospital'
+  calculate :died_at_home_hospital do |response|
+    response == 'at_home_hospital'
   end
   next_node :was_death_expected?
 end
@@ -32,8 +32,8 @@ multiple_choice :was_death_expected? do
   option :yes
   option :no
 
-  calculate :death_expected do
-    responses.last == 'yes'
+  calculate :death_expected do |response|
+    response == 'yes'
   end
 
   next_node :uk_result
@@ -43,8 +43,8 @@ end
 country_select :which_country?, exclude_countries: exclude_countries do
   save_input_as :country_of_death
 
-  calculate :current_location do
-    reg_data_query.registration_country_slug(responses.last) || responses.last
+  calculate :current_location do |response|
+    reg_data_query.registration_country_slug(response) || response
   end
 
   calculate :current_location_name_lowercase_prefix do
@@ -66,12 +66,12 @@ multiple_choice :where_are_you_now? do
   option another_country: :which_country_are_you_in_now?
   option :in_the_uk
 
-  calculate :another_country do
-    responses.last == 'another_country'
+  calculate :another_country do |response|
+    response == 'another_country'
   end
 
-  calculate :in_the_uk do
-    responses.last == 'in_the_uk'
+  calculate :in_the_uk do |response|
+    response == 'in_the_uk'
   end
 
   on_condition(->(_) { reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(country_of_death) }) do
@@ -85,8 +85,8 @@ end
 
 # Q6
 country_select :which_country_are_you_in_now?, exclude_countries: exclude_countries do
-  calculate :current_location do
-    reg_data_query.registration_country_slug(responses.last) || responses.last
+  calculate :current_location do |response|
+    reg_data_query.registration_country_slug(response) || response
   end
 
   calculate :current_location_name_lowercase_prefix do
