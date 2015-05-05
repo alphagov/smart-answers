@@ -29,7 +29,6 @@ end
 date_question :what_date_does_holiday_start? do
   from { Date.civil(Date.today.year, 1, 1) }
   to { Date.civil(Date.today.year + 1, 12, 31) }
-  save_input_as :holiday_start_date
 
   calculate :weeks_from_october_1 do |response|
     calculator.weeks_worked(response)
