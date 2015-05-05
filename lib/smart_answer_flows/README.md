@@ -10,7 +10,7 @@ The code responsible for executing the flow of those questions is in the `lib` f
 
 ### Storing data for later use
 
-You can use the `precalculate`, 'next_node_calculation` and `calculate` methods to store data for later use.
+You can use the `precalculate`, `next_node_calculation` and `calculate` methods to store data for later use.
 
 Use `precalculate` or `next_node_calculation` to store data for use within the same node.
 
