@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
 
     def initialize(answers)
       @gender = answers[:gender].to_sym
-      @dob = DateTime.parse(answers[:dob])
+      @dob = answers[:dob]
       @qualifying_years = answers[:qualifying_years].to_i
       @available_years = ni_years_to_date_from_dob
       @starting_credits = allocate_starting_credits
@@ -23,11 +23,11 @@ module SmartAnswer::Calculators
     end
 
     def automatic_ni_age_group?
-      (Date.parse('1959-04-06')..Date.parse('1992-04-05')).cover?(dob.to_date)
+      (Date.parse('1959-04-06')..Date.parse('1992-04-05')).cover?(dob)
     end
 
     def woman_born_in_married_stamp_era?
-      (Date.parse('6 April 1953')..Date.parse('5 April 1961')).cover?(dob.to_date) && gender == :female
+      (Date.parse('6 April 1953')..Date.parse('5 April 1961')).cover?(dob) && gender == :female
     end
 
     def current_weekly_rate

@@ -37,7 +37,7 @@ multiple_choice :gender? do
 end
 
 # Q3:Age
-date_question :dob_age? do
+date_question :dob_age?, parse: true do
   from { 100.years.ago }
   to { Date.today }
 
@@ -116,7 +116,7 @@ date_question :dob_age? do
     calc.under_20_years_old?
   end
 
-  validate { |response| Date.parse(response) <= Date.today }
+  validate { |response| response <= Date.today }
 
   next_node_if(:too_young, under_20_years_old?)
   next_node_if(:near_state_pension_age, near_pension_date?)
@@ -124,7 +124,7 @@ date_question :dob_age? do
 end
 
 # Q3:Amount
-date_question :dob_amount? do
+date_question :dob_amount?, parse: true do
   from { 100.years.ago }
   to { Date.today }
 
@@ -158,7 +158,7 @@ date_question :dob_amount? do
     calculator.ni_years_to_date_from_dob
   end
 
-  validate { |response| Date.parse(response) <= Date.today }
+  validate { |response| response <= Date.today }
 
   define_predicate(:before_state_pension_date?) do |response|
     calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
@@ -208,7 +208,7 @@ end
 value_question :years_paid_ni? do
   # part of a hint for questions 4, 7 and 9 that should only be displayed for women born before 1962
   precalculate :carer_hint_for_women do
-    if gender == 'female' and (Date.parse(dob) < Date.parse('1962-01-01'))
+    if gender == 'female' and (dob < Date.parse('1962-01-01'))
       PhraseList.new(:carers_allowance_women_hint)
     else
       ''
@@ -216,7 +216,7 @@ value_question :years_paid_ni? do
   end
 
   calculate :carer_hint_for_women_before_1962 do
-    if gender == 'female' and (Date.parse(dob) < Date.parse('1962-01-01'))
+    if gender == 'female' and (dob < Date.parse('1962-01-01'))
       PhraseList.new(:carers_allowance_women_ni_reduced_years_before_2010)
     else
       ''
@@ -255,7 +255,7 @@ end
 value_question :years_of_jsa? do
 
   calculate :carer_hint_for_women_before_1962 do
-    if gender == 'female' and (Date.parse(dob) < Date.parse('1962-01-01'))
+    if gender == 'female' and (dob < Date.parse('1962-01-01'))
       PhraseList.new(:carers_allowance_women_ni_reduced_years_before_2010)
     end
   end
@@ -570,7 +570,7 @@ outcome :amount_result do
 
     enough_qualifying_years = qualifying_years_total >= 30
     enough_remaining_years = remaining_years >= missing_years
-    auto_years_entitlement = (Date.parse(dob) < Date.parse("6th October 1953") and (gender == "male"))
+    auto_years_entitlement = (dob < Date.parse("6th October 1953") and (gender == "male"))
 
     if calc.within_four_months_one_day_from_state_pension?
       phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years : :within_4_months_not_enough_qy_years)
@@ -599,7 +599,7 @@ outcome :amount_result do
   end
 
   precalculate :automatic_credits do
-    date_of_birth = Date.parse(dob)
+    date_of_birth = dob
     if Date.civil(1957, 4, 5) < date_of_birth and date_of_birth < Date.civil(1994, 4, 6)
       PhraseList.new :automatic_credits
     else

@@ -1448,7 +1448,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
       should "show pension age reached outcome with correct pension age date" do
         assert_current_node :reached_state_pension_age
         assert_state_variable :state_pension_date, Date.parse("06 Jan 2014")
-        assert_state_variable :dob, "1952-02-29"
+        assert_state_variable :dob, Date.parse("1952-02-29")
       end
     end
   end #amount calculation
