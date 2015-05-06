@@ -2,14 +2,6 @@ require "ostruct"
 
 module SmartAnswer::Calculators
   class SelfAssessmentPenalties < OpenStruct
-    def filing_date
-      parse_date(super)
-    end
-
-    def payment_date
-      parse_date(super)
-    end
-
     def paid_on_time?
       (filing_date <= filing_deadline) && (payment_date <= payment_deadline)
     end
@@ -127,10 +119,6 @@ module SmartAnswer::Calculators
 
     def penalty3date
       dates[:penalty3date][tax_year.to_sym]
-    end
-
-    def parse_date(value)
-      Date.parse(value)
     end
 
     #interest is 3% per annum
