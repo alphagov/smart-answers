@@ -34,7 +34,7 @@ multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
   end
 end
 
-date_question :whats_the_husbands_date_of_birth? do
+date_question :whats_the_husbands_date_of_birth?, parse: true do
   to { Date.parse('1 Jan 1896') }
   from { Date.today }
 
@@ -42,7 +42,7 @@ date_question :whats_the_husbands_date_of_birth? do
   next_node :whats_the_husbands_income?
 end
 
-date_question :whats_the_highest_earners_date_of_birth? do
+date_question :whats_the_highest_earners_date_of_birth?, parse: true do
   to { Date.parse('1 Jan 1896') }
   from { Date.today }
 
@@ -117,13 +117,13 @@ end
 
 outcome :husband_done do
   precalculate :allowance do
-    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
+    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(birth_date)
     calculator.calculate_allowance(age_related_allowance, income)
   end
 end
 outcome :highest_earner_done do
   precalculate :allowance do
-    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(Date.parse(birth_date))
+    age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(birth_date)
     calculator.calculate_allowance(age_related_allowance, income)
   end
 end
