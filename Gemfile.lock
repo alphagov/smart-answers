@@ -38,7 +38,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.7)
-    airbrake (3.1.15)
+    airbrake (3.1.17)
       builder
       multi_json
     ansi (1.5.0)
@@ -283,7 +283,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake (= 3.1.15)
+  airbrake (~> 3.1.17)
   better_errors
   binding_of_caller
   capybara (= 2.1.0)
