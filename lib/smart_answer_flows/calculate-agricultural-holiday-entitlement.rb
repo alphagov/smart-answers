@@ -26,7 +26,7 @@ multiple_choice :how_many_days_per_week? do
   next_node :worked_for_same_employer?
 end
 
-date_question :what_date_does_holiday_start? do
+date_question :what_date_does_holiday_start?, parse: true do
   from { Date.civil(Date.today.year, 1, 1) }
   to { Date.civil(Date.today.year + 1, 12, 31) }
 
