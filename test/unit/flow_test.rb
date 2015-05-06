@@ -60,6 +60,16 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal Date.parse('2011-01-01')..Date.parse('2014-01-01'), s.questions.first.range
   end
 
+  test "Can build date question nodes with response parsed to Date object" do
+    s = SmartAnswer::Flow.new do
+      date_question :when_is_your_birthday?, parse: true do
+      end
+    end
+
+    assert_equal 1, s.nodes.size
+    assert_equal 1, s.questions.size
+  end
+
   test "Can build value question nodes" do
     s = SmartAnswer::Flow.new do
       value_question :how_many_green_bottles? do
