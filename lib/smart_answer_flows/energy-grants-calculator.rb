@@ -90,12 +90,12 @@ checkbox_question :what_are_your_circumstances_without_bills_help? do
 end
 
 # Q3
-date_question :date_of_birth? do
+date_question :date_of_birth?, parse: true do
   from { 100.years.ago }
   to { Date.today }
 
   calculate :age_variant do |response|
-    dob = Date.parse(response)
+    dob = response
     if dob < Date.new(1951, 7, 5)
       :winter_fuel_payment
     elsif dob < 60.years.ago(Date.today + 1)
