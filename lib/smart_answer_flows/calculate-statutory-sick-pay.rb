@@ -40,11 +40,11 @@ multiple_choice :employee_work_different_days? do
 end
 
 # Question 4
-date_question :first_sick_day? do
+date_question :first_sick_day?, parse: true do
   from { Date.new(2011, 1, 1) }
   to { Date.today }
   calculate :sick_start_date do |response|
-    Date.parse(response).strftime("%e %B %Y")
+    response
   end
 
   next_node :last_sick_day?
@@ -52,16 +52,16 @@ date_question :first_sick_day? do
 end
 
 # Question 5
-date_question :last_sick_day? do
+date_question :last_sick_day?, parse: true do
   from { Date.new(2011, 1, 1) }
   to { Date.today }
   calculate :sick_end_date do |response|
-    Date.parse(response).strftime("%e %B %Y")
+    response
   end
 
   next_node_calculation(:days_sick) do |response|
-    start_date = Date.parse(sick_start_date)
-    last_day_sick = Date.parse(response)
+    start_date = sick_start_date
+    last_day_sick = response
     (last_day_sick - start_date).to_i + 1
   end
   validate { days_sick >= 1 }
@@ -93,21 +93,21 @@ multiple_choice :how_often_pay_employee_pay_patterns? do
 end
 
 # Question 6
-date_question :last_payday_before_sickness? do
+date_question :last_payday_before_sickness?, parse: true do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 
   calculate :relevant_period_to do |response|
-    Date.parse(response).strftime("%e %B %Y")
+    response
   end
 
   calculate :pay_day_offset do
-    (Date.parse(relevant_period_to) - 8.weeks).strftime("%e %B %Y")
+    relevant_period_to - 8.weeks
   end
 
   validate do |response|
-    payday = Date.parse(response)
-    start = Date.parse(sick_start_date)
+    payday = response
+    start = sick_start_date
 
     payday < start
   end
@@ -116,21 +116,21 @@ date_question :last_payday_before_sickness? do
 end
 
 # Question 6.1
-date_question :last_payday_before_offset? do
+date_question :last_payday_before_offset?, parse: true do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 
   # You must enter a date on or before [pay_day_offset]
-  validate { |payday| Date.parse(payday) <= Date.parse(pay_day_offset) }
+  validate { |payday| payday <= pay_day_offset }
 
   # input plus 1 day = relevant_period_from
   calculate :relevant_period_from do |response|
-    (Date.parse(response) + 1.day).strftime("%e %B %Y")
+    response + 1.day
   end
 
   calculate :monthly_pattern_payments do
-    start_date = Date.parse(relevant_period_from)
-    end_date = Date.parse(relevant_period_to)
+    start_date = relevant_period_from
+    end_date = relevant_period_to
     Calculators::StatutorySickPayCalculator.months_between(start_date, end_date)
   end
 
@@ -194,18 +194,18 @@ multiple_choice :off_sick_4_days? do
   option :no
 
   next_node_if(:not_earned_enough) do
-    employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(sick_start_date))
+    employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
   end
   next_node :usual_work_days?
 end
 
 # Question 11.1
-date_question :linked_sickness_start_date? do
+date_question :linked_sickness_start_date?, parse: true do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 
   next_node_if(:not_earned_enough) do |response|
-    employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(response))
+    employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(response)
   end
   next_node(:how_many_days_sick?)
 end
@@ -225,7 +225,7 @@ checkbox_question :usual_work_days? do
   end
 
   calculate :formatted_sick_pay_weekly_amounts do |response|
-    calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), response.split(","))
+    calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, response.split(","))
 
     if calculator.ssp_payment > 0
       calculator.formatted_sick_pay_weekly_amounts
@@ -235,7 +235,7 @@ checkbox_question :usual_work_days? do
   end
 
   next_node_calculation(:calculator) do |response|
-    Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, Date.parse(sick_start_date), Date.parse(sick_end_date), response.split(","))
+    Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, response.split(","))
   end
 
   # Answer 8
@@ -267,7 +267,7 @@ outcome :not_regular_schedule
 # Answer 5
 outcome :not_earned_enough do
   precalculate :lower_earning_limit do
-    Calculators::StatutorySickPayCalculator.lower_earning_limit_on(Date.parse(sick_start_date))
+    Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
   end
 end
 

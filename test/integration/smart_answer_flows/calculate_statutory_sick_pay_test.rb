@@ -171,7 +171,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
             end
 
             should "store response and move to Q5" do
-              assert_state_variable :sick_start_date, ' 2 April 2013'
+              assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
               assert_current_node :last_sick_day? # Q5
             end
 
@@ -190,7 +190,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                   add_response '10/04/2013'
                 end
                 should "store last sick day" do
-                  assert_state_variable :sick_end_date, '10 April 2013'
+                  assert_state_variable :sick_end_date, Date.parse('10 April 2013')
                 end
 
                 should "ask had you paid employee at least 8 weeks" do # Q5.1
