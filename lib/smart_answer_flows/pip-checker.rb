@@ -25,11 +25,11 @@ multiple_choice :are_you_getting_dla? do
 end
 
 ## Q2
-date_question :what_is_your_dob? do
+date_question :what_is_your_dob?, parse: true do
   from { Date.today - 100.years }
   to { Date.today }
   next_node do |response|
-    calculator.dob = Date.parse(response)
+    calculator.dob = response
     if getting_dla
       if calculator.in_group_65?
         :result_6
