@@ -65,7 +65,7 @@ value_question :how_many_days_per_week? do
 end
 
 # Q4
-date_question :what_is_your_starting_date? do
+date_question :what_is_your_starting_date?, parse: true do
   from { Date.civil(1.year.ago.year, 1, 1) }
   to { Date.civil(1.year.since(Date.today).year, 12, 31) }
   save_input_as :start_date
@@ -79,7 +79,7 @@ date_question :what_is_your_starting_date? do
 end
 
 # Q5
-date_question :what_is_your_leaving_date? do
+date_question :what_is_your_leaving_date?, parse: true do
   from { Date.civil(1.year.ago.year, 1, 1) }
   to { Date.civil(1.year.since(Date.today).year, 12, 31) }
   save_input_as :leaving_date
@@ -101,7 +101,7 @@ date_question :what_is_your_leaving_date? do
 end
 
 # Q21
-date_question :when_does_your_leave_year_start? do
+date_question :when_does_your_leave_year_start?, parse: true do
   from { Date.civil(1.year.ago.year, 1, 1) }
   to { Date.civil(1.year.since(Date.today).year, 12, 31) }
   save_input_as :leave_year_start_date

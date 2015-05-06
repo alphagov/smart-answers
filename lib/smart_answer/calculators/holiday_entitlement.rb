@@ -56,9 +56,9 @@ module SmartAnswer::Calculators
 
     def date_calc
       if self.start_date
-        Date.parse start_date
+        start_date
       else
-        Date.parse leaving_date
+        leaving_date
       end
     end
 
@@ -87,7 +87,7 @@ module SmartAnswer::Calculators
 
     def leave_year_start_end
       if self.leave_year_start_date
-        date_leave_year_start_date = Date.parse leave_year_start_date
+        date_leave_year_start_date = leave_year_start_date
 
         needs_offset = date_calc >= date_of_year(date_leave_year_start_date, date_calc.year)
         number_years = date_calc.year - (needs_offset ? 0 : 1)
@@ -115,11 +115,11 @@ module SmartAnswer::Calculators
       days_divide = feb29th_in_range(leave_year_start, leave_year_end) ? 366 : 365
 
       if start_date and leaving_date
-        (Date.parse(leaving_date) - Date.parse(start_date) + 1) / days_divide
+        (leaving_date - start_date + 1) / days_divide
       elsif leaving_date
-        (Date.parse(leaving_date) - leave_year_start + 1) / days_divide
+        (leaving_date - leave_year_start + 1) / days_divide
       else
-        (leave_year_end - Date.parse(start_date) + 1) / days_divide
+        (leave_year_end - start_date + 1) / days_divide
       end
     end
 
