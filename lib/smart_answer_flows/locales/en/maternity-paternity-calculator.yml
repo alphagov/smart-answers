@@ -29,8 +29,8 @@ en-GB:
 
         + the baby’s due date
         + date of birth - for paternity
-        + your employee’s salary details - eg weekly rates of pay
-        + the dates for adoption - eg match date or date of placement
+        + your employee’s salary details, eg weekly rates of pay
+        + the dates for adoption, eg match date and date of placement
 
 
         You can’t use the calculator for:
@@ -475,7 +475,7 @@ en-GB:
       ## QA6
       adoption_date_leave_starts?:
         title: When does the employee want to start their leave?
-        hint: Leave can't start before %{a_leave_earliest_start} or within 28 days of the child arriving in the UK (overseas adoptions only).
+        hint: Leave can’t start before %{a_leave_earliest_start}. For overseas adoptions your leave must start within 28 days of the child arriving in the UK.
         error_message: Please enter a valid date
       ## QA7
       last_normal_payday_adoption?:
