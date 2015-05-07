@@ -4,18 +4,18 @@ satisfies_need "100865"
 calculator = Calculators::StatePensionTopupCalculator.new
 
 #Q1
-date_question :dob_age? do
+date_question :dob_age?, parse: true do
   from { 110.years.ago }
   to { Date.today - 18.years }
 
   save_input_as :date_of_birth
 
   define_predicate(:age_limit_reached?) do |response|
-    Date.parse(response) < calculator.class::OLDEST_DOB
+    response < calculator.class::OLDEST_DOB
   end
 
   define_predicate(:too_young?) do |response|
-    Date.parse(response) > calculator.class::FEMALE_YOUNGEST_DOB
+    response > calculator.class::FEMALE_YOUNGEST_DOB
   end
 
   next_node_if(:outcome_age_limit_reached_birth, age_limit_reached?)
@@ -32,7 +32,7 @@ multiple_choice :gender? do
 
   define_predicate(:male_and_too_young?) do |response|
     (response == "male") &
-    (Date.parse(date_of_birth) > calculator.class::MALE_YOUNGEST_DOB)
+    (date_of_birth > calculator.class::MALE_YOUNGEST_DOB)
   end
 
   next_node_if(:outcome_pension_age_not_reached, male_and_too_young?)
@@ -63,7 +63,7 @@ outcome :outcome_topup_calculations do
     # Only needed for formatting amount
     self.class.send :include, ActionView::Helpers::NumberHelper
 
-    calculator.lump_sum_and_age(Date.parse(date_of_birth), weekly_amount, gender).map do |amount_and_age|
+    calculator.lump_sum_and_age(date_of_birth, weekly_amount, gender).map do |amount_and_age|
       %Q(- #{number_to_currency(amount_and_age[:amount], precision: 0)} when you're #{amount_and_age[:age]})
     end.join("\n")
   end
