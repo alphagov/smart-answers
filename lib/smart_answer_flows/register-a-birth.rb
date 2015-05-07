@@ -56,12 +56,12 @@ multiple_choice :married_couple_or_civil_partnership? do
 end
 
 # Q4
-date_question :childs_date_of_birth? do
+date_question :childs_date_of_birth?, parse: true do
   from { Date.today }
   to { 50.years.ago(Date.today) }
 
   before_july_2006 = SmartAnswer::Predicate::Callable.new("before 1 July 2006") do |response|
-    Date.new(2006, 07, 01) > Date.parse(response)
+    Date.new(2006, 07, 01) > response
   end
 
   next_node_if(:homeoffice_result, before_july_2006)
