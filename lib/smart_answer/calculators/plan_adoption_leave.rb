@@ -5,11 +5,11 @@ module SmartAnswer::Calculators
     attr_reader :formatted_match_date, :formatted_arrival_date, :formatted_start_date
 
     def initialize(options = {})
-      @match_date = Date.parse(options[:match_date])
+      @match_date = options[:match_date]
       @formatted_match_date = formatted_date(@match_date)
-      @arrival_date = Date.parse(options[:arrival_date])
+      @arrival_date = options[:arrival_date]
       @formatted_arrival_date = formatted_date(@arrival_date)
-      @start_date = Date.parse(options[:start_date])
+      @start_date = options[:start_date]
       @formatted_start_date = formatted_date(@start_date)
     end
 

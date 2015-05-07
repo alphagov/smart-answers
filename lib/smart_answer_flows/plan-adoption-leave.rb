@@ -1,24 +1,24 @@
 status :published
 satisfies_need "101018"
 
-date_question :child_match_date? do
+date_question :child_match_date?, parse: true do
   save_input_as :match_date
 
   next_node :child_arrival_date?
 end
 
-date_question :child_arrival_date? do
+date_question :child_arrival_date?, parse: true do
   calculate :arrival_date do |response|
-    raise InvalidResponse if Date.parse(response) <= Date.parse(match_date)
+    raise InvalidResponse if response <= match_date
     response
   end
 
   next_node :leave_start?
 end
 
-date_question :leave_start? do
+date_question :leave_start?, parse: true do
   calculate :start_date do |response|
-    dist = (Date.parse(arrival_date) - Date.parse(response)).to_i
+    dist = (arrival_date - response).to_i
     raise InvalidResponse unless (1..14).include? dist
     response
   end
@@ -48,7 +48,7 @@ outcome :adoption_leave_details do
   end
   precalculate :qualifying_week do
     calculator.qualifying_week.last
-    # calculator.formatted_date (Date.parse(match_date) - 7)
+    # calculator.formatted_date (match_date - 7)
   end
   precalculate :earliest_start do
     calculator.earliest_start
