@@ -281,7 +281,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
 
             should "show an error" do
               assert_current_node_is_error
-              assert_state_variable "written_explanation_request_date", @request_date.strftime("%e %B %Y")
+              assert_state_variable "written_explanation_request_date", @request_date
             end
           end
 

@@ -60,8 +60,8 @@ module SmartAnswer
       add_node Question::CountrySelect.new(name, options, &block)
     end
 
-    def date_question(name, &block)
-      add_node Question::Date.new(name, &block)
+    def date_question(name, options = {}, &block)
+      add_node Question::Date.new(name, options, &block)
     end
 
     def optional_date(name, &block)

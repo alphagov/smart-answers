@@ -154,6 +154,13 @@ module SmartAnswer
       assert_equal " 1 March 2011", presenter.response_label("2011-03-01")
     end
 
+    test "Can lookup a response label for a date question with date object response" do
+      question = Question::Date.new(:example_question?)
+      presenter = DateQuestionPresenter.new("flow.test", question)
+
+      assert_equal " 1 March 2011", presenter.response_label(Date.parse("2011-03-01"))
+    end
+
     test "Outcome has a title if using the NodePresenter" do
       outcome = Outcome.new(:outcome_with_no_title)
       presenter = NodePresenter.new("flow.test", outcome)

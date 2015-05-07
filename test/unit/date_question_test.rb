@@ -9,7 +9,7 @@ module SmartAnswer
       @initial_state = State.new(:example)
     end
 
-    test "dates are parsed from hash form before being saved" do
+    test "dates are parsed from Hash into String before being saved" do
       q = Question::Date.new(:example) do
         save_input_as :date
         next_node :done
@@ -17,6 +17,16 @@ module SmartAnswer
 
       new_state = q.transition(@initial_state, {year: "2011", month: '2', day: '1'})
       assert_equal '2011-02-01', new_state.date
+    end
+
+    test "dates are parsed from Hash into Date before being saved" do
+      q = Question::Date.new(:example, parse: true) do
+        save_input_as :date
+        next_node :done
+      end
+
+      new_state = q.transition(@initial_state, {year: "2011", month: '2', day: '1'})
+      assert_equal Date.parse('2011-02-01'), new_state.date
     end
 
     test "incomplete dates raise an error" do
