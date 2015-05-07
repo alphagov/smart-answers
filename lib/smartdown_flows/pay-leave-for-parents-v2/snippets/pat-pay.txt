@@ -6,25 +6,25 @@ The mother’s partner can get up to 2 weeks of [paternity pay](/paternity-pay-l
 
 $IF range_in_2013_2014_fin_year?(due_date)
 
-Weekly rate (between 6 April 2013 and 5 April 2014) | %{rate_of_paternity_pay_2013_2014(salary_2)}
+Weekly rate (between 6 April 2013 and 5 April 2014) | £136.78 per week or 90% of their average weekly earnings (before tax), whichever is lower
 
 $ENDIF
 
 $IF range_in_2014_2015_fin_year?(due_date)
 
-Weekly rate (between 6 April 2014 and 5 April 2015) | %{rate_of_paternity_pay_2014_2015(salary_2)}
+Weekly rate (between 6 April 2014 and 5 April 2015) | £138.18 per week or 90% of their average weekly earnings (before tax), whichever is lower
 
 $ENDIF
 
 $IF range_in_2015_2016_fin_year?(due_date)
 
-Weekly rate (between 6 April 2015 and 5 April 2016) | %{rate_of_paternity_pay_2015_2016(salary_2)}
+Weekly rate (between 6 April 2015 and 5 April 2016) | £139.58 per week or 90% of their average weekly earnings (before tax), whichever is lower
 
 $ENDIF
 
 $IF NOT range_in_2013_2014_fin_year?(due_date) AND NOT range_in_2014_2015_fin_year?(due_date) AND NOT range_in_2015_2016_fin_year?(due_date)
 
-Weekly rate (between 6 April 2015 and 5 April 2016) | %{rate_of_paternity_pay_2015_2016(salary_2)}
+Weekly rate (between 6 April 2015 and 5 April 2016) | £139.58 per week or 90% of their average weekly earnings (before tax), whichever is lower
 
 $ENDIF
 
