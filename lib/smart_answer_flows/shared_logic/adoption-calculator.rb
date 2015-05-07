@@ -158,7 +158,7 @@ date_question :payday_eight_weeks_adoption? do
   end
 
   calculate :last_payday_eight_weeks do |response|
-    payday = Date.parse(response)
+    payday = Date.parse(response) + 1.day
     raise SmartAnswer::InvalidResponse if payday > Date.parse(payday_offset)
     calculator.pre_offset_payday = payday
     payday

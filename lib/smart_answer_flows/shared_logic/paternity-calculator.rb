@@ -276,7 +276,7 @@ date_question :payday_eight_weeks_paternity? do
   end
 
   calculate :pre_offset_payday do |response|
-    payday = Date.parse(response)
+    payday = Date.parse(response) + 1.day
     raise SmartAnswer::InvalidResponse if payday > calculator.payday_offset
     calculator.pre_offset_payday = payday
     payday
