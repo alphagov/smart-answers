@@ -41,7 +41,8 @@ The flow below illustrates the data available to the different Question node met
         'q2-precalculated-answer'
       end
 
-      next_node_calculation :q2_next_node_calculated_answer do
+      next_node_calculation :q2_next_node_calculated_answer do |response|
+        # response                => 'q2_option'
         # responses               => ['q1_option']
         # q1_calculated_answer    => 'q1-calculated-answer'
         # q2_answer               => nil
