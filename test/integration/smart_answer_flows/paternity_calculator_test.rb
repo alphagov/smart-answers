@@ -410,7 +410,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
           add_response "500"
           assert_current_node :paternity_leave_and_pay
           assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_not_entitled_to_pay_intro, :must_earn_over_threshold, :paternity_not_entitled_to_pay_outro]
-          assert_state_variable :relevant_period, 'Friday, 22 November 2013 and Friday, 17 January 2014'
+          assert_state_variable :relevant_period, 'Saturday, 23 November 2013 and Friday, 17 January 2014'
           assert_state_variable :to_saturday, "Saturday, 18 January 2014"
           assert_state_variable :lower_earning_limit, '109.00'
         end
@@ -434,7 +434,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
           add_response "500"
           assert_current_node :paternity_leave_and_pay
           assert_phrase_list :paternity_info, [:paternity_entitled_to_leave, :paternity_not_entitled_to_pay_intro, :must_earn_over_threshold, :paternity_not_entitled_to_pay_outro]
-          assert_state_variable :relevant_period, "Tuesday, 02 April 2013 and Sunday, 06 April 2014"
+          assert_state_variable :relevant_period, "Wednesday, 03 April 2013 and Sunday, 06 April 2014"
           assert_state_variable :to_saturday, "Saturday, 12 April 2014"
           assert_state_variable :lower_earning_limit, '111.00'
         end
