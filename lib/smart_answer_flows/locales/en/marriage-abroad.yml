@@ -207,9 +207,6 @@ en-GB:
         complete_affidavit: |
           You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. Take the completed form with you to your appointment.
 
-        complete_affidavit_with_download_link: |
-          You’ll need to complete an [‘Affidavit for marriage’ form](/government/publications/marriage-in-%{country_name_lowercase_prefix}) that will be used for your affidavit. Take the completed form with you to your appointment.
-
         download_affidavit: |
           $D
           [Download 'Affidavit for Marriage' (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
@@ -232,15 +229,11 @@ en-GB:
           Send one copy to the British Embassy in Jakarta by email or post. Take the other one with you when you go to your local appointment, along with your passport.
 
           ^Allow the embassy at least 2 days to process your paperwork before turning up for your appointment.^
-        appointment_for_affidavit_china_addition: |
-          Your partner will need to bring a Hukou book (family registration book).
         appointment_for_affidavit_notary: |
           Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
 # partner affirmation phrases
         legalisation_and_translation: |
           ###Legalisation and translation
-        partner_affirmation_needed: |
-          ^Your partner will need to get an affirmation as well.^
         partner_affidavit_needed: |
           ^Your partner will need to get an affidavit as well.^
         affirmation_os_translation_in_local_language_text: |
@@ -543,8 +536,7 @@ en-GB:
           You should also check the [travel advice for Japan](/foreign-travel-advice/japan) before making any plans.
 
           ^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
-        ecuador_os_consular_cni: |
-          %Marriage between an Ecuadorian citizen and a foreign national is only allowed if you’ve been resident in Ecuador for at least 75 consecutive days - unless you already have a registered child with an Ecuadorian citizen.%
+
         uk_resident_os_consular_cni: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
@@ -637,12 +629,6 @@ en-GB:
           ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire, but you should check with the local authorities in the country where you intend to marry to find out how long a CNI is valid under local law.^
 
           They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
-        cni_posted_if_no_objection_7_days: |
-          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
-
-          ^A CNI issued in England, Wales or Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
-
-          They’ll post your notice, and as long as nobody has registered an objection after 7 days, they’ll issue your CNI.
         consular_cni_os_resident_in_uk_ceremony_in_italy: |
           ###Getting a statutory declaration
 
@@ -691,10 +677,6 @@ en-GB:
           - translated - [find a translator abroad](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
 
           You should also check with the local authorities to find out if you need to provide legalised and translated copies of any other documents.
-        consular_cni_os_uk_resident_philippines: |
-          ###Getting a Philippine version of your CNI
-
-          Once you have your UK-issued CNI, the British Embassy in Manila can issue a Philippine version that will be recognised by the local authorities. You can arrange this by booking an appointment online at least 2 weeks before your visit.
 
         consular_cni_os_local_resident_table: |
 
@@ -1042,10 +1024,6 @@ en-GB:
 
           The %{embassy_or_consulate_residency_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
 
-        display_notice_of_marriage_21_days: |
-          ###What happens next
-
-          The %{embassy_or_consulate_residency_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 21 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
         consular_cni_os_foreign_resident_ceremony_not_italy: |
           ###What happens next
 
@@ -1122,8 +1100,6 @@ en-GB:
         notary_public_will_charge_a_fee: |
           The notary public will charge a fee for taking the oath, and then give you your notice of marriage. You should take this notice to the local authorities where you're getting married.
 
-        partner_will_need_a_cni: |
-          ^Your partner will need to get their own CNI.^
         consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british: |
           ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
         consular_cni_os_other_resident_partner_british_ceremony_italy: |
@@ -1236,8 +1212,6 @@ en-GB:
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country})^
         affirmation_os_legalised_in_turkey: |
           You’ll need to get your affidavit ‘legalised’ (certified as genuine) by the local authorities, this is usually done on the same day - the embassy or consulate should be able to give you advice.
-        affirmation_os_uk_resident_two: |
-          ^You should [get legal advice](http://www.lawsociety.org.uk/find-a-solicitor/) before making any plans.^
         affirmation_os_all_what_you_need_to_do: |
           ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
         affirmation_os_uae: |
@@ -1267,11 +1241,6 @@ en-GB:
           ^Your partner will probably need to get an equivalent document from their national authorities.^
 
           Once the document is legalised you’ll need to have it checked at the marriage office nearest to where your marriage will take place.
-        affirmation_os_naturalisation: |
-          ##Naturalisation of your partner if they move to the UK
-
-          Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they've lived in the UK for 3 years.
-
         affirmation_os_legalised: |
           You’ll need to get your affidavit ‘[legalised](https://www.gov.uk/get-document-legalised)’ (certified as genuine) before you travel to Turkey.
 
@@ -1643,8 +1612,6 @@ en-GB:
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         consular_cp_all_contact: |
           Contact them to make an appointment:
-        consular_cp_no_clickbook_so_embassy_details: |
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         consular_cp_all_documents: |
           You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:
 
@@ -1924,18 +1891,12 @@ en-GB:
         options:
           marriage: "Marriage"
           pacs: "PACS"
-# Q3d
-      swiss_resident?:
-        title: Do you live in Switzerland?
-        options:
-          "yes": "Yes"
-          "no": "No"
+
 # Q4
       what_is_your_partners_nationality?:
         title: What is your partner’s nationality?
         options:
           partner_british: "British"
-          partner_irish: "Irish"
           partner_local: "%{country_name_partner_residence}"
           partner_other: "National of another country"
 # Q5
