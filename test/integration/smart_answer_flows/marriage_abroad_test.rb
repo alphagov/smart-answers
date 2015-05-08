@@ -315,8 +315,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:uk_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :cni_at_local_register_office, :consular_cni_os_uk_resident_legalisation, :consular_cni_os_uk_resident_not_italy_or_portugal]
-      assert_phrase_list :consular_cni_os_remainder, [:partner_will_need_a_cni, :consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_start, [:uk_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :cni_at_local_register_office_notary_public, :consular_cni_os_uk_resident_legalisation, :consular_cni_os_uk_resident_not_italy_or_portugal]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "resident in estonia, ceremony in estonia" do
@@ -489,7 +489,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  context "ceremony in azerbaijan, resident in northern ireland, partner other" do
+  context "ceremony in azerbaijan, resident in northern ireland, opposite sex non-local partner" do
     setup do
       worldwide_api_has_organisations_for_location('azerbaijan', read_fixture_file('worldwide/azerbaijan_organisations.json'))
       add_response 'azerbaijan'
@@ -554,7 +554,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_foreign_commonwealth_roi_resident, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  context "ceremony in denmark, resident in ireland, partner british" do
+  context "ceremony in denmark, resident in ireland, partner opposite sex british" do
     setup do
       worldwide_api_has_organisations_for_location('denmark', read_fixture_file('worldwide/denmark_organisations.json'))
       worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
@@ -566,8 +566,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:other_resident_os_consular_cni, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ireland_resident]
-      assert_phrase_list :consular_cni_os_remainder, []
+      assert_phrase_list :consular_cni_os_start, [:other_resident_os_consular_cni, :italy_os_consular_cni_ceremony_not_italy_or_spain, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :consular_cni_os_denmark, :consular_cni_os_ireland_resident, :consular_cni_os_ireland_resident_british_partner, :consular_cni_os_ireland_resident_two, :consular_cni_os_commonwealth_or_ireland_resident_british_partner, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_ireland_resident_ceremony_not_italy]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_foreign_commonwealth_roi_resident, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   #variants for ireland residents
@@ -1877,7 +1877,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :switzerland_not_resident, :switzerland_os_not_resident, :switzerland_not_resident_two]
     end
   end
-  context "peru outcome mapped to lebanon" do
+  context "peru outcome mapped to lebanon for same sex" do
     should "go to outcome cp all other countries" do
       worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
       add_response 'peru'
@@ -1889,7 +1889,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  context "peru outcome mapped to lebanon" do
+  context "peru outcome mapped to lebanon for opposite sex" do
     should "go to outcome os affirmation" do
       worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
       add_response 'peru'
@@ -2070,7 +2070,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_fees_not_italy_not_uk]
     end
   end
-  context "ceremony in azerbaijan, resident in northern ireland, partner other" do
+  context "ceremony in azerbaijan, resident in northern ireland, same sex non-local partner" do
     setup do
       worldwide_api_has_organisations_for_location('azerbaijan', read_fixture_file('worldwide/azerbaijan_organisations.json'))
       add_response 'azerbaijan'
@@ -2083,7 +2083,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_ss_marriage
     end
   end
-  context "uk resident, ceremony in estonia, partner british" do
+  context "uk resident, ceremony in estonia, partner same sex british" do
     setup do
       worldwide_api_has_organisations_for_location('estonia', read_fixture_file('worldwide/estonia_organisations.json'))
       add_response 'estonia'
@@ -2092,7 +2092,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'same_sex'
     end
-    should "go to consular cni os outcome" do
+    should "go to ss outcome" do
       assert_current_node :outcome_ss_marriage
       assert_phrase_list :ss_title, [:title_ss_marriage]
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
@@ -2144,7 +2144,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_foreign_commonwealth_roi_resident_kazakhstan, :pay_in_local_currency_ceremony_country_name]
     end
   end
-  context "Marrying anywhere in the world > British National not living in the UK > Resident in Portugal > Partner of any nationality > Opposite sex" do
+  context "Marrying in Portugal > British National not living in the UK > Resident anywhere > Partner of any nationality > Opposite sex" do
     setup do
       worldwide_api_has_organisations_for_location('portugal', read_fixture_file('worldwide/portugal_organisations.json'))
       worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
@@ -2159,7 +2159,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :portugal_title, [:marriage_title]
     end
   end
-  context "Marrying anywhere in the world > British National not living in the UK > Resident in Portugal > Partner of any nationality > Opposite sex" do
+  context "Marrying in Portugal > British National living in the UK > Partner of any nationality > Opposite sex" do
     setup do
       worldwide_api_has_organisations_for_location('portugal', read_fixture_file('worldwide/portugal_organisations.json'))
       add_response 'portugal'
