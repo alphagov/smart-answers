@@ -129,7 +129,7 @@ private
     # we don't cache an incomplete page for a while
     duration = 5.seconds if @presenter.present? and @presenter.artefact.blank?
 
-    unless Rails.env.development?
+    if Rails.configuration.set_http_cache_control_expiry_time
       expires_in(duration, public: true)
     end
   end
