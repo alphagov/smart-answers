@@ -2,12 +2,12 @@
 days_of_the_week = Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
 
 ## QM1
-date_question :baby_due_date_maternity? do
+date_question :baby_due_date_maternity?, parse: true do
   from { 1.year.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
   calculate :calculator do |response|
-    Calculators::MaternityPaternityCalculator.new(Date.parse(response))
+    Calculators::MaternityPaternityCalculator.new(response)
   end
   next_node :employment_contract?
 end
@@ -27,7 +27,7 @@ multiple_choice :employment_contract? do
 end
 
 ## QM3
-date_question :date_leave_starts? do
+date_question :date_leave_starts?, parse: true do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
@@ -36,7 +36,7 @@ date_question :date_leave_starts? do
   end
 
   calculate :leave_start_date do |response|
-    ls_date = Date.parse(response)
+    ls_date = response
     raise SmartAnswer::InvalidResponse if ls_date < leave_earliest_start_date
     calculator.leave_start_date = ls_date
     calculator.leave_start_date
@@ -86,35 +86,43 @@ multiple_choice :is_the_employee_on_your_payroll? do
   end
 
   calculate :to_saturday do
-    calculator.format_date_day calculator.qualifying_week.last
+    calculator.qualifying_week.last
+  end
+
+  calculate :to_saturday_formatted do
+    calculator.format_date_day to_saturday
   end
 end
 
 ## QM6
-date_question :last_normal_payday? do
+date_question :last_normal_payday?, parse: true do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
   calculate :last_payday do |response|
-    calculator.last_payday = Date.parse(response)
-    raise SmartAnswer::InvalidResponse if calculator.last_payday > Date.parse(to_saturday)
+    calculator.last_payday = response
+    raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
     calculator.last_payday
   end
   next_node :payday_eight_weeks?
 end
 
 ## QM7
-date_question :payday_eight_weeks? do
+date_question :payday_eight_weeks?, parse: true do
   from { 2.year.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
   precalculate :payday_offset do
-    calculator.format_date_day calculator.payday_offset
+    calculator.payday_offset
+  end
+
+  precalculate :payday_offset_formatted do
+    calculator.format_date_day payday_offset
   end
 
   calculate :last_payday_eight_weeks do |response|
-    payday = Date.parse(response) + 1.day
-    raise SmartAnswer::InvalidResponse if payday > Date.parse(payday_offset)
+    payday = response + 1.day
+    raise SmartAnswer::InvalidResponse if payday > payday_offset
     calculator.pre_offset_payday = payday
     payday
   end
@@ -164,9 +172,9 @@ multiple_choice :how_do_you_want_the_smp_calculated? do
 end
 
 ## QM11
-date_question :when_is_your_employees_next_pay_day? do
+date_question :when_is_your_employees_next_pay_day?, parse: true do
   calculate :next_pay_day do |response|
-    calculator.pay_date = Date.parse(response)
+    calculator.pay_date = response
     calculator.pay_date
   end
 

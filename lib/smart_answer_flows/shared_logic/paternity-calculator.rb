@@ -7,9 +7,9 @@ multiple_choice :leave_or_pay_for_adoption? do
 end
 
 ## QP1
-date_question :baby_due_date_paternity? do
+date_question :baby_due_date_paternity?, parse: true do
   calculate :due_date do |response|
-    Date.parse(response)
+    response
   end
 
   calculate :calculator do
@@ -20,9 +20,9 @@ date_question :baby_due_date_paternity? do
 end
 
 ## QAP1 - Paternity Adoption
-date_question :employee_date_matched_paternity_adoption? do
+date_question :employee_date_matched_paternity_adoption?, parse: true do
   calculate :matched_date do |response|
-    Date.parse(response)
+    response
   end
 
   calculate :calculator do
@@ -41,9 +41,9 @@ date_question :employee_date_matched_paternity_adoption? do
 end
 
 ## QP2
-date_question :baby_birth_date_paternity? do
+date_question :baby_birth_date_paternity?, parse: true do
   calculate :date_of_birth do |response|
-    Date.parse(response)
+    response
   end
 
   calculate :calculator do
@@ -55,10 +55,10 @@ date_question :baby_birth_date_paternity? do
 end
 
 ## QAP2 - Paternity Adoption
-date_question :padoption_date_of_adoption_placement? do
+date_question :padoption_date_of_adoption_placement?, parse: true do
 
   calculate :ap_adoption_date do |response|
-    placement_date = Date.parse(response)
+    placement_date = response
     raise SmartAnswer::InvalidResponse if placement_date < matched_date
     calculator.adoption_placement_date = placement_date
     placement_date
@@ -148,10 +148,14 @@ multiple_choice :employee_on_payroll_paternity? do
 
   calculate :to_saturday do
     if paternity_adoption?
-      calculator.format_date_day calculator.matched_week.last
+      calculator.matched_week.last
     else
-      calculator.format_date_day calculator.qualifying_week.last
+      calculator.qualifying_week.last
     end
+  end
+
+  calculate :to_saturday_formatted do
+    calculator.format_date_day to_saturday
   end
 
   calculate :still_employed_date do
@@ -188,14 +192,14 @@ multiple_choice :employee_still_employed_on_birth_date? do
 end
 
 ## QP8
-date_question :employee_start_paternity? do
+date_question :employee_start_paternity?, parse: true do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
   save_input_as :employee_leave_start
 
   calculate :leave_start_date do |response|
-    calculator.leave_start_date = Date.parse(response)
+    calculator.leave_start_date = response
     if paternity_adoption?
       raise SmartAnswer::InvalidResponse if calculator.leave_start_date < ap_adoption_date
     else
@@ -253,13 +257,13 @@ multiple_choice :employee_paternity_length? do
 end
 
 ## QP10
-date_question :last_normal_payday_paternity? do
+date_question :last_normal_payday_paternity?, parse: true do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
   calculate :calculator do |response|
-    calculator.last_payday = Date.parse(response)
-    raise SmartAnswer::InvalidResponse if calculator.last_payday > Date.parse(to_saturday)
+    calculator.last_payday = response
+    raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
     calculator
   end
 
@@ -267,7 +271,7 @@ date_question :last_normal_payday_paternity? do
 end
 
 ## QP11
-date_question :payday_eight_weeks_paternity? do
+date_question :payday_eight_weeks_paternity?, parse: true do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
@@ -276,7 +280,7 @@ date_question :payday_eight_weeks_paternity? do
   end
 
   calculate :pre_offset_payday do |response|
-    payday = Date.parse(response) + 1.day
+    payday = response + 1.day
     raise SmartAnswer::InvalidResponse if payday > calculator.payday_offset
     calculator.pre_offset_payday = payday
     payday
@@ -334,13 +338,13 @@ multiple_choice :how_do_you_want_the_spp_calculated? do
 end
 
 ## QP15 - Also shared with adoption calculator here onwards
-date_question :next_pay_day_paternity? do
+date_question :next_pay_day_paternity?, parse: true do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
   save_input_as :next_pay_day
 
   calculate :calculator do |response|
-    calculator.pay_date = Date.parse(response)
+    calculator.pay_date = response
     calculator
   end
   next_node :paternity_leave_and_pay

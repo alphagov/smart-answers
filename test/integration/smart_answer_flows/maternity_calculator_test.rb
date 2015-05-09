@@ -586,7 +586,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       end
 
       should "have LEL of 111" do
-        assert_state_variable :to_saturday, "Saturday, 12 April 2014"
+        assert_state_variable :to_saturday_formatted, "Saturday, 12 April 2014"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 111)
         assert_current_node :maternity_leave_and_pay_result
       end
@@ -607,7 +607,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       end
 
       should "have LEL of 109" do
-        assert_state_variable :to_saturday, "Saturday, 05 April 2014"
+        assert_state_variable :to_saturday_formatted, "Saturday, 05 April 2014"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
         assert_current_node :maternity_leave_and_pay_result
       end
@@ -628,7 +628,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       end
 
       should "have LEL of 109" do
-        assert_state_variable :to_saturday, "Saturday, 05 April 2014"
+        assert_state_variable :to_saturday_formatted, "Saturday, 05 April 2014"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
         assert_current_node :maternity_leave_and_pay_result
       end
@@ -650,7 +650,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       end
 
       should "have LEL of 109" do
-        assert_state_variable :to_saturday, "Saturday, 05 April 2014"
+        assert_state_variable :to_saturday_formatted, "Saturday, 05 April 2014"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
         assert_current_node :maternity_leave_and_pay_result
       end
@@ -672,7 +672,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       end
 
       should "have LEL of 109" do
-        assert_state_variable :to_saturday, "Saturday, 21 December 2013"
+        assert_state_variable :to_saturday_formatted, "Saturday, 21 December 2013"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 109)
         assert_current_node :maternity_leave_and_pay_result
       end
@@ -693,7 +693,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       end
 
       should "have LEL of 107" do
-        assert_state_variable :to_saturday, "Saturday, 30 March 2013"
+        assert_state_variable :to_saturday_formatted, "Saturday, 30 March 2013"
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 107)
         assert_current_node :maternity_leave_and_pay_result
       end
