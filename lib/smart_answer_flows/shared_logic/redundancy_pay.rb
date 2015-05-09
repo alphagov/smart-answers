@@ -1,8 +1,8 @@
-date_question :date_of_redundancy? do
+date_question :date_of_redundancy?, parse: true do
   from { Date.civil(2012, 1, 1) }
   to { Date.today }
   calculate :rates do |response|
-    Calculators::RedundancyCalculator.redundancy_rates(Date.parse(response))
+    Calculators::RedundancyCalculator.redundancy_rates(response)
   end
   calculate :rate do
     rates.rate
