@@ -28,14 +28,14 @@ module SmartdownAdapter
     end
 
     def to_response(input)
-        date = ::Date.parse(input)
-        {
-          day: date.day,
-          month: date.month,
-          year: date.year
-        }
-      rescue
-        nil
-      end
+      date = ::Date.parse(input)
+      {
+        day: date.day,
+        month: date.month,
+        year: date.year
+      }
+    rescue
+      nil
+    end
   end
 end
