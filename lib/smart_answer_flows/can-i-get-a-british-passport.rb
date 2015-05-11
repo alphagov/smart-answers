@@ -34,12 +34,12 @@ multiple_choice :describe_your_british_nationality? do
   option british_protected_person: :british_protected_person_info
 end
 
-date_question :date_of_birth? do
+date_question :date_of_birth?, parse: true do
   to { Date.parse('1 Jan 1896') }
   from { Date.today }
 
   next_node do |response|
-    dob = Date.parse(response)
+    dob = response
     if dob <= Date.parse('1983-01-01')
       :you_qualify
     elsif dob > Date.parse('1983-01-01') and dob < Date.parse('2006-07-01')
