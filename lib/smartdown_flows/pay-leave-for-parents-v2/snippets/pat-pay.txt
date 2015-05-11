@@ -28,5 +28,13 @@ Weekly rate (between 6 April 2015 and 5 April 2016) | £139.58 per week or 90% o
 
 $ENDIF
 
+$IF range_in_2013_2014_fin_year?(due_date)
 
 Tell the partner’s employer | 28 days before they want to start paternity pay
+
+$ELSE
+
+Tell the partner’s employer | %{paternity_leave_notice_date(due_date)}
+
+$ENDIF
+
