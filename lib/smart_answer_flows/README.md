@@ -166,3 +166,93 @@ end
 
 next_node_if(:something, can_has_cheesburger?)
 ```
+
+## Testing Smart Answers
+
+You need to use nested contexts/tests in order to test Ruby/YAML Smart Answers.
+
+### Example Smart Answer Flow
+
+    status :published
+
+    multiple_choice :question_1 do
+      option :A
+      option :B
+
+      next_node :question_2
+    end
+
+    multiple_choice :question_2 do
+      option :C
+      option :D
+
+      next_node :question_3
+    end
+
+    multiple_choice :question_3 do
+      option :E
+      option :F
+
+      next_node :outcome_1
+    end
+
+    outcome :outcome_1 do
+    end
+
+### Valid test using nested contexts
+
+This test passes using the example flow above.
+
+    setup do
+      setup_for_testing_flow 'example-flow'
+    end
+
+    should "be on question 1" do
+      assert_current_node :question_1
+    end
+
+    context "when answering question 1" do
+      setup do
+        add_response :A
+      end
+
+      should "be on question 2" do
+        assert_current_node :question_2
+      end
+
+      context "when answering question 2" do
+        setup do
+          add_response :C
+        end
+
+        should "be on question 3" do
+          assert_current_node :question_3
+        end
+
+        context "when answering question 3" do
+          setup do
+            add_response :E
+          end
+
+          should "be on outcome 1" do
+            assert_current_node :outcome_1
+          end
+        end
+      end
+    end
+
+### Invalid test - Not using nested contexts
+
+This test will fail at `assert_current_node :question_2`.
+
+    should "exercise the example flow" do
+      setup_for_testing_flow 'example-flow'
+
+      assert_current_node :question_1
+      add_response :A
+      assert_current_node :question_2
+      add_response :C
+      assert_current_node :question_3
+      add_response :E
+      assert_current_node :outcome_1
+    end
