@@ -1,9 +1,0 @@
-{{snippet: mat-leave}}
-
-{{snippet: mat-pay}}
-
-{{snippet: mat-shared-leave}}
-
-{{snippet: mat-shared-pay}}
-
-{{snippet: extra-help}}
