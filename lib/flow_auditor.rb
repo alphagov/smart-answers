@@ -45,7 +45,6 @@ private
     :multiple_choice,
     :country_select,
     :date_question,
-    :optional_date,
     :value_question,
     :money_question,
     :salary_question,
