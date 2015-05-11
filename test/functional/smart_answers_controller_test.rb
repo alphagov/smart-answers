@@ -72,8 +72,10 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
 
     should "have cache headers set to 30 mins" do
-      get :show, id: "sample"
-      assert_equal "max-age=1800, public", @response.header["Cache-Control"]
+      with_cache_control_expiry do
+        get :show, id: "sample"
+        assert_equal "max-age=1800, public", @response.header["Cache-Control"]
+      end
     end
 
     context "without a valid artefact" do
@@ -87,8 +89,10 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "have cache headers set to 5 seconds" do
-        get :show, id: "sample"
-        assert_equal "max-age=5, public", @response.header["Cache-Control"]
+        with_cache_control_expiry do
+          get :show, id: "sample"
+          assert_equal "max-age=5, public", @response.header["Cache-Control"]
+        end
       end
     end
 
@@ -189,8 +193,10 @@ class SmartAnswersControllerTest < ActionController::TestCase
           end
 
           should "set correct cache control headers" do
-            submit_json_response(day: "01", month: "01", year: "2013")
-            assert_equal "max-age=1800, public", @response.header["Cache-Control"]
+            with_cache_control_expiry do
+              submit_json_response(day: "01", month: "01", year: "2013")
+              assert_equal "max-age=1800, public", @response.header["Cache-Control"]
+            end
           end
         end
       end
@@ -373,7 +379,11 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       context "a response has been accepted" do
-        setup { get :show, id: 'sample', started: 'y', responses: "1.0-month" }
+        setup do
+          with_cache_control_expiry do
+            get :show, id: 'sample', started: 'y', responses: "1.0-month"
+          end
+        end
 
         should "show response summary" do
           assert_select ".done-questions", /How much\?\s+£1 per month/
@@ -460,5 +470,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_select "pre.debug", false, "The page should not render debug information"
       end
     end
+  end
+
+  private
+
+  def with_cache_control_expiry(&block)
+    original_value = Rails.configuration.set_http_cache_control_expiry_time
+    Rails.configuration.set_http_cache_control_expiry_time = true
+    block.call
+    Rails.configuration.set_http_cache_control_expiry_time = original_value
   end
 end

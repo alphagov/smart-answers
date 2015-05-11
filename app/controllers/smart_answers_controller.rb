@@ -123,4 +123,14 @@ private
     smartdown_registry.find(name.to_s)
   end
 
+  def set_expiry(duration = 30.minutes)
+    # if the artefact returned from the Content API is blank, or if
+    # the request to the Content API fails, set a very short cache so
+    # we don't cache an incomplete page for a while
+    duration = 5.seconds if @presenter.present? and @presenter.artefact.blank?
+
+    if Rails.configuration.set_http_cache_control_expiry_time
+      expires_in(duration, public: true)
+    end
+  end
 end
