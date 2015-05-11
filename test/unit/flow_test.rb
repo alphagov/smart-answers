@@ -49,7 +49,7 @@ class FlowTest < ActiveSupport::TestCase
 
   test "Can build date question nodes" do
     s = SmartAnswer::Flow.new do
-      date_question :when_is_your_birthday? do
+      date_question :when_is_your_birthday?, parse: true do
         from { Date.parse('2011-01-01') }
         to { Date.parse('2014-01-01') }
       end
@@ -233,7 +233,7 @@ class FlowTest < ActiveSupport::TestCase
         option red: :when?
         option blue: :blue
       end
-      date_question :when? do
+      date_question :when?, parse: true do
         next_node :blue
       end
       outcome :blue
@@ -241,7 +241,7 @@ class FlowTest < ActiveSupport::TestCase
 
     assert_equal [], flow.process([]).responses
     assert_equal ['red'], flow.process(['red']).responses
-    assert_equal ['red', '2011-02-01'], flow.process(['red', {year: 2011, month: 2, day: 1}]).responses
+    assert_equal ['red', Date.parse('2011-02-01')], flow.process(['red', {year: 2011, month: 2, day: 1}]).responses
   end
 
   should "perform calculations on saved inputs" do
