@@ -7,7 +7,7 @@ multiple_choice :leave_or_pay_for_adoption? do
 end
 
 ## QP1
-date_question :baby_due_date_paternity?, parse: true do
+date_question :baby_due_date_paternity? do
   calculate :due_date do |response|
     response
   end
@@ -20,7 +20,7 @@ date_question :baby_due_date_paternity?, parse: true do
 end
 
 ## QAP1 - Paternity Adoption
-date_question :employee_date_matched_paternity_adoption?, parse: true do
+date_question :employee_date_matched_paternity_adoption? do
   calculate :matched_date do |response|
     response
   end
@@ -41,7 +41,7 @@ date_question :employee_date_matched_paternity_adoption?, parse: true do
 end
 
 ## QP2
-date_question :baby_birth_date_paternity?, parse: true do
+date_question :baby_birth_date_paternity? do
   calculate :date_of_birth do |response|
     response
   end
@@ -55,7 +55,7 @@ date_question :baby_birth_date_paternity?, parse: true do
 end
 
 ## QAP2 - Paternity Adoption
-date_question :padoption_date_of_adoption_placement?, parse: true do
+date_question :padoption_date_of_adoption_placement? do
 
   calculate :ap_adoption_date do |response|
     placement_date = response
@@ -192,7 +192,7 @@ multiple_choice :employee_still_employed_on_birth_date? do
 end
 
 ## QP8
-date_question :employee_start_paternity?, parse: true do
+date_question :employee_start_paternity? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
@@ -257,7 +257,7 @@ multiple_choice :employee_paternity_length? do
 end
 
 ## QP10
-date_question :last_normal_payday_paternity?, parse: true do
+date_question :last_normal_payday_paternity? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
@@ -271,7 +271,7 @@ date_question :last_normal_payday_paternity?, parse: true do
 end
 
 ## QP11
-date_question :payday_eight_weeks_paternity?, parse: true do
+date_question :payday_eight_weeks_paternity? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
@@ -338,7 +338,7 @@ multiple_choice :how_do_you_want_the_spp_calculated? do
 end
 
 ## QP15 - Also shared with adoption calculator here onwards
-date_question :next_pay_day_paternity?, parse: true do
+date_question :next_pay_day_paternity? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
   save_input_as :next_pay_day

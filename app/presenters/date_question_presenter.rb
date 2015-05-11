@@ -1,6 +1,6 @@
 class DateQuestionPresenter < QuestionPresenter
   def response_label(value)
-    I18n.localize(value.to_date, format: :long)
+    I18n.localize(value, format: :long)
   end
 
   def start_date

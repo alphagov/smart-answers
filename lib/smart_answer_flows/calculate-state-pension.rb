@@ -37,7 +37,7 @@ multiple_choice :gender? do
 end
 
 # Q3:Age
-date_question :dob_age?, parse: true do
+date_question :dob_age? do
   from { 100.years.ago }
   to { Date.today }
 
@@ -124,7 +124,7 @@ date_question :dob_age?, parse: true do
 end
 
 # Q3:Amount
-date_question :dob_amount?, parse: true do
+date_question :dob_amount? do
   from { 100.years.ago }
   to { Date.today }
 

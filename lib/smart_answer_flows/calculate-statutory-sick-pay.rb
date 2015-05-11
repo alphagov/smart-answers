@@ -40,7 +40,7 @@ multiple_choice :employee_work_different_days? do
 end
 
 # Question 4
-date_question :first_sick_day?, parse: true do
+date_question :first_sick_day? do
   from { Date.new(2011, 1, 1) }
   to { Date.today }
   calculate :sick_start_date do |response|
@@ -52,7 +52,7 @@ date_question :first_sick_day?, parse: true do
 end
 
 # Question 5
-date_question :last_sick_day?, parse: true do
+date_question :last_sick_day? do
   from { Date.new(2011, 1, 1) }
   to { Date.today }
   calculate :sick_end_date do |response|
@@ -93,7 +93,7 @@ multiple_choice :how_often_pay_employee_pay_patterns? do
 end
 
 # Question 6
-date_question :last_payday_before_sickness?, parse: true do
+date_question :last_payday_before_sickness? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 
@@ -116,7 +116,7 @@ date_question :last_payday_before_sickness?, parse: true do
 end
 
 # Question 6.1
-date_question :last_payday_before_offset?, parse: true do
+date_question :last_payday_before_offset? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 
@@ -200,7 +200,7 @@ multiple_choice :off_sick_4_days? do
 end
 
 # Question 11.1
-date_question :linked_sickness_start_date?, parse: true do
+date_question :linked_sickness_start_date? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 

@@ -1,13 +1,13 @@
 status :published
 satisfies_need "101018"
 
-date_question :child_match_date?, parse: true do
+date_question :child_match_date? do
   save_input_as :match_date
 
   next_node :child_arrival_date?
 end
 
-date_question :child_arrival_date?, parse: true do
+date_question :child_arrival_date? do
   calculate :arrival_date do |response|
     raise InvalidResponse if response <= match_date
     response
@@ -16,7 +16,7 @@ date_question :child_arrival_date?, parse: true do
   next_node :leave_start?
 end
 
-date_question :leave_start?, parse: true do
+date_question :leave_start? do
   calculate :start_date do |response|
     dist = (arrival_date - response).to_i
     raise InvalidResponse unless (1..14).include? dist

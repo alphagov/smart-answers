@@ -90,7 +90,7 @@ checkbox_question :what_are_your_circumstances_without_bills_help? do
 end
 
 # Q3
-date_question :date_of_birth?, parse: true do
+date_question :date_of_birth? do
   from { 100.years.ago }
   to { Date.today }
 

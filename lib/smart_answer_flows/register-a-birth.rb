@@ -56,7 +56,7 @@ multiple_choice :married_couple_or_civil_partnership? do
 end
 
 # Q4
-date_question :childs_date_of_birth?, parse: true do
+date_question :childs_date_of_birth? do
   from { Date.today }
   to { 50.years.ago(Date.today) }
 

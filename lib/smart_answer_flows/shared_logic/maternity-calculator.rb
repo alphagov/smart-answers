@@ -2,7 +2,7 @@
 days_of_the_week = Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
 
 ## QM1
-date_question :baby_due_date_maternity?, parse: true do
+date_question :baby_due_date_maternity? do
   from { 1.year.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
@@ -27,7 +27,7 @@ multiple_choice :employment_contract? do
 end
 
 ## QM3
-date_question :date_leave_starts?, parse: true do
+date_question :date_leave_starts? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
@@ -95,7 +95,7 @@ multiple_choice :is_the_employee_on_your_payroll? do
 end
 
 ## QM6
-date_question :last_normal_payday?, parse: true do
+date_question :last_normal_payday? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
@@ -108,7 +108,7 @@ date_question :last_normal_payday?, parse: true do
 end
 
 ## QM7
-date_question :payday_eight_weeks?, parse: true do
+date_question :payday_eight_weeks? do
   from { 2.year.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
@@ -172,7 +172,7 @@ multiple_choice :how_do_you_want_the_smp_calculated? do
 end
 
 ## QM11
-date_question :when_is_your_employees_next_pay_day?, parse: true do
+date_question :when_is_your_employees_next_pay_day? do
   calculate :next_pay_day do |response|
     calculator.pay_date = response
     calculator.pay_date

@@ -34,7 +34,7 @@ multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
   end
 end
 
-date_question :whats_the_husbands_date_of_birth?, parse: true do
+date_question :whats_the_husbands_date_of_birth? do
   to { Date.parse('1 Jan 1896') }
   from { Date.today }
 
@@ -42,7 +42,7 @@ date_question :whats_the_husbands_date_of_birth?, parse: true do
   next_node :whats_the_husbands_income?
 end
 
-date_question :whats_the_highest_earners_date_of_birth?, parse: true do
+date_question :whats_the_highest_earners_date_of_birth? do
   to { Date.parse('1 Jan 1896') }
   from { Date.today }
 

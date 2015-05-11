@@ -49,7 +49,7 @@ class FlowTest < ActiveSupport::TestCase
 
   test "Can build date question nodes" do
     s = SmartAnswer::Flow.new do
-      date_question :when_is_your_birthday?, parse: true do
+      date_question :when_is_your_birthday? do
         from { Date.parse('2011-01-01') }
         to { Date.parse('2014-01-01') }
       end
@@ -62,7 +62,7 @@ class FlowTest < ActiveSupport::TestCase
 
   test "Can build date question nodes with response parsed to Date object" do
     s = SmartAnswer::Flow.new do
-      date_question :when_is_your_birthday?, parse: true do
+      date_question :when_is_your_birthday? do
       end
     end
 
@@ -233,7 +233,7 @@ class FlowTest < ActiveSupport::TestCase
         option red: :when?
         option blue: :blue
       end
-      date_question :when?, parse: true do
+      date_question :when? do
         next_node :blue
       end
       outcome :blue

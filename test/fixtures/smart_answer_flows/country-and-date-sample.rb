@@ -5,7 +5,7 @@ country_select :which_country_do_you_live_in?, exclude_countries: %w(afghanistan
   next_node :what_date_did_you_move_there?
 end
 
-date_question :what_date_did_you_move_there?, parse: true do
+date_question :what_date_did_you_move_there? do
   from Date.parse('1900-01-01')
   to Date.today
 

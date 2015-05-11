@@ -5,7 +5,7 @@ multiple_choice :taking_paternity_leave_for_adoption? do
 end
 
 ## QA1
-date_question :date_of_adoption_match?, parse: true do
+date_question :date_of_adoption_match? do
   calculate :match_date do |response|
     response
   end
@@ -17,7 +17,7 @@ date_question :date_of_adoption_match?, parse: true do
 end
 
 ## QA2
-date_question :date_of_adoption_placement?, parse: true do
+date_question :date_of_adoption_placement? do
   calculate :adoption_placement_date do |response|
     placement_date = response
     raise SmartAnswer::InvalidResponse if placement_date < match_date
@@ -100,7 +100,7 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
 end
 
 ## QA6
-date_question :adoption_date_leave_starts?, parse: true do
+date_question :adoption_date_leave_starts? do
   calculate :adoption_date_leave_starts do |response|
     ald_start = response
     raise SmartAnswer::InvalidResponse if ald_start < a_leave_earliest_start
@@ -144,7 +144,7 @@ date_question :adoption_date_leave_starts?, parse: true do
 end
 
 # QA7
-date_question :last_normal_payday_adoption?, parse: true do
+date_question :last_normal_payday_adoption? do
   from { 2.years.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
@@ -157,7 +157,7 @@ date_question :last_normal_payday_adoption?, parse: true do
 end
 
 # QA8
-date_question :payday_eight_weeks_adoption?, parse: true do
+date_question :payday_eight_weeks_adoption? do
   from { 2.year.ago(Date.today) }
   to { 2.years.since(Date.today) }
 

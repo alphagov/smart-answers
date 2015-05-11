@@ -154,7 +154,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       setup do
         @flow = SmartAnswer::Flow.new do
           name :sample
-          date_question :when?, parse: true do
+          date_question :when? do
             next_node :done
           end
           outcome :done

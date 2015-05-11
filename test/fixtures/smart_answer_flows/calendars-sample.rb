@@ -1,12 +1,12 @@
 status :draft
 
-date_question :when_are_you_starting?, parse: true do
+date_question :when_are_you_starting? do
   save_input_as :start_date
 
   next_node :when_are_you_stopping?
 end
 
-date_question :when_are_you_stopping?, parse: true do
+date_question :when_are_you_stopping? do
   save_input_as :stop_date
 
   next_node :do_you_want_a_calendar?

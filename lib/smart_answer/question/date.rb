@@ -3,8 +3,7 @@ require 'date'
 module SmartAnswer
   module Question
     class Date < Base
-      def initialize(name, options = {}, &block)
-        @parse = options[:parse]
+      def initialize(name, &block)
         super
       end
 
@@ -106,14 +105,13 @@ module SmartAnswer
           else
            raise InvalidResponse, "Bad date", caller
           end
-        parse? ? date : date.strftime('%Y-%m-%d')
+        date
       rescue
         raise InvalidResponse, "Bad date: #{input.inspect}", caller
       end
 
       def to_response(input)
         date = parse_input(input)
-        date = ::Date.parse(date) unless parse?
         {
           day: date.day,
           month: date.month,
@@ -121,12 +119,6 @@ module SmartAnswer
         }
       rescue
         nil
-      end
-
-      private
-
-      def parse?
-        @parse
       end
     end
   end

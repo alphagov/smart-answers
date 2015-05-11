@@ -4,7 +4,7 @@ satisfies_need "100865"
 calculator = Calculators::StatePensionTopupCalculator.new
 
 #Q1
-date_question :dob_age?, parse: true do
+date_question :dob_age? do
   from { 110.years.ago }
   to { Date.today - 18.years }
 

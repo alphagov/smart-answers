@@ -25,7 +25,7 @@ multiple_choice :are_you_getting_dla? do
 end
 
 ## Q2
-date_question :what_is_your_dob?, parse: true do
+date_question :what_is_your_dob? do
   from { Date.today - 100.years }
   to { Date.today }
   next_node do |response|

@@ -17,7 +17,7 @@ multiple_choice :problem_with_tribunal_proceedure? do
 end
 
 # Q3
-date_question :date_of_decision_letter?, parse: true do
+date_question :date_of_decision_letter? do
   from { 5.years.ago }
   to { Date.today }
   save_input_as :decision_letter_date
@@ -73,7 +73,7 @@ multiple_choice :had_written_explanation? do
 end
 
 # Q5
-date_question :when_did_you_ask_for_it?, parse: true do
+date_question :when_did_you_ask_for_it? do
   from { 5.years.ago }
   to { Date.today }
   calculate :written_explanation_request_date do |response|
@@ -83,7 +83,7 @@ date_question :when_did_you_ask_for_it?, parse: true do
 end
 
 # Q6
-date_question :when_did_you_get_it?, parse: true do
+date_question :when_did_you_get_it? do
 
   save_input_as :written_explanation_received_date
   from { 5.years.ago }

@@ -58,7 +58,7 @@ multiple_choice :how_submitted? do
   save_input_as :submission_method
 end
 
-date_question :when_submitted?, parse: true do
+date_question :when_submitted? do
   from { 3.year.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
@@ -77,7 +77,7 @@ date_question :when_submitted?, parse: true do
   end
 end
 
-date_question :when_paid?, parse: true do
+date_question :when_paid? do
   from { 3.year.ago(Date.today) }
   to { 2.years.since(Date.today) }
 
