@@ -88,7 +88,7 @@ module SmartAnswer::Calculators
     end
 
     def historical_adjustment
-      (underpayment / minimum_hourly_rate * per_hour_minimum_wage(Date.today)).round(2)
+      (underpayment / minimum_hourly_rate * per_hour_minimum_wage(@date)).round(2)
     end
 
     def minimum_wage_or_above?
