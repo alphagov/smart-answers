@@ -279,6 +279,10 @@ date_question :payday_eight_weeks_paternity? do
     calculator.payday_offset
   end
 
+  precalculate :payday_offset_formatted do
+    calculator.format_date_day payday_offset
+  end
+
   calculate :pre_offset_payday do |response|
     payday = response + 1.day
     raise SmartAnswer::InvalidResponse if payday > calculator.payday_offset
