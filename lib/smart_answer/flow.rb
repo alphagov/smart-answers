@@ -64,8 +64,8 @@ module SmartAnswer
       add_node Question::Date.new(name, &block)
     end
 
-    def value_question(name, &block)
-      add_node Question::Value.new(name, &block)
+    def value_question(name, options = {}, &block)
+      add_node Question::Value.new(name, options, &block)
     end
 
     def money_question(name, &block)
