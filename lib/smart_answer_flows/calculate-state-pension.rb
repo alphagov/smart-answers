@@ -44,8 +44,7 @@ date_question :dob_age? do
   save_input_as :dob
 
   calculate :calculator do
-    Calculators::StatePensionAmountCalculator.new(
-      gender: gender, dob: dob, qualifying_years: nil)
+    Calculators::StatePensionAmountCalculator.new(gender: gender, dob: dob)
   end
 
   calculate :state_pension_date do
@@ -107,12 +106,12 @@ date_question :dob_age? do
   end
 
   define_predicate(:near_pension_date?) do |response|
-    calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response, qualifying_years: nil)
+    calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
     calc.before_state_pension_date? and calc.within_four_months_one_day_from_state_pension?
   end
 
   define_predicate(:under_20_years_old?) do |response|
-    calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response, qualifying_years: nil)
+    calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
     calc.under_20_years_old?
   end
 

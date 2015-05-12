@@ -12,7 +12,7 @@ module SmartAnswer::Calculators
     def initialize(answers)
       @gender = answers[:gender].to_sym
       @dob = answers[:dob]
-      @qualifying_years = answers[:qualifying_years].to_i
+      @qualifying_years = answers.fetch(:qualifying_years, 0)
       @available_years = ni_years_to_date_from_dob
       @starting_credits = allocate_starting_credits
       @pays_reduced_ni_rate = answers[:pays_reduced_ni_rate]
