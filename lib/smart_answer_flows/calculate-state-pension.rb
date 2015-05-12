@@ -205,7 +205,7 @@ multiple_choice :pay_reduced_ni_rate? do
 end
 
 # Q4
-value_question :years_paid_ni? do
+value_question :years_paid_ni?, parse: Integer do
   # part of a hint for questions 4, 7 and 9 that should only be displayed for women born before 1962
   precalculate :carer_hint_for_women do
     if gender == 'female' and (dob < Date.parse('1962-01-01'))
@@ -224,26 +224,26 @@ value_question :years_paid_ni? do
   end
 
   calculate :qualifying_years do |response|
-    ni_years = Integer(response)
+    ni_years = response
     raise InvalidResponse if ni_years < 0 or ni_years > ni_years_to_date_from_dob
     ni_years
   end
 
   calculate :available_ni_years do |response|
-    calculator.available_years_sum(Integer(response))
+    calculator.available_years_sum(response)
   end
 
   calculate :ni_years_to_date_from_dob do |response|
-    ni_years_to_date_from_dob - response.to_i
+    ni_years_to_date_from_dob - response
   end
 
   define_predicate(:enough_years_credits_or_no_more_years?) do |response|
-    (calculator.enough_qualifying_years_and_credits?(response.to_i) && old_state_pension) ||
-      (calculator.no_more_available_years?(response.to_i) && calculator.three_year_credit_age?)
+    (calculator.enough_qualifying_years_and_credits?(response) && old_state_pension) ||
+      (calculator.no_more_available_years?(response) && calculator.three_year_credit_age?)
   end
 
   define_predicate(:no_more_available_years?) do |response|
-    calculator.no_more_available_years?(response.to_i)
+    calculator.no_more_available_years?(response)
   end
 
   next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
@@ -252,7 +252,7 @@ value_question :years_paid_ni? do
 end
 
 # Q5
-value_question :years_of_jsa? do
+value_question :years_of_jsa?, parse: Integer do
 
   calculate :carer_hint_for_women_before_1962 do
     if gender == 'female' and (dob < Date.parse('1962-01-01'))
@@ -261,7 +261,7 @@ value_question :years_of_jsa? do
   end
 
   calculate :qualifying_years do |response|
-    jsa_years = Integer(response)
+    jsa_years = response
     qy = (qualifying_years + jsa_years)
     raise InvalidResponse if jsa_years < 0 or !(calculator.has_available_years?(qy)) #jsa_years > available_ni_years #70
     qy
@@ -272,11 +272,11 @@ value_question :years_of_jsa? do
   end
 
   calculate :ni_years_to_date_from_dob do |response|
-    ni_years_to_date_from_dob - response.to_i
+    ni_years_to_date_from_dob - response
   end
 
   next_node_calculation :ni do |response|
-    response.to_i + qualifying_years
+    response + qualifying_years
   end
 
   define_predicate(:enough_years_credits_or_no_more_years?) {
@@ -321,14 +321,14 @@ multiple_choice :received_child_benefit? do
 end
 
 ## Q7
-value_question :years_of_benefit? do
+value_question :years_of_benefit?, parse: Integer do
 
   precalculate :years_you_can_enter do
     calculator.years_can_be_entered(available_ni_years, 22)
   end
 
   calculate :qualifying_years do |response|
-    benefit_years = Integer(response)
+    benefit_years = response
     qy = (benefit_years + qualifying_years)
     if benefit_years > 22 and calculator.has_available_years?(qy)
       raise InvalidResponse, :error_maximum_hrp_years
@@ -339,7 +339,7 @@ value_question :years_of_benefit? do
   end
 
   calculate :ni_years_to_date_from_dob do |response|
-    ni_years_to_date_from_dob - response.to_i
+    ni_years_to_date_from_dob - response
   end
 
   calculate :available_ni_years do
@@ -347,7 +347,7 @@ value_question :years_of_benefit? do
   end
 
   next_node_calculation :ni do |response|
-    response.to_i + qualifying_years
+    response + qualifying_years
   end
 
   define_predicate(:enough_years_credits_or_no_more_years?) {
@@ -365,7 +365,7 @@ value_question :years_of_benefit? do
 end
 
 ## Q8
-value_question :years_of_caring? do
+value_question :years_of_caring?, parse: Integer do
   save_input_as :caring_years
 
   precalculate :allowed_caring_years do
@@ -379,7 +379,7 @@ value_question :years_of_caring? do
   end
 
   calculate :qualifying_years do |response|
-    caring_years = Integer(response)
+    caring_years = response
     qy = (caring_years + qualifying_years)
     raise InvalidResponse if (caring_years < 0 or (caring_years > allowed_caring_years) or !(calculator.has_available_years?(qy)))
     qy
@@ -390,11 +390,11 @@ value_question :years_of_caring? do
   end
 
   calculate :ni_years_to_date_from_dob do |response|
-    ni_years_to_date_from_dob - response.to_i
+    ni_years_to_date_from_dob - response
   end
 
   next_node_calculation :ni do |response|
-    response.to_i + qualifying_years
+    response + qualifying_years
   end
 
   define_predicate(:enough_years_credits_or_no_more_years?) {
@@ -412,20 +412,20 @@ value_question :years_of_caring? do
 end
 
 ## Q9
-value_question :years_of_carers_allowance? do
+value_question :years_of_carers_allowance?, parse: Integer do
   calculate :qualifying_years do |response|
-    caring_years = Integer(response)
+    caring_years = response
     qy = (caring_years + qualifying_years)
     raise InvalidResponse if caring_years < 0 or !(calculator.has_available_years?(qy))
     qy
   end
 
   calculate :ni_years_to_date_from_dob do |response|
-    ni_years_to_date_from_dob - response.to_i
+    ni_years_to_date_from_dob - response
   end
 
   next_node_calculation :ni do |response|
-    response.to_i + qualifying_years
+    response + qualifying_years
   end
 
   define_predicate(:enough_years_credits_or_three_year_credit?) {
@@ -446,22 +446,22 @@ value_question :years_of_carers_allowance? do
 end
 
 ## Q10
-value_question :years_of_work? do
+value_question :years_of_work?, parse: Integer do
   save_input_as :years_of_work_entered
 
   calculate :qualifying_years do |response|
-    work_years = Integer(response)
+    work_years = response
     qy = (work_years + qualifying_years)
     raise InvalidResponse if (work_years < 0 or work_years > 3)
     qy
   end
 
   calculate :ni_years_to_date_from_dob do |response|
-    calculator.ni_years_to_date_from_dob - Integer(response)
+    calculator.ni_years_to_date_from_dob - response
   end
 
   next_node_calculation :ni do |response|
-    response.to_i + qualifying_years
+    response + qualifying_years
   end
 
   define_predicate(:new_rules_and_less_than_10_ni?) {
@@ -512,7 +512,7 @@ outcome :amount_result do
       qualifying_years + 3
     else
       if years_of_work_entered
-        qualifying_years + calc.calc_qualifying_years_credit(years_of_work_entered.to_i)
+        qualifying_years + calc.calc_qualifying_years_credit(years_of_work_entered)
       else
         ## Q10 was skipped because of flow optimisation
         qualifying_years + calc.calc_qualifying_years_credit(0)
