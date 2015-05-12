@@ -23,9 +23,10 @@ end
 # Q2
 multiple_choice :are_you_an_apprentice? do
   save_input_as :is_apprentice
-  option "no" => :how_old_are_you?
+  option "not_an_apprentice" => :how_old_are_you?
   option "apprentice_under_19" => :how_often_do_you_get_paid?
-  option "apprentice_over_19" => :how_often_do_you_get_paid?
+  option "apprentice_over_19_first_year" => :how_often_do_you_get_paid?
+  option "apprentice_over_19_second_year_onwards" => :how_old_are_you?
 end
 
 # Q2 Past
@@ -151,7 +152,8 @@ money_question :how_much_are_you_paid_during_pay_period? do
       pay_frequency: pay_frequency,
       basic_hours: basic_hours,
       basic_pay: amount_paid,
-      is_apprentice: (is_apprentice != 'no')
+      is_apprentice: (is_apprentice == 'apprentice_under_19' ||
+                      is_apprentice == 'apprentice_over_19_first_year')
     })
   end
 

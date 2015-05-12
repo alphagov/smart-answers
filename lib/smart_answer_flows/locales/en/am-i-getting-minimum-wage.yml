@@ -31,8 +31,10 @@ en-GB:
       are_you_an_apprentice?:
         title: "Are you an apprentice?"
         options:
+          not_an_apprentice: "Not an apprentice"
           apprentice_under_19: "Apprentice under 19"
-          apprentice_over_19: "Apprentice aged 19 and over and in your first year"
+          apprentice_over_19_first_year: "Apprentice aged 19 and over in your first year"
+          apprentice_over_19_second_year_onwards: "Apprentice 19 and over in your second year or onwards"
         hint: "If you’re 19 or over and past your first year you don’t count as an apprentice for minimum wage purposes."
       # Q2 Past
       were_you_an_apprentice?:
@@ -167,8 +169,8 @@ en-GB:
 
 
           $C
-          Pay and Work Rights Helpline
-          Telephone: 0800 917 2368
+          Acas helpline
+          Telephone: 0300 123 1100
           [Find out about call charges](/call-charges)
           $C
 
@@ -192,8 +194,8 @@ en-GB:
 
 
           $C
-          Pay and Work Rights Helpline
-          Telephone: 0800 917 2368
+          Acas helpline
+          Telephone: 0300 123 1100
           [Find out about call charges](/call-charges)
           $C
 
@@ -216,8 +218,8 @@ en-GB:
 
 
           $C
-          Pay and Work Rights Helpline
-          Telephone: 0800 917 2368
+          Acas helpline
+          Telephone: 0300 123 1100
           [Find out about call charges](/call-charges)
           $C
 
@@ -242,8 +244,8 @@ en-GB:
 
 
           $C
-          Pay and Work Rights Helpline
-          Telephone: 0800 917 2368
+          Acas helpline
+          Telephone: 0300 123 1100
           [Find out about call charges](/call-charges)
           $C
 
