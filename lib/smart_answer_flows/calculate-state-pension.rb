@@ -327,10 +327,6 @@ value_question :years_of_benefit? do
     calculator.years_can_be_entered(available_ni_years, 22)
   end
 
-  calculate :ni_years_to_date_from_dob do |response|
-    ni_years_to_date_from_dob - response.to_i
-  end
-
   calculate :qualifying_years do |response|
     benefit_years = Integer(response)
     qy = (benefit_years + qualifying_years)
@@ -340,6 +336,10 @@ value_question :years_of_benefit? do
       raise InvalidResponse, :error_too_many_years
     end
     qy
+  end
+
+  calculate :ni_years_to_date_from_dob do |response|
+    ni_years_to_date_from_dob - response.to_i
   end
 
   calculate :available_ni_years do
@@ -449,15 +449,15 @@ end
 value_question :years_of_work? do
   save_input_as :years_of_work_entered
 
-  calculate :ni_years_to_date_from_dob do |response|
-    calculator.ni_years_to_date_from_dob - Integer(response)
-  end
-
   calculate :qualifying_years do |response|
     work_years = Integer(response)
     qy = (work_years + qualifying_years)
     raise InvalidResponse if (work_years < 0 or work_years > 3)
     qy
+  end
+
+  calculate :ni_years_to_date_from_dob do |response|
+    calculator.ni_years_to_date_from_dob - Integer(response)
   end
 
   next_node_calculation :ni do |response|
