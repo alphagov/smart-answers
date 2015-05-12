@@ -74,7 +74,7 @@ module SmartAnswer
       state.phrases = PhraseList.new(:four, :one, :two, :three)
       presenter = NodePresenter.new("flow.test", outcome, state)
 
-      Rails.logger.expects(:warn).with("[Missing phrase] The phrase being rendered is not present: flow.test.phrases.four. Responses: ").once
+      Rails.logger.expects(:warn).with("[Missing phrase] The phrase being rendered is not present: flow.test.phrases.four\tResponses: ").once
 
       assert_match Regexp.new("<p>Here are the phrases:</p>
 

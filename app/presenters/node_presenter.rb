@@ -32,11 +32,10 @@ class NodePresenter
     when ::SmartAnswer::PhraseList then
       if nested == false
         value.phrase_keys.map do |phrase_key|
-          full_phrase_key = "#{@i18n_prefix}.phrases.#{phrase_key}"
           begin
-            I18n.translate!(full_phrase_key, state_for_interpolation(true))
+            I18n.translate!("#{@i18n_prefix}.phrases.#{phrase_key}", state_for_interpolation(true))
           rescue => e
-            Rails.logger.warn("[Missing phrase] The phrase being rendered is not present: #{full_phrase_key}. Responses: #{@state.responses.join('/')}")
+            Rails.logger.warn("[Missing phrase] The phrase being rendered is not present: #{e.key}\tResponses: #{@state.responses.join('/')}") if @node.outcome?
             phrase_key
           end
         end.join("\n\n")
