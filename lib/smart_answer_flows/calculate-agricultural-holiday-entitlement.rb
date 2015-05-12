@@ -56,14 +56,14 @@ multiple_choice :worked_for_same_employer? do
   end
 end
 
-value_question :how_many_total_days? do
+value_question :how_many_total_days?, parse: Integer do
 
   precalculate :available_days do
     calculator.available_days
   end
 
   calculate :total_days_worked do |response|
-    if Integer(response) > available_days
+    if response > available_days
       raise SmartAnswer::InvalidResponse
     end
     response
@@ -72,12 +72,12 @@ value_question :how_many_total_days? do
   next_node :worked_for_same_employer?
 end
 
-value_question :how_many_weeks_at_current_employer? do
+value_question :how_many_weeks_at_current_employer?, parse: Integer do
   next_node :done
 
   calculate :holiday_entitlement_days do |response|
     #Has to be less than a full year
-    if (Integer(response) > 51)
+    if (response > 51)
       raise SmartAnswer::InvalidResponse
     end
     if !days_worked_per_week.nil?
@@ -85,7 +85,7 @@ value_question :how_many_weeks_at_current_employer? do
     elsif !weeks_from_october_1.nil?
       days = calculator.holiday_days (total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
     end
-    sprintf("%.1f", (days * (Integer(response) / 52.0)).round(10))
+    sprintf("%.1f", (days * (response / 52.0)).round(10))
   end
 end
 
