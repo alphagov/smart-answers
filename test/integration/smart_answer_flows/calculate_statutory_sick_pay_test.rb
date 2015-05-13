@@ -299,6 +299,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response '100' # Q7
       add_response '7' # Q7.1
       add_response 'no' # Q11
+      add_response '1,2,3,4,5' # Q13
     end
     should "take you to result A5 as awe < LEL (as of 2013-06-10)" do
       assert_state_variable :employee_average_weekly_earnings, 100
