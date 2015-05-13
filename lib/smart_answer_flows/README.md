@@ -169,7 +169,7 @@ next_node_if(:something, can_has_cheesburger?)
 
 ## Testing Smart Answers
 
-You need to use nested contexts/tests in order to test Ruby/YAML Smart Answers.
+You used to need to use nested contexts/tests in order to test Ruby/YAML Smart Answers. This is no longer needed, feel free to flatten tests that are too deeply nested.
 
 ### Example Smart Answer Flow
 
@@ -199,9 +199,9 @@ You need to use nested contexts/tests in order to test Ruby/YAML Smart Answers.
     outcome :outcome_1 do
     end
 
-### Valid test using nested contexts
+### A test using nested contexts
 
-This test passes using the example flow above.
+This test passes using the example flow above. 
 
     setup do
       setup_for_testing_flow 'example-flow'
@@ -241,9 +241,9 @@ This test passes using the example flow above.
       end
     end
 
-### Invalid test - Not using nested contexts
+### Flattened test
 
-This test will fail at `assert_current_node :question_2`.
+The same test as above in a flattened form. It passes using the example flow above.
 
     should "exercise the example flow" do
       setup_for_testing_flow 'example-flow'
