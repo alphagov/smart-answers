@@ -193,9 +193,9 @@ multiple_choice :when_in_the_month_is_the_employee_paid? do
 end
 
 ## QM13
-value_question :what_specific_date_each_month_is_the_employee_paid? do
+value_question :what_specific_date_each_month_is_the_employee_paid?, parse: :to_i do
   calculate :pay_day_in_month do |response|
-    day = response.to_i
+    day = response
     raise InvalidResponse unless day > 0 and day < 32
     calculator.pay_day_in_month = day
   end
