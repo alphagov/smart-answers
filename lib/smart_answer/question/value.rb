@@ -9,6 +9,8 @@ module SmartAnswer
       def parse_input(raw_input)
         if Integer == @parse
           Integer(raw_input)
+        elsif :to_i == @parse
+          raw_input.to_i
         else
           super
         end
