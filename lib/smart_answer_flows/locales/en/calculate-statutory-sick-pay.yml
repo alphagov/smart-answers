@@ -121,7 +121,7 @@ en-GB:
         hint: If it’s 2 weeks and 3 days enter ‘17’.
 
       # Question 11
-      off_sick_4_days?:
+      has_linked_sickness?:
         title: Was your employee off sick within the previous 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
         body: |
           These are called ‘linked Periods of Incapacity for Work (PIW)’. Check if an employee’s [PIW links to a previous one.](/government/publications/statutory-sick-pay-tables-for-linking-periods-of-incapacity-for-work)
@@ -131,6 +131,10 @@ en-GB:
       # Question 11.1
       linked_sickness_start_date?:
         title: Enter the start date for this linked period of sickness.
+
+      # Question 11.2
+      linked_sickness_end_date?:
+        title: Enter the end date for this linked period of sickness.
 
       # Question 12
       how_many_days_sick?:
