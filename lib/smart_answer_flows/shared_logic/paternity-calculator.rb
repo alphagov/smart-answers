@@ -369,10 +369,10 @@ multiple_choice :monthly_pay_paternity? do
 end
 
 ## QP17
-value_question :specific_date_each_month_paternity? do
+value_question :specific_date_each_month_paternity?, parse: :to_i do
 
   calculate :pay_day_in_month do |response|
-    day = response.to_i
+    day = response
     raise InvalidResponse unless day > 0 and day < 32
     calculator.pay_day_in_month = day
   end

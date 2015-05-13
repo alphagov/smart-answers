@@ -72,7 +72,7 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal :what_colour_are_the_bottles?, s.questions.first.name
   end
 
-  test "Can build value question nodes with response parsed to Integer object" do
+  test "Can build value question nodes with parse option specified" do
     s = SmartAnswer::Flow.new do
       value_question :how_many_green_bottles?, parse: Integer do
         save_input_as :num_bottles
