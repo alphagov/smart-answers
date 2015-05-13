@@ -243,9 +243,9 @@ value_question :shift_worker_hours_per_shift? do
   next_node :shift_worker_shifts_per_shift_pattern?
 end
 
-value_question :shift_worker_shifts_per_shift_pattern? do
+value_question :shift_worker_shifts_per_shift_pattern?, parse: Integer do
   calculate :shifts_per_shift_pattern do |response|
-    shifts = Integer(response)
+    shifts = response
     raise InvalidResponse if shifts <= 0
     shifts
   end
