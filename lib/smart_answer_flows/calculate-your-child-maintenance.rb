@@ -83,17 +83,14 @@ money_question :gross_income_of_payee? do
 end
 
 ## Q4
-value_question :how_many_other_children_in_payees_household? do
+value_question :how_many_other_children_in_payees_household?, parse: Integer do
 
   precalculate :number_of_children_title do
     PhraseList.new(:"#{paying_or_receiving}_number_of_children")
   end
 
   calculate :calculator do |response|
-    # if converting to int messes things up, raise invalid response
-    # this deals with nil input through the API
-    raise SmartAnswer::InvalidResponse if response.to_i.to_s != response
-    calculator.number_of_other_children = response.to_i
+    calculator.number_of_other_children = response
     calculator
   end
   next_node :how_many_nights_children_stay_with_payee?
