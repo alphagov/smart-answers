@@ -193,9 +193,6 @@ multiple_choice :off_sick_4_days? do
   option yes: :linked_sickness_start_date?
   option :no
 
-  next_node_if(:not_earned_enough) do
-    employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
-  end
   next_node :usual_work_days?
 end
 
@@ -204,9 +201,7 @@ date_question :linked_sickness_start_date? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 
-  next_node_if(:not_earned_enough) do |response|
-    employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(response)
-  end
+
   next_node(:how_many_days_sick?)
 end
 
@@ -219,6 +214,10 @@ end
 # Q13
 checkbox_question :usual_work_days? do
   %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
+
+  next_node_if(:not_earned_enough) do
+    employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
+  end
 
   calculate :ssp_payment do
     Money.new(calculator.ssp_payment)
