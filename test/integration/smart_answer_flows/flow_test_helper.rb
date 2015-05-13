@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 module FlowTestHelper
   def setup_for_testing_flow(flow_slug)
     @flow = SmartAnswer::FlowRegistry.instance.find(flow_slug)
@@ -11,7 +9,11 @@ module FlowTestHelper
   end
 
   def current_state
+    if @cached_responses && @cached_responses != @responses
+      @cached_responses, @state = nil, nil
+    end
     @state ||= begin
+      @cached_responses = @responses.dup
       @flow.process(@responses)
     end
   end
