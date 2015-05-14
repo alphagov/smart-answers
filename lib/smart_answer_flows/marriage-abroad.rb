@@ -471,7 +471,7 @@ outcome :outcome_brazil_not_living_in_the_uk do
     if ceremony_country == residency_country
       phrases << :local_resident_os_ceremony_contact_for_advice << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :consular_cni_os_all_names_but_germany << :consular_cni_os_naturalisation
     else
-      phrases << :local_resident_os_consular_cni << :check_travel_advice << :get_legal_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
+      phrases << :contact_local_authorities_in_country << :check_travel_advice << :get_legal_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
     end
     phrases
   end
@@ -528,10 +528,10 @@ outcome :outcome_os_commonwealth do
     else
       if resident_of == 'uk'
         phrases << :uk_resident_os_ceremony_contact_for_advice
-      elsif residency_country == ceremony_country
-        phrases << :local_resident_os_ceremony_contact_for_advice
       else
-        phrases << :other_resident_os_ceremony_contact_for_advice
+        phrases << :contact_local_authorities_in_country
+        phrases << :get_legal_advice
+        phrases << :get_travel_advice_unless_local
       end
       phrases << :commonwealth_os_all_cni
     end
@@ -594,7 +594,7 @@ outcome :outcome_os_consular_cni do
     elsif (resident_of == 'uk') and (ceremony_country != 'italy') and not data_query.dutch_caribbean_islands?(ceremony_country)
       phrases << :uk_resident_os_consular_cni
     elsif residency_country == ceremony_country and ceremony_country != 'italy'
-      phrases << :local_resident_os_consular_cni
+      phrases << :contact_local_authorities_in_country
     elsif resident_of == 'uk' and data_query.dutch_caribbean_islands?(ceremony_country)
       phrases << :uk_resident_os_consular_cni_dutch_caribbean_islands
     else
