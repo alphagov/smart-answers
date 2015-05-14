@@ -93,10 +93,6 @@ date_question :linked_sickness_end_date? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 
-  calculate :sick_end_date do |response|
-    response
-  end
-
   calculate :prior_sick_days do |response|
     start_date = sick_start_date
     last_day_sick = response
@@ -254,7 +250,6 @@ checkbox_question :usual_work_days? do
   # Answer 8
   next_node_if(:maximum_entitlement_reached) do |response|
     days_worked = response.split(',').size
-
     prior_sick_days and prior_sick_days.to_i >= (days_worked * 28 + 3)
   end
 
