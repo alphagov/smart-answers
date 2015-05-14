@@ -1,3 +1,10 @@
+module SmartAnswer
+
+class AdditionalCommodityCode < Flow
+
+  def define
+name 'additional-commodity-code'
+
 status :published
 satisfies_need "100233"
 
@@ -187,4 +194,8 @@ outcome :commodity_code_result do
       ''
     end
   end
+end
+
+  end
+end
 end
