@@ -90,7 +90,8 @@ end
 # Q2
 multiple_choice :legal_residency? do
   option :uk
-  option :other
+  option :ceremony_country
+  option :third_country
 
   save_input_as :resident_of
 
@@ -98,7 +99,7 @@ multiple_choice :legal_residency? do
     next_node_if(:partner_opposite_or_same_sex?, variable_matches(:ceremony_country, 'switzerland'))
     next_node(:residency_uk?)
   end
-  next_node(:residency_nonuk?)
+  next_node(:what_is_your_partners_nationality?)
 end
 
 # Q3a
@@ -126,56 +127,6 @@ multiple_choice :residency_uk? do
 end
 
 # Q3b
-country_select :residency_nonuk?, exclude_countries: exclude_countries do
-  save_input_as :residency_country
-  countries_that_show_their_embassies_data = %w(belarus bolivia brazil cambodia chile colombia costa-rica dominican-republic egypt el-salvador ethiopia finland germany honduras hungary indonesia mongolia montenegro peru south-korea latvia lebanon mongolia morocco nepal oman panama peru philippines portugal qatar russia saudi-arabia serbia slovakia thailand united-arab-emirates vietnam portugal)
-  calculate :location do
-    if countries_that_show_their_embassies_data.include?(ceremony_country) and resident_of != 'uk'
-      loc = WorldLocation.find(ceremony_country)
-    else
-      loc = WorldLocation.find(residency_country)
-    end
-    raise InvalidResponse unless loc
-    loc
-  end
-  calculate :organisation do
-    location.fco_organisation
-  end
-  calculate :overseas_passports_embassies do
-    if organisation
-      organisation.offices_with_service 'Registrations of Marriage and Civil Partnerships'
-    else
-      []
-    end
-  end
-
-  calculate :residency_country_name do
-    location.name
-  end
-
-  calculate :residency_country_name_lowercase_prefix do
-    if country_name_query.class::COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(residency_country)
-      country_name_query.definitive_article(residency_country)
-    elsif country_name_query.class::FRIENDLY_COUNTRY_NAME.has_key?(residency_country)
-      country_name_query.class::FRIENDLY_COUNTRY_NAME[residency_country]
-    else
-      residency_country_name
-    end
-  end
-
-  calculate :embassy_or_consulate_residency_country do
-    if reg_data_query.has_consulate?(residency_country) or reg_data_query.has_consulate_general?(residency_country)
-      "consulate"
-    else
-      "embassy"
-    end
-  end
-
-  next_node_if(:partner_opposite_or_same_sex?, variable_matches(:ceremony_country, "switzerland"))
-  next_node(:what_is_your_partners_nationality?)
-end
-
-# Q3c
 multiple_choice :marriage_or_pacs? do
   option :marriage
   option :pacs
