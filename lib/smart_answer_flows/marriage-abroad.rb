@@ -420,7 +420,7 @@ outcome :outcome_os_laos do
       phrases << :no_cni_os_not_dutch_caribbean_other_resident
     end
 
-    phrases << :italy_os_consular_cni_ceremony_not_italy_or_spain
+    phrases << :get_legal_advice
     phrases << :consular_cni_all_what_you_need_to_do
     phrases << :what_to_do_laos
     phrases << :legalisation_and_translation
@@ -482,7 +482,7 @@ outcome :outcome_os_colombia do
   precalculate :colombia_os_phraselist do
     PhraseList.new(
       :uk_resident_os_consular_cni,
-      :affirmation_os_all_what_you_need_to_do,
+      :get_legal_advice,
       :what_you_need_to_do_affirmation,
       :make_an_appointment_bring_passport_and_pay_55_colombia,
       :list_of_consular_fees,
@@ -621,7 +621,7 @@ outcome :outcome_os_consular_cni do
     elsif ceremony_country == 'italy'
       phrases << :italy_os_consular_cni_ceremony_italy
     elsif ceremony_country != 'japan'
-      phrases << :italy_os_consular_cni_ceremony_not_italy_or_spain
+      phrases << :get_legal_advice
     end
     phrases << :consular_cni_all_what_you_need_to_do
 
@@ -1041,7 +1041,7 @@ outcome :outcome_os_affirmation do
           phrases << :affirmation_os_other_resident
         end
       end
-      phrases << :affirmation_os_all_what_you_need_to_do unless %w(cambodia ecuador morocco ).include? ceremony_country
+      phrases << :get_legal_advice unless %w(cambodia ecuador morocco ).include? ceremony_country
       phrases << :affirmation_os_uae if ceremony_country == 'united-arab-emirates'
     end
     #What you need to do section
@@ -1321,7 +1321,7 @@ outcome :outcome_cp_no_cni do
   precalculate :no_cni_required_cp_outcome do
     phrases = PhraseList.new
     phrases << :"no_cni_required_cp_#{ceremony_country}" if data_query.cp_cni_not_required_countries?(ceremony_country)
-    phrases << :no_cni_required_all_legal_advice
+    phrases << :get_legal_advice
     phrases << :no_cni_required_cp_ceremony_us if ceremony_country == 'usa'
     phrases << :no_cni_required_all_what_you_need_to_do
     if ceremony_country == 'bonaire-st-eustatius-saba'
