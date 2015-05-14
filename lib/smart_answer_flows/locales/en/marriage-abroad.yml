@@ -1854,10 +1854,11 @@ en-GB:
 
 # Q2
       legal_residency?:
-        title: Do you live in the UK?
+        title: Where do you live?
         options:
-          uk: "Yes"
-          other: "No"
+          uk: "UK"
+          ceremony_country: "%{ceremony_country_name}"
+          third_country: "Elsewhere"
 # Q3a
       residency_uk?:
         title: Where do you live?
@@ -1868,10 +1869,8 @@ en-GB:
           uk_ni: "Northern Ireland"
           uk_iom: "Isle of Man"
           uk_ci: "Channel Islands"
+
 # Q3b
-      residency_nonuk?:
-        title: Where do you live?
-# Q3c
       marriage_or_pacs?:
         title: Do you want to get married or enter into a PACS?
         hint: PACS (‘pacte civil de solidarité’, or ‘civil solidarity pact’) is the French version of civil partnership, and can be entered into by same-sex or opposite-sex couples.
