@@ -11,6 +11,10 @@ module SmartAnswer
           Integer(raw_input)
         elsif :to_i == @parse
           raw_input.to_i
+        elsif Float == @parse
+          Float(raw_input)
+        elsif :to_f == @parse
+          raw_input.to_f
         else
           super
         end
