@@ -37,9 +37,9 @@ module SmartAnswer
       end
 
       # Q3
-      value_question :how_many_days_per_week? do
+      value_question :how_many_days_per_week?, parse: Float do
         calculate :days_per_week do |response|
-          days_per_week = Float(response)
+          days_per_week = response
           raise InvalidResponse if days_per_week <= 0 or days_per_week > 7
           days_per_week
         end
@@ -122,10 +122,10 @@ module SmartAnswer
       end
 
       # Q10
-      value_question :how_many_hours_per_week? do
+      value_question :how_many_hours_per_week?, parse: Float do
         calculate :calculator do |response|
           Calculators::HolidayEntitlement.new(
-            hours_per_week: Float(response),
+            hours_per_week: response,
             start_date: start_date,
             leaving_date: leaving_date,
             leave_year_start_date: leave_year_start_date
@@ -146,9 +146,9 @@ module SmartAnswer
         next_node :done
       end
 
-      value_question :casual_or_irregular_hours? do
+      value_question :casual_or_irregular_hours?, parse: Float do
         calculate :total_hours do |response|
-          hours = Float(response)
+          hours = response
           raise InvalidResponse if hours <= 0
           hours
         end
@@ -167,9 +167,9 @@ module SmartAnswer
         next_node :done
       end
 
-      value_question :annualised_hours? do
+      value_question :annualised_hours?, parse: Float do
         calculate :total_hours do |response|
-          hours = Float(response)
+          hours = response
           raise InvalidResponse if hours <= 0
           hours
         end
@@ -191,18 +191,18 @@ module SmartAnswer
         next_node :done
       end
 
-      value_question :compressed_hours_how_many_hours_per_week? do
+      value_question :compressed_hours_how_many_hours_per_week?, parse: Float do
         calculate :hours_per_week do |response|
-          hours = Float(response)
+          hours = response
           raise InvalidResponse if hours <= 0 or hours > 168
           hours
         end
         next_node :compressed_hours_how_many_days_per_week?
       end
 
-      value_question :compressed_hours_how_many_days_per_week? do
+      value_question :compressed_hours_how_many_days_per_week?, parse: Float do
         calculate :days_per_week do |response|
-          days = Float(response)
+          days = response
           raise InvalidResponse if days <= 0 or days > 7
           days
         end
@@ -238,9 +238,9 @@ module SmartAnswer
         save_input_as :holiday_period
       end
 
-      value_question :shift_worker_hours_per_shift? do
+      value_question :shift_worker_hours_per_shift?, parse: Float do
         calculate :hours_per_shift do |response|
-          hours_per_shift = Float(response)
+          hours_per_shift = response
           raise InvalidResponse if hours_per_shift <= 0
           hours_per_shift
         end
@@ -256,9 +256,9 @@ module SmartAnswer
         next_node :shift_worker_days_per_shift_pattern?
       end
 
-      value_question :shift_worker_days_per_shift_pattern? do
+      value_question :shift_worker_days_per_shift_pattern?, parse: Float do
         calculate :days_per_shift_pattern do |response|
-          days = Float(response)
+          days = response
           raise InvalidResponse if days < shifts_per_shift_pattern
           days
         end
