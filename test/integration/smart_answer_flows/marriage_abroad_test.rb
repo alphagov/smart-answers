@@ -169,7 +169,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   # tests for specific countries
-  # testing for zimbabwe variants
   context "local resident but ceremony not in zimbabwe" do
     setup do
       worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
@@ -217,18 +216,26 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :commonwealth_os_outcome, [:other_resident_os_ceremony_not_zimbabwe, :commonwealth_os_all_cni]
     end
   end
-  context "uk resident ceremony in zimbabwe" do
+  context "ceremony in zimbabwe" do
     setup do
       worldwide_api_has_organisations_for_location('zimbabwe', read_fixture_file('worldwide/zimbabwe_organisations.json'))
       add_response 'zimbabwe'
+    end
+    should "go to commonwealth os outcome for uk resident " do
       add_response 'uk'
       add_response 'uk_wales'
       add_response 'partner_british'
       add_response 'opposite_sex'
-    end
-    should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
       assert_phrase_list :commonwealth_os_outcome, [:uk_resident_os_ceremony_zimbabwe, :commonwealth_os_all_cni_zimbabwe]
+    end
+    should "go to commonwealth os outcome for non-uk resident" do
+      add_response 'other'
+      add_response 'zimbabwe'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_os_commonwealth
+      assert_phrase_list :commonwealth_os_outcome, [:os_ceremony_zimbabwe, :commonwealth_os_all_cni_zimbabwe, :commonwealth_os_naturalisation]
     end
   end
   # testing for other commonwealth countries
