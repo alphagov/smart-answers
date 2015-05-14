@@ -521,10 +521,8 @@ outcome :outcome_os_commonwealth do
     if ceremony_country == 'zimbabwe'
       if resident_of == 'uk'
         phrases << :uk_resident_os_ceremony_zimbabwe
-      elsif residency_country == ceremony_country
-        phrases << :local_resident_os_ceremony_zimbabwe
       else
-        phrases << :other_resident_os_ceremony_zimbabwe
+        phrases << :os_ceremony_zimbabwe
       end
       phrases << :commonwealth_os_all_cni_zimbabwe
     else
