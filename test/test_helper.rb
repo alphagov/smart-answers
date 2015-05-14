@@ -1,5 +1,8 @@
 # encoding: UTF-8
 
+ENV["RAILS_ENV"] = "test"
+require File.expand_path('../../config/environment', __FILE__)
+
 if ENV["TEST_COVERAGE"]
   require 'simplecov'
   require 'simplecov-rcov'
@@ -7,9 +10,6 @@ if ENV["TEST_COVERAGE"]
   SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
   SimpleCov.start 'rails'
 end
-
-ENV["RAILS_ENV"] = "test"
-require File.expand_path('../../config/environment', __FILE__)
 
 FLOW_REGISTRY_OPTIONS[:preload_flows] = true
 
