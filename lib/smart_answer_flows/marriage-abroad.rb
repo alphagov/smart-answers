@@ -946,7 +946,7 @@ outcome :outcome_os_affirmation do
       phrases << :appointment_for_affidavit
     end
 
-    unless (ceremony_country == 'turkey' or residency_country == 'portugal')
+    unless ceremony_country == 'turkey'
       phrases << :embassies_data
       if ceremony_country == 'cambodia'
         phrases << :cni_os_partner_local_legislation_documents_for_appointment
