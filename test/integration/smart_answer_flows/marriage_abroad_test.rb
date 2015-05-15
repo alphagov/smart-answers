@@ -1973,9 +1973,9 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "Marrying anywhere in the world > British National not living in the UK > Resident in Portugal > Partner of any nationality > Opposite sex" do
+  context "Marrying anywhere in the world > British National living in third country > Partner of any nationality > Opposite sex" do
     setup do
-      worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/portugal_organisations.json'))
+      worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
       add_response 'vietnam'
       add_response 'third_country'
       add_response 'partner_other'
@@ -1983,7 +1983,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to affirmation_os_outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :get_legal_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affidavit_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:affirmation_os_other_resident, :get_legal_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :affirmation_os_partner_not_british, :fee_table_affidavit_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "kazakhstan should show its correct embassy page" do
