@@ -6,5 +6,5 @@ You can take up to 2 weeks of [ordinary paternity leave](/paternity-pay-leave/le
 
  | Dates
 - | -
-Paternity leave must be used between | %{placement_date} to %{latest_pat_leave(placement_date)}
+Paternity leave must be used | within 56 days of the birth.
 Tell your employer | %{paternity_leave_notice_date(placement_date)}

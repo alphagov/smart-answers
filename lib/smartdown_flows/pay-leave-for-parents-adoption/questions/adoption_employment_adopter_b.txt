@@ -18,7 +18,7 @@
 
 This is their total take-home pay before any deductions, eg tax.
 
-# Has your partner earned (or will they have earned) more than £112 per week between %{lower_earnings_start_date(match_date)} and %{lower_earnings_end_date(match_date)}?
+# Has your partner earned (or will they have earned) more than %{lower_earnings_amount(match_date)} per week between %{lower_earnings_start_date(match_date)} and %{lower_earnings_end_date(match_date)}?
 
 [choice: lel_2]
 * yes: Yes
