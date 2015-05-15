@@ -95,10 +95,8 @@ multiple_choice :legal_residency? do
 
   save_input_as :resident_of
 
-  on_condition(responded_with('uk')) do
-    next_node_if(:partner_opposite_or_same_sex?, variable_matches(:ceremony_country, 'switzerland'))
-    next_node(:residency_uk?)
-  end
+  next_node_if(:partner_opposite_or_same_sex?, variable_matches(:ceremony_country, 'switzerland'))
+  next_node_if(:residency_uk?, responded_with('uk'))
   next_node(:what_is_your_partners_nationality?)
 end
 
