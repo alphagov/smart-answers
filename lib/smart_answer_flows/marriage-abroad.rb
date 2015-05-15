@@ -500,9 +500,6 @@ outcome :outcome_os_commonwealth do
       phrases << :commonwealth_os_other_countries_cyprus if resident_of == 'ceremony_country'
     end
     phrases << :commonwealth_os_naturalisation unless partner_nationality == 'partner_british'
-    if data_query.requires_7_day_notice?(ceremony_country)
-      phrases << :display_notice_of_marriage_7_days
-    end
     phrases
   end
 end
