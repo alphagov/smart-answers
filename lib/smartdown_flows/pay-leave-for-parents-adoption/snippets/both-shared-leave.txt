@@ -8,5 +8,5 @@ The parents can choose how to share this leave between them. They can each take 
 
  | Dates
 - | -
-Shared parental leave must be used between | %{due_date} to %{end_of_shared_parental_leave(due_date)}
+Shared parental leave must be used | Within a year of the birth
 Tell the parent’s employer | 8 weeks before their first block of SPL
