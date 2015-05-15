@@ -70,13 +70,13 @@ date_question :last_sick_day? do
   next_node(:must_be_sick_for_4_days)
 end
 
-# Question 11
+# Question 6
 multiple_choice :has_linked_sickness? do
   option yes: :linked_sickness_start_date?
   option no: :paid_at_least_8_weeks?
 end
 
-# Question 11.1
+# Question 6.1
 date_question :linked_sickness_start_date? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
@@ -88,7 +88,7 @@ date_question :linked_sickness_start_date? do
   next_node(:linked_sickness_end_date?)
 end
 
-# Question 11.2
+# Question 6.2
 date_question :linked_sickness_end_date? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
@@ -102,7 +102,7 @@ date_question :linked_sickness_end_date? do
   next_node(:paid_at_least_8_weeks?)
 end
 
-# Question 5.1
+# Question 7.1
 multiple_choice :paid_at_least_8_weeks? do
   option eight_weeks_more: :how_often_pay_employee_pay_patterns? # Question 5.2
   option eight_weeks_less: :total_earnings_before_sick_period? # Question 8
@@ -111,7 +111,7 @@ multiple_choice :paid_at_least_8_weeks? do
   save_input_as :eight_weeks_earnings
 end
 
-# Question 5.2
+# Question 7.2
 multiple_choice :how_often_pay_employee_pay_patterns? do
   option :weekly
   option :fortnightly
@@ -125,7 +125,7 @@ multiple_choice :how_often_pay_employee_pay_patterns? do
   next_node(:pay_amount_if_not_sick?) # Question 7
 end
 
-# Question 6
+# Question 8
 date_question :last_payday_before_sickness? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
@@ -148,7 +148,7 @@ date_question :last_payday_before_sickness? do
   next_node(:last_payday_before_offset?)
 end
 
-# Question 6.1
+# Question 8.1
 date_question :last_payday_before_offset? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
@@ -170,7 +170,7 @@ date_question :last_payday_before_offset? do
   next_node(:total_employee_earnings?)
 end
 
-# Question 6.2
+# Question 8.2
 money_question :total_employee_earnings? do
   save_input_as :relevant_period_pay
 
@@ -183,14 +183,14 @@ money_question :total_employee_earnings? do
   next_node :usual_work_days?
 end
 
-# Question 7
+# Question 9
 money_question :pay_amount_if_not_sick? do
   save_input_as :relevant_contractual_pay
 
   next_node :contractual_days_covered_by_earnings?
 end
 
-# Question 7.1
+# Question 9.1
 value_question :contractual_days_covered_by_earnings? do
   save_input_as :contractual_earnings_days
 
@@ -202,14 +202,14 @@ value_question :contractual_days_covered_by_earnings? do
   next_node :usual_work_days?
 end
 
-# Question 8
+# Question 10
 money_question :total_earnings_before_sick_period? do
   save_input_as :earnings
 
   next_node :days_covered_by_earnings?
 end
 
-# Question 8.1
+# Question 10.1
 value_question :days_covered_by_earnings? do
 
   calculate :employee_average_weekly_earnings do |response|
@@ -221,7 +221,7 @@ value_question :days_covered_by_earnings? do
   next_node :usual_work_days?
 end
 
-# Q13
+# Q11
 checkbox_question :usual_work_days? do
   %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
 
