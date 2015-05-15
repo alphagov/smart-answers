@@ -582,10 +582,6 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_ceremony_21_day_requirement
     elsif not_italy_or_spain && ceremony_not_germany_or_not_resident_other
       phrases << :consular_cni_os_ceremony_not_spain_or_italy
-      # TODO what to do? Remove this entirely?
-      # if ceremony_country == 'macedonia' && !data_query.non_commonwealth_country?(residency_country)
-      #   phrases << :consular_cni_os_foreign_resident_ceremony_not_germany_italy
-      # end
     end
 
     if ceremony_country == 'spain'
@@ -675,7 +671,7 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_local_resident_italy if ceremony_country == 'italy'
     end
 
-    if data_query.non_commonwealth_country?(residency_country) and resident_of == 'third_country' # TODO what to do?
+    if resident_of == 'third_country' # TODO merge with the above resident_of == 'ceremony_country' and use a new copy from google doc
       if %w(germany italy).exclude?(ceremony_country)
         phrases << :consular_cni_os_foreign_resident_ceremony_not_germany_italy
       elsif ceremony_country == 'italy'
@@ -699,61 +695,13 @@ outcome :outcome_os_consular_cni do
       end
     end
 
-    if data_query.commonwealth_country?(residency_country) and ceremony_country != 'germany' and resident_of == 'third_country'
-      if ceremony_country == 'macedonia'
-        phrases << :consular_cni_os_foreign_resident_3_days_macedonia
-      else
-        phrases << :consular_cni_os_commonwealth_resident
-      end
-      phrases << :os_notice_of_marriage
-      if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country)
-        phrases << :os_notice_of_marriage_7_day_wait
-      else
-        phrases << :os_notice_of_marriage_21_day_wait
-      end
-    end
-
-    if data_query.commonwealth_country?(residency_country) and partner_nationality == 'partner_british' and resident_of == 'third_country' and ceremony_country != 'germany'
-      phrases << :consular_cni_os_commonwealth_resident_british_partner
-    end
-
-    if data_query.commonwealth_country?(residency_country) and resident_of == 'third_country' and ceremony_country != 'germany'
-      phrases << :consular_cni_os_commonwealth_resident_two
-    elsif residency_country == 'ireland' and ceremony_country != 'germany'
-      phrases << :consular_cni_os_ireland_resident
-    end
-
-    if residency_country == 'ireland' and partner_nationality == 'partner_british' and ceremony_country != 'germany'
-      phrases << :consular_cni_os_ireland_resident_british_partner
-    end
-
-    if residency_country == 'ireland' and ceremony_country != 'germany'
-      phrases << :consular_cni_os_ireland_resident_two
-    end
-
-    if data_query.commonwealth_country?(residency_country) or residency_country == 'ireland' and resident_of == 'third_country' and ceremony_country != 'germany'
-      if partner_nationality == 'partner_british'
-        if ceremony_country == 'italy'
-          phrases << :italy_consular_cni_os_commonwealth_or_ireland_resident_british_partner
-        else
-          phrases << :consular_cni_os_commonwealth_or_ireland_resident_british_partner
-        end
-      else
-        if ceremony_country == 'italy'
-          phrases << :italy_consular_cni_os_commonwealth_or_ireland_resident_non_british_partner
-        else
-          phrases << :consular_cni_os_commonwealth_or_ireland_resident_non_british_partner
-        end
-      end
-    end
-
     if resident_of == 'ceremony_country' and %w(croatia germany italy japan spain russia).exclude?(ceremony_country) and cni_posted_after_7_days_countries.include?(ceremony_country)
       phrases << :living_in_residence_country_3_days
     end
 
-    if ceremony_country == 'italy' and resident_of != 'uk' and data_query.non_commonwealth_country?(residency_country)
+    if ceremony_country == 'italy' and resident_of != 'uk'
       phrases << :consular_cni_variant_local_resident_italy
-    elsif resident_of == 'ceremony_country' and %w(germany japan spain).exclude?(ceremony_country) or (data_query.non_commonwealth_country?(residency_country) and resident_of == 'third_country' and ceremony_country != 'germany')
+    elsif resident_of == 'ceremony_country' and %w(germany japan spain).exclude?(ceremony_country) or (resident_of == 'third_country' and ceremony_country != 'germany')
       if cni_notary_public_countries.include?(ceremony_country) or %w(japan macedonia spain).include?(ceremony_country)
         phrases << :consular_cni_variant_local_resident_or_foreign_resident_notary_public
       elsif ceremony_country == 'jordan'
@@ -839,7 +787,7 @@ outcome :outcome_os_consular_cni do
       phrases << :display_notice_of_marriage_7_days # TODO: the text refers to residency country
     end
 
-    if data_query.non_commonwealth_country?(residency_country) and resident_of == 'third_country'
+    if resident_of == 'third_country'
       if ceremony_country == 'greece'
         phrases << :consular_cni_os_foreign_resident_ceremony_notary_public_greece
       elsif cni_notary_public_countries.include?(ceremony_country) or %w(italy japan macedonia spain).include?(ceremony_country)
@@ -851,29 +799,11 @@ outcome :outcome_os_consular_cni do
       end
     end
 
-    if %w(italy germany).exclude?(ceremony_country)
-      if data_query.commonwealth_country?(residency_country) and resident_of == 'third_country'
-        phrases << :consular_cni_os_commonwealth_resident_ceremony_not_italy
-      elsif residency_country == 'ireland'
-        phrases << :consular_cni_os_ireland_resident_ceremony_not_italy
-      end
-    end
     phrases
   end
 
   precalculate :consular_cni_os_remainder do
     phrases = PhraseList.new
-    if data_query.commonwealth_country?(residency_country) and ceremony_country == 'italy'
-      phrases << :consular_cni_os_commonwealth_resident_ceremony_italy
-    end
-
-    if residency_country == 'ireland' and ceremony_country == 'italy'
-      phrases << :consular_cni_os_ireland_resident_ceremony_italy
-    end
-
-    if data_query.commonwealth_country?(residency_country) or residency_country == 'ireland' and ceremony_country == 'italy'
-      phrases << :italy_os_consular_cni_four
-    end
 
     if ceremony_country != 'italy' and resident_of == 'uk' and "partner_other" == partner_nationality and "finland" == ceremony_country
         phrases << :callout_partner_equivalent_document
@@ -1154,11 +1084,6 @@ outcome :outcome_os_no_cni do
     end
     phrases << :get_legal_advice << :cni_os_consular_facilities_unavailable
 
-    if data_query.os_notice_of_marriage_7_day_wait_ceremony_country?(ceremony_country) && data_query.commonwealth_country?(residency_country)
-      phrases << :os_notice_of_marriage
-      phrases << :os_notice_of_marriage_7_day_wait
-    end
-
     unless data_query.countries_without_consular_facilities?(ceremony_country)
       if ceremony_country == 'monaco'
         phrases << :list_of_consular_fees_france
@@ -1170,7 +1095,7 @@ outcome :outcome_os_no_cni do
     if partner_nationality != 'partner_british'
       phrases << :no_cni_os_naturalisation
     end
-    if data_query.requires_7_day_notice?(ceremony_country,residency_country)
+    if data_query.requires_7_day_notice?(ceremony_country)
       phrases << :display_notice_of_marriage_7_days
     end
 
