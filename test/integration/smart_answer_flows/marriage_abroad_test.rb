@@ -2165,7 +2165,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "show 7 day notice" do
       assert_current_node :outcome_os_commonwealth
-      assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country, :get_legal_advice, :get_travel_advice_unless_local, :commonwealth_os_all_cni, :display_notice_of_marriage_7_days]
+      assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country, :get_legal_advice, :get_travel_advice_unless_local, :commonwealth_os_all_cni]
     end
   end
   context "Marriage in Rwanda, living elsewhere" do
