@@ -263,9 +263,9 @@ module SmartAnswer
       end
 
       #Q14 - people who live on business premises?
-      value_question :people_live_on_premises? do
+      value_question :people_live_on_premises?, parse: :to_i do
         calculate :live_on_premises do |response|
-          response.to_i
+          response
         end
 
         calculate :simple_business_costs do
