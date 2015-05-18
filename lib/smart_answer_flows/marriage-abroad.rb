@@ -606,7 +606,7 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_ceremony_germany_not_uk_resident if resident_of != 'uk'
     end
 
-    if resident_of =='uk'
+    if resident_of == 'uk'
       if cni_posted_after_14_days_countries.include?(ceremony_country)
         if cni_notary_public_countries.include?(ceremony_country) or ceremony_country == 'italy'
           phrases << :cni_posted_if_no_objection_14_days_notary_public
@@ -751,22 +751,16 @@ outcome :outcome_os_consular_cni do
     end
 
     if resident_of == 'ceremony_country'
-      if ceremony_country == 'japan'
+      if %w(spain germany).exclude?(ceremony_country)
         phrases << :consular_cni_os_download_documents_notary_public
-      elsif %w(spain germany).exclude?(ceremony_country)
-        if cni_notary_public_countries.include?(ceremony_country)
-          phrases << :consular_cni_os_download_documents_notary_public
-        else
-          phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany
-        end
       end
     else
       uk_resident_with_os = sex_of_your_partner == 'opposite_sex' && resident_of == 'uk'
       uk_resident_os_no_docs = uk_resident_with_os && no_document_download_link_if_os_resident_of_uk_countries.include?(ceremony_country)
       if !uk_resident_os_no_docs && (cni_notary_public_countries + %w(italy japan macedonia spain) - %w(greece tunisia)).include?(ceremony_country)
         phrases << :consular_cni_os_download_documents_notary_public
-      elsif data_query.non_commonwealth_country?(residency_country) and ceremony_country != 'germany'
-        phrases << :consular_cni_os_local_resident_not_germany_or_spain_or_foreign_resident_not_germany
+      elsif resident_of != 'uk' && ceremony_country != 'germany'
+        phrases << :consular_cni_os_download_documents_notary_public
       end
     end
 
