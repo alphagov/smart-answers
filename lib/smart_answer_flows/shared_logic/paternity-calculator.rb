@@ -127,7 +127,7 @@ end
 
 ## QP6
 multiple_choice :employee_on_payroll_paternity? do
-  option :yes => :employee_still_employed_on_birth_date?
+  option yes: :employee_still_employed_on_birth_date?
   option :no
   save_input_as :on_payroll
 

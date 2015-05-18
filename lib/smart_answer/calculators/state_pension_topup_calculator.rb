@@ -36,7 +36,7 @@ module SmartAnswer::Calculators
       age = age_at_date(dob, TOPUP_START_DATE)
       (TOPUP_START_DATE.year..TOPUP_END_DATE.year).each do |year|
         break if age > UPPER_AGE || birthday_after_topup_end?(dob, age)
-        rows << {:amount => lump_sum_amount(age, weekly_amount), :age => age} if age >= retirement_age(gender)
+        rows << {amount: lump_sum_amount(age, weekly_amount), age: age} if age >= retirement_age(gender)
         age += 1
       end
       rows

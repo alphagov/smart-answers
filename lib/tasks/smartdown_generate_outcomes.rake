@@ -1,7 +1,7 @@
 namespace :smartdown_generate_outcomes do
 
   desc "Convert a Smartdown package from transition status/name to published"
-  task :pay_leave_for_parents => :environment do
+  task pay_leave_for_parents: :environment do
     flow = SmartdownAdapter::Registry.instance.find("pay-leave-for-parents")
 
     def nested_outcomes(rules)

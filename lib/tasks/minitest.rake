@@ -13,6 +13,6 @@ task :test do
 end
 
 # Override the default task
-task :default => [] # Just in case it hasn't already been set
+task default: [] # Just in case it hasn't already been set
 Rake::Task[:default].clear
-task :default => "test:all"
+task default: "test:all"
