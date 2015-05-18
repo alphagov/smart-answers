@@ -16,6 +16,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   childcare-costs-for-tax-credits
   energy-grants-calculator
   estimate-self-assessment-penalties
+  help-if-you-are-arrested-abroad
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
