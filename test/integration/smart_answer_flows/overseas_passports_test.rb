@@ -8,7 +8,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon china congo georgia greece haiti hong-kong india iran iraq ireland italy jamaica jordan kenya kyrgyzstan laos malta nepal nigeria pakistan pitcairn-island saudi-arabia syria south-africa spain sri-lanka st-helena-ascension-and-tristan-da-cunha tajikistan tanzania timor-leste turkey turkmenistan ukraine united-kingdom united-arab-emirates usa uzbekistan yemen zimbabwe venezuela vietnam zambia)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon china congo georgia greece haiti hong-kong india iran iraq ireland italy jamaica jordan kenya kyrgyzstan laos malta nepal nigeria pakistan pitcairn-island saudi-arabia syria south-africa spain sri-lanka st-helena-ascension-and-tristan-da-cunha st-maarten st-martin tajikistan tanzania timor-leste turkey turkmenistan ukraine united-kingdom united-arab-emirates usa uzbekistan yemen zimbabwe venezuela vietnam zambia)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'overseas-passports'
   end
@@ -1309,6 +1309,30 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         assert_current_node :ips_application_result
         assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour_laos, :send_application_address_laos]
       end
+    end
+  end
+
+  context "St Martin (same as St Maarten)" do
+    should "suggest to apply online" do
+      worldwide_api_has_no_organisations_for_location('st-martin')
+      add_response 'st-martin'
+      add_response 'renewing_new'
+      add_response 'adult'
+
+      assert_current_node :ips_application_result_online
+      assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_additional_info_renewing_new, :how_long_additional_time_online]
+    end
+  end
+
+  context "St Maarten (same as St Martin)" do
+    should "suggest to apply online" do
+      worldwide_api_has_no_organisations_for_location('st-maarten')
+      add_response 'st-maarten'
+      add_response 'renewing_new'
+      add_response 'adult'
+
+      assert_current_node :ips_application_result_online
+      assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_additional_info_renewing_new, :how_long_additional_time_online]
     end
   end
 end

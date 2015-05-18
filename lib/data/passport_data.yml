@@ -1711,6 +1711,15 @@ st-maarten:
   renewing_old: 8_weeks
   applying: 8_weeks
   replacing: 8_weeks
+st-martin:
+  type: ips_application_1
+  group: ips_documents_group_1
+  app_form: hmpo_2_application_form
+  online_application: true
+  renewing_new: 6_weeks
+  renewing_old: 8_weeks
+  applying: 8_weeks
+  replacing: 8_weeks
 st-pierre-and-miquelon:
   type: ips_application_1
   group: ips_documents_group_1
