@@ -32,6 +32,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   state-pension-through-partner
   state-pension-topup
   student-finance-calculator
+  towing-rules
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
