@@ -15,6 +15,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   check-uk-visa
   childcare-costs-for-tax-credits
   energy-grants-calculator
+  estimate-self-assessment-penalties
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
