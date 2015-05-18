@@ -24,7 +24,9 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
       should "ask the age of the employee" do
         assert_current_node :age_of_employee?
         assert_state_variable :rate, 430
+        assert_state_variable :ni_rate, 430
         assert_state_variable :max_amount, "12,900"
+        assert_state_variable :ni_max_amount, "12,900"
       end
 
       context "aged 42" do
@@ -66,6 +68,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
             should "give me a figure no higher than 430 per week" do
               assert_state_variable :statutory_redundancy_pay, "1,935"
+              assert_state_variable :statutory_redundancy_pay_ni, "1,935"
             end
           end
         end
@@ -110,6 +113,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
             should "give me a figure no higher than 430 per week" do
               assert_state_variable :statutory_redundancy_pay, "860"
+              assert_state_variable :statutory_redundancy_pay_ni, "860"
             end
 
             should "give me the number of weeks entitlement" do
@@ -125,6 +129,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
             should "give me a figure below 430" do
               assert_state_variable :statutory_redundancy_pay, "600"
+              assert_state_variable :statutory_redundancy_pay_ni, "600"
             end
 
             should "give me 2 weeks total entitlement" do
@@ -173,6 +178,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
             should "give me a figure no higher than 430 per week" do
               assert_state_variable :statutory_redundancy_pay, "860"
+              assert_state_variable :statutory_redundancy_pay_ni, "860"
             end
             should "give me 2 weeks total entitlement" do
               assert_state_variable :number_of_weeks_entitlement, 2.0
@@ -186,6 +192,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
             should "give me a figure below 430" do
               assert_state_variable :statutory_redundancy_pay, "600"
+              assert_state_variable :statutory_redundancy_pay_ni, "600"
             end
 
             should "give me 2 weeks total entitlement" do
@@ -203,7 +210,9 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
         add_response '500'
         assert_current_node :done
         assert_state_variable :rate, 450
+        assert_state_variable :ni_rate, 450
         assert_state_variable :max_amount, "13,500"
+        assert_state_variable :ni_max_amount, "13,500"
       end
     end # After Feb 2013
 
@@ -247,6 +256,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
       should "be in employee flow for age" do
         assert_current_node :age_of_employee?
         assert_state_variable :rate, 430
+        assert_state_variable :ni_rate, 430
       end
 
       context "42 years old" do
@@ -288,6 +298,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
             should "give me a figure no higher than 430 per week" do
               assert_state_variable :statutory_redundancy_pay, "1,935"
+              assert_state_variable :statutory_redundancy_pay_ni, "1,935"
             end
 
             should "give me 2 weeks total entitlement" do
@@ -336,6 +347,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
             should "give me a figure no higher than 430 per week" do
               assert_state_variable :statutory_redundancy_pay, "860"
+              assert_state_variable :statutory_redundancy_pay_ni, "860"
             end
           end
 
@@ -346,6 +358,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
             should "give me a figure below 430" do
               assert_state_variable :statutory_redundancy_pay, "600"
+              assert_state_variable :statutory_redundancy_pay_ni, "600"
             end
           end
         end
@@ -414,6 +427,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
             should "give me a figure no higher than 430 per week" do
               assert_state_variable :statutory_redundancy_pay, "1,290"
+              assert_state_variable :statutory_redundancy_pay_ni, "1,290"
             end
           end
 
@@ -424,6 +438,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
             should "give me a figure below 430" do
               assert_state_variable :statutory_redundancy_pay, "900"
+              assert_state_variable :statutory_redundancy_pay_ni, "900"
             end
           end
         end
@@ -437,6 +452,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
         add_response '700'
         assert_current_node :done
         assert_state_variable :rate, 450
+        assert_state_variable :ni_rate, 450
       end
     end # After Feb 2013
 

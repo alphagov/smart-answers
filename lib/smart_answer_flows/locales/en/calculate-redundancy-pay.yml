@@ -40,13 +40,13 @@ en-GB:
 
       done:
         title: |
-            Based on your answers, your statutory redundancy payment is £%{statutory_redundancy_pay}.
+            Based on your answers, your statutory redundancy payment is £%{statutory_redundancy_pay} (£%{statutory_redundancy_pay_ni} In Northern Ireland).
         body: |
           ##How it’s worked out
 
-          Pay is capped at £%{rate} per week. Length of service is capped at 20 years.
+          Pay is capped at £%{rate} (£%{ni_rate} In Northern Ireland) per week. Length of service is capped at 20 years.
 
-          ^The maximum amount of statutory redundancy pay is £%{max_amount}^
+          ^The maximum amount of statutory redundancy pay is £%{max_amount} (£%{ni_max_amount} In Northern Ireland)^
 
           Years of service or earnings over these amounts aren’t included in the calculation.
 
@@ -106,7 +106,7 @@ en-GB:
 
       done:
         title: |
-          Statutory redundancy payment: £%{statutory_redundancy_pay}.
+          Statutory redundancy payment: £%{statutory_redundancy_pay} (£%{statutory_redundancy_pay_ni} In Northern Ireland).
         body: |
           ##How it’s worked out
 
@@ -118,9 +118,9 @@ en-GB:
           + 1 week’s pay for each full year they were 22 or older, but under 41
           + 1.5 week’s pay for each full year they were 41 or older
 
-          Length of service is capped at 20 years and weekly pay at £%{rate}. Years of service or earnings over these amounts are not included in the calculation.
+          Length of service is capped at 20 years and weekly pay at £%{rate} (£%{ni_rate} In Northern Ireland). Years of service or earnings over these amounts are not included in the calculation.
 
-          The maximum amount of statutory redundancy pay is £%{max_amount}.
+          The maximum amount of statutory redundancy pay is £%{max_amount} (£%{ni_max_amount} In Northern Ireland).
 
           ^Redundancy pay under £30,000 is not taxable.^
         next_steps: |
