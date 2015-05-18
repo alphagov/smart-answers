@@ -19,6 +19,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   help-if-you-are-arrested-abroad
   inherits-someone-dies-without-will
   legalisation-document-checker
+  maternity-paternity-calculator
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
