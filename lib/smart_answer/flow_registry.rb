@@ -1,4 +1,4 @@
-SMART_ANSWER_FLOW_NAMES = %w()
+SMART_ANSWER_FLOW_NAMES = %w(additional-commodity-code)
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
   require "smart_answer_flows/#{name}"
