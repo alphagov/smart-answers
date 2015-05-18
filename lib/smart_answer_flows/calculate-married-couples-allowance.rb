@@ -1,5 +1,5 @@
 status :published
-satisfies_need "101007"
+satisfies_need '101007'
 
 multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
   option yes: :did_you_marry_or_civil_partner_before_5_december_2005?
@@ -26,8 +26,8 @@ multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
 
   calculate :income_measure do |response|
     case response
-    when 'yes' then "husband"
-    when 'no' then "highest earner"
+    when 'yes' then 'husband'
+    when 'no' then 'highest earner'
     else
       raise SmartAnswer::InvalidResponse
     end
@@ -107,7 +107,7 @@ money_question :how_much_expected_gift_aided_donations? do
   end
 
   next_node do |response|
-    if income_measure == "husband"
+    if income_measure == 'husband'
       :husband_done
     else
       :highest_earner_done

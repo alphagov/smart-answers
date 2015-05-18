@@ -386,8 +386,8 @@ checkbox_question :days_of_the_week_paternity? do
   (0...days_of_the_week.size).each { |i| option i.to_s.to_sym }
 
   calculate :last_day_in_week_worked do |response|
-    calculator.work_days = response.split(",").map(&:to_i)
-    calculator.pay_day_in_week = response.split(",").sort.last.to_i
+    calculator.work_days = response.split(',').map(&:to_i)
+    calculator.pay_day_in_week = response.split(',').sort.last.to_i
   end
 
   next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
@@ -454,7 +454,7 @@ outcome :paternity_leave_and_pay do
   precalculate :paternity_info do
     phrases = PhraseList.new
 
-    if has_contract == "no"
+    if has_contract == 'no'
       phrases << :paternity_not_entitled_to_leave
     else
       phrases << :paternity_entitled_to_leave
@@ -471,7 +471,7 @@ outcome :paternity_leave_and_pay do
   end
 
   precalculate :lower_earning_limit do
-    sprintf("%.2f", calculator.lower_earning_limit)
+    sprintf('%.2f', calculator.lower_earning_limit)
   end
 
   precalculate :entitled_to_pay? do
@@ -488,12 +488,12 @@ outcome :paternity_leave_and_pay do
 
   precalculate :total_spp do
     if above_lower_earning_limit?
-      sprintf("%.2f", calculator.total_statutory_pay)
+      sprintf('%.2f', calculator.total_statutory_pay)
     end
   end
 
   precalculate :average_weekly_earnings do
-    sprintf("%.2f", calculator.average_weekly_earnings)
+    sprintf('%.2f', calculator.average_weekly_earnings)
   end
 
 end
@@ -503,9 +503,9 @@ outcome :paternity_not_entitled_to_leave_or_pay do
     if not_entitled_reason.nil?
       phrases = PhraseList.new(:paternity_not_entitled_to_leave_or_pay_intro)
       phrases << :"#{leave_type}_not_responsible_for_upbringing" if paternity_responsible == 'no'
-      phrases << :not_worked_long_enough if paternity_employment_start == "no"
-      phrases << :paternity_entitled_to_leave if on_payroll == "no"
-      phrases << :paternity_not_entitled_to_pay_a if has_contract == "no"
+      phrases << :not_worked_long_enough if paternity_employment_start == 'no'
+      phrases << :paternity_entitled_to_leave if on_payroll == 'no'
+      phrases << :paternity_not_entitled_to_pay_a if has_contract == 'no'
       phrases << :paternity_not_entitled_to_leave_or_pay_outro
       phrases
     else

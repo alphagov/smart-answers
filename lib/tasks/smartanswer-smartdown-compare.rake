@@ -1,7 +1,7 @@
-require "diffy"
+require 'diffy'
 
 namespace :smartanswer_smartdown do
-  desc "Compare the HTML for all listed scenarios of two questions"
+  desc 'Compare the HTML for all listed scenarios of two questions'
   task compare: :environment do
     result = {}
     SmartdownAdapter::Registry.instance({ preload_flows: true, show_transitions: true }).flows.select { |f| f.transition? }.each do |smartdown_transition_question|

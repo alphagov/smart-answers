@@ -20,7 +20,7 @@ end
 outcome :date_ranges do
   calendar do |response|
     date :start_stop, response.start_date..response.stop_date
-    date :something_else, Date.parse("16 March 2013")
+    date :something_else, Date.parse('16 March 2013')
   end
 end
 

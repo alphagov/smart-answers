@@ -12,7 +12,7 @@ class SmartAnswersController < ApplicationController
       format.html { render }
       format.json {
         html_fragment = with_format('html') {
-          render_to_string(partial: "content")
+          render_to_string(partial: 'content')
         }
         render json: {
           url: smart_answer_path(params[:id], 'y', @presenter.current_state.responses),
@@ -94,7 +94,7 @@ private
       redirect_params = {
         action:   :show,
         id:        @name,
-        started:   "y",
+        started:   'y',
         responses: @presenter.current_state.responses,
         protocol:  (request.ssl? || Rails.env.production?) ? 'https' : 'http',
       }

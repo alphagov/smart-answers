@@ -20,7 +20,7 @@ module SmartdownAdapter
 
     def factcheck_file_path
       smartdown_factcheck_path = File.join(smartdown_factcheck_path(@name))
-      File.join(smartdown_factcheck_path, "factcheck", "birth_factcheck_#{@due_or_match_date}.md")
+      File.join(smartdown_factcheck_path, 'factcheck', "birth_factcheck_#{@due_or_match_date}.md")
     end
 
   private
@@ -50,14 +50,14 @@ module SmartdownAdapter
       ordered_birth_hashes = order_hashes(birth_hashes)
       lines = []
       lines << "##Birth \n"
-      lines << "Nb | M status | M C | M LE | M W | M E&E | P status | P C | P LE | P W | P E&E | Outcome | URL"
-      lines << "-|-"
+      lines << 'Nb | M status | M C | M LE | M W | M E&E | P status | P C | P LE | P W | P E&E | Outcome | URL'
+      lines << '-|-'
       line_content = []
       ordered_birth_hashes.each do |birth_hash|
         line_content << format_birth_hash(birth_hash)
       end
       unique_line_content = remove_duplicate_circumstances(line_content)
-      lines += unique_line_content.each.with_index(1).map{ |line_array, i| ([i]+line_array).join(" | ") }
+      lines += unique_line_content.each.with_index(1).map{ |line_array, i| ([i]+line_array).join(' | ') }
       lines.uniq.join("\n")
     end
 
@@ -65,22 +65,22 @@ module SmartdownAdapter
       result = []
       result << birth_hash[:employment_status_1]
       if birth_hash[:job_before_x_1]
-        result << tick_or_cross(birth_hash[:job_before_x_1] == "yes" && birth_hash[:job_after_y_1] == "yes")
-        result << tick_or_cross(birth_hash[:lel_1] == "yes")
-        result << tick_or_cross(birth_hash[:job_after_y_1] == "yes")
+        result << tick_or_cross(birth_hash[:job_before_x_1] == 'yes' && birth_hash[:job_after_y_1] == 'yes')
+        result << tick_or_cross(birth_hash[:lel_1] == 'yes')
+        result << tick_or_cross(birth_hash[:job_after_y_1] == 'yes')
       else
         result << [nil, nil, nil]
       end
-      result << tick_or_cross(birth_hash[:earnings_employment_1] == "yes" && birth_hash[:work_employment_1] == "yes")
+      result << tick_or_cross(birth_hash[:earnings_employment_1] == 'yes' && birth_hash[:work_employment_1] == 'yes')
       result << birth_hash[:employment_status_2]
       if birth_hash[:job_before_x_2]
-        result << tick_or_cross(birth_hash[:job_before_x_2] == "yes" && birth_hash[:job_after_y_2] == "yes")
-        result << tick_or_cross(birth_hash[:lel_2] == "yes")
-        result << tick_or_cross(birth_hash[:job_after_y_2] == "yes")
+        result << tick_or_cross(birth_hash[:job_before_x_2] == 'yes' && birth_hash[:job_after_y_2] == 'yes')
+        result << tick_or_cross(birth_hash[:lel_2] == 'yes')
+        result << tick_or_cross(birth_hash[:job_after_y_2] == 'yes')
       else
         result << [nil, nil, nil]
       end
-      result << tick_or_cross(birth_hash[:earnings_employment_2] == "yes" && birth_hash[:work_employment_2] == "yes")
+      result << tick_or_cross(birth_hash[:earnings_employment_2] == 'yes' && birth_hash[:work_employment_2] == 'yes')
       result << human_readable_description(birth_hash[:outcome])
       result << url_from_hash(birth_hash)
       result
@@ -90,27 +90,27 @@ module SmartdownAdapter
       hashes.sort { |a,b|
         [
           a[:employment_status_1],
-          a[:employment_status_2] || "",
-          a[:job_before_x_1] || "",
-          a[:job_after_y_1] || "",
-          a[:lel_1] || "",
-          a[:earnings_employment_1] || "",
-          a[:job_before_x_2] || "",
-          a[:job_after_y_2] || "",
-          a[:lel_2] || "",
-          a[:earnings_employment_2] || "",
+          a[:employment_status_2] || '',
+          a[:job_before_x_1] || '',
+          a[:job_after_y_1] || '',
+          a[:lel_1] || '',
+          a[:earnings_employment_1] || '',
+          a[:job_before_x_2] || '',
+          a[:job_after_y_2] || '',
+          a[:lel_2] || '',
+          a[:earnings_employment_2] || '',
         ] <=>
         [
           b[:employment_status_1],
-          b[:employment_status_2] || "",
-          b[:job_before_x_1] || "",
-          b[:job_after_y_1] || "",
-          b[:lel_1] || "",
-          b[:earnings_employment_1] || "",
-          b[:job_before_x_2] || "",
-          b[:job_after_y_2] || "",
-          b[:lel_2] || "",
-          b[:earnings_employment_2] || "",
+          b[:employment_status_2] || '',
+          b[:job_before_x_1] || '',
+          b[:job_after_y_1] || '',
+          b[:lel_1] || '',
+          b[:earnings_employment_1] || '',
+          b[:job_before_x_2] || '',
+          b[:job_after_y_2] || '',
+          b[:lel_2] || '',
+          b[:earnings_employment_2] || '',
         ]
        }
     end
@@ -127,14 +127,14 @@ module SmartdownAdapter
     end
 
     def human_readable_description(outcome_name)
-      outcome_name.split("_")[1..-1].map do |snippet_name|
-        "- " + @human_readable_snippet_names.fetch(snippet_name)
-      end.join("<br>")
+      outcome_name.split('_')[1..-1].map do |snippet_name|
+        '- ' + @human_readable_snippet_names.fetch(snippet_name)
+      end.join('<br>')
     end
 
     def format_date(date_string)
       date = Date.parse(date_string)
-      date.strftime("%d/%m/%Y")
+      date.strftime('%d/%m/%Y')
     end
 
     def tick_or_cross(predicate)

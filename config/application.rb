@@ -1,9 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
 # Don't include all of rails, we don't need activerecord
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "sprockets/railtie"
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'sprockets/railtie'
 
 Bundler.require(:default, Rails.env)
 
@@ -33,13 +33,13 @@ module SmartAnswers
     config.i18n.default_locale = :"en-GB"
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    config.encoding = 'utf-8'
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
     # Path within public/ where assets are compiled to
-    config.assets.prefix = "/smartanswers"
+    config.assets.prefix = '/smartanswers'
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
     config.assets.precompile += %w(

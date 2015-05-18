@@ -1,5 +1,5 @@
 status :published
-satisfies_need "100259"
+satisfies_need '100259'
 
 # Q1
 multiple_choice :what_are_you_looking_for? do
@@ -27,7 +27,7 @@ multiple_choice :what_are_you_looking_for? do
     end
   end
 
-  next_node_if(:what_are_your_circumstances?, responded_with("help_with_fuel_bill")) # Q2
+  next_node_if(:what_are_your_circumstances?, responded_with('help_with_fuel_bill')) # Q2
   next_node :what_are_your_circumstances_without_bills_help? # Q2A
 end
 
@@ -39,7 +39,7 @@ checkbox_question :what_are_your_circumstances? do
   option :social_housing
 
   calculate :circumstances do |response|
-    response.split(",")
+    response.split(',')
   end
 
   calculate :benefits_claimed do
@@ -57,7 +57,7 @@ checkbox_question :what_are_your_circumstances? do
 
   next_node_if(:date_of_birth?) { bills_help || both_help } # Q3
   on_condition(measure?) do
-    next_node_if(:which_benefits?, responded_with("benefits"))
+    next_node_if(:which_benefits?, responded_with('benefits'))
     next_node :when_property_built?
   end
 end
@@ -69,7 +69,7 @@ checkbox_question :what_are_your_circumstances_without_bills_help? do
   option :permission
 
   calculate :circumstances do |response|
-    response.split(",")
+    response.split(',')
   end
 
   calculate :benefits_claimed do
@@ -84,7 +84,7 @@ checkbox_question :what_are_your_circumstances_without_bills_help? do
 
   next_node_if(:date_of_birth?) { bills_help || both_help }
   on_condition(measure?) do
-    next_node_if(:which_benefits?, responded_with("benefits"))
+    next_node_if(:which_benefits?, responded_with('benefits'))
     next_node :when_property_built?
   end
 end
@@ -118,7 +118,7 @@ checkbox_question :which_benefits? do
   option :working_tax_credit
 
   calculate :benefits_claimed do |response|
-    response.split(",")
+    response.split(',')
   end
   calculate :incomesupp_jobseekers_2 do |response|
     if %w(working_tax_credit).include?(response)
@@ -230,7 +230,7 @@ checkbox_question :home_features_modern? do
   option :draught_proofing
 
   calculate :features do |response|
-    response.split(",")
+    response.split(',')
   end
 
   define_predicate(:modern_and_gas_and_electric_heating?) do |response|
@@ -273,7 +273,7 @@ checkbox_question :home_features_historic? do
   option :draught_proofing
 
   calculate :features do |response|
-    response.split(",")
+    response.split(',')
   end
 
   define_predicate(:measure_help_and_property_permission_circumstance?) do
@@ -312,7 +312,7 @@ checkbox_question :home_features_older? do
   option :draught_proofing
 
   calculate :features do |response|
-    response.split(",")
+    response.split(',')
   end
 
   define_predicate(:measure_help_and_property_permission_circumstance?) do
@@ -404,8 +404,8 @@ outcome :outcome_measures_help_and_eco_eligible do
         end
         phrases << :opt_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
         phrases << :opt_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-        phrases << :opt_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat' || flat_type != "top_floor"
-        phrases << :opt_under_floor_insulation unless modern || flat_type != "top_floor"
+        phrases << :opt_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat' || flat_type != 'top_floor'
+        phrases << :opt_under_floor_insulation unless modern || flat_type != 'top_floor'
         phrases << :opt_eco_affordable_warmth << :opt_eco_help << :header_heating << :opt_better_heating_controls
         (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating) unless (features & %w(mains_gas)).any?
         (phrases << :header_windows_and_doors << :opt_replacement_glazing) unless (features & %w(modern_double_glazing)).any?
@@ -432,7 +432,7 @@ outcome :outcome_measures_help_green_deal do
     phrases << :opt_cavity_wall_insulation << :opt_solid_wall_insulation
     phrases << :opt_draught_proofing unless (features & %w(draught_proofing)).any?
     phrases << :opt_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-    unless flat_type == "top_floor"
+    unless flat_type == 'top_floor'
       phrases << :opt_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
       phrases << :opt_under_floor_insulation unless modern
     end
@@ -482,7 +482,7 @@ outcome :outcome_bills_and_measures_no_benefits do
     phrases << :opt_solid_wall_insulation unless (features & %w(mains_gas solid_wall_insulation)).any?
     phrases << :opt_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
     phrases << :opt_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-    unless flat_type == "top_floor"
+    unless flat_type == 'top_floor'
       phrases << :opt_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
       phrases << :opt_under_floor_insulation unless modern
     end
@@ -531,7 +531,7 @@ outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
     phrases << :opt_solid_wall_insulation unless (features & %w(mains_gas solid_wall_insulation)).any?
     phrases << :opt_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
     phrases << :opt_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-    unless flat_type == "top_floor"
+    unless flat_type == 'top_floor'
       phrases << :opt_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
       phrases << :opt_under_floor_insulation unless modern
     end
@@ -579,7 +579,7 @@ outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
     (phrases << :opt_cavity_wall_insulation << :opt_solid_wall_insulation) unless (features & %w(mains_gas)).any?
     phrases << :opt_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
     phrases << :opt_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-    unless flat_type == "top_floor"
+    unless flat_type == 'top_floor'
       phrases << :opt_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
       phrases << :opt_under_floor_insulation unless modern
     end

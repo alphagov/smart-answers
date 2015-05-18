@@ -27,7 +27,7 @@ module SmartdownAdapter
     def generate_start_combinations(smartdown_flow)
       state = smartdown_flow.state(true, [])
       questions = state.current_node.elements.select do |element|
-        element.class.to_s.include?("Smartdown::Model::Element::Question")
+        element.class.to_s.include?('Smartdown::Model::Element::Question')
       end
       question_keys = questions.map(&:name).map(&:to_sym)
       answer_combinations(question_keys)
@@ -43,7 +43,7 @@ module SmartdownAdapter
           state = smartdown_flow.state(true, answers)
           if state.current_node.is_a? Smartdown::Api::QuestionPage
             questions = state.current_node.elements.select do |element|
-              element.class.to_s.include?("Smartdown::Model::Element::Question")
+              element.class.to_s.include?('Smartdown::Model::Element::Question')
             end
             question_keys = questions.map(&:name).map(&:to_sym)
             answer_combinations = answer_combinations(question_keys)

@@ -55,7 +55,7 @@ module FlowTestHelper
 
     missing_keys = expected_keys - phrase_list.phrase_keys
     unexpected_keys = phrase_list.phrase_keys - expected_keys
-    message = ""
+    message = ''
     message += "Missing keys: #{missing_keys}\n" if missing_keys.present?
     message += "Unexpected keys: #{unexpected_keys}" if unexpected_keys.present?
     assert_equal expected_keys, phrase_list.phrase_keys, message

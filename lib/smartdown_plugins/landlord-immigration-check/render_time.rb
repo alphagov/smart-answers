@@ -21,8 +21,8 @@ module SmartdownPlugins
     def self.valid_postcode(postcode)
       response = $imminence.areas_for_postcode(postcode.value)
       return false unless response and response.code == 200
-      areas = response.to_hash["results"]
-      ! areas.find { |a| VALID_BOROUGHS.include?(a["slug"]) }.nil?
+      areas = response.to_hash['results']
+      ! areas.find { |a| VALID_BOROUGHS.include?(a['slug']) }.nil?
     end
   end
 end

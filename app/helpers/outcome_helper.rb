@@ -15,20 +15,20 @@ module OutcomeHelper
     contact = contact.dup
 
     # format newlines correctly and remove any double line breaks or trailing line breaks
-    contact.gsub!("\n", "<br>")
-    contact.gsub!("<br>,", "<br>")
-    contact.gsub!(/,$/, "")
-    contact.gsub!(/(<br>\s?)+/, "<br>")
-    contact.gsub!(/<br>$/, "")
-    contact.gsub!(/\A<br>/, "")
+    contact.gsub!("\n", '<br>')
+    contact.gsub!('<br>,', '<br>')
+    contact.gsub!(/,$/, '')
+    contact.gsub!(/(<br>\s?)+/, '<br>')
+    contact.gsub!(/<br>$/, '')
+    contact.gsub!(/\A<br>/, '')
 
     # strip commas at end of lines
-    contact.gsub!(/,$/, "")
+    contact.gsub!(/,$/, '')
     # force space after remaining commas
-    contact.gsub!(/,/, ", ")
+    contact.gsub!(/,/, ', ')
 
     # highlight the first line
-    contact.gsub!(/\A([^\<]+)/, "<strong>\\1</strong>")
+    contact.gsub!(/\A([^\<]+)/, '<strong>\\1</strong>')
 
     contact.html_safe
   end

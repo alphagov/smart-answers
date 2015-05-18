@@ -6,11 +6,11 @@ module SmartAnswer
       end
 
       def call(state, response)
-        (response.split(",") & @required_responses).size == @required_responses.size
+        (response.split(',') & @required_responses).size == @required_responses.size
       end
 
       def label
-        @required_responses.join(" & ")
+        @required_responses.join(' & ')
       end
     end
   end

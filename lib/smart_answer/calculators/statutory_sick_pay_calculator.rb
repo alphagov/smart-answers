@@ -39,11 +39,11 @@ module SmartAnswer::Calculators
     def self.average_weekly_earnings(args)
       pay, pay_pattern, monthly_pattern_payments = args.values_at(:pay, :pay_pattern, :monthly_pattern_payments)
       case pay_pattern
-      when "weekly", "fortnightly", "every_4_weeks"
+      when 'weekly', 'fortnightly', 'every_4_weeks'
         pay / 8.0
-      when "monthly"
+      when 'monthly'
         pay / monthly_pattern_payments * 12.0 / 52
-      when "irregularly"
+      when 'irregularly'
         relevant_period_to, relevant_period_from = args.values_at(:relevant_period_to, :relevant_period_from)
         pay / (relevant_period_to - relevant_period_from).to_i * 7
       end
@@ -91,7 +91,7 @@ module SmartAnswer::Calculators
 
     def formatted_sick_pay_weekly_amounts
       weekly_payments.map { |week|
-        [week.first.strftime("%e %B %Y"), sprintf("£%.2f", week.second)].join("|")
+        [week.first.strftime('%e %B %Y'), sprintf('£%.2f', week.second)].join('|')
       }.join("\n")
     end
 

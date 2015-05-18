@@ -5,8 +5,8 @@ class SmartdownScenariosTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Imminence
 
   setup do
-    imminence_has_areas_for_postcode("WC2B%206SE", [])
-    imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council" }])
+    imminence_has_areas_for_postcode('WC2B%206SE', [])
+    imminence_has_areas_for_postcode('B1%201PW', [{ slug: 'birmingham-city-council' }])
   end
 
   smartdown_flow_to_test = ENV['SMARTDOWN_FLOW_TO_TEST']

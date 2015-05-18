@@ -30,7 +30,7 @@ class OutcomePresenter < NodePresenter
   def render_data_partial(partial, variable_name)
     data = @state.send(variable_name.to_sym)
 
-    partial_path = ::SmartAnswer::FlowRegistry.instance.load_path.join("data_partials", "_#{partial}")
+    partial_path = ::SmartAnswer::FlowRegistry.instance.load_path.join('data_partials', "_#{partial}")
     ApplicationController.new.render_to_string(file: partial_path.to_s, layout: false, locals: {variable_name.to_sym => data})
   end
 end

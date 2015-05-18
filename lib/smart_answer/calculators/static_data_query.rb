@@ -10,7 +10,7 @@ module SmartAnswer::Calculators
 
     def self.load_data(data_name)
       @datas ||= {}
-      @datas[data_name] ||= YAML.load_file(Rails.root.join("lib", "data", data_name + ".yml"))
+      @datas[data_name] ||= YAML.load_file(Rails.root.join('lib', 'data', data_name + '.yml'))
     end
   end
 end

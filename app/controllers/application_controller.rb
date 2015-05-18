@@ -1,4 +1,4 @@
-require "slimmer/headers"
+require 'slimmer/headers'
 
 class ApplicationController < ActionController::Base
   include Slimmer::Headers
@@ -15,12 +15,12 @@ protected
 
   def error(status_code, exception = nil)
     if exception and defined? Airbrake
-      env["airbrake.error_id"] = notify_airbrake(exception)
+      env['airbrake.error_id'] = notify_airbrake(exception)
     end
     render status: status_code, text: "#{status_code} error"
   end
 
   def set_analytics_headers
-    set_slimmer_headers(format: "smart_answer")
+    set_slimmer_headers(format: 'smart_answer')
   end
 end

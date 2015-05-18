@@ -30,7 +30,7 @@ module SmartAnswer
 
     def available_flows
       Dir[@load_path.join('*.rb')].map do |path|
-        File.basename(path, ".rb")
+        File.basename(path, '.rb')
       end
     end
 

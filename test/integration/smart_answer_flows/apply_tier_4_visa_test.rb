@@ -9,82 +9,82 @@ class ApplyTier4VisaTest < ActiveSupport::TestCase
     setup_for_testing_flow 'apply-tier-4-visa'
   end
 
-  should "Ask are you going to do" do
+  should 'Ask are you going to do' do
     assert_current_node :extending_or_switching?
   end
-  context "Switching general student visa" do
+  context 'Switching general student visa' do
     setup do
       add_response 'switch_general'
     end
-    should "ask sponsor number" do
+    should 'ask sponsor number' do
       assert_current_node :sponsor_id?
     end
-    context "existing sponsor id provided (post)" do
+    context 'existing sponsor id provided (post)' do
       setup do
-        add_response "48909JVC1"
+        add_response '48909JVC1'
       end
-      should "show outcome with post phraselist" do
-        assert_state_variable :sponsor_name, "Eastbourne School of English"
-        assert_state_variable :sponsor_id, "48909JVC1"
+      should 'show outcome with post phraselist' do
+        assert_state_variable :sponsor_name, 'Eastbourne School of English'
+        assert_state_variable :sponsor_id, '48909JVC1'
         assert_phrase_list :application_link, [:post_and_switch_link]
         assert_current_node :outcome
       end
     end
-    context "existing sponsor id provided (online)" do
+    context 'existing sponsor id provided (online)' do
       setup do
-        add_response "1GC8FDP33"
+        add_response '1GC8FDP33'
       end
-      should "show outcome with post and switching general phraselists" do
-        assert_state_variable :sponsor_name, "Alpha Omega College"
-        assert_state_variable :sponsor_id, "1GC8FDP33"
+      should 'show outcome with post and switching general phraselists' do
+        assert_state_variable :sponsor_name, 'Alpha Omega College'
+        assert_state_variable :sponsor_id, '1GC8FDP33'
         assert_phrase_list :application_link, [:post_and_switch_link]
         assert_phrase_list :extend_or_switch_visa, [:you_must_be_in_uk, :general_switch]
         assert_current_node :outcome
       end
     end
-    context "non existing sponsor id provided (online)" do
+    context 'non existing sponsor id provided (online)' do
       setup do
-        add_response "egrwijadvwbjdsva nk."
+        add_response 'egrwijadvwbjdsva nk.'
       end
-      should "raise an error" do
+      should 'raise an error' do
         assert_current_node_is_error
       end
     end
   end
-  context "Extending child visa" do
+  context 'Extending child visa' do
     setup do
-      add_response "extend_child"
-      add_response "YYAX6VCR8"
+      add_response 'extend_child'
+      add_response 'YYAX6VCR8'
     end
-    should "show outcome with extending child phraselists" do
-      assert_state_variable :sponsor_name, "Wimbledon High School"
-      assert_state_variable :sponsor_id, "YYAX6VCR8"
+    should 'show outcome with extending child phraselists' do
+      assert_state_variable :sponsor_name, 'Wimbledon High School'
+      assert_state_variable :sponsor_id, 'YYAX6VCR8'
       assert_phrase_list :application_link, [:online_and_extend_link]
       assert_phrase_list :extend_or_switch_visa, [:child_extend]
       assert_current_node :outcome
     end
   end
-  context "Switching child visa" do
+  context 'Switching child visa' do
     setup do
-      add_response "switch_child"
-      add_response "2W8TVPP77"
+      add_response 'switch_child'
+      add_response '2W8TVPP77'
     end
-    should "show outcome with extending child phraselists" do
-      assert_state_variable :sponsor_name, "14 Stars (London) Ltd t/a European College for Higher Education"
-      assert_state_variable :sponsor_id, "2W8TVPP77"
+    should 'show outcome with extending child phraselists' do
+      assert_state_variable :sponsor_name, '14 Stars (London) Ltd t/a European College for Higher Education'
+      assert_state_variable :sponsor_id, '2W8TVPP77'
       assert_phrase_list :application_link, [:post_and_switch_link]
       assert_phrase_list :extend_or_switch_visa, [:you_must_be_in_uk, :child_switch]
       assert_current_node :outcome
     end
   end
-  context "Extending general visa" do
+  context 'Extending general visa' do
     setup do
-      add_response "extend_general"
-      add_response "GFHRH18H5"
+      add_response 'extend_general'
+      add_response 'GFHRH18H5'
     end
-    should "show outcome with extending child phraselists and online link" do
-      assert_state_variable :sponsor_name, "Kaplan International Colleges Cambridge"
-      assert_state_variable :sponsor_id, "GFHRH18H5"
+    should 'show outcome with extending child phraselists and online link' do
+      assert_state_variable :sponsor_name, 'Kaplan International Colleges Cambridge'
+      assert_state_variable :sponsor_id, 'GFHRH18H5'
       assert_phrase_list :application_link, [:online_and_extend_link]
       assert_phrase_list :extend_or_switch_visa, [:general_extend]
       assert_current_node :outcome

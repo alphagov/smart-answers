@@ -1,4 +1,4 @@
-require "data/state_pension_query"
+require 'data/state_pension_query'
 
 module SmartAnswer::Calculators
   class StatePensionAmountCalculator

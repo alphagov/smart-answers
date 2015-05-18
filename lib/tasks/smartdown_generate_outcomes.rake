@@ -1,8 +1,8 @@
 namespace :smartdown_generate_outcomes do
 
-  desc "Convert a Smartdown package from transition status/name to published"
+  desc 'Convert a Smartdown package from transition status/name to published'
   task pay_leave_for_parents: :environment do
-    flow = SmartdownAdapter::Registry.instance.find("pay-leave-for-parents")
+    flow = SmartdownAdapter::Registry.instance.find('pay-leave-for-parents')
 
     def nested_outcomes(rules)
       rules.map { |rule|
@@ -31,7 +31,7 @@ namespace :smartdown_generate_outcomes do
     missing_nodes = destination_nodes - all_nodes
 
     missing_nodes.each do |node_name|
-      node_filepath = File.join(smartdown_flow_path(flow.name), "outcomes", "#{node_name}.txt")
+      node_filepath = File.join(smartdown_flow_path(flow.name), 'outcomes', "#{node_name}.txt")
       _, *node_aspects = node_name.split('_')
 
       node_content = node_aspects.map { |aspect|

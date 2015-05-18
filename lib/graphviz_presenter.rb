@@ -1,7 +1,7 @@
 class GraphvizPresenter < GraphPresenter
   def to_gv
     [
-      "digraph MyFlow {",
+      'digraph MyFlow {',
       '',
       '## LABELS',
       '',
@@ -11,7 +11,7 @@ class GraphvizPresenter < GraphPresenter
       '',
       edge_lines,
       metadata_lines,
-      "}"
+      '}'
     ].flatten.join("\n")
   end
 
@@ -19,17 +19,17 @@ class GraphvizPresenter < GraphPresenter
     labels.map do |name, label|
       attrs = {
         label: escape(label),
-        shape: "box"
+        shape: 'box'
       }
       if is_first?(name)
         attrs.merge!(
-          color: "gold1",
-          style: "filled"
+          color: 'gold1',
+          style: 'filled'
         )
       elsif is_outcome?(name)
         attrs.merge!(
-          color: "aquamarine",
-          style: "filled"
+          color: 'aquamarine',
+          style: 'filled'
         )
       end
       attribute_clause = attrs.map {|k, v| "#{k}=\"#{v}\""}.join(' ')
@@ -66,14 +66,14 @@ class GraphvizPresenter < GraphPresenter
   def escape(label)
     map = {
       "\n" => '\n',
-      "[" => '\[',
-      "]" => '\]',
+      '[' => '\[',
+      ']' => '\]',
       '"' => '\''
     }
     label.to_s.gsub(%r{[\n\[\]"]}, map)
   end
 
   def normalize_name(name)
-    name.to_s.gsub(/[^a-zA-Z0-9_]/, "")
+    name.to_s.gsub(/[^a-zA-Z0-9_]/, '')
   end
 end

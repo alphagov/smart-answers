@@ -11,17 +11,17 @@ class VatPaymentDeadlinesTest < ActiveSupport::TestCase
     setup_for_testing_flow 'vat-payment-deadlines'
   end
 
-  should "ask when your VAT accounting period ends" do
+  should 'ask when your VAT accounting period ends' do
     assert_current_node :when_does_your_vat_accounting_period_end?
   end
 
-  context "invalid dates" do
-    should "show error with non end-of-month date" do
+  context 'invalid dates' do
+    should 'show error with non end-of-month date' do
       add_response '2013-05-30'
       assert_current_node :when_does_your_vat_accounting_period_end?, error: true
     end
 
-    should "handle leap years correctly" do
+    should 'handle leap years correctly' do
       add_response '2012-02-28'
       assert_current_node :when_does_your_vat_accounting_period_end?, error: true
     end
@@ -32,56 +32,56 @@ class VatPaymentDeadlinesTest < ActiveSupport::TestCase
       add_response '2013-04-30'
     end
 
-    should "ask how you want to pay" do
+    should 'ask how you want to pay' do
       assert_current_node :how_do_you_want_to_pay?
     end
 
-    should "give result for Direct debit" do
+    should 'give result for Direct debit' do
       add_response 'direct-debit'
       assert_current_node :result_direct_debit
-      assert_state_variable :last_dd_setup_date, "5 June 2013"
-      assert_state_variable :funds_taken, "12 June 2013"
+      assert_state_variable :last_dd_setup_date, '5 June 2013'
+      assert_state_variable :funds_taken, '12 June 2013'
     end
 
-    should "give result for online or telephone banking" do
+    should 'give result for online or telephone banking' do
       add_response 'online-telephone-banking'
       assert_current_node :result_online_telephone_banking
-      assert_state_variable :last_payment_date, "7 June 2013"
+      assert_state_variable :last_payment_date, '7 June 2013'
     end
 
-    should "give result for online debit or credit card" do
+    should 'give result for online debit or credit card' do
       add_response 'online-debit-credit-card'
       assert_current_node :result_online_debit_credit_card
-      assert_state_variable :last_payment_date, "5 June 2013"
-      assert_state_variable :funds_received_by, "7 June 2013"
+      assert_state_variable :last_payment_date, '5 June 2013'
+      assert_state_variable :funds_received_by, '7 June 2013'
     end
 
-    should "give result for BACS Direct Credit" do
+    should 'give result for BACS Direct Credit' do
       add_response 'bacs-direct-credit'
       assert_current_node :result_bacs_direct_credit
-      assert_state_variable :last_payment_date, "5 June 2013"
-      assert_state_variable :funds_received_by, "7 June 2013"
+      assert_state_variable :last_payment_date, '5 June 2013'
+      assert_state_variable :funds_received_by, '7 June 2013'
     end
 
-    should "give result for Bank Giro" do
+    should 'give result for Bank Giro' do
       add_response 'bank-giro'
       assert_current_node :result_bank_giro
-      assert_state_variable :last_payment_date, "5 June 2013"
-      assert_state_variable :funds_received_by, "7 June 2013"
+      assert_state_variable :last_payment_date, '5 June 2013'
+      assert_state_variable :funds_received_by, '7 June 2013'
     end
 
-    should "give result for CHAPS" do
+    should 'give result for CHAPS' do
       add_response 'chaps'
       assert_current_node :result_chaps
-      assert_state_variable :last_payment_date, "7 June 2013"
-      assert_state_variable :funds_received_by, "7 June 2013"
+      assert_state_variable :last_payment_date, '7 June 2013'
+      assert_state_variable :funds_received_by, '7 June 2013'
     end
 
-    should "give result for Cheque" do
+    should 'give result for Cheque' do
       add_response 'cheque'
       assert_current_node :result_cheque
-      assert_state_variable :last_posting_date, "22 May 2013"
-      assert_state_variable :funds_cleared_by, "31 May 2013"
+      assert_state_variable :last_posting_date, '22 May 2013'
+      assert_state_variable :funds_cleared_by, '31 May 2013'
     end
   end
 
@@ -89,11 +89,11 @@ class VatPaymentDeadlinesTest < ActiveSupport::TestCase
     setup do
       add_response '2014-07-31'
     end
-    should "give 2 September as last payment date" do
+    should 'give 2 September as last payment date' do
       add_response 'bacs-direct-credit'
       assert_current_node :result_bacs_direct_credit
-      assert_state_variable :last_payment_date, "3 September 2014"
-      assert_state_variable :funds_received_by, "5 September 2014"
+      assert_state_variable :last_payment_date, '3 September 2014'
+      assert_state_variable :funds_received_by, '5 September 2014'
     end
   end
 end

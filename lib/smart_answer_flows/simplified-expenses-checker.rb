@@ -1,5 +1,5 @@
 status :published
-satisfies_need "100119"
+satisfies_need '100119'
 
 # Q1 - new or existing business
 multiple_choice :claimed_expenses_for_current_business? do
@@ -9,7 +9,7 @@ multiple_choice :claimed_expenses_for_current_business? do
   save_input_as :new_or_existing_business
 
   calculate :is_new_business do
-    new_or_existing_business == "no"
+    new_or_existing_business == 'no'
   end
 
   calculate :is_existing_business do
@@ -27,21 +27,21 @@ checkbox_question :type_of_expense? do
   option :live_on_business_premises
 
   calculate :list_of_expenses do |response|
-    response == "none" ? [] : response.split(",")
+    response == 'none' ? [] : response.split(',')
   end
 
   next_node do |response|
     next_question = nil
-    if response == "none"
+    if response == 'none'
       :you_cant_use_result
     else
-      responses = response.split(",")
+      responses = response.split(',')
       raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
-      if (responses & ["car_or_van", "motorcycle"]).any?
+      if (responses & ['car_or_van', 'motorcycle']).any?
         :buying_new_vehicle?
-      elsif responses.include?("using_home_for_business")
+      elsif responses.include?('using_home_for_business')
         :hours_work_home?
-      elsif responses.include?("live_on_business_premises")
+      elsif responses.include?('live_on_business_premises')
         :deduct_from_premises?
       end
     end
@@ -54,7 +54,7 @@ multiple_choice :buying_new_vehicle? do
   option :no
 
   next_node do |response|
-    if response == "yes"
+    if response == 'yes'
       :is_vehicle_green?
     else
       if is_existing_business
@@ -78,13 +78,13 @@ multiple_choice :capital_allowances? do
   option :no
 
   calculate :capital_allowance_claimed do |response|
-    response == "yes" and (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
+    response == 'yes' and (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
   end
 
   next_node do |response|
-    if response == "yes"
+    if response == 'yes'
       if (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
-        if list_of_expenses.include?("using_home_for_business")
+        if list_of_expenses.include?('using_home_for_business')
           # Q11
           :hours_work_home?
         else
@@ -106,7 +106,7 @@ money_question :how_much_expect_to_claim? do
   save_input_as :vehicle_costs
 
   next_node do
-    if list_of_expenses.include?("car_or_van")
+    if list_of_expenses.include?('car_or_van')
       :drive_business_miles_car_van?
     else
       :drive_business_miles_motorcycle?
@@ -120,7 +120,7 @@ multiple_choice :is_vehicle_green? do
   option :no
 
   calculate :vehicle_is_green do |response|
-    response == "yes"
+    response == 'yes'
   end
 
   next_node :price_of_vehicle?
@@ -164,7 +164,7 @@ value_question :vehicle_business_use_time? do
 
   next_node do |response|
     raise InvalidResponse if response.to_i > 100
-    list_of_expenses.include?("car_or_van") ?
+    list_of_expenses.include?('car_or_van') ?
       :drive_business_miles_car_van? : :drive_business_miles_motorcycle?
   end
 end
@@ -175,7 +175,7 @@ value_question :drive_business_miles_car_van? do
   # [user input 1-10,000] x 0.45
   # [user input > 10,001]  x 0.25
   calculate :simple_vehicle_costs do |response|
-    answer = response.gsub(",", "").to_f
+    answer = response.gsub(',', '').to_f
     if answer <= 10000
       Money.new(answer * 0.45)
     else
@@ -184,11 +184,11 @@ value_question :drive_business_miles_car_van? do
     end
   end
   next_node do
-    if list_of_expenses.include?("motorcycle")
+    if list_of_expenses.include?('motorcycle')
       :drive_business_miles_motorcycle?
-    elsif list_of_expenses.include?("using_home_for_business")
+    elsif list_of_expenses.include?('using_home_for_business')
       :hours_work_home?
-    elsif list_of_expenses.include?("live_on_business_premises")
+    elsif list_of_expenses.include?('live_on_business_premises')
       :deduct_from_premises?
     else
       :you_can_use_result
@@ -199,12 +199,12 @@ end
 # Q10 - miles to drive for business motorcycle
 value_question :drive_business_miles_motorcycle? do
   calculate :simple_motorcycle_costs do |response|
-    Money.new(response.gsub(",", "").to_f * 0.24)
+    Money.new(response.gsub(',', '').to_f * 0.24)
   end
   next_node do
-    if list_of_expenses.include?("using_home_for_business")
+    if list_of_expenses.include?('using_home_for_business')
       :hours_work_home?
-    elsif list_of_expenses.include?("live_on_business_premises")
+    elsif list_of_expenses.include?('live_on_business_premises')
       :deduct_from_premises?
     else
       :you_can_use_result
@@ -216,7 +216,7 @@ end
 value_question :hours_work_home? do
 
   calculate :hours_worked_home do |response|
-    response.gsub(",", "").to_f
+    response.gsub(',', '').to_f
   end
 
   calculate :simple_home_costs do
@@ -246,7 +246,7 @@ money_question :current_claim_amount_home? do
   save_input_as :home_costs
 
   next_node do
-    list_of_expenses.include?("live_on_business_premises") ? :deduct_from_premises? : :you_can_use_result
+    list_of_expenses.include?('live_on_business_premises') ? :deduct_from_premises? : :you_can_use_result
   end
 
 end
@@ -326,7 +326,7 @@ outcome :you_can_use_result do
     bullets = PhraseList.new
     bullets << :simple_vehicle_costs_bullet unless capital_allowance_claimed or simple_vehicle_costs.to_f == 0.0
     bullets << :simple_motorcycle_costs_bullet unless simple_motorcycle_costs.to_f == 0.0
-    if list_of_expenses.include?("using_home_for_business")
+    if list_of_expenses.include?('using_home_for_business')
       # if they ticked it but the cost is 0, it should show anyway
       if simple_home_costs.to_f == 0.0
         bullets << :simple_home_costs_none_bullet

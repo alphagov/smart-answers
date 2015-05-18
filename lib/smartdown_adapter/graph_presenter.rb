@@ -59,15 +59,15 @@ module SmartdownAdapter
       all_rules.map(&:predicate).map{ |predicate|
         # Fixed in smartdown, but not released yet
         if predicate.is_a? Smartdown::Model::Predicate::Otherwise
-          "otherwise"
+          'otherwise'
         else
           predicate.humanize
         end
-      }.join(" AND ")
+      }.join(' AND ')
     end
 
     def graph_label_text(node)
-      text = node.class.to_s.split("::").last + "\n-\n"
+      text = node.class.to_s.split('::').last + "\n-\n"
       case node
         when Smartdown::Api::QuestionPage
           if node.questions.count > 1
@@ -83,10 +83,10 @@ module SmartdownAdapter
                 "( ) #{option.value}: #{option.label}"
               end.join("\n")
             when Smartdown::Api::DateQuestion
-              text << "[ Date:    ]"
+              text << '[ Date:    ]'
             when Smartdown::Api::SalaryQuestion
             else
-              text << "[ Unkown Question ]"
+              text << '[ Unkown Question ]'
             end
             text << "\n\n"
           end
@@ -97,7 +97,7 @@ module SmartdownAdapter
           ]
           text << word_wrap(candidate_texts.find(&:present?))
         else
-          text << "Unknown node type"
+          text << 'Unknown node type'
       end
       text
     end

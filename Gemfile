@@ -75,7 +75,7 @@ group :development do
 end
 
 if ENV['RUBY_DEBUG']
-  gem 'debugger', require: "ruby-debug"
+  gem 'debugger', require: 'ruby-debug'
 end
 
 group :analytics do

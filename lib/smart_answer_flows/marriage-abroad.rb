@@ -6,7 +6,7 @@
 # SS - Same Sex
 
 status :published
-satisfies_need "101000"
+satisfies_need '101000'
 
 data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
 country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
@@ -35,9 +35,9 @@ country_select :country_of_ceremony?, exclude_countries: exclude_countries do
 
   calculate :marriage_and_partnership_phrases do
     if data_query.ss_marriage_countries?(ceremony_country) | data_query.ss_marriage_countries_when_couple_british?(ceremony_country)
-      "ss_marriage"
+      'ss_marriage'
     elsif data_query.ss_marriage_and_partnership?(ceremony_country)
-      "ss_marriage_and_partnership"
+      'ss_marriage_and_partnership'
     end
   end
 
@@ -61,13 +61,13 @@ country_select :country_of_ceremony?, exclude_countries: exclude_countries do
 
   calculate :country_name_partner_residence do
     if data_query.british_overseas_territories?(ceremony_country)
-      "British (overseas territories citizen)"
+      'British (overseas territories citizen)'
     elsif data_query.french_overseas_territories?(ceremony_country)
-      "French"
+      'French'
     elsif data_query.dutch_caribbean_islands?(ceremony_country)
-      "Dutch"
+      'Dutch'
     elsif %w(hong-kong macao).include?(ceremony_country)
-      "Chinese"
+      'Chinese'
     else
       "National of #{country_name_lowercase_prefix}"
     end
@@ -75,9 +75,9 @@ country_select :country_of_ceremony?, exclude_countries: exclude_countries do
 
   calculate :embassy_or_consulate_ceremony_country do
     if reg_data_query.has_consulate?(ceremony_country) or reg_data_query.has_consulate_general?(ceremony_country)
-      "consulate"
+      'consulate'
     else
-      "embassy"
+      'embassy'
     end
   end
 
@@ -165,13 +165,13 @@ country_select :residency_nonuk?, exclude_countries: exclude_countries do
 
   calculate :embassy_or_consulate_residency_country do
     if reg_data_query.has_consulate?(residency_country) or reg_data_query.has_consulate_general?(residency_country)
-      "consulate"
+      'consulate'
     else
-      "embassy"
+      'embassy'
     end
   end
 
-  next_node_if(:partner_opposite_or_same_sex?, variable_matches(:ceremony_country, "switzerland"))
+  next_node_if(:partner_opposite_or_same_sex?, variable_matches(:ceremony_country, 'switzerland'))
   next_node(:what_is_your_partners_nationality?)
 end
 
@@ -181,7 +181,7 @@ multiple_choice :marriage_or_pacs? do
   option :pacs
   save_input_as :marriage_or_pacs
 
-  next_node_if(:outcome_monaco, variable_matches(:ceremony_country, "monaco"))
+  next_node_if(:outcome_monaco, variable_matches(:ceremony_country, 'monaco'))
   next_node_if(:outcome_os_france_or_fot, responded_with('marriage'))
   next_node(:outcome_cp_france_pacs)
 end
@@ -214,28 +214,28 @@ multiple_choice :partner_opposite_or_same_sex? do
 
   calculate :ceremony_type_lowercase do |response|
     if response == 'opposite_sex'
-      "marriage"
+      'marriage'
     else
-      "civil partnership"
+      'civil partnership'
     end
   end
 
 
   define_predicate(:ceremony_in_laos_partners_not_local) {
-    (ceremony_country == "laos") & (partner_nationality != "partner_local")
+    (ceremony_country == 'laos') & (partner_nationality != 'partner_local')
   }
   define_predicate(:ceremony_in_colombia_partner_not_local) {
-    (ceremony_country == "colombia") & (partner_nationality != "partner_local")
+    (ceremony_country == 'colombia') & (partner_nationality != 'partner_local')
   }
   define_predicate(:ceremony_in_finland_uk_resident_partner_not_irish) {
-    (ceremony_country == "finland") & (resident_of == "uk") & %w(partner_british partner_other partner_local).include?(partner_nationality)
+    (ceremony_country == 'finland') & (resident_of == 'uk') & %w(partner_british partner_other partner_local).include?(partner_nationality)
   }
   define_predicate(:ceremony_in_mexico_partner_british) {
-    (ceremony_country == "mexico") & (partner_nationality == "partner_british")
+    (ceremony_country == 'mexico') & (partner_nationality == 'partner_british')
   }
 
   define_predicate(:ceremony_in_brazil_not_resident_in_the_uk) {
-    (ceremony_country == "brazil") & (resident_of == "other")
+    (ceremony_country == 'brazil') & (resident_of == 'other')
   }
 
   define_predicate(:os_marriage_with_local_in_japan) {
@@ -243,17 +243,17 @@ multiple_choice :partner_opposite_or_same_sex? do
   }
 
   next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
-  next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
-  next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
-  next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
-  next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
+  next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, 'netherlands'))
+  next_node_if(:outcome_portugal, variable_matches(:ceremony_country, 'portugal'))
+  next_node_if(:outcome_ireland, variable_matches(:ceremony_country, 'ireland'))
+  next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, 'switzerland'))
   on_condition(responded_with('opposite_sex')) do
     next_node_if(:outcome_os_local_japan, os_marriage_with_local_in_japan)
-    next_node_if(:outcome_os_colombia, variable_matches(:ceremony_country, "colombia"))
-    next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, "kosovo"))
-    next_node_if(:outcome_os_indonesia, variable_matches(:ceremony_country, "indonesia"))
+    next_node_if(:outcome_os_colombia, variable_matches(:ceremony_country, 'colombia'))
+    next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, 'kosovo'))
+    next_node_if(:outcome_os_indonesia, variable_matches(:ceremony_country, 'indonesia'))
     next_node_if(:outcome_os_marriage_impossible_no_laos_locals, ceremony_in_laos_partners_not_local)
-    next_node_if(:outcome_os_laos, variable_matches(:ceremony_country, "laos"))
+    next_node_if(:outcome_os_laos, variable_matches(:ceremony_country, 'laos'))
     next_node_if(:outcome_os_consular_cni, -> {
       data_query.os_consular_cni_countries?(ceremony_country) or (resident_of == 'uk' and data_query.os_no_marriage_related_consular_services?(ceremony_country))
     })
@@ -272,7 +272,7 @@ multiple_choice :partner_opposite_or_same_sex? do
   end
 
   define_predicate(:ss_marriage_germany_partner_local?) {
-    (ceremony_country == "germany") & (partner_nationality == "partner_local") & (ceremony_type != 'opposite_sex')
+    (ceremony_country == 'germany') & (partner_nationality == 'partner_local') & (ceremony_type != 'opposite_sex')
   }
   define_predicate(:ss_marriage_countries?) {
     data_query.ss_marriage_countries?(ceremony_country)
@@ -292,7 +292,7 @@ multiple_choice :partner_opposite_or_same_sex? do
     (ceremony_country == 'finland') & (resident_of == 'uk') & (partner_nationality == 'partner_irish')
   }
 
-  next_node_if(:outcome_ss_marriage_malta, -> {ceremony_country == "malta"})
+  next_node_if(:outcome_ss_marriage_malta, -> {ceremony_country == 'malta'})
 
   next_node_if(:outcome_os_affirmation, uk_resident_irish_partner_finland_ss_ceremony)
 
@@ -304,7 +304,7 @@ multiple_choice :partner_opposite_or_same_sex? do
     ss_marriage_countries? | ss_marriage_countries_when_couple_british? | ss_marriage_and_partnership?
   )
 
-  next_node_if(:outcome_os_consular_cni, variable_matches(:ceremony_country, "spain"))
+  next_node_if(:outcome_os_consular_cni, variable_matches(:ceremony_country, 'spain'))
 
   next_node_if(:outcome_cp_cp_or_equivalent, -> {
     data_query.cp_equivalent_countries?(ceremony_country)
@@ -504,9 +504,9 @@ outcome :outcome_monaco do
   precalculate :monaco_title do
     phrases = PhraseList.new
     if marriage_or_pacs == 'marriage'
-      phrases << "Marriage in Monaco"
+      phrases << 'Marriage in Monaco'
     else
-      phrases << "PACS in Monaco"
+      phrases << 'PACS in Monaco'
     end
     phrases
   end
@@ -946,7 +946,7 @@ outcome :outcome_os_consular_cni do
       phrases << :italy_os_consular_cni_four
     end
 
-    if ceremony_country != 'italy' and resident_of == 'uk' and "partner_other" == partner_nationality and "finland" == ceremony_country
+    if ceremony_country != 'italy' and resident_of == 'uk' and 'partner_other' == partner_nationality and 'finland' == ceremony_country
         phrases << :callout_partner_equivalent_document
     end
 

@@ -18,14 +18,14 @@ outcome :done do
   end
 
   precalculate :formatted_amount_of_wood do
-    "#{amount_of_wood} " + (amount_of_wood == 1 ? "piece" : "pieces") + " of wood"
+    "#{amount_of_wood} " + (amount_of_wood == 1 ? 'piece' : 'pieces') + ' of wood'
   end
 
   precalculate :formatted_capacity_of_woodchucks do
-    "#{woodchuck_capacity} " + (woodchuck_capacity == 1 ? "piece" : "pieces") + " of wood"
+    "#{woodchuck_capacity} " + (woodchuck_capacity == 1 ? 'piece' : 'pieces') + ' of wood'
   end
 
   precalculate :formatted_number_of_woodchucks do
-    "#{number_of_woodchucks} " + (number_of_woodchucks == 1 ? "woodchuck" : "woodchucks")
+    "#{number_of_woodchucks} " + (number_of_woodchucks == 1 ? 'woodchuck' : 'woodchucks')
   end
 end

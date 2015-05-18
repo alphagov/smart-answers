@@ -12,9 +12,9 @@ class WorldLocation
   end
 
   def self.all
-    cache_fetch("all") do
+    cache_fetch('all') do
       $worldwide_api.world_locations.with_subsequent_pages.map do |l|
-        new(l) if l.format == "World location" and l.details and l.details.slug.present?
+        new(l) if l.format == 'World location' and l.details and l.details.slug.present?
       end.compact
     end
   end
@@ -37,11 +37,11 @@ class WorldLocation
         yield
       rescue GdsApi::BaseError => e
         inner_exception = e
-        raise RuntimeError.new("use_stale_value")
+        raise RuntimeError.new('use_stale_value')
       end
     end
   rescue RuntimeError => e
-    if e.message == "use_stale_value"
+    if e.message == 'use_stale_value'
       raise inner_exception
     else
       raise

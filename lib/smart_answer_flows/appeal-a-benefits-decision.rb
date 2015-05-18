@@ -1,5 +1,5 @@
 status :draft
-satisfies_need "100492"
+satisfies_need '100492'
 
 decision_appeal_limit_in_months = 13
 
@@ -50,7 +50,7 @@ multiple_choice :had_written_explanation? do
     if appeal_expiry_date
       "You have until #{appeal_expiry_date.to_s(:long)} to start an appeal."
     else
-      ""
+      ''
     end
   end
 
@@ -110,7 +110,7 @@ date_question :when_did_you_get_it? do
     if appeal_expiry_date
       "You have until #{appeal_expiry_date.to_s(:long)} to start an appeal"
     else
-      ""
+      ''
     end
   end
 

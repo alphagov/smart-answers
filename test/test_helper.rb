@@ -1,9 +1,9 @@
 # encoding: UTF-8
 
-ENV["RAILS_ENV"] = "test"
+ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../../config/environment', __FILE__)
 
-if ENV["TEST_COVERAGE"]
+if ENV['TEST_COVERAGE']
   require 'simplecov'
   require 'simplecov-rcov'
 
@@ -18,7 +18,7 @@ require 'rails/test_help'
 
 
 if ENV['SPEC_REPORTER']
-  require "minitest/reporters"
+  require 'minitest/reporters'
   Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 end
 

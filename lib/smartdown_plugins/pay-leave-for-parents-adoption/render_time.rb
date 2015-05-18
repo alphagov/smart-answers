@@ -49,18 +49,18 @@ module SmartdownPlugins
 
     # Continuity test
     def self.continuity(job_before, job_after)
-      job_before == "yes" && job_after == "yes"
+      job_before == 'yes' && job_after == 'yes'
     end
 
     # Lower earnings test: person has earned more than
     # the lower earnings limit
     def self.lower_earnings(lel)
-      lel == "yes"
+      lel == 'yes'
     end
 
     # Earnings and employment test
     def self.earnings_employment(earnings_employment, work_employment)
-      earnings_employment == "yes" && work_employment == "yes"
+      earnings_employment == 'yes' && work_employment == 'yes'
     end
 
     # Date calculations

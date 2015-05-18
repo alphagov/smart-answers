@@ -1,5 +1,5 @@
 status :published
-satisfies_need "100990"
+satisfies_need '100990'
 
 ## Q1
 multiple_choice :what_type_of_leave? do
@@ -9,6 +9,6 @@ multiple_choice :what_type_of_leave? do
   option adoption: :taking_paternity_leave_for_adoption?
 end
 
-use_shared_logic ("adoption-calculator")
-use_shared_logic ("paternity-calculator")
-use_shared_logic ("maternity-calculator")
+use_shared_logic ('adoption-calculator')
+use_shared_logic ('paternity-calculator')
+use_shared_logic ('maternity-calculator')

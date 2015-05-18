@@ -47,18 +47,18 @@ module SmartdownPlugins
 
     # Continuity test
     def self.continuity(job_before, job_after)
-      job_before == "yes" && job_after == "yes"
+      job_before == 'yes' && job_after == 'yes'
     end
 
     # Lower earnings test: person has earned more than
     # the lower earnings limit
     def self.lower_earnings(lel)
-      lel == "yes"
+      lel == 'yes'
     end
 
     # Earnings and employment test
     def self.earnings_employment(earnings_employment, work_employment)
-      earnings_employment == "yes" && work_employment == "yes"
+      earnings_employment == 'yes' && work_employment == 'yes'
     end
 
     # Date calculations
@@ -126,15 +126,15 @@ module SmartdownPlugins
     end
 
     def self.rate_of_maternity_allowance_2013_2014(salary)
-      rate_of_maternity_allowance(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2014-1-1")))
+      rate_of_maternity_allowance(salary, build_date_answer(Smartdown::Model::Answer::Date.new('2014-1-1')))
     end
 
     def self.rate_of_maternity_allowance_2014_2015(salary)
-      rate_of_maternity_allowance(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2015-1-1")))
+      rate_of_maternity_allowance(salary, build_date_answer(Smartdown::Model::Answer::Date.new('2015-1-1')))
     end
 
     def self.rate_of_maternity_allowance_2015_2016(salary)
-      rate_of_maternity_allowance(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2016-1-1")))
+      rate_of_maternity_allowance(salary, build_date_answer(Smartdown::Model::Answer::Date.new('2016-1-1')))
     end
 
     def self.rate_of_paternity_pay(salary_2, due_date)
@@ -142,15 +142,15 @@ module SmartdownPlugins
     end
 
     def self.rate_of_paternity_pay_2013_2014(salary)
-      rate_of_paternity_pay(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2014-1-1")))
+      rate_of_paternity_pay(salary, build_date_answer(Smartdown::Model::Answer::Date.new('2014-1-1')))
     end
 
     def self.rate_of_paternity_pay_2014_2015(salary)
-      rate_of_paternity_pay(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2015-1-1")))
+      rate_of_paternity_pay(salary, build_date_answer(Smartdown::Model::Answer::Date.new('2015-1-1')))
     end
 
     def self.rate_of_paternity_pay_2015_2016(salary)
-      rate_of_paternity_pay(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2016-1-1")))
+      rate_of_paternity_pay(salary, build_date_answer(Smartdown::Model::Answer::Date.new('2016-1-1')))
     end
 
     def self.rate_of_shpp(salary, due_date)
@@ -158,15 +158,15 @@ module SmartdownPlugins
     end
 
     def self.rate_of_shpp_2013_2014(salary)
-      rate_of_shpp(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2014-1-1")))
+      rate_of_shpp(salary, build_date_answer(Smartdown::Model::Answer::Date.new('2014-1-1')))
     end
 
     def self.rate_of_shpp_2014_2015(salary)
-      rate_of_shpp(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2015-1-1")))
+      rate_of_shpp(salary, build_date_answer(Smartdown::Model::Answer::Date.new('2015-1-1')))
     end
 
     def self.rate_of_shpp_2015_2016(salary)
-      rate_of_shpp(salary, build_date_answer(Smartdown::Model::Answer::Date.new("2016-1-1")))
+      rate_of_shpp(salary, build_date_answer(Smartdown::Model::Answer::Date.new('2016-1-1')))
     end
 
     def self.rate_of_smp_6_weeks(salary_1)
@@ -179,15 +179,15 @@ module SmartdownPlugins
     end
 
     def self.rate_of_smp_33_weeks_2013_2014(salary_1)
-      rate_of_smp_33_weeks(salary_1, build_date_answer(Smartdown::Model::Answer::Date.new("2014-1-1")))
+      rate_of_smp_33_weeks(salary_1, build_date_answer(Smartdown::Model::Answer::Date.new('2014-1-1')))
     end
 
     def self.rate_of_smp_33_weeks_2014_2015(salary_1)
-      rate_of_smp_33_weeks(salary_1, build_date_answer(Smartdown::Model::Answer::Date.new("2015-1-1")))
+      rate_of_smp_33_weeks(salary_1, build_date_answer(Smartdown::Model::Answer::Date.new('2015-1-1')))
     end
 
     def self.rate_of_smp_33_weeks_2015_2016(salary_1)
-      rate_of_smp_33_weeks(salary_1, build_date_answer(Smartdown::Model::Answer::Date.new("2016-1-1")))
+      rate_of_smp_33_weeks(salary_1, build_date_answer(Smartdown::Model::Answer::Date.new('2016-1-1')))
     end
 
     def self.total_aspp(salary, due_date)

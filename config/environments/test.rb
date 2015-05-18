@@ -11,7 +11,7 @@ SmartAnswers::Application.configure do
 
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_files = true
-  config.static_cache_control = "public, max-age=3600"
+  config.static_cache_control = 'public, max-age=3600'
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
@@ -40,8 +40,8 @@ SmartAnswers::Application.configure do
   # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
   config.assets.allow_debugging = true
 
-  if ENV["DISABLE_LOGGING_IN_TEST"]
-    File.open(Rails.root.join("log", "test.log"), "a") do |file|
+  if ENV['DISABLE_LOGGING_IN_TEST']
+    File.open(Rails.root.join('log', 'test.log'), 'a') do |file|
       file.puts "\n*NOTE* Disabling logging in an attempt to speed up the tests.\n\n"
     end
     config.logger = Logger.new(nil)

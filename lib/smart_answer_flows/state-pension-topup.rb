@@ -1,5 +1,5 @@
 status :published
-satisfies_need "100865"
+satisfies_need '100865'
 
 calculator = Calculators::StatePensionTopupCalculator.new
 
@@ -31,7 +31,7 @@ multiple_choice :gender? do
   save_input_as :gender
 
   define_predicate(:male_and_too_young?) do |response|
-    (response == "male") &
+    (response == 'male') &
     (date_of_birth > calculator.class::MALE_YOUNGEST_DOB)
   end
 

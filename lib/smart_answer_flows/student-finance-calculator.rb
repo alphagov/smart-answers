@@ -1,16 +1,16 @@
 status :published
-satisfies_need "100133"
+satisfies_need '100133'
 
 max_maintainence_loan_amounts = {
-  "2014-2015" => {
-    "at-home" => 4418,
-    "away-outside-london" => 5555,
-    "away-in-london" => 7751
+  '2014-2015' => {
+    'at-home' => 4418,
+    'away-outside-london' => 5555,
+    'away-in-london' => 7751
   },
-  "2015-2016" => {
-    "at-home" => 4565,
-    "away-outside-london" => 5740,
-    "away-in-london" => 8009
+  '2015-2016' => {
+    'at-home' => 4565,
+    'away-outside-london' => 5740,
+    'away-in-london' => 8009
   }
 }
 
@@ -38,7 +38,7 @@ end
 money_question :how_much_are_your_tuition_fees_per_year? do
 
   calculate :tuition_fee_amount do |response|
-    if course_type == "uk-full-time" or course_type == 'eu-full-time'
+    if course_type == 'uk-full-time' or course_type == 'eu-full-time'
       raise SmartAnswer::InvalidResponse if response > 9000
     else
       raise SmartAnswer::InvalidResponse if response > 6750

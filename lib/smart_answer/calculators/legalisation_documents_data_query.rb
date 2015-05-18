@@ -13,7 +13,7 @@ module SmartAnswer::Calculators
     end
 
     def self.legalisation_document_data
-      @legalisation_document_data ||= YAML.load_file(Rails.root.join("lib", "data", "legalisation_documents_data.yml"))
+      @legalisation_document_data ||= YAML.load_file(Rails.root.join('lib', 'data', 'legalisation_documents_data.yml'))
     end
 
   end

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 status :published
-satisfies_need "100245"
+satisfies_need '100245'
 
 # Q1
 multiple_choice :which_calculation? do
@@ -32,7 +32,7 @@ multiple_choice :gender? do
     end
   end
 
-  next_node_if(:dob_age?, variable_matches(:calculate_age_or_amount, "age"))
+  next_node_if(:dob_age?, variable_matches(:calculate_age_or_amount, 'age'))
   next_node :dob_amount?
 end
 
@@ -56,11 +56,11 @@ date_question :dob_age? do
   end
 
   calculate :pension_credit_date do
-    calculator.state_pension_date(:female).strftime("%-d %B %Y")
+    calculator.state_pension_date(:female).strftime('%-d %B %Y')
   end
 
   calculate :formatted_state_pension_date do
-    state_pension_date.strftime("%-d %B %Y")
+    state_pension_date.strftime('%-d %B %Y')
   end
 
   calculate :state_pension_age do
@@ -146,7 +146,7 @@ date_question :dob_amount? do
   end
 
   calculate :formatted_state_pension_date do
-    state_pension_date.strftime("%e %B %Y")
+    state_pension_date.strftime('%e %B %Y')
   end
 
   calculate :remaining_years do
@@ -312,7 +312,7 @@ multiple_choice :received_child_benefit? do
 
   define_predicate(:credit_age?) { calculator.credit_age? }
 
-  next_node_if(:years_of_benefit?, responded_with("yes"))
+  next_node_if(:years_of_benefit?, responded_with('yes'))
   next_node_if(:years_of_work?, credit_age?)
   next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
   next_node_if(:amount_result, automatic_ni?)
@@ -493,7 +493,7 @@ end
 outcome :reached_state_pension_age
 outcome :too_young do
   precalculate :weekly_rate do
-    sprintf("%.2f", calculator.current_weekly_rate)
+    sprintf('%.2f', calculator.current_weekly_rate)
   end
 end
 
@@ -533,7 +533,7 @@ outcome :amount_result do
   end
 
   precalculate :formatted_state_pension_date do
-    calculator.state_pension_date.strftime("%e %B %Y")
+    calculator.state_pension_date.strftime('%e %B %Y')
   end
 
   precalculate :state_pension_date do
@@ -541,19 +541,19 @@ outcome :amount_result do
   end
 
   precalculate :pension_amount do
-    sprintf("%.2f", calculator.what_you_get)
+    sprintf('%.2f', calculator.what_you_get)
   end
 
   precalculate :weekly_rate do
-    sprintf("%.2f", calculator.current_weekly_rate)
+    sprintf('%.2f', calculator.current_weekly_rate)
   end
 
   precalculate :pension_loss do
-    sprintf("%.2f", calculator.pension_loss)
+    sprintf('%.2f', calculator.pension_loss)
   end
 
   precalculate :what_if_not_full do
-    sprintf("%.2f", calculator.what_you_would_get_if_not_full)
+    sprintf('%.2f', calculator.what_you_would_get_if_not_full)
   end
 
   precalculate :pension_summary do
@@ -569,7 +569,7 @@ outcome :amount_result do
 
     enough_qualifying_years = qualifying_years_total >= 30
     enough_remaining_years = remaining_years >= missing_years
-    auto_years_entitlement = (dob < Date.parse("6th October 1953") and (gender == "male"))
+    auto_years_entitlement = (dob < Date.parse('6th October 1953') and (gender == 'male'))
 
     if calc.within_four_months_one_day_from_state_pension?
       phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years : :within_4_months_not_enough_qy_years)
@@ -583,8 +583,8 @@ outcome :amount_result do
         phrases << :rre_entitlements if calculator.qualifies_for_rre_entitlements?
       else
         phrases << :less_than_ten
-        phrases << :reduced_rate_election if pays_reduced_ni_rate == "yes"
-        phrases << :lived_or_worked_overseas if lived_or_worked_abroad == "yes"
+        phrases << :reduced_rate_election if pays_reduced_ni_rate == 'yes'
+        phrases << :lived_or_worked_overseas if lived_or_worked_abroad == 'yes'
       end
       phrases << :too_few_qy_enough_remaining_years_a
       phrases << :automatic_years_phrase if auto_years_entitlement

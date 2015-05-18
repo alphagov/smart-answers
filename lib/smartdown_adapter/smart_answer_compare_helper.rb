@@ -36,10 +36,10 @@ module SmartdownAdapter
     def get_content(question_name, is_smartdown, started, responses)
       url = "/#{question_name}"
       if started
-        url += "/y"
+        url += '/y'
       end
       unless responses.empty?
-        url += "/"+responses.join("/")
+        url += '/'+responses.join('/')
       end
       @session.get url
       normalise_content(@session.response.body, is_smartdown)
@@ -50,13 +50,13 @@ module SmartdownAdapter
       # has no artefact for content to be inserted for)
       # It would be preferable to stub out the artefact fetching call somehow..
       doc = Nokogiri::HTML(@session.response.body)
-      doc.css(".related-positioning").remove
-      doc.css("#global-breadcrumb").remove
-      doc.css("#ga-params").remove
+      doc.css('.related-positioning').remove
+      doc.css('#global-breadcrumb').remove
+      doc.css('#ga-params').remove
       response = doc.to_s
 
       # Removing by ID leaves some noise which we have to regex out
-      response.gsub!("<!-- related -->\n<!-- end related -->\n\n  ", "")
+      response.gsub!("<!-- related -->\n<!-- end related -->\n\n  ", '')
 
       if is_smartdown
         # Remove the transition slug, which will cause diffs in lots of hrefs
@@ -67,7 +67,7 @@ module SmartdownAdapter
 
     def get_file_as_string(filename)
       data = ''
-      f = File.open(filename, "r")
+      f = File.open(filename, 'r')
       f.each_line do |line|
         data += line
       end

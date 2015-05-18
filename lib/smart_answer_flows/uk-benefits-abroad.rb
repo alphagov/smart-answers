@@ -1,8 +1,8 @@
 status :draft
-satisfies_need "100490"
+satisfies_need '100490'
 
 exclude_countries = %w(holy-see british-antarctic-territory)
-additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
+additional_countries = [OpenStruct.new(slug: 'jersey', name: 'Jersey'), OpenStruct.new(slug: 'guernsey', name: 'Guernsey')]
 
 going_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'going_abroad', nil, 'going abroad')
 already_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'already_abroad', nil, 'already abroad')
@@ -11,12 +11,12 @@ responded_with_eea_country = SmartAnswer::Predicate::RespondedWith.new(
     finland france germany gibraltar greece hungary iceland ireland italy
     latvia liechtenstein lithuania luxembourg malta netherlands norway
     poland portugal romania slovakia slovenia spain sweden switzerland),
-  "EEA country"
+  'EEA country'
 )
 countries_of_former_yugoslavia = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
 responded_with_former_yugoslavia = SmartAnswer::Predicate::RespondedWith.new(
   countries_of_former_yugoslavia,
-  "former Yugoslavia"
+  'former Yugoslavia'
 )
 social_security_countries_jsa = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(guernsey jersey new-zealand))
 social_security_countries_iidb = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey))
@@ -75,7 +75,7 @@ multiple_choice :which_benefit? do
   save_input_as :benefit
 
   calculate :how_long_question_titles do
-    if benefit == "disability_benefits"
+    if benefit == 'disability_benefits'
       PhraseList.new(:"#{benefit}_how_long_question_title")
     else
       PhraseList.new(:"#{going_or_already_abroad}_how_long_question_title")
@@ -342,9 +342,9 @@ multiple_choice :jsa_how_long_abroad? do
 
   save_input_as :how_long_abroad_jsa
 
-  next_node_if(:jsa_less_than_a_year_medical_outcome, responded_with("less_than_a_year_medical")) # A3 going_abroad
-  next_node_if(:jsa_less_than_a_year_other_outcome, responded_with("less_than_a_year_other")) # A4 going_abroad
-  next_node_if(:which_country?, responded_with("more_than_a_year"))
+  next_node_if(:jsa_less_than_a_year_medical_outcome, responded_with('less_than_a_year_medical')) # A3 going_abroad
+  next_node_if(:jsa_less_than_a_year_other_outcome, responded_with('less_than_a_year_other')) # A4 going_abroad
+  next_node_if(:which_country?, responded_with('more_than_a_year'))
 end
 # Going abroad Q18 (tax credits) and Q17 already_abroad
 multiple_choice :tax_credits_how_long_abroad? do

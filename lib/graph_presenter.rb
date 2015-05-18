@@ -38,7 +38,7 @@ class GraphPresenter
 
 private
   def graph_label_text(node)
-    text = node.class.to_s.split("::").last + "\n-\n"
+    text = node.class.to_s.split('::').last + "\n-\n"
     case node
     when SmartAnswer::Question::MultipleChoice
       text << word_wrap(node_title(node))
@@ -62,7 +62,7 @@ private
       ]
       text << word_wrap(candidate_texts.find(&:present?))
     else
-      text << "Unknown node type"
+      text << 'Unknown node type'
     end
     text
   end
@@ -90,7 +90,7 @@ private
       I18n.translate!("#{i18n_prefix(node)}.title", {})
     end
   rescue I18n::MissingTranslationData
-    ""
+    ''
   end
 
   def node_body(node)
@@ -98,11 +98,11 @@ private
       I18n.translate!("#{i18n_prefix(node)}.body", {})
     end
   rescue I18n::MissingTranslationData
-    ""
+    ''
   end
 
   def first_line_of_body(node)
-    node_body(node).split("\n\n").first || ""
+    node_body(node).split("\n\n").first || ''
   end
 
   def translate_option(node, option)

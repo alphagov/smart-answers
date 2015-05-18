@@ -57,7 +57,7 @@ class ActionDispatch::IntegrationTest
   end
 
   def self.with_javascript
-    context "with javascript" do
+    context 'with javascript' do
       setup do
         Capybara.current_driver = Capybara.javascript_driver
       end
@@ -67,7 +67,7 @@ class ActionDispatch::IntegrationTest
   end
 
   def self.without_javascript
-    context "without javascript" do
+    context 'without javascript' do
 
       yield
     end
@@ -94,9 +94,9 @@ module Slimmer
     def load_template name
       # only override the report a problem that we need to test with specific
       # markup
-      if name == "report_a_problem.raw"
+      if name == 'report_a_problem.raw'
         logger.debug "Monkeypatching Slimmer: TEST MODE - Loading fixture template from #{__FILE__}"
-        File.read(File.join(File.dirname(__FILE__), 'fixtures', "report-a-problem.html.erb"))
+        File.read(File.join(File.dirname(__FILE__), 'fixtures', 'report-a-problem.html.erb'))
       else
         unpatched_load_template name
       end

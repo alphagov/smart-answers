@@ -1,5 +1,5 @@
 status :published
-satisfies_need "101003"
+satisfies_need '101003'
 
 country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
@@ -60,7 +60,7 @@ date_question :childs_date_of_birth? do
   from { Date.today }
   to { 50.years.ago(Date.today) }
 
-  before_july_2006 = SmartAnswer::Predicate::Callable.new("before 1 July 2006") do |response|
+  before_july_2006 = SmartAnswer::Predicate::Callable.new('before 1 July 2006') do |response|
     Date.new(2006, 07, 01) > response
   end
 
@@ -120,24 +120,24 @@ end
 outcome :embassy_result do
   precalculate :embassy_high_commission_or_consulate do
     if reg_data_query.has_high_commission?(registration_country)
-      "British high commission"
+      'British high commission'
     elsif reg_data_query.has_consulate?(registration_country)
-      "British consulate"
+      'British consulate'
     elsif reg_data_query.has_trade_and_cultural_office?(registration_country)
-      "British Trade & Cultural Office"
+      'British Trade & Cultural Office'
     elsif reg_data_query.has_consulate_general?(registration_country)
-      "British consulate general"
+      'British consulate general'
     else
-      "British embassy"
+      'British embassy'
     end
   end
   precalculate :documents_you_must_provide do
     checklist_countries = %w(bangladesh kuwait libya north-korea pakistan philippines turkey)
-    key = "documents_you_must_provide_"
+    key = 'documents_you_must_provide_'
     if checklist_countries.include?(country_of_birth)
       key << country_of_birth
     else
-      key << "all"
+      key << 'all'
     end
     PhraseList.new(key.to_sym)
   end
@@ -248,7 +248,7 @@ end
 outcome :oru_result do
 
   precalculate :button_data do
-    {text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"}
+    {text: 'Pay now', url: 'https://pay-register-birth-abroad.service.gov.uk/start'}
   end
 
   precalculate :embassy_result_indonesia_british_father_paternity do

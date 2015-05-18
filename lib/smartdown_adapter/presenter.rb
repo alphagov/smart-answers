@@ -90,7 +90,7 @@ module SmartdownAdapter
       responses_including_changed_page
         .last(number_questions_changed_page)
         .each_with_index do |response, response_index|
-          answer_number = responses_including_changed_page.last(number_questions_changed_page).size > 1 ? "_#{response_index + 1}" : ""
+          answer_number = responses_including_changed_page.last(number_questions_changed_page).size > 1 ? "_#{response_index + 1}" : ''
           previous_responses_hash["previous_response#{answer_number}"] = response
         end
 
@@ -113,12 +113,12 @@ module SmartdownAdapter
     def responses_from_url(request)
       responses = []
       if request[:params]
-        responses += request[:params].split("/")
+        responses += request[:params].split('/')
       end
 
       # url request
       if request[:responses]
-        split_responses = request[:responses].split("/")
+        split_responses = request[:responses].split('/')
         responses += split_responses
       end
       responses

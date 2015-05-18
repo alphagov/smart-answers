@@ -36,19 +36,19 @@ module SmartdownAdapter
     def partial_template_name
       case smartdown_question
       when Smartdown::Api::MultipleChoice
-        "multiple_choice_question"
+        'multiple_choice_question'
       when Smartdown::Api::DateQuestion
-        "date_question"
+        'date_question'
       when Smartdown::Api::CountryQuestion
-        "country_question"
+        'country_question'
       when Smartdown::Api::SalaryQuestion
-        "salary_question"
+        'salary_question'
       when Smartdown::Api::TextQuestion
-        "text_question"
+        'text_question'
       when Smartdown::Api::PostcodeQuestion
-        "postcode_question"
+        'postcode_question'
       when Smartdown::Api::MoneyQuestion
-        "money_question"
+        'money_question'
       end
     end
 

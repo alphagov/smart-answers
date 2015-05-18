@@ -1,33 +1,33 @@
 status :published
-satisfies_need "100143"
+satisfies_need '100143'
 
 # Q1
 multiple_choice :basis_of_calculation? do
-  option "days-worked-per-week" => :calculation_period?
-  option "hours-worked-per-week" => :calculation_period?
-  option "casual-or-irregular-hours" => :casual_or_irregular_hours?
-  option "annualised-hours" => :annualised_hours?
-  option "compressed-hours" => :compressed_hours_how_many_hours_per_week?
-  option "shift-worker" => :shift_worker_basis?
+  option 'days-worked-per-week' => :calculation_period?
+  option 'hours-worked-per-week' => :calculation_period?
+  option 'casual-or-irregular-hours' => :casual_or_irregular_hours?
+  option 'annualised-hours' => :annualised_hours?
+  option 'compressed-hours' => :compressed_hours_how_many_hours_per_week?
+  option 'shift-worker' => :shift_worker_basis?
   save_input_as :calculation_basis
 end
 
 # Q2
 multiple_choice :calculation_period? do
-  option "full-year"
-  option "starting"
-  option "leaving"
-  option "starting-and-leaving"
+  option 'full-year'
+  option 'starting'
+  option 'leaving'
+  option 'starting-and-leaving'
   save_input_as :holiday_period
 
   next_node do |response|
     case response
-    when "starting", "starting-and-leaving"
+    when 'starting', 'starting-and-leaving'
       :what_is_your_starting_date?
-    when "leaving"
+    when 'leaving'
       :what_is_your_leaving_date?
     else
-      calculation_basis == "days-worked-per-week" ? :how_many_days_per_week? : :how_many_hours_per_week?
+      calculation_basis == 'days-worked-per-week' ? :how_many_days_per_week? : :how_many_hours_per_week?
     end
   end
 end
@@ -70,7 +70,7 @@ date_question :what_is_your_starting_date? do
   to { Date.civil(1.year.since(Date.today).year, 12, 31) }
   save_input_as :start_date
   next_node do
-    if holiday_period == "starting-and-leaving"
+    if holiday_period == 'starting-and-leaving'
       :what_is_your_leaving_date?
     else
       :when_does_your_leave_year_start?
@@ -85,13 +85,13 @@ date_question :what_is_your_leaving_date? do
   save_input_as :leaving_date
 
   next_node do
-    if holiday_period == "starting-and-leaving"
+    if holiday_period == 'starting-and-leaving'
       case calculation_basis
-      when "days-worked-per-week"
+      when 'days-worked-per-week'
         :how_many_days_per_week?
-      when "hours-worked-per-week"
+      when 'hours-worked-per-week'
         :how_many_hours_per_week?
-      when "shift-worker"
+      when 'shift-worker'
         :shift_worker_hours_per_shift?
       end
     else
@@ -107,11 +107,11 @@ date_question :when_does_your_leave_year_start? do
   save_input_as :leave_year_start_date
   next_node do
     case calculation_basis
-    when "days-worked-per-week"
+    when 'days-worked-per-week'
       :how_many_days_per_week?
-    when "hours-worked-per-week"
+    when 'hours-worked-per-week'
       :how_many_hours_per_week?
-    when "shift-worker"
+    when 'shift-worker'
       :shift_worker_hours_per_shift?
     end
   end
@@ -227,10 +227,10 @@ value_question :compressed_hours_how_many_days_per_week? do
 end
 
 multiple_choice :shift_worker_basis? do
-  option "full-year" => :shift_worker_hours_per_shift?
-  option "starting" => :what_is_your_starting_date?
-  option "leaving" => :what_is_your_leaving_date?
-  option "starting-and-leaving" => :what_is_your_starting_date?
+  option 'full-year' => :shift_worker_hours_per_shift?
+  option 'starting' => :what_is_your_starting_date?
+  option 'leaving' => :what_is_your_leaving_date?
+  option 'starting-and-leaving' => :what_is_your_starting_date?
   save_input_as :holiday_period
 end
 

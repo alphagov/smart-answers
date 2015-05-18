@@ -1,5 +1,5 @@
 status :published
-satisfies_need "100147"
+satisfies_need '100147'
 
 ## Q0
 multiple_choice :are_you_paying_or_receiving? do
@@ -17,7 +17,7 @@ multiple_choice :are_you_paying_or_receiving? do
     end
 
   calculate :enforcement_charge do |response|
-    if response == "pay"
+    if response == 'pay'
       PhraseList.new(:enforcement_charge)
     end
   end
@@ -27,12 +27,12 @@ end
 
 ## Q1
 multiple_choice :how_many_children_paid_for? do
-  option "1_child"
-  option "2_children"
-  option "3_children"
+  option '1_child'
+  option '2_children'
+  option '3_children'
 
   precalculate :paying_or_receiving_text do
-    paying_or_receiving == "pay" ? "paying" : "receiving"
+    paying_or_receiving == 'pay' ? 'paying' : 'receiving'
   end
 
   precalculate :paying_or_receiving_hint do
@@ -50,8 +50,8 @@ end
 ## Q2
 multiple_choice :gets_benefits? do
   save_input_as :benefits
-  option "yes"
-  option "no"
+  option 'yes'
+  option 'no'
 
   precalculate :benefits_title do
     PhraseList.new(:"#{paying_or_receiving}_benefits")
@@ -110,7 +110,7 @@ multiple_choice :how_many_nights_children_stay_with_payee? do
 
   calculate :child_maintenance_payment do |response|
     calculator.number_of_shared_care_nights = response.to_i
-    sprintf("%.0f", calculator.calculate_maintenance_payment)
+    sprintf('%.0f', calculator.calculate_maintenance_payment)
   end
 
   next_node_calculation :rate_type do |response|

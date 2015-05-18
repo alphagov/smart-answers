@@ -24,7 +24,7 @@ module SmartAnswer::Calculators
       when 'cheque'
         6.working_days.before(0.working_days.before(end_of_month_after(@period_end_date)))
       else
-        raise ArgumentError.new("Invalid payment method")
+        raise ArgumentError.new('Invalid payment method')
       end
     end
 
@@ -47,7 +47,7 @@ module SmartAnswer::Calculators
         # Select previous working day if not a work_day
         0.working_days.before(end_of_month_after(@period_end_date))
       else
-        raise ArgumentError.new("Invalid payment method")
+        raise ArgumentError.new('Invalid payment method')
       end
     end
 

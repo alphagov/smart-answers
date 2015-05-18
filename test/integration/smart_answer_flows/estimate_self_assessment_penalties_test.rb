@@ -1,5 +1,5 @@
-require_relative "../../test_helper"
-require_relative "flow_test_helper"
+require_relative '../../test_helper'
+require_relative 'flow_test_helper'
 
 TEST_CALCULATOR_DATES = {
   online_filing_deadline: {
@@ -22,80 +22,80 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow "estimate-self-assessment-penalties"
+    setup_for_testing_flow 'estimate-self-assessment-penalties'
   end
 
-  should "ask which year you want to estimate" do
+  should 'ask which year you want to estimate' do
     assert_current_node :which_year?
   end
 
-  context "2012-13 entered" do
+  context '2012-13 entered' do
     setup do
       add_response :"2012-13"
     end
 
-    should "ask whether self assessment tax return was submitted online or on paper" do
+    should 'ask whether self assessment tax return was submitted online or on paper' do
       assert_current_node :how_submitted?
     end
 
-    context "online" do
+    context 'online' do
       setup do
         add_response :online
       end
-      should "ask when self assessment tax return was submitted" do
+      should 'ask when self assessment tax return was submitted' do
         assert_current_node :when_submitted?
       end
       # testing error message 1
-      context "test error if a date before range inserted" do
+      context 'test error if a date before range inserted' do
         setup do
-          add_response "2013-01-01"
+          add_response '2013-01-01'
         end
-        should "raise an error message" do
+        should 'raise an error message' do
           assert_current_node_is_error
         end
       end
 
-      context "a date before filing deadline" do
+      context 'a date before filing deadline' do
         setup do
-          add_response "2013-10-10"
+          add_response '2013-10-10'
         end
-        should "ask when bill was paid" do
+        should 'ask when bill was paid' do
           assert_current_node :when_paid?
         end
  # testing error message 2
 
-        context "test error message for date input before filing date" do
+        context 'test error message for date input before filing date' do
           setup do
-            add_response "2013-10-09"
+            add_response '2013-10-09'
           end
-          should "show filed and paid on time outcome" do
+          should 'show filed and paid on time outcome' do
             assert_current_node_is_error
           end
         end
 
  # testing paid on time
-        context "paid on time" do
+        context 'paid on time' do
           setup do
-            add_response "2013-10-11"
+            add_response '2013-10-11'
           end
-          should "show filed and paid on time outcome" do
+          should 'show filed and paid on time outcome' do
             assert_current_node :filed_and_paid_on_time
           end
         end # end testing paid on time
 
-        context "paid late less than 3 months after" do
+        context 'paid late less than 3 months after' do
           setup do
-            add_response "2014-03-03"
+            add_response '2014-03-03'
           end
-          should "ask how much your tax bill is" do
+          should 'ask how much your tax bill is' do
             assert_current_node :how_much_tax?
           end
 
-          context "bill entered" do
+          context 'bill entered' do
             setup do
-              add_response "0.00"
+              add_response '0.00'
             end
-            should "show results" do
+            should 'show results' do
               assert_current_node :late
               assert_state_variable :late_filing_penalty, 0
               assert_state_variable :total_owed, 0
@@ -109,38 +109,38 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       end
     end
   end
-  context "check phraselist for over 365 days delay" do
+  context 'check phraselist for over 365 days delay' do
     setup do
       add_response :"2011-12"
       add_response :online
-      add_response "2014-02-01"
-      add_response "2014-02-01"
-      add_response "1000.00"
+      add_response '2014-02-01'
+      add_response '2014-02-01'
+      add_response '1000.00'
     end
 
-    should "show results" do
+    should 'show results' do
       assert_phrase_list :result_parts, [:result_part2_penalty, :result_part_one_year_late]
     end
   end
 
   # beginning of quick tests
-  context "online return, tax year 2012-13" do
+  context 'online return, tax year 2012-13' do
     setup do
       add_response :"2011-12"
       add_response :online
     end
-    should "ask when bill was paid" do
+    should 'ask when bill was paid' do
       assert_current_node :when_submitted?
     end
     # band 1
     # 100pounds fine (band 1)
-    context "check 100 pounds fine (band 1)" do
+    context 'check 100 pounds fine (band 1)' do
       setup do
-        add_response "2013-02-01"
-        add_response "2013-02-01"
-        add_response "0.00"
+        add_response '2013-02-01'
+        add_response '2013-02-01'
+        add_response '0.00'
       end
-      should "show results" do
+      should 'show results' do
         assert_phrase_list :result_parts, [:result_part2_no_penalty]
         assert_state_variable :late_filing_penalty, 100
         assert_state_variable :total_owed, 100
@@ -148,13 +148,13 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     end
     # band 2
     # 100pounds fine + 10pounds per day (max 90 days, testing 1 day)(band 2)
-    context "check 100pounds fine + 10pounds per day (max 90 days, testing 1 day) (band 2)" do
+    context 'check 100pounds fine + 10pounds per day (max 90 days, testing 1 day) (band 2)' do
       setup do
-        add_response "2013-05-01"
-        add_response "2013-05-01"
-        add_response "0.00"
+        add_response '2013-05-01'
+        add_response '2013-05-01'
+        add_response '0.00'
       end
-      should "show results" do
+      should 'show results' do
         assert_phrase_list :result_parts, [:result_part2_no_penalty]
         assert_state_variable :late_filing_penalty, 110
         assert_state_variable :total_owed, 110
@@ -162,13 +162,13 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     end
     # #band 2
     # #100pounds fine + 10pounds per day(max 90 days, testing 91 days)(band 2)
-    context "check 100pounds fine + 10pounds per day (max 90 days, testing 92 days)(band 2)" do
+    context 'check 100pounds fine + 10pounds per day (max 90 days, testing 92 days)(band 2)' do
       setup do
-        add_response "2013-07-31"
-        add_response "2013-07-31"
-        add_response "0.00"
+        add_response '2013-07-31'
+        add_response '2013-07-31'
+        add_response '0.00'
       end
-      should "show results" do
+      should 'show results' do
         assert_phrase_list :result_parts, [:result_part2_no_penalty]
         assert_state_variable :late_filing_penalty, 1000
         assert_state_variable :total_owed, 1000
@@ -176,13 +176,13 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     end
     # #band 3 case 1
     # #300pounds fine + 1000pounds(previous fine)(band 3), taxdue <= 6002pounds
-    context "300pounds fine + 1000pounds(previous fine)(band 3), taxdue < 6002pounds" do
+    context '300pounds fine + 1000pounds(previous fine)(band 3), taxdue < 6002pounds' do
       setup do
-        add_response "2013-08-01"
-        add_response "2013-08-01"
-        add_response "0.00"
+        add_response '2013-08-01'
+        add_response '2013-08-01'
+        add_response '0.00'
       end
-      should "show results" do
+      should 'show results' do
         assert_phrase_list :result_parts, [:result_part2_no_penalty]
         assert_state_variable :late_filing_penalty, 1300
         assert_state_variable :total_owed, 1300
@@ -190,13 +190,13 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     end
     # #band 3 case 2
     # #5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds
-    context "5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds" do
+    context '5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds' do
       setup do
-        add_response "2013-08-01"
-        add_response "2013-08-01"
-        add_response "10000.00"
+        add_response '2013-08-01'
+        add_response '2013-08-01'
+        add_response '10000.00'
       end
-      should "show results" do
+      should 'show results' do
         assert_phrase_list :result_parts, [:result_part2_penalty]
         assert_state_variable :late_filing_penalty, 1500
         assert_state_variable :estimated_bill, 10000
@@ -207,13 +207,13 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     end
     # #band 4 case 1
     # 300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds
-    context "300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds" do
+    context '300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds' do
       setup do
-        add_response "2014-02-01"
-        add_response "2014-02-01"
-        add_response "0.00"
+        add_response '2014-02-01'
+        add_response '2014-02-01'
+        add_response '0.00'
       end
-      should "show results" do
+      should 'show results' do
         assert_phrase_list :result_parts, [:result_part2_no_penalty, :result_part_one_year_late]
         assert_state_variable :late_filing_penalty, 1600
         assert_state_variable :total_owed, 1600
@@ -221,13 +221,13 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     end
     # #band 4 case 2
     # #10% fine + 1000pounds(previous fine)(band 4), taxdue > 6002pounds
-    context "10% fine + 1000pounds(previous fine)(band 4), taxdue > 6002pounds" do
+    context '10% fine + 1000pounds(previous fine)(band 4), taxdue > 6002pounds' do
       setup do
-        add_response "2014-02-01"
-        add_response "2014-02-01"
-        add_response "10000.00"
+        add_response '2014-02-01'
+        add_response '2014-02-01'
+        add_response '10000.00'
       end
-      should "show results" do
+      should 'show results' do
         assert_phrase_list :result_parts, [:result_part2_penalty, :result_part_one_year_late]
         assert_state_variable :late_filing_penalty, 2000
         assert_state_variable :estimated_bill, 10000

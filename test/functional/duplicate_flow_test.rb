@@ -5,7 +5,7 @@ require_relative '../../lib/smart_answer/flow_registry.rb'
 
 class DuplicateFlowTest < Minitest::Test
 
-  should "Not have any smartdown and smartanswer flows with the same name" do
+  should 'Not have any smartdown and smartanswer flows with the same name' do
     SmartdownAdapter::Registry.reset_instance
     smartdown_flows = SmartdownAdapter::Registry.instance.available_flows
     smart_answer_flows = SmartAnswer::FlowRegistry.instance.available_flows

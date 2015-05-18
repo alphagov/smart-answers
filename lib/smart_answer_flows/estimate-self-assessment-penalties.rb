@@ -1,5 +1,5 @@
 status :published
-satisfies_need "100615"
+satisfies_need '100615'
 
 calculator_dates = {
   online_filing_deadline: {
@@ -36,7 +36,7 @@ multiple_choice :which_year? do
     end
   end
   calculate :start_of_next_tax_year_formatted do
-    start_of_next_tax_year.strftime("%e %B %Y")
+    start_of_next_tax_year.strftime('%e %B %Y')
   end
 
   calculate :one_year_after_start_date_for_penalties do |response|
@@ -65,7 +65,7 @@ date_question :when_submitted? do
   save_input_as :filing_date
 
   calculate :filing_date_formatted do
-    filing_date.strftime("%e %B %Y")
+    filing_date.strftime('%e %B %Y')
   end
 
   next_node do |response|

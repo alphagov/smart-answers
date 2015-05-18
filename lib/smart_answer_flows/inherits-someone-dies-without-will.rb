@@ -1,5 +1,5 @@
 status :published
-satisfies_need "100988"
+satisfies_need '100988'
 
 # The case & if blocks in this file are organised to be read in the same order
 # as the flow chart rather than to minimise repetition.
@@ -43,7 +43,7 @@ multiple_choice :estate_over_250000? do
   save_input_as :estate_over_250000
 
   calculate :next_step_links do
-    if estate_over_250000 == "yes"
+    if estate_over_250000 == 'yes'
       next_step_links
     else
       PhraseList.new(:wills_link)

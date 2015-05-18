@@ -8,10 +8,10 @@ module SmartdownAdapter
     setup do
  #     use_test_smartdown_flow_fixtures
     end
-    context "to_response" do
-      should "strip leading and trailing whitespace" do
-        presenter = SmartdownAdapter::TextQuestionPresenter.new("foo", nil)
-        assert_equal "blah blah blah", presenter.to_response(" blah blah blah  ")
+    context 'to_response' do
+      should 'strip leading and trailing whitespace' do
+        presenter = SmartdownAdapter::TextQuestionPresenter.new('foo', nil)
+        assert_equal 'blah blah blah', presenter.to_response(' blah blah blah  ')
       end
     end
   end

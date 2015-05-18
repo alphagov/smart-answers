@@ -1,4 +1,4 @@
-require "ostruct"
+require 'ostruct'
 
 module SmartAnswer::Calculators
   class SelfAssessmentPenalties < OpenStruct
@@ -10,7 +10,7 @@ module SmartAnswer::Calculators
       # Less than 6 months
       if overdue_filing_days <= 0
         result = 0
-      elsif submission_method == "online"
+      elsif submission_method == 'online'
         if overdue_filing_days <= 89
           result = 100
         elsif overdue_filing_days <= 181
@@ -102,7 +102,7 @@ module SmartAnswer::Calculators
     end
 
     def filing_deadline
-      submission_method == "online" ? dates[:online_filing_deadline][tax_year.to_sym] : dates[:offline_filing_deadline][tax_year.to_sym]
+      submission_method == 'online' ? dates[:online_filing_deadline][tax_year.to_sym] : dates[:offline_filing_deadline][tax_year.to_sym]
     end
 
     def payment_deadline

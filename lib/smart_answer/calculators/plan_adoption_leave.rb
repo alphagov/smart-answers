@@ -14,13 +14,13 @@ module SmartAnswer::Calculators
     end
 
     def formatted_date(dt)
-      dt.strftime("%d %B %Y")
+      dt.strftime('%d %B %Y')
     end
 
     def format_date_range(range)
       first = formatted_date(range.first)
       last = formatted_date(range.last)
-      (first + " to " + last)
+      (first + ' to ' + last)
     end
 
     def distance_start

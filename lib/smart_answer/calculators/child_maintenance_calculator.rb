@@ -118,7 +118,7 @@ module SmartAnswer::Calculators
     end
 
     def paying?
-      @paying_or_receiving == "pay"
+      @paying_or_receiving == 'pay'
     end
 
     def collect_fees
@@ -164,7 +164,7 @@ module SmartAnswer::Calculators
     end
 
     def self.child_maintenance_data
-      @child_maintenance_data ||= YAML.load_file(Rails.root.join("lib/data/child_maintenance_data.yml"))
+      @child_maintenance_data ||= YAML.load_file(Rails.root.join('lib/data/child_maintenance_data.yml'))
     end
   end
 end

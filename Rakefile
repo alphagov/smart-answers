@@ -5,6 +5,6 @@
 require File.expand_path('../config/application', __FILE__)
 
 # Speed up test run
-ENV["DISABLE_LOGGING_IN_TEST"] = "true"
+ENV['DISABLE_LOGGING_IN_TEST'] = 'true'
 
 SmartAnswers::Application.load_tasks

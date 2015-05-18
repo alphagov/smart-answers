@@ -10,7 +10,7 @@ date_question :date_of_adoption_match? do
     response
   end
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(match_date, "adoption")
+    Calculators::MaternityPaternityCalculator.new(match_date, 'adoption')
   end
 
   next_node :date_of_adoption_placement?
@@ -201,11 +201,11 @@ end
 money_question :earnings_for_pay_period_adoption? do
 
  calculate :lower_earning_limit do
-   sprintf("%.2f", calculator.lower_earning_limit)
+   sprintf('%.2f', calculator.lower_earning_limit)
  end
 
   calculate :average_weekly_earnings do
-    sprintf("%.2f", calculator.average_weekly_earnings)
+    sprintf('%.2f', calculator.average_weekly_earnings)
   end
 
   calculate :above_lower_earning_limit? do
@@ -281,7 +281,7 @@ outcome :adoption_leave_and_pay do
 
   precalculate :total_sap do
     if above_lower_earning_limit?
-      sprintf("%.2f", calculator.total_statutory_pay)
+      sprintf('%.2f', calculator.total_statutory_pay)
     end
   end
 end

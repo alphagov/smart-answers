@@ -31,9 +31,9 @@ class FlowAuditor
           puts tree.location.expression
           puts "  #{q_type}(#{node_name})"
           puts "  Missing: #{missing.join(', ')}"
-          puts ""
+          puts ''
           puts "permitted_next_nodes(:#{(possible_next_nodes).join(', :')})"
-          puts ""
+          puts ''
         end
         throw :stop_recursion
       end

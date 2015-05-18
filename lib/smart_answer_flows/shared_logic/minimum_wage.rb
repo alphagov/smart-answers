@@ -1,19 +1,19 @@
 # Q1
 multiple_choice :what_would_you_like_to_check? do
-  option "current_payment" => :are_you_an_apprentice?
-  option "past_payment" => :past_payment_date?
+  option 'current_payment' => :are_you_an_apprentice?
+  option 'past_payment' => :past_payment_date?
   save_input_as :current_or_past_payments
 end
 
 # Q1A
 multiple_choice :past_payment_date? do
 
-  option "2013-10-01"
-  option "2012-10-01"
-  option "2011-10-01"
-  option "2010-10-01"
-  option "2009-10-01"
-  option "2008-10-01"
+  option '2013-10-01'
+  option '2012-10-01'
+  option '2011-10-01'
+  option '2010-10-01'
+  option '2009-10-01'
+  option '2008-10-01'
 
   save_input_as :payment_date
 
@@ -23,22 +23,22 @@ end
 # Q2
 multiple_choice :are_you_an_apprentice? do
   save_input_as :is_apprentice
-  option "not_an_apprentice" => :how_old_are_you?
-  option "apprentice_under_19" => :how_often_do_you_get_paid?
-  option "apprentice_over_19_first_year" => :how_often_do_you_get_paid?
-  option "apprentice_over_19_second_year_onwards" => :how_old_are_you?
+  option 'not_an_apprentice' => :how_old_are_you?
+  option 'apprentice_under_19' => :how_often_do_you_get_paid?
+  option 'apprentice_over_19_first_year' => :how_often_do_you_get_paid?
+  option 'apprentice_over_19_second_year_onwards' => :how_old_are_you?
 end
 
 # Q2 Past
 multiple_choice :were_you_an_apprentice? do
   save_input_as :was_apprentice
-  option "no"
-  option "apprentice_under_19"
-  option "apprentice_over_19"
+  option 'no'
+  option 'apprentice_under_19'
+  option 'apprentice_over_19'
 
   next_node do |response|
     case response
-    when "no"
+    when 'no'
       :how_old_were_you?
     else
       if Date.parse(payment_date) < Date.parse('2010-10-01')
@@ -255,9 +255,9 @@ end
 # Q9
 multiple_choice :is_provided_with_accommodation? do
 
-  option "no"
-  option "yes_free"
-  option "yes_charged"
+  option 'no'
+  option 'yes_free'
+  option 'yes_charged'
 
   calculate :accommodation_provided do |response|
     response != 'no'
@@ -282,9 +282,9 @@ multiple_choice :is_provided_with_accommodation? do
   next_node do |response|
 
     case response
-    when "yes_free"
+    when 'yes_free'
       :current_accommodation_usage?
-    when "yes_charged"
+    when 'yes_charged'
       :current_accommodation_charge?
     else
       if calculator.minimum_wage_or_above?
@@ -298,9 +298,9 @@ end
 
 # Q9 Past
 multiple_choice :was_provided_with_accommodation? do
-  option "no"
-  option "yes_free"
-  option "yes_charged"
+  option 'no'
+  option 'yes_free'
+  option 'yes_charged'
 
   calculate :accommodation_provided do |response|
     response != 'no'
@@ -325,9 +325,9 @@ multiple_choice :was_provided_with_accommodation? do
   next_node do |response|
 
     case response
-    when "yes_free"
+    when 'yes_free'
       :past_accommodation_usage?
-    when "yes_charged"
+    when 'yes_charged'
       :past_accommodation_charge?
     else
       if calculator.minimum_wage_or_above?

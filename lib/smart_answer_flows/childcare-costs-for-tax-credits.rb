@@ -1,5 +1,5 @@
 status :published
-satisfies_need "100422"
+satisfies_need '100422'
 
 # Q1
 multiple_choice :currently_claiming? do
@@ -237,7 +237,7 @@ outcome :cost_changed do
   end
 
   precalculate :title_change_text do
-    weekly_difference >= 10 ? "increased" : "decreased"
+    weekly_difference >= 10 ? 'increased' : 'decreased'
   end
 
   precalculate :difference_money do

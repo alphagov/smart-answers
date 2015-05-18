@@ -1,8 +1,8 @@
-require_relative "../test_helper"
+require_relative '../test_helper'
 
 module SmartAnswer
   class CountrySelectQuestionTest < ActiveSupport::TestCase
-    context "using the worldwide API data" do
+    context 'using the worldwide API data' do
       setup do
         location1 = stub(slug: 'afghanistan', name: 'Afghanistan')
  location2 = stub(slug: 'denmark', name: 'Denmark')
@@ -15,54 +15,54 @@ module SmartAnswer
         UkbaCountry.stubs(:all).returns([location7])
       end
 
-      should "be able to list options" do
+      should 'be able to list options' do
         @question = Question::CountrySelect.new(:example)
         assert_equal %w(afghanistan denmark vietnam holy-see british-antarctic-territory), @question.options.map(&:slug)
       end
 
-      should "validate a provided option" do
+      should 'validate a provided option' do
         @question = Question::CountrySelect.new(:example)
-        assert @question.valid_option?("afghanistan")
-        assert @question.valid_option?("vietnam")
-        assert ! @question.valid_option?("fooey")
-        assert ! @question.valid_option?("united-kingdom")
+        assert @question.valid_option?('afghanistan')
+        assert @question.valid_option?('vietnam')
+        assert ! @question.valid_option?('fooey')
+        assert ! @question.valid_option?('united-kingdom')
       end
 
-      should "include UK when requested" do
+      should 'include UK when requested' do
         @question = Question::CountrySelect.new(:example, include_uk: true)
         assert_equal %w(afghanistan denmark united-kingdom vietnam holy-see british-antarctic-territory), @question.options.map(&:slug)
         assert @question.valid_option?('united-kingdom')
       end
 
-      should "exclude Holy See and British Antartic Territory when requested" do
+      should 'exclude Holy See and British Antartic Territory when requested' do
         @question = Question::CountrySelect.new(:example, exclude_countries: %w(holy-see british-antarctic-territory))
         assert_equal %w(afghanistan denmark vietnam), @question.options.map(&:slug)
         assert ! @question.valid_option?('holy-see')
         assert ! @question.valid_option?('british-antarctic-territory')
       end
 
-      should "include additional countries" do
+      should 'include additional countries' do
         @question = Question::CountrySelect.new(:example, exclude_countries: %w(afghanistan british-antarctic-territory denmark holy-see vietnam), additional_countries: UkbaCountry.all)
         assert_equal %w(greenland), @question.options.map(&:slug)
-        assert ! @question.valid_option?("fooey")
-        assert ! @question.valid_option?("united-kingdom")
+        assert ! @question.valid_option?('fooey')
+        assert ! @question.valid_option?('united-kingdom')
       end
     end
 
-    context "using the legacy data" do
+    context 'using the legacy data' do
       setup do
         @question = Question::CountrySelect.new(:example, use_legacy_data: true)
       end
 
-      should "be able to list options" do
-        assert @question.options.include?(LegacyCountry.new(slug: "azerbaijan", name: "Azerbaijan"))
-        assert @question.options.include?(LegacyCountry.new(slug: "greece", name: "Greece"))
+      should 'be able to list options' do
+        assert @question.options.include?(LegacyCountry.new(slug: 'azerbaijan', name: 'Azerbaijan'))
+        assert @question.options.include?(LegacyCountry.new(slug: 'greece', name: 'Greece'))
       end
 
-      should "validate a provided option" do
-        assert @question.valid_option?("azerbaijan")
-        assert @question.valid_option?("greece")
-        assert ! @question.valid_option?("fooey")
+      should 'validate a provided option' do
+        assert @question.valid_option?('azerbaijan')
+        assert @question.valid_option?('greece')
+        assert ! @question.valid_option?('fooey')
       end
     end
   end

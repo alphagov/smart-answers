@@ -5,419 +5,419 @@ require_relative 'flow_test_helper'
 class CalculateRedundancyPayTest < ActiveSupport::TestCase
   include FlowTestHelper
 
-  context "Employer" do
+  context 'Employer' do
     setup do
       setup_for_testing_flow 'calculate-employee-redundancy-pay'
     end
 
-    should "ask when the employee was made redundant" do
+    should 'ask when the employee was made redundant' do
       assert_current_node :date_of_redundancy?
     end
 
-    context "answer before 1 Feb 2013" do
+    context 'answer before 1 Feb 2013' do
 
       setup do
         add_response '2013-01-31'
       end
 
-      should "ask the age of the employee" do
+      should 'ask the age of the employee' do
         assert_current_node :age_of_employee?
         assert_state_variable :rate, 430
-        assert_state_variable :max_amount, "12,900"
+        assert_state_variable :max_amount, '12,900'
       end
 
-      context "aged 42" do
+      context 'aged 42' do
         setup do
-          add_response "42"
+          add_response '42'
         end
 
-        should "ask how long the employee has been employed" do
+        should 'ask how long the employee has been employed' do
           assert_current_node :years_employed?
         end
 
-        context "1 year of employment" do
+        context '1 year of employment' do
           setup do
-            add_response "1"
+            add_response '1'
           end
 
-          should "bypass the salary question" do
+          should 'bypass the salary question' do
             assert_current_node :done_no_statutory
           end
         end
 
-        context "4 years of employment" do
+        context '4 years of employment' do
           setup do
-            add_response "4"
+            add_response '4'
           end
 
-          should "ask for salary" do
+          should 'ask for salary' do
             assert_current_node :weekly_pay_before_tax?
           end
 
-          context "weekly salary of over 430 before tax" do
+          context 'weekly salary of over 430 before tax' do
             setup do
-              add_response "1500"
+              add_response '1500'
             end
 
-            should "give me statutory redundancy" do
+            should 'give me statutory redundancy' do
               assert_current_node :done
             end
 
-            should "give me a figure no higher than 430 per week" do
-              assert_state_variable :statutory_redundancy_pay, "1,935"
-            end
-          end
-        end
-      end
-
-      context "between 22 and 41" do
-        setup do
-          add_response "22-40"
-        end
-
-        should "ask how long the employee has been employed" do
-          assert_current_node :years_employed?
-        end
-
-        context "under 2 years" do
-          setup do
-            add_response "1"
-          end
-
-          should "bypass the salary question" do
-            assert_current_node :done_no_statutory
-          end
-        end
-
-        context "over 2 years" do
-          setup do
-            add_response "4"
-          end
-
-          should "ask for salary" do
-            assert_current_node :weekly_pay_before_tax?
-          end
-
-          context "weekly salary of over 430 before tax" do
-            setup do
-              add_response "1500"
-            end
-
-            should "give me statutory redundancy" do
-              assert_current_node :done
-            end
-
-            should "give me a figure no higher than 430 per week" do
-              assert_state_variable :statutory_redundancy_pay, "860"
-            end
-
-            should "give me the number of weeks entitlement" do
-              assert_state_variable :number_of_weeks_entitlement, 2.0
-            end
-
-          end
-
-          context "weekly salary of under 430 before tax" do
-            setup do
-              add_response "300"
-            end
-
-            should "give me a figure below 430" do
-              assert_state_variable :statutory_redundancy_pay, "600"
-            end
-
-            should "give me 2 weeks total entitlement" do
-              assert_state_variable :number_of_weeks_entitlement, 2.0
+            should 'give me a figure no higher than 430 per week' do
+              assert_state_variable :statutory_redundancy_pay, '1,935'
             end
           end
         end
       end
 
-      context "under 22 years of age" do
+      context 'between 22 and 41' do
         setup do
-          add_response "19"
+          add_response '22-40'
         end
 
-        should "ask how long the employee has been employed" do
+        should 'ask how long the employee has been employed' do
           assert_current_node :years_employed?
         end
 
-        context "under 2 years" do
+        context 'under 2 years' do
           setup do
-            add_response "1"
+            add_response '1'
           end
 
-          should "bypass the salary question" do
+          should 'bypass the salary question' do
             assert_current_node :done_no_statutory
           end
         end
 
-        context "over 2 years" do
+        context 'over 2 years' do
           setup do
-            add_response "4"
+            add_response '4'
           end
 
-          should "ask for salary" do
+          should 'ask for salary' do
             assert_current_node :weekly_pay_before_tax?
           end
 
-          context "weekly salary of over 430 before tax" do
+          context 'weekly salary of over 430 before tax' do
             setup do
-              add_response "1500"
+              add_response '1500'
             end
 
-            should "give me statutory redundancy" do
+            should 'give me statutory redundancy' do
               assert_current_node :done
             end
 
-            should "give me a figure no higher than 430 per week" do
-              assert_state_variable :statutory_redundancy_pay, "860"
+            should 'give me a figure no higher than 430 per week' do
+              assert_state_variable :statutory_redundancy_pay, '860'
             end
-            should "give me 2 weeks total entitlement" do
+
+            should 'give me the number of weeks entitlement' do
+              assert_state_variable :number_of_weeks_entitlement, 2.0
+            end
+
+          end
+
+          context 'weekly salary of under 430 before tax' do
+            setup do
+              add_response '300'
+            end
+
+            should 'give me a figure below 430' do
+              assert_state_variable :statutory_redundancy_pay, '600'
+            end
+
+            should 'give me 2 weeks total entitlement' do
+              assert_state_variable :number_of_weeks_entitlement, 2.0
+            end
+          end
+        end
+      end
+
+      context 'under 22 years of age' do
+        setup do
+          add_response '19'
+        end
+
+        should 'ask how long the employee has been employed' do
+          assert_current_node :years_employed?
+        end
+
+        context 'under 2 years' do
+          setup do
+            add_response '1'
+          end
+
+          should 'bypass the salary question' do
+            assert_current_node :done_no_statutory
+          end
+        end
+
+        context 'over 2 years' do
+          setup do
+            add_response '4'
+          end
+
+          should 'ask for salary' do
+            assert_current_node :weekly_pay_before_tax?
+          end
+
+          context 'weekly salary of over 430 before tax' do
+            setup do
+              add_response '1500'
+            end
+
+            should 'give me statutory redundancy' do
+              assert_current_node :done
+            end
+
+            should 'give me a figure no higher than 430 per week' do
+              assert_state_variable :statutory_redundancy_pay, '860'
+            end
+            should 'give me 2 weeks total entitlement' do
               assert_state_variable :number_of_weeks_entitlement, 2.0
             end
           end
 
-          context "weekly salary of under 430 before tax" do
+          context 'weekly salary of under 430 before tax' do
             setup do
-              add_response "300"
+              add_response '300'
             end
 
-            should "give me a figure below 430" do
-              assert_state_variable :statutory_redundancy_pay, "600"
+            should 'give me a figure below 430' do
+              assert_state_variable :statutory_redundancy_pay, '600'
             end
 
-            should "give me 2 weeks total entitlement" do
+            should 'give me 2 weeks total entitlement' do
               assert_state_variable :number_of_weeks_entitlement, 2.0
             end
           end
         end
       end
     end # Before 1 Feb 2013
-    context "answer after 1 Feb 2013" do
-      should "give the answer using the new rate" do
+    context 'answer after 1 Feb 2013' do
+      should 'give the answer using the new rate' do
         add_response '2013-02-01'
         add_response '19'
         add_response '2'
         add_response '500'
         assert_current_node :done
         assert_state_variable :rate, 450
-        assert_state_variable :max_amount, "13,500"
+        assert_state_variable :max_amount, '13,500'
       end
     end # After Feb 2013
 
-    context "answer 05 April 2014" do
+    context 'answer 05 April 2014' do
       setup do
-        add_response Date.parse("2014-04-05")
+        add_response Date.parse('2014-04-05')
       end
-      should "ask employee age" do
+      should 'ask employee age' do
         assert_current_node :age_of_employee?
       end
     end
   end
 
-  context "Employee" do
+  context 'Employee' do
     setup do
       setup_for_testing_flow 'calculate-your-redundancy-pay'
     end
 
-    should "ask when you were made redundant" do
+    should 'ask when you were made redundant' do
       assert_current_node :date_of_redundancy?
     end
 
-    context "answer before 1 Feb 2013" do
+    context 'answer before 1 Feb 2013' do
 
       setup do
         add_response '2013-01-31'
       end
 
-      should "be in employee flow for age" do
+      should 'be in employee flow for age' do
         assert_current_node :age_of_employee?
         assert_state_variable :rate, 430
       end
 
-      context "42 years old" do
+      context '42 years old' do
         setup do
-          add_response "42"
+          add_response '42'
         end
 
-        should "ask how long the employee has been employed" do
+        should 'ask how long the employee has been employed' do
           assert_current_node :years_employed?
         end
 
-        context "under 2 years" do
+        context 'under 2 years' do
           setup do
-            add_response "1.8"
+            add_response '1.8'
           end
 
-          should "bypass the salary question" do
+          should 'bypass the salary question' do
             assert_current_node :done_no_statutory
           end
         end
 
-        context "over 2 years" do
+        context 'over 2 years' do
           setup do
-            add_response "4.5"
+            add_response '4.5'
           end
 
-          should "ask for salary" do
+          should 'ask for salary' do
             assert_current_node :weekly_pay_before_tax?
           end
 
-          context "weekly salary of over 430 before tax" do
+          context 'weekly salary of over 430 before tax' do
             setup do
-              add_response "1500"
+              add_response '1500'
             end
 
-            should "give me statutory redundancy" do
+            should 'give me statutory redundancy' do
               assert_current_node :done
             end
 
-            should "give me a figure no higher than 430 per week" do
-              assert_state_variable :statutory_redundancy_pay, "1,935"
+            should 'give me a figure no higher than 430 per week' do
+              assert_state_variable :statutory_redundancy_pay, '1,935'
             end
 
-            should "give me 2 weeks total entitlement" do
+            should 'give me 2 weeks total entitlement' do
               assert_state_variable :number_of_weeks_entitlement, 4.5
             end
           end
         end
       end
 
-      context "between 22 and 41" do
+      context 'between 22 and 41' do
         setup do
-          add_response "22-40"
+          add_response '22-40'
         end
 
-        should "ask how long the employee has been employed" do
+        should 'ask how long the employee has been employed' do
           assert_current_node :years_employed?
         end
 
-        context "under 2 years" do
+        context 'under 2 years' do
           setup do
-            add_response "1"
+            add_response '1'
           end
 
-          should "bypass the salary question" do
+          should 'bypass the salary question' do
             assert_current_node :done_no_statutory
           end
         end
 
-        context "over 2 years" do
+        context 'over 2 years' do
           setup do
-            add_response "4"
+            add_response '4'
           end
 
-          should "ask for salary" do
+          should 'ask for salary' do
             assert_current_node :weekly_pay_before_tax?
           end
 
-          context "weekly salary of over 430 before tax" do
+          context 'weekly salary of over 430 before tax' do
             setup do
-              add_response "1500"
+              add_response '1500'
             end
 
-            should "give me statutory redundancy" do
+            should 'give me statutory redundancy' do
               assert_current_node :done
             end
 
-            should "give me a figure no higher than 430 per week" do
-              assert_state_variable :statutory_redundancy_pay, "860"
+            should 'give me a figure no higher than 430 per week' do
+              assert_state_variable :statutory_redundancy_pay, '860'
             end
           end
 
-          context "weekly salary of under 430 before tax" do
+          context 'weekly salary of under 430 before tax' do
             setup do
-              add_response "300"
+              add_response '300'
             end
 
-            should "give me a figure below 430" do
-              assert_state_variable :statutory_redundancy_pay, "600"
+            should 'give me a figure below 430' do
+              assert_state_variable :statutory_redundancy_pay, '600'
             end
           end
         end
       end
 
-      context "catches years_employed greater than age_of_employee" do
-        context "be 18 years old and worked 20" do
+      context 'catches years_employed greater than age_of_employee' do
+        context 'be 18 years old and worked 20' do
           setup do
             add_response 18
           end
-          should "fail on 4 years" do
+          should 'fail on 4 years' do
             add_response 4
             assert_current_node_is_error
           end
-          should "fail on 20 years" do
+          should 'fail on 20 years' do
             add_response 20
             assert_current_node_is_error
           end
-          should "succeed on 3" do
+          should 'succeed on 3' do
             add_response 3
             assert_current_node :weekly_pay_before_tax?
           end
-          should "succeed on 2" do
+          should 'succeed on 2' do
             add_response 2
             assert_current_node :weekly_pay_before_tax?
           end
         end
       end
 
-      context "21 years of age" do
+      context '21 years of age' do
         setup do
-          add_response "21"
+          add_response '21'
         end
 
-        should "ask how long the employee has been employed" do
+        should 'ask how long the employee has been employed' do
           assert_current_node :years_employed?
         end
 
-        context "under 2 years" do
+        context 'under 2 years' do
           setup do
-            add_response "1"
+            add_response '1'
           end
 
-          should "bypass the salary question" do
+          should 'bypass the salary question' do
             assert_current_node :done_no_statutory
           end
         end
 
-        context "over 2 years" do
+        context 'over 2 years' do
           setup do
-            add_response "6"
+            add_response '6'
           end
 
-          should "ask for salary" do
+          should 'ask for salary' do
             assert_current_node :weekly_pay_before_tax?
           end
 
-          context "weekly salary of over 430 before tax" do
+          context 'weekly salary of over 430 before tax' do
             setup do
-              add_response "1500"
+              add_response '1500'
             end
 
-            should "give me statutory redundancy" do
+            should 'give me statutory redundancy' do
               assert_current_node :done
             end
 
-            should "give me a figure no higher than 430 per week" do
-              assert_state_variable :statutory_redundancy_pay, "1,290"
+            should 'give me a figure no higher than 430 per week' do
+              assert_state_variable :statutory_redundancy_pay, '1,290'
             end
           end
 
-          context "weekly salary of under 430 before tax" do
+          context 'weekly salary of under 430 before tax' do
             setup do
-              add_response "300"
+              add_response '300'
             end
 
-            should "give me a figure below 430" do
-              assert_state_variable :statutory_redundancy_pay, "900"
+            should 'give me a figure below 430' do
+              assert_state_variable :statutory_redundancy_pay, '900'
             end
           end
         end
       end
     end # Before Feb 2013
-    context "answer 1 Feb 2013, 42 y/o, worked for 4.5 years" do
-      should "give the answer using the new rate" do
+    context 'answer 1 Feb 2013, 42 y/o, worked for 4.5 years' do
+      should 'give the answer using the new rate' do
         add_response '2013-02-01'
         add_response '42'
         add_response '4.5'
@@ -427,11 +427,11 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
       end
     end # After Feb 2013
 
-    context "answer 05 April 2014" do
+    context 'answer 05 April 2014' do
       setup do
-        add_response Date.parse("2014-04-05")
+        add_response Date.parse('2014-04-05')
       end
-      should "ask employee age" do
+      should 'ask employee age' do
         assert_current_node :age_of_employee?
       end
     end

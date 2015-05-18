@@ -29,8 +29,8 @@ module SmartAnswer::Calculators
     end
 
     def self.format_money(amount)
-      formatted_amount = number_to_currency(amount, precision: 2, locale: :gb, unit: "")
-      formatted_amount.sub(".00", "")
+      formatted_amount = number_to_currency(amount, precision: 2, locale: :gb, unit: '')
+      formatted_amount.sub('.00', '')
     end
 
     def self.redundancy_rates(date)

@@ -1,4 +1,4 @@
-require_relative "../date_helper"
+require_relative '../date_helper'
 
 module SmartAnswer::Calculators
   class MaternityPaternityCalculator
@@ -12,9 +12,9 @@ module SmartAnswer::Calculators
       :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date,
         :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
 
-    DAYS_OF_THE_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    DAYS_OF_THE_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-    def initialize(match_or_due_date, leave_type = "maternity")
+    def initialize(match_or_due_date, leave_type = 'maternity')
       expected_start = match_or_due_date - match_or_due_date.wday
       qualifying_start = 15.weeks.ago(expected_start)
 
@@ -33,11 +33,11 @@ module SmartAnswer::Calculators
     end
 
     def format_date(date)
-      date.strftime("%e %B %Y")
+      date.strftime('%e %B %Y')
     end
 
     def format_date_day(date)
-      date.strftime("%A, %d %B %Y")
+      date.strftime('%A, %d %B %Y')
     end
 
     def payday_offset
@@ -49,7 +49,7 @@ module SmartAnswer::Calculators
     end
 
     def formatted_relevant_period
-      relevant_period.map { |p| format_date_day(p) }.join(" and ")
+      relevant_period.map { |p| format_date_day(p) }.join(' and ')
     end
 
     def leave_end_date
@@ -138,11 +138,11 @@ module SmartAnswer::Calculators
     end
 
     def calculate_average_weekly_pay(pay_pattern, pay)
-      @average_weekly_earnings = sprintf("%.5f", (
+      @average_weekly_earnings = sprintf('%.5f', (
         case pay_pattern
-        when "irregularly"
+        when 'irregularly'
           pay.to_f / pay_period_in_days * 7
-        when "monthly"
+        when 'monthly'
           pay.to_f / 2 * 12 / 52
         else
           pay.to_f / 8
@@ -294,7 +294,7 @@ module SmartAnswer::Calculators
           # for each day of the partial week
           week.each do |day|
             if within_pay_date_range?(day)
-              pay += sprintf("%.5f", (rate_for(day) / 7)).to_f
+              pay += sprintf('%.5f', (rate_for(day) / 7)).to_f
             end
           end
         else

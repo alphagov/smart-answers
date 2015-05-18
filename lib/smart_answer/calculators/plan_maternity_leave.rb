@@ -8,7 +8,7 @@ module SmartAnswer::Calculators
       @due_date = Date.parse(options[:due_date])
       due_date_week_start = @due_date - @due_date.wday
       @leave_earliest_start_date = 11.weeks.ago(due_date_week_start)
-      @formatted_due_date = @due_date.strftime("%A, %d %B %Y")
+      @formatted_due_date = @due_date.strftime('%A, %d %B %Y')
     end
 
     def enter_start_date(entered_start_date)
@@ -17,13 +17,13 @@ module SmartAnswer::Calculators
     end
 
     def formatted_date(dt)
-      dt.strftime("%d %B %Y")
+      dt.strftime('%d %B %Y')
     end
 
     def format_date_range(range)
       first = formatted_date(range.first)
       last = formatted_date(range.last)
-      (first + " to " + last)
+      (first + ' to ' + last)
     end
 
     def distance_start

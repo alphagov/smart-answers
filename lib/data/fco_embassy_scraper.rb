@@ -3,7 +3,7 @@ require 'open-uri'
 require 'nokogiri'
 
 class FCOEmbassyScraper
-  INDEX_URL = "http://www.fco.gov.uk/en/travel-and-living-abroad/find-an-embassy/"
+  INDEX_URL = 'http://www.fco.gov.uk/en/travel-and-living-abroad/find-an-embassy/'
 
   def self.scrape
     self.new.run
@@ -23,20 +23,20 @@ class FCOEmbassyScraper
     @urls.each do |url|
       begin
         e = process_embassy_page(url)
-        country_name = e.delete("country")
+        country_name = e.delete('country')
         country = case country_name
                   when "Côte d'Ivoire"
-                    {slug: "cote-d_ivoire-(ivory-coast)"}
-                  when "Dominica"
-                    {slug: "dominica,-commonwealth-of"}
-                  when "Equatorial Guinea - BHC Yaoundé"
-                    {slug: "equatorial-guinea"}
-                  when "Kyrgystan"
-                    {slug: "kyrgyzstan"}
-                  when "Niger - British High Commission"
-                    {slug: "niger"}
-                  when "Pitcairn Henderson Ducie & Oeno Islands"
-                    {slug: "pitcairn"}
+                    {slug: 'cote-d_ivoire-(ivory-coast)'}
+                  when 'Dominica'
+                    {slug: 'dominica,-commonwealth-of'}
+                  when 'Equatorial Guinea - BHC Yaoundé'
+                    {slug: 'equatorial-guinea'}
+                  when 'Kyrgystan'
+                    {slug: 'kyrgyzstan'}
+                  when 'Niger - British High Commission'
+                    {slug: 'niger'}
+                  when 'Pitcairn Henderson Ducie & Oeno Islands'
+                    {slug: 'pitcairn'}
                   else
                     @countries.select {|c| c[:name].downcase == country_name.downcase }.first
                   end
@@ -56,7 +56,7 @@ class FCOEmbassyScraper
   def process_index
     page = Nokogiri::HTML(@index_uri.open)
     page.css('#newA2ZCountryLink').each do |link|
-      @urls << URI.join(@index_uri, link["href"])
+      @urls << URI.join(@index_uri, link['href'])
     end
   end
 
@@ -64,8 +64,8 @@ class FCOEmbassyScraper
     page = Nokogiri::HTML(uri.open)
     page_title = page.at_css('h1').text.strip
     country = page_title.split(',').first
-    raise "Strange country name: #{country}" if country == "Access denied"
-    embassy = {"country" => country}
+    raise "Strange country name: #{country}" if country == 'Access denied'
+    embassy = {'country' => country}
     page.css('table.Embassy tr').each do |row|
       items = row.css('td')
       key = items.first.text.strip

@@ -1,5 +1,5 @@
 status :published
-satisfies_need "100131"
+satisfies_need '100131'
 
 data_query = Calculators::PassportAndEmbassyDataQuery.new
 
@@ -68,7 +68,7 @@ multiple_choice :renewing_replacing_applying? do
     data_query.ips_application?.call(self, nil)
   end
   calculate :ips_number do
-    application_type.split("_")[2] if is_ips_application
+    application_type.split('_')[2] if is_ips_application
   end
 
   calculate :application_form do
@@ -84,7 +84,7 @@ multiple_choice :renewing_replacing_applying? do
   end
 
   calculate :ips_docs_number do
-    supporting_documents.split("_")[3] if is_ips_application
+    supporting_documents.split('_')[3] if is_ips_application
   end
 
   calculate :ips_result_type do
@@ -150,7 +150,7 @@ country_select :country_of_birth?, include_uk: true, exclude_countries: exclude_
   end
 
   calculate :ips_docs_number do
-    supporting_documents.split("_")[3]
+    supporting_documents.split('_')[3]
   end
 
   on_condition(data_query.ips_application?) do
@@ -201,7 +201,7 @@ outcome :ips_application_result do
   precalculate :how_long_it_takes do
     phrases = PhraseList.new
     phrases << :"how_long_#{waiting_time}"
-    phrases << :report_loss_or_theft if application_action == "replacing"
+    phrases << :report_loss_or_theft if application_action == 'replacing'
     phrases << :"how_long_it_takes_ips#{ips_number}"
     phrases
   end
@@ -409,7 +409,7 @@ outcome :fco_result do
     phrases = PhraseList.new
     phrases << :"how_long_#{waiting_time}"
     phrases << :you_may_have_to_attend_an_interview if %w(renewing_old applying).include?(application_action)
-    phrases << :report_loss_or_theft if application_action == "replacing"
+    phrases << :report_loss_or_theft if application_action == 'replacing'
     phrases
   end
 

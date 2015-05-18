@@ -2,7 +2,7 @@ require 'rails'
 require 'active_support/all'
 require 'benchmark'
 require 'filesize'
-require_relative "memory.rb"
+require_relative 'memory.rb'
 
 # Don't ask
 module Rails
@@ -20,10 +20,10 @@ module Benchmarker
   COMPLICATED_RESPONSES = ['birth','yes','2016-1-1','worker','employee','yes','yes','400-week','yes','yes','yes','400-week','yes']
 
   THINGS_TO_BENCHMARK = [
-    ["Loading All flows", ->{ all_flows }],
+    ['Loading All flows', ->{ all_flows }],
     ["Selecting 'start' on spl", ->{  spl_flow.state('y', [])}],
-    ["Answering one question for spl", ->{  spl_flow.state('y', ['birth','yes'])}],
-    ["Answering lots of questions with complicated outcome for spl", ->{  spl_flow.state('y', COMPLICATED_RESPONSES)}]
+    ['Answering one question for spl', ->{  spl_flow.state('y', ['birth','yes'])}],
+    ['Answering lots of questions with complicated outcome for spl', ->{  spl_flow.state('y', COMPLICATED_RESPONSES)}]
   ]
 
   def all_flows
@@ -58,12 +58,12 @@ module Benchmarker
 
   def benchmark_with_and_without_preloading
     @@registry = SmartdownAdapter::Registry.instance(REGISTRY_OPTIONS)
-    puts "PRELOADING TURNED OFF"
+    puts 'PRELOADING TURNED OFF'
     benchmark_things
 
     SmartdownAdapter::Registry.reset_instance
     @@registry = SmartdownAdapter::Registry.instance(REGISTRY_OPTIONS.merge({ preload_flows: true }))
-    puts "PRELOADING TURNED ON"
+    puts 'PRELOADING TURNED ON'
     benchmark_things
 
     puts

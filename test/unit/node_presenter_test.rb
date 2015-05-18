@@ -19,44 +19,44 @@ module SmartAnswer
       I18n.reload!
     end
 
-    test "Node title looked up from translation file" do
+    test 'Node title looked up from translation file' do
       question = Question::Date.new(:example_question?)
-      presenter = NodePresenter.new("flow.test", question)
+      presenter = NodePresenter.new('flow.test', question)
 
       assert_equal 'Foo', presenter.title
     end
 
-    test "Node title existence check" do
+    test 'Node title existence check' do
       question = Question::Date.new(:example_question?)
-      presenter = NodePresenter.new("flow.test", question)
+      presenter = NodePresenter.new('flow.test', question)
 
       assert presenter.has_title?
     end
 
-    test "Node title can be interpolated with state" do
+    test 'Node title can be interpolated with state' do
       question = Question::Date.new(:interpolated_question)
       state = State.new(question.name)
       state.day = 'Monday'
-      presenter = NodePresenter.new("flow.test", question, state)
+      presenter = NodePresenter.new('flow.test', question, state)
 
       assert_equal 'Is today a Monday?', presenter.title
       assert_match /Today is Monday/, presenter.body
     end
 
-    test "Interpolated dates are localized" do
+    test 'Interpolated dates are localized' do
       question = Question::Date.new(:interpolated_question)
       state = State.new(question.name)
       state.day = Date.parse('2011-04-05')
-      presenter = NodePresenter.new("flow.test", question, state)
+      presenter = NodePresenter.new('flow.test', question, state)
 
       assert_match /Today is  5 April 2011/, presenter.body
     end
 
-    test "Interpolated phrase lists are localized and interpreted as govspeak" do
+    test 'Interpolated phrase lists are localized and interpreted as govspeak' do
       outcome = Outcome.new(:outcome_with_interpolated_phrase_list)
       state = State.new(outcome.name)
       state.phrases = PhraseList.new(:one, :two, :three)
-      presenter = NodePresenter.new("flow.test", outcome, state)
+      presenter = NodePresenter.new('flow.test', outcome, state)
 
       assert_match Regexp.new("<p>Here are the phrases:</p>
 
@@ -68,11 +68,11 @@ module SmartAnswer
       ".gsub /^      /, ''), presenter.body
     end
 
-    test "Phrase lists notify developers and fallback gracefully when no translation can be found" do
+    test 'Phrase lists notify developers and fallback gracefully when no translation can be found' do
       outcome = Outcome.new(:outcome_with_interpolated_phrase_list)
       state = State.new(outcome.name)
       state.phrases = PhraseList.new(:four, :one, :two, :three)
-      presenter = NodePresenter.new("flow.test", outcome, state)
+      presenter = NodePresenter.new('flow.test', outcome, state)
 
       Rails.logger.expects(:warn).with("[Missing phrase] The phrase being rendered is not present: flow.test.phrases.four\tResponses: ").once
 
@@ -88,95 +88,95 @@ module SmartAnswer
       ".gsub /^      /, ''), presenter.body
     end
 
-    test "Node body looked up from translation file, rendered using govspeak" do
+    test 'Node body looked up from translation file, rendered using govspeak' do
       question = Question::Date.new(:example_question?)
-      presenter = NodePresenter.new("flow.test", question)
+      presenter = NodePresenter.new('flow.test', question)
 
       assert_equal "<p>The body copy</p>\n", presenter.body
     end
 
-    test "Can check if a node has body" do
-      assert NodePresenter.new("flow.test", Question::Date.new(:example_question?)).has_body?, "example_question? has body"
-      assert !NodePresenter.new("flow.test", Question::Date.new(:missing)).has_body?, "missing has no body"
+    test 'Can check if a node has body' do
+      assert NodePresenter.new('flow.test', Question::Date.new(:example_question?)).has_body?, 'example_question? has body'
+      assert !NodePresenter.new('flow.test', Question::Date.new(:missing)).has_body?, 'missing has no body'
     end
 
-    test "Node hint looked up from translation file" do
+    test 'Node hint looked up from translation file' do
       question = Question::Date.new(:example_question?)
-      presenter = NodePresenter.new("flow.test", question)
+      presenter = NodePresenter.new('flow.test', question)
 
       assert_equal 'Hint for foo', presenter.hint
     end
 
-    test "Can check if node has hint" do
-      assert NodePresenter.new("flow.test", Question::Date.new(:example_question?)).has_hint?
-      assert !NodePresenter.new("flow.test", Question::Date.new(:missing)).has_hint?
+    test 'Can check if node has hint' do
+      assert NodePresenter.new('flow.test', Question::Date.new(:example_question?)).has_hint?
+      assert !NodePresenter.new('flow.test', Question::Date.new(:missing)).has_hint?
     end
 
-    test "Options can be looked up from translation file" do
+    test 'Options can be looked up from translation file' do
       question = Question::MultipleChoice.new(:example_question?)
       question.option yes: :yay
       question.option no: :nay
-      presenter = NodePresenter.new("flow.test", question)
+      presenter = NodePresenter.new('flow.test', question)
 
-      assert_equal "Oui", presenter.options[0].label
-      assert_equal "Non", presenter.options[1].label
-      assert_equal "yes", presenter.options[0].value
-      assert_equal "no", presenter.options[1].value
+      assert_equal 'Oui', presenter.options[0].label
+      assert_equal 'Non', presenter.options[1].label
+      assert_equal 'yes', presenter.options[0].value
+      assert_equal 'no', presenter.options[1].value
     end
 
-    test "Options can be looked up from default values in translation file" do
+    test 'Options can be looked up from default values in translation file' do
       question = Question::MultipleChoice.new(:example_question?)
       question.option maybe: :mumble
-      presenter = NodePresenter.new("flow.test", question)
+      presenter = NodePresenter.new('flow.test', question)
 
-      assert_equal "Mebbe", presenter.options[0].label
+      assert_equal 'Mebbe', presenter.options[0].label
     end
 
-    test "Options label falls back to option value" do
+    test 'Options label falls back to option value' do
       question = Question::MultipleChoice.new(:example_question?)
       question.option something: :mumble
-      presenter = NodePresenter.new("flow.test", question)
+      presenter = NodePresenter.new('flow.test', question)
 
-      assert_equal "something", presenter.options[0].label
+      assert_equal 'something', presenter.options[0].label
     end
 
-    test "Can lookup a response label for a multiple choice question" do
+    test 'Can lookup a response label for a multiple choice question' do
       question = Question::MultipleChoice.new(:example_question?)
       question.option yes: :yay
       question.option no: :nay
-      presenter = MultipleChoiceQuestionPresenter.new("flow.test", question)
+      presenter = MultipleChoiceQuestionPresenter.new('flow.test', question)
 
-      assert_equal "Oui", presenter.response_label("yes")
+      assert_equal 'Oui', presenter.response_label('yes')
     end
 
-    test "Can lookup a response label for a date question" do
+    test 'Can lookup a response label for a date question' do
       question = Question::Date.new(:example_question?)
-      presenter = DateQuestionPresenter.new("flow.test", question)
+      presenter = DateQuestionPresenter.new('flow.test', question)
 
-      assert_equal " 1 March 2011", presenter.response_label(Date.parse("2011-03-01"))
+      assert_equal ' 1 March 2011', presenter.response_label(Date.parse('2011-03-01'))
     end
 
-    test "Identifies the relevant partial template for the class of the node" do
+    test 'Identifies the relevant partial template for the class of the node' do
       presenter = QuestionPresenter.new(nil, Question::Date.new(nil))
-      assert_equal "date_question", presenter.partial_template_name
+      assert_equal 'date_question', presenter.partial_template_name
 
       presenter = QuestionPresenter.new(nil, Question::CountrySelect.new(nil))
-      assert_equal "country_select_question", presenter.partial_template_name
+      assert_equal 'country_select_question', presenter.partial_template_name
 
       presenter = QuestionPresenter.new(nil, Question::MultipleChoice.new(nil))
-      assert_equal "multiple_choice_question", presenter.partial_template_name
+      assert_equal 'multiple_choice_question', presenter.partial_template_name
     end
 
-    test "Outcome has a title if using the NodePresenter" do
+    test 'Outcome has a title if using the NodePresenter' do
       outcome = Outcome.new(:outcome_with_no_title)
-      presenter = NodePresenter.new("flow.test", outcome)
+      presenter = NodePresenter.new('flow.test', outcome)
 
       assert presenter.has_title?
     end
 
-    test "Outcome has no title if using the OutcomePresenter" do
+    test 'Outcome has no title if using the OutcomePresenter' do
       outcome = Outcome.new(:outcome_with_no_title)
-      presenter = OutcomePresenter.new("flow.test", outcome)
+      presenter = OutcomePresenter.new('flow.test', outcome)
 
       refute presenter.has_title?
     end

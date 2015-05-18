@@ -1,5 +1,5 @@
 status :published
-satisfies_need "100262"
+satisfies_need '100262'
 
 # Question 1
 checkbox_question :is_your_employee_getting? do
@@ -14,7 +14,7 @@ checkbox_question :is_your_employee_getting? do
     PhraseList.new(:ssp_link)
   end
   calculate :paternity_maternity_warning do |response|
-    (response.split(",") & %w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
+    (response.split(',') & %w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
   end
   next_node_if(:employee_tell_within_limit?,
     response_is_one_of(%w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}))
@@ -225,17 +225,17 @@ checkbox_question :usual_work_days? do
   end
 
   calculate :formatted_sick_pay_weekly_amounts do |response|
-    calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, response.split(","))
+    calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, response.split(','))
 
     if calculator.ssp_payment > 0
       calculator.formatted_sick_pay_weekly_amounts
     else
-      ""
+      ''
     end
   end
 
   next_node_calculation(:calculator) do |response|
-    Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, response.split(","))
+    Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, response.split(','))
   end
 
   # Answer 8

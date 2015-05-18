@@ -14,7 +14,7 @@ class FlowTestHelperTest < ActiveSupport::TestCase
   end
 
 
-  test "caches current_state" do
+  test 'caches current_state' do
     flow = Object.new
     flow.expects(:process).once.returns(:state)
     includer = FlowTestHelperIncluder.new(flow, [:yes, :no])
@@ -22,7 +22,7 @@ class FlowTestHelperTest < ActiveSupport::TestCase
     includer.current_state
   end
 
-  test "busts current_state cache when responses change" do
+  test 'busts current_state cache when responses change' do
     flow = Object.new
     flow.expects(:process).twice.returns(:state)
     responses = [:yes, :no]

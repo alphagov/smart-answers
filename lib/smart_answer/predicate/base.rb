@@ -27,7 +27,7 @@ module SmartAnswer
       alias_method :&, :and
 
       def label
-        @label || "-- undefined --"
+        @label || '-- undefined --'
       end
 
     end

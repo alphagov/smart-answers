@@ -1,5 +1,5 @@
 status :published
-satisfies_need "101059"
+satisfies_need '101059'
 
 # Q1
 multiple_choice :extending_or_switching? do
@@ -12,17 +12,17 @@ multiple_choice :extending_or_switching? do
 
   calculate :switch_or_extend do
     if %w(extend_general extend_child).include?(type_of_visa)
-      "extend"
+      'extend'
     else
-      "switch"
+      'switch'
     end
   end
 
   calculate :general_or_child do
     if %w(switch_general extend_general).include?(type_of_visa)
-      "general"
+      'general'
     else
-      "child"
+      'child'
     end
   end
 
@@ -35,20 +35,20 @@ value_question :sponsor_id? do
   save_input_as :sponsor_id
 
   calculate :data do
-    Calculators::StaticDataQuery.new("apply_tier_4_visa_data").data
+    Calculators::StaticDataQuery.new('apply_tier_4_visa_data').data
   end
 
   calculate :sponsor_name do |response|
-    name = data["post"].merge(data["online"])[response]
+    name = data['post'].merge(data['online'])[response]
     raise InvalidResponse, :error unless name
     name
   end
 
   calculate :post_or_online do |response|
-    if data["post"].keys.include?(response)
-      "post"
+    if data['post'].keys.include?(response)
+      'post'
     else
-      "online"
+      'online'
     end
   end
 

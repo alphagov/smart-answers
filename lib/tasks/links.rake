@@ -1,5 +1,5 @@
-require "uri"
-require "net/http"
+require 'uri'
+require 'net/http'
 
 def check_links(links_to_check, broken, file)
   links_to_check.uniq.each { |link|
@@ -7,7 +7,7 @@ def check_links(links_to_check, broken, file)
       uri = URI.parse(link)
       http = Net::HTTP.new(uri.host, uri.port)
 
-      if link.include?("https")
+      if link.include?('https')
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       end
@@ -17,7 +17,7 @@ def check_links(links_to_check, broken, file)
       puts "Checking link: #{link}"
       unless response.class == Net::HTTPOK
         new_hash = { link: link, resp: response.code, file: file }
-        if response.code[0] == "3"
+        if response.code[0] == '3'
           new_hash[:redirect] = response.header['location']
         end
         broken.push(new_hash)
@@ -31,7 +31,7 @@ def check_links(links_to_check, broken, file)
 end
 
 def prefix_link(link)
-  unless link.include?("http")
+  unless link.include?('http')
     link = "https://www.gov.uk#{link}"
   end
   link
@@ -83,43 +83,43 @@ namespace :links do
       }
     end
 
-    File.open("log/broken_links.log", "w") { |file|
+    File.open('log/broken_links.log', 'w') { |file|
       file.puts broken
     }
 
 
-    fives = broken.select { |item| item[:resp][0] == "5" }
-    four_oh_fours = broken.select { |item| item[:resp][0] == "4" }
-    three_oh_threes = broken.select { |item| item[:resp][0] == "3" }
+    fives = broken.select { |item| item[:resp][0] == '5' }
+    four_oh_fours = broken.select { |item| item[:resp][0] == '4' }
+    three_oh_threes = broken.select { |item| item[:resp][0] == '3' }
 
-    File.open("log/300_links.log", "w") { |file|
+    File.open('log/300_links.log', 'w') { |file|
       file.puts three_oh_threes
     }
 
-    File.open("log/404_links.log", "w") { |file|
+    File.open('log/404_links.log', 'w') { |file|
       file.puts four_oh_fours
     }
 
-    File.open("log/500_links.log", "w") { |file|
+    File.open('log/500_links.log', 'w') { |file|
       file.puts fives
     }
 
     if three_oh_threes.length > 0
-      puts "Warning: Found links that give a 3XX response. Look in log/300_links.log"
+      puts 'Warning: Found links that give a 3XX response. Look in log/300_links.log'
     else
-      puts "No 3XX links found"
+      puts 'No 3XX links found'
     end
 
     if four_oh_fours.length > 0
-      puts "Warning: Found 404s. Look in log/404_links.log"
+      puts 'Warning: Found 404s. Look in log/404_links.log'
     else
-      puts "No 404s found"
+      puts 'No 404s found'
     end
 
     if fives.length > 0
-      puts "Warning: Found links that give a 5XX response. Look in log/500_links.log"
+      puts 'Warning: Found links that give a 5XX response. Look in log/500_links.log'
     else
-      puts "No 5XX links found"
+      puts 'No 5XX links found'
     end
   end
 end

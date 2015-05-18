@@ -28,7 +28,7 @@ class NodePresenter
     when ::SmartAnswer::Money then
       number_to_currency(value, precision: ((value.to_f == value.to_f.round) ? 0 : 2))
     when ::SmartAnswer::Salary then
-      number_to_currency(value.amount, precision: 0) + " per " + value.period
+      number_to_currency(value.amount, precision: 0) + ' per ' + value.period
     when ::SmartAnswer::PhraseList then
       if nested == false
         value.phrase_keys.map do |phrase_key|

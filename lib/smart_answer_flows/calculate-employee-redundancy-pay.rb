@@ -1,4 +1,4 @@
 status :published
-satisfies_need "100138"
+satisfies_need '100138'
 
-use_shared_logic "redundancy_pay"
+use_shared_logic 'redundancy_pay'

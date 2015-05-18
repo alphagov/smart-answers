@@ -45,7 +45,7 @@ class WorkingDays
     response = GdsApi::JsonClient.new(disable_cache: true).get_json!(BANK_HOLIDAYS_URL)
 
     response['england-and-wales']['events'].map do |event|
-      Date.parse(event["date"])
+      Date.parse(event['date'])
     end
   end
 end

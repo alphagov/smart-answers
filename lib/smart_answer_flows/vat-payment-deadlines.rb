@@ -1,5 +1,5 @@
 status :published
-satisfies_need "100624"
+satisfies_need '100624'
 
 date_question :when_does_your_vat_accounting_period_end? do
   default_day -1
@@ -26,10 +26,10 @@ multiple_choice :how_do_you_want_to_pay? do
   end
 
   calculate :last_payment_date do
-    calculator.last_payment_date.strftime("%e %B %Y").strip
+    calculator.last_payment_date.strftime('%e %B %Y').strip
   end
   calculate :funds_received_by do
-    calculator.funds_received_by.strftime("%e %B %Y").strip
+    calculator.funds_received_by.strftime('%e %B %Y').strip
   end
 end
 

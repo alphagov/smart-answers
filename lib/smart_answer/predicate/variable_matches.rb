@@ -37,7 +37,7 @@ module SmartAnswer
         if multiple_acceptable_responses?
           wrap_in_braces(acceptable_responses)
         else
-          acceptable_responses.first || ""
+          acceptable_responses.first || ''
         end
       end
 

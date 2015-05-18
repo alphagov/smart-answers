@@ -14,7 +14,7 @@ module SmartdownPlugins
       end
     end
 
-    test ".render renders a template" do
+    test '.render renders a template' do
       locals = {sample_data: {'address' => '1 Doge\'s Palace', 'phone' => '999'}}
       output = subject.render('scalar_partial',
         directory: data_partial_template_directory,

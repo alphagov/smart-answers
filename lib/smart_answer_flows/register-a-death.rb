@@ -1,5 +1,5 @@
 status :published
-satisfies_need "101006"
+satisfies_need '101006'
 
 country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
 reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
@@ -118,7 +118,7 @@ end
 
 outcome :oru_result do
   precalculate :button_data do
-    {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
+    {text: 'Pay now', url: 'https://pay-register-death-abroad.service.gov.uk/start'}
   end
 
   precalculate :translator_link_url do
@@ -196,15 +196,15 @@ outcome :embassy_result do
 
   precalculate :embassy_high_commission_or_consulate do
     if reg_data_query.has_high_commission?(current_location)
-      "British high commission"
+      'British high commission'
     elsif reg_data_query.has_consulate?(current_location)
-      "British embassy or consulate"
+      'British embassy or consulate'
     elsif reg_data_query.has_trade_and_cultural_office?(current_location)
-      "British Trade & Cultural Office"
+      'British Trade & Cultural Office'
     elsif reg_data_query.has_consulate_general?(current_location)
-      "British consulate general"
+      'British consulate general'
     else
-      "British embassy"
+      'British embassy'
     end
   end
 

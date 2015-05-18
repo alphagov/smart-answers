@@ -46,28 +46,28 @@ module SmartAnswer::Calculators
     HIGHER_RISK_COUNTRIES = %w(afghanistan algeria azerbaijan bangladesh bhutan colombia india iraq kenya lebanon libya nepal new-caledonia nigeria pakistan philippines russia sierra-leone somalia south-sudan sri-lanka sudan uganda)
 
     ORU_REGISTRATION_DURATION = {
-      "afghanistan" => "6 months",
-      "algeria" => "12 weeks",
-      "azerbaijan" => "10 weeks",
-      "bangladesh" => "8 months",
-      "bhutan" => "8 weeks",
-      "colombia" => "8 weeks",
-      "india" => "16 weeks",
-      "iraq" => "12 weeks",
-      "kenya" => "12 weeks",
-      "lebanon" => "12 weeks",
-      "libya" => "6 months",
-      "nepal" => "10 weeks",
-      "nigeria" => "14 weeks",
-      "pakistan" => "6 months",
-      "russia" => "10 weeks",
-      "sierra-leone" => "12 weeks",
-      "somalia" => "12 weeks",
-      "south-sudan" => "12 weeks",
-      "sri-lanka" => "12 weeks",
-      "sudan" => "12 weeks",
-      "philippines" => "16 weeks",
-      "uganda" => "12 weeks",
+      'afghanistan' => '6 months',
+      'algeria' => '12 weeks',
+      'azerbaijan' => '10 weeks',
+      'bangladesh' => '8 months',
+      'bhutan' => '8 weeks',
+      'colombia' => '8 weeks',
+      'india' => '16 weeks',
+      'iraq' => '12 weeks',
+      'kenya' => '12 weeks',
+      'lebanon' => '12 weeks',
+      'libya' => '6 months',
+      'nepal' => '10 weeks',
+      'nigeria' => '14 weeks',
+      'pakistan' => '6 months',
+      'russia' => '10 weeks',
+      'sierra-leone' => '12 weeks',
+      'somalia' => '12 weeks',
+      'south-sudan' => '12 weeks',
+      'sri-lanka' => '12 weeks',
+      'sudan' => '12 weeks',
+      'philippines' => '16 weeks',
+      'uganda' => '12 weeks',
     }
 
     attr_reader :data
@@ -85,15 +85,15 @@ module SmartAnswer::Calculators
     end
 
     def responded_with_commonwealth_country?
-      SmartAnswer::Predicate::RespondedWith.new(COMMONWEALTH_COUNTRIES, "commonwealth country")
+      SmartAnswer::Predicate::RespondedWith.new(COMMONWEALTH_COUNTRIES, 'commonwealth country')
     end
 
     def born_in_oru_transitioned_country?
-      SmartAnswer::Predicate::VariableMatches.new(:country_of_birth, ORU_TRANSITIONED_COUNTRIES, "ORU transitioned country")
+      SmartAnswer::Predicate::VariableMatches.new(:country_of_birth, ORU_TRANSITIONED_COUNTRIES, 'ORU transitioned country')
     end
 
     def died_in_oru_transitioned_country?
-      SmartAnswer::Predicate::VariableMatches.new(:country_of_death, ORU_TRANSITIONED_COUNTRIES, "ORU transitioned country of death")
+      SmartAnswer::Predicate::VariableMatches.new(:country_of_death, ORU_TRANSITIONED_COUNTRIES, 'ORU transitioned country of death')
     end
 
     def clickbook(country_slug)
@@ -168,7 +168,7 @@ module SmartAnswer::Calculators
     end
 
     def self.registration_data
-      @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "registrations.yml"))
+      @embassy_data ||= YAML.load_file(Rails.root.join('lib', 'data', 'registrations.yml'))
     end
   end
 end

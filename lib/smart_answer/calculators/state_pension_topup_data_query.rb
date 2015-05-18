@@ -12,7 +12,7 @@ module SmartAnswer::Calculators
     end
 
     def self.age_and_rates_data
-      @age_and_rates_data ||= YAML.load_file(Rails.root.join("lib", "data", "pension_top_up_data.yml"))
+      @age_and_rates_data ||= YAML.load_file(Rails.root.join('lib', 'data', 'pension_top_up_data.yml'))
     end
   end
 end

@@ -60,7 +60,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       should "say 'cant challenge or appeal'" do
         add_response 13.months.ago.to_date
         assert_current_node :cant_challenge_or_appeal
-        assert_state_variable("appeal_expiry_date", nil)
+        assert_state_variable('appeal_expiry_date', nil)
       end
     end
 
@@ -82,8 +82,8 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
           assert_current_node :asked_to_reconsider?
         end
 
-        should "calculate the appeal expiry date" do
-          assert_state_variable("appeal_expiry_date", 1.month.since(7.days.ago.to_date))
+        should 'calculate the appeal expiry date' do
+          assert_state_variable('appeal_expiry_date', 1.month.since(7.days.ago.to_date))
         end
 
       end
@@ -139,7 +139,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
           assert_current_node :when_did_you_ask_for_it?
         end
 
-        context "the statement was requested less than a month ago" do
+        context 'the statement was requested less than a month ago' do
           setup do
             add_response 21.days.ago.to_date # Statement requested 21 days ago
           end
@@ -149,7 +149,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
             assert_current_node :when_did_you_get_it?
           end
 
-          context "the statement was received within one month and the decision letter was received less than one month and 14 days ago" do
+          context 'the statement was received within one month and the decision letter was received less than one month and 14 days ago' do
             setup do
               add_response 7.days.ago.to_date # Statement received 7 days ago
             end
@@ -159,8 +159,8 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
               assert_current_node :asked_to_reconsider?
             end
 
-            should "calculate the appeal expiry date" do
-              assert_state_variable("appeal_expiry_date", 1.fortnight.since(1.month.since(1.month.ago.to_date)))
+            should 'calculate the appeal expiry date' do
+              assert_state_variable('appeal_expiry_date', 1.fortnight.since(1.month.since(1.month.ago.to_date)))
             end
           end
 
@@ -181,7 +181,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
           assert_current_node :when_did_you_ask_for_it?
         end
 
-        context "the statement was requested more than a month ago" do
+        context 'the statement was requested more than a month ago' do
           setup do
             add_response 21.days.ago(1.month.ago).to_date # Statement requested a month and 21 days ago
           end
@@ -191,10 +191,10 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
             assert_current_node :when_did_you_get_it?
           end
 
-          context "the statement was received after one month and 14 days have since passed" do
+          context 'the statement was received after one month and 14 days have since passed' do
             setup do
               add_response 15.days.ago.to_date # Statement received 15 days ago
-              assert_state_variable("appeal_expiry_date", nil)
+              assert_state_variable('appeal_expiry_date', nil)
             end
 
             # Q7
@@ -220,7 +220,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
           assert_current_node :when_did_you_ask_for_it?
         end
 
-        context "the statement was requested more than a month ago" do
+        context 'the statement was requested more than a month ago' do
           setup do
             add_response 21.days.ago(1.month.ago).to_date # Statement requested a month and 21 days ago
           end
@@ -230,7 +230,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
             assert_current_node :when_did_you_get_it?
           end
 
-          context "the statement was received after one month and 14 days have noy yet passed" do
+          context 'the statement was received after one month and 14 days have noy yet passed' do
             setup do
               add_response 7.days.ago.to_date # Statement received 7 days ago
             end
@@ -240,8 +240,8 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
               assert_current_node :asked_to_reconsider?
             end
 
-            should "calculate the appeal expiry date" do
-              assert_state_variable("appeal_expiry_date", 1.fortnight.since(7.days.ago).to_date)
+            should 'calculate the appeal expiry date' do
+              assert_state_variable('appeal_expiry_date', 1.fortnight.since(7.days.ago).to_date)
             end
 
           end
@@ -263,7 +263,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
           assert_current_node :when_did_you_ask_for_it?
         end
 
-        context "the statement was requested more than a month ago" do
+        context 'the statement was requested more than a month ago' do
           setup do
             @request_date = 21.days.ago(1.month.ago).to_date
             add_response @request_date # Statement requested one month and 21 days ago
@@ -274,18 +274,18 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
             assert_current_node :when_did_you_get_it?
           end
 
-          context "received before requested error" do
+          context 'received before requested error' do
             setup do
               add_response 23.days.ago(1.month.ago).to_date # should throw an error
             end
 
-            should "show an error" do
+            should 'show an error' do
               assert_current_node_is_error
-              assert_state_variable "written_explanation_request_date", @request_date
+              assert_state_variable 'written_explanation_request_date', @request_date
             end
           end
 
-          context "the statement was received within one month and the decision letter was received more than one month and 14 days ago" do
+          context 'the statement was received within one month and the decision letter was received more than one month and 14 days ago' do
             setup do
               add_response 15.days.ago(1.month.ago).to_date # Statement received one month and 15 days ago (received within a month)
             end
@@ -313,7 +313,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
               end
 
               context "answer 'no' to 'asked to reconsider?'" do
-                should "" do
+                should '' do
                   add_response :no
                   assert_current_node :ask_to_reconsider
                 end

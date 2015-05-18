@@ -15,7 +15,7 @@ module SmartAnswer
       alias_method :|, :or
 
       def label
-        @label || @acceptable_responses.join(" | ")
+        @label || @acceptable_responses.join(' | ')
       end
     end
   end

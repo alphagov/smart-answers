@@ -30,11 +30,11 @@ module SmartAnswer
 
     def per_week
       case @period
-      when "week"
+      when 'week'
         @amount
-      when "month"
+      when 'month'
         Money.new((@amount.value * 12) / 52)
-      when "year"
+      when 'year'
         Money.new(@amount.value / 52)
       end
     end

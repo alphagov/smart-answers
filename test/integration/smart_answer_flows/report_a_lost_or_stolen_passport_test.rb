@@ -1,5 +1,5 @@
-require_relative "../../test_helper"
-require_relative "flow_test_helper"
+require_relative '../../test_helper'
+require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
 class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
@@ -13,59 +13,59 @@ class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
       json = read_fixture_file("worldwide/#{location}_organisations.json")
       worldwide_api_has_organisations_for_location(location, json)
     end
-    setup_for_testing_flow "report-a-lost-or-stolen-passport"
+    setup_for_testing_flow 'report-a-lost-or-stolen-passport'
   end
 
-  should "ask where the passport was lost or stolen" do
+  should 'ask where the passport was lost or stolen' do
     assert_current_node :where_was_the_passport_lost_or_stolen?
   end
 
-  context "in the UK " do
+  context 'in the UK ' do
     setup do
       add_response :in_the_uk
     end
 
-    should "tell you to fill out the LS01 form" do
+    should 'tell you to fill out the LS01 form' do
       assert_current_node :complete_LS01_form
     end
   end
 
-  context "abroad" do
+  context 'abroad' do
     setup do
       add_response :abroad
     end
 
-    should "ask in which country has been lost/stolen" do
+    should 'ask in which country has been lost/stolen' do
       assert_current_node :which_country?
     end
 
-    context "in Azerbaijan" do
+    context 'in Azerbaijan' do
       setup do
-        add_response "azerbaijan"
+        add_response 'azerbaijan'
       end
 
-      should "tell you to report it to the embassy" do
+      should 'tell you to report it to the embassy' do
         assert_current_node :contact_the_embassy
         assert_match /British Embassy Baku/, outcome_body
       end
     end
   end
 
-  context "abroad" do
+  context 'abroad' do
     setup do
       add_response :abroad
     end
 
-    should "ask in which country has been lost/stolen" do
+    should 'ask in which country has been lost/stolen' do
       assert_current_node :which_country?
     end
 
-    context "in Canada" do
+    context 'in Canada' do
       setup do
-        add_response "canada"
+        add_response 'canada'
       end
 
-      should "tell you to fill in a form and visit the embassy" do
+      should 'tell you to fill in a form and visit the embassy' do
         assert_current_node :contact_the_embassy_canada
         assert_match /Fill in form LS01 and post it to your nearest British embassy, high commission or consulate./, outcome_body
       end

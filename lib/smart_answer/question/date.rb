@@ -92,7 +92,7 @@ module SmartAnswer
            expected_keys << :month unless defaulted_month?
            expected_keys << :year unless defaulted_year?
            expected_keys.each do |k|
-             raise InvalidResponse, "Please enter a complete date", caller unless input[k].present?
+             raise InvalidResponse, 'Please enter a complete date', caller unless input[k].present?
            end
            day = (default_day || input[:day]).to_i
            month = (default_month || input[:month]).to_i
@@ -103,7 +103,7 @@ module SmartAnswer
           when ::Date
            input
           else
-           raise InvalidResponse, "Bad date", caller
+           raise InvalidResponse, 'Bad date', caller
           end
         date
       rescue

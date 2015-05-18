@@ -15,7 +15,7 @@ private
     end
 
     def describe
-      date_parts.compact.join(", ")
+      date_parts.compact.join(', ')
     end
 
   private

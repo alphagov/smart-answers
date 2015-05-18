@@ -17,7 +17,7 @@ module SmartAnswer::Calculators
   private
 
     def load_path
-      @load_path ||= File.join("lib", "data", "rates")
+      @load_path ||= File.join('lib', 'data', 'rates')
     end
 
     def data

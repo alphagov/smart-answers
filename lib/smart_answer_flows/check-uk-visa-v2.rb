@@ -1,5 +1,5 @@
 status :draft
-satisfies_need "100982"
+satisfies_need '100982'
 
 additional_countries = UkbaCountry.v2_all
 
@@ -181,13 +181,13 @@ outcome :outcome_medical_n
 outcome :outcome_visit_waiver do
   precalculate :if_exception do
     if %w(venezuela).include?(passport_country)
-      if leaving_airport_answer == "yes"
+      if leaving_airport_answer == 'yes'
         PhraseList.new(:epassport_crossing_border)
-      elsif leaving_airport_answer == "no"
+      elsif leaving_airport_answer == 'no'
         PhraseList.new(:epassport_not_crossing_border)
       end
     elsif %w(taiwan).include?(passport_country)
-      if leaving_airport_answer == "yes"
+      if leaving_airport_answer == 'yes'
         PhraseList.new(:passport_bio_crossing_border)
       else
         PhraseList.new(:passport_bio_not_crossing_border)

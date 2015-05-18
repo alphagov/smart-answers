@@ -11,7 +11,7 @@ module SmartAnswer
           end
         }
 
-        super(label || "--defined by code--", callable_taking_state_as_arg)
+        super(label || '--defined by code--', callable_taking_state_as_arg)
       end
     end
   end

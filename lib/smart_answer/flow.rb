@@ -43,12 +43,12 @@ module SmartAnswer
     end
 
     def section_slug(s = nil)
-      ActiveSupport::Deprecation.warn("Sections are no longer handled within smartanswers.", caller(1))
+      ActiveSupport::Deprecation.warn('Sections are no longer handled within smartanswers.', caller(1))
       nil
     end
 
     def subsection_slug(s = nil)
-      ActiveSupport::Deprecation.warn("Sections are no longer handled within smartanswers.", caller(1))
+      ActiveSupport::Deprecation.warn('Sections are no longer handled within smartanswers.', caller(1))
       nil
     end
 

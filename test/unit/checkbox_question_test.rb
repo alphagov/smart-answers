@@ -5,8 +5,8 @@ require_relative '../test_helper'
 module SmartAnswer
   class CheckboxQuestionTest < ActiveSupport::TestCase
 
-    context "specifying options" do
-      should "be able to specify options, and retreive them in the order specified" do
+    context 'specifying options' do
+      should 'be able to specify options, and retreive them in the order specified' do
         q = Question::Checkbox.new(:something) do
           option :red
           option 'blue'
@@ -15,7 +15,7 @@ module SmartAnswer
           option :reddy_brown
         end
 
-        assert_equal ["red", "blue", "green", "blue-green", "reddy_brown"], q.options
+        assert_equal ['red', 'blue', 'green', 'blue-green', 'reddy_brown'], q.options
       end
 
       should "not be able to use reserved 'none' option" do
@@ -24,7 +24,7 @@ module SmartAnswer
         end
       end
 
-      should "not be able to use options with non URL safe characters" do
+      should 'not be able to use options with non URL safe characters' do
         assert_raise InvalidNode do
           q = Question::Checkbox.new(:something) { option 'a space' }
         end
@@ -34,7 +34,7 @@ module SmartAnswer
       end
     end
 
-    context "parsing response" do
+    context 'parsing response' do
       setup do
         @question = Question::Checkbox.new(:something) do
           option :red
@@ -43,32 +43,32 @@ module SmartAnswer
         end
       end
 
-      context "with an array" do
-        should "return the responses as a sorted comma-separated string" do
+      context 'with an array' do
+        should 'return the responses as a sorted comma-separated string' do
           assert_equal 'green,red', @question.parse_input(['red', 'green'])
         end
 
-        should "raise an error if given a non-existing response" do
+        should 'raise an error if given a non-existing response' do
           assert_raise InvalidResponse do
             @question.parse_input ['blue', 'orange']
           end
         end
       end
 
-      context "with a comma separated string" do
-        should "return the responses as a sorted comma-separated string" do
+      context 'with a comma separated string' do
+        should 'return the responses as a sorted comma-separated string' do
           assert_equal 'green,red', @question.parse_input('red,green')
         end
 
-        should "raise an error if given a non-existing response" do
+        should 'raise an error if given a non-existing response' do
           assert_raise InvalidResponse do
             @question.parse_input 'blue,orange'
           end
         end
       end
 
-      context "handling the special none case" do
-        should "return none when passed nil" do
+      context 'handling the special none case' do
+        should 'return none when passed nil' do
           assert_equal 'none', @question.parse_input(nil)
         end
 
@@ -78,7 +78,7 @@ module SmartAnswer
       end
     end
 
-    context "converting to a response" do
+    context 'converting to a response' do
       setup do
         @question = Question::Checkbox.new(:something) do
           option :red
@@ -87,25 +87,25 @@ module SmartAnswer
         end
       end
 
-      should "return an array of responses" do
+      should 'return an array of responses' do
         assert_equal ['red', 'green'], @question.to_response('red,green')
       end
 
-      should "remove the none option from the results" do
+      should 'remove the none option from the results' do
         assert_equal [], @question.to_response('none')
       end
     end
 
-    context "predicate helper functions" do
+    context 'predicate helper functions' do
       setup do
         @question = Question::Checkbox.new(:something)
       end
 
-      should "define response_has_all_of" do
+      should 'define response_has_all_of' do
         assert @question.response_has_all_of([]).is_a?(SmartAnswer::Predicate::ResponseHasAllOf)
       end
 
-      should "define response_is_one_of" do
+      should 'define response_is_one_of' do
         assert @question.response_is_one_of([]).is_a?(SmartAnswer::Predicate::ResponseIsOneOf)
       end
     end

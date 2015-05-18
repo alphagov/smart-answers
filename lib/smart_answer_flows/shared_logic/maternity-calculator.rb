@@ -164,8 +164,8 @@ multiple_choice :how_do_you_want_the_smp_calculated? do
 
   save_input_as :smp_calculation_method
 
-  on_condition(responded_with("usual_paydates")) do
-    next_node_if(:when_in_the_month_is_the_employee_paid?, variable_matches(:pay_pattern, "monthly"))
+  on_condition(responded_with('usual_paydates')) do
+    next_node_if(:when_in_the_month_is_the_employee_paid?, variable_matches(:pay_pattern, 'monthly'))
     next_node(:when_is_your_employees_next_pay_day?)
   end
   next_node(:maternity_leave_and_pay_result)
@@ -208,8 +208,8 @@ checkbox_question :what_days_does_the_employee_work? do
   (0...days_of_the_week.size).each { |i| option i.to_s.to_sym }
 
   calculate :last_day_in_week_worked do |response|
-    calculator.work_days = response.split(",").map(&:to_i)
-    calculator.pay_day_in_week = response.split(",").sort.last.to_i
+    calculator.work_days = response.split(',').map(&:to_i)
+    calculator.pay_day_in_week = response.split(',').sort.last.to_i
   end
   next_node :maternity_leave_and_pay_result
 end
@@ -258,13 +258,13 @@ outcome :maternity_leave_and_pay_result do
     )
   end
   precalculate :smp_a do
-    sprintf("%.2f", calculator.statutory_maternity_rate_a)
+    sprintf('%.2f', calculator.statutory_maternity_rate_a)
   end
   precalculate :smp_b do
-    sprintf("%.2f", calculator.statutory_maternity_rate_b)
+    sprintf('%.2f', calculator.statutory_maternity_rate_b)
   end
   precalculate :lower_earning_limit do
-    sprintf("%.2f", calculator.lower_earning_limit)
+    sprintf('%.2f', calculator.lower_earning_limit)
   end
 
   precalculate :notice_request_pay do
@@ -286,7 +286,7 @@ outcome :maternity_leave_and_pay_result do
 
   precalculate :total_smp do
     unless not_entitled_to_pay_reason.present?
-      sprintf("%.2f", calculator.total_statutory_pay)
+      sprintf('%.2f', calculator.total_statutory_pay)
     end
   end
 
