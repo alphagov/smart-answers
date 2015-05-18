@@ -20,6 +20,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   inherits-someone-dies-without-will
   legalisation-document-checker
   maternity-paternity-calculator
+  minimum-wage-calculator-employers
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
