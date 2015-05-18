@@ -6,6 +6,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   benefit-cap-calculator
   benefits-abroad
   benefits-if-you-are-abroad
+  calculate-agricultural-holiday-entitlement
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
