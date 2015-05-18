@@ -1,3 +1,5 @@
+require "smart_answer_flows/additional-commodity-code"
+
 module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
@@ -51,10 +53,16 @@ module SmartAnswer
     end
 
     def build_flow(name)
-      absolute_path = @load_path.join("#{name}.rb").to_s
-      Flow.new do
-        eval(File.read(absolute_path), binding, absolute_path)
-        name(name)
+      if name == 'additional-commodity-code'
+        flow = AdditionalCommodityCode.new
+        flow.define
+        flow
+      else
+        absolute_path = @load_path.join("#{name}.rb").to_s
+        Flow.new do
+          eval(File.read(absolute_path), binding, absolute_path)
+          name(name)
+        end
       end
     end
 
