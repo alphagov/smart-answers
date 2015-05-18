@@ -8,6 +8,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   benefits-if-you-are-abroad
   calculate-agricultural-holiday-entitlement
   calculate-married-couples-allowance
+  calculate-state-pension
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
