@@ -1,3 +1,47 @@
+SMART_ANSWER_FLOW_NAMES = %w(
+  additional-commodity-code
+  am-i-getting-minimum-wage
+  appeal-a-benefits-decision
+  apply-tier-4-visa
+  benefit-cap-calculator
+  benefits-abroad
+  benefits-if-you-are-abroad
+  calculate-agricultural-holiday-entitlement
+  calculate-married-couples-allowance
+  calculate-state-pension
+  calculate-your-child-maintenance
+  calculate-your-holiday-entitlement
+  check-uk-visa-v2
+  check-uk-visa
+  childcare-costs-for-tax-credits
+  energy-grants-calculator
+  estimate-self-assessment-penalties
+  help-if-you-are-arrested-abroad
+  inherits-someone-dies-without-will
+  legalisation-document-checker
+  maternity-paternity-calculator
+  minimum-wage-calculator-employers
+  overseas-passports
+  pip-checker
+  plan-adoption-leave
+  register-a-birth
+  register-a-death
+  report-a-lost-or-stolen-passport
+  simplified-expenses-checker-v2
+  simplified-expenses-checker
+  state-pension-through-partner
+  state-pension-topup
+  student-finance-calculator
+  towing-rules
+  uk-benefits-abroad-v2
+  uk-benefits-abroad
+  vat-payment-deadlines
+)
+
+SMART_ANSWER_FLOW_NAMES.each do |name|
+  require "smart_answer_flows/#{name}"
+end
+
 module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
@@ -51,10 +95,18 @@ module SmartAnswer
     end
 
     def build_flow(name)
-      absolute_path = @load_path.join("#{name}.rb").to_s
-      Flow.new do
-        eval(File.read(absolute_path), binding, absolute_path)
-        name(name)
+      if SMART_ANSWER_FLOW_NAMES.include?(name)
+        class_prefix = name.gsub("-", "_").camelize
+        namespaced_class = "SmartAnswer::#{class_prefix}Flow".constantize
+        flow = namespaced_class.new
+        flow.define
+        flow
+      else
+        absolute_path = @load_path.join("#{name}.rb").to_s
+        Flow.new do
+          eval(File.read(absolute_path), binding, absolute_path)
+          name(name)
+        end
       end
     end
 
