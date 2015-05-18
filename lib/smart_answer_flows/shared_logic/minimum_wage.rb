@@ -116,9 +116,9 @@ value_question :how_often_did_you_get_paid? do
 end
 
 # Q5
-value_question :how_many_hours_do_you_work? do
+value_question :how_many_hours_do_you_work?, parse: Float do
   calculate :basic_hours do |response|
-    basic_hours = Float(response)
+    basic_hours = response
     if basic_hours < 0 or basic_hours > (pay_frequency * 16)
       raise SmartAnswer::InvalidResponse, :error_hours
     end
@@ -128,9 +128,9 @@ value_question :how_many_hours_do_you_work? do
 end
 
 # Q5 Past
-value_question :how_many_hours_did_you_work? do
+value_question :how_many_hours_did_you_work?, parse: Float do
   calculate :basic_hours do |response|
-    basic_hours = Float(response)
+    basic_hours = response
     if basic_hours < 0 or basic_hours > (pay_frequency * 16)
       raise SmartAnswer::InvalidResponse, :error_hours
     end
@@ -182,10 +182,10 @@ money_question :how_much_were_you_paid_during_pay_period? do
 end
 
 # Q7
-value_question :how_many_hours_overtime_do_you_work? do
+value_question :how_many_hours_overtime_do_you_work?, parse: Float do
 
   calculate :overtime_hours do |response|
-    overtime_hours = Float(response)
+    overtime_hours = response
     if overtime_hours < 0
       raise SmartAnswer::InvalidResponse
     end
@@ -202,11 +202,11 @@ value_question :how_many_hours_overtime_do_you_work? do
 end
 
 # Q7 Past
-value_question :how_many_hours_overtime_did_you_work? do
+value_question :how_many_hours_overtime_did_you_work?, parse: Float do
   save_input_as :overtime_hours
 
   calculate :overtime_hours do |response|
-    overtime_hours = Float(response)
+    overtime_hours = response
     if overtime_hours < 0
       raise SmartAnswer::InvalidResponse
     end
