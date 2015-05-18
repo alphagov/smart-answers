@@ -139,6 +139,13 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_equal 503, response.status
     end
 
+    should "404 Not Found if request is for an unknown format" do
+      @controller.stubs(:respond_to).raises(ActionController::UnknownFormat)
+
+      get :show, id: 'sample'
+      assert_response :not_found
+    end
+
     should "send slimmer analytics headers" do
       get :show, id: 'sample'
       assert_equal "smart_answer", @response.headers["X-Slimmer-Format"]

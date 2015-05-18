@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_analytics_headers
 
   rescue_from GdsApi::TimedOutException, with: :error_503
+  rescue_from ActionController::UnknownFormat, with: :error_404
 
 protected
 
