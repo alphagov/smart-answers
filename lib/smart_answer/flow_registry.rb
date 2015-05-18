@@ -35,6 +35,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   towing-rules
   uk-benefits-abroad-v2
   uk-benefits-abroad
+  vat-payment-deadlines
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
