@@ -17,6 +17,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   energy-grants-calculator
   estimate-self-assessment-penalties
   help-if-you-are-arrested-abroad
+  inherits-someone-dies-without-will
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
