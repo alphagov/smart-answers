@@ -1,3 +1,9 @@
+SMART_ANSWER_FLOW_NAMES = %w()
+
+SMART_ANSWER_FLOW_NAMES.each do |name|
+  require "smart_answer_flows/#{name}"
+end
+
 module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
@@ -51,10 +57,18 @@ module SmartAnswer
     end
 
     def build_flow(name)
-      absolute_path = @load_path.join("#{name}.rb").to_s
-      Flow.new do
-        eval(File.read(absolute_path), binding, absolute_path)
-        name(name)
+      if SMART_ANSWER_FLOW_NAMES.include?(name)
+        class_prefix = name.gsub("-", "_").camelize
+        namespaced_class = "SmartAnswer::#{class_prefix}Flow".constantize
+        flow = namespaced_class.new
+        flow.define
+        flow
+      else
+        absolute_path = @load_path.join("#{name}.rb").to_s
+        Flow.new do
+          eval(File.read(absolute_path), binding, absolute_path)
+          name(name)
+        end
       end
     end
 
