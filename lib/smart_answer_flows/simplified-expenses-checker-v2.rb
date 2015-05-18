@@ -153,10 +153,10 @@ module SmartAnswer
       end
 
       #Q8 - vehicle private use time
-      value_question :vehicle_business_use_time? do
+      value_question :vehicle_business_use_time?, parse: :to_f do
         # deduct percentage amount from [green_cost] or [dirty_cost] and store as [green_write_off] or [dirty_write_off]
         calculate :business_use_percent do |response|
-          response.to_f
+          response
         end
         calculate :green_vehicle_write_off do
           vehicle_is_green ? Money.new(green_vehicle_price * ( business_use_percent / 100)) : nil
