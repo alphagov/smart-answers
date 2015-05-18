@@ -51,11 +51,9 @@ multiple_choice :were_you_an_apprentice? do
 end
 
 # Q3
-value_question :how_old_are_you? do
+value_question :how_old_are_you?, parse: Integer do
   calculate :age do |response|
-    # Fail-hard cast to Integer here will raise
-    # an exception and show the appropriate error.
-    age = Integer(response)
+    age = response
     if age <= 0 || age > 200
       raise SmartAnswer::InvalidResponse
     end
@@ -71,11 +69,9 @@ value_question :how_old_are_you? do
 end
 
 # Q3 Past
-value_question :how_old_were_you? do
+value_question :how_old_were_you?, parse: Integer do
   calculate :age do |response|
-    # Fail-hard cast to Integer here will raise
-    # an exception and show the appropriate error.
-    age = Integer(response)
+    age = response
     if age <= 0
       raise SmartAnswer::InvalidResponse
     end
@@ -92,9 +88,9 @@ value_question :how_old_were_you? do
 end
 
 # Q4
-value_question :how_often_do_you_get_paid? do
+value_question :how_often_do_you_get_paid?, parse: :to_i do
   calculate :pay_frequency do |response|
-    pay_frequency = response.to_i
+    pay_frequency = response
     if pay_frequency < 1 or pay_frequency > 31
       raise SmartAnswer::InvalidResponse
     end
@@ -104,9 +100,9 @@ value_question :how_often_do_you_get_paid? do
 end
 
 # Q4 Past
-value_question :how_often_did_you_get_paid? do
+value_question :how_often_did_you_get_paid?, parse: :to_i do
   calculate :pay_frequency do |response|
-    pay_frequency = response.to_i
+    pay_frequency = response
     if pay_frequency < 1 or pay_frequency > 31
       raise SmartAnswer::InvalidResponse
     end
@@ -364,12 +360,12 @@ money_question :past_accommodation_charge? do
 end
 
 # Q11
-value_question :current_accommodation_usage? do
+value_question :current_accommodation_usage?, parse: Integer do
 
   save_input_as :accommodation_usage
 
   calculate :calculator do |response|
-    days_per_week = Integer(response)
+    days_per_week = response
     if days_per_week < 0 or days_per_week > 7
       raise SmartAnswer::InvalidResponse
     end
@@ -406,12 +402,12 @@ value_question :current_accommodation_usage? do
 end
 
 # Q11 Past
-value_question :past_accommodation_usage? do
+value_question :past_accommodation_usage?, parse: Integer do
 
   save_input_as :accommodation_usage
 
   calculate :calculator do |response|
-    days_per_week = Integer(response)
+    days_per_week = response
     if days_per_week < 0 or days_per_week > 7
       raise SmartAnswer::InvalidResponse
     end
@@ -440,7 +436,7 @@ value_question :past_accommodation_usage? do
   end
 
   next_node do |response|
-    calculator.accommodation_adjustment(accommodation_charge, Integer(response))
+    calculator.accommodation_adjustment(accommodation_charge, response)
 
     if calculator.historical_adjustment <= 0
       :past_payment_above
