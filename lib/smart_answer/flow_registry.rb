@@ -5,6 +5,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   apply-tier-4-visa
   benefit-cap-calculator
   benefits-abroad
+  benefits-if-you-are-abroad
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
