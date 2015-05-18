@@ -21,6 +21,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   legalisation-document-checker
   maternity-paternity-calculator
   minimum-wage-calculator-employers
+  overseas-passports
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
