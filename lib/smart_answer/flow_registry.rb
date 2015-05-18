@@ -30,6 +30,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   simplified-expenses-checker-v2
   simplified-expenses-checker
   state-pension-through-partner
+  state-pension-topup
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
