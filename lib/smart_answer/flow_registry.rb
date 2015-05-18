@@ -25,6 +25,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   pip-checker
   plan-adoption-leave
   register-a-birth
+  register-a-death
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
