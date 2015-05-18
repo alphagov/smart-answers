@@ -18,6 +18,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   estimate-self-assessment-penalties
   help-if-you-are-arrested-abroad
   inherits-someone-dies-without-will
+  legalisation-document-checker
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
