@@ -3,6 +3,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   am-i-getting-minimum-wage
   appeal-a-benefits-decision
   apply-tier-4-visa
+  benefit-cap-calculator
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
