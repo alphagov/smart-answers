@@ -1,0 +1,44 @@
+require_relative "../test_helper"
+require 'gds_api/test_helpers/content_api'
+
+class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
+  include GdsApi::TestHelpers::ContentApi
+
+  tests SmartAnswersController
+
+  SmartAnswerTestHelper.responses_and_expected_results.each do |file|
+    filename  = File.basename(file, '.yml')
+    flow_name = filename[/(.*)-responses-and-expected-results/, 1]
+
+    smart_answer_helper = SmartAnswerTestHelper.new(flow_name)
+    smart_answer_helper.delete_saved_output_files
+    responses_and_expected_results = smart_answer_helper.read_responses_and_expected_results
+
+    context "Smart Answer: #{flow_name}" do
+      setup do
+        Timecop.freeze(Date.parse('2015-01-01'))
+        stub_content_api_default_artefact
+      end
+
+      teardown do
+        Timecop.return
+      end
+
+      responses_and_expected_results.each do |responses_and_expected_node|
+        responses    = responses_and_expected_node[:responses]
+        outcome_node = responses_and_expected_node[:outcome_node]
+
+        if outcome_node
+          should "render and save output for responses: #{responses.join(', ')}" do
+            get :show, id: flow_name, started: 'y', responses: responses
+
+            path_to_output = smart_answer_helper.save_output(responses, response)
+
+            diff_output = `git diff #{path_to_output}`
+            assert_equal '', diff_output
+          end
+        end
+      end
+    end
+  end
+end
