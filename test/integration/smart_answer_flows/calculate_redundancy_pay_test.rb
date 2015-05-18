@@ -456,6 +456,22 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
       end
     end # After Feb 2013
 
+    context "2015/2016" do
+      should "Use the correct rates" do
+        add_response '2015-05-01'
+        add_response '22'
+        add_response '7'
+        add_response '700'
+        assert_current_node :done
+        assert_state_variable :rate, 475
+        assert_state_variable :ni_rate, 490
+        assert_state_variable :max_amount, "14,250"
+        assert_state_variable :ni_max_amount, "14,700"
+        assert_state_variable :statutory_redundancy_pay, "1,662.50"
+        assert_state_variable :statutory_redundancy_pay_ni, "1,715"
+      end
+    end
+
     context "answer 05 April 2014" do
       setup do
         add_response Date.parse("2014-04-05")
@@ -464,5 +480,6 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
         assert_current_node :age_of_employee?
       end
     end
+
   end
 end
