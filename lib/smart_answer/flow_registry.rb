@@ -27,6 +27,8 @@ SMART_ANSWER_FLOW_NAMES = %w(
   register-a-birth
   register-a-death
   report-a-lost-or-stolen-passport
+  simplified-expenses-checker-v2
+  simplified-expenses-checker
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
