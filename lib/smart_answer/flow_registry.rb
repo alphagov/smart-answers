@@ -1,4 +1,7 @@
-SMART_ANSWER_FLOW_NAMES = %w(additional-commodity-code)
+SMART_ANSWER_FLOW_NAMES = %w(
+  additional-commodity-code
+  am-i-getting-minimum-wage
+)
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
   require "smart_answer_flows/#{name}"
