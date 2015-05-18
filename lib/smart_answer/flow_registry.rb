@@ -26,6 +26,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   plan-adoption-leave
   register-a-birth
   register-a-death
+  report-a-lost-or-stolen-passport
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
