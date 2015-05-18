@@ -68,7 +68,7 @@ end
 group :development do
   gem 'parser'
   gem 'pry'
-  gem 'rubocop'
+  gem 'rubocop', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'nokogiri'
