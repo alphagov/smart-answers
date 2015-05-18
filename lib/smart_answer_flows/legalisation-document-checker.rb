@@ -4,7 +4,7 @@ satisfies_need "101010"
 data_query = SmartAnswer::Calculators::LegalisationDocumentsDataQuery.new
 i18n_prefix = "flow.legalisation-document-checker"
 
-#Q1
+# Q1
 checkbox_question :which_documents_do_you_want_legalised? do
   option "acro-police-certificate"
   option "affidavit"

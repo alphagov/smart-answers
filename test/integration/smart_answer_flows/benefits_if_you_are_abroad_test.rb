@@ -24,7 +24,7 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
       add_response :yes
     end
 
-    #Q3
+    # Q3
     should "ask 'certain countries or specific benefits?' for yes" do
       assert_current_node :certain_countries_or_specific_benefits
     end
@@ -123,7 +123,7 @@ class BenefitsIfYouAreAbroadTest < ActiveSupport::TestCase
           add_response :wfp
         end
 
-        #Q7
+        # Q7
         should "ask 'are you moving to:'" do
           assert_current_node :are_you_moving_to_q7
         end

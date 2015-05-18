@@ -29,7 +29,7 @@ multiple_choice :extending_or_switching? do
   next_node(:sponsor_id?)
 end
 
-#Q2
+# Q2
 value_question :sponsor_id? do
 
   save_input_as :sponsor_id

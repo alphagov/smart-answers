@@ -67,7 +67,7 @@ multiple_choice :uk_employer do
   option no: :answer_13
 end
 
-#Q11
+# Q11
 multiple_choice :eligible_for_maternity_pay do
   option yes: :answer_14
   option no: :answer_13

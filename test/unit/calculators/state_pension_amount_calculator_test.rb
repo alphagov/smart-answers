@@ -668,8 +668,8 @@ module SmartAnswer::Calculators
               gender: "male", dob: Date.parse("1950 Apr 06"))
           @calc_female = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
               gender: "female", dob: Date.parse("1950 Apr 06"))
-          assert_equal Date.parse("06 Apr 2015"), @calc_male.state_pension_date #(:female)
-          assert_equal Date.parse("06 May 2010"), @calc_female.state_pension_date #(:female)
+          assert_equal Date.parse("06 Apr 2015"), @calc_male.state_pension_date # (:female)
+          assert_equal Date.parse("06 May 2010"), @calc_female.state_pension_date # (:female)
         end
 
         should "male/female born 1953 Dec 05" do
@@ -677,8 +677,8 @@ module SmartAnswer::Calculators
               gender: "male", dob: Date.parse("1953 Dec 05"))
           @calc_female = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
               gender: "female", dob: Date.parse("1953 Dec 05"))
-          assert_equal Date.parse("05 Dec 2018"), @calc_male.state_pension_date #(:female)
-          assert_equal Date.parse("06 Nov 2018"), @calc_female.state_pension_date #(:female)
+          assert_equal Date.parse("05 Dec 2018"), @calc_male.state_pension_date # (:female)
+          assert_equal Date.parse("06 Nov 2018"), @calc_female.state_pension_date # (:female)
         end
 
         should "male/female born 1953 Dec 06" do
@@ -686,8 +686,8 @@ module SmartAnswer::Calculators
               gender: "male", dob: Date.parse("1953 Dec 06"))
           @calc_female = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
               gender: "female", dob: Date.parse("1953 Dec 06"))
-          assert_equal Date.parse("06 Mar 2019"), @calc_male.state_pension_date #(:female)
-          assert_equal Date.parse("06 Mar 2019"), @calc_female.state_pension_date #(:female)
+          assert_equal Date.parse("06 Mar 2019"), @calc_male.state_pension_date # (:female)
+          assert_equal Date.parse("06 Mar 2019"), @calc_female.state_pension_date # (:female)
         end
       end
 
@@ -698,7 +698,7 @@ module SmartAnswer::Calculators
           @calc_female = SmartAnswer::Calculators::StatePensionAmountCalculator.new(
               gender: "female", dob: Date.parse("1953 Dec 05"))
           assert_equal Date.parse("06 Nov 2018"), @calc_male.state_pension_date(:female)
-          assert_equal Date.parse("06 Nov 2018"), @calc_female.state_pension_date #(:female)
+          assert_equal Date.parse("06 Nov 2018"), @calc_female.state_pension_date # (:female)
         end
       end
     end

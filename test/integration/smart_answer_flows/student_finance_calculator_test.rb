@@ -78,7 +78,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
                 assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan, :maintenance_grant]
                 assert_state_variable :tuition_fee_amount, 7500
                 assert_state_variable :max_maintenance_loan_amount, 4565
-                assert_state_variable :maintenance_loan_amount, 2872 #4565 - (maintenance_grant_amount/2.0).floor
+                assert_state_variable :maintenance_loan_amount, 2872 # 4565 - (maintenance_grant_amount/2.0).floor
                 assert_state_variable :maintenance_grant_amount, 3387
                 assert_phrase_list :students_body_text, [:uk_students_body_text_start]
                 assert_phrase_list :uk_full_time_students, [:additional_benefits, :"children_under_17_2015-2016", :"dependant_adult_2015-2016", :has_disability, :low_income, :teacher_training, :uk_students_body_text_end]

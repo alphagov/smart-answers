@@ -1,6 +1,6 @@
 require_relative '../../test_helper'
 
-#TODO Other contexts
+# TODO Other contexts
 
 module SmartAnswer::Calculators
   class ChildcareCostCalculatorTest < ActiveSupport::TestCase

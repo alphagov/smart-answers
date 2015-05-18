@@ -68,7 +68,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       context "answer 21 November 2012" do
         setup do
           @dd = Date.parse("21 November 2012")
-          #FIXME qw should be 15 weeks before due date...
+          # FIXME qw should be 15 weeks before due date...
    @qw = 15.weeks.ago(@dd - @dd.wday)..15.weeks.ago((@dd - @dd.wday) + 6)
           add_response @dd
         end
@@ -140,7 +140,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       ## QM5.5
                       should "ask what the employees earnings are for the period" do
                         assert_current_node :earnings_for_pay_period?
-                        ##TODO relevant period calculation
+                        # #TODO relevant period calculation
                         assert_state_variable :pay_pattern, 'weekly'
                       end
 
@@ -315,9 +315,9 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                   assert_current_node :maternity_leave_and_pay_result
                   assert_phrase_list :maternity_pay_info, [:not_entitled_to_smp_intro, :must_be_on_payroll, :not_entitled_to_smp_outro]
                 end
-              end #answer no to QM5 on payroll
+              end # answer no to QM5 on payroll
 
-            end #answer yes to QM4
+            end # answer yes to QM4
             context "answer no" do
               should "state that you they are not entitled to pay" do
                 add_response :no

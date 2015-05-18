@@ -60,7 +60,7 @@ module SmartdownAdapter
       presenters_for_previous_nodes
     end
 
-    #COPY/PASTE from old presenter
+    # COPY/PASTE from old presenter
     def artefact
       @artefact ||= content_api.artefact(name)
     rescue GdsApi::HTTPErrorResponse
@@ -131,7 +131,7 @@ module SmartdownAdapter
         responses << request[:response]
       end
 
-      #get form submission request: for multiple responses
+      # get form submission request: for multiple responses
       if request[:next]
         (@previous_smartdown_state.current_node.questions.count - responses.count).times do |index|
           responses << request.query_parameters["response_#{index+1}"] || nil

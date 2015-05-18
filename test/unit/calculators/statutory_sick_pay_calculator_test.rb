@@ -150,7 +150,7 @@ module SmartAnswer::Calculators
       should "have a max of 140 days payable" do
         assert_equal @calculator.days_to_pay, 140
         assert_equal @calculator.normal_workdays, 175
-        assert_equal @calculator.ssp_payment, 2403.80 #140 * 17.1700 or 28 * 85.85
+        assert_equal @calculator.ssp_payment, 2403.80 # 140 * 17.1700 or 28 * 85.85
       end
     end
 
@@ -162,7 +162,7 @@ module SmartAnswer::Calculators
       should "have a max of 84 days payable" do
         assert_equal @calculator.days_to_pay, 84
         assert_equal @calculator.normal_workdays, 105
-        assert_equal @calculator.ssp_payment, 2403.80 #28 weeks at 85.85 a week
+        assert_equal @calculator.ssp_payment, 2403.80 # 28 weeks at 85.85 a week
       end
     end
 

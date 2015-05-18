@@ -4,7 +4,7 @@ require 'benchmark'
 require 'filesize'
 require_relative "memory.rb"
 
-#Don't ask
+# Don't ask
 module Rails
   def self.root
     Pathname.new `pwd`.chomp

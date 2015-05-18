@@ -79,7 +79,7 @@ multiple_choice :purpose_of_visit? do
   end
 end
 
-#Q3
+# Q3
 multiple_choice :planning_to_leave_airport? do
   option :yes
   option :no
@@ -97,28 +97,28 @@ multiple_choice :planning_to_leave_airport? do
   end
 end
 
-#Q4
+# Q4
 multiple_choice :staying_for_how_long? do
   option :six_months_or_less
   option :longer_than_six_months
   save_input_as :period_of_staying
 
   on_condition(responded_with('longer_than_six_months')) do
-    next_node_if(:outcome_study_y) { purpose_of_visit_answer == 'study' } #outcome 2 study y
-    next_node_if(:outcome_work_y) { purpose_of_visit_answer == 'work' } #outcome 4 work y
+    next_node_if(:outcome_study_y) { purpose_of_visit_answer == 'study' } # outcome 2 study y
+    next_node_if(:outcome_work_y) { purpose_of_visit_answer == 'work' } # outcome 4 work y
   end
   on_condition(responded_with('six_months_or_less')) do
     on_condition(->(_) { purpose_of_visit_answer == 'study' }) do
-      #outcome 12 visit outcome_visit_waiver
+      # outcome 12 visit outcome_visit_waiver
       next_node_if(:outcome_visit_waiver) { %w(oman qatar united-arab-emirates).include?(passport_country) }
       next_node_if(:outcome_taiwan_exception) { %w(taiwan).include?(passport_country) }
-      #outcome 3 study m visa needed short courses
+      # outcome 3 study m visa needed short courses
       next_node_if(:outcome_study_m) { (country_group_datv + country_group_visa_national).include?(passport_country) }
-      #outcome 1 no visa needed
+      # outcome 1 no visa needed
       next_node_if(:outcome_no_visa_needed) { (country_group_ukot + country_group_non_visa_national).include?(passport_country) }
     end
     on_condition(->(_) { purpose_of_visit_answer == 'work' }) do
-      #outcome 5.5 work N no visa needed
+      # outcome 5.5 work N no visa needed
       next_node_if(:outcome_work_n) {
         ( (country_group_ukot +
           country_group_non_visa_national) |

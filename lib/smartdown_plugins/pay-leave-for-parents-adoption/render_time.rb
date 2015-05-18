@@ -4,7 +4,7 @@ require 'smartdown/model/answer/date'
 module SmartdownPlugins
   module PayLeaveForParentsAdoption
 
-    #Flow helpers
+    # Flow helpers
 
     def self.qualifies_for_14_week_maternity_allowance?(employment_status_1, employment_status_2)
       employment_status_2 == 'self-employed' && employment_status_1 == 'unemployed'
@@ -47,23 +47,23 @@ module SmartdownPlugins
       earnings_employment(earnings_employment_2, work_employment_2)
     end
 
-    #Continuity test
+    # Continuity test
     def self.continuity(job_before, job_after)
       job_before == "yes" && job_after == "yes"
     end
 
-    #Lower earnings test: person has earned more than
-    #the lower earnings limit
+    # Lower earnings test: person has earned more than
+    # the lower earnings limit
     def self.lower_earnings(lel)
       lel == "yes"
     end
 
-    #Earnings and employment test
+    # Earnings and employment test
     def self.earnings_employment(earnings_employment, work_employment)
       earnings_employment == "yes" && work_employment == "yes"
     end
 
-    #Date calculations
+    # Date calculations
 
     def self.continuity_start_date(date)
       build_date_answer(saturday_before(date.value - 39.weeks))
@@ -121,7 +121,7 @@ module SmartdownPlugins
       build_date_answer(sunday_before(date.value - 11.weeks))
     end
 
-    #Money calculations
+    # Money calculations
 
     def self.rate_of_maternity_allowance(salary_1_66_weeks)
       build_money_answer(nine_tenths_weekly_salary_capped(salary_1_66_weeks))

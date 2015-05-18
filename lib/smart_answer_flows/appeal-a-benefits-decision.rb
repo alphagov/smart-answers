@@ -11,9 +11,9 @@ end
 
 # Q2
 multiple_choice :problem_with_tribunal_proceedure? do
-  option missing_doc_or_not_present: :you_can_challenge_decision #A1
-  option mistake_in_law: :can_appeal_to_upper_tribunal #A2
-  option none: :cant_challenge_or_appeal #A3
+  option missing_doc_or_not_present: :you_can_challenge_decision # A1
+  option mistake_in_law: :can_appeal_to_upper_tribunal # A2
+  option none: :cant_challenge_or_appeal # A3
 end
 
 # Q3
@@ -150,15 +150,15 @@ multiple_choice :kind_of_benefit_or_credit? do
   option other_credit_or_benefit: :appeal_to_social_security
 end
 
-outcome :you_can_challenge_decision #A1
-outcome :can_appeal_to_upper_tribunal #A2
-outcome :cant_challenge_or_appeal #A3
-outcome :ask_for_an_explanation #A4
-outcome :cant_appeal #A5
-outcome :ask_to_reconsider #A6
-outcome :apply_to_the_independent_review_service #A7
-#A8 - removed
-outcome :appeal_to_your_council #A9
-#A10 - removed
-outcome :appeal_to_hmrc_ch24a #A11
-outcome :appeal_to_social_security #A12
+outcome :you_can_challenge_decision # A1
+outcome :can_appeal_to_upper_tribunal # A2
+outcome :cant_challenge_or_appeal # A3
+outcome :ask_for_an_explanation # A4
+outcome :cant_appeal # A5
+outcome :ask_to_reconsider # A6
+outcome :apply_to_the_independent_review_service # A7
+# A8 - removed
+outcome :appeal_to_your_council # A9
+# A10 - removed
+outcome :appeal_to_hmrc_ch24a # A11
+outcome :appeal_to_social_security # A12

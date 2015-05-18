@@ -8,7 +8,7 @@ module SmartdownAdapter
       @smartdown_previous_question = smartdown_previous_question
     end
 
-    #TODO
+    # TODO
     def multiple_responses?
       false
     end

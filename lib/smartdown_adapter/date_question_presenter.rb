@@ -1,8 +1,8 @@
 module SmartdownAdapter
   class DateQuestionPresenter < SmartdownAdapter::QuestionPresenter
-    #TODO: range should be specified in smartdown and taken from there
-    #these are only defaults
-    #in the future we will want to specify in smartdown start/end etc,,,
+    # TODO: range should be specified in smartdown and taken from there
+    # these are only defaults
+    # in the future we will want to specify in smartdown start/end etc,,,
     def defaulted_day?
       false
     end

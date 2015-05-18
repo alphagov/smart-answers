@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
     end
 
     def late_filing_penalty
-      #Less than 6 months
+      # Less than 6 months
       if overdue_filing_days <= 0
         result = 0
       elsif submission_method == "online"
@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
           result = 100
         elsif overdue_filing_days <= 181
           result = (overdue_filing_days - 89) * 10 + 100
-          #this fine can't be more than 1000£
+          # this fine can't be more than 1000£
           if result > 1000
             result = 1000
           end
@@ -25,22 +25,22 @@ module SmartAnswer::Calculators
           result = 100
         elsif overdue_filing_days <= 181
           result = (overdue_filing_days - 92) * 10 + 100
-          #this fine can't be more than 1000£
+          # this fine can't be more than 1000£
           if result > 1000
             result = 1000
           end
         end
       end
 
-      #More than 6 months, same for paper and online return
+      # More than 6 months, same for paper and online return
       if (overdue_filing_days > 181) && (overdue_filing_days <= 365)
-        #if 5% of tax due is higher than 300£ then charge 5% of tax due otherwise charge 300£
+        # if 5% of tax due is higher than 300£ then charge 5% of tax due otherwise charge 300£
         if estimated_bill.value > 6002
           result = 1000 + (estimated_bill.value * 0.05)
         else
           result = 1000 + 300
         end
-        #if more than 1 year
+        # if more than 1 year
       elsif overdue_filing_days > 365
         # if 5% of tax due is higher than 300£ then charge 5% of tax due otherwise charge 300£ + all other fines
         if estimated_bill.value > 6002
@@ -121,7 +121,7 @@ module SmartAnswer::Calculators
       dates[:penalty3date][tax_year.to_sym]
     end
 
-    #interest is 3% per annum
+    # interest is 3% per annum
     def calculate_interest(amount, number_of_days)
       (amount * (0.03 / 365) * (number_of_days - 1)).round(10)
     end

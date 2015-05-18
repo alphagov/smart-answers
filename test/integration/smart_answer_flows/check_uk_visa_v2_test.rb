@@ -473,7 +473,7 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
     end
   end
 
-  #testing canada - all groupings AND NON visa national outcome - study AND work - less AND more than 6 months
+  # testing canada - all groupings AND NON visa national outcome - study AND work - less AND more than 6 months
   context "testing canada" do
     setup do
       add_response "canada"
@@ -508,7 +508,7 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
           assert_phrase_list :no_visa_additional_sentence, [:study_additional_sentence]
         end
       end
-    end #end canada study reason
+    end # end canada study reason
 
     context "testing work reason" do
       setup do
@@ -536,10 +536,10 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
           assert_current_node :outcome_work_n
         end
       end
-    end #end canada work reason
-  end #end canada - NON visa country
+    end # end canada work reason
+  end # end canada - NON visa country
 
-  #testing armenia - visa national outcome - study AND work
+  # testing armenia - visa national outcome - study AND work
   context "testing armenia" do
     setup do
       add_response "armenia"
@@ -567,9 +567,9 @@ class CheckUkVisaV2Test < ActiveSupport::TestCase
         assert_current_node :outcome_work_m
       end
     end
-  end #end armenia -  visa country
+  end # end armenia -  visa country
 
-  #testing venezuela - oman - qatar - UAE
+  # testing venezuela - oman - qatar - UAE
   context "testing venezuela special outcome - study - less or six months" do
     setup do
       add_response "oman"

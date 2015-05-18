@@ -30,7 +30,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
         end
       end
     end
-  end #end married old old
+  end # end married old old
 
   context "widow" do
     setup { add_response "widowed" }
@@ -66,8 +66,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
     end
   end
 
-  #START OF QUICK TESTS
-  #current_rules_no_additional_pension
+  # START OF QUICK TESTS
+  # current_rules_no_additional_pension
   context "old1 old2 old3 == current_rules_no_additional_pension" do
     setup do
       add_response "married"
@@ -102,8 +102,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_phrase_list :result_phrase, [:current_rules_no_additional_pension, :increase_retirement_income]
     end
   end
-  #end current_rules_no_additional_pension
-  #current_rules_and_additional_pension
+  # end current_rules_no_additional_pension
+  # current_rules_and_additional_pension
   context "widow old2 old3== current_rules_and_additional_pension" do
     setup do
       add_response "widowed"
@@ -113,8 +113,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_current_node :final_outcome
       assert_phrase_list :result_phrase, [:current_rules_and_additional_pension, :increase_retirement_income]
     end
-  end #end current_rules_and_additional_pension
-  #current_rules_national_insurance_no_state_pension
+  end # end current_rules_and_additional_pension
+  # current_rules_national_insurance_no_state_pension
   context "old1 old2 new3 == current_rules_national_insurance_no_state_pension" do
     setup do
       add_response "married"
@@ -125,9 +125,9 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_current_node :final_outcome
       assert_phrase_list :result_phrase, [:current_rules_national_insurance_no_state_pension, :increase_retirement_income]
     end
-  end #end current_rules_national_insurance_no_state_pension
-  #current_rules_national_insurance_and_state_pension
-  #married_woman_no_state_pension
+  end # end current_rules_national_insurance_no_state_pension
+  # current_rules_national_insurance_and_state_pension
+  # married_woman_no_state_pension
   context "old1 new2 new3 == married_woman_no_state_pension" do
     setup do
       add_response "married"
@@ -163,8 +163,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_current_node :final_outcome
       assert_phrase_list :result_phrase, [:married_woman_no_state_pension, :increase_retirement_income]
     end
-  end#end married_woman_no_state_pension
-  #married_woman_and_state_pension
+  end# end married_woman_no_state_pension
+  # married_woman_and_state_pension
   context "widow new2 old3 female_gender == married_woman_and_state_pension" do
     setup do
       add_response "widowed"
@@ -186,8 +186,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_current_node :final_outcome
       assert_phrase_list :result_phrase, [:married_woman_and_state_pension, :increase_retirement_income]
     end
-  end #end married_woman_and_state_pension
-  #impossibility_to_increase_pension
+  end # end married_woman_and_state_pension
+  # impossibility_to_increase_pension
   context "widow new2 new3 male_gender == impossibility_to_increase_pension" do
     setup do
       add_response "widowed"
@@ -198,7 +198,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_current_node :final_outcome
       assert_phrase_list :result_phrase, [:impossibility_to_increase_pension, :increase_retirement_income]
     end
-  end  #end impossibility_to_increase_pension
+  end  # end impossibility_to_increase_pension
   context "divorced woman" do
     setup do
       add_response "divorced"

@@ -96,8 +96,8 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       setup do
         add_response "no"
         add_response "no"
-        add_response "1000" #vehicle_costs
-        add_response "2000" #simple_vehicle_costs
+        add_response "1000" # vehicle_costs
+        add_response "2000" # simple_vehicle_costs
       end
 
       should "take you to result 2 - main result" do
@@ -118,10 +118,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "new green vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
         add_response "yes"
-        add_response "yes" #green
-        add_response "10000" #green_vehicle_price
-        add_response "80" #green_vehicle_write_off
-        add_response "2000" #simple_vehicle_costs
+        add_response "yes" # green
+        add_response "10000" # green_vehicle_price
+        add_response "80" # green_vehicle_write_off
+        add_response "2000" # simple_vehicle_costs
       end
 
       should "take you to result 2 - main result" do
@@ -144,10 +144,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "new dirty vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
         add_response "yes"
-        add_response "no" #dirty
-        add_response "10000" #dirty_vehicle_price
-        add_response "80" #dirty_vehicle_write_off
-        add_response "2000" #simple_vehicle_costs
+        add_response "no" # dirty
+        add_response "10000" # dirty_vehicle_price
+        add_response "80" # dirty_vehicle_write_off
+        add_response "2000" # simple_vehicle_costs
       end
 
       should "take you to result 2 - main result" do
@@ -195,8 +195,8 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "not buying new vehicle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
         add_response "no"
-        add_response "1000" #vehicle_costs
-        add_response "2000" #simple_vehicle_costs
+        add_response "1000" # vehicle_costs
+        add_response "2000" # simple_vehicle_costs
       end
 
       should "take you to result 2 - main result" do
@@ -216,10 +216,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "new green vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
         add_response "yes"
-        add_response "yes" #green
-        add_response "10000" #green_vehicle_price
-        add_response "80" #green_vehicle_write_off
-        add_response "2000" #simple_vehicle_costs
+        add_response "yes" # green
+        add_response "10000" # green_vehicle_price
+        add_response "80" # green_vehicle_write_off
+        add_response "2000" # simple_vehicle_costs
       end
 
       should "take you to result 2 - main result" do
@@ -241,10 +241,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "new dirty vehicle costs 10000, 80% of time on business, expect to drive 12000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
         add_response "yes"
-        add_response "no" #dirty
-        add_response "10000" #dirty_vehicle_price
-        add_response "80" #dirty_vehicle_write_off
-        add_response "12000" #simple_vehicle_costs
+        add_response "no" # dirty
+        add_response "10000" # dirty_vehicle_price
+        add_response "80" # dirty_vehicle_write_off
+        add_response "12000" # simple_vehicle_costs
       end
 
       should "take you to result 2 - main result" do
@@ -266,10 +266,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "new green vehicle costs 260000, 100% of time on business, expect to drive 2000 miles, (Q3, Q6, Q7, Q8, Q9, result 2)" do
       setup do
         add_response "yes"
-        add_response "yes" #green
-        add_response "260000" #green_vehicle_price
-        add_response "100" #green_vehicle_write_off
-        add_response "2000" #simple_vehicle_costs
+        add_response "yes" # green
+        add_response "260000" # green_vehicle_price
+        add_response "100" # green_vehicle_write_off
+        add_response "2000" # simple_vehicle_costs
       end
 
       should "take you to result 2 - main result" do
@@ -300,8 +300,8 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       setup do
         add_response "no"
         add_response "no"
-        add_response "1000" #vehicle_costs
-        add_response "2000" #simple_motorcycle_costs
+        add_response "1000" # vehicle_costs
+        add_response "2000" # simple_motorcycle_costs
       end
 
       should "take you to result 2 - main result" do
@@ -321,10 +321,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "new green motorcycle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q6, Q7, Q8, Q10 result 2)" do
       setup do
         add_response "yes"
-        add_response "yes" #green
-        add_response "10000" #green_vehicle_price
-        add_response "80" #green_vehicle_write_off
-        add_response "2000" #simple_motorcycle_costs
+        add_response "yes" # green
+        add_response "10000" # green_vehicle_price
+        add_response "80" # green_vehicle_write_off
+        add_response "2000" # simple_motorcycle_costs
       end
 
       should "take you to result 2 - main result" do
@@ -345,10 +345,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "new dirty motorcycle costs 5000, 80% of time on business, expect to drive 2000 miles, (Q3, Q6, Q7, Q8, Q10 result 2)" do
       setup do
         add_response "yes"
-        add_response "no" #dirty
-        add_response '10000' #dirty_vehicle_price
-        add_response "80" #dirty_vehicle_write_off
-        add_response "2000" #simple_motorcycle_costs
+        add_response "no" # dirty
+        add_response '10000' # dirty_vehicle_price
+        add_response "80" # dirty_vehicle_write_off
+        add_response "2000" # simple_motorcycle_costs
       end
 
       should "take you to result 2 - main result" do
@@ -372,8 +372,8 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     setup do
       add_response "yes"
       add_response "using_home_for_business"
-      add_response "120" #simple_home_costs
-      add_response "1000" #home_costs
+      add_response "120" # simple_home_costs
+      add_response "1000" # home_costs
     end
 
     should "take you to the results" do
@@ -393,8 +393,8 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     setup do
       add_response "yes"
       add_response "live_on_business_premises"
-      add_response "1000" #business_premises_cost
-      add_response "4" #simple_business_costs
+      add_response "1000" # business_premises_cost
+      add_response "4" # simple_business_costs
     end
 
     should "take you to the results" do
@@ -415,12 +415,12 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "car_or_van,using_home_for_business"
       add_response "yes"
-      add_response "yes" #green
-      add_response "10000" #green_vehicle_price
-      add_response "80" #green_write_off
-      add_response "2000" #simple_vehicle_costs
-      add_response "120" #simple_home_costs
-      add_response "1000" #home_costs
+      add_response "yes" # green
+      add_response "10000" # green_vehicle_price
+      add_response "80" # green_write_off
+      add_response "2000" # simple_vehicle_costs
+      add_response "120" # simple_home_costs
+      add_response "1000" # home_costs
     end
 
     should "take you to the results" do
@@ -447,11 +447,11 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "motorcycle,live_on_business_premises"
       add_response "no"
-      add_response "no" #capital_allowance_claimed
-      add_response "1000" #vehicle_costs
-      add_response "1000" #simple_motorcycle_costs
-      add_response "2000" #business_premises_cost
-      add_response "2" #simple_business_costs
+      add_response "no" # capital_allowance_claimed
+      add_response "1000" # vehicle_costs
+      add_response "1000" # simple_motorcycle_costs
+      add_response "2000" # business_premises_cost
+      add_response "2" # simple_business_costs
     end
     should "take you to the results" do
       assert_current_node :you_can_use_result

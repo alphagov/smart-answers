@@ -24,7 +24,7 @@ multiple_choice :which_benefit? do
   option iidb: :already_claiming_iidb? # Q22
   option ssp: :which_country_ssp? # Q31
   option esa: :how_long_are_you_abroad_for_esa? # Q23
-  #option :disability_benefits => # Q26 # Leave for now.
+  # option :disability_benefits => # Q26 # Leave for now.
   option bereavement_benefits: :which_country_bereavement? # Q32
   option tax_credits: :eligible_for_tax_credits? # Q16
 end
@@ -98,7 +98,7 @@ end
 # Q8
 multiple_choice :eligible_for_maternity_pay? do
   option yes: :smp_outcome # A9
-  option no: :smp_not_entitled #A8
+  option no: :smp_not_entitled # A8
 end
 # Q9, Q10
 multiple_choice :employer_paying_ni? do

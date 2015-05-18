@@ -4,7 +4,7 @@ require 'smartdown/model/answer/date'
 module SmartdownPlugins
   module PayLeaveForParents
 
-    #Uprate helpers
+    # Uprate helpers
 
     def self.lower_earnings_amount(due_date)
       start_date = lower_earnings_start_date(due_date)
@@ -43,25 +43,25 @@ module SmartdownPlugins
       date_in_39_week_range?(2015, 2016, date)
     end
 
-    #Flow helpers
+    # Flow helpers
 
-    #Continuity test
+    # Continuity test
     def self.continuity(job_before, job_after)
       job_before == "yes" && job_after == "yes"
     end
 
-    #Lower earnings test: person has earned more than
-    #the lower earnings limit
+    # Lower earnings test: person has earned more than
+    # the lower earnings limit
     def self.lower_earnings(lel)
       lel == "yes"
     end
 
-    #Earnings and employment test
+    # Earnings and employment test
     def self.earnings_employment(earnings_employment, work_employment)
       earnings_employment == "yes" && work_employment == "yes"
     end
 
-    #Date calculations
+    # Date calculations
 
     def self.continuity_start_date(date)
       build_date_answer(saturday_before(date.value - 39.weeks))
@@ -119,7 +119,7 @@ module SmartdownPlugins
       build_date_answer(sunday_before(date.value - 11.weeks))
     end
 
-    #Money calculations
+    # Money calculations
 
     def self.rate_of_maternity_allowance(salary_1_66_weeks, due_date)
       build_money_answer(nine_tenths_weekly_salary_capped(salary_1_66_weeks, due_date))

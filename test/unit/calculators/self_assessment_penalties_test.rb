@@ -95,7 +95,7 @@ module SmartAnswer::Calculators
           assert_equal 500, @calculator.late_payment_penalty
           # should calculate PenaltyInterest1
           @calculator.payment_date = Date.parse("2013-04-02")
-          assert_equal 49.32, @calculator.interest #50.14 + 0.04 penalty interest
+          assert_equal 49.32, @calculator.interest # 50.14 + 0.04 penalty interest
           # one day before late payment penalty 2
           @calculator.payment_date = Date.parse("2013-08-01")
           assert_equal 1000, @calculator.late_payment_penalty

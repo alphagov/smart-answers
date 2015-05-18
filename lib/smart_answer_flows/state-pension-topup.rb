@@ -3,7 +3,7 @@ satisfies_need "100865"
 
 calculator = Calculators::StatePensionTopupCalculator.new
 
-#Q1
+# Q1
 date_question :dob_age? do
   from { 110.years.ago }
   to { Date.today - 18.years }
@@ -23,7 +23,7 @@ date_question :dob_age? do
   next_node :gender?
 end
 
-#Q2
+# Q2
 multiple_choice :gender? do
   option :male
   option :female
@@ -39,7 +39,7 @@ multiple_choice :gender? do
   next_node :how_much_extra_per_week?
 end
 
-#Q3
+# Q3
 money_question :how_much_extra_per_week? do
   save_input_as :weekly_amount
 
@@ -57,7 +57,7 @@ money_question :how_much_extra_per_week? do
   next_node :outcome_topup_calculations
 end
 
-#A1
+# A1
 outcome :outcome_topup_calculations do
   precalculate :amount_and_age do
     # Only needed for formatting amount
@@ -68,7 +68,7 @@ outcome :outcome_topup_calculations do
     end.join("\n")
   end
 end
-#A2
+# A2
 outcome :outcome_pension_age_not_reached
-#A3
+# A3
 outcome :outcome_age_limit_reached_birth

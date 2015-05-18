@@ -34,7 +34,7 @@ module SmartAnswer::Calculators
       if @benefits == 'no'
         send("calculate_#{rate_type}_rate_payment")
       else
-        0 #irrelevant what we return, with benefits rate is either nil or flat
+        0 # irrelevant what we return, with benefits rate is either nil or flat
       end
     end
 
@@ -44,7 +44,7 @@ module SmartAnswer::Calculators
       if shared_care_multiplier == 0.5
         reduced_rate_decreased = reduced_rate_decreased - (@number_of_children * SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT)
       end
-      #reduced rate can never be less than 7 pounds
+      # reduced rate can never be less than 7 pounds
       reduced_rate_decreased > SCHEME_BASE_AMOUNT ? reduced_rate_decreased : SCHEME_BASE_AMOUNT
     end
 
@@ -56,11 +56,11 @@ module SmartAnswer::Calculators
       if shared_care_multiplier == 0.5
         basic_rate_decreased = basic_rate_decreased - (@number_of_children * SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT)
       end
-      #basic rate can never be less than 7 pounds
+      # basic rate can never be less than 7 pounds
       basic_rate_decreased > SCHEME_BASE_AMOUNT ? basic_rate_decreased : SCHEME_BASE_AMOUNT
     end
 
-    #only used in the 2012 scheme
+    # only used in the 2012 scheme
     def calculate_basic_plus_rate_payment
       basic_plus_rate = capped_income - (capped_income * relevant_other_child_multiplier)
       basic_qualifying_child_amount = (BASIC_PLUS_RATE_THRESHOLD * basic_rate_multiplier)

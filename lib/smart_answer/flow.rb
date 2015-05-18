@@ -28,7 +28,7 @@ module SmartAnswer
       status == :draft
     end
 
-    #Status for a question being transitioned from smart-answer to smartdown: do not publish
+    # Status for a question being transitioned from smart-answer to smartdown: do not publish
     def transition?
       status == :transition
     end

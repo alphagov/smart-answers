@@ -120,8 +120,8 @@ module SmartdownAdapter
     end
 
     def remove_duplicate_circumstances(line_content_array)
-      #Identical legal circumstances will have different URLs
-      #Omit last element of the line content (URL) to determine unicity
+      # Identical legal circumstances will have different URLs
+      # Omit last element of the line content (URL) to determine unicity
       grouped_line_content = line_content_array.group_by { |line_content| line_content[0..-2] }
       grouped_line_content.values.map(&:first)
     end

@@ -242,7 +242,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
     end
   end # age calculation
 
-  #Amount
+  # Amount
   #
   context "amount calculation" do
     setup do
@@ -494,8 +494,8 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
                         assert_state_variable "state_pension_date", Date.parse("2018 Oct 4th")
                         assert_current_node :amount_result
                       end
-                    end #work
-                  end #carers allowance
+                    end # work
+                  end # carers allowance
                 end # caring
               end # 0 years of child benefit
             end # yes to child benefit
@@ -545,14 +545,14 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         context "when date is 6 April 2013, NI = 15, JSA = 1 received_child_benefit = yes, years_of_benefit = 1" do
           setup do
             Timecop.travel('2013-04-06')
-            add_response 15 #ni
-            add_response 1 #jsa
+            add_response 15 # ni
+            add_response 1 # jsa
             add_response :yes #
-            add_response 1 #benefit
+            add_response 1 # benefit
           end
 
           should "not allow 4 years of caring before 6 April 2014" do
-            add_response 4 #years of caring
+            add_response 4 # years of caring
             assert_current_node_is_error
           end
 
@@ -967,8 +967,8 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
             should "ask if received child benefit" do
               assert_current_node :received_child_benefit?
             end
-          end #years of jsa
-        end #years of NI
+          end # years of jsa
+        end # years of NI
       end # years old
 
       context "answer born Jan 1st 1970" do
@@ -1451,5 +1451,5 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_state_variable :dob, Date.parse("1952-02-29")
       end
     end
-  end #amount calculation
-end #ask which calculation
+  end # amount calculation
+end # ask which calculation

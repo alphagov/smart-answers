@@ -88,11 +88,11 @@ module SmartAnswer::Calculators
         assert_equal 0.11, @calculator.relevant_other_child_multiplier
         assert_equal 0.19, @calculator.basic_rate_multiplier
         assert_equal 0.286, @calculator.shared_care_multiplier
-        assert_equal 63, @calculator.calculate_basic_rate_payment ##62.52 unrounded
+        assert_equal 63, @calculator.calculate_basic_rate_payment # #62.52 unrounded
       end
     end
 
-    #example from p20
+    # example from p20
     context "calculate_basic_plus_rate_payment method" do
       setup do
         @calculator = ChildMaintenanceCalculator.new(2, 'no', 'pay')
@@ -133,7 +133,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    #examples to test fees values
+    # examples to test fees values
     context "collect fees totals are 20% of flat rate for payers" do
       setup do
         @calculator = ChildMaintenanceCalculator.new(2, 'yes', 'pay')

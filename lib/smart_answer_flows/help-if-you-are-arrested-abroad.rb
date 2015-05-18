@@ -5,7 +5,7 @@ arrested_calc = SmartAnswer::Calculators::ArrestedAbroad.new
 prisoner_packs = arrested_calc.data
 exclude_countries = %w(holy-see british-antarctic-territory)
 
-#Q1
+# Q1
 country_select :which_country?, exclude_countries: exclude_countries do
   save_input_as :country
 

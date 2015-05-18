@@ -262,7 +262,7 @@ value_question :years_of_jsa?, parse: Integer do
   calculate :qualifying_years do |response|
     jsa_years = response
     qy = (qualifying_years + jsa_years)
-    raise InvalidResponse if jsa_years < 0 or !(calculator.has_available_years?(qy)) #jsa_years > available_ni_years #70
+    raise InvalidResponse if jsa_years < 0 or !(calculator.has_available_years?(qy)) # jsa_years > available_ni_years #70
     qy
   end
 
@@ -369,7 +369,7 @@ value_question :years_of_caring?, parse: Integer do
 
   precalculate :allowed_caring_years do
     today = Date.today
-    #allow full years from 6 April each year
+    # allow full years from 6 April each year
     (((today.month > 4 or (today.month == 4 and today.day > 5)) ? today.year : today.year - 1) - 2010)
   end
 

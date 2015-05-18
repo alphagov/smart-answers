@@ -9,7 +9,7 @@ namespace :smartanswer_smartdown do
       errors = 0
       helper = SmartdownAdapter::SmartAnswerCompareHelper.new(smartdown_transition_question)
 
-      #Coversheet
+      # Coversheet
       smartanswer_content = helper.get_smartanswer_content
       smartdown_content = helper.get_smartdown_content
       error_message_diff = Diffy::Diff.new(smartanswer_content, smartdown_content, context: 1)
@@ -19,7 +19,7 @@ namespace :smartanswer_smartdown do
         errors+=1
       end
 
-      #First question
+      # First question
       smartanswer_content = helper.get_smartanswer_content(true)
       smartdown_content = helper.get_smartdown_content(true)
       error_message_diff = Diffy::Diff.new(smartanswer_content, smartdown_content, context: 1)
@@ -29,7 +29,7 @@ namespace :smartanswer_smartdown do
         errors+=1
       end
 
-      #All answer scenarios
+      # All answer scenarios
       helper.scenario_answer_sequences.each do |answer_groups|
         flattened_answers = answer_groups.flatten
         smartanswer_content = helper.get_smartanswer_content(true, flattened_answers)

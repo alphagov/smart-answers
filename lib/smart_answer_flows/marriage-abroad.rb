@@ -1065,7 +1065,7 @@ outcome :outcome_os_affirmation do
       phrases << :affirmation_os_all_what_you_need_to_do unless %w(cambodia ecuador morocco ).include? ceremony_country
       phrases << :affirmation_os_uae if ceremony_country == 'united-arab-emirates'
     end
-    #What you need to do section
+    # What you need to do section
     if %w(turkey egypt china).include?(ceremony_country)
       phrases << :what_you_need_to_do
     elsif ceremony_country == 'finland' and partner_nationality == 'partner_irish' and resident_of == 'uk'
@@ -1168,7 +1168,7 @@ outcome :outcome_os_affirmation do
     end
     phrases << :consular_cni_os_all_names_but_germany if ceremony_country == 'cambodia'
 
-    #fee tables
+    # fee tables
     if %w(south-korea thailand turkey vietnam).include?(ceremony_country)
       phrases << :fee_table_affidavit_55
     elsif %w(cambodia ecuador morocco).include? ceremony_country
@@ -1296,7 +1296,7 @@ outcome :outcome_os_other_countries do
   end
 end
 
-#CP outcomes
+# CP outcomes
 outcome :outcome_cp_cp_or_equivalent do
   precalculate :cp_or_equivalent_cp_outcome do
     phrases = PhraseList.new

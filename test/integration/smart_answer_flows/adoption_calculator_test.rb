@@ -145,7 +145,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                             end # last working day of the month
                             context "answer a certain weekday in each month" do
                               setup { add_response "a_certain_week_day_each_month" }
-                              #QP19 - shared with paternity calculator
+                              # QP19 - shared with paternity calculator
                               should "ask what day of the month employee is paid" do
                                 assert_current_node :day_of_the_month_paternity?
                               end

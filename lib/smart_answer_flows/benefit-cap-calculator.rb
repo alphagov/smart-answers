@@ -31,7 +31,7 @@ multiple_choice :working_tax_credit? do
   end
 end
 
-#Q3
+# Q3
 multiple_choice :receiving_exemption_benefits? do
   option :yes
   option :no
@@ -45,7 +45,7 @@ multiple_choice :receiving_exemption_benefits? do
   end
 end
 
-#Q4
+# Q4
 checkbox_question :receiving_non_exemption_benefits? do
   option :bereavement
   option :carers
@@ -89,7 +89,7 @@ checkbox_question :receiving_non_exemption_benefits? do
   end
 end
 
-#Q5a
+# Q5a
 money_question :bereavement_amount? do
 
   calculate :total_benefits do |response|
@@ -101,7 +101,7 @@ money_question :bereavement_amount? do
   end
 end
 
-#Q5b
+# Q5b
 money_question :carers_amount? do
 
   calculate :total_benefits do |response|
@@ -113,7 +113,7 @@ money_question :carers_amount? do
   end
 end
 
-#Q5c
+# Q5c
 money_question :child_benefit_amount? do
 
   calculate :total_benefits do |response|
@@ -125,7 +125,7 @@ money_question :child_benefit_amount? do
   end
 end
 
-#Q5d
+# Q5d
 money_question :child_tax_amount? do
 
   calculate :total_benefits do |response|
@@ -137,7 +137,7 @@ money_question :child_tax_amount? do
   end
 end
 
-#Q5e
+# Q5e
 money_question :esa_amount? do
 
   calculate :total_benefits do |response|
@@ -149,7 +149,7 @@ money_question :esa_amount? do
   end
 end
 
-#Q5f
+# Q5f
 money_question :guardian_amount? do
 
   calculate :total_benefits do |response|
@@ -161,7 +161,7 @@ money_question :guardian_amount? do
   end
 end
 
-#Q5g
+# Q5g
 money_question :incapacity_amount? do
 
   calculate :total_benefits do |response|
@@ -173,7 +173,7 @@ money_question :incapacity_amount? do
   end
 end
 
-#Q5h
+# Q5h
 money_question :income_support_amount? do
 
   calculate :total_benefits do |response|
@@ -185,7 +185,7 @@ money_question :income_support_amount? do
   end
 end
 
-#Q5i
+# Q5i
 money_question :jsa_amount? do
 
   calculate :total_benefits do |response|
@@ -197,7 +197,7 @@ money_question :jsa_amount? do
   end
 end
 
-#Q5j
+# Q5j
 money_question :maternity_amount? do
 
   calculate :total_benefits do |response|
@@ -209,7 +209,7 @@ money_question :maternity_amount? do
   end
 end
 
-#Q5k
+# Q5k
 money_question :sda_amount? do
 
   calculate :total_benefits do |response|
@@ -221,7 +221,7 @@ money_question :sda_amount? do
   end
 end
 
-#Q5l
+# Q5l
 money_question :widowed_mother_amount? do
 
   calculate :total_benefits do |response|
@@ -233,7 +233,7 @@ money_question :widowed_mother_amount? do
   end
 end
 
-#Q5m
+# Q5m
 money_question :widowed_parent_amount? do
 
   calculate :total_benefits do |response|
@@ -245,7 +245,7 @@ money_question :widowed_parent_amount? do
   end
 end
 
-#Q5n
+# Q5n
 money_question :widow_pension_amount? do
 
   calculate :total_benefits do |response|
@@ -257,7 +257,7 @@ money_question :widow_pension_amount? do
   end
 end
 
-#Q5o
+# Q5o
 money_question :widows_aged_amount? do
 
   calculate :total_benefits do |response|
@@ -269,7 +269,7 @@ money_question :widows_aged_amount? do
   end
 end
 
-#Q5p
+# Q5p
 money_question :housing_benefit_amount? do
 
   save_input_as :housing_benefit_amount
@@ -283,7 +283,7 @@ money_question :housing_benefit_amount? do
   end
 end
 
-#Q6
+# Q6
 multiple_choice :single_couple_lone_parent? do
   option :single
   option :couple
@@ -313,7 +313,7 @@ multiple_choice :single_couple_lone_parent? do
   end
 end
 
-##OUTCOMES
+# #OUTCOMES
 
 ## Outcome 1
 outcome :outcome_not_affected_exemptions do

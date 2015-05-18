@@ -1169,7 +1169,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
     end
   end # Venezuela
-  #australia
+  # australia
   context "answer australia, test time phrase" do
     setup do
       worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
@@ -1193,7 +1193,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
     end
   end
-  #china
+  # china
   context "answer china, test time phrase" do
     setup do
       worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))

@@ -76,7 +76,7 @@ value_question :how_many_weeks_at_current_employer?, parse: Integer do
   next_node :done
 
   calculate :holiday_entitlement_days do |response|
-    #Has to be less than a full year
+    # Has to be less than a full year
     if (response > 51)
       raise SmartAnswer::InvalidResponse
     end

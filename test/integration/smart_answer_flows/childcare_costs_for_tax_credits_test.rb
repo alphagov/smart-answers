@@ -58,9 +58,9 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
             add_response :monthly_diff_amount
             assert_current_node :how_much_12_months_2?
           end
-        end #Q5
+        end # Q5
 
-      end #Q3
+      end # Q3
     end
 
     context "answering with no" do
@@ -90,8 +90,8 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
 
         context "answering Q11" do
           setup do
-            add_response :regularly_more_than_year #Q2
-            add_response :yes #Q11
+            add_response :regularly_more_than_year # Q2
+            add_response :yes # Q11
           end
 
           should "be on Q12 if you answer yes to Q11" do
@@ -134,7 +134,7 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
               assert_state_variable :weekly_cost, 1
             end
 
-          end #Q7
+          end # Q7
 
           context "answering Q6" do
             setup do
@@ -149,36 +149,36 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
               assert_state_variable :weekly_cost, 1
             end
 
-          end #Q6
+          end # Q6
 
-        end #Q4
+        end # Q4
 
-      end #Q2
+      end # Q2
 
     end
-  end #Q1
+  end # Q1
 
   context "calculating weekly costs" do
     context "through Question 10" do
       setup do
-        add_response :no #Q1
-        add_response :regularly_more_than_year #Q2
-        add_response :yes #Q11
-        add_response :every_month #Q12
+        add_response :no # Q1
+        add_response :regularly_more_than_year # Q2
+        add_response :yes # Q11
+        add_response :every_month # Q12
       end
 
       should "calculate the weekly cost" do
-        add_response 4 #Q10
+        add_response 4 # Q10
         assert_state_variable :weekly_cost, 1
         assert_current_node :weekly_costs_are_x
       end
     end
     context "through Question 13" do
       setup do
-        add_response :no #Q1
-        add_response :regularly_more_than_year #Q2
-        add_response :yes #Q11
-        add_response :fortnightly #Q12
+        add_response :no # Q1
+        add_response :regularly_more_than_year # Q2
+        add_response :yes # Q11
+        add_response :fortnightly # Q12
       end
 
       should "ask you how much you pay fortnightly" do
@@ -190,14 +190,14 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
 
     context "through Question 14" do
       setup do
-        add_response :no #Q1
-        add_response :regularly_more_than_year #Q2
-        add_response :yes #Q11
-        add_response :every_4_weeks #Q12
+        add_response :no # Q1
+        add_response :regularly_more_than_year # Q2
+        add_response :yes # Q11
+        add_response :every_4_weeks # Q12
       end
 
       should "calculate the weekly cost" do
-        add_response 20 #Q14
+        add_response 20 # Q14
         assert_state_variable :weekly_cost, 5
         assert_current_node :weekly_costs_are_x
       end
@@ -205,14 +205,14 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
 
     context "through Question 15" do
       setup do
-        add_response :no #Q1
-        add_response :regularly_more_than_year #Q2
-        add_response :yes #Q11
-        add_response :yearly #Q12
+        add_response :no # Q1
+        add_response :regularly_more_than_year # Q2
+        add_response :yes # Q11
+        add_response :yearly # Q12
       end
 
       should "calculate the weekly cost" do
-        add_response 52 #Q14
+        add_response 52 # Q14
         assert_state_variable :weekly_cost, 1
         assert_current_node :weekly_costs_are_x
       end
@@ -222,9 +222,9 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
   context "questions that calculate the difference in costs" do
     context "Through Question 18" do
       setup do
-        add_response :yes #Q1
-        add_response :yes #Q3
-        add_response :weekly_diff_amount #Q5
+        add_response :yes # Q1
+        add_response :yes # Q3
+        add_response :weekly_diff_amount # Q5
       end
 
       should "be at Q8" do
@@ -232,12 +232,12 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
       end
 
       should "be at Q18" do
-        add_response 52 #Q8
+        add_response 52 # Q8
         assert_current_node :old_weekly_amount_1?
       end
 
       should "calculate weekly_cost from Q8" do
-        add_response 52 #Q8
+        add_response 52 # Q8
         assert_state_variable :weekly_cost, 1
       end
 
@@ -255,9 +255,9 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
 
   context "going through Question 17" do
     setup do
-      add_response :yes #Q1
-      add_response :yes #Q3
-      add_response :weekly_same_amount #Q5
+      add_response :yes # Q1
+      add_response :yes # Q3
+      add_response :weekly_same_amount # Q5
     end
 
     should "be at Q17" do
@@ -299,9 +299,9 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
 
   context "going through Q19" do
     setup do
-      add_response :yes #Q1
-      add_response :yes #Q3
-      add_response :monthly_same_amount #Q5
+      add_response :yes # Q1
+      add_response :yes # Q3
+      add_response :monthly_same_amount # Q5
     end
 
     should "be at Q19" do
@@ -342,9 +342,9 @@ class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
 
   context "answering Q16" do
     setup do
-      add_response :no #Q1
-      add_response :regularly_more_than_year #Q2
-      add_response :no #Q11
+      add_response :no # Q1
+      add_response :regularly_more_than_year # Q2
+      add_response :no # Q11
     end
 
     should "be on Q16" do

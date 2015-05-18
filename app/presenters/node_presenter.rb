@@ -80,7 +80,7 @@ class NodePresenter
     !!body
   end
 
-  #Post-body on questions is only supported on Smartdown questions
+  # Post-body on questions is only supported on Smartdown questions
   def has_post_body?
     false
   end

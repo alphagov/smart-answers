@@ -14,7 +14,7 @@ max_maintainence_loan_amounts = {
   }
 }
 
-#Q1
+# Q1
 multiple_choice :when_does_your_course_start? do
   option :"2014-2015"
   option :"2015-2016"
@@ -23,7 +23,7 @@ multiple_choice :when_does_your_course_start? do
   next_node :what_type_of_student_are_you?
 end
 
-#Q2
+# Q2
 multiple_choice :what_type_of_student_are_you? do
   option :"uk-full-time"
   option :"uk-part-time"
@@ -34,7 +34,7 @@ multiple_choice :what_type_of_student_are_you? do
   next_node :how_much_are_your_tuition_fees_per_year?
 end
 
-#Q3
+# Q3
 money_question :how_much_are_your_tuition_fees_per_year? do
 
   calculate :tuition_fee_amount do |response|
@@ -62,7 +62,7 @@ money_question :how_much_are_your_tuition_fees_per_year? do
   end
 
 end
-#Q4
+# Q4
 multiple_choice :where_will_you_live_while_studying? do
   option :'at-home'
   option :'away-outside-london'
@@ -80,7 +80,7 @@ multiple_choice :where_will_you_live_while_studying? do
   next_node :whats_your_household_income?
 end
 
-#Q5
+# Q5
 money_question :whats_your_household_income? do
 
   calculate :maintenance_grant_amount do |response|
@@ -131,7 +131,7 @@ money_question :whats_your_household_income? do
   next_node :do_any_of_the_following_apply_uk_full_time_students_only?
 end
 
-#Q6a uk full-time students
+# Q6a uk full-time students
 checkbox_question :do_any_of_the_following_apply_uk_full_time_students_only? do
   option :"children-under-17"
   option :"dependant-adult"
@@ -146,7 +146,7 @@ checkbox_question :do_any_of_the_following_apply_uk_full_time_students_only? do
   next_node :what_course_are_you_studying?
 end
 
-#Q6b uk students
+# Q6b uk students
 checkbox_question :do_any_of_the_following_apply_all_uk_students? do
   option :"has-disability"
   option :"low-income"
@@ -159,7 +159,7 @@ checkbox_question :do_any_of_the_following_apply_all_uk_students? do
   next_node :what_course_are_you_studying?
 end
 
-#Q7
+# Q7
 multiple_choice :what_course_are_you_studying? do
   option :"teacher-training"
   option :"dental-medical-healthcare"

@@ -1,6 +1,6 @@
 ## QA0
 multiple_choice :taking_paternity_leave_for_adoption? do
-  option yes: :employee_date_matched_paternity_adoption? #QAP1
+  option yes: :employee_date_matched_paternity_adoption? # QAP1
   option no: :date_of_adoption_match? # QA1
 end
 
@@ -56,7 +56,7 @@ multiple_choice :adoption_employment_contract? do
 
   save_input_as :employee_has_contract_adoption
 
-  #not entitled to leave if no contract; keep asking questions to check eligibility
+  # not entitled to leave if no contract; keep asking questions to check eligibility
   calculate :adoption_leave_info do |response|
     if response == 'no'
       PhraseList.new(:adoption_not_entitled_to_leave)

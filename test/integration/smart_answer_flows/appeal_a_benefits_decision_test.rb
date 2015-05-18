@@ -18,7 +18,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       add_response :yes
     end
 
-    #Q2
+    # Q2
     should "ask 'problem with tribunal procedure?'" do
       assert_current_node :problem_with_tribunal_proceedure?
     end
@@ -51,7 +51,7 @@ class AppealABenefitsDecisionTest < ActiveSupport::TestCase
       add_response :no
     end
 
-    #Q3
+    # Q3
     should "ask 'date of decision letter?'" do
       assert_current_node :date_of_decision_letter?
     end
