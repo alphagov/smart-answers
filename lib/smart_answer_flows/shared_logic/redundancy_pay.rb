@@ -14,9 +14,9 @@ date_question :date_of_redundancy? do
   next_node :age_of_employee?
 end
 
-value_question :age_of_employee? do
+value_question :age_of_employee?, parse: :to_i do
   calculate :employee_age do |response|
-    age = response.to_i
+    age = response
     raise InvalidResponse if age < 16 or age > 100
     age
   end
@@ -26,17 +26,15 @@ value_question :age_of_employee? do
   next_node :years_employed?
 end
 
-# This needs validation - any string not representing a numeric value will be converted to 0.0 e.g. 'whatever'.to_f => 0.0
-# Using Float(response) instead will fail with an ArgumentError that will be handled by the flow controller
-value_question :years_employed? do
+value_question :years_employed?, parse: Float do
   save_input_as :years_employed
   calculate :years_employed do |response|
-    ye = Float(response).floor
+    ye = response.floor
     raise InvalidResponse if ye.to_i > years_available
     ye
   end
   next_node do |response|
-    if Float(response).floor < 2
+    if response.floor < 2
       :done_no_statutory
     else
       :weekly_pay_before_tax?
