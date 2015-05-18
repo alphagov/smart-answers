@@ -1,6 +1,7 @@
 SMART_ANSWER_FLOW_NAMES = %w(
   additional-commodity-code
   am-i-getting-minimum-wage
+  appeal-a-benefits-decision
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
