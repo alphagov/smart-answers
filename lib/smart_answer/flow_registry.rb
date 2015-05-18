@@ -13,6 +13,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   calculate-your-holiday-entitlement
   check-uk-visa-v2
   check-uk-visa
+  childcare-costs-for-tax-credits
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
