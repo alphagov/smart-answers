@@ -38,7 +38,7 @@ module SmartAnswer::Calculators
     end
 
     def self.northern_ireland_redundancy_rates(date)
-      RatesQuery.new('redundancy_pay_ni').rates(date)
+      RatesQuery.new('redundancy_pay_northern_ireland').rates(date)
     end
   end
 end
