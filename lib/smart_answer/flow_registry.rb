@@ -23,6 +23,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   minimum-wage-calculator-employers
   overseas-passports
   pip-checker
+  plan-adoption-leave
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
