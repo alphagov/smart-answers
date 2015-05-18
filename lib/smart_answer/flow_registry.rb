@@ -24,6 +24,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   overseas-passports
   pip-checker
   plan-adoption-leave
+  register-a-birth
 )
 
 SMART_ANSWER_FLOW_NAMES.each do |name|
