@@ -11,7 +11,8 @@ SmartAnswers::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_files = false
+  # unless running on Heroku
+  config.serve_static_files = ENV['RUNNING_ON_HEROKU'].present?
 
   # Compress JavaScripts and CSS
   config.assets.js_compress = :uglifier
@@ -65,7 +66,7 @@ SmartAnswers::Application.configure do
   config.action_mailer.default_url_options = { host: Plek.current.find('smartanswers') }
   config.action_mailer.delivery_method = :ses
 
-  unless ENV['RUNNING_ON_HEROKU']
+  unless ENV['RUNNING_ON_HEROKU'].present?
     # Enable JSON-style logging
     config.logstasher.enabled = true
     config.logstasher.logger = Logger.new("#{Rails.root}/log/#{Rails.env}.json.log")
