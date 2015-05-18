@@ -797,7 +797,7 @@ outcome :outcome_os_consular_cni do
     phrases = PhraseList.new
 
     if ceremony_country != 'italy' and resident_of == 'uk' and "partner_other" == partner_nationality and "finland" == ceremony_country
-        phrases << :callout_partner_equivalent_document
+      phrases << :callout_partner_equivalent_document
     end
 
     if partner_nationality == 'partner_british' and %w(italy germany finland).exclude?(ceremony_country)

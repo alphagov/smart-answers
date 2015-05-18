@@ -671,7 +671,7 @@ en-GB:
 
         consular_cni_os_local_resident_table: |
 
-          ###Applying for a CNI from the %{embassy_or_consulate_residency_country}
+          ###Applying for a CNI from the %{embassy_or_consulate_ceremony_country}
 
           You’ll need to have been living in Croatia for at least 3 days. You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
         kazakhstan_os_local_resident: |
@@ -681,7 +681,7 @@ en-GB:
 
           You’ll normally need to have been living in Kazakhstan for at least 3 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
         russia_os_local_resident: |
-          If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_residency_country}.
+          If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_ceremony_country}.
 
           ###Applying for a CNI from the consulate
 
@@ -801,7 +801,7 @@ en-GB:
 
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
           - equivalent documents for your partner
 
         consular_cni_variant_local_resident_jordan: |
@@ -809,7 +809,7 @@ en-GB:
 
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} to find out what you need
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
           - equivalent documents for your partner
 
           ^Documents must be originals if you are getting married at the Sharia Court.^
@@ -819,7 +819,7 @@ en-GB:
 
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} or notary public to find out what you need
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
           - equivalent documents for your partner
 
         consular_cni_variant_local_resident_italy: |
@@ -827,7 +827,7 @@ en-GB:
 
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_residency_country} or notary public to find out what you need
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
           - equivalent documents for your partner
 
         cni_os_partner_local_legislation_documents_for_appointment: |
@@ -937,7 +937,7 @@ en-GB:
         display_notice_of_marriage_7_days: |
           ###What happens next
 
-          The %{embassy_or_consulate_residency_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
+          The %{embassy_or_consulate_ceremony_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
 
         consular_cni_os_foreign_resident_ceremony_not_italy: |
           ###What happens next
@@ -1065,9 +1065,9 @@ en-GB:
           Administering an oath or making a declaration | £55
 
         consular_cni_os_fees_foreign_commonwealth_roi_resident: |
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{residency_country_name_lowercase_prefix}](/government/publications/%{residency_country}-consular-fees) and [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
         consular_cni_os_fees_foreign_commonwealth_roi_resident_kazakhstan: |
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{residency_country_name_lowercase_prefix}](/government/publications/%{residency_country}-consular-fees) and [consular fees for %{country_name_lowercase_prefix}](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
+          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
 
         consular_cni_os_fees_russia: |
           You can pay by cash or credit card in Moscow, but not by personal cheque.
