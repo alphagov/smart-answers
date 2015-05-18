@@ -2235,7 +2235,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "divert to the correct download link for the Affidavit for Marriage document" do
       assert_current_node :outcome_brazil_not_living_in_the_uk
-      assert_phrase_list :brazil_phraselist_not_in_the_uk, [:contact_local_authorities_in_country,:check_travel_advice,:get_legal_advice,:what_you_need_to_do,:make_an_appointment_bring_passport_and_pay_55_brazil,:list_of_consular_fees,:pay_by_cash_or_credit_card_no_cheque,:embassies_data,:download_affidavit_forms_but_do_not_sign,:download_affidavit_brazil,:documents_for_divorced_or_widowed,:affirmation_os_partner_not_british_turkey]
+      assert_phrase_list :brazil_phraselist_not_in_the_uk, [:contact_local_authorities_in_country, :check_travel_advice, :get_legal_advice, :what_you_need_to_do, :make_an_appointment_bring_passport_and_pay_55_brazil, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :embassies_data, :download_affidavit_forms_but_do_not_sign, :download_affidavit_brazil, :documents_for_divorced_or_widowed, :affirmation_os_partner_not_british_turkey]
     end
   end
 
@@ -2281,7 +2281,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "not include the links to download documents" do
       assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:uk_resident_os_consular_cni,:get_legal_advice,:consular_cni_all_what_you_need_to_do,:consular_cni_os_ceremony_not_spain_or_italy,:cni_at_local_register_office_notary_public,:consular_cni_os_uk_resident_legalisation,:consular_cni_os_uk_resident_not_italy_or_portugal]
+      assert_phrase_list :consular_cni_os_start, [:uk_resident_os_consular_cni, :get_legal_advice, :consular_cni_all_what_you_need_to_do, :consular_cni_os_ceremony_not_spain_or_italy, :cni_at_local_register_office_notary_public, :consular_cni_os_uk_resident_legalisation, :consular_cni_os_uk_resident_not_italy_or_portugal]
     end
   end
 
