@@ -18,10 +18,24 @@ class SmartAnswerTestHelper
     end
   end
 
+  def responses_and_expected_results_path
+    data_path.join(responses_and_expected_results_filename)
+  end
+
+  def write_responses_and_expected_results(data)
+    File.open(responses_and_expected_results_path, 'w') do |file|
+      file.puts(data.to_yaml)
+    end
+  end
+
   private
 
   def question_and_responses_filename
     "#{@flow_name}-questions-and-responses.yml"
+  end
+
+  def responses_and_expected_results_filename
+    "#{@flow_name}-responses-and-expected-results.yml"
   end
 
   def data_path
