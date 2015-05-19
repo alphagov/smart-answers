@@ -221,7 +221,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_uk_all_students do
+      outcome :outcome_uk_all_students, use_outcome_templates: true do
         precalculate :students_body_text do
           PhraseList.new(:uk_students_body_text_start)
         end
