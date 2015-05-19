@@ -185,7 +185,7 @@ module SmartAnswer
 
       end
 
-      outcome :outcome_uk_full_time_students do
+      outcome :outcome_uk_full_time_students, use_outcome_templates: true do
         precalculate :students_body_text do
           PhraseList.new(:uk_students_body_text_start)
         end
