@@ -697,37 +697,13 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_local_resident_italy if ceremony_country == 'italy'
     end
 
-    if resident_of == 'third_country' # TODO merge with the above resident_of == 'ceremony_country' and use a new copy from google doc
-      if %w(germany italy).exclude?(ceremony_country)
-        phrases << :consular_cni_os_foreign_resident_ceremony_not_germany_italy
-      elsif ceremony_country == 'italy'
-        phrases << :consular_cni_os_foreign_resident_ceremony_country_italy
-      end
-      if ceremony_country != 'germany'
-        if cni_posted_after_7_days_countries.include?(ceremony_country)
-          if ceremony_country == 'macedonia'
-            phrases << :consular_cni_os_foreign_resident_3_days_macedonia
-            phrases << :consular_cni_os_foreign_resident_3_days_macedonia_giving_notice
-          elsif cni_notary_public_countries.include?(ceremony_country) or %w(italy japan spain).include?(ceremony_country)
-            phrases << :consular_cni_os_foreign_resident_3_days_notary_public
-          else
-            phrases << :consular_cni_os_foreign_resident_3_days
-          end
-        elsif cni_notary_public_countries.include?(ceremony_country) or %w(italy japan spain).include?(ceremony_country)
-          phrases << :consular_cni_os_foreign_resident_ceremony_notary_public
-        else
-          phrases << :consular_cni_os_foreign_resident_ceremony_country_not_germany
-        end
-      end
-    end
-
     if resident_of == 'ceremony_country' and %w(croatia germany italy japan spain russia).exclude?(ceremony_country) and cni_posted_after_7_days_countries.include?(ceremony_country)
       phrases << :living_in_residence_country_3_days
     end
 
     if ceremony_country == 'italy' and resident_of != 'uk'
       phrases << :consular_cni_variant_local_resident_italy
-    elsif resident_of == 'ceremony_country' and %w(germany japan spain).exclude?(ceremony_country) or (resident_of == 'third_country' and ceremony_country != 'germany')
+    elsif resident_of == 'ceremony_country' and %w(germany japan spain).exclude?(ceremony_country)
       if cni_notary_public_countries.include?(ceremony_country) or %w(japan macedonia spain).include?(ceremony_country)
         phrases << :consular_cni_variant_local_resident_or_foreign_resident_notary_public
       elsif ceremony_country == 'jordan'
@@ -806,19 +782,6 @@ outcome :outcome_os_consular_cni do
     elsif data_query.requires_7_day_notice?(ceremony_country)
       phrases << :display_notice_of_marriage_7_days # TODO: the text refers to residency country
     end
-
-    if resident_of == 'third_country'
-      if ceremony_country == 'greece'
-        phrases << :consular_cni_os_foreign_resident_ceremony_notary_public_greece
-      elsif cni_notary_public_countries.include?(ceremony_country) or %w(italy japan macedonia spain).include?(ceremony_country)
-        phrases << :consular_cni_os_foreign_resident_ceremony_notary_public
-      elsif cni_posted_after_7_days_countries.include?(ceremony_country)
-        phrases << :consular_cni_os_foreign_resident_ceremony_7_days
-      elsif %w(germany).exclude?(ceremony_country)
-        phrases << :consular_cni_os_foreign_resident_ceremony_not_italy
-      end
-    end
-
     phrases
   end
 
@@ -833,10 +796,6 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british
     end
 
-    if resident_of == 'third_country' and partner_nationality == 'partner_british' and ceremony_country == 'italy'
-      phrases << :consular_cni_os_other_resident_partner_british_ceremony_italy
-    end
-
     if ceremony_country != 'germany'  or (ceremony_country == 'germany' and resident_of == 'uk')
       phrases << :consular_cni_os_all_names_but_germany
     end
@@ -847,9 +806,6 @@ outcome :outcome_os_consular_cni do
 
     if ceremony_country == 'belgium'
       phrases << :consular_cni_os_ceremony_belgium
-      if resident_of == 'third_country'
-        phrases << :embassies_data
-      end
     end
 
     if ceremony_country == 'spain'
