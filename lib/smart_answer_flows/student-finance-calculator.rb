@@ -250,7 +250,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_eu_students do
+      outcome :outcome_eu_students, use_outcome_templates: true do
         precalculate :eu_students do
           phrases = PhraseList.new
           phrases << :eu_students_body_text
