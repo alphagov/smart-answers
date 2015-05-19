@@ -190,12 +190,17 @@ multiple_choice :partner_opposite_or_same_sex? do
     ceremony_country == 'japan' and resident_of == 'ceremony_country' and partner_nationality == 'partner_local'
   }
 
+  define_predicate(:consular_cni_residing_in_third_country) {
+    resident_of == 'third_country' and data_query.os_consular_cni_countries?(ceremony_country)
+  }
+
   next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
   next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
   next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
   next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
   next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
   on_condition(responded_with('opposite_sex')) do
+    next_node_if(:outcome_consular_cni_os_residing_in_third_country, consular_cni_residing_in_third_country)
     next_node_if(:outcome_os_local_japan, os_marriage_with_local_in_japan)
     next_node_if(:outcome_os_colombia, variable_matches(:ceremony_country, "colombia"))
     next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, "kosovo"))
@@ -517,6 +522,28 @@ outcome :outcome_os_bot do
       phrases << :bot_os_naturalisation unless partner_nationality == 'partner_british'
     end
     phrases
+  end
+end
+
+outcome :outcome_consular_cni_os_residing_in_third_country do
+  precalculate :current_path do
+    (['/marriage-abroad/y'] + responses).join('/')
+  end
+
+  precalculate :uk_residence_outcome_path do
+    current_path.gsub('third_country', 'uk/uk_england')
+  end
+
+  precalculate :ceremony_country_residence_outcome_path do
+    current_path.gsub('third_country', 'ceremony_country')
+  end
+
+  precalculate :body do
+    phrases = PhraseList.new
+    phrases << :contact_local_authorities_in_country
+    phrases << :get_legal_and_travel_advice
+    phrases << :what_you_need_to_do
+    phrases << :os_consular_cni_requirement
   end
 end
 

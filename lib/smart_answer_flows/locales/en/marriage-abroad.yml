@@ -153,8 +153,6 @@ en-GB:
           Contact the embassy or consulate to make an appointment.
         embassies_data: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        check_travel_advice: |
-          You should check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
 # payment methods
         payment_methods_japan: |
           You can pay by credit card, but not by personal cheque. The embassy in Tokyo will also accept cash.
@@ -332,6 +330,10 @@ en-GB:
           ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
         get_travel_advice_unless_local: |
           If you’re not already living there, you should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
+        check_travel_advice: |
+          You should check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
+        get_legal_and_travel_advice: |
+          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
         contact_local_authorities: |
           Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
         contact_local_authorities_in_country: |
@@ -1886,6 +1888,22 @@ en-GB:
         title: Marriage in %{country_name_lowercase_prefix}
         body: |
           %{bot_outcome}
+
+# CNI outcome for opposite sex partners residing in third country
+      outcome_consular_cni_os_residing_in_third_country:
+        title: Marriage in %{country_name_lowercase_prefix}
+        body: |
+          %{body}
+
+          There are 2 ways you can get a CNI:
+
+          - [go to the UK and post notice with a UK registrar](%{uk_residence_outcome_path})
+          - [go to %{country_name_lowercase_prefix} and post notice at the embassy or consulate there](%{ceremony_country_residence_outcome_path})
+
+          %If you choose to post notice in %{country_name_lowercase_prefix}, you’ll normally have to wait at least 10 days before you can get married.%
+
+          *[CNI]:Certificate of no impediment
+
 # outcome Countries with consular CNI, opposite sex
       outcome_os_consular_cni:
         title: Marriage in %{country_name_lowercase_prefix}
