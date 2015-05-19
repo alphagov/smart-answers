@@ -221,34 +221,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_uk_all_students, use_outcome_templates: true do
-        precalculate :students_body_text do
-          PhraseList.new(:uk_students_body_text_start)
-        end
-        precalculate :uk_all_students do
-          phrases = PhraseList.new
-          if all_uk_students_circumstances.include?('no') and course_studied == 'none-of-the-above'
-            phrases << :no_additional_benefits
-          else
-            phrases << :additional_benefits
-            if all_uk_students_circumstances.include?('has-disability')
-              phrases << :has_disability
-            end
-            if all_uk_students_circumstances.include?('low-income')
-              phrases << :low_income
-            end
-            if course_studied == 'teacher-training'
-              phrases << :teacher_training
-            elsif course_studied == 'dental-medical-healthcare'
-              phrases << :dental_medical_healthcare
-            elsif course_studied == 'social-work'
-              phrases << :social_work
-            end
-          end
-          phrases << :uk_students_body_text_end
-          phrases
-        end
-      end
+      outcome :outcome_uk_all_students, use_outcome_templates: true
 
       outcome :outcome_eu_students, use_outcome_templates: true
     end

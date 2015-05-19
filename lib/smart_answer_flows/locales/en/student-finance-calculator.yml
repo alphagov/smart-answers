@@ -153,12 +153,3 @@ en-GB:
           ###Extra student funding
 
           %{uk_full_time_students}
-
-      outcome_uk_all_students:
-        body: |
-          %{students_body_text}
-          %{eligible_finance}
-
-          ###Extra student funding
-
-          %{uk_all_students}
