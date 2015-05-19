@@ -2,3 +2,4 @@ AllCops:
   Exclude:
     - .bundle/**/*
     - bin/**/*
+  RunRailsCops: true
