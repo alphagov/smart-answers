@@ -2066,18 +2066,27 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "Marriage in Mexico, living elsewhere, partner British, opposite sex" do
+  context "ceremony in Mexico, living in 3rd country" do
     setup do
       worldwide_api_has_organisations_for_location('mexico', read_fixture_file('worldwide/mexico_organisations.json'))
       add_response 'mexico'
       add_response 'third_country'
+    end
+
+    should "go to outcome_consular_cni_os_residing_in_third_country (only if partner is OS british)" do
       add_response 'partner_british'
       add_response 'opposite_sex'
+      assert_current_node :outcome_consular_cni_os_residing_in_third_country
+      assert_phrase_list :body, [:contact_local_authorities_in_country, :get_legal_and_travel_advice, :what_you_need_to_do, :os_consular_cni_requirement]
+      assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/mexico/ceremony_country/partner_british/opposite_sex"
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/mexico/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
     end
-    should "show outcome_os_consular_cni" do
-      assert_current_node :outcome_os_consular_cni
-      assert_phrase_list :consular_cni_os_start, [:other_resident_os_consular_cni, :get_legal_advice, :consular_cni_all_what_you_need_to_do, :os_consular_cni_requirement, :consular_cni_os_foreign_resident_ceremony_not_germany_italy, :consular_cni_os_foreign_resident_3_days_notary_public, :consular_cni_variant_local_resident_or_foreign_resident_notary_public, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :consular_cni_os_foreign_resident_ceremony_notary_public]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_fees_not_italy_not_uk, :consular_cni_os_fees_foreign_commonwealth_roi_resident, :pay_by_cash_or_credit_card_no_cheque]
+
+    should "show outcome_os_consular_cni when OS partner is not british" do
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_os_no_cni
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :get_legal_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :no_cni_os_naturalisation]
     end
   end
 
