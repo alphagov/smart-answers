@@ -10,5 +10,5 @@ The partner can take SPL in up to 3 blocks, going back to work between the block
 
  | Dates
 - | -
-Shared parental leave must be used between | %{placement_date} to %{end_of_shared_parental_leave(placement_date)}
+Shared parental leave must be used | Within a year of the birth
 Tell you employer | 8 weeks before the first block of SPL

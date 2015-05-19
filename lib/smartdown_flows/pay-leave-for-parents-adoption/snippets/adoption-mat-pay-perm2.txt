@@ -6,9 +6,31 @@ Your partner can get up to 39 weeks of [adoption pay](/adoption-pay-leave/pay).
 
  | Dates and amounts
 - | -
-First 6 weeks | %{rate_of_smp_6_weeks(salary_2)} per week
-Next 33 weeks | %{rate_of_smp_33_weeks(salary_2)} per week
-Total estimated pay | %{total_smp(salary_2)}
+First 6 weeks | 90% of your partner's average weekly earnings (before tax)
+
+$IF range_in_2013_2014_fin_year?(match_date)
+
+Remaining weeks (between 6 April 2013 and 5 April 2014) | £136.78 per week or 90% of your partner's average weekly earnings (before tax), whichever is lower
+
+$ENDIF
+
+$IF range_in_2014_2015_fin_year?(match_date)
+
+Remaining weeks (between 6 April 2014 and 5 April 2015) | £138.18 per week or 90% of your partner's average weekly earnings (before tax), whichever is lower
+
+$ENDIF
+
+$IF range_in_2015_2016_fin_year?(match_date)
+
+Remaining weeks (between 6 April 2015 and 5 April 2016) | £139.58 per week or 90% of your partner's average weekly earnings (before tax), whichever is lower
+
+$ENDIF
+
+$IF NOT range_in_2013_2014_fin_year?(match_date) AND NOT range_in_2014_2015_fin_year?(match_date) AND NOT range_in_2015_2016_fin_year?(match_date)
+
+Remaining weeks (between 6 April 2015 and 5 April 2016) | £139.58 per week or 90% of your partner's average weekly earnings (before tax), whichever is lower
+
+$ENDIF
 Tell your partner's employer | 28 days before they want to start maternity pay
 
 Tax and National Insurance will be deducted.

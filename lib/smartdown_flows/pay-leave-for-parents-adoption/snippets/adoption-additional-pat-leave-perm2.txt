@@ -6,5 +6,6 @@ If your partner returns to work early, you may be able to take up to 26 weeks of
 
  | Dates
 - | -
-Additional paternity leave must be used between | %{start_of_additional_paternity_leave(match_date)} to %{end_of_additional_paternity_leave(match_date)}
+Additional paternity leave can start | 20 weeks after the birth
+Additional paternity leave must finish | by the child's first birthday
 Tell your employer | 8 weeks before they want to start additional paternity leave
