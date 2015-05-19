@@ -130,7 +130,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         assert_current_node :outcome_eu_students
         assert_phrase_list :eligible_finance, [:tuition_fee_loan]
         assert_state_variable :tuition_fee_amount, 8000
-        assert_phrase_list :eu_students, [:eu_students_body_text, :eu_full_time_students, :eu_students_body_text_two]
       end
     end
 
@@ -143,7 +142,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         assert_current_node :outcome_eu_students
         assert_phrase_list :eligible_finance, [:tuition_fee_loan]
         assert_state_variable :tuition_fee_amount, 4100
-        assert_phrase_list :eu_students, [:eu_students_body_text, :eu_part_time_students, :eu_students_body_text_two]
       end
     end
 

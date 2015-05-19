@@ -250,19 +250,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_eu_students, use_outcome_templates: true do
-        precalculate :eu_students do
-          phrases = PhraseList.new
-          phrases << :eu_students_body_text
-          if course_type == 'eu-full-time'
-            phrases << :eu_full_time_students
-          else
-            phrases << :eu_part_time_students
-          end
-          phrases << :eu_students_body_text_two
-          phrases
-        end
-      end
+      outcome :outcome_eu_students, use_outcome_templates: true
     end
   end
 end
