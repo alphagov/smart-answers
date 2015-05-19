@@ -75,13 +75,10 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               should "go to result with teacher training" do
                 add_response 'teacher-training'
                 assert_current_node :outcome_uk_full_time_students
-                assert_phrase_list :eligible_finance, [:tuition_fee_loan, :maintenance_loan, :maintenance_grant]
                 assert_state_variable :tuition_fee_amount, 7500
                 assert_state_variable :max_maintenance_loan_amount, 4565
                 assert_state_variable :maintenance_loan_amount, 2872 #4565 - (maintenance_grant_amount/2.0).floor
                 assert_state_variable :maintenance_grant_amount, 3387
-                assert_phrase_list :students_body_text, [:uk_students_body_text_start]
-                assert_phrase_list :uk_full_time_students, [:additional_benefits, :"children_under_17_2015-2016", :"dependant_adult_2015-2016", :has_disability, :low_income, :teacher_training, :uk_students_body_text_end]
               end # end should
             end # end context children
           end # end context income
@@ -98,7 +95,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
       should "go to all uk students outcome" do
         assert_current_node :outcome_uk_all_students
-        assert_phrase_list :eligible_finance, [:tuition_fee_loan]
         assert_state_variable :tuition_fee_amount, 6000
       end
     end
@@ -112,7 +108,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
       should "go to all uk students outcome" do
         assert_current_node :outcome_uk_all_students
-        assert_phrase_list :eligible_finance, [:tuition_fee_loan]
         assert_state_variable :tuition_fee_amount, 6000
       end
     end
@@ -124,7 +119,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
       should "go to eu full-time students outcome" do
         assert_current_node :outcome_eu_students
-        assert_phrase_list :eligible_finance, [:tuition_fee_loan]
         assert_state_variable :tuition_fee_amount, 8000
       end
     end
@@ -136,7 +130,6 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
       should "go to eu part-time students outcome" do
         assert_current_node :outcome_eu_students
-        assert_phrase_list :eligible_finance, [:tuition_fee_loan]
         assert_state_variable :tuition_fee_amount, 4100
       end
     end

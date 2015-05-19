@@ -50,10 +50,6 @@ module SmartAnswer
           Money.new(response)
         end
 
-        calculate :eligible_finance do
-          PhraseList.new(:tuition_fee_loan)
-        end
-
         next_node do
           case course_type
           when 'uk-full-time'
@@ -122,16 +118,6 @@ module SmartAnswer
           end
         end
 
-        calculate :eligible_finance do
-          finance = eligible_finance + :maintenance_loan
-
-          if maintenance_grant_amount > 0
-            finance + :maintenance_grant
-          else
-            finance
-          end
-        end
-
         next_node :do_any_of_the_following_apply_uk_full_time_students_only?
       end
 
@@ -185,41 +171,7 @@ module SmartAnswer
 
       end
 
-      outcome :outcome_uk_full_time_students, use_outcome_templates: true do
-        precalculate :students_body_text do
-          PhraseList.new(:uk_students_body_text_start)
-        end
-        precalculate :uk_full_time_students do
-          phrases = PhraseList.new
-          if uk_ft_circumstances.include?('no') and course_studied == 'none-of-the-above'
-            phrases << :no_additional_benefits
-          else
-            phrases << :additional_benefits
-            if uk_ft_circumstances.include?('children-under-17')
-              phrases << :"children_under_17_#{start_date}"
-            end
-            if uk_ft_circumstances.include?('dependant-adult')
-              phrases << :"dependant_adult_#{start_date}"
-            end
-            if uk_ft_circumstances.include?('has-disability')
-              phrases << :has_disability
-            end
-            if uk_ft_circumstances.include?('low-income')
-              phrases << :low_income
-            end
-
-            if course_studied == 'teacher-training'
-              phrases << :teacher_training
-            elsif course_studied == 'dental-medical-healthcare'
-              phrases << :dental_medical_healthcare
-            elsif course_studied == 'social-work'
-              phrases << :social_work
-            end
-          phrases << :uk_students_body_text_end
-          phrases
-          end
-        end
-      end
+      outcome :outcome_uk_full_time_students, use_outcome_templates: true
 
       outcome :outcome_uk_all_students, use_outcome_templates: true
 
