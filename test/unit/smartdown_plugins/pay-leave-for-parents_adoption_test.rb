@@ -57,21 +57,6 @@ module SmartdownPlugins
         salary_1 = Smartdown::Model::Answer::Salary.new("150-week")
         assert_equal 135.0, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_shpp(salary_1, date)
       end
-
-      should "total_aspp returns the rate_of_paternity_pay * 26" do
-        salary = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5393.219999999999, SmartdownPlugins::PayLeaveForParentsAdoption.total_aspp(salary, date)
-      end
-
-      should "total_maternity_allowance returns the rate_of_maternity_allowance * 39" do
-        salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5393.219999999999, SmartdownPlugins::PayLeaveForParentsAdoption.total_maternity_allowance(salary_1, date)
-      end
-
-      should "total_smp returns the rate_of_smp_6_weeks * 6 + rate_of_smp_33_weeks * 33 (totaling 39 weeks)" do
-        salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5635.74, SmartdownPlugins::PayLeaveForParentsAdoption.total_smp(salary_1, date)
-      end
     end
 
     context "due date in 2014-2015 range" do
@@ -123,21 +108,6 @@ module SmartdownPlugins
       should "rate_of_shpp returns 90% of the given weekly salary when it is less than £138.18" do
         salary_1 = Smartdown::Model::Answer::Salary.new("150-week")
         assert_equal 135.0, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_shpp(salary_1, date)
-      end
-
-      should "total_aspp returns the rate_of_paternity_pay * 26" do
-        salary = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5443.619999999998, SmartdownPlugins::PayLeaveForParentsAdoption.total_aspp(salary, date)
-      end
-
-      should "total_maternity_allowance returns the rate_of_maternity_allowance * 39" do
-        salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5443.619999999998, SmartdownPlugins::PayLeaveForParentsAdoption.total_maternity_allowance(salary_1, date)
-      end
-
-      should "total_smp returns the rate_of_smp_6_weeks * 6 + rate_of_smp_33_weeks * 33 (totaling 39 weeks)" do
-        salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5686.1399999999985, SmartdownPlugins::PayLeaveForParentsAdoption.total_smp(salary_1, date)
       end
     end
 
@@ -191,21 +161,6 @@ module SmartdownPlugins
         salary_1 = Smartdown::Model::Answer::Salary.new("150-week")
         assert_equal 135.0, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_shpp(salary_1, date)
       end
-
-      should "total_aspp returns the rate_of_paternity_pay * 26" do
-        salary = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5443.619999999998, SmartdownPlugins::PayLeaveForParentsAdoption.total_aspp(salary, date)
-      end
-
-      should "total_maternity_allowance returns the rate_of_maternity_allowance * 39" do
-        salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5443.619999999998, SmartdownPlugins::PayLeaveForParentsAdoption.total_maternity_allowance(salary_1, date)
-      end
-
-      should "total_smp returns the rate_of_smp_6_weeks * 6 + rate_of_smp_33_weeks * 33 (totaling 39 weeks)" do
-        salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5686.1399999999985, SmartdownPlugins::PayLeaveForParentsAdoption.total_smp(salary_1, date)
-      end
     end
 
     context "due date outside all ranges" do
@@ -253,21 +208,6 @@ module SmartdownPlugins
       should "rate_of_shpp returns 90% of the given weekly salary when it is less than £139.58" do
         salary_1 = Smartdown::Model::Answer::Salary.new("150-week")
         assert_equal 135.0, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_shpp(salary_1, date)
-      end
-
-      should "total_aspp returns the rate_of_paternity_pay * 26" do
-        salary = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5443.619999999998, SmartdownPlugins::PayLeaveForParentsAdoption.total_aspp(salary, date)
-      end
-
-      should "total_maternity_allowance returns the rate_of_maternity_allowance * 39" do
-        salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5443.619999999998, SmartdownPlugins::PayLeaveForParentsAdoption.total_maternity_allowance(salary_1, date)
-      end
-
-      should "total_smp returns the rate_of_smp_6_weeks * 6 + rate_of_smp_33_weeks * 33 (totaling 39 weeks)" do
-        salary_1 = Smartdown::Model::Answer::Salary.new("200-week")
-        assert_equal 5686.1399999999985, SmartdownPlugins::PayLeaveForParentsAdoption.total_smp(salary_1, date)
       end
     end
 
