@@ -237,7 +237,7 @@ en-GB:
         partner_affidavit_needed: |
           ^Your partner will need to get an affidavit as well.^
         affirmation_os_translation_in_local_language_text: |
-          You might need to get your affirmation [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
+          You might need to get your affirmation [translated](/government/collections/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
 
 # fee tables
         fee_table_45_70_55: |
@@ -329,7 +329,7 @@ en-GB:
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         get_legal_advice: |
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.^
+          ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
         get_travel_advice_unless_local: |
           If you’re not already living there, you should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
         contact_local_authorities: |
@@ -346,25 +346,25 @@ en-GB:
           If you’ve been divorced or widowed, you’ll need to provide:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
-          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
           - evidence if you’ve changed your name by deed poll
         documents_for_divorced_or_widowed_ecuador: |
           If you’ve been divorced or widowed, you’ll need to provide:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
-          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
 
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
         documents_for_divorced_or_widowed_cambodia: |
           If you’ve been divorced or widowed, you’ll need to provide:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
-          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
         documents_for_divorced_or_widowed_china_colombia: |
           If you’ve been divorced or widowed, you’ll need to provide:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
-          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
 
         contact_civil_register_office_portugal: |
           Contact your nearest [Civil Register Office](http://www.irn.mj.pt/IRN/sections/irn/a_registral/servicos-externos-docs/contactos/contactos-dos-servicos-civil/) in Portugal to find out about local marriage laws, including what documents you’ll need.
@@ -443,7 +443,7 @@ en-GB:
           - a civil partnership dissolution or annulment certificate
           - your former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
-          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
+          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.
 
           %The name on all documents you provide must appear exactly as they do on your passport - if not, the authorities may refuse to allow the ceremony to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage or civil partnership certificate, or deed poll).%
 
@@ -453,19 +453,19 @@ en-GB:
         uk_resident_os_ceremony_contact_for_advice: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
+          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         local_resident_os_ceremony_contact_for_advice: |
           Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
 
-          You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.
+          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
         uk_resident_os_ceremony_zimbabwe: |
           Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us) to find out about local marriage laws, including what documents you’ll need.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
+          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         os_ceremony_zimbabwe: |
           Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
+          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         commonwealth_os_all_cni: |
           The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
         commonwealth_os_all_cni_zimbabwe: |
@@ -510,13 +510,13 @@ en-GB:
 
           Contact the [Civil Registry](http://www.bvi.gov.vg/department/civil-registry-and-passport-office) to find out about getting married there, including what documents you’ll need.
 
-          You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.
+          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
         bot_os_ceremony_non_biot: |
           %{country_name_uppercase_prefix} is a British overseas territory.
 
           Contact the %{ceremony_country_name} Government to find out about getting married there, including what documents you’ll need.
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-          You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.
+          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
         bot_os_not_local_resident: |
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         bot_os_naturalisation: |
@@ -651,7 +651,7 @@ en-GB:
 
           Check with the local authorities if you need to get your UK-issued CNI translated.
 
-          [Find a translator abroad](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
+          [Find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
 
           You should also check with the local authorities if you need to provide [legalised](/get-document-legalised) and translated copies of any other documents.
 
@@ -665,7 +665,7 @@ en-GB:
           You should also check if it needs to be:
         consular_cni_os_uk_resident_not_italy_or_portugal: |
           - ‘[legalised](/get-document-legalised)’ (certified as genuine)
-          - translated - [find a translator abroad](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
+          - translated - [find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
 
           You should also check with the local authorities to find out if you need to provide legalised and translated copies of any other documents.
 
@@ -887,10 +887,10 @@ en-GB:
           - a civil partnership dissolution or annulment certificate
           - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
         consular_cni_os_other_resident_ceremony_not_germany_or_spain: |
-          ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.^
+          ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
         consular_cni_os_other_resident_ceremony_italy: |
-          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
+          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.
         spain_os_consular_cni_three: |
           Send your completed CNI service request form and copies of the supporting documents to your [nearest British consulate](/notarial-and-documentary-services-guide-for-spain#where-to-send-your-request). You can send them as scanned attachments by email or by fax. You’ll need to bring the original documents to your appointment.
 
@@ -1086,7 +1086,7 @@ en-GB:
 
           You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).^
+          ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).^
         affirmation_os_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         affirmation_os_other_resident: |
@@ -1098,7 +1098,7 @@ en-GB:
 
           You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country})^
+          ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country})^
         affirmation_os_legalised_in_turkey: |
           You’ll need to get your affidavit ‘legalised’ (certified as genuine) by the local authorities, this is usually done on the same day - the embassy or consulate should be able to give you advice.
         affirmation_os_uae: |
@@ -1139,7 +1139,7 @@ en-GB:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or the [death certificate](/order-copy-birth-death-marriage-certificate/)
         divorced_or_widowed_evidences: |
-          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.
         change_of_name_evidence: |
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
 
@@ -1463,15 +1463,15 @@ en-GB:
         commonwealth_countries_cp_uk_resident_two: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
+          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         commonwealth_countries_cp_local_resident: |
           Contact the relevant local authorities to find out about local laws, including what documents you’ll need.
 
-          You should also [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) before making any plans.
+          You should also [get legal advice](/government/collections/list-of-lawyers) before making any plans.
         commonwealth_countries_cp_other_resident: |
           Contact your nearest high commission, embassy or consulate of %{country_name_lowercase_prefix} before making any plans to find out about local laws, including what documents you’ll need.
 
-          ^You should [get legal advice](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
+          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
 
         commonwealth_countries_cp_australia_partner_local: |
           Your Australian partner will also need a Single Status Certificate issued by state or territory authorities.
@@ -1508,7 +1508,7 @@ en-GB:
           - a ‘certificate of no impediment’ (CNI) or similar document to prove they’re allowed to enter into a civil partnership from their national authorities
           - an official letter from the local authorities in the country where they’re resident confirming that they’re single
 
-          ^Any foreign documents may need to be ’[legalised](/get-document-legalised)’ (certified as genuine) in the country they were issued (or that country’s embassy in %{country_name_lowercase_prefix}), and [translated into English](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers).^
+          ^Any foreign documents may need to be ’[legalised](/get-document-legalised)’ (certified as genuine) in the country they were issued (or that country’s embassy in %{country_name_lowercase_prefix}), and [translated into English](/government/collections/list-of-lawyers).^
         consular_cp_all_what_you_need_to_do: |
           ###What you need to do
 
@@ -1573,7 +1573,7 @@ en-GB:
           You should also check if it needs to be:
 
           - ‘[legalised](/get-document-legalised)’ (certified as genuine)
-          - translated - [find a translator abroad](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
+          - translated - [find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
 
           You should also check with the local authorities to find out if you need to provide legalised and translated copies of any other documents.
 
@@ -1627,7 +1627,7 @@ en-GB:
           - a civil partnership dissolution or annulment certificate
           - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
-          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/organisations/foreign-commonwealth-office/series/list-of-lawyers) if it’s not in English.
+          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.
 
           The embassy will provide you with forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry. You can download and fill in (but not sign) the forms in advance.
 
