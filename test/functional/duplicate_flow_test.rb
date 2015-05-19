@@ -4,6 +4,14 @@ require_relative '../../lib/smartdown_adapter/registry.rb'
 require_relative '../../lib/smart_answer/flow_registry.rb'
 
 class DuplicateFlowTest < Minitest::Test
+  def setup
+    @original = FLOW_REGISTRY_OPTIONS[:preload_flows]
+    FLOW_REGISTRY_OPTIONS[:preload_flows] = false
+  end
+
+  def teardown
+    FLOW_REGISTRY_OPTIONS[:preload_flows] = @original
+  end
 
   should "Not have any smartdown and smartanswer flows with the same name" do
     SmartdownAdapter::Registry.reset_instance
