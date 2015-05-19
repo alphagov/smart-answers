@@ -8,16 +8,22 @@ module SmartAnswer
 
       def parse_input(raw_input)
         if Integer == @parse
-          Integer(raw_input)
+          Integer(without_commas(raw_input))
         elsif :to_i == @parse
-          raw_input.to_i
+          without_commas(raw_input).to_i
         elsif Float == @parse
-          Float(raw_input)
+          Float(without_commas(raw_input))
         elsif :to_f == @parse
-          raw_input.to_f
+          without_commas(raw_input).to_f
         else
           super
         end
+      end
+
+      private
+
+      def without_commas(raw_input)
+        raw_input.delete(',')
       end
     end
   end

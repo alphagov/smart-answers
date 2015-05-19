@@ -32,6 +32,11 @@ module SmartAnswer
         assert_equal 123, new_state.myval
       end
 
+      should "save integer value as an Integer ignoring commas" do
+        new_state = @q.transition(@initial_state, "1,234,567")
+        assert_equal 1_234_567, new_state.myval
+      end
+
       should "raise ArgumentError for non-integer value" do
         assert_raises(ArgumentError) { @q.transition(@initial_state, "1.5") }
       end
@@ -52,6 +57,11 @@ module SmartAnswer
       should "save valid value as an Integer" do
         new_state = @q.transition(@initial_state, "123")
         assert_equal 123, new_state.myval
+      end
+
+      should "save integer value as an Integer ignoring commas" do
+        new_state = @q.transition(@initial_state, "1,234,567")
+        assert_equal 1_234_567, new_state.myval
       end
 
       should "save non-integer value as an Integer" do
@@ -78,6 +88,11 @@ module SmartAnswer
         assert_equal 1.23, new_state.myval
       end
 
+      should "save float value as a Float ignoring commas" do
+        new_state = @q.transition(@initial_state, "1,234,567.89")
+        assert_equal 1_234_567.89, new_state.myval
+      end
+
       should "raise ArgumentError for non-float value" do
         assert_raises(ArgumentError) { @q.transition(@initial_state, "not-a-float") }
       end
@@ -98,6 +113,11 @@ module SmartAnswer
       should "save float value as a Float" do
         new_state = @q.transition(@initial_state, "1.23")
         assert_equal 1.23, new_state.myval
+      end
+
+      should "save float value as a Float ignoring commas" do
+        new_state = @q.transition(@initial_state, "1,234,567.89")
+        assert_equal 1_234_567.89, new_state.myval
       end
 
       should "save non-float value as zero" do
