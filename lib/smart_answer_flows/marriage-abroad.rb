@@ -578,7 +578,7 @@ outcome :outcome_os_consular_cni do
     elsif data_query.os_21_days_residency_required_countries?(ceremony_country)
       phrases << :consular_cni_os_ceremony_21_day_requirement
     elsif not_italy_or_spain && ceremony_not_germany_or_not_resident_other
-      phrases << :consular_cni_os_ceremony_not_spain_or_italy
+      phrases << :os_consular_cni_requirement
     end
 
     if ceremony_country == 'spain'

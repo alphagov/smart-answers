@@ -568,7 +568,7 @@ en-GB:
           You need to have been living in the country where you intend to marry for 21 days.
 
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
-        consular_cni_os_ceremony_not_spain_or_italy: |
+        os_consular_cni_requirement: |
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
         spain_os_consular_cni_two: |
           You may be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you’re allowed to marry.
