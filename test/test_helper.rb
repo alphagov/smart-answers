@@ -16,12 +16,6 @@ FLOW_REGISTRY_OPTIONS[:preload_flows] = true
 require 'minitest/unit'
 require 'rails/test_help'
 
-
-if ENV['SPEC_REPORTER']
-  require "minitest/reporters"
-  Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
-end
-
 require 'mocha/setup'
 
 require 'webmock/minitest'
