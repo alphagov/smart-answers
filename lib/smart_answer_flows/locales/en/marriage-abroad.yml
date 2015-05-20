@@ -1,3 +1,4 @@
+
 en-GB:
   flow:
     marriage-abroad:
@@ -338,7 +339,6 @@ en-GB:
           Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
         contact_local_authorities_in_country: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
-
         partner_naturalisation_in_uk: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -534,20 +534,14 @@ en-GB:
 
           ^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
 
-        uk_resident_os_consular_cni: |
+        contact_embassy_of_ceremony_country_in_uk: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
-        uk_resident_os_consular_cni_dutch_caribbean_islands: |
+        contact_dutch_embassy_for_dutch_caribbean_islands: |
           %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
 
           Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         other_resident_os_consular_cni: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
         gulf_states_os_consular_cni: |
           ^There are no civil marriages in %{country_name_lowercase_prefix}, but you can get married through a religious ceremony at a church or Sharia court.^
         gulf_states_os_consular_cni_local_resident: |
@@ -594,7 +588,7 @@ en-GB:
           If the Standesamt does ask you for a CNI (‘Ehefähigkeitszeugnis’), refer them to the relevant part of the [German Civil Code](http://www.gesetze-im-internet.de/bgb/__1309.html) (‘Bürgerliches Gesetzbuch’). This is published on the Stuttgart Higher Regional Court (‘Oberlandesgericht’) website, but it applies to the whole of Germany.
 
           Check with the Higher Regional Court where you’re getting married if they don’t accept this.
-        uk_resident_os_consular_cni_three: |
+        get_cni_at_registrar_in_uk: |
           You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
 
           ^A CNI issued in England, Wales or Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
@@ -1134,25 +1128,16 @@ en-GB:
           %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
         no_cni_os_dutch_caribbean_islands_uk_resident: |
           Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_os_dutch_caribbean_islands_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         no_cni_os_dutch_caribbean_other_resident: |
           Contact the local authorities before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_os_not_dutch_caribbean_islands_uk_resident: |
           Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         no_cni_os_not_dutch_caribbean_islands_local_resident: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         no_cni_os_not_dutch_caribbean_other_resident: |
           Contact your nearest embassy or consulate representing %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
-
         cni_os_consular_facilities_unavailable: |
           There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
 
