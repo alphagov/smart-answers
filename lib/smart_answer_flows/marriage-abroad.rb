@@ -1,7 +1,9 @@
 # Abbreviations used in this smart answer:
 # CNI - Certificate of No Impediment
+# CI - Channel Islands
 # CP - Civil Partnership
 # FCO - Foreign & Commonwealth Office
+# IOM - Isle Of Man
 # OS - Opposite Sex
 # SS - Same Sex
 
@@ -119,7 +121,7 @@ multiple_choice :residency_uk? do
         data_query.ss_marriage_and_partnership?(ceremony_country) ||
         %w(portugal czech-republic).include?(ceremony_country)
       })
-    next_node_if(:outcome_os_iom_ci)
+    next_node(:outcome_os_iom_ci)
   end
   next_node(:what_is_your_partners_nationality?)
 end
@@ -279,7 +281,7 @@ end
 outcome :outcome_os_iom_ci do
   precalculate :iom_ci_os_outcome do
     phrases = PhraseList.new
-    phrases << :iom_ci_os_all
+    phrases << :contact_local_authorities_in_country_marriage
     phrases << :iom_ci_os_spain if ceremony_country == 'spain'
     if residency_uk_region == 'uk_iom'
       phrases << :iom_ci_os_resident_of_iom
@@ -371,7 +373,7 @@ outcome :outcome_os_laos do
     phrases = PhraseList.new
 
     if resident_of == 'uk'
-      phrases << :contact_embassy_of_ceremony_country_in_uk
+      phrases << :contact_embassy_of_ceremony_country_in_uk_marriage
     else
       phrases << :no_cni_os_not_dutch_caribbean_other_resident
     end
@@ -427,7 +429,7 @@ outcome :outcome_brazil_not_living_in_the_uk do
     if resident_of == 'ceremony_country'
       phrases << :local_resident_os_ceremony_contact_for_advice << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :consular_cni_os_all_names_but_germany << :consular_cni_os_naturalisation
     else
-      phrases << :contact_local_authorities_in_country << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
+      phrases << :contact_local_authorities_in_country_marriage << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
     end
     phrases
   end
@@ -436,7 +438,7 @@ end
 outcome :outcome_os_colombia do
   precalculate :colombia_os_phraselist do
     PhraseList.new(
-      :contact_embassy_of_ceremony_country_in_uk,
+      :contact_embassy_of_ceremony_country_in_uk_marriage,
       :get_legal_and_travel_advice,
       :what_you_need_to_do_affirmation,
       :make_an_appointment_bring_passport_and_pay_55_colombia,
@@ -484,7 +486,7 @@ outcome :outcome_os_commonwealth do
       if resident_of == 'uk'
         phrases << :uk_resident_os_ceremony_contact_for_advice
       else
-        phrases << :contact_local_authorities_in_country
+        phrases << :contact_local_authorities_in_country_marriage
         phrases << :get_legal_advice
         phrases << :get_travel_advice_unless_local
       end
@@ -519,7 +521,7 @@ outcome :outcome_os_bot do
       phrases << :bot_os_ceremony_bvi
     else
       phrases << :bot_os_ceremony_non_biot
-      phrases << :bot_os_not_local_resident unless resident_of == 'ceremony_country'
+      phrases << :also_check_travel_advice unless resident_of == 'ceremony_country'
       phrases << :bot_os_naturalisation unless partner_nationality == 'partner_british'
     end
     phrases
@@ -541,7 +543,7 @@ outcome :outcome_consular_cni_os_residing_in_third_country do
 
   precalculate :body do
     phrases = PhraseList.new
-    phrases << :contact_local_authorities_in_country
+    phrases << :contact_local_authorities_in_country_marriage
     phrases << :get_legal_and_travel_advice
     phrases << :what_you_need_to_do
     phrases << :os_consular_cni_requirement
@@ -572,10 +574,10 @@ outcome :outcome_os_consular_cni do
         if data_query.dutch_caribbean_islands?(ceremony_country)
           phrases << :contact_dutch_embassy_for_dutch_caribbean_islands
         else
-          phrases << :contact_embassy_of_ceremony_country_in_uk
+          phrases << :contact_embassy_of_ceremony_country_in_uk_marriage
         end
       elsif resident_of == 'ceremony_country'
-        phrases << :contact_local_authorities_in_country
+        phrases << :contact_local_authorities_in_country_marriage
       end
     end
 
@@ -885,28 +887,34 @@ outcome :outcome_os_affirmation do
   precalculate :affirmation_os_outcome do
     phrases = PhraseList.new
     if ceremony_country == 'colombia'
-      phrases << :contact_embassy_of_ceremony_country_in_uk
+      phrases << :contact_embassy_of_ceremony_country_in_uk_marriage
       phrases << :get_legal_and_travel_advice
     else
       if resident_of == 'uk'
+        phrases << :contact_embassy_of_ceremony_country_in_uk_marriage
         if ceremony_country == 'morocco'
-          phrases << :affirmation_os_uk_resident_ceremony_in_morocco
-        else
-          phrases << :affirmation_os_uk_resident
+          phrases << :contact_laadoul
         end
       elsif (resident_of == 'ceremony_country') or ceremony_country == 'qatar'
-        phrases << :affirmation_os_local_resident
+        phrases << :contact_local_authorities_in_country_marriage
         if ceremony_country == 'qatar'
           phrases << :gulf_states_os_consular_cni << :gulf_states_os_consular_cni_local_resident
         end
       elsif resident_of == 'third_country'
+        phrases << :contact_nearest_embassy_or_consulate_of_ceremony_country
         if ceremony_country == 'morocco'
-          phrases << :affirmation_os_other_resident_ceremony_in_morocco
-        else
-          phrases << :affirmation_os_other_resident
+          phrases << :contact_laadoul
         end
       end
-      phrases << :get_legal_advice unless %w(cambodia ecuador morocco ).include? ceremony_country
+
+      if %w(cambodia ecuador).exclude?(ceremony_country)
+        if resident_of == 'ceremony_country'
+          phrases << :get_legal_advice
+        else
+          phrases << :get_legal_and_travel_advice
+        end
+      end
+
       phrases << :affirmation_os_uae if ceremony_country == 'united-arab-emirates'
     end
     #What you need to do section
@@ -1054,16 +1062,16 @@ outcome :outcome_os_no_cni do
       if resident_of == 'uk'
         phrases << :no_cni_os_dutch_caribbean_islands_uk_resident
       elsif resident_of == 'ceremony_country' # TODO: refactor to use the same phrase for local authorities.
-        phrases << :no_cni_os_dutch_caribbean_islands_local_resident
+        phrases << :contact_local_authorities_in_country_marriage
       elsif resident_of == 'third_country'
         phrases << :no_cni_os_dutch_caribbean_other_resident
       end
     else
       if resident_of == 'ceremony_country' or data_query.ss_unknown_no_embassies?(ceremony_country)
-        phrases << :no_cni_os_not_dutch_caribbean_islands_local_resident
+        phrases << :contact_local_authorities_in_country_marriage
       elsif resident_of == 'uk'
         phrases << :no_cni_os_not_dutch_caribbean_islands_uk_resident
-      elsif resident_of == 'residency_country
+      elsif resident_of == 'third_country'
         phrases << :no_cni_os_not_dutch_caribbean_other_resident
       end
     end
@@ -1136,17 +1144,20 @@ outcome :outcome_cp_cp_or_equivalent do
       phrases << :"cp_or_equivalent_cp_#{ceremony_country}"
     end
 
-    if ceremony_country == 'brazil' and sex_of_your_partner == 'same_sex' and resident_of == 'uk'
+    if ceremony_country == 'brazil' and sex_of_your_partner == 'same_sex' and resident_of != 'ceremony_country'
       phrases << :check_travel_advice
-    elsif ceremony_country == 'czech-republic' and sex_of_your_partner == 'same_sex'
-      phrases << :cp_or_equivalent_cp_uk_resident_czech_republic
     elsif resident_of == 'uk'
-      phrases << :cp_or_equivalent_cp_uk_resident
+      phrases << :contact_embassy_of_ceremony_country_in_uk_cp
     elsif resident_of == 'ceremony_country'
-      phrases << :cp_or_equivalent_cp_local_resident
+      phrases << :contact_local_authorities_in_country_cp
     elsif resident_of == 'third_country'
       phrases << :cp_or_equivalent_cp_other_resident
     end
+
+    if resident_of != 'ceremony_country' and ceremony_country != 'brazil'
+      phrases << :also_check_travel_advice
+    end
+
     unless ceremony_country == 'czech-republic' and sex_of_your_partner == 'same_sex'
       if ceremony_country == 'brazil' and sex_of_your_partner == 'same_sex' and resident_of == 'uk'
         phrases << :what_you_need_to_do_cni << :get_cni_at_registrar_in_uk << :consular_cni_os_uk_resident_legalisation << :consular_cni_os_uk_resident_not_italy_or_portugal << :consular_cni_os_all_names_but_germany
@@ -1196,7 +1207,7 @@ outcome :outcome_cp_no_cni do
       if resident_of == 'uk'
         phrases << :no_cni_required_cp_dutch_islands_uk_resident
       elsif resident_of == 'ceremony_country'
-        phrases << :no_cni_required_cp_dutch_islands_local_resident
+        phrases << :contact_local_authorities_in_country_cp
       elsif resident_of == 'third_country'
         phrases << :no_cni_required_cp_dutch_islands_other_resident
       end
@@ -1204,7 +1215,7 @@ outcome :outcome_cp_no_cni do
       if resident_of == 'uk'
         phrases << :no_cni_required_cp_not_dutch_islands_uk_resident
       elsif resident_of == 'ceremony_country'
-        phrases << :no_cni_required_cp_not_dutch_islands_local_resident
+        phrases << :contact_local_authorities_in_country_cp
       elsif resident_of == 'third_country'
         phrases << :no_cni_required_cp_not_dutch_islands_other_resident
       end
