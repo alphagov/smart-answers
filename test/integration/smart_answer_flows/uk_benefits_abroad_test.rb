@@ -603,12 +603,21 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :esa_going_abroad_eea_outcome
           end
         end
-        context "answer other country" do
+        context "answer albania" do
           setup do
             add_response 'albania'
           end
           should "take you to other outcome" do
             assert_current_node :esa_going_abroad_other_outcome
+          end
+        end
+
+        context "answer kosovo" do
+          setup do
+            add_response 'kosovo'
+          end
+          should "take you to other outcome" do
+            assert_current_node :esa_going_abroad_eea_outcome
           end
         end
       end
@@ -1349,6 +1358,17 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'esa'
         add_response 'esa_more_than_a_year'
         add_response 'kosovo'
+      end
+      should "take you to former yugoslavia outcome" do
+        assert_current_node :esa_already_abroad_ss_outcome
+      end
+    end
+
+    context "living abroad for more than a year, jersey" do
+      setup do
+        add_response 'esa'
+        add_response 'esa_more_than_a_year'
+        add_response 'jersey'
       end
       should "take you to former yugoslavia outcome" do
         assert_current_node :esa_already_abroad_ss_outcome

@@ -5,7 +5,6 @@ SMART_ANSWER_FLOW_NAMES = %w(
   apply-tier-4-visa
   benefit-cap-calculator
   benefits-abroad
-  benefits-if-you-are-abroad
   calculate-agricultural-holiday-entitlement
   calculate-married-couples-allowance
   calculate-state-pension
@@ -33,7 +32,6 @@ SMART_ANSWER_FLOW_NAMES = %w(
   state-pension-topup
   student-finance-calculator
   towing-rules
-  uk-benefits-abroad-v2
   uk-benefits-abroad
   vat-payment-deadlines
 )
