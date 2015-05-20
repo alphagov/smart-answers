@@ -1,5 +1,7 @@
 # Smart Answers
 
+## Introduction
+
 > Smart answers are a great tool for content designers to present complex information in a quick and simple way. Defining what they are – decision trees? calculators? tools? is immaterial – what they do is provide a reusable technical framework to build a quick and simple answer to a complex question.
 
 Read more in [a blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
@@ -9,24 +11,24 @@ Have a look at
 
 This application supports two styles of writing and executing smart answers:
 
-**Ruby and YAML-based smart answer flows**
+### Ruby and YAML-based smart answer flows
 
 For more information, please go to the [Ruby/YAML SmartAnswer README](lib/smart_answer_flows/README.md)
 
-**Smartdown-based smart answer flows**
+### Smartdown-based smart answer flows
 
 For more information, please go to the [Smartdown SmartAnswer README](lib/smartdown_flows/README.md)
 
-**Switching from one style to another**
+### Switching from one style to another
 
 Smart answers are by default expected to be in Ruby/YAML style.
 To transition a smart answer from Ruby/YML to Smartdown style, register it in the smartdown registry (`lib/smartdown/registry.rb`).
 
-**Debugging current state**
+## Debugging current state
 
 If you have a URL of a Smart answer and want to debug the state of it i.e. to see PhraseList keys, saved inputs, the outcome name, append `debug=1` query parameter to the URL in development mode. This will render debug information on the Smart answer page.
 
-**Visualising a flow**
+## Visualising a flow
 
 To see an interactive visualisation of a smart answer flow, append `/visualise` to the root of a smartanswer URL e.g. `http://smartanswers.dev.gov.uk/<my-flow>/visualise/`
 
@@ -66,7 +68,7 @@ Run unit tests by executing the following:
 
     bundle exec rake
 
-** Fixtures **
+### Fixtures
 
 If you need to add a new worldwide organisations fixture find [it here](https://www.gov.uk/government/world/organisations) by the country name or its capital city, navigate to `<found_url>.json`, most likely it will be of the following format `https://www.gov.uk/api/world/organisations/british-[embassy|high-commission]-<capital city>`, copy over the JSON to `test/fixtures/worldwide/<country>_organisations.json` and change it to reflect the expected format based on other examples in the directory.
 
@@ -95,12 +97,11 @@ When making bigger changes that need to be tested before they go live it is best
 
 Once reviewed, the draft can be published by running `rake version:publish[flow]`. This merges V2 changes into the original files. Take a look at the [rake task](https://github.com/alphagov/smart-answers/blob/master/lib/tasks/version.rake) to see the details. If you used any other V2 files that are not covered by the rake task, make sure to process them manually.
 
-**Commiting V2 -> V1 changes**
+### Commiting V2 -> V1 changes
 
 To help developers track changes in files easily, it is best if you commit V2 files' removal in one commit, then commit the modifications to the original files. This creates an easy to browse diff of all the changes being published. Write a descriptive message for the second commit, as this is what the other developers will see in the file history.
 
-
-## Detailed documentation
+### Detailed documentation
 
 - [How to archive a Smart Answer](doc/archiving.md)
 
