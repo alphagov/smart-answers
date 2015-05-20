@@ -52,14 +52,15 @@ en-GB:
 
           ##Child Tax Credit
 
-          You could get Child Tax Credit if:
+          You could get [Child Tax Credit](/child-tax-credit) if:
 
+          - you are ordinarily resident in the UK
           - you work in the UK and pay [National Insurance contributions](/national-insurance) here
           - your child lives in an EEA country or in Switzerland and depends on you to support them
 
           Contact the Tax Credits Helpline to claim.
         tax_credits_holiday_going_abroad: |
-          You can carry on getting tax credits for up to 8 weeks.
+          You may be able to carry on getting tax credits for up to 8 weeks.
         tax_credits_holiday_already_abroad: |
           You can carry on getting tax credits for up to 8 weeks after leaving the UK if you were already receiving them before you left.
         tax_credits_holiday: |
@@ -67,7 +68,7 @@ en-GB:
 
           You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn't have.
         tax_credits_medical_death_going_abroad: |
-          You can carry on getting tax credits for up to 12 weeks.
+          You may be able to carry on getting tax credits for up to 12 weeks.
         tax_credits_medical_death_already_abroad: |
           You can carry on getting tax credits for up to 12 weeks after leaving the UK if you were already receiving them before you left.
         tax_credits_medical_death: |
@@ -77,21 +78,21 @@ en-GB:
         tax_credits_going_abroad_helpline: |
 
           $C
-          **Tax Credits Helpline**  
-          Telephone: 0345 300 3900  
-          Textphone: 0345 300 3909  
-          Outside the UK call +44 2890 538 192  
-          Monday to Friday, 8am to 8pm  
-          Saturday, 8am to 4pm  
-          Find out about [call charges](/call-charges)  
+          **Tax Credits Helpline**
+          Telephone: 0345 300 3900
+          Textphone: 0345 300 3909
+          Outside the UK call +44 2890 538 192
+          Monday to Friday, 8am to 8pm
+          Saturday, 8am to 4pm
+          Find out about [call charges](/call-charges)
           $C
         tax_credits_already_abroad_helpline: |
 
           $C
-          **Tax Credits Helpline**  
-          From outside the UK: +44 2890 538 192  
-          Monday to Friday, 8am to 8pm  
-          Saturday, 8am to 4pm  
+          **Tax Credits Helpline**
+          From outside the UK: +44 2890 538 192
+          Monday to Friday, 8am to 8pm
+          Saturday, 8am to 4pm
           $C
 
         iidb_maybe_text: "continued to"
@@ -109,13 +110,13 @@ en-GB:
 
 # Q2 already_abroad and Q3 going_abroad
       which_benefit?:
-        title: Which benefit would you like to claim?
+        title: Which benefit will you be claiming?
         options:
           jsa: "Jobseeker's Allowance (JSA)"
           pension: "State Pension"
           winter_fuel_payment: "Winter Fuel Payment"
           maternity_benefits: "Maternity benefits"
-          child_benefit: "Child benefit"
+          child_benefit: "Child Benefit"
           iidb: "Industrial Injuries Disablement Benefit"
           ssp: "Statutory Sick Pay (SSP)"
           esa: "Employment and Support Allowance (ESA)"
@@ -126,7 +127,7 @@ en-GB:
 # Q8 going_abroad and Q7 already_abroad
       working_for_a_uk_employer?:
         title: |
-          Are you working for a UK employer and paying [Class 1 National Insurance Contributions](/national-insurance/how-much-national-insurance-you-pay)?
+          Are you working for a UK employer and paying Class 1 National Insurance Contributions?
         body: |
           If you're unsure you can read our [National Insurance Guide](/national-insurance/how-much-national-insurance-you-pay).
 # Q9 going_abroad and Q8 already_abroad
@@ -142,10 +143,17 @@ en-GB:
 
 # Q13 going_abroad and Q12 already_abroad
       do_either_of_the_following_apply?:
-        title: Do either of the following apply to you?
+        title: Does the following apply to you?
         body: |
-          * you're employed or self-employed and paying National Insurance contributions in the UK
-          * you're currently receiving at least one of the following UK benefits (Jobseeker's Allowance, Incapacity Benefit, Employment and Support Allowance, State Pension, Widows/Bereavement Benefit or Industrial Injuries Disablement Benefit)
+          You're currently receiving at least one of the following UK benefits:
+
+          - Bereavement benefits
+          - Severe Disablement Allowance
+          - Employment and Support Allowance
+          - Incapacity Benefit
+          - Industrial Injuries Disablement Benefit
+          - State Pension
+
 
 # Q15 going_abroad and Q14 already_abroad
       working_for_uk_employer_ssp?:
@@ -176,6 +184,7 @@ en-GB:
           - Industrial Injuries Disablement Benefit
           - contribution-based Employment and Support Allowance
           - Severe Disablement Allowance
+
 # Q23 going_abroad and Q22 already_abroad
       tax_credits_why_going_abroad?:
         title: %{why_abroad_question_title}
@@ -275,7 +284,7 @@ en-GB:
         body: |
           You can't claim [income-based JSA](/jobseekers-allowance/overview) abroad.
 
-          You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months if you're going abroad to look for work and you:
+          You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months  if you’re going to an [EEA country](/eu-eea) or Jersey or Guernsey to look for work and you:
 
           - are entitled to it on the day you go abroad
           - register as a jobseeker at least 4 weeks before you leave
@@ -287,13 +296,14 @@ en-GB:
 
           You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
+
           $A
-          Jobseekers and Benefit Enhancement Section (JBES)  
-          Room TC013  
-          International Pension Centre  
-          Tyneview Park  
-          Newcastle Upon Tyne  
-          NE98 1BA  
+          Jobseekers and Benefit Enhancement Section (JBES)
+          Room TC013
+          International Pension Centre
+          Tyneview Park
+          Newcastle Upon Tyne
+          NE98 1BA
           $A
 
           *[JSA]: Jobseeker's Allowance
@@ -303,7 +313,7 @@ en-GB:
         body: |
           You can't claim [income-based JSA](/jobseekers-allowance/overview) abroad.
 
-          You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months if you're going abroad to look for work and you:
+          You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months  if you’re going to an [EEA country](/eu-eea) or Jersey or Guernsey to look for work and you:
 
           - are entitled to it on the day you go abroad
           - register as a jobseeker at least 4 weeks before you leave
@@ -315,13 +325,14 @@ en-GB:
 
           You'll also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
+
           $A
-          Jobseekers and Benefit Enhancement Section (JBES)  
-          Room TC013  
-          International Pension Centre  
-          Tyneview Park  
-          Newcastle Upon Tyne  
-          NE98 1BA  
+          Jobseekers and Benefit Enhancement Section (JBES)
+          Room TC013
+          International Pension Centre
+          Tyneview Park
+          Newcastle Upon Tyne
+          NE98 1BA
           $A
 
           *[JSA]: Jobseeker's Allowance
@@ -343,20 +354,21 @@ en-GB:
 
           You'll  also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
 
+
           $A
-          Jobseekers and Benefit Enhancement Section (JBES)  
-          Room TC013  
-          International Pension Centre  
-          Tyneview Park  
-          Newcastle Upon Tyne  
-          NE98 1BA  
+          Jobseekers and Benefit Enhancement Section (JBES)
+          Room TC013
+          International Pension Centre
+          Tyneview Park
+          Newcastle Upon Tyne
+          NE98 1BA
           $A
 
           *[JSA]: Jobseeker's Allowance
 # A3 already_abroad
       jsa_eea_already_abroad_outcome:
         body: |
-          You can't get JSA while you're abroad. You may qualify for unemployment benefits in %{country_name} because of the agreements between [EEA countries](/eu-eea) and Switzerland.
+          You can't get JSA while you're abroad. You may qualify for unemployment benefits in %{country_name}.
 
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
@@ -372,7 +384,7 @@ en-GB:
 # A4 already_abroad
       jsa_social_security_already_abroad_outcome:
         body: |
-          You can't get JSA abroad. You may qualify for unemployment benefits because of the agreements between the [EEA countries](/eu-eea) and Switzerland.
+          You can’t claim JSA from abroad. You may qualify for unemployment benefits in %{country_name}.
 
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
@@ -465,21 +477,21 @@ en-GB:
 
           The UK and %{country_name} can count time you spend living or working in the other country when deciding if you qualify for benefits there.
 
-          Contact the [International Pension Centre](/international-pension-centre) to find out how to claim abroad.
+          Contact [HMRC](/child-benefit/further-information) to find out how to claim abroad.
 
 # A12 already_abroad
       child_benefit_fy_already_abroad_outcome:
         body: |
           There is a social security agreement between the UK and %{country_name}. You may be able to get Child Benefit abroad.
 
-          Contact the [International Pension Centre](/international-pension-centre) to find out how to claim abroad.
+          Contact [HMRC](/child-benefit/further-information) to find out how to claim abroad.
 
 # A15 going_abroad and A13 already_abroad
       child_benefit_ss_outcome:
         body: |
           There is a social security agreement between the UK and %{country_name}. You may be able to get [Child Benefit](/child-benefit/) abroad.
 
-          Contact the [International Pension Centre](/international-pension-centre) to find out if you can get Child Benefit in %{country_name}.
+          Contact [HMRC](/child-benefit/further-information) to find out if you can get Child Benefit in %{country_name}.
 
           You may also be able to claim [Guardian's Allowance](/guardians-allowance), if you're responsible for a [child whose parents have died](/child-benefit-child-parent-dies/if-one-or-both-parents-die) and you're getting Child Benefit for them.
 
@@ -488,7 +500,7 @@ en-GB:
         body: |
           You can't get Child Benefit in %{country_name}. If you're responsible for a child whose parents have died, you may be able to claim UK [Guardian's Allowance](/guardians-allowance) there.
 
-          Contact the [International Pension Centre](/international-pension-centre) to check if you're eligible.
+          Contact [HMRC](/child-benefit/further-information) to check if you're eligible.
 
 # A17 going_abroad and A15 already_abroad
       child_benefit_entitled_outcome:
@@ -497,7 +509,7 @@ en-GB:
 
           You may also be able to claim [Guardian's Allowance](/guardians-allowance), if you're looking after  a [child whose parents have died](/child-benefit-child-parent-dies/if-one-or-both-parents-die) and you're getting Child Benefit for them.
 
-          Contact the [International Pension Centre](/international-pension-centre) to get Child Benefit or Guardian's Allowance%{already_abroad_text}.
+          Contact [HMRC](/child-benefit/further-information) to get Child Benefit or Guardian's Allowance%{already_abroad_text}.
 
 # A18 going_abroad and A16 already_abroad
       child_benefit_not_entitled_outcome:
@@ -560,12 +572,12 @@ en-GB:
 
 
           $C
-          **Tax Credits Helpline**  
-          Telephone: 0345 300 3900  
-          Textphone: 0345 300 3909  
-          Outside the UK: +44 2890 538 192  
-          Monday to Friday, 8am to 8pm  
-          Saturday 8am to 4pm  
+          **Tax Credits Helpline**
+          Telephone: 0345 300 3900
+          Textphone: 0345 300 3909
+          Outside the UK: +44 2890 538 192
+          Monday to Friday, 8am to 8pm
+          Saturday 8am to 4pm
           $C
 
 # A23 already_abroad and A25 going_abroad
@@ -606,7 +618,7 @@ en-GB:
 # A28 going_abroad
       esa_going_abroad_under_a_year_other_outcome:
         body: |
-          You may be able to carry on getting [income-related or contribution-based ESA(/employment-support-allowance) for up to 26 weeks
+          You may be able to carry on getting [income-related or contribution-based ESA](/employment-support-allowance) for up to 26 weeks
 
           You can carry on getting [ESA](/employment-support-allowance) for up to 4 weeks.
 
@@ -698,37 +710,6 @@ en-GB:
 
           Tell the office that deals with your benefit that you're planning to move abroad.
 
-          ##Industrial Injuries Disablement Benefit centres
-
-          ###Scotland, North West England, East of England, South East England and London
-
-          Telephone: 0845 603 1358
-          Textphone: 0845 608 8551
-
-
-
-          $A
-          Jobcentre Plus Barrow IIDB Centre  
-          Pittman Way  
-          Preston  
-          PR11 2AB  
-          $A
-
-          ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
-
-          Telephone: 0845 758 5433
-          Textphone: 0845 608 8551
-
-
-
-          $A
-          Jobcentre Plus Barnsley IIDB Centre  
-          Brightside Lane  
-          Sheffield  
-          S99 1AB  
-          $A
-
-          Find out about [call charges](/call-charges).
 
 # A31 already_abroad
       iidb_already_abroad_eea_outcome:
@@ -744,37 +725,6 @@ en-GB:
 
           Tell the office that deals with your benefit that you're planning to move abroad.
 
-          ##Industrial Injuries Disablement Benefit centres
-
-          ###Scotland, North West England, East of England, South East England and London
-
-          Telephone: 0845 603 1358
-          Textphone: 0845 608 8551
-
-
-
-          $A
-          Jobcentre Plus Barrow IIDB Centre  
-          Pittman Way  
-          Preston  
-          PR11 2AB  
-          $A
-
-          ###Yorkshire and the Humber, North East England, East and West Midlands, South West England and Wales
-
-          Telephone: 0845 758 5433
-          Textphone: 0845 608 8551
-
-
-
-          $A
-          Jobcentre Plus Barnsley IIDB Centre  
-          Brightside Lane  
-          Sheffield  
-          S99 1AB  
-          $A
-
-          Find out about [call charges](/call-charges).
 # A32 already_abroad
       iidb_already_abroad_ss_outcome:
         body: |
@@ -803,8 +753,8 @@ en-GB:
           You can claim the following benefits if you're going abroad for up to 13 weeks (or 26 weeks if it's for medical treatment):
 
           * [Attendance Allowance](/attendance-allowance)
-          * [Disability Living Allowance](/dla-disability-living-allowance-benefit) - care component
-          * [Personal Independence Payment](/pip) - daily living component
+          * [Disability Living Allowance](/dla-disability-living-allowance-benefit)
+          * [Personal Independence Payment](/pip)
 
           You can carry on claiming [Carer's Allowance](/carers-allowance) if you take up to 4 weeks holiday out of a 26-week period.
 
@@ -830,7 +780,7 @@ en-GB:
 
           * [Attendance Allowance](/attendance-allowance)
           * [Carer's Allowance](/carers-allowance)
-          * [Disability Living Allowance](/dla-disability-living-allowance-benefit) - care component
+          * [Disability Living Allowance](/dla-disability-living-allowance-benefit)
           * [Personal Independence Payment](/pip)
 
           You may be able to get benefits from %{country_name} if you've been paying into a local insurance scheme.  Contact the local authorities to find out if you qualify.
@@ -855,7 +805,7 @@ en-GB:
 # A39 going_abroad
       bb_going_abroad_eea_outcome:
         body: |
-          You can export bereavement benefits to %{country_name}.
+          You can export bereavement benefits to %{country_name} at the same rate as if you were living in the UK.
 
           Claim [Bereavement Allowance](/bereavement-allowance#how-to-claim), [Bereavement Payment](/bereavement-payment#how-to-claim) or [Widowed Parent's Allowance](/widowed-parents-allowance#how-to-claim) before you leave the UK.
 
@@ -877,7 +827,7 @@ en-GB:
         body: |
           You can export bereavement benefits to %{country_name} although you won't get any annual increases after you've moved there.
 
-          Claim [Bereavement Allowance](/bereavement-allowance#how-to-claim), [Bereavement Payment](/bereavement-payment#how-to-claim) or [Widowed Parent's Allowance](/widowed-parents-allowance#how-to-claim) before leaving the UK.
+          Claim [Bereavement Allowance](/bereavement-allowance/how-to-claim), [Bereavement Payment](/bereavement-payment#how-to-claim) or [Widowed Parent's Allowance](/widowed-parents-allowance#how-to-claim) before leaving the UK.
 
           Once you have claimed bereavement benefits, [contact the International Pension Centre](/international-pension-centre) to find out if you can export them.
 

@@ -2,10 +2,10 @@ module SmartAnswer
   class UkBenefitsAbroadFlow < Flow
     def define
       name 'uk-benefits-abroad'
-      status :draft
+      status :published
       satisfies_need "100490"
 
-      exclude_countries = %w(holy-see british-antarctic-territory)
+      exclude_countries = %w(british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten)
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
       going_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'going_abroad', nil, 'going abroad')
@@ -177,11 +177,14 @@ module SmartAnswer
         on_condition(variable_matches(:benefit, 'esa')) do
           on_condition(going_abroad) do
             next_node_if(:esa_going_abroad_eea_outcome, responded_with_eea_country) # A29 going_abroad
+            next_node_if(:esa_going_abroad_eea_outcome, responded_with_former_yugoslavia)
+            next_node_if(:esa_going_abroad_eea_outcome, responded_with(%w(barbados guernsey israel jersey jamaica turkey usa)))
             next_node(:esa_going_abroad_other_outcome) # A30 going_abroad
           end
           on_condition(already_abroad) do
             next_node_if(:esa_already_abroad_eea_outcome, responded_with_eea_country) # A27 already_abroad
             next_node_if(:esa_already_abroad_ss_outcome, responded_with_former_yugoslavia) # A28 already_abroad
+            next_node_if(:esa_already_abroad_ss_outcome, responded_with(%w(barbados jersey guernsey jamaica turkey usa)))
             next_node(:esa_already_abroad_other_outcome) # A29 already_abroad
           end
         end
