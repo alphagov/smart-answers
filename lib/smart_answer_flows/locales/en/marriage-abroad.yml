@@ -333,12 +333,16 @@ en-GB:
           If you’re not already living there, you should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
         check_travel_advice: |
           You should check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
+        also_check_travel_advice: |
+          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         get_legal_and_travel_advice: |
           ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
         contact_local_authorities: |
           Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
-        contact_local_authorities_in_country: |
+        contact_local_authorities_in_country_marriage: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
+        contact_local_authorities_in_country_cp: |
+          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         partner_naturalisation_in_uk: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -379,9 +383,6 @@ en-GB:
           You’ll need to complete an [‘Affirmation for marriage’](/government/publications/affirmation-form-china) (non-religious) form or an [‘Affidavit for marriage’](/government/publications/affidavit-form-china) (religious) form in English.
 
 # Marriage if resident of Isle of Man or Channel Islands
-        iom_ci_os_all: |
-
-          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         iom_ci_os_spain: |
           %There are certain legal restrictions if neither of you is resident in Spain. You should check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
         iom_ci_os_resident_of_iom: |
@@ -519,8 +520,6 @@ en-GB:
           Contact the %{ceremony_country_name} Government to find out about getting married there, including what documents you’ll need.
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
           You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
-        bot_os_not_local_resident: |
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         bot_os_naturalisation: |
           ##Naturalisation of your partner if they move to the UK
 
@@ -534,8 +533,10 @@ en-GB:
 
           ^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
 
-        contact_embassy_of_ceremony_country_in_uk: |
+        contact_embassy_of_ceremony_country_in_uk_marriage: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
+        contact_embassy_of_ceremony_country_in_uk_cp: |
+          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local laws, including what documents you’ll need.
         contact_dutch_embassy_for_dutch_caribbean_islands: |
           %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
 
@@ -1033,28 +1034,10 @@ en-GB:
         fot_os_all: |
           %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
 # Affirmation to marry phrases
-        affirmation_os_uk_resident: |
-          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
-        affirmation_os_uk_resident_ceremony_in_morocco: |
-          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
-
-          ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).^
-        affirmation_os_local_resident: |
-          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
-        affirmation_os_other_resident: |
+        contact_nearest_embassy_or_consulate_of_ceremony_country: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
-        affirmation_os_other_resident_ceremony_in_morocco: |
-          Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
-
+        contact_laadoul: |
           You also need to contact the Marriage Officer (Laadoul) in the city where you are going to get married.
-
-          ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country})^
         affirmation_os_legalised_in_turkey: |
           You’ll need to get your affidavit ‘legalised’ (certified as genuine) by the local authorities, this is usually done on the same day - the embassy or consulate should be able to give you advice.
         affirmation_os_uae: |
@@ -1128,14 +1111,10 @@ en-GB:
           %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
         no_cni_os_dutch_caribbean_islands_uk_resident: |
           Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need.
-        no_cni_os_dutch_caribbean_islands_local_resident: |
-          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         no_cni_os_dutch_caribbean_other_resident: |
           Contact the local authorities before making any plans to find out about local marriage laws, including what documents you’ll need.
         no_cni_os_not_dutch_caribbean_islands_uk_resident: |
           Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need.
-        no_cni_os_not_dutch_caribbean_islands_local_resident: |
-          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         no_cni_os_not_dutch_caribbean_other_resident: |
           Contact your nearest embassy or consulate representing %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         cni_os_consular_facilities_unavailable: |
@@ -1272,16 +1251,6 @@ en-GB:
           - ’registrerat partnerskap’, or ’registered partnership’.
         cp_or_equivalent_cp_switzerland: |
           Same-sex relationships in Switzerland that are recognised as civil partnerships under British law are known as ’eingetragene Partnerschaft’, ’partenariat enregistré’, ’unione domestica registrata’ or ’partenadi registrà’ (’registered partnership’).
-        cp_or_equivalent_cp_uk_resident: |
-          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
-        cp_or_equivalent_cp_uk_resident_czech_republic: |
-          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
-
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
-        cp_or_equivalent_cp_local_resident: |
-          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         cp_or_equivalent_cp_other_resident: |
           Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
 
@@ -1368,8 +1337,6 @@ en-GB:
           Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
-        no_cni_required_cp_dutch_islands_local_resident: |
-          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         no_cni_required_cp_dutch_islands_other_resident: |
           Contact your nearest Dutch embassy or consulate before making any plans to find out about local laws, including what documents you’ll need.
 
@@ -1378,8 +1345,6 @@ en-GB:
           Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing %{country_name_lowercase_prefix} before making any plans to find out about local laws, including what documents you’ll need.
 
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
-        no_cni_required_cp_not_dutch_islands_local_resident: |
-          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         no_cni_required_cp_not_dutch_islands_other_resident: |
           Contact your nearest embassy or consulate representing %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
 
