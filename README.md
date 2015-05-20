@@ -87,6 +87,46 @@ Test a single Smartdown flow by running:
 
 [smartdown-scenarios]: https://github.com/alphagov/smartdown/blob/master/doc/scenarios.md
 
+### Adding regression tests to Smart Answers
+
+1. Generate a set of responses for the flow that you want to add regression tests to.
+
+        $ rails r script/generate-questions-and-responses-for-smart-answer.rb <name-of-smart-answer>
+
+2. Commit the generated questions-and-responses.yml file (in test/data) to git.
+
+3. Change the file by adding/removing and changing the responses:
+
+  * Add responses for any of the TODO items in the file.
+
+  * Remove responses that you don't think cause the code to follow different branches, e.g. it might be useful to remove all but one (or a small number) of countries to avoid a combinatorial explosion of input responses.
+
+  * Combine responses for checkbox questions where the effect of combining them doesn't affect the number of branches of the code that are exercised.
+
+4. Commit the updated questions-and-responses.yml file to git.
+
+5. Generate a set of input responses and expected results for the Smart Answer.
+
+        $ rails r script/generate-responses-and-expected-results-for-smart-answer.rb <name-of-smart-answer>
+
+6. Commit the generated responses-and-expected-results.yml file (in test/data) to git.
+
+7. Run the regression test to generate the HTML of each outcome reached by the set of input responses.
+
+        $ TEST_COVERAGE=true ruby test/regression/smart_answers_regression_test.rb
+
+8. Commit the generated outcome HTML files (in test/artefacts) to git.
+
+9. Inspect the code coverage report for the Smart Answer under test (`open coverage/rcov/index.html` and find the smart answer under test).
+
+  * If all the branches in the flow have been exercisde then you don't need to do anything else at this time.
+
+  * If there are branches in the flow that haven't been exercised then:
+
+      * Determine the responses required to exercise those branches.
+
+      * Go to Step 3, add the new responses and continue through the steps up to Step 9.
+
 ## Issues/todos
 
 Please see the [github issues](https://github.com/alphagov/smart-answers/issues) page.
