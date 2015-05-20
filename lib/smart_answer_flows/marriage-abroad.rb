@@ -371,12 +371,12 @@ outcome :outcome_os_laos do
     phrases = PhraseList.new
 
     if resident_of == 'uk'
-      phrases << :uk_resident_os_consular_cni
+      phrases << :contact_embassy_of_ceremony_country_in_uk
     else
       phrases << :no_cni_os_not_dutch_caribbean_other_resident
     end
 
-    phrases << :get_legal_advice
+    phrases << :get_legal_and_travel_advice
     phrases << :consular_cni_all_what_you_need_to_do
     phrases << :what_to_do_laos
     phrases << :legalisation_and_translation
@@ -427,18 +427,17 @@ outcome :outcome_brazil_not_living_in_the_uk do
     if resident_of == 'ceremony_country'
       phrases << :local_resident_os_ceremony_contact_for_advice << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :consular_cni_os_all_names_but_germany << :consular_cni_os_naturalisation
     else
-      phrases << :contact_local_authorities_in_country << :check_travel_advice << :get_legal_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
+      phrases << :contact_local_authorities_in_country << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
     end
     phrases
   end
-
 end
 
 outcome :outcome_os_colombia do
   precalculate :colombia_os_phraselist do
     PhraseList.new(
-      :uk_resident_os_consular_cni,
-      :get_legal_advice,
+      :contact_embassy_of_ceremony_country_in_uk,
+      :get_legal_and_travel_advice,
       :what_you_need_to_do_affirmation,
       :make_an_appointment_bring_passport_and_pay_55_colombia,
       :list_of_consular_fees,
@@ -566,15 +565,17 @@ outcome :outcome_os_consular_cni do
 
     if ceremony_country == 'japan'
       phrases << :japan_intro
-    elsif (resident_of == 'uk') and (ceremony_country != 'italy') and not data_query.dutch_caribbean_islands?(ceremony_country)
-      phrases << :uk_resident_os_consular_cni
-    elsif resident_of == 'ceremony_country' and ceremony_country != 'italy'
-      phrases << :contact_local_authorities_in_country
-    elsif resident_of == 'uk' and data_query.dutch_caribbean_islands?(ceremony_country)
-      phrases << :uk_resident_os_consular_cni_dutch_caribbean_islands
-    else
-      unless resident_of == 'uk' or resident_of == 'ceremony_country' or ceremony_country == 'italy'
-        phrases << :other_resident_os_consular_cni
+    end
+
+    if %(japan italy).exclude?(ceremony_country)
+      if resident_of == 'uk'
+        if data_query.dutch_caribbean_islands?(ceremony_country)
+          phrases << :contact_dutch_embassy_for_dutch_caribbean_islands
+        else
+          phrases << :contact_embassy_of_ceremony_country_in_uk
+        end
+      elsif resident_of == 'ceremony_country'
+        phrases << :contact_local_authorities_in_country
       end
     end
 
@@ -582,6 +583,14 @@ outcome :outcome_os_consular_cni do
       phrases << :gulf_states_os_consular_cni
       if resident_of == 'ceremony_country'
         phrases << :gulf_states_os_consular_cni_local_resident
+      end
+    end
+
+    if %(japan italy spain).exclude?(ceremony_country)
+      if resident_of == 'ceremony_country'
+        phrases << :get_legal_advice
+      else
+        phrases << :get_legal_and_travel_advice
       end
     end
 
@@ -595,9 +604,8 @@ outcome :outcome_os_consular_cni do
       phrases << :spain_os_consular_cni_not_local_resident unless resident_of == 'ceremony_country'
     elsif ceremony_country == 'italy'
       phrases << :italy_os_consular_cni_ceremony_italy
-    elsif ceremony_country != 'japan'
-      phrases << :get_legal_advice
     end
+
     phrases << :consular_cni_all_what_you_need_to_do
 
     if ceremony_and_residency_in_croatia
@@ -877,7 +885,8 @@ outcome :outcome_os_affirmation do
   precalculate :affirmation_os_outcome do
     phrases = PhraseList.new
     if ceremony_country == 'colombia'
-      phrases << :uk_resident_os_consular_cni << :get_legal_advice
+      phrases << :contact_embassy_of_ceremony_country_in_uk
+      phrases << :get_legal_and_travel_advice
     else
       if resident_of == 'uk'
         if ceremony_country == 'morocco'
@@ -1044,7 +1053,7 @@ outcome :outcome_os_no_cni do
       phrases << :no_cni_os_dutch_caribbean_islands
       if resident_of == 'uk'
         phrases << :no_cni_os_dutch_caribbean_islands_uk_resident
-      elsif resident_of == 'ceremony_country' # TODO: refactor to use the same phrase for local authorities. Add travel advice for third_country
+      elsif resident_of == 'ceremony_country' # TODO: refactor to use the same phrase for local authorities.
         phrases << :no_cni_os_dutch_caribbean_islands_local_resident
       elsif resident_of == 'third_country'
         phrases << :no_cni_os_dutch_caribbean_other_resident
@@ -1058,7 +1067,14 @@ outcome :outcome_os_no_cni do
         phrases << :no_cni_os_not_dutch_caribbean_other_resident
       end
     end
-    phrases << :get_legal_advice << :cni_os_consular_facilities_unavailable
+
+    if resident_of == 'ceremony_country'
+      phrases << :get_legal_advice
+    else
+      phrases << :get_legal_and_travel_advice
+    end
+
+    phrases << :cni_os_consular_facilities_unavailable
 
     unless data_query.countries_without_consular_facilities?(ceremony_country)
       if ceremony_country == 'monaco'
@@ -1133,7 +1149,7 @@ outcome :outcome_cp_cp_or_equivalent do
     end
     unless ceremony_country == 'czech-republic' and sex_of_your_partner == 'same_sex'
       if ceremony_country == 'brazil' and sex_of_your_partner == 'same_sex' and resident_of == 'uk'
-        phrases << :what_you_need_to_do_cni << :uk_resident_os_consular_cni_three << :consular_cni_os_uk_resident_legalisation << :consular_cni_os_uk_resident_not_italy_or_portugal << :consular_cni_os_all_names_but_germany
+        phrases << :what_you_need_to_do_cni << :get_cni_at_registrar_in_uk << :consular_cni_os_uk_resident_legalisation << :consular_cni_os_uk_resident_not_italy_or_portugal << :consular_cni_os_all_names_but_germany
       else
         phrases << :cp_or_equivalent_cp_all_what_you_need_to_do
       end
