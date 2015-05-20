@@ -69,13 +69,4 @@ module FlowTestHelper
     phrase_list = current_state.send(variable_name)
     assert phrase_list == nil, "State variable #{variable_name} was not expected to be in the PhraseList"
   end
-
-  def assert_calendar
-    assert @flow.node(current_state.current_node).evaluate_calendar(current_state).present?
-  end
-
-  def assert_calendar_date(expected_date_or_range)
-    calendar = @flow.node(current_state.current_node).evaluate_calendar(current_state)
-    assert calendar.dates.select {|event| event.date == expected_date_or_range }.any?
-  end
 end

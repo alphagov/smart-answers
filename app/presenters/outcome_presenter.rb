@@ -55,14 +55,6 @@ class OutcomePresenter < NodePresenter
     output
   end
 
-  def calendar
-    @node.evaluate_calendar(@state)
-  end
-
-  def has_calendar?
-    calendar.present?
-  end
-
   def body
     if use_template? && body_erb_template_exists?
       view_context = ViewContext.new(@state)

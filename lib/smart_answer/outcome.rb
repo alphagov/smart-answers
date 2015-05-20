@@ -13,14 +13,6 @@ module SmartAnswer
       raise InvalidNode
     end
 
-    def calendar(&block)
-      @calendar = Calendar.new(&block)
-    end
-
-    def evaluate_calendar(state)
-      @calendar.evaluate(state) if @calendar
-    end
-
     def use_template?
       @options[:use_outcome_templates]
     end
