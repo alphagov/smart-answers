@@ -218,6 +218,8 @@ module SmartAnswer
           end
         end
 
+        validate { |response| (0..ni_years_to_date_from_dob).cover?(response) }
+
         calculate :carer_hint_for_women_before_1962 do
           if gender == 'female' and (dob < Date.parse('1962-01-01'))
             PhraseList.new(:carers_allowance_women_ni_reduced_years_before_2010)
@@ -227,9 +229,7 @@ module SmartAnswer
         end
 
         calculate :qualifying_years do |response|
-          ni_years = response
-          raise InvalidResponse if ni_years < 0 or ni_years > ni_years_to_date_from_dob
-          ni_years
+          response
         end
 
         calculate :available_ni_years do |response|
@@ -257,6 +257,12 @@ module SmartAnswer
       # Q5
       value_question :years_of_jsa?, parse: Integer do
 
+        validate do |response|
+          jsa_years = response
+          qy = qualifying_years + jsa_years
+          (jsa_years >= 0) && calculator.has_available_years?(qy)
+        end
+
         calculate :carer_hint_for_women_before_1962 do
           if gender == 'female' and (dob < Date.parse('1962-01-01'))
             PhraseList.new(:carers_allowance_women_ni_reduced_years_before_2010)
@@ -265,9 +271,7 @@ module SmartAnswer
 
         calculate :qualifying_years do |response|
           jsa_years = response
-          qy = (qualifying_years + jsa_years)
-          raise InvalidResponse if jsa_years < 0 or !(calculator.has_available_years?(qy)) #jsa_years > available_ni_years #70
-          qy
+          qualifying_years + jsa_years
         end
 
         calculate :available_ni_years do

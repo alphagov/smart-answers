@@ -70,6 +70,16 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
             assert_state_variable :holiday_entitlement_days, "9.5"
           end
         end
+
+        context "worked more than 51 weeks" do
+          setup do
+            add_response "52"
+          end
+
+          should "indicate that response is invalid" do
+            assert_current_node :how_many_weeks_at_current_employer?, error: true
+          end
+        end
       end
     end
 
@@ -224,6 +234,16 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
           should "have some holidays" do
             assert_state_variable :holiday_entitlement_days, 13
           end
+        end
+      end
+
+      context "worked more than the available number of days" do
+        setup do
+          add_response "33"
+        end
+
+        should "indicate that response is invalid" do
+          assert_current_node :how_many_total_days?, error: true
         end
       end
     end

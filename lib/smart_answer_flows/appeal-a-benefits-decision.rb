@@ -93,11 +93,14 @@ module SmartAnswer
         from { 5.years.ago }
         to { Date.today }
 
+        validate do |response|
+          response >= written_explanation_request_date
+        end
+
         calculate :appeal_expiry_date do |response|
           decision_date = decision_letter_date
           received_date = response
           request_date = written_explanation_request_date
-          raise InvalidResponse if received_date < request_date
           received_within_a_month = received_date < 1.month.since(request_date)
 
           if received_within_a_month

@@ -57,9 +57,7 @@ module SmartAnswer
       money_question :whats_the_husbands_income? do
         save_input_as :income
 
-        calculate :income_greater_than_0 do |response|
-          raise SmartAnswer::InvalidResponse if response < 1
-        end
+        validate { |response| response > 0 }
 
         next_node do |response|
           limit = (is_before_april_changes ? 26100.0 : 27000.0)
@@ -74,9 +72,7 @@ module SmartAnswer
       money_question :whats_the_highest_earners_income? do
         save_input_as :income
 
-        calculate :income_greater_than_0 do |response|
-          raise SmartAnswer::InvalidResponse if response < 1
-        end
+        validate { |response| response > 0 }
 
         next_node do |response|
           limit = (is_before_april_changes ? 26100.0 : 27000.0)

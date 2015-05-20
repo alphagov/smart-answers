@@ -66,10 +66,9 @@ module SmartAnswer
           calculator.available_days
         end
 
+        validate { |response| response <= available_days }
+
         calculate :total_days_worked do |response|
-          if response > available_days
-            raise SmartAnswer::InvalidResponse
-          end
           response
         end
 
@@ -79,11 +78,10 @@ module SmartAnswer
       value_question :how_many_weeks_at_current_employer?, parse: Integer do
         next_node :done
 
+        #Has to be less than a full year
+        validate { |response| response < 52 }
+
         calculate :holiday_entitlement_days do |response|
-          #Has to be less than a full year
-          if (response > 51)
-            raise SmartAnswer::InvalidResponse
-          end
           if !days_worked_per_week.nil?
             days = calculator.holiday_days(days_worked_per_week)
           elsif !weeks_from_october_1.nil?
