@@ -5,7 +5,6 @@ SMART_ANSWER_FLOW_NAMES = %w(
   apply-tier-4-visa
   benefit-cap-calculator
   benefits-abroad
-  benefits-if-you-are-abroad
   calculate-agricultural-holiday-entitlement
   calculate-married-couples-allowance
   calculate-state-pension
