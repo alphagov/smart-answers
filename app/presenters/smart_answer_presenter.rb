@@ -152,7 +152,7 @@ class SmartAnswerPresenter
 
   def all_responses
     normalize_responses_param.dup.tap do |responses|
-      if params[:next]
+      if params[:next] && params[:response]
         responses << params[:response]
       end
     end
