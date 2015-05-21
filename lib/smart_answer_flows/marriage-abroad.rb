@@ -476,21 +476,25 @@ outcome :outcome_os_commonwealth do
   precalculate :commonwealth_os_outcome do
     phrases = PhraseList.new
 
-    if ceremony_country == 'zimbabwe'
-      if resident_of == 'uk'
-        phrases << :uk_resident_os_ceremony_zimbabwe
+    if resident_of == 'uk'
+      if ceremony_country == 'zimbabwe'
+        phrases << :contact_zimbabwean_embassy_in_uk
       else
-        phrases << :os_ceremony_zimbabwe
+        phrases << :contact_high_comission_of_ceremony_country_in_uk
       end
+    else
+      phrases << :contact_local_authorities_in_country_marriage
+    end
+
+    if resident_of == 'ceremony_country'
+      phrases << :get_legal_advice
+    else
+      phrases << :get_legal_and_travel_advice
+    end
+
+    if ceremony_country == 'zimbabwe'
       phrases << :commonwealth_os_all_cni_zimbabwe
     else
-      if resident_of == 'uk'
-        phrases << :uk_resident_os_ceremony_contact_for_advice
-      else
-        phrases << :contact_local_authorities_in_country_marriage
-        phrases << :get_legal_advice
-        phrases << :get_travel_advice_unless_local
-      end
       phrases << :commonwealth_os_all_cni
     end
 

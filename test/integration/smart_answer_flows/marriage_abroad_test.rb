@@ -96,7 +96,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
             end
             should "give outcome opposite sex commonwealth" do
               assert_current_node :outcome_os_commonwealth
-              assert_phrase_list :commonwealth_os_outcome, [:uk_resident_os_ceremony_contact_for_advice, :commonwealth_os_all_cni]
+              assert_phrase_list :commonwealth_os_outcome, [:contact_high_comission_of_ceremony_country_in_uk, :get_legal_and_travel_advice, :commonwealth_os_all_cni]
               expected_location = WorldLocation.find('bahamas')
               assert_state_variable :location, expected_location
             end
@@ -139,7 +139,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
           end
           should "give outcome opposite sex commonwealth" do
             assert_current_node :outcome_os_commonwealth
-            assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :get_travel_advice_unless_local, :commonwealth_os_all_cni, :commonwealth_os_naturalisation]
+            assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :commonwealth_os_all_cni, :commonwealth_os_naturalisation]
             expected_location = WorldLocation.find('bahamas')
             assert_state_variable :location, expected_location
           end
@@ -181,7 +181,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
           end
           should "give outcome opposite sex commonwealth" do
             assert_current_node :outcome_os_commonwealth
-            assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :get_travel_advice_unless_local, :commonwealth_os_all_cni, :commonwealth_os_naturalisation]
+            assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :commonwealth_os_all_cni, :commonwealth_os_naturalisation]
             expected_location = WorldLocation.find('bahamas')
             assert_state_variable :location, expected_location
           end
@@ -209,7 +209,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
-      assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :get_travel_advice_unless_local, :commonwealth_os_all_cni]
+      assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :commonwealth_os_all_cni]
       expected_location = WorldLocation.find('australia')
       assert_state_variable :location, expected_location
     end
@@ -225,7 +225,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
-      assert_phrase_list :commonwealth_os_outcome, [:uk_resident_os_ceremony_contact_for_advice, :commonwealth_os_all_cni]
+      assert_phrase_list :commonwealth_os_outcome, [:contact_high_comission_of_ceremony_country_in_uk, :get_legal_and_travel_advice, :commonwealth_os_all_cni]
       expected_location = WorldLocation.find('bahamas')
       assert_state_variable :location, expected_location
     end
@@ -240,7 +240,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
-      assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :get_travel_advice_unless_local, :commonwealth_os_all_cni]
+      assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :commonwealth_os_all_cni]
     end
   end
   context "ceremony in zimbabwe" do
@@ -254,14 +254,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_commonwealth
-      assert_phrase_list :commonwealth_os_outcome, [:uk_resident_os_ceremony_zimbabwe, :commonwealth_os_all_cni_zimbabwe]
+      assert_phrase_list :commonwealth_os_outcome, [:contact_zimbabwean_embassy_in_uk, :get_legal_and_travel_advice, :commonwealth_os_all_cni_zimbabwe]
     end
     should "go to commonwealth os outcome for non-uk resident" do
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_commonwealth
-      assert_phrase_list :commonwealth_os_outcome, [:os_ceremony_zimbabwe, :commonwealth_os_all_cni_zimbabwe, :commonwealth_os_naturalisation]
+      assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :commonwealth_os_all_cni_zimbabwe, :commonwealth_os_naturalisation]
     end
   end
   # testing for other commonwealth countries
@@ -276,7 +276,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
-      assert_phrase_list :commonwealth_os_outcome, [:uk_resident_os_ceremony_contact_for_advice, :commonwealth_os_all_cni, :commonwealth_os_other_countries_south_africa, :commonwealth_os_naturalisation]
+      assert_phrase_list :commonwealth_os_outcome, [:contact_high_comission_of_ceremony_country_in_uk, :get_legal_and_travel_advice, :commonwealth_os_all_cni, :commonwealth_os_other_countries_south_africa, :commonwealth_os_naturalisation]
     end
   end
   context "resident in cyprus, ceremony in cyprus" do
@@ -289,7 +289,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
-      assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :get_travel_advice_unless_local, :commonwealth_os_all_cni, :commonwealth_os_other_countries_cyprus, :commonwealth_os_naturalisation]
+      assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :commonwealth_os_all_cni, :commonwealth_os_other_countries_cyprus, :commonwealth_os_naturalisation]
     end
   end
   context "resident in england, ceremony in cyprus, partner other" do
@@ -2146,7 +2146,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "show 7 day notice" do
       assert_current_node :outcome_os_commonwealth
-      assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :get_travel_advice_unless_local, :commonwealth_os_all_cni]
+      assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :commonwealth_os_all_cni]
     end
   end
   context "Marriage in Rwanda, living elsewhere" do
