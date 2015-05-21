@@ -184,14 +184,6 @@ module SmartAnswer
             PhraseList.new(:result_with_commodity_code)
           end
         end
-
-        precalculate :additional_info do
-          if commodity_code != 'X'
-            PhraseList.new(:result_explanation_code)
-          else
-            ''
-          end
-        end
       end
     end
   end
