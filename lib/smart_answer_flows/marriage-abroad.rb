@@ -637,13 +637,8 @@ outcome :outcome_os_consular_cni do
 
     if ceremony_country == 'denmark'
       phrases << :consular_cni_os_denmark
-    elsif ceremony_country == 'germany'
-      if resident_of == 'ceremony_country'
-        phrases << :consular_cni_os_german_resident
-      else
-        phrases << :consular_cni_os_not_germany_or_uk_resident if resident_of != 'uk'
-      end
-      phrases << :consular_cni_os_ceremony_germany_not_uk_resident if resident_of != 'uk'
+    elsif ceremony_country == 'germany' and resident_of != 'uk'
+      phrases << :consular_cni_requirements_in_germany
     end
 
     if resident_of == 'uk'
