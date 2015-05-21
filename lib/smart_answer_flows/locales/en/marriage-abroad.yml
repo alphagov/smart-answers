@@ -329,8 +329,6 @@ en-GB:
 
         get_legal_advice: |
           ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
-        get_travel_advice_unless_local: |
-          If you’re not already living there, you should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
         check_travel_advice: |
           You should check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         also_check_travel_advice: |
@@ -453,7 +451,7 @@ en-GB:
           You should check if your civil status declaration needs to be legalised (certified as genuine) by the local authorities in Switzerland.
 
 # Marriage in commonwealth countries phrases
-        uk_resident_os_ceremony_contact_for_advice: |
+        contact_high_comission_of_ceremony_country_in_uk: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
 
           ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
@@ -461,14 +459,8 @@ en-GB:
           Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
 
           You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
-        uk_resident_os_ceremony_zimbabwe: |
+        contact_zimbabwean_embassy_in_uk: |
           Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us) to find out about local marriage laws, including what documents you’ll need.
-
-          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
-        os_ceremony_zimbabwe: |
-          Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
-
-          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         commonwealth_os_all_cni: |
           The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
         commonwealth_os_all_cni_zimbabwe: |
