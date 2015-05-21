@@ -96,10 +96,6 @@ module SmartAnswer::Calculators
       SmartAnswer::Predicate::VariableMatches.new(:country_of_death, ORU_TRANSITIONED_COUNTRIES, "ORU transitioned country of death")
     end
 
-    def clickbook(country_slug)
-      data['clickbook'][country_slug]
-    end
-
     def has_high_commission?(country_slug)
       COUNTRIES_WITH_HIGH_COMMISSIONS.include?(country_slug)
     end

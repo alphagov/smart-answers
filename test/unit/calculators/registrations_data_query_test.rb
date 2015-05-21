@@ -18,17 +18,6 @@ module SmartAnswer::Calculators
           refute @query.commonwealth_country?('spain')
         end
       end
-      context "clickbook method" do
-        should "return the url for a country with a single clickbook url" do
-          assert_equal "http://www.britishembassyinbsas.clickbook.net/", @query.clickbook('argentina')
-        end
-        should "return a hash of urls keyed by city for countries with multiple clickbooks" do
-          clickbook = @query.clickbook('china')
-          assert_equal Hash, clickbook.class
-          assert_equal "Beijing", clickbook.keys.first
-          assert_equal "https://www.clickbook.net/dev/bc.nsf/sub/BritConChongqing", clickbook["Chongqing"]
-        end
-      end
       context "has_high_commission?" do
         should "be true for countries with a high commission" do
           assert @query.has_high_commission?('trinidad-and-tobago')
