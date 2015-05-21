@@ -171,11 +171,13 @@ module SmartAnswer
 
       end
 
-      outcome :outcome_uk_full_time_students, use_outcome_templates: true
+      use_outcome_templates
 
-      outcome :outcome_uk_all_students, use_outcome_templates: true
+      outcome :outcome_uk_full_time_students
 
-      outcome :outcome_eu_students, use_outcome_templates: true
+      outcome :outcome_uk_all_students
+
+      outcome :outcome_eu_students
     end
   end
 end
