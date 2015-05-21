@@ -525,14 +525,12 @@ en-GB:
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
 # Marriage in a country with consular CNI phrases
-        japan_intro:
+        japan_intro: |
           Contact your [nearest embassy or consulate](http://www.mofa.go.jp/about/emb_cons/over/index.html) of Japan to find out about local marriage laws, including what documents you’ll need.
 
-
-          You should also check the [travel advice for Japan](/foreign-travel-advice/japan) before making any plans.
-
+          ^You should [get legal advice](/government/publications/japan-list-of-lawyers) and check the [travel advice for Japan](/foreign-travel-advice/japan) before making any plans.^
+        japan_legal_advice: |
           ^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
-
         contact_embassy_of_ceremony_country_in_uk_marriage: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
         contact_embassy_of_ceremony_country_in_uk_cp: |

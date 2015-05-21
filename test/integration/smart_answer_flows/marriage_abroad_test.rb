@@ -1564,7 +1564,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       should "give a japan-specific outcome" do
         add_response 'opposite_sex'
         assert_current_node :outcome_os_local_japan
-        assert_phrase_list :japan_os_local_phraselist, [:japan_intro, :consular_cni_all_what_you_need_to_do, :what_to_do_os_local_japan, :consular_cni_os_not_uk_resident_ceremony_not_germany, :what_happens_next_os_local_japan, :consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation, :fee_table_oath_declaration_55, :list_of_consular_fees, :payment_methods_japan]
+        assert_phrase_list :japan_os_local_phraselist, [:contact_local_authorities_in_country_marriage, :japan_legal_advice, :consular_cni_all_what_you_need_to_do, :what_to_do_os_local_japan, :consular_cni_os_not_uk_resident_ceremony_not_germany, :what_happens_next_os_local_japan, :consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation, :fee_table_oath_declaration_55, :list_of_consular_fees, :payment_methods_japan]
       end
       should "give ss outcome with japan variants" do
         add_response 'same_sex'

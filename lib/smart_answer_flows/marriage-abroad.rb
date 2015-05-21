@@ -398,7 +398,8 @@ end
 outcome :outcome_os_local_japan do
   precalculate :japan_os_local_phraselist do
     PhraseList.new(
-      :japan_intro,
+      :contact_local_authorities_in_country_marriage,
+      :japan_legal_advice,
       :consular_cni_all_what_you_need_to_do,
       :what_to_do_os_local_japan,
       :consular_cni_os_not_uk_resident_ceremony_not_germany,
