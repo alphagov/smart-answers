@@ -167,6 +167,24 @@ end
 next_node_if(:something, can_has_cheesburger?)
 ```
 
+### Outcome templates
+
+#### YAML
+
+The outcome templates live in the Smart Answer YAML file ("lib/smart_answer_flows/locales/en/<flow-name>.yml"). The template will often be fairly simple, relying on interpolating `PhraseList` strings that have been built up during the flow itself.
+
+YAML templates are used by default.
+
+#### ERB
+
+The ERB outcome templates live in "lib/smart_answer_flows/<flow-name>/<outcome-name>.txt.erb".
+
+You can enable ERB templates per outcome, or for an entire flow.
+
+To enable per outcome, pass the `use_outcome_templates: true` option to the outcome node in the flow.
+
+To enable for the entire flow, call the `use_outcome_templates` method on the flow itself.
+
 ## Testing Smart Answers
 
 You used to need to use nested contexts/tests in order to test Ruby/YAML Smart Answers. This is no longer needed, feel free to flatten tests that are too deeply nested.
@@ -201,7 +219,7 @@ You used to need to use nested contexts/tests in order to test Ruby/YAML Smart A
 
 ### A test using nested contexts
 
-This test passes using the example flow above. 
+This test passes using the example flow above.
 
     setup do
       setup_for_testing_flow 'example-flow'
