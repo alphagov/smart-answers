@@ -1,4 +1,3 @@
-
 en-GB:
   flow:
     marriage-abroad:
@@ -68,7 +67,6 @@ en-GB:
           ##Convert a civil partnership to a same-sex marriage
 
           If you’ve already entered into a civil partnership you may be able to convert it to a same-sex marriage - read [‘Convert a civil partnership to a same-sex marriage abroad’](/convert-civil-partnership-abroad).
-# marriage & marriage and partnership phrases
         what_to_do_ss_marriage: |
           ##What you need to do
 
@@ -94,7 +92,6 @@ en-GB:
           Once you’ve submitted these and paid the registration fee (read the fees table on this page), the embassy or consulate will display your notice publicly for 14 days.
         will_display_in_14_days_hc: |
           Once you’ve submitted these and paid the registration fee (read the fees table on this page), the high commission will display your notice publicly for 14 days.
-# marriage & marriage and partnership phrases
         no_objection_in_14_days_ss_marriage: |
           As long as nobody registers an objection during the 14 days, the registration officer can then register your marriage any time until 3 months after you gave notice.
         no_objection_in_14_days_ss_marriage_and_partnership: |
@@ -109,7 +106,6 @@ en-GB:
           ^All same-sex marriages must take place under English and Welsh or Scottish law even if you live in or are from Northern Ireland. Tell the high commission which law you want to get married under at your appointment.^
         ss_marriage_footnote: |
           ^All same-sex marriages must take place under English and Welsh law even if you live in or are from Scotland or Northern Ireland. Tell the embassy or consulate which law you want to get married under at your appointment.^
-# marriage & marriage and partnership phrases
         fees_table_ss_marriage: |
           ##Fees
 
@@ -126,7 +122,6 @@ en-GB:
           Receiving a notice of registration | £65
           Registering a marriage or civil partnership | £140
           Issuing a marriage or civil partnership certificate | £65
-# additional marriage & marriage and partnership phrases
         fees_table_ss_marriage_alt: |
           ##Fees
 
