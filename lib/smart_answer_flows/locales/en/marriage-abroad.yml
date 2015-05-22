@@ -705,36 +705,6 @@ en-GB:
 
           For non-Islamic marriages, you may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
 
-        os_notice_of_marriage: |
-          ###Giving notice of marriage
-
-          You’ll need to place a public announcement of your marriage in a local newspaper where you live for 1 week. If possible (and appropriate), this should be in English and the local language. It’s easier to do this in a weekly newspaper, as otherwise the announcement needs to appear for 7 consecutive days.
-
-          You can use the example below as a template.
-
-
-          $E
-          I,………………………………...………………………(full name) single/widow(er)/divorcee,
-
-          of ……………………………………………………………………………….…..(full address),
-
-          intend to marry…………………...……… (full name of fiancee) single/widow(er)/divorcee,
-
-          of …………………………………………………………….……………………..(full address),
-
-          at …………….………(name and address of place where marriage has to be solemnised)
-
-          on…………….….…..(date of proposed marriage).
-
-          Any person knowing of any lawful impediment to the marriage should without delay notify:
-
-          (High Commission address)
-          $E
-        os_notice_of_marriage_7_day_wait: |
-          You need to wait 7 days after placing the announcement to allow for any objections to be registered. You’ll then need to swear an oath or affidavit (written statement of facts) in front of a local solicitor or public notary stating that you’re free to marry.
-        os_notice_of_marriage_21_day_wait: |
-          You need to wait 21 days after placing the announcement to allow for any objections to be registered. You’ll then need to swear an oath or affidavit (written statement of facts) in front of a local solicitor or public notary stating that you’re free to marry.
-
         consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident: |
           You’ll need to provide supporting documents, including:
 
