@@ -622,6 +622,7 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_foreign_resident_21_days_jordan
     elsif data_query.os_21_days_residency_required_countries?(ceremony_country)
       phrases << :consular_cni_os_ceremony_21_day_requirement
+      phrases << :os_consular_cni_requirement
     elsif not_italy_or_spain && ceremony_not_germany_or_not_resident_other
       phrases << :os_consular_cni_requirement
     end
