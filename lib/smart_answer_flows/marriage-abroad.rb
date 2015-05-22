@@ -321,6 +321,7 @@ outcome :outcome_switzerland do
         phrases << :what_you_need_to_do_switzerland_resident_uk
       end
       phrases << :switzerland_not_resident
+      phrases << :what_you_need_to_do
       if sex_of_your_partner == 'opposite_sex'
         phrases << :switzerland_os_not_resident
       else
@@ -379,7 +380,7 @@ outcome :outcome_os_laos do
     end
 
     phrases << :get_legal_and_travel_advice
-    phrases << :consular_cni_all_what_you_need_to_do
+    phrases << :what_you_need_to_do
     phrases << :what_to_do_laos
     phrases << :legalisation_and_translation
     phrases << :cni_os_partner_local_legislation_documents_for_appointment
@@ -400,7 +401,7 @@ outcome :outcome_os_local_japan do
     PhraseList.new(
       :contact_local_authorities_in_country_marriage,
       :japan_legal_advice,
-      :consular_cni_all_what_you_need_to_do,
+      :what_you_need_to_do,
       :what_to_do_os_local_japan,
       :consular_cni_os_not_uk_resident_ceremony_not_germany,
       :what_happens_next_os_local_japan,
@@ -613,7 +614,7 @@ outcome :outcome_os_consular_cni do
       phrases << :italy_os_consular_cni_ceremony_italy
     end
 
-    phrases << :consular_cni_all_what_you_need_to_do
+    phrases << :what_you_need_to_do
 
     if ceremony_and_residency_in_croatia
       phrases << :what_to_do_croatia
@@ -1200,7 +1201,7 @@ outcome :outcome_cp_no_cni do
     phrases << :"no_cni_required_cp_#{ceremony_country}" if data_query.cp_cni_not_required_countries?(ceremony_country)
     phrases << :get_legal_advice
     phrases << :no_cni_required_cp_ceremony_us if ceremony_country == 'usa'
-    phrases << :no_cni_required_all_what_you_need_to_do
+    phrases << :what_you_need_to_do
     if ceremony_country == 'bonaire-st-eustatius-saba'
       phrases << :no_cni_required_cp_dutch_islands
       if resident_of == 'uk'
