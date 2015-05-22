@@ -684,18 +684,13 @@ outcome :outcome_os_consular_cni do
     end
 
     if resident_of == 'ceremony_country'
-      unless ceremony_country == 'macedonia'
-        if ceremony_country == 'croatia'
-          phrases << :consular_cni_os_local_resident_table
-        elsif %w(germany italy kazakhstan russia).exclude?(ceremony_country)
-          phrases << :consular_cni_os_giving_notice_in_ceremony_country
-          if cni_notary_public_countries.include?(ceremony_country) or %w(italy japan spain).include?(ceremony_country)
-            phrases << :check_with_embassy_consulate_or_notary_public
-          else
-            phrases  << :check_with_embassy_or_consulate
-          end
-        end
+
+      if ceremony_country == 'croatia'
+        phrases << :consular_cni_os_local_resident_table
+      elsif %w(germany italy kazakhstan macedonia russia).exclude?(ceremony_country)
+        phrases << :consular_cni_os_giving_notice_in_ceremony_country
       end
+
       phrases << :"#{ceremony_country}_os_local_resident" if %w(kazakhstan russia).include?(ceremony_country)
       unless %w(germany italy japan russia spain).include?(ceremony_country)
         if ceremony_country == 'macedonia'
