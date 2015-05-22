@@ -391,7 +391,7 @@ outcome :outcome_os_laos do
     phrases << :fee_table_affirmation_55
     phrases << :list_of_consular_fees
     phrases << :pay_by_cash_or_credit_card_no_cheque
-    phrases << :consular_cni_os_naturalisation
+    phrases << :partner_naturalisation_in_uk
   end
 end
 
@@ -405,7 +405,7 @@ outcome :outcome_os_local_japan do
       :consular_cni_os_not_uk_resident_ceremony_not_germany,
       :what_happens_next_os_local_japan,
       :consular_cni_os_all_names_but_germany,
-      :consular_cni_os_naturalisation,
+      :partner_naturalisation_in_uk,
       :fee_table_oath_declaration_55,
       :list_of_consular_fees,
       :payment_methods_japan
@@ -428,7 +428,7 @@ outcome :outcome_brazil_not_living_in_the_uk do
   precalculate :brazil_phraselist_not_in_the_uk do
     phrases = PhraseList.new
     if resident_of == 'ceremony_country'
-      phrases << :local_resident_os_ceremony_contact_for_advice << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :consular_cni_os_all_names_but_germany << :consular_cni_os_naturalisation
+      phrases << :local_resident_os_ceremony_contact_for_advice << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :consular_cni_os_all_names_but_germany << :partner_naturalisation_in_uk
     else
       phrases << :contact_local_authorities_in_country_marriage << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
     end
@@ -451,7 +451,7 @@ outcome :outcome_os_colombia do
       :documents_for_divorced_or_widowed_china_colombia,
       :change_of_name_evidence,
       :consular_cni_os_all_names_but_germany,
-      :consular_cni_os_naturalisation
+      :partner_naturalisation_in_uk
     )
   end
 end
@@ -512,7 +512,7 @@ outcome :outcome_os_commonwealth do
     when 'cyprus'
       phrases << :commonwealth_os_other_countries_cyprus if resident_of == 'ceremony_country'
     end
-    phrases << :commonwealth_os_naturalisation unless partner_nationality == 'partner_british'
+    phrases << :partner_naturalisation_in_uk unless partner_nationality == 'partner_british'
     phrases
   end
 end
@@ -527,7 +527,7 @@ outcome :outcome_os_bot do
     else
       phrases << :bot_os_ceremony_non_biot
       phrases << :also_check_travel_advice unless resident_of == 'ceremony_country'
-      phrases << :bot_os_naturalisation unless partner_nationality == 'partner_british'
+      phrases << :partner_naturalisation_in_uk unless partner_nationality == 'partner_british'
     end
     phrases
   end
@@ -821,7 +821,7 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_ceremony_spain_two
     end
 
-    phrases << :consular_cni_os_naturalisation if partner_nationality != 'partner_british'
+    phrases << :partner_naturalisation_in_uk if partner_nationality != 'partner_british'
 
     if resident_of == 'ceremony_country'
       phrases << :no_need_to_stay_after_posting_notice
@@ -1008,7 +1008,7 @@ outcome :outcome_os_affirmation do
           else
             phrases << :partner_equivalent_document_warning
             phrases << :consular_cni_os_all_names_but_germany if %w(ecuador colombia).include?(ceremony_country)
-            phrases << :affirmation_os_partner_not_british
+            phrases << :partner_naturalisation_in_uk
           end
         end
       end
@@ -1092,7 +1092,7 @@ outcome :outcome_os_no_cni do
       phrases << :pay_by_cash_or_credit_card_no_cheque
     end
     if partner_nationality != 'partner_british'
-      phrases << :no_cni_os_naturalisation
+      phrases << :partner_naturalisation_in_uk
     end
     if data_query.requires_7_day_notice?(ceremony_country)
       phrases << :display_notice_of_marriage_7_days
@@ -1126,7 +1126,7 @@ outcome :outcome_os_other_countries do
       else
         phrases << :other_countries_os_saudi_arabia_local_resident
         if partner_nationality != 'partner_british'
-          phrases << :other_countries_os_saudi_arabia_local_resident_partner_not_british
+          phrases << :partner_naturalisation_in_uk
         end
         phrases << :other_countries_os_saudi_arabia_local_resident_two
       end
@@ -1165,7 +1165,7 @@ outcome :outcome_cp_cp_or_equivalent do
       end
     end
     if partner_nationality != 'partner_british'
-      phrases << :cp_or_equivalent_cp_naturalisation
+      phrases << :partner_naturalisation_in_uk
     end
     unless ceremony_country == 'czech-republic' and sex_of_your_partner == 'same_sex'
       phrases << :cp_or_equivalent_cp_all_fees
@@ -1220,7 +1220,7 @@ outcome :outcome_cp_no_cni do
       end
     end
     phrases << :no_cni_required_cp_all_consular_facilities
-    phrases << :no_cni_required_cp_naturalisation if partner_nationality != 'partner_british'
+    phrases << :partner_naturalisation_in_uk if partner_nationality != 'partner_british'
     phrases
   end
 end
@@ -1272,7 +1272,7 @@ outcome :outcome_cp_commonwealth_countries do
     if ceremony_country == 'new-zealand'
       phrases << :commonwealth_os_all_cni
     end
-    phrases << :commonwealth_countries_cp_naturalisation if partner_nationality != 'partner_british'
+    phrases << :partner_naturalisation_in_uk if partner_nationality != 'partner_british'
     phrases << :commonwealth_countries_cp_australia_six if ceremony_country == 'australia'
     phrases
   end
@@ -1317,7 +1317,7 @@ outcome :outcome_cp_consular do
     else
       phrases << :consular_cp_all_what_you_need_to_do
     end
-    phrases << :consular_cp_naturalisation unless partner_nationality == 'partner_british'
+    phrases << :partner_naturalisation_in_uk unless partner_nationality == 'partner_british'
     if %w(vietnam thailand south-korea).include?(ceremony_country)
       phrases << :fee_table_affidavit_55
     else
