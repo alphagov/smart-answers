@@ -282,8 +282,8 @@ en-GB:
 #other phrases
         no_need_to_stay_after_posting_notice: |
           ^You don't need to stay in the country while your notice is posted.^
-        living_in_residence_country_3_days: |
-          You need to have been living in %{country_name_lowercase_prefix} for at least 3 days.
+        living_in_ceremony_country_3_days: |
+          You need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
         morocco_affidavit_length: |
           ^An ’affirmation for marriage’ document issued in Morocco is valid for 3 months.^
         callout_partner_equivalent_document: |
@@ -1401,7 +1401,7 @@ en-GB:
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
-          You need to have been living in %{country_name_lowercase_prefix} for at least 3 days.
+          You need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
 
           You’ll need to provide supporting documents, including:
 
