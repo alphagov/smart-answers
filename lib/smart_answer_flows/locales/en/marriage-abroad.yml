@@ -164,7 +164,7 @@ en-GB:
         pay_in_local_currency: |
           ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
         pay_in_local_currency_ceremony_country_name: |
-          ^You can only pay by cash in %{ceremony_country_name}. This must be in the local currency.^
+          ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
         pay_in_euros_or_visa_electron: |
           You can pay by cash (euros only) or credit card (but not Visa Electron).
         pay_in_cash_or_manager_cheque: |
@@ -286,7 +286,7 @@ en-GB:
           Administering an oath or making a declaration | £55
 #other phrases
         living_in_residence_country_3_days: |
-          You need to have been living in %{ceremony_country_name} for at least 3 days.
+          You need to have been living in %{country_name_lowercase_prefix} for at least 3 days.
         morocco_affidavit_length: |
           ^An ’affirmation for marriage’ document issued in Morocco is valid for 3 months.^
         callout_partner_equivalent_document: |
@@ -680,7 +680,7 @@ en-GB:
           You’ll need to have been living in Italy for at least 3 days. You can then book an appointment at the British Embassy in Rome.
 
         consular_cni_os_giving_notice_in_ceremony_country: |
-          If you need a CNI, you must give notice of your intended marriage in %{ceremony_country_name}. You must do this at a British embassy or in front of a notary public in that country.
+          If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at a British embassy or in front of a notary public in that country.
 
         consular_cni_os_foreign_resident_3_days_macedonia: |
           Contact a notary public or British Embassy in Macedonia to get advice:
@@ -1481,11 +1481,11 @@ en-GB:
 
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
 
-          If you need a CNI, you must give notice of your intended marriage in %{ceremony_country_name}. You must do this at a British embassy or in front of a notary public in that country.
+          If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at a British embassy or in front of a notary public in that country.
 
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
-          You need to have been living in %{ceremony_country_name} for at least 3 days.
+          You need to have been living in %{country_name_lowercase_prefix} for at least 3 days.
 
           You’ll need to provide supporting documents, including:
 
