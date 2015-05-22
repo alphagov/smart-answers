@@ -683,8 +683,8 @@ en-GB:
 
           You’ll need to have been living in Italy for at least 3 days. You can then book an appointment at the British Embassy in Rome.
 
-        consular_cni_os_foreign_resident_ceremony_not_germany_italy: |
-          If you need a CNI, you’ll have to give notice of your intended marriage in the country where you live.
+        consular_cni_os_giving_notice_in_ceremony_country: |
+          If you need a CNI, you must give notice of your intended marriage in %{ceremony_country_name}. You must do this at a British embassy or in front of a notary public in that country.
 
         consular_cni_os_foreign_resident_3_days: |
           Check with your nearest British embassy or consulate to find out if they can do this for you.
