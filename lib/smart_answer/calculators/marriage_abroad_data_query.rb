@@ -20,8 +20,6 @@ module SmartAnswer::Calculators
 
     OS_OTHER_COUNTRIES = %w(burma north-korea iran somalia syria yemen saudi-arabia)
 
-    OS_NOTICE_OF_MARRIAGE_7_DAY_WAIT_CEREMONY_COUNTRY = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba ecuador estonia georgia greece hong-kong iceland iran italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua norway poland russia serbia spain sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-
     OS_AFFIRMATION_COUNTRIES = %w(cambodia colombia china ecuador egypt lebanon finland mongolia morocco peru philippines portugal qatar south-korea thailand turkey united-arab-emirates vietnam)
 
     CP_EQUIVALENT_COUNTRIES = %w(austria belgium brazil colombia czech-republic denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia sweden)
@@ -101,10 +99,6 @@ module SmartAnswer::Calculators
 
     def non_commonwealth_country?(country_slug)
       NON_COMMONWEALTH_COUNTRIES.include?(country_slug)
-    end
-
-    def os_notice_of_marriage_7_day_wait_ceremony_country?(country_slug)
-      OS_NOTICE_OF_MARRIAGE_7_DAY_WAIT_CEREMONY_COUNTRY.include?(country_slug)
     end
 
     def french_overseas_territories?(country_slug)
