@@ -705,7 +705,7 @@ outcome :outcome_os_consular_cni do
     end
 
     if resident_of == 'ceremony_country' and %w(croatia germany italy japan spain russia).exclude?(ceremony_country) and cni_posted_after_7_days_countries.include?(ceremony_country)
-      phrases << :living_in_residence_country_3_days
+      phrases << :living_in_ceremony_country_3_days
     end
 
     if ceremony_country == 'italy' and resident_of != 'uk'
