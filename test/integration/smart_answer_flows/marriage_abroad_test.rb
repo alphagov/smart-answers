@@ -361,7 +361,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :consular_cni_all_what_you_need_to_do, :os_consular_cni_requirement, :consular_cni_os_giving_notice_in_ceremony_country, :embassies_data, :living_in_residence_country_3_days, :consular_cni_variant_local_resident_or_foreign_resident_notary_public, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :consular_cni_os_foreign_resident_ceremony_notary_public]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "ceremony in Estonia, lives in 3rd country" do
@@ -390,7 +390,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:contact_local_authorities_in_country_marriage, :gulf_states_os_consular_cni, :gulf_states_os_consular_cni_local_resident, :get_legal_advice, :consular_cni_all_what_you_need_to_do, :consular_cni_os_foreign_resident_21_days_jordan, :consular_cni_os_giving_notice_in_ceremony_country, :embassies_data, :consular_cni_variant_local_resident_jordan, :consular_cni_os_not_uk_resident_ceremony_jordan, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :display_notice_of_marriage_7_days]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   # variants for italy
@@ -420,7 +420,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:italy_os_consular_cni_ceremony_italy, :consular_cni_all_what_you_need_to_do, :italy_os_consular_cni_uk_resident_three, :consular_cni_os_local_resident_italy, :consular_cni_variant_local_resident_italy, :italy_consular_cni_os_partner_local, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_italy, :wait_300_days_before_remarrying, :consular_cni_os_download_documents_notary_public, :consular_cni_os_foreign_resident_ceremony_notary_public]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_naturalisation, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "ceremony in italy, lives in 3rd country, partner other" do
@@ -451,7 +451,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :consular_cni_all_what_you_need_to_do, :consular_cni_requirements_in_germany]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_naturalisation, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "ceremony in germany, partner german, same sex" do
@@ -539,7 +539,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :consular_cni_all_what_you_need_to_do, :os_consular_cni_requirement, :consular_cni_os_giving_notice_in_ceremony_country, :embassies_data, :living_in_residence_country_3_days, :consular_cni_variant_local_resident_or_foreign_resident_notary_public, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :consular_cni_os_foreign_resident_ceremony_notary_public]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -571,7 +571,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :consular_cni_all_what_you_need_to_do, :os_consular_cni_requirement, :consular_cni_os_denmark, :consular_cni_os_giving_notice_in_ceremony_country, :embassies_data, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :display_notice_of_marriage_7_days]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -602,7 +602,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:contact_local_authorities_in_country_marriage, :spain_os_consular_cni_opposite_sex, :spain_os_consular_civil_registry, :consular_cni_all_what_you_need_to_do, :spain_os_consular_cni_two, :consular_cni_os_giving_notice_in_ceremony_country, :consular_cni_variant_local_resident_spain, :consular_cni_os_not_uk_resident_ceremony_not_germany, :spain_os_consular_cni_three]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_ceremony_spain, :consular_cni_os_ceremony_spain_two, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_ceremony_spain, :consular_cni_os_ceremony_spain_two, :consular_cni_os_naturalisation, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   context "ceremony in spain, lives elsewhere, partner other" do
@@ -633,7 +633,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :consular_cni_all_what_you_need_to_do, :os_consular_cni_requirement, :consular_cni_os_giving_notice_in_ceremony_country, :embassies_data, :living_in_residence_country_3_days, :consular_cni_variant_local_resident_or_foreign_resident_notary_public, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :consular_cni_os_foreign_resident_ceremony_notary_public]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -648,7 +648,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :consular_cni_all_what_you_need_to_do, :os_consular_cni_requirement, :consular_cni_os_giving_notice_in_ceremony_country, :embassies_data, :living_in_residence_country_3_days, :consular_cni_variant_local_resident_or_foreign_resident_notary_public, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :consular_cni_os_foreign_resident_ceremony_notary_public]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   #variant for foreign resident, ceremony not in italy
@@ -1231,7 +1231,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to russia CNI outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :consular_cni_all_what_you_need_to_do, :os_consular_cni_requirement, :russia_os_local_resident, :consular_cni_variant_local_resident_or_foreign_resident_notary_public, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :consular_cni_os_foreign_resident_ceremony_notary_public]
-      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :consular_cni_os_fees_russia]
+      assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :consular_cni_os_fees_russia]
     end
   end
 
@@ -1597,9 +1597,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       should "give CNI outcome when marrying to an opposite sex non-local partner" do
         assert_current_node :outcome_os_consular_cni
         assert_phrase_list :consular_cni_os_start, [:japan_intro, :consular_cni_all_what_you_need_to_do, :os_consular_cni_requirement, :consular_cni_os_giving_notice_in_ceremony_country, :japan_consular_cni_os_local_resident, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :consular_cni_os_foreign_resident_ceremony_notary_public]
-        assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+        assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_all_names_but_germany, :consular_cni_os_other_resident_ceremony_not_italy, :consular_cni_os_naturalisation, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
       end
-
     end
   end
 

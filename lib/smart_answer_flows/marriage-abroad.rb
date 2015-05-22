@@ -823,6 +823,10 @@ outcome :outcome_os_consular_cni do
 
     phrases << :consular_cni_os_naturalisation if partner_nationality != 'partner_british'
 
+    if resident_of == 'ceremony_country'
+      phrases << :no_need_to_stay_after_posting_notice
+    end
+
     unless (ceremony_country == 'italy' and resident_of == 'uk')
       if ceremony_country == 'croatia' and resident_of == 'ceremony_country'
         phrases << :fee_table_croatia
