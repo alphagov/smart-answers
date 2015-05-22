@@ -38,8 +38,6 @@ module SmartAnswer::Calculators
 
     SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia peru philippines vietnam japan)
 
-    SS_CLICKBOOK_COUNTRIES = %w(bolivia chile china colombia costa-rica hungary mongolia montenegro peru philippines russia san-marino serbia vietnam)
-
     SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia china estonia san-marino serbia)
 
     SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A = %w(hungary mongolia montenegro nicaragua russia)
@@ -58,10 +56,6 @@ module SmartAnswer::Calculators
 
     def os_21_days_residency_required_countries?(country_slug)
       OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES.include?(country_slug)
-    end
-
-    def ss_clickbook_countries?(country_slug)
-      SS_CLICKBOOK_COUNTRIES.include?(country_slug)
     end
 
     def ss_marriage_countries?(country_slug)
