@@ -2,11 +2,13 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/benefit-cap-calculator"
+
 class BenefitCapCalculatorTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'benefit-cap-calculator'
+    setup_for_testing_flow SmartAnswer::BenefitCapCalculatorFlow
   end
 
   context "Benefit cap calculator" do

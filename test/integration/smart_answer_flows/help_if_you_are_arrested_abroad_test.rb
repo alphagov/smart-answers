@@ -2,6 +2,8 @@ require_relative "../../test_helper"
 require_relative "flow_test_helper"
 require 'gds_api/test_helpers/worldwide'
 
+require "smart_answer_flows/help-if-you-are-arrested-abroad"
+
 class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
@@ -9,7 +11,7 @@ class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
   setup do
     @location_slugs = %w(aruba belgium greece iran syria)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow "help-if-you-are-arrested-abroad"
+    setup_for_testing_flow SmartAnswer::HelpIfYouAreArrestedAbroadFlow
   end
 
   should "ask which country the arrest is in" do

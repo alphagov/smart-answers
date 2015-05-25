@@ -2,11 +2,13 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/calculate-your-child-maintenance"
+
 class CalculateChildMaintentanceTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'calculate-your-child-maintenance'
+    setup_for_testing_flow SmartAnswer::CalculateYourChildMaintenanceFlow
   end
 
   ## Q0

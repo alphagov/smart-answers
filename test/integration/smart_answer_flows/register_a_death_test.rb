@@ -3,6 +3,8 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
+require "smart_answer_flows/register-a-death"
+
 class RegisterADeathTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
@@ -10,7 +12,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
   setup do
     @location_slugs = %w(afghanistan algeria andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan  poland serbia slovakia spain st-kitts-and-nevis uganda)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'register-a-death'
+    setup_for_testing_flow SmartAnswer::RegisterADeathFlow
   end
 
   should "ask where the death happened" do

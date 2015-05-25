@@ -2,11 +2,13 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/pip-checker"
+
 class PIPCheckerTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'pip-checker'
+    setup_for_testing_flow SmartAnswer::PipCheckerFlow
   end
 
   should "ask if you're getting DLA" do
