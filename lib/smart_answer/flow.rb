@@ -5,6 +5,12 @@ module SmartAnswer
     attr_reader :nodes, :outcomes
     attr_accessor :state, :status, :need_id
 
+    def self.build
+      new.tap do |flow|
+        flow.define
+      end
+    end
+
     def initialize(&block)
       @nodes = []
       @state = nil
