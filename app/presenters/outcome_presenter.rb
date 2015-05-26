@@ -67,15 +67,15 @@ class OutcomePresenter < NodePresenter
   end
 
   def body_erb_template_from_file
-    unless File.exists?(erb_template_path)
+    unless File.exists?(body_erb_template_path)
       raise OutcomeTemplateMissing
     end
 
-    File.read(erb_template_path)
+    File.read(body_erb_template_path)
   end
 
-  def erb_template_path
-    @options[:erb_template_path] || default_erb_template_path
+  def body_erb_template_path
+    @options[:body_erb_template_path] || default_erb_template_path
   end
 
   def default_erb_template_path

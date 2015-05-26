@@ -19,22 +19,22 @@ module SmartAnswer
       assert_equal expected_path, presenter.default_erb_template_path
     end
 
-    test '#erb_template_path returns the default erb template path if not overridden in the options' do
+    test '#body_erb_template_path returns the default erb template path if not overridden in the options' do
       outcome = Outcome.new('outcome-name')
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
       presenter.stubs(default_erb_template_path: 'default-erb-template-path')
 
-      assert_equal 'default-erb-template-path', presenter.erb_template_path
+      assert_equal 'default-erb-template-path', presenter.body_erb_template_path
     end
 
-    test '#erb_template_path returns the erb template path supplied in the options' do
+    test '#body_erb_template_path returns the erb template path supplied in the options' do
       outcome = Outcome.new('outcome-name')
 
       state = nil
-      options = {erb_template_path: 'erb-template-path'}
+      options = {body_erb_template_path: 'erb-template-path'}
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
-      assert_equal 'erb-template-path', presenter.erb_template_path
+      assert_equal 'erb-template-path', presenter.body_erb_template_path
     end
 
     test '#body_erb_template_from_file returns the content of the erb template' do
@@ -42,7 +42,7 @@ module SmartAnswer
         outcome = Outcome.new('outcome-name')
 
         state = nil
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
         assert_equal 'erb-template', presenter.body_erb_template_from_file
@@ -54,7 +54,7 @@ module SmartAnswer
       outcome = Outcome.new('outcome-name', options)
 
       state = nil
-      options = { erb_template_path: '/path/to/non-existent/template.erb' }
+      options = { body_erb_template_path: '/path/to/non-existent/template.erb' }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
       assert_raises(OutcomePresenter::OutcomeTemplateMissing) do
@@ -70,7 +70,7 @@ module SmartAnswer
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
         govspeak_presenter = stub(html: 'govspeak-output')
@@ -91,7 +91,7 @@ Hello world
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
         assert_equal "\n<p>Hello world</p>\n\n", presenter.body
@@ -109,7 +109,7 @@ Hello world
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
         assert_equal "<p>Hello world</p>\n", presenter.body
@@ -124,7 +124,7 @@ Hello world
         outcome = Outcome.new('outcome-name', options)
 
         state = stub(method_on_state_object: 'method-on-state-object')
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
         assert_match 'method-on-state-object', presenter.body
@@ -139,7 +139,7 @@ Hello world
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
         assert_match '123,456,789', presenter.body
