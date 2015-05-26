@@ -1829,10 +1829,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "indonesia opposite sex outcome" do
-    should "bring you to indonesia os outcome" do
+  context "Indonesia, opposite sex outcome" do
+    setup do
       worldwide_api_has_organisations_for_location('indonesia', read_fixture_file('worldwide/indonesia_organisations.json'))
       add_response 'indonesia'
+    end
+
+    should "bring you to the custom Indonesia os outcome for uk residents" do
       add_response 'uk'
       add_response 'uk_england'
       add_response 'partner_british'
@@ -1840,7 +1843,16 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_os_indonesia
       assert_phrase_list :indonesia_os_phraselist, [:appointment_for_affidavit_indonesia, :embassies_data, :documents_for_divorced_or_widowed, :partner_affidavit_needed, :fee_table_45_70_55]
     end
+
+    should "bring you to the custom Indonesia os outcome for third country residents" do
+      add_response 'third_country'
+      add_response 'partner_british'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_os_indonesia
+      assert_phrase_list :indonesia_os_phraselist, [:appointment_for_affidavit_indonesia, :embassies_data, :documents_for_divorced_or_widowed, :partner_affidavit_needed, :fee_table_45_70_55]
+    end
   end
+
   context "aruba opposite sex outcome" do
     should "bring you to aruba os outcome" do
       worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
