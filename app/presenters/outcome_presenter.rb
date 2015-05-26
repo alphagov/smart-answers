@@ -7,7 +7,7 @@ class OutcomePresenter < NodePresenter
     end
 
     def method_missing(method, *args, &block)
-      if @state.respond_to?(method) && !method.to_s.end_with?('=')
+      if method_can_be_delegated_to_state?(method)
         @state.send(method, *args, &block)
       else
         super
@@ -15,11 +15,17 @@ class OutcomePresenter < NodePresenter
     end
 
     def respond_to_missing?(method, include_private = false)
-      @state.respond_to?(method) && !method.to_s.end_with?('=')
+      method_can_be_delegated_to_state?(method)
     end
 
     def get_binding
       binding
+    end
+
+    private
+
+    def method_can_be_delegated_to_state?(method)
+      @state.respond_to?(method) && !method.to_s.end_with?('=')
     end
   end
 
