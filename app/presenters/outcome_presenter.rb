@@ -7,7 +7,7 @@ class OutcomePresenter < NodePresenter
     end
 
     def method_missing(method, *args, &block)
-      if @state.respond_to?(method)
+      if @state.respond_to?(method) && !method.to_s.end_with?('=')
         @state.send(method, *args, &block)
       else
         super
@@ -15,7 +15,7 @@ class OutcomePresenter < NodePresenter
     end
 
     def respond_to_missing?(method, include_private = false)
-      @state.respond_to?(method)
+      @state.respond_to?(method) && !method.to_s.end_with?('=')
     end
 
     def get_binding

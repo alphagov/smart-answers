@@ -319,6 +319,14 @@ Hello world
       assert_equal false, view_context.respond_to?(:non_existent_method)
     end
 
+    test "#respond_to_missing? returns false if the state object responds to the method but the name implies it's a setter method" do
+      state = State.new(nil)
+      state.method_on_state_object = 'method-on-state-object'
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_equal false, view_context.respond_to?(:method_on_state_object=)
+    end
+
     test 'returns the binding that we can use as the context of code evaluation in our ERB templates' do
       state = State.new(nil)
       state.method_on_state_object = 'method-on-state-object'
@@ -326,6 +334,17 @@ Hello world
 
       binding = view_context.get_binding
       assert_equal 'method-on-state-object', eval('method_on_state_object', binding)
+    end
+
+    test 'raises an exception if calling a writer method that has been defined on the state object' do
+      state = State.new(nil)
+      state.method_on_state_object = 'method-on-state-object'
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_equal true, state.respond_to?(:method_on_state_object=)
+      assert_raises(NoMethodError) do
+        view_context.method_on_state_object = 'new-value'
+      end
     end
   end
 end
