@@ -1,0 +1,60 @@
+--- 
+:what_would_you_like_to_check?: 
+- current_payment
+- past_payment
+:past_payment_date?: 
+- "2013-10-01"
+- "2012-10-01"
+- "2011-10-01"
+- "2010-10-01"
+- "2009-10-01"
+- "2008-10-01"
+:are_you_an_apprentice?: 
+- not_an_apprentice
+- apprentice_under_19
+- apprentice_over_19_first_year
+- apprentice_over_19_second_year_onwards
+:were_you_an_apprentice?: 
+- "no"
+- apprentice_under_19
+- apprentice_over_19
+:how_old_are_you?: 
+- "TODO: How old are you?"
+:how_old_were_you?: 
+- "TODO: How old were you at the time?"
+:how_often_do_you_get_paid?: 
+- "TODO: How often do you get paid?"
+:how_often_did_you_get_paid?: 
+- "TODO: How often did you get paid?"
+:how_many_hours_do_you_work?: 
+- "TODO: How many hours do you work during the pay period?"
+:how_many_hours_did_you_work?: 
+- "TODO: How many hours did you work during the pay period?"
+:how_much_are_you_paid_during_pay_period?: 
+- "TODO: How much do you get paid before tax in the pay period?"
+:how_much_were_you_paid_during_pay_period?: 
+- "TODO: How much were you paid in the pay period?"
+:how_many_hours_overtime_do_you_work?: 
+- "TODO: How many hours of overtime do you work during the pay period?"
+:how_many_hours_overtime_did_you_work?: 
+- "TODO: How many hours of overtime did you work during the pay period?"
+:what_is_overtime_pay_per_hour?: 
+- "TODO: How much do you get paid for overtime per hour?"
+:what_was_overtime_pay_per_hour?: 
+- "TODO: How much did you get paid for overtime per hour?"
+:is_provided_with_accommodation?: 
+- "no"
+- yes_free
+- yes_charged
+:was_provided_with_accommodation?: 
+- "no"
+- yes_free
+- yes_charged
+:current_accommodation_charge?: 
+- "TODO: How much does your employer charge for accommodation per day?"
+:past_accommodation_charge?: 
+- "TODO: How much did your employer charge for accommodation per day?"
+:current_accommodation_usage?: 
+- "TODO: How many days per week do you live in the accommodation?"
+:past_accommodation_usage?: 
+- "TODO: How many days per week did you live in the accommodation?"
