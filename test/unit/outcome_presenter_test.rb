@@ -155,6 +155,131 @@ Hello world
       assert_equal 'node-presenter-body', presenter.body
     end
 
+    test '#default_title_erb_template_path returns the default erb template path built using both the flow and outcome node name' do
+      options = { flow_name: 'flow-name' }
+      outcome = Outcome.new('outcome-name', options)
+      presenter = OutcomePresenter.new('i18n-prefix', outcome)
+
+      expected_path = Rails.root.join('lib', 'smart_answer_flows', 'flow-name', 'outcome-name_title.txt.erb')
+      assert_equal expected_path, presenter.default_title_erb_template_path
+    end
+
+    test '#title_erb_template_path returns the default erb template path if not overridden in the options' do
+      outcome = Outcome.new('outcome-name')
+      presenter = OutcomePresenter.new('i18n-prefix', outcome)
+      presenter.stubs(default_title_erb_template_path: 'default-title-erb-template-path')
+
+      assert_equal 'default-title-erb-template-path', presenter.title_erb_template_path
+    end
+
+    test '#title_erb_template_path returns the erb template path supplied in the options' do
+      outcome = Outcome.new('outcome-name')
+
+      state = nil
+      options = { title_erb_template_path: 'erb-template-path' }
+      presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+
+      assert_equal 'erb-template-path', presenter.title_erb_template_path
+    end
+
+    test '#title_erb_template_from_file returns the content of the erb template' do
+      with_erb_template_file('erb-template') do |erb_template_file|
+        outcome = Outcome.new('outcome-name')
+
+        state = nil
+        options = { title_erb_template_path: erb_template_file.path }
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+
+        assert_equal 'erb-template', presenter.title_erb_template_from_file
+      end
+    end
+
+    test "#title returns nil when the erb template doesn't exist" do
+      options = { use_outcome_templates: true }
+      outcome = Outcome.new('outcome-name', options)
+
+      state = nil
+      options = { title_erb_template_path: '/path/to/non-existent/template.erb' }
+      presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+
+      assert_equal nil, presenter.title
+    end
+
+    test '#title trims a single newline from the end of the string' do
+      erb_template = "title-text\n"
+
+      with_erb_template_file(erb_template) do |erb_template_file|
+        options = { use_outcome_templates: true }
+        outcome = Outcome.new('outcome-name', options)
+
+        state = nil
+        options = { title_erb_template_path: erb_template_file.path }
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+
+        assert_equal "title-text", presenter.title
+      end
+    end
+
+    test "#title only trims a single newline by default" do
+      erb_template = '<% if true %>
+Hello world
+<% end %>
+'
+
+      with_erb_template_file(erb_template) do |erb_template_file|
+        options = { use_outcome_templates: true }
+        outcome = Outcome.new('outcome-name', options)
+
+        state = nil
+        options = { title_erb_template_path: erb_template_file.path }
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+
+        assert_equal "\nHello world\n", presenter.title
+      end
+    end
+
+    test "#title allows newlines to be trimmed by using -%>" do
+      erb_template = '<% if true -%>
+Hello world
+<% end -%>
+'
+
+      with_erb_template_file(erb_template) do |erb_template_file|
+        options = { use_outcome_templates: true }
+        outcome = Outcome.new('outcome-name', options)
+
+        state = nil
+        options = { title_erb_template_path: erb_template_file.path }
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+
+        assert_equal "Hello world", presenter.title
+      end
+    end
+
+    test '#title makes the state variables available to the ERB template' do
+      erb_template = '<%= method_on_state_object %>'
+
+      with_erb_template_file(erb_template) do |erb_template_file|
+        options = { use_outcome_templates: true }
+        outcome = Outcome.new('outcome-name', options)
+
+        state = stub(method_on_state_object: 'method-on-state-object')
+        options = { title_erb_template_path: erb_template_file.path }
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+
+        assert_match 'method-on-state-object', presenter.title
+      end
+    end
+
+    test '#title calls translate! to return the title when not using outcome templates' do
+      options = { use_outcome_templates: false }
+      outcome = Outcome.new('outcome-name', options)
+      presenter = OutcomePresenter.new('i18n-prefix', outcome)
+
+      presenter.stubs(:translate!).with('title').returns('outcome-presenter-title')
+      assert_equal 'outcome-presenter-title', presenter.title
+    end
+
     private
 
     def with_erb_template_file(erb_template)
