@@ -8,7 +8,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany greece indonesia iran ireland italy japan jordan kazakhstan laos latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda san-marino saudi-arabia serbia slovakia south-africa st-maarten south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)
+    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany greece indonesia iran ireland italy japan jordan kazakhstan laos latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad'
   end
@@ -2616,6 +2616,56 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
 
       assert_current_node :outcome_cp_all_other_countries
+    end
+  end
+
+  context "Saint-Barthélemy" do
+    setup do
+      worldwide_api_has_no_organisations_for_location('st-martin')
+      worldwide_api_has_no_organisations_for_location('saint-barthelemy')
+      add_response 'saint-barthelemy'
+      add_response 'other'
+      add_response 'st-martin'
+      add_response 'partner_british'
+    end
+
+    should "suggest to contact local authorities even if the user is in third country for OS (because they don't have many embassies)" do
+      add_response 'opposite_sex'
+
+      assert_current_node :outcome_os_no_cni
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_islands_local_resident, :get_legal_advice, :cni_os_consular_facilities_unavailable]
+    end
+
+    should "suggest to contact local authorities even if the user is in third country for SS (because they don't have many embassies)" do
+      add_response 'same_sex'
+
+      assert_current_node :outcome_os_no_cni
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_islands_local_resident, :get_legal_advice, :cni_os_consular_facilities_unavailable]
+    end
+  end
+
+  context "St Martin" do
+    setup do
+      worldwide_api_has_no_organisations_for_location('st-martin')
+      worldwide_api_has_no_organisations_for_location('saint-barthelemy')
+      add_response 'st-martin'
+      add_response 'other'
+      add_response 'saint-barthelemy'
+      add_response 'partner_british'
+    end
+
+    should "suggest to contact local authorities even if the user is in third country for OS (because they don't have many embassies)" do
+      add_response 'opposite_sex'
+
+      assert_current_node :outcome_os_no_cni
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_islands_local_resident, :get_legal_advice, :cni_os_consular_facilities_unavailable]
+    end
+
+    should "suggest to contact local authorities even if the user is in third country for SS (because they don't have many embassies)" do
+      add_response 'same_sex'
+
+      assert_current_node :outcome_os_no_cni
+      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_islands_local_resident, :get_legal_advice, :cni_os_consular_facilities_unavailable]
     end
   end
 end

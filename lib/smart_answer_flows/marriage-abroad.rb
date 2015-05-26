@@ -292,6 +292,12 @@ multiple_choice :partner_opposite_or_same_sex? do
     (ceremony_country == 'finland') & (resident_of == 'uk') & (partner_nationality == 'partner_irish')
   }
 
+  define_predicate(:ss_unknown_no_embassies) {
+    data_query.ss_unknown_no_embassies?(ceremony_country)
+  }
+
+  next_node_if(:outcome_os_no_cni, ss_unknown_no_embassies)
+
   next_node_if(:outcome_ss_marriage_malta, -> {ceremony_country == "malta"})
 
   next_node_if(:outcome_os_affirmation, uk_resident_irish_partner_finland_ss_ceremony)
@@ -1223,10 +1229,10 @@ outcome :outcome_os_no_cni do
         phrases << :no_cni_os_dutch_caribbean_other_resident
       end
     else
-      if resident_of == 'uk'
-        phrases << :no_cni_os_not_dutch_caribbean_islands_uk_resident
-      elsif ceremony_country == residency_country
+      if ceremony_country == residency_country or data_query.ss_unknown_no_embassies?(ceremony_country)
         phrases << :no_cni_os_not_dutch_caribbean_islands_local_resident
+      elsif resident_of == 'uk'
+        phrases << :no_cni_os_not_dutch_caribbean_islands_uk_resident
       elsif ceremony_country != residency_country and resident_of != 'uk'
         phrases << :no_cni_os_not_dutch_caribbean_other_resident
       end
