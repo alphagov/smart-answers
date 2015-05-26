@@ -2,11 +2,13 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/apply-tier-4-visa"
+
 class ApplyTier4VisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'apply-tier-4-visa'
+    setup_for_testing_flow SmartAnswer::ApplyTier4VisaFlow
   end
 
   should "Ask are you going to do" do

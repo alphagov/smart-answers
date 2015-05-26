@@ -3,6 +3,8 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
+require "smart_answer_flows/register-a-birth"
+
 class RegisterABirthTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
@@ -10,7 +12,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   setup do
     @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines serbia sierra-leone spain sri-lanka st-kitts-and-nevis thailand turkey uganda united-arab-emirates venezuela)
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'register-a-birth'
+    setup_for_testing_flow SmartAnswer::RegisterABirthFlow
   end
 
   should "ask which country the child was born in" do

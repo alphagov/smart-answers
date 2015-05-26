@@ -3,12 +3,14 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
+require "smart_answer_flows/benefits-abroad"
+
 class BenefitsAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    setup_for_testing_flow 'benefits-abroad'
+    setup_for_testing_flow SmartAnswer::BenefitsAbroadFlow
     worldwide_api_has_locations %w(australia barbados belarus brazil brunei canada chad
           croatia denmark eritrea france ghana iceland japan laos luxembourg malta
           micronesia mozambique nicaragua panama portugal turkey venezuela vietnam)

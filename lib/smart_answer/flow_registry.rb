@@ -96,9 +96,7 @@ module SmartAnswer
       if SMART_ANSWER_FLOW_NAMES.include?(name)
         class_prefix = name.gsub("-", "_").camelize
         namespaced_class = "SmartAnswer::#{class_prefix}Flow".constantize
-        flow = namespaced_class.new
-        flow.define
-        flow
+        namespaced_class.build
       else
         absolute_path = @load_path.join("#{name}.rb").to_s
         Flow.new do

@@ -1,6 +1,10 @@
 module FlowTestHelper
-  def setup_for_testing_flow(flow_slug)
-    @flow = SmartAnswer::FlowRegistry.instance.find(flow_slug)
+  def setup_for_testing_flow(flow_slug_or_class)
+    if flow_slug_or_class.is_a?(String)
+      @flow = SmartAnswer::FlowRegistry.instance.find(flow_slug_or_class)
+    else
+      @flow = flow_slug_or_class.build
+    end
     @responses = []
   end
 

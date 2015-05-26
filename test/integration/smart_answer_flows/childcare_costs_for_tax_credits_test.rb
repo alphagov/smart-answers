@@ -2,11 +2,13 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/childcare-costs-for-tax-credits"
+
 class ChildcareCostsForTaxCreditsV2Test < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'childcare-costs-for-tax-credits'
+    setup_for_testing_flow SmartAnswer::ChildcareCostsForTaxCreditsFlow
   end
 
   context "answering Q1" do

@@ -2,12 +2,14 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/plan-adoption-leave"
+
 class PlanAdoptionLeaveTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   context "test basic flow" do
     setup do
-      setup_for_testing_flow 'plan-adoption-leave'
+      setup_for_testing_flow SmartAnswer::PlanAdoptionLeaveFlow
     end
 
     should "start on the baby_due_date? question" do

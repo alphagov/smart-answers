@@ -1,6 +1,8 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
 
+require "smart_answer_flows/estimate-self-assessment-penalties"
+
 TEST_CALCULATOR_DATES = {
   online_filing_deadline: {
     :"2011-12" => Date.new(2013, 1, 31),
@@ -22,7 +24,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow "estimate-self-assessment-penalties"
+    setup_for_testing_flow SmartAnswer::EstimateSelfAssessmentPenaltiesFlow
   end
 
   should "ask which year you want to estimate" do

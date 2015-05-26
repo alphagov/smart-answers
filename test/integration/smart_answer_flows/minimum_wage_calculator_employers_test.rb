@@ -1,11 +1,13 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
 
+require "smart_answer_flows/minimum-wage-calculator-employers"
+
 class MinimumWageCalculatorEmployersTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow "minimum-wage-calculator-employers"
+    setup_for_testing_flow SmartAnswer::MinimumWageCalculatorEmployersFlow
   end
 
   # Q1

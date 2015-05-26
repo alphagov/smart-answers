@@ -1,11 +1,13 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
 
+require "smart_answer_flows/am-i-getting-minimum-wage"
+
 class AmIGettingMinimumWageTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow "am-i-getting-minimum-wage"
+    setup_for_testing_flow SmartAnswer::AmIGettingMinimumWageFlow
   end
 
   # Q1

@@ -2,11 +2,13 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/state-pension-topup"
+
 class CalculateStatePensionTopupTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'state-pension-topup'
+    setup_for_testing_flow SmartAnswer::StatePensionTopupFlow
   end
 
   should "ask date of birth" do

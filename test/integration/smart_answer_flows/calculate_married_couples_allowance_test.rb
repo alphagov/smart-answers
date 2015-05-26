@@ -2,11 +2,13 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/calculate-married-couples-allowance"
+
 class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'calculate-married-couples-allowance'
+    setup_for_testing_flow SmartAnswer::CalculateMarriedCouplesAllowanceFlow
   end
 
   should "ask if you or partner were born before April 1935" do

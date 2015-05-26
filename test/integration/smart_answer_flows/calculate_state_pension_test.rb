@@ -1,11 +1,13 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/calculate-state-pension"
+
 class CalculateStatePensionTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'calculate-state-pension'
+    setup_for_testing_flow SmartAnswer::CalculateStatePensionFlow
   end
 
   should "ask which calculation to perform" do

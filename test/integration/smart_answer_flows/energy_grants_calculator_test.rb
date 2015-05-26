@@ -2,11 +2,13 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/energy-grants-calculator"
+
 class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'energy-grants-calculator'
+    setup_for_testing_flow SmartAnswer::EnergyGrantsCalculatorFlow
   end
 
   context "Energy grants calculator" do
