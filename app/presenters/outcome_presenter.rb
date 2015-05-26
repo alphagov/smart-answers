@@ -79,7 +79,7 @@ class OutcomePresenter < NodePresenter
   end
 
   def default_erb_template_path
-    Rails.root.join("lib/smart_answer_flows/#{@node.flow_name}/#{name}.txt.erb")
+    Rails.root.join("lib/smart_answer_flows/#{@node.flow_name}/#{name}_body.txt.erb")
   end
 
   private
