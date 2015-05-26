@@ -18,6 +18,7 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
       setup do
         Timecop.freeze(Date.parse('2015-01-01'))
         stub_content_api_default_artefact
+        WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
       end
 
       teardown do
