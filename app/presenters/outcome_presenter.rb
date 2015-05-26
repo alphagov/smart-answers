@@ -36,10 +36,6 @@ class OutcomePresenter < NodePresenter
     calendar.present?
   end
 
-  def has_body?
-    use_template? || super()
-  end
-
   def body
     if use_template? && body_erb_template_exists?
       view_context = @state.dup

@@ -2,14 +2,6 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class OutcomePresenterTest < ActiveSupport::TestCase
-    test '#has_body? returns true when using outcome templates' do
-      options = { use_outcome_templates: true }
-      outcome = Outcome.new('outcome-name', options)
-      presenter = OutcomePresenter.new('i18n-prefix', outcome)
-
-      assert_equal true, presenter.has_body?
-    end
-
     test '#default_body_erb_template_path returns the default erb template path built using both the flow and outcome node name' do
       options = { flow_name: 'flow-name' }
       outcome = Outcome.new('outcome-name', options)
