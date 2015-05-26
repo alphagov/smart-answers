@@ -37,7 +37,7 @@ module SmartAnswer
       assert_equal 'erb-template-path', presenter.erb_template_path
     end
 
-    test '#erb_template_from_file returns the content of the erb template' do
+    test '#body_erb_template_from_file returns the content of the erb template' do
       with_erb_template_file('erb-template') do |erb_template_file|
         outcome = Outcome.new('outcome-name')
 
@@ -45,7 +45,7 @@ module SmartAnswer
         options = { erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
-        assert_equal 'erb-template', presenter.erb_template_from_file
+        assert_equal 'erb-template', presenter.body_erb_template_from_file
       end
     end
 

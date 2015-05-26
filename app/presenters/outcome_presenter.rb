@@ -47,7 +47,7 @@ class OutcomePresenter < NodePresenter
       view_context = @state.dup
       view_context.extend(ActionView::Helpers::NumberHelper)
       safe_level, trim_mode = nil, '-'
-      govspeak = ERB.new(erb_template_from_file, safe_level, trim_mode).result(view_context.instance_eval { binding })
+      govspeak = ERB.new(body_erb_template_from_file, safe_level, trim_mode).result(view_context.instance_eval { binding })
       GovspeakPresenter.new(govspeak).html
     else
       super()
@@ -66,7 +66,7 @@ class OutcomePresenter < NodePresenter
     Rails.root.join("lib/smart_answer_flows/#{@node.flow_name}/#{name}_title.txt.erb")
   end
 
-  def erb_template_from_file
+  def body_erb_template_from_file
     unless File.exists?(erb_template_path)
       raise OutcomeTemplateMissing
     end
