@@ -37,6 +37,8 @@ module SmartAnswer
         end
       end
 
+      use_outcome_templates
+
       outcome :result_direct_debit do
         precalculate(:last_dd_setup_date) { last_payment_date }
         precalculate(:funds_taken) { funds_received_by }
