@@ -1,0 +1,5208 @@
+--- 
+- :current_node: :how_much_starch_glucose?
+  :responses: 
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_sucrose_1?
+  :responses: 
+  - "0"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "0"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "0"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "0"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "0"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "0"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "0"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "0"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "0"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "0"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "0"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "0"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "0"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "0"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "0"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "0"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "0"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "0"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "0"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_1?
+  :responses: 
+  - "0"
+  - "5"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "5"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "5"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "5"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "5"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "5"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "5"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "5"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "5"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "5"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "5"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "5"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "5"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "5"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "5"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "5"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "5"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "5"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "5"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_1?
+  :responses: 
+  - "0"
+  - "30"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "30"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "30"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "30"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "30"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "30"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "30"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "30"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "30"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "30"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "30"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "30"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "30"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "30"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "30"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "30"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "30"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "30"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "30"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_1?
+  :responses: 
+  - "0"
+  - "50"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "50"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "50"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "50"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "50"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "50"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "50"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "50"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "50"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "50"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "50"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "50"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "50"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "50"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "50"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "50"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "50"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "50"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "50"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_1?
+  :responses: 
+  - "0"
+  - "70"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "0"
+  - "70"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "70"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "70"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "0"
+  - "70"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "70"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "70"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "0"
+  - "70"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "70"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "70"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "70"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "70"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "70"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "0"
+  - "70"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "70"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "70"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "70"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "0"
+  - "70"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "0"
+  - "70"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_starch_glucose?
+  :responses: 
+  - "5"
+  :outcome_node: false
+- :current_node: :how_much_sucrose_1?
+  :responses: 
+  - "5"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "0"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "0"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "0"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "0"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "0"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "0"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "0"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "0"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "0"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "0"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "0"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "0"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "0"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "0"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "0"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "0"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "0"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "0"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_1?
+  :responses: 
+  - "5"
+  - "5"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "5"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "5"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "5"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "5"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "5"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "5"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "5"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "5"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "5"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "5"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "5"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "5"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "5"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "5"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "5"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "5"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "5"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "5"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_1?
+  :responses: 
+  - "5"
+  - "30"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "30"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "30"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "30"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "30"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "30"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "30"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "30"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "30"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "30"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "30"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "30"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "30"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "30"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "30"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "30"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "30"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "30"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "30"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_1?
+  :responses: 
+  - "5"
+  - "50"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "50"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "50"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "50"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "50"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "50"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "50"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "50"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "50"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "50"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "50"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "50"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "50"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "50"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "50"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "50"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "50"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "50"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "50"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_1?
+  :responses: 
+  - "5"
+  - "70"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "5"
+  - "70"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "70"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "70"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "5"
+  - "70"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "70"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "70"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "5"
+  - "70"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "70"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "70"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "70"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "70"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "70"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "5"
+  - "70"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "70"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "70"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "70"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "5"
+  - "70"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "5"
+  - "70"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_starch_glucose?
+  :responses: 
+  - "25"
+  :outcome_node: false
+- :current_node: :how_much_sucrose_2?
+  :responses: 
+  - "25"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "0"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "0"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "0"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "0"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "0"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "0"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "0"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "0"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "0"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "0"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "0"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "0"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "0"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "0"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "0"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "0"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "0"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "0"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_2?
+  :responses: 
+  - "25"
+  - "5"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "5"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "5"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "5"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "5"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "5"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "5"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "5"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "5"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "5"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "5"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "5"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "5"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "5"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "5"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "5"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "5"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "5"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "5"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_2?
+  :responses: 
+  - "25"
+  - "30"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "30"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "30"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "30"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "30"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "30"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "30"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "30"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "30"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "30"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "30"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "30"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "30"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "30"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "30"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "30"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "30"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "30"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "30"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_2?
+  :responses: 
+  - "25"
+  - "50"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "25"
+  - "50"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "50"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "50"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "25"
+  - "50"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "50"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "50"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "25"
+  - "50"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "50"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "50"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "50"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "50"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "50"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "25"
+  - "50"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "50"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "50"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "50"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "25"
+  - "50"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "25"
+  - "50"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_starch_glucose?
+  :responses: 
+  - "50"
+  :outcome_node: false
+- :current_node: :how_much_sucrose_3?
+  :responses: 
+  - "50"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "0"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "50"
+  - "0"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "50"
+  - "0"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "50"
+  - "0"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "50"
+  - "0"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "50"
+  - "0"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "50"
+  - "0"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "0"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "0"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "0"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "0"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "0"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "0"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "0"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "0"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "0"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "0"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "0"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_3?
+  :responses: 
+  - "50"
+  - "5"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "5"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "50"
+  - "5"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "50"
+  - "5"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "50"
+  - "5"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "50"
+  - "5"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "50"
+  - "5"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "50"
+  - "5"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "5"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "5"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "5"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "5"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "5"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "5"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "5"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "5"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "5"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "5"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "5"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_3?
+  :responses: 
+  - "50"
+  - "30"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "50"
+  - "30"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "50"
+  - "30"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "50"
+  - "30"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "50"
+  - "30"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "50"
+  - "30"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "50"
+  - "30"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "50"
+  - "30"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "30"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "30"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "30"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "30"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "30"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "50"
+  - "30"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "30"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "30"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "30"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "50"
+  - "30"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "50"
+  - "30"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_starch_glucose?
+  :responses: 
+  - "75"
+  :outcome_node: false
+- :current_node: :how_much_sucrose_4?
+  :responses: 
+  - "75"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "0"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "75"
+  - "0"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "75"
+  - "0"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "75"
+  - "0"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "75"
+  - "0"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "75"
+  - "0"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "75"
+  - "0"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "0"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "0"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "0"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "0"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "0"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "0"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "75"
+  - "0"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "75"
+  - "0"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "75"
+  - "0"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "75"
+  - "0"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "0"
+  - "85"
+  :outcome_node: true
+- :current_node: :how_much_sucrose_4?
+  :responses: 
+  - "75"
+  - "5"
+  :outcome_node: false
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "0"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "0"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "0"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "0"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "0"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "0"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "0"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "1"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "1"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "1"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "1"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "1"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "1"
+  - "30"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ab?
+  :responses: 
+  - "75"
+  - "5"
+  - "1"
+  - "60"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "3"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "75"
+  - "5"
+  - "3"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "75"
+  - "5"
+  - "3"
+  - "2"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_c?
+  :responses: 
+  - "75"
+  - "5"
+  - "3"
+  - "12"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "6"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "75"
+  - "5"
+  - "6"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "75"
+  - "5"
+  - "6"
+  - "4"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_d?
+  :responses: 
+  - "75"
+  - "5"
+  - "6"
+  - "15"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "9"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "5"
+  - "9"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "5"
+  - "9"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "5"
+  - "9"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "12"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "5"
+  - "12"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "5"
+  - "12"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_ef?
+  :responses: 
+  - "75"
+  - "5"
+  - "12"
+  - "18"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "18"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "75"
+  - "5"
+  - "18"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "75"
+  - "5"
+  - "18"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "26"
+  :outcome_node: false
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "75"
+  - "5"
+  - "26"
+  - "0"
+  :outcome_node: true
+- :current_node: :how_much_milk_protein_gh?
+  :responses: 
+  - "75"
+  - "5"
+  - "26"
+  - "6"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "40"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "55"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "70"
+  :outcome_node: true
+- :current_node: :how_much_milk_fat?
+  :responses: 
+  - "75"
+  - "5"
+  - "85"
+  :outcome_node: true
