@@ -9,7 +9,6 @@ en-GB:
       phrases:
         result_with_commodity_code: The Meursing code for a product with this composition is 7%{commodity_code}.
         result_with_no_commodity_code: The product composition you indicated is not possible.
-        result_explanation_code: Use these four digits together with the ten-digit commodity code from Trade Tariff.
       how_much_starch_glucose?:
         title: How much starch or glucose does the product contain?
         hint: The values represent % by weight
@@ -104,5 +103,3 @@ en-GB:
           "6": "6 or more"
       commodity_code_result:
         title: "%{conditional_result}"
-        body: |
-          %{additional_info}

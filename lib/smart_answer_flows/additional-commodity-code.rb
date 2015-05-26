@@ -164,7 +164,7 @@ module SmartAnswer
         next_node :commodity_code_result
       end
 
-      outcome :commodity_code_result do
+      outcome :commodity_code_result, use_outcome_templates: true do
         precalculate :calculator do
           Calculators::CommodityCodeCalculator.new(
             starch_glucose_weight: starch_glucose_weight,
@@ -182,14 +182,6 @@ module SmartAnswer
             PhraseList.new(:result_with_no_commodity_code)
           else
             PhraseList.new(:result_with_commodity_code)
-          end
-        end
-
-        precalculate :additional_info do
-          if commodity_code != 'X'
-            PhraseList.new(:result_explanation_code)
-          else
-            ''
           end
         end
       end

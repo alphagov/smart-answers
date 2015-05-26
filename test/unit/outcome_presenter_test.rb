@@ -80,6 +80,42 @@ module SmartAnswer
       end
     end
 
+    test "#body doesn't trim any newlines by default" do
+      erb_template = '<% if true %>
+Hello world
+<% end %>
+'
+
+      with_erb_template_file(erb_template) do |erb_template_file|
+        options = { use_outcome_templates: true }
+        outcome = Outcome.new('outcome-name', options)
+
+        state = nil
+        options = { erb_template_path: erb_template_file.path }
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+
+        assert_equal "\n<p>Hello world</p>\n\n", presenter.body
+      end
+    end
+
+    test "#body allows newlines to be trimmed by using -%>" do
+      erb_template = '<% if true -%>
+Hello world
+<% end -%>
+'
+
+      with_erb_template_file(erb_template) do |erb_template_file|
+        options = { use_outcome_templates: true }
+        outcome = Outcome.new('outcome-name', options)
+
+        state = nil
+        options = { erb_template_path: erb_template_file.path }
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+
+        assert_equal "<p>Hello world</p>\n", presenter.body
+      end
+    end
+
     test '#body makes the state variables available to the ERB template' do
       erb_template = '<%= method_on_state_object %>'
 

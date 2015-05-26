@@ -39,7 +39,8 @@ class OutcomePresenter < NodePresenter
     if use_template?
       view_context = @state.dup
       view_context.extend(ActionView::Helpers::NumberHelper)
-      govspeak = ERB.new(erb_template_from_file).result(view_context.instance_eval { binding })
+      safe_level, trim_mode = nil, '-'
+      govspeak = ERB.new(erb_template_from_file, safe_level, trim_mode).result(view_context.instance_eval { binding })
       GovspeakPresenter.new(govspeak).html
     else
       super()
