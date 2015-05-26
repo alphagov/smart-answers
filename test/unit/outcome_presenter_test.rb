@@ -7,7 +7,7 @@ module SmartAnswer
       outcome = Outcome.new('outcome-name', options)
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
-      expected_path = Rails.root.join('lib', 'smart_answer_flows', 'flow-name', 'outcome-name_body.txt.erb')
+      expected_path = Rails.root.join('lib', 'smart_answer_flows', 'flow-name', 'outcome-name_body.govspeak.erb')
       assert_equal expected_path, presenter.default_body_erb_template_path
     end
 
