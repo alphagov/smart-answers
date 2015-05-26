@@ -121,6 +121,10 @@ Test a single Smartdown flow by running:
 
   * If all the branches in the flow have been exercised then you don't need to do anything else at this time.
 
+      * Code in node-level blocks (e.g. in `value_question`, `date_question`, `multiple_choice` & `outcome` blocks) will always be executed at *flow-definition-time*, and so coverage of these lines is of **no** significance when assessing test coverage of the flow logic.
+
+      * Code in blocks inside node-level blocks (e.g. in `precalculate`, `next_node_calculation`, `validate` & `define_predicate` blocks) will be executed at *flow-execution-time*, and so coverage of these lines is of significance when assessing test coverage of the flow logic.
+
   * If there are branches in the flow that haven't been exercised then:
 
       * Determine the responses required to exercise those branches.
