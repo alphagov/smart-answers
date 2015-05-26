@@ -8,11 +8,19 @@ module SmartAnswer
 
       def parse_input(raw_input)
         if Integer == @parse
-          Integer(raw_input)
+          begin
+            Integer(raw_input)
+          rescue TypeError => e
+            raise InvalidResponse, e.message
+          end
         elsif :to_i == @parse
           raw_input.to_i
         elsif Float == @parse
-          Float(raw_input)
+          begin
+            Float(raw_input)
+          rescue TypeError => e
+            raise InvalidResponse, e.message
+          end
         elsif :to_f == @parse
           raw_input.to_f
         else

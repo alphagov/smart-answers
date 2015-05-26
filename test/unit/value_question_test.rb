@@ -39,6 +39,10 @@ module SmartAnswer
       should "raise ArgumentError for blank value" do
         assert_raises(ArgumentError) { @q.transition(@initial_state, "") }
       end
+
+      should "raise InvalidResponse for nil value" do
+        assert_raises(InvalidResponse) { @q.transition(@initial_state, nil) }
+      end
     end
 
     context "when parse option is :to_i" do
@@ -84,6 +88,10 @@ module SmartAnswer
 
       should "raise ArgumentError for blank value" do
         assert_raises(ArgumentError) { @q.transition(@initial_state, "") }
+      end
+
+      should "raise InvalidResponse for nil value" do
+        assert_raises(InvalidResponse) { @q.transition(@initial_state, nil) }
       end
     end
     
