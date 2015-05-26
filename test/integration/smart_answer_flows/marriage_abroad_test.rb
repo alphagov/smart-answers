@@ -996,7 +996,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go os no cni outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable]
+      assert_phrase_list :no_cni_os_outcome, [:contact_nearest_institution_representing_ceremony_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable]
     end
   end
 
@@ -1067,7 +1067,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :partner_naturalisation_in_uk]
+      assert_phrase_list :no_cni_os_outcome, [:contact_nearest_institution_representing_ceremony_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :partner_naturalisation_in_uk]
     end
   end
 
@@ -1082,7 +1082,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
+      assert_phrase_list :no_cni_os_outcome, [:contact_nearest_institution_representing_ceremony_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
     end
   end
   #testing for other countries
@@ -1111,7 +1111,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
+      assert_phrase_list :no_cni_os_outcome, [:contact_nearest_institution_representing_ceremony_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
     end
   end
   #testing for north korea
@@ -1469,7 +1469,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :partner_naturalisation_in_uk]
+      assert_phrase_list :no_cni_os_outcome, [:contact_nearest_institution_representing_ceremony_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :partner_naturalisation_in_uk]
     end
   end
 
@@ -2095,7 +2095,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :partner_naturalisation_in_uk]
+      assert_phrase_list :no_cni_os_outcome, [:contact_nearest_institution_representing_ceremony_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :partner_naturalisation_in_uk]
     end
   end
 
@@ -2171,7 +2171,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "show 7 day notice" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_other_resident, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :display_notice_of_marriage_7_days]
+      assert_phrase_list :no_cni_os_outcome, [:contact_nearest_institution_representing_ceremony_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :display_notice_of_marriage_7_days]
     end
   end
 
@@ -2291,10 +2291,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   context "ceremony in Laos" do
+    setup do
+      worldwide_api_has_organisations_for_location('laos', read_fixture_file('worldwide/laos_organisations.json'))
+      add_response 'laos'
+    end
+
     context "resident in the UK, opposite sex partner from Laos" do
       setup do
-        worldwide_api_has_organisations_for_location('laos', read_fixture_file('worldwide/laos_organisations.json'))
-        add_response 'laos'
         add_response 'uk'
         add_response 'uk_england'
         add_response 'partner_local'
@@ -2308,22 +2311,30 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
     context "resident in 3rd country, opposite sex partner from Laos" do
       setup do
-        worldwide_api_has_organisations_for_location('laos', read_fixture_file('worldwide/laos_organisations.json'))
-        add_response 'laos'
         add_response 'third_country'
         add_response 'partner_local'
         add_response 'opposite_sex'
       end
       should "lead to outcome_os_laos" do
         assert_current_node :outcome_os_laos
-        assert_phrase_list :laos_os_phraselist, [:no_cni_os_not_dutch_caribbean_other_resident, :get_legal_and_travel_advice, :what_you_need_to_do, :what_to_do_laos, :legalisation_and_translation, :cni_os_partner_local_legislation_documents_for_appointment, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :consular_cni_os_all_names_but_germany, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :partner_naturalisation_in_uk]
+        assert_phrase_list :laos_os_phraselist, [:contact_nearest_institution_representing_ceremony_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :what_to_do_laos, :legalisation_and_translation, :cni_os_partner_local_legislation_documents_for_appointment, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :consular_cni_os_all_names_but_germany, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :partner_naturalisation_in_uk]
+      end
+    end
+
+    context "resident in Laos, opposite sex partner from Laos" do
+      setup do
+        add_response 'ceremony_country'
+        add_response 'partner_local'
+        add_response 'opposite_sex'
+      end
+      should "lead to outcome_os_laos" do
+        assert_current_node :outcome_os_laos
+        assert_phrase_list :laos_os_phraselist, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :what_to_do_laos, :legalisation_and_translation, :cni_os_partner_local_legislation_documents_for_appointment, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :consular_cni_os_all_names_but_germany, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :partner_naturalisation_in_uk]
       end
     end
 
     context "opposite sex partner, no Laos nationals" do
       setup do
-        worldwide_api_has_organisations_for_location('laos', read_fixture_file('worldwide/laos_organisations.json'))
-        add_response 'laos'
         add_response 'uk'
         add_response 'uk_england'
         add_response 'partner_other'

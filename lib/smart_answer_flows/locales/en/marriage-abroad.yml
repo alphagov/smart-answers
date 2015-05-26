@@ -512,9 +512,7 @@ en-GB:
         contact_dutch_embassy_for_dutch_caribbean_islands: |
           %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
 
-          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need.
-        other_resident_os_consular_cni: |
-          Contact your nearest embassy or consulate of %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
+          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need
         gulf_states_os_consular_cni: |
           ^There are no civil marriages in %{country_name_lowercase_prefix}, but you can get married through a religious ceremony at a church or Sharia court.^
         gulf_states_os_consular_cni_local_resident: |
@@ -1020,7 +1018,7 @@ en-GB:
           Contact the local authorities before making any plans to find out about local marriage laws, including what documents you’ll need.
         no_cni_os_not_dutch_caribbean_islands_uk_resident: |
           Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need.
-        no_cni_os_not_dutch_caribbean_other_resident: |
+        contact_nearest_institution_representing_ceremony_country_marriage: |
           Contact your nearest embassy or consulate representing %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         cni_os_consular_facilities_unavailable: |
           There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.

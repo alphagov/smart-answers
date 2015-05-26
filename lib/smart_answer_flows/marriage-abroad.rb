@@ -375,8 +375,10 @@ outcome :outcome_os_laos do
 
     if resident_of == 'uk'
       phrases << :contact_embassy_of_ceremony_country_in_uk_marriage
+    elsif resident_of == 'ceremony_country'
+      phrases << :contact_local_authorities_in_country_marriage
     else
-      phrases << :no_cni_os_not_dutch_caribbean_other_resident
+      phrases << :contact_nearest_institution_representing_ceremony_country_marriage
     end
 
     phrases << :get_legal_and_travel_advice
@@ -1073,7 +1075,7 @@ outcome :outcome_os_no_cni do
       elsif resident_of == 'uk'
         phrases << :no_cni_os_not_dutch_caribbean_islands_uk_resident
       elsif resident_of == 'third_country'
-        phrases << :no_cni_os_not_dutch_caribbean_other_resident
+        phrases << :contact_nearest_institution_representing_ceremony_country_marriage
       end
     end
 
