@@ -444,8 +444,6 @@ en-GB:
 # Marriage in commonwealth countries phrases
         contact_high_comission_of_ceremony_country_in_uk: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
-
-          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
         local_resident_os_ceremony_contact_for_advice: |
           Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
 
