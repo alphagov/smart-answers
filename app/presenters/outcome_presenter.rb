@@ -1,7 +1,33 @@
 require 'erubis'
 
 class OutcomePresenter < NodePresenter
-  class OutcomeTemplateMissing < StandardError; end
+  class ViewContext
+    def initialize(state)
+      @state = state
+    end
+
+    def method_missing(method, *args, &block)
+      if method_can_be_delegated_to_state?(method)
+        @state.send(method, *args, &block)
+      else
+        super
+      end
+    end
+
+    def respond_to_missing?(method, include_private = false)
+      method_can_be_delegated_to_state?(method)
+    end
+
+    def get_binding
+      binding
+    end
+
+    private
+
+    def method_can_be_delegated_to_state?(method)
+      @state.respond_to?(method) && !method.to_s.end_with?('=')
+    end
+  end
 
   def initialize(i18n_prefix, node, state = nil, options = {})
     @options = options
@@ -10,9 +36,8 @@ class OutcomePresenter < NodePresenter
 
   def title
     if use_template? && title_erb_template_exists?
-      view_context = @state.dup
-      safe_level, trim_mode = nil, '-'
-      title = ERB.new(title_erb_template_from_file, safe_level, trim_mode).result(view_context.instance_eval { binding })
+      view_context = ViewContext.new(@state)
+      title = render_erb_template(title_erb_template_from_file, view_context)
       title.chomp
     else
       translate!('title')
@@ -38,16 +63,11 @@ class OutcomePresenter < NodePresenter
     calendar.present?
   end
 
-  def has_body?
-    use_template? || super()
-  end
-
   def body
-    if use_template?
-      view_context = @state.dup
+    if use_template? && body_erb_template_exists?
+      view_context = ViewContext.new(@state)
       view_context.extend(ActionView::Helpers::NumberHelper)
-      safe_level, trim_mode = nil, '-'
-      govspeak = ERB.new(erb_template_from_file, safe_level, trim_mode).result(view_context.instance_eval { binding })
+      govspeak = render_erb_template(body_erb_template_from_file, view_context)
       GovspeakPresenter.new(govspeak).html
     else
       super()
@@ -63,29 +83,38 @@ class OutcomePresenter < NodePresenter
   end
 
   def default_title_erb_template_path
-    Rails.root.join("lib/smart_answer_flows/#{@node.flow_name}/#{name}_title.txt.erb")
+    template_directory.join("#{name}_title.txt.erb")
   end
 
-  def erb_template_from_file
-    unless File.exists?(erb_template_path)
-      raise OutcomeTemplateMissing
-    end
-
-    File.read(erb_template_path)
+  def body_erb_template_from_file
+    File.read(body_erb_template_path)
   end
 
-  def erb_template_path
-    @options[:erb_template_path] || default_erb_template_path
+  def body_erb_template_path
+    @options[:body_erb_template_path] || default_body_erb_template_path
   end
 
-  def default_erb_template_path
-    Rails.root.join("lib/smart_answer_flows/#{@node.flow_name}/#{name}.txt.erb")
+  def default_body_erb_template_path
+    template_directory.join("#{name}_body.govspeak.erb")
   end
 
   private
 
+  def template_directory
+    Rails.root.join('lib', 'smart_answer_flows', @node.flow_name)
+  end
+
+  def render_erb_template(template, view_context)
+    safe_level, trim_mode = nil, '-'
+    ERB.new(template, safe_level, trim_mode).result(view_context.get_binding)
+  end
+
   def title_erb_template_exists?
     File.exists?(title_erb_template_path)
+  end
+
+  def body_erb_template_exists?
+    File.exists?(body_erb_template_path)
   end
 
   def use_template?

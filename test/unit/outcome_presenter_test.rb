@@ -2,64 +2,54 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class OutcomePresenterTest < ActiveSupport::TestCase
-    test '#has_body? returns true when using outcome templates' do
-      options = { use_outcome_templates: true }
-      outcome = Outcome.new('outcome-name', options)
-      presenter = OutcomePresenter.new('i18n-prefix', outcome)
-
-      assert_equal true, presenter.has_body?
-    end
-
-    test '#default_erb_template_path returns the default erb template path built using both the flow and outcome node name' do
+    test '#default_body_erb_template_path returns the default erb template path built using both the flow and outcome node name' do
       options = { flow_name: 'flow-name' }
       outcome = Outcome.new('outcome-name', options)
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
-      expected_path = Rails.root.join('lib', 'smart_answer_flows', 'flow-name', 'outcome-name.txt.erb')
-      assert_equal expected_path, presenter.default_erb_template_path
+      expected_path = Rails.root.join('lib', 'smart_answer_flows', 'flow-name', 'outcome-name_body.govspeak.erb')
+      assert_equal expected_path, presenter.default_body_erb_template_path
     end
 
-    test '#erb_template_path returns the default erb template path if not overridden in the options' do
+    test '#body_erb_template_path returns the default erb template path if not overridden in the options' do
       outcome = Outcome.new('outcome-name')
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
-      presenter.stubs(default_erb_template_path: 'default-erb-template-path')
+      presenter.stubs(default_body_erb_template_path: 'default-erb-template-path')
 
-      assert_equal 'default-erb-template-path', presenter.erb_template_path
+      assert_equal 'default-erb-template-path', presenter.body_erb_template_path
     end
 
-    test '#erb_template_path returns the erb template path supplied in the options' do
+    test '#body_erb_template_path returns the erb template path supplied in the options' do
       outcome = Outcome.new('outcome-name')
 
       state = nil
-      options = {erb_template_path: 'erb-template-path'}
+      options = {body_erb_template_path: 'erb-template-path'}
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
-      assert_equal 'erb-template-path', presenter.erb_template_path
+      assert_equal 'erb-template-path', presenter.body_erb_template_path
     end
 
-    test '#erb_template_from_file returns the content of the erb template' do
+    test '#body_erb_template_from_file returns the content of the erb template' do
       with_erb_template_file('erb-template') do |erb_template_file|
         outcome = Outcome.new('outcome-name')
 
         state = nil
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
-        assert_equal 'erb-template', presenter.erb_template_from_file
+        assert_equal 'erb-template', presenter.body_erb_template_from_file
       end
     end
 
-    test "#body raises an exception when the erb template doesn't exist" do
+    test "#body returns nil when the erb template doesn't exist" do
       options = { use_outcome_templates: true }
       outcome = Outcome.new('outcome-name', options)
 
       state = nil
-      options = { erb_template_path: '/path/to/non-existent/template.erb' }
+      options = { body_erb_template_path: '/path/to/non-existent/template.erb' }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
-      assert_raises(OutcomePresenter::OutcomeTemplateMissing) do
-        presenter.body
-      end
+      assert_equal nil, presenter.body
     end
 
     test '#body uses GovspeakPresenter to generate the html' do
@@ -70,7 +60,7 @@ module SmartAnswer
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
         govspeak_presenter = stub(html: 'govspeak-output')
@@ -91,7 +81,7 @@ Hello world
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
         assert_equal "\n<p>Hello world</p>\n\n", presenter.body
@@ -109,7 +99,7 @@ Hello world
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
         assert_equal "<p>Hello world</p>\n", presenter.body
@@ -124,7 +114,7 @@ Hello world
         outcome = Outcome.new('outcome-name', options)
 
         state = stub(method_on_state_object: 'method-on-state-object')
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
         assert_match 'method-on-state-object', presenter.body
@@ -139,7 +129,7 @@ Hello world
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { erb_template_path: erb_template_file.path }
+        options = { body_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
         assert_match '123,456,789', presenter.body
@@ -292,6 +282,68 @@ Hello world
       ensure
         erb_template_file.unlink
         erb_template_file.close
+      end
+    end
+  end
+
+  class OutcomePresenterViewContextTest < ActiveSupport::TestCase
+    test 'delegates all methods to the state object' do
+      state = State.new(nil)
+      state.method_on_state_object = 'method-on-state-object'
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_equal 'method-on-state-object', view_context.method_on_state_object
+    end
+
+    test "raises an exception if the state object doesn't respond to the method" do
+      state = State.new(nil)
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_raises(NoMethodError) do
+        view_context.non_existent_method
+      end
+    end
+
+    test '#respond_to_missing? returns true if the state object responds to the method' do
+      state = State.new(nil)
+      state.method_on_state_object = 'method-on-state-object'
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_equal true, view_context.respond_to?(:method_on_state_object)
+    end
+
+    test "#respond_to_missing? returns false if the state object doesn't responds to the method" do
+      state = State.new(nil)
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_equal false, view_context.respond_to?(:non_existent_method)
+    end
+
+    test "#respond_to_missing? returns false if the state object responds to the method but the name implies it's a setter method" do
+      state = State.new(nil)
+      state.method_on_state_object = 'method-on-state-object'
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_equal false, view_context.respond_to?(:method_on_state_object=)
+    end
+
+    test 'returns the binding that we can use as the context of code evaluation in our ERB templates' do
+      state = State.new(nil)
+      state.method_on_state_object = 'method-on-state-object'
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      binding = view_context.get_binding
+      assert_equal 'method-on-state-object', eval('method_on_state_object', binding)
+    end
+
+    test 'raises an exception if calling a writer method that has been defined on the state object' do
+      state = State.new(nil)
+      state.method_on_state_object = 'method-on-state-object'
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_equal true, state.respond_to?(:method_on_state_object=)
+      assert_raises(NoMethodError) do
+        view_context.method_on_state_object = 'new-value'
       end
     end
   end
