@@ -10,19 +10,19 @@ module SmartAnswer
       assert_equal true, presenter.has_body?
     end
 
-    test '#default_erb_template_path returns the default erb template path built using both the flow and outcome node name' do
+    test '#default_body_erb_template_path returns the default erb template path built using both the flow and outcome node name' do
       options = { flow_name: 'flow-name' }
       outcome = Outcome.new('outcome-name', options)
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
       expected_path = Rails.root.join('lib', 'smart_answer_flows', 'flow-name', 'outcome-name_body.txt.erb')
-      assert_equal expected_path, presenter.default_erb_template_path
+      assert_equal expected_path, presenter.default_body_erb_template_path
     end
 
     test '#body_erb_template_path returns the default erb template path if not overridden in the options' do
       outcome = Outcome.new('outcome-name')
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
-      presenter.stubs(default_erb_template_path: 'default-erb-template-path')
+      presenter.stubs(default_body_erb_template_path: 'default-erb-template-path')
 
       assert_equal 'default-erb-template-path', presenter.body_erb_template_path
     end

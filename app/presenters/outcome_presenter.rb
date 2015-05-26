@@ -75,10 +75,10 @@ class OutcomePresenter < NodePresenter
   end
 
   def body_erb_template_path
-    @options[:body_erb_template_path] || default_erb_template_path
+    @options[:body_erb_template_path] || default_body_erb_template_path
   end
 
-  def default_erb_template_path
+  def default_body_erb_template_path
     Rails.root.join("lib/smart_answer_flows/#{@node.flow_name}/#{name}_body.txt.erb")
   end
 
