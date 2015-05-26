@@ -10,16 +10,16 @@ module SmartAnswer
         if Integer == @parse
           begin
             Integer(raw_input)
-          rescue TypeError => e
-            raise InvalidResponse, e.message
+          rescue TypeError
+            raise InvalidResponse
           end
         elsif :to_i == @parse
           raw_input.to_i
         elsif Float == @parse
           begin
             Float(raw_input)
-          rescue TypeError => e
-            raise InvalidResponse, e.message
+          rescue TypeError
+            raise InvalidResponse
           end
         elsif :to_f == @parse
           raw_input.to_f
