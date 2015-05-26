@@ -37,8 +37,7 @@ class OutcomePresenter < NodePresenter
   def title
     if use_template? && title_erb_template_exists?
       view_context = ViewContext.new(@state)
-      safe_level, trim_mode = nil, '-'
-      title = ERB.new(title_erb_template_from_file, safe_level, trim_mode).result(view_context.get_binding)
+      title = render_erb_template(title_erb_template_from_file, view_context)
       title.chomp
     else
       translate!('title')
@@ -68,8 +67,7 @@ class OutcomePresenter < NodePresenter
     if use_template? && body_erb_template_exists?
       view_context = ViewContext.new(@state)
       view_context.extend(ActionView::Helpers::NumberHelper)
-      safe_level, trim_mode = nil, '-'
-      govspeak = ERB.new(body_erb_template_from_file, safe_level, trim_mode).result(view_context.get_binding)
+      govspeak = render_erb_template(body_erb_template_from_file, view_context)
       GovspeakPresenter.new(govspeak).html
     else
       super()
@@ -101,6 +99,11 @@ class OutcomePresenter < NodePresenter
   end
 
   private
+
+  def render_erb_template(template, view_context)
+    safe_level, trim_mode = nil, '-'
+    ERB.new(template, safe_level, trim_mode).result(view_context.get_binding)
+  end
 
   def title_erb_template_exists?
     File.exists?(title_erb_template_path)
