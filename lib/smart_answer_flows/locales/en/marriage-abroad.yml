@@ -1344,9 +1344,7 @@ en-GB:
         kosovo_uk_resident: |
           Contact the [Embassy of the Republic of Kosovo in London](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
 
-          You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
-
-          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
+          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
 
           ##What you need to do
 
@@ -1386,10 +1384,10 @@ en-GB:
           You can pay by cash or credit card, but not by personal cheque.
 
 
-        kosovo_not_uk_resident: |
+        kosovo_local_resident: |
           Contact the relevant local authorities in Kosovo to find out about local marriage laws, including what documents you’ll need.
 
-          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
+          ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
 
           ##What you need to do
 
