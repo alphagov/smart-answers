@@ -49,7 +49,7 @@ module SmartAnswer
       end
     end
 
-    test "#body raises an exception when the erb template doesn't exist" do
+    test "#body returns nil when the erb template doesn't exist" do
       options = { use_outcome_templates: true }
       outcome = Outcome.new('outcome-name', options)
 
@@ -57,9 +57,7 @@ module SmartAnswer
       options = { body_erb_template_path: '/path/to/non-existent/template.erb' }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
-      assert_raises(OutcomePresenter::OutcomeTemplateMissing) do
-        presenter.body
-      end
+      assert_equal nil, presenter.body
     end
 
     test '#body uses GovspeakPresenter to generate the html' do

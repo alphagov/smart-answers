@@ -1,8 +1,6 @@
 require 'erubis'
 
 class OutcomePresenter < NodePresenter
-  class OutcomeTemplateMissing < StandardError; end
-
   def initialize(i18n_prefix, node, state = nil, options = {})
     @options = options
     super(i18n_prefix, node, state)
@@ -43,7 +41,7 @@ class OutcomePresenter < NodePresenter
   end
 
   def body
-    if use_template?
+    if use_template? && body_erb_template_exists?
       view_context = @state.dup
       view_context.extend(ActionView::Helpers::NumberHelper)
       safe_level, trim_mode = nil, '-'
@@ -67,10 +65,6 @@ class OutcomePresenter < NodePresenter
   end
 
   def body_erb_template_from_file
-    unless File.exists?(body_erb_template_path)
-      raise OutcomeTemplateMissing
-    end
-
     File.read(body_erb_template_path)
   end
 
@@ -86,6 +80,10 @@ class OutcomePresenter < NodePresenter
 
   def title_erb_template_exists?
     File.exists?(title_erb_template_path)
+  end
+
+  def body_erb_template_exists?
+    File.exists?(body_erb_template_path)
   end
 
   def use_template?
