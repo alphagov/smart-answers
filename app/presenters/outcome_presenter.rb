@@ -1,6 +1,28 @@
 require 'erubis'
 
 class OutcomePresenter < NodePresenter
+  class ViewContext
+    def initialize(state)
+      @state = state
+    end
+
+    def method_missing(method, *args, &block)
+      if @state.respond_to?(method)
+        @state.send(method, *args, &block)
+      else
+        super
+      end
+    end
+
+    def respond_to_missing?(method, include_private = false)
+      @state.respond_to?(method)
+    end
+
+    def get_binding
+      binding
+    end
+  end
+
   def initialize(i18n_prefix, node, state = nil, options = {})
     @options = options
     super(i18n_prefix, node, state)
@@ -8,9 +30,9 @@ class OutcomePresenter < NodePresenter
 
   def title
     if use_template? && title_erb_template_exists?
-      view_context = @state.dup
+      view_context = ViewContext.new(@state)
       safe_level, trim_mode = nil, '-'
-      title = ERB.new(title_erb_template_from_file, safe_level, trim_mode).result(view_context.instance_eval { binding })
+      title = ERB.new(title_erb_template_from_file, safe_level, trim_mode).result(view_context.get_binding)
       title.chomp
     else
       translate!('title')
@@ -38,10 +60,10 @@ class OutcomePresenter < NodePresenter
 
   def body
     if use_template? && body_erb_template_exists?
-      view_context = @state.dup
+      view_context = ViewContext.new(@state)
       view_context.extend(ActionView::Helpers::NumberHelper)
       safe_level, trim_mode = nil, '-'
-      govspeak = ERB.new(body_erb_template_from_file, safe_level, trim_mode).result(view_context.instance_eval { binding })
+      govspeak = ERB.new(body_erb_template_from_file, safe_level, trim_mode).result(view_context.get_binding)
       GovspeakPresenter.new(govspeak).html
     else
       super()

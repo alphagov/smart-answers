@@ -285,4 +285,47 @@ Hello world
       end
     end
   end
+
+  class OutcomePresenterViewContextTest < ActiveSupport::TestCase
+    test 'delegates all methods to the state object' do
+      state = State.new(nil)
+      state.method_on_state_object = 'method-on-state-object'
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_equal 'method-on-state-object', view_context.method_on_state_object
+    end
+
+    test "raises an exception if the state object doesn't respond to the method" do
+      state = State.new(nil)
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_raises(NoMethodError) do
+        view_context.non_existent_method
+      end
+    end
+
+    test '#respond_to_missing? returns true if the state object responds to the method' do
+      state = State.new(nil)
+      state.method_on_state_object = 'method-on-state-object'
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_equal true, view_context.respond_to?(:method_on_state_object)
+    end
+
+    test "#respond_to_missing? returns false if the state object doesn't responds to the method" do
+      state = State.new(nil)
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      assert_equal false, view_context.respond_to?(:non_existent_method)
+    end
+
+    test 'returns the binding that we can use as the context of code evaluation in our ERB templates' do
+      state = State.new(nil)
+      state.method_on_state_object = 'method-on-state-object'
+      view_context = OutcomePresenter::ViewContext.new(state)
+
+      binding = view_context.get_binding
+      assert_equal 'method-on-state-object', eval('method_on_state_object', binding)
+    end
+  end
 end
