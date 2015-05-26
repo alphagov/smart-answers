@@ -119,7 +119,7 @@ Test a single Smartdown flow by running:
 
 9. Inspect the code coverage report for the Smart Answer under test (`open coverage/rcov/index.html` and find the smart answer under test).
 
-  * If all the branches in the flow have been exercisde then you don't need to do anything else at this time.
+  * If all the branches in the flow have been exercised then you don't need to do anything else at this time.
 
   * If there are branches in the flow that haven't been exercised then:
 
