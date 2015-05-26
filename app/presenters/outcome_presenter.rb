@@ -9,7 +9,14 @@ class OutcomePresenter < NodePresenter
   end
 
   def title
-    translate!('title')
+    if use_template? && title_erb_template_exists?
+      view_context = @state.dup
+      safe_level, trim_mode = nil, '-'
+      title = ERB.new(title_erb_template_from_file, safe_level, trim_mode).result(view_context.instance_eval { binding })
+      title.chomp
+    else
+      translate!('title')
+    end
   end
 
   def translate!(subkey)
@@ -47,6 +54,18 @@ class OutcomePresenter < NodePresenter
     end
   end
 
+  def title_erb_template_from_file
+    File.read(title_erb_template_path)
+  end
+
+  def title_erb_template_path
+    @options[:title_erb_template_path] || default_title_erb_template_path
+  end
+
+  def default_title_erb_template_path
+    Rails.root.join("lib/smart_answer_flows/#{@node.flow_name}/#{name}_title.txt.erb")
+  end
+
   def erb_template_from_file
     unless File.exists?(erb_template_path)
       raise OutcomeTemplateMissing
@@ -64,6 +83,10 @@ class OutcomePresenter < NodePresenter
   end
 
   private
+
+  def title_erb_template_exists?
+    File.exists?(title_erb_template_path)
+  end
 
   def use_template?
     @node.use_template?
