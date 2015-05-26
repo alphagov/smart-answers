@@ -3,7 +3,7 @@ require_relative "flow_test_helper"
 
 require "smart_answer_flows/legalisation-document-checker"
 
-class DocumentLegalisationCheckerTest < ActiveSupport::TestCase
+class LegalisationDocumentCheckerTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
