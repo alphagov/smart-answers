@@ -4,7 +4,7 @@ require 'gds_api/test_helpers/worldwide'
 
 require "smart_answer_flows/help-if-you-are-arrested-abroad"
 
-class HelpIfYouAreArrestedAbroad < ActiveSupport::TestCase
+class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
