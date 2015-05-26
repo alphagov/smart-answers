@@ -125,6 +125,8 @@ Test a single Smartdown flow by running:
 
       * Code in blocks inside node-level blocks (e.g. in `precalculate`, `next_node_calculation`, `validate` & `define_predicate` blocks) will be executed at *flow-execution-time*, and so coverage of these lines is of significance when assessing test coverage of the flow logic.
 
+      * Coverage of code in ancillary classes (e.g. calculators) should also be considered at this point.
+
   * If there are branches in the flow that haven't been exercised then:
 
       * Determine the responses required to exercise those branches.
