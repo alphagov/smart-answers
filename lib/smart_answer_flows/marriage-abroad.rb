@@ -195,7 +195,7 @@ multiple_choice :partner_opposite_or_same_sex? do
   }
 
   define_predicate(:consular_cni_residing_in_third_country) {
-    resident_of == 'third_country' and data_query.os_consular_cni_countries?(ceremony_country)
+    resident_of == 'third_country' and (data_query.os_consular_cni_countries?(ceremony_country) or %w(kosovo).include?(ceremony_country))
   }
 
   next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
@@ -420,7 +420,7 @@ outcome :outcome_os_kosovo do
     if resident_of == 'uk'
       phrases << :kosovo_uk_resident
     else
-      phrases << :kosovo_not_uk_resident
+      phrases << :kosovo_local_resident
     end
   end
 end

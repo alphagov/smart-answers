@@ -7,7 +7,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany greece indonesia iran ireland italy japan jordan kazakhstan laos latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)
+    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany greece indonesia iran ireland italy japan jordan kazakhstan kosovo laos latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad'
   end
@@ -15,6 +15,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   should "which country you want the ceremony to take place in" do
     assert_current_node :country_of_ceremony?
   end
+
   context "ceremony in ireland" do
     setup do
       worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
@@ -2347,13 +2348,46 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
+  context "Kosovo" do
+    setup do
+      worldwide_api_has_organisations_for_location('kosovo', read_fixture_file('worldwide/kosovo_organisations.json'))
+      add_response 'kosovo'
+    end
+
+    should "lead to outcome_consular_cni_os_residing_in_third_country if in third country" do
+      add_response 'third_country'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+
+      assert_current_node :outcome_consular_cni_os_residing_in_third_country
+    end
+
+    should "lead to a outcome_os_kosovo with uk resident phraselist when residing in the UK" do
+      add_response 'uk'
+      add_response 'uk_england'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+
+      assert_current_node :outcome_os_kosovo
+      assert_phrase_list :kosovo_os_phraselist, [:kosovo_uk_resident]
+    end
+
+    should "lead to a outcome_os_kosovo with local resident phraselist when residing in Kosovo" do
+      add_response 'ceremony_country'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+
+      assert_current_node :outcome_os_kosovo
+      assert_phrase_list :kosovo_os_phraselist, [:kosovo_local_resident]
+    end
+  end
+
   context "Saint-Barthélemy" do
     setup do
       worldwide_api_has_no_organisations_for_location('st-martin')
       worldwide_api_has_no_organisations_for_location('saint-barthelemy')
       add_response 'saint-barthelemy'
-      add_response 'other'
-      add_response 'st-martin'
+      add_response 'third_country'
       add_response 'partner_british'
     end
 
@@ -2377,8 +2411,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       worldwide_api_has_no_organisations_for_location('st-martin')
       worldwide_api_has_no_organisations_for_location('saint-barthelemy')
       add_response 'st-martin'
-      add_response 'other'
-      add_response 'saint-barthelemy'
+      add_response 'third_country'
       add_response 'partner_british'
     end
 
