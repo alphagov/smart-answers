@@ -83,7 +83,7 @@ class OutcomePresenter < NodePresenter
   end
 
   def default_title_erb_template_path
-    Rails.root.join("lib/smart_answer_flows/#{@node.flow_name}/#{name}_title.txt.erb")
+    template_directory.join("#{name}_title.txt.erb")
   end
 
   def body_erb_template_from_file
@@ -95,10 +95,14 @@ class OutcomePresenter < NodePresenter
   end
 
   def default_body_erb_template_path
-    Rails.root.join("lib/smart_answer_flows/#{@node.flow_name}/#{name}_body.govspeak.erb")
+    template_directory.join("#{name}_body.govspeak.erb")
   end
 
   private
+
+  def template_directory
+    Rails.root.join('lib', 'smart_answer_flows', @node.flow_name)
+  end
 
   def render_erb_template(template, view_context)
     safe_level, trim_mode = nil, '-'
