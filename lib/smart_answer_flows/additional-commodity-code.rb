@@ -176,14 +176,6 @@ module SmartAnswer
         precalculate :commodity_code do
           calculator.commodity_code
         end
-
-        precalculate :conditional_result do
-          if commodity_code == 'X'
-            PhraseList.new(:result_with_no_commodity_code)
-          else
-            PhraseList.new(:result_with_commodity_code)
-          end
-        end
       end
     end
   end
