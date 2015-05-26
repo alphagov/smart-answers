@@ -4,7 +4,7 @@ require 'gds_api/test_helpers/worldwide'
 
 require "smart_answer_flows/report-a-lost-or-stolen-passport"
 
-class ReportALostOrStolenPassportV2Test < ActiveSupport::TestCase
+class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
 
