@@ -1,4 +1,3 @@
-# encoding: UTF-8
 require_relative '../test_helper'
 require_relative '../helpers/i18n_test_helper'
 require 'gds_api/test_helpers/content_api'

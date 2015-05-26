@@ -1,4 +1,3 @@
-# encoding: UTF-8
 require_relative 'engine_test_helper'
 
 class MultiChoiceAndValudQuestionsTest < EngineIntegrationTest

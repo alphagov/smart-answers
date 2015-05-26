@@ -1,4 +1,3 @@
-# encoding: utf-8
 require 'integration_test_helper'
 
 class QuestionTypesTest < ActionDispatch::IntegrationTest

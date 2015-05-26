@@ -1,4 +1,3 @@
-# encoding: UTF-8
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 require_relative '../../../lib/smart_answer/date_helper'

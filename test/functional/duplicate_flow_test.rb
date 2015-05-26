@@ -1,4 +1,3 @@
-# encoding: UTF-8
 require_relative '../test_helper'
 require_relative '../../lib/smartdown_adapter/registry.rb'
 require_relative '../../lib/smart_answer/flow_registry.rb'

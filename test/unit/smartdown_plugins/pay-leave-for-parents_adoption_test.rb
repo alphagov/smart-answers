@@ -1,4 +1,3 @@
-# encoding: utf-8
 require 'test_helper'
 require 'smartdown_plugins/pay-leave-for-parents-adoption/render_time'
 
