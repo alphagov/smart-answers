@@ -41,9 +41,13 @@ class SmartAnswerTestHelper
     YAML.load(responses_and_expected_results_yaml)
   end
 
+  def path_to_outputs_for_flow
+    artefacts_path.join(@flow_name)
+  end
+
   def save_output(responses, response)
     filename = [responses.join('-'), 'html'].join('.')
-    path = artefacts_path.join(@flow_name)
+    path = path_to_outputs_for_flow
     FileUtils.mkdir_p(path)
     path_to_output = path.join(filename)
     File.open(path_to_output, 'w') do |file|

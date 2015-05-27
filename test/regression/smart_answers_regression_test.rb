@@ -2,6 +2,9 @@ require_relative "../test_helper"
 require 'gds_api/test_helpers/content_api'
 
 class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
+  self.i_suck_and_my_tests_are_order_dependent!
+  RUN_ME_LAST = 'zzzzzzzzzzz run me last'
+
   include GdsApi::TestHelpers::ContentApi
 
   tests SmartAnswersController
@@ -39,6 +42,11 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
             assert_equal '', diff_output
           end
         end
+      end
+
+      should "#{RUN_ME_LAST} and generate the same set of output files" do
+        diff_output = `git diff --stat #{smart_answer_helper.path_to_outputs_for_flow}`
+        assert_equal '', diff_output, "Unexpected difference in outputs for flow:"
       end
     end
   end
