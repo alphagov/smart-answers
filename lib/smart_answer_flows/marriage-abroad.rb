@@ -562,10 +562,10 @@ outcome :outcome_os_consular_cni do
   precalculate :consular_cni_os_start do
     phrases = PhraseList.new
 
-    cni_posted_after_7_days_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria cambodia chile croatia cuba ecuador estonia georgia greece hong-kong iceland iran italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico montenegro nicaragua norway poland russia spain sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+    three_day_residency_requirement_applies = %w(albania algeria angola armenia austria azerbaijan bahrain belgium bolivia bosnia-and-herzegovina bulgaria cambodia chile croatia cuba ecuador el-salvador estonia georgia greece hong-kong iceland iran italy kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua nepal norway poland romania russia serbia spain sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+    three_day_residency_handled_by_exception = %w(croatia italy spain russia)
 
     cni_notary_public_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro norway poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-
     no_document_download_link_if_os_resident_of_uk_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua norway poland russia spain serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
     cni_posted_after_14_days_countries = %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
@@ -706,7 +706,7 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_local_resident_italy if ceremony_country == 'italy'
     end
 
-    if resident_of == 'ceremony_country' and %w(croatia germany italy japan spain russia).exclude?(ceremony_country) and cni_posted_after_7_days_countries.include?(ceremony_country)
+    if resident_of == 'ceremony_country' and three_day_residency_handled_by_exception.exclude?(ceremony_country) and three_day_residency_requirement_applies.include?(ceremony_country)
       phrases << :living_in_ceremony_country_3_days
     end
 
@@ -789,7 +789,7 @@ outcome :outcome_os_consular_cni do
         phrases << :display_notice_of_marriage_7_days
       end
     elsif data_query.requires_7_day_notice?(ceremony_country)
-      phrases << :display_notice_of_marriage_7_days # TODO: the text refers to residency country
+      phrases << :display_notice_of_marriage_7_days
     end
     phrases
   end
