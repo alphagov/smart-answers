@@ -28,6 +28,13 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
         Timecop.return
       end
 
+      should "have checksum data" do
+        message = []
+        message << "Expected #{smart_answer_helper.files_checksum_path} to exist"
+        message << "Use the generate-checksums-for-smart-answer script to create it"
+        assert_equal true, File.exists?(smart_answer_helper.files_checksum_path), message.join('. ')
+      end
+
       responses_and_expected_results.each do |responses_and_expected_node|
         responses    = responses_and_expected_node[:responses]
         outcome_node = responses_and_expected_node[:outcome_node]
