@@ -446,10 +446,6 @@ en-GB:
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
         contact_high_comission_of_ceremony_country_in_uk_cp: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
-        local_resident_os_ceremony_contact_for_advice: |
-          Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
-
-          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
         contact_zimbabwean_embassy_in_uk: |
           Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us) to find out about local marriage laws, including what documents you’ll need.
         commonwealth_os_all_cni: |
@@ -851,16 +847,6 @@ en-GB:
           Your local embassy will display your notice of marriage publicly for 7 days. They’ll then issue the CNI (as long as nobody has registered an objection).
 
           There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
-
-        italy_os_consular_cni_four: |
-          You’ll then have to email the embassy with completed [credit card authorisation](/government/publications/credit-card-authorisation-form), [couple information](/government/publications/couple-information-form) and [request for consular services](/government/publications/request-for-consular-services) forms to arrange payment so they can issue your Nulla Osta.
-
-          $C
-          **British Embassy in Rome - marriages**
-          <rome.marriages@fco.gov.uk>
-          $C
-
-          They’ll contact you to arrange collection or delivery, and will normally aim to to issue the Nulla Osta within 20 days.
 
         notary_public_will_charge_a_fee: |
           The notary public will charge a fee for taking the oath, and then give you your notice of marriage. You should take this notice to the local authorities where you’re getting married.
