@@ -260,7 +260,7 @@ module SmartAnswer
 
         next_node_if(:outcome_ss_marriage_not_possible, ss_marriage_not_possible?)
 
-        next_node_if(:outcome_cp_cp_or_equivalent, ss_marriage_germany_partner_local?)
+        next_node_if(:outcome_cp_or_equivalent, ss_marriage_germany_partner_local?)
 
         next_node_if(:outcome_ss_marriage,
           ss_marriage_countries? | ss_marriage_countries_when_couple_british? | ss_marriage_and_partnership?
@@ -268,7 +268,7 @@ module SmartAnswer
 
         next_node_if(:outcome_os_consular_cni, variable_matches(:ceremony_country, "spain"))
 
-        next_node_if(:outcome_cp_cp_or_equivalent, -> {
+        next_node_if(:outcome_cp_or_equivalent, -> {
           data_query.cp_equivalent_countries?(ceremony_country)
         })
         next_node_if(:outcome_cp_no_cni, -> {
@@ -395,7 +395,7 @@ module SmartAnswer
           phrases << :docs_decree_and_death_certificate
           phrases << :divorced_or_widowed_evidences
           phrases << :change_of_name_evidence
-          phrases << :consular_cni_os_all_names_but_germany
+          phrases << :names_on_documents_must_match
           phrases << :fee_table_affirmation_55
           phrases << :list_of_consular_fees
           phrases << :pay_by_cash_or_credit_card_no_cheque
@@ -412,7 +412,7 @@ module SmartAnswer
             :what_to_do_os_local_japan,
             :consular_cni_os_not_uk_resident_ceremony_not_germany,
             :what_happens_next_os_local_japan,
-            :consular_cni_os_all_names_but_germany,
+            :names_on_documents_must_match,
             :partner_naturalisation_in_uk,
             :fee_table_oath_declaration_55,
             :list_of_consular_fees,
@@ -436,7 +436,7 @@ module SmartAnswer
         precalculate :brazil_phraselist_not_in_the_uk do
           phrases = PhraseList.new
           if resident_of == 'ceremony_country'
-            phrases << :contact_local_authorities << :get_legal_advice << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :consular_cni_os_all_names_but_germany << :partner_naturalisation_in_uk
+            phrases << :contact_local_authorities << :get_legal_advice << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :names_on_documents_must_match << :partner_naturalisation_in_uk
           else
             phrases << :contact_local_authorities_in_country_marriage << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
           end
@@ -458,7 +458,7 @@ module SmartAnswer
             :affirmation_os_translation_in_local_language_text,
             :documents_for_divorced_or_widowed_china_colombia,
             :change_of_name_evidence,
-            :consular_cni_os_all_names_but_germany,
+            :names_on_documents_must_match,
             :partner_naturalisation_in_uk
           )
         end
@@ -682,13 +682,13 @@ module SmartAnswer
             elsif ceremony_country == 'montenegro'
               phrases << :consular_cni_os_uk_resident_montenegro
             elsif %w(finland kazakhstan kyrgyzstan poland).include?(ceremony_country)
-              phrases << :consular_cni_os_uk_legalisation_check_with_authorities
+              phrases << :legalisation_and_translation_check_with_authorities
             elsif %w(italy portugal).exclude?(ceremony_country)
-              phrases << :consular_cni_os_uk_resident_legalisation
+              phrases << :legisation_and_translation_intro_uk
             end
 
             if %w(germany italy portugal tunisia).exclude?(ceremony_country)
-              phrases << :consular_cni_os_uk_resident_not_italy_or_portugal
+              phrases << :legalise_translate_and_check_with_authorities
             end
           end
 
@@ -812,7 +812,7 @@ module SmartAnswer
           end
 
           if ceremony_country != 'germany'  or (ceremony_country == 'germany' and resident_of == 'uk')
-            phrases << :consular_cni_os_all_names_but_germany
+            phrases << :names_on_documents_must_match
           end
 
           if resident_of != 'uk' and %w(italy spain germany).exclude?(ceremony_country)
@@ -1017,13 +1017,13 @@ module SmartAnswer
                   phrases << :affirmation_affidavit_os_partner
                 else
                   phrases << :partner_equivalent_document_warning
-                  phrases << :consular_cni_os_all_names_but_germany if %w(ecuador colombia).include?(ceremony_country)
+                  phrases << :names_on_documents_must_match if %w(ecuador colombia).include?(ceremony_country)
                   phrases << :partner_naturalisation_in_uk
                 end
               end
             end
           end
-          phrases << :consular_cni_os_all_names_but_germany if ceremony_country == 'cambodia'
+          phrases << :names_on_documents_must_match if ceremony_country == 'cambodia'
 
           #fee tables
           if %w(south-korea thailand turkey vietnam).include?(ceremony_country)
@@ -1144,11 +1144,11 @@ module SmartAnswer
       end
 
       #CP outcomes
-      outcome :outcome_cp_cp_or_equivalent do
+      outcome :outcome_cp_or_equivalent do
         precalculate :cp_or_equivalent_cp_outcome do
           phrases = PhraseList.new
           if data_query.cp_equivalent_countries?(ceremony_country)
-            phrases << :"cp_or_equivalent_cp_#{ceremony_country}"
+            phrases << :"synonyms_of_cp_in_#{ceremony_country}"
           end
 
           if ceremony_country == 'brazil' and sex_of_your_partner == 'same_sex' and resident_of != 'ceremony_country'
@@ -1167,7 +1167,7 @@ module SmartAnswer
 
           unless ceremony_country == 'czech-republic' and sex_of_your_partner == 'same_sex'
             if ceremony_country == 'brazil' and sex_of_your_partner == 'same_sex' and resident_of == 'uk'
-              phrases << :what_you_need_to_do_cni << :get_cni_at_registrar_in_uk << :consular_cni_os_uk_resident_legalisation << :consular_cni_os_uk_resident_not_italy_or_portugal << :consular_cni_os_all_names_but_germany
+              phrases << :what_you_need_to_do_cni << :get_cni_at_registrar_in_uk << :legisation_and_translation_intro_uk << :legalise_translate_and_check_with_authorities << :names_on_documents_must_match
             else
               phrases << :cp_or_equivalent_cp_all_what_you_need_to_do
             end
@@ -1205,9 +1205,8 @@ module SmartAnswer
       outcome :outcome_cp_no_cni do
         precalculate :no_cni_required_cp_outcome do
           phrases = PhraseList.new
-          phrases << :"no_cni_required_cp_#{ceremony_country}" if data_query.cp_cni_not_required_countries?(ceremony_country)
+          phrases << :"synonyms_of_cp_in_#{ceremony_country}" if data_query.cp_cni_not_required_countries?(ceremony_country)
           phrases << :get_legal_advice
-          phrases << :no_cni_required_cp_ceremony_us if ceremony_country == 'usa'
           phrases << :what_you_need_to_do
           if ceremony_country == 'bonaire-st-eustatius-saba'
             phrases << :no_cni_required_cp_dutch_islands
