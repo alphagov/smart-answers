@@ -1277,17 +1277,17 @@ module SmartAnswer
       end
 
       outcome :outcome_cp_consular do
-        precalculate :consular_cp_outcome do
-          phrases = PhraseList.new
-          # cyprus is a country with a high commission. This is why some of its phraselists end with 'hc', we need to refer to High Commission instead Embassy or Consulate.
-          # The logic behind it could be made prettier by creating a group of High Commission Countries or by querying the API and checking whether the country has a High Commission, a consulate, an embassy or something else.
-          # I am not going to do any of that because Marriage Abroad will (Should) be rebuilt soon, is better to keep the logic as much explicit as possible.
-
+        precalculate :institution_name do
           if ceremony_country == 'cyprus'
-            phrases << :consular_cp_ceremony_hc
+            "High Commission"
           else
-            phrases << :consular_cp_ceremony
+            "British embassy or consulate"
           end
+        end
+
+        precalculate :consular_cp_outcome do
+          phrases = PhraseList.new(:consular_cp_ceremony)
+
           if ceremony_country == 'vietnam'
             phrases << :consular_cp_ceremony_vietnam_partner_local if partner_nationality == 'partner_local'
             phrases << :consular_cp_vietnam
@@ -1300,9 +1300,7 @@ module SmartAnswer
           end
           phrases << :embassies_data
           unless ceremony_country == 'japan'
-            if ceremony_country == 'cyprus'
-              phrases << :documents_needed_7_days_residency_hc
-            elsif data_query.ss_21_days_residency_required_countries?(ceremony_country)
+            if data_query.ss_21_days_residency_required_countries?(ceremony_country)
               phrases << :documents_needed_21_days_residency
             else
               phrases << :documents_needed_7_days_residency
@@ -1310,11 +1308,7 @@ module SmartAnswer
           end
           phrases << :consular_cp_all_documents
           phrases << :consular_cp_partner_not_british if partner_nationality != 'partner_british'
-          if ceremony_country == 'cyprus'
-            phrases << :consular_cp_all_what_you_need_to_do_hc
-          else
-            phrases << :consular_cp_all_what_you_need_to_do
-          end
+          phrases << :consular_cp_all_what_you_need_to_do
           phrases << :partner_naturalisation_in_uk unless partner_nationality == 'partner_british'
           if %w(vietnam thailand south-korea).include?(ceremony_country)
             phrases << :fee_table_affidavit_55

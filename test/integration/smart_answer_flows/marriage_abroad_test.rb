@@ -304,7 +304,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cp outcome" do
       assert_current_node :outcome_cp_consular
-      assert_phrase_list :consular_cp_outcome, [:consular_cp_ceremony_hc, :consular_cp_all_contact, :embassies_data, :documents_needed_7_days_residency_hc, :consular_cp_all_documents, :consular_cp_partner_not_british, :consular_cp_all_what_you_need_to_do_hc, :partner_naturalisation_in_uk, :consular_cp_all_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_state_variable :institution_name, "High Commission"
+      assert_phrase_list :consular_cp_outcome, [:consular_cp_ceremony, :consular_cp_all_contact, :embassies_data, :documents_needed_7_days_residency, :consular_cp_all_documents, :consular_cp_partner_not_british, :consular_cp_all_what_you_need_to_do, :partner_naturalisation_in_uk, :consular_cp_all_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
   # testing for british overseas territories
@@ -520,12 +521,18 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'uk_wales'
       add_response 'partner_other'
-      add_response 'opposite_sex'
     end
-    should "go to consular cni os outcome" do
+    should "go to consular cni os outcome for opposite sex marriage" do
+      add_response 'opposite_sex'
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :os_consular_cni_requirement, :cni_at_local_register_office, :legisation_and_translation_intro_uk, :legalise_translate_and_check_with_authorities]
       assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :partner_naturalisation_in_uk, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+    end
+
+    should "go to outcome_cp_consular outcome for same sex marriage" do
+      add_response 'same_sex'
+      assert_current_node :outcome_cp_consular
+      assert_state_variable :institution_name, "British embassy or consulate"
     end
   end
   #variant for local resident, ceremony not in italy or germany
