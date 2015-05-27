@@ -95,6 +95,7 @@ module SmartAnswer
     def build_flow(name)
       if SMART_ANSWER_FLOW_NAMES.include?(name)
         class_prefix = name.gsub("-", "_").camelize
+        load "lib/smart_answer_flows/#{name}.rb" if Rails.env.development?
         namespaced_class = "SmartAnswer::#{class_prefix}Flow".constantize
         namespaced_class.build
       else
