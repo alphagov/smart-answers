@@ -1263,7 +1263,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to cp or equivalent outcome" do
       assert_current_node :outcome_cp_or_equivalent
       assert_state_variable :country_name_lowercase_prefix, 'the Czech Republic'
-      assert_phrase_list :cp_or_equivalent_cp_outcome, [:"synonyms_of_cp_in_czech-republic", :cp_or_equivalent_cp_other_resident, :also_check_travel_advice, :partner_naturalisation_in_uk]
+      assert_phrase_list :cp_or_equivalent_cp_outcome, [:"synonyms_of_cp_in_czech-republic", :contact_nearest_embassy_or_consulate_of_ceremony_country_cp, :also_check_travel_advice, :partner_naturalisation_in_uk]
       assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end
@@ -1306,22 +1306,32 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for CP in countries where cni not required
-  #testing for ceremony in united states, england resident, local partner
-  context "ceremony in US, resident in ni, partner local" do
+  # testing for CP in countries where cni not required
+  context "ceremony in US, same sex local partner" do
     setup do
       worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
       add_response 'usa'
+    end
+
+    should "go to cp no cni required outcome and suggest both legal and travel advice to a NI resident" do
       add_response 'uk'
       add_response 'uk_ni'
       add_response 'partner_local'
       add_response 'same_sex'
-    end
-    should "go to cp no cni required outcome" do
       assert_current_node :outcome_cp_no_cni
       assert_state_variable :country_name_lowercase_prefix, 'the USA'
-      assert_phrase_list :no_cni_required_cp_outcome, [:synonyms_of_cp_in_usa, :get_legal_advice, :what_you_need_to_do, :no_cni_required_cp_not_dutch_islands_uk_resident, :no_cni_required_cp_all_consular_facilities, :partner_naturalisation_in_uk]
+      assert_phrase_list :no_cni_required_cp_outcome, [:synonyms_of_cp_in_usa, :get_legal_and_travel_advice, :what_you_need_to_do, :contact_embassy_or_consulate_representing_ceremony_country_in_uk_cp, :no_consular_facilities_to_register_ss, :partner_naturalisation_in_uk]
     end
+
+    should "go to cp no cni required outcome and suggest legal advice to a US resident" do
+      add_response 'ceremony_country'
+      add_response 'partner_local'
+      add_response 'same_sex'
+      assert_current_node :outcome_cp_no_cni
+      assert_state_variable :country_name_lowercase_prefix, 'the USA'
+      assert_phrase_list :no_cni_required_cp_outcome, [:synonyms_of_cp_in_usa, :get_legal_advice, :what_you_need_to_do, :contact_local_authorities_in_country_cp, :no_consular_facilities_to_register_ss, :partner_naturalisation_in_uk]
+    end
+
   end
   #testing for ceremony in bonaire, england resident, other partner
   context "ceremony in bonaire, resident in scotland, partner other" do
@@ -1335,7 +1345,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to cp no cni required outcome" do
       assert_current_node :outcome_cp_no_cni
-      assert_phrase_list :no_cni_required_cp_outcome, [:"synonyms_of_cp_in_bonaire-st-eustatius-saba", :get_legal_advice, :what_you_need_to_do, :no_cni_required_cp_dutch_islands, :no_cni_required_cp_dutch_islands_uk_resident, :no_cni_required_cp_all_consular_facilities, :partner_naturalisation_in_uk]
+      assert_phrase_list :no_cni_required_cp_outcome, [:"synonyms_of_cp_in_bonaire-st-eustatius-saba", :get_legal_and_travel_advice, :what_you_need_to_do, :country_is_dutch_caribbean_island, :contact_dutch_embassy_in_uk_cp, :no_consular_facilities_to_register_ss, :partner_naturalisation_in_uk]
     end
   end
   #testing for ceremony in bonaire, bonaire resident, british partner
@@ -1349,7 +1359,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to cp no cni required outcome" do
       assert_current_node :outcome_cp_no_cni
-      assert_phrase_list :no_cni_required_cp_outcome, [:"synonyms_of_cp_in_bonaire-st-eustatius-saba", :get_legal_advice, :what_you_need_to_do, :no_cni_required_cp_dutch_islands, :contact_local_authorities_in_country_cp, :no_cni_required_cp_all_consular_facilities]
+      assert_phrase_list :no_cni_required_cp_outcome, [:"synonyms_of_cp_in_bonaire-st-eustatius-saba", :get_legal_advice, :what_you_need_to_do, :country_is_dutch_caribbean_island, :contact_local_authorities_in_country_cp, :no_consular_facilities_to_register_ss]
     end
   end
   #testing for ceremony in bonaire, other resident, other partner
@@ -1363,7 +1373,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to cp no cni required outcome" do
       assert_current_node :outcome_cp_no_cni
-      assert_phrase_list :no_cni_required_cp_outcome, [:"synonyms_of_cp_in_bonaire-st-eustatius-saba", :get_legal_advice, :what_you_need_to_do, :no_cni_required_cp_dutch_islands, :no_cni_required_cp_dutch_islands_other_resident, :no_cni_required_cp_all_consular_facilities, :partner_naturalisation_in_uk]
+      assert_phrase_list :no_cni_required_cp_outcome, [:"synonyms_of_cp_in_bonaire-st-eustatius-saba", :get_legal_and_travel_advice, :what_you_need_to_do, :country_is_dutch_caribbean_island, :contact_nearest_dutch_embassy_cp, :no_consular_facilities_to_register_ss, :partner_naturalisation_in_uk]
     end
   end
 

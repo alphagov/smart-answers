@@ -1158,7 +1158,7 @@ module SmartAnswer
           elsif resident_of == 'ceremony_country'
             phrases << :contact_local_authorities_in_country_cp
           elsif resident_of == 'third_country'
-            phrases << :cp_or_equivalent_cp_other_resident
+            phrases << :contact_nearest_embassy_or_consulate_of_ceremony_country_cp
           end
 
           if resident_of != 'ceremony_country' and ceremony_country != 'brazil'
@@ -1206,27 +1206,33 @@ module SmartAnswer
         precalculate :no_cni_required_cp_outcome do
           phrases = PhraseList.new
           phrases << :"synonyms_of_cp_in_#{ceremony_country}" if data_query.cp_cni_not_required_countries?(ceremony_country)
-          phrases << :get_legal_advice
+
+          if resident_of == 'ceremony_country'
+            phrases << :get_legal_advice
+          else
+            phrases << :get_legal_and_travel_advice
+          end
+
           phrases << :what_you_need_to_do
           if ceremony_country == 'bonaire-st-eustatius-saba'
-            phrases << :no_cni_required_cp_dutch_islands
+            phrases << :country_is_dutch_caribbean_island
             if resident_of == 'uk'
-              phrases << :no_cni_required_cp_dutch_islands_uk_resident
+              phrases << :contact_dutch_embassy_in_uk_cp
             elsif resident_of == 'ceremony_country'
               phrases << :contact_local_authorities_in_country_cp
             elsif resident_of == 'third_country'
-              phrases << :no_cni_required_cp_dutch_islands_other_resident
+              phrases << :contact_nearest_dutch_embassy_cp
             end
           else
             if resident_of == 'uk'
-              phrases << :no_cni_required_cp_not_dutch_islands_uk_resident
+              phrases << :contact_embassy_or_consulate_representing_ceremony_country_in_uk_cp
             elsif resident_of == 'ceremony_country'
               phrases << :contact_local_authorities_in_country_cp
             elsif resident_of == 'third_country'
-              phrases << :no_cni_required_cp_not_dutch_islands_other_resident
+              phrases << :contact_nearest_embassy_or_consulate_representing_ceremony_country_cp
             end
           end
-          phrases << :no_cni_required_cp_all_consular_facilities
+          phrases << :no_consular_facilities_to_register_ss
           phrases << :partner_naturalisation_in_uk if partner_nationality != 'partner_british'
           phrases
         end
