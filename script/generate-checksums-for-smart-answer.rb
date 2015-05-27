@@ -3,11 +3,10 @@ unless flow_name = ARGV.shift
   exit 1
 end
 
-flow_file_paths = SmartAnswerFiles.new(flow_name).paths
 additional_flow_file_paths = ARGV
+flow_files = SmartAnswerFiles.new(flow_name, *additional_flow_file_paths)
 
-unique_flow_file_paths = (flow_file_paths + additional_flow_file_paths).uniq
-hasher = SmartAnswerHasher.new(unique_flow_file_paths)
+hasher = SmartAnswerHasher.new(flow_files.paths)
 
 data_path = Rails.root.join('test', 'data', "#{flow_name}-files.yml")
 File.open(data_path, 'w') do |file|
