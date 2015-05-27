@@ -35,7 +35,7 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
         message = []
         message << "Expected #{smart_answer_helper.files_checksum_path} to exist"
         message << "Use the generate-checksums-for-smart-answer script to create it"
-        assert_equal true, File.exists?(smart_answer_helper.files_checksum_path), message.join('. ')
+        assert_equal true, smart_answer_helper.files_checksum_data_exists?, message.join('. ')
       end
 
       should "have up to date checksum data" do

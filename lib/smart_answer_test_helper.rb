@@ -30,11 +30,16 @@ class SmartAnswerTestHelper
     YAML.load(files_checksums_yaml)
   end
 
+  def files_checksum_data_exists?
+    File.exists?(files_checksum_path)
+  end
+
   def run_regression_tests?
     files_checksum_data_needs_updating?
   end
 
   def files_checksum_data_needs_updating?
+    !files_checksum_data_exists? ||
     source_files_have_changed?
   end
 
