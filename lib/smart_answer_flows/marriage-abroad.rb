@@ -1251,11 +1251,9 @@ module SmartAnswer
 
         precalculate :commonwealth_countries_cp_outcome do
           phrases = PhraseList.new
-          if %w(australia canada new-zealand south-africa).include?(ceremony_country)
+          if %w(canada new-zealand south-africa).include?(ceremony_country)
             phrases << "synonyms_of_cp_in_#{ceremony_country}".gsub('-', '_').to_sym
           end
-
-          phrases << :commonwealth_countries_cp_australia_two if ceremony_country == 'australia'
 
           if resident_of == 'uk'
             phrases << :contact_high_comission_of_ceremony_country_in_uk_cp
@@ -1268,23 +1266,12 @@ module SmartAnswer
             phrases << :get_legal_and_travel_advice
           end
 
-          if ceremony_country == 'australia'
-            phrases << :commonwealth_countries_cp_australia_three
-            phrases << :commonwealth_countries_cp_australia_four
-            if partner_nationality == 'partner_local'
-              phrases << :commonwealth_countries_cp_australia_partner_local
-            elsif partner_nationality == 'partner_other'
-              phrases << :commonwealth_countries_cp_australia_partner_other
-            end
-            phrases << :commonwealth_countries_cp_australia_five
-          end
-          phrases << :embassies_data unless ceremony_country == 'australia'
+          phrases << :embassies_data
 
           if ceremony_country == 'new-zealand'
             phrases << :commonwealth_os_all_cni
           end
           phrases << :partner_naturalisation_in_uk if partner_nationality != 'partner_british'
-          phrases << :commonwealth_countries_cp_australia_six if ceremony_country == 'australia'
           phrases
         end
       end
