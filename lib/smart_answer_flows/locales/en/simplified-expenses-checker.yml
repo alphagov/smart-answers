@@ -103,7 +103,7 @@ en-GB:
 #Q11
       current_claim_amount_home?:
         title: How much of your home costs do you expect to claim as business expenses this tax year?
-        hint: The business proportion of, for example, your gas, electricity, phone and internet bills.
+        hint: The business proportion of utility bills, eg gas and electricity. Don't include phone and internet bills.
 #Q12
       hours_work_home?:
         title: On average, how many hours a month do you work or expect to work from home?
