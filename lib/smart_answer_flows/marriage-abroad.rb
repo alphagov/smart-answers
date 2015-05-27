@@ -1067,19 +1067,17 @@ module SmartAnswer
         precalculate :no_cni_os_outcome do
           phrases = PhraseList.new
           if data_query.dutch_caribbean_islands?(ceremony_country)
-            phrases << :no_cni_os_dutch_caribbean_islands
+            phrases << :country_is_dutch_caribbean_island
             if resident_of == 'uk'
-              phrases << :no_cni_os_dutch_caribbean_islands_uk_resident
-            elsif resident_of == 'ceremony_country' # TODO: refactor to use the same phrase for local authorities.
+              phrases << :contact_dutch_embassy_in_uk
+            else resident_of == 'ceremony_country'
               phrases << :contact_local_authorities_in_country_marriage
-            elsif resident_of == 'third_country'
-              phrases << :no_cni_os_dutch_caribbean_other_resident
             end
           else
             if resident_of == 'ceremony_country' or data_query.ss_unknown_no_embassies?(ceremony_country)
               phrases << :contact_local_authorities_in_country_marriage
             elsif resident_of == 'uk'
-              phrases << :no_cni_os_not_dutch_caribbean_islands_uk_resident
+              phrases << :contact_embassy_or_consulate_representing_ceremony_country_in_uk
             elsif resident_of == 'third_country'
               phrases << :contact_nearest_institution_representing_ceremony_country_marriage
             end

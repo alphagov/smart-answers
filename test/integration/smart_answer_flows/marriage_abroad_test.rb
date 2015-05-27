@@ -951,7 +951,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_dutch_caribbean_islands, :contact_local_authorities_in_country_marriage, :get_legal_advice, :cni_os_consular_facilities_unavailable]
+      assert_phrase_list :no_cni_os_outcome, [:country_is_dutch_caribbean_island, :contact_local_authorities_in_country_marriage, :get_legal_advice, :cni_os_consular_facilities_unavailable]
     end
   end
   #testing for ceremony in aruba, other resident, partner other
@@ -965,7 +965,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_dutch_caribbean_islands, :no_cni_os_dutch_caribbean_other_resident, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
+      assert_phrase_list :no_cni_os_outcome, [:country_is_dutch_caribbean_island, :contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
     end
   end
   #testing for ceremony in cote-d-ivoire, uk resident, partner british
@@ -1812,7 +1812,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:no_cni_os_not_dutch_caribbean_islands_uk_resident, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable]
+      assert_phrase_list :no_cni_os_outcome, [:contact_embassy_or_consulate_representing_ceremony_country_in_uk, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable]
     end
   end
 
