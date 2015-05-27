@@ -25,6 +25,19 @@ class SmartAnswerTestHelper
     end
   end
 
+  def read_files_checksums
+    files_checksums_yaml = File.read(files_checksum_path)
+    YAML.load(files_checksums_yaml)
+  end
+
+  def run_regression_tests?
+    files_checksum_data_needs_updating?
+  end
+
+  def files_checksum_data_needs_updating?
+    source_files_have_changed?
+  end
+
   def question_and_responses_path
     data_path.join(question_and_responses_filename)
   end
@@ -91,5 +104,15 @@ class SmartAnswerTestHelper
 
   def artefacts_path
     self.class.artefacts_path
+  end
+
+  def source_files_have_changed?
+    checksum_data = read_files_checksums
+    changed_files = checksum_data.select do |path, expected_checksum|
+      content = File.read(path)
+      actual_checksum = Digest::MD5.hexdigest(content)
+      expected_checksum != actual_checksum
+    end
+    changed_files.any?
   end
 end
