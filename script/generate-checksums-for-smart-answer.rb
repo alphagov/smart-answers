@@ -8,9 +8,7 @@ flow_files = SmartAnswerFiles.new(flow_name, *additional_flow_file_paths)
 
 hasher = SmartAnswerHasher.new(flow_files.paths)
 
-data_path = Rails.root.join('test', 'data', "#{flow_name}-files.yml")
-File.open(data_path, 'w') do |file|
-  hasher.write_checksum_data(file)
-end
+flow_helper = SmartAnswerTestHelper.new(flow_name)
+flow_helper.write_files_checksum(hasher)
 
-puts "Checksum data written to #{data_path}"
+puts "Checksum data written to #{flow_helper.files_checksum_path}"

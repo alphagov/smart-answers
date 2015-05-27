@@ -15,6 +15,16 @@ class SmartAnswerTestHelper
     @flow_name = flow_name
   end
 
+  def files_checksum_path
+    data_path.join(files_checksum_filename)
+  end
+
+  def write_files_checksum(hasher)
+    File.open(files_checksum_path, 'w') do |file|
+      hasher.write_checksum_data(file)
+    end
+  end
+
   def question_and_responses_path
     data_path.join(question_and_responses_filename)
   end
@@ -62,6 +72,10 @@ class SmartAnswerTestHelper
   end
 
   private
+
+  def files_checksum_filename
+    "#{@flow_name}-files.yml"
+  end
 
   def question_and_responses_filename
     "#{@flow_name}-questions-and-responses.yml"
