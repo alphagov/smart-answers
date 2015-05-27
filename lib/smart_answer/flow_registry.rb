@@ -18,6 +18,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   help-if-you-are-arrested-abroad
   inherits-someone-dies-without-will
   legalisation-document-checker
+  marriage-abroad
   maternity-paternity-calculator
   minimum-wage-calculator-employers
   overseas-passports
