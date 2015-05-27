@@ -1380,7 +1380,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to cp commonwealth countries outcome" do
       assert_current_node :outcome_cp_commonwealth_countries
-      assert_phrase_list :commonwealth_countries_cp_outcome, [:commonwealth_countries_cp_canada, :commonwealth_countries_cp_uk_resident_two, :embassies_data, :partner_naturalisation_in_uk]
+      assert_phrase_list :commonwealth_countries_cp_outcome, [:commonwealth_countries_cp_canada, :contact_high_comission_of_ceremony_country_in_uk_cp, :get_legal_and_travel_advice, :embassies_data, :partner_naturalisation_in_uk]
     end
   end
 

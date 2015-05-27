@@ -1254,11 +1254,14 @@ outcome :outcome_cp_commonwealth_countries do
     phrases << :commonwealth_countries_cp_australia_two if ceremony_country == 'australia'
 
     if resident_of == 'uk'
-      phrases << :commonwealth_countries_cp_uk_resident_two
+      phrases << :contact_high_comission_of_ceremony_country_in_uk_cp
+      phrases << :get_legal_and_travel_advice
     elsif resident_of == 'ceremony_country'
-      phrases << :commonwealth_countries_cp_local_resident
+      phrases << :contact_local_authorities_in_country_cp
+      phrases << :get_legal_advice
     elsif resident_of == 'third_country'
-      phrases << :commonwealth_countries_cp_other_resident
+      phrases << :contact_nearest_high_commission_embassy_or_consulate_cp
+      phrases << :get_legal_and_travel_advice
     end
 
     if ceremony_country == 'australia'

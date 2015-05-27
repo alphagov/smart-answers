@@ -444,6 +444,8 @@ en-GB:
 # Marriage in commonwealth countries phrases
         contact_high_comission_of_ceremony_country_in_uk: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
+        contact_high_comission_of_ceremony_country_in_uk_cp: |
+          Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
         local_resident_os_ceremony_contact_for_advice: |
           Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
 
@@ -1256,18 +1258,8 @@ en-GB:
 
           - marriage
           - civil partnership
-        commonwealth_countries_cp_uk_resident_two: |
-          Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
-
-          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
-        commonwealth_countries_cp_local_resident: |
-          Contact the relevant local authorities to find out about local laws, including what documents you’ll need.
-
-          You should also [get legal advice](/government/collections/list-of-lawyers) before making any plans.
-        commonwealth_countries_cp_other_resident: |
+        contact_nearest_high_commission_embassy_or_consulate_cp: |
           Contact your nearest high commission, embassy or consulate of %{country_name_lowercase_prefix} before making any plans to find out about local laws, including what documents you’ll need.
-
-          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.^
 
         commonwealth_countries_cp_australia_partner_local: |
           Your Australian partner will also need a Single Status Certificate issued by state or territory authorities.
