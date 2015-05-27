@@ -1251,15 +1251,10 @@ module SmartAnswer
 
         precalculate :commonwealth_countries_cp_outcome do
           phrases = PhraseList.new
-          if ceremony_country == 'australia'
-            phrases << :commonwealth_countries_cp_australia
-          elsif ceremony_country == 'canada'
-            phrases << :commonwealth_countries_cp_canada
-          elsif ceremony_country == 'new-zealand'
-            phrases << :commonwealth_countries_cp_new_zealand
-          elsif ceremony_country == 'south-africa'
-            phrases << :commonwealth_countries_cp_south_africa
+          if %w(australia canada new-zealand south-africa).include?(ceremony_country)
+            phrases << "synonyms_of_cp_in_#{ceremony_country}".gsub('-', '_').to_sym
           end
+
           phrases << :commonwealth_countries_cp_australia_two if ceremony_country == 'australia'
 
           if resident_of == 'uk'
