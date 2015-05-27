@@ -695,6 +695,10 @@ outcome :outcome_os_consular_cni do
         phrases << :consular_cni_os_giving_notice_in_ceremony_country
       end
 
+      if three_day_residency_handled_by_exception.exclude?(ceremony_country) and three_day_residency_requirement_applies.include?(ceremony_country)
+        phrases << :living_in_ceremony_country_3_days
+      end
+
       phrases << :"#{ceremony_country}_os_local_resident" if %w(kazakhstan russia).include?(ceremony_country)
       unless %w(germany italy japan russia spain).include?(ceremony_country)
         if ceremony_country == 'macedonia'
@@ -706,9 +710,6 @@ outcome :outcome_os_consular_cni do
       phrases << :consular_cni_os_local_resident_italy if ceremony_country == 'italy'
     end
 
-    if resident_of == 'ceremony_country' and three_day_residency_handled_by_exception.exclude?(ceremony_country) and three_day_residency_requirement_applies.include?(ceremony_country)
-      phrases << :living_in_ceremony_country_3_days
-    end
 
     if ceremony_country == 'italy' and resident_of != 'uk'
       phrases << :consular_cni_variant_local_resident_italy
