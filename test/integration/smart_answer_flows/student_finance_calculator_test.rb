@@ -73,67 +73,10 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               should "ask what course you are studying" do
                 assert_current_node :what_course_are_you_studying?
               end
-              should "go to result with teacher training" do
-                add_response 'teacher-training'
-                assert_current_node :outcome_uk_full_time_students
-                assert_state_variable :tuition_fee_amount, 7500
-                assert_state_variable :max_maintenance_loan_amount, 4565
-                assert_state_variable :maintenance_loan_amount, 2872 #4565 - (maintenance_grant_amount/2.0).floor
-                assert_state_variable :maintenance_grant_amount, 3387
-              end # end should
             end # end context children
           end # end context income
         end # end context living at home
       end # end context valid fees
     end # end context full-time student
-
-    context "uk part-time student, with extra help circumstances" do
-      setup do
-        add_response 'uk-part-time'
-        add_response '6000'
-        add_response 'has-disability,low-income'
-        add_response 'dental-medical-healthcare'
-      end
-      should "go to all uk students outcome" do
-        assert_current_node :outcome_uk_all_students
-        assert_state_variable :tuition_fee_amount, 6000
-      end
-    end
-
-    context "uk part-time student, no extra help circumstances" do
-      setup do
-        add_response 'uk-part-time'
-        add_response '6000'
-        add_response 'no'
-        add_response 'none-of-the-above'
-      end
-      should "go to all uk students outcome" do
-        assert_current_node :outcome_uk_all_students
-        assert_state_variable :tuition_fee_amount, 6000
-      end
-    end
-
-    context "eu full-time student" do
-      setup do
-        add_response 'eu-full-time'
-        add_response '8000'
-      end
-      should "go to eu full-time students outcome" do
-        assert_current_node :outcome_eu_students
-        assert_state_variable :tuition_fee_amount, 8000
-      end
-    end
-
-    context "eu part-time student" do
-      setup do
-        add_response 'eu-part-time'
-        add_response '4100'
-      end
-      should "go to eu part-time students outcome" do
-        assert_current_node :outcome_eu_students
-        assert_state_variable :tuition_fee_amount, 4100
-      end
-    end
-
   end
 end
