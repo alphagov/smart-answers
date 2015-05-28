@@ -566,8 +566,7 @@ module SmartAnswer
       outcome :outcome_os_consular_cni do
         precalculate :consular_cni_os_start do
           phrases = PhraseList.new
-
-          three_day_residency_requirement_applies = %w(albania algeria angola armenia austria azerbaijan bahrain belgium bolivia bosnia-and-herzegovina bulgaria cambodia chile croatia cuba ecuador el-salvador estonia georgia greece hong-kong iceland iran italy kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua nepal norway poland romania russia serbia spain sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          three_day_residency_requirement_applies = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal norway panama poland romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
           three_day_residency_handled_by_exception = %w(croatia italy spain russia)
 
           cni_notary_public_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro norway poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
@@ -1388,11 +1387,13 @@ module SmartAnswer
       end
 
       outcome :outcome_ss_marriage_not_possible
+
       outcome :outcome_ss_marriage_malta do
         precalculate :ss_body do
           PhraseList.new(:able_to_ss_marriage_and_partnership_hc, :consular_cp_all_contact, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership_hc, :will_display_in_14_days_hc, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_hc, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage)
         end
       end
+
       outcome :outcome_os_marriage_impossible_no_laos_locals
 
     end
