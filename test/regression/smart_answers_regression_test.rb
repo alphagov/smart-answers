@@ -45,6 +45,20 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
         assert_equal false, smart_answer_helper.files_checksum_data_needs_updating?, message.join('. ')
       end
 
+      should "ensure all nodes are being exercised" do
+        flow = SmartAnswer::FlowRegistry.instance.find(flow_name)
+
+        nodes_exercised_in_test = responses_and_expected_results.inject([]) do |array, responses_and_expected_results|
+          current_node = responses_and_expected_results[:current_node]
+          next_node    = responses_and_expected_results[:next_node]
+          array << current_node unless array.include?(current_node)
+          array << next_node unless array.include?(next_node)
+          array
+        end
+
+        assert_equal nodes_exercised_in_test.sort, flow.nodes.map(&:name).sort
+      end
+
       responses_and_expected_results.each do |responses_and_expected_node|
         responses    = responses_and_expected_node[:responses]
         outcome_node = responses_and_expected_node[:outcome_node]
