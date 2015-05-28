@@ -1,0 +1,8 @@
+--- 
+:dob_age?: 
+- "TODO: What is your date of birth?"
+:gender?: 
+- male
+- female
+:how_much_extra_per_week?: 
+- "TODO: How much would you like to get per week?"
