@@ -1,8 +1,10 @@
---- 
-:extending_or_switching?: 
+---
+:extending_or_switching?:
 - extend_general
 - switch_general
 - extend_child
 - switch_child
-:sponsor_id?: 
-- "TODO: What is your Tier 4 sponsor number?"
+:sponsor_id?:
+- V6G1G9F62
+- QNCPTDW26
+- made-up-sponsor-id
