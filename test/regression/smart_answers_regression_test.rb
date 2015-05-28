@@ -45,7 +45,7 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
       end
 
       should "#{RUN_ME_LAST} and generate the same set of output files" do
-        diff_output = `git diff --stat #{smart_answer_helper.path_to_outputs_for_flow}`
+        diff_output = `git diff --stat -- #{smart_answer_helper.path_to_outputs_for_flow}`
         assert_equal '', diff_output, "Unexpected difference in outputs for flow:"
       end
     end
