@@ -215,6 +215,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_state_variable :location, expected_location
     end
   end
+
   context "uk resident but ceremony not in zimbabwe" do
     setup do
       worldwide_api_has_organisations_for_location('bahamas', read_fixture_file('worldwide/bahamas_organisations.json'))
@@ -231,6 +232,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_state_variable :location, expected_location
     end
   end
+
   context "other resident but ceremony not in zimbabwe" do
     setup do
       worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
@@ -244,6 +246,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cant_issue_cni_for_commonwealth]
     end
   end
+
   context "ceremony in zimbabwe" do
     setup do
       worldwide_api_has_organisations_for_location('zimbabwe', read_fixture_file('worldwide/zimbabwe_organisations.json'))
@@ -265,7 +268,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :cant_issue_cni_for_zimbabwe, :partner_naturalisation_in_uk]
     end
   end
-  # testing for other commonwealth countries
+
   context "uk resident ceremony in south-africa" do
     setup do
       worldwide_api_has_organisations_for_location('south-africa', read_fixture_file('worldwide/south-africa_organisations.json'))
@@ -280,6 +283,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :commonwealth_os_outcome, [:contact_high_comission_of_ceremony_country_in_uk, :get_legal_and_travel_advice, :cant_issue_cni_for_commonwealth, :commonwealth_os_marriage_subtleties_in_south_africa, :partner_naturalisation_in_uk]
     end
   end
+
   context "resident in cyprus, ceremony in cyprus" do
     setup do
       worldwide_api_has_organisations_for_location('cyprus', read_fixture_file('worldwide/cyprus_organisations.json'))
@@ -293,6 +297,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :cant_issue_cni_for_commonwealth, :commonwealth_os_marriage_subtleties_in_cyprus, :partner_naturalisation_in_uk]
     end
   end
+
   context "resident in england, ceremony in cyprus, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('cyprus', read_fixture_file('worldwide/cyprus_organisations.json'))
@@ -308,7 +313,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cp_outcome, [:consular_cp_ceremony, :consular_cp_all_contact, :embassies_data, :documents_needed_7_days_residency, :consular_cp_all_documents, :consular_cp_partner_not_british, :consular_cp_all_what_you_need_to_do, :partner_naturalisation_in_uk, :consular_cp_all_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  # testing for british overseas territories
+
   context "uk resident ceremony in british indian ocean territory" do
     setup do
       worldwide_api_has_organisations_for_location('british-indian-ocean-territory', read_fixture_file('worldwide/british-indian-ocean-territory_organisations.json'))
@@ -323,6 +328,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :bot_outcome, [:bot_os_ceremony_biot]
     end
   end
+
   context "resident in anguilla, ceremony in anguilla" do
     setup do
       worldwide_api_has_organisations_for_location('anguilla', read_fixture_file('worldwide/anguilla_organisations.json'))
@@ -336,7 +342,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :bot_outcome, [:bot_os_ceremony_non_biot, :partner_naturalisation_in_uk]
     end
   end
-  # testing for consular cni countries
+
   context "uk resident, ceremony in estonia, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('estonia', read_fixture_file('worldwide/estonia_organisations.json'))
@@ -352,6 +358,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :names_on_documents_must_match, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "resident in estonia, ceremony in estonia" do
     setup do
       worldwide_api_has_organisations_for_location('estonia', read_fixture_file('worldwide/estonia_organisations.json'))
@@ -366,6 +373,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :consular_cni_os_other_resident_ceremony_not_italy, :partner_naturalisation_in_uk, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "ceremony in Estonia, lives in 3rd country" do
     setup do
       worldwide_api_has_organisations_for_location('estonia', read_fixture_file('worldwide/estonia_organisations.json'))
@@ -381,6 +389,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/estonia/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
     end
   end
+
   context "local resident, ceremony in jordan, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('jordan', read_fixture_file('worldwide/jordan_organisations.json'))
@@ -411,6 +420,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "ceremony in italy, resident in italy, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
@@ -425,6 +435,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :partner_naturalisation_in_uk, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "ceremony in italy, lives in 3rd country, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
@@ -456,6 +467,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:partner_naturalisation_in_uk, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "ceremony in germany, partner german, same sex" do
     setup do
       worldwide_api_has_organisations_for_location('germany', read_fixture_file('worldwide/germany_organisations.json'))
@@ -469,6 +481,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :cp_or_equivalent_cp_outcome, [:synonyms_of_cp_in_germany, :contact_local_authorities_in_country_cp, :cp_or_equivalent_cp_all_what_you_need_to_do, :partner_naturalisation_in_uk, :cp_or_equivalent_cp_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "ceremony in germany, partner not german, same sex" do
     setup do
       worldwide_api_has_organisations_for_location('germany', read_fixture_file('worldwide/germany_organisations.json'))
@@ -498,6 +511,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :partner_naturalisation_in_uk, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "ceremony in azerbaijan, resident in northern ireland, opposite sex non-local partner" do
     setup do
       worldwide_api_has_organisations_for_location('azerbaijan', read_fixture_file('worldwide/azerbaijan_organisations.json'))
@@ -583,7 +597,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for spain variants
   context "Spain" do
     setup do
       worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
@@ -663,7 +676,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-
   context "ceremony in poland, lives elsewhere, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
@@ -710,7 +722,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for ceremony in poland, british partner
   context "ceremony in poland, lives in 3rd country, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('poland', read_fixture_file('worldwide/poland_organisations.json'))
@@ -726,7 +737,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/poland/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
     end
   end
-  #testing for belgium variant
+
   context "ceremony in belgium, lives in 3rd country, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
@@ -743,7 +754,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for uk resident variant
   context "ceremony in azerbaijan, resident in scotland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('azerbaijan', read_fixture_file('worldwide/azerbaijan_organisations.json'))
@@ -759,7 +769,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :partner_naturalisation_in_uk, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  #testing for fee variant
+
   context "ceremony in armenia, resident in scotland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('armenia', read_fixture_file('worldwide/armenia_organisations.json'))
@@ -777,7 +787,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   #France or french overseas territories outcome
-  #testing for ceremony in french overseas territories
   context "ceremony in fot" do
     setup do
       worldwide_api_has_organisations_for_location('mayotte', read_fixture_file('worldwide/mayotte_organisations.json'))
@@ -788,7 +797,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :france_or_fot_os_outcome, [:fot_os_all]
     end
   end
-  #testing for ceremony in france
+
   context "ceremony in france" do
     setup do
       worldwide_api_has_organisations_for_location('france', read_fixture_file('worldwide/france_organisations.json'))
@@ -801,7 +810,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   #tests for affirmation to marry outcomes
-  #testing for ceremony in thailand, uk resident, partner other
   context "ceremony in thailand, resident in scotland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('thailand', read_fixture_file('worldwide/thailand_organisations.json'))
@@ -832,7 +840,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for ceremony in egypt, local resident, partner british
   context "ceremony in egypt, resident in egypt, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('egypt', read_fixture_file('worldwide/egypt_organisations.json'))
@@ -846,7 +853,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :what_you_need_to_do, :make_an_appointment, :embassies_data, :docs_decree_and_death_certificate, :change_of_name_evidence, :partner_declaration, :fee_table_45_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  #testing for ceremony in lebanon, other resident, partner other
+
   context "ceremony in lebanon, lives elsewhere, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('lebanon', read_fixture_file('worldwide/lebanon_organisations.json'))
@@ -860,7 +867,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:contact_nearest_embassy_or_consulate_of_ceremony_country, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :partner_naturalisation_in_uk, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  #testing for ceremony in UAE, uk resident, partner other
+
   context "ceremony in UAE, resident in UAE, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('united-arab-emirates', read_fixture_file('worldwide/united-arab-emirates_organisations.json'))
@@ -874,7 +881,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :affirmation_os_uae, :what_you_need_to_do_affirmation_21_days, :appointment_for_affidavit, :embassies_data, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :partner_naturalisation_in_uk, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  #testing for ceremony in Oman, uk resident, partner other
+
   context "ceremony in Oman, resident in Oman, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('oman', read_fixture_file('worldwide/oman_organisations.json'))
@@ -888,7 +895,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_start, [:contact_local_authorities_in_country_marriage, :gulf_states_os_consular_cni, :gulf_states_os_consular_cni_local_resident, :get_legal_advice, :what_you_need_to_do, :consular_cni_os_ceremony_21_day_requirement, :os_consular_cni_requirement, :consular_cni_os_giving_notice_in_ceremony_country, :embassies_data, :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_not_germany_or_spain, :consular_cni_os_download_documents_notary_public, :display_notice_of_marriage_7_days]
     end
   end
-  #testing for ceremony in Turkey, uk resident, partner british
+
   context "ceremony in Turkey, resident in Scotland, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
@@ -903,7 +910,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :appointment_for_affidavit_notary, :complete_affidavit, :download_affidavit, :affirmation_os_legalised, :documents_for_divorced_or_widowed, :affirmation_os_partner_not_british_turkey, :fee_table_affidavit_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  #testing for ceremony in Turkey, local resident, partner other
+
   context "ceremony in Turkey, resident in Turkey, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('turkey', read_fixture_file('worldwide/turkey_organisations.json'))
@@ -917,7 +924,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :what_you_need_to_do, :appointment_for_affidavit, :embassies_data, :complete_affidavit, :download_affidavit, :affirmation_os_legalised_in_turkey, :documents_for_divorced_or_widowed, :affirmation_os_partner_not_british_turkey, :fee_table_affidavit_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  #testing for ceremony in Ecuador, resident anywhere, partner other
+
   context "ceremony in Ecuador, resident in Ecuador, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('ecuador', read_fixture_file('worldwide/ecuador_organisations.json'))
@@ -932,7 +939,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
  :affirmation_os_translation_in_local_language_text, :documents_for_divorced_or_widowed_ecuador, :partner_equivalent_document_warning, :names_on_documents_must_match, :partner_naturalisation_in_uk, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-
 
   context "ceremony in Cambodia" do
     setup do
@@ -966,7 +972,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   #tests for no cni or consular services
-  #testing for dutch caribbean islands
   context "ceremony in aruba, resident in scotland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
@@ -982,6 +987,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :partner_naturalisation_in_uk, :consular_cni_os_fees_not_italy_not_uk]
     end
   end
+
   context "ceremony in aruba, resident in aruba, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
@@ -995,7 +1001,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :no_cni_os_outcome, [:country_is_dutch_caribbean_island, :contact_local_authorities_in_country_marriage, :get_legal_advice, :cni_os_consular_facilities_unavailable]
     end
   end
-  #testing for ceremony in aruba, other resident, partner other
+
   context "ceremony in aruba, lives elsewhere, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
@@ -1009,7 +1015,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :no_cni_os_outcome, [:country_is_dutch_caribbean_island, :contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
     end
   end
-  #testing for ceremony in cote-d-ivoire, uk resident, partner british
+
   context "ceremony in cote-d-ivoire, uk resident, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('cote-d-ivoire', read_fixture_file('worldwide/cote-d-ivoire_organisations.json'))
@@ -1026,7 +1032,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end
-  #testing for ceremony in cote-d-ivoire, other resident, partner british
+
   context "ceremony in cote-d-ivoire, lives elsewhere, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('cote-d-ivoire', read_fixture_file('worldwide/cote-d-ivoire_organisations.json'))
@@ -1041,7 +1047,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for ceremony in monaco
   context "ceremony in monaco, maps to France, marriage" do
     setup do
       worldwide_api_has_organisations_for_location('monaco', read_fixture_file('worldwide/monaco_organisations.json'))
@@ -1053,6 +1058,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :monaco_phraselist, [:monaco_marriage]
     end
   end
+
   context "ceremony in monaco, maps to France, pacs" do
     setup do
       worldwide_api_has_organisations_for_location('monaco', read_fixture_file('worldwide/monaco_organisations.json'))
@@ -1065,7 +1071,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for ceramony in macedonia
   context "user lives in 3rd country, ceremony in macedonia, partner os (any nationality)" do
     setup do
       worldwide_api_has_organisations_for_location('macedonia', read_fixture_file('worldwide/macedonia_organisations.json'))
@@ -1082,7 +1087,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for ceramony in macedonia
   context "user lives in macedonia, ceremony in macedonia" do
     setup do
       worldwide_api_has_organisations_for_location('macedonia', read_fixture_file('worldwide/macedonia_organisations.json'))
@@ -1097,7 +1101,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for ceremony in usa
   context "ceremony in usa, lives elsewhere, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
@@ -1112,7 +1115,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for ceremony in argentina
   context "ceremony in argentina, lives elsewhere, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('argentina', read_fixture_file('worldwide/argentina_organisations.json'))
@@ -1126,8 +1128,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :no_cni_os_outcome, [:contact_nearest_institution_representing_ceremony_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
     end
   end
-  #testing for other countries
-  #testing for burma
+
   context "ceremony in burma, resident in scotland, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('burma', read_fixture_file('worldwide/burma_organisations.json'))
@@ -1142,6 +1143,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :other_countries_os_outcome, [:other_countries_os_burma, :other_countries_os_burma_partner_local]
     end
   end
+
   context "ceremony in burundi, resident in 3rd country, partner anywhere" do
     setup do
       worldwide_api_has_organisations_for_location('burundi', read_fixture_file('worldwide/burundi_organisations.json'))
@@ -1155,7 +1157,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :no_cni_os_outcome, [:contact_nearest_institution_representing_ceremony_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
     end
   end
-  #testing for north korea
+
   context "ceremony in north korea, resident in scotland, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
@@ -1170,7 +1172,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :other_countries_os_outcome, [:other_countries_os_north_korea, :other_countries_os_north_korea_partner_local]
     end
   end
-  #testing for iran
+
   context "ceremony in iran, resident in scotland, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
@@ -1185,7 +1187,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :other_countries_os_outcome, [:other_countries_os_iran_somalia_syria]
     end
   end
-  #testing for yemen
+
   context "ceremony in yemen, resident in scotland, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('yemen', read_fixture_file('worldwide/yemen_organisations.json'))
@@ -1200,7 +1202,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :other_countries_os_outcome, [:other_countries_os_yemen]
     end
   end
-  #testing for saudi arabia, not local resident
+
   context "ceremony in saudi arabia, resident in scotland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('saudi-arabia', read_fixture_file('worldwide/saudi-arabia_organisations.json'))
@@ -1215,7 +1217,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :other_countries_os_outcome, [:other_countries_os_ceremony_saudia_arabia_not_local_resident]
     end
   end
-  #testing for saudi arabia, local resident, partner british
+
   context "ceremony in saudi arabia, resident in saudi arabia, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('saudi-arabia', read_fixture_file('worldwide/saudi-arabia_organisations.json'))
@@ -1229,7 +1231,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :other_countries_os_outcome, [:other_countries_os_saudi_arabia_local_resident, :fees_table_and_payment_instructions_saudi_arabia]
     end
   end
-  #testing for saudi arabia, local resident, partner other
+
   context "ceremony in saudi arabia, resident in saudi arabia, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('saudi-arabia', read_fixture_file('worldwide/saudi-arabia_organisations.json'))
@@ -1244,7 +1246,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for CNI variant for russian-federation
   context "ceremony in russia, resident in russia, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('russia', read_fixture_file('worldwide/russia_organisations.json'))
@@ -1260,7 +1261,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for civil partnership in countries with CP or equivalent
   context "ceremony in denmark, resident in england, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('denmark', read_fixture_file('worldwide/denmark_organisations.json'))
@@ -1275,7 +1275,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :cp_or_equivalent_cp_outcome, [:synonyms_of_cp_in_denmark, :contact_embassy_of_ceremony_country_in_uk_cp, :also_check_travel_advice, :cp_or_equivalent_cp_all_what_you_need_to_do, :partner_naturalisation_in_uk, :cp_or_equivalent_cp_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  #testing for ceremony in czech republic, other resident, local partner
+
   context "ceremony in czech republic, lives elsewhere, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('czech-republic', read_fixture_file('worldwide/czech-republic_organisations.json'))
@@ -1291,7 +1291,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end
-  #testing for ceremony in sweden, sweden resident, partner other
+
   context "ceremony in sweden, resident in sweden, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('sweden', read_fixture_file('worldwide/sweden_organisations.json'))
@@ -1305,8 +1305,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :cp_or_equivalent_cp_outcome, [:synonyms_of_cp_in_sweden, :contact_local_authorities_in_country_cp, :cp_or_equivalent_cp_all_what_you_need_to_do, :partner_naturalisation_in_uk, :cp_or_equivalent_cp_all_fees, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  #testing for civil partnership in France, or french overseas territories with PACS law
-  #testing for ceremony in france, pacs
+
   context "ceremony in france, " do
     setup do
       worldwide_api_has_organisations_for_location('france', read_fixture_file('worldwide/france_organisations.json'))
@@ -1317,7 +1316,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_cp_france_pacs
     end
   end
-  #testing for ceremony in wallis and futuna, pacs
+
   context "ceremony in wallis and futuna, pacs" do
     setup do
       worldwide_api_has_organisations_for_location('wallis-and-futuna', read_fixture_file('worldwide/wallis-and-futuna_organisations.json'))
@@ -1330,7 +1329,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  # testing for CP in countries where cni not required
   context "ceremony in US, same sex local partner" do
     setup do
       worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
@@ -1357,7 +1355,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
 
   end
-  #testing for ceremony in bonaire, england resident, other partner
+
   context "ceremony in bonaire, resident in scotland, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('bonaire-st-eustatius-saba', read_fixture_file('worldwide/bonaire-st-eustatius-saba_organisations.json'))
@@ -1372,7 +1370,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :no_cni_required_cp_outcome, [:"synonyms_of_cp_in_bonaire-st-eustatius-saba", :get_legal_and_travel_advice, :what_you_need_to_do, :country_is_dutch_caribbean_island, :contact_dutch_embassy_in_uk_cp, :no_consular_facilities_to_register_ss, :partner_naturalisation_in_uk]
     end
   end
-  #testing for ceremony in bonaire, bonaire resident, british partner
+
   context "ceremony in bonaire, resident in bonaire, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('bonaire-st-eustatius-saba', read_fixture_file('worldwide/bonaire-st-eustatius-saba_organisations.json'))
@@ -1386,8 +1384,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :no_cni_required_cp_outcome, [:"synonyms_of_cp_in_bonaire-st-eustatius-saba", :get_legal_advice, :what_you_need_to_do, :country_is_dutch_caribbean_island, :contact_local_authorities_in_country_cp, :no_consular_facilities_to_register_ss]
     end
   end
-  #testing for ceremony in bonaire, other resident, other partner
-  context "ceremony in bonaire, resident in mexico, partner other" do
+
+  context "ceremony in bonaire, resident in third country, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('bonaire-st-eustatius-saba', read_fixture_file('worldwide/bonaire-st-eustatius-saba_organisations.json'))
       add_response 'bonaire-st-eustatius-saba'
@@ -1401,8 +1399,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for CP in commonwealth countries outcomes
-  #testing for ceremony in canada, uk resident, other partner
   context "ceremony in canada, uk resident, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('canada', read_fixture_file('worldwide/canada_organisations.json'))
@@ -1418,8 +1414,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for CP in countries with consular cni (not australia)
-  # testing for czech republic with non-local partner
   context "ceremony in czech-republic, uk resident, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('czech-republic', read_fixture_file('worldwide/czech-republic_organisations.json'))
@@ -1435,7 +1429,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end
-  # testing for vietnam with local partner
+
   context "ceremony in vietnam, uk resident, partner local" do
     setup do
       worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
@@ -1449,6 +1443,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_ss_marriage_not_possible
     end
   end
+
   context "ceremony in turkmenistan" do
     setup do
       worldwide_api_has_organisations_for_location('turkmenistan', read_fixture_file('worldwide/turkmenistan_organisations.json'))
@@ -1462,7 +1457,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_cp_all_other_countries
     end
   end
-  # testing for latvia, other resident, british partner
+
   context "ceremony in latvia, lives elsewhere, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('latvia', read_fixture_file('worldwide/latvia_organisations.json'))
@@ -1477,8 +1472,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for other countries outcome
-  # testing for serbia, other resident, british partner
   context "ceremony in serbia, lives elsewhere, partner british" do
     setup do
       worldwide_api_has_organisations_for_location('serbia', read_fixture_file('worldwide/serbia_organisations.json'))
@@ -1492,7 +1485,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for nicaragua
   context "ceremony in nicaragua, lives elsewhere, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('nicaragua', read_fixture_file('worldwide/nicaragua_organisations.json'))
@@ -1507,7 +1499,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for Iom and Ci residents
   context "ceremony in australia, resident in isle of man" do
     setup do
       worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
@@ -1523,6 +1514,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :australia_ss_relationships, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
     end
   end
+
   context "australia opposite sex outcome" do
     should "bring you to australia os outcome" do
       worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
@@ -1535,6 +1527,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :australia_ss_relationships, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
     end
   end
+
   context "ceremony in italy, resident in channel islands" do
     setup do
       worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
@@ -1547,7 +1540,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :iom_ci_os_outcome, [:contact_local_authorities_in_country_marriage, :cni_for_channel_islands_residents, :british_embassy_in_rome_email]
     end
   end
-  #testing for china
+
   context "ceremony in china, partner is not from china, opposite sex" do
     should "render address from API" do
       worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
@@ -1560,6 +1553,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :book_online_china_non_local_prelude, :book_online_china_affirmation_affidavit, :embassies_data, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :affirmation_affidavit_os_partner, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "ceremony in china, partner is not from china, same sex" do
     should "render address from API" do
       worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
@@ -1572,6 +1566,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "ceremony in china, partner is national of china" do
     should "render address from API" do
       worldwide_api_has_organisations_for_location('china', read_fixture_file('worldwide/china_organisations.json'))
@@ -1583,7 +1578,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :what_you_need_to_do, :book_online_china_local_prelude, :book_online_china_affirmation_affidavit, :embassies_data, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :partner_equivalent_document_warning, :partner_naturalisation_in_uk, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
-  #testing for japan
+
   context "ceremony in Japan" do
     setup do
       worldwide_api_has_organisations_for_location('japan', read_fixture_file('worldwide/japan_organisations.json'))
@@ -1637,7 +1632,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for vietnam
   context "testing that Vietnam is now affirmation to marry outcome" do
     should "give the outcome" do
       worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
@@ -1652,7 +1646,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for switzerland variants
   context "ceremony in switzerland, resident in switzerland, partner opposite sex" do
     should "give swiss outcome with variants (gender variant)" do
       worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
@@ -1664,6 +1657,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :what_you_need_to_do_switzerland_resident_uk, :switzerland_not_resident, :what_you_need_to_do, :switzerland_os_not_resident, :switzerland_not_resident_two]
     end
   end
+
   context "ceremony in switzerland, resident in switzerland, partner same sex" do
     should "give swiss outcome with variants" do
       worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
@@ -1675,6 +1669,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant]
     end
   end
+
   context "ceremony in switzerland, not resident in switzerland, partner opposite sex" do
     should "give swiss outcome with variants" do
       worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
@@ -1686,6 +1681,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant, :what_you_need_to_do_switzerland_resident_uk, :switzerland_not_resident, :what_you_need_to_do, :switzerland_ss_not_resident, :switzerland_not_resident_two]
     end
   end
+
   context "ceremony in switzerland, not resident in switzerland, partner same sex" do
     should "give swiss outcome with variants" do
       worldwide_api_has_organisations_for_location('switzerland', read_fixture_file('worldwide/switzerland_organisations.json'))
@@ -1697,6 +1693,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :switzerland_not_resident, :what_you_need_to_do, :switzerland_os_not_resident, :switzerland_not_resident_two]
     end
   end
+
   context "peru outcome mapped to lebanon for same sex" do
     should "go to outcome cp all other countries" do
       worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
@@ -1709,6 +1706,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "peru outcome mapped to lebanon for opposite sex" do
     should "go to outcome os affirmation" do
       worldwide_api_has_organisations_for_location('peru', read_fixture_file('worldwide/peru_organisations.json'))
@@ -1720,6 +1718,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_os_affirmation
     end
   end
+
   context "portugal has his own outcome" do
     should "go to portugal outcome" do
       worldwide_api_has_organisations_for_location('portugal', read_fixture_file('worldwide/portugal_organisations.json'))
@@ -1822,7 +1821,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #testing for ceremony in philippines, uk resident, partner other
   context "ceremony in philippines, uk resident, partner other" do
     setup do
       worldwide_api_has_organisations_for_location('philippines', read_fixture_file('worldwide/philippines_organisations.json'))
@@ -1899,6 +1897,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_remainder, [:consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british, :names_on_documents_must_match, :consular_cni_os_fees_not_italy_not_uk]
     end
   end
+
   context "ceremony in azerbaijan, resident in northern ireland, same sex non-local partner" do
     setup do
       worldwide_api_has_organisations_for_location('azerbaijan', read_fixture_file('worldwide/azerbaijan_organisations.json'))
@@ -1912,6 +1911,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_ss_marriage
     end
   end
+
   context "uk resident, ceremony in estonia, partner same sex british" do
     setup do
       worldwide_api_has_organisations_for_location('estonia', read_fixture_file('worldwide/estonia_organisations.json'))
@@ -1927,6 +1927,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "ceremony in russia, lives elsewhere, same sex marriage, non british partner" do
     setup do
       worldwide_api_has_organisations_for_location('russia', read_fixture_file('worldwide/russia_organisations.json'))
@@ -1953,6 +1954,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :affirmation_os_outcome, [:contact_nearest_embassy_or_consulate_of_ceremony_country, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_equivalent_document_warning, :partner_naturalisation_in_uk, :fee_table_affidavit_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "kazakhstan should show its correct embassy page" do
     setup do
       worldwide_api_has_organisations_for_location('kazakhstan', read_fixture_file('worldwide/kazakhstan_organisations.json'))
@@ -1968,6 +1970,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/kazakhstan/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
     end
   end
+
   context "Marrying in Portugal > British National not living in the UK > Resident anywhere > Partner of any nationality > Opposite sex" do
     setup do
       worldwide_api_has_organisations_for_location('portugal', read_fixture_file('worldwide/portugal_organisations.json'))
@@ -1981,6 +1984,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :portugal_title, [:marriage_title]
     end
   end
+
   context "Marrying in Portugal > British National living in the UK > Partner of any nationality > Opposite sex" do
     setup do
       worldwide_api_has_organisations_for_location('portugal', read_fixture_file('worldwide/portugal_organisations.json'))
@@ -1995,6 +1999,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :portugal_title, [:marriage_title]
     end
   end
+
   context "Residency Country and ceremony country = Croatia" do
     setup do
       worldwide_api_has_organisations_for_location('croatia', read_fixture_file('worldwide/croatia_organisations.json'))
@@ -2044,6 +2049,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote_21_days_residency, :partner_naturalisation_in_uk, :fees_table_ss_marriage, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
+
   context "ceremony in Lithuania, partner same sex, partner not british" do
     setup do
       worldwide_api_has_organisations_for_location('lithuania', read_fixture_file('worldwide/lithuania_organisations.json'))
@@ -2056,6 +2062,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_cp_all_other_countries
     end
   end
+
   context "Ceremony in Belarus" do
     setup do
       worldwide_api_has_organisations_for_location('belarus', read_fixture_file('worldwide/belarus_organisations.json'))
@@ -2195,6 +2202,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :commonwealth_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cant_issue_cni_for_commonwealth]
     end
   end
+
   context "Marriage in Rwanda, living elsewhere" do
     setup do
       worldwide_api_has_organisations_for_location('rwanda', read_fixture_file('worldwide/rwanda_organisations.json'))
