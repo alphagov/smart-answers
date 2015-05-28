@@ -22,6 +22,19 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
     end
   end
 
+  context 'with erb template files' do
+    should 'include the path of erb templates' do
+      flow_name = 'flow-name'
+      smart_answer_with_erb_templates(flow_name) do |erb_template_files|
+        smart_answer_files = SmartAnswerFiles.new(flow_name)
+        erb_template_files.each do |file|
+          expected_path = file.path.relative_path_from(Rails.root)
+          assert_equal true, smart_answer_files.paths.include?(expected_path)
+        end
+      end
+    end
+  end
+
   context 'with additional files' do
     should 'return relative paths to the additional files' do
       with_temporary_file_in_project do |file|
@@ -52,6 +65,25 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
     ensure
       file.unlink
       file.close
+    end
+  end
+
+  def smart_answer_with_erb_templates(flow_name)
+    begin
+      erb_template_directory = Rails.root.join('lib', 'smart_answer_flows', flow_name)
+      FileUtils.mkdir_p(erb_template_directory)
+
+      files = (1..2).collect do |count|
+        Tempfile.new(["flow_name-#{count}", '.erb'], erb_template_directory)
+      end
+
+      yield files
+    ensure
+      FileUtils.rm_f(erb_template_directory)
+      files.each do |file|
+        file.unlink
+        file.close
+      end
     end
   end
 end
