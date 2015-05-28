@@ -199,7 +199,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  # tests for specific countries
   context "local resident but ceremony not in zimbabwe" do
     setup do
       worldwide_api_has_organisations_for_location('australia', read_fixture_file('worldwide/australia_organisations.json'))
@@ -1353,7 +1352,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_state_variable :country_name_lowercase_prefix, 'the USA'
       assert_phrase_list :no_cni_required_cp_outcome, [:synonyms_of_cp_in_usa, :get_legal_advice, :what_you_need_to_do, :contact_local_authorities_in_country_cp, :no_consular_facilities_to_register_ss, :partner_naturalisation_in_uk]
     end
-
   end
 
   context "ceremony in bonaire, resident in scotland, partner other" do
@@ -2116,14 +2114,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in Mexico, living in 3rd country" do
+  context "Mexico" do
     setup do
       worldwide_api_has_organisations_for_location('mexico', read_fixture_file('worldwide/mexico_organisations.json'))
       add_response 'mexico'
-      add_response 'third_country'
     end
 
-    should "go to outcome_consular_cni_os_residing_in_third_country (only if partner is OS british)" do
+    should "go to outcome_consular_cni_os_residing_in_third_country" do
+      add_response 'third_country'
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
@@ -2132,11 +2130,18 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/mexico/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
     end
 
-    should "show outcome_os_consular_cni when OS partner is not british" do
+    should "show outcome_os_consular_cni when partner is local" do
+      add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'opposite_sex'
-      assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:contact_nearest_institution_representing_ceremony_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :partner_naturalisation_in_uk]
+      assert_current_node :outcome_os_consular_cni
+    end
+
+    should "show outcome_os_consular_cni when partner is british" do
+      add_response 'ceremony_country'
+      add_response 'partner_british'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_os_consular_cni
     end
   end
 
