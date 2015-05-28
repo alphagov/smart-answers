@@ -1,4 +1,4 @@
-days_of_the_week = SmartAnswer::Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
+days_of_the_week = Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
 
 ## QP0
 multiple_choice :leave_or_pay_for_adoption? do
@@ -13,7 +13,7 @@ date_question :baby_due_date_paternity? do
   end
 
   calculate :calculator do
-    SmartAnswer::Calculators::MaternityPaternityCalculator.new(due_date, 'paternity')
+    Calculators::MaternityPaternityCalculator.new(due_date, 'paternity')
   end
 
   next_node :baby_birth_date_paternity?
@@ -26,7 +26,7 @@ date_question :employee_date_matched_paternity_adoption? do
   end
 
   calculate :calculator do
-    SmartAnswer::Calculators::MaternityPaternityCalculator.new(matched_date, 'paternity_adoption')
+    Calculators::MaternityPaternityCalculator.new(matched_date, 'paternity_adoption')
   end
 
   calculate :leave_type do

@@ -5,7 +5,7 @@ module SmartAnswer
       status :published
       satisfies_need "100865"
 
-      calculator = SmartAnswer::Calculators::StatePensionTopupCalculator.new
+      calculator = Calculators::StatePensionTopupCalculator.new
 
       #Q1
       date_question :dob_age? do

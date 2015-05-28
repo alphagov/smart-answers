@@ -166,7 +166,7 @@ module SmartAnswer
 
       outcome :commodity_code_result, use_outcome_templates: true do
         precalculate :calculator do
-          SmartAnswer::Calculators::CommodityCodeCalculator.new(
+          Calculators::CommodityCodeCalculator.new(
             starch_glucose_weight: starch_glucose_weight,
             sucrose_weight: sucrose_weight,
             milk_fat_weight: milk_fat_weight,

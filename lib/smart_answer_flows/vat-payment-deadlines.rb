@@ -26,7 +26,7 @@ module SmartAnswer
         option :'cheque' => :result_cheque
 
         calculate :calculator do |response|
-          SmartAnswer::Calculators::VatPaymentDeadlines.new(period_end_date, response)
+          Calculators::VatPaymentDeadlines.new(period_end_date, response)
         end
 
         calculate :last_payment_date do

@@ -5,7 +5,7 @@ module SmartAnswer
       status :published
       satisfies_need "100143"
 
-      calculator = SmartAnswer::Calculators::AgriculturalHolidayEntitlementCalculator.new()
+      calculator = Calculators::AgriculturalHolidayEntitlementCalculator.new()
 
       multiple_choice :work_the_same_number_of_days_each_week? do
         option "same-number-of-days" => :how_many_days_per_week?

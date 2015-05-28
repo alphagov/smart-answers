@@ -12,7 +12,7 @@ module SmartAnswer
 
         # Used in later questions
         calculate :calculator do
-          SmartAnswer::Calculators::PIPDates.new
+          Calculators::PIPDates.new
         end
 
         calculate :getting_dla do |response|
