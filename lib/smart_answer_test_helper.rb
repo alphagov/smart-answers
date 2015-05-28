@@ -35,6 +35,8 @@ class SmartAnswerTestHelper
   end
 
   def run_regression_tests?
+    explicitly_run_all_regression_tests? ||
+    explicitly_run_this_regression_test? ||
     files_checksum_data_needs_updating?
   end
 
@@ -119,5 +121,13 @@ class SmartAnswerTestHelper
       expected_checksum != actual_checksum
     end
     changed_files.any?
+  end
+
+  def explicitly_run_this_regression_test?
+    ENV['RUN_REGRESSION_TESTS'] == @flow_name
+  end
+
+  def explicitly_run_all_regression_tests?
+    ENV['RUN_REGRESSION_TESTS'] == 'true'
   end
 end

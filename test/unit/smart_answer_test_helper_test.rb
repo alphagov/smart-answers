@@ -27,6 +27,21 @@ class SmartAnswerTestHelperTest < ActiveSupport::TestCase
 
       assert_equal true, @test_helper.run_regression_tests?
     end
+
+    should 'return true if RUN_REGRESSION_TESTS is true' do
+      ENV['RUN_REGRESSION_TESTS'] = 'true'
+      assert_equal true, @test_helper.run_regression_tests?
+    end
+
+    should 'return true if RUN_REGRESSION_TESTS is equal to this flow name' do
+      ENV['RUN_REGRESSION_TESTS'] = 'flow-name'
+      assert_equal true, @test_helper.run_regression_tests?
+    end
+
+    should 'return false if RUN_REGRESSION_TESTS is equal to a different flow name' do
+      ENV['RUN_REGRESSION_TESTS'] = 'another-flow-name'
+      assert_equal false, @test_helper.run_regression_tests?
+    end
   end
 
   context 'when checksum data is missing' do
