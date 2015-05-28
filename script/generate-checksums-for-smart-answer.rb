@@ -3,12 +3,19 @@ unless flow_name = ARGV.shift
   exit 1
 end
 
-additional_flow_file_paths = ARGV
+flow_helper = SmartAnswerTestHelper.new(flow_name)
+
+existing_additional_flow_file_paths = []
+if flow_helper.files_checksum_data_exists?
+  existing_checksum_data = flow_helper.read_files_checksums
+  existing_additional_flow_file_paths = existing_checksum_data.keys
+end
+
+additional_flow_file_paths = ARGV + existing_additional_flow_file_paths
 flow_files = SmartAnswerFiles.new(flow_name, *additional_flow_file_paths)
 
 hasher = SmartAnswerHasher.new(flow_files.paths)
 
-flow_helper = SmartAnswerTestHelper.new(flow_name)
 flow_helper.write_files_checksum(hasher)
 
 puts "Checksum data written to #{flow_helper.files_checksum_path}"
