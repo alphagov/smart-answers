@@ -1,0 +1,239 @@
+--- 
+- :current_node: :what_is_your_marital_status?
+  :responses: 
+  - married
+  :outcome_node: false
+- :current_node: :when_will_you_reach_pension_age?
+  :responses: 
+  - married
+  - your_pension_age_before_specific_date
+  :outcome_node: false
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - married
+  - your_pension_age_before_specific_date
+  - partner_pension_age_before_specific_date
+  :outcome_node: true
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - married
+  - your_pension_age_before_specific_date
+  - partner_pension_age_after_specific_date
+  :outcome_node: true
+- :current_node: :when_will_you_reach_pension_age?
+  :responses: 
+  - married
+  - your_pension_age_after_specific_date
+  :outcome_node: false
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - married
+  - your_pension_age_after_specific_date
+  - partner_pension_age_before_specific_date
+  :outcome_node: false
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - married
+  - your_pension_age_after_specific_date
+  - partner_pension_age_before_specific_date
+  - male_gender
+  :outcome_node: true
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - married
+  - your_pension_age_after_specific_date
+  - partner_pension_age_before_specific_date
+  - female_gender
+  :outcome_node: true
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - married
+  - your_pension_age_after_specific_date
+  - partner_pension_age_after_specific_date
+  :outcome_node: false
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - married
+  - your_pension_age_after_specific_date
+  - partner_pension_age_after_specific_date
+  - male_gender
+  :outcome_node: true
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - married
+  - your_pension_age_after_specific_date
+  - partner_pension_age_after_specific_date
+  - female_gender
+  :outcome_node: true
+- :current_node: :what_is_your_marital_status?
+  :responses: 
+  - will_marry_before_specific_date
+  :outcome_node: false
+- :current_node: :when_will_you_reach_pension_age?
+  :responses: 
+  - will_marry_before_specific_date
+  - your_pension_age_before_specific_date
+  :outcome_node: false
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - will_marry_before_specific_date
+  - your_pension_age_before_specific_date
+  - partner_pension_age_before_specific_date
+  :outcome_node: true
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - will_marry_before_specific_date
+  - your_pension_age_before_specific_date
+  - partner_pension_age_after_specific_date
+  :outcome_node: true
+- :current_node: :when_will_you_reach_pension_age?
+  :responses: 
+  - will_marry_before_specific_date
+  - your_pension_age_after_specific_date
+  :outcome_node: false
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - will_marry_before_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_before_specific_date
+  :outcome_node: false
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - will_marry_before_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_before_specific_date
+  - male_gender
+  :outcome_node: true
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - will_marry_before_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_before_specific_date
+  - female_gender
+  :outcome_node: true
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - will_marry_before_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_after_specific_date
+  :outcome_node: false
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - will_marry_before_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_after_specific_date
+  - male_gender
+  :outcome_node: true
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - will_marry_before_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_after_specific_date
+  - female_gender
+  :outcome_node: true
+- :current_node: :what_is_your_marital_status?
+  :responses: 
+  - will_marry_on_or_after_specific_date
+  :outcome_node: false
+- :current_node: :when_will_you_reach_pension_age?
+  :responses: 
+  - will_marry_on_or_after_specific_date
+  - your_pension_age_before_specific_date
+  :outcome_node: false
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - will_marry_on_or_after_specific_date
+  - your_pension_age_before_specific_date
+  - partner_pension_age_before_specific_date
+  :outcome_node: true
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - will_marry_on_or_after_specific_date
+  - your_pension_age_before_specific_date
+  - partner_pension_age_after_specific_date
+  :outcome_node: true
+- :current_node: :when_will_you_reach_pension_age?
+  :responses: 
+  - will_marry_on_or_after_specific_date
+  - your_pension_age_after_specific_date
+  :outcome_node: false
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - will_marry_on_or_after_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_before_specific_date
+  :outcome_node: false
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - will_marry_on_or_after_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_before_specific_date
+  - male_gender
+  :outcome_node: true
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - will_marry_on_or_after_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_before_specific_date
+  - female_gender
+  :outcome_node: true
+- :current_node: :when_will_your_partner_reach_pension_age?
+  :responses: 
+  - will_marry_on_or_after_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_after_specific_date
+  :outcome_node: false
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - will_marry_on_or_after_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_after_specific_date
+  - male_gender
+  :outcome_node: true
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - will_marry_on_or_after_specific_date
+  - your_pension_age_after_specific_date
+  - partner_pension_age_after_specific_date
+  - female_gender
+  :outcome_node: true
+- :current_node: :what_is_your_marital_status?
+  :responses: 
+  - widowed
+  :outcome_node: false
+- :current_node: :when_will_you_reach_pension_age?
+  :responses: 
+  - widowed
+  - your_pension_age_before_specific_date
+  :outcome_node: true
+- :current_node: :when_will_you_reach_pension_age?
+  :responses: 
+  - widowed
+  - your_pension_age_after_specific_date
+  :outcome_node: false
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - widowed
+  - your_pension_age_after_specific_date
+  - male_gender
+  :outcome_node: true
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - widowed
+  - your_pension_age_after_specific_date
+  - female_gender
+  :outcome_node: true
+- :current_node: :what_is_your_marital_status?
+  :responses: 
+  - divorced
+  :outcome_node: false
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - divorced
+  - male_gender
+  :outcome_node: true
+- :current_node: :what_is_your_gender?
+  :responses: 
+  - divorced
+  - female_gender
+  :outcome_node: true
