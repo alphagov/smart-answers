@@ -2,17 +2,20 @@
 - :current_node: :how_much_starch_glucose?
   :responses: 
   - "0"
+  :next_node: :how_much_sucrose_1?
   :outcome_node: false
 - :current_node: :how_much_sucrose_1?
   :responses: 
   - "0"
   - "0"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -20,6 +23,7 @@
   - "0"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -27,6 +31,7 @@
   - "0"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -34,6 +39,7 @@
   - "0"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -41,6 +47,7 @@
   - "0"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -48,6 +55,7 @@
   - "0"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -55,12 +63,14 @@
   - "0"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -68,6 +78,7 @@
   - "0"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -75,6 +86,7 @@
   - "0"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -82,6 +94,7 @@
   - "0"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -89,6 +102,7 @@
   - "0"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -96,6 +110,7 @@
   - "0"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -103,12 +118,14 @@
   - "0"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -116,6 +133,7 @@
   - "0"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -123,6 +141,7 @@
   - "0"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -130,12 +149,14 @@
   - "0"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -143,6 +164,7 @@
   - "0"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -150,6 +172,7 @@
   - "0"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -157,12 +180,14 @@
   - "0"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -170,6 +195,7 @@
   - "0"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -177,6 +203,7 @@
   - "0"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -184,12 +211,14 @@
   - "0"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -197,6 +226,7 @@
   - "0"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -204,6 +234,7 @@
   - "0"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -211,12 +242,14 @@
   - "0"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -224,6 +257,7 @@
   - "0"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -231,12 +265,14 @@
   - "0"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -244,6 +280,7 @@
   - "0"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -251,41 +288,48 @@
   - "0"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "0"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_1?
   :responses: 
   - "0"
   - "5"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -293,6 +337,7 @@
   - "5"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -300,6 +345,7 @@
   - "5"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -307,6 +353,7 @@
   - "5"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -314,6 +361,7 @@
   - "5"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -321,6 +369,7 @@
   - "5"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -328,12 +377,14 @@
   - "5"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -341,6 +392,7 @@
   - "5"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -348,6 +400,7 @@
   - "5"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -355,6 +408,7 @@
   - "5"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -362,6 +416,7 @@
   - "5"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -369,6 +424,7 @@
   - "5"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -376,12 +432,14 @@
   - "5"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -389,6 +447,7 @@
   - "5"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -396,6 +455,7 @@
   - "5"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -403,12 +463,14 @@
   - "5"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -416,6 +478,7 @@
   - "5"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -423,6 +486,7 @@
   - "5"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -430,12 +494,14 @@
   - "5"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -443,6 +509,7 @@
   - "5"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -450,6 +517,7 @@
   - "5"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -457,12 +525,14 @@
   - "5"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -470,6 +540,7 @@
   - "5"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -477,6 +548,7 @@
   - "5"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -484,12 +556,14 @@
   - "5"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -497,6 +571,7 @@
   - "5"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -504,12 +579,14 @@
   - "5"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -517,6 +594,7 @@
   - "5"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -524,41 +602,48 @@
   - "5"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "5"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_1?
   :responses: 
   - "0"
   - "30"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -566,6 +651,7 @@
   - "30"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -573,6 +659,7 @@
   - "30"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -580,6 +667,7 @@
   - "30"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -587,6 +675,7 @@
   - "30"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -594,6 +683,7 @@
   - "30"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -601,12 +691,14 @@
   - "30"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -614,6 +706,7 @@
   - "30"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -621,6 +714,7 @@
   - "30"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -628,6 +722,7 @@
   - "30"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -635,6 +730,7 @@
   - "30"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -642,6 +738,7 @@
   - "30"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -649,12 +746,14 @@
   - "30"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -662,6 +761,7 @@
   - "30"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -669,6 +769,7 @@
   - "30"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -676,12 +777,14 @@
   - "30"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -689,6 +792,7 @@
   - "30"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -696,6 +800,7 @@
   - "30"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -703,12 +808,14 @@
   - "30"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -716,6 +823,7 @@
   - "30"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -723,6 +831,7 @@
   - "30"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -730,12 +839,14 @@
   - "30"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -743,6 +854,7 @@
   - "30"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -750,6 +862,7 @@
   - "30"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -757,12 +870,14 @@
   - "30"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -770,6 +885,7 @@
   - "30"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -777,12 +893,14 @@
   - "30"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -790,6 +908,7 @@
   - "30"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -797,41 +916,48 @@
   - "30"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "30"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_1?
   :responses: 
   - "0"
   - "50"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -839,6 +965,7 @@
   - "50"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -846,6 +973,7 @@
   - "50"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -853,6 +981,7 @@
   - "50"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -860,6 +989,7 @@
   - "50"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -867,6 +997,7 @@
   - "50"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -874,12 +1005,14 @@
   - "50"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -887,6 +1020,7 @@
   - "50"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -894,6 +1028,7 @@
   - "50"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -901,6 +1036,7 @@
   - "50"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -908,6 +1044,7 @@
   - "50"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -915,6 +1052,7 @@
   - "50"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -922,12 +1060,14 @@
   - "50"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -935,6 +1075,7 @@
   - "50"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -942,6 +1083,7 @@
   - "50"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -949,12 +1091,14 @@
   - "50"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -962,6 +1106,7 @@
   - "50"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -969,6 +1114,7 @@
   - "50"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -976,12 +1122,14 @@
   - "50"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -989,6 +1137,7 @@
   - "50"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -996,6 +1145,7 @@
   - "50"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1003,12 +1153,14 @@
   - "50"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1016,6 +1168,7 @@
   - "50"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1023,6 +1176,7 @@
   - "50"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1030,12 +1184,14 @@
   - "50"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1043,6 +1199,7 @@
   - "50"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1050,12 +1207,14 @@
   - "50"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1063,6 +1222,7 @@
   - "50"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1070,41 +1230,48 @@
   - "50"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "50"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_1?
   :responses: 
   - "0"
   - "70"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1112,6 +1279,7 @@
   - "70"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1119,6 +1287,7 @@
   - "70"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1126,6 +1295,7 @@
   - "70"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1133,6 +1303,7 @@
   - "70"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1140,6 +1311,7 @@
   - "70"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1147,12 +1319,14 @@
   - "70"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1160,6 +1334,7 @@
   - "70"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1167,6 +1342,7 @@
   - "70"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1174,6 +1350,7 @@
   - "70"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1181,6 +1358,7 @@
   - "70"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1188,6 +1366,7 @@
   - "70"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1195,12 +1374,14 @@
   - "70"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -1208,6 +1389,7 @@
   - "70"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -1215,6 +1397,7 @@
   - "70"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -1222,12 +1405,14 @@
   - "70"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -1235,6 +1420,7 @@
   - "70"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -1242,6 +1428,7 @@
   - "70"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -1249,12 +1436,14 @@
   - "70"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1262,6 +1451,7 @@
   - "70"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1269,6 +1459,7 @@
   - "70"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1276,12 +1467,14 @@
   - "70"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1289,6 +1482,7 @@
   - "70"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1296,6 +1490,7 @@
   - "70"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1303,12 +1498,14 @@
   - "70"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1316,6 +1513,7 @@
   - "70"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1323,12 +1521,14 @@
   - "70"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1336,6 +1536,7 @@
   - "70"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1343,45 +1544,53 @@
   - "70"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "0"
   - "70"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_starch_glucose?
   :responses: 
   - "5"
+  :next_node: :how_much_sucrose_1?
   :outcome_node: false
 - :current_node: :how_much_sucrose_1?
   :responses: 
   - "5"
   - "0"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1389,6 +1598,7 @@
   - "0"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1396,6 +1606,7 @@
   - "0"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1403,6 +1614,7 @@
   - "0"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1410,6 +1622,7 @@
   - "0"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1417,6 +1630,7 @@
   - "0"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1424,12 +1638,14 @@
   - "0"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1437,6 +1653,7 @@
   - "0"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1444,6 +1661,7 @@
   - "0"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1451,6 +1669,7 @@
   - "0"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1458,6 +1677,7 @@
   - "0"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1465,6 +1685,7 @@
   - "0"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1472,12 +1693,14 @@
   - "0"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -1485,6 +1708,7 @@
   - "0"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -1492,6 +1716,7 @@
   - "0"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -1499,12 +1724,14 @@
   - "0"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -1512,6 +1739,7 @@
   - "0"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -1519,6 +1747,7 @@
   - "0"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -1526,12 +1755,14 @@
   - "0"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1539,6 +1770,7 @@
   - "0"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1546,6 +1778,7 @@
   - "0"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1553,12 +1786,14 @@
   - "0"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1566,6 +1801,7 @@
   - "0"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1573,6 +1809,7 @@
   - "0"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1580,12 +1817,14 @@
   - "0"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1593,6 +1832,7 @@
   - "0"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1600,12 +1840,14 @@
   - "0"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1613,6 +1855,7 @@
   - "0"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1620,41 +1863,48 @@
   - "0"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "0"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_1?
   :responses: 
   - "5"
   - "5"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1662,6 +1912,7 @@
   - "5"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1669,6 +1920,7 @@
   - "5"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1676,6 +1928,7 @@
   - "5"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1683,6 +1936,7 @@
   - "5"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1690,6 +1944,7 @@
   - "5"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1697,12 +1952,14 @@
   - "5"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1710,6 +1967,7 @@
   - "5"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1717,6 +1975,7 @@
   - "5"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1724,6 +1983,7 @@
   - "5"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1731,6 +1991,7 @@
   - "5"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1738,6 +1999,7 @@
   - "5"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1745,12 +2007,14 @@
   - "5"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -1758,6 +2022,7 @@
   - "5"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -1765,6 +2030,7 @@
   - "5"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -1772,12 +2038,14 @@
   - "5"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -1785,6 +2053,7 @@
   - "5"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -1792,6 +2061,7 @@
   - "5"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -1799,12 +2069,14 @@
   - "5"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1812,6 +2084,7 @@
   - "5"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1819,6 +2092,7 @@
   - "5"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1826,12 +2100,14 @@
   - "5"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1839,6 +2115,7 @@
   - "5"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1846,6 +2123,7 @@
   - "5"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -1853,12 +2131,14 @@
   - "5"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1866,6 +2146,7 @@
   - "5"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1873,12 +2154,14 @@
   - "5"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1886,6 +2169,7 @@
   - "5"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -1893,41 +2177,48 @@
   - "5"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "5"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_1?
   :responses: 
   - "5"
   - "30"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1935,6 +2226,7 @@
   - "30"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1942,6 +2234,7 @@
   - "30"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1949,6 +2242,7 @@
   - "30"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1956,6 +2250,7 @@
   - "30"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1963,6 +2258,7 @@
   - "30"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1970,12 +2266,14 @@
   - "30"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1983,6 +2281,7 @@
   - "30"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1990,6 +2289,7 @@
   - "30"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -1997,6 +2297,7 @@
   - "30"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2004,6 +2305,7 @@
   - "30"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2011,6 +2313,7 @@
   - "30"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2018,12 +2321,14 @@
   - "30"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2031,6 +2336,7 @@
   - "30"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2038,6 +2344,7 @@
   - "30"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2045,12 +2352,14 @@
   - "30"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2058,6 +2367,7 @@
   - "30"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2065,6 +2375,7 @@
   - "30"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2072,12 +2383,14 @@
   - "30"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2085,6 +2398,7 @@
   - "30"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2092,6 +2406,7 @@
   - "30"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2099,12 +2414,14 @@
   - "30"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2112,6 +2429,7 @@
   - "30"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2119,6 +2437,7 @@
   - "30"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2126,12 +2445,14 @@
   - "30"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2139,6 +2460,7 @@
   - "30"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2146,12 +2468,14 @@
   - "30"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2159,6 +2483,7 @@
   - "30"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2166,41 +2491,48 @@
   - "30"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "30"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_1?
   :responses: 
   - "5"
   - "50"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2208,6 +2540,7 @@
   - "50"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2215,6 +2548,7 @@
   - "50"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2222,6 +2556,7 @@
   - "50"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2229,6 +2564,7 @@
   - "50"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2236,6 +2572,7 @@
   - "50"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2243,12 +2580,14 @@
   - "50"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2256,6 +2595,7 @@
   - "50"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2263,6 +2603,7 @@
   - "50"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2270,6 +2611,7 @@
   - "50"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2277,6 +2619,7 @@
   - "50"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2284,6 +2627,7 @@
   - "50"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2291,12 +2635,14 @@
   - "50"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2304,6 +2650,7 @@
   - "50"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2311,6 +2658,7 @@
   - "50"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2318,12 +2666,14 @@
   - "50"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2331,6 +2681,7 @@
   - "50"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2338,6 +2689,7 @@
   - "50"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2345,12 +2697,14 @@
   - "50"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2358,6 +2712,7 @@
   - "50"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2365,6 +2720,7 @@
   - "50"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2372,12 +2728,14 @@
   - "50"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2385,6 +2743,7 @@
   - "50"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2392,6 +2751,7 @@
   - "50"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2399,12 +2759,14 @@
   - "50"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2412,6 +2774,7 @@
   - "50"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2419,12 +2782,14 @@
   - "50"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2432,6 +2797,7 @@
   - "50"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2439,41 +2805,48 @@
   - "50"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "50"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_1?
   :responses: 
   - "5"
   - "70"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2481,6 +2854,7 @@
   - "70"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2488,6 +2862,7 @@
   - "70"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2495,6 +2870,7 @@
   - "70"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2502,6 +2878,7 @@
   - "70"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2509,6 +2886,7 @@
   - "70"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2516,12 +2894,14 @@
   - "70"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2529,6 +2909,7 @@
   - "70"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2536,6 +2917,7 @@
   - "70"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2543,6 +2925,7 @@
   - "70"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2550,6 +2933,7 @@
   - "70"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2557,6 +2941,7 @@
   - "70"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2564,12 +2949,14 @@
   - "70"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2577,6 +2964,7 @@
   - "70"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2584,6 +2972,7 @@
   - "70"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2591,12 +2980,14 @@
   - "70"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2604,6 +2995,7 @@
   - "70"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2611,6 +3003,7 @@
   - "70"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2618,12 +3011,14 @@
   - "70"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2631,6 +3026,7 @@
   - "70"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2638,6 +3034,7 @@
   - "70"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2645,12 +3042,14 @@
   - "70"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2658,6 +3057,7 @@
   - "70"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2665,6 +3065,7 @@
   - "70"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2672,12 +3073,14 @@
   - "70"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2685,6 +3088,7 @@
   - "70"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2692,12 +3096,14 @@
   - "70"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2705,6 +3111,7 @@
   - "70"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2712,45 +3119,53 @@
   - "70"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "5"
   - "70"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_starch_glucose?
   :responses: 
   - "25"
+  :next_node: :how_much_sucrose_2?
   :outcome_node: false
 - :current_node: :how_much_sucrose_2?
   :responses: 
   - "25"
   - "0"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2758,6 +3173,7 @@
   - "0"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2765,6 +3181,7 @@
   - "0"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2772,6 +3189,7 @@
   - "0"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2779,6 +3197,7 @@
   - "0"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2786,6 +3205,7 @@
   - "0"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2793,12 +3213,14 @@
   - "0"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2806,6 +3228,7 @@
   - "0"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2813,6 +3236,7 @@
   - "0"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2820,6 +3244,7 @@
   - "0"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2827,6 +3252,7 @@
   - "0"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2834,6 +3260,7 @@
   - "0"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -2841,12 +3268,14 @@
   - "0"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2854,6 +3283,7 @@
   - "0"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2861,6 +3291,7 @@
   - "0"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -2868,12 +3299,14 @@
   - "0"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2881,6 +3314,7 @@
   - "0"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2888,6 +3322,7 @@
   - "0"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -2895,12 +3330,14 @@
   - "0"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2908,6 +3345,7 @@
   - "0"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2915,6 +3353,7 @@
   - "0"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2922,12 +3361,14 @@
   - "0"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2935,6 +3376,7 @@
   - "0"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2942,6 +3384,7 @@
   - "0"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -2949,12 +3392,14 @@
   - "0"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2962,6 +3407,7 @@
   - "0"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2969,12 +3415,14 @@
   - "0"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2982,6 +3430,7 @@
   - "0"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -2989,41 +3438,48 @@
   - "0"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "0"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_2?
   :responses: 
   - "25"
   - "5"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3031,6 +3487,7 @@
   - "5"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3038,6 +3495,7 @@
   - "5"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3045,6 +3503,7 @@
   - "5"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3052,6 +3511,7 @@
   - "5"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3059,6 +3519,7 @@
   - "5"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3066,12 +3527,14 @@
   - "5"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3079,6 +3542,7 @@
   - "5"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3086,6 +3550,7 @@
   - "5"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3093,6 +3558,7 @@
   - "5"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3100,6 +3566,7 @@
   - "5"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3107,6 +3574,7 @@
   - "5"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3114,12 +3582,14 @@
   - "5"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3127,6 +3597,7 @@
   - "5"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3134,6 +3605,7 @@
   - "5"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3141,12 +3613,14 @@
   - "5"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3154,6 +3628,7 @@
   - "5"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3161,6 +3636,7 @@
   - "5"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3168,12 +3644,14 @@
   - "5"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3181,6 +3659,7 @@
   - "5"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3188,6 +3667,7 @@
   - "5"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3195,12 +3675,14 @@
   - "5"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3208,6 +3690,7 @@
   - "5"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3215,6 +3698,7 @@
   - "5"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3222,12 +3706,14 @@
   - "5"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3235,6 +3721,7 @@
   - "5"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3242,12 +3729,14 @@
   - "5"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3255,6 +3744,7 @@
   - "5"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3262,41 +3752,48 @@
   - "5"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "5"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_2?
   :responses: 
   - "25"
   - "30"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3304,6 +3801,7 @@
   - "30"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3311,6 +3809,7 @@
   - "30"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3318,6 +3817,7 @@
   - "30"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3325,6 +3825,7 @@
   - "30"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3332,6 +3833,7 @@
   - "30"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3339,12 +3841,14 @@
   - "30"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3352,6 +3856,7 @@
   - "30"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3359,6 +3864,7 @@
   - "30"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3366,6 +3872,7 @@
   - "30"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3373,6 +3880,7 @@
   - "30"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3380,6 +3888,7 @@
   - "30"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3387,12 +3896,14 @@
   - "30"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3400,6 +3911,7 @@
   - "30"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3407,6 +3919,7 @@
   - "30"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3414,12 +3927,14 @@
   - "30"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3427,6 +3942,7 @@
   - "30"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3434,6 +3950,7 @@
   - "30"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3441,12 +3958,14 @@
   - "30"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3454,6 +3973,7 @@
   - "30"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3461,6 +3981,7 @@
   - "30"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3468,12 +3989,14 @@
   - "30"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3481,6 +4004,7 @@
   - "30"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3488,6 +4012,7 @@
   - "30"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3495,12 +4020,14 @@
   - "30"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3508,6 +4035,7 @@
   - "30"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3515,12 +4043,14 @@
   - "30"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3528,6 +4058,7 @@
   - "30"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3535,41 +4066,48 @@
   - "30"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "30"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_2?
   :responses: 
   - "25"
   - "50"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3577,6 +4115,7 @@
   - "50"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3584,6 +4123,7 @@
   - "50"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3591,6 +4131,7 @@
   - "50"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3598,6 +4139,7 @@
   - "50"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3605,6 +4147,7 @@
   - "50"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3612,12 +4155,14 @@
   - "50"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3625,6 +4170,7 @@
   - "50"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3632,6 +4178,7 @@
   - "50"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3639,6 +4186,7 @@
   - "50"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3646,6 +4194,7 @@
   - "50"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3653,6 +4202,7 @@
   - "50"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3660,12 +4210,14 @@
   - "50"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3673,6 +4225,7 @@
   - "50"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3680,6 +4233,7 @@
   - "50"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3687,12 +4241,14 @@
   - "50"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3700,6 +4256,7 @@
   - "50"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3707,6 +4264,7 @@
   - "50"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3714,12 +4272,14 @@
   - "50"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3727,6 +4287,7 @@
   - "50"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3734,6 +4295,7 @@
   - "50"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3741,12 +4303,14 @@
   - "50"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3754,6 +4318,7 @@
   - "50"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3761,6 +4326,7 @@
   - "50"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -3768,12 +4334,14 @@
   - "50"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3781,6 +4349,7 @@
   - "50"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3788,12 +4357,14 @@
   - "50"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3801,6 +4372,7 @@
   - "50"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -3808,45 +4380,53 @@
   - "50"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "25"
   - "50"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_starch_glucose?
   :responses: 
   - "50"
+  :next_node: :how_much_sucrose_3?
   :outcome_node: false
 - :current_node: :how_much_sucrose_3?
   :responses: 
   - "50"
   - "0"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3854,6 +4434,7 @@
   - "0"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3861,6 +4442,7 @@
   - "0"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3868,6 +4450,7 @@
   - "0"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3875,6 +4458,7 @@
   - "0"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3882,6 +4466,7 @@
   - "0"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3889,12 +4474,14 @@
   - "0"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3902,6 +4489,7 @@
   - "0"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3909,6 +4497,7 @@
   - "0"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3916,6 +4505,7 @@
   - "0"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3923,6 +4513,7 @@
   - "0"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3930,6 +4521,7 @@
   - "0"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -3937,12 +4529,14 @@
   - "0"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3950,6 +4544,7 @@
   - "0"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3957,6 +4552,7 @@
   - "0"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -3964,12 +4560,14 @@
   - "0"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3977,6 +4575,7 @@
   - "0"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3984,6 +4583,7 @@
   - "0"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -3991,12 +4591,14 @@
   - "0"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4004,6 +4606,7 @@
   - "0"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4011,6 +4614,7 @@
   - "0"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4018,12 +4622,14 @@
   - "0"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4031,6 +4637,7 @@
   - "0"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4038,6 +4645,7 @@
   - "0"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4045,12 +4653,14 @@
   - "0"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4058,6 +4668,7 @@
   - "0"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4065,12 +4676,14 @@
   - "0"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4078,6 +4691,7 @@
   - "0"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4085,41 +4699,48 @@
   - "0"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "0"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_3?
   :responses: 
   - "50"
   - "5"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4127,6 +4748,7 @@
   - "5"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4134,6 +4756,7 @@
   - "5"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4141,6 +4764,7 @@
   - "5"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4148,6 +4772,7 @@
   - "5"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4155,6 +4780,7 @@
   - "5"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4162,12 +4788,14 @@
   - "5"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4175,6 +4803,7 @@
   - "5"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4182,6 +4811,7 @@
   - "5"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4189,6 +4819,7 @@
   - "5"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4196,6 +4827,7 @@
   - "5"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4203,6 +4835,7 @@
   - "5"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4210,12 +4843,14 @@
   - "5"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -4223,6 +4858,7 @@
   - "5"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -4230,6 +4866,7 @@
   - "5"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -4237,12 +4874,14 @@
   - "5"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -4250,6 +4889,7 @@
   - "5"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -4257,6 +4897,7 @@
   - "5"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -4264,12 +4905,14 @@
   - "5"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4277,6 +4920,7 @@
   - "5"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4284,6 +4928,7 @@
   - "5"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4291,12 +4936,14 @@
   - "5"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4304,6 +4951,7 @@
   - "5"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4311,6 +4959,7 @@
   - "5"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4318,12 +4967,14 @@
   - "5"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4331,6 +4982,7 @@
   - "5"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4338,12 +4990,14 @@
   - "5"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4351,6 +5005,7 @@
   - "5"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4358,41 +5013,48 @@
   - "5"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "5"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_3?
   :responses: 
   - "50"
   - "30"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4400,6 +5062,7 @@
   - "30"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4407,6 +5070,7 @@
   - "30"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4414,6 +5078,7 @@
   - "30"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4421,6 +5086,7 @@
   - "30"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4428,6 +5094,7 @@
   - "30"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4435,12 +5102,14 @@
   - "30"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4448,6 +5117,7 @@
   - "30"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4455,6 +5125,7 @@
   - "30"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4462,6 +5133,7 @@
   - "30"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4469,6 +5141,7 @@
   - "30"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4476,6 +5149,7 @@
   - "30"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4483,12 +5157,14 @@
   - "30"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -4496,6 +5172,7 @@
   - "30"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -4503,6 +5180,7 @@
   - "30"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -4510,12 +5188,14 @@
   - "30"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -4523,6 +5203,7 @@
   - "30"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -4530,6 +5211,7 @@
   - "30"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -4537,12 +5219,14 @@
   - "30"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4550,6 +5234,7 @@
   - "30"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4557,6 +5242,7 @@
   - "30"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4564,12 +5250,14 @@
   - "30"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4577,6 +5265,7 @@
   - "30"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4584,6 +5273,7 @@
   - "30"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4591,12 +5281,14 @@
   - "30"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4604,6 +5296,7 @@
   - "30"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4611,12 +5304,14 @@
   - "30"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4624,6 +5319,7 @@
   - "30"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4631,45 +5327,53 @@
   - "30"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "50"
   - "30"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_starch_glucose?
   :responses: 
   - "75"
+  :next_node: :how_much_sucrose_4?
   :outcome_node: false
 - :current_node: :how_much_sucrose_4?
   :responses: 
   - "75"
   - "0"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4677,6 +5381,7 @@
   - "0"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4684,6 +5389,7 @@
   - "0"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4691,6 +5397,7 @@
   - "0"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4698,6 +5405,7 @@
   - "0"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4705,6 +5413,7 @@
   - "0"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4712,12 +5421,14 @@
   - "0"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4725,6 +5436,7 @@
   - "0"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4732,6 +5444,7 @@
   - "0"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4739,6 +5452,7 @@
   - "0"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4746,6 +5460,7 @@
   - "0"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4753,6 +5468,7 @@
   - "0"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4760,12 +5476,14 @@
   - "0"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -4773,6 +5491,7 @@
   - "0"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -4780,6 +5499,7 @@
   - "0"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -4787,12 +5507,14 @@
   - "0"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -4800,6 +5522,7 @@
   - "0"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -4807,6 +5530,7 @@
   - "0"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -4814,12 +5538,14 @@
   - "0"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4827,6 +5553,7 @@
   - "0"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4834,6 +5561,7 @@
   - "0"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4841,12 +5569,14 @@
   - "0"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4854,6 +5584,7 @@
   - "0"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4861,6 +5592,7 @@
   - "0"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -4868,12 +5600,14 @@
   - "0"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4881,6 +5615,7 @@
   - "0"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4888,12 +5623,14 @@
   - "0"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4901,6 +5638,7 @@
   - "0"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -4908,41 +5646,48 @@
   - "0"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "0"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_sucrose_4?
   :responses: 
   - "75"
   - "5"
+  :next_node: :how_much_milk_fat?
   :outcome_node: false
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "0"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4950,6 +5695,7 @@
   - "5"
   - "0"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4957,6 +5703,7 @@
   - "5"
   - "0"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4964,6 +5711,7 @@
   - "5"
   - "0"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4971,6 +5719,7 @@
   - "5"
   - "0"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4978,6 +5727,7 @@
   - "5"
   - "0"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4985,12 +5735,14 @@
   - "5"
   - "0"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "1"
+  :next_node: :how_much_milk_protein_ab?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -4998,6 +5750,7 @@
   - "5"
   - "1"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -5005,6 +5758,7 @@
   - "5"
   - "1"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -5012,6 +5766,7 @@
   - "5"
   - "1"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -5019,6 +5774,7 @@
   - "5"
   - "1"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -5026,6 +5782,7 @@
   - "5"
   - "1"
   - "30"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ab?
   :responses: 
@@ -5033,12 +5790,14 @@
   - "5"
   - "1"
   - "60"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "3"
+  :next_node: :how_much_milk_protein_c?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -5046,6 +5805,7 @@
   - "5"
   - "3"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -5053,6 +5813,7 @@
   - "5"
   - "3"
   - "2"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_c?
   :responses: 
@@ -5060,12 +5821,14 @@
   - "5"
   - "3"
   - "12"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "6"
+  :next_node: :how_much_milk_protein_d?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -5073,6 +5836,7 @@
   - "5"
   - "6"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -5080,6 +5844,7 @@
   - "5"
   - "6"
   - "4"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_d?
   :responses: 
@@ -5087,12 +5852,14 @@
   - "5"
   - "6"
   - "15"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "9"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -5100,6 +5867,7 @@
   - "5"
   - "9"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -5107,6 +5875,7 @@
   - "5"
   - "9"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -5114,12 +5883,14 @@
   - "5"
   - "9"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "12"
+  :next_node: :how_much_milk_protein_ef?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -5127,6 +5898,7 @@
   - "5"
   - "12"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -5134,6 +5906,7 @@
   - "5"
   - "12"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_ef?
   :responses: 
@@ -5141,12 +5914,14 @@
   - "5"
   - "12"
   - "18"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "18"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -5154,6 +5929,7 @@
   - "5"
   - "18"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -5161,12 +5937,14 @@
   - "5"
   - "18"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "26"
+  :next_node: :how_much_milk_protein_gh?
   :outcome_node: false
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -5174,6 +5952,7 @@
   - "5"
   - "26"
   - "0"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_protein_gh?
   :responses: 
@@ -5181,28 +5960,33 @@
   - "5"
   - "26"
   - "6"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "40"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "55"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "70"
+  :next_node: :commodity_code_result
   :outcome_node: true
 - :current_node: :how_much_milk_fat?
   :responses: 
   - "75"
   - "5"
   - "85"
+  :next_node: :commodity_code_result
   :outcome_node: true
