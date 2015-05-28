@@ -202,11 +202,16 @@ module SmartAnswer
           resident_of == 'third_country' and (data_query.os_consular_cni_countries?(ceremony_country) or %w(kosovo).include?(ceremony_country))
         }
 
+        define_predicate(:marriage_in_spain_third_country) {
+          ceremony_country == 'spain' and resident_of == 'third_country'
+        }
+
         next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
         next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
         next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
         next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
         next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
+        next_node_if(:outcome_consular_cni_os_residing_in_third_country, marriage_in_spain_third_country)
         on_condition(responded_with('opposite_sex')) do
           next_node_if(:outcome_consular_cni_os_residing_in_third_country, consular_cni_residing_in_third_country)
           next_node_if(:outcome_consular_cni_os_residing_in_third_country, ceremony_in_mexico_partner_british_residing_in_third_country)
@@ -248,7 +253,6 @@ module SmartAnswer
         define_predicate(:ss_marriage_not_possible?) {
           data_query.ss_marriage_not_possible?(ceremony_country, partner_nationality)
         }
-
 
         define_predicate(:ss_unknown_no_embassies) {
           data_query.ss_unknown_no_embassies?(ceremony_country)
