@@ -1,62 +1,51 @@
---- 
-:receive_housing_benefit?: 
+---
+:receive_housing_benefit?:
 - "yes"
 - "no"
-:working_tax_credit?: 
+:working_tax_credit?:
 - "yes"
 - "no"
-:receiving_exemption_benefits?: 
+:receiving_exemption_benefits?:
 - "yes"
 - "no"
-:receiving_non_exemption_benefits?: 
+:receiving_non_exemption_benefits?:
+- none
 - bereavement
-- carers
-- child_benefit
-- child_tax
-- esa
-- guardian
-- incapacity
-- income_support
-- jsa
-- maternity
-- sda
-- widowed_mother
-- widowed_parent
-- widow_pension
-- widows_aged
-:bereavement_amount?: 
-- "TODO: How much do you or someone in your household get for Bereavement Allowance?"
-:carers_amount?: 
-- "TODO: How much do you or someone in your household get for Carer's Allowance?"
-:child_benefit_amount?: 
-- "TODO: How much do you or someone in your household get for Child Benefits?"
-:child_tax_amount?: 
-- "TODO: How much do you or someone in your household get for Child Tax Credits?"
-:esa_amount?: 
-- "TODO: How much do you or someone in your household get for Employment and Support Allowance?"
-:guardian_amount?: 
-- "TODO: How much do you or someone in your household get for Guardian's Allowance?"
-:incapacity_amount?: 
-- "TODO: How much do you or someone in your household get for Incapacity Benefit?"
-:income_support_amount?: 
-- "TODO: How much do you or someone in your household get for Income Support?"
-:jsa_amount?: 
-- "TODO: How much do you or someone in your household get for Jobseeker\xE2\x80\x99s Allowance?"
-:maternity_amount?: 
-- "TODO: How much do you or someone in your household get for Maternity Allowance?"
-:sda_amount?: 
-- "TODO: How much do you or someone in your household get for Severe Disability Allowance?"
-:widowed_mother_amount?: 
-- "TODO: How much do you or someone in your household get for Widowed Mother's Allowance?"
-:widowed_parent_amount?: 
-- "TODO: How much do you or someone in your household get for Widowed Parent's Allowance?"
-:widow_pension_amount?: 
-- "TODO: How much do you or someone in your household get for Widow's Pension?"
-:widows_aged_amount?: 
-- "TODO: How much do you or someone in your household get for Widow's Pension (age related)?"
-:housing_benefit_amount?: 
-- "TODO: How much do you or someone in your household get for Housing Benefit?"
-:single_couple_lone_parent?: 
+- bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
+:bereavement_amount?:
+- 50
+:carers_amount?:
+- 50
+:child_benefit_amount?:
+- 50
+:child_tax_amount?:
+- 50
+:esa_amount?:
+- 50
+:guardian_amount?:
+- 50
+:incapacity_amount?:
+- 50
+:income_support_amount?:
+- 50
+:jsa_amount?:
+- 50
+:maternity_amount?:
+- 50
+:sda_amount?:
+- 50
+:widowed_mother_amount?:
+- 50
+:widowed_parent_amount?:
+- 50
+:widow_pension_amount?:
+- 50
+:widows_aged_amount?:
+- 50
+:housing_benefit_amount?:
+- 50
+- 350
+:single_couple_lone_parent?:
 - single
 - couple
 - parent
