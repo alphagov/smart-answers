@@ -291,14 +291,14 @@ module SmartAnswer
         precalculate :iom_ci_os_outcome do
           phrases = PhraseList.new
           phrases << :contact_local_authorities_in_country_marriage
-          phrases << :iom_ci_os_spain if ceremony_country == 'spain'
+          phrases << :legal_restrictions_for_iom_residents_in_spain if ceremony_country == 'spain'
           if residency_uk_region == 'uk_iom'
-            phrases << :iom_ci_os_resident_of_iom
+            phrases << :cni_for_iom_residents
           else
-            phrases << :iom_ci_os_resident_of_ci
+            phrases << :cni_for_channel_islands_residents
           end
           if ceremony_country == 'italy'
-            phrases << :iom_ci_os_ceremony_italy
+            phrases << :british_embassy_in_rome_email
           else
             phrases << :embassies_data
           end
@@ -505,24 +505,24 @@ module SmartAnswer
           end
 
           if ceremony_country == 'zimbabwe'
-            phrases << :commonwealth_os_all_cni_zimbabwe
+            phrases << :cant_issue_cni_for_zimbabwe
           else
-            phrases << :commonwealth_os_all_cni
+            phrases << :cant_issue_cni_for_commonwealth
           end
 
           case ceremony_country
           when 'south-africa'
-            phrases << :commonwealth_os_other_countries_south_africa  if  partner_nationality == 'partner_local'
+            phrases << :commonwealth_os_marriage_subtleties_in_south_africa  if  partner_nationality == 'partner_local'
           when 'india'
-            phrases << :commonwealth_os_other_countries_india
+            phrases << :commonwealth_os_marriage_subtleties_in_india
           when 'malaysia'
-            phrases << :commonwealth_os_other_countries_malaysia
+            phrases << :commonwealth_os_marriage_subtleties_in_malaysia
           when 'singapore'
-            phrases << :commonwealth_os_other_countries_singapore
+            phrases << :commonwealth_os_marriage_subtleties_in_singapore
           when 'brunei'
-            phrases << :commonwealth_os_other_countries_brunei
+            phrases << :commonwealth_os_marriage_subtleties_in_brunei
           when 'cyprus'
-            phrases << :commonwealth_os_other_countries_cyprus if resident_of == 'ceremony_country'
+            phrases << :commonwealth_os_marriage_subtleties_in_cyprus if resident_of == 'ceremony_country'
           end
           phrases << :partner_naturalisation_in_uk unless partner_nationality == 'partner_british'
           phrases
@@ -638,16 +638,16 @@ module SmartAnswer
           end
 
           if ceremony_country == 'spain'
-            phrases << :spain_os_consular_cni_two
+            phrases << :cni_pareja_de_hecho_requirements_spain
           elsif ceremony_country == 'italy'
             if resident_of == 'uk'
-              phrases << :italy_os_consular_cni_uk_resident
+              phrases << :get_cni_from_uk
             end
             if resident_of == 'uk' and partner_nationality == 'partner_british'
-              phrases << :italy_os_consular_cni_uk_resident_two
+              phrases << :partner_cni_requirements_the_same
             end
             if resident_of != 'uk'
-              phrases << :italy_os_consular_cni_uk_resident_three
+              phrases << :nulla_osta_requirement
             end
           end
 
@@ -766,7 +766,7 @@ module SmartAnswer
           end
 
           if resident_of == 'ceremony_country' and ceremony_country == 'spain'
-            phrases << :spain_os_consular_cni_three
+            phrases << :sending_cni_and_booking_appointment_spain
           end
 
           if ceremony_country == 'italy' and resident_of != 'uk'
@@ -831,7 +831,7 @@ module SmartAnswer
             if partner_nationality == 'partner_british'
               phrases << :consular_cni_os_ceremony_spain_partner_british
             end
-            phrases << :consular_cni_os_ceremony_spain_two
+            phrases << :other_requirements_for_spain
           end
 
           phrases << :partner_naturalisation_in_uk if partner_nationality != 'partner_british'
@@ -1139,7 +1139,7 @@ module SmartAnswer
               if partner_nationality != 'partner_british'
                 phrases << :partner_naturalisation_in_uk
               end
-              phrases << :other_countries_os_saudi_arabia_local_resident_two
+              phrases << :fees_table_and_payment_instructions_saudi_arabia
             end
           end
           phrases
@@ -1272,7 +1272,7 @@ module SmartAnswer
           phrases << :embassies_data
 
           if ceremony_country == 'new-zealand'
-            phrases << :commonwealth_os_all_cni
+            phrases << :cant_issue_cni_for_commonwealth
           end
           phrases << :partner_naturalisation_in_uk if partner_nationality != 'partner_british'
           phrases
