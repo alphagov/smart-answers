@@ -48,7 +48,7 @@ module SmartAnswer
         save_input_as :dob
 
         calculate :calculator do
-          Calculators::StatePensionAmountCalculator.new(gender: gender, dob: dob)
+          SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: gender, dob: dob)
         end
 
         calculate :state_pension_date do
@@ -110,12 +110,12 @@ module SmartAnswer
         end
 
         define_predicate(:near_pension_date?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+          calc = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           calc.before_state_pension_date? and calc.within_four_months_one_day_from_state_pension?
         end
 
         define_predicate(:under_20_years_old?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+          calc = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           calc.under_20_years_old?
         end
 
@@ -134,7 +134,7 @@ module SmartAnswer
         save_input_as :dob
 
         calculate :calculator do
-          Calculators::StatePensionAmountCalculator.new(gender: gender, dob: dob)
+          SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: gender, dob: dob)
         end
 
         calculate :state_pension_age do
@@ -164,17 +164,17 @@ module SmartAnswer
         validate { |response| response <= Date.today }
 
         define_predicate(:before_state_pension_date?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+          calc = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           calc.before_state_pension_date?
         end
 
         define_predicate(:under_20_years_old?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+          calc = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           calc.under_20_years_old?
         end
 
         define_predicate(:woman_and_born_in_date_range?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+          calc = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           calc.woman_born_in_married_stamp_era?
         end
 
@@ -509,7 +509,7 @@ module SmartAnswer
 
       outcome :amount_result do
         precalculate :calc do
-          Calculators::StatePensionAmountCalculator.new(
+          SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: gender, dob: dob, qualifying_years: (qualifying_years)
           )
         end
@@ -532,7 +532,7 @@ module SmartAnswer
         end
 
         precalculate :calculator do
-          Calculators::StatePensionAmountCalculator.new(
+          SmartAnswer::Calculators::StatePensionAmountCalculator.new(
             gender: gender,
             dob: dob,
             qualifying_years: qualifying_years_total,

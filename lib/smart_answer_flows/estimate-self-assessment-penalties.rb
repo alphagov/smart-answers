@@ -91,7 +91,7 @@ module SmartAnswer
           if filing_date > response
             raise SmartAnswer::InvalidResponse
           else
-            calculator = Calculators::SelfAssessmentPenalties.new(
+            calculator = SmartAnswer::Calculators::SelfAssessmentPenalties.new(
               submission_method: submission_method,
               filing_date: filing_date,
               payment_date: response,
@@ -111,7 +111,7 @@ module SmartAnswer
         save_input_as :estimated_bill
 
         calculate :calculator do |response|
-          Calculators::SelfAssessmentPenalties.new(
+          SmartAnswer::Calculators::SelfAssessmentPenalties.new(
             submission_method: submission_method,
             filing_date: filing_date,
             payment_date: payment_date,

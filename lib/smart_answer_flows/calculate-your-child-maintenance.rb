@@ -62,7 +62,7 @@ module SmartAnswer
         end
 
         calculate :calculator do
-          Calculators::ChildMaintenanceCalculator.new(number_of_children, benefits, paying_or_receiving)
+          SmartAnswer::Calculators::ChildMaintenanceCalculator.new(number_of_children, benefits, paying_or_receiving)
         end
 
         next_node_if(:how_many_nights_children_stay_with_payee?, responded_with('yes'))

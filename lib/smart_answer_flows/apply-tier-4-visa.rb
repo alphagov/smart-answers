@@ -39,7 +39,7 @@ module SmartAnswer
         save_input_as :sponsor_id
 
         precalculate :data do
-          Calculators::StaticDataQuery.new("apply_tier_4_visa_data").data
+          SmartAnswer::Calculators::StaticDataQuery.new("apply_tier_4_visa_data").data
         end
 
         next_node_calculation :sponsor_name do |response|

@@ -28,7 +28,7 @@ module SmartAnswer
         end
 
         calculate :calculator do
-          Calculators::PlanAdoptionLeave.new(
+          SmartAnswer::Calculators::PlanAdoptionLeave.new(
             match_date: match_date,
             arrival_date: arrival_date,
             start_date: start_date)

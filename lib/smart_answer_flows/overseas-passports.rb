@@ -5,7 +5,7 @@ module SmartAnswer
       status :published
       satisfies_need "100131"
 
-      data_query = Calculators::PassportAndEmbassyDataQuery.new
+      data_query = SmartAnswer::Calculators::PassportAndEmbassyDataQuery.new
 
       exclude_countries = %w(holy-see british-antarctic-territory)
 
@@ -15,7 +15,7 @@ module SmartAnswer
 
         calculate :location do
           loc = WorldLocation.find(current_location)
-          if Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES.has_key?(current_location)
+          if SmartAnswer::Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES.has_key?(current_location)
             loc = WorldLocation.find(Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES[current_location])
           end
           raise InvalidResponse unless loc

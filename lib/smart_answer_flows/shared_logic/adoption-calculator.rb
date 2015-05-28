@@ -10,7 +10,7 @@ date_question :date_of_adoption_match? do
     response
   end
   calculate :calculator do
-    Calculators::MaternityPaternityCalculator.new(match_date, "adoption")
+    SmartAnswer::Calculators::MaternityPaternityCalculator.new(match_date, "adoption")
   end
 
   next_node :date_of_adoption_placement?

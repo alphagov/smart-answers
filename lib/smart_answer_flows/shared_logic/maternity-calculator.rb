@@ -1,5 +1,5 @@
 
-days_of_the_week = Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
+days_of_the_week = SmartAnswer::Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
 
 ## QM1
 date_question :baby_due_date_maternity? do
@@ -7,7 +7,7 @@ date_question :baby_due_date_maternity? do
   to { 2.years.since(Date.today) }
 
   calculate :calculator do |response|
-    Calculators::MaternityPaternityCalculator.new(response)
+    SmartAnswer::Calculators::MaternityPaternityCalculator.new(response)
   end
   next_node :employment_contract?
 end

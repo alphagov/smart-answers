@@ -47,7 +47,7 @@ module SmartAnswer
           (days_per_week < 5 ? days_per_week : 5)
         end
         calculate :calculator do
-          Calculators::HolidayEntitlement.new(
+          SmartAnswer::Calculators::HolidayEntitlement.new(
             days_per_week: (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
             start_date: start_date,
             leaving_date: leaving_date,
@@ -124,7 +124,7 @@ module SmartAnswer
       # Q10
       value_question :how_many_hours_per_week?, parse: Float do
         calculate :calculator do |response|
-          Calculators::HolidayEntitlement.new(
+          SmartAnswer::Calculators::HolidayEntitlement.new(
             hours_per_week: response,
             start_date: start_date,
             leaving_date: leaving_date,
@@ -153,7 +153,7 @@ module SmartAnswer
           hours
         end
         calculate :calculator do
-          Calculators::HolidayEntitlement.new(total_hours: total_hours)
+          SmartAnswer::Calculators::HolidayEntitlement.new(total_hours: total_hours)
         end
         calculate :holiday_entitlement_hours do
           calculator.casual_irregular_entitlement.first
@@ -174,7 +174,7 @@ module SmartAnswer
           hours
         end
         calculate :calculator do
-          Calculators::HolidayEntitlement.new(total_hours: total_hours)
+          SmartAnswer::Calculators::HolidayEntitlement.new(total_hours: total_hours)
         end
         calculate :average_hours_per_week do
           calculator.formatted_annualised_hours_per_week
@@ -207,7 +207,7 @@ module SmartAnswer
           days
         end
         calculate :calculator do
-          Calculators::HolidayEntitlement.new(
+          SmartAnswer::Calculators::HolidayEntitlement.new(
             hours_per_week: hours_per_week,
             days_per_week: days_per_week
           )
@@ -263,7 +263,7 @@ module SmartAnswer
           days
         end
         calculate :calculator do
-          Calculators::HolidayEntitlement.new(
+          SmartAnswer::Calculators::HolidayEntitlement.new(
             start_date: start_date,
             leaving_date: leaving_date,
             leave_year_start_date: leave_year_start_date,
