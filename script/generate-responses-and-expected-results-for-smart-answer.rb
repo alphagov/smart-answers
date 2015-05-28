@@ -23,17 +23,18 @@ def answer_question(flow, state)
   existing_responses = state.responses
 
   QUESTIONS_AND_RESPONSES[question_name].each do |response|
-    responses    = existing_responses + [response]
-    state        = flow.process(responses)
-    current_node = flow.node(state.current_node)
+    responses = existing_responses + [response]
+    state     = flow.process(responses)
+    next_node = flow.node(state.current_node)
 
     RESPONSES_AND_EXPECTED_RESULTS << {
       current_node: question_name,
       responses: responses.map(&:to_s),
-      outcome_node: current_node.outcome?
+      next_node: next_node.name,
+      outcome_node: next_node.outcome?
     }
 
-    unless current_node.outcome? || state.error
+    unless next_node.outcome? || state.error
       answer_question(flow, state)
     end
   end
