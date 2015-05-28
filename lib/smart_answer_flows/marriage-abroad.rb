@@ -182,14 +182,6 @@ module SmartAnswer
           (ceremony_country == "finland") & (resident_of == "uk")
         }
 
-        define_predicate(:ceremony_in_mexico_partner_british_not_third_country) {
-          ceremony_country == "mexico" and partner_nationality == "partner_british" and resident_of != 'third_country'
-        }
-
-        define_predicate(:ceremony_in_mexico_partner_british_residing_in_third_country) {
-          ceremony_country == "mexico" and partner_nationality == "partner_british" and resident_of == 'third_country'
-        }
-
         define_predicate(:ceremony_in_brazil_not_resident_in_the_uk) {
           (ceremony_country == 'brazil') & (resident_of != 'uk')
         }
@@ -214,7 +206,6 @@ module SmartAnswer
         next_node_if(:outcome_consular_cni_os_residing_in_third_country, marriage_in_spain_third_country)
         on_condition(responded_with('opposite_sex')) do
           next_node_if(:outcome_consular_cni_os_residing_in_third_country, consular_cni_residing_in_third_country)
-          next_node_if(:outcome_consular_cni_os_residing_in_third_country, ceremony_in_mexico_partner_british_residing_in_third_country)
           next_node_if(:outcome_os_local_japan, os_marriage_with_local_in_japan)
           next_node_if(:outcome_os_colombia, variable_matches(:ceremony_country, "colombia"))
           next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, "kosovo"))
@@ -225,7 +216,6 @@ module SmartAnswer
             data_query.os_consular_cni_countries?(ceremony_country) or (resident_of == 'uk' and data_query.os_no_marriage_related_consular_services?(ceremony_country))
           })
           next_node_if(:outcome_os_consular_cni, ceremony_in_finland_uk_resident)
-          next_node_if(:outcome_os_consular_cni, ceremony_in_mexico_partner_british_not_third_country)
           next_node_if(:outcome_os_affirmation, -> { data_query.os_affirmation_countries?(ceremony_country) })
           next_node_if(:outcome_os_commonwealth, -> { data_query.commonwealth_country?(ceremony_country) or ceremony_country == 'zimbabwe' })
           next_node_if(:outcome_os_bot, -> { data_query.british_overseas_territories?(ceremony_country) })
