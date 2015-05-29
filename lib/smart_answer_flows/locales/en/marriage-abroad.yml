@@ -678,25 +678,18 @@ en-GB:
 
           For non-Islamic marriages, you may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
 
-        consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident: |
-          You’ll need to provide supporting documents, including:
-
-          - your passport
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
-          - equivalent documents for your partner
-
-        consular_cni_variant_local_resident_jordan: |
-          You’ll need to provide supporting documents, including:
-
-          - your passport
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
-          - equivalent documents for your partner
-
+        documents_must_be_originals_when_in_sharia_court:
           ^Documents must be originals if you are getting married at the Sharia Court.^
 
-        consular_cni_variant_local_resident_or_foreign_resident_notary_public: |
+        required_supporting_documents: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
+          - equivalent documents for your partner
+
+        required_supporting_documents_notary_public: |
           You’ll need to provide supporting documents, including:
 
           - your passport
@@ -704,7 +697,8 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
           - equivalent documents for your partner
 
-        consular_cni_variant_local_resident_italy: |
+
+        required_supporting_documents_italy: |
           You’ll need to provide supporting documents, including:
 
           - your passport
@@ -712,7 +706,7 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
           - equivalent documents for your partner
 
-        cni_os_partner_local_legislation_documents_for_appointment: |
+        fee_and_required_supporting_documents_for_appointment: |
           You’ll need to pay a fee and bring the following to your appointment:
 
             - your passport
@@ -847,11 +841,11 @@ en-GB:
         notary_public_will_charge_a_fee: |
           The notary public will charge a fee for taking the oath, and then give you your notice of marriage. You should take this notice to the local authorities where you’re getting married.
 
-        consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british: |
+        same_cni_process_and_fees_for_partner: |
           ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
         names_on_documents_must_match: |
           %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
-        consular_cni_os_other_resident_ceremony_not_italy: |
+        check_if_cni_needs_to_be_legalised: |
           You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in %{country_name_lowercase_prefix}.
         consular_cni_os_ceremony_belgium: |
           ###Other requirements for Belgium
@@ -923,7 +917,7 @@ en-GB:
 
           You can pay by credit card only in St Petersburg and Ekaterinburg.
 # France and French Overseas Territories phrases
-        fot_os_all: |
+        fot_os_rules_similar_to_france: |
           %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
 # Affirmation to marry phrases
         contact_nearest_embassy_or_consulate_of_ceremony_country: |
@@ -953,22 +947,18 @@ en-GB:
 
           Contact the British Embassy in the United Arab Emirates for more information.
 
-        affirmation_os_partner: |
+        partner_needs_affirmation: |
           ^Your partner will need to get an affirmation as well.^
 
-        affirmation_os_partner_british: |
+        partner_probably_needs_affirmation: |
           ^Your partner will probably need to get an affirmation as well.^
 
-        affirmation_affidavit_os_partner: |
+        partner_probably_needs_affirmation_or_affidavit: |
           ^Your partner will probably need to get an affirmation or affidavit as well.^
 
-        partner_equivalent_document_warning: |
-          ^Your partner will probably need to get an equivalent document from their national authorities.^
-
-        affirmation_os_partner_not_british_turkey: |
-          ^Your partner will probably need to get an equivalent document from their national authorities.^
-
+        check_legalised_document: |
           Once the document is legalised you’ll need to have it checked at the marriage office nearest to where your marriage will take place.
+
         affirmation_os_legalised: |
           You’ll need to get your affidavit ‘[legalised](https://www.gov.uk/get-document-legalised)’ (certified as genuine) before you travel to Turkey.
 
@@ -1019,30 +1009,30 @@ en-GB:
           There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
 
 # Other countries outcome phrases
-        other_countries_os_burma: |
+        embassy_in_burma_doesnt_register_marriages: |
           The British Embassy in Rangoon doesn’t register marriages of British citizens in Burma. Contact the embassy if you need further advice.
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        other_countries_os_burma_partner_local: |
+        cant_marry_burmese_citizen: |
           %Marriage between a Burmese citizen and a foreign national is not allowed under local law.%
-        other_countries_os_north_korea: |
+        marriage_in_north_korea_unlikely: |
           It’s very unlikely that foreign nationals would be allowed to marry in North Korea. Contact the British Embassy in Pyongyang if you need further advice.
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        other_countries_os_north_korea_partner_local: |
+        cant_marry_north_korean_citizen: |
           %Marriage between a citizen of North Korea and a foreign national is not allowed under local law.%
-        other_countries_os_iran_somalia_syria: |
+        no_consular_services_contact_embassy: |
           There are currently no British consular services available in %{country_name_lowercase_prefix}. See below if you need further advice.
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        other_countries_os_yemen: |
+        limited_consular_services_contact_embassy: |
           There are only limited British consular services available in %{country_name_lowercase_prefix}. See below if you need further advice.
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        other_countries_os_ceremony_saudia_arabia_not_local_resident: |
+        saudi_arabia_requirements_for_foreigners: |
           ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can only get married at the British Embassy if you’re resident in the country.^
 
           Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
           The British Embassy in Saudi Arabia may also be able to give you advice.
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        other_countries_os_saudi_arabia_local_resident: |
+        saudi_arabia_requirements_for_residents: |
           One of you must be a Muslim to get married under local laws in Saudi Arabia. Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
           ##Getting married at the British Embassy
@@ -1206,13 +1196,13 @@ en-GB:
           - civil partnership
 
 # CP in countries with CP or equivalent phrases
-        cp_or_equivalent_cp_all_fees: |
+        standard_cni_fee_for_cp: |
           ##Fees
 
           Service | Fee
           -|-
           Issuing a CNI or equivalent | £65
-        cp_or_equivalent_cp_all_what_you_need_to_do: |
+        cp_or_equivalent_cp_what_you_need_to_do: |
           ##What you need to do
 
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to enter into a civil partnership or equivalent in %{country_name_lowercase_prefix}.
@@ -1241,29 +1231,27 @@ en-GB:
           - a Single Status Certificate issued by state or territory authorities, if they’ve been resident in Australia for at least 21 days
 
 # CP in countries with consular CP (exc australia) phrases
-        consular_cp_ceremony: |
+        cp_may_be_possible: |
           You may be able to register a civil partnership at the %{institution_name} in %{country_name_lowercase_prefix}.
-        consular_cp_ceremony_vietnam_partner_local: |
+        no_cp_with_vietnamese_national: |
           %However, you can’t enter into a civil partnership with a Vietnamese national.%
-        consular_cp_local_partner_croatia_bulgaria: |
+        cant_register_cp_with_country_national: |
           %However, they can’t register a civil partnership between a British national and a national of %{country_name_lowercase_prefix}.%
-        consular_cp_vietnam: |
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        consular_cp_all_contact: |
+        contact_to_make_appointment: |
           Contact them to make an appointment:
-        consular_cp_all_documents: |
+        documents_for_both_partners_cp: |
           You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order), or
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
-        consular_cp_partner_not_british: |
+        additional_non_british_partner_documents_cp: |
           Your partner will also need either:
 
           - a ‘certificate of no impediment’ (CNI) or similar document to prove they’re allowed to enter into a civil partnership from their national authorities
           - an official letter from the local authorities in the country where they’re resident confirming that they’re single
 
           ^Any foreign documents may need to be ’[legalised](/get-document-legalised)’ (certified as genuine) in the country they were issued (or that country’s embassy in %{country_name_lowercase_prefix}), and [translated into English](/government/collections/list-of-lawyers).^
-        consular_cp_all_what_you_need_to_do: |
+        consular_cp_what_you_need_to_do: |
           ###What you need to do
 
           Once you’ve made your appointment, the %{institution_name} will give you:
@@ -1277,7 +1265,7 @@ en-GB:
 
           You’ll need to provide two witnesses and pay a fee to register your civil partnership. You’ll need to pay an additional fee for your civil partnership certificate (see below).
 
-        consular_cp_all_fees: |
+        consular_cp_standard_fees: |
           ##Fees
 
           Service | Fee
