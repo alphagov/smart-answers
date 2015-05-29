@@ -384,7 +384,7 @@ module SmartAnswer
           phrases << :what_you_need_to_do
           phrases << :what_to_do_laos
           phrases << :legalisation_and_translation
-          phrases << :cni_os_partner_local_legislation_documents_for_appointment
+          phrases << :fee_and_required_supporting_documents_for_appointment
           phrases << :affirmation_os_translation_in_local_language_text
           phrases << :docs_decree_and_death_certificate
           phrases << :divorced_or_widowed_evidences
@@ -432,7 +432,7 @@ module SmartAnswer
           if resident_of == 'ceremony_country'
             phrases << :contact_local_authorities << :get_legal_advice << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :names_on_documents_must_match << :partner_naturalisation_in_uk
           else
-            phrases << :contact_local_authorities_in_country_marriage << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed << :affirmation_os_partner_not_british_turkey
+            phrases << :contact_local_authorities_in_country_marriage << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed << :check_legalised_document
           end
           phrases
         end
@@ -710,14 +710,15 @@ module SmartAnswer
 
 
           if ceremony_country == 'italy' && resident_of != 'uk'
-            phrases << :consular_cni_variant_local_resident_italy
+            phrases << :required_supporting_documents_italy
           elsif resident_of == 'ceremony_country' && %w(germany japan spain).exclude?(ceremony_country)
             if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia spain).include?(ceremony_country)
-              phrases << :consular_cni_variant_local_resident_or_foreign_resident_notary_public
-            elsif ceremony_country == 'jordan'
-              phrases << :consular_cni_variant_local_resident_jordan
+              phrases << :required_supporting_documents_notary_public
             else
-              phrases << :consular_cni_variant_local_resident_not_germany_or_spain_or_foreign_resident
+              phrases << :required_supporting_documents
+              if ceremony_country == 'jordan'
+                phrases << :documents_must_be_originals_when_in_sharia_court
+              end
             end
           end
 
@@ -801,7 +802,7 @@ module SmartAnswer
           end
 
           if partner_nationality == 'partner_british' && %w(italy germany finland).exclude?(ceremony_country)
-            phrases << :consular_cni_os_local_resident_ceremony_not_italy_not_germany_partner_british
+            phrases << :same_cni_process_and_fees_for_partner
           end
 
           if ceremony_country != 'germany'  || (ceremony_country == 'germany' && resident_of == 'uk')
@@ -809,7 +810,7 @@ module SmartAnswer
           end
 
           if resident_of != 'uk' && %w(italy spain germany).exclude?(ceremony_country)
-            phrases << :consular_cni_os_other_resident_ceremony_not_italy
+            phrases << :check_if_cni_needs_to_be_legalised
           end
 
           if ceremony_country == 'belgium'
@@ -879,7 +880,7 @@ module SmartAnswer
         precalculate :france_or_fot_os_outcome do
           phrases = PhraseList.new
           if data_query.french_overseas_territories?(ceremony_country)
-            phrases << :fot_os_all
+            phrases << :fot_os_rules_similar_to_france
           end
           phrases
         end
@@ -944,7 +945,7 @@ module SmartAnswer
           unless ceremony_country == 'turkey'
             phrases << :embassies_data
             if ceremony_country == 'cambodia'
-              phrases << :cni_os_partner_local_legislation_documents_for_appointment
+              phrases << :fee_and_required_supporting_documents_for_appointment
               phrases << :affirmation_os_translation_in_local_language_text
             elsif ceremony_country != 'china' && ceremony_country != 'egypt'
               phrases << :affirmation_os_translation_in_local_language_text
@@ -995,21 +996,22 @@ module SmartAnswer
           unless ceremony_country == 'egypt'
             if ceremony_country == 'turkey'
               if partner_nationality == 'partner_british'
-                phrases << :affirmation_os_partner
+                phrases << :partner_needs_affirmation
               else
-                phrases << :affirmation_os_partner_not_british_turkey
+                phrases << :callout_partner_equivalent_document
+                phrases << :check_legalised_document
               end
             elsif ceremony_country == 'morocco'
               phrases << :morocco_affidavit_length
               phrases << :partner_equivalent_document
             else
               if partner_nationality == 'partner_british'
-                phrases << :affirmation_os_partner_british
+                phrases << :partner_probably_needs_affirmation
               else
                 if ceremony_country == 'china' && partner_nationality != 'partner_local'
-                  phrases << :affirmation_affidavit_os_partner
+                  phrases << :partner_probably_needs_affirmation_or_affidavit
                 else
-                  phrases << :partner_equivalent_document_warning
+                  phrases << :callout_partner_equivalent_document
                   phrases << :names_on_documents_must_match if %w(ecuador colombia).include?(ceremony_country)
                   phrases << :partner_naturalisation_in_uk
                 end
@@ -1107,25 +1109,25 @@ module SmartAnswer
         precalculate :other_countries_os_outcome do
           phrases = PhraseList.new
           if ceremony_country == 'burma'
-            phrases << :other_countries_os_burma
+            phrases << :embassy_in_burma_doesnt_register_marriages
             if partner_nationality == 'partner_local'
-              phrases << :other_countries_os_burma_partner_local
+              phrases << :cant_marry_burmese_citizen
             end
           elsif ceremony_country == 'north-korea'
-            phrases << :other_countries_os_north_korea
+            phrases << :marriage_in_north_korea_unlikely
             if partner_nationality == 'partner_local'
-              phrases << :other_countries_os_north_korea_partner_local
+              phrases << :cant_marry_north_korean_citizen
             end
           elsif %w(iran somalia syria).include?(ceremony_country)
-            phrases << :other_countries_os_iran_somalia_syria
+            phrases << :no_consular_services_contact_embassy
           elsif ceremony_country == 'yemen'
-            phrases << :other_countries_os_yemen
+            phrases << :limited_consular_services_contact_embassy
           end
           if ceremony_country == 'saudi-arabia'
             if resident_of != 'ceremony_country'
-              phrases << :other_countries_os_ceremony_saudia_arabia_not_local_resident
+              phrases << :saudi_arabia_requirements_for_foreigners
             else
-              phrases << :other_countries_os_saudi_arabia_local_resident
+              phrases << :saudi_arabia_requirements_for_residents
               if partner_nationality != 'partner_british'
                 phrases << :partner_naturalisation_in_uk
               end
@@ -1162,14 +1164,14 @@ module SmartAnswer
             if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' && resident_of == 'uk'
               phrases << :what_you_need_to_do_cni << :get_cni_at_registrar_in_uk << :legisation_and_translation_intro_uk << :legalise_translate_and_check_with_authorities << :names_on_documents_must_match
             else
-              phrases << :cp_or_equivalent_cp_all_what_you_need_to_do
+              phrases << :cp_or_equivalent_cp_what_you_need_to_do
             end
           end
           if partner_nationality != 'partner_british'
             phrases << :partner_naturalisation_in_uk
           end
           unless ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex'
-            phrases << :cp_or_equivalent_cp_all_fees
+            phrases << :standard_cni_fee_for_cp
           end
 
           unless (ceremony_country == 'czech-republic' || data_query.countries_without_consular_facilities?(ceremony_country))
@@ -1279,17 +1281,17 @@ module SmartAnswer
         end
 
         precalculate :consular_cp_outcome do
-          phrases = PhraseList.new(:consular_cp_ceremony)
+          phrases = PhraseList.new(:cp_may_be_possible)
 
           if ceremony_country == 'vietnam'
-            phrases << :consular_cp_ceremony_vietnam_partner_local if partner_nationality == 'partner_local'
-            phrases << :consular_cp_vietnam
+            phrases << :no_cp_with_vietnamese_national if partner_nationality == 'partner_local'
+            phrases << :embassies_data
           elsif %w(croatia bulgaria).include?(ceremony_country) && partner_nationality == 'partner_local'
-            phrases << :consular_cp_local_partner_croatia_bulgaria
+            phrases << :cant_register_cp_with_country_national
           elsif ceremony_country == 'japan'
-            phrases << :consular_cp_all_contact << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
+            phrases << :contact_to_make_appointment << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
           else
-            phrases << :consular_cp_all_contact
+            phrases << :contact_to_make_appointment
           end
           phrases << :embassies_data
           unless ceremony_country == 'japan'
@@ -1299,14 +1301,14 @@ module SmartAnswer
               phrases << :documents_needed_7_days_residency
             end
           end
-          phrases << :consular_cp_all_documents
-          phrases << :consular_cp_partner_not_british if partner_nationality != 'partner_british'
-          phrases << :consular_cp_all_what_you_need_to_do
+          phrases << :documents_for_both_partners_cp
+          phrases << :additional_non_british_partner_documents_cp if partner_nationality != 'partner_british'
+          phrases << :consular_cp_what_you_need_to_do
           phrases << :partner_naturalisation_in_uk unless partner_nationality == 'partner_british'
           if %w(vietnam thailand south-korea).include?(ceremony_country)
             phrases << :fee_table_affidavit_55
           else
-            phrases << :consular_cp_all_fees
+            phrases << :consular_cp_standard_fees
           end
           if %w(cambodia latvia).include?(ceremony_country)
             phrases << :pay_in_local_currency
@@ -1337,7 +1339,7 @@ module SmartAnswer
           phrases << :"able_to_#{marriage_and_partnership_phrases}"
 
           if ceremony_country == 'japan'
-            phrases << :consular_cp_all_contact << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
+            phrases << :contact_to_make_appointment << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
           elsif ceremony_country == 'albania'
             phrases << :appointment_booking_link_albania
           elsif ceremony_country == 'germany'
@@ -1384,7 +1386,7 @@ module SmartAnswer
 
       outcome :outcome_ss_marriage_malta do
         precalculate :ss_body do
-          PhraseList.new(:able_to_ss_marriage_and_partnership_hc, :consular_cp_all_contact, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership_hc, :will_display_in_14_days_hc, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_hc, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage)
+          PhraseList.new(:able_to_ss_marriage_and_partnership_hc, :contact_to_make_appointment, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership_hc, :will_display_in_14_days_hc, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_hc, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage)
         end
       end
 
