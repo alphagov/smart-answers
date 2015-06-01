@@ -2,5 +2,5 @@
 lib/smart_answer_flows/state-pension-through-partner.rb: fde6fc823fc6f523af9ffa6be793f0cc
 lib/smart_answer_flows/locales/en/state-pension-through-partner.yml: 741b1a6be2aeed88b3745e9351020ff0
 test/data/state-pension-through-partner-questions-and-responses.yml: 34f2b5f7ac286bb3eea690564339051b
-test/data/state-pension-through-partner-responses-and-expected-results.yml: 5cf58a9a4d447c348f9821d5d61468eb
+test/data/state-pension-through-partner-responses-and-expected-results.yml: 40dfc8e1e81b26debb660cf64ca8ea15
 lib/data/rates/state_pension.yml: 7e97e88500fb698038c49332b48b82bf
