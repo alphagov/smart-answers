@@ -1,5 +1,3 @@
-require 'erubis'
-
 class OutcomePresenter < NodePresenter
   class ViewContext
     def initialize(state)
