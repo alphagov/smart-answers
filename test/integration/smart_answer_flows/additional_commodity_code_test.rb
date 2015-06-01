@@ -58,28 +58,6 @@ class AdditionalCommodityCodeTest < ActiveSupport::TestCase
       should "ask how much milk fat the product contains" do
         assert_current_node :how_much_milk_fat?
       end
-      context "answer 40, 55, 70 or 85" do
-        should "create a calculator and lookup the commodity code" do
-          add_response 55
-          assert_state_variable "commodity_code", "747"
-        end
-        should "give the commodity code result 40" do
-          add_response 40
-          assert_current_node :commodity_code_result
-        end
-        should "give the commodity code result 55" do
-          add_response 55
-          assert_current_node :commodity_code_result
-        end
-        should "give the commodity code result 70" do
-          add_response 70
-          assert_current_node :commodity_code_result
-        end
-        should "give the commodity code result 85" do
-          add_response 85
-          assert_current_node :commodity_code_result
-        end
-      end
       context "answer 0" do
         should "ask how much milk protein the product contains" do
           add_response 0
@@ -105,13 +83,6 @@ class AdditionalCommodityCodeTest < ActiveSupport::TestCase
         ## Q3c
         should "ask how much milk protein the product contains" do
           assert_current_node :how_much_milk_protein_c?
-        end
-        context "answer 12" do
-          should "give the commodity code result" do
-            add_response 12
-            assert_current_node :commodity_code_result
-            assert_state_variable "commodity_code", "267"
-          end
         end
       end
     end
