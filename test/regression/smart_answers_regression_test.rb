@@ -56,7 +56,8 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
           array
         end
 
-        assert_equal nodes_exercised_in_test.sort, flow.nodes.map(&:name).sort
+        unexercised_nodes = flow.nodes.map(&:name) - nodes_exercised_in_test
+        assert_equal true, unexercised_nodes.empty?, "Not all nodes are being exercised: #{unexercised_nodes.sort}"
       end
 
       responses_and_expected_results.each do |responses_and_expected_node|
