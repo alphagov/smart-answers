@@ -77,14 +77,14 @@ class SmartAnswerTestHelper
   end
 
   def save_output(responses, response)
-    filename = [responses.join('-'), 'html'].join('.')
-    path = path_to_outputs_for_flow
-    FileUtils.mkdir_p(path)
-    path_to_output = path.join(filename)
-    File.open(path_to_output, 'w') do |file|
+    filename = responses.pop + '.html'
+    path_to_output_directory = path_to_outputs_for_flow.join(*responses)
+    FileUtils.mkdir_p(path_to_output_directory)
+    path_to_output_file = path_to_output_directory.join(filename)
+    File.open(path_to_output_file, 'w') do |file|
       file.puts(response.body)
     end
-    path_to_output
+    path_to_output_file
   end
 
   def delete_saved_output_files
