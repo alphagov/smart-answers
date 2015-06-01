@@ -42,7 +42,8 @@ class SmartAnswerTestHelper
 
   def files_checksum_data_needs_updating?
     !files_checksum_data_exists? ||
-    source_files_have_changed?
+    source_files_have_changed? ||
+    source_files_have_been_added?
   end
 
   def question_and_responses_path
@@ -129,5 +130,13 @@ class SmartAnswerTestHelper
 
   def explicitly_run_all_regression_tests?
     ENV['RUN_REGRESSION_TESTS'] == 'true'
+  end
+
+  def source_files_have_been_added?
+    checksum_data = read_files_checksums
+    known_smart_answer_files = checksum_data.keys
+    detected_smart_answer_files = SmartAnswerFiles.new(@flow_name)
+    unknown_files = detected_smart_answer_files.paths - known_smart_answer_files
+    unknown_files.any?
   end
 end

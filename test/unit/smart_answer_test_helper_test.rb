@@ -3,9 +3,12 @@ require_relative '../test_helper'
 class SmartAnswerTestHelperTest < ActiveSupport::TestCase
   context 'when checksum data is present' do
     setup do
+      @flow_name = 'flow-name'
       @temp_file = Tempfile.new('filename')
-      @hasher = SmartAnswerHasher.new([@temp_file.path])
-      @test_helper = SmartAnswerTestHelper.new('flow-name')
+      @smart_answer_files = stub(paths: [@temp_file.path])
+      SmartAnswerFiles.stubs(:new).with(@flow_name).returns(@smart_answer_files)
+      @hasher = SmartAnswerHasher.new(@smart_answer_files.paths)
+      @test_helper = SmartAnswerTestHelper.new(@flow_name)
       @test_helper.write_files_checksum(@hasher)
     end
 
@@ -34,13 +37,18 @@ class SmartAnswerTestHelperTest < ActiveSupport::TestCase
     end
 
     should 'return true if RUN_REGRESSION_TESTS is equal to this flow name' do
-      ENV['RUN_REGRESSION_TESTS'] = 'flow-name'
+      ENV['RUN_REGRESSION_TESTS'] = @flow_name
       assert_equal true, @test_helper.run_regression_tests?
     end
 
     should 'return false if RUN_REGRESSION_TESTS is equal to a different flow name' do
       ENV['RUN_REGRESSION_TESTS'] = 'another-flow-name'
       assert_equal false, @test_helper.run_regression_tests?
+    end
+
+    should 'return true when more source files have been added to the Smart Answer' do
+      @smart_answer_files.stubs(paths: [@temp_file.path, '/path/to/new/file'])
+      assert_equal true, @test_helper.run_regression_tests?
     end
   end
 
