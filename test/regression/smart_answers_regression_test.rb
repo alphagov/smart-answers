@@ -14,6 +14,9 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
     flow_name = filename[/(.*)-responses-and-expected-results/, 1]
 
     smart_answer_helper = SmartAnswerTestHelper.new(flow_name)
+
+    next unless smart_answer_helper.run_regression_tests?
+
     smart_answer_helper.delete_saved_output_files
     responses_and_expected_results = smart_answer_helper.read_responses_and_expected_results
 
@@ -26,6 +29,20 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
 
       teardown do
         Timecop.return
+      end
+
+      should "have checksum data" do
+        message = []
+        message << "Expected #{smart_answer_helper.files_checksum_path} to exist"
+        message << "Use the generate-checksums-for-smart-answer script to create it"
+        assert_equal true, smart_answer_helper.files_checksum_data_exists?, message.join('. ')
+      end
+
+      should "have up to date checksum data" do
+        message = []
+        message << "Expected #{smart_answer_helper.files_checksum_path} to contain up to date data"
+        message << "Use the generate-checksums-for-smart-answer script to update it"
+        assert_equal false, smart_answer_helper.files_checksum_data_needs_updating?, message.join('. ')
       end
 
       responses_and_expected_results.each do |responses_and_expected_node|

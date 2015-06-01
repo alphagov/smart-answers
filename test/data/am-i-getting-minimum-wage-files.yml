@@ -1,0 +1,8 @@
+--- 
+lib/smart_answer_flows/am-i-getting-minimum-wage.rb: a5f9ccf8dfe0c6835ef605aa1c5cbacc
+lib/smart_answer_flows/locales/en/am-i-getting-minimum-wage.yml: 285c621a77cb625d08a440a9b74aa85e
+test/data/am-i-getting-minimum-wage-questions-and-responses.yml: 173bbd0ad46b728bdd6498fa71585ddc
+test/data/am-i-getting-minimum-wage-responses-and-expected-results.yml: 7f3e7ba3ea38a0013556638836f0af2d
+lib/smart_answer_flows/shared_logic/minimum_wage.rb: 0266518e125cf1fd950e8b081c71274f
+lib/smart_answer/calculators/minimum_wage_calculator.rb: 1aca36bb1b33abf4cbef8171d9f13f3c
+lib/data/minimum_wage_data.yml: 55c71c9ff8252c17a679dad888ad5ad7

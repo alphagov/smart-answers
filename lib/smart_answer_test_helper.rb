@@ -15,6 +15,37 @@ class SmartAnswerTestHelper
     @flow_name = flow_name
   end
 
+  def files_checksum_path
+    data_path.join(files_checksum_filename)
+  end
+
+  def write_files_checksum(hasher)
+    File.open(files_checksum_path, 'w') do |file|
+      hasher.write_checksum_data(file)
+    end
+  end
+
+  def read_files_checksums
+    files_checksums_yaml = File.read(files_checksum_path)
+    YAML.load(files_checksums_yaml)
+  end
+
+  def files_checksum_data_exists?
+    File.exists?(files_checksum_path)
+  end
+
+  def run_regression_tests?
+    explicitly_run_all_regression_tests? ||
+    explicitly_run_this_regression_test? ||
+    files_checksum_data_needs_updating?
+  end
+
+  def files_checksum_data_needs_updating?
+    !files_checksum_data_exists? ||
+    source_files_have_changed? ||
+    source_files_have_been_added?
+  end
+
   def question_and_responses_path
     data_path.join(question_and_responses_filename)
   end
@@ -63,6 +94,10 @@ class SmartAnswerTestHelper
 
   private
 
+  def files_checksum_filename
+    "#{@flow_name}-files.yml"
+  end
+
   def question_and_responses_filename
     "#{@flow_name}-questions-and-responses.yml"
   end
@@ -77,5 +112,31 @@ class SmartAnswerTestHelper
 
   def artefacts_path
     self.class.artefacts_path
+  end
+
+  def source_files_have_changed?
+    checksum_data = read_files_checksums
+    changed_files = checksum_data.select do |path, expected_checksum|
+      content = File.read(path)
+      actual_checksum = Digest::MD5.hexdigest(content)
+      expected_checksum != actual_checksum
+    end
+    changed_files.any?
+  end
+
+  def explicitly_run_this_regression_test?
+    ENV['RUN_REGRESSION_TESTS'] == @flow_name
+  end
+
+  def explicitly_run_all_regression_tests?
+    ENV['RUN_REGRESSION_TESTS'] == 'true'
+  end
+
+  def source_files_have_been_added?
+    checksum_data = read_files_checksums
+    known_smart_answer_files = checksum_data.keys
+    detected_smart_answer_files = SmartAnswerFiles.new(@flow_name)
+    unknown_files = detected_smart_answer_files.paths - known_smart_answer_files
+    unknown_files.any?
   end
 end

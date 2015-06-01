@@ -133,6 +133,12 @@ Test a single Smartdown flow by running:
 
       * Go to Step 3, add the new responses and continue through the steps up to Step 9.
 
+10. Generate a yaml file containing the set of source files that this Smart Answer depends upon. The script will automatically take the ruby flow file, locale file and erb templates into account. You just need to supply it with the location of any additional files required by the Smart Answer (e.g. calculators and data files). This data is used to determine whether to run the regression tests based on whether the source files have changed.
+
+        $ rails r script/generate-checksums-for-smart-answer.rb <name-of-smart-answer> <path/to/additional/files>
+
+11. Commit the generated yaml file to git.
+
 ## Issues/todos
 
 Please see the [github issues](https://github.com/alphagov/smart-answers/issues) page.
