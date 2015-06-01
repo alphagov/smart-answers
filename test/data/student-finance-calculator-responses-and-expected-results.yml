@@ -2,17 +2,20 @@
 - :current_node: :when_does_your_course_start?
   :responses: 
   - 2014-2015
+  :next_node: :what_type_of_student_are_you?
   :outcome_node: false
 - :current_node: :what_type_of_student_are_you?
   :responses: 
   - 2014-2015
   - uk-full-time
+  :next_node: :how_much_are_your_tuition_fees_per_year?
   :outcome_node: false
 - :current_node: :how_much_are_your_tuition_fees_per_year?
   :responses: 
   - 2014-2015
   - uk-full-time
   - "6000"
+  :next_node: :where_will_you_live_while_studying?
   :outcome_node: false
 - :current_node: :where_will_you_live_while_studying?
   :responses: 
@@ -20,6 +23,7 @@
   - uk-full-time
   - "6000.0"
   - at-home
+  :next_node: :whats_your_household_income?
   :outcome_node: false
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -28,6 +32,7 @@
   - "6000.0"
   - at-home
   - "100000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -37,6 +42,7 @@
   - at-home
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -47,6 +53,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -57,6 +64,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -67,6 +75,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -77,6 +86,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -86,6 +96,7 @@
   - at-home
   - "100000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -96,6 +107,7 @@
   - "100000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -106,6 +118,7 @@
   - "100000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -116,6 +129,7 @@
   - "100000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -126,6 +140,7 @@
   - "100000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -134,6 +149,7 @@
   - "6000.0"
   - at-home
   - "43875"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -143,6 +159,7 @@
   - at-home
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -153,6 +170,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -163,6 +181,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -173,6 +192,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -183,6 +203,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -192,6 +213,7 @@
   - at-home
   - "43875.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -202,6 +224,7 @@
   - "43875.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -212,6 +235,7 @@
   - "43875.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -222,6 +246,7 @@
   - "43875.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -232,6 +257,7 @@
   - "43875.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -240,6 +266,7 @@
   - "6000.0"
   - at-home
   - "35000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -249,6 +276,7 @@
   - at-home
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -259,6 +287,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -269,6 +298,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -279,6 +309,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -289,6 +320,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -298,6 +330,7 @@
   - at-home
   - "35000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -308,6 +341,7 @@
   - "35000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -318,6 +352,7 @@
   - "35000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -328,6 +363,7 @@
   - "35000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -338,6 +374,7 @@
   - "35000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -346,6 +383,7 @@
   - "6000.0"
   - at-home
   - "24500"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -355,6 +393,7 @@
   - at-home
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -365,6 +404,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -375,6 +415,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -385,6 +426,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -395,6 +437,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -404,6 +447,7 @@
   - at-home
   - "24500.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -414,6 +458,7 @@
   - "24500.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -424,6 +469,7 @@
   - "24500.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -434,6 +480,7 @@
   - "24500.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -444,6 +491,7 @@
   - "24500.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :where_will_you_live_while_studying?
   :responses: 
@@ -451,6 +499,7 @@
   - uk-full-time
   - "6000.0"
   - away-outside-london
+  :next_node: :whats_your_household_income?
   :outcome_node: false
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -459,6 +508,7 @@
   - "6000.0"
   - away-outside-london
   - "100000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -468,6 +518,7 @@
   - away-outside-london
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -478,6 +529,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -488,6 +540,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -498,6 +551,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -508,6 +562,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -517,6 +572,7 @@
   - away-outside-london
   - "100000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -527,6 +583,7 @@
   - "100000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -537,6 +594,7 @@
   - "100000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -547,6 +605,7 @@
   - "100000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -557,6 +616,7 @@
   - "100000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -565,6 +625,7 @@
   - "6000.0"
   - away-outside-london
   - "43875"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -574,6 +635,7 @@
   - away-outside-london
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -584,6 +646,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -594,6 +657,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -604,6 +668,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -614,6 +679,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -623,6 +689,7 @@
   - away-outside-london
   - "43875.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -633,6 +700,7 @@
   - "43875.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -643,6 +711,7 @@
   - "43875.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -653,6 +722,7 @@
   - "43875.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -663,6 +733,7 @@
   - "43875.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -671,6 +742,7 @@
   - "6000.0"
   - away-outside-london
   - "35000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -680,6 +752,7 @@
   - away-outside-london
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -690,6 +763,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -700,6 +774,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -710,6 +785,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -720,6 +796,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -729,6 +806,7 @@
   - away-outside-london
   - "35000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -739,6 +817,7 @@
   - "35000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -749,6 +828,7 @@
   - "35000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -759,6 +839,7 @@
   - "35000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -769,6 +850,7 @@
   - "35000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -777,6 +859,7 @@
   - "6000.0"
   - away-outside-london
   - "24500"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -786,6 +869,7 @@
   - away-outside-london
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -796,6 +880,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -806,6 +891,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -816,6 +902,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -826,6 +913,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -835,6 +923,7 @@
   - away-outside-london
   - "24500.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -845,6 +934,7 @@
   - "24500.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -855,6 +945,7 @@
   - "24500.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -865,6 +956,7 @@
   - "24500.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -875,6 +967,7 @@
   - "24500.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :where_will_you_live_while_studying?
   :responses: 
@@ -882,6 +975,7 @@
   - uk-full-time
   - "6000.0"
   - away-in-london
+  :next_node: :whats_your_household_income?
   :outcome_node: false
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -890,6 +984,7 @@
   - "6000.0"
   - away-in-london
   - "100000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -899,6 +994,7 @@
   - away-in-london
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -909,6 +1005,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -919,6 +1016,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -929,6 +1027,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -939,6 +1038,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -948,6 +1048,7 @@
   - away-in-london
   - "100000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -958,6 +1059,7 @@
   - "100000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -968,6 +1070,7 @@
   - "100000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -978,6 +1081,7 @@
   - "100000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -988,6 +1092,7 @@
   - "100000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -996,6 +1101,7 @@
   - "6000.0"
   - away-in-london
   - "43875"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1005,6 +1111,7 @@
   - away-in-london
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1015,6 +1122,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1025,6 +1133,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1035,6 +1144,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1045,6 +1155,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1054,6 +1165,7 @@
   - away-in-london
   - "43875.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1064,6 +1176,7 @@
   - "43875.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1074,6 +1187,7 @@
   - "43875.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1084,6 +1198,7 @@
   - "43875.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1094,6 +1209,7 @@
   - "43875.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -1102,6 +1218,7 @@
   - "6000.0"
   - away-in-london
   - "35000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1111,6 +1228,7 @@
   - away-in-london
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1121,6 +1239,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1131,6 +1250,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1141,6 +1261,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1151,6 +1272,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1160,6 +1282,7 @@
   - away-in-london
   - "35000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1170,6 +1293,7 @@
   - "35000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1180,6 +1304,7 @@
   - "35000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1190,6 +1315,7 @@
   - "35000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1200,6 +1326,7 @@
   - "35000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -1208,6 +1335,7 @@
   - "6000.0"
   - away-in-london
   - "24500"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1217,6 +1345,7 @@
   - away-in-london
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1227,6 +1356,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1237,6 +1367,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1247,6 +1378,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1257,6 +1389,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1266,6 +1399,7 @@
   - away-in-london
   - "24500.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1276,6 +1410,7 @@
   - "24500.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1286,6 +1421,7 @@
   - "24500.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1296,6 +1432,7 @@
   - "24500.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1306,17 +1443,20 @@
   - "24500.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_type_of_student_are_you?
   :responses: 
   - 2014-2015
   - uk-part-time
+  :next_node: :how_much_are_your_tuition_fees_per_year?
   :outcome_node: false
 - :current_node: :how_much_are_your_tuition_fees_per_year?
   :responses: 
   - 2014-2015
   - uk-part-time
   - "6000"
+  :next_node: :do_any_of_the_following_apply_all_uk_students?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_all_uk_students?
   :responses: 
@@ -1324,6 +1464,7 @@
   - uk-part-time
   - "6000.0"
   - has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1332,6 +1473,7 @@
   - "6000.0"
   - has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1340,6 +1482,7 @@
   - "6000.0"
   - has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1348,6 +1491,7 @@
   - "6000.0"
   - has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1356,6 +1500,7 @@
   - "6000.0"
   - has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_all_uk_students?
   :responses: 
@@ -1363,6 +1508,7 @@
   - uk-part-time
   - "6000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1371,6 +1517,7 @@
   - "6000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1379,6 +1526,7 @@
   - "6000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1387,6 +1535,7 @@
   - "6000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1395,43 +1544,51 @@
   - "6000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_type_of_student_are_you?
   :responses: 
   - 2014-2015
   - eu-full-time
+  :next_node: :how_much_are_your_tuition_fees_per_year?
   :outcome_node: false
 - :current_node: :how_much_are_your_tuition_fees_per_year?
   :responses: 
   - 2014-2015
   - eu-full-time
   - "6000"
+  :next_node: :outcome_eu_students
   :outcome_node: true
 - :current_node: :what_type_of_student_are_you?
   :responses: 
   - 2014-2015
   - eu-part-time
+  :next_node: :how_much_are_your_tuition_fees_per_year?
   :outcome_node: false
 - :current_node: :how_much_are_your_tuition_fees_per_year?
   :responses: 
   - 2014-2015
   - eu-part-time
   - "6000"
+  :next_node: :outcome_eu_students
   :outcome_node: true
 - :current_node: :when_does_your_course_start?
   :responses: 
   - 2015-2016
+  :next_node: :what_type_of_student_are_you?
   :outcome_node: false
 - :current_node: :what_type_of_student_are_you?
   :responses: 
   - 2015-2016
   - uk-full-time
+  :next_node: :how_much_are_your_tuition_fees_per_year?
   :outcome_node: false
 - :current_node: :how_much_are_your_tuition_fees_per_year?
   :responses: 
   - 2015-2016
   - uk-full-time
   - "6000"
+  :next_node: :where_will_you_live_while_studying?
   :outcome_node: false
 - :current_node: :where_will_you_live_while_studying?
   :responses: 
@@ -1439,6 +1596,7 @@
   - uk-full-time
   - "6000.0"
   - at-home
+  :next_node: :whats_your_household_income?
   :outcome_node: false
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -1447,6 +1605,7 @@
   - "6000.0"
   - at-home
   - "100000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1456,6 +1615,7 @@
   - at-home
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1466,6 +1626,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1476,6 +1637,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1486,6 +1648,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1496,6 +1659,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1505,6 +1669,7 @@
   - at-home
   - "100000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1515,6 +1680,7 @@
   - "100000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1525,6 +1691,7 @@
   - "100000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1535,6 +1702,7 @@
   - "100000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1545,6 +1713,7 @@
   - "100000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -1553,6 +1722,7 @@
   - "6000.0"
   - at-home
   - "43875"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1562,6 +1732,7 @@
   - at-home
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1572,6 +1743,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1582,6 +1754,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1592,6 +1765,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1602,6 +1776,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1611,6 +1786,7 @@
   - at-home
   - "43875.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1621,6 +1797,7 @@
   - "43875.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1631,6 +1808,7 @@
   - "43875.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1641,6 +1819,7 @@
   - "43875.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1651,6 +1830,7 @@
   - "43875.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -1659,6 +1839,7 @@
   - "6000.0"
   - at-home
   - "35000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1668,6 +1849,7 @@
   - at-home
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1678,6 +1860,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1688,6 +1871,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1698,6 +1882,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1708,6 +1893,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1717,6 +1903,7 @@
   - at-home
   - "35000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1727,6 +1914,7 @@
   - "35000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1737,6 +1925,7 @@
   - "35000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1747,6 +1936,7 @@
   - "35000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1757,6 +1947,7 @@
   - "35000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -1765,6 +1956,7 @@
   - "6000.0"
   - at-home
   - "24500"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1774,6 +1966,7 @@
   - at-home
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1784,6 +1977,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1794,6 +1988,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1804,6 +1999,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1814,6 +2010,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1823,6 +2020,7 @@
   - at-home
   - "24500.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1833,6 +2031,7 @@
   - "24500.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1843,6 +2042,7 @@
   - "24500.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1853,6 +2053,7 @@
   - "24500.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1863,6 +2064,7 @@
   - "24500.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :where_will_you_live_while_studying?
   :responses: 
@@ -1870,6 +2072,7 @@
   - uk-full-time
   - "6000.0"
   - away-outside-london
+  :next_node: :whats_your_household_income?
   :outcome_node: false
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -1878,6 +2081,7 @@
   - "6000.0"
   - away-outside-london
   - "100000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1887,6 +2091,7 @@
   - away-outside-london
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1897,6 +2102,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1907,6 +2113,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1917,6 +2124,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1927,6 +2135,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1936,6 +2145,7 @@
   - away-outside-london
   - "100000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1946,6 +2156,7 @@
   - "100000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1956,6 +2167,7 @@
   - "100000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1966,6 +2178,7 @@
   - "100000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -1976,6 +2189,7 @@
   - "100000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -1984,6 +2198,7 @@
   - "6000.0"
   - away-outside-london
   - "43875"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -1993,6 +2208,7 @@
   - away-outside-london
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2003,6 +2219,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2013,6 +2230,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2023,6 +2241,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2033,6 +2252,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2042,6 +2262,7 @@
   - away-outside-london
   - "43875.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2052,6 +2273,7 @@
   - "43875.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2062,6 +2284,7 @@
   - "43875.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2072,6 +2295,7 @@
   - "43875.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2082,6 +2306,7 @@
   - "43875.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -2090,6 +2315,7 @@
   - "6000.0"
   - away-outside-london
   - "35000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2099,6 +2325,7 @@
   - away-outside-london
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2109,6 +2336,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2119,6 +2347,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2129,6 +2358,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2139,6 +2369,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2148,6 +2379,7 @@
   - away-outside-london
   - "35000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2158,6 +2390,7 @@
   - "35000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2168,6 +2401,7 @@
   - "35000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2178,6 +2412,7 @@
   - "35000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2188,6 +2423,7 @@
   - "35000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -2196,6 +2432,7 @@
   - "6000.0"
   - away-outside-london
   - "24500"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2205,6 +2442,7 @@
   - away-outside-london
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2215,6 +2453,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2225,6 +2464,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2235,6 +2475,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2245,6 +2486,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2254,6 +2496,7 @@
   - away-outside-london
   - "24500.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2264,6 +2507,7 @@
   - "24500.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2274,6 +2518,7 @@
   - "24500.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2284,6 +2529,7 @@
   - "24500.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2294,6 +2540,7 @@
   - "24500.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :where_will_you_live_while_studying?
   :responses: 
@@ -2301,6 +2548,7 @@
   - uk-full-time
   - "6000.0"
   - away-in-london
+  :next_node: :whats_your_household_income?
   :outcome_node: false
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -2309,6 +2557,7 @@
   - "6000.0"
   - away-in-london
   - "100000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2318,6 +2567,7 @@
   - away-in-london
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2328,6 +2578,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2338,6 +2589,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2348,6 +2600,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2358,6 +2611,7 @@
   - "100000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2367,6 +2621,7 @@
   - away-in-london
   - "100000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2377,6 +2632,7 @@
   - "100000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2387,6 +2643,7 @@
   - "100000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2397,6 +2654,7 @@
   - "100000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2407,6 +2665,7 @@
   - "100000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -2415,6 +2674,7 @@
   - "6000.0"
   - away-in-london
   - "43875"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2424,6 +2684,7 @@
   - away-in-london
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2434,6 +2695,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2444,6 +2706,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2454,6 +2717,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2464,6 +2728,7 @@
   - "43875.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2473,6 +2738,7 @@
   - away-in-london
   - "43875.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2483,6 +2749,7 @@
   - "43875.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2493,6 +2760,7 @@
   - "43875.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2503,6 +2771,7 @@
   - "43875.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2513,6 +2782,7 @@
   - "43875.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -2521,6 +2791,7 @@
   - "6000.0"
   - away-in-london
   - "35000"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2530,6 +2801,7 @@
   - away-in-london
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2540,6 +2812,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2550,6 +2823,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2560,6 +2834,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2570,6 +2845,7 @@
   - "35000.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2579,6 +2855,7 @@
   - away-in-london
   - "35000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2589,6 +2866,7 @@
   - "35000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2599,6 +2877,7 @@
   - "35000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2609,6 +2888,7 @@
   - "35000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2619,6 +2899,7 @@
   - "35000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :whats_your_household_income?
   :responses: 
@@ -2627,6 +2908,7 @@
   - "6000.0"
   - away-in-london
   - "24500"
+  :next_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2636,6 +2918,7 @@
   - away-in-london
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2646,6 +2929,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2656,6 +2940,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2666,6 +2951,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2676,6 +2962,7 @@
   - "24500.0"
   - children-under-17,dependant-adult,has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_uk_full_time_students_only?
   :responses: 
@@ -2685,6 +2972,7 @@
   - away-in-london
   - "24500.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2695,6 +2983,7 @@
   - "24500.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2705,6 +2994,7 @@
   - "24500.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2715,6 +3005,7 @@
   - "24500.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2725,17 +3016,20 @@
   - "24500.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_type_of_student_are_you?
   :responses: 
   - 2015-2016
   - uk-part-time
+  :next_node: :how_much_are_your_tuition_fees_per_year?
   :outcome_node: false
 - :current_node: :how_much_are_your_tuition_fees_per_year?
   :responses: 
   - 2015-2016
   - uk-part-time
   - "6000"
+  :next_node: :do_any_of_the_following_apply_all_uk_students?
   :outcome_node: false
 - :current_node: :do_any_of_the_following_apply_all_uk_students?
   :responses: 
@@ -2743,6 +3037,7 @@
   - uk-part-time
   - "6000.0"
   - has-disability,low-income
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2751,6 +3046,7 @@
   - "6000.0"
   - has-disability,low-income
   - teacher-training
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2759,6 +3055,7 @@
   - "6000.0"
   - has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2767,6 +3064,7 @@
   - "6000.0"
   - has-disability,low-income
   - social-work
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2775,6 +3073,7 @@
   - "6000.0"
   - has-disability,low-income
   - none-of-the-above
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :do_any_of_the_following_apply_all_uk_students?
   :responses: 
@@ -2782,6 +3081,7 @@
   - uk-part-time
   - "6000.0"
   - "no"
+  :next_node: :what_course_are_you_studying?
   :outcome_node: false
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2790,6 +3090,7 @@
   - "6000.0"
   - "no"
   - teacher-training
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2798,6 +3099,7 @@
   - "6000.0"
   - "no"
   - dental-medical-healthcare
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2806,6 +3108,7 @@
   - "6000.0"
   - "no"
   - social-work
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses: 
@@ -2814,26 +3117,31 @@
   - "6000.0"
   - "no"
   - none-of-the-above
+  :next_node: :outcome_uk_all_students
   :outcome_node: true
 - :current_node: :what_type_of_student_are_you?
   :responses: 
   - 2015-2016
   - eu-full-time
+  :next_node: :how_much_are_your_tuition_fees_per_year?
   :outcome_node: false
 - :current_node: :how_much_are_your_tuition_fees_per_year?
   :responses: 
   - 2015-2016
   - eu-full-time
   - "6000"
+  :next_node: :outcome_eu_students
   :outcome_node: true
 - :current_node: :what_type_of_student_are_you?
   :responses: 
   - 2015-2016
   - eu-part-time
+  :next_node: :how_much_are_your_tuition_fees_per_year?
   :outcome_node: false
 - :current_node: :how_much_are_your_tuition_fees_per_year?
   :responses: 
   - 2015-2016
   - eu-part-time
   - "6000"
+  :next_node: :outcome_eu_students
   :outcome_node: true
