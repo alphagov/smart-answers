@@ -1,0 +1,5 @@
+--- 
+lib/smart_answer_flows/benefit-cap-calculator.rb: f538b686eca345232608dbbd5dc5a438
+lib/smart_answer_flows/locales/en/benefit-cap-calculator.yml: c4a902eceaff0d612696149b0a111c9b
+test/data/benefit-cap-calculator-questions-and-responses.yml: 460336f2cf1f2acc62729ef5d831f25e
+test/data/benefit-cap-calculator-responses-and-expected-results.yml: 19c0bc207cde0d94c76b769b0da5d0bd
