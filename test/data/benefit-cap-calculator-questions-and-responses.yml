@@ -1,0 +1,51 @@
+---
+:receive_housing_benefit?:
+- "yes"
+- "no"
+:working_tax_credit?:
+- "yes"
+- "no"
+:receiving_exemption_benefits?:
+- "yes"
+- "no"
+:receiving_non_exemption_benefits?:
+- none
+- bereavement
+- bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
+:bereavement_amount?:
+- 50
+:carers_amount?:
+- 50
+:child_benefit_amount?:
+- 50
+:child_tax_amount?:
+- 50
+:esa_amount?:
+- 50
+:guardian_amount?:
+- 50
+:incapacity_amount?:
+- 50
+:income_support_amount?:
+- 50
+:jsa_amount?:
+- 50
+:maternity_amount?:
+- 50
+:sda_amount?:
+- 50
+:widowed_mother_amount?:
+- 50
+:widowed_parent_amount?:
+- 50
+:widow_pension_amount?:
+- 50
+:widows_aged_amount?:
+- 50
+:housing_benefit_amount?:
+- 50
+- 350
+:single_couple_lone_parent?:
+- single
+- couple
+- parent
