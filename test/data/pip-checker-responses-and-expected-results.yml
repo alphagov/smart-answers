@@ -7,8 +7,32 @@
 - :current_node: :what_is_your_dob?
   :responses: 
   - "yes"
+  - "1948-03-01"
+  :next_node: :result_6
+  :outcome_node: true
+- :current_node: :what_is_your_dob?
+  :responses: 
+  - "yes"
+  - "1949-02-03"
+  :next_node: :result_7
+  :outcome_node: true
+- :current_node: :what_is_your_dob?
+  :responses: 
+  - "yes"
   - "1990-03-05"
   :next_node: :result_7
+  :outcome_node: true
+- :current_node: :what_is_your_dob?
+  :responses: 
+  - "yes"
+  - "1997-05-08"
+  :next_node: :result_4
+  :outcome_node: true
+- :current_node: :what_is_your_dob?
+  :responses: 
+  - "yes"
+  - "2000-04-05"
+  :next_node: :result_5
   :outcome_node: true
 - :current_node: :are_you_getting_dla?
   :responses: 
@@ -18,6 +42,30 @@
 - :current_node: :what_is_your_dob?
   :responses: 
   - "no"
+  - "1948-03-01"
+  :next_node: :result_2
+  :outcome_node: true
+- :current_node: :what_is_your_dob?
+  :responses: 
+  - "no"
+  - "1949-02-03"
+  :next_node: :result_2
+  :outcome_node: true
+- :current_node: :what_is_your_dob?
+  :responses: 
+  - "no"
   - "1990-03-05"
   :next_node: :result_3
+  :outcome_node: true
+- :current_node: :what_is_your_dob?
+  :responses: 
+  - "no"
+  - "1997-05-08"
+  :next_node: :result_3
+  :outcome_node: true
+- :current_node: :what_is_your_dob?
+  :responses: 
+  - "no"
+  - "2000-04-05"
+  :next_node: :result_1
   :outcome_node: true
