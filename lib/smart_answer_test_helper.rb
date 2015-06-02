@@ -89,7 +89,7 @@ class SmartAnswerTestHelper
 
   def delete_saved_output_files
     path = artefacts_path.join(@flow_name)
-    FileUtils.rm_f(Dir[path.join('*.html')])
+    FileUtils.rm_rf(path)
   end
 
   private
