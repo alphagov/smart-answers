@@ -383,6 +383,7 @@ module SmartAnswer
           phrases << :get_legal_and_travel_advice
           phrases << :what_you_need_to_do
           phrases << :what_to_do_laos
+          phrases << :embassies_data
           phrases << :legalisation_and_translation
           phrases << :fee_and_required_supporting_documents_for_appointment
           phrases << :affirmation_os_translation_in_local_language_text
@@ -505,6 +506,7 @@ module SmartAnswer
             phrases << :commonwealth_os_marriage_subtleties_in_south_africa  if  partner_nationality == 'partner_local'
           when 'india'
             phrases << :commonwealth_os_marriage_subtleties_in_india
+            phrases << :embassies_data
           when 'malaysia'
             phrases << :commonwealth_os_marriage_subtleties_in_malaysia
           when 'singapore'
@@ -524,11 +526,20 @@ module SmartAnswer
           phrases = PhraseList.new
           if ceremony_country == 'british-indian-ocean-territory'
             phrases << :bot_os_ceremony_biot
+            phrases << :embassies_data
           elsif ceremony_country == 'british-virgin-islands'
             phrases << :bot_os_ceremony_bvi
+            phrases << :get_legal_advice
           else
             phrases << :bot_os_ceremony_non_biot
-            phrases << :also_check_travel_advice unless resident_of == 'ceremony_country'
+            phrases << :embassies_data
+
+            if resident_of == 'ceremony_country'
+              phrases << :get_legal_advice
+            else
+              phrases << :get_legal_and_travel_advice
+            end
+
             phrases << :partner_naturalisation_in_uk unless partner_nationality == 'partner_british'
           end
           phrases
@@ -698,7 +709,7 @@ module SmartAnswer
             end
 
             phrases << :"#{ceremony_country}_os_local_resident" if %w(kazakhstan russia).include?(ceremony_country)
-            unless %w(germany italy japan russia spain).include?(ceremony_country)
+            unless %w(germany italy japan spain).include?(ceremony_country)
               if ceremony_country == 'macedonia'
                 phrases << :consular_cni_os_foreign_resident_3_days_macedonia
               else
@@ -724,6 +735,7 @@ module SmartAnswer
 
           if resident_of == 'ceremony_country'
             if ceremony_country == 'japan'
+              phrases << :embassies_data
               phrases << :japan_consular_cni_os_local_resident
               phrases << :japan_consular_cni_os_local_resident_partner_local if partner_nationality == 'partner_local'
             end
@@ -1126,6 +1138,7 @@ module SmartAnswer
           if ceremony_country == 'saudi-arabia'
             if resident_of != 'ceremony_country'
               phrases << :saudi_arabia_requirements_for_foreigners
+              phrases << :embassies_data
             else
               phrases << :saudi_arabia_requirements_for_residents
               if partner_nationality != 'partner_british'
@@ -1165,6 +1178,7 @@ module SmartAnswer
               phrases << :what_you_need_to_do_cni << :get_cni_at_registrar_in_uk << :legisation_and_translation_intro_uk << :legalise_translate_and_check_with_authorities << :names_on_documents_must_match
             else
               phrases << :cp_or_equivalent_cp_what_you_need_to_do
+              phrases << :embassies_data
             end
           end
           if partner_nationality != 'partner_british'
