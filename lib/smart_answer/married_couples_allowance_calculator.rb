@@ -38,7 +38,7 @@ module SmartAnswer
       end
 
       mca = mca_entitlement * 0.1
-      Money.new(mca)
+      SmartAnswer::Money.new(mca)
     end
 
     def validate(income)
