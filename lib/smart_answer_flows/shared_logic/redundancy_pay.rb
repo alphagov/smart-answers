@@ -63,4 +63,3 @@ end
 
 outcome :done_no_statutory
 outcome :done
-outcome :no_result_possible_yet

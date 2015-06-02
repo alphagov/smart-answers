@@ -64,9 +64,6 @@ en-GB:
 
         next_steps: |
           [Read the guide to Redundancy: your rights](https://www.gov.uk/redundant-your-rights)
-      no_result_possible_yet:
-        body: |
-          You can’t calculate redundancy rates after 5 April 2014 until the new rates are set on 6 April 2014.
 
     calculate-employee-redundancy-pay:
       title: "Calculate your employee's statutory redundancy pay"
@@ -133,6 +130,3 @@ en-GB:
         next_steps: |
           [Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
 
-      no_result_possible_yet:
-        body: |
-          You can’t calculate redundancy rates after 5 April 2014 until the new rates are set on 6 April 2014.
