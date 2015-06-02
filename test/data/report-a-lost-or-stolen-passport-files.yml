@@ -1,0 +1,8 @@
+--- 
+lib/smart_answer_flows/report-a-lost-or-stolen-passport.rb: 8313ba13aa54c9403dcceb8ba46abab2
+lib/smart_answer_flows/locales/en/report-a-lost-or-stolen-passport.yml: aa3aef9b4b753b856024fdc5f7d704a8
+test/data/report-a-lost-or-stolen-passport-questions-and-responses.yml: cb7d64407b737eeb4924389f3bd335c6
+test/data/report-a-lost-or-stolen-passport-responses-and-expected-results.yml: 2ef8837f76907e72aadb198636a62078
+lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: bf127beae0779af9821ba90df5febf6b
+test/fixtures/worldwide/azerbaijan_organisations.json: fc20a7069e6457f95fc9198ea6c3d2d0
+test/fixtures/worldwide/canada_organisations.json: 5995a2f7b236fbb891d74851c9fb5ae4

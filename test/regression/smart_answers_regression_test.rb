@@ -1,11 +1,13 @@
 require_relative "../test_helper"
 require 'gds_api/test_helpers/content_api'
+require 'gds_api/test_helpers/worldwide'
 
 class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
   self.i_suck_and_my_tests_are_order_dependent!
   RUN_ME_LAST = 'zzzzzzzzzzz run me last'
 
   include GdsApi::TestHelpers::ContentApi
+  include GdsApi::TestHelpers::Worldwide
 
   tests SmartAnswersController
 
@@ -25,6 +27,8 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
         Timecop.freeze(Date.parse('2015-01-01'))
         stub_content_api_default_artefact
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
+
+        setup_worldwide_locations
       end
 
       teardown do
@@ -80,6 +84,19 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
         diff_output = `git diff --stat -- #{smart_answer_helper.path_to_outputs_for_flow}`
         assert_equal '', diff_output, "Unexpected difference in outputs for flow:"
       end
+    end
+  end
+
+  private
+
+  def setup_worldwide_locations
+    location_slugs = Dir[fixture_file('worldwide/*_organisations.json')].map do |path|
+      File.basename(path, ".json").split("_").first
+    end
+    worldwide_api_has_locations(location_slugs)
+    location_slugs.each do |location|
+      json = read_fixture_file("worldwide/#{location}_organisations.json")
+      worldwide_api_has_organisations_for_location(location, json)
     end
   end
 end
