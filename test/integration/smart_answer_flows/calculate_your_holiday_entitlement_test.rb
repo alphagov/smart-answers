@@ -34,15 +34,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "calculate and be done when 5 days a week" do
-        SmartAnswer::Calculators::HolidayEntitlement.
-          expects(:new).
-          with(
-     days_per_week: 5,
-     start_date: nil,
-     leaving_date: nil,
-     leave_year_start_date: nil
-          ).
-          returns(@stubbed_calculator)
+        SmartAnswer::Calculators::HolidayEntitlement
+          .expects(:new)
+          .with(
+            days_per_week: 5,
+            start_date: nil,
+            leaving_date: nil,
+            leave_year_start_date: nil
+          ).returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
 
         add_response '5'
@@ -52,15 +51,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "calculate and be done when more than 5 days a week" do
-        SmartAnswer::Calculators::HolidayEntitlement.
-          expects(:new).
-          with(
-     days_per_week: 6,
-     start_date: nil,
-     leaving_date: nil,
-     leave_year_start_date: nil
-          ).
-          returns(@stubbed_calculator)
+        SmartAnswer::Calculators::HolidayEntitlement
+          .expects(:new)
+          .with(
+            days_per_week: 6,
+            start_date: nil,
+            leaving_date: nil,
+            leave_year_start_date: nil
+          ).returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
         @stubbed_calculator.expects(:full_time_part_time_days).returns(29)
 
@@ -99,15 +97,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "calculate and be done part year when 5 days" do
-            SmartAnswer::Calculators::HolidayEntitlement.
-              expects(:new).
-              with(
-  days_per_week: 5,
-  start_date: Date.parse("#{Date.today.year}-03-14"),
-  leaving_date: nil,
-  leave_year_start_date: Date.parse("#{Date.today.year}-05-02")
-              ).
-              returns(@stubbed_calculator)
+            SmartAnswer::Calculators::HolidayEntitlement
+              .expects(:new)
+              .with(
+                days_per_week: 5,
+                start_date: Date.parse("#{Date.today.year}-03-14"),
+                leaving_date: nil,
+                leave_year_start_date: Date.parse("#{Date.today.year}-05-02")
+              ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
 
             add_response '5'
@@ -118,15 +115,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "calculate and be done part year when 6 or 7 days" do
-            SmartAnswer::Calculators::HolidayEntitlement.
-              expects(:new).
-              with(
-  days_per_week: 5,
-  start_date: Date.parse("#{Date.today.year}-03-14"),
-  leaving_date: nil,
-  leave_year_start_date: Date.parse("#{Date.today.year}-05-02")
-              ).
-              returns(@stubbed_calculator)
+            SmartAnswer::Calculators::HolidayEntitlement
+              .expects(:new)
+              .with(
+                days_per_week: 5,
+                start_date: Date.parse("#{Date.today.year}-03-14"),
+                leaving_date: nil,
+                leave_year_start_date: Date.parse("#{Date.today.year}-05-02")
+              ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
             @stubbed_calculator.expects(:full_time_part_time_days).returns(29)
 
@@ -169,15 +165,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "calculate and be done part year when 5 days" do
-            SmartAnswer::Calculators::HolidayEntitlement.
-              expects(:new).
-              with(
-  days_per_week: 5,
-  start_date: nil,
-  leaving_date: Date.parse("#{Date.today.year}-07-14"),
-  leave_year_start_date: Date.parse("#{Date.today.year}-01-01")
-              ).
-              returns(@stubbed_calculator)
+            SmartAnswer::Calculators::HolidayEntitlement
+              .expects(:new)
+              .with(
+                days_per_week: 5,
+                start_date: nil,
+                leaving_date: Date.parse("#{Date.today.year}-07-14"),
+                leave_year_start_date: Date.parse("#{Date.today.year}-01-01")
+              ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
 
             add_response '5'
@@ -188,15 +183,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "calculate and be done part year when 6 days" do
-            SmartAnswer::Calculators::HolidayEntitlement.
-              expects(:new).
-              with(
-  days_per_week: 5,
-  start_date: nil,
-  leaving_date: Date.parse("#{Date.today.year}-07-14"),
-  leave_year_start_date: Date.parse("#{Date.today.year}-01-01")
-              ).
-              returns(@stubbed_calculator)
+            SmartAnswer::Calculators::HolidayEntitlement
+              .expects(:new)
+              .with(
+                days_per_week: 5,
+                start_date: nil,
+                leaving_date: Date.parse("#{Date.today.year}-07-14"),
+                leave_year_start_date: Date.parse("#{Date.today.year}-01-01")
+              ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
             @stubbed_calculator.expects(:full_time_part_time_days).returns(29)
 
@@ -232,15 +226,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_current_node :how_many_days_per_week?
           end
           should "calculate and be done part year when 5 days" do
-            SmartAnswer::Calculators::HolidayEntitlement.
-              expects(:new).
-              with(
-  days_per_week: 5,
-  start_date: Date.parse("#{Date.today.year}-07-14"),
-  leaving_date: Date.parse("#{Date.today.year}-10-14"),
-  leave_year_start_date: nil
-              ).
-              returns(@stubbed_calculator)
+            SmartAnswer::Calculators::HolidayEntitlement
+              .expects(:new)
+              .with(
+                days_per_week: 5,
+                start_date: Date.parse("#{Date.today.year}-07-14"),
+                leaving_date: Date.parse("#{Date.today.year}-10-14"),
+                leave_year_start_date: nil
+              ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
 
             add_response '5'
@@ -274,12 +267,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           add_response '32'
         end
         should "calculate the holiday entitlement" do
-          SmartAnswer::Calculators::HolidayEntitlement.
-            expects(:new).
-       with(hours_per_week: 32.0,
-     start_date: nil,
-     leaving_date: nil,
-     leave_year_start_date: nil).returns(@stubbed_calculator)
+          SmartAnswer::Calculators::HolidayEntitlement
+            .expects(:new)
+            .with(
+              hours_per_week: 32.0,
+              start_date: nil,
+              leaving_date: nil,
+              leave_year_start_date: nil
+            ).returns(@stubbed_calculator)
           @stubbed_calculator.expects(:full_time_part_time_hours).returns(179.2)
 
           assert_current_node :done
@@ -319,10 +314,10 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               SmartAnswer::Calculators::HolidayEntitlement.
                 expects(:new).
                 with(
-    hours_per_week: 37.0,
-    start_date: Date.parse("#{Date.today.year}-06-15"),
-    leaving_date: nil,
-    leave_year_start_date: Date.parse("#{Date.today.year}-01-01")
+                  hours_per_week: 37.0,
+                  start_date: Date.parse("#{Date.today.year}-06-15"),
+                  leaving_date: nil,
+                  leave_year_start_date: Date.parse("#{Date.today.year}-01-01")
                 ).
                 returns(@stubbed_calculator)
               @stubbed_calculator.expects(:full_time_part_time_hours).returns(79.5)
@@ -366,10 +361,10 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               SmartAnswer::Calculators::HolidayEntitlement.
                 expects(:new).
                 with(
-    hours_per_week: 26.5,
-    start_date: nil,
-    leaving_date: Date.parse("2012-06-15"),
-    leave_year_start_date: Date.parse("2012-01-01")
+                  hours_per_week: 26.5,
+                  start_date: nil,
+                  leaving_date: Date.parse("2012-06-15"),
+                  leave_year_start_date: Date.parse("2012-01-01")
                 ).
                 returns(@stubbed_calculator)
               @stubbed_calculator.expects(:full_time_part_time_hours).returns(19.75)
@@ -406,15 +401,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_current_node :how_many_hours_per_week?
           end
           should "calculate and be done part year when 5 days" do
-            SmartAnswer::Calculators::HolidayEntitlement.
-              expects(:new).
-              with(
-  hours_per_week: 37,
-  start_date: Date.parse("#{Date.today.year}-07-14"),
-  leaving_date: Date.parse("#{Date.today.year}-10-14"),
-  leave_year_start_date: nil
-              ).
-              returns(@stubbed_calculator)
+            SmartAnswer::Calculators::HolidayEntitlement
+              .expects(:new)
+              .with(
+                hours_per_week: 37,
+                start_date: Date.parse("#{Date.today.year}-07-14"),
+                leaving_date: Date.parse("#{Date.today.year}-10-14"),
+                leave_year_start_date: nil
+              ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:full_time_part_time_hours).returns(79.5)
 
             add_response '37'
@@ -443,10 +437,10 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     should "calculate and be done with a response" do
-      SmartAnswer::Calculators::HolidayEntitlement.
-        expects(:new).
- with(total_hours: 1500).
-        returns(@stubbed_calculator)
+      SmartAnswer::Calculators::HolidayEntitlement
+        .expects(:new)
+        .with(total_hours: 1500)
+        .returns(@stubbed_calculator)
       @stubbed_calculator.expects(:casual_irregular_entitlement).at_least_once.returns(['formatted hours', 'formatted minutes'])
 
       add_response '1500'
@@ -473,10 +467,10 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     should "calculate and be done with a response" do
-      SmartAnswer::Calculators::HolidayEntitlement.
-        expects(:new).
- with(total_hours: 1400.5).
-        returns(@stubbed_calculator)
+      SmartAnswer::Calculators::HolidayEntitlement
+        .expects(:new)
+        .with(total_hours: 1400.5)
+        .returns(@stubbed_calculator)
       @stubbed_calculator.expects(:annualised_entitlement).at_least_once.returns(['formatted hours', 'formatted minutes'])
       @stubbed_calculator.expects(:formatted_annualised_hours_per_week).returns('average hours per week')
 
@@ -527,10 +521,10 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     should "calculate and be done with hours and days entered" do
-      SmartAnswer::Calculators::HolidayEntitlement.
-        expects(:new).
- with(hours_per_week: 20.5, days_per_week: 3).
-        returns(@stubbed_calculator)
+      SmartAnswer::Calculators::HolidayEntitlement
+        .expects(:new)
+        .with(hours_per_week: 20.5, days_per_week: 3)
+        .returns(@stubbed_calculator)
       @stubbed_calculator.expects(:compressed_hours_entitlement).at_least_once.returns(['formatted hours', 'formatted minutes'])
       @stubbed_calculator.expects(:compressed_hours_daily_average).at_least_once.returns(['formatted daily hours', 'formatted daily minutes'])
 
@@ -581,17 +575,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         add_response '4'
         add_response '8'
 
-        SmartAnswer::Calculators::HolidayEntitlement.
-          expects(:new).
-          with(
-     start_date: nil,
-     leaving_date: nil,
-     leave_year_start_date: nil,
-     hours_per_shift: 7.25,
-     shifts_per_shift_pattern: 4,
-     days_per_shift_pattern: 8
-          ).
-          returns(@stubbed_calculator)
+        SmartAnswer::Calculators::HolidayEntitlement
+          .expects(:new)
+          .with(
+            start_date: nil,
+            leaving_date: nil,
+            leave_year_start_date: nil,
+            hours_per_shift: 7.25,
+            shifts_per_shift_pattern: 4,
+            days_per_shift_pattern: 8
+          ).returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_shifts_per_week).returns('shifts per week')
         @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
 
@@ -651,17 +644,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             add_response '4'
             add_response '8'
 
-            SmartAnswer::Calculators::HolidayEntitlement.
-              expects(:new).
-              with(
-  start_date: Date.parse("#{Date.today.year}-02-16"),
-  leaving_date: nil,
-  leave_year_start_date: Date.parse("#{Date.today.year}-07-01"),
-  hours_per_shift: 7.5,
-  shifts_per_shift_pattern: 4,
-  days_per_shift_pattern: 8
-            ).
-              returns(@stubbed_calculator)
+            SmartAnswer::Calculators::HolidayEntitlement
+              .expects(:new)
+              .with(
+                start_date: Date.parse("#{Date.today.year}-02-16"),
+                leaving_date: nil,
+                leave_year_start_date: Date.parse("#{Date.today.year}-07-01"),
+                hours_per_shift: 7.5,
+                shifts_per_shift_pattern: 4,
+                days_per_shift_pattern: 8
+              ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_shifts_per_week).returns('shifts per week')
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
             @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
@@ -725,17 +717,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             add_response '4'
             add_response '8'
 
-            SmartAnswer::Calculators::HolidayEntitlement.
-              expects(:new).
-              with(
-  start_date: nil,
-  leaving_date: Date.parse("#{Date.today.year}-02-16"),
-  leave_year_start_date: Date.parse("#{Date.today.year}-08-01"),
-  hours_per_shift: 7,
-  shifts_per_shift_pattern: 4,
-  days_per_shift_pattern: 8
-            ).
-              returns(@stubbed_calculator)
+            SmartAnswer::Calculators::HolidayEntitlement
+              .expects(:new)
+              .with(
+                start_date: nil,
+                leaving_date: Date.parse("#{Date.today.year}-02-16"),
+                leave_year_start_date: Date.parse("#{Date.today.year}-08-01"),
+                hours_per_shift: 7,
+                shifts_per_shift_pattern: 4,
+                days_per_shift_pattern: 8
+              ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_shifts_per_week).returns('shifts per week')
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
             @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
@@ -799,17 +790,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             add_response '4'
             add_response '8'
 
-            SmartAnswer::Calculators::HolidayEntitlement.
-              expects(:new).
-              with(
-  start_date: Date.parse("#{Date.today.year}-02-16"),
-  leaving_date: Date.parse("#{Date.today.year}-08-01"),
-  leave_year_start_date: nil,
-  hours_per_shift: 7,
-  shifts_per_shift_pattern: 4,
-  days_per_shift_pattern: 8
-            ).
-              returns(@stubbed_calculator)
+            SmartAnswer::Calculators::HolidayEntitlement
+              .expects(:new)
+              .with(
+                start_date: Date.parse("#{Date.today.year}-02-16"),
+                leaving_date: Date.parse("#{Date.today.year}-08-01"),
+                leave_year_start_date: nil,
+                hours_per_shift: 7,
+                shifts_per_shift_pattern: 4,
+                days_per_shift_pattern: 8
+              ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_shifts_per_week).returns('shifts per week')
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
             @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
