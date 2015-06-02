@@ -1,6 +1,6 @@
-require_relative '../test_helper'
+require_relative '../../test_helper'
 
-module SmartAnswer
+module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculatorTest < ActiveSupport::TestCase
 
     setup do
@@ -53,7 +53,7 @@ module SmartAnswer
 
     # backwards compatibility with version 1
     test "don't allow an income less than 1 by default" do
-      assert_raises InvalidResponse do
+      assert_raises SmartAnswer::InvalidResponse do
         default_calculator.calculate_allowance(@age_related_allowance, 0)
       end
     end

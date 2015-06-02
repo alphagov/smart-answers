@@ -1,4 +1,4 @@
-module SmartAnswer
+module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculator
     attr_accessor :validate_income
 

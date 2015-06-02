@@ -103,7 +103,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 end
 
                 should "calculate allowance using calculators" do
-                  SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                     expects(:calculate_adjusted_net_income)
                       .with(30000.0, 1000.0, 500.0, 100.0)
                       .returns("Adjusted net income")
@@ -112,7 +112,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                     expects(:get_age_related_allowance).
                     with(Date.parse '1930-05-25').
                     returns("Age related allowance")
-                  SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                     expects(:calculate_allowance).
                     with("Age related allowance", 'Adjusted net income').
                     returns("Calculated allowance")
@@ -145,7 +145,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
 
             should "calculate allowance using calculators" do
-              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_adjusted_net_income)
                   .with(30000.0, 40000.0, 0, 0)
                   .returns("Adjusted net income")
@@ -154,7 +154,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 expects(:get_age_related_allowance).
                 with(Date.parse '1930-05-25').
                 returns("Age related allowance")
-              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
                 with("Age related allowance", 'Adjusted net income').
                 returns("Calculated allowance")
@@ -184,7 +184,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
 
             should "calculate allowance using calculators" do
-              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_adjusted_net_income)
                   .with(30000.0, 0, 0, 100.0)
                   .returns("Adjusted net income")
@@ -193,7 +193,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 expects(:get_age_related_allowance).
                 with(Date.parse '1930-05-25').
                 returns("Age related allowance")
-              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
                 with("Age related allowance", 'Adjusted net income').
                 returns("Calculated allowance")
@@ -212,7 +212,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
 
             should "calculate allowance using calculators" do
-              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_adjusted_net_income)
                   .with(30000.0, 0, 0, 0)
                   .returns("Adjusted net income")
@@ -221,7 +221,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 expects(:get_age_related_allowance).
                 with(Date.parse '1930-05-25').
                 returns("Age related allowance")
-              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
                 with("Age related allowance", 'Adjusted net income').
                 returns("Calculated allowance")
@@ -247,7 +247,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             expects(:get_age_related_allowance).
             with(Date.parse '1930-05-25').
             returns("Age related allowance")
-          SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+          SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
             expects(:calculate_allowance).
             with("Age related allowance", 14500.0).
             returns("Calculated allowance")
@@ -318,7 +318,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 end
 
                 should "calculate allowance using calculators" do
-                  SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                     expects(:calculate_adjusted_net_income)
                       .with(30000.0, 1000.0, 500.0, 100.0)
                       .returns("Adjusted net income")
@@ -327,7 +327,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                     expects(:get_age_related_allowance).
                     with(Date.parse '1930-05-14').
                     returns("Age related allowance")
-                  SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                     expects(:calculate_allowance).
                     with("Age related allowance", 'Adjusted net income').
                     returns("Calculated allowance")
@@ -368,7 +368,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
 
             should "calculate allowance using calculators" do
-              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_adjusted_net_income)
                   .with(30000.0, 0, 0, 100.0)
                   .returns("Adjusted net income")
@@ -377,7 +377,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 expects(:get_age_related_allowance).
                 with(Date.parse '1930-05-14').
                 returns("Age related allowance")
-              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
                 with("Age related allowance", 'Adjusted net income').
                 returns("Calculated allowance")
@@ -396,7 +396,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             end
 
             should "calculate allowance using calculators" do
-              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_adjusted_net_income)
                   .with(30000.0, 0, 0, 0)
                   .returns("Adjusted net income")
@@ -405,7 +405,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 expects(:get_age_related_allowance).
                 with(Date.parse '1930-05-14').
                 returns("Age related allowance")
-              SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
                 with("Age related allowance", 'Adjusted net income').
                 returns("Calculated allowance")
@@ -429,7 +429,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             expects(:get_age_related_allowance).
             with(Date.parse '1930-05-14').
             returns("Age related allowance")
-          SmartAnswer::MarriedCouplesAllowanceCalculator.any_instance.
+          SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
             expects(:calculate_allowance).
             with("Age related allowance", 13850.5).
             returns("Calculated allowance")
