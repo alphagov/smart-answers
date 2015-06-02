@@ -1,3 +1,7 @@
+require 'timecop'
+
+Timecop.freeze(Date.parse('2015-01-01'))
+
 unless flow_name = ARGV.shift
   puts "Usage: #{__FILE__} <flow-name>"
   exit 1
