@@ -1,0 +1,23 @@
+---
+:work_the_same_number_of_days_each_week?:
+- same-number-of-days
+- different-number-of-days
+:how_many_days_per_week?:
+- 7-days
+- 6-days
+- 5-days
+- 4-days
+- 3-days
+- 2-days
+- 1-day
+:what_date_does_holiday_start?:
+- 2015-02-01
+:worked_for_same_employer?:
+- same-employer
+- multiple-employers
+:how_many_total_days?:
+- 1
+- 150
+:how_many_weeks_at_current_employer?:
+- 1
+- 52
