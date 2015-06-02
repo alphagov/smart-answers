@@ -313,9 +313,6 @@ en-GB:
           You may be asked to provide an [affirmation of freedom to marry document](/government/publications/information-for-british-nationals-intending-to-marry-in-laos) to prove you’re allowed to marry.
 
           Make an appointment at the British Embassy in Vientiane to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s ID and pay a fee.
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
         get_legal_advice: |
           ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
         check_travel_advice: |
@@ -452,7 +449,6 @@ en-GB:
           %You’ll probably be asked for a CNI if you want to marry a South African citizen in South Africa. You’ll need to ask if there are any other documents the authorities will accept instead.%
         commonwealth_os_marriage_subtleties_in_india: |
           The British High Commission in India can provide you with a letter explaining this position for a charge - see [consular fees for India](/government/publications/india-consular-fees).
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         commonwealth_os_marriage_subtleties_in_malaysia: |
           The British High Commission in Malaysia can provide you with a letter explaining this position for a charge - see [consular fees for Malaysia](/government/publications/malaysia-consular-fees).
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
@@ -479,19 +475,14 @@ en-GB:
           Access to the British Indian Ocean Territory is restricted, and it’s unlikely that marriage would be allowed there.
 
           Contact the British Indian Ocean Territory Administration for further details.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         bot_os_ceremony_bvi: |
           The British Virgin Islands is a British overseas territory.
 
           Contact the [Civil Registry](http://www.bvi.gov.vg/department/civil-registry-and-passport-office) to find out about getting married there, including what documents you’ll need.
-
-          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
         bot_os_ceremony_non_biot: |
           %{country_name_uppercase_prefix} is a British overseas territory.
 
           Contact the %{ceremony_country_name} Government to find out about getting married there, including what documents you’ll need.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-          You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
 # Marriage in a country with consular CNI phrases
         japan_intro: |
           Contact your [nearest embassy or consulate](http://www.mofa.go.jp/about/emb_cons/over/index.html) of Japan to find out about local marriage laws, including what documents you’ll need.
@@ -645,8 +636,6 @@ en-GB:
 
           Email <RussiaConsular@fco.gov.uk> to find out where your local consulate is.
 
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
         consular_cni_os_local_resident_italy: |
           To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
 
@@ -714,8 +703,6 @@ en-GB:
             - proof of residence, eg a residence certificate - check with the embassy or consulate for advice
 
         japan_consular_cni_os_local_resident: |
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
           ##Giving notice of marriage
 
           You’ll need to provide supporting documents, including:
@@ -1031,7 +1018,6 @@ en-GB:
           Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
           The British Embassy in Saudi Arabia may also be able to give you advice.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
         saudi_arabia_requirements_for_residents: |
           One of you must be a Muslim to get married under local laws in Saudi Arabia. Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
 
@@ -1208,7 +1194,6 @@ en-GB:
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to enter into a civil partnership or equivalent in %{country_name_lowercase_prefix}.
 
           Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 
         what_you_need_to_do_cni: |
           ##What you need to do
