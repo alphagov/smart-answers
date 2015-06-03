@@ -1,0 +1,768 @@
+--- 
+- :current_node: :where_did_the_death_happen?
+  :responses: 
+  - england_wales
+  :next_node: :did_the_person_die_at_home_hospital?
+  :outcome_node: false
+- :current_node: :did_the_person_die_at_home_hospital?
+  :responses: 
+  - england_wales
+  - at_home_hospital
+  :next_node: :was_death_expected?
+  :outcome_node: false
+- :current_node: :was_death_expected?
+  :responses: 
+  - england_wales
+  - at_home_hospital
+  - "yes"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :was_death_expected?
+  :responses: 
+  - england_wales
+  - at_home_hospital
+  - "no"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :did_the_person_die_at_home_hospital?
+  :responses: 
+  - england_wales
+  - elsewhere
+  :next_node: :was_death_expected?
+  :outcome_node: false
+- :current_node: :was_death_expected?
+  :responses: 
+  - england_wales
+  - elsewhere
+  - "yes"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :was_death_expected?
+  :responses: 
+  - england_wales
+  - elsewhere
+  - "no"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :where_did_the_death_happen?
+  :responses: 
+  - scotland
+  :next_node: :did_the_person_die_at_home_hospital?
+  :outcome_node: false
+- :current_node: :did_the_person_die_at_home_hospital?
+  :responses: 
+  - scotland
+  - at_home_hospital
+  :next_node: :was_death_expected?
+  :outcome_node: false
+- :current_node: :was_death_expected?
+  :responses: 
+  - scotland
+  - at_home_hospital
+  - "yes"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :was_death_expected?
+  :responses: 
+  - scotland
+  - at_home_hospital
+  - "no"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :did_the_person_die_at_home_hospital?
+  :responses: 
+  - scotland
+  - elsewhere
+  :next_node: :was_death_expected?
+  :outcome_node: false
+- :current_node: :was_death_expected?
+  :responses: 
+  - scotland
+  - elsewhere
+  - "yes"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :was_death_expected?
+  :responses: 
+  - scotland
+  - elsewhere
+  - "no"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :where_did_the_death_happen?
+  :responses: 
+  - northern_ireland
+  :next_node: :did_the_person_die_at_home_hospital?
+  :outcome_node: false
+- :current_node: :did_the_person_die_at_home_hospital?
+  :responses: 
+  - northern_ireland
+  - at_home_hospital
+  :next_node: :was_death_expected?
+  :outcome_node: false
+- :current_node: :was_death_expected?
+  :responses: 
+  - northern_ireland
+  - at_home_hospital
+  - "yes"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :was_death_expected?
+  :responses: 
+  - northern_ireland
+  - at_home_hospital
+  - "no"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :did_the_person_die_at_home_hospital?
+  :responses: 
+  - northern_ireland
+  - elsewhere
+  :next_node: :was_death_expected?
+  :outcome_node: false
+- :current_node: :was_death_expected?
+  :responses: 
+  - northern_ireland
+  - elsewhere
+  - "yes"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :was_death_expected?
+  :responses: 
+  - northern_ireland
+  - elsewhere
+  - "no"
+  :next_node: :uk_result
+  :outcome_node: true
+- :current_node: :where_did_the_death_happen?
+  :responses: 
+  - overseas
+  :next_node: :which_country?
+  :outcome_node: false
+- :current_node: :which_country?
+  :responses: 
+  - overseas
+  - afghanistan
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - same_country
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  :next_node: :which_country_are_you_in_now?
+  :outcome_node: false
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - afghanistan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - algeria
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - armenia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - south-georgia-and-south-sandwich-islands
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - afghanistan
+  - in_the_uk
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses: 
+  - overseas
+  - australia
+  :next_node: :commonwealth_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses: 
+  - overseas
+  - iran
+  :next_node: :no_embassy_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses: 
+  - overseas
+  - libya
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - libya
+  - same_country
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  :next_node: :which_country_are_you_in_now?
+  :outcome_node: false
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - afghanistan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - algeria
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - armenia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - south-georgia-and-south-sandwich-islands
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - libya
+  - in_the_uk
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses: 
+  - overseas
+  - north-korea
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - same_country
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  :next_node: :which_country_are_you_in_now?
+  :outcome_node: false
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - afghanistan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - algeria
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - armenia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - south-georgia-and-south-sandwich-islands
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - in_the_uk
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - same_country
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  :next_node: :which_country_are_you_in_now?
+  :outcome_node: false
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - afghanistan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - algeria
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - armenia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - south-georgia-and-south-sandwich-islands
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - in_the_uk
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - same_country
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  :next_node: :which_country_are_you_in_now?
+  :outcome_node: false
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - afghanistan
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - algeria
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - armenia
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - brazil
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - china
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - czech-republic
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - estonia
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - hong-kong
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - papua-new-guinea
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - philippines
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - south-georgia-and-south-sandwich-islands
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - taiwan
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - in_the_uk
+  :next_node: :oru_result
+  :outcome_node: true

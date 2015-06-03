@@ -1,0 +1,37 @@
+--- 
+:where_did_the_death_happen?: 
+- england_wales
+- scotland
+- northern_ireland
+- overseas
+:did_the_person_die_at_home_hospital?: 
+- at_home_hospital
+- elsewhere
+:was_death_expected?: 
+- "yes"
+- "no"
+:which_country?: 
+- afghanistan
+- australia
+- iran
+- libya
+- north-korea
+- papua-new-guinea
+- pitcairn-island
+:where_are_you_now?: 
+- same_country
+- another_country
+- in_the_uk
+:which_country_are_you_in_now?: 
+- afghanistan
+- algeria
+- armenia
+- brazil
+- china
+- czech-republic
+- estonia
+- hong-kong
+- papua-new-guinea
+- philippines
+- south-georgia-and-south-sandwich-islands
+- taiwan
