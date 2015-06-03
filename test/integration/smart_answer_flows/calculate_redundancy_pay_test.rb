@@ -205,12 +205,24 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
       end
     end # After Feb 2013
 
-    context "answer 05 April 2014" do
+    context "answer tomorrow" do
       setup do
-        add_response Date.parse("2014-04-05")
+        add_response (Date.today + 1.day).to_s
       end
       should "ask employee age" do
         assert_current_node :age_of_employee?
+      end
+    end
+
+    context "dates out of range" do
+      should "not allow dates before 2012" do
+        add_response Date.parse("2011-12-21")
+        assert_current_node_is_error
+      end
+
+      should "not allow dates next year" do
+        add_response (Date.today.end_of_year + 1.day).to_s
+        assert_current_node_is_error
       end
     end
   end

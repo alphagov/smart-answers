@@ -63,6 +63,18 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
             assert_current_node :first_sick_day?
           end
 
+          context "dates out of range" do
+            should "not allow dates before 2011" do
+              add_response Date.parse("2010-12-31")
+              assert_current_node_is_error
+            end
+
+            should "not allow dates next year" do
+              add_response (Date.today.end_of_year + 1.day).to_s
+              assert_current_node_is_error
+            end
+          end
+
           context "answer 2 March 2014" do
             setup do
               add_response Date.parse('2 March 2014')
@@ -174,6 +186,18 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
               assert_current_node :last_sick_day? # Q5
             end
 
+            context "dates out of range" do
+              should "not allow dates before 2012" do
+                add_response Date.parse("2011-12-21")
+                assert_current_node_is_error
+              end
+
+              should "not allow dates next year" do
+                add_response (Date.today.end_of_year + 1.day).to_s
+                assert_current_node_is_error
+              end
+            end
+
             context "answering last sick day" do
               context "last sick day is less than 3 days after first" do
                 setup do
@@ -213,14 +237,39 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                       assert_current_node :last_payday_before_sickness?
                       assert_state_variable :pay_pattern, 'weekly'
                     end
+
+                    context "dates out of range" do
+                      should "not allow dates before 2010" do
+                        add_response Date.parse("2009-12-31")
+                        assert_current_node_is_error
+                      end
+
+                      should "not allow dates next year" do
+                        add_response (Date.today.end_of_year + 1.day).to_s
+                        assert_current_node_is_error
+                      end
+                    end
+
                     context "enter last payday before start of sickness" do
                       setup do
                         add_response '31/03/2013'
                       end
                       should "ask for last normal payday before payday offset" do # Q6.1
                         assert_current_node :last_payday_before_offset?
-
                       end
+
+                      context "dates out of range" do
+                        should "not allow dates before 2010" do
+                          add_response Date.parse("2009-12-31")
+                          assert_current_node_is_error
+                        end
+
+                        should "not allow dates next year" do
+                          add_response (Date.today.end_of_year + 1.day).to_s
+                          assert_current_node_is_error
+                        end
+                      end
+
                       context "enter last payday before offset" do
                         setup do
                           add_response '31/01/2013'
@@ -243,6 +292,19 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                             should "ask for start date of linked period of sickness" do # Q11.1
                               assert_current_node :linked_sickness_start_date?
                             end
+
+                            context "dates out of range" do
+                              should "not allow dates before 2010" do
+                                add_response Date.parse("2009-12-31")
+                                assert_current_node_is_error
+                              end
+
+                              should "not allow dates next year" do
+                                add_response (Date.today.end_of_year + 1.day).to_s
+                                assert_current_node_is_error
+                              end
+                            end
+
                             context "enter previous sickness start date" do
                               setup do
                                 add_response ' 1/01/2013'

@@ -31,6 +31,19 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         should "ask what's your date of birth" do
           assert_current_node :date_of_birth?
         end
+
+        context "dates out of range" do
+          should "not allow dates far in the past" do
+            add_response Date.parse("1850-12-21")
+            assert_current_node_is_error
+          end
+
+          should "not allow dates next year" do
+            add_response (Date.today.end_of_year + 1.day).to_s
+            assert_current_node_is_error
+          end
+        end
+
         context "answer before 5th July 1951" do
           setup do
             add_response ' 4/07/1951'

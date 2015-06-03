@@ -11,6 +11,7 @@ module SmartAnswer
       date_question :dob_age? do
         from { 110.years.ago }
         to { Date.today - 18.years }
+        validate_in_range
 
         save_input_as :date_of_birth
 

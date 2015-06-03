@@ -28,6 +28,8 @@ module SmartAnswer
       date_question :what_is_your_dob? do
         from { Date.today - 100.years }
         to { Date.today.end_of_year }
+        validate_in_range
+
         next_node do |response|
           calculator.dob = response
           if getting_dla
