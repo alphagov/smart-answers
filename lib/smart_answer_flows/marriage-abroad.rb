@@ -374,10 +374,8 @@ module SmartAnswer
 
           if resident_of == 'uk'
             phrases << :contact_embassy_of_ceremony_country_in_uk_marriage
-          elsif resident_of == 'ceremony_country'
-            phrases << :contact_local_authorities_in_country_marriage
           else
-            phrases << :contact_nearest_institution_representing_ceremony_country_marriage
+            phrases << :contact_local_authorities_in_country_marriage
           end
 
           phrases << :get_legal_and_travel_advice
@@ -593,7 +591,7 @@ module SmartAnswer
               else
                 phrases << :contact_embassy_of_ceremony_country_in_uk_marriage
               end
-            elsif resident_of == 'ceremony_country'
+            else
               phrases << :contact_local_authorities_in_country_marriage
             end
           end
@@ -910,13 +908,13 @@ module SmartAnswer
               if ceremony_country == 'morocco'
                 phrases << :contact_laadoul
               end
-            elsif (resident_of == 'ceremony_country') || ceremony_country == 'qatar'
+            elsif resident_of == 'ceremony_country' || ceremony_country == 'qatar'
               phrases << :contact_local_authorities_in_country_marriage
               if ceremony_country == 'qatar'
                 phrases << :gulf_states_os_consular_cni << :gulf_states_os_consular_cni_local_resident
               end
             elsif resident_of == 'third_country'
-              phrases << :contact_nearest_embassy_or_consulate_of_ceremony_country
+              phrases << :contact_local_authorities_in_country_marriage
               if ceremony_country == 'morocco'
                 phrases << :contact_laadoul
               end
@@ -1079,16 +1077,14 @@ module SmartAnswer
             phrases << :country_is_dutch_caribbean_island
             if resident_of == 'uk'
               phrases << :contact_dutch_embassy_in_uk
-            else resident_of == 'ceremony_country'
+            else
               phrases << :contact_local_authorities_in_country_marriage
             end
           else
-            if resident_of == 'ceremony_country' || data_query.ss_unknown_no_embassies?(ceremony_country)
+            if resident_of != 'uk' || data_query.ss_unknown_no_embassies?(ceremony_country)
               phrases << :contact_local_authorities_in_country_marriage
             elsif resident_of == 'uk'
               phrases << :contact_embassy_or_consulate_representing_ceremony_country_in_uk
-            elsif resident_of == 'third_country'
-              phrases << :contact_nearest_institution_representing_ceremony_country_marriage
             end
           end
 
@@ -1165,10 +1161,8 @@ module SmartAnswer
             phrases << :check_travel_advice
           elsif resident_of == 'uk'
             phrases << :contact_embassy_of_ceremony_country_in_uk_cp
-          elsif resident_of == 'ceremony_country'
+          else
             phrases << :contact_local_authorities_in_country_cp
-          elsif resident_of == 'third_country'
-            phrases << :contact_nearest_embassy_or_consulate_of_ceremony_country_cp
           end
 
           if resident_of != 'ceremony_country' && ceremony_country != 'brazil'
@@ -1229,18 +1223,14 @@ module SmartAnswer
             phrases << :country_is_dutch_caribbean_island
             if resident_of == 'uk'
               phrases << :contact_dutch_embassy_in_uk_cp
-            elsif resident_of == 'ceremony_country'
+            else
               phrases << :contact_local_authorities_in_country_cp
-            elsif resident_of == 'third_country'
-              phrases << :contact_nearest_dutch_embassy_cp
             end
           else
             if resident_of == 'uk'
               phrases << :contact_embassy_or_consulate_representing_ceremony_country_in_uk_cp
-            elsif resident_of == 'ceremony_country'
+            else
               phrases << :contact_local_authorities_in_country_cp
-            elsif resident_of == 'third_country'
-              phrases << :contact_nearest_embassy_or_consulate_representing_ceremony_country_cp
             end
           end
           phrases << :no_consular_facilities_to_register_ss
@@ -1268,12 +1258,13 @@ module SmartAnswer
 
           if resident_of == 'uk'
             phrases << :contact_high_comission_of_ceremony_country_in_uk_cp
-            phrases << :get_legal_and_travel_advice
-          elsif resident_of == 'ceremony_country'
+          else
             phrases << :contact_local_authorities_in_country_cp
+          end
+
+          if resident_of == 'ceremony_country'
             phrases << :get_legal_advice
-          elsif resident_of == 'third_country'
-            phrases << :contact_nearest_high_commission_embassy_or_consulate_cp
+          else
             phrases << :get_legal_and_travel_advice
           end
 
