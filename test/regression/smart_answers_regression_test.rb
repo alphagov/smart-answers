@@ -90,13 +90,14 @@ class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
   private
 
   def setup_worldwide_locations
-    location_slugs = Dir[fixture_file('worldwide/*_organisations.json')].map do |path|
-      File.basename(path, ".json").split("_").first
-    end
+    location_slugs = YAML.load(read_fixture_file("worldwide_locations.yml"))
     worldwide_api_has_locations(location_slugs)
     location_slugs.each do |location|
-      json = read_fixture_file("worldwide/#{location}_organisations.json")
-      worldwide_api_has_organisations_for_location(location, json)
+      path_to_organisations_fixture = fixture_file("worldwide/#{location}_organisations.json")
+      if File.exist?(path_to_organisations_fixture)
+        json = File.read(path_to_organisations_fixture)
+        worldwide_api_has_organisations_for_location(location, json)
+      end
     end
   end
 end
