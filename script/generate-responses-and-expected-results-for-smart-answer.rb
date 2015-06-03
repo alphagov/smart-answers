@@ -7,6 +7,13 @@ unless flow_name = ARGV.shift
   exit 1
 end
 
+if ENV["TEST_COVERAGE"]
+  require 'simplecov'
+
+  SimpleCov.command_name "Generate Responses & Expected Results"
+  SimpleCov.start 'rails'
+end
+
 smart_answer_helper = SmartAnswerTestHelper.new(flow_name)
 
 questions_and_responses_path = smart_answer_helper.question_and_responses_path
