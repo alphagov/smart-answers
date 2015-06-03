@@ -95,7 +95,7 @@ module SmartAnswer
 
       # Q3
       date_question :date_of_birth? do
-        from { 100.years.ago }
+        from { 122.years.ago.beginning_of_year }
         to { Date.today.end_of_year }
         validate_in_range
 

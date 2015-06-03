@@ -9,7 +9,7 @@ module SmartAnswer
 
       #Q1
       date_question :dob_age? do
-        from { 110.years.ago }
+        from { 122.years.ago.beginning_of_year }
         to { Date.today - 18.years }
         validate_in_range
 

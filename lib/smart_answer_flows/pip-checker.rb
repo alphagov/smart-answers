@@ -26,7 +26,7 @@ module SmartAnswer
 
       ## Q2
       date_question :what_is_your_dob? do
-        from { Date.today - 100.years }
+        from { 122.years.ago.beginning_of_year }
         to { Date.today.end_of_year }
         validate_in_range
 

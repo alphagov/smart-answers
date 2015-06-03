@@ -42,8 +42,8 @@ module SmartAnswer
 
       # Q3:Age
       date_question :dob_age? do
-        from { 100.years.ago }
-        to { Date.today.end_of_year  }
+        from { 122.years.ago.beginning_of_year }
+        to { Date.today.end_of_year }
         validate_in_range
 
         save_input_as :dob
@@ -129,7 +129,7 @@ module SmartAnswer
 
       # Q3:Amount
       date_question :dob_amount? do
-        from { 100.years.ago }
+        from { 122.years.ago.beginning_of_year }
         to { Date.today.end_of_year }
         validate_in_range
 
