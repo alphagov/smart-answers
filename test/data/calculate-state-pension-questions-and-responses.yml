@@ -1,0 +1,32 @@
+--- 
+:which_calculation?: 
+- age
+- amount
+:gender?: 
+- male
+- female
+:dob_age?: 
+- "TODO: What is your date of birth?"
+:dob_amount?: 
+- "TODO: What is your date of birth?"
+:pay_reduced_ni_rate?: 
+- "yes"
+- "no"
+:years_paid_ni?: 
+- "TODO: How many years have you worked and paid National Insurance contributions from the age of 19?"
+:years_of_jsa?: 
+- "TODO: How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
+:received_child_benefit?: 
+- "yes"
+- "no"
+:years_of_benefit?: 
+- "TODO: Before 6 April 2010 how many years did any of the following apply:"
+:years_of_caring?: 
+- "TODO: From 6 April 2010 how many years did any of the following apply:"
+:years_of_carers_allowance?: 
+- "TODO: How many years have you received Carer\xE2\x80\x99s Allowance?"
+:years_of_work?: 
+- "TODO: How many years between age 16 and 19 were you working and paying National Insurance Contributions, or receiving National Insurance credits?"
+:lived_or_worked_outside_uk?: 
+- "yes"
+- "no"
