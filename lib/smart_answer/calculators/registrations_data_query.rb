@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITH_CONSULATES = %w(china colombia israel russia turkey)
 
-    COUNTRIES_WITH_CONSULATE_GENERALS = %(brazil hong-kong turkey)
+    COUNTRIES_WITH_CONSULATE_GENERALS = %w(brazil hong-kong turkey)
 
     COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION = %w(afghanistan iraq jordan kuwait oman pakistan qatar saudi-arabia united-arab-emirates)
 
