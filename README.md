@@ -113,7 +113,9 @@ Test a single Smartdown flow by running:
 
 7. Run the regression test to generate the HTML of each outcome reached by the set of input responses.
 
-        $ TEST_COVERAGE=true ruby test/regression/smart_answers_regression_test.rb
+        $ RUN_REGRESSION_TESTS=<name-of-smart-answer> \
+          TEST_COVERAGE=true \
+          ruby test/regression/smart_answers_regression_test.rb
 
 8. Commit the generated outcome HTML files (in test/artefacts) to git.
 
