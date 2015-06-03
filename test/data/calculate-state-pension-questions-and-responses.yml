@@ -1,32 +1,49 @@
---- 
-:which_calculation?: 
+---
+:which_calculation?:
 - age
 - amount
-:gender?: 
+:gender?:
 - male
 - female
-:dob_age?: 
-- "TODO: What is your date of birth?"
-:dob_amount?: 
-- "TODO: What is your date of birth?"
-:pay_reduced_ni_rate?: 
+:dob_age?:
+- 1950-02-01
+- 1951-04-06
+- 1980-01-01
+- 2000-01-01
+:dob_amount?:
+- 1950-01-01
+- 1950-02-01
+- 1951-01-01
+- 1951-06-01
+- 1952-02-29
+- 1954-01-01
+- 1960-01-01
+- 1992-04-06
+- 1993-04-06
+:pay_reduced_ni_rate?:
 - "yes"
 - "no"
-:years_paid_ni?: 
-- "TODO: How many years have you worked and paid National Insurance contributions from the age of 19?"
-:years_of_jsa?: 
-- "TODO: How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
-:received_child_benefit?: 
+:years_paid_ni?:
+- 1
+- 11
+- 23
+- 27
+- 30
+:years_of_jsa?:
+- 1
+:received_child_benefit?:
 - "yes"
 - "no"
-:years_of_benefit?: 
-- "TODO: Before 6 April 2010 how many years did any of the following apply:"
-:years_of_caring?: 
-- "TODO: From 6 April 2010 how many years did any of the following apply:"
-:years_of_carers_allowance?: 
-- "TODO: How many years have you received Carer\xE2\x80\x99s Allowance?"
-:years_of_work?: 
-- "TODO: How many years between age 16 and 19 were you working and paying National Insurance Contributions, or receiving National Insurance credits?"
-:lived_or_worked_outside_uk?: 
+:years_of_benefit?:
+- 1
+:years_of_caring?:
+- 1
+:years_of_carers_allowance?:
+- 1
+:years_of_work?:
+- 0
+- 1
+- 2
+:lived_or_worked_outside_uk?:
 - "yes"
 - "no"
