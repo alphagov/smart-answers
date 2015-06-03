@@ -20,11 +20,7 @@ module SmartAnswer
         end
 
         calculate :postcodes do
-          if Date.today > Date.civil(2014, 02, 02)
-            PhraseList.new(:scheme_postcodes)
-          else
-            PhraseList.new(:scheme_postcodes_pre_3rd_feb_2014)
-          end
+          PhraseList.new(:scheme_postcodes)
         end
       end
 

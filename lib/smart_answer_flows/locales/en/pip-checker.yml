@@ -67,20 +67,6 @@ en-GB:
           - | - | -
           AB (Aberdeen), DD (Dundee), DG (Dumfries and Galloway), EH (Edinburgh), G (Glasgow, IV (Inverness), KA (Kilmarnock), KY (Kirkcaldy), ML (Motherwell), PH (Perth), TD (Galashiels), FK (Falkirk) | PA (Paisley)  | HS (Hebrides), KW (Kirkwall), ZE (Lerwick)
 
-        scheme_postcodes_pre_3rd_feb_2014: |
-          - DG (Dumfries and Galloway)
-          - EH (Edinburgh)
-          - TD (Galashiels)
-          - ML (Motherwell)
-
-          On 3 February 2014 the scheme will be expanded to include postcodes beginning with:
-
-          - CA (Carlisle)
-          - DL (Darlington)
-          - HG (Harrogate)
-          - LA (Lancaster)
-          - YO (York)
-
       ## Q1
       are_you_getting_dla?:
         title: "Are you getting Disability Living Allowance?"
