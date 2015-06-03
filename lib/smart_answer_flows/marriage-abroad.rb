@@ -384,8 +384,8 @@ module SmartAnswer
           phrases << :what_you_need_to_do
           phrases << :what_to_do_laos
           phrases << :embassies_data
-          phrases << :legalisation_and_translation
           phrases << :fee_and_required_supporting_documents_for_appointment
+          phrases << :legalisation_and_translation
           phrases << :affirmation_os_translation_in_local_language_text
           phrases << :docs_decree_and_death_certificate
           phrases << :divorced_or_widowed_evidences
@@ -958,8 +958,10 @@ module SmartAnswer
             phrases << :embassies_data
             if ceremony_country == 'cambodia'
               phrases << :fee_and_required_supporting_documents_for_appointment
+              phrases << :legalisation_and_translation
               phrases << :affirmation_os_translation_in_local_language_text
             elsif ceremony_country != 'china' && ceremony_country != 'egypt'
+              phrases << :legalisation_and_translation
               phrases << :affirmation_os_translation_in_local_language_text
             end
           end
