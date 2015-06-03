@@ -944,7 +944,7 @@ module SmartAnswer
           if ceremony_country == 'turkey' && resident_of == 'uk'
             phrases << :appointment_for_affidavit_notary
           elsif ceremony_country == 'philippines'
-            phrases << :contact_for_affidavit << :make_appointment_online_philippines
+            phrases << :contact_for_affidavit
           elsif ceremony_country == 'egypt'
             phrases << :make_an_appointment
           elsif ceremony_country == 'china'
