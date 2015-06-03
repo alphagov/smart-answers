@@ -40,6 +40,40 @@ module SmartAnswer
       assert_equal ::Date.parse('2011-01-01')..::Date.parse('2011-01-03'), q.range
     end
 
+    test "a day before the allowed range is invalid" do
+      assert_raises(InvalidResponse) do
+        date_question_2011.transition(@initial_state, '2010-12-31')
+      end
+    end
+
+    test "a day after the allowed range is invalid" do
+      assert_raises(InvalidResponse) do
+        date_question_2011.transition(@initial_state, '2012-01-01')
+      end
+    end
+
+    test "the first day of the allowed range is valid" do
+      new_state = date_question_2011.transition(@initial_state, '2011-01-01')
+      assert @initial_state != new_state
+    end
+
+    test "the last day of the allowed range is valid" do
+      new_state = date_question_2011.transition(@initial_state, '2011-12-31')
+      assert @initial_state != new_state
+    end
+
+    test "do not complain when the input is within the allowed range when the dates are in descending order" do
+      q = Question::Date.new(:example) do
+        save_input_as :date
+        next_node :done
+        from { Date.parse('2011-01-03') }
+        to { Date.parse('2011-01-01') }
+        validate_in_range
+      end
+
+      q.transition(@initial_state, '2011-01-02')
+    end
+
     test "define default date" do
       q = Question::Date.new(:example) do
         default { Date.today }
@@ -91,6 +125,17 @@ module SmartAnswer
       incomplete_date = {year: "2013", month: "2", day: ""}
       new_state = q.transition(@initial_state, incomplete_date)
       assert_equal Date.parse('2013-02-28'), new_state.date
+    end
+
+  private
+    def date_question_2011
+      Question::Date.new(:example) do
+        save_input_as :date
+        next_node :done
+        from { Date.parse('2011-01-01') }
+        to { Date.parse('2011-12-31') }
+        validate_in_range
+      end
     end
   end
 end
