@@ -810,7 +810,9 @@ en-GB:
 
           ^The embassy or consulate may charge a fee to return your documents to you.^
 
-          The consulate will display your notice of marriage publicly for 7 days. They’ll then send all of your documentation to the nearest British embassy or consulate in %{country_name_lowercase_prefix} to where you’re getting married, who will issue your CNI (as long as nobody has registered an objection).
+          The consulate will display your notice of marriage publicly for 7 days.
+
+          They’ll then send all of your documentation to the British embassy or consulate nearest to where you’re getting married in %{country_name_lowercase_prefix}, who will issue your CNI (as long as nobody has registered an objection).
 
           There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
 
