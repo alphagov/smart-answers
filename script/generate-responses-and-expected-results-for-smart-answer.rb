@@ -9,8 +9,10 @@ end
 
 if ENV["TEST_COVERAGE"]
   require 'simplecov'
+  require 'simplecov-rcov'
 
   SimpleCov.command_name "Generate Responses & Expected Results"
+  SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
   SimpleCov.start 'rails'
 end
 
