@@ -11,27 +11,26 @@
 - "yes"
 - "no"
 :which_country?: 
-- afghanistan
-- australia
-- iran
-- libya
-- north-korea
-- papua-new-guinea
-- pitcairn-island
+- australia # :commonwealth_result
+- iran # country_has_no_embassy
+- libya # :approved_translator_link
+- north-korea # :documents_list_embassy_north-korea, :footnote_exceptions
+- papua-new-guinea # :oru_documents_variant_papua-new-guinea
+- pitcairn-island # :registration_can_take_3_months
 :where_are_you_now?: 
 - same_country
 - another_country
 - in_the_uk
 :which_country_are_you_in_now?: 
-- afghanistan
-- algeria
-- armenia
-- brazil
-- china
-- czech-republic
-- estonia
-- hong-kong
-- papua-new-guinea
-- philippines
-- south-georgia-and-south-sandwich-islands
-- taiwan
+- algeria # :payment_method_in_algeria
+- brazil # :postal_registration_by_form
+- china # :embassy_high_commission_or_consulate "British embassy or consulate"
+- czech-republic # :post_only_pay_by_card_countries
+- estonia # :cash_and_card
+- hong-kong # :booking_text_embassy_hong_kong
+- italy # :postal_delivery_form
+- libya # :consular_service_fees_libya
+- papua-new-guinea # :embassy_high_commission_or_consulate "British high commission"
+- philippines # :post_only_#{philippines}
+- south-georgia-and-south-sandwich-islands # :overseas_passports_embassies (no FCO organisation)
+- taiwan # :embassy_high_commission_or_consulate "British Trade & Cultural Office"
