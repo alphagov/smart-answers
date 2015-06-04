@@ -16,10 +16,6 @@ module SmartAnswer::Calculators
         "IPS")
     end
 
-    def fco_application?
-      SmartAnswer::Predicate::VariableMatches.new(:application_type, %w{pretoria_south_africa})
-    end
-
     include ActionView::Helpers::NumberHelper
 
     ALT_EMBASSIES = {

@@ -1492,54 +1492,6 @@ en-GB:
             Textphone: +44 1750 725 368
           $C
 
-      fco_result:
-        body: |
-          ## How long it takes
-          %{how_long_it_takes}
-
-          Your application may take longer if:
-
-          - you don’t send the right supporting documents or payment
-          - the photographs you send are rejected
-
-          Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
-
-          ## Cost
-          %{cost}
-
-          ## How to apply
-
-          1. Download the application form and guidance notes that help you fill it in.
-
-          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports "Passport photo requirements") or your application may be delayed.
-
-          3. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English fully translated by a professional translator.
-
-          %{how_to_apply_supplement}
-
-          %{hurricane_warning}
-
-          %{fco_forms}
-
-          %{supporting_documents}
-
-          ## Submit your application
-
-          %{send_your_application}
-
-          ## Getting your passport
-
-          %{getting_your_passport}
-
-
-          ## If your passport hasn't arrived
-
-          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
-
-          Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
-
-          %{helpline}
-
       ips_application_result_online:
         body: |
           ## How long it takes
