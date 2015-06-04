@@ -93,13 +93,23 @@ Test a single Smartdown flow by running:
 
 ### Adding regression tests to Smart Answers
 
-1. Generate a set of responses for the flow that you want to add regression tests to.
+1. Update the flow to replace any single line conditionals around `Phraselist`s with multiple line conditionals. This is so that we get useful information from the running the coverage utility. Single line conditionals will show up as having been exercised irrespective of whether they caused something to be added to the `Phraselist`.
+
+        # Replace single line conditional
+        phrases << :new_phrase if condition
+
+        # With multiple line alternative
+        if condition
+          phrases << :new_phrase
+        end
+
+2. Generate a set of responses for the flow that you want to add regression tests to.
 
         $ rails r script/generate-questions-and-responses-for-smart-answer.rb <name-of-smart-answer>
 
-2. Commit the generated questions-and-responses.yml file (in test/data) to git.
+3. Commit the generated questions-and-responses.yml file (in test/data) to git.
 
-3. Change the file by adding/removing and changing the responses:
+4. Change the file by adding/removing and changing the responses:
 
   * Add responses for any of the TODO items in the file.
 
@@ -107,23 +117,23 @@ Test a single Smartdown flow by running:
 
   * Combine responses for checkbox questions where the effect of combining them doesn't affect the number of branches of the code that are exercised.
 
-4. Commit the updated questions-and-responses.yml file to git.
+5. Commit the updated questions-and-responses.yml file to git.
 
-5. Generate a set of input responses and expected results for the Smart Answer.
+6. Generate a set of input responses and expected results for the Smart Answer.
 
         $ rails r script/generate-responses-and-expected-results-for-smart-answer.rb <name-of-smart-answer>
 
-6. Commit the generated responses-and-expected-results.yml file (in test/data) to git.
+7. Commit the generated responses-and-expected-results.yml file (in test/data) to git.
 
-7. Run the regression test to generate the HTML of each outcome reached by the set of input responses.
+8. Run the regression test to generate the HTML of each outcome reached by the set of input responses.
 
         $ RUN_REGRESSION_TESTS=<name-of-smart-answer> \
           TEST_COVERAGE=true \
           ruby test/regression/smart_answers_regression_test.rb
 
-8. Commit the generated outcome HTML files (in test/artefacts) to git.
+9. Commit the generated outcome HTML files (in test/artefacts) to git.
 
-9. Inspect the code coverage report for the Smart Answer under test (`open coverage/rcov/index.html` and find the smart answer under test).
+10. Inspect the code coverage report for the Smart Answer under test (`open coverage/rcov/index.html` and find the smart answer under test).
 
   * If all the branches in the flow have been exercised then you don't need to do anything else at this time.
 
@@ -137,13 +147,13 @@ Test a single Smartdown flow by running:
 
       * Determine the responses required to exercise those branches.
 
-      * Go to Step 3, add the new responses and continue through the steps up to Step 9.
+      * Go to Step 4, add the new responses and continue through the steps up to Step 10.
 
-10. Generate a yaml file containing the set of source files that this Smart Answer depends upon. The script will automatically take the ruby flow file, locale file and erb templates into account. You just need to supply it with the location of any additional files required by the Smart Answer (e.g. calculators and data files). This data is used to determine whether to run the regression tests based on whether the source files have changed.
+11. Generate a yaml file containing the set of source files that this Smart Answer depends upon. The script will automatically take the ruby flow file, locale file and erb templates into account. You just need to supply it with the location of any additional files required by the Smart Answer (e.g. calculators and data files). This data is used to determine whether to run the regression tests based on whether the source files have changed.
 
         $ rails r script/generate-checksums-for-smart-answer.rb <name-of-smart-answer> <path/to/additional/files>
 
-11. Commit the generated yaml file to git.
+12. Commit the generated yaml file to git.
 
 ## Issues/todos
 
