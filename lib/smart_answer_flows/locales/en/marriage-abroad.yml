@@ -543,6 +543,22 @@ en-GB:
 
           ^A CNI issued in England, Wales or Northern Ireland is valid for 6 months. A CNI issued in Scotland is valid for 3 months.^
 
+        standard_ways_to_get_cni_in_third_country: |
+          There are 2 ways you can get a CNI:
+
+          - [go to the UK and post notice with a UK registrar](%{uk_residence_outcome_path})
+          - [go to %{country_name_lowercase_prefix} and post notice at the embassy or consulate there](%{ceremony_country_residence_outcome_path})
+
+          %If you choose to post notice in %{country_name_lowercase_prefix}, you’ll normally have to wait at least 10 days before you can get married.%
+
+        getting_cni_from_costa_rica_when_in_third_country: |
+          There are 2 ways you can get a CNI:
+
+          - [go to the UK and post notice with a UK registrar](%{uk_residence_outcome_path})
+          - [arrange this through the British Embassy in Costa Rica](%{ceremony_country_residence_outcome_path})
+
+          %If you choose to post notice in Costa Rica, you’ll normally have to wait at least 10 days before you can get married.%
+
         cni_at_local_register_office: |
           You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
 
@@ -645,6 +661,9 @@ en-GB:
 
         consular_cni_os_giving_notice_in_ceremony_country: |
           If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at a British embassy or in front of a notary public in that country.
+
+        arrange_cni_via_costa_rica: |
+          If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
 
         consular_cni_os_foreign_resident_3_days_macedonia: |
           Contact a notary public or British Embassy in Macedonia to get advice:
@@ -1588,13 +1607,6 @@ en-GB:
         title: Marriage in %{country_name_lowercase_prefix}
         body: |
           %{body}
-
-          There are 2 ways you can get a CNI:
-
-          - [go to the UK and post notice with a UK registrar](%{uk_residence_outcome_path})
-          - [go to %{country_name_lowercase_prefix} and post notice at the embassy or consulate there](%{ceremony_country_residence_outcome_path})
-
-          %If you choose to post notice in %{country_name_lowercase_prefix}, you’ll normally have to wait at least 10 days before you can get married.%
 
           *[CNI]:Certificate of no impediment
 
