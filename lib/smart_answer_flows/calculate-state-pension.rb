@@ -498,14 +498,22 @@ module SmartAnswer
         end
       end
 
-      outcome :reached_state_pension_age
+      outcome :reached_state_pension_age do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
       outcome :too_young do
         precalculate :weekly_rate do
           sprintf("%.2f", calculator.current_weekly_rate)
         end
       end
 
-      outcome :age_result
+      outcome :age_result do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
 
       outcome :amount_result do
         precalculate :calc do
