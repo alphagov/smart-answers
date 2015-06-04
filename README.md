@@ -105,7 +105,8 @@ Test a single Smartdown flow by running:
 
 2. Generate a set of responses for the flow that you want to add regression tests to.
 
-        $ rails r script/generate-questions-and-responses-for-smart-answer.rb <name-of-smart-answer>
+        $ rails r script/generate-questions-and-responses-for-smart-answer.rb \
+          <name-of-smart-answer>
 
 3. Commit the generated questions-and-responses.yml file (in test/data) to git.
 
@@ -145,7 +146,9 @@ Test a single Smartdown flow by running:
 
 9. Generate a yaml file containing the set of source files that this Smart Answer depends upon. The script will automatically take the ruby flow file, locale file and erb templates into account. You just need to supply it with the location of any additional files required by the Smart Answer (e.g. calculators and data files). This data is used to determine whether to run the regression tests based on whether the source files have changed.
 
-        $ rails r script/generate-checksums-for-smart-answer.rb <name-of-smart-answer> <path/to/additional/files>
+        $ rails r script/generate-checksums-for-smart-answer.rb \
+          <name-of-smart-answer> \
+          <path/to/additional/files>
 
 10. Commit the generated yaml file to git.
 
