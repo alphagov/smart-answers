@@ -18,6 +18,8 @@ module SmartAnswer::Calculators
 
     OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo costa-rica cote-d-ivoire curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq israel kosovo laos liberia liechtenstein macao madagascar mali marshall-islands mauritania micronesia monaco nicaragua niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara)
 
+    OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w(nicaragua)
+
     OS_OTHER_COUNTRIES = %w(burma north-korea iran somalia syria yemen saudi-arabia)
 
     OS_AFFIRMATION_COUNTRIES = %w(cambodia colombia china ecuador egypt lebanon finland mongolia morocco peru philippines portugal qatar south-korea thailand turkey united-arab-emirates vietnam)
@@ -145,6 +147,10 @@ module SmartAnswer::Calculators
 
     def ss_unknown_no_embassies?(country_slug)
       SS_UNKNOWN_NO_EMBASSIES.include?(country_slug)
+    end
+
+    def os_consular_cni_in_nearby_country?(country_slug)
+      OS_CONSULAR_CNI_IN_NEARBY_COUNTRY.include?(country_slug)
     end
   end
 end

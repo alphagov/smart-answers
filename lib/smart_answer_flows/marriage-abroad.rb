@@ -191,7 +191,7 @@ module SmartAnswer
         }
 
         define_predicate(:consular_cni_residing_in_third_country) {
-          resident_of == 'third_country' && (data_query.os_consular_cni_countries?(ceremony_country) || %w(kosovo).include?(ceremony_country))
+          resident_of == 'third_country' && (data_query.os_consular_cni_countries?(ceremony_country) || %w(kosovo).include?(ceremony_country) || data_query.os_consular_cni_in_nearby_country?(ceremony_country))
         }
 
         define_predicate(:marriage_in_spain_third_country) {
@@ -213,7 +213,7 @@ module SmartAnswer
           next_node_if(:outcome_os_marriage_impossible_no_laos_locals, ceremony_in_laos_partners_not_local)
           next_node_if(:outcome_os_laos, variable_matches(:ceremony_country, "laos"))
           next_node_if(:outcome_os_consular_cni, -> {
-            data_query.os_consular_cni_countries?(ceremony_country) || (resident_of == 'uk' && data_query.os_no_marriage_related_consular_services?(ceremony_country))
+            data_query.os_consular_cni_countries?(ceremony_country) || (resident_of == 'uk' && data_query.os_no_marriage_related_consular_services?(ceremony_country)) || data_query.os_consular_cni_in_nearby_country?(ceremony_country)
           })
           next_node_if(:outcome_os_consular_cni, ceremony_in_finland_uk_resident)
           next_node_if(:outcome_os_affirmation, -> { data_query.os_affirmation_countries?(ceremony_country) })
@@ -561,8 +561,16 @@ module SmartAnswer
           phrases = PhraseList.new
           phrases << :contact_local_authorities_in_country_marriage
           phrases << :get_legal_and_travel_advice
+          if data_query.os_no_marriage_related_consular_services?(ceremony_country)
+            phrases << :cni_os_consular_facilities_unavailable
+          end
           phrases << :what_you_need_to_do
-          phrases << :os_consular_cni_requirement
+          phrases << :you_may_be_asked_for_cni
+          if ceremony_country == 'nicaragua'
+            phrases << :getting_cni_from_costa_rica_when_in_third_country
+          else
+            phrases << :standard_ways_to_get_cni_in_third_country
+          end
         end
       end
 
@@ -698,6 +706,8 @@ module SmartAnswer
 
             if ceremony_country == 'croatia'
               phrases << :consular_cni_os_local_resident_table
+            elsif ceremony_country == 'nicaragua'
+              phrases << :arrange_cni_via_costa_rica
             elsif %w(germany italy kazakhstan macedonia russia).exclude?(ceremony_country)
               phrases << :consular_cni_os_giving_notice_in_ceremony_country
             end
