@@ -516,7 +516,7 @@ en-GB:
           Contact the local comune (town hall) before making any plans to find out about local marriage laws, including what documents you’ll need.
         consular_cni_os_ceremony_21_day_requirement: |
           You need to have been living in the country where you intend to marry for 21 full days.
-        os_consular_cni_requirement: |
+        you_may_be_asked_for_cni: |
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
         cni_pareja_de_hecho_requirements_spain: |
           You may be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you’re allowed to marry.
@@ -1187,7 +1187,7 @@ en-GB:
 
           Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
 
-        what_you_need_to_do_cni: |
+        what_you_need_to_do_cni_cp: |
           ##What you need to do
 
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to enter into a civil partnership or equivalent in %{country_name_lowercase_prefix}.

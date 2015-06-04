@@ -631,9 +631,9 @@ module SmartAnswer
             phrases << :consular_cni_os_foreign_resident_21_days_jordan
           elsif data_query.os_21_days_residency_required_countries?(ceremony_country)
             phrases << :consular_cni_os_ceremony_21_day_requirement
-            phrases << :os_consular_cni_requirement
+            phrases << :you_may_be_asked_for_cni
           elsif not_italy_or_spain && ceremony_not_germany_or_not_resident_other
-            phrases << :os_consular_cni_requirement
+            phrases << :you_may_be_asked_for_cni
           end
 
           if ceremony_country == 'spain'
@@ -1171,7 +1171,7 @@ module SmartAnswer
 
           unless ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex'
             if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' && resident_of == 'uk'
-              phrases << :what_you_need_to_do_cni << :get_cni_at_registrar_in_uk << :legisation_and_translation_intro_uk << :legalise_translate_and_check_with_authorities << :names_on_documents_must_match
+              phrases << :what_you_need_to_do_cni_cp << :get_cni_at_registrar_in_uk << :legisation_and_translation_intro_uk << :legalise_translate_and_check_with_authorities << :names_on_documents_must_match
             else
               phrases << :cp_or_equivalent_cp_what_you_need_to_do
               phrases << :embassies_data
