@@ -142,129 +142,6 @@
 - :current_node: :which_country?
   :responses: 
   - overseas
-  - afghanistan
-  :next_node: :where_are_you_now?
-  :outcome_node: false
-- :current_node: :where_are_you_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - same_country
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :where_are_you_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  :next_node: :which_country_are_you_in_now?
-  :outcome_node: false
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - afghanistan
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - algeria
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - armenia
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - brazil
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - china
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - czech-republic
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - estonia
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - hong-kong
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - papua-new-guinea
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - philippines
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - south-georgia-and-south-sandwich-islands
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - another_country
-  - taiwan
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :where_are_you_now?
-  :responses: 
-  - overseas
-  - afghanistan
-  - in_the_uk
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country?
-  :responses: 
-  - overseas
   - australia
   :next_node: :commonwealth_result
   :outcome_node: true
@@ -299,23 +176,7 @@
   - overseas
   - libya
   - another_country
-  - afghanistan
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - libya
-  - another_country
   - algeria
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - libya
-  - another_country
-  - armenia
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -356,6 +217,14 @@
   - libya
   - another_country
   - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
+  - libya
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -422,23 +291,7 @@
   - overseas
   - north-korea
   - another_country
-  - afghanistan
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - north-korea
-  - another_country
   - algeria
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - north-korea
-  - another_country
-  - armenia
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -479,6 +332,14 @@
   - north-korea
   - another_country
   - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
+  - libya
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -545,23 +406,7 @@
   - overseas
   - papua-new-guinea
   - another_country
-  - afghanistan
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - papua-new-guinea
-  - another_country
   - algeria
-  :next_node: :oru_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - papua-new-guinea
-  - another_country
-  - armenia
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -602,6 +447,14 @@
   - papua-new-guinea
   - another_country
   - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - libya
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -668,23 +521,7 @@
   - overseas
   - pitcairn-island
   - another_country
-  - afghanistan
-  :next_node: :embassy_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - pitcairn-island
-  - another_country
   - algeria
-  :next_node: :embassy_result
-  :outcome_node: true
-- :current_node: :which_country_are_you_in_now?
-  :responses: 
-  - overseas
-  - pitcairn-island
-  - another_country
-  - armenia
   :next_node: :embassy_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -725,6 +562,14 @@
   - pitcairn-island
   - another_country
   - hong-kong
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - libya
   :next_node: :embassy_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
