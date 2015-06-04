@@ -23,7 +23,7 @@ module SmartAnswer
       # Q3
       date_question :date_of_decision_letter? do
         from { 5.years.ago }
-        to { Date.today }
+        to { Date.today.end_of_year }
         save_input_as :decision_letter_date
 
         next_node do |response|
@@ -79,7 +79,7 @@ module SmartAnswer
       # Q5
       date_question :when_did_you_ask_for_it? do
         from { 5.years.ago }
-        to { Date.today }
+        to { Date.today.end_of_year }
         calculate :written_explanation_request_date do |response|
           response
         end
@@ -91,7 +91,7 @@ module SmartAnswer
 
         save_input_as :written_explanation_received_date
         from { 5.years.ago }
-        to { Date.today }
+        to { Date.today.end_of_year }
 
         validate do |response|
           response >= written_explanation_request_date

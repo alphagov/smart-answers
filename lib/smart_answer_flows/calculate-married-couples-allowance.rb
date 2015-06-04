@@ -39,8 +39,8 @@ module SmartAnswer
       end
 
       date_question :whats_the_husbands_date_of_birth? do
+        from { Date.today.end_of_year }
         to { Date.parse('1 Jan 1896') }
-        from { Date.today }
 
         save_input_as :birth_date
         next_node :whats_the_husbands_income?
@@ -48,7 +48,7 @@ module SmartAnswer
 
       date_question :whats_the_highest_earners_date_of_birth? do
         to { Date.parse('1 Jan 1896') }
-        from { Date.today }
+        from { Date.today.end_of_year }
 
         save_input_as :birth_date
         next_node :whats_the_highest_earners_income?
