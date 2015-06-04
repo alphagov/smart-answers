@@ -224,6 +224,14 @@
   - overseas
   - libya
   - another_country
+  - italy
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - libya
+  - another_country
   - libya
   :next_node: :oru_result
   :outcome_node: true
@@ -339,6 +347,14 @@
   - overseas
   - north-korea
   - another_country
+  - italy
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - north-korea
+  - another_country
   - libya
   :next_node: :oru_result
   :outcome_node: true
@@ -454,6 +470,14 @@
   - overseas
   - papua-new-guinea
   - another_country
+  - italy
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - papua-new-guinea
+  - another_country
   - libya
   :next_node: :oru_result
   :outcome_node: true
@@ -562,6 +586,14 @@
   - pitcairn-island
   - another_country
   - hong-kong
+  :next_node: :embassy_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses: 
+  - overseas
+  - pitcairn-island
+  - another_country
+  - italy
   :next_node: :embassy_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
