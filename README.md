@@ -121,19 +121,11 @@ Test a single Smartdown flow by running:
 
 6. Generate a set of input responses and expected results for the Smart Answer.
 
-        $ rails r script/generate-responses-and-expected-results-for-smart-answer.rb <name-of-smart-answer>
+        $ TEST_COVERAGE=true \
+          rails r script/generate-responses-and-expected-results-for-smart-answer.rb \
+          <name-of-smart-answer>
 
-7. Commit the generated responses-and-expected-results.yml file (in test/data) to git.
-
-8. Run the regression test to generate the HTML of each outcome reached by the set of input responses.
-
-        $ RUN_REGRESSION_TESTS=<name-of-smart-answer> \
-          TEST_COVERAGE=true \
-          ruby test/regression/smart_answers_regression_test.rb
-
-9. Commit the generated outcome HTML files (in test/artefacts) to git.
-
-10. Inspect the code coverage report for the Smart Answer under test (`open coverage/rcov/index.html` and find the smart answer under test).
+7. Inspect the code coverage report for the Smart Answer under test (`open coverage/rcov/index.html` and find the smart answer under test).
 
   * If all the branches in the flow have been exercised then you don't need to do anything else at this time.
 
@@ -147,7 +139,16 @@ Test a single Smartdown flow by running:
 
       * Determine the responses required to exercise those branches.
 
-      * Go to Step 4, add the new responses and continue through the steps up to Step 10.
+      * Go to Step 4, add the new responses and continue through the steps up to Step 7.
+
+8. Commit the generated responses-and-expected-results.yml file (in test/data) to git.
+
+9. Run the regression test to generate the HTML of each outcome reached by the set of input responses.
+
+        $ RUN_REGRESSION_TESTS=<name-of-smart-answer> \
+          ruby test/regression/smart_answers_regression_test.rb
+
+10. Commit the generated outcome HTML files (in test/artefacts) to git.
 
 11. Generate a yaml file containing the set of source files that this Smart Answer depends upon. The script will automatically take the ruby flow file, locale file and erb templates into account. You just need to supply it with the location of any additional files required by the Smart Answer (e.g. calculators and data files). This data is used to determine whether to run the regression tests based on whether the source files have changed.
 
