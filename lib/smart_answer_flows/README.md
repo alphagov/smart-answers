@@ -177,7 +177,7 @@ YAML templates are used by default.
 
 #### ERB
 
-The ERB outcome templates live in "lib/smart_answer_flows/<flow-name>/<outcome-name>.txt.erb".
+The ERB outcome templates live in `lib/smart_answer_flows/<flow-name>/<outcome-name>.txt.erb`.
 
 You can enable ERB templates per outcome, or for an entire flow.
 
