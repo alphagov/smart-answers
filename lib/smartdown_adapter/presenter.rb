@@ -126,21 +126,14 @@ module SmartdownAdapter
 
     def responses_from_query_params(request)
       responses = []
-      # get form submission request: one response
       if request[:response]
         responses << request[:response]
       end
 
-      #get form submission request: for multiple responses
       if request[:next]
         (@previous_smartdown_state.current_node.questions.count - responses.count).times do |index|
           responses << request.query_parameters["response_#{index+1}"] || nil
         end
-      elsif !request.query_parameters.select { |key| key.to_s.match(/^previous_response_\d+/) }.empty?
-        @previous_smartdown_state.current_node.questions.count.times do |index|
-          responses << request["previous_response_#{index+1}"] || nil
-        end
-        responses
       end
       responses
     end
