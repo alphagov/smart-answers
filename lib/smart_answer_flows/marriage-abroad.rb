@@ -675,11 +675,7 @@ module SmartAnswer
 
           if resident_of == 'uk'
             if cni_posted_after_14_days_countries.include?(ceremony_country)
-              if cni_notary_public_countries.include?(ceremony_country) || ceremony_country == 'italy'
-                phrases << :cni_posted_if_no_objection_14_days_notary_public
-              else
-                phrases << :cni_posted_if_no_objection_14_days
-              end
+              phrases << :cni_posted_if_no_objection_14_days
             else
               if cni_notary_public_countries.include?(ceremony_country) || %w(italy japan macedonia spain).include?(ceremony_country)
                 phrases << :cni_at_local_register_office_notary_public
