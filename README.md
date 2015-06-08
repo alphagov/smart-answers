@@ -122,7 +122,8 @@ Test a single Smartdown flow by running:
 
 6. Generate a set of input responses and expected results for the Smart Answer.
 
-        $ TEST_COVERAGE=true \
+        $ rm -rf coverage && \
+          TEST_COVERAGE=true \
           rails r script/generate-responses-and-expected-results-for-smart-answer.rb \
           <name-of-smart-answer>
 
