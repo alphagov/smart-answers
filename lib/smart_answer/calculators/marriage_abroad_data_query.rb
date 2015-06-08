@@ -28,7 +28,7 @@ module SmartAnswer::Calculators
 
     CP_CNI_NOT_REQUIRED_COUNTRIES = %w(argentina mexico uruguay usa andorra bonaire-st-eustatius-saba liechtenstein burundi )
 
-    CP_CONSULAR_COUNTRIES = %w(bulgaria cambodia croatia cyprus guatemala japan latvia moldova panama peru philippines venezuela vietnam)
+    CP_CONSULAR_COUNTRIES = %w(bulgaria croatia cyprus guatemala latvia moldova panama venezuela)
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(aruba slovakia curacao bonaire-st-eustatius-saba saint-barthelemy st-maarten st-martin taiwan czech-republic argentina cote-d-ivoire burundi)
 
@@ -38,7 +38,7 @@ module SmartAnswer::Calculators
 
     SS_MARRIAGE_COUNTRIES_WHEN_COUPLE_BRITISH = %w(lithuania)
 
-    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia peru philippines vietnam japan)
+    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia japan peru philippines vietnam)
 
     SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia china estonia san-marino serbia)
 
