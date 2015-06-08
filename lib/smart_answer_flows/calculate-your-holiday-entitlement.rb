@@ -335,11 +335,7 @@ module SmartAnswer
         next_node :done
       end
 
-      outcome :done do
-        precalculate :tbd_for_test_coverage do
-          ''
-        end
-      end
+      outcome :done
     end
   end
 end
