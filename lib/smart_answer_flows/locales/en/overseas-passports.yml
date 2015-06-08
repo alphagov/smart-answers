@@ -7,12 +7,6 @@ en-GB:
       body: |
         Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
 
-        ##Dual nationals
-
-        You must send a colour photocopy of your non-British passport (every page including blank pages) as part of your application.
-
-        You may be asked to show your non-British passport at a later date.
-
       which_country_are_you_in?:
         title: Which country or territory are you in?
       which_opt?:
