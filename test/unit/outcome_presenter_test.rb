@@ -70,28 +70,10 @@ module SmartAnswer
       end
     end
 
-    test "#body doesn't trim any newlines by default" do
+    test "#body trims newlines by default" do
       erb_template = '<% if true %>
 Hello world
 <% end %>
-'
-
-      with_erb_template_file(erb_template) do |erb_template_file|
-        options = { use_outcome_templates: true }
-        outcome = Outcome.new('outcome-name', options)
-
-        state = nil
-        options = { body_erb_template_path: erb_template_file.path }
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
-
-        assert_equal "\n<p>Hello world</p>\n\n", presenter.body
-      end
-    end
-
-    test "#body allows newlines to be trimmed by using -%>" do
-      erb_template = '<% if true -%>
-Hello world
-<% end -%>
 '
 
       with_erb_template_file(erb_template) do |erb_template_file|
@@ -196,7 +178,7 @@ Hello world
     end
 
     test '#title trims a single newline from the end of the string' do
-      erb_template = "title-text\n"
+      erb_template = "title-text\n\n"
 
       with_erb_template_file(erb_template) do |erb_template_file|
         options = { use_outcome_templates: true }
@@ -206,43 +188,7 @@ Hello world
         options = { title_erb_template_path: erb_template_file.path }
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
-        assert_equal "title-text", presenter.title
-      end
-    end
-
-    test "#title only trims a single newline by default" do
-      erb_template = '<% if true %>
-Hello world
-<% end %>
-'
-
-      with_erb_template_file(erb_template) do |erb_template_file|
-        options = { use_outcome_templates: true }
-        outcome = Outcome.new('outcome-name', options)
-
-        state = nil
-        options = { title_erb_template_path: erb_template_file.path }
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
-
-        assert_equal "\nHello world\n", presenter.title
-      end
-    end
-
-    test "#title allows newlines to be trimmed by using -%>" do
-      erb_template = '<% if true -%>
-Hello world
-<% end -%>
-'
-
-      with_erb_template_file(erb_template) do |erb_template_file|
-        options = { use_outcome_templates: true }
-        outcome = Outcome.new('outcome-name', options)
-
-        state = nil
-        options = { title_erb_template_path: erb_template_file.path }
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
-
-        assert_equal "Hello world", presenter.title
+        assert_equal "title-text\n", presenter.title
       end
     end
 

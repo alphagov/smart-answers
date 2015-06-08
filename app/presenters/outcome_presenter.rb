@@ -95,8 +95,7 @@ class OutcomePresenter < NodePresenter
   end
 
   def render_erb_template(template, view_context)
-    safe_level, trim_mode = nil, '-'
-    ERB.new(template, safe_level, trim_mode).result(view_context.get_binding)
+    Erubis::Eruby.new(template).result(view_context.get_binding)
   end
 
   def title_erb_template_exists?

@@ -5,4 +5,4 @@ test/data/student-finance-calculator-questions-and-responses.yml: 7f7a6293dd5c37
 test/data/student-finance-calculator-responses-and-expected-results.yml: f4588ab6828397faa8f1fc4dce005398
 lib/smart_answer_flows/student-finance-calculator/outcome_eu_students_body.govspeak.erb: 09baaca179dba1dc7fd0415800775503
 lib/smart_answer_flows/student-finance-calculator/outcome_uk_all_students_body.govspeak.erb: 9a2911d77e4e1fc153584d1d1a99af81
-lib/smart_answer_flows/student-finance-calculator/outcome_uk_full_time_students_body.govspeak.erb: 3ccbc53c77f0c94f1fef64048f56496e
+lib/smart_answer_flows/student-finance-calculator/outcome_uk_full_time_students_body.govspeak.erb: 8cea71ec496c0b4310f202297c0ff124
