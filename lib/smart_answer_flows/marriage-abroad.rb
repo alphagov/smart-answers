@@ -734,7 +734,6 @@ module SmartAnswer
             end
           end
 
-
           if ceremony_country == 'italy' && resident_of != 'uk'
             phrases << :required_supporting_documents_italy
           elsif resident_of == 'ceremony_country' && %w(germany japan spain).exclude?(ceremony_country)
@@ -752,9 +751,6 @@ module SmartAnswer
             if ceremony_country == 'japan'
               phrases << :embassies_data
               phrases << :japan_consular_cni_os_local_resident
-              if partner_nationality == 'partner_local'
-                phrases << :japan_consular_cni_os_local_resident_partner_local
-              end
             end
             if ceremony_country == 'italy'
               if partner_nationality == 'partner_local'
