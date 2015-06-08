@@ -909,38 +909,36 @@ module SmartAnswer
       outcome :outcome_os_affirmation do
         precalculate :affirmation_os_outcome do
           phrases = PhraseList.new
-          if ceremony_country == 'colombia'
+
+          if resident_of == 'uk'
             phrases << :contact_embassy_of_ceremony_country_in_uk_marriage
-            phrases << :get_legal_and_travel_advice
-          else
-            if resident_of == 'uk'
-              phrases << :contact_embassy_of_ceremony_country_in_uk_marriage
-              if ceremony_country == 'morocco'
-                phrases << :contact_laadoul
-              end
-            elsif resident_of == 'ceremony_country' || ceremony_country == 'qatar'
-              phrases << :contact_local_authorities_in_country_marriage
-              if ceremony_country == 'qatar'
-                phrases << :gulf_states_os_consular_cni << :gulf_states_os_consular_cni_local_resident
-              end
-            elsif resident_of == 'third_country'
-              phrases << :contact_local_authorities_in_country_marriage
-              if ceremony_country == 'morocco'
-                phrases << :contact_laadoul
-              end
+            if ceremony_country == 'morocco'
+              phrases << :contact_laadoul
             end
-
-            if %w(cambodia ecuador).exclude?(ceremony_country)
-              if resident_of == 'ceremony_country'
-                phrases << :get_legal_advice
-              else
-                phrases << :get_legal_and_travel_advice
-              end
+          elsif resident_of == 'ceremony_country' || ceremony_country == 'qatar'
+            phrases << :contact_local_authorities_in_country_marriage
+            if ceremony_country == 'qatar'
+              phrases << :gulf_states_os_consular_cni << :gulf_states_os_consular_cni_local_resident
             end
-
-            phrases << :affirmation_os_uae if ceremony_country == 'united-arab-emirates'
+          elsif resident_of == 'third_country'
+            phrases << :contact_local_authorities_in_country_marriage
+            if ceremony_country == 'morocco'
+              phrases << :contact_laadoul
+            end
           end
-          #What you need to do section
+
+          if %w(cambodia ecuador).exclude?(ceremony_country)
+            if resident_of == 'ceremony_country'
+              phrases << :get_legal_advice
+            else
+              phrases << :get_legal_and_travel_advice
+            end
+          end
+
+          if ceremony_country == 'united-arab-emirates'
+            phrases << :affirmation_os_uae
+          end
+
           if %w(turkey egypt china).include?(ceremony_country)
             phrases << :what_you_need_to_do
           elsif data_query.os_21_days_residency_required_countries?(ceremony_country)
@@ -995,13 +993,13 @@ module SmartAnswer
           elsif ceremony_country == 'cambodia'
             phrases << :documents_for_divorced_or_widowed_cambodia
             phrases << :change_of_name_evidence
-          elsif %w(china colombia).include?(ceremony_country)
+          elsif ceremony_country == 'china'
             phrases << :documents_for_divorced_or_widowed_china_colombia
           elsif ceremony_country != 'turkey'
             phrases << :docs_decree_and_death_certificate
           end
 
-          if %w(cambodia china colombia ecuador egypt morocco turkey).exclude?(ceremony_country)
+          if %w(cambodia china ecuador egypt morocco turkey).exclude?(ceremony_country)
             phrases << :divorced_or_widowed_evidences
           end
           if %w(cambodia ecuador morocco turkey).exclude?(ceremony_country)
@@ -1034,7 +1032,7 @@ module SmartAnswer
                   phrases << :partner_probably_needs_affirmation_or_affidavit
                 else
                   phrases << :callout_partner_equivalent_document
-                  phrases << :names_on_documents_must_match if %w(ecuador colombia).include?(ceremony_country)
+                  phrases << :names_on_documents_must_match if ceremony_country == 'ecuador'
                   phrases << :partner_naturalisation_in_uk
                 end
               end
