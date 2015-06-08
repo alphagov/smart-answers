@@ -1298,26 +1298,19 @@ module SmartAnswer
         precalculate :consular_cp_outcome do
           phrases = PhraseList.new(:cp_may_be_possible)
 
-          if ceremony_country == 'vietnam'
-            if partner_nationality == 'partner_local'
-              phrases << :no_cp_with_vietnamese_national
-            end
-            phrases << :embassies_data
-          elsif %w(croatia bulgaria).include?(ceremony_country) && partner_nationality == 'partner_local'
+          if %w(croatia bulgaria).include?(ceremony_country) && partner_nationality == 'partner_local'
             phrases << :cant_register_cp_with_country_national
-          elsif ceremony_country == 'japan'
-            phrases << :contact_to_make_appointment << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
           else
             phrases << :contact_to_make_appointment
           end
           phrases << :embassies_data
-          unless ceremony_country == 'japan'
-            if data_query.ss_21_days_residency_required_countries?(ceremony_country)
-              phrases << :documents_needed_21_days_residency
-            else
-              phrases << :documents_needed_7_days_residency
-            end
+
+          if data_query.ss_21_days_residency_required_countries?(ceremony_country)
+            phrases << :documents_needed_21_days_residency
+          else
+            phrases << :documents_needed_7_days_residency
           end
+
           phrases << :documents_for_both_partners_cp
           if partner_nationality != 'partner_british'
             phrases << :additional_non_british_partner_documents_cp
@@ -1326,12 +1319,12 @@ module SmartAnswer
           unless partner_nationality == 'partner_british'
             phrases << :partner_naturalisation_in_uk
           end
-          if %w(vietnam thailand south-korea).include?(ceremony_country)
+          if %w(thailand south-korea).include?(ceremony_country)
             phrases << :fee_table_affidavit_55
           else
             phrases << :consular_cp_standard_fees
           end
-          if %w(cambodia latvia).include?(ceremony_country)
+          if ceremony_country == 'latvia'
             phrases << :pay_in_local_currency
           else
             phrases << :pay_by_cash_or_credit_card_no_cheque
