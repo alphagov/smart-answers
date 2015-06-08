@@ -869,7 +869,7 @@ outcome :outcome_os_consular_cni do
     if resident_of == 'other'
       if ceremony_country == 'italy' and resident_of == 'other'
         phrases << :consular_cni_os_other_resident_ceremony_italy
-      elsif %(germany spain).exclude?(ceremony_country)
+      elsif %w(germany spain).exclude?(ceremony_country)
         phrases << :consular_cni_os_other_resident_ceremony_not_germany_or_spain
       end
     end
