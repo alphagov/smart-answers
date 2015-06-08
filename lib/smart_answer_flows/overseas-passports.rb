@@ -137,7 +137,6 @@ module SmartAnswer
           next_node_if(:ips_application_result_online, variable_matches(:ips_result_type, :ips_application_result_online))
           next_node(:ips_application_result)
         end
-        next_node_if(:fco_result, data_query.fco_application?)
         next_node(:result)
       end
 
@@ -161,7 +160,6 @@ module SmartAnswer
           next_node_if(:ips_application_result_online, variable_matches(:ips_result_type, :ips_application_result_online))
           next_node(:ips_application_result)
         end
-        next_node_if(:fco_result, data_query.fco_application?)
         next_node(:result)
       end
 
@@ -404,79 +402,6 @@ module SmartAnswer
         end
         precalculate :contact_passport_adviceline do
           PhraseList.new(:contact_passport_adviceline)
-        end
-      end
-
-      ## FCO Result
-      outcome :fco_result do
-        precalculate :how_long_it_takes do
-          phrases = PhraseList.new
-          phrases << :"how_long_#{waiting_time}"
-          phrases << :you_may_have_to_attend_an_interview if %w(renewing_old applying).include?(application_action)
-          phrases << :report_loss_or_theft if application_action == "replacing"
-          phrases
-        end
-
-        precalculate :cost do
-          cost_type = application_type
-          payment_methods = :"passport_costs_#{application_type}"
-
-          phrases = PhraseList.new(:"passport_courier_costs_#{cost_type}",
-                                   :"#{child_or_adult}_passport_costs_#{cost_type}",
-                                   payment_methods)
-
-          phrases
-        end
-
-        precalculate :how_to_apply_supplement do
-          if general_action == 'renewing' and data_query.retain_passport?(current_location)
-            PhraseList.new(:how_to_apply_retain_passport)
-          else
-            ''
-          end
-        end
-
-        precalculate :hurricane_warning do
-          if general_action == 'renewing' and data_query.retain_passport_hurricanes?(current_location)
-            PhraseList.new(:how_to_apply_retain_passport_hurricane)
-          else
-            ''
-          end
-        end
-
-        precalculate :supporting_documents do
-          if application_action == 'applying' and current_location == 'jordan'
-            PhraseList.new(:supporting_documents_jordan_applying)
-          elsif current_location == 'south-africa' and general_action == 'applying'
-            PhraseList.new(:supporting_documents_south_africa_applying)
-          else
-            ''
-          end
-        end
-
-        precalculate :send_your_application do
-          phrases = PhraseList.new
-          if %(south-africa).include?(current_location)
-            phrases << :"send_application_#{current_location}"
-          elsif current_location == 'indonesia'
-            if application_action == 'applying' or application_action == 'replacing'
-              phrases << :send_application_indonesia_applying
-            else
-              phrases << :send_application_fco_preamble << :"send_application_#{application_type}"
-            end
-          else
-            phrases << :send_application_fco_preamble
-            phrases << :"send_application_#{application_type}"
-          end
-          phrases
-        end
-        precalculate :getting_your_passport do
-          location = 'fco'
-          location = current_location if %(cambodia congo nepal).include?(current_location)
-          PhraseList.new(:"getting_your_passport_#{location}")
-        end
-        precalculate :helpline do
-          PhraseList.new(:"helpline_#{application_type}", :helpline_fco_webchat)
         end
       end
 
