@@ -48,7 +48,11 @@ module SmartAnswer
           when "leaving"
             :what_is_your_leaving_date?
           else
-            calculation_basis == "days-worked-per-week" ? :how_many_days_per_week? : :how_many_hours_per_week?
+            if calculation_basis == "days-worked-per-week"
+              :how_many_days_per_week?
+            else
+              :how_many_hours_per_week?
+            end
           end
         end
       end
@@ -61,11 +65,20 @@ module SmartAnswer
           days_per_week
         end
         calculate :days_per_week_calculated do
-          (days_per_week < 5 ? days_per_week : 5)
+          if days_per_week < 5
+            days_per_week
+          else
+            5
+          end
         end
         calculate :calculator do
+          days_per_week_local = if leave_year_start_date.nil?
+            days_per_week
+          else
+            days_per_week_calculated
+          end
           Calculators::HolidayEntitlement.new(
-            days_per_week: (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
+            days_per_week: days_per_week_local,
             start_date: start_date,
             leaving_date: leaving_date,
             leave_year_start_date: leave_year_start_date
