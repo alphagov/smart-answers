@@ -94,7 +94,7 @@ module SmartAnswer
         end
 
         precalculate :generic_downloads do
-          transfers_back_to_uk_treaty_change_countries = %(austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia)
+          transfers_back_to_uk_treaty_change_countries = %w(austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia)
 
           phrases = PhraseList.new
           phrases << :common_downloads

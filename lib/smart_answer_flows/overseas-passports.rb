@@ -210,7 +210,7 @@ module SmartAnswer
 
         precalculate :cost do
           uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela western-sahara)
-          pay_at_appointment_countries = %(venezuela)
+          pay_at_appointment_countries = %w(venezuela)
 
           if %w(st-helena-ascension-and-tristan-da-cunha).include?(current_location)
             PhraseList.new(:passport_costs_fee_only, :"#{child_or_adult}_passport_costs_only", :passport_cost_and_admin_fee)
@@ -347,7 +347,7 @@ module SmartAnswer
         precalculate :getting_your_passport do
           collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe)
           collect_in_person_variant_countries = %w(burundi india jordan pitcairn-island)
-          collect_in_person_renewing_new_variant_countries = %(burma nepal north-korea st-helena-ascension-and-tristan-da-cunha)
+          collect_in_person_renewing_new_variant_countries = %w(burma nepal north-korea st-helena-ascension-and-tristan-da-cunha)
           uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan lebanon mauritania morocco pakistan russia thailand ukraine venezuela western-sahara)
           uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda)
           collect_with_photo_id_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda)
