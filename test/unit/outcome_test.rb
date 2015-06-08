@@ -14,16 +14,18 @@ module SmartAnswer
       assert_equal true, outcome.use_template?
     end
 
-    test '#flow_name returns nil by default' do
+    test '#template_directory returns nil by default' do
       outcome = Outcome.new('outcome-name')
-      assert_equal nil, outcome.flow_name
+      assert_equal nil, outcome.template_directory
     end
 
-    test '#flow_name returns the flow name specified in the options' do
+    test '#template_directory returns the path to the templates belonging to the flow' do
       outcome_options = { flow_name: 'flow-name' }
       outcome = Outcome.new('outcome-name', outcome_options)
 
-      assert_equal 'flow-name', outcome.flow_name
+      load_path = FlowRegistry.instance.load_path
+      expected_directory = Pathname.new(load_path).join('flow-name')
+      assert_equal expected_directory, outcome.template_directory
     end
   end
 end

@@ -30,7 +30,7 @@ class FlowTest < ActiveSupport::TestCase
 
     assert_equal 1, flow.outcomes.size
     assert_equal true, flow.outcomes.first.use_template?
-    assert_equal 'flow-name', flow.outcomes.first.flow_name
+    assert flow.outcomes.first.template_directory.to_s.end_with?('flow-name')
   end
 
   test "Can build single outcomes that use ERB templates" do
@@ -43,7 +43,7 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal 2, flow.outcomes.size
 
     assert_equal true, flow.outcomes.first.use_template?
-    assert_equal 'flow-name', flow.outcomes.first.flow_name
+    assert flow.outcomes.first.template_directory.to_s.end_with?('flow-name')
 
     assert_equal false, flow.outcomes.last.use_template?
   end

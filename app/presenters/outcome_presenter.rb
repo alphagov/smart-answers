@@ -91,7 +91,7 @@ class OutcomePresenter < NodePresenter
   private
 
   def template_directory
-    Rails.root.join('lib', 'smart_answer_flows', @node.flow_name)
+    @node.template_directory
   end
 
   def render_erb_template(template, view_context)

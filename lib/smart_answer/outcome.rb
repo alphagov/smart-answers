@@ -17,8 +17,10 @@ module SmartAnswer
       @options[:use_outcome_templates]
     end
 
-    def flow_name
-      @options[:flow_name]
+    def template_directory
+      return unless @options[:flow_name]
+      load_path = FlowRegistry.instance.load_path
+      Pathname.new(load_path).join(@options[:flow_name])
     end
   end
 end
