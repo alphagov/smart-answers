@@ -28,7 +28,7 @@ module SmartAnswer::Calculators
 
     CP_CNI_NOT_REQUIRED_COUNTRIES = %w(argentina mexico uruguay usa andorra bonaire-st-eustatius-saba liechtenstein burundi )
 
-    CP_CONSULAR_COUNTRIES = %w(bulgaria croatia cyprus guatemala latvia moldova panama venezuela)
+    CP_CONSULAR_COUNTRIES = %w(bulgaria croatia cyprus guatemala moldova panama venezuela)
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(aruba slovakia curacao bonaire-st-eustatius-saba saint-barthelemy st-maarten st-martin taiwan czech-republic argentina cote-d-ivoire burundi)
 

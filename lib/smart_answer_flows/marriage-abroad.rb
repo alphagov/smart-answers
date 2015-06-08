@@ -1246,7 +1246,6 @@ module SmartAnswer
       end
 
       outcome :outcome_cp_commonwealth_countries do
-
         precalculate :type_of_ceremony do
           phrases = PhraseList.new
           if ceremony_country == 'new-zealand'
@@ -1315,20 +1314,15 @@ module SmartAnswer
           if partner_nationality != 'partner_british'
             phrases << :additional_non_british_partner_documents_cp
           end
+
           phrases << :consular_cp_what_you_need_to_do
+
           unless partner_nationality == 'partner_british'
             phrases << :partner_naturalisation_in_uk
           end
-          if %w(thailand south-korea).include?(ceremony_country)
-            phrases << :fee_table_affidavit_55
-          else
-            phrases << :consular_cp_standard_fees
-          end
-          if ceremony_country == 'latvia'
-            phrases << :pay_in_local_currency
-          else
-            phrases << :pay_by_cash_or_credit_card_no_cheque
-          end
+
+          phrases << :consular_cp_standard_fees
+          phrases << :pay_by_cash_or_credit_card_no_cheque
           phrases
         end
       end
