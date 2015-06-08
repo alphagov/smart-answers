@@ -794,11 +794,7 @@ module SmartAnswer
               phrases << :consular_cni_os_download_documents_notary_public
             end
           else
-            uk_resident_with_os = sex_of_your_partner == 'opposite_sex' && resident_of == 'uk'
-            uk_resident_os_no_docs = uk_resident_with_os && no_document_download_link_if_os_resident_of_uk_countries.include?(ceremony_country)
-            if !uk_resident_os_no_docs && (cni_notary_public_countries + %w(italy japan macedonia spain) - %w(greece tunisia)).include?(ceremony_country)
-              phrases << :consular_cni_os_download_documents_notary_public
-            elsif resident_of != 'uk' && ceremony_country != 'germany'
+            if sex_of_your_partner == 'same_sex' || no_document_download_link_if_os_resident_of_uk_countries.exclude?(ceremony_country) && (cni_notary_public_countries + %w(italy japan macedonia spain) - %w(greece tunisia)).include?(ceremony_country)
               phrases << :consular_cni_os_download_documents_notary_public
             end
           end
