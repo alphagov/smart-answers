@@ -36,11 +36,7 @@ module SmartAnswer
         option "3_children"
 
         precalculate :paying_or_receiving_text do
-          if paying_or_receiving == "pay"
-            "paying"
-          else
-            "receiving"
-          end
+          paying_or_receiving == "pay" ? "paying" : "receiving"
         end
 
         precalculate :paying_or_receiving_hint do
