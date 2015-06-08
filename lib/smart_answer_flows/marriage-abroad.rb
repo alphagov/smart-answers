@@ -460,7 +460,6 @@ module SmartAnswer
       end
 
       outcome :outcome_monaco do
-
         precalculate :monaco_title do
           phrases = PhraseList.new
           if marriage_or_pacs == 'marriage'
@@ -864,9 +863,7 @@ module SmartAnswer
             unless data_query.countries_without_consular_facilities?(ceremony_country)
               if resident_of == 'ceremony_country' || resident_of == 'uk'
                 if ceremony_country != 'cote-d-ivoire'
-                  if ceremony_country == 'monaco'
-                    phrases << :list_of_consular_fees_france
-                  elsif ceremony_country == 'kazakhstan'
+                  if ceremony_country == 'kazakhstan'
                     phrases << :list_of_consular_kazakhstan
                   else
                     phrases << :list_of_consular_fees
@@ -1066,10 +1063,7 @@ module SmartAnswer
             phrases << :affirmation_os_all_fees_45_70
           end
           unless data_query.countries_without_consular_facilities?(ceremony_country)
-
-            if ceremony_country == 'monaco'
-              phrases << :list_of_consular_fees_france
-            elsif ceremony_country != 'cambodia'
+            if ceremony_country != 'cambodia'
               phrases << :list_of_consular_fees
             end
 
@@ -1114,11 +1108,7 @@ module SmartAnswer
           phrases << :cni_os_consular_facilities_unavailable
 
           unless data_query.countries_without_consular_facilities?(ceremony_country)
-            if ceremony_country == 'monaco'
-              phrases << :list_of_consular_fees_france
-            else
-              phrases << :list_of_consular_fees
-            end
+            phrases << :list_of_consular_fees
             phrases << :pay_by_cash_or_credit_card_no_cheque
           end
           if partner_nationality != 'partner_british'
@@ -1202,12 +1192,9 @@ module SmartAnswer
           end
 
           unless (ceremony_country == 'czech-republic' || data_query.countries_without_consular_facilities?(ceremony_country))
-            if ceremony_country == 'monaco'
-              phrases << :list_of_consular_fees_france
-            else
-              phrases << :list_of_consular_fees
-            end
+            phrases << :list_of_consular_fees
           end
+
           if %w(iceland slovenia).include?(ceremony_country)
             phrases << :pay_in_local_currency
           elsif ceremony_country == 'luxembourg'
