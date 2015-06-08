@@ -1,19 +1,22 @@
---- 
-:are_you_paying_or_receiving?: 
+---
+:are_you_paying_or_receiving?:
 - pay
 - receive
-:how_many_children_paid_for?: 
+:how_many_children_paid_for?:
 - 1_child
 - 2_children
 - 3_children
-:gets_benefits?: 
+:gets_benefits?:
 - "yes"
 - "no"
-:gross_income_of_payee?: 
-- "TODO: %{income_title}"
-:how_many_other_children_in_payees_household?: 
-- "TODO: %{number_of_children_title}"
-:how_many_nights_children_stay_with_payee?: 
+:gross_income_of_payee?:
+- 5
+- 90
+- 200
+- 1000
+:how_many_other_children_in_payees_household?:
+- 3
+:how_many_nights_children_stay_with_payee?:
 - "0"
 - "1"
 - "2"
