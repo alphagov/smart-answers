@@ -65,8 +65,13 @@ module SmartAnswer
           Calculators::ChildMaintenanceCalculator.new(number_of_children, benefits, paying_or_receiving)
         end
 
-        next_node_if(:how_many_nights_children_stay_with_payee?, responded_with('yes'))
-        next_node :gross_income_of_payee?
+        next_node do |response|
+          if response == 'yes'
+            :how_many_nights_children_stay_with_payee?
+          else
+            :gross_income_of_payee?
+          end
+        end
       end
 
       ## Q3
@@ -81,9 +86,15 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        next_node_if(:nil_rate_result) { rate_type == :nil }
-        next_node_if(:flat_rate_result) { rate_type == :flat }
-        next_node :how_many_other_children_in_payees_household?
+        next_node do |response|
+          if rate_type == :nil
+            :nil_rate_result
+          elsif rate_type == :flat
+            :flat_rate_result
+          else
+            :how_many_other_children_in_payees_household?
+          end
+        end
       end
 
       ## Q4
@@ -122,9 +133,15 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        next_node_if(:nil_rate_result) { rate_type == :nil }
-        next_node_if(:flat_rate_result) { rate_type == :flat }
-        next_node :reduced_and_basic_rates_result
+        next_node do |response|
+          if rate_type == :nil
+            :nil_rate_result
+          elsif rate_type == :flat
+            :flat_rate_result
+          else
+            :reduced_and_basic_rates_result
+          end
+        end
       end
 
       outcome :nil_rate_result do
