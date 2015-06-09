@@ -143,36 +143,29 @@ module SmartAnswer
         option :longer_than_six_months
         save_input_as :period_of_staying
 
-        next_node do |response|
-          if response == 'longer_than_six_months'
-            if purpose_of_visit_answer == 'study'
-              next :outcome_study_y #outcome 2 study y
-            elsif purpose_of_visit_answer == 'work'
-              next :outcome_work_y #outcome 4 work y
-            end
-          elsif response == 'six_months_or_less'
-            if purpose_of_visit_answer == 'study'
-              if %w(oman qatar united-arab-emirates).include?(passport_country)
-                #outcome 12 visit outcome_visit_waiver
-                next :outcome_visit_waiver
-              elsif %w(taiwan).include?(passport_country)
-                next :outcome_taiwan_exception
-              elsif (country_group_datv + country_group_visa_national).include?(passport_country)
-                #outcome 3 study m visa needed short courses
-                next :outcome_study_m
-              elsif (country_group_ukot + country_group_non_visa_national).include?(passport_country)
-                #outcome 1 no visa needed
-                next :outcome_no_visa_needed
-              end
-            elsif purpose_of_visit_answer == 'work'
-              if ( (country_group_ukot + country_group_non_visa_national) | %w(taiwan) ).include?(passport_country)
-                #outcome 5.5 work N no visa needed
-                next :outcome_work_n
-              elsif (country_group_datv + country_group_visa_national).include?(passport_country)
-                # outcome 5 work m visa needed short courses
-                next :outcome_work_m
-              end
-            end
+        on_condition(responded_with('longer_than_six_months')) do
+          next_node_if(:outcome_study_y) { purpose_of_visit_answer == 'study' } #outcome 2 study y
+          next_node_if(:outcome_work_y) { purpose_of_visit_answer == 'work' } #outcome 4 work y
+        end
+        on_condition(responded_with('six_months_or_less')) do
+          on_condition(->(_) { purpose_of_visit_answer == 'study' }) do
+            #outcome 12 visit outcome_visit_waiver
+            next_node_if(:outcome_visit_waiver) { %w(oman qatar united-arab-emirates).include?(passport_country) }
+            next_node_if(:outcome_taiwan_exception) { %w(taiwan).include?(passport_country) }
+            #outcome 3 study m visa needed short courses
+            next_node_if(:outcome_study_m) { (country_group_datv + country_group_visa_national).include?(passport_country) }
+            #outcome 1 no visa needed
+            next_node_if(:outcome_no_visa_needed) { (country_group_ukot + country_group_non_visa_national).include?(passport_country) }
+          end
+          on_condition(->(_) { purpose_of_visit_answer == 'work' }) do
+            #outcome 5.5 work N no visa needed
+            next_node_if(:outcome_work_n) {
+              ( (country_group_ukot +
+                country_group_non_visa_national) |
+                %w(taiwan) ).include?(passport_country)
+            }
+            # outcome 5 work m visa needed short courses
+            next_node_if(:outcome_work_m) { (country_group_datv + country_group_visa_national).include?(passport_country) }
           end
         end
       end
