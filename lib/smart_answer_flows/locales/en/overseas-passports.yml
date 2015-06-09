@@ -68,13 +68,6 @@ en-GB:
           -|-|-
           Child passport | %{costs_euros_child}
 
-        how_to_apply_retain_passport_hurricane: |
-          Don’t send your passport - keep it in case you have to to evacuate in the event of a hurricane.
-
-          You’ll need to send a photocopy of your passport, and a letter to explain why you’ve not sent the original.
-
-          When you get your new passport, send your old one to the [nearest British Embassy, high commission or governors office](/government/world/organisations).
-
         how_to_apply_incomplete_application_deadline: |
 
           %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
