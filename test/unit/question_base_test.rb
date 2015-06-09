@@ -229,13 +229,18 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   test "error if no conditional transitions found and no fallback" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    question_name = :example
+    responses = [:blue, :red]
+    q = SmartAnswer::Question::Base.new(question_name) {
       next_node_if(:skipped) { false }
     }
     initial_state = SmartAnswer::State.new(q.name)
-    assert_raises RuntimeError do
-      q.next_node_for(initial_state, :red)
+    initial_state.responses << responses[0]
+    error = assert_raises(RuntimeError) do
+      q.next_node_for(initial_state, responses[1])
     end
+    expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}"
+    assert_equal expected_message, error.message
   end
 
   test "can define a predicate on a node" do

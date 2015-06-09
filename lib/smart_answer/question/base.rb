@@ -41,7 +41,8 @@ module SmartAnswer
       def next_node_for(current_state, input)
         validate!(current_state, input)
         next_node = next_node_from_function_chain(current_state, input) || next_node_from_default_function(current_state, input)
-        raise "Next node undefined (#{current_state.current_node}(#{input}))" unless next_node
+        responses_and_input = current_state.responses + [input]
+        raise "Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}" unless next_node
         next_node
       end
 
