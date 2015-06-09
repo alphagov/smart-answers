@@ -120,7 +120,11 @@ module SmartAnswer
 
         next_node do |response|
           amount = Money.new(response)
-          amount == 0 ? :no_longer_paying : :old_weekly_amount_1?
+          if amount == 0
+            :no_longer_paying
+          else
+            :old_weekly_amount_1?
+          end
         end
       end
 
@@ -131,7 +135,11 @@ module SmartAnswer
         end
         next_node do |response|
           amount = Money.new(response)
-          amount == 0 ? :no_longer_paying : :old_weekly_amount_1?
+          if amount == 0
+            :no_longer_paying
+          else
+            :old_weekly_amount_1?
+          end
         end
       end
 
@@ -226,7 +234,11 @@ module SmartAnswer
         end
         next_node do |response|
           amount = Money.new(response)
-          amount == 0 ? :no_longer_paying : :old_weekly_amount_2?
+          if amount == 0
+            :no_longer_paying
+          else
+            :old_weekly_amount_2?
+          end
         end
       end
 
@@ -257,7 +269,11 @@ module SmartAnswer
 
         next_node do |response|
           amount = Money.new(response)
-          amount == 0 ? :no_longer_paying : :old_weekly_amount_3?
+          if amount == 0
+            :no_longer_paying
+          else
+            :old_weekly_amount_3?
+          end
         end
       end
 
@@ -275,7 +291,9 @@ module SmartAnswer
           weekly_difference.abs
         end
 
-        calculate :cost_change_4_weeks do true end
+        calculate :cost_change_4_weeks do
+          true
+        end
 
         next_node :cost_changed
       end
@@ -320,7 +338,11 @@ module SmartAnswer
         end
 
         precalculate :title_change_text do
-          weekly_difference >= 10 ? "increased" : "decreased"
+          if weekly_difference >= 10
+            "increased"
+          else
+            "decreased"
+          end
         end
 
         precalculate :difference_money do
