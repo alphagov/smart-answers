@@ -317,39 +317,19 @@ module SmartAnswer
 
       ### Outcomes
       #O1
-      outcome :call_helpline_detailed do
-        precalculate :tbd_for_test_coverage do
-          ''
-        end
-      end
+      outcome :call_helpline_detailed
 
       #O5
-      outcome :call_helpline_plain do
-        precalculate :tbd_for_test_coverage do
-          ''
-        end
-      end
+      outcome :call_helpline_plain
 
       #O2
-      outcome :no_change do
-        precalculate :tbd_for_test_coverage do
-          ''
-        end
-      end
+      outcome :no_change
 
       #O3
-      outcome :round_up_weekly do
-        precalculate :tbd_for_test_coverage do
-          ''
-        end
-      end
+      outcome :round_up_weekly
 
       #O4
-      outcome :weekly_costs_are_x do
-        precalculate :tbd_for_test_coverage do
-          ''
-        end
-      end
+      outcome :weekly_costs_are_x
 
       #O6, 7, 8
       outcome :cost_changed do
@@ -383,11 +363,7 @@ module SmartAnswer
       end
 
       #O9
-      outcome :no_longer_paying do
-        precalculate :tbd_for_test_coverage do
-          ''
-        end
-      end
+      outcome :no_longer_paying
     end
   end
 end
