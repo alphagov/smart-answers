@@ -1,0 +1,45 @@
+---
+:basis_of_calculation?:
+- days-worked-per-week
+- hours-worked-per-week
+- casual-or-irregular-hours
+- annualised-hours
+- compressed-hours
+- shift-worker
+:calculation_period?:
+- full-year
+- starting
+- leaving
+- starting-and-leaving
+:how_many_days_per_week?:
+- 1
+- 7
+:what_is_your_starting_date?:
+- 2012-01-01
+- 2014-01-01
+:what_is_your_leaving_date?:
+- 2014-12-31
+:when_does_your_leave_year_start?:
+- 2012-02-01
+- 2014-01-01
+:how_many_hours_per_week?:
+- 8
+:casual_or_irregular_hours?:
+- 35
+:annualised_hours?:
+- 1680
+:compressed_hours_how_many_hours_per_week?:
+- 8
+:compressed_hours_how_many_days_per_week?:
+- 1
+:shift_worker_basis?:
+- full-year
+- starting
+- leaving
+- starting-and-leaving
+:shift_worker_hours_per_shift?:
+- 8
+:shift_worker_shifts_per_shift_pattern?:
+- 3
+:shift_worker_days_per_shift_pattern?:
+- 3
