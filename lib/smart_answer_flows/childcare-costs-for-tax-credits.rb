@@ -7,40 +7,93 @@ module SmartAnswer
 
       #Q1
       multiple_choice :currently_claiming? do
-        option yes: :have_costs_changed? #Q3
-        option no: :how_often_use_childcare? #Q2
+        option :yes
+        option :no
+
+        next_node do |response|
+          if response == 'yes'
+            :have_costs_changed?
+          elsif response == 'no'
+            :how_often_use_childcare?
+          end
+        end
       end
 
       #Q2
       multiple_choice :how_often_use_childcare? do
-        option regularly_less_than_year: :how_often_pay_1? #Q4
-        option regularly_more_than_year: :pay_same_each_time? #Q11
-        option only_short_while: :call_helpline_detailed #O1
+        option :regularly_less_than_year
+        option :regularly_more_than_year
+        option :only_short_while
 
+        next_node do |response|
+          if response == 'regularly_less_than_year'
+            :how_often_pay_1? #Q4
+          elsif response == 'regularly_more_than_year'
+            :pay_same_each_time? #Q11
+          elsif response == 'only_short_while'
+            :call_helpline_detailed #O1
+          end
+        end
       end
 
       #Q3
       multiple_choice :have_costs_changed? do
-        option yes: :how_often_pay_2? #Q5
-        option no: :no_change #O2
+        option :yes
+        option :no
+
+        next_node do |response|
+          if response == 'yes'
+            :how_often_pay_2? #Q5
+          elsif response == 'no'
+            :no_change #O2
+          end
+        end
       end
 
       #Q4
       multiple_choice :how_often_pay_1? do
-        option weekly_same_amount: :round_up_weekly #O3
-        option weekly_diff_amount: :how_much_52_weeks_1? #Q7
-        option monthly_same_amount: :how_much_each_month? #Q10
-        option monthly_diff_amount: :how_much_12_months_1? #Q6
-        option other: :how_much_12_months_1? #Q6
+        option :weekly_same_amount
+        option :weekly_diff_amount
+        option :monthly_same_amount
+        option :monthly_diff_amount
+        option :other
+
+        next_node do |response|
+          if response == 'weekly_same_amount'
+            :round_up_weekly #O3
+          elsif response == 'weekly_diff_amount'
+            :how_much_52_weeks_1? #Q7
+          elsif response == 'monthly_same_amount'
+            :how_much_each_month? #Q10
+          elsif response == 'monthly_diff_amount'
+            :how_much_12_months_1? #Q6
+          elsif response == 'other'
+            :how_much_12_months_1? #Q6
+          end
+        end
       end
 
       #Q5
       multiple_choice :how_often_pay_2? do
-        option weekly_same_amount: :new_weekly_costs? #Q17
-        option weekly_diff_amount: :how_much_52_weeks_2? #Q8
-        option monthly_same_amount: :new_monthly_cost? #Q19
-        option monthly_diff_amount: :how_much_12_months_2? #Q9
-        option other: :how_much_52_weeks_2? #Q9
+        option :weekly_same_amount
+        option :weekly_diff_amount
+        option :monthly_same_amount
+        option :monthly_diff_amount
+        option :other
+
+        next_node do |response|
+          if response == 'weekly_same_amount'
+            :new_weekly_costs? #Q17
+          elsif response == 'weekly_diff_amount'
+            :how_much_52_weeks_2? #Q8
+          elsif response == 'monthly_same_amount'
+            :new_monthly_cost? #Q19
+          elsif response == 'monthly_diff_amount'
+            :how_much_12_months_2? #Q9
+          elsif response == 'other'
+            :how_much_52_weeks_2? #Q9
+          end
+        end
       end
 
       #Q6
@@ -92,19 +145,45 @@ module SmartAnswer
 
       #Q11
       multiple_choice :pay_same_each_time? do
-        option yes: :how_often_pay_providers? #Q12
-        option no: :how_much_spent_last_12_months? #Q16
+        option :yes
+        option :no
+
+        next_node do |response|
+          if response == 'yes'
+            :how_often_pay_providers? #Q12
+          elsif response == 'no'
+            :how_much_spent_last_12_months? #Q16
+          end
+        end
       end
 
       #Q12
       multiple_choice :how_often_pay_providers? do
-        option weekly: :round_up_weekly #O3
-        option fortnightly: :how_much_fortnightly? #Q13
-        option every_4_weeks: :how_much_4_weeks? #Q14
-        option every_month: :how_much_each_month? #Q10
-        option termly: :call_helpline_plain #O5
-        option yearly: :how_much_yearly? #Q15
-        option other: :call_helpline_plain #O5
+        option :weekly
+        option :fortnightly
+        option :every_4_weeks
+        option :every_month
+        option :termly
+        option :yearly
+        option :other
+
+        next_node do |response|
+          if response == 'weekly'
+            :round_up_weekly #O3
+          elsif response == 'fortnightly'
+            :how_much_fortnightly? #Q13
+          elsif response == 'every_4_weeks'
+            :how_much_4_weeks? #Q14
+          elsif response == 'every_month'
+            :how_much_each_month? #Q10
+          elsif response == 'termly'
+            :call_helpline_plain #O5
+          elsif response == 'yearly'
+            :how_much_yearly? #Q15
+          elsif response == 'other'
+            :call_helpline_plain #O5
+          end
+        end
       end
 
       #Q13
