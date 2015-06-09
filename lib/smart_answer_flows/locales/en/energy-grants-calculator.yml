@@ -124,8 +124,8 @@ en-GB:
           income_support: Income Support
           jsa: Income based Jobseeker’s Allowance
           esa: Income-related Employment and Support Allowance (ESA)
-          child_tax_credit: Child Tax Credit - only if your income is £15,860 or less
-          working_tax_credit: Working Tax Credit - only if your income is £15,860 or less
+          child_tax_credit: Child Tax Credit - only if your income is £16,010 or less
+          working_tax_credit: Working Tax Credit - only if your income is £16,010 or less
 
 # Q5
       disabled_or_have_children?:
