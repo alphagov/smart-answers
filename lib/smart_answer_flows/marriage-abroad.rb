@@ -1364,11 +1364,8 @@ module SmartAnswer
           if ceremony_country == 'australia'
             phrases << :australia_ss_relationships
           end
-          if data_query.ss_21_days_residency_required_countries?(ceremony_country)
-            phrases << :ss_marriage_footnote_21_days_residency
-          else
-            phrases << :ss_marriage_footnote
-          end
+
+          phrases << :ss_marriage_footnote
           phrases << :partner_naturalisation_in_uk << :"fees_table_#{ss_fees_table}"
 
           if ceremony_country == 'cambodia'
