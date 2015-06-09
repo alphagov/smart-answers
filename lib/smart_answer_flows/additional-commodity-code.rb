@@ -177,7 +177,7 @@ module SmartAnswer
           calculator.commodity_code
         end
 
-        precalculate :has_commodity_code? do
+        precalculate :has_commodity_code do
           commodity_code != 'X'
         end
       end
