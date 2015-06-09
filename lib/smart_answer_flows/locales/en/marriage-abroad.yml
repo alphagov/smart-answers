@@ -915,11 +915,6 @@ en-GB:
           Issuing any other consular letter or certificate in any other language | £70
           Administering an oath or making a declaration | £55
 
-        consular_cni_os_fees_foreign_commonwealth_roi_resident: |
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
-        consular_cni_os_fees_foreign_commonwealth_roi_resident_kazakhstan: |
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
-
         consular_cni_os_fees_russia: |
           You can pay by cash or credit card in Moscow, but not by personal cheque.
 
