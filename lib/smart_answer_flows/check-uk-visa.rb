@@ -186,8 +186,16 @@ module SmartAnswer
           end
         end
       end
-      outcome :outcome_study_y
-      outcome :outcome_study_m
+      outcome :outcome_study_y do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+      outcome :outcome_study_m do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
       outcome :outcome_work_y do
         precalculate :if_youth_mobility_scheme_country do
           if %w(australia canada japan monaco new-zealand hong-kong south-korea taiwan).include?(passport_country)
@@ -200,9 +208,21 @@ module SmartAnswer
           end
         end
       end
-      outcome :outcome_work_m
-      outcome :outcome_work_n
-      outcome :outcome_transit_leaving_airport
+      outcome :outcome_work_m do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+      outcome :outcome_work_n do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+      outcome :outcome_transit_leaving_airport do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
       outcome :outcome_transit_not_leaving_airport do
         precalculate :if_syria do
           if passport_country == 'syria'
@@ -210,9 +230,21 @@ module SmartAnswer
           end
         end
       end
-      outcome :outcome_joining_family_y
-      outcome :outcome_joining_family_m
-      outcome :outcome_joining_family_nvn
+      outcome :outcome_joining_family_y do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+      outcome :outcome_joining_family_m do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+      outcome :outcome_joining_family_nvn do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
       outcome :outcome_standard_visit do
         precalculate :if_china do
           if %w(china).include?(passport_country)
@@ -220,11 +252,31 @@ module SmartAnswer
           end
         end
       end
-      outcome :outcome_marriage
-      outcome :outcome_school_n
-      outcome :outcome_school_y
-      outcome :outcome_medical_y
-      outcome :outcome_medical_n
+      outcome :outcome_marriage do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+      outcome :outcome_school_n do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+      outcome :outcome_school_y do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+      outcome :outcome_medical_y do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+      outcome :outcome_medical_n do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
       outcome :outcome_visit_waiver do
         precalculate :if_exception do
           if %w(venezuela).include?(passport_country)
@@ -260,9 +312,21 @@ module SmartAnswer
           end
         end
       end
-      outcome :outcome_taiwan_exception
-      outcome :outcome_diplomatic_business
-      outcome :outcome_transit_refugee_not_leaving_airport
+      outcome :outcome_taiwan_exception do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+      outcome :outcome_diplomatic_business do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+      outcome :outcome_transit_refugee_not_leaving_airport do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
     end
   end
 end
