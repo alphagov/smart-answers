@@ -168,7 +168,6 @@ module SmartAnswer
       outcome :outcome_joining_family_y
       outcome :outcome_joining_family_m
       outcome :outcome_joining_family_nvn
-      outcome :outcome_visit_business_n
       outcome :outcome_standard_visit do
         precalculate :if_china do
           if %w(china).include?(passport_country)
@@ -176,7 +175,6 @@ module SmartAnswer
           end
         end
       end
-      outcome :outcome_business_y
       outcome :outcome_marriage
       outcome :outcome_school_n
       outcome :outcome_school_y
