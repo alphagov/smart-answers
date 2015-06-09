@@ -205,9 +205,7 @@ module SmartAnswer
       outcome :outcome_transit_leaving_airport
       outcome :outcome_transit_not_leaving_airport do
         precalculate :if_syria do
-          if passport_country == 'syria'
-            PhraseList.new(:b1_b2_visa_exception)
-          end
+          PhraseList.new(:b1_b2_visa_exception) if passport_country == 'syria'
         end
       end
       outcome :outcome_joining_family_y
@@ -255,9 +253,7 @@ module SmartAnswer
       end
       outcome :outcome_transit_leaving_airport_datv do
         precalculate :if_syria do
-          if passport_country == 'syria'
-            PhraseList.new(:b1_b2_visa_exception)
-          end
+          PhraseList.new(:b1_b2_visa_exception) if passport_country == 'syria'
         end
       end
       outcome :outcome_taiwan_exception
