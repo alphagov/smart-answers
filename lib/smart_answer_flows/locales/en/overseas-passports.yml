@@ -68,11 +68,6 @@ en-GB:
           -|-|-
           Child passport | %{costs_euros_child}
 
-        how_to_apply_retain_passport: |
-          Send a photocopy of the pages of your existing passport that show your personal details, photograph and residence permit or visa.
-
-          Keep your existing passport for security and ID purposes - don’t send it with your application.
-
         how_to_apply_retain_passport_hurricane: |
           Don’t send your passport - keep it in case you have to to evacuate in the event of a hurricane.
 
@@ -121,51 +116,6 @@ en-GB:
 
         send_application_fco_preamble: |
           Send your application, photographs and supporting documents, ideally by courier.
-
-        helpline_yemen: |
-
-
-          $C
-            **Passport information - Yemen**
-
-            967 1308 114
-            8am to-3pm local time, Sunday to Thursday
-
-             +44 207 008 1500 at any other time
-
-          $C
-
-        helpline_intro: |
-          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You will be charged for the call.
-
-          Don’t use this service any earlier - information won’t be available but you will still be charged for the call.
-        helpline_exceptions: |
-          If you haven’t received your passport within the expected timescales, or need to change your travel plans urgently (eg a close relative has died), you can leave a message with the passport processing centre in Madrid.
-
-          They will only call you back if your passport has been delayed or you have a genuine emergency.
-
-          $C
-
-            **Passport processing centre, Madrid**
-
-            00 34 91 714 6314
-          $C
-        helpline_exception_yemen: |
-          If you haven’t received your passport within the expected timescale, you can check your application’s progress by phone. You’ll be charged for the call.
-
-          $C
-          **Passport information - Yemen**
-
-          +44 208 082 4729
-          Monday to Friday, 24 hours a day
-          $C
-        helpline_: ''
-        helpline_fco_webchat: |
-          ### Webchat service
-
-          A webchat service is available. It costs a flat rate of £4 - you must pay by credit card before you start. Once you’ve paid, you’ll be given a reference number to launch your webchat. You’ll receive an email transcript of your conversation when you finish.
-
-          [Use the webchat service](https://www.synthetix.info/fco/ "Use the webchat service to chat to an advisor")
 
         hmpo_1_application_form: |
           ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
@@ -1480,18 +1430,6 @@ en-GB:
           Pretoria 0083
           South Africa
           $A
-        helpline_pretoria_south_africa: |
-
-          $C
-            __Passport Information Helpline__
-
-            +44 208 082 4743
-
-            Calls charged at £0.72 per minute plus VAT - you must pay by credit card when you call.
-
-            Textphone: +44 1750 725 368
-          $C
-
       ips_application_result_online:
         body: |
           ## How long it takes
@@ -1537,52 +1475,6 @@ en-GB:
           %{getting_your_passport}
 
           %{contact_passport_adviceline}
-
-      result:
-        body: |
-          ## How long it takes
-
-          %{how_long_it_takes}
-
-          Don't book travel until you have a valid passport. If you need to travel urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
-
-          If your passport has been lost or stolen and you haven't reported it yet, include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your application.
-
-          ## Cost
-
-          %{cost}
-
-          ## How to apply
-
-          1. Download the application form and guidance notes that help you fill it in.
-
-          2. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
-
-          3. Check the supporting documents you must send with your application. Non-English supporting documents must be translated into English by a professional translator.
-          %{how_to_apply}
-
-          %{incomplete_application_deadline}
-
-          %{fco_forms}
-
-          %{supporting_documents}
-
-          ## Making your application
-
-          %{making_application}
-
-
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-
-          %{making_application_additional}
-
-          ## Getting your passport
-
-          %{getting_your_passport}
-
-          ## If your passport hasn’t arrived
-
-          %{helpline}
 
       cannot_apply:
         body: |

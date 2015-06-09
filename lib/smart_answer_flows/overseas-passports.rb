@@ -137,7 +137,6 @@ module SmartAnswer
           next_node_if(:ips_application_result_online, variable_matches(:ips_result_type, :ips_application_result_online))
           next_node(:ips_application_result)
         end
-        next_node(:result)
       end
 
       # Q4
@@ -160,7 +159,6 @@ module SmartAnswer
           next_node_if(:ips_application_result_online, variable_matches(:ips_result_type, :ips_application_result_online))
           next_node(:ips_application_result)
         end
-        next_node(:result)
       end
 
       ## Online IPS Application Result
@@ -402,49 +400,6 @@ module SmartAnswer
         end
         precalculate :contact_passport_adviceline do
           PhraseList.new(:contact_passport_adviceline)
-        end
-      end
-
-      ## Generic country outcome.
-      outcome :result do
-        precalculate :how_long_it_takes do
-          PhraseList.new(:"how_long_#{application_type}")
-        end
-        precalculate :cost do
-          PhraseList.new(:"cost_#{application_type}")
-        end
-        precalculate :how_to_apply do
-          phrases = PhraseList.new(:"how_to_apply_#{application_type}")
-          if general_action == 'renewing' and data_query.retain_passport?(current_location)
-            phrases << :how_to_apply_retain_passport
-          elsif general_action == 'renewing' and data_query.retain_passport_exception?(current_location)
-            phrases << :how_to_apply_retain_passport_exception
-          end
-          phrases
-        end
-        precalculate :making_application_additional do
-          ''
-        end
-        precalculate :supporting_documents do
-          phrase = ['supporting_documents', application_type]
-          phrase << general_action if %w(iraq zambia).include?(application_type)
-          PhraseList.new(phrase.join('_').to_sym)
-        end
-        precalculate :making_application do
-          PhraseList.new(:"making_application_#{application_type}")
-        end
-        precalculate :getting_your_passport do
-          PhraseList.new(:"getting_your_passport_#{application_type}")
-        end
-        precalculate :helpline do
-          phrases = PhraseList.new
-          if %w(cuba libya morocco tunisia).include?(current_location)
-            phrases << :helpline_exceptions
-          else
-            phrases << :helpline_intro << :"helpline_#{passport_data['helpline']}"
-          end
-          phrases << :helpline_fco_webchat
-          phrases
         end
       end
 

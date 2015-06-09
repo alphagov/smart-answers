@@ -21,13 +21,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "retain_passport?" do
-        should "indicate whether to retain your passport when applying from the given country" do
-          assert @query.retain_passport?('angola')
-          refute @query.retain_passport?('france')
-        end
-      end
-
       context "passport_costs" do
         should "format passport costs" do
           %w(south_african_rand_adult_32 south_african_rand_adult_48 south_african_rand_child
