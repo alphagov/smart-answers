@@ -116,24 +116,15 @@ module SmartAnswer
         option :no
         save_input_as :leaving_airport_answer
 
-        next_node do |response|
-          if %w(venezuela taiwan).include?(passport_country)
-            next :outcome_visit_waiver
-          elsif response == 'yes'
-            if country_group_visa_national.include?(passport_country)
-              next :outcome_transit_leaving_airport
-            elsif country_group_datv.include?(passport_country)
-              next :outcome_transit_leaving_airport_datv
-            end
-          elsif response == 'no'
-            if passport_country == 'stateless-or-refugee'
-              next :outcome_transit_refugee_not_leaving_airport
-            elsif country_group_datv.include?(passport_country)
-              next :outcome_transit_not_leaving_airport
-            elsif country_group_visa_national.include?(passport_country)
-              next :outcome_no_visa_needed
-            end
-          end
+        next_node_if(:outcome_visit_waiver) { %w(venezuela taiwan).include?(passport_country) }
+        on_condition(responded_with('yes')) do
+          next_node_if(:outcome_transit_leaving_airport) { country_group_visa_national.include?(passport_country) }
+          next_node_if(:outcome_transit_leaving_airport_datv) { country_group_datv.include?(passport_country) }
+        end
+        on_condition(responded_with('no')) do
+          next_node_if(:outcome_transit_refugee_not_leaving_airport) { passport_country == 'stateless-or-refugee' }
+          next_node_if(:outcome_transit_not_leaving_airport) { country_group_datv.include?(passport_country) }
+          next_node_if(:outcome_no_visa_needed) { country_group_visa_national.include?(passport_country) }
         end
       end
 
