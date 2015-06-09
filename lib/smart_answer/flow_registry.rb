@@ -10,7 +10,6 @@ SMART_ANSWER_FLOW_NAMES = %w(
   calculate-state-pension
   calculate-your-child-maintenance
   calculate-your-holiday-entitlement
-  check-uk-visa-v2
   check-uk-visa
   childcare-costs-for-tax-credits
   energy-grants-calculator
