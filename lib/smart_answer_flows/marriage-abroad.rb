@@ -860,21 +860,11 @@ module SmartAnswer
               phrases << :consular_cni_os_fees_not_italy_not_uk
             end
 
-            unless data_query.countries_without_consular_facilities?(ceremony_country)
-              if resident_of == 'ceremony_country' || resident_of == 'uk'
-                if ceremony_country != 'cote-d-ivoire'
-                  if ceremony_country == 'kazakhstan'
-                    phrases << :list_of_consular_kazakhstan
-                  else
-                    phrases << :list_of_consular_fees
-                  end
-                end
+            unless data_query.countries_without_consular_facilities?(ceremony_country) || ceremony_country == 'cote-d-ivoire'
+              if ceremony_country == 'kazakhstan'
+                phrases << :list_of_consular_kazakhstan
               else
-                if ceremony_country == 'kazakhstan'
-                  phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident_kazakhstan
-                else
-                  phrases << :consular_cni_os_fees_foreign_commonwealth_roi_resident
-                end
+                phrases << :list_of_consular_fees
               end
             end
           end
