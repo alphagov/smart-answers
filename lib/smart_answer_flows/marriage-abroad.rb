@@ -598,7 +598,7 @@ module SmartAnswer
             phrases << :japan_intro
           end
 
-          if %(japan italy).exclude?(ceremony_country)
+          if %w(japan italy).exclude?(ceremony_country)
             if resident_of == 'uk'
               if data_query.dutch_caribbean_islands?(ceremony_country)
                 phrases << :contact_dutch_embassy_for_dutch_caribbean_islands
@@ -617,7 +617,7 @@ module SmartAnswer
             end
           end
 
-          if %(japan italy spain).exclude?(ceremony_country)
+          if %w(japan italy spain).exclude?(ceremony_country)
             if resident_of == 'ceremony_country'
               phrases << :get_legal_advice
             else
@@ -775,7 +775,7 @@ module SmartAnswer
           if resident_of != 'uk'
             if ceremony_country == 'italy' && resident_of != 'uk'
               phrases << :consular_cni_os_other_resident_ceremony_italy
-            elsif %(germany spain).exclude?(ceremony_country)
+            elsif %w(germany spain).exclude?(ceremony_country)
               phrases << :consular_cni_os_other_resident_ceremony_not_germany_or_spain
             end
           end
