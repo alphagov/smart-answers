@@ -23,8 +23,6 @@ module SmartAnswer::Calculators
       'guinea' => 'ghana'
     }
 
-    RETAIN_PASSPORT_COUNTRIES_HURRICANES = %w(anguilla antigua-and-barbuda bahamas bermuda bonaire-st-eustatius-saba british-virgin-islands cayman-islands curacao dominica dominican-republic french-guiana grenada guadeloupe guyana haiti martinique mexico montserrat st-maarten st-kitts-and-nevis st-lucia st-pierre-and-miquelon st-vincent-and-the-grenadines suriname trinidad-and-tobago turks-and-caicos-islands)
-
     PASSPORT_COSTS = {
       'Australian Dollars'  => [[282.21], [325.81], [205.81]],
       'Euros'               => [[161, 186],   [195, 220],   [103, 128]],
@@ -45,10 +43,6 @@ module SmartAnswer::Calculators
 
     def find_passport_data(country_slug)
       passport_data[country_slug]
-    end
-
-    def retain_passport_hurricanes?(country_slug)
-      RETAIN_PASSPORT_COUNTRIES_HURRICANES.include?(country_slug)
     end
 
     def cash_only_countries?(country_slug)
