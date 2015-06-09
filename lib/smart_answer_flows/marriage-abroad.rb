@@ -1294,11 +1294,7 @@ module SmartAnswer
           end
           phrases << :embassies_data
 
-          if data_query.ss_21_days_residency_required_countries?(ceremony_country)
-            phrases << :documents_needed_21_days_residency
-          else
-            phrases << :documents_needed_7_days_residency
-          end
+          phrases << :documents_needed_7_days_residency
 
           phrases << :documents_for_both_partners_cp
           if partner_nationality != 'partner_british'
