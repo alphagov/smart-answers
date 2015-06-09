@@ -1347,11 +1347,8 @@ module SmartAnswer
           end
 
           unless ceremony_country == 'japan'
-            if data_query.ss_21_days_residency_required_countries?(ceremony_country)
-              phrases << :documents_needed_21_days_residency
-            else
-              phrases << :documents_needed_7_days_residency
-            end
+            phrases << :documents_needed_21_days_residency
+
             if partner_nationality == 'partner_british'
               phrases << :documents_needed_ss_british
             elsif ceremony_country == 'germany'
