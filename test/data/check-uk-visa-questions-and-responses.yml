@@ -1,0 +1,30 @@
+---
+:what_passport_do_you_have?:
+- afghanistan
+- andorra
+- anguilla
+- austria
+- china
+- croatia
+- oman
+- stateless-or-refugee
+- syria
+- taiwan
+- turkey
+- venezuela
+:purpose_of_visit?:
+- tourism
+- work
+- study
+- transit
+- family
+- marriage
+- school
+- medical
+- diplomatic
+:planning_to_leave_airport?:
+- "yes"
+- "no"
+:staying_for_how_long?:
+- six_months_or_less
+- longer_than_six_months

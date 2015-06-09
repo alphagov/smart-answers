@@ -1,0 +1,993 @@
+--- 
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - afghanistan
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - afghanistan
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - afghanistan
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - afghanistan
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - afghanistan
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - afghanistan
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - afghanistan
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - afghanistan
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - afghanistan
+  - transit
+  :next_node: :planning_to_leave_airport?
+  :outcome_node: false
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - afghanistan
+  - transit
+  - "yes"
+  :next_node: :outcome_transit_leaving_airport_datv
+  :outcome_node: true
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - afghanistan
+  - transit
+  - "no"
+  :next_node: :outcome_transit_not_leaving_airport
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - afghanistan
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - afghanistan
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - afghanistan
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - afghanistan
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - afghanistan
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - andorra
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - andorra
+  - tourism
+  :next_node: :outcome_school_n
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - andorra
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - andorra
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_n
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - andorra
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - andorra
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - andorra
+  - study
+  - six_months_or_less
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - andorra
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - andorra
+  - transit
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - andorra
+  - family
+  :next_node: :outcome_joining_family_nvn
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - andorra
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - andorra
+  - school
+  :next_node: :outcome_school_n
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - andorra
+  - medical
+  :next_node: :outcome_medical_n
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - andorra
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - anguilla
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - anguilla
+  - tourism
+  :next_node: :outcome_school_n
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - anguilla
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - anguilla
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_n
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - anguilla
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - anguilla
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - anguilla
+  - study
+  - six_months_or_less
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - anguilla
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - anguilla
+  - transit
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - anguilla
+  - family
+  :next_node: :outcome_joining_family_m
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - anguilla
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - anguilla
+  - school
+  :next_node: :outcome_school_n
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - anguilla
+  - medical
+  :next_node: :outcome_medical_n
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - anguilla
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - austria
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - china
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - china
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - china
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - china
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - china
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - china
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - china
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - china
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - china
+  - transit
+  :next_node: :planning_to_leave_airport?
+  :outcome_node: false
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - china
+  - transit
+  - "yes"
+  :next_node: :outcome_transit_leaving_airport_datv
+  :outcome_node: true
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - china
+  - transit
+  - "no"
+  :next_node: :outcome_transit_not_leaving_airport
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - china
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - china
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - china
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - china
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - china
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - croatia
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - oman
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - oman
+  - tourism
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - oman
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - oman
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - oman
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - oman
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - oman
+  - study
+  - six_months_or_less
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - oman
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - oman
+  - transit
+  :next_node: :planning_to_leave_airport?
+  :outcome_node: false
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - oman
+  - transit
+  - "yes"
+  :next_node: :outcome_transit_leaving_airport
+  :outcome_node: true
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - oman
+  - transit
+  - "no"
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - oman
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - oman
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - oman
+  - school
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - oman
+  - medical
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - oman
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - stateless-or-refugee
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - stateless-or-refugee
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - stateless-or-refugee
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - stateless-or-refugee
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - stateless-or-refugee
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - stateless-or-refugee
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - stateless-or-refugee
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - stateless-or-refugee
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - stateless-or-refugee
+  - transit
+  :next_node: :planning_to_leave_airport?
+  :outcome_node: false
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - stateless-or-refugee
+  - transit
+  - "yes"
+  :next_node: :outcome_transit_leaving_airport
+  :outcome_node: true
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - stateless-or-refugee
+  - transit
+  - "no"
+  :next_node: :outcome_transit_refugee_not_leaving_airport
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - stateless-or-refugee
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - stateless-or-refugee
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - stateless-or-refugee
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - stateless-or-refugee
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - stateless-or-refugee
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - syria
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - syria
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - syria
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - syria
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - syria
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - syria
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - syria
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - syria
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - syria
+  - transit
+  :next_node: :planning_to_leave_airport?
+  :outcome_node: false
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - syria
+  - transit
+  - "yes"
+  :next_node: :outcome_transit_leaving_airport_datv
+  :outcome_node: true
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - syria
+  - transit
+  - "no"
+  :next_node: :outcome_transit_not_leaving_airport
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - syria
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - syria
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - syria
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - syria
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - syria
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - taiwan
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - taiwan
+  - tourism
+  :next_node: :outcome_taiwan_exception
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - taiwan
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - taiwan
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_n
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - taiwan
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - taiwan
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - taiwan
+  - study
+  - six_months_or_less
+  :next_node: :outcome_taiwan_exception
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - taiwan
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - taiwan
+  - transit
+  :next_node: :planning_to_leave_airport?
+  :outcome_node: false
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - taiwan
+  - transit
+  - "yes"
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - taiwan
+  - transit
+  - "no"
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - taiwan
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - taiwan
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - taiwan
+  - school
+  :next_node: :outcome_taiwan_exception
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - taiwan
+  - medical
+  :next_node: :outcome_taiwan_exception
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - taiwan
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - turkey
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - turkey
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - turkey
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - turkey
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - turkey
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - turkey
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - turkey
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - turkey
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - turkey
+  - transit
+  :next_node: :planning_to_leave_airport?
+  :outcome_node: false
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - turkey
+  - transit
+  - "yes"
+  :next_node: :outcome_transit_leaving_airport_datv
+  :outcome_node: true
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - turkey
+  - transit
+  - "no"
+  :next_node: :outcome_transit_not_leaving_airport
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - turkey
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - turkey
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - turkey
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - turkey
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - turkey
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses: 
+  - venezuela
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - venezuela
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - venezuela
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - venezuela
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - venezuela
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - venezuela
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - venezuela
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses: 
+  - venezuela
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - venezuela
+  - transit
+  :next_node: :planning_to_leave_airport?
+  :outcome_node: false
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - venezuela
+  - transit
+  - "yes"
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :planning_to_leave_airport?
+  :responses: 
+  - venezuela
+  - transit
+  - "no"
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - venezuela
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - venezuela
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - venezuela
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - venezuela
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses: 
+  - venezuela
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
