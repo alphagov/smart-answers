@@ -29,13 +29,8 @@ module SmartAnswer
           end
         end
 
-        next_node do |response|
-          if country_group_eea.include?(response)
-            :outcome_no_visa_needed
-          else
-            :purpose_of_visit?
-          end
-        end
+        next_node_if(:outcome_no_visa_needed, country_in(country_group_eea))
+        next_node(:purpose_of_visit?)
       end
 
       # Q2
