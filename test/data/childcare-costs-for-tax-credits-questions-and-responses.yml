@@ -1,40 +1,42 @@
---- 
-:currently_claiming?: 
+---
+:currently_claiming?:
 - "yes"
 - "no"
-:how_often_use_childcare?: 
+:how_often_use_childcare?:
 - regularly_less_than_year
 - regularly_more_than_year
 - only_short_while
-:have_costs_changed?: 
+:have_costs_changed?:
 - "yes"
 - "no"
-:how_often_pay_1?: 
+:how_often_pay_1?:
 - weekly_same_amount
 - weekly_diff_amount
 - monthly_same_amount
 - monthly_diff_amount
 - other
-:how_often_pay_2?: 
+:how_often_pay_2?:
 - weekly_same_amount
 - weekly_diff_amount
 - monthly_same_amount
 - monthly_diff_amount
 - other
-:how_much_12_months_1?: 
-- "TODO: How much do you expect to pay in total for childcare for the next 12 months?"
-:how_much_52_weeks_1?: 
-- "TODO: How much do you expect to pay in total for childcare for the next 52 weeks?"
-:how_much_52_weeks_2?: 
-- "TODO: How much do you expect to pay in total for childcare for the next 52 weeks?"
-:how_much_12_months_2?: 
-- "TODO: How much do you expect to pay in total for childcare for the next 12 months?"
-:how_much_each_month?: 
-- "TODO: How much do you pay each month?"
-:pay_same_each_time?: 
+:how_much_12_months_1?:
+- 520
+:how_much_52_weeks_1?:
+- 520
+:how_much_52_weeks_2?:
+- 0
+- 520
+:how_much_12_months_2?:
+- 0
+- 520
+:how_much_each_month?:
+- 43.3
+:pay_same_each_time?:
 - "yes"
 - "no"
-:how_often_pay_providers?: 
+:how_often_pay_providers?:
 - weekly
 - fortnightly
 - every_4_weeks
@@ -42,21 +44,24 @@
 - termly
 - yearly
 - other
-:how_much_fortnightly?: 
-- "TODO: How much do you pay each fortnight?"
-:how_much_4_weeks?: 
-- "TODO: How much do you pay every 4 weeks?"
-:how_much_yearly?: 
-- "TODO: How much do you pay every year?"
-:how_much_spent_last_12_months?: 
-- "TODO: How much have you spent on childcare in the last 12 months?"
-:new_weekly_costs?: 
-- "TODO: What are your new weekly costs?"
-:old_weekly_amount_1?: 
-- "TODO: What was the old average weekly amount you gave the Tax Credit Office?"
-:new_monthly_cost?: 
-- "TODO: What's the new monthly cost of your childcare?"
-:old_weekly_amount_2?: 
-- "TODO: What was the old average weekly amount you gave the Tax Credit Office?"
-:old_weekly_amount_3?: 
-- "TODO: What was the old average weekly amount you gave the Tax Credit Office?"
+:how_much_fortnightly?:
+- 20
+:how_much_4_weeks?:
+- 40
+:how_much_yearly?:
+- 520
+:how_much_spent_last_12_months?:
+- 520
+:new_weekly_costs?:
+- 0
+- 10
+- 20
+:old_weekly_amount_1?:
+- 10
+:new_monthly_cost?:
+- 0
+- 43.3
+:old_weekly_amount_2?:
+- 10
+:old_weekly_amount_3?:
+- 10
