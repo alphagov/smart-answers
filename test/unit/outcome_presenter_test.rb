@@ -46,7 +46,7 @@ Hello world
 <% end %>
 '
 
-      with_erb_template_file(erb_template) do |erb_template_file|
+      with_erb_template_file("body", erb_template) do |erb_template_file|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
@@ -61,7 +61,7 @@ Hello world
     test '#body makes the state variables available to the ERB template' do
       erb_template = '<%= state_variable %>'
 
-      with_erb_template_file(erb_template) do |erb_template_file|
+      with_erb_template_file("body", erb_template) do |erb_template_file|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
@@ -76,7 +76,7 @@ Hello world
     test "#body raises an exception if the ERB template references a non-existent state variable" do
       erb_template = '<%= non_existent_state_variable %>'
 
-      with_erb_template_file(erb_template) do |erb_template_file|
+      with_erb_template_file("body", erb_template) do |erb_template_file|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
@@ -94,7 +94,7 @@ Hello world
     test '#body makes the ActionView::Helpers::NumberHelper methods available to the ERB template' do
       erb_template = '<%= number_with_delimiter(123456789) %>'
 
-      with_erb_template_file(erb_template) do |erb_template_file|
+      with_erb_template_file("body", erb_template) do |erb_template_file|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
@@ -109,7 +109,7 @@ Hello world
     test '#body passes output of ERB template through Govspeak' do
       erb_template = '^information^'
 
-      with_erb_template_file(erb_template) do |erb_template_file|
+      with_erb_template_file("body", erb_template) do |erb_template_file|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
@@ -172,7 +172,7 @@ Hello world
     test '#title trims a single newline from the end of the string' do
       erb_template = "title-text\n\n"
 
-      with_erb_template_file(erb_template) do |erb_template_file|
+      with_erb_template_file("title", erb_template) do |erb_template_file|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
@@ -187,7 +187,7 @@ Hello world
     test '#title makes the state variables available to the ERB template' do
       erb_template = '<%= state_variable %>'
 
-      with_erb_template_file(erb_template) do |erb_template_file|
+      with_erb_template_file("title", erb_template) do |erb_template_file|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
@@ -202,7 +202,7 @@ Hello world
     test "#title raises an exception if the ERB template references a non-existent state variable" do
       erb_template = '<%= non_existent_state_variable %>'
 
-      with_erb_template_file(erb_template) do |erb_template_file|
+      with_erb_template_file("title", erb_template) do |erb_template_file|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
@@ -228,8 +228,8 @@ Hello world
 
     private
 
-    def with_erb_template_file(erb_template)
-      Tempfile.open('template.txt.erb') do |erb_template_file|
+    def with_erb_template_file(suffix, erb_template)
+      Tempfile.open(["template_", "_#{suffix}.txt.erb"]) do |erb_template_file|
         erb_template_file.write(erb_template)
         erb_template_file.rewind
 
