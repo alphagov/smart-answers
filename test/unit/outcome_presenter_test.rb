@@ -3,8 +3,7 @@ require_relative '../test_helper'
 module SmartAnswer
   class OutcomePresenterTest < ActiveSupport::TestCase
     test '#body_erb_template_path returns the default erb template path built using both the flow and outcome node name' do
-      options = { flow_name: 'flow-name' }
-      outcome = Outcome.new('outcome-name', options)
+      outcome = Outcome.new('outcome-name', flow_name: 'flow-name')
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
       expected_path = Rails.root.join('lib', 'smart_answer_flows', 'flow-name', 'outcome-name_body.govspeak.erb')
@@ -22,8 +21,7 @@ module SmartAnswer
     end
 
     test "#body returns nil when the erb template doesn't exist" do
-      options = { use_outcome_templates: true }
-      outcome = Outcome.new('outcome-name', options)
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
       options = { erb_template_directory: Pathname.new('/path/to/non-existent'), body_erb_template_name: 'template.erb' }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
@@ -38,8 +36,7 @@ Hello world
 '
 
       with_erb_template_file("body", erb_template) do |presenter_options|
-        options = { use_outcome_templates: true }
-        outcome = Outcome.new('outcome-name', options)
+        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
@@ -51,8 +48,7 @@ Hello world
       erb_template = '<%= state_variable %>'
 
       with_erb_template_file("body", erb_template) do |presenter_options|
-        options = { use_outcome_templates: true }
-        outcome = Outcome.new('outcome-name', options)
+        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
         state = stub(to_hash: { state_variable: 'state-variable' })
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
@@ -65,8 +61,7 @@ Hello world
       erb_template = '<%= non_existent_state_variable %>'
 
       with_erb_template_file("body", erb_template) do |presenter_options|
-        options = { use_outcome_templates: true }
-        outcome = Outcome.new('outcome-name', options)
+        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
         state = stub(to_hash: {})
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
@@ -82,8 +77,7 @@ Hello world
       erb_template = '<%= number_with_delimiter(123456789) %>'
 
       with_erb_template_file("body", erb_template) do |presenter_options|
-        options = { use_outcome_templates: true }
-        outcome = Outcome.new('outcome-name', options)
+        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
@@ -95,8 +89,7 @@ Hello world
       erb_template = '^information^'
 
       with_erb_template_file("body", erb_template) do |presenter_options|
-        options = { use_outcome_templates: true }
-        outcome = Outcome.new('outcome-name', options)
+        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
@@ -106,8 +99,7 @@ Hello world
     end
 
     test '#body delegates to NodePresenter when not using outcome templates' do
-      options = { use_outcome_templates: false }
-      outcome = Outcome.new('outcome-name', options)
+      outcome = Outcome.new('outcome-name', use_outcome_templates: false)
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
       presenter.stubs(:translate_and_render).with('body').returns('node-presenter-body')
@@ -134,8 +126,7 @@ Hello world
     end
 
     test "#title returns nil when the erb template doesn't exist" do
-      options = { use_outcome_templates: true }
-      outcome = Outcome.new('outcome-name', options)
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
       options = { erb_template_directory: Pathname.new('/path/to/non-existent'), title_erb_template_name: 'template.erb' }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
@@ -147,8 +138,7 @@ Hello world
       erb_template = "title-text\n\n"
 
       with_erb_template_file("title", erb_template) do |presenter_options|
-        options = { use_outcome_templates: true }
-        outcome = Outcome.new('outcome-name', options)
+        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
@@ -160,8 +150,7 @@ Hello world
       erb_template = '<%= state_variable %>'
 
       with_erb_template_file("title", erb_template) do |presenter_options|
-        options = { use_outcome_templates: true }
-        outcome = Outcome.new('outcome-name', options)
+        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
         state = stub(to_hash: { state_variable: 'state-variable' })
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
@@ -174,8 +163,7 @@ Hello world
       erb_template = '<%= non_existent_state_variable %>'
 
       with_erb_template_file("title", erb_template) do |presenter_options|
-        options = { use_outcome_templates: true }
-        outcome = Outcome.new('outcome-name', options)
+        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
         state = stub(to_hash: {})
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
@@ -188,8 +176,7 @@ Hello world
     end
 
     test '#title calls translate! to return the title when not using outcome templates' do
-      options = { use_outcome_templates: false }
-      outcome = Outcome.new('outcome-name', options)
+      outcome = Outcome.new('outcome-name', use_outcome_templates: false)
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
       presenter.stubs(:translate!).with('title').returns('outcome-presenter-title')
