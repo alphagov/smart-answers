@@ -78,5 +78,6 @@ if ENV['RUBY_DEBUG']
 end
 
 group :analytics do
-  gem 'google-api-client', :require => 'google/api_client'
+  gem 'jwt', '~> 0.1.4'
+  gem 'google-api-client', '~> 0.6.0', :require => 'google/api_client'
 end
