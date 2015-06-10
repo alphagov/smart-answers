@@ -3,5 +3,5 @@ lib/smart_answer_flows/check-uk-visa.rb: fb4e3f4f4642eab6639e7b57d9bee118
 lib/smart_answer_flows/locales/en/check-uk-visa.yml: 4a59f3c709f1a33ed944069d9b186668
 test/data/check-uk-visa-questions-and-responses.yml: f3bbf465d62274d46769eee8fb99d9bc
 test/data/check-uk-visa-responses-and-expected-results.yml: 5efd380bd1adca1aad2506c003c44f05
-app/models/ukba_country.rb: 0efc21576bd6e7543955d787e446b585
+app/models/ukba_country.rb: 78a94d29eeb009b14e0c5d35ff397683
 lib/data/ukba_additional_countries.yml: 5e84d01caf6b2841d0ea9f03f0f4974c
