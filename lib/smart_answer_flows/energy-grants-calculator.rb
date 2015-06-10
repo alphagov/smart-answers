@@ -95,9 +95,7 @@ module SmartAnswer
 
       # Q3
       date_question :date_of_birth? do
-        from { 122.years.ago.beginning_of_year }
-        to { Date.today.end_of_year }
-        validate_in_range
+        date_of_birth_defaults
 
         calculate :age_variant do |response|
           dob = response

@@ -26,9 +26,7 @@ module SmartAnswer
 
       ## Q2
       date_question :what_is_your_dob? do
-        from { 122.years.ago.beginning_of_year }
-        to { Date.today.end_of_year }
-        validate_in_range
+        date_of_birth_defaults
 
         next_node do |response|
           calculator.dob = response

@@ -126,6 +126,12 @@ module SmartAnswer
         nil
       end
 
+      def date_of_birth_defaults
+        from { 122.years.ago.beginning_of_year.to_date }
+        to { ::Date.today.end_of_year }
+        validate_in_range
+      end
+
     private
 
       def validate_input(date)

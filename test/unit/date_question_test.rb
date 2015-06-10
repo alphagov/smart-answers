@@ -127,7 +127,25 @@ module SmartAnswer
       assert_equal Date.parse('2013-02-28'), new_state.date
     end
 
+    test "#date_of_birth_defaults prevent very old values" do
+      assert_raise SmartAnswer::InvalidResponse do
+        dob_question.transition(@initial_state, 125.years.ago.to_date.to_s)
+      end
+    end
+
+    test "#date_of_birth_defaults prevent next year dates" do
+      assert_raise SmartAnswer::InvalidResponse do
+        next_year_start = 1.year.from_now.beginning_of_year.to_date.to_s
+        dob_question.transition(@initial_state, next_year_start)
+      end
+    end
+
+    test "#date_of_birth_defaults accepts 120 years old values" do
+      dob_question.transition(@initial_state, 120.years.ago.to_date.to_s)
+    end
+
   private
+
     def date_question_2011
       Question::Date.new(:example) do
         save_input_as :date
@@ -135,6 +153,14 @@ module SmartAnswer
         from { Date.parse('2011-01-01') }
         to { Date.parse('2011-12-31') }
         validate_in_range
+      end
+    end
+
+    def dob_question
+      Question::Date.new(:example) do
+        date_of_birth_defaults
+        save_input_as :date
+        next_node :done
       end
     end
   end
