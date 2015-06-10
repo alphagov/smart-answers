@@ -39,10 +39,6 @@ class OutcomePresenter < NodePresenter
   end
 
   def title_erb_template_name
-    @options[:title_erb_template_name] || default_title_erb_template_name
-  end
-
-  def default_title_erb_template_name
     "#{name}_title.txt.erb"
   end
 
@@ -51,10 +47,6 @@ class OutcomePresenter < NodePresenter
   end
 
   def body_erb_template_name
-    @options[:body_erb_template_name] || default_body_erb_template_name
-  end
-
-  def default_body_erb_template_name
     "#{name}_body.govspeak.erb"
   end
 

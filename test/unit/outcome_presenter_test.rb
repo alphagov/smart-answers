@@ -13,17 +13,17 @@ module SmartAnswer
     test '#body_erb_template_path returns the erb template path supplied in the options' do
       outcome = Outcome.new('outcome-name')
 
-      options = { erb_template_directory: Pathname.new('/erb-template-directory'), body_erb_template_name: 'template.erb' }
+      options = { erb_template_directory: Pathname.new('/erb-template-directory') }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
 
-      expected_path = Pathname.new('/erb-template-directory').join('template.erb')
+      expected_path = Pathname.new('/erb-template-directory').join('outcome-name_body.govspeak.erb')
       assert_equal expected_path, presenter.body_erb_template_path
     end
 
     test "#body returns nil when the erb template doesn't exist" do
       outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
-      options = { erb_template_directory: Pathname.new('/path/to/non-existent'), body_erb_template_name: 'template.erb' }
+      options = { erb_template_directory: Pathname.new('/path/to/non-existent') }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
 
       assert_equal nil, presenter.body
@@ -37,8 +37,7 @@ Hello world
 <% end %>
 '
 
-      with_erb_template_file("body", erb_template) do |presenter_options|
-
+      with_body_erb_template_file("outcome-name", erb_template) do |presenter_options|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
         assert_equal "<p>Hello world</p>\n", presenter.body
@@ -50,7 +49,7 @@ Hello world
 
       erb_template = '<%= state_variable %>'
 
-      with_erb_template_file("body", erb_template) do |presenter_options|
+      with_body_erb_template_file("outcome-name", erb_template) do |presenter_options|
         state = stub(to_hash: { state_variable: 'state-variable' })
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
@@ -63,7 +62,7 @@ Hello world
 
       erb_template = '<%= non_existent_state_variable %>'
 
-      with_erb_template_file("body", erb_template) do |presenter_options|
+      with_body_erb_template_file("outcome-name", erb_template) do |presenter_options|
         state = stub(to_hash: {})
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
@@ -79,7 +78,7 @@ Hello world
 
       erb_template = '<%= number_with_delimiter(123456789) %>'
 
-      with_erb_template_file("body", erb_template) do |presenter_options|
+      with_body_erb_template_file("outcome-name", erb_template) do |presenter_options|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
         assert_match '123,456,789', presenter.body
@@ -91,7 +90,7 @@ Hello world
 
       erb_template = '^information^'
 
-      with_erb_template_file("body", erb_template) do |presenter_options|
+      with_body_erb_template_file("outcome-name", erb_template) do |presenter_options|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
         nodes = Capybara.string(presenter.body)
@@ -119,17 +118,17 @@ Hello world
     test '#title_erb_template_path returns the erb template path supplied in the options' do
       outcome = Outcome.new('outcome-name')
 
-      options = { erb_template_directory: Pathname.new('/erb-template-directory'), title_erb_template_name: 'template.erb' }
+      options = { erb_template_directory: Pathname.new('/erb-template-directory') }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
 
-      expected_path = Pathname.new('/erb-template-directory').join('template.erb')
+      expected_path = Pathname.new('/erb-template-directory').join('outcome-name_title.txt.erb')
       assert_equal expected_path, presenter.title_erb_template_path
     end
 
     test "#title returns nil when the erb template doesn't exist" do
       outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
-      options = { erb_template_directory: Pathname.new('/path/to/non-existent'), title_erb_template_name: 'template.erb' }
+      options = { erb_template_directory: Pathname.new('/path/to/non-existent') }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
 
       assert_equal nil, presenter.title
@@ -140,7 +139,7 @@ Hello world
 
       erb_template = "title-text\n\n"
 
-      with_erb_template_file("title", erb_template) do |presenter_options|
+      with_title_erb_template_file("outcome-name", erb_template) do |presenter_options|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
         assert_equal "title-text\n", presenter.title
@@ -152,7 +151,7 @@ Hello world
 
       erb_template = '<%= state_variable %>'
 
-      with_erb_template_file("title", erb_template) do |presenter_options|
+      with_title_erb_template_file("outcome-name", erb_template) do |presenter_options|
         state = stub(to_hash: { state_variable: 'state-variable' })
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
@@ -165,7 +164,7 @@ Hello world
 
       erb_template = '<%= non_existent_state_variable %>'
 
-      with_erb_template_file("title", erb_template) do |presenter_options|
+      with_title_erb_template_file("outcome-name", erb_template) do |presenter_options|
         state = stub(to_hash: {})
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
@@ -186,9 +185,15 @@ Hello world
 
     private
 
-    def with_erb_template_file(suffix, erb_template)
-      erb_template_filename = "template_#{suffix}.txt.erb"
+    def with_title_erb_template_file(outcome_name, erb_template, &block)
+      with_erb_template_file("#{outcome_name}_title.txt.erb", erb_template, &block)
+    end
 
+    def with_body_erb_template_file(outcome_name, erb_template, &block)
+      with_erb_template_file("#{outcome_name}_body.govspeak.erb", erb_template, &block)
+    end
+
+    def with_erb_template_file(erb_template_filename, erb_template)
       Dir.mktmpdir do |directory|
         erb_template_directory = Pathname.new(directory)
 
@@ -198,7 +203,6 @@ Hello world
 
           options = {
             :erb_template_directory => erb_template_directory,
-            :"#{suffix}_erb_template_name" => erb_template_filename
           }
 
           yield options
