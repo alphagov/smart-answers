@@ -46,13 +46,12 @@ Hello world
 <% end %>
 '
 
-      with_erb_template_file("body", erb_template) do |erb_template_file|
+      with_erb_template_file("body", erb_template) do |presenter_options|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { body_erb_template_path: erb_template_file.path }
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
         assert_equal "<p>Hello world</p>\n", presenter.body
       end
@@ -61,13 +60,12 @@ Hello world
     test '#body makes the state variables available to the ERB template' do
       erb_template = '<%= state_variable %>'
 
-      with_erb_template_file("body", erb_template) do |erb_template_file|
+      with_erb_template_file("body", erb_template) do |presenter_options|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
         state = stub(to_hash: { state_variable: 'state-variable' })
-        options = { body_erb_template_path: erb_template_file.path }
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
         assert_match 'state-variable', presenter.body
       end
@@ -76,13 +74,12 @@ Hello world
     test "#body raises an exception if the ERB template references a non-existent state variable" do
       erb_template = '<%= non_existent_state_variable %>'
 
-      with_erb_template_file("body", erb_template) do |erb_template_file|
+      with_erb_template_file("body", erb_template) do |presenter_options|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
         state = stub(to_hash: {})
-        options = { body_erb_template_path: erb_template_file.path }
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
         e = assert_raises(ActionView::Template::Error) do
           presenter.body
@@ -94,13 +91,12 @@ Hello world
     test '#body makes the ActionView::Helpers::NumberHelper methods available to the ERB template' do
       erb_template = '<%= number_with_delimiter(123456789) %>'
 
-      with_erb_template_file("body", erb_template) do |erb_template_file|
+      with_erb_template_file("body", erb_template) do |presenter_options|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { body_erb_template_path: erb_template_file.path }
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
         assert_match '123,456,789', presenter.body
       end
@@ -109,13 +105,12 @@ Hello world
     test '#body passes output of ERB template through Govspeak' do
       erb_template = '^information^'
 
-      with_erb_template_file("body", erb_template) do |erb_template_file|
+      with_erb_template_file("body", erb_template) do |presenter_options|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { body_erb_template_path: erb_template_file.path }
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
         nodes = Capybara.string(presenter.body)
         assert nodes.has_css?(".application-notice", text: "information"), "Does not have information callout"
@@ -172,13 +167,12 @@ Hello world
     test '#title trims a single newline from the end of the string' do
       erb_template = "title-text\n\n"
 
-      with_erb_template_file("title", erb_template) do |erb_template_file|
+      with_erb_template_file("title", erb_template) do |presenter_options|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
         state = nil
-        options = { title_erb_template_path: erb_template_file.path }
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
         assert_equal "title-text\n", presenter.title
       end
@@ -187,13 +181,12 @@ Hello world
     test '#title makes the state variables available to the ERB template' do
       erb_template = '<%= state_variable %>'
 
-      with_erb_template_file("title", erb_template) do |erb_template_file|
+      with_erb_template_file("title", erb_template) do |presenter_options|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
         state = stub(to_hash: { state_variable: 'state-variable' })
-        options = { title_erb_template_path: erb_template_file.path }
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
         assert_match 'state-variable', presenter.title
       end
@@ -202,13 +195,12 @@ Hello world
     test "#title raises an exception if the ERB template references a non-existent state variable" do
       erb_template = '<%= non_existent_state_variable %>'
 
-      with_erb_template_file("title", erb_template) do |erb_template_file|
+      with_erb_template_file("title", erb_template) do |presenter_options|
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
         state = stub(to_hash: {})
-        options = { title_erb_template_path: erb_template_file.path }
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
         e = assert_raises(ActionView::Template::Error) do
           presenter.title
@@ -233,7 +225,11 @@ Hello world
         erb_template_file.write(erb_template)
         erb_template_file.rewind
 
-        yield erb_template_file
+        options = {
+          :"#{suffix}_erb_template_path" => erb_template_file.path
+        }
+
+        yield options
       end
     end
   end
