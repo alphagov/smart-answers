@@ -14,9 +14,8 @@ module SmartAnswer
     test '#body_erb_template_path returns the erb template path supplied in the options' do
       outcome = Outcome.new('outcome-name')
 
-      state = nil
       options = { erb_template_directory: Pathname.new('/erb-template-directory'), body_erb_template_name: 'template.erb' }
-      presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
 
       expected_path = Pathname.new('/erb-template-directory').join('template.erb')
       assert_equal expected_path, presenter.body_erb_template_path
@@ -26,9 +25,8 @@ module SmartAnswer
       options = { use_outcome_templates: true }
       outcome = Outcome.new('outcome-name', options)
 
-      state = nil
       options = { erb_template_directory: Pathname.new('/path/to/non-existent'), body_erb_template_name: 'template.erb' }
-      presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
 
       assert_equal nil, presenter.body
     end
@@ -43,8 +41,7 @@ Hello world
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
-        state = nil
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
         assert_equal "<p>Hello world</p>\n", presenter.body
       end
@@ -88,8 +85,7 @@ Hello world
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
-        state = nil
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
         assert_match '123,456,789', presenter.body
       end
@@ -102,8 +98,7 @@ Hello world
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
-        state = nil
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
         nodes = Capybara.string(presenter.body)
         assert nodes.has_css?(".application-notice", text: "information"), "Does not have information callout"
@@ -131,9 +126,8 @@ Hello world
     test '#title_erb_template_path returns the erb template path supplied in the options' do
       outcome = Outcome.new('outcome-name')
 
-      state = nil
       options = { erb_template_directory: Pathname.new('/erb-template-directory'), title_erb_template_name: 'template.erb' }
-      presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
 
       expected_path = Pathname.new('/erb-template-directory').join('template.erb')
       assert_equal expected_path, presenter.title_erb_template_path
@@ -143,9 +137,8 @@ Hello world
       options = { use_outcome_templates: true }
       outcome = Outcome.new('outcome-name', options)
 
-      state = nil
       options = { erb_template_directory: Pathname.new('/path/to/non-existent'), title_erb_template_name: 'template.erb' }
-      presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
+      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
 
       assert_equal nil, presenter.title
     end
@@ -157,8 +150,7 @@ Hello world
         options = { use_outcome_templates: true }
         outcome = Outcome.new('outcome-name', options)
 
-        state = nil
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
         assert_equal "title-text\n", presenter.title
       end
