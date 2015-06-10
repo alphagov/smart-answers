@@ -26,11 +26,6 @@ module SmartAnswer::Calculators
       (Float(new_weekly_cost) - Float(old_weekly_tax).ceil)
     end
 
-    # C11, C12, C14
-    def self.cost_change_annual(annual_cost, old_weekly_tax)
-      cost_change(weekly_cost(annual_cost), old_weekly_tax)
-    end
-
     # C13
     def self.cost_change_month(month_cost, old_weekly_tax)
       cost_change(weekly_cost_from_monthly(month_cost), old_weekly_tax)
