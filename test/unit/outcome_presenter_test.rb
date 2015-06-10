@@ -37,8 +37,8 @@ Hello world
 <% end %>
 '
 
-      with_body_erb_template_file("outcome-name", erb_template) do |presenter_options|
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
+      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_equal "<p>Hello world</p>\n", presenter.body
       end
@@ -49,9 +49,9 @@ Hello world
 
       erb_template = '<%= state_variable %>'
 
-      with_body_erb_template_file("outcome-name", erb_template) do |presenter_options|
+      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         state = stub(to_hash: { state_variable: 'state-variable' })
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, erb_template_directory: erb_template_directory)
 
         assert_match 'state-variable', presenter.body
       end
@@ -62,9 +62,9 @@ Hello world
 
       erb_template = '<%= non_existent_state_variable %>'
 
-      with_body_erb_template_file("outcome-name", erb_template) do |presenter_options|
+      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         state = stub(to_hash: {})
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, erb_template_directory: erb_template_directory)
 
         e = assert_raises(ActionView::Template::Error) do
           presenter.body
@@ -78,8 +78,8 @@ Hello world
 
       erb_template = '<%= number_with_delimiter(123456789) %>'
 
-      with_body_erb_template_file("outcome-name", erb_template) do |presenter_options|
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
+      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_match '123,456,789', presenter.body
       end
@@ -90,8 +90,8 @@ Hello world
 
       erb_template = '^information^'
 
-      with_body_erb_template_file("outcome-name", erb_template) do |presenter_options|
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
+      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         nodes = Capybara.string(presenter.body)
         assert nodes.has_css?(".application-notice", text: "information"), "Does not have information callout"
@@ -139,8 +139,8 @@ Hello world
 
       erb_template = "title-text\n\n"
 
-      with_title_erb_template_file("outcome-name", erb_template) do |presenter_options|
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
+      with_title_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_equal "title-text\n", presenter.title
       end
@@ -151,9 +151,9 @@ Hello world
 
       erb_template = '<%= state_variable %>'
 
-      with_title_erb_template_file("outcome-name", erb_template) do |presenter_options|
+      with_title_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         state = stub(to_hash: { state_variable: 'state-variable' })
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, erb_template_directory: erb_template_directory)
 
         assert_match 'state-variable', presenter.title
       end
@@ -164,9 +164,9 @@ Hello world
 
       erb_template = '<%= non_existent_state_variable %>'
 
-      with_title_erb_template_file("outcome-name", erb_template) do |presenter_options|
+      with_title_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         state = stub(to_hash: {})
-        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, erb_template_directory: erb_template_directory)
 
         e = assert_raises(ActionView::Template::Error) do
           presenter.title
@@ -201,11 +201,7 @@ Hello world
           erb_template_file.write(erb_template)
           erb_template_file.rewind
 
-          options = {
-            :erb_template_directory => erb_template_directory,
-          }
-
-          yield options
+          yield erb_template_directory
         end
       end
     end
