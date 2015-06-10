@@ -39,11 +39,5 @@ module SmartAnswer::Calculators
         assert_equal 3, ChildcareCostCalculator.cost_change(10, 7)
       end
     end
-
-    context ".cost_change_month" do
-      should "return the differnce between weekly cost and tax" do
-        assert_equal 36, ChildcareCostCalculator.cost_change_month(186, 7)
-      end
-    end
   end
 end
