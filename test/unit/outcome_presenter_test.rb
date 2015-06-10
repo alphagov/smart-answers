@@ -219,16 +219,14 @@ Hello world
     private
 
     def with_erb_template_file(erb_template)
-      begin
-        erb_template_file = Tempfile.new('template.txt.erb')
-        erb_template_file.write(erb_template)
-        erb_template_file.rewind
+      erb_template_file = Tempfile.new('template.txt.erb')
+      erb_template_file.write(erb_template)
+      erb_template_file.rewind
 
-        yield erb_template_file
-      ensure
-        erb_template_file.unlink
-        erb_template_file.close
-      end
+      yield erb_template_file
+    ensure
+      erb_template_file.unlink
+      erb_template_file.close
     end
   end
 
