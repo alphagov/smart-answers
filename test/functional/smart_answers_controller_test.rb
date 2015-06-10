@@ -10,7 +10,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     stub_content_api_default_artefact
 
     @flow = SmartAnswer::Flow.new do
-      name :sample
+      name "sample"
 
       satisfies_need 1337
 
@@ -159,7 +159,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "date question" do
       setup do
         @flow = SmartAnswer::Flow.new do
-          name :sample
+          name "sample"
           date_question :when? do
             next_node :done
           end
@@ -244,7 +244,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "value question" do
       setup do
         @flow = SmartAnswer::Flow.new do
-          name :sample
+          name "sample"
           value_question :how_many_green_bottles? do
             next_node :done
           end
@@ -299,7 +299,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "money question" do
       setup do
         @flow = SmartAnswer::Flow.new do
-          name :sample
+          name "sample"
           money_question :how_much? do
             next_node :done
           end
@@ -337,7 +337,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "salary question" do
       setup do
         @flow = SmartAnswer::Flow.new do
-          name :sample
+          name "sample"
 
           salary_question(:how_much?) { next_node :done }
           outcome :done
@@ -404,7 +404,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "multiple choice question" do
       setup do
         @flow = SmartAnswer::Flow.new do
-          name :sample
+          name "sample"
           multiple_choice :what? do
             option cheese: :done
           end

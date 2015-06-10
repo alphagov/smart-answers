@@ -5,10 +5,10 @@ require_relative '../test_helper'
 class FlowTest < ActiveSupport::TestCase
   test "Can set the name" do
     s = SmartAnswer::Flow.new do
-      name :sweet_or_savoury?
+      name "sweet-or-savoury"
     end
 
-    assert_equal :sweet_or_savoury?, s.name
+    assert_equal "sweet-or-savoury", s.name
   end
 
   test "Can build outcome nodes" do
