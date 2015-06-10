@@ -2,12 +2,12 @@ class OutcomePresenter < NodePresenter
   def initialize(i18n_prefix, node, state = nil, options = {})
     @options = options
     super(i18n_prefix, node, state)
-    @view = ActionView::Base.new(["/"])
+    @view = ActionView::Base.new([template_directory])
   end
 
   def title
     if use_template? && title_erb_template_exists?
-      title = @view.render(template: title_erb_template_path, locals: @state.to_hash)
+      title = @view.render(template: title_erb_template_name, locals: @state.to_hash)
       title.chomp
     else
       translate!('title')
@@ -27,7 +27,7 @@ class OutcomePresenter < NodePresenter
 
   def body
     if use_template? && body_erb_template_exists?
-      govspeak = @view.render(template: body_erb_template_path, locals: @state.to_hash)
+      govspeak = @view.render(template: body_erb_template_name, locals: @state.to_hash)
       GovspeakPresenter.new(govspeak.to_str).html
     else
       super()
@@ -35,25 +35,33 @@ class OutcomePresenter < NodePresenter
   end
 
   def title_erb_template_path
-    @options[:title_erb_template_path] || default_title_erb_template_path
+    template_directory.join(title_erb_template_name)
   end
 
-  def default_title_erb_template_path
-    template_directory.join("#{name}_title.txt.erb")
+  def title_erb_template_name
+    @options[:title_erb_template_name] || default_title_erb_template_name
+  end
+
+  def default_title_erb_template_name
+    "#{name}_title.txt.erb"
   end
 
   def body_erb_template_path
-    @options[:body_erb_template_path] || default_body_erb_template_path
+    template_directory.join(body_erb_template_name)
   end
 
-  def default_body_erb_template_path
-    template_directory.join("#{name}_body.govspeak.erb")
+  def body_erb_template_name
+    @options[:body_erb_template_name] || default_body_erb_template_name
+  end
+
+  def default_body_erb_template_name
+    "#{name}_body.govspeak.erb"
   end
 
   private
 
   def template_directory
-    @node.template_directory
+    @options[:erb_template_directory] || @node.template_directory
   end
 
   def title_erb_template_exists?

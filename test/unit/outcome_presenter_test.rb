@@ -2,31 +2,24 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class OutcomePresenterTest < ActiveSupport::TestCase
-    test '#default_body_erb_template_path returns the default erb template path built using both the flow and outcome node name' do
+    test '#body_erb_template_path returns the default erb template path built using both the flow and outcome node name' do
       options = { flow_name: 'flow-name' }
       outcome = Outcome.new('outcome-name', options)
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
       expected_path = Rails.root.join('lib', 'smart_answer_flows', 'flow-name', 'outcome-name_body.govspeak.erb')
-      assert_equal expected_path, presenter.default_body_erb_template_path
-    end
-
-    test '#body_erb_template_path returns the default erb template path if not overridden in the options' do
-      outcome = Outcome.new('outcome-name')
-      presenter = OutcomePresenter.new('i18n-prefix', outcome)
-      presenter.stubs(default_body_erb_template_path: 'default-erb-template-path')
-
-      assert_equal 'default-erb-template-path', presenter.body_erb_template_path
+      assert_equal expected_path, presenter.body_erb_template_path
     end
 
     test '#body_erb_template_path returns the erb template path supplied in the options' do
       outcome = Outcome.new('outcome-name')
 
       state = nil
-      options = {body_erb_template_path: 'erb-template-path'}
+      options = { erb_template_directory: Pathname.new('/erb-template-directory'), body_erb_template_name: 'template.erb' }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
-      assert_equal 'erb-template-path', presenter.body_erb_template_path
+      expected_path = Pathname.new('/erb-template-directory').join('template.erb')
+      assert_equal expected_path, presenter.body_erb_template_path
     end
 
     test "#body returns nil when the erb template doesn't exist" do
@@ -34,7 +27,7 @@ module SmartAnswer
       outcome = Outcome.new('outcome-name', options)
 
       state = nil
-      options = { body_erb_template_path: '/path/to/non-existent/template.erb' }
+      options = { erb_template_directory: Pathname.new('/path/to/non-existent'), body_erb_template_name: 'template.erb' }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
       assert_equal nil, presenter.body
@@ -126,31 +119,24 @@ Hello world
       assert_equal 'node-presenter-body', presenter.body
     end
 
-    test '#default_title_erb_template_path returns the default erb template path built using both the flow and outcome node name' do
+    test '#title_erb_template_path returns the default erb template path built using both the flow and outcome node name' do
       options = { flow_name: 'flow-name' }
       outcome = Outcome.new('outcome-name', options)
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
       expected_path = Rails.root.join('lib', 'smart_answer_flows', 'flow-name', 'outcome-name_title.txt.erb')
-      assert_equal expected_path, presenter.default_title_erb_template_path
-    end
-
-    test '#title_erb_template_path returns the default erb template path if not overridden in the options' do
-      outcome = Outcome.new('outcome-name')
-      presenter = OutcomePresenter.new('i18n-prefix', outcome)
-      presenter.stubs(default_title_erb_template_path: 'default-title-erb-template-path')
-
-      assert_equal 'default-title-erb-template-path', presenter.title_erb_template_path
+      assert_equal expected_path, presenter.title_erb_template_path
     end
 
     test '#title_erb_template_path returns the erb template path supplied in the options' do
       outcome = Outcome.new('outcome-name')
 
       state = nil
-      options = { title_erb_template_path: 'erb-template-path' }
+      options = { erb_template_directory: Pathname.new('/erb-template-directory'), title_erb_template_name: 'template.erb' }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
-      assert_equal 'erb-template-path', presenter.title_erb_template_path
+      expected_path = Pathname.new('/erb-template-directory').join('template.erb')
+      assert_equal expected_path, presenter.title_erb_template_path
     end
 
     test "#title returns nil when the erb template doesn't exist" do
@@ -158,7 +144,7 @@ Hello world
       outcome = Outcome.new('outcome-name', options)
 
       state = nil
-      options = { title_erb_template_path: '/path/to/non-existent/template.erb' }
+      options = { erb_template_directory: Pathname.new('/path/to/non-existent'), title_erb_template_name: 'template.erb' }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state, options)
 
       assert_equal nil, presenter.title
@@ -226,7 +212,8 @@ Hello world
         erb_template_file.rewind
 
         options = {
-          :"#{suffix}_erb_template_path" => erb_template_file.path
+          :erb_template_directory => Pathname.new(File.dirname(erb_template_file.path)),
+          :"#{suffix}_erb_template_name" => File.basename(erb_template_file.path)
         }
 
         yield options
