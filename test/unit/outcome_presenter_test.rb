@@ -30,13 +30,14 @@ module SmartAnswer
     end
 
     test "#body trims newlines by default" do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
       erb_template = '<% if true %>
 Hello world
 <% end %>
 '
 
       with_erb_template_file("body", erb_template) do |presenter_options|
-        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
@@ -45,11 +46,11 @@ Hello world
     end
 
     test '#body makes the state variables available to the ERB template' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
       erb_template = '<%= state_variable %>'
 
       with_erb_template_file("body", erb_template) do |presenter_options|
-        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
-
         state = stub(to_hash: { state_variable: 'state-variable' })
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
@@ -58,11 +59,11 @@ Hello world
     end
 
     test "#body raises an exception if the ERB template references a non-existent state variable" do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
       erb_template = '<%= non_existent_state_variable %>'
 
       with_erb_template_file("body", erb_template) do |presenter_options|
-        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
-
         state = stub(to_hash: {})
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
@@ -74,11 +75,11 @@ Hello world
     end
 
     test '#body makes the ActionView::Helpers::NumberHelper methods available to the ERB template' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
       erb_template = '<%= number_with_delimiter(123456789) %>'
 
       with_erb_template_file("body", erb_template) do |presenter_options|
-        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
-
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
         assert_match '123,456,789', presenter.body
@@ -86,11 +87,11 @@ Hello world
     end
 
     test '#body passes output of ERB template through Govspeak' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
       erb_template = '^information^'
 
       with_erb_template_file("body", erb_template) do |presenter_options|
-        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
-
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
         nodes = Capybara.string(presenter.body)
@@ -135,11 +136,11 @@ Hello world
     end
 
     test '#title trims a single newline from the end of the string' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
       erb_template = "title-text\n\n"
 
       with_erb_template_file("title", erb_template) do |presenter_options|
-        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
-
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, presenter_options)
 
         assert_equal "title-text\n", presenter.title
@@ -147,11 +148,11 @@ Hello world
     end
 
     test '#title makes the state variables available to the ERB template' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
       erb_template = '<%= state_variable %>'
 
       with_erb_template_file("title", erb_template) do |presenter_options|
-        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
-
         state = stub(to_hash: { state_variable: 'state-variable' })
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
@@ -160,11 +161,11 @@ Hello world
     end
 
     test "#title raises an exception if the ERB template references a non-existent state variable" do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
       erb_template = '<%= non_existent_state_variable %>'
 
       with_erb_template_file("title", erb_template) do |presenter_options|
-        outcome = Outcome.new('outcome-name', use_outcome_templates: true)
-
         state = stub(to_hash: {})
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, presenter_options)
 
