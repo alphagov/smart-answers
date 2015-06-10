@@ -207,16 +207,22 @@ Hello world
     private
 
     def with_erb_template_file(suffix, erb_template)
-      Tempfile.open(["template_", "_#{suffix}.txt.erb"]) do |erb_template_file|
-        erb_template_file.write(erb_template)
-        erb_template_file.rewind
+      erb_template_filename = "template_#{suffix}.txt.erb"
 
-        options = {
-          :erb_template_directory => Pathname.new(File.dirname(erb_template_file.path)),
-          :"#{suffix}_erb_template_name" => File.basename(erb_template_file.path)
-        }
+      Dir.mktmpdir do |directory|
+        erb_template_directory = Pathname.new(directory)
 
-        yield options
+        File.open(erb_template_directory.join(erb_template_filename), "w") do |erb_template_file|
+          erb_template_file.write(erb_template)
+          erb_template_file.rewind
+
+          options = {
+            :erb_template_directory => erb_template_directory,
+            :"#{suffix}_erb_template_name" => erb_template_filename
+          }
+
+          yield options
+        end
       end
     end
   end
