@@ -28,7 +28,7 @@ module SmartAnswer::Calculators
 
     CP_CNI_NOT_REQUIRED_COUNTRIES = %w(argentina mexico uruguay usa andorra bonaire-st-eustatius-saba liechtenstein burundi )
 
-    CP_CONSULAR_COUNTRIES = %w(bulgaria cambodia croatia cyprus guatemala japan latvia moldova panama peru philippines venezuela vietnam)
+    CP_CONSULAR_COUNTRIES = %w(bulgaria croatia cyprus guatemala moldova panama venezuela)
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(aruba slovakia curacao bonaire-st-eustatius-saba saint-barthelemy st-maarten st-martin taiwan czech-republic argentina cote-d-ivoire burundi)
 
@@ -38,7 +38,7 @@ module SmartAnswer::Calculators
 
     SS_MARRIAGE_COUNTRIES_WHEN_COUPLE_BRITISH = %w(lithuania)
 
-    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia peru philippines vietnam japan)
+    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia japan peru philippines vietnam)
 
     SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia china estonia san-marino serbia)
 
@@ -46,15 +46,9 @@ module SmartAnswer::Calculators
 
     SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B = %w(azerbaijan chile dominican-republic kosovo latvia)
 
-    SS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %w(albania australia azerbaijan bolivia cambodia chile china colombia costa-rica dominican-republic estonia germany hungary japan kosovo latvia lithuania mongolia montenegro nicaragua peru philippines russia san-marino serbia vietnam)
-
     OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %w(jordan oman qatar united-arab-emirates yemen)
 
     SS_UNKNOWN_NO_EMBASSIES = %w(st-martin saint-barthelemy)
-
-    def ss_21_days_residency_required_countries?(country_slug)
-      SS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES.include?(country_slug)
-    end
 
     def os_21_days_residency_required_countries?(country_slug)
       OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES.include?(country_slug)
