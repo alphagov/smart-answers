@@ -148,7 +148,11 @@ module SmartAnswer
         end
 
         calculate :late_filing_penalty_formatted do
-          late_filing_penalty == 0 ? 'none' : late_filing_penalty
+          if late_filing_penalty == 0
+            'none'
+          else
+            late_filing_penalty
+          end
         end
 
         calculate :result_parts do
