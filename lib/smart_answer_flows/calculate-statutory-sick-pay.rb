@@ -93,6 +93,10 @@ date_question :linked_sickness_end_date? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 
+  calculate :sick_end_date do |response|
+    response
+  end
+
   calculate :prior_sick_days do |response|
     start_date = sick_start_date
     last_day_sick = response
