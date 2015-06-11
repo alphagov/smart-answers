@@ -52,14 +52,24 @@ module SmartAnswer
             Date.new(2016, 2, 01)
           end
         end
-        next_node :how_submitted?
+        next_node do |response|
+          :how_submitted?
+        end
       end
 
       multiple_choice :how_submitted? do
-        option online: :when_submitted?
-        option paper: :when_submitted?
+        option :online
+        option :paper
 
         save_input_as :submission_method
+
+        next_node do |response|
+          if response == 'online'
+            :when_submitted?
+          elsif response == 'paper'
+            :when_submitted?
+          end
+        end
       end
 
       date_question :when_submitted? do
@@ -154,7 +164,9 @@ module SmartAnswer
           phrases
         end
 
-        next_node :late
+        next_node do |response|
+          :late
+        end
       end
 
       outcome :late
