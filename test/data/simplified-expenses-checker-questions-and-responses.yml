@@ -14,25 +14,31 @@
 - "yes"
 - "no"
 :how_much_expect_to_claim?: 
-- |
-  TODO: How much do you expect to claim as business expenses for running and maintaining your car, van or motorcycle over the tax year?
-
+- 2_345
 :is_vehicle_green?: 
 - "yes"
 - "no"
 :price_of_vehicle?: 
-- "TODO: How much is the car, van or motorcycle you\xE2\x80\x99re buying?"
+- "250000"
+- "250001"
 :vehicle_business_use_time?: 
-- "TODO: How much of your driving time do you expect to be for business use?"
+- "35"
+- "70"
 :drive_business_miles_car_van?: 
-- "TODO: How many miles do you expect to drive your car or van for business during the tax year?"
+- "10000"
+- "10001"
 :drive_business_miles_motorcycle?: 
-- "TODO: How many miles do you expect to drive your motorcycle for business during the tax year?"
+- "7500"
 :hours_work_home?: 
-- "TODO: On average, how many hours a month do you work or expect to work from home?"
+- "24"
+- "51"
+- "101"
 :current_claim_amount_home?: 
-- "TODO: How much of your home costs do you expect to claim as business expenses this tax year?"
+- "1234"
 :deduct_from_premises?: 
-- "TODO: How much do you expect to deduct from your business expenses this tax year for your private use of the premises?"
+- "789"
 :people_live_on_premises?: 
-- "TODO: How many people normally live on the business premises?"
+- "0"
+- "1"
+- "2"
+- "5"
