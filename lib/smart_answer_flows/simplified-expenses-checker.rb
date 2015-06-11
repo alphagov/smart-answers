@@ -42,9 +42,7 @@ module SmartAnswer
             :you_cant_use_result
           else
             responses = response.split(",")
-            if response =~ /live_on_business_premises.*?using_home_for_business/
-              raise InvalidResponse
-            end
+            raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
             if (responses & ["car_or_van", "motorcycle"]).any?
               :buying_new_vehicle?
             elsif responses.include?("using_home_for_business")
@@ -175,9 +173,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          if response.to_i > 100
-            raise InvalidResponse
-          end
+          raise InvalidResponse if response.to_i > 100
           list_of_expenses.include?("car_or_van") ?
             :drive_business_miles_car_van? : :drive_business_miles_motorcycle?
         end
@@ -342,12 +338,8 @@ module SmartAnswer
 
         precalculate :simplified_bullets do
           bullets = PhraseList.new
-          unless capital_allowance_claimed or simple_vehicle_costs.to_f == 0.0
-            bullets << :simple_vehicle_costs_bullet
-          end
-          unless simple_motorcycle_costs.to_f == 0.0
-            bullets << :simple_motorcycle_costs_bullet
-          end
+          bullets << :simple_vehicle_costs_bullet unless capital_allowance_claimed or simple_vehicle_costs.to_f == 0.0
+          bullets << :simple_motorcycle_costs_bullet unless simple_motorcycle_costs.to_f == 0.0
           if list_of_expenses.include?("using_home_for_business")
             # if they ticked it but the cost is 0, it should show anyway
             if simple_home_costs.to_f == 0.0
@@ -361,17 +353,13 @@ module SmartAnswer
 
         precalculate :simplified_more_bullets do
           bullets = PhraseList.new
-          unless simple_business_costs.to_f == 0.0
-            bullets << :simple_business_costs_bullet
-          end
+          bullets << :simple_business_costs_bullet unless simple_business_costs.to_f == 0.0
           bullets
         end
 
         precalculate :current_scheme_more_bullets do
           bullets = PhraseList.new
-          unless simple_business_costs.to_f == 0.0
-            bullets << :current_business_costs_bullet
-          end
+          bullets << :current_business_costs_bullet unless simple_business_costs.to_f == 0.0
           bullets
         end
 
@@ -381,18 +369,10 @@ module SmartAnswer
 
         precalculate :current_scheme_bullets do
           bullets = PhraseList.new
-          unless vehicle_costs.to_f == 0.0
-            bullets << :current_vehicle_cost_bullet
-          end
-          unless green_vehicle_write_off.to_f == 0.0
-            bullets << :current_green_vehicle_write_off_bullet
-          end
-          unless dirty_vehicle_write_off.to_f == 0.0
-            bullets << :current_dirty_vehicle_write_off_bullet
-          end
-          unless home_costs.to_f == 0.0
-            bullets << :current_home_costs_bullet
-          end
+          bullets << :current_vehicle_cost_bullet unless vehicle_costs.to_f == 0.0
+          bullets << :current_green_vehicle_write_off_bullet unless green_vehicle_write_off.to_f == 0.0
+          bullets << :current_dirty_vehicle_write_off_bullet unless dirty_vehicle_write_off.to_f == 0.0
+          bullets << :current_home_costs_bullet unless home_costs.to_f == 0.0
           bullets
         end
 
