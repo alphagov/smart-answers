@@ -323,12 +323,7 @@ module SmartAnswer
         end
       end
 
-      outcome :you_cant_use_result do
-        precalculate :temp do
-          :temp
-        end
-      end
-
+      outcome :you_cant_use_result
       outcome :you_can_use_result do
         precalculate :simple_heading do
           all_the_expenses = list_of_expenses
@@ -440,11 +435,7 @@ module SmartAnswer
           end
         end
       end
-      outcome :capital_allowance_result do
-        precalculate :temp do
-          :temp
-        end
-      end
+      outcome :capital_allowance_result
     end
   end
 end
