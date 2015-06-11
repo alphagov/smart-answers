@@ -1,41 +1,13 @@
 class OutcomePresenter < NodePresenter
-  class ViewContext
-    def initialize(state)
-      @state = state
-    end
-
-    def method_missing(method, *args, &block)
-      if method_can_be_delegated_to_state?(method)
-        @state.send(method, *args, &block)
-      else
-        super
-      end
-    end
-
-    def respond_to_missing?(method, include_private = false)
-      method_can_be_delegated_to_state?(method)
-    end
-
-    def get_binding
-      binding
-    end
-
-    private
-
-    def method_can_be_delegated_to_state?(method)
-      @state.respond_to?(method) && !method.to_s.end_with?('=')
-    end
-  end
-
   def initialize(i18n_prefix, node, state = nil, options = {})
     @options = options
     super(i18n_prefix, node, state)
+    @view = ActionView::Base.new([template_directory])
   end
 
   def title
     if use_template? && title_erb_template_exists?
-      view_context = ViewContext.new(@state)
-      title = render_erb_template(title_erb_template_from_file, view_context)
+      title = @view.render(template: title_erb_template_name, locals: @state.to_hash)
       title.chomp
     else
       translate!('title')
@@ -55,47 +27,33 @@ class OutcomePresenter < NodePresenter
 
   def body
     if use_template? && body_erb_template_exists?
-      view_context = ViewContext.new(@state)
-      view_context.extend(ActionView::Helpers::NumberHelper)
-      govspeak = render_erb_template(body_erb_template_from_file, view_context)
-      GovspeakPresenter.new(govspeak).html
+      govspeak = @view.render(template: body_erb_template_name, locals: @state.to_hash)
+      GovspeakPresenter.new(govspeak.to_str).html
     else
       super()
     end
   end
 
-  def title_erb_template_from_file
-    File.read(title_erb_template_path)
-  end
-
   def title_erb_template_path
-    @options[:title_erb_template_path] || default_title_erb_template_path
+    template_directory.join(title_erb_template_name)
   end
 
-  def default_title_erb_template_path
-    template_directory.join("#{name}_title.txt.erb")
-  end
-
-  def body_erb_template_from_file
-    File.read(body_erb_template_path)
+  def title_erb_template_name
+    "#{name}_title.txt.erb"
   end
 
   def body_erb_template_path
-    @options[:body_erb_template_path] || default_body_erb_template_path
+    template_directory.join(body_erb_template_name)
   end
 
-  def default_body_erb_template_path
-    template_directory.join("#{name}_body.govspeak.erb")
+  def body_erb_template_name
+    "#{name}_body.govspeak.erb"
   end
 
   private
 
   def template_directory
-    @node.template_directory
-  end
-
-  def render_erb_template(template, view_context)
-    Erubis::Eruby.new(template).result(view_context.get_binding)
+    @options[:erb_template_directory] || @node.template_directory
   end
 
   def title_erb_template_exists?
