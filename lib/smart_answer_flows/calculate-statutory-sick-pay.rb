@@ -42,7 +42,9 @@ end
 # Question 4
 date_question :first_sick_day? do
   from { Date.new(2011, 1, 1) }
-  to { Date.today }
+  to { Date.today.end_of_year }
+  validate_in_range
+
   calculate :sick_start_date do |response|
     response
   end
@@ -54,7 +56,9 @@ end
 # Question 5
 date_question :last_sick_day? do
   from { Date.new(2011, 1, 1) }
-  to { Date.today }
+  to { Date.today.end_of_year }
+  validate_in_range
+
   calculate :sick_end_date do |response|
     response
   end
@@ -95,7 +99,8 @@ end
 # Question 6
 date_question :last_payday_before_sickness? do
   from { Date.new(2010, 1, 1) }
-  to { Date.today }
+  to { Date.today.end_of_year }
+  validate_in_range
 
   calculate :relevant_period_to do |response|
     response
@@ -118,7 +123,8 @@ end
 # Question 6.1
 date_question :last_payday_before_offset? do
   from { Date.new(2010, 1, 1) }
-  to { Date.today }
+  to { Date.today.end_of_year }
+  validate_in_range
 
   # You must enter a date on or before [pay_day_offset]
   validate { |payday| payday <= pay_day_offset }
@@ -202,7 +208,8 @@ end
 # Question 11.1
 date_question :linked_sickness_start_date? do
   from { Date.new(2010, 1, 1) }
-  to { Date.today }
+  to { Date.today.end_of_year }
+  validate_in_range
 
   next_node_if(:not_earned_enough) do |response|
     employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(response)

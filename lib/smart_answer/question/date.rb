@@ -7,6 +7,10 @@ module SmartAnswer
         super
       end
 
+      def validate_in_range
+        @validate_in_range = true
+      end
+
       def from(from = nil, &block)
         if block_given?
           @from_func = block
@@ -105,6 +109,7 @@ module SmartAnswer
           else
            raise InvalidResponse, "Bad date", caller
           end
+        validate_input(date) if @validate_in_range
         date
       rescue
         raise InvalidResponse, "Bad date: #{input.inspect}", caller
@@ -119,6 +124,23 @@ module SmartAnswer
         }
       rescue
         nil
+      end
+
+      def date_of_birth_defaults
+        from { 122.years.ago.beginning_of_year.to_date }
+        to { ::Date.today.end_of_year }
+        validate_in_range
+      end
+
+    private
+
+      def validate_input(date)
+        return unless range
+
+        min, max = [range.begin, range.end].sort
+        if date < min || date > max
+          raise InvalidResponse, "Provided date is out of range: #{date}", caller
+        end
       end
     end
   end

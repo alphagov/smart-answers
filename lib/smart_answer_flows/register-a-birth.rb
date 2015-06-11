@@ -61,7 +61,7 @@ module SmartAnswer
 
       # Q4
       date_question :childs_date_of_birth? do
-        from { Date.today }
+        from { Date.today.end_of_year }
         to { 50.years.ago(Date.today) }
 
         before_july_2006 = SmartAnswer::Predicate::Callable.new("before 1 July 2006") do |response|

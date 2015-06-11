@@ -24,6 +24,18 @@ class PIPCheckerTest < ActiveSupport::TestCase
       assert_current_node :what_is_your_dob?
     end
 
+    context "dates out of range" do
+      should "not allow dates far in the past" do
+        add_response Date.parse("1850-12-21")
+        assert_current_node_is_error
+      end
+
+      should "not allow dates next year" do
+        add_response (Date.today.end_of_year + 1.day).to_s
+        assert_current_node_is_error
+      end
+    end
+
     should "be result 1 if born on or after 08-06-1997" do
       add_response '1997-06-08'
       assert_current_node :result_1

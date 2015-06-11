@@ -26,8 +26,8 @@ module SmartAnswer
 
       ## Q2
       date_question :what_is_your_dob? do
-        from { Date.today - 100.years }
-        to { Date.today }
+        date_of_birth_defaults
+
         next_node do |response|
           calculator.dob = response
           if getting_dla

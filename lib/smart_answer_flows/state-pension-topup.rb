@@ -9,8 +9,7 @@ module SmartAnswer
 
       #Q1
       date_question :dob_age? do
-        from { 110.years.ago }
-        to { Date.today - 18.years }
+        date_of_birth_defaults
 
         save_input_as :date_of_birth
 
