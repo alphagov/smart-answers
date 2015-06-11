@@ -18,9 +18,7 @@ module SmartAnswer
           if Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES.has_key?(current_location)
             loc = WorldLocation.find(Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES[current_location])
           end
-          unless loc
-            raise InvalidResponse 
-          end
+          raise InvalidResponse unless loc
           loc
         end
 
@@ -83,9 +81,7 @@ module SmartAnswer
           data_query.ips_application?.call(self, nil)
         end
         calculate :ips_number do
-          if is_ips_application
-            application_type.split("_")[2]
-          end
+          application_type.split("_")[2] if is_ips_application
         end
 
         calculate :application_form do
@@ -101,9 +97,7 @@ module SmartAnswer
         end
 
         calculate :ips_docs_number do
-          if is_ips_application
-            supporting_documents.split("_")[3]
-          end
+          supporting_documents.split("_")[3] if is_ips_application
         end
 
         calculate :ips_result_type do
@@ -215,12 +209,8 @@ module SmartAnswer
           phrases = PhraseList.new(:how_to_apply_online,
                          :"how_to_apply_online_prerequisites_#{general_action}",
                          :"how_to_apply_online_guidance_doc_group_#{ips_docs_number}")
-          if %w(south-africa spain).include?(birth_location)
-            phrases << :"birth_certificate_#{birth_location}"
-          end
-          if %w(hong-kong).include?(current_location)
-            phrases << :hong_kong_id_required
-          end
+          phrases << :"birth_certificate_#{birth_location}" if %w(south-africa spain).include?(birth_location)
+          phrases << :hong_kong_id_required if %w(hong-kong).include?(current_location)
           phrases << :how_to_apply_online_guidance_doc_outro
         end
 
@@ -237,9 +227,7 @@ module SmartAnswer
         precalculate :how_long_it_takes do
           phrases = PhraseList.new
           phrases << :"how_long_#{waiting_time}"
-          if application_action == "replacing"
-            phrases << :report_loss_or_theft
-          end
+          phrases << :report_loss_or_theft if application_action == "replacing"
           phrases << :"how_long_it_takes_ips#{ips_number}"
           phrases
         end
@@ -370,14 +358,10 @@ module SmartAnswer
                 phrases << :"send_application_ips#{ips_number}"
               end
               if %w(st-helena-ascension-and-tristan-da-cunha).include?(current_location)
-                if %w(renewing_new).include?(application_action)
-                  phrases << :renewing_new_renewing_old
-                end
+                phrases << :renewing_new_renewing_old if %w(renewing_new).include?(application_action)
                 phrases << :send_application_address_st_helena_ascension_and_tristan_da_cunha
               else
-                if ips_number.to_i > 1
-                  phrases << :send_application_embassy_address
-                end
+                phrases << :send_application_embassy_address if ips_number.to_i > 1
               end
             end
           end
