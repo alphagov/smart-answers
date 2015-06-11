@@ -22,5 +22,7 @@
 </div>
 
 <script type="text/javascript">
-  GOVUK.analytics.trackPageview('/outcome' + window.location.pathname);
+  var flowName = '<%= @name %>';
+  var outcomeName = '<%= @presenter.current_node.name %>';
+  GOVUK.analytics.trackPageview('/' + flowName + '/outcome-reached/' + outcomeName);
 </script>
