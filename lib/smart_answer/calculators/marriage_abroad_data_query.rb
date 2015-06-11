@@ -146,5 +146,12 @@ module SmartAnswer::Calculators
     def os_consular_cni_in_nearby_country?(country_slug)
       OS_CONSULAR_CNI_IN_NEARBY_COUNTRY.include?(country_slug)
     end
+
+    def appointment_link_key_for(country_slug, partner_gender)
+      key = "appointment_links.#{partner_gender}.#{country_slug}"
+      if I18n.exists?("flow.marriage-abroad.phrases.#{key}")
+        key
+      end
+    end
   end
 end

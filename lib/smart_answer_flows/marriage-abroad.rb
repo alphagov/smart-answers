@@ -174,6 +174,11 @@ module SmartAnswer
           end
         end
 
+        calculate :contact_method_key do |response|
+          appointment_link_key = data_query.appointment_link_key_for(ceremony_country, response)
+          appointment_link_key || :embassies_data
+        end
+
         define_predicate(:ceremony_in_laos_partners_not_local) {
           (ceremony_country == "laos") && (partner_nationality != "partner_local")
         }
@@ -292,7 +297,7 @@ module SmartAnswer
           if ceremony_country == 'italy'
             phrases << :british_embassy_in_rome_email
           else
-            phrases << :embassies_data
+            phrases << contact_method_key
           end
           phrases
         end
@@ -362,7 +367,7 @@ module SmartAnswer
         precalculate :indonesia_os_phraselist do
           PhraseList.new(
             :appointment_for_affidavit_indonesia,
-            :embassies_data,
+            contact_method_key,
             :documents_for_divorced_or_widowed,
             :partner_affidavit_needed,
             :fee_table_45_70_55
@@ -383,7 +388,7 @@ module SmartAnswer
           phrases << :get_legal_and_travel_advice
           phrases << :what_you_need_to_do
           phrases << :what_to_do_laos
-          phrases << :embassies_data
+          phrases << contact_method_key
           phrases << :fee_and_required_supporting_documents_for_appointment
           phrases << :legalisation_and_translation
           phrases << :affirmation_os_translation_in_local_language_text
@@ -433,7 +438,7 @@ module SmartAnswer
           if resident_of == 'ceremony_country'
             phrases << :contact_local_authorities << :get_legal_advice << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :names_on_documents_must_match << :partner_naturalisation_in_uk
           else
-            phrases << :contact_local_authorities_in_country_marriage << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << :embassies_data << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed
+            phrases << :contact_local_authorities_in_country_marriage << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << contact_method_key << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed
           end
           phrases
         end
@@ -448,7 +453,7 @@ module SmartAnswer
             :make_an_appointment_bring_passport_and_pay_55_colombia,
             :list_of_consular_fees,
             :pay_by_cash_or_credit_card_no_cheque,
-            :embassies_data,
+            contact_method_key,
             :legalisation_and_translation,
             :affirmation_os_translation_in_local_language_text,
             :documents_for_divorced_or_widowed_china_colombia,
@@ -505,7 +510,7 @@ module SmartAnswer
             phrases << :commonwealth_os_marriage_subtleties_in_south_africa  if  partner_nationality == 'partner_local'
           when 'india'
             phrases << :commonwealth_os_marriage_subtleties_in_india
-            phrases << :embassies_data
+            phrases << contact_method_key
           when 'malaysia'
             phrases << :commonwealth_os_marriage_subtleties_in_malaysia
           when 'singapore'
@@ -529,13 +534,13 @@ module SmartAnswer
           phrases = PhraseList.new
           if ceremony_country == 'british-indian-ocean-territory'
             phrases << :bot_os_ceremony_biot
-            phrases << :embassies_data
+            phrases << contact_method_key
           elsif ceremony_country == 'british-virgin-islands'
             phrases << :bot_os_ceremony_bvi
             phrases << :get_legal_advice
           else
             phrases << :bot_os_ceremony_non_biot
-            phrases << :embassies_data
+            phrases << contact_method_key
 
             if resident_of == 'ceremony_country'
               phrases << :get_legal_advice
@@ -720,7 +725,7 @@ module SmartAnswer
               if ceremony_country == 'macedonia'
                 phrases << :consular_cni_os_foreign_resident_3_days_macedonia
               else
-                phrases << :embassies_data
+                phrases << contact_method_key
               end
             end
             if ceremony_country == 'italy'
@@ -743,7 +748,7 @@ module SmartAnswer
 
           if resident_of == 'ceremony_country'
             if ceremony_country == 'japan'
-              phrases << :embassies_data
+              phrases << contact_method_key
               phrases << :japan_consular_cni_os_local_resident
             end
             if ceremony_country == 'italy'
@@ -946,7 +951,7 @@ module SmartAnswer
           end
 
           unless ceremony_country == 'turkey'
-            phrases << :embassies_data
+            phrases << contact_method_key
             if ceremony_country == 'cambodia'
               phrases << :fee_and_required_supporting_documents_for_appointment
               phrases << :legalisation_and_translation
@@ -961,7 +966,7 @@ module SmartAnswer
           end
 
           if ceremony_country == 'turkey' && resident_of != 'uk'
-            phrases << :embassies_data
+            phrases << contact_method_key
           end
           if ceremony_country == 'turkey'
             phrases << :complete_affidavit << :download_affidavit
@@ -1128,7 +1133,7 @@ module SmartAnswer
           if ceremony_country == 'saudi-arabia'
             if resident_of != 'ceremony_country'
               phrases << :saudi_arabia_requirements_for_foreigners
-              phrases << :embassies_data
+              phrases << contact_method_key
             else
               phrases << :saudi_arabia_requirements_for_residents
               if partner_nationality != 'partner_british'
@@ -1166,7 +1171,7 @@ module SmartAnswer
               phrases << :what_you_need_to_do_cni_cp << :cni_at_local_register_office << :legisation_and_translation_intro_uk << :legalise_translate_and_check_with_authorities << :names_on_documents_must_match
             else
               phrases << :cp_or_equivalent_cp_what_you_need_to_do
-              phrases << :embassies_data
+              phrases << contact_method_key
             end
           end
           if partner_nationality != 'partner_british'
@@ -1258,7 +1263,7 @@ module SmartAnswer
             phrases << :get_legal_and_travel_advice
           end
 
-          phrases << :embassies_data
+          phrases << contact_method_key
 
           if ceremony_country == 'new-zealand'
             phrases << :cant_issue_cni_for_commonwealth
@@ -1287,7 +1292,7 @@ module SmartAnswer
           else
             phrases << :contact_to_make_appointment
           end
-          phrases << :embassies_data
+          phrases << contact_method_key
 
           phrases << :documents_needed_7_days_residency
 
@@ -1328,13 +1333,13 @@ module SmartAnswer
           phrases << :"able_to_#{marriage_and_partnership_phrases}"
 
           if ceremony_country == 'japan'
-            phrases << :contact_to_make_appointment << :embassies_data << :documents_needed_21_days_residency << :documents_needed_ss_british
+            phrases << :contact_to_make_appointment << contact_method_key << :documents_needed_21_days_residency << :documents_needed_ss_british
           elsif ceremony_country == 'albania'
             phrases << :appointment_booking_link_albania
           elsif ceremony_country == 'germany'
-            phrases << :contact_british_embassy_or_consulate_berlin << :embassies_data
+            phrases << :contact_british_embassy_or_consulate_berlin << contact_method_key
           else
-            phrases << :contact_embassy_or_consulate << :embassies_data
+            phrases << :contact_embassy_or_consulate << contact_method_key
           end
 
           unless ceremony_country == 'japan'
@@ -1373,7 +1378,7 @@ module SmartAnswer
 
       outcome :outcome_ss_marriage_malta do
         precalculate :ss_body do
-          PhraseList.new(:able_to_ss_marriage_and_partnership_hc, :contact_to_make_appointment, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership_hc, :will_display_in_14_days_hc, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_hc, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage)
+          PhraseList.new(:able_to_ss_marriage_and_partnership_hc, :contact_to_make_appointment, contact_method_key, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership_hc, :will_display_in_14_days_hc, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_hc, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage)
         end
       end
 
