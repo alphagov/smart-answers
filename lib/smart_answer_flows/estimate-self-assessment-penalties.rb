@@ -169,8 +169,17 @@ module SmartAnswer
         end
       end
 
-      outcome :late
-      outcome :filed_and_paid_on_time
+      outcome :late do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
+
+      outcome :filed_and_paid_on_time do
+        precalculate :tbd_for_test_coverage do
+          ''
+        end
+      end
     end
   end
 end
