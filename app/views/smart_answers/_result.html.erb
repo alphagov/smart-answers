@@ -20,3 +20,8 @@
     <% end %>
   </article>
 </div>
+
+<script type="text/javascript">
+  var flowName = '<%= @name %>';
+  GOVUK.analytics.trackEvent('Smart Answer', 'Completed', {label: flowName, nonInteraction: true});
+</script>
