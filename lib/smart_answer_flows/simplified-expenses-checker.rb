@@ -33,11 +33,7 @@ module SmartAnswer
         option :live_on_business_premises
 
         calculate :list_of_expenses do |response|
-          if response == "none"
-            []
-          else
-            response.split(",")
-          end
+          response == "none" ? [] : response.split(",")
         end
 
         next_node do |response|
@@ -148,19 +144,11 @@ module SmartAnswer
         save_input_as :vehicle_price
 
         calculate :green_vehicle_price do
-          if vehicle_is_green
-            vehicle_price
-          else
-            nil
-          end
+          vehicle_is_green ? vehicle_price : nil
         end
 
         calculate :dirty_vehicle_price do
-          if vehicle_is_green
-            nil
-          else
-            (vehicle_price * 0.18)
-          end
+          vehicle_is_green ? nil : (vehicle_price * 0.18)
         end
 
         calculate :is_over_limit do
@@ -179,30 +167,19 @@ module SmartAnswer
           response
         end
         calculate :green_vehicle_write_off do
-          if vehicle_is_green
-            Money.new(green_vehicle_price * ( business_use_percent / 100))
-          else
-            nil
-          end
+          vehicle_is_green ? Money.new(green_vehicle_price * ( business_use_percent / 100)) : nil
         end
 
         calculate :dirty_vehicle_write_off do
-          if vehicle_is_green
-            nil
-          else
-            Money.new(dirty_vehicle_price * ( business_use_percent / 100))
-          end
+          vehicle_is_green ? nil : Money.new(dirty_vehicle_price * ( business_use_percent / 100))
         end
 
         next_node do |response|
           if response.to_i > 100
             raise InvalidResponse
           end
-          if list_of_expenses.include?("car_or_van")
-            :drive_business_miles_car_van?
-          else
-            :drive_business_miles_motorcycle?
-          end
+          list_of_expenses.include?("car_or_van") ?
+            :drive_business_miles_car_van? : :drive_business_miles_motorcycle?
         end
       end
 
@@ -283,11 +260,7 @@ module SmartAnswer
         save_input_as :home_costs
 
         next_node do
-          if list_of_expenses.include?("live_on_business_premises")
-            :deduct_from_premises?
-          else
-            :you_can_use_result
-          end
+          list_of_expenses.include?("live_on_business_premises") ? :deduct_from_premises? : :you_can_use_result
         end
 
       end
@@ -403,11 +376,7 @@ module SmartAnswer
         end
 
         precalculate :capital_allowances_claimed_message do
-          if capital_allowance_claimed
-            PhraseList.new(:cap_allow_text)
-          else
-            PhraseList.new
-          end
+          capital_allowance_claimed ? PhraseList.new(:cap_allow_text) : PhraseList.new
         end
 
         precalculate :current_scheme_bullets do
@@ -428,11 +397,7 @@ module SmartAnswer
         end
 
         precalculate :over_van_limit_message do
-          if is_over_limit
-            PhraseList.new(:over_van_limit)
-          else
-            PhraseList.new
-          end
+          is_over_limit ? PhraseList.new(:over_van_limit) : PhraseList.new
         end
       end
       outcome :capital_allowance_result
