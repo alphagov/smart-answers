@@ -191,7 +191,6 @@ belize:
 benin:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 6_weeks
@@ -316,7 +315,6 @@ burma:
 burundi:
   type: ips_application_3
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   renewing_new: 6_weeks
   renewing_old: 10_weeks
@@ -333,7 +331,6 @@ cambodia:
 cameroon:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 6_weeks
@@ -576,7 +573,6 @@ equatorial-guinea:
 eritrea:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 6_weeks
@@ -595,7 +591,6 @@ estonia:
 ethiopia:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 8_weeks
@@ -667,7 +662,6 @@ gabon:
 gambia:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 6_weeks
@@ -694,7 +688,6 @@ georgia:
 germany:
   type: ips_application_1
   group: ips_documents_group_1
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   online_application: true
   renewing_new: 6_weeks
@@ -704,7 +697,6 @@ germany:
 ghana:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 6_weeks
@@ -759,7 +751,6 @@ guatemala:
 guinea:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 6_weeks
@@ -939,7 +930,6 @@ kazakhstan:
 kenya:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 8_weeks
@@ -1336,7 +1326,6 @@ niger:
 nigeria:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 8_weeks
@@ -1570,7 +1559,6 @@ seychelles:
 sierra-leone:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 6_weeks
@@ -1616,7 +1604,6 @@ solomon-islands:
 somalia:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 6_weeks
@@ -1652,7 +1639,6 @@ south-korea:
 south-sudan:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 8_weeks
@@ -1977,7 +1963,6 @@ vanuatu:
 venezuela:
   type: ips_application_3
   group: ips_documents_group_3
-  helpline: washington_usa
   app_form: hmpo_2_application_form
   application_office: true
   renewing_new: 6_weeks
@@ -2014,7 +1999,6 @@ western-sahara:
 yemen:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: yemen
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 6_weeks
@@ -2024,7 +2008,6 @@ yemen:
 zambia:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 8_weeks
@@ -2034,7 +2017,6 @@ zambia:
 zimbabwe:
   type: ips_application_1
   group: ips_documents_group_3
-  helpline: pretoria_south_africa
   app_form: hmpo_1_application_form
   address: durham
   renewing_new: 8_weeks
