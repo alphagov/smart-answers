@@ -177,7 +177,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response 'yes'
           assert_current_node :linked_sickness_start_date?
           add_response '2013-03-12'
-          assert_state_variable :sick_start_date, Date.parse('12 March 2013')
           assert_current_node :linked_sickness_end_date?
           add_response '2013-03-16'
           assert_current_node :paid_at_least_8_weeks?
@@ -228,7 +227,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response 'yes'
           assert_current_node :linked_sickness_start_date?
           add_response '2013-03-24'
-          assert_state_variable :sick_start_date, Date.parse('24 March 2013')
           assert_current_node :linked_sickness_end_date?
           add_response '2013-03-29'
           assert_current_node :paid_at_least_8_weeks?

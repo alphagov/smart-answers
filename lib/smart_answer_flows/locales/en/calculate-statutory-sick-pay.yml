@@ -91,7 +91,7 @@ en-GB:
 
       # Q7.1
       paid_at_least_8_weeks?:
-        title: On %{sick_start_date} had you paid your employee at least 8 weeks of earnings?
+        title: On %{sick_start_date_for_awe} had you paid your employee at least 8 weeks of earnings?
         options:
           eight_weeks_more: "Yes, paid at least 8 weeks earnings"
           eight_weeks_less: "No, paid less than 8 weeks earnings"
@@ -103,8 +103,8 @@ en-GB:
 
       # Question 8
       last_payday_before_sickness?:
-        title: What was the last normal payday before %{sick_start_date}?
-        error_message: You must enter a date before %{sick_start_date}
+        title: What was the last normal payday before %{sick_start_date_for_awe}?
+        error_message: You must enter a date before %{sick_start_date_for_awe}
 
       # Question 8.1
       last_payday_before_offset?:
@@ -129,7 +129,7 @@ en-GB:
 
       # Question 10
       total_earnings_before_sick_period?:
-        title: Enter the total earnings paid before %{sick_start_date}.
+        title: Enter the total earnings paid before %{sick_start_date_for_awe}.
 
       # Question 10.1
       days_covered_by_earnings?:

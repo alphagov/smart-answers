@@ -43,7 +43,12 @@ end
 date_question :first_sick_day? do
   from { Date.new(2011, 1, 1) }
   to { Date.today }
+
   calculate :sick_start_date do |response|
+    response
+  end
+
+  calculate :sick_start_date_for_awe do |response|
     response
   end
 
@@ -55,7 +60,12 @@ end
 date_question :last_sick_day? do
   from { Date.new(2011, 1, 1) }
   to { Date.today }
+
   calculate :sick_end_date do |response|
+    response
+  end
+
+  calculate :sick_end_date_for_awe do |response|
     response
   end
 
@@ -81,7 +91,7 @@ date_question :linked_sickness_start_date? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 
-  calculate :sick_start_date do |response|
+  calculate :sick_start_date_for_awe do |response|
     response
   end
 
@@ -93,12 +103,12 @@ date_question :linked_sickness_end_date? do
   from { Date.new(2010, 1, 1) }
   to { Date.today }
 
-  calculate :sick_end_date do |response|
+  calculate :sick_end_date_for_awe do |response|
     response
   end
 
   calculate :prior_sick_days do |response|
-    start_date = sick_start_date
+    start_date = sick_end_date_for_awe
     last_day_sick = response
     (last_day_sick - start_date).to_i + 1
   end
