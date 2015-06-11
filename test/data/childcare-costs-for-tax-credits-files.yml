@@ -3,4 +3,4 @@ lib/smart_answer_flows/childcare-costs-for-tax-credits.rb: 316a29a197ee7fedbe561
 lib/smart_answer_flows/locales/en/childcare-costs-for-tax-credits.yml: 1eb79e2cc4a10b26aace0bb04a3a9993
 test/data/childcare-costs-for-tax-credits-questions-and-responses.yml: a08324e8455e6fca10e731a4b5e6313a
 test/data/childcare-costs-for-tax-credits-responses-and-expected-results.yml: 1e97f8dab86660e2bc2e94e95077182b
-lib/smart_answer/calculators/childcare_cost_calculator.rb: 87b930b798980ef552d5f918af5fea8a
+lib/smart_answer/calculators/childcare_cost_calculator.rb: ff903d6738da341b617db0fe2570b761
