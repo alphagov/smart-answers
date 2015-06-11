@@ -22,17 +22,10 @@ module SmartAnswer
           loc
         end
 
-        next_node do |response|
-          if data_query.ineligible_country?.call(nil, response)
-            :cannot_apply
-          elsif ['the-occupied-palestinian-territories'].include?(response)
-            :which_opt?
-          elsif data_query.apply_in_neighbouring_countries?.call(nil, response)
-            :apply_in_neighbouring_country
-          else
-            :renewing_replacing_applying?
-          end
-        end
+        next_node_if(:cannot_apply, data_query.ineligible_country?)
+        next_node_if(:which_opt?, responded_with('the-occupied-palestinian-territories'))
+        next_node_if(:apply_in_neighbouring_country, data_query.apply_in_neighbouring_countries?)
+        next_node(:renewing_replacing_applying?)
       end
 
       # Q1a
@@ -41,9 +34,7 @@ module SmartAnswer
         option :"jerusalem-or-westbank"
 
         save_input_as :current_location
-        next_node do
-          :renewing_replacing_applying?
-        end
+        next_node :renewing_replacing_applying?
       end
 
       # Q2
@@ -123,9 +114,7 @@ module SmartAnswer
           phrases
         end
 
-        next_node do
-          :child_or_adult_passport?
-        end
+        next_node :child_or_adult_passport?
       end
 
       # Q3
@@ -143,18 +132,10 @@ module SmartAnswer
           end
         end
 
-        next_node do
-          if %w{ips_application_1 ips_application_2 ips_application_3}.include?(application_type)
-            if %w(applying renewing_old).include?(application_action)
-              :country_of_birth?
-            elsif [:ips_application_result_online].include?(ips_result_type)
-              :ips_application_result_online
-            else
-              :ips_application_result
-            end
-          else
-            :result
-          end
+        on_condition(data_query.ips_application?) do
+          next_node_if(:country_of_birth?, variable_matches(:application_action, %w(applying renewing_old)))
+          next_node_if(:ips_application_result_online, variable_matches(:ips_result_type, :ips_application_result_online))
+          next_node(:ips_application_result)
         end
       end
 
@@ -174,16 +155,9 @@ module SmartAnswer
           supporting_documents.split("_")[3]
         end
 
-        next_node do
-          if %w{ips_application_1 ips_application_2 ips_application_3}.include?(application_type)
-            if [:ips_application_result_online].include?(ips_result_type)
-              :ips_application_result_online
-            else
-              :ips_application_result
-            end
-          else
-            :result
-          end
+        on_condition(data_query.ips_application?) do
+          next_node_if(:ips_application_result_online, variable_matches(:ips_result_type, :ips_application_result_online))
+          next_node(:ips_application_result)
         end
       end
 
