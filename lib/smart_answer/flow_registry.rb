@@ -25,7 +25,6 @@ SMART_ANSWER_FLOW_NAMES = %w(
   register-a-birth
   register-a-death
   report-a-lost-or-stolen-passport
-  simplified-expenses-checker-v2
   simplified-expenses-checker
   state-pension-through-partner
   state-pension-topup
