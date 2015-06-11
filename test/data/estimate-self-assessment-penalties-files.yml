@@ -1,0 +1,6 @@
+--- 
+lib/smart_answer_flows/estimate-self-assessment-penalties.rb: fe4648c896af9e8f74a1d1795aa85b27
+lib/smart_answer_flows/locales/en/estimate-self-assessment-penalties.yml: 8aa810f78f3b29a6f3996d7e11aef275
+test/data/estimate-self-assessment-penalties-questions-and-responses.yml: 186d93854ea5dc9321408e14dcc8d61f
+test/data/estimate-self-assessment-penalties-responses-and-expected-results.yml: 07a0cd26b8c5e4b1fff6dfe51c20142e
+lib/smart_answer/calculators/self_assessment_penalties.rb: e8848a09fbfd04e3eb3ca74956c962ba
