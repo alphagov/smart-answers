@@ -20,7 +20,9 @@ module SmartAnswer
           !is_new_business
         end
 
-        next_node :type_of_expense?
+        next_node do
+          :type_of_expense?
+        end
       end
 
       #Q2 - type of expense
@@ -127,7 +129,9 @@ module SmartAnswer
           response == "yes"
         end
 
-        next_node :price_of_vehicle?
+        next_node do
+          :price_of_vehicle?
+        end
       end
 
       #Q7 - price of vehicle
@@ -149,7 +153,9 @@ module SmartAnswer
           vehicle_price > 250000.0
         end
 
-        next_node :vehicle_business_use_time?
+        next_node do
+          :vehicle_business_use_time?
+        end
       end
 
       #Q8 - vehicle private use time
@@ -259,7 +265,9 @@ module SmartAnswer
       money_question :deduct_from_premises? do
         save_input_as :business_premises_cost
 
-        next_node :people_live_on_premises?
+        next_node do
+          :people_live_on_premises?
+        end
       end
 
       #Q14 - people who live on business premises?
@@ -279,7 +287,9 @@ module SmartAnswer
           Money.new(amount)
         end
 
-        next_node :you_can_use_result
+        next_node do
+          :you_can_use_result
+        end
       end
 
       outcome :you_cant_use_result
