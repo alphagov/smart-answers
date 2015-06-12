@@ -162,28 +162,28 @@ Test a single Smartdown flow by running:
 
 12. Commit the generated outcome HTML files (in test/artefacts) to git.
 
-## Issues/todos
-
-Please see the [github issues](https://github.com/alphagov/smart-answers/issues) page.
-
 ## Making bigger changes
 
-When making bigger changes that need to be tested before they go live it is best to release them as a draft first. There is a rake task for creating a draft flow `rake version:v2[flow]`. This is not ideal, but it allows to check the changes in the UI in the development and preview environments without affecting the production environment.
+When making bigger changes that need to be tested or fact-checked before they are deployed to GOV.UK it is best to deploy the branch with changes to Heroku.
 
-Once reviewed, the draft can be published by running `rake version:publish[flow]`. This merges V2 changes into the original files. Take a look at the [rake task](https://github.com/alphagov/smart-answers/blob/master/lib/tasks/version.rake) to see the details. If you used any other V2 files that are not covered by the rake task, make sure to process them manually.
+If you open a PR to review those changes, make sure to mention if it's being fact-checked and should not be merged to master until that's done.
 
-### Commiting V2 -> V1 changes
+### Deploying to Heroku
 
-To help developers track changes in files easily, it is best if you commit V2 files' removal in one commit, then commit the modifications to the original files. This creates an easy to browse diff of all the changes being published. Write a descriptive message for the second commit, as this is what the other developers will see in the file history.
-
-### Detailed documentation
-
-- [How to archive a Smart Answer](doc/archiving.md)
-
-## Deploying to Heroku
-
-The 'startup_heroku.sh' shell script will create and configure an app on Heroku, push the __current branch___ and open the marriage-abroad Smart Answer in the browser.
+The 'startup_heroku.sh' shell script will create and configure an app on Heroku, push the __current branch__ and open the marriage-abroad Smart Answer in the browser.
 
 Once deployed you'll need to use the standard `git push` mechanism to deploy your changes.
 
     ./startup_heroku.sh
+
+### Alternatives
+
+If you can not deploy on Heroku, it is possible to use the now deprecated [V2 workflow](https://github.com/alphagov/smart-answers/blob/38f48bdd77f3a9f1c6319c6ab76149fa8dc8e909/README.md#making-bigger-changes).
+
+## Archiving a Smart Answer
+
+- [How to archive a Smart Answer](doc/archiving.md)
+
+## Issues/todos
+
+Please see the [github issues](https://github.com/alphagov/smart-answers/issues) page.
