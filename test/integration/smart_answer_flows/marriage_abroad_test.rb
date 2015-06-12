@@ -2177,6 +2177,22 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
+  context "Marriage in Democratic Republic of Congo, living elsewhere, partner British, opposite sex" do
+    setup do
+      worldwide_api_has_organisations_for_location('democratic-republic-of-congo', read_fixture_file('worldwide/democratic-republic-of-congo_organisations.json'))
+      add_response 'democratic-republic-of-congo'
+      add_response 'third_country'
+      add_response 'partner_british'
+      add_response 'opposite_sex'
+    end
+    should "lead to outcome_consular_cni_os_residing_in_third_country" do
+      assert_current_node :outcome_consular_cni_os_residing_in_third_country
+      assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
+      assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/democratic-republic-of-congo/ceremony_country/partner_british/opposite_sex"
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/democratic-republic-of-congo/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
+    end
+  end
+
   context "Marriage in Mexico, living in the UK, partner British, opposite sex" do
     setup do
       worldwide_api_has_organisations_for_location('mexico', read_fixture_file('worldwide/mexico_organisations.json'))
