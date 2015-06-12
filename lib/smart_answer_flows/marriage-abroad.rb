@@ -1334,8 +1334,6 @@ module SmartAnswer
 
           if ceremony_country == 'japan'
             phrases << :contact_to_make_appointment << contact_method_key << :documents_needed_21_days_residency << :documents_needed_ss_british
-          elsif ceremony_country == 'albania'
-            phrases << :appointment_booking_link_albania
           elsif ceremony_country == 'germany'
             phrases << :contact_british_embassy_or_consulate_berlin << contact_method_key
           else
