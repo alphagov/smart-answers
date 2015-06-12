@@ -1339,7 +1339,10 @@ module SmartAnswer
           elsif ceremony_country == 'germany'
             phrases << :contact_british_embassy_or_consulate_berlin << contact_method_key
           else
-            phrases << :contact_embassy_or_consulate << contact_method_key
+            if contact_method_key == :embassies_data
+              phrases << :contact_embassy_or_consulate
+            end
+            phrases << contact_method_key
           end
 
           unless ceremony_country == 'japan'
