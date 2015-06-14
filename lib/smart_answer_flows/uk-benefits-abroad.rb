@@ -629,34 +629,142 @@ module SmartAnswer
         end
       end
 
-      outcome :pension_going_abroad_outcome # A2 going_abroad
-      outcome :jsa_less_than_a_year_medical_outcome # A3 going_abroad
-      outcome :jsa_less_than_a_year_other_outcome # A4 going_abroad
-      outcome :jsa_eea_going_abroad_outcome # A5 going_abroad
-      outcome :jsa_social_security_going_abroad_outcome # A6 going_abroad
-      outcome :jsa_not_entitled_outcome # A7 going_abroad and A5 already_abroad
-      outcome :wfp_not_eligible_outcome # A8 going_abroad and A6 already_abroad
-      outcome :wfp_going_abroad_outcome # A9 going_abroad
-      outcome :maternity_benefits_maternity_allowance_outcome # A10 going_abroad and A8 already_abroad
-      outcome :maternity_benefits_social_security_going_abroad_outcome # A12 going_abroad
-      outcome :maternity_benefits_not_entitled_outcome # A13 going_abroad and A11 already_abroad
-      outcome :child_benefit_fy_going_abroad_outcome # A14 going_abroad
-      outcome :child_benefit_ss_outcome # A15 going_abroad and A13 already_abroad
-      outcome :child_benefit_entitled_outcome # A17 going_abroad and A15 already_abroad
-      outcome :child_benefit_not_entitled_outcome # A18 going_abroad and A16 already_abroad
-      outcome :ssp_going_abroad_entitled_outcome # A19 going_abroad
-      outcome :ssp_going_abroad_not_entitled_outcome # A20 going_abroad
+      outcome :pension_going_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :jsa_less_than_a_year_medical_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :jsa_less_than_a_year_other_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :jsa_eea_going_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :jsa_social_security_going_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :jsa_not_entitled_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :wfp_not_eligible_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :wfp_going_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :maternity_benefits_maternity_allowance_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :maternity_benefits_social_security_going_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :maternity_benefits_not_entitled_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :child_benefit_fy_going_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :child_benefit_ss_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :child_benefit_entitled_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :child_benefit_not_entitled_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :ssp_going_abroad_entitled_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :ssp_going_abroad_not_entitled_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
 
-      outcome :jsa_eea_already_abroad_outcome # A3 already_abroad
-      outcome :jsa_social_security_already_abroad_outcome # A4 already_abroad
-      outcome :pension_already_abroad_outcome # A2 already_abroad
-      outcome :wfp_eea_eligible_outcome # A7 already_abroad
-      outcome :maternity_benefits_eea_entitled_outcome # A11 going_abroad and A9 already_abroad
-      outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
-      outcome :child_benefit_fy_already_abroad_outcome # A12 already_abroad
-      outcome :child_benefit_jtu_outcome # A14 already_abroad
-      outcome :ssp_already_abroad_entitled_outcome # A17 already_abroad
-      outcome :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
+      outcome :jsa_eea_already_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :jsa_social_security_already_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :pension_already_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :wfp_eea_eligible_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :maternity_benefits_eea_entitled_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :maternity_benefits_social_security_already_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :child_benefit_fy_already_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :child_benefit_jtu_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :ssp_already_abroad_entitled_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :ssp_already_abroad_not_entitled_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
       outcome :tax_credits_crown_servant_outcome do # A19 already_abroad
         precalculate :tax_credits_crown_servant do
           PhraseList.new(:"tax_credits_#{going_or_already_abroad}_helpline")
@@ -667,53 +775,197 @@ module SmartAnswer
           PhraseList.new(:"tax_credits_cross_border_#{going_or_already_abroad}", :tax_credits_cross_border, :"tax_credits_#{going_or_already_abroad}_helpline")
         end
       end
-      outcome :tax_credits_unlikely_outcome #A21 already_abroad and A23 going_abroad
-      outcome :tax_credits_eea_entitled_outcome # A22 already_abroad and A24 going_abroad
+      outcome :tax_credits_unlikely_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :tax_credits_eea_entitled_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
       outcome :tax_credits_holiday_outcome do # A23 already_abroad and A25 going_abroad and A26 going_abroad
         precalculate :tax_credits_holiday do
           PhraseList.new(:"tax_credits_holiday_#{going_or_already_abroad}", :tax_credits_holiday, :"tax_credits_#{going_or_already_abroad}_helpline")
         end
       end
-      outcome :esa_going_abroad_under_a_year_medical_outcome # A27 going_abroad
-      outcome :esa_going_abroad_under_a_year_other_outcome # A28 going_abroad
-      outcome :esa_going_abroad_eea_outcome # A29 going_abroad
-      outcome :esa_going_abroad_other_outcome # A30 going_abroad
-      outcome :iidb_going_abroad_eea_outcome # A32 going_abroad
-      outcome :iidb_going_abroad_ss_outcome # A33 going_abroad
-      outcome :iidb_going_abroad_other_outcome # A34 going_abroad
-      outcome :db_going_abroad_temporary_outcome # A35 going_abroad
-      outcome :db_going_abroad_other_outcome # A36 going_abroad
-      outcome :db_going_abroad_eea_outcome # A37 going_abroad
-      outcome :bb_going_abroad_other_outcome # A38 going_abroad
-      outcome :bb_going_abroad_eea_outcome # A39 going_abroad
-      outcome :bb_going_abroad_ss_outcome # A40 going_abroad
-      outcome :is_more_than_a_year_outcome # A41 going_abroad
-      outcome :is_under_a_year_medical_outcome # A42 going_abroad
-      outcome :is_claiming_benefits_outcome # A43 going_abroad
-      outcome :is_abroad_for_treatment_outcome # A44 going_abroad
-      outcome :is_not_eligible_outcome # A45 going_abroad
+      outcome :esa_going_abroad_under_a_year_medical_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :esa_going_abroad_under_a_year_other_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :esa_going_abroad_eea_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :esa_going_abroad_other_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :iidb_going_abroad_eea_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :iidb_going_abroad_ss_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :iidb_going_abroad_other_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :db_going_abroad_temporary_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :db_going_abroad_other_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :db_going_abroad_eea_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :bb_going_abroad_other_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :bb_going_abroad_eea_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :bb_going_abroad_ss_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :is_more_than_a_year_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :is_under_a_year_medical_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :is_claiming_benefits_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :is_abroad_for_treatment_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :is_not_eligible_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
 
       outcome :tax_credits_medical_death_outcome do # A24 already_abroad
         precalculate :tax_credits_medical_death do
           PhraseList.new(:"tax_credits_medical_death_#{going_or_already_abroad}", :tax_credits_medical_death, :"tax_credits_#{going_or_already_abroad}_helpline")
         end
       end
-      outcome :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
-      outcome :esa_already_abroad_under_a_year_other_outcome # A26 already_abroad
-      outcome :esa_already_abroad_eea_outcome # A27 already_abroad
-      outcome :esa_already_abroad_ss_outcome # A28 already_abroad
-      outcome :esa_already_abroad_other_outcome # A29 already_abroad
-      outcome :iidb_maybe_outcome # A 30 already_abroad and A31 going_abroad
-      outcome :iidb_already_abroad_eea_outcome # A31 already_abroad
-      outcome :iidb_already_abroad_ss_outcome # A32 already_abroad
-      outcome :iidb_already_abroad_other_outcome # A33 already_abroad
-      outcome :db_already_abroad_temporary_outcome # A34 already_abroad
-      outcome :db_already_abroad_other_outcome # A35 already_abroad
-      outcome :db_already_abroad_eea_outcome # A36 already_abroad
-      outcome :bb_already_abroad_eea_outcome # A37 already_abroad
-      outcome :bb_already_abroad_ss_outcome # A38 already_abroad
-      outcome :bb_already_abroad_other_outcome # A39 already_abroad
-      outcome :is_already_abroad_outcome # A40 already_abroad
+      outcome :esa_already_abroad_under_a_year_medical_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :esa_already_abroad_under_a_year_other_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :esa_already_abroad_eea_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :esa_already_abroad_ss_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :esa_already_abroad_other_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :iidb_maybe_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :iidb_already_abroad_eea_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :iidb_already_abroad_ss_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :iidb_already_abroad_other_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :db_already_abroad_temporary_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :db_already_abroad_other_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :db_already_abroad_eea_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :bb_already_abroad_eea_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :bb_already_abroad_ss_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :bb_already_abroad_other_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
+      outcome :is_already_abroad_outcome do
+        precalculate :temp do
+          :temp
+        end
+      end
     end
   end
 end
