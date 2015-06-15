@@ -674,18 +674,9 @@ module SmartAnswer
           end
 
           if resident_of == 'uk'
+            phrases << :cni_at_local_register_office
             if cni_posted_after_14_days_countries.include?(ceremony_country)
-              if cni_notary_public_countries.include?(ceremony_country) || ceremony_country == 'italy'
-                phrases << :cni_posted_if_no_objection_14_days_notary_public
-              else
-                phrases << :cni_posted_if_no_objection_14_days
-              end
-            else
-              if cni_notary_public_countries.include?(ceremony_country) || %w(italy japan macedonia spain).include?(ceremony_country)
-                phrases << :cni_at_local_register_office_notary_public
-              else
-                phrases << :cni_at_local_register_office
-              end
+              phrases << :cni_subject_to_objection_14_days
             end
 
             if ceremony_country == 'italy'
@@ -1200,7 +1191,7 @@ module SmartAnswer
 
           unless ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex'
             if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' && resident_of == 'uk'
-              phrases << :what_you_need_to_do_cni_cp << :get_cni_at_registrar_in_uk << :legisation_and_translation_intro_uk << :legalise_translate_and_check_with_authorities << :names_on_documents_must_match
+              phrases << :what_you_need_to_do_cni_cp << :cni_at_local_register_office << :legisation_and_translation_intro_uk << :legalise_translate_and_check_with_authorities << :names_on_documents_must_match
             else
               phrases << :cp_or_equivalent_cp_what_you_need_to_do
               phrases << :embassies_data

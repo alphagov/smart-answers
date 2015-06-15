@@ -538,10 +538,6 @@ en-GB:
           If the Standesamt does ask you for a CNI (‘Ehefähigkeitszeugnis’), refer them to the relevant part of the [German Civil Code](http://www.gesetze-im-internet.de/bgb/__1309.html) (‘Bürgerliches Gesetzbuch’). This is published on the Stuttgart Higher Regional Court (‘Oberlandesgericht’) website, but it applies to the whole of Germany.
 
           Check with the Higher Regional Court where you’re getting married if they don’t accept this.
-        get_cni_at_registrar_in_uk: |
-          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
-
-          ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire, but you should check with the local authorities in the country where you intend to marry to find out how long a CNI is valid under local law.^
 
         standard_ways_to_get_cni_in_third_country: |
           There are 2 ways you can get a CNI:
@@ -557,6 +553,7 @@ en-GB:
           - [go to the UK and post notice with a UK registrar](%{uk_residence_outcome_path})
           - [arrange this through the British Embassy in Costa Rica](%{ceremony_country_residence_outcome_path})
 
+
           %If you choose to post notice in Costa Rica, you’ll normally have to wait at least 10 days before you can get married.%
 
         cni_at_local_register_office: |
@@ -564,24 +561,9 @@ en-GB:
 
           ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire, but you should check with the local authorities in the country where you intend to marry to find out how long a CNI is valid under local law.^
 
-        cni_posted_if_no_objection_14_days: |
-          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
-
-          ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire, but you should check with the local authorities in the country where you intend to marry to find out how long a CNI is valid under local law.^
-
+        cni_subject_to_objection_14_days:
           They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
 
-        cni_at_local_register_office_notary_public: |
-          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
-
-          ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire, but you should check with the local authorities in the country where you intend to marry to find out how long a CNI is valid under local law.^
-
-        cni_posted_if_no_objection_14_days_notary_public: |
-          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
-
-          ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire, but you should check with the local authorities in the country where you intend to marry to find out how long a CNI is valid under local law.^
-
-          They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
         consular_cni_os_resident_in_uk_ceremony_in_italy: |
           ###Getting a statutory declaration
 
