@@ -945,18 +945,20 @@ module SmartAnswer
             phrases << :make_an_appointment
           elsif ceremony_country == 'china'
             prelude = "book_online_china_#{partner_nationality != 'partner_local' ? 'non_' : ''}local_prelude".to_sym
-            phrases << prelude << :book_online_china_affirmation_affidavit
+            phrases << prelude
+            phrases << contact_method_key
+            phrases << :book_online_china_affirmation_affidavit
           else
             phrases << :appointment_for_affidavit
           end
 
-          unless ceremony_country == 'turkey'
+          unless %w(china turkey).include?(ceremony_country)
             phrases << contact_method_key
             if ceremony_country == 'cambodia'
               phrases << :fee_and_required_supporting_documents_for_appointment
               phrases << :legalisation_and_translation
               phrases << :affirmation_os_translation_in_local_language_text
-            elsif ceremony_country != 'china' && ceremony_country != 'egypt'
+            elsif ceremony_country != 'egypt'
               phrases << :legalisation_and_translation
               phrases << :affirmation_os_translation_in_local_language_text
             end
