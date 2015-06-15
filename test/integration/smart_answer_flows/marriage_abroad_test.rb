@@ -1564,7 +1564,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :book_online_china_non_local_prelude, :book_online_china_affirmation_affidavit, "appointment_links.opposite_sex.china", :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :partner_probably_needs_affirmation_or_affidavit, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :book_online_china_non_local_prelude, "appointment_links.opposite_sex.china", :book_online_china_affirmation_affidavit, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :partner_probably_needs_affirmation_or_affidavit, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1589,7 +1589,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :what_you_need_to_do, :book_online_china_local_prelude, :book_online_china_affirmation_affidavit, "appointment_links.opposite_sex.china", :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :what_you_need_to_do, :book_online_china_local_prelude, "appointment_links.opposite_sex.china", :book_online_china_affirmation_affidavit, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :affirmation_os_all_fees_45_70, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
