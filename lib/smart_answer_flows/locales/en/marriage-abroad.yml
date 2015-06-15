@@ -1545,6 +1545,8 @@ en-GB:
             albania: |
               [Make an appointment at the embassy in Tirana](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tirana/notice-of-marriage-or-civil-partnership/slot_picker)
             australia: |
+              Make an appointment at your nearest British embassy or consulate in %{country_name_lowercase_prefix}.
+
               [Make an appointment at the British Consulate in Brisbane](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-brisbane/notice-of-marriage-or-civil-partnership/slot_picker)
 
               [Make an appointment at the British High Commission in Canberra](https://www.consular-appointments.service.gov.uk/fco/#!/british-high-commission-canberra/notice-of-marriage-or-civil-partnership/slot_picker)
