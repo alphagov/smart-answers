@@ -1,9 +1,9 @@
 --- 
-lib/smart_answer_flows/marriage-abroad.rb: 0a0bf97838057a110d37cfa5a6bed132
-lib/smart_answer_flows/locales/en/marriage-abroad.yml: 2e2786502f94d5c6587b62bdddd9b7b2
+lib/smart_answer_flows/marriage-abroad.rb: 6e4cad3fb44e8db0aea936e4d4cbc4b5
+lib/smart_answer_flows/locales/en/marriage-abroad.yml: ee9f5714b02a019a13a2acb9719a93f5
 test/data/marriage-abroad-questions-and-responses.yml: 587c31f6050c0bdc1ca5b51eb8aaefb9
 test/data/marriage-abroad-responses-and-expected-results.yml: 9f3ca67c58dae770c65e174899f5d80b
 lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: 6fa278754bc9ad08f8f9d89bd54e87f3
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: 4ed1f9632c270531ef76fe8bb00b7942
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
 lib/smart_answer/calculators/registrations_data_query.rb: 2755d76a53d867b350940f1af65fa5d1
