@@ -833,10 +833,6 @@ module SmartAnswer
             phrases << :check_if_cni_needs_to_be_legalised
           end
 
-          if ceremony_country == 'belgium'
-            phrases << :consular_cni_os_ceremony_belgium
-          end
-
           if ceremony_country == 'spain'
             phrases << :consular_cni_os_ceremony_spain
             if partner_nationality == 'partner_british'
@@ -954,6 +950,12 @@ module SmartAnswer
 
           unless %w(china turkey).include?(ceremony_country)
             phrases << contact_method_key
+            if ceremony_country == 'belgium'
+              phrases << :documents_guidance_belgium
+              phrases << :complete_affirmation_or_affidavit_forms
+              phrases << :download_and_fill_but_not_sign
+              phrases << :download_affidavit_and_affirmation_belgium
+            end
             if ceremony_country == 'cambodia'
               phrases << :fee_and_required_supporting_documents_for_appointment
               phrases << :legalisation_and_translation
@@ -1041,7 +1043,7 @@ module SmartAnswer
           #fee tables
           if %w(south-korea thailand turkey vietnam).include?(ceremony_country)
             phrases << :fee_table_affidavit_55
-          elsif %w(cambodia ecuador morocco).include? ceremony_country
+          elsif %w(cambodia ecuador morocco belgium).include? ceremony_country
             phrases << :fee_table_affirmation_55
           elsif ceremony_country == 'finland'
             phrases << :fee_table_affirmation_65
