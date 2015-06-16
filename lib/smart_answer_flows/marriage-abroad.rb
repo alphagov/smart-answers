@@ -209,6 +209,7 @@ module SmartAnswer
         next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
         next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
         next_node_if(:outcome_consular_cni_os_residing_in_third_country, marriage_in_spain_third_country)
+
         on_condition(responded_with('opposite_sex')) do
           next_node_if(:outcome_consular_cni_os_residing_in_third_country, consular_cni_residing_in_third_country)
           next_node_if(:outcome_os_local_japan, os_marriage_with_local_in_japan)
@@ -232,54 +233,56 @@ module SmartAnswer
           })
         end
 
-        define_predicate(:ss_marriage_germany_partner_local?) {
-          (ceremony_country == "germany") && (partner_nationality == "partner_local") && (ceremony_type != 'opposite_sex')
-        }
-        define_predicate(:ss_marriage_countries?) {
-          data_query.ss_marriage_countries?(ceremony_country)
-        }
-        define_predicate(:ss_marriage_countries_when_couple_british?) {
-          data_query.ss_marriage_countries_when_couple_british?(ceremony_country) && %w(partner_british).include?(partner_nationality)
-        }
-        define_predicate(:ss_marriage_and_partnership?) {
-          data_query.ss_marriage_and_partnership?(ceremony_country)
-        }
+        on_condition(responded_with('same_sex')) do
+          define_predicate(:ss_marriage_germany_partner_local?) {
+            (ceremony_country == "germany") && (partner_nationality == "partner_local") && (ceremony_type != 'opposite_sex')
+          }
+          define_predicate(:ss_marriage_countries?) {
+            data_query.ss_marriage_countries?(ceremony_country)
+          }
+          define_predicate(:ss_marriage_countries_when_couple_british?) {
+            data_query.ss_marriage_countries_when_couple_british?(ceremony_country) && %w(partner_british).include?(partner_nationality)
+          }
+          define_predicate(:ss_marriage_and_partnership?) {
+            data_query.ss_marriage_and_partnership?(ceremony_country)
+          }
 
-        define_predicate(:ss_marriage_not_possible?) {
-          data_query.ss_marriage_not_possible?(ceremony_country, partner_nationality)
-        }
+          define_predicate(:ss_marriage_not_possible?) {
+            data_query.ss_marriage_not_possible?(ceremony_country, partner_nationality)
+          }
 
-        define_predicate(:ss_unknown_no_embassies) {
-          data_query.ss_unknown_no_embassies?(ceremony_country)
-        }
+          define_predicate(:ss_unknown_no_embassies) {
+            data_query.ss_unknown_no_embassies?(ceremony_country)
+          }
 
-        next_node_if(:outcome_os_no_cni, ss_unknown_no_embassies)
+          next_node_if(:outcome_os_no_cni, ss_unknown_no_embassies)
 
-        next_node_if(:outcome_ss_marriage_malta, -> {ceremony_country == "malta"})
+          next_node_if(:outcome_ss_marriage_malta, -> {ceremony_country == "malta"})
 
-        next_node_if(:outcome_ss_marriage_not_possible, ss_marriage_not_possible?)
+          next_node_if(:outcome_ss_marriage_not_possible, ss_marriage_not_possible?)
 
-        next_node_if(:outcome_cp_or_equivalent, ss_marriage_germany_partner_local?)
+          next_node_if(:outcome_cp_or_equivalent, ss_marriage_germany_partner_local?)
 
-        next_node_if(:outcome_ss_marriage,
-          ss_marriage_countries? | ss_marriage_countries_when_couple_british? | ss_marriage_and_partnership?
-        )
+          next_node_if(:outcome_ss_marriage,
+            ss_marriage_countries? | ss_marriage_countries_when_couple_british? | ss_marriage_and_partnership?
+          )
 
-        next_node_if(:outcome_os_consular_cni, variable_matches(:ceremony_country, "spain"))
+          next_node_if(:outcome_os_consular_cni, variable_matches(:ceremony_country, "spain"))
 
-        next_node_if(:outcome_cp_or_equivalent, -> {
-          data_query.cp_equivalent_countries?(ceremony_country)
-        })
-        next_node_if(:outcome_cp_no_cni, -> {
-          data_query.cp_cni_not_required_countries?(ceremony_country)
-        })
-        next_node_if(:outcome_cp_commonwealth_countries, -> {
-          %w(canada new-zealand south-africa).include?(ceremony_country)
-        })
-        next_node_if(:outcome_cp_consular, -> {
-          data_query.cp_consular_countries?(ceremony_country)
-        })
-        next_node(:outcome_cp_all_other_countries)
+          next_node_if(:outcome_cp_or_equivalent, -> {
+            data_query.cp_equivalent_countries?(ceremony_country)
+          })
+          next_node_if(:outcome_cp_no_cni, -> {
+            data_query.cp_cni_not_required_countries?(ceremony_country)
+          })
+          next_node_if(:outcome_cp_commonwealth_countries, -> {
+            %w(canada new-zealand south-africa).include?(ceremony_country)
+          })
+          next_node_if(:outcome_cp_consular, -> {
+            data_query.cp_consular_countries?(ceremony_country)
+          })
+          next_node(:outcome_cp_all_other_countries)
+        end
       end
 
       outcome :outcome_os_iom_ci do
