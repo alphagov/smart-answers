@@ -697,11 +697,11 @@ module SmartAnswer
               phrases << :consular_cni_os_uk_resident_montenegro
             elsif %w(finland kazakhstan kyrgyzstan poland).include?(ceremony_country)
               phrases << :legalisation_and_translation_check_with_authorities
-            elsif %w(italy portugal).exclude?(ceremony_country)
+            elsif %w(italy).exclude?(ceremony_country)
               phrases << :legisation_and_translation_intro_uk
             end
 
-            if %w(germany italy portugal tunisia).exclude?(ceremony_country)
+            if %w(germany italy tunisia).exclude?(ceremony_country)
               phrases << :legalise_translate_and_check_with_authorities
             end
           end
