@@ -57,6 +57,8 @@ en-GB:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
+        documents_guidance_belgium: |
+          Read the guidance on the [documents that you’ll need](/notarial-and-documentary-services-guide-for-belgium#proof-of-address-and-identity).
         convert_cc_to_ss_marriage: |
           ##Convert a civil partnership to a same-sex marriage
 
@@ -189,6 +191,11 @@ en-GB:
 
         download_affidavit_forms_but_do_not_sign: |
           You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. You can download and fill in (but not sign) the forms in advance.
+
+        complete_affirmation_or_affidavit_forms: |
+          You’ll need to complete an ‘Affirmation for marriage’ (non-religious) form or an ‘Affidavit for marriage’ (religious) form in English.
+        download_and_fill_but_not_sign: |
+          You can download and fill in (but not sign) the forms in advance.
 # affidavit phrases
         complete_affidavit: |
           You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. Take the completed form with you to your appointment.
@@ -201,6 +208,10 @@ en-GB:
         download_affidavit_brazil: |
           $D
           [Download ’Affidavit for Marriage’ (PDF, 60KB)](/government/uploads/system/uploads/attachment_data/file/286008/Declaration_Marriage.pdf)
+          $D
+        download_affidavit_and_affirmation_belgium: |
+          $D
+          [Download ‘Affidavit for marriage’ and ’Affirmation for marriage’](/government/publications/affidavitaffirmation-of-marital-status-form-belgium)
           $D
 
         contact_for_affidavit: |
@@ -832,16 +843,6 @@ en-GB:
           %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
         check_if_cni_needs_to_be_legalised: |
           You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in %{country_name_lowercase_prefix}.
-        consular_cni_os_ceremony_belgium: |
-          ###Other requirements for Belgium
-
-          There are several other documents you might need to get from the British Embassy if requested by the town hall, including:
-
-          - certificate of custom law (‘certificat de coutume’ / ‘attest van gewoonterecht’)
-          - certificate of nationality (‘certificat de nationalité’ ‘certificaat van nationaliteit’) - this can be a certified copy of your passport
-          - certificate of celibacy (‘certificat de celibat’ / ‘certificaat van celibaat’) - there’s no UK equivalent, but you can make a statutory declaration at the British embassy instead
-
-          Check with the town hall to find out if you need any of these documents. You’ll need to make an appointment at the embassy to get them. Bring any supporting documents they ask for, and pay a fee (see below).
         consular_cni_os_ceremony_spain: |
           ###Getting a marital status certificate
 
