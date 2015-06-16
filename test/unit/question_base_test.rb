@@ -236,7 +236,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
     }
     initial_state = SmartAnswer::State.new(q.name)
     initial_state.responses << responses[0]
-    error = assert_raises(RuntimeError) do
+    error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
       q.next_node_for(initial_state, responses[1])
     end
     expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}"
