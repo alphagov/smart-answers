@@ -722,6 +722,10 @@ module SmartAnswer
               phrases << :living_in_ceremony_country_3_days
             end
 
+            if ceremony_country == 'estonia' && resident_of == 'ceremony_country'
+              phrases << :cni_exception_for_permanent_residents_estonia
+            end
+
             phrases << :"#{ceremony_country}_os_local_resident" if %w(kazakhstan russia).include?(ceremony_country)
             unless %w(germany italy japan spain).include?(ceremony_country)
               if ceremony_country == 'macedonia'

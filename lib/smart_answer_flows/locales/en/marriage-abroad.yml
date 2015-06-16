@@ -297,6 +297,8 @@ en-GB:
           Your partner will probably need to get an equivalent document from their national authorities.
         partner_declaration: |
           ^Your partner will need to make a declaration as well.^
+        cni_exception_for_permanent_residents_estonia: |
+          ^You may be able to get married without a CNI if you have a permanent address in Estonia and have a 6 month residence permit - contact the local authorities to find out.^
         check_with_notary_public_if_you_need_cni: |
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry. Contact the local notary public to check if you need a CNI.
         what_to_do_croatia: |
