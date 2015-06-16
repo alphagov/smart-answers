@@ -23,6 +23,18 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     assert_current_node :country_of_ceremony?
   end
 
+  context "newly added country that has no logic to handle opposite sex marriages" do
+    setup do
+      worldwide_api_has_locations(['narnia'])
+      worldwide_api_has_no_organisations_for_location('narnia')
+      add_response 'ceremony_country'
+      add_response 'partner_local'
+      assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
+        add_response 'opposite_sex'
+      end
+    end
+  end
+
   context "ceremony in ireland" do
     setup do
       worldwide_api_has_organisations_for_location('ireland', read_fixture_file('worldwide/ireland_organisations.json'))
