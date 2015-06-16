@@ -1130,22 +1130,22 @@ module SmartAnswer
       outcome :outcome_os_other_countries do
         precalculate :other_countries_os_outcome do
           phrases = PhraseList.new
-          if ceremony_country == 'burma'
+          case ceremony_country
+          when 'burma'
             phrases << :embassy_in_burma_doesnt_register_marriages
             if partner_nationality == 'partner_local'
               phrases << :cant_marry_burmese_citizen
             end
-          elsif ceremony_country == 'north-korea'
+          when 'north-korea'
             phrases << :marriage_in_north_korea_unlikely
             if partner_nationality == 'partner_local'
               phrases << :cant_marry_north_korean_citizen
             end
-          elsif %w(iran somalia syria).include?(ceremony_country)
+          when *%w(iran somalia syria)
             phrases << :no_consular_services_contact_embassy
-          elsif ceremony_country == 'yemen'
+          when 'yemen'
             phrases << :limited_consular_services_contact_embassy
-          end
-          if ceremony_country == 'saudi-arabia'
+          when 'saudi-arabia'
             if resident_of != 'ceremony_country'
               phrases << :saudi_arabia_requirements_for_foreigners
               phrases << contact_method_key
@@ -1156,6 +1156,8 @@ module SmartAnswer
               end
               phrases << :fees_table_and_payment_instructions_saudi_arabia
             end
+          else
+            raise "The outcome for #{ceremony_country} is not handled"
           end
           phrases
         end
