@@ -187,7 +187,7 @@ class FlowTest < ActiveSupport::TestCase
 
   test "should throw an exception if invalid status provided" do
     assert_raise SmartAnswer::Flow::InvalidStatus do
-      s = SmartAnswer::Flow.new do
+      SmartAnswer::Flow.new do
         status :bin
       end
     end
@@ -252,7 +252,6 @@ class FlowTest < ActiveSupport::TestCase
       assert_equal [:do_you_like_chocolate?], @flow.path(%w{yes})
       assert_equal [:do_you_like_chocolate?, :do_you_like_jam?], @flow.path(%w{no no})
     end
-
   end
 
   should "normalize responses" do
@@ -312,7 +311,7 @@ class FlowTest < ActiveSupport::TestCase
       date_question :when?
     end
 
-    assert_raises RuntimeError do
+    assert_raises SmartAnswer::Question::Base::NextNodeUndefined do
       flow.process(['2011-01-01'])
     end
   end
