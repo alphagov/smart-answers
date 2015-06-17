@@ -77,8 +77,9 @@ module SmartAnswer
           response.split(',')
         end
 
-        next_node :outcome_results
-
+        next_node do
+          :outcome_results
+        end
       end
 
       outcome :outcome_results do
