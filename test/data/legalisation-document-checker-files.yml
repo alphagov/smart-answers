@@ -1,0 +1,7 @@
+--- 
+lib/smart_answer_flows/legalisation-document-checker.rb: 812727093d650b4af5437831ef37c668
+lib/smart_answer_flows/locales/en/legalisation-document-checker.yml: 86ce14368975c2a4b325ccabe768b207
+test/data/legalisation-document-checker-questions-and-responses.yml: 4837cd9c9064d026e9a2b343b8d1a475
+test/data/legalisation-document-checker-responses-and-expected-results.yml: 8d683093a2b1a4839ca33235639175f9
+lib/smart_answer/calculators/legalisation_documents_data_query.rb: 31d5eec29a4cf4e27a4204e8f08132f9
+lib/data/legalisation_documents_data.yml: 8438e7aa64db7ac8f8cb23ba9b84ed83
