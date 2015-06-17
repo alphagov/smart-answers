@@ -730,7 +730,9 @@ module SmartAnswer
             end
           end
 
-          if resident_of == 'ceremony_country' && %w(germany italy japan spain).exclude?(ceremony_country)
+          if resident_of != 'uk' && data_query.phrase_exists?("required_supporting_documents_#{ceremony_country}")
+            phrases << :"required_supporting_documents_#{ceremony_country}"
+          elsif resident_of == 'ceremony_country' && %w(germany italy japan spain).exclude?(ceremony_country)
             birth_cert_inclusion = if no_birth_cert_requirement.exclude?(ceremony_country)
               '_incl_birth_cert'
             end
