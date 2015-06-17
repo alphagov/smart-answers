@@ -149,9 +149,13 @@ module SmartAnswer::Calculators
 
     def appointment_link_key_for(country_slug, partner_gender)
       key = "appointment_links.#{partner_gender}.#{country_slug}"
-      if I18n.exists?("flow.marriage-abroad.phrases.#{key}")
+      if phrase_exists?(key)
         key
       end
+    end
+
+    def phrase_exists?(key)
+      I18n.exists?("flow.marriage-abroad.phrases.#{key}")
     end
   end
 end
