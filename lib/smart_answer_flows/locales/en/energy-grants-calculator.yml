@@ -207,12 +207,6 @@ en-GB:
 
           For some of these schemes further eligibility criteria apply. These can differ depending on your supplier.
 
-# outcome 2 social housing
-      outcome_social_housing:
-        title: Unfortunately it doesn’t look like you qualify for support.
-        body: |
-          Contact your housing provider to discuss ways your home could be made more energy efficient.
-
 # outcome 3a measures_help and eco_eligible
       outcome_measures_help_and_eco_eligible:
         title: %{title_end}

@@ -385,8 +385,6 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_social_housing
-
       outcome :outcome_measures_help_and_eco_eligible do
         precalculate :title_end do
           if (measure_help && both_help) || measure_help && (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
