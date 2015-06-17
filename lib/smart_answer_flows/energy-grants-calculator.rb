@@ -24,11 +24,7 @@ module SmartAnswer
         end
 
         calculate :warm_home_discount_amount do
-          if Date.today < Date.civil(2014, 4, 6)
-            135
-          else
-            ''
-          end
+          ''
         end
 
         next_node_if(:what_are_your_circumstances?, responded_with("help_with_fuel_bill")) # Q2
