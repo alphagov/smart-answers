@@ -146,6 +146,8 @@ en-GB:
 # payment methods
         payment_methods_japan: |
           You can pay by credit card, but not by personal cheque. The embassy in Tokyo will also accept cash.
+        pay_by_card_no_amex_no_cheque: |
+          You can pay by cash or credit card (except American Express), but not by personal cheque.
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
         pay_by_cash_or_us_dollars_only: |
@@ -295,6 +297,8 @@ en-GB:
           Your partner will probably need to get an equivalent document from their national authorities.
         partner_declaration: |
           ^Your partner will need to make a declaration as well.^
+        check_with_notary_public_if_you_need_cni: |
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry. Contact the local notary public to check if you need a CNI.
         what_to_do_croatia: |
           You may be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
 
