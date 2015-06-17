@@ -139,7 +139,9 @@ module SmartAnswer::Calculators
           # Pay period includes the date of payment hence the range starts the day after.
           last_paydate = index == 0 ? pay_start_date : paydates[index - 1] + 1
           pay = pay_for_period(last_paydate, paydate)
-          ary << { date: paydate, pay: pay } if pay > 0
+          if pay > 0
+            ary << { date: paydate, pay: pay } 
+          end
         end
       end
     end
@@ -158,7 +160,9 @@ module SmartAnswer::Calculators
 
       [].tap do |ary|
         start_date.step(end_date) do |d|
-          ary << d if d.day == 1
+          if d.day == 1
+            ary << d
+          end
         end
       end
     end
@@ -168,7 +172,9 @@ module SmartAnswer::Calculators
       end_date = Date.civil(pay_end_date.year, pay_end_date.month, -1)
       [].tap do |ary|
         start_date.step(end_date) do |d|
-          ary << d if d.day == Date.new(d.year, d.month, -1).day
+          if d.day == Date.new(d.year, d.month, -1).day
+            ary << d
+          end
         end
       end
     end
@@ -178,17 +184,23 @@ module SmartAnswer::Calculators
 
       [].tap do |ary|
         pay_start_date.step(end_date) do |d|
-          ary << d if d.day == Date.new(d.year, d.month, last_working_day_of_the_month_offset(d)).day
+          if d.day == Date.new(d.year, d.month, last_working_day_of_the_month_offset(d)).day
+            ary << d
+          end
         end
       end
     end
 
     def paydates_monthly
       end_date = Date.civil(pay_end_date.year, pay_end_date.month, pay_day_in_month)
-      end_date = 1.month.since(end_date) if pay_end_date.day > pay_day_in_month
+      if pay_end_date.day > pay_day_in_month
+        end_date = 1.month.since(end_date)
+      end
       [].tap do |ary|
         pay_start_date.step(end_date) do |d|
-          ary << d if d.day == pay_day_in_month
+          if d.day == pay_day_in_month
+            ary << d
+          end
         end
       end
     end
@@ -198,7 +210,9 @@ module SmartAnswer::Calculators
     def paydates_weekly
       [].tap do |ary|
         pay_start_date.step(pay_end_date + 7) do |d|
-          ary << d if d.wday == pay_date.wday
+          if d.wday == pay_date.wday
+            ary << d
+          end
         end
       end
     end
@@ -206,7 +220,9 @@ module SmartAnswer::Calculators
     def paydates_weekly_starting
       [].tap do |ary|
         pay_start_date.step(pay_end_date) do |d|
-          ary << d if d.wday == (pay_start_date - 1).wday and d > pay_start_date
+          if d.wday == (pay_start_date - 1).wday and d > pay_start_date
+            ary << d
+          end
         end
       end
     end
@@ -323,7 +339,9 @@ module SmartAnswer::Calculators
 
     def uprating_date(year)
       date = first_sunday_in_month(4 , year)
-      date += leave_start_date.wday if leave_start_date
+      if leave_start_date
+        date += leave_start_date.wday
+      end
       date
     end
 

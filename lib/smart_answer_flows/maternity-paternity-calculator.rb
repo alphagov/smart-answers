@@ -876,8 +876,12 @@ module SmartAnswer
         precalculate :not_entitled_reason do
           if not_entitled_reason.nil?
             phrases = PhraseList.new(:paternity_not_entitled_to_leave_or_pay_intro)
-            phrases << :"#{leave_type}_not_responsible_for_upbringing" if paternity_responsible == 'no'
-            phrases << :not_worked_long_enough if paternity_employment_start == "no"
+            if paternity_responsible == 'no'
+              phrases << :"#{leave_type}_not_responsible_for_upbringing"
+            end
+            if paternity_employment_start == "no"
+              phrases << :not_worked_long_enough
+            end
             phrases << :paternity_not_entitled_to_leave_or_pay_outro
             phrases
           else
