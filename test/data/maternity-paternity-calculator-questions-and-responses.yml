@@ -7,9 +7,9 @@
 - "yes"
 - "no"
 :date_of_adoption_match?: 
-- "2015-01-01"
+- "2015-04-05" # @match_date >= Date.parse('5 April 2015') # => true
 :date_of_adoption_placement?: 
-- "2015-01-01"
+- "2015-04-06" # placement_date < match_date # => false
 :adoption_did_the_employee_work_for_you?: 
 - "yes"
 - "no"
@@ -20,18 +20,19 @@
 - "yes"
 - "no"
 :adoption_date_leave_starts?: 
-- "2015-01-01"
+- "2015-04-06" # ald_start < a_leave_earliest_start # => false
 :last_normal_payday_adoption?: 
 - "2015-01-01"
 :payday_eight_weeks_adoption?: 
-- "2015-01-01"
+- "2014-11-01" # payday > payday_offset # => false
 :pay_frequency_adoption?: 
 - weekly
 - every_2_weeks
 - every_4_weeks
 - monthly
 :earnings_for_pay_period_adoption?: 
-- "3000"
+- "100" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => true
+- "3000" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => false
 :how_do_you_want_the_sap_calculated?: 
 - weekly_starting
 - usual_paydates
@@ -72,14 +73,15 @@
 :last_normal_payday_paternity?: 
 - "2015-01-01"
 :payday_eight_weeks_paternity?: 
-- "2015-01-01"
+- "2014-11-01" # payday > calculator.payday_offset # => false
 :pay_frequency_paternity?: 
 - weekly
 - every_2_weeks
 - every_4_weeks
 - monthly
 :earnings_for_pay_period_paternity?: 
-- "3000"
+- "100" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => true
+- "3000" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => false
 :how_do_you_want_the_spp_calculated?: 
 - weekly_starting
 - usual_paydates
@@ -93,6 +95,7 @@
 - a_certain_week_day_each_month
 :specific_date_each_month_paternity?: 
 - "14"
+- "29" # monthly_pay_method == 'specific_date_each_month' and pay_day_in_month > 28 # => true
 :days_of_the_week_paternity?: 
 - "0"
 - "1"
@@ -129,16 +132,17 @@
 - "yes"
 - "no"
 :last_normal_payday?: 
-- "2015-01-01"
+- "2014-09-19" # calculator.last_payday > to_saturday # => false
 :payday_eight_weeks?: 
-- "2015-01-01"
+- "2014-07-24" # payday > payday_offset # => false
 :pay_frequency?: 
 - weekly
 - every_2_weeks
 - every_4_weeks
 - monthly
 :earnings_for_pay_period?: 
-- "3000"
+- "100" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => true
+- "3000" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => false
 :how_do_you_want_the_smp_calculated?: 
 - weekly_starting
 - usual_paydates
@@ -152,6 +156,7 @@
 - a_certain_week_day_each_month
 :what_specific_date_each_month_is_the_employee_paid?: 
 - "17"
+- "29" # monthly_pay_method == 'specific_date_each_month' and pay_day_in_month > 28 # => true
 :what_days_does_the_employee_work?: 
 - "0"
 - "1"
