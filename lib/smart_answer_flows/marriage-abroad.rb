@@ -648,6 +648,8 @@ module SmartAnswer
 
           if ceremony_and_residency_in_croatia
             phrases << :what_to_do_croatia
+          elsif ceremony_country == 'kuwait' && resident_of != 'uk'
+            phrases << :check_with_notary_public_if_you_need_cni
           elsif ceremony_country == 'jordan'
             phrases << :consular_cni_os_foreign_resident_21_days_jordan
           elsif data_query.os_21_days_residency_required_countries?(ceremony_country)
@@ -874,7 +876,9 @@ module SmartAnswer
               phrases << :consular_cni_os_fees_russia
             elsif ceremony_country == 'finland'
               phrases << :pay_in_euros_or_visa_electron
-            elsif !%w(cote-d-ivoire burundi).include? ceremony_country
+            elsif ceremony_country == 'kuwait'
+              phrases << :pay_by_card_no_amex_no_cheque
+            elsif %w(cote-d-ivoire burundi).exclude?(ceremony_country)
               phrases << :pay_by_cash_or_credit_card_no_cheque
             end
           end
