@@ -1,0 +1,176 @@
+--- 
+:what_type_of_leave?: 
+- maternity
+- paternity
+- adoption
+:taking_paternity_leave_for_adoption?: 
+- "yes"
+- "no"
+:date_of_adoption_match?: 
+- "TODO: When was the child matched with the employee?"
+:date_of_adoption_placement?: 
+- "TODO: When will the child be placed with the employee?"
+:adoption_did_the_employee_work_for_you?: 
+- "yes"
+- "no"
+:adoption_employment_contract?: 
+- "yes"
+- "no"
+:adoption_is_the_employee_on_your_payroll?: 
+- "yes"
+- "no"
+:adoption_date_leave_starts?: 
+- "TODO: When does the employee want to start their leave?"
+:last_normal_payday_adoption?: 
+- "TODO: What was the last normal payday on or before %{to_saturday_formatted}?"
+:payday_eight_weeks_adoption?: 
+- "TODO: What was the last normal payday before %{payday_offset_formatted}?"
+:pay_frequency_adoption?: 
+- weekly
+- every_2_weeks
+- every_4_weeks
+- monthly
+:earnings_for_pay_period_adoption?: 
+- "TODO: What were the employee\xE2\x80\x99s total earnings between %{relevant_period}?"
+:how_do_you_want_the_sap_calculated?: 
+- weekly_starting
+- usual_paydates
+:leave_or_pay_for_adoption?: 
+- "yes"
+- "no"
+:baby_due_date_paternity?: 
+- "TODO: What is the baby\xE2\x80\x99s due date?"
+:employee_date_matched_paternity_adoption?: 
+- "TODO: When was the child matched with the employee?"
+:baby_birth_date_paternity?: 
+- "TODO: What is the actual birth date?"
+:padoption_date_of_adoption_placement?: 
+- "TODO: When will the child be placed with the employee?"
+:employee_responsible_for_upbringing?: 
+- "yes"
+- "no"
+:padoption_employee_responsible_for_upbringing?: 
+- "yes"
+- "no"
+:employee_work_before_employment_start?: 
+- "yes"
+- "no"
+:employee_has_contract_paternity?: 
+- "yes"
+- "no"
+:employee_on_payroll_paternity?: 
+- "yes"
+- "no"
+:employee_still_employed_on_birth_date?: 
+- "yes"
+- "no"
+:employee_start_paternity?: 
+- "TODO: When does the employee want to start their paternity leave?"
+:employee_paternity_length?: 
+- one_week
+- two_weeks
+:last_normal_payday_paternity?: 
+- "TODO: What was the last normal payday on or before %{to_saturday_formatted}"
+:payday_eight_weeks_paternity?: 
+- "TODO: What was the last normal payday before %{payday_offset_formatted}"
+:pay_frequency_paternity?: 
+- weekly
+- every_2_weeks
+- every_4_weeks
+- monthly
+:earnings_for_pay_period_paternity?: 
+- "TODO: What were the employee's total earnings between %{relevant_period}?"
+:how_do_you_want_the_spp_calculated?: 
+- weekly_starting
+- usual_paydates
+:next_pay_day_paternity?: 
+- "TODO: When is your employee's next pay day on or after %{leave_start_date}"
+:monthly_pay_paternity?: 
+- first_day_of_the_month
+- last_day_of_the_month
+- specific_date_each_month
+- last_working_day_of_the_month
+- a_certain_week_day_each_month
+:specific_date_each_month_paternity?: 
+- "TODO: What specific date each month is the employee paid?"
+:days_of_the_week_paternity?: 
+- "0"
+- "1"
+- "2"
+- "3"
+- "4"
+- "5"
+- "6"
+:day_of_the_month_paternity?: 
+- "0"
+- "1"
+- "2"
+- "3"
+- "4"
+- "5"
+- "6"
+:pay_date_options_paternity?: 
+- first
+- second
+- third
+- fourth
+- last
+:baby_due_date_maternity?: 
+- "TODO: What is the baby\xE2\x80\x99s due date?"
+:employment_contract?: 
+- "yes"
+- "no"
+:date_leave_starts?: 
+- "TODO: When does the employee want to start their leave?"
+:did_the_employee_work_for_you?: 
+- "yes"
+- "no"
+:is_the_employee_on_your_payroll?: 
+- "yes"
+- "no"
+:last_normal_payday?: 
+- "TODO: What was the last normal payday on or before %{to_saturday_formatted}?"
+:payday_eight_weeks?: 
+- "TODO: What was the last normal payday before %{payday_offset_formatted}?"
+:pay_frequency?: 
+- weekly
+- every_2_weeks
+- every_4_weeks
+- monthly
+:earnings_for_pay_period?: 
+- "TODO: What were the employee\xE2\x80\x99s total earnings between %{relevant_period}?"
+:how_do_you_want_the_smp_calculated?: 
+- weekly_starting
+- usual_paydates
+:when_is_your_employees_next_pay_day?: 
+- "TODO: When is your employee\xE2\x80\x99s next pay day on or after %{pay_start_date}?"
+:when_in_the_month_is_the_employee_paid?: 
+- first_day_of_the_month
+- last_day_of_the_month
+- specific_date_each_month
+- last_working_day_of_the_month
+- a_certain_week_day_each_month
+:what_specific_date_each_month_is_the_employee_paid?: 
+- "TODO: What specific date each month is the employee paid?"
+:what_days_does_the_employee_work?: 
+- "0"
+- "1"
+- "2"
+- "3"
+- "4"
+- "5"
+- "6"
+:what_particular_day_of_the_month_is_the_employee_paid?: 
+- Sunday
+- Monday
+- Tuesday
+- Wednesday
+- Thursday
+- Friday
+- Saturday
+:which_week_in_month_is_the_employee_paid?: 
+- first
+- second
+- third
+- fourth
+- last
