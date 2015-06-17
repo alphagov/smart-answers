@@ -7,9 +7,9 @@
 - "yes"
 - "no"
 :date_of_adoption_match?: 
-- "TODO: When was the child matched with the employee?"
+- "2015-01-01"
 :date_of_adoption_placement?: 
-- "TODO: When will the child be placed with the employee?"
+- "2015-01-01"
 :adoption_did_the_employee_work_for_you?: 
 - "yes"
 - "no"
@@ -20,18 +20,18 @@
 - "yes"
 - "no"
 :adoption_date_leave_starts?: 
-- "TODO: When does the employee want to start their leave?"
+- "2015-01-01"
 :last_normal_payday_adoption?: 
-- "TODO: What was the last normal payday on or before %{to_saturday_formatted}?"
+- "2015-01-01"
 :payday_eight_weeks_adoption?: 
-- "TODO: What was the last normal payday before %{payday_offset_formatted}?"
+- "2015-01-01"
 :pay_frequency_adoption?: 
 - weekly
 - every_2_weeks
 - every_4_weeks
 - monthly
 :earnings_for_pay_period_adoption?: 
-- "TODO: What were the employee\xE2\x80\x99s total earnings between %{relevant_period}?"
+- "3000"
 :how_do_you_want_the_sap_calculated?: 
 - weekly_starting
 - usual_paydates
@@ -39,13 +39,13 @@
 - "yes"
 - "no"
 :baby_due_date_paternity?: 
-- "TODO: What is the baby\xE2\x80\x99s due date?"
+- "2015-01-01"
 :employee_date_matched_paternity_adoption?: 
-- "TODO: When was the child matched with the employee?"
+- "2015-01-01"
 :baby_birth_date_paternity?: 
-- "TODO: What is the actual birth date?"
+- "2015-01-01"
 :padoption_date_of_adoption_placement?: 
-- "TODO: When will the child be placed with the employee?"
+- "2015-01-01"
 :employee_responsible_for_upbringing?: 
 - "yes"
 - "no"
@@ -65,26 +65,26 @@
 - "yes"
 - "no"
 :employee_start_paternity?: 
-- "TODO: When does the employee want to start their paternity leave?"
+- "2015-01-01"
 :employee_paternity_length?: 
 - one_week
 - two_weeks
 :last_normal_payday_paternity?: 
-- "TODO: What was the last normal payday on or before %{to_saturday_formatted}"
+- "2015-01-01"
 :payday_eight_weeks_paternity?: 
-- "TODO: What was the last normal payday before %{payday_offset_formatted}"
+- "2015-01-01"
 :pay_frequency_paternity?: 
 - weekly
 - every_2_weeks
 - every_4_weeks
 - monthly
 :earnings_for_pay_period_paternity?: 
-- "TODO: What were the employee's total earnings between %{relevant_period}?"
+- "3000"
 :how_do_you_want_the_spp_calculated?: 
 - weekly_starting
 - usual_paydates
 :next_pay_day_paternity?: 
-- "TODO: When is your employee's next pay day on or after %{leave_start_date}"
+- "2015-01-01"
 :monthly_pay_paternity?: 
 - first_day_of_the_month
 - last_day_of_the_month
@@ -92,7 +92,7 @@
 - last_working_day_of_the_month
 - a_certain_week_day_each_month
 :specific_date_each_month_paternity?: 
-- "TODO: What specific date each month is the employee paid?"
+- "14"
 :days_of_the_week_paternity?: 
 - "0"
 - "1"
@@ -116,12 +116,12 @@
 - fourth
 - last
 :baby_due_date_maternity?: 
-- "TODO: What is the baby\xE2\x80\x99s due date?"
+- "2015-01-01"
 :employment_contract?: 
 - "yes"
 - "no"
 :date_leave_starts?: 
-- "TODO: When does the employee want to start their leave?"
+- "2015-01-01"
 :did_the_employee_work_for_you?: 
 - "yes"
 - "no"
@@ -129,21 +129,21 @@
 - "yes"
 - "no"
 :last_normal_payday?: 
-- "TODO: What was the last normal payday on or before %{to_saturday_formatted}?"
+- "2015-01-01"
 :payday_eight_weeks?: 
-- "TODO: What was the last normal payday before %{payday_offset_formatted}?"
+- "2015-01-01"
 :pay_frequency?: 
 - weekly
 - every_2_weeks
 - every_4_weeks
 - monthly
 :earnings_for_pay_period?: 
-- "TODO: What were the employee\xE2\x80\x99s total earnings between %{relevant_period}?"
+- "3000"
 :how_do_you_want_the_smp_calculated?: 
 - weekly_starting
 - usual_paydates
 :when_is_your_employees_next_pay_day?: 
-- "TODO: When is your employee\xE2\x80\x99s next pay day on or after %{pay_start_date}?"
+- "2015-01-01"
 :when_in_the_month_is_the_employee_paid?: 
 - first_day_of_the_month
 - last_day_of_the_month
@@ -151,7 +151,7 @@
 - last_working_day_of_the_month
 - a_certain_week_day_each_month
 :what_specific_date_each_month_is_the_employee_paid?: 
-- "TODO: What specific date each month is the employee paid?"
+- "17"
 :what_days_does_the_employee_work?: 
 - "0"
 - "1"
