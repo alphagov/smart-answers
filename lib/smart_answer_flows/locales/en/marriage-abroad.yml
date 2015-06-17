@@ -707,6 +707,17 @@ en-GB:
           - equivalent documents for your partner
 
 
+        required_supporting_documents_egypt: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - a valid Egyptian visa
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
+          - equivalent documents for your partner
+
+        partner_needs_egyptian_id: |
+          Your partner will need to provide their Egyptian ID card, if they’re an Egyptian national.
+
         required_supporting_documents_italy: |
           You’ll need to provide supporting documents, including:
 
@@ -966,12 +977,12 @@ en-GB:
           Affirmation for freedom to marry in English | £45
           Affirmation for freedom to marry in any other language | £70
 
-        fee_table_45_55: |
+        fee_table_55_55: |
           ##Fees
 
           Service | Fee
           -|-
-          Marriage declaration | £45
+          Marriage declaration | £55
           Making an oath | £55
 
         fee_table_55_70: |
