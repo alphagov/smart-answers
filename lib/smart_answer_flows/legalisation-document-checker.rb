@@ -106,7 +106,11 @@ module SmartAnswer
           # all apart from birth_death, certificate_impediment and medical_reports
           no_content = (groups_selected - ["birth_death" , "certificate_impediment", "medical_reports", "vet_health"]).size > 0
 
-          no_content ? PhraseList.new(:generic_certifying_content) : PhraseList.new
+          if no_content
+            PhraseList.new(:generic_certifying_content)
+          else
+            PhraseList.new
+          end
         end
       end
     end
