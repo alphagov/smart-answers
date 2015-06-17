@@ -1,0 +1,10 @@
+---
+:which_country?:
+- albania # additional download links: doc
+- andorra # no additional download links
+- austria # additional download links: pdf, lawyer, benefits, prison, consul
+- cyprus  # has region links
+- greece  # additional download links: police
+- iran    # outcome: answer_two_iran
+- spain   # additional download links: pdf, lawyer, benefits, judicial
+- syria   # outcome: answer_three_syria
