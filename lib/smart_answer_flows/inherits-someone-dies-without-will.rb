@@ -163,14 +163,8 @@ module SmartAnswer
           end
         end
         on_condition(variable_matches(:region, 'northern-ireland')) do
-          on_condition(variable_matches(:partner, 'yes')) do
-            next_node_if(:outcome_64, responded_with('yes'))
-            next_node_if(:outcome_65, responded_with('no'))
-          end
-          on_condition(variable_matches(:partner, 'no')) do
-            next_node_if(:outcome_4, responded_with('yes'))
-            next_node_if(:grandparents?, responded_with('no'))
-          end
+          next_node_if(:outcome_4, responded_with('yes'))
+          next_node_if(:grandparents?, responded_with('no'))
         end
       end
 
