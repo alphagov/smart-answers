@@ -20,3 +20,9 @@
     <% end %>
   </article>
 </div>
+
+<script type="text/javascript">
+  var flowName = '<%= @name %>';
+  var outcomeName = '<%= @presenter.current_node.name %>';
+  GOVUK.analytics.trackPageview('/' + flowName + '/outcome-reached/' + outcomeName);
+</script>
