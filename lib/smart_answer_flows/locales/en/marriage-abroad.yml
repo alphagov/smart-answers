@@ -152,6 +152,8 @@ en-GB:
           You can pay by cash or credit card (except American Express), but not by personal cheque.
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
+        pay_by_visas_or_mastercard: |
+          You can pay by credit card (Visa, Visa Electron or MasterCard), but not by personal cheque.
         pay_by_cash_or_us_dollars_only: |
           You can only pay fees for consular services by cash in US dollars.
         pay_in_local_currency: |
@@ -230,6 +232,8 @@ en-GB:
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         appointment_for_affidavit_in_hong_kong: |
           Make an appointment at the British embassy or consulate in Hong Kong to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+        appointment_for_affidavit_norway: |
+          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, a copy of your partner’s passport and pay a fee.
         appointment_for_affidavit_indonesia: |
           Make an appointment at the local British embassy or consulate in Indonesia to swear an affidavit (written statement of facts) that you’re free to marry.
 
@@ -759,7 +763,8 @@ en-GB:
           - your partner’s passport (if they’re not British)
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
           - proof of residence, such as a residence certificate - check with the embassy or notary public to find out what you need
-          - equivalent documents for your partner 
+          - equivalent documents for your partner
+
 
         partner_needs_egyptian_id: |
           Your partner will need to provide their Egyptian ID card, if they’re an Egyptian national.

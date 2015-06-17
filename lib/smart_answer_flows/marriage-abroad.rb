@@ -187,6 +187,10 @@ module SmartAnswer
           (ceremony_country == "finland") && (resident_of == "uk")
         }
 
+        define_predicate(:ceremony_in_norway_uk_resident) {
+          (ceremony_country == "norway") && (resident_of == "uk")
+        }
+
         define_predicate(:ceremony_in_brazil_not_resident_in_the_uk) {
           (ceremony_country == 'brazil') && (resident_of != 'uk')
         }
@@ -222,6 +226,7 @@ module SmartAnswer
             data_query.os_consular_cni_countries?(ceremony_country) || (resident_of == 'uk' && data_query.os_no_marriage_related_consular_services?(ceremony_country)) || data_query.os_consular_cni_in_nearby_country?(ceremony_country)
           })
           next_node_if(:outcome_os_consular_cni, ceremony_in_finland_uk_resident)
+          next_node_if(:outcome_os_consular_cni, ceremony_in_norway_uk_resident)
           next_node_if(:outcome_os_affirmation, -> { data_query.os_affirmation_countries?(ceremony_country) })
           next_node_if(:outcome_os_commonwealth, -> { data_query.commonwealth_country?(ceremony_country) || ceremony_country == 'zimbabwe' })
           next_node_if(:outcome_os_bot, -> { data_query.british_overseas_territories?(ceremony_country) })
@@ -601,11 +606,11 @@ module SmartAnswer
       outcome :outcome_os_consular_cni do
         precalculate :consular_cni_os_start do
           phrases = PhraseList.new
-          three_day_residency_requirement_applies = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal norway panama poland romania russia serbia slovenia spain sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          three_day_residency_requirement_applies = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama poland romania russia serbia slovenia spain sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
           three_day_residency_handled_by_exception = %w(croatia italy spain russia)
           no_birth_cert_requirement = three_day_residency_requirement_applies - ['italy']
-          cni_notary_public_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro norway poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-          no_document_download_link_if_os_resident_of_uk_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua norway poland russia spain serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          cni_notary_public_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          no_document_download_link_if_os_resident_of_uk_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua poland russia spain serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
           cni_posted_after_14_days_countries = %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
           not_italy_or_spain = %w(italy spain).exclude?(ceremony_country)
@@ -975,6 +980,8 @@ module SmartAnswer
             phrases << prelude
             phrases << contact_method_key
             phrases << :book_online_china_affirmation_affidavit
+          elsif ceremony_country == 'norway'
+            phrases << :appointment_for_affidavit_norway
           elsif ceremony_country == 'macao'
             phrases << :appointment_for_affidavit_in_hong_kong
           else
@@ -1095,7 +1102,7 @@ module SmartAnswer
           #fee tables
           if %w(south-korea thailand turkey vietnam).include?(ceremony_country)
             phrases << :fee_table_affidavit_55
-          elsif %w(belgium cambodia ecuador macao morocco).include?(ceremony_country)
+          elsif %w(belgium cambodia ecuador macao morocco norway).include?(ceremony_country)
             phrases << :fee_table_affirmation_55
           elsif ceremony_country == 'finland'
             phrases << :fee_table_affirmation_65
@@ -1119,6 +1126,8 @@ module SmartAnswer
               phrases << :pay_in_cash_only
             elsif ceremony_country == 'cambodia'
               phrases << :pay_by_cash_or_us_dollars_only
+            elsif ceremony_country == 'norway'
+              phrases << :pay_by_visas_or_mastercard
             else
               phrases << :pay_by_cash_or_credit_card_no_cheque
             end
