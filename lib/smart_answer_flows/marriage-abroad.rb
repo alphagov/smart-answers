@@ -971,7 +971,12 @@ module SmartAnswer
               phrases << :fee_and_required_supporting_documents_for_appointment
               phrases << :legalisation_and_translation
               phrases << :affirmation_os_translation_in_local_language_text
-            elsif ceremony_country != 'egypt'
+            elsif ceremony_country == 'egypt'
+              phrases << :required_supporting_documents_egypt
+              if partner_nationality == 'partner_local'
+                phrases << :partner_needs_egyptian_id
+              end
+            else
               phrases << :legalisation_and_translation
               phrases << :affirmation_os_translation_in_local_language_text
             end
@@ -1063,7 +1068,7 @@ module SmartAnswer
           elsif ceremony_country == 'qatar'
             phrases << :fee_table_45_70_55
           elsif ceremony_country == 'egypt'
-            phrases << :fee_table_45_55
+            phrases << :fee_table_55_55
           else
             phrases << :affirmation_os_all_fees_45_70
           end
