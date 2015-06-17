@@ -67,15 +67,15 @@ module SmartAnswer
       multiple_choice :which_benefit? do
         option :jsa
         option :pension
-        option :winter_fuel_payment
-        option :maternity_benefits
-        option :child_benefit
-        option :iidb
-        option :ssp
-        option :esa
-        option :disability_benefits
-        option :bereavement_benefits
-        option :tax_credits
+        option :winter_fuel_payment => :which_country? # Country Question - Shared
+        option :maternity_benefits => :which_country? # Country Question - Shared
+        option :child_benefit => :which_country? # Country Question - Shared
+        option :iidb => :iidb_already_claiming? # Q26 going_abroad and Q25 already_abroad
+        option :ssp => :which_country? # Country Question - Shared
+        option :esa => :esa_how_long_abroad? # Q24 going_abroad and Q23 already_abroad
+        option :disability_benefits => :db_how_long_abroad? # Q28 going_abroad and Q27 already_abroad
+        option :bereavement_benefits => :which_country? # Country Question - Shared
+        option :tax_credits => :eligible_for_tax_credits? # Q17 going_abroad and Q16 already_abroad
         option :income_support
 
         save_input_as :benefit
@@ -89,25 +89,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          if response == "winter_fuel_payment"
-            :which_country?
-          elsif response == "maternity_benefits"
-            :which_country?
-          elsif response == "child_benefit"
-            :which_country?
-          elsif response == "iidb"
-            :iidb_already_claiming?
-          elsif response == "ssp"
-            :which_country?
-          elsif response == "esa"
-            :esa_how_long_abroad?
-          elsif response == "disability_benefits"
-            :db_how_long_abroad?
-          elsif response == "bereavement_benefits"
-            :which_country?
-          elsif response == "tax_credits"
-            :eligible_for_tax_credits?
-          elsif ['going_abroad'].include?(going_or_already_abroad)
+          if ['going_abroad'].include?(going_or_already_abroad)
             if response == "jsa"
               :jsa_how_long_abroad?
             elsif response == "pension"
@@ -272,30 +254,14 @@ module SmartAnswer
 
       # Q8 going_abroad and Q7 already_abroad
       multiple_choice :working_for_a_uk_employer? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            :eligible_for_smp?
-          elsif response == "no"
-            :maternity_benefits_maternity_allowance_outcome
-          end
-        end
+        option yes: :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
+        option no: :maternity_benefits_maternity_allowance_outcome # A10 going_abroad and A8 already_abroad
       end
 
       # Q9 going_abroad and Q8 already_abroad
       multiple_choice :eligible_for_smp? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            :maternity_benefits_eea_entitled_outcome
-          elsif response == "no"
-            :maternity_benefits_maternity_allowance_outcome
-          end
-        end
+        option yes: :maternity_benefits_eea_entitled_outcome # A11 going_abroad and A9 already_abroad
+        option no: :maternity_benefits_maternity_allowance_outcome # A10 going_abroad and A8 already_abroad
       end
 
       # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
@@ -334,16 +300,8 @@ module SmartAnswer
 
       # Q13 going_abroad and Q12 already_abroad
       multiple_choice :do_either_of_the_following_apply? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            :child_benefit_entitled_outcome
-          elsif response == "no"
-            :child_benefit_not_entitled_outcome
-          end
-        end
+        option yes: :child_benefit_entitled_outcome # A17 going_abroad and A15 already_abroad
+        option no: :child_benefit_not_entitled_outcome # A18 going_abroad and A16 already_abroad
       end
 
       # Q15 going_abroad and Q14 already_abroad
@@ -370,78 +328,34 @@ module SmartAnswer
 
       # Q17 going_abroad and Q16 already_abroad
       multiple_choice :eligible_for_tax_credits? do
-        option :crown_servant
-        option :cross_border_worker
-        option :none_of_the_above
-
-        next_node do |response|
-          if response == "crown_servant"
-            :tax_credits_crown_servant_outcome
-          elsif response == "cross_border_worker"
-            :tax_credits_cross_border_worker_outcome
-          elsif response == "none_of_the_above"
-            :tax_credits_how_long_abroad?
-          end
-        end
+        option :crown_servant => :tax_credits_crown_servant_outcome # A19 already_abroad
+        option :cross_border_worker => :tax_credits_cross_border_worker_outcome # A20 already_abroad
+        option :none_of_the_above => :tax_credits_how_long_abroad? # Q18 going_abroad and Q17 already_abroad
       end
 
       # Q19 going_abroad and Q18 already_abroad
       multiple_choice :tax_credits_children? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            :which_country?
-          elsif response == "no"
-            :tax_credits_unlikely_outcome
-          end
-        end
+        option yes: :which_country? # Q17
+        option no: :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
       end
 
       # Q20 already_abroad
       multiple_choice :tax_credits_currently_claiming? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            :tax_credits_eea_entitled_outcome
-          elsif response == "no"
-            :tax_credits_unlikely_outcome
-          end
-        end
+        option yes: :tax_credits_eea_entitled_outcome # A22 already_abroad and A24 going_abroad
+        option no: :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
       end
 
       # Q23 going_abroad and Q22 already_abroad
       multiple_choice :tax_credits_why_going_abroad? do
-        option :tax_credits_holiday
-        option :tax_credits_medical_treatment
-        option :tax_credits_death
-
-        next_node do |response|
-          if response == "tax_credits_holiday"
-            :tax_credits_holiday_outcome
-          elsif response == "tax_credits_medical_treatment"
-            :tax_credits_medical_death_outcome
-          elsif response == "tax_credits_death"
-            :tax_credits_medical_death_outcome
-          end
-        end
+        option tax_credits_holiday: :tax_credits_holiday_outcome # A23 already_abroad and A25 going_abroad and A26 going_abroad
+        option tax_credits_medical_treatment: :tax_credits_medical_death_outcome #A24 already_abroad
+        option tax_credits_death: :tax_credits_medical_death_outcome #A24 already_abroad
       end
 
       # Q26 going_abroad and Q25 already_abroad
       multiple_choice :iidb_already_claiming? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            :which_country?
-          elsif response == "no"
-            :iidb_maybe_outcome
-          end
-        end
+        option yes: :which_country? # Shared question
+        option no: :iidb_maybe_outcome # A30 already_abroad and A31 going_abroad
       end
 
       # Q30 going_abroad and Q29 already_abroad
@@ -468,72 +382,32 @@ module SmartAnswer
 
       # Q33 going_abroad
       multiple_choice :is_claiming_benefits? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            :is_claiming_benefits_outcome
-          elsif response == "no"
-            :is_either_of_the_following?
-          end
-        end
+        option yes: :is_claiming_benefits_outcome # A43 going_abroad
+        option no: :is_either_of_the_following? # Q34 going_abroad
       end
 
       # Q34 going_abroad
       multiple_choice :is_either_of_the_following? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            :is_abroad_for_treatment?
-          elsif response == "no"
-            :is_any_of_the_following_apply?
-          end
-        end
+        option yes: :is_abroad_for_treatment? # Q35 going_abroad
+        option no: :is_any_of_the_following_apply? # Q37 going_abroad
       end
 
       # Q35 going_abroad
       multiple_choice :is_abroad_for_treatment? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            :is_abroad_for_treatment_outcome
-          elsif response == "no"
-            :is_work_or_sick_pay?
-          end
-        end
+        option yes: :is_abroad_for_treatment_outcome # A44 going_abroad
+        option no: :is_work_or_sick_pay? # Q36 going_abroad
       end
 
       # Q36 going_abroad
       multiple_choice :is_work_or_sick_pay? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            :is_abroad_for_treatment_outcome
-          elsif response == "no"
-            :is_not_eligible_outcome
-          end
-        end
+        option yes: :is_abroad_for_treatment_outcome # A44 going_abroad
+        option no: :is_not_eligible_outcome # A45 going_abroad
       end
 
       # Q37 going_abroad
       multiple_choice :is_any_of_the_following_apply? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "yes"
-            :is_not_eligible_outcome
-          elsif response == "no"
-            :is_abroad_for_treatment_outcome
-          end
-        end
+        option yes: :is_not_eligible_outcome # A45 going_abroad
+        option no: :is_abroad_for_treatment_outcome # A44 going_abroad
       end
 
       # Going abroad questions
@@ -557,16 +431,8 @@ module SmartAnswer
       end
       # Going abroad Q18 (tax credits) and Q17 already_abroad
       multiple_choice :tax_credits_how_long_abroad? do
-        option :tax_credits_up_to_a_year
-        option :tax_credits_more_than_a_year
-
-        next_node do |response|
-          if response == "tax_credits_up_to_a_year"
-            :tax_credits_why_going_abroad?
-          elsif response == "tax_credits_more_than_a_year"
-            :tax_credits_children?
-          end
-        end
+        option tax_credits_up_to_a_year: :tax_credits_why_going_abroad? #Q23 going_abroad and Q22 already_abroad
+        option tax_credits_more_than_a_year: :tax_credits_children? # Q19 going_abroad and Q18 already_abroad
       end
 
       # Going abroad Q24 going_abroad (ESA) and Q23 already_abroad
@@ -599,12 +465,10 @@ module SmartAnswer
       # Going abroad Q28 going_abroad (Disability Benefits) and Q27 already_abroad
       multiple_choice :db_how_long_abroad? do
         option :temporary
-        option :permanent
+        option :permanent => :which_country? # Q25
 
         next_node do |response|
-          if response == "permanent"
-            :which_country?
-          elsif ['going_abroad'].include?(going_or_already_abroad)
+          if ['going_abroad'].include?(going_or_already_abroad)
             :db_going_abroad_temporary_outcome
           else
             :db_already_abroad_temporary_outcome
@@ -614,19 +478,9 @@ module SmartAnswer
 
       # Going abroad Q32 going_abroad (Income Support)
       multiple_choice :is_how_long_abroad? do
-        option :is_under_a_year_medical
-        option :is_under_a_year_other
-        option :is_more_than_a_year
-
-        next_node do |response|
-          if response == "is_under_a_year_medical"
-            :is_under_a_year_medical_outcome
-          elsif response == "is_under_a_year_other"
-            :is_claiming_benefits?
-          elsif response == "is_more_than_a_year"
-            :is_more_than_a_year_outcome
-          end
-        end
+        option is_under_a_year_medical: :is_under_a_year_medical_outcome # A42 going_abroad
+        option is_under_a_year_other: :is_claiming_benefits? # Q33 going_abroad
+        option is_more_than_a_year: :is_more_than_a_year_outcome # A41 going_abroad
       end
 
       outcome :pension_going_abroad_outcome # A2 going_abroad
