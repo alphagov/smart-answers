@@ -742,8 +742,8 @@ module SmartAnswer
             end
           end
 
-          if ceremony_country == 'italy' && resident_of != 'uk'
-            phrases << :required_supporting_documents_italy
+          if resident_of != 'uk' && data_query.phrase_exists?("required_supporting_documents_#{ceremony_country}")
+            phrases << :"required_supporting_documents_#{ceremony_country}"
           elsif resident_of == 'ceremony_country' && %w(germany japan spain).exclude?(ceremony_country)
             if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia spain).include?(ceremony_country)
               phrases << :required_supporting_documents_notary_public

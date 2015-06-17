@@ -726,6 +726,15 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
           - equivalent documents for your partner
 
+        required_supporting_documents_greece: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - Greek ID card (if available)
+          - proof of residence, such as a residence permit - check with the embassy or notary public to find out what you need
+          - equivalent documents for your partner
+
+
         fee_and_required_supporting_documents_for_appointment: |
           You’ll need to pay a fee and bring the following to your appointment:
 
