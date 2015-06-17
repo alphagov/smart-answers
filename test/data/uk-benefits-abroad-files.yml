@@ -1,0 +1,5 @@
+--- 
+lib/smart_answer_flows/uk-benefits-abroad.rb: 8bc009621c03d2be7f251d3dbfcc7787
+lib/smart_answer_flows/locales/en/uk-benefits-abroad.yml: 76ba8b4c61bf7e746d01d7797d4c7fe3
+test/data/uk-benefits-abroad-questions-and-responses.yml: 17973c7c16f38d7988ff1a5b76d3261a
+test/data/uk-benefits-abroad-responses-and-expected-results.yml: 37bfb8e7982e15f0f907881bf1130ce3
