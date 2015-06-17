@@ -8,15 +8,35 @@ module SmartAnswer
       ## Q1
       multiple_choice :what_type_of_leave? do
         save_input_as :leave_type
-        option maternity: :baby_due_date_maternity?
-        option paternity: :leave_or_pay_for_adoption?
-        option adoption: :taking_paternity_leave_for_adoption?
+        option :maternity
+        option :paternity
+        option :adoption
+
+        next_node do |response|
+          case response
+          when "maternity"
+            :baby_due_date_maternity?
+          when "paternity"
+            :leave_or_pay_for_adoption?
+          when "adoption"
+            :taking_paternity_leave_for_adoption?
+          end
+        end
       end
 
       ## QA0
       multiple_choice :taking_paternity_leave_for_adoption? do
-        option yes: :employee_date_matched_paternity_adoption? #QAP1
-        option no: :date_of_adoption_match? # QA1
+        option :yes
+        option :no
+
+        next_node do |response|
+          case response
+          when "yes"
+            :employee_date_matched_paternity_adoption?
+          when "no"
+            :date_of_adoption_match?
+          end
+        end
       end
 
       ## QA1
@@ -60,11 +80,20 @@ module SmartAnswer
 
       ## QA3
       multiple_choice :adoption_did_the_employee_work_for_you? do
-        option yes: :adoption_employment_contract?
-        option no: :adoption_not_entitled_to_leave_or_pay
+        option :yes
+        option :no
 
         calculate :adoption_leave_info do
           PhraseList.new(:adoption_not_entitled_to_leave_or_pay)
+        end
+
+        next_node do |response|
+          case response
+          when "yes"
+            :adoption_employment_contract?
+          when "no"
+            :adoption_not_entitled_to_leave_or_pay
+          end
         end
       end
 
@@ -210,15 +239,19 @@ module SmartAnswer
 
       # QA9
       multiple_choice :pay_frequency_adoption? do
-        option weekly: :earnings_for_pay_period_adoption?
-        option every_2_weeks: :earnings_for_pay_period_adoption?
-        option every_4_weeks: :earnings_for_pay_period_adoption?
-        option monthly: :earnings_for_pay_period_adoption?
+        option :weekly
+        option :every_2_weeks
+        option :every_4_weeks
+        option :monthly
         save_input_as :pay_pattern
 
         calculate :calculator do |response|
           calculator.pay_method = response
           calculator
+        end
+
+        next_node do
+          :earnings_for_pay_period_adoption?
         end
       end
 
@@ -323,8 +356,17 @@ module SmartAnswer
 
       ## QP0
       multiple_choice :leave_or_pay_for_adoption? do
-        option yes: :employee_date_matched_paternity_adoption?
-        option no: :baby_due_date_paternity?
+        option :yes
+        option :no
+
+        next_node do |response|
+          case response
+          when "yes"
+            :employee_date_matched_paternity_adoption?
+          when "no"
+            :baby_due_date_paternity?
+          end
+        end
       end
 
       ## QP1
@@ -406,8 +448,8 @@ module SmartAnswer
 
       ## QP3
       multiple_choice :employee_responsible_for_upbringing? do
-        option yes: :employee_work_before_employment_start?
-        option no: :paternity_not_entitled_to_leave_or_pay
+        option :yes
+        option :no
         save_input_as :paternity_responsible
 
         calculate :employment_start do
@@ -421,12 +463,21 @@ module SmartAnswer
         calculate :p_notice_leave do
           calculator.notice_of_leave_deadline
         end
+
+        next_node do |response|
+          case response
+          when "yes"
+            :employee_work_before_employment_start?
+          when "no"
+            :paternity_not_entitled_to_leave_or_pay
+          end
+        end
       end
 
       ## QAP3 - Paternity Adoption
       multiple_choice :padoption_employee_responsible_for_upbringing? do
-        option yes: :employee_work_before_employment_start? # Combined flow
-        option no: :paternity_not_entitled_to_leave_or_pay
+        option :yes
+        option :no
         save_input_as :paternity_responsible
 
         calculate :employment_start do
@@ -436,13 +487,31 @@ module SmartAnswer
         calculate :employment_end do
           matched_date
         end
+
+        next_node do |response|
+          case response
+          when "yes"
+            :employee_work_before_employment_start?
+          when "no"
+            :paternity_not_entitled_to_leave_or_pay
+          end
+        end
       end
 
       ## QP4 - Shared flow onwards
       multiple_choice :employee_work_before_employment_start? do
-        option yes: :employee_has_contract_paternity?
-        option no: :paternity_not_entitled_to_leave_or_pay
+        option :yes
+        option :no
         save_input_as :paternity_employment_start ## Needed only in outcome
+
+        next_node do |response|
+          case response
+          when "yes"
+            :employee_has_contract_paternity?
+          when "no"
+            :paternity_not_entitled_to_leave_or_pay
+          end
+        end
       end
 
       ## QP5
@@ -458,7 +527,7 @@ module SmartAnswer
 
       ## QP6
       multiple_choice :employee_on_payroll_paternity? do
-        option :yes => :employee_still_employed_on_birth_date?
+        option :yes
         option :no
         save_input_as :on_payroll
 
@@ -510,10 +579,15 @@ module SmartAnswer
         end
 
         next_node do |response|
-          if ['no'].include?(has_contract)
-            next :paternity_not_entitled_to_leave_or_pay
+          case response
+          when "yes"
+            :employee_still_employed_on_birth_date?
+          when "no"
+            if ['no'].include?(has_contract)
+              next :paternity_not_entitled_to_leave_or_pay
+            end
+            :employee_start_paternity?
           end
-          :employee_start_paternity?
         end
       end
 
@@ -659,10 +733,10 @@ module SmartAnswer
 
       ## QP12
       multiple_choice :pay_frequency_paternity? do
-        option weekly: :earnings_for_pay_period_paternity?
-        option every_2_weeks: :earnings_for_pay_period_paternity?
-        option every_4_weeks: :earnings_for_pay_period_paternity?
-        option monthly: :earnings_for_pay_period_paternity?
+        option :weekly
+        option :every_2_weeks
+        option :every_4_weeks
+        option :monthly
         save_input_as :pay_pattern
 
         calculate :calculator do |response|
@@ -670,6 +744,9 @@ module SmartAnswer
           calculator
         end
 
+        next_node do
+          :earnings_for_pay_period_paternity?
+        end
       end
 
       ## QP13
@@ -726,17 +803,26 @@ module SmartAnswer
       multiple_choice :monthly_pay_paternity? do
         option :first_day_of_the_month
         option :last_day_of_the_month
-        option specific_date_each_month: :specific_date_each_month_paternity?
-        option last_working_day_of_the_month: :days_of_the_week_paternity?
-        option a_certain_week_day_each_month: :day_of_the_month_paternity?
+        option :specific_date_each_month
+        option :last_working_day_of_the_month
+        option :a_certain_week_day_each_month
 
         save_input_as :monthly_pay_method
 
         next_node do |response|
-          if ['adoption'].include?(leave_type)
-            next :adoption_leave_and_pay
+          case response
+          when "specific_date_each_month"
+            :specific_date_each_month_paternity?
+          when "last_working_day_of_the_month"
+            :days_of_the_week_paternity?
+          when "a_certain_week_day_each_month"
+            :day_of_the_month_paternity?
+          else
+            if ['adoption'].include?(leave_type)
+              next :adoption_leave_and_pay
+            end
+            :paternity_leave_and_pay
           end
-          :paternity_leave_and_pay
         end
       end
 
@@ -979,8 +1065,8 @@ module SmartAnswer
 
       ## QM4
       multiple_choice :did_the_employee_work_for_you? do
-        option yes: :is_the_employee_on_your_payroll?
-        option no: :maternity_leave_and_pay_result
+        option :yes
+        option :no
         calculate :not_entitled_to_pay_reason do |response|
           if response == 'no'
             :not_worked_long_enough
@@ -988,12 +1074,21 @@ module SmartAnswer
             nil
           end
         end
+
+        next_node do |response|
+          case response
+          when "yes"
+            :is_the_employee_on_your_payroll?
+          when "no"
+            :maternity_leave_and_pay_result
+          end
+        end
       end
 
       ## QM5
       multiple_choice :is_the_employee_on_your_payroll? do
-        option yes: :last_normal_payday? # NOTE: goes to shared questions
-        option no: :maternity_leave_and_pay_result
+        option :yes
+        option :no
 
         calculate :not_entitled_to_pay_reason do |response|
           if response == 'no'
@@ -1009,6 +1104,15 @@ module SmartAnswer
 
         calculate :to_saturday_formatted do
           calculator.format_date_day to_saturday
+        end
+
+        next_node do |response|
+          case response
+          when "yes"
+            :last_normal_payday?
+          when "no"
+            :maternity_leave_and_pay_result
+          end
         end
       end
 
@@ -1115,13 +1219,26 @@ module SmartAnswer
 
       ## QM12
       multiple_choice :when_in_the_month_is_the_employee_paid? do
-        option first_day_of_the_month: :maternity_leave_and_pay_result
-        option last_day_of_the_month: :maternity_leave_and_pay_result
-        option specific_date_each_month: :what_specific_date_each_month_is_the_employee_paid?
-        option last_working_day_of_the_month: :what_days_does_the_employee_work?
-        option a_certain_week_day_each_month: :what_particular_day_of_the_month_is_the_employee_paid?
+        option :first_day_of_the_month
+        option :last_day_of_the_month
+        option :specific_date_each_month
+        option :last_working_day_of_the_month
+        option :a_certain_week_day_each_month
 
         save_input_as :monthly_pay_method
+
+        next_node do |response|
+          case response
+          when "first_day_of_the_month", "last_day_of_the_month"
+            :maternity_leave_and_pay_result
+          when "specific_date_each_month"
+            :what_specific_date_each_month_is_the_employee_paid?
+          when "last_working_day_of_the_month"
+            :what_days_does_the_employee_work?
+          when "a_certain_week_day_each_month"
+            :what_particular_day_of_the_month_is_the_employee_paid?
+          end
+        end
       end
 
       ## QM13
