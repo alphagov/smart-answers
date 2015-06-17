@@ -80,14 +80,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    def penalty_interest(penalty_date)
-      if payment_date > (penalty_date + 30)
-        calculate_interest(late_payment_penalty_part, payment_date - (penalty_date + 30))
-      else
-        0
-      end
-    end
-
     private
     def overdue_filing_days
       (filing_date - filing_deadline).to_i
@@ -107,18 +99,6 @@ module SmartAnswer::Calculators
 
     def payment_deadline
       dates[:payment_deadline][tax_year.to_sym]
-    end
-
-    def penalty1date
-      dates[:penalty1date][tax_year.to_sym]
-    end
-
-    def penalty2date
-      dates[:penalty2date][tax_year.to_sym]
-    end
-
-    def penalty3date
-      dates[:penalty3date][tax_year.to_sym]
     end
 
     #interest is 3% per annum
