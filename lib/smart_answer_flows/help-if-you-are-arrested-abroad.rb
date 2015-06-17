@@ -105,7 +105,11 @@ module SmartAnswer
         end
 
         precalculate :country_downloads do
-          has_extra_downloads ? PhraseList.new(:specific_downloads) : PhraseList.new
+          if has_extra_downloads
+            PhraseList.new(:specific_downloads)
+          else
+            PhraseList.new
+          end
         end
 
         precalculate :region_downloads do
