@@ -46,20 +46,12 @@ module SmartAnswer
           []
         end
 
-        define_predicate(:measure?) {
-          %w(help_energy_efficiency help_boiler_measure).include?(which_help)
-        }
-
         validate(:error_perm_prop_house) { |r| ! r.include?('permission,property,social_housing') }
         validate(:error_prop_house) { |r| ! r.include?('property,social_housing') }
         validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
         validate(:error_perm_house) { |r| ! r.include?('permission,social_housing')}
 
-        next_node_if(:date_of_birth?) { bills_help || both_help } # Q3
-        on_condition(measure?) do
-          next_node_if(:which_benefits?, responded_with("benefits"))
-          next_node :when_property_built?
-        end
+        next_node(:date_of_birth?) # Q3
       end
 
       # Q2A
