@@ -350,7 +350,11 @@ module SmartAnswer
         end
       end
 
-      outcome :adoption_not_entitled_to_leave_or_pay
+      outcome :adoption_not_entitled_to_leave_or_pay do
+        precalculate :temp do
+          :temp
+        end
+      end
 
       days_of_the_week = Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
 
