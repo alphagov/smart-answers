@@ -2494,6 +2494,26 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
+  context "Montenegro" do
+    setup do
+      worldwide_api_has_organisations_for_location('montenegro', read_fixture_file('worldwide/montenegro_organisations.json'))
+      add_response 'montenegro'
+      add_response 'ceremony_country'
+    end
+
+    should "lead to outcome_ss_marriage when both partners are same sex british" do
+      add_response 'partner_british'
+      add_response 'same_sex'
+      assert_current_node :outcome_ss_marriage
+    end
+
+    should "lead to outcome_ss_marriage_not_possible when both partners are same sex not british" do
+      add_response 'partner_local'
+      add_response 'same_sex'
+      assert_current_node :outcome_ss_marriage_not_possible
+    end
+  end
+
   context "Saint-Barthélemy" do
     setup do
       worldwide_api_has_no_organisations_for_location('st-martin')
@@ -2564,7 +2584,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         worldwide_api_has_no_organisations_for_location(country)
         add_response country
         add_response 'ceremony_country'
-        add_response 'partner_local'
+        add_response 'partner_british'
         add_response 'same_sex'
 
         assert current_state.current_node.to_s.include?('outcome'), "Expected to have reached an outcome node, but is at #{current_state.current_node}"
