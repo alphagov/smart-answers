@@ -377,8 +377,15 @@ en-GB:
         book_online_china_local_prelude:
           Make an appointment at the British embassy or consulate in China nearest to the address in your partner’s Hukou (family registration) book, to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s Hukou and pay a fee.
         book_online_china_affirmation_affidavit: |
-          You’ll need to complete an [‘Affirmation for marriage’](/government/publications/affirmation-form-china) (non-religious) form or an [‘Affidavit for marriage’](/government/publications/affidavit-form-china) (religious) form in English.
+          You’ll need to complete an ‘Affirmation for marriage’ (non-religious) form or an ‘Affidavit for marriage’ form‘.
 
+          You can download and fill in (but not sign) the forms in advance.
+
+          $D
+          [Download ‘Affirmation for marriage’](/government/publications/affirmation-form-china)
+
+          [Download ‘Affidavit for marriage’](/government/publications/affidavit-form-china)
+          $D
 # Marriage if resident of Isle of Man or Channel Islands
         legal_restrictions_for_iom_residents_in_spain: |
           %There are certain legal restrictions if neither of you is resident in Spain. You should check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
