@@ -297,13 +297,6 @@ module SmartAnswer::Calculators
         should "work out the weekly average for a monthly pay pattern" do
           assert_equal 1846.15385, @calculator.calculate_average_weekly_pay("monthly", 16000)
         end
-
-        should "work out the weekly average for a irregular pay pattern" do
-          @calculator.last_payday = 15.days.ago(Date.today)
-          @calculator.pre_offset_payday = 55.days.ago(@calculator.last_payday)
-          assert_equal 56, @calculator.pay_period_in_days
-          assert_equal 974.82875, @calculator.calculate_average_weekly_pay("irregularly", 7798.63)
-        end
       end
       context "HMRC scenarios" do
         setup do
@@ -321,12 +314,6 @@ module SmartAnswer::Calculators
           assert_equal 184.61538, @calculator.calculate_average_weekly_pay("monthly", 1600)
           @calculator.last_payday = Date.parse("2012-10-26")
           assert_equal 144.31731, @calculator.calculate_average_weekly_pay("monthly", 1250.75)
-        end
-
-        should "calculate AWE for irregular pay patterns" do
-          @calculator.last_payday = Date.parse("2012-11-06")
-          @calculator.pre_offset_payday = Date.parse("2012-08-01")
-          assert_equal 214.28571, @calculator.calculate_average_weekly_pay("irregularly", 3000)
         end
       end
 
