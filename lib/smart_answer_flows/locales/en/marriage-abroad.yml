@@ -1527,6 +1527,8 @@ en-GB:
               [Make an appointment at the embassy in Vientiane.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-kinshasa/notice-of-marriage-or-civil-partnership/slot_picker)
             latvia: |
               [Make an appointment at the embassy in Riga.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-riga/notice-of-marriage-or-civil-partnership/slot_picker)
+            lebanon: |
+              [Make an appointment at the embassy in Beirut.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-beirut/oaths-affirmations-and-affidavits/slot_picker)
             lithuania: |
               [Make an appointment at the embassy in Vilnius.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-vilnius/notice-of-marriage-or-civil-partnership/slot_picker)
             luxembourg: |
@@ -1539,12 +1541,18 @@ en-GB:
               [Make an appointment at the embassy in Manila.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-manila/oaths-affirmations-and-affidavits/slot_picker)
             montenegro: |
               [Make an appointment at the embassy in Podgorica.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-podgorica/notice-of-marriage-or-civil-partnership/slot_picker)
+            morocco: |
+              [Make an appointment at the embassy in Rabat.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-rabat/oaths-affirmations-and-affidavits/slot_picker)
             nepal: |
               [Make an appointment at the embassy in Kathmandu.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-kathmandu/notice-of-marriage-or-civil-partnership/slot_picker)
             norway: |
               [Make an appointment at the embassy in Oslo.](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-oslo/oaths-affirmations-and-affidavits/slot_picker)
             panama: |
               [Make an appointment at the embassy in Panama City.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-panama-city/notice-of-marriage-or-civil-partnership/slot_picker)
+            philippines: |
+              [Make an appointment at the embassy in Manila.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-manila/oaths-affirmations-and-affidavits/slot_picker)
+            peru: |
+              [Make an appointment at the embassy in Lima.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-lima/oaths-affirmations-and-affidavits/slot_picker)
             poland: |
               [Make an appointment at the embassy in Warsaw.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-warsaw/notice-of-marriage-or-civil-partnership/slot_picker)
             romania: |
@@ -1559,8 +1567,18 @@ en-GB:
               [Make an appointment at the embassy in Khartoum.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-khartoum/notice-of-marriage-or-civil-partnership/slot_picker)
             tajikistan: |
               [Make an appointment at the embassy in Dushanbe.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-dushanbe/notice-of-marriage-or-civil-partnership/slot_picker)
+            thailand: |
+              [Make an appointment at the embassy in Bangkok.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-bangkok/oaths-affirmations-and-affidavits/slot_picker)
             tunisia: |
               [Make an appointment at the embassy in Tunis.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tunis/notice-of-marriage-or-civil-partnership/slot_picker)
+            turkey: |
+              [Make an appointment at the British Consulate General in Istanbul](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-istanbul/oaths-affirmations-and-affidavits/slot_picker)
+
+              [Make an appointment at the embassy in Ankara](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-ankara/oaths-affirmations-and-affidavits/slot_picker)
+
+              [Make an appointment at the consulate in Izmir](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-izmir/oaths-affirmations-and-affidavits/slot_picker)
+
+              [Make an appointment at the consulate in Antalya](https://www.consular-appointments.service.gov.uk/fco/#!/british-vice-consulate-antalya/oaths-affirmations-and-affidavits/slot_picker)
             turkmenistan: |
               [Make an appointment at the embassy in Ashgabat.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-ashgabat/notice-of-marriage-or-civil-partnership/slot_picker)
             uzbekistan: |
