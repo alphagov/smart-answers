@@ -207,12 +207,6 @@ en-GB:
 
           For some of these schemes further eligibility criteria apply. These can differ depending on your supplier.
 
-# outcome 3a measures_help and eco_eligible
-      outcome_measures_help_and_eco_eligible:
-        title: %{title_end}
-        body: |
-          %{eligibilities}
-
 # outcome 3b measures_help and green_deal
       outcome_measures_help_green_deal:
         title: %{title_end}
