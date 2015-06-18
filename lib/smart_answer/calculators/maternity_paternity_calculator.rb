@@ -137,11 +137,7 @@ module SmartAnswer::Calculators
       [].tap do |ary|
         paydates.each_with_index do |paydate, index|
           # Pay period includes the date of payment hence the range starts the day after.
-          last_paydate = if index == 0
-            pay_start_date
-          else
-            paydates[index - 1] + 1
-          end
+          last_paydate = index == 0 ? pay_start_date : paydates[index - 1] + 1
           pay = pay_for_period(last_paydate, paydate)
           if pay > 0
             ary << { date: paydate, pay: pay } 
@@ -159,11 +155,7 @@ module SmartAnswer::Calculators
     end
 
     def paydates_first_day_of_the_month
-      start_date = if pay_start_date.day == 1
-        pay_start_date
-      else
-        (pay_start_date + 1.month).beginning_of_month
-      end
+      start_date = pay_start_date.day == 1 ? pay_start_date : (pay_start_date + 1.month).beginning_of_month
       end_date = (pay_end_date + 1.month).beginning_of_month
 
       [].tap do |ary|
@@ -366,11 +358,7 @@ module SmartAnswer::Calculators
       ldm_index = ldm.wday
       offset = -1
       while !work_days.include?(ldm_index)
-        if ldm_index > 0
-          ldm_index -= 1
-        else
-          ldm_index = 6
-        end
+        ldm_index > 0 ? ldm_index -= 1 : ldm_index = 6
         offset -= 1
       end
       offset

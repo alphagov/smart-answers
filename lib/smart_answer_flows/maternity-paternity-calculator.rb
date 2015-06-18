@@ -463,11 +463,7 @@ module SmartAnswer
         save_input_as :on_payroll
 
         calculate :leave_spp_claim_link do
-          if paternity_adoption?
-            'adoption'
-          else
-            'notice-period'
-          end
+          paternity_adoption? ? 'adoption' : 'notice-period'
         end
 
         calculate :not_entitled_reason do |response|
@@ -494,19 +490,11 @@ module SmartAnswer
         end
 
         calculate :still_employed_date do
-          if paternity_adoption?
-            calculator.employment_end
-          else
-            date_of_birth
-          end
+          paternity_adoption? ? calculator.employment_end : date_of_birth
         end
 
         calculate :start_leave_hint do
-          if paternity_adoption?
-            ap_adoption_date_formatted
-          else
-            date_of_birth
-          end
+          paternity_adoption? ? ap_adoption_date_formatted : date_of_birth
         end
 
         next_node do |response|
@@ -982,11 +970,7 @@ module SmartAnswer
         option yes: :is_the_employee_on_your_payroll?
         option no: :maternity_leave_and_pay_result
         calculate :not_entitled_to_pay_reason do |response|
-          if response == 'no'
-            :not_worked_long_enough
-          else
-            nil
-          end
+          response == 'no' ? :not_worked_long_enough : nil
         end
       end
 
@@ -996,11 +980,7 @@ module SmartAnswer
         option no: :maternity_leave_and_pay_result
 
         calculate :not_entitled_to_pay_reason do |response|
-          if response == 'no'
-            :must_be_on_payroll
-          else
-            nil
-          end
+          response == 'no' ? :must_be_on_payroll : nil
         end
 
         calculate :to_saturday do
@@ -1232,12 +1212,8 @@ module SmartAnswer
 
         precalculate :maternity_pay_info do
           if not_entitled_to_pay_reason.present?
-            pay_info = PhraseList.new
-            if calculator.average_weekly_earnings
-              pay_info << :not_entitled_to_smp_intro_with_awe
-            else
-              pay_info << :not_entitled_to_smp_intro
-            end
+            pay_info = PhraseList.new(calculator.average_weekly_earnings ?
+                                      :not_entitled_to_smp_intro_with_awe : :not_entitled_to_smp_intro)
             pay_info << not_entitled_to_pay_reason
             pay_info << :not_entitled_to_smp_outro
           else
