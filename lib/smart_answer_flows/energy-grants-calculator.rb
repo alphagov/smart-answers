@@ -373,39 +373,6 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_measures_help_and_eco_eligible do
-        precalculate :title_end do
-          if (measure_help && both_help) || measure_help && (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
-            PhraseList.new(:title_energy_supplier)
-          else
-            PhraseList.new(:title_under_green_deal)
-          end
-        end
-        precalculate :eligibilities do
-          phrases = PhraseList.new
-          phrases << :header_boilers_and_insulation
-          if measure_help || both_help
-            if (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
-              phrases << :opt_condensing_boiler unless (features & %w(modern_boiler)).any?
-              phrases << :opt_cavity_wall_insulation unless (features & %w(cavity_wall_insulation mains_gas)).any?
-              unless (features & %w(mains_gas solid_wall_insulation)).any? or ((features & %w(loft)).any? and (features & %w(cavity_wall_insulation solid_wall_insulation)).any?)
-                phrases << :opt_solid_wall_insulation
-              end
-              phrases << :opt_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
-              phrases << :opt_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-              phrases << :opt_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat' || flat_type != "top_floor"
-              phrases << :opt_under_floor_insulation unless modern || flat_type != "top_floor"
-              phrases << :opt_eco_affordable_warmth << :opt_eco_help << :header_heating << :opt_better_heating_controls
-              (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating) unless (features & %w(mains_gas)).any?
-              (phrases << :header_windows_and_doors << :opt_replacement_glazing) unless (features & %w(modern_double_glazing)).any?
-              phrases << :opt_renewal_heat
-            end
-          end
-          phrases << :help_and_advice << :help_and_advice_body
-          phrases
-        end
-      end
-
       outcome :outcome_measures_help_green_deal do
         precalculate :title_end do
           if measure_help
