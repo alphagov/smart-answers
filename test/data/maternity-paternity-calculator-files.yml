@@ -1,0 +1,11 @@
+--- 
+lib/smart_answer_flows/maternity-paternity-calculator.rb: 685e6ad891cbcc7859d795b8e1ce3b81
+lib/smart_answer_flows/locales/en/maternity-paternity-calculator.yml: 9a91096997b7f3b996cc625a17aa4439
+test/data/maternity-paternity-calculator-questions-and-responses.yml: 0907253765bf7e265a2399281f2b6cc5
+test/data/maternity-paternity-calculator-responses-and-expected-results.yml: 775834b47561e46bf1bb8f54dd197c60
+lib/smart_answer_flows/shared_logic/adoption-calculator.rb: f230d1e81dee359783c5ca51581442e0
+lib/smart_answer_flows/shared_logic/maternity-calculator.rb: 34c6e3a394a3be20ea9e8973b7f80025
+lib/smart_answer_flows/shared_logic/paternity-calculator.rb: 3ab0fd51c48e435ee89ea1229ee58b29
+lib/smart_answer/calculators/maternity_paternity_calculator.rb: 29e8e357a74a958ea906e6c4c46db65b
+lib/data/rates/maternity_paternity_birth.yml: 3eef956f1020576a9343647fec34dd01
+lib/data/rates/maternity_paternity_adoption.yml: 453c4d90b6fd9ffe1556782665f313fc
