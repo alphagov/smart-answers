@@ -74,7 +74,7 @@ module SmartAnswer
           %w(help_energy_efficiency help_boiler_measure).include?(which_help)
         }
 
-        next_node_if(:date_of_birth?) { bills_help || both_help }
+        next_node_if(:date_of_birth?) { both_help }
         on_condition(measure?) do
           next_node_if(:which_benefits?, responded_with("benefits"))
           next_node :when_property_built?
