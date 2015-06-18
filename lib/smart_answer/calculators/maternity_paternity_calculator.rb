@@ -117,14 +117,6 @@ module SmartAnswer::Calculators
       @leave_earliest_start_date = 14.days.ago(date)
     end
 
-    ## Paternity
-    ##
-    ## Statutory paternity rate
-    def statutory_paternity_rate
-      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
-      [current_statutory_rate, awe].min
-    end
-
     ## Adoption
     ##
     ## Statutory adoption rate

@@ -102,18 +102,6 @@ module SmartAnswer::Calculators
 
         end
 
-        should "calculate the paternity rate as the standard rate" do
-          @calculator.average_weekly_earnings = 500.55
-          @calculator.leave_start_date = Date.new(2012, 1, 1)
-          assert_equal 135.45, @calculator.statutory_paternity_rate
-        end
-
-        should "calculate the paternity rate as 90 percent of weekly earnings" do
-          @calculator.average_weekly_earnings = 120.55
-          @calculator.leave_start_date = Date.new(2012, 1, 1)
-          assert_equal ((120.55 * 0.9).to_f).round(2), @calculator.statutory_paternity_rate
-        end
-
         context "with an adoption placement date of a week ago" do
           setup do
             @one_week_ago = 1.week.ago(Date.today)
@@ -123,63 +111,6 @@ module SmartAnswer::Calculators
           should "make the earliest leave start date 14 days before the placement date" do
             assert_equal 1.fortnight.ago(@one_week_ago), @calculator.leave_earliest_start_date
           end
-        end
-      end
-
-      context "test for 2013 to 2014 rate" do
-        setup do
-          @due_date = Date.parse("1 September 2013")
-          @start_of_week_in_four_months = @due_date - @due_date.wday
-          @calculator = MaternityPaternityCalculator.new(@due_date)
-          Timecop.travel('1 September 2013')
-        end
-
-        should "calculate the paternity rate as the standard rate for 2014" do
-          @calculator.average_weekly_earnings = 500.55
-          @calculator.leave_start_date = Date.new(2014, 1, 1)
-          assert_equal 136.78, @calculator.statutory_paternity_rate
-        end
-
-        should "calculate the paternity rate as 90 percent of weekly earnings" do
-          @calculator.average_weekly_earnings = 120.55
-          @calculator.leave_start_date = Date.new(2014, 1, 1)
-          assert_equal ((120.55 * 0.9).to_f).round(2), @calculator.statutory_paternity_rate
-        end
-      end
-
-      context "test for 2014 to 2015 rate" do
-        setup do
-          @due_date = Date.parse("1 September 2014")
-          @start_of_week_in_four_months = @due_date - @due_date.wday
-          @calculator = MaternityPaternityCalculator.new(@due_date)
-          Timecop.travel('1 September 2014')
-        end
-
-        should "calculate the paternity rate as the standard rate for 2015" do
-          @calculator.average_weekly_earnings = 500.55
-          @calculator.leave_start_date = Date.new(2015, 1, 1)
-          assert_equal 138.18, @calculator.statutory_paternity_rate
-        end
-
-        should "calculate the paternity rate as 90 percent of weekly earnings" do
-          @calculator.average_weekly_earnings = 120.55
-          @calculator.leave_start_date = Date.new(2015, 1, 1)
-          assert_equal ((120.55 * 0.9).to_f).round(2), @calculator.statutory_paternity_rate
-        end
-      end
-
-      context "2015 to 2016 lower earning limit rate" do
-        setup do
-          @due_date = Date.parse("1 September 2015")
-          @start_of_week_in_four_months = @due_date - @due_date.wday
-          @calculator = MaternityPaternityCalculator.new(@due_date)
-          Timecop.travel('1 September 2015')
-        end
-
-        should "calculate the paternity rate as the standard rate for 2016" do
-          @calculator.average_weekly_earnings = 500.55
-          @calculator.leave_start_date = Date.new(2016, 1, 1)
-          assert_equal 139.58, @calculator.statutory_paternity_rate
         end
       end
 
@@ -550,18 +481,6 @@ module SmartAnswer::Calculators
 
           should "give the correct rate for the period" do
             assert_equal 136.78, @calculator.statutory_rate(Date.parse('12 April 2013'))
-          end
-
-          should "calculate the paternity rate as the standard rate" do
-            @calculator.average_weekly_earnings = 500.55
-            @calculator.leave_start_date = Date.new(2014, 2, 1)
-            assert_equal 136.78, @calculator.statutory_paternity_rate
-          end
-
-          should "calculate the paternity rate as 90 percent of weekly earnings" do
-            @calculator.average_weekly_earnings = 120.55
-            @calculator.leave_start_date = Date.new(2014, 2, 1)
-            assert_equal ((120.55 * 0.9).to_f).round(2), @calculator.statutory_paternity_rate
           end
         end
 
