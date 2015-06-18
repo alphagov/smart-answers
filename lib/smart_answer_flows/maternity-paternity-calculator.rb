@@ -28,9 +28,7 @@ module SmartAnswer
           Calculators::MaternityPaternityCalculator.new(match_date, "adoption")
         end
 
-        next_node do
-          :date_of_adoption_placement?
-        end
+        next_node :date_of_adoption_placement?
       end
 
       ## QA2
@@ -53,9 +51,7 @@ module SmartAnswer
         calculate :employment_start do
           calculator.a_employment_start
         end
-        next_node do
-          :adoption_did_the_employee_work_for_you?
-        end
+        next_node :adoption_did_the_employee_work_for_you?
       end
 
       ## QA3
@@ -82,9 +78,7 @@ module SmartAnswer
           end
         end
 
-        next_node do
-          :adoption_is_the_employee_on_your_payroll?
-        end
+        next_node :adoption_is_the_employee_on_your_payroll?
       end
 
       ## QA5
@@ -112,12 +106,12 @@ module SmartAnswer
           calculator.format_date_day to_saturday
         end
 
-        next_node do |response|
-          if employee_has_contract_adoption == 'no' && response == 'no'
-            next :adoption_not_entitled_to_leave_or_pay
-          end
-          :adoption_date_leave_starts?
+        define_predicate(:no_contract_not_on_payroll?) do |response|
+          employee_has_contract_adoption == 'no' && response == 'no'
         end
+
+        next_node_if(:adoption_not_entitled_to_leave_or_pay, no_contract_not_on_payroll?)
+        next_node :adoption_date_leave_starts?
       end
 
       ## QA6
@@ -156,12 +150,12 @@ module SmartAnswer
           end
         end
 
-        next_node do |response|
-          if employee_has_contract_adoption == 'yes' && on_payroll == 'no'
-            next :adoption_leave_and_pay
-          end
-          :last_normal_payday_adoption?
+        define_predicate(:has_contract_not_on_payroll?) do
+          employee_has_contract_adoption == 'yes' && on_payroll == 'no'
         end
+
+        next_node_if(:adoption_leave_and_pay, has_contract_not_on_payroll?)
+        next_node :last_normal_payday_adoption?
       end
 
       # QA7
@@ -174,9 +168,7 @@ module SmartAnswer
           raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
           calculator.last_payday
         end
-        next_node do
-          :payday_eight_weeks_adoption?
-        end
+        next_node :payday_eight_weeks_adoption?
       end
 
       # QA8
@@ -203,9 +195,7 @@ module SmartAnswer
           calculator.formatted_relevant_period
         end
 
-        next_node do
-          :pay_frequency_adoption?
-        end
+        next_node :pay_frequency_adoption?
       end
 
       # QA9
@@ -242,6 +232,10 @@ module SmartAnswer
           calculator
         end
 
+        define_predicate(:average_weekly_earnings_under_lower_earning_limit?) do
+          calculator.average_weekly_earnings < calculator.lower_earning_limit
+        end
+
          calculate :adoption_pay_info do
           if calculator.average_weekly_earnings < calculator.lower_earning_limit
             PhraseList.new(
@@ -254,12 +248,8 @@ module SmartAnswer
           end
         end
 
-        next_node do |response|
-          if calculator.average_weekly_earnings < calculator.lower_earning_limit
-            next :adoption_leave_and_pay
-          end
-          :how_do_you_want_the_sap_calculated?
-        end
+        next_node_if(:adoption_leave_and_pay, average_weekly_earnings_under_lower_earning_limit?)
+        next_node :how_do_you_want_the_sap_calculated?
       end
 
       ## QA11
@@ -273,15 +263,9 @@ module SmartAnswer
           PhraseList.new(:adoption_pay_table)
         end
 
-        next_node do |response|
-          if ['weekly_starting'].include?(response)
-            next :adoption_leave_and_pay
-          end
-          if ['monthly'].include?(pay_pattern)
-            next :monthly_pay_paternity? ## Shared with paternity calculator
-          end
-          :next_pay_day_paternity? ## Shared with paternity calculator
-        end
+        next_node_if(:adoption_leave_and_pay, responded_with('weekly_starting'))
+        next_node_if(:monthly_pay_paternity?, variable_matches(:pay_pattern, 'monthly')) ## Shared with paternity calculator
+        next_node :next_pay_day_paternity? ## Shared with paternity calculator
       end
 
       outcome :adoption_leave_and_pay do
@@ -337,9 +321,7 @@ module SmartAnswer
           Calculators::MaternityPaternityCalculator.new(due_date, 'paternity')
         end
 
-        next_node do
-          :baby_birth_date_paternity?
-        end
+        next_node :baby_birth_date_paternity?
       end
 
       ## QAP1 - Paternity Adoption
@@ -360,9 +342,7 @@ module SmartAnswer
           leave_type == 'paternity_adoption'
         end
 
-        next_node do
-          :padoption_date_of_adoption_placement?
-        end
+        next_node :padoption_date_of_adoption_placement?
       end
 
       ## QP2
@@ -376,9 +356,7 @@ module SmartAnswer
           calculator
         end
 
-        next_node do
-          :employee_responsible_for_upbringing?
-        end
+        next_node :employee_responsible_for_upbringing?
       end
 
       ## QAP2 - Paternity Adoption
@@ -399,9 +377,7 @@ module SmartAnswer
           calculator.format_date_day matched_date
         end
 
-        next_node do
-          :padoption_employee_responsible_for_upbringing?
-        end
+        next_node :padoption_employee_responsible_for_upbringing?
       end
 
       ## QP3
@@ -451,9 +427,7 @@ module SmartAnswer
         option :no
         save_input_as :has_contract
 
-        next_node do
-          :employee_on_payroll_paternity?
-        end
+        next_node :employee_on_payroll_paternity?
       end
 
       ## QP6
@@ -497,12 +471,8 @@ module SmartAnswer
           paternity_adoption? ? ap_adoption_date_formatted : date_of_birth
         end
 
-        next_node do |response|
-          if ['no'].include?(has_contract)
-            next :paternity_not_entitled_to_leave_or_pay
-          end
-          :employee_start_paternity?
-        end
+        next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no'))
+        next_node :employee_start_paternity?
       end
 
       ## QP7
@@ -522,12 +492,8 @@ module SmartAnswer
           end
         end
 
-        next_node do |response|
-          if ['no'].include?(has_contract) && ['no'].include?(response)
-            next :paternity_not_entitled_to_leave_or_pay
-          end
-          :employee_start_paternity?
-        end
+        next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no') & responded_with('no'))
+        next_node :employee_start_paternity?
       end
 
       ## QP8
@@ -551,9 +517,7 @@ module SmartAnswer
           calculator.notice_of_leave_deadline
         end
 
-        next_node do
-          :employee_paternity_length?
-        end
+        next_node :employee_paternity_length?
       end
 
       ## QP9
@@ -592,12 +556,9 @@ module SmartAnswer
           end
         end
 
-        next_node do |response|
-          if ['yes'].include?(has_contract) && (['no'].include?(on_payroll) || ['no'].include?(employed_dob))
-            next :paternity_not_entitled_to_leave_or_pay
-          end
-          :last_normal_payday_paternity?
-        end
+        next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'yes') &
+          (variable_matches(:on_payroll, 'no') | variable_matches(:employed_dob, 'no')))
+        next_node :last_normal_payday_paternity?
       end
 
       ## QP10
@@ -611,9 +572,7 @@ module SmartAnswer
           calculator
         end
 
-        next_node do
-          :payday_eight_weeks_paternity?
-        end
+        next_node :payday_eight_weeks_paternity?
       end
 
       ## QP11
@@ -640,9 +599,7 @@ module SmartAnswer
           calculator.formatted_relevant_period
         end
 
-        next_node do
-          :pay_frequency_paternity?
-        end
+        next_node :pay_frequency_paternity?
       end
 
       ## QP12
@@ -669,12 +626,12 @@ module SmartAnswer
           calculator
         end
 
-        next_node do |response|
-          if calculator.average_weekly_earnings < calculator.lower_earning_limit
-            next :paternity_leave_and_pay
-          end
-          :how_do_you_want_the_spp_calculated?
+        define_predicate(:average_weekly_earnings_under_lower_earning_limit?) do
+          calculator.average_weekly_earnings < calculator.lower_earning_limit
         end
+
+        next_node_if(:paternity_leave_and_pay, average_weekly_earnings_under_lower_earning_limit?)
+        next_node :how_do_you_want_the_spp_calculated?
       end
 
       ## QP14
@@ -684,15 +641,9 @@ module SmartAnswer
 
         save_input_as :spp_calculation_method
 
-        next_node do |response|
-          if ['weekly_starting'].include?(response)
-            next :paternity_leave_and_pay
-          end
-          if ['monthly'].include?(pay_pattern)
-            next :monthly_pay_paternity?
-          end
-          :next_pay_day_paternity?
-        end
+        next_node_if(:paternity_leave_and_pay, responded_with('weekly_starting'))
+        next_node_if(:monthly_pay_paternity?, variable_matches(:pay_pattern, 'monthly'))
+        next_node :next_pay_day_paternity?
       end
 
       ## QP15 - Also shared with adoption calculator here onwards
@@ -705,9 +656,7 @@ module SmartAnswer
           calculator.pay_date = response
           calculator
         end
-        next_node do
-          :paternity_leave_and_pay
-        end
+        next_node :paternity_leave_and_pay
       end
 
       ## QP16
@@ -720,12 +669,8 @@ module SmartAnswer
 
         save_input_as :monthly_pay_method
 
-        next_node do |response|
-          if ['adoption'].include?(leave_type)
-            next :adoption_leave_and_pay
-          end
-          :paternity_leave_and_pay
-        end
+        next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
+        next_node :paternity_leave_and_pay
       end
 
       ## QP17
@@ -737,12 +682,8 @@ module SmartAnswer
           calculator.pay_day_in_month = day
         end
 
-        next_node do |response|
-          if ['adoption'].include?(leave_type)
-            next :adoption_leave_and_pay
-          end
-          :paternity_leave_and_pay
-        end
+        next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
+        next_node :paternity_leave_and_pay
       end
 
       ## QP18
@@ -754,12 +695,8 @@ module SmartAnswer
           calculator.pay_day_in_week = response.split(",").sort.last.to_i
         end
 
-        next_node do |response|
-          if ['adoption'].include?(leave_type)
-            next :adoption_leave_and_pay
-          end
-          :paternity_leave_and_pay
-        end
+        next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
+        next_node :paternity_leave_and_pay
       end
 
       ## QP19
@@ -777,9 +714,7 @@ module SmartAnswer
           days_of_the_week[response.to_i]
         end
 
-        next_node do
-          :pay_date_options_paternity?
-        end
+        next_node :pay_date_options_paternity?
       end
 
       ## QP20
@@ -794,12 +729,8 @@ module SmartAnswer
           calculator.pay_week_in_month = response
         end
 
-        next_node do |response|
-          if ['adoption'].include?(leave_type)
-            next :adoption_leave_and_pay
-          end
-          :paternity_leave_and_pay
-        end
+        next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
+        next_node :paternity_leave_and_pay
       end
 
       # Paternity outcomes
@@ -897,9 +828,7 @@ module SmartAnswer
         calculate :calculator do |response|
           Calculators::MaternityPaternityCalculator.new(response)
         end
-        next_node do
-          :employment_contract?
-        end
+        next_node :employment_contract?
       end
 
       ## QM2
@@ -913,9 +842,7 @@ module SmartAnswer
             PhraseList.new(:not_entitled_to_statutory_maternity_leave)
           end
         end
-        next_node do
-          :date_leave_starts?
-        end
+        next_node :date_leave_starts?
       end
 
       ## QM3
@@ -956,9 +883,7 @@ module SmartAnswer
         calculate :ssp_stop do
           calculator.ssp_stop
         end
-        next_node do
-          :did_the_employee_work_for_you?
-        end
+        next_node :did_the_employee_work_for_you?
       end
 
       ## QM4
@@ -998,9 +923,7 @@ module SmartAnswer
           raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
           calculator.last_payday
         end
-        next_node do
-          :payday_eight_weeks?
-        end
+        next_node :payday_eight_weeks?
       end
 
       ## QM7
@@ -1027,9 +950,7 @@ module SmartAnswer
           calculator.formatted_relevant_period
         end
 
-        next_node do
-          :pay_frequency?
-        end
+        next_node :pay_frequency?
       end
 
       ## QM8
@@ -1040,9 +961,7 @@ module SmartAnswer
         option :every_4_weeks
         option :monthly
 
-        next_node do
-          :earnings_for_pay_period?
-        end
+        next_node(:earnings_for_pay_period?)
       end
 
       ## QM9 Maternity only onwards
@@ -1054,9 +973,7 @@ module SmartAnswer
         calculate :average_weekly_earnings do
           calculator.average_weekly_earnings
         end
-        next_node do
-          :how_do_you_want_the_smp_calculated?
-        end
+        next_node :how_do_you_want_the_smp_calculated?
       end
 
       ## QM10
@@ -1066,15 +983,11 @@ module SmartAnswer
 
         save_input_as :smp_calculation_method
 
-        next_node do |response|
-          if ["usual_paydates"].include?(response)
-            if ["monthly"].include?(pay_pattern)
-              next :when_in_the_month_is_the_employee_paid?
-            end
-            next :when_is_your_employees_next_pay_day?
-          end
-          :maternity_leave_and_pay_result
+        on_condition(responded_with("usual_paydates")) do
+          next_node_if(:when_in_the_month_is_the_employee_paid?, variable_matches(:pay_pattern, "monthly"))
+          next_node(:when_is_your_employees_next_pay_day?)
         end
+        next_node(:maternity_leave_and_pay_result)
       end
 
       ## QM11
@@ -1084,9 +997,7 @@ module SmartAnswer
           calculator.pay_date
         end
 
-        next_node do
-          :maternity_leave_and_pay_result
-        end
+        next_node :maternity_leave_and_pay_result
       end
 
       ## QM12
@@ -1108,9 +1019,7 @@ module SmartAnswer
           calculator.pay_day_in_month = day
         end
 
-        next_node do
-          :maternity_leave_and_pay_result
-        end
+        next_node :maternity_leave_and_pay_result
       end
 
       ## QM14
@@ -1121,9 +1030,7 @@ module SmartAnswer
           calculator.work_days = response.split(",").map(&:to_i)
           calculator.pay_day_in_week = response.split(",").sort.last.to_i
         end
-        next_node do
-          :maternity_leave_and_pay_result
-        end
+        next_node :maternity_leave_and_pay_result
       end
 
       ## QM15
@@ -1134,9 +1041,7 @@ module SmartAnswer
           calculator.pay_day_in_week = days_of_the_week.index(response)
           response
         end
-        next_node do
-          :which_week_in_month_is_the_employee_paid?
-        end
+        next_node :which_week_in_month_is_the_employee_paid?
       end
 
       ## QM16
@@ -1150,9 +1055,7 @@ module SmartAnswer
         calculate :pay_week_in_month do |response|
           calculator.pay_week_in_month = response
         end
-        next_node do
-          :maternity_leave_and_pay_result
-        end
+        next_node :maternity_leave_and_pay_result
       end
 
       ## Maternity outcomes
