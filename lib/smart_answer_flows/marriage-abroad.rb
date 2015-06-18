@@ -300,7 +300,7 @@ module SmartAnswer
           if ceremony_country == 'italy'
             phrases << :british_embassy_in_rome_email
           else
-            phrases << contact_method_key
+            phrases << :embassies_data
           end
           phrases
         end
