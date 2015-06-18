@@ -651,7 +651,7 @@ module SmartAnswer
 
           if ceremony_and_residency_in_croatia
             phrases << :what_to_do_croatia
-          elsif ceremony_country == 'kuwait' && resident_of != 'uk'
+          elsif %w(montenegro kuwait).include?(ceremony_country) && resident_of != 'uk'
             phrases << :check_with_notary_public_if_you_need_cni
           elsif ceremony_country == 'jordan'
             phrases << :consular_cni_os_foreign_resident_21_days_jordan
