@@ -424,18 +424,13 @@ module SmartAnswer
         precalculate :eligibilities_bills do
           phrases = PhraseList.new
           if both_help
-            if circumstances.include?('benefits')
-              phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
-              if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1
-                phrases << :warm_home_discount if benefits_claimed.include?('pension_credit')
-                phrases << :cold_weather_payment
-              end
-              if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
-                phrases << :energy_company_obligation
-              end
-            else
-              (phrases << :winter_fuel_payments << :cold_weather_payment) if age_variant == :winter_fuel_payment
-              phrases << :smartmeters
+            phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
+            if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1
+              phrases << :warm_home_discount if benefits_claimed.include?('pension_credit')
+              phrases << :cold_weather_payment
+            end
+            if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
+              phrases << :energy_company_obligation
             end
           end
           phrases
