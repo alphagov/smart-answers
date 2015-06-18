@@ -360,11 +360,7 @@ module SmartAnswer
 
       outcome :outcome_measures_help_green_deal do
         precalculate :title_end do
-          if measure_help
-            PhraseList.new(:title_under_green_deal)
-          else
-            PhraseList.new(:title_energy_supplier)
-          end
+          PhraseList.new(:title_under_green_deal)
         end
         precalculate :eligibilities do
           phrases = PhraseList.new
