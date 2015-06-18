@@ -504,8 +504,6 @@ outcome :paternity_not_entitled_to_leave_or_pay do
       phrases = PhraseList.new(:paternity_not_entitled_to_leave_or_pay_intro)
       phrases << :"#{leave_type}_not_responsible_for_upbringing" if paternity_responsible == 'no'
       phrases << :not_worked_long_enough if paternity_employment_start == "no"
-      phrases << :paternity_entitled_to_leave if on_payroll == "no"
-      phrases << :paternity_not_entitled_to_pay_a if has_contract == "no"
       phrases << :paternity_not_entitled_to_leave_or_pay_outro
       phrases
     else
