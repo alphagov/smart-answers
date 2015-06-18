@@ -232,10 +232,6 @@ module SmartAnswer
           measure_help && (circumstances & %w(property permission)).any?
         end
 
-        define_predicate(:benefits_or_income_support?) do
-          (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
-        end
-
         define_predicate(:no_benefits?) { circumstances.exclude?('benefits') }
 
         define_predicate(:property_permission_circumstance_and_benefits?) do
@@ -244,7 +240,6 @@ module SmartAnswer
 
         next_node_if(:outcome_no_green_deal_no_energy_measures, modern_and_gas_and_electric_heating?)
         on_condition(measure_help_and_property_permission_circumstance?) do
-          next_node_if(:outcome_measures_help_and_eco_eligible, benefits_or_income_support?)
           next_node(:outcome_measures_help_green_deal)
         end
         next_node_if(:outcome_bills_and_measures_no_benefits, no_benefits?)
@@ -271,10 +266,6 @@ module SmartAnswer
           measure_help && (circumstances & %w(property permission)).any?
         end
 
-        define_predicate(:benefits_or_income_support?) do
-          (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
-        end
-
         define_predicate(:no_benefits?) { circumstances.exclude?('benefits') }
 
         define_predicate(:property_permission_circumstance_and_benefits?) do
@@ -282,7 +273,6 @@ module SmartAnswer
         end
 
         on_condition(measure_help_and_property_permission_circumstance?) do
-          next_node_if(:outcome_measures_help_and_eco_eligible, benefits_or_income_support?)
           next_node(:outcome_measures_help_green_deal)
         end
         next_node_if(:outcome_bills_and_measures_no_benefits, no_benefits?)
@@ -310,10 +300,6 @@ module SmartAnswer
           measure_help && (circumstances & %w(property permission)).any?
         end
 
-        define_predicate(:benefits_or_income_support?) do
-          (benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2
-        end
-
         define_predicate(:no_benefits?) { circumstances.exclude?('benefits') }
 
         define_predicate(:property_permission_circumstance_and_benefits?) do
@@ -321,7 +307,6 @@ module SmartAnswer
         end
 
         on_condition(measure_help_and_property_permission_circumstance?) do
-          next_node_if(:outcome_measures_help_and_eco_eligible, benefits_or_income_support?)
           next_node(:outcome_measures_help_green_deal)
         end
         next_node_if(:outcome_bills_and_measures_no_benefits, no_benefits?)
