@@ -117,14 +117,6 @@ module SmartAnswer::Calculators
       @leave_earliest_start_date = 14.days.ago(date)
     end
 
-    ## Adoption
-    ##
-    ## Statutory adoption rate
-    def statutory_adoption_rate
-      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
-      [current_statutory_rate, awe].min
-    end
-
     def pay_period_in_days
       (last_payday + 1 - pre_offset_payday).to_i
     end
