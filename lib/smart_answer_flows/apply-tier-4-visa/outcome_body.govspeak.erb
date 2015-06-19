@@ -2,13 +2,13 @@ Your sponsor institution is: <%= sponsor_name %>
 
 Your sponsor number is: <%= sponsor_id %>
 
-<% if post_or_online == 'post' && switch_or_extend == 'switch' %>
+<% if post_or_online == 'post' && switching %>
   Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
-<% elsif post_or_online == 'post' && switch_or_extend == 'extend' %>
+<% elsif post_or_online == 'post' && extending %>
   Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
-<% elsif post_or_online == 'online' && switch_or_extend == 'switch' %>
+<% elsif post_or_online == 'online' && switching %>
   Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
-<% elsif post_or_online == 'online' && switch_or_extend == 'extend' %>
+<% elsif post_or_online == 'online' && extending %>
   Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
 <% end %>
 
@@ -19,7 +19,7 @@ You should read the guidance before you apply:
 
 You should apply during the last 3 months of your current permission to stay and no later than 6 months after your confirmation of acceptance for studies (CAS) has been assigned.
 
-<% if %w(switch).include?(switch_or_extend) %>
+<% if switching %>
 ^You must already be in the UK to switch to this visa.^
 
 <% end %>

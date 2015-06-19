@@ -14,12 +14,11 @@ module SmartAnswer
 
         save_input_as :type_of_visa
 
-        calculate :switch_or_extend do
-          if %w(extend_general extend_child).include?(type_of_visa)
-            "extend"
-          else
-            "switch"
-          end
+        calculate :extending do
+          type_of_visa.start_with?('extend')
+        end
+        calculate :switching do
+          type_of_visa.start_with?('switch')
         end
 
         next_node(:sponsor_id?)
