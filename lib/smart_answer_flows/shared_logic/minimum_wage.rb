@@ -447,7 +447,7 @@ value_question :past_accommodation_usage?, parse: Integer do
   end
 end
 
-outcome :current_payment_above, use_outcome_templates: true do
+outcome :current_payment_above do
   precalculate :total_working_pay do
     calculator.total_working_pay
   end
@@ -459,7 +459,7 @@ outcome :current_payment_above, use_outcome_templates: true do
   end
 end
 
-outcome :current_payment_below, use_outcome_templates: true do
+outcome :current_payment_below do
   precalculate :total_working_pay do
     calculator.total_working_pay
   end
@@ -474,7 +474,7 @@ outcome :current_payment_below, use_outcome_templates: true do
   end
 end
 
-outcome :past_payment_above, use_outcome_templates: true do
+outcome :past_payment_above do
   precalculate :total_working_pay do
     calculator.total_working_pay
   end
@@ -486,7 +486,7 @@ outcome :past_payment_above, use_outcome_templates: true do
   end
 end
 
-outcome :past_payment_below, use_outcome_templates: true do
+outcome :past_payment_below do
   precalculate :total_working_pay do
     calculator.total_working_pay
   end
@@ -501,6 +501,6 @@ outcome :past_payment_below, use_outcome_templates: true do
   end
 end
 
-outcome :under_school_leaving_age, use_outcome_templates: true
-outcome :does_not_apply_to_historical_apprentices, use_outcome_templates: true
-outcome :under_school_leaving_age_past, use_outcome_templates: true
+outcome :under_school_leaving_age
+outcome :does_not_apply_to_historical_apprentices
+outcome :under_school_leaving_age_past
