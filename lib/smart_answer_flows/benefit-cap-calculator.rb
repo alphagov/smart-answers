@@ -323,11 +323,7 @@ module SmartAnswer
       outcome :outcome_not_affected_exemptions, use_outcome_templates: true
 
       ## Outcome 2
-      outcome :outcome_not_affected_no_housing_benefit do
-        precalculate :outcome_phrase do
-          PhraseList.new(:outcome_not_affected_no_housing_benefit_phrase, :contact_details)
-        end
-      end
+      outcome :outcome_not_affected_no_housing_benefit, use_outcome_templates: true
 
       ## Outcome 3
       outcome :outcome_affected_greater_than_cap do

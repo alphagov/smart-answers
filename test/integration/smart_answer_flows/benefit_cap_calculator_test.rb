@@ -173,7 +173,6 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
       should "go to Outcome 1" do
         assert_current_node :outcome_not_affected_no_housing_benefit
- assert_phrase_list :outcome_phrase, [:outcome_not_affected_no_housing_benefit_phrase, :contact_details]
       end
     end # Q1 not receving housing benefit at Outcome 2
 
