@@ -319,14 +319,16 @@ module SmartAnswer
 
       ##OUTCOMES
 
+      use_outcome_templates
+
       ## Outcome 1
-      outcome :outcome_not_affected_exemptions, use_outcome_templates: true
+      outcome :outcome_not_affected_exemptions
 
       ## Outcome 2
-      outcome :outcome_not_affected_no_housing_benefit, use_outcome_templates: true
+      outcome :outcome_not_affected_no_housing_benefit
 
       ## Outcome 3
-      outcome :outcome_affected_greater_than_cap, use_outcome_templates: true do
+      outcome :outcome_affected_greater_than_cap do
 
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
@@ -354,7 +356,7 @@ module SmartAnswer
       end
 
       ## Outcome 4
-      outcome :outcome_not_affected_less_than_cap, use_outcome_templates: true do
+      outcome :outcome_not_affected_less_than_cap do
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
         end
@@ -362,7 +364,7 @@ module SmartAnswer
       end
 
       ## Outcome 5
-      outcome :outcome_not_affected, use_outcome_templates: true
+      outcome :outcome_not_affected
     end
   end
 end
