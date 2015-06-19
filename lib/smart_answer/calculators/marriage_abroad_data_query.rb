@@ -32,7 +32,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(aruba slovakia curacao bonaire-st-eustatius-saba saint-barthelemy st-maarten st-martin taiwan czech-republic argentina cote-d-ivoire burundi)
 
-    SS_MARRIAGE_COUNTRIES = %w(australia azerbaijan bolivia chile china colombia dominican-republic estonia germany kosovo latvia mongolia montenegro nicaragua russia san-marino hungary serbia)
+    SS_MARRIAGE_COUNTRIES = %w(australia azerbaijan bolivia chile china colombia dominican-republic estonia germany hungary kosovo latvia mongolia montenegro nicaragua russia san-marino serbia seychelles)
 
     NO_SS_MARRIAGE_COUNTRIES = %w(san-marino)
 
@@ -40,7 +40,7 @@ module SmartAnswer::Calculators
 
     SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia japan peru philippines vietnam)
 
-    SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia china estonia san-marino serbia)
+    SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia china estonia san-marino serbia seychelles)
 
     SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A = %w(hungary mongolia montenegro nicaragua russia)
 
