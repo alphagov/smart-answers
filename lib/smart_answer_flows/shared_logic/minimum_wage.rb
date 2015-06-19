@@ -474,7 +474,7 @@ outcome :current_payment_below, use_outcome_templates: true do
   end
 end
 
-outcome :past_payment_above do
+outcome :past_payment_above, use_outcome_templates: true do
   precalculate :total_working_pay do
     calculator.total_working_pay
   end
