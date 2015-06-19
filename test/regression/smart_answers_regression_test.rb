@@ -19,10 +19,6 @@ end
 
 require_relative '../support/fixture_methods'
 
-class ActiveSupport::TestCase
-  include FixtureMethods
-end
-
 require 'gds_api/test_helpers/content_api'
 require 'gds_api/test_helpers/worldwide'
 
@@ -32,6 +28,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
   include GdsApi::TestHelpers::ContentApi
   include GdsApi::TestHelpers::Worldwide
+  include FixtureMethods
 
   tests SmartAnswersController
 
