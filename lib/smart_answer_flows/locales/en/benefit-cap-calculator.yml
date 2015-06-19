@@ -24,10 +24,6 @@ en-GB:
         estimate_only: |
           This is an estimate only. Contact the Department for Work and Pensions if you need further help.
 
-        outcome_not_affected_no_housing_benefit_phrase: |
-          You aren’t affected by the benefit cap if you’re not claiming Housing Benefit. You might be affected by the cap if you start claiming Housing Benefit.
-
-          Contact the Department for Work and Pensions if you need further help:
         outcome_affected_greater_than_cap_phrase: |
 
 
@@ -210,12 +206,6 @@ en-GB:
 
 
 # Outcomes
-# outcome 2 no affected by as not receiving housing benefit
-      outcome_not_affected_no_housing_benefit:
-        title: "Based on the answers you’ve given, you’re not affected by the benefit cap."
-        body: |
-          %{outcome_phrase}
-
 # outcome 3 affected by benefit cap
       outcome_affected_greater_than_cap:
         title: Based on the answers you’ve given, you will be affected by the benefit cap as you get £%{total_benefits} in benefits and your benefit cap is £%{benefit_cap}.
