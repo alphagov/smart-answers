@@ -111,14 +111,8 @@ module SmartAnswer
         save_input_as :parents
 
         on_condition(variable_matches(:region, 'england-and-wales')) do
-          on_condition(variable_matches(:partner, 'yes')) do
-            next_node_if(:outcome_21, responded_with('yes'))
-            next_node_if(:siblings?, responded_with('no'))
-          end
-          on_condition(variable_matches(:partner, 'no')) do
-            next_node_if(:outcome_3, responded_with('yes'))
-            next_node_if(:siblings?, responded_with('no'))
-          end
+          next_node_if(:outcome_3, responded_with('yes'))
+          next_node_if(:siblings?, responded_with('no'))
         end
         on_condition(variable_matches(:region, 'scotland')) do
           next_node :siblings?
@@ -143,14 +137,8 @@ module SmartAnswer
         save_input_as :siblings
 
         on_condition(variable_matches(:region, 'england-and-wales')) do
-          on_condition(variable_matches(:partner, 'yes')) do
-            next_node_if(:outcome_22, responded_with('yes'))
-            next_node_if(:outcome_1, responded_with('no'))
-          end
-          on_condition(variable_matches(:partner, 'no')) do
-            next_node_if(:outcome_4, responded_with('yes'))
-            next_node_if(:half_siblings?, responded_with('no'))
-          end
+          next_node_if(:outcome_4, responded_with('yes'))
+          next_node_if(:half_siblings?, responded_with('no'))
         end
         on_condition(variable_matches(:region, 'scotland')) do
           on_condition(variable_matches(:partner, 'yes')) do
@@ -175,14 +163,8 @@ module SmartAnswer
           end
         end
         on_condition(variable_matches(:region, 'northern-ireland')) do
-          on_condition(variable_matches(:partner, 'yes')) do
-            next_node_if(:outcome_64, responded_with('yes'))
-            next_node_if(:outcome_65, responded_with('no'))
-          end
-          on_condition(variable_matches(:partner, 'no')) do
-            next_node_if(:outcome_4, responded_with('yes'))
-            next_node_if(:grandparents?, responded_with('no'))
-          end
+          next_node_if(:outcome_4, responded_with('yes'))
+          next_node_if(:grandparents?, responded_with('no'))
         end
       end
 
@@ -291,8 +273,6 @@ module SmartAnswer
       outcome :outcome_6
 
       outcome :outcome_20
-      outcome :outcome_21
-      outcome :outcome_22
       outcome :outcome_23
       outcome :outcome_24
 
