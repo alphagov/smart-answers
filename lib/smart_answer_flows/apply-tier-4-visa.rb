@@ -56,20 +56,10 @@ module SmartAnswer
           end
         end
 
-        calculate :application_link do
-          phrases = PhraseList.new
-          phrases << :"#{post_or_online}_and_#{switch_or_extend}_link"
-          phrases
-        end
-
-        calculate :extend_or_switch_visa do
-          phrases = PhraseList.new
-          phrases << :you_must_be_in_uk if %w(switch).include?(switch_or_extend)
-          phrases << :"#{general_or_child}_#{switch_or_extend}"
-          phrases
-        end
         next_node(:outcome)
       end
+
+      use_outcome_templates
 
       outcome :outcome
     end

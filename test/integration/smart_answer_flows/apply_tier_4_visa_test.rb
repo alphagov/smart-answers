@@ -27,7 +27,6 @@ class ApplyTier4VisaTest < ActiveSupport::TestCase
       should "show outcome with post phraselist" do
         assert_state_variable :sponsor_name, "Eastbourne School of English"
         assert_state_variable :sponsor_id, "48909JVC1"
-        assert_phrase_list :application_link, [:post_and_switch_link]
         assert_current_node :outcome
       end
     end
@@ -38,8 +37,6 @@ class ApplyTier4VisaTest < ActiveSupport::TestCase
       should "show outcome with post and switching general phraselists" do
         assert_state_variable :sponsor_name, "Alpha Omega College"
         assert_state_variable :sponsor_id, "1GC8FDP33"
-        assert_phrase_list :application_link, [:post_and_switch_link]
-        assert_phrase_list :extend_or_switch_visa, [:you_must_be_in_uk, :general_switch]
         assert_current_node :outcome
       end
     end
@@ -60,8 +57,6 @@ class ApplyTier4VisaTest < ActiveSupport::TestCase
     should "show outcome with extending child phraselists" do
       assert_state_variable :sponsor_name, "Wimbledon High School"
       assert_state_variable :sponsor_id, "YYAX6VCR8"
-      assert_phrase_list :application_link, [:online_and_extend_link]
-      assert_phrase_list :extend_or_switch_visa, [:child_extend]
       assert_current_node :outcome
     end
   end
@@ -73,8 +68,6 @@ class ApplyTier4VisaTest < ActiveSupport::TestCase
     should "show outcome with extending child phraselists" do
       assert_state_variable :sponsor_name, "14 Stars (London) Ltd t/a European College for Higher Education"
       assert_state_variable :sponsor_id, "2W8TVPP77"
-      assert_phrase_list :application_link, [:post_and_switch_link]
-      assert_phrase_list :extend_or_switch_visa, [:you_must_be_in_uk, :child_switch]
       assert_current_node :outcome
     end
   end
@@ -86,8 +79,6 @@ class ApplyTier4VisaTest < ActiveSupport::TestCase
     should "show outcome with extending child phraselists and online link" do
       assert_state_variable :sponsor_name, "Kaplan International Colleges Cambridge"
       assert_state_variable :sponsor_id, "GFHRH18H5"
-      assert_phrase_list :application_link, [:online_and_extend_link]
-      assert_phrase_list :extend_or_switch_visa, [:general_extend]
       assert_current_node :outcome
     end
   end

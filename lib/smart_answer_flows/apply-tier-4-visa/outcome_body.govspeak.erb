@@ -1,0 +1,34 @@
+Your sponsor institution is: <%= sponsor_name %>
+
+Your sponsor number is: <%= sponsor_id %>
+
+<% if post_or_online == 'post' && switch_or_extend == 'switch' %>
+  Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
+<% elsif post_or_online == 'post' && switch_or_extend == 'extend' %>
+  Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
+<% elsif post_or_online == 'online' && switch_or_extend == 'switch' %>
+  Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
+<% elsif post_or_online == 'online' && switch_or_extend == 'extend' %>
+  Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
+<% end %>
+
+You should read the guidance before you apply:
+
+- [Tier 4 (General) student visa](/government/publications/guidance-on-application-to-extend-visa-under-tier-4-general) guidance
+- [Tier 4 (Child) student visa](/government/publications/guidance-on-application-to-extend-visa-under-tier-4-child) guidance
+
+You should apply during the last 3 months of your current permission to stay and no later than 6 months after your confirmation of acceptance for studies (CAS) has been assigned.
+
+<% if %w(switch).include?(switch_or_extend) %>
+^You must already be in the UK to switch to this visa.^
+
+<% end %>
+<% if general_or_child == 'child' && switch_or_extend == 'switch' %>
+  Go back to the [Tier 4 (Child) student visa](/child-study-visa/switch-to-this-visa) guide.
+<% elsif general_or_child == 'child' && switch_or_extend == 'extend' %>
+  Go back to the [Tier 4 (Child) student visa](/child-study-visa/extend-your-visa) guide.
+<% elsif general_or_child == 'general' && switch_or_extend == 'switch' %>
+  Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/switch-to-this-visa) guide.
+<% elsif general_or_child == 'general' && switch_or_extend == 'extend' %>
+  Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/extend-your-visa) guide.
+<% end %>
