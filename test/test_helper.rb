@@ -29,7 +29,7 @@ class Minitest::Test
 end
 
 require 'gds_api/test_helpers/json_client_helper'
-require 'support/fixture_methods'
+require_relative 'support/fixture_methods'
 
 class ActiveSupport::TestCase
   include FixtureMethods
