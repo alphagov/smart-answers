@@ -8,6 +8,7 @@ SMART_ANSWER_FLOW_NAMES = %w(
   calculate-employee-redundancy-pay
   calculate-married-couples-allowance
   calculate-state-pension
+  calculate-statutory-sick-pay
   calculate-your-child-maintenance
   calculate-your-holiday-entitlement
   calculate-your-redundancy-pay
