@@ -8,14 +8,6 @@ require 'rails/test_help'
 require 'webmock/minitest'
 WebMock.disable_net_connect!(allow_localhost: true)
 
-class Minitest::Test
-  def teardown_with_customisations
-    teardown_without_customisations
-    WorldLocation.reset_cache
-  end
-  alias_method_chain :teardown, :customisations
-end
-
 require_relative '../support/fixture_methods'
 
 require 'gds_api/test_helpers/content_api'
