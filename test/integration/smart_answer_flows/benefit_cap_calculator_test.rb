@@ -30,7 +30,6 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
         should "go to Outcome 1" do
           assert_current_node :outcome_not_affected_exemptions
-   assert_phrase_list :outcome_phrase, [:outcome_not_affected_exemptions_phrase, :contact_details]
         end
       end # Q2 Qualify for working tax credit at Outcome 1
 
@@ -48,7 +47,6 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
           should "go to outcome 1" do
             assert_current_node :outcome_not_affected_exemptions
-     assert_phrase_list :outcome_phrase, [:outcome_not_affected_exemptions_phrase, :contact_details]
           end
         end # Q3 receiving benefits end at Outcome 1
 
