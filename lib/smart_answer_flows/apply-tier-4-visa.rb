@@ -39,12 +39,11 @@ module SmartAnswer
 
         validate(:error) { sponsor_name.present? }
 
-        calculate :post_or_online do |response|
-          if data["post"].keys.include?(response)
-            "post"
-          else
-            "online"
-          end
+        calculate :postal_application do |response|
+          data["post"].keys.include?(response)
+        end
+        calculate :online_application do |response|
+          data["online"].keys.include?(response)
         end
 
         next_node(:outcome)

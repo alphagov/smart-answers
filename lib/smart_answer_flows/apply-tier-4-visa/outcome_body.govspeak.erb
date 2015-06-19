@@ -2,13 +2,13 @@ Your sponsor institution is: <%= sponsor_name %>
 
 Your sponsor number is: <%= sponsor_id %>
 
-<% if post_or_online == 'post' && switching %>
+<% if postal_application && switching %>
   Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
-<% elsif post_or_online == 'post' && extending %>
+<% elsif postal_application && extending %>
   Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
-<% elsif post_or_online == 'online' && switching %>
+<% elsif online_application && switching %>
   Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
-<% elsif post_or_online == 'online' && extending %>
+<% elsif online_application && extending %>
   Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
 <% end %>
 
