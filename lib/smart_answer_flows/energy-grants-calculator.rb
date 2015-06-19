@@ -14,25 +14,13 @@ module SmartAnswer
         save_input_as :which_help
 
         calculate :bills_help do |response|
-          if %w(help_with_fuel_bill).include?(response)
-            :bills_help
-          else
-            nil
-          end
+          %w(help_with_fuel_bill).include?(response) ? :bills_help : nil
         end
         calculate :measure_help do |response|
-          if %w(help_energy_efficiency help_boiler_measure).include?(response)
-            :measure_help
-          else
-            nil
-          end
+          %w(help_energy_efficiency help_boiler_measure).include?(response) ? :measure_help : nil
         end
         calculate :both_help do |response|
-          if %w(all_help).include?(response)
-            :both_help
-          else
-            nil
-          end
+          %w(all_help).include?(response) ? :both_help : nil
         end
 
         calculate :warm_home_discount_amount do
@@ -398,34 +386,18 @@ module SmartAnswer
         precalculate :eligibilities do
           phrases = PhraseList.new
           phrases << :header_boilers_and_insulation
-          unless (features & %w(modern_boiler)).any?
-            phrases << :opt_condensing_boiler
-          end
+          phrases << :opt_condensing_boiler unless (features & %w(modern_boiler)).any?
           phrases << :opt_cavity_wall_insulation << :opt_solid_wall_insulation
-          unless (features & %w(draught_proofing)).any?
-            phrases << :opt_draught_proofing
-          end
-          unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-            phrases << :opt_loft_roof_insulation
-          end
+          phrases << :opt_draught_proofing unless (features & %w(draught_proofing)).any?
+          phrases << :opt_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
           unless flat_type == "top_floor"
-            if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
-              phrases << :opt_room_roof_insulation
-            end
-            unless modern
-              phrases << :opt_under_floor_insulation
-            end
+            phrases << :opt_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
+            phrases << :opt_under_floor_insulation unless modern
           end
           phrases << :header_heating << :opt_better_heating_controls
-          unless (features & %w(mains_gas)).any?
-            (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating)
-          end
-          unless (features & %w(modern_double_glazing)).any?
-            (phrases << :header_windows_and_doors << :opt_replacement_glazing)
-          end
-          unless bills_help
-            phrases << :opt_renewal_heat
-          end
+          (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating) unless (features & %w(mains_gas)).any?
+          (phrases << :header_windows_and_doors << :opt_replacement_glazing) unless (features & %w(modern_double_glazing)).any?
+          phrases << :opt_renewal_heat unless bills_help
           phrases << :help_and_advice << :help_and_advice_body
           phrases
         end
@@ -435,9 +407,7 @@ module SmartAnswer
         precalculate :eligibilities_bills do
           phrases = PhraseList.new
           if both_help
-            if age_variant == :winter_fuel_payment
-              (phrases << :winter_fuel_payments << :cold_weather_payment)
-            end
+            (phrases << :winter_fuel_payments << :cold_weather_payment) if age_variant == :winter_fuel_payment
             phrases << :smartmeters
           end
           phrases
@@ -454,36 +424,18 @@ module SmartAnswer
         precalculate :eligibilities do
           phrases = PhraseList.new
           phrases << :header_boilers_and_insulation
-          unless (features & %w(modern_boiler)).any?
-            phrases << :opt_condensing_boiler
-          end
-          unless (features & %w(mains_gas)).any?
-            phrases << :opt_cavity_wall_insulation
-          end
-          unless (features & %w(mains_gas solid_wall_insulation)).any?
-            phrases << :opt_solid_wall_insulation
-          end
-          unless (features & %w(draught_proofing mains_gas)).any?
-            phrases << :opt_draught_proofing
-          end
-          unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-            phrases << :opt_loft_roof_insulation
-          end
+          phrases << :opt_condensing_boiler unless (features & %w(modern_boiler)).any?
+          phrases << :opt_cavity_wall_insulation unless (features & %w(mains_gas)).any?
+          phrases << :opt_solid_wall_insulation unless (features & %w(mains_gas solid_wall_insulation)).any?
+          phrases << :opt_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
+          phrases << :opt_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
           unless flat_type == "top_floor"
-            if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
-              phrases << :opt_room_roof_insulation
-            end
-            unless modern
-              phrases << :opt_under_floor_insulation
-            end
+            phrases << :opt_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
+            phrases << :opt_under_floor_insulation unless modern
           end
           phrases << :header_heating << :opt_better_heating_controls
-          unless (features & %w(mains_gas)).any?
-            (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating)
-          end
-          unless (features & %w(modern_double_glazing)).any?
-            (phrases << :header_windows_and_doors << :opt_replacement_glazing)
-          end
+          (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating) unless (features & %w(mains_gas)).any?
+          (phrases << :header_windows_and_doors << :opt_replacement_glazing) unless (features & %w(modern_double_glazing)).any?
           phrases << :opt_renewal_heat << :help_and_advice << :help_and_advice_body
           phrases
         end
@@ -493,13 +445,9 @@ module SmartAnswer
         precalculate :eligibilities_bills do
           phrases = PhraseList.new
           if both_help
-            if age_variant == :winter_fuel_payment
-              phrases << :winter_fuel_payments
-            end
+            phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
             if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1
-              if benefits_claimed.include?('pension_credit')
-                phrases << :warm_home_discount
-              end
+              phrases << :warm_home_discount if benefits_claimed.include?('pension_credit')
               phrases << :cold_weather_payment
             end
             if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
@@ -520,36 +468,18 @@ module SmartAnswer
         precalculate :eligibilities do
           phrases = PhraseList.new
           phrases << :header_boilers_and_insulation
-          unless (features & %w(modern_boiler)).any?
-            phrases << :opt_condensing_boiler
-          end
-          unless (features & %w(cavity_wall_insulation mains_gas)).any?
-            phrases << :opt_cavity_wall_insulation
-          end
-          unless (features & %w(mains_gas solid_wall_insulation)).any?
-            phrases << :opt_solid_wall_insulation
-          end
-          unless (features & %w(draught_proofing mains_gas)).any?
-            phrases << :opt_draught_proofing
-          end
-          unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-            phrases << :opt_loft_roof_insulation
-          end
+          phrases << :opt_condensing_boiler unless (features & %w(modern_boiler)).any?
+          phrases << :opt_cavity_wall_insulation unless (features & %w(cavity_wall_insulation mains_gas)).any?
+          phrases << :opt_solid_wall_insulation unless (features & %w(mains_gas solid_wall_insulation)).any?
+          phrases << :opt_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
+          phrases << :opt_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
           unless flat_type == "top_floor"
-            if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
-              phrases << :opt_room_roof_insulation
-            end
-            unless modern
-              phrases << :opt_under_floor_insulation
-            end
+            phrases << :opt_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
+            phrases << :opt_under_floor_insulation unless modern
           end
           phrases << :opt_eco_help << :header_heating << :opt_better_heating_controls
-          unless (features & %w(mains_gas)).any?
-            (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating)
-          end
-          unless (features & %w(modern_double_glazing)).any?
-            (phrases << :header_windows_and_doors << :opt_replacement_glazing)
-          end
+          (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating) unless (features & %w(mains_gas)).any?
+          (phrases << :header_windows_and_doors << :opt_replacement_glazing) unless (features & %w(modern_double_glazing)).any?
           phrases << :opt_renewal_heat << :help_and_advice << :help_and_advice_body
           phrases
         end
@@ -559,13 +489,9 @@ module SmartAnswer
         precalculate :eligibilities_bills do
           phrases = PhraseList.new
           if both_help
-            if age_variant == :winter_fuel_payment
-              phrases << :winter_fuel_payments
-            end
+            phrases << :winter_fuel_payments if age_variant == :winter_fuel_payment
             if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1
-              if benefits_claimed.include?('pension_credit')
-                phrases << :warm_home_discount
-              end
+              phrases << :warm_home_discount if benefits_claimed.include?('pension_credit')
               phrases << :cold_weather_payment
             end
             if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
@@ -586,33 +512,17 @@ module SmartAnswer
         precalculate :eligibilities do
           phrases = PhraseList.new
           phrases << :header_boilers_and_insulation
-          unless (features & %w(modern_boiler)).any?
-            phrases << :opt_condensing_boiler
-          end
-          unless (features & %w(mains_gas)).any?
-            (phrases << :opt_cavity_wall_insulation << :opt_solid_wall_insulation)
-          end
-          unless (features & %w(draught_proofing mains_gas)).any?
-            phrases << :opt_draught_proofing
-          end
-          unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-            phrases << :opt_loft_roof_insulation
-          end
+          phrases << :opt_condensing_boiler unless (features & %w(modern_boiler)).any?
+          (phrases << :opt_cavity_wall_insulation << :opt_solid_wall_insulation) unless (features & %w(mains_gas)).any?
+          phrases << :opt_draught_proofing unless (features & %w(draught_proofing mains_gas)).any?
+          phrases << :opt_loft_roof_insulation unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
           unless flat_type == "top_floor"
-            if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
-              phrases << :opt_room_roof_insulation
-            end
-            unless modern
-              phrases << :opt_under_floor_insulation
-            end
+            phrases << :opt_room_roof_insulation if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
+            phrases << :opt_under_floor_insulation unless modern
           end
           phrases << :opt_eco_help << :header_heating << :opt_better_heating_controls
-          unless (features & %w(mains_gas)).any?
-            (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating)
-          end
-          unless (features & %w(modern_double_glazing)).any?
-            (phrases << :header_windows_and_doors << :opt_replacement_glazing)
-          end
+          (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating) unless (features & %w(mains_gas)).any?
+          (phrases << :header_windows_and_doors << :opt_replacement_glazing) unless (features & %w(modern_double_glazing)).any?
           phrases << :opt_renewal_heat << :help_and_advice << :help_and_advice_body
           phrases
         end
