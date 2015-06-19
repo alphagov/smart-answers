@@ -326,7 +326,7 @@ module SmartAnswer
       outcome :outcome_not_affected_no_housing_benefit, use_outcome_templates: true
 
       ## Outcome 3
-      outcome :outcome_affected_greater_than_cap do
+      outcome :outcome_affected_greater_than_cap, use_outcome_templates: true do
 
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
@@ -340,21 +340,16 @@ module SmartAnswer
           sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
         end
 
+        precalculate :new_housing_benefit_amount do
+          housing_benefit_amount.to_f - total_over_cap.to_f
+        end
+
         precalculate :new_housing_benefit do
-          amount = sprintf("%.2f", (housing_benefit_amount.to_f - total_over_cap.to_f))
+          amount = sprintf("%.2f", new_housing_benefit_amount)
           if amount < "0.5"
             amount = sprintf("%.2f", 0.5)
           end
           amount
-        end
-
-        precalculate :outcome_phrase do
-          new_housing_benefit_amount = housing_benefit_amount.to_f - total_over_cap.to_f
-          if new_housing_benefit_amount < 0.5
-            PhraseList.new(:outcome_affected_greater_than_cap_phrase, :housing_benefit_not_zero, :estimate_only, :contact_details)
-          else
-            PhraseList.new(:outcome_affected_greater_than_cap_phrase, :estimate_only, :contact_details)
-          end
         end
       end
 

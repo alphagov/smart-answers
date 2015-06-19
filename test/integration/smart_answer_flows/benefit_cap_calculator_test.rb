@@ -102,7 +102,6 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
                     should "go to outcome 3" do
                       assert_current_node :outcome_affected_greater_than_cap
-        assert_phrase_list :outcome_phrase, [:outcome_affected_greater_than_cap_phrase, :housing_benefit_not_zero, :estimate_only, :contact_details]
                     end
                   end #Q6 single greater than cap, at Outcome 3
                 end #Q5p how much for housing benefit
@@ -186,7 +185,6 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
         add_response "400"
         add_response :single
         assert_current_node :outcome_affected_greater_than_cap
-        assert_phrase_list :outcome_phrase, [:outcome_affected_greater_than_cap_phrase, :estimate_only, :contact_details]
       end
     end
   end # Benefit cap calculator
