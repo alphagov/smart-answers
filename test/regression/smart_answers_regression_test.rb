@@ -2,7 +2,7 @@ require_relative "../test_helper"
 require 'gds_api/test_helpers/content_api'
 require 'gds_api/test_helpers/worldwide'
 
-class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
+class SmartAnswersRegressionTest < ActionController::TestCase
   i_suck_and_my_tests_are_order_dependent!
   RUN_ME_LAST = 'zzzzzzzzzzz run me last'
 
