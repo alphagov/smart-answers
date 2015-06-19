@@ -1,11 +1,13 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/calculate-statutory-sick-pay"
+
 class CalculateStatutorySickPayTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow 'calculate-statutory-sick-pay'
+    setup_for_testing_flow SmartAnswer::CalculateStatutorySickPayFlow
   end
 
   context "Getting statutory maternity pay" do
