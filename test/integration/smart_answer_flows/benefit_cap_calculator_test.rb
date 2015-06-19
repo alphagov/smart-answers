@@ -145,7 +145,6 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
                     should "go to outcome" do
                       assert_current_node :outcome_not_affected_less_than_cap
-        assert_phrase_list :outcome_phrase, [:outcome_not_affected_less_than_cap_phrase, :contact_details]
                     end
                   end #Q6 lone parent, under cap, at Outcome 4
                 end #Q5p how much for housing, under cap
