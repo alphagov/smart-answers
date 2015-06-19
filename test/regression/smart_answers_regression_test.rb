@@ -17,7 +17,6 @@ class Minitest::Test
   alias_method_chain :teardown, :customisations
 end
 
-require 'gds_api/test_helpers/json_client_helper'
 require_relative '../support/fixture_methods'
 
 class ActiveSupport::TestCase
