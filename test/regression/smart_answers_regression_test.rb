@@ -1,4 +1,15 @@
-require_relative "../test_helper"
+ENV["RAILS_ENV"] = "test"
+require File.expand_path('../../../config/environment', __FILE__)
+
+FLOW_REGISTRY_OPTIONS[:preload_flows] = true
+
+require 'rails/test_help'
+
+require 'webmock'
+WebMock.disable_net_connect!(allow_localhost: true)
+
+require_relative '../support/fixture_methods'
+
 require 'gds_api/test_helpers/content_api'
 require 'gds_api/test_helpers/worldwide'
 
@@ -6,8 +17,20 @@ class SmartAnswersRegressionTest < ActionController::TestCase
   i_suck_and_my_tests_are_order_dependent!
   RUN_ME_LAST = 'zzzzzzzzzzz run me last'
 
+  class << self
+    def setup_has_run!
+      @setup_has_run = true
+    end
+
+    def setup_has_run?
+      @setup_has_run
+    end
+  end
+
   include GdsApi::TestHelpers::ContentApi
   include GdsApi::TestHelpers::Worldwide
+  include WebMock::API
+  include FixtureMethods
 
   tests SmartAnswersController
 
@@ -24,15 +47,13 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
     context "Smart Answer: #{flow_name}" do
       setup do
+        next if self.class.setup_has_run?
         Timecop.freeze(Date.parse('2015-01-01'))
         stub_content_api_default_artefact
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
 
         setup_worldwide_locations
-      end
-
-      teardown do
-        Timecop.return
+        self.class.setup_has_run!
       end
 
       should "have up to date checksum data" do
