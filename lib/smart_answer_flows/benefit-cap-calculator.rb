@@ -362,11 +362,7 @@ module SmartAnswer
       end
 
       ## Outcome 5
-      outcome :outcome_not_affected do
-        precalculate :outcome_phrase do
-          PhraseList.new(:outcome_not_affected_phrase, :contact_details)
-        end
-      end
+      outcome :outcome_not_affected, use_outcome_templates: true
     end
   end
 end

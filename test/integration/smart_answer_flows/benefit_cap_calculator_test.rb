@@ -158,7 +158,6 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
             should "go to outcome" do
               assert_current_node :outcome_not_affected
-       assert_phrase_list :outcome_phrase, [:outcome_not_affected_phrase, :contact_details]
             end
           end #Q4 no additional benefits at Outcome 5
         end #Q3 not receiving benefits
