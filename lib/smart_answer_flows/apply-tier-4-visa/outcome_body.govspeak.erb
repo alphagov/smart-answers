@@ -23,12 +23,12 @@ You should apply during the last 3 months of your current permission to stay and
 ^You must already be in the UK to switch to this visa.^
 
 <% end %>
-<% if general_or_child == 'child' && switch_or_extend == 'switch' %>
+<% if type_of_visa == 'switch_child' %>
   Go back to the [Tier 4 (Child) student visa](/child-study-visa/switch-to-this-visa) guide.
-<% elsif general_or_child == 'child' && switch_or_extend == 'extend' %>
+<% elsif type_of_visa == 'extend_child' %>
   Go back to the [Tier 4 (Child) student visa](/child-study-visa/extend-your-visa) guide.
-<% elsif general_or_child == 'general' && switch_or_extend == 'switch' %>
+<% elsif type_of_visa == 'switch_general' %>
   Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/switch-to-this-visa) guide.
-<% elsif general_or_child == 'general' && switch_or_extend == 'extend' %>
+<% elsif type_of_visa == 'extend_general' %>
   Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/extend-your-visa) guide.
 <% end %>

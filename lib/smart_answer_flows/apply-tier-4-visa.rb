@@ -22,14 +22,6 @@ module SmartAnswer
           end
         end
 
-        calculate :general_or_child do
-          if %w(switch_general extend_general).include?(type_of_visa)
-            "general"
-          else
-            "child"
-          end
-        end
-
         next_node(:sponsor_id?)
       end
 
