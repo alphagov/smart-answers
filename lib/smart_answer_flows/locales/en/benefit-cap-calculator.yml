@@ -24,22 +24,6 @@ en-GB:
         estimate_only: |
           This is an estimate only. Contact the Department for Work and Pensions if you need further help.
 
-        outcome_not_affected_exemptions_phrase: |
-          These benefits are exempt from the benefit cap:
-
-          - Attendance Allowance
-          - Disability Living Allowance
-          - Industrial Injuries Benefit
-          - Personal Independence Payment
-          - Employment and Support Allowance (support component)
-          - War Widow’s or War Widower’s Pension
-          - Working Tax Credit
-          - Armed Forces Compensation Scheme
-          - Armed Forces Independence Payment
-
-          You may be affected by the cap if your circumstances change.
-
-          Contact the Department for Work and Pensions if you need further help:
         outcome_not_affected_no_housing_benefit_phrase: |
           You aren’t affected by the benefit cap if you’re not claiming Housing Benefit. You might be affected by the cap if you start claiming Housing Benefit.
 
@@ -226,12 +210,6 @@ en-GB:
 
 
 # Outcomes
-# outcome 1 not affected as exempt
-      outcome_not_affected_exemptions:
-        title: Based on the answers you’ve given, you’re not affected by the benefit cap.
-        body: |
-          %{outcome_phrase}
-
 # outcome 2 no affected by as not receiving housing benefit
       outcome_not_affected_no_housing_benefit:
         title: "Based on the answers you’ve given, you’re not affected by the benefit cap."
