@@ -1277,7 +1277,7 @@ module SmartAnswer
 
         precalculate :commonwealth_countries_cp_outcome do
           phrases = PhraseList.new
-          if %w(canada new-zealand south-africa).include?(ceremony_country)
+          if %w(canada south-africa).include?(ceremony_country)
             phrases << "synonyms_of_cp_in_#{ceremony_country}".gsub('-', '_').to_sym
           end
 
