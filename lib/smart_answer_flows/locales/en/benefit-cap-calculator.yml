@@ -19,16 +19,6 @@ en-GB:
         "no": "No"
 
       phrases:
-        outcome_not_affected_less_than_cap_phrase: |
-          ##How this is worked out
-
-          The total amount of your benefits are added together:
-
-          Total amount of benefits affected by cap: £%{total_benefits}
-
-          As this amount is lower than your benefit cap of £%{benefit_cap}, your benefits won’t change.
-
-          This is an estimate only. Contact the Department for Work and Pensions if you need further help.
         outcome_not_affected_phrase: |
           There are only certain benefits that are affected by the benefit cap.  You may still get benefits and not be affected.
 
@@ -176,12 +166,6 @@ en-GB:
 
 
 # Outcomes
-# outcome 4
-      outcome_not_affected_less_than_cap:
-        title: Based on the answers you’ve given, you won’t be affected by the benefit cap. This is because the total amount of benefits you get are less than the benefit cap.
-        body: |
-          %{outcome_phrase}
-
 # outcome 5
       outcome_not_affected:
         title: Based on the answers you’ve given, you’re not affected by the benefit cap.

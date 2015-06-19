@@ -354,11 +354,7 @@ module SmartAnswer
       end
 
       ## Outcome 4
-      outcome :outcome_not_affected_less_than_cap do
-        precalculate :outcome_phrase do
-          PhraseList.new(:outcome_not_affected_less_than_cap_phrase, :contact_details)
-        end
-
+      outcome :outcome_not_affected_less_than_cap, use_outcome_templates: true do
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
         end
