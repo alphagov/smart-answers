@@ -5,8 +5,6 @@ FLOW_REGISTRY_OPTIONS[:preload_flows] = true
 
 require 'rails/test_help'
 
-require 'mocha/setup'
-
 require 'webmock/minitest'
 WebMock.disable_net_connect!(allow_localhost: true)
 
