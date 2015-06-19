@@ -1,12 +1,14 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
+require "smart_answer_flows/calculate-employee-redundancy-pay"
+
 class CalculateRedundancyPayTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   context "Employer" do
     setup do
-      setup_for_testing_flow 'calculate-employee-redundancy-pay'
+      setup_for_testing_flow SmartAnswer::CalculateEmployeeRedundancyPayFlow
     end
 
     should "ask when the employee was made redundant" do
