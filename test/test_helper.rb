@@ -31,4 +31,6 @@ end
 require 'gds_api/test_helpers/json_client_helper'
 require 'support/fixture_methods'
 
-include FixtureMethods
+class ActiveSupport::TestCase
+  include FixtureMethods
+end
