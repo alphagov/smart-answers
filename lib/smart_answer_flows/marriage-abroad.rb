@@ -880,7 +880,7 @@ module SmartAnswer
             elsif ceremony_country == 'luxembourg'
               phrases << :pay_in_cash_visa_or_mastercard
             elsif ceremony_country == 'russia'
-              phrases << :consular_cni_os_fees_russia
+              phrases << :pay_by_mastercard_or_visa
             elsif ceremony_country == 'finland'
               phrases << :pay_in_euros_or_visa_electron
             elsif ceremony_country == 'kuwait'
