@@ -3,7 +3,7 @@ require 'gds_api/test_helpers/content_api'
 require 'gds_api/test_helpers/worldwide'
 
 class SmartAnswerResponsesAndExpectedResultsTest < ActionController::TestCase
-  self.i_suck_and_my_tests_are_order_dependent!
+  i_suck_and_my_tests_are_order_dependent!
   RUN_ME_LAST = 'zzzzzzzzzzz run me last'
 
   include GdsApi::TestHelpers::ContentApi
