@@ -12,7 +12,6 @@ end
 
 FLOW_REGISTRY_OPTIONS[:preload_flows] = true
 
-require 'minitest/unit'
 require 'rails/test_help'
 
 require 'mocha/setup'
