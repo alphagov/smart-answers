@@ -67,13 +67,6 @@ en-GB:
         error_message: Please use numbers only, eg 9000
 
 #outcomes
-      sorry:
-        title: You don't qualify for Married Couple's Allowance.
-        body: |
-          You or your partner had to be born before 6 April 1935 to be [eligible for Married Couple's Allowance](/married-couples-allowance/eligibility).
-
-          If you and your partner were born on or after 6 April 1935, you may be able to claim [Marriage Allowance](/marriage-allowance) instead.
-
       highest_earner_done:
         title: The highest earner qualifies for Married Couple's Allowance - they'll get %{allowance} off their tax bill.
         body: |
