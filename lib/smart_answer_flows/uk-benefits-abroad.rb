@@ -393,7 +393,7 @@ module SmartAnswer
       end
 
       outcome :pension_going_abroad_outcome, use_outcome_templates: true # A2 going_abroad
-      outcome :jsa_less_than_a_year_medical_outcome # A3 going_abroad
+      outcome :jsa_less_than_a_year_medical_outcome, use_outcome_templates: true # A3 going_abroad
       outcome :jsa_less_than_a_year_other_outcome # A4 going_abroad
       outcome :jsa_eea_going_abroad_outcome # A5 going_abroad
       outcome :jsa_social_security_going_abroad_outcome # A6 going_abroad
