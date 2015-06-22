@@ -309,11 +309,6 @@ en-GB:
 
           Contact the [International Pension Centre](/international-pension-centre) to set up your claim.
 
-# A8 going_abroad and A6 already_abroad
-      wfp_not_eligible_outcome:
-        body: |
-          You can't get Winter Fuel Payments while you're abroad unless you live in the [European Economic Area (EEA)](/eu-eea) or Switzerland.
-
 # A9 going_abroad
       wfp_going_abroad_outcome:
         body: |
