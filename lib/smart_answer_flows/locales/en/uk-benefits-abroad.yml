@@ -343,13 +343,6 @@ en-GB:
         body: |
           You can claim [Statutory Sick Pay](/statutory-sick-pay-ssp#how-to-claim).
 
-# A20 going_abroad and A22 already_abroad
-      ssp_going_abroad_not_entitled_outcome:
-        body: |
-          You can't get Statutory Sick Pay while you're abroad.
-
-          You may be able to get benefits from %{country_name} if you've paid into a social security insurance scheme there.
-
 # A18 already_abroad
       ssp_already_abroad_not_entitled_outcome:
         body: |

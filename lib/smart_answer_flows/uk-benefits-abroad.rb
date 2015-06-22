@@ -406,7 +406,7 @@ module SmartAnswer
       outcome :child_benefit_entitled_outcome, use_outcome_templates: true # A17 going_abroad and A15 already_abroad
       outcome :child_benefit_not_entitled_outcome, use_outcome_templates: true # A18 going_abroad and A16 already_abroad
       outcome :ssp_going_abroad_entitled_outcome, use_outcome_templates: true # A19 going_abroad
-      outcome :ssp_going_abroad_not_entitled_outcome # A20 going_abroad
+      outcome :ssp_going_abroad_not_entitled_outcome, use_outcome_templates: true # A20 going_abroad
 
       outcome :jsa_eea_already_abroad_outcome # A3 already_abroad
       outcome :jsa_social_security_already_abroad_outcome # A4 already_abroad
