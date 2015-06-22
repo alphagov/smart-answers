@@ -278,11 +278,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A2 already_abroad
-      pension_already_abroad_outcome:
-        body: |
-          You can get your [State Pension while you're abroad](/state-pension-if-you-retire-abroad/how-to-claim).
-
 # A7 already_abroad
       wfp_eea_eligible_outcome:
         body: |
