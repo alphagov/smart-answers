@@ -486,4 +486,117 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
     end
   end
+
+  context "first_sick_day? date validation" do
+    setup do
+      add_response :additional_statutory_paternity_pay
+      add_response :no
+      add_response :no
+      assert_current_node :first_sick_day?
+    end
+
+    should "not allow dates before 2011" do
+      add_response Date.parse("2010-12-31")
+      assert_current_node_is_error
+    end
+
+    should "not allow dates next year" do
+      add_response (Date.today.end_of_year + 1.day).to_s
+      assert_current_node_is_error
+    end
+  end
+
+  context "last_sick_day? date validation" do
+    setup do
+      add_response :additional_statutory_paternity_pay
+      add_response :yes
+      add_response :no
+      add_response "02/04/2013"
+      assert_current_node :last_sick_day?
+    end
+
+    should "not allow dates before 2012" do
+      add_response Date.parse("2011-12-21")
+      assert_current_node_is_error
+    end
+
+    should "not allow dates next year" do
+      add_response (Date.today.end_of_year + 1.day).to_s
+      assert_current_node_is_error
+    end
+  end
+
+  context "last_payday_before_sickness? date validation" do
+    setup do
+      add_response :additional_statutory_paternity_pay
+      add_response :yes
+      add_response :no
+      add_response "02/04/2013"
+      add_response "10/04/2013"
+      add_response "eight_weeks_more"
+      add_response "weekly"
+      assert_current_node :last_payday_before_sickness?
+    end
+
+    should "not allow dates before 2010" do
+      add_response Date.parse("2009-12-31")
+      assert_current_node_is_error
+    end
+
+    should "not allow dates next year" do
+      add_response (Date.today.end_of_year + 1.day).to_s
+      assert_current_node_is_error
+    end
+  end
+
+  context "last_payday_before_offset? date validation" do
+    setup do
+      add_response :additional_statutory_paternity_pay
+      add_response :yes
+      add_response :no
+      add_response "02/04/2013"
+      add_response "10/04/2013"
+      add_response "eight_weeks_more"
+      add_response "weekly"
+      add_response "31/03/2013"
+      assert_current_node :last_payday_before_offset?
+    end
+
+    should "not allow dates before 2010" do
+      add_response Date.parse("2009-12-31")
+      assert_current_node_is_error
+    end
+
+    should "not allow dates next year" do
+      add_response (Date.today.end_of_year + 1.day).to_s
+      assert_current_node_is_error
+    end
+  end
+
+  context "linked_sickness_start_date? date validation" do
+    setup do
+      add_response :additional_statutory_paternity_pay
+      add_response :yes
+      add_response :no
+      add_response "02/04/2013"
+      add_response "10/04/2013"
+      add_response "eight_weeks_more"
+      add_response "weekly"
+      add_response "31/03/2013"
+      add_response "31/01/2013"
+      add_response "4000"
+      add_response :yes
+      assert_current_node :linked_sickness_start_date?
+    end
+
+    should "not allow dates before 2010" do
+      add_response Date.parse("2009-12-31")
+      assert_current_node_is_error
+    end
+
+    should "not allow dates next year" do
+      add_response (Date.today.end_of_year + 1.day).to_s
+      assert_current_node_is_error
+    end
+  end
 end
