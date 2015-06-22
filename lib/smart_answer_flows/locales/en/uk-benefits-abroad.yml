@@ -325,18 +325,6 @@ en-GB:
 
           Contact the [International Pension Centre](/international-pension-centre) to find out if you qualify.
 
-# A14 going_abroad
-      child_benefit_fy_going_abroad_outcome:
-        body: |
-          There is a social security agreement between the UK and %{country_name}. You may be able to get Child Benefit abroad if you (or your spouse if you go with them):
-
-          - go to work in %{country_name}
-          - continue to pay National Insurance contributions
-
-          The UK and %{country_name} can count time you spend living or working in the other country when deciding if you qualify for benefits there.
-
-          Contact [HMRC](/child-benefit/further-information) to find out how to claim abroad.
-
 # A12 already_abroad
       child_benefit_fy_already_abroad_outcome:
         body: |
