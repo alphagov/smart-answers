@@ -397,10 +397,6 @@ en-GB:
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
           *[JSA]: Jobseeker's Allowance
-# A2 going_abroad
-      pension_going_abroad_outcome:
-        body: |
-          You can carry on getting your [State Pension while you're abroad](/state-pension-if-you-retire-abroad). Contact the [International Pension Centre](/international-pension-centre) to find out how moving abroad will affect your pension.
 # A2 already_abroad
       pension_already_abroad_outcome:
         body: |
