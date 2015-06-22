@@ -316,14 +316,6 @@ en-GB:
 
           Contact the [International Pension Centre](/international-pension-centre) to claim Statutory Maternity Pay from abroad.
 
-# A12 going_abroad
-      maternity_benefits_social_security_going_abroad_outcome:
-        body: |
-          You can't get Statutory Maternity Pay if you go abroad.
-
-          You may be able to get [Maternity Allowance](/maternity-allowance).
-
-          Contact the [International Pension Centre](/international-pension-centre) to find out if you qualify.
 # A10 already_abroad
       maternity_benefits_social_security_already_abroad_outcome:
         body: |

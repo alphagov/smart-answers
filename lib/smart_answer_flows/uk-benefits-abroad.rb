@@ -405,7 +405,7 @@ module SmartAnswer
       outcome :wfp_not_eligible_outcome, use_outcome_templates: true # A8 going_abroad and A6 already_abroad
       outcome :wfp_going_abroad_outcome, use_outcome_templates: true # A9 going_abroad
       outcome :maternity_benefits_maternity_allowance_outcome, use_outcome_templates: true # A10 going_abroad and A8 already_abroad
-      outcome :maternity_benefits_social_security_going_abroad_outcome # A12 going_abroad
+      outcome :maternity_benefits_social_security_going_abroad_outcome, use_outcome_templates: true # A12 going_abroad
       outcome :maternity_benefits_not_entitled_outcome # A13 going_abroad and A11 already_abroad
       outcome :child_benefit_fy_going_abroad_outcome # A14 going_abroad
       outcome :child_benefit_ss_outcome # A15 going_abroad and A13 already_abroad
