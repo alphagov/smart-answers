@@ -127,7 +127,7 @@ module SmartAnswer
           calculator.calculate_allowance(age_related_allowance, income)
         end
       end
-      outcome :sorry
+      outcome :sorry, use_outcome_templates: true
     end
   end
 end
