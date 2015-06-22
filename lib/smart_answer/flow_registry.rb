@@ -5,10 +5,12 @@ SMART_ANSWER_FLOW_NAMES = %w(
   apply-tier-4-visa
   benefit-cap-calculator
   calculate-agricultural-holiday-entitlement
+  calculate-employee-redundancy-pay
   calculate-married-couples-allowance
   calculate-state-pension
   calculate-your-child-maintenance
   calculate-your-holiday-entitlement
+  calculate-your-redundancy-pay
   check-uk-visa
   childcare-costs-for-tax-credits
   energy-grants-calculator
