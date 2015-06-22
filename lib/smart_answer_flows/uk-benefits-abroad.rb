@@ -40,20 +40,24 @@ module SmartAnswer
           PhraseList.new(:"why_#{going_or_already_abroad}_title")
         end
 
+        calculate :is_already_abroad do |response|
+          response == 'already_abroad'
+        end
+
         calculate :already_abroad_text do |response|
-          if response == 'already_abroad'
+          if is_already_abroad
             PhraseList.new(:already_abroad_text)
           end
         end
 
         calculate :already_abroad_text_two do |response|
-          if response == 'already_abroad'
+          if is_already_abroad
             PhraseList.new(:already_abroad_text_two)
           end
         end
 
         calculate :iidb_maybe do |response|
-          if response == 'already_abroad'
+          if is_already_abroad
             PhraseList.new(:iidb_maybe_text)
           end
         end
