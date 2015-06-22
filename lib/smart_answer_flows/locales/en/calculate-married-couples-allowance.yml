@@ -67,27 +67,6 @@ en-GB:
         error_message: Please use numbers only, eg 9000
 
 #outcomes
-      highest_earner_done:
-        title: The highest earner qualifies for Married Couple's Allowance - they'll get %{allowance} off their tax bill.
-        body: |
-          Contact HM Revenue & Customs to claim.
-
-
-          $C
-          **HM Revenue & Customs**\\
-          **Telephone** 0300 200 3300\\
-          **Textphone** 0300 200 3319\\
-          [Find out about call charges](/call-charges)
-          $C
-
-
-          %This result is an estimate based on your answers.%
-        next_steps: |
-          Read the [guide to Married Couple's Allowance](/married-couples-allowance) to:
-
-          - learn more about what you'll get and how to claim
-          - find out how to transfer your Married Couple's Allowance to your  partner
-
       husband_done:
         title: The husband qualifies for Married Couple's Allowance - he'll get %{allowance} off his tax bill.
         body: |
