@@ -278,15 +278,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A19 already_abroad
-      tax_credits_crown_servant_outcome:
-        body: |
-          You may be able to get tax credits while you're abroad.
-
-          Contact the Tax Credits Helpline to claim.
-
-          %{tax_credits_crown_servant}
-
 # A20 already_abroad
       tax_credits_cross_border_worker_outcome:
         body: |

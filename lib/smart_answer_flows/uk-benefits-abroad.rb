@@ -418,11 +418,7 @@ module SmartAnswer
       outcome :child_benefit_jtu_outcome, use_outcome_templates: true # A14 already_abroad
       outcome :ssp_already_abroad_entitled_outcome, use_outcome_templates: true # A17 already_abroad
       outcome :ssp_already_abroad_not_entitled_outcome, use_outcome_templates: true # A18 already_abroad
-      outcome :tax_credits_crown_servant_outcome do # A19 already_abroad
-        precalculate :tax_credits_crown_servant do
-          PhraseList.new(:"tax_credits_#{going_or_already_abroad}_helpline")
-        end
-      end
+      outcome :tax_credits_crown_servant_outcome, use_outcome_templates: true # A19 already_abroad
       outcome :tax_credits_cross_border_worker_outcome do # A20 already_abroad and A22 going_abroad
         precalculate :tax_credits_cross_border_worker do
           PhraseList.new(:"tax_credits_cross_border_#{going_or_already_abroad}", :tax_credits_cross_border, :"tax_credits_#{going_or_already_abroad}_helpline")

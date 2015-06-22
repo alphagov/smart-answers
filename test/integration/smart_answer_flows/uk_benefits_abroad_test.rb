@@ -448,7 +448,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
         should "take you to crown servant outcome" do
           assert_current_node :tax_credits_crown_servant_outcome
-          assert_phrase_list :tax_credits_crown_servant, [:tax_credits_going_abroad_helpline]
         end
       end
       context "answer cross-border worker" do
@@ -1216,7 +1215,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "take you to crown servant outcome" do
         assert_current_node :tax_credits_crown_servant_outcome
-        assert_phrase_list :tax_credits_crown_servant, [:tax_credits_already_abroad_helpline]
       end
     end
     context "answer cross-border worker" do
