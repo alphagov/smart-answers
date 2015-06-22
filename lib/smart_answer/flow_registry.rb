@@ -1,7 +1,6 @@
 SMART_ANSWER_FLOW_NAMES = %w(
   additional-commodity-code
   am-i-getting-minimum-wage
-  appeal-a-benefits-decision
   apply-tier-4-visa
   benefit-cap-calculator
   calculate-agricultural-holiday-entitlement
