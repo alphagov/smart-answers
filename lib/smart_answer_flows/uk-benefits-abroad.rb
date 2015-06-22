@@ -44,12 +44,6 @@ module SmartAnswer
           response == 'already_abroad'
         end
 
-        calculate :already_abroad_text do |response|
-          if is_already_abroad
-            PhraseList.new(:already_abroad_text)
-          end
-        end
-
         calculate :already_abroad_text_two do |response|
           if is_already_abroad
             PhraseList.new(:already_abroad_text_two)

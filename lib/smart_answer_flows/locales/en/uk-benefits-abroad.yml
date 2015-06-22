@@ -33,7 +33,6 @@ en-GB:
         ci_country_name: Guernsey or Jersey
         ci_going_abroad_prefix: "to "
         ci_already_abroad_prefix: "in "
-        already_abroad_text: " while you're abroad "
         already_abroad_text_two: " or permanently"
         tax_credits_cross_border_going_abroad: |
           You may be able to get tax credits while you're abroad.
