@@ -325,11 +325,6 @@ en-GB:
 
           Contact the [International Pension Centre](/international-pension-centre) to find out if you qualify.
 
-# A13 going_abroad and A11 already_abroad
-      maternity_benefits_not_entitled_outcome:
-        body: |
-          You can't get UK Statutory Maternity Pay or Maternity Allowance.
-
 # A14 going_abroad
       child_benefit_fy_going_abroad_outcome:
         body: |
