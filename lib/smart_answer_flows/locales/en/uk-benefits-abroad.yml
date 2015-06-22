@@ -338,11 +338,6 @@ en-GB:
 
           Contact [HMRC](/child-benefit/further-information) to check if you're eligible.
 
-# A19 going_abroad
-      ssp_going_abroad_entitled_outcome:
-        body: |
-          You can export your Statutory Sick Pay. [Claim Statutory Sick Pay](/statutory-sick-pay-ssp/how-to-claim) the usual way, or talk to your employer about exporting it.
-
 # A17 already_abroad
       ssp_already_abroad_entitled_outcome:
         body: |
