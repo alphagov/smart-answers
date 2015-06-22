@@ -278,14 +278,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A4 already_abroad
-      jsa_social_security_already_abroad_outcome:
-        body: |
-          You can’t claim JSA from abroad. You may qualify for unemployment benefits in %{country_name}.
-
-          Ask the authorities in %{country_name} about any benefits you might be entitled to.
-
-          *[JSA]: Jobseeker's Allowance
 # A2 already_abroad
       pension_already_abroad_outcome:
         body: |
