@@ -412,7 +412,7 @@ module SmartAnswer
       outcome :jsa_social_security_already_abroad_outcome, use_outcome_templates: true # A4 already_abroad
       outcome :pension_already_abroad_outcome, use_outcome_templates: true # A2 already_abroad
       outcome :wfp_eea_eligible_outcome, use_outcome_templates: true # A7 already_abroad
-      outcome :maternity_benefits_eea_entitled_outcome # A11 going_abroad and A9 already_abroad
+      outcome :maternity_benefits_eea_entitled_outcome, use_outcome_templates: true # A11 going_abroad and A9 already_abroad
       outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
       outcome :child_benefit_fy_already_abroad_outcome # A12 already_abroad
       outcome :child_benefit_jtu_outcome # A14 already_abroad

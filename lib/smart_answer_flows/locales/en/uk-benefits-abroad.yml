@@ -278,13 +278,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A11 going_abroad and A9 already_abroad
-      maternity_benefits_eea_entitled_outcome:
-        body: |
-          You can get [Statutory Maternity Pay](/statutory-maternity-pay#how-to-claim).
-
-          Contact the [International Pension Centre](/international-pension-centre) to claim Statutory Maternity Pay from abroad.
-
 # A10 already_abroad
       maternity_benefits_social_security_already_abroad_outcome:
         body: |
