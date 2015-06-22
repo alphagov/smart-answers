@@ -408,7 +408,7 @@ module SmartAnswer
       outcome :ssp_going_abroad_entitled_outcome, use_outcome_templates: true # A19 going_abroad
       outcome :ssp_going_abroad_not_entitled_outcome, use_outcome_templates: true # A20 going_abroad
 
-      outcome :jsa_eea_already_abroad_outcome # A3 already_abroad
+      outcome :jsa_eea_already_abroad_outcome, use_outcome_templates: true # A3 already_abroad
       outcome :jsa_social_security_already_abroad_outcome # A4 already_abroad
       outcome :pension_already_abroad_outcome # A2 already_abroad
       outcome :wfp_eea_eligible_outcome # A7 already_abroad
