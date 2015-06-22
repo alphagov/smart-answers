@@ -295,14 +295,6 @@ en-GB:
           Ask the authorities in %{country_name} about any benefits you might be entitled to.
 
           *[JSA]: Jobseeker's Allowance
-# A7 going_abroad and A5 already_abroad
-      jsa_not_entitled_outcome:
-        body: |
-          You can't get JSA abroad.
-
-          Ask the authorities in %{country_name} about any benefits you might be entitled to.
-
-          *[JSA]: Jobseeker's Allowance
 # A2 already_abroad
       pension_already_abroad_outcome:
         body: |

@@ -397,7 +397,7 @@ module SmartAnswer
       outcome :jsa_less_than_a_year_other_outcome, use_outcome_templates: true # A4 going_abroad
       outcome :jsa_eea_going_abroad_outcome, use_outcome_templates: true # A5 going_abroad
       outcome :jsa_social_security_going_abroad_outcome, use_outcome_templates: true # A6 going_abroad
-      outcome :jsa_not_entitled_outcome # A7 going_abroad and A5 already_abroad
+      outcome :jsa_not_entitled_outcome, use_outcome_templates: true # A7 going_abroad and A5 already_abroad
       outcome :wfp_not_eligible_outcome # A8 going_abroad and A6 already_abroad
       outcome :wfp_going_abroad_outcome # A9 going_abroad
       outcome :maternity_benefits_maternity_allowance_outcome # A10 going_abroad and A8 already_abroad
