@@ -309,15 +309,6 @@ en-GB:
 
           Contact the [International Pension Centre](/international-pension-centre) to set up your claim.
 
-# A10 going_abroad and A8 already_abroad
-      maternity_benefits_maternity_allowance_outcome:
-        body: |
-          You can't get Statutory Maternity Pay %{already_abroad_text}.
-
-          You may be able to get [Maternity Allowance](/maternity-allowance).
-
-          Contact the [International Pension Centre](/international-pension-centre) with any questions about how to start or continue claiming while abroad.
-
 # A11 going_abroad and A9 already_abroad
       maternity_benefits_eea_entitled_outcome:
         body: |
