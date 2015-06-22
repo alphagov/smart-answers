@@ -338,11 +338,6 @@ en-GB:
 
           Contact [HMRC](/child-benefit/further-information) to check if you're eligible.
 
-# A18 going_abroad and A16 already_abroad
-      child_benefit_not_entitled_outcome:
-        body: |
-          You can't get Child Benefit unless your circumstances change.
-
 # A19 going_abroad
       ssp_going_abroad_entitled_outcome:
         body: |
