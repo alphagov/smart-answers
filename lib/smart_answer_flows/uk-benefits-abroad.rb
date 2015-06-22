@@ -35,15 +35,15 @@ module SmartAnswer
         calculate :country_question_title do
           PhraseList.new(:"#{going_or_already_abroad}_country_question_title")
         end
+
         calculate :why_abroad_question_title do
           PhraseList.new(:"why_#{going_or_already_abroad}_title")
         end
 
-
         calculate :already_abroad_text do |response|
           if response == 'already_abroad'
             PhraseList.new(:already_abroad_text)
-            end
+          end
         end
 
         calculate :already_abroad_text_two do |response|
