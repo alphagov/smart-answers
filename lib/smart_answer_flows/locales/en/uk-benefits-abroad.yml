@@ -278,15 +278,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A7 already_abroad
-      wfp_eea_eligible_outcome:
-        body: |
-          You can get [Winter Fuel Payments](/winter-fuel-payment) while you’re abroad if you have a genuine link with the UK, eg if you’ve lived and worked in the UK for most of your life.
-
-          You must be living in an [EEA country](/eu-eea) or Switzerland during the 3rd week of September immediately before the winter you’re claiming the Winter Fuel Payment for.  
-
-          Contact the [International Pension Centre](/international-pension-centre) to set up your claim.
-
 # A11 going_abroad and A9 already_abroad
       maternity_benefits_eea_entitled_outcome:
         body: |
