@@ -278,11 +278,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A17 already_abroad
-      ssp_already_abroad_entitled_outcome:
-        body: |
-          You can claim [Statutory Sick Pay](/statutory-sick-pay-ssp#how-to-claim).
-
 # A18 already_abroad
       ssp_already_abroad_not_entitled_outcome:
         body: |
