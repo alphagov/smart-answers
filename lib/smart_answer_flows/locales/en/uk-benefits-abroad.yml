@@ -278,15 +278,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A10 already_abroad
-      maternity_benefits_social_security_already_abroad_outcome:
-        body: |
-          You can't get Statutory Maternity Pay while you're abroad.
-
-          You may be able to get [Maternity Allowance](/maternity-allowance).
-
-          Contact the [International Pension Centre](/international-pension-centre) to find out if you qualify.
-
 # A12 already_abroad
       child_benefit_fy_already_abroad_outcome:
         body: |
