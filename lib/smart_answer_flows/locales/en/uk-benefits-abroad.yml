@@ -278,13 +278,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A12 already_abroad
-      child_benefit_fy_already_abroad_outcome:
-        body: |
-          There is a social security agreement between the UK and %{country_name}. You may be able to get Child Benefit abroad.
-
-          Contact [HMRC](/child-benefit/further-information) to find out how to claim abroad.
-
 # A14 already_abroad
       child_benefit_jtu_outcome:
         body: |
