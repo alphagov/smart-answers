@@ -415,7 +415,7 @@ module SmartAnswer
       outcome :maternity_benefits_eea_entitled_outcome, use_outcome_templates: true # A11 going_abroad and A9 already_abroad
       outcome :maternity_benefits_social_security_already_abroad_outcome, use_outcome_templates: true # A10 already_abroad
       outcome :child_benefit_fy_already_abroad_outcome, use_outcome_templates: true # A12 already_abroad
-      outcome :child_benefit_jtu_outcome # A14 already_abroad
+      outcome :child_benefit_jtu_outcome, use_outcome_templates: true # A14 already_abroad
       outcome :ssp_already_abroad_entitled_outcome # A17 already_abroad
       outcome :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
       outcome :tax_credits_crown_servant_outcome do # A19 already_abroad
