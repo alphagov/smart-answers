@@ -1,3 +1,8 @@
+<% content_for :title do %>
+Check that your sponsor details are correct before applying.
+<% end %>
+
+<% content_for :body do %>
 Your sponsor institution is: <%= sponsor_name %>
 
 Your sponsor number is: <%= sponsor_id %>
@@ -32,4 +37,5 @@ You should apply during the last 3 months of your current permission to stay and
   Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/switch-to-this-visa) guide.
 <% when 'extend_general' %>
   Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/extend-your-visa) guide.
+<% end %>
 <% end %>
