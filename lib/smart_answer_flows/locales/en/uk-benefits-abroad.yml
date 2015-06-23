@@ -413,11 +413,6 @@ en-GB:
 
           Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
 
-# A41 going_abroad
-      is_more_than_a_year_outcome:
-        body: |
-          You can't get [Income Support](/income-support) abroad if you're moving abroad for more than 1 year.
-
 # A43 going_abroad
       is_claiming_benefits_outcome:
         body: |
