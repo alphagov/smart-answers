@@ -216,10 +216,3 @@ en-GB:
           is_under_a_year_other: Less than 1 year, for a different reason
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
-
-# A40 already_abroad
-      is_already_abroad_outcome:
-        body: |
-          You can't apply for [Income Support](/income-support) while you're abroad.
-
-          Ask the authorities in the country you live in about any benefits you might be entitled to.
