@@ -50,12 +50,6 @@ module SmartAnswer
           end
         end
 
-        calculate :iidb_maybe do |response|
-          if is_already_abroad
-            PhraseList.new(:iidb_maybe_text)
-          end
-        end
-
         next_node :which_benefit?
       end
 
@@ -448,7 +442,7 @@ module SmartAnswer
       outcome :esa_already_abroad_eea_outcome, use_outcome_templates: true # A27 already_abroad
       outcome :esa_already_abroad_ss_outcome, use_outcome_templates: true # A28 already_abroad
       outcome :esa_already_abroad_other_outcome, use_outcome_templates: true # A29 already_abroad
-      outcome :iidb_maybe_outcome # A 30 already_abroad and A31 going_abroad
+      outcome :iidb_maybe_outcome, use_outcome_templates: true # A 30 already_abroad and A31 going_abroad
       outcome :iidb_already_abroad_eea_outcome # A31 already_abroad
       outcome :iidb_already_abroad_ss_outcome # A32 already_abroad
       outcome :iidb_already_abroad_other_outcome # A33 already_abroad
