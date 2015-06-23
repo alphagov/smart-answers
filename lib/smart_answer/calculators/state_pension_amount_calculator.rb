@@ -210,5 +210,9 @@ module SmartAnswer::Calculators
         qualifying_years.between?(10,29) &&
         dob.between?(rre_start_date, rre_end_date)
     end
+
+    def over_55?
+      dob <= 55.years.ago
+    end
   end
 end

@@ -842,5 +842,19 @@ module SmartAnswer::Calculators
         assert_equal false, @calculator.birthday_on_feb_29?
       end
     end
+
+    context "#over_55?" do
+      should "be true for someone older than 55" do
+        Timecop.travel("2015-01-01")
+        calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: Date.parse("1 January 1960"), qualifying_years: 20)
+        assert_equal true, calculator.over_55?
+      end
+
+      should "be false for someone younger than 55" do
+        Timecop.travel("2015-01-01")
+        calculator = SmartAnswer::Calculators::StatePensionAmountCalculator.new(gender: "male", dob: Date.parse("1 January 1961"), qualifying_years: 20)
+        assert_equal false, calculator.over_55?
+      end
+    end
   end
 end
