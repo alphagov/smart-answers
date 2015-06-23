@@ -443,7 +443,7 @@ module SmartAnswer
       outcome :is_not_eligible_outcome, use_outcome_templates: true # A45 going_abroad
 
       outcome :tax_credits_medical_death_outcome, use_outcome_templates: true # A24 already_abroad
-      outcome :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
+      outcome :esa_already_abroad_under_a_year_medical_outcome, use_outcome_templates: true # A25 already_abroad
       outcome :esa_already_abroad_under_a_year_other_outcome # A26 already_abroad
       outcome :esa_already_abroad_eea_outcome # A27 already_abroad
       outcome :esa_already_abroad_ss_outcome # A28 already_abroad
