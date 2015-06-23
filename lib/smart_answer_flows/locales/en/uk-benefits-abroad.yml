@@ -402,17 +402,6 @@ en-GB:
         body: |
           You can claim bereavement benefits while you're abroad but you won't receive any annual increases once you've left the UK.
 
-# A42 going_abroad
-      is_under_a_year_medical_outcome:
-        body: |
-          You may be able to carry on getting [Income Support](/income-support) for up to 8 weeks if your child is receiving medical treatment.
-
-          You can't get Income Support while you're abroad if you're going for treatment for yourself.
-
-          There is no 8 week limit for NHS-funded treatment abroad for either you or your child.
-
-          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
-
 # A43 going_abroad
       is_claiming_benefits_outcome:
         body: |

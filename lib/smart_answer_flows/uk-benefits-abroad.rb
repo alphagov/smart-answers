@@ -437,7 +437,7 @@ module SmartAnswer
       outcome :bb_going_abroad_eea_outcome, use_outcome_templates: true # A39 going_abroad
       outcome :bb_going_abroad_ss_outcome, use_outcome_templates: true # A40 going_abroad
       outcome :is_more_than_a_year_outcome, use_outcome_templates: true # A41 going_abroad
-      outcome :is_under_a_year_medical_outcome # A42 going_abroad
+      outcome :is_under_a_year_medical_outcome, use_outcome_templates: true # A42 going_abroad
       outcome :is_claiming_benefits_outcome # A43 going_abroad
       outcome :is_abroad_for_treatment_outcome # A44 going_abroad
       outcome :is_not_eligible_outcome # A45 going_abroad
