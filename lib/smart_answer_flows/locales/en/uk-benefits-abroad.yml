@@ -34,14 +34,6 @@ en-GB:
         ci_going_abroad_prefix: "to "
         ci_already_abroad_prefix: "in "
         already_abroad_text_two: " or permanently"
-        tax_credits_medical_death_going_abroad: |
-          You may be able to carry on getting tax credits for up to 12 weeks.
-        tax_credits_medical_death_already_abroad: |
-          You can carry on getting tax credits for up to 12 weeks after leaving the UK if you were already receiving them before you left.
-        tax_credits_medical_death: |
-          You must let the Tax Credit Office know within 1 month of the date you find out if you need to stay abroad for longer than 12 weeks.
-
-          You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn't have.
         tax_credits_going_abroad_helpline: |
 
           $C
@@ -245,11 +237,6 @@ en-GB:
           is_under_a_year_other: Less than 1 year, for a different reason
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
-
-# A24 already_abroad
-      tax_credits_medical_death_outcome:
-        body: |
-          %{tax_credits_medical_death}
 
 # A25 already_abroad
       esa_already_abroad_under_a_year_medical_outcome:

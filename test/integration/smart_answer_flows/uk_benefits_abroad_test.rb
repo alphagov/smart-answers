@@ -488,7 +488,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
             should "take you to medical treatment outcome" do
               assert_current_node :tax_credits_medical_death_outcome
-              assert_phrase_list :tax_credits_medical_death, [:tax_credits_medical_death_going_abroad, :tax_credits_medical_death, :tax_credits_going_abroad_helpline]
             end
           end
           context "answer family bereavement" do
@@ -497,7 +496,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
             should "take you to family bereavement outcome" do
               assert_current_node :tax_credits_medical_death_outcome
-              assert_phrase_list :tax_credits_medical_death, [:tax_credits_medical_death_going_abroad, :tax_credits_medical_death, :tax_credits_going_abroad_helpline]
             end
           end
         end
@@ -1244,7 +1242,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "take you to the medical treatment outcome" do
         assert_current_node :tax_credits_medical_death_outcome
-        assert_phrase_list :tax_credits_medical_death, [:tax_credits_medical_death_already_abroad, :tax_credits_medical_death, :tax_credits_already_abroad_helpline]
       end
     end
     context "not crown or cross, abroad less than a year, family bereavement" do
@@ -1256,7 +1253,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "take you to the family bereavment outcome" do
         assert_current_node :tax_credits_medical_death_outcome
-        assert_phrase_list :tax_credits_medical_death, [:tax_credits_medical_death_already_abroad, :tax_credits_medical_death, :tax_credits_already_abroad_helpline]
       end
     end
     context "not crown or cross, abroad more than a year, no children" do

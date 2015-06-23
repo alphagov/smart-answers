@@ -442,11 +442,7 @@ module SmartAnswer
       outcome :is_abroad_for_treatment_outcome, use_outcome_templates: true # A44 going_abroad
       outcome :is_not_eligible_outcome, use_outcome_templates: true # A45 going_abroad
 
-      outcome :tax_credits_medical_death_outcome do # A24 already_abroad
-        precalculate :tax_credits_medical_death do
-          PhraseList.new(:"tax_credits_medical_death_#{going_or_already_abroad}", :tax_credits_medical_death, :"tax_credits_#{going_or_already_abroad}_helpline")
-        end
-      end
+      outcome :tax_credits_medical_death_outcome, use_outcome_templates: true # A24 already_abroad
       outcome :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
       outcome :esa_already_abroad_under_a_year_other_outcome # A26 already_abroad
       outcome :esa_already_abroad_eea_outcome # A27 already_abroad
