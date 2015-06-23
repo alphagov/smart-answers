@@ -402,11 +402,6 @@ en-GB:
         body: |
           You can claim bereavement benefits while you're abroad but you won't receive any annual increases once you've left the UK.
 
-# A45 going_abroad
-      is_not_eligible_outcome:
-        body: |
-          You can't get [Income Support](/income-support) while you're abroad.
-
 # A40 already_abroad
       is_already_abroad_outcome:
         body: |

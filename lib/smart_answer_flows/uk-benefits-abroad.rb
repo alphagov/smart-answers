@@ -440,7 +440,7 @@ module SmartAnswer
       outcome :is_under_a_year_medical_outcome, use_outcome_templates: true # A42 going_abroad
       outcome :is_claiming_benefits_outcome, use_outcome_templates: true # A43 going_abroad
       outcome :is_abroad_for_treatment_outcome, use_outcome_templates: true # A44 going_abroad
-      outcome :is_not_eligible_outcome # A45 going_abroad
+      outcome :is_not_eligible_outcome, use_outcome_templates: true # A45 going_abroad
 
       outcome :tax_credits_medical_death_outcome do # A24 already_abroad
         precalculate :tax_credits_medical_death do
