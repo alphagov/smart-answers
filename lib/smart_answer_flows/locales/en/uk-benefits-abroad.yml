@@ -254,24 +254,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A22 already_abroad and A24 going_abroad
-      tax_credits_eea_entitled_outcome:
-        body: |
-          You may qualify for [Child Tax Credit](/child-tax-credit).
-
-          Contact the Tax Credits Helpline to claim.
-
-
-          $C
-          **Tax Credits Helpline**\\
-          Telephone: 0345 300 3900\\
-          Textphone: 0345 300 3909\\
-          Outside the UK: +44 2890 538 192\\
-          Monday to Friday, 8am to 8pm\\
-          Saturday 8am to 4pm\\
-          Find out about [call charges](/call-charges)
-          $C
-
 # A23 already_abroad and A25 going_abroad
       tax_credits_holiday_outcome:
         body: |
