@@ -218,15 +218,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A29 already_abroad
-      esa_already_abroad_other_outcome:
-        body: |
-          You can't get ESA.
-
-          You may be able to get benefits from %{country_name} if you've paid into a local social security insurance scheme. Contact the local authorities to find out more.
-
-          *[ESA]: Employment Support Allowance
-
 # A30 already_abroad and A31 going_abroad
       iidb_maybe_outcome:
         body: |
