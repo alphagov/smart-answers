@@ -297,14 +297,6 @@ en-GB:
 
           You may also be able to get benefits from %{country_name} if you’ve paid into a local social security insurance scheme. Contact the local authorities to find out more.
 
-# A30 going_abroad
-      esa_going_abroad_other_outcome:
-        body: |
-          You can't claim ESA.
-
-          You may be able to get benefits from %{country_name} if you've paid into a local social security insurance scheme.
-
-          *[ESA]: Employment Support Allowance
 # A29 already_abroad
       esa_already_abroad_other_outcome:
         body: |
