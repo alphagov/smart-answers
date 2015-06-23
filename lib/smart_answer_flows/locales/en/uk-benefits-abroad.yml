@@ -217,17 +217,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A38 already_abroad
-      bb_already_abroad_ss_outcome:
-        body: |
-          You can claim Bereavement Allowance, Bereavement Payment or Widowed Parent's Allowance as appropriate.
-
-          Find out how to claim:
-
-          - [Bereavement Allowance](/bereavement-allowance#how-to-claim)
-          - [Bereavement Payment](/bereavement-payment#how-to-claim)
-          - [Widowed Parent's Allowance](/widowed-parents-allowance#how-to-claim)
-
 # A39 already_abroad
       bb_already_abroad_other_outcome:
         body: |

@@ -450,7 +450,7 @@ module SmartAnswer
       outcome :db_already_abroad_other_outcome, use_outcome_templates: true # A35 already_abroad
       outcome :db_already_abroad_eea_outcome, use_outcome_templates: true # A36 already_abroad
       outcome :bb_already_abroad_eea_outcome, use_outcome_templates: true # A37 already_abroad
-      outcome :bb_already_abroad_ss_outcome # A38 already_abroad
+      outcome :bb_already_abroad_ss_outcome, use_outcome_templates: true  # A38 already_abroad
       outcome :bb_already_abroad_other_outcome # A39 already_abroad
       outcome :is_already_abroad_outcome # A40 already_abroad
     end
