@@ -217,13 +217,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A31 already_abroad
-      iidb_already_abroad_eea_outcome:
-        body: |
-          You can carry on getting [Industrial Injuries Disablement Benefit](/industrial-injuries-disablement-benefit).
-
-          Contact the [International Pension Centre](/international-pension-centre) with any questions about receiving Industrial Injuries Disablement Benefit while you're abroad.
-
 # A32 already_abroad
       iidb_already_abroad_ss_outcome:
         body: |
