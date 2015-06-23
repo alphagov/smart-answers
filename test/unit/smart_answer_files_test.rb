@@ -64,6 +64,13 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
         assert_equal files.paths.uniq.length, files.paths.length
       end
     end
+
+    should "ignore files that don't exist" do
+      non_existent_file = 'path/to/non-existent/file'
+      files = SmartAnswerFiles.new('flow-name', non_existent_file)
+
+      assert_equal false, files.paths.include?(non_existent_file)
+    end
   end
 
   private
