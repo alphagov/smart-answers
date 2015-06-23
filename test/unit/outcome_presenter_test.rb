@@ -29,6 +29,18 @@ module SmartAnswer
       assert_equal nil, presenter.body
     end
 
+    test '#body returns a single newline when the template is empty' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = ''
+
+      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal "\n", presenter.body
+      end
+    end
+
     test "#body trims newlines by default" do
       outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
@@ -132,6 +144,18 @@ Hello world
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
 
       assert_equal nil, presenter.title
+    end
+
+    test '#title returns an empty string when the template is empty' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = ''
+
+      with_title_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal '', presenter.title
+      end
     end
 
     test '#title trims a single newline from the end of the string' do
