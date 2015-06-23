@@ -34,26 +34,6 @@ en-GB:
         ci_going_abroad_prefix: "to "
         ci_already_abroad_prefix: "in "
         already_abroad_text_two: " or permanently"
-        tax_credits_going_abroad_helpline: |
-
-          $C
-          **Tax Credits Helpline**\\
-          Telephone: 0345 300 3900\\
-          Textphone: 0345 300 3909\\
-          Outside the UK: +44 2890 538 192\\
-          Monday to Friday, 8am to 8pm\\
-          Saturday, 8am to 4pm\\
-          Find out about [call charges](/call-charges)
-          $C
-        tax_credits_already_abroad_helpline: |
-
-          $C
-          **Tax Credits Helpline**\\
-          From outside the UK: +44 2890 538 192\\
-          Monday to Friday, 8am to 8pm\\
-          Saturday, 8am to 4pm
-          $C
-
         iidb_maybe_text: "continued to"
 
 # Shared Country question
