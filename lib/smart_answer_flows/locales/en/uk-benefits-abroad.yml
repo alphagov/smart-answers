@@ -333,13 +333,6 @@ en-GB:
 
           Contact the [International Pension Centre](/international-pension-centre) with any questions about receiving Industrial Injuries Disablement Benefit while you're abroad.
 
-# A33 going_abroad
-      iidb_going_abroad_ss_outcome:
-        body: |
-          The UK and %{country_name} have a social security agreement. You may be able to carry on getting [Industrial Injuries Disablement Benefit](/industrial-injuries-disablement-benefit).
-
-          Tell the office that deals with your benefit that you're planning to move abroad.
-
 # A32 already_abroad
       iidb_already_abroad_ss_outcome:
         body: |
