@@ -445,7 +445,7 @@ module SmartAnswer
       outcome :iidb_maybe_outcome, use_outcome_templates: true # A 30 already_abroad and A31 going_abroad
       outcome :iidb_already_abroad_eea_outcome, use_outcome_templates: true # A31 already_abroad
       outcome :iidb_already_abroad_ss_outcome, use_outcome_templates: true # A32 already_abroad
-      outcome :iidb_already_abroad_other_outcome # A33 already_abroad
+      outcome :iidb_already_abroad_other_outcome, use_outcome_templates: true # A33 already_abroad
       outcome :db_already_abroad_temporary_outcome # A34 already_abroad
       outcome :db_already_abroad_other_outcome # A35 already_abroad
       outcome :db_already_abroad_eea_outcome # A36 already_abroad

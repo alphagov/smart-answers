@@ -217,13 +217,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A33 already_abroad
-      iidb_already_abroad_other_outcome:
-        body: |
-          You can't get Industrial Injuries Disablement Benefit abroad.
-
-          Tell the office that dealt with your benefit that you've moved abroad.
-
 # A34 already_abroad
       db_already_abroad_temporary_outcome:
         body: |
