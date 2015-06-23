@@ -402,13 +402,6 @@ en-GB:
         body: |
           You can claim bereavement benefits while you're abroad but you won't receive any annual increases once you've left the UK.
 
-# A44 going_abroad
-      is_abroad_for_treatment_outcome:
-        body: |
-          You can carry on getting [Income Support](/income-support) for up to 4 weeks while you're abroad.
-
-          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
-
 # A45 going_abroad
       is_not_eligible_outcome:
         body: |
