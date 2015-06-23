@@ -217,11 +217,6 @@ en-GB:
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
 
-# A39 already_abroad
-      bb_already_abroad_other_outcome:
-        body: |
-          You can claim bereavement benefits while you're abroad but you won't receive any annual increases once you've left the UK.
-
 # A40 already_abroad
       is_already_abroad_outcome:
         body: |
