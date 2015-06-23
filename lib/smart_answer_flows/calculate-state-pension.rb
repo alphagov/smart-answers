@@ -176,6 +176,20 @@ module SmartAnswer
           calc.woman_born_in_married_stamp_era?
         end
 
+        define_predicate(:over_55?) do |response|
+          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+          calc.over_55?
+        end
+
+        define_predicate(:new_state_pension?) do |response|
+          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+          !(calc.state_pension_date < Date.parse('6 April 2016'))
+        end
+
+        on_condition(new_state_pension?) do
+          next_node_if(:over55_result, over_55?)
+        end
+
         next_node_if(:pay_reduced_ni_rate?, woman_and_born_in_date_range?)
         on_condition(before_state_pension_date?) do
           next_node_if(:too_young, under_20_years_old?)
@@ -504,6 +518,7 @@ module SmartAnswer
       end
 
       outcome :age_result
+      outcome :over55_result
 
       outcome :amount_result do
         precalculate :calc do
