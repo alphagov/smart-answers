@@ -420,7 +420,7 @@ module SmartAnswer
       outcome :ssp_already_abroad_not_entitled_outcome, use_outcome_templates: true # A18 already_abroad
       outcome :tax_credits_crown_servant_outcome, use_outcome_templates: true # A19 already_abroad
       outcome :tax_credits_cross_border_worker_outcome, use_outcome_templates: true # A20 already_abroad and A22 going_abroad
-      outcome :tax_credits_unlikely_outcome #A21 already_abroad and A23 going_abroad
+      outcome :tax_credits_unlikely_outcome, use_outcome_templates: true #A21 already_abroad and A23 going_abroad
       outcome :tax_credits_eea_entitled_outcome # A22 already_abroad and A24 going_abroad
       outcome :tax_credits_holiday_outcome do # A23 already_abroad and A25 going_abroad and A26 going_abroad
         precalculate :tax_credits_holiday do
