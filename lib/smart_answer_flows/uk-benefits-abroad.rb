@@ -445,7 +445,7 @@ module SmartAnswer
       outcome :tax_credits_medical_death_outcome, use_outcome_templates: true # A24 already_abroad
       outcome :esa_already_abroad_under_a_year_medical_outcome, use_outcome_templates: true # A25 already_abroad
       outcome :esa_already_abroad_under_a_year_other_outcome, use_outcome_templates: true # A26 already_abroad
-      outcome :esa_already_abroad_eea_outcome # A27 already_abroad
+      outcome :esa_already_abroad_eea_outcome, use_outcome_templates: true # A27 already_abroad
       outcome :esa_already_abroad_ss_outcome # A28 already_abroad
       outcome :esa_already_abroad_other_outcome # A29 already_abroad
       outcome :iidb_maybe_outcome # A 30 already_abroad and A31 going_abroad
