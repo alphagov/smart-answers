@@ -34,30 +34,6 @@ en-GB:
         ci_going_abroad_prefix: "to "
         ci_already_abroad_prefix: "in "
         already_abroad_text_two: " or permanently"
-        tax_credits_cross_border_going_abroad: |
-          You may be able to get tax credits while you're abroad.
-        tax_credits_cross_border_already_abroad: |
-          You may be able to claim tax credits while you're abroad.
-
-        tax_credits_cross_border: |
-          ##Working Tax Credit
-
-          You could get [Working Tax Credit](/working-tax-credit) if you either:
-
-          - live in Switzerland or an [European Economic Area](/eu-eea) (EEA) country and travel to the UK to work
-          - travel abroad to work, but are ‘ordinarily resident' in the UK
-
-          ^Ordinarily resident means you normally live in the UK, and plan to stay for the time being.^
-
-          ##Child Tax Credit
-
-          You could get [Child Tax Credit](/child-tax-credit) if:
-
-          - you are ordinarily resident in the UK
-          - you work in the UK and pay [National Insurance contributions](/national-insurance) here
-          - your child lives in an EEA country or in Switzerland and depends on you to support them
-
-          Contact the Tax Credits Helpline to claim.
         tax_credits_holiday_going_abroad: |
           You may be able to carry on getting tax credits for up to 8 weeks.
         tax_credits_holiday_already_abroad: |
@@ -277,13 +253,6 @@ en-GB:
           is_under_a_year_other: Less than 1 year, for a different reason
           is_more_than_a_year: More than 1 year
         hint: You can't apply for Income Support from abroad.
-
-# A20 already_abroad
-      tax_credits_cross_border_worker_outcome:
-        body: |
-          %{tax_credits_cross_border_worker}
-
-          *[EEA]: European Economic Area
 
 # A21 already_abroad and A23 going_abroad
       tax_credits_unlikely_outcome:

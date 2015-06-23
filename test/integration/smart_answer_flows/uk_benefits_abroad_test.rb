@@ -456,7 +456,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         end
         should "take you to cross-border worker outcome" do
           assert_current_node :tax_credits_cross_border_worker_outcome
-          assert_phrase_list :tax_credits_cross_border_worker, [:tax_credits_cross_border_going_abroad, :tax_credits_cross_border, :tax_credits_going_abroad_helpline]
         end
       end
       context "answer none of the above" do
@@ -1224,7 +1223,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "take you to cross-border worker outcome" do
         assert_current_node :tax_credits_cross_border_worker_outcome
-        assert_phrase_list :tax_credits_cross_border_worker, [:tax_credits_cross_border_already_abroad, :tax_credits_cross_border, :tax_credits_already_abroad_helpline]
       end
     end
     context "not crown or cross, abroad less than a year, holiday" do
