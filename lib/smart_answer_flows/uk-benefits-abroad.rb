@@ -432,7 +432,7 @@ module SmartAnswer
       outcome :iidb_going_abroad_other_outcome, use_outcome_templates: true # A34 going_abroad
       outcome :db_going_abroad_temporary_outcome, use_outcome_templates: true # A35 going_abroad
       outcome :db_going_abroad_other_outcome, use_outcome_templates: true # A36 going_abroad
-      outcome :db_going_abroad_eea_outcome # A37 going_abroad
+      outcome :db_going_abroad_eea_outcome, use_outcome_templates: true # A37 going_abroad
       outcome :bb_going_abroad_other_outcome # A38 going_abroad
       outcome :bb_going_abroad_eea_outcome # A39 going_abroad
       outcome :bb_going_abroad_ss_outcome # A40 going_abroad
