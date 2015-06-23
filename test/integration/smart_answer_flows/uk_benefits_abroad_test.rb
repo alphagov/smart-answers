@@ -480,7 +480,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             end
             should "take you to the holiday outcome" do
               assert_current_node :tax_credits_holiday_outcome
-              assert_phrase_list :tax_credits_holiday, [:tax_credits_holiday_going_abroad, :tax_credits_holiday, :tax_credits_going_abroad_helpline]
             end
           end
           context "answer medical treatment" do
@@ -1234,7 +1233,6 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       end
       should "take you to the holiday outcome" do
         assert_current_node :tax_credits_holiday_outcome
-        assert_phrase_list :tax_credits_holiday, [:tax_credits_holiday_already_abroad, :tax_credits_holiday, :tax_credits_already_abroad_helpline]
       end
     end
     context "not crown or cross, abroad less than a year, medical treatment" do
