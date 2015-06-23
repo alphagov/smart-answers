@@ -340,14 +340,6 @@ en-GB:
 
           Contact the [International Pension Centre](/international-pension-centre) for more information about claiming from abroad.
 
-# A34 going_abroad
-      iidb_going_abroad_other_outcome:
-        body: |
-          You can't get Industrial Injuries Disablement Benefit while you're abroad.
-
-          Tell the office that deals with your benefit that you're planning to move abroad.
-
-
 # A33 already_abroad
       iidb_already_abroad_other_outcome:
         body: |
