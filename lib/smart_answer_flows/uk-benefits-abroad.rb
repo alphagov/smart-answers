@@ -384,75 +384,77 @@ module SmartAnswer
         option is_more_than_a_year: :is_more_than_a_year_outcome # A41 going_abroad
       end
 
-      outcome :pension_going_abroad_outcome, use_outcome_templates: true # A2 going_abroad
-      outcome :jsa_less_than_a_year_medical_outcome, use_outcome_templates: true # A3 going_abroad
-      outcome :jsa_less_than_a_year_other_outcome, use_outcome_templates: true # A4 going_abroad
-      outcome :jsa_eea_going_abroad_outcome, use_outcome_templates: true # A5 going_abroad
-      outcome :jsa_social_security_going_abroad_outcome, use_outcome_templates: true # A6 going_abroad
-      outcome :jsa_not_entitled_outcome, use_outcome_templates: true # A7 going_abroad and A5 already_abroad
-      outcome :wfp_not_eligible_outcome, use_outcome_templates: true # A8 going_abroad and A6 already_abroad
-      outcome :wfp_going_abroad_outcome, use_outcome_templates: true # A9 going_abroad
-      outcome :maternity_benefits_maternity_allowance_outcome, use_outcome_templates: true # A10 going_abroad and A8 already_abroad
-      outcome :maternity_benefits_social_security_going_abroad_outcome, use_outcome_templates: true # A12 going_abroad
-      outcome :maternity_benefits_not_entitled_outcome, use_outcome_templates: true # A13 going_abroad and A11 already_abroad
-      outcome :child_benefit_fy_going_abroad_outcome, use_outcome_templates: true # A14 going_abroad
-      outcome :child_benefit_ss_outcome, use_outcome_templates: true # A15 going_abroad and A13 already_abroad
-      outcome :child_benefit_entitled_outcome, use_outcome_templates: true # A17 going_abroad and A15 already_abroad
-      outcome :child_benefit_not_entitled_outcome, use_outcome_templates: true # A18 going_abroad and A16 already_abroad
-      outcome :ssp_going_abroad_entitled_outcome, use_outcome_templates: true # A19 going_abroad
-      outcome :ssp_going_abroad_not_entitled_outcome, use_outcome_templates: true # A20 going_abroad
+      use_outcome_templates
 
-      outcome :jsa_eea_already_abroad_outcome, use_outcome_templates: true # A3 already_abroad
-      outcome :jsa_social_security_already_abroad_outcome, use_outcome_templates: true # A4 already_abroad
-      outcome :pension_already_abroad_outcome, use_outcome_templates: true # A2 already_abroad
-      outcome :wfp_eea_eligible_outcome, use_outcome_templates: true # A7 already_abroad
-      outcome :maternity_benefits_eea_entitled_outcome, use_outcome_templates: true # A11 going_abroad and A9 already_abroad
-      outcome :maternity_benefits_social_security_already_abroad_outcome, use_outcome_templates: true # A10 already_abroad
-      outcome :child_benefit_fy_already_abroad_outcome, use_outcome_templates: true # A12 already_abroad
-      outcome :child_benefit_jtu_outcome, use_outcome_templates: true # A14 already_abroad
-      outcome :ssp_already_abroad_entitled_outcome, use_outcome_templates: true # A17 already_abroad
-      outcome :ssp_already_abroad_not_entitled_outcome, use_outcome_templates: true # A18 already_abroad
-      outcome :tax_credits_crown_servant_outcome, use_outcome_templates: true # A19 already_abroad
-      outcome :tax_credits_cross_border_worker_outcome, use_outcome_templates: true # A20 already_abroad and A22 going_abroad
-      outcome :tax_credits_unlikely_outcome, use_outcome_templates: true #A21 already_abroad and A23 going_abroad
-      outcome :tax_credits_eea_entitled_outcome, use_outcome_templates: true # A22 already_abroad and A24 going_abroad
-      outcome :tax_credits_holiday_outcome, use_outcome_templates: true # A23 already_abroad and A25 going_abroad and A26 going_abroad
-      outcome :esa_going_abroad_under_a_year_medical_outcome, use_outcome_templates: true # A27 going_abroad
-      outcome :esa_going_abroad_under_a_year_other_outcome, use_outcome_templates: true # A28 going_abroad
-      outcome :esa_going_abroad_eea_outcome, use_outcome_templates: true # A29 going_abroad
-      outcome :esa_going_abroad_other_outcome, use_outcome_templates: true # A30 going_abroad
-      outcome :iidb_going_abroad_eea_outcome, use_outcome_templates: true # A32 going_abroad
-      outcome :iidb_going_abroad_ss_outcome, use_outcome_templates: true # A33 going_abroad
-      outcome :iidb_going_abroad_other_outcome, use_outcome_templates: true # A34 going_abroad
-      outcome :db_going_abroad_temporary_outcome, use_outcome_templates: true # A35 going_abroad
-      outcome :db_going_abroad_other_outcome, use_outcome_templates: true # A36 going_abroad
-      outcome :db_going_abroad_eea_outcome, use_outcome_templates: true # A37 going_abroad
-      outcome :bb_going_abroad_other_outcome, use_outcome_templates: true # A38 going_abroad
-      outcome :bb_going_abroad_eea_outcome, use_outcome_templates: true # A39 going_abroad
-      outcome :bb_going_abroad_ss_outcome, use_outcome_templates: true # A40 going_abroad
-      outcome :is_more_than_a_year_outcome, use_outcome_templates: true # A41 going_abroad
-      outcome :is_under_a_year_medical_outcome, use_outcome_templates: true # A42 going_abroad
-      outcome :is_claiming_benefits_outcome, use_outcome_templates: true # A43 going_abroad
-      outcome :is_abroad_for_treatment_outcome, use_outcome_templates: true # A44 going_abroad
-      outcome :is_not_eligible_outcome, use_outcome_templates: true # A45 going_abroad
+      outcome :pension_going_abroad_outcome # A2 going_abroad
+      outcome :jsa_less_than_a_year_medical_outcome # A3 going_abroad
+      outcome :jsa_less_than_a_year_other_outcome # A4 going_abroad
+      outcome :jsa_eea_going_abroad_outcome # A5 going_abroad
+      outcome :jsa_social_security_going_abroad_outcome # A6 going_abroad
+      outcome :jsa_not_entitled_outcome # A7 going_abroad and A5 already_abroad
+      outcome :wfp_not_eligible_outcome # A8 going_abroad and A6 already_abroad
+      outcome :wfp_going_abroad_outcome # A9 going_abroad
+      outcome :maternity_benefits_maternity_allowance_outcome # A10 going_abroad and A8 already_abroad
+      outcome :maternity_benefits_social_security_going_abroad_outcome # A12 going_abroad
+      outcome :maternity_benefits_not_entitled_outcome # A13 going_abroad and A11 already_abroad
+      outcome :child_benefit_fy_going_abroad_outcome # A14 going_abroad
+      outcome :child_benefit_ss_outcome # A15 going_abroad and A13 already_abroad
+      outcome :child_benefit_entitled_outcome # A17 going_abroad and A15 already_abroad
+      outcome :child_benefit_not_entitled_outcome # A18 going_abroad and A16 already_abroad
+      outcome :ssp_going_abroad_entitled_outcome # A19 going_abroad
+      outcome :ssp_going_abroad_not_entitled_outcome # A20 going_abroad
 
-      outcome :tax_credits_medical_death_outcome, use_outcome_templates: true # A24 already_abroad
-      outcome :esa_already_abroad_under_a_year_medical_outcome, use_outcome_templates: true # A25 already_abroad
-      outcome :esa_already_abroad_under_a_year_other_outcome, use_outcome_templates: true # A26 already_abroad
-      outcome :esa_already_abroad_eea_outcome, use_outcome_templates: true # A27 already_abroad
-      outcome :esa_already_abroad_ss_outcome, use_outcome_templates: true # A28 already_abroad
-      outcome :esa_already_abroad_other_outcome, use_outcome_templates: true # A29 already_abroad
-      outcome :iidb_maybe_outcome, use_outcome_templates: true # A 30 already_abroad and A31 going_abroad
-      outcome :iidb_already_abroad_eea_outcome, use_outcome_templates: true # A31 already_abroad
-      outcome :iidb_already_abroad_ss_outcome, use_outcome_templates: true # A32 already_abroad
-      outcome :iidb_already_abroad_other_outcome, use_outcome_templates: true # A33 already_abroad
-      outcome :db_already_abroad_temporary_outcome, use_outcome_templates: true # A34 already_abroad
-      outcome :db_already_abroad_other_outcome, use_outcome_templates: true # A35 already_abroad
-      outcome :db_already_abroad_eea_outcome, use_outcome_templates: true # A36 already_abroad
-      outcome :bb_already_abroad_eea_outcome, use_outcome_templates: true # A37 already_abroad
-      outcome :bb_already_abroad_ss_outcome, use_outcome_templates: true  # A38 already_abroad
-      outcome :bb_already_abroad_other_outcome, use_outcome_templates: true # A39 already_abroad
-      outcome :is_already_abroad_outcome, use_outcome_templates: true # A40 already_abroad
+      outcome :jsa_eea_already_abroad_outcome # A3 already_abroad
+      outcome :jsa_social_security_already_abroad_outcome # A4 already_abroad
+      outcome :pension_already_abroad_outcome # A2 already_abroad
+      outcome :wfp_eea_eligible_outcome # A7 already_abroad
+      outcome :maternity_benefits_eea_entitled_outcome # A11 going_abroad and A9 already_abroad
+      outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
+      outcome :child_benefit_fy_already_abroad_outcome # A12 already_abroad
+      outcome :child_benefit_jtu_outcome # A14 already_abroad
+      outcome :ssp_already_abroad_entitled_outcome # A17 already_abroad
+      outcome :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
+      outcome :tax_credits_crown_servant_outcome # A19 already_abroad
+      outcome :tax_credits_cross_border_worker_outcome # A20 already_abroad and A22 going_abroad
+      outcome :tax_credits_unlikely_outcome #A21 already_abroad and A23 going_abroad
+      outcome :tax_credits_eea_entitled_outcome # A22 already_abroad and A24 going_abroad
+      outcome :tax_credits_holiday_outcome # A23 already_abroad and A25 going_abroad and A26 going_abroad
+      outcome :esa_going_abroad_under_a_year_medical_outcome # A27 going_abroad
+      outcome :esa_going_abroad_under_a_year_other_outcome # A28 going_abroad
+      outcome :esa_going_abroad_eea_outcome # A29 going_abroad
+      outcome :esa_going_abroad_other_outcome # A30 going_abroad
+      outcome :iidb_going_abroad_eea_outcome # A32 going_abroad
+      outcome :iidb_going_abroad_ss_outcome # A33 going_abroad
+      outcome :iidb_going_abroad_other_outcome # A34 going_abroad
+      outcome :db_going_abroad_temporary_outcome # A35 going_abroad
+      outcome :db_going_abroad_other_outcome # A36 going_abroad
+      outcome :db_going_abroad_eea_outcome # A37 going_abroad
+      outcome :bb_going_abroad_other_outcome # A38 going_abroad
+      outcome :bb_going_abroad_eea_outcome # A39 going_abroad
+      outcome :bb_going_abroad_ss_outcome # A40 going_abroad
+      outcome :is_more_than_a_year_outcome # A41 going_abroad
+      outcome :is_under_a_year_medical_outcome # A42 going_abroad
+      outcome :is_claiming_benefits_outcome # A43 going_abroad
+      outcome :is_abroad_for_treatment_outcome # A44 going_abroad
+      outcome :is_not_eligible_outcome # A45 going_abroad
+
+      outcome :tax_credits_medical_death_outcome # A24 already_abroad
+      outcome :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
+      outcome :esa_already_abroad_under_a_year_other_outcome # A26 already_abroad
+      outcome :esa_already_abroad_eea_outcome # A27 already_abroad
+      outcome :esa_already_abroad_ss_outcome # A28 already_abroad
+      outcome :esa_already_abroad_other_outcome # A29 already_abroad
+      outcome :iidb_maybe_outcome # A 30 already_abroad and A31 going_abroad
+      outcome :iidb_already_abroad_eea_outcome # A31 already_abroad
+      outcome :iidb_already_abroad_ss_outcome # A32 already_abroad
+      outcome :iidb_already_abroad_other_outcome # A33 already_abroad
+      outcome :db_already_abroad_temporary_outcome # A34 already_abroad
+      outcome :db_already_abroad_other_outcome # A35 already_abroad
+      outcome :db_already_abroad_eea_outcome # A36 already_abroad
+      outcome :bb_already_abroad_eea_outcome # A37 already_abroad
+      outcome :bb_already_abroad_ss_outcome  # A38 already_abroad
+      outcome :bb_already_abroad_other_outcome # A39 already_abroad
+      outcome :is_already_abroad_outcome # A40 already_abroad
     end
   end
 end
