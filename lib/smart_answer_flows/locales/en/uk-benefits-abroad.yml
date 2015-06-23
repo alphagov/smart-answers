@@ -251,17 +251,6 @@ en-GB:
         body: |
           %{tax_credits_medical_death}
 
-# A27 going_abroad
-      esa_going_abroad_under_a_year_medical_outcome:
-        body: |
-          You may be able to carry on getting [income-related or contribution-based ESA](/employment-support-allowance) for up to 26 weeks if the medical treatment is for the disease or disability for which you're getting ESA.
-
-          There is no 26 week limit for NHS-funded treatment abroad.
-
-          Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
-
-          *[ESA]: Employment and Support Allowance
-
 # A25 already_abroad
       esa_already_abroad_under_a_year_medical_outcome:
         body: |

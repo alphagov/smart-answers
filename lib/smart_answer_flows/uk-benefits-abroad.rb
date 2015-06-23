@@ -423,7 +423,7 @@ module SmartAnswer
       outcome :tax_credits_unlikely_outcome, use_outcome_templates: true #A21 already_abroad and A23 going_abroad
       outcome :tax_credits_eea_entitled_outcome, use_outcome_templates: true # A22 already_abroad and A24 going_abroad
       outcome :tax_credits_holiday_outcome, use_outcome_templates: true # A23 already_abroad and A25 going_abroad and A26 going_abroad
-      outcome :esa_going_abroad_under_a_year_medical_outcome # A27 going_abroad
+      outcome :esa_going_abroad_under_a_year_medical_outcome, use_outcome_templates: true # A27 going_abroad
       outcome :esa_going_abroad_under_a_year_other_outcome # A28 going_abroad
       outcome :esa_going_abroad_eea_outcome # A29 going_abroad
       outcome :esa_going_abroad_other_outcome # A30 going_abroad
