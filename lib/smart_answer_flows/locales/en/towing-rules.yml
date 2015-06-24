@@ -104,14 +104,6 @@ en-GB:
         options:
           under-21: "Under 21"
           21-or-over: "21 or over"
-      ## A3
-      car_light_vehicle_entitlement:
-        body: |
-          You can already tow trailers up to 3,500kg MAM (maximum authorised mass) with a car.
-        next_steps: |
-          [Vehicle weights explained](/vehicle-weights-explained)
-
-          [Driving licence categories](/driving-licence-categories)
       ## A4
       full_entitlement:
         body: |

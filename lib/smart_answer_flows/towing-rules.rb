@@ -121,7 +121,7 @@ module SmartAnswer
         option "21-or-over" => :apply_for_provisional_bus #A40
       end
 
-      outcome :car_light_vehicle_entitlement # A3
+      outcome :car_light_vehicle_entitlement, use_outcome_templates: true # A3
       outcome :full_entitlement #A4
       outcome :limited_trailer_entitlement #A6
       outcome :limited_trailer_entitlement_2013 # A7
