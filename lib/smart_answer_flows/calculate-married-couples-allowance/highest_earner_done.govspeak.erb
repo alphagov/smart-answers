@@ -7,8 +7,5 @@ The highest earner qualifies for Married Couple's Allowance - they'll get <%= nu
 <% end %>
 
 <% content_for :next_steps do %>
-Read the [guide to Married Couple's Allowance](/married-couples-allowance) to:
-
-- learn more about what you'll get and how to claim
-- find out how to transfer your Married Couple's Allowance to your  partner
+  <%= render partial: 'done_next_steps.govspeak.erb' -%>
 <% end %>
