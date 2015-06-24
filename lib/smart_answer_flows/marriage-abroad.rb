@@ -673,6 +673,7 @@ module SmartAnswer
             end
             if resident_of != 'uk'
               phrases << :nulla_osta_requirement
+              phrases << contact_method_key
             end
           end
 
@@ -742,9 +743,7 @@ module SmartAnswer
             end
           end
 
-          if ceremony_country == 'italy' && resident_of != 'uk'
-            phrases << :required_supporting_documents_italy
-          elsif resident_of == 'ceremony_country' && %w(germany japan spain).exclude?(ceremony_country)
+          if resident_of == 'ceremony_country' && %w(germany italy japan spain).exclude?(ceremony_country)
             if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia spain).include?(ceremony_country)
               phrases << :required_supporting_documents_notary_public
             else
@@ -799,20 +798,22 @@ module SmartAnswer
 
           if resident_of == 'ceremony_country'
             if %w(spain germany).exclude?(ceremony_country)
-              phrases << :consular_cni_os_download_documents_notary_public
+              phrases << :download_and_fill_notice_and_affidavit_but_not_sign
             end
           else
             if sex_of_your_partner == 'same_sex' || no_document_download_link_if_os_resident_of_uk_countries.exclude?(ceremony_country) && (cni_notary_public_countries + %w(italy japan macedonia spain) - %w(greece tunisia)).include?(ceremony_country)
-              phrases << :consular_cni_os_download_documents_notary_public
+              phrases << :download_and_fill_notice_and_affidavit_but_not_sign
             end
           end
 
           if resident_of == 'ceremony_country'
             if ceremony_country == 'kazakhstan'
               phrases << :display_notice_of_marriage_7_days
+            elsif ceremony_country == 'italy'
+              phrases << :issuing_cni_in_italy
             elsif ceremony_country == 'greece'
               phrases << :consular_cni_os_foreign_resident_ceremony_notary_public_greece
-            elsif cni_notary_public_countries.include?(ceremony_country) || ceremony_country == 'italy' || ceremony_country == 'japan'
+            elsif cni_notary_public_countries.include?(ceremony_country) || ceremony_country == 'japan'
               phrases << :consular_cni_os_foreign_resident_ceremony_notary_public
             elsif %w(germany spain).exclude?(ceremony_country)
               phrases << :display_notice_of_marriage_7_days
