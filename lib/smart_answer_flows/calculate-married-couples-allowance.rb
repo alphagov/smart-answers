@@ -115,19 +115,21 @@ module SmartAnswer
         end
       end
 
-      outcome :husband_done, use_outcome_templates: true do
+      use_outcome_templates
+
+      outcome :husband_done do
         precalculate :allowance do
           age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(birth_date)
           calculator.calculate_allowance(age_related_allowance, income)
         end
       end
-      outcome :highest_earner_done, use_outcome_templates: true do
+      outcome :highest_earner_done do
         precalculate :allowance do
           age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(birth_date)
           calculator.calculate_allowance(age_related_allowance, income)
         end
       end
-      outcome :sorry, use_outcome_templates: true
+      outcome :sorry
     end
   end
 end
