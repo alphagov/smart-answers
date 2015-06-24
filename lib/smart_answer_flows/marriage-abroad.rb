@@ -1013,14 +1013,16 @@ module SmartAnswer
             phrases << :change_of_name_evidence
           elsif ceremony_country == 'china'
             phrases << :documents_for_divorced_or_widowed_china_colombia
+          elsif ceremony_country == 'philippines'
+            phrases << :documents_for_divorced_or_widowed_philippines
           elsif ceremony_country != 'turkey'
             phrases << :docs_decree_and_death_certificate
           end
 
-          if %w(cambodia china ecuador egypt morocco turkey).exclude?(ceremony_country)
+          if %w(cambodia china ecuador egypt morocco philippines turkey).exclude?(ceremony_country)
             phrases << :divorced_or_widowed_evidences
           end
-          if %w(cambodia ecuador morocco turkey).exclude?(ceremony_country)
+          if %w(cambodia ecuador morocco philippines turkey).exclude?(ceremony_country)
             phrases << :change_of_name_evidence
           end
 
