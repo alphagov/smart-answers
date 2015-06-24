@@ -720,14 +720,6 @@ en-GB:
         partner_needs_egyptian_id: |
           Your partner will need to provide their Egyptian ID card, if they’re an Egyptian national.
 
-        required_supporting_documents_italy: |
-          You’ll need to provide supporting documents, including:
-
-          - your passport
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
-          - equivalent documents for your partner
-
         fee_and_required_supporting_documents_for_appointment: |
           You’ll need to pay a fee and bring the following to your appointment:
 
