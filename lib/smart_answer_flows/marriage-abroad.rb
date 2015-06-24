@@ -809,9 +809,11 @@ module SmartAnswer
           if resident_of == 'ceremony_country'
             if ceremony_country == 'kazakhstan'
               phrases << :display_notice_of_marriage_7_days
+            elsif ceremony_country == 'italy'
+              phrases << :issuing_cni_in_italy
             elsif ceremony_country == 'greece'
               phrases << :consular_cni_os_foreign_resident_ceremony_notary_public_greece
-            elsif cni_notary_public_countries.include?(ceremony_country) || ceremony_country == 'italy' || ceremony_country == 'japan'
+            elsif cni_notary_public_countries.include?(ceremony_country) || ceremony_country == 'japan'
               phrases << :consular_cni_os_foreign_resident_ceremony_notary_public
             elsif %w(germany spain).exclude?(ceremony_country)
               phrases << :display_notice_of_marriage_7_days
