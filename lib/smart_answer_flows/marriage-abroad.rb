@@ -593,7 +593,7 @@ module SmartAnswer
           phrases = PhraseList.new
           three_day_residency_requirement_applies = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal norway panama poland romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
           three_day_residency_handled_by_exception = %w(croatia italy spain russia)
-
+          no_birth_cert_requirement = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal norway panama poland romania russia serbia slovenia spain sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
           cni_notary_public_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro norway poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
           no_document_download_link_if_os_resident_of_uk_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua norway poland russia spain serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
@@ -744,13 +744,17 @@ module SmartAnswer
           end
 
           if resident_of == 'ceremony_country' && %w(germany italy japan spain).exclude?(ceremony_country)
-            if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia spain).include?(ceremony_country)
-              phrases << :required_supporting_documents_incl_birth_cert_notary_public
-            else
-              phrases << :required_supporting_documents_incl_birth_cert
-              if ceremony_country == 'jordan'
-                phrases << :documents_must_be_originals_when_in_sharia_court
-              end
+            birth_cert_inclusion = if no_birth_cert_requirement.exclude?(ceremony_country)
+              '_incl_birth_cert'
+            end
+
+            notary_public_inclusion = if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia spain).include?(ceremony_country)
+              '_notary_public'
+            end
+            phrases << "required_supporting_documents#{birth_cert_inclusion}#{notary_public_inclusion}".to_sym
+
+            if ceremony_country == 'jordan'
+              phrases << :documents_must_be_originals_when_in_sharia_court
             end
           end
 

@@ -708,11 +708,25 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
           - equivalent documents for your partner
 
+        required_supporting_documents: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
+          - equivalent documents for your partner
+
         required_supporting_documents_incl_birth_cert_notary_public: |
           You’ll need to provide supporting documents, including:
 
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
+          - equivalent documents for your partner
+
+        required_supporting_documents_notary_public: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
           - equivalent documents for your partner
 
