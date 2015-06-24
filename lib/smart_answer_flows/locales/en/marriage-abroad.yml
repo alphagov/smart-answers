@@ -700,7 +700,7 @@ en-GB:
         documents_must_be_originals_when_in_sharia_court:
           ^Documents must be originals if you are getting married at the Sharia Court.^
 
-        required_supporting_documents: |
+        required_supporting_documents_incl_birth_cert: |
           You’ll need to provide supporting documents, including:
 
           - your passport
@@ -708,7 +708,7 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
           - equivalent documents for your partner
 
-        required_supporting_documents_notary_public: |
+        required_supporting_documents_incl_birth_cert_notary_public: |
           You’ll need to provide supporting documents, including:
 
           - your passport
