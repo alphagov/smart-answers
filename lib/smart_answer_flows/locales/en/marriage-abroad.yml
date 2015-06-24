@@ -717,6 +717,13 @@ en-GB:
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
           - equivalent documents for your partner
 
+        required_supporting_documents_philippines: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/)
+          - equivalent documents for your partner
+
         partner_needs_egyptian_id: |
           Your partner will need to provide their Egyptian ID card, if they’re an Egyptian national.
 
