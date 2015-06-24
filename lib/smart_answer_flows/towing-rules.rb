@@ -123,7 +123,7 @@ module SmartAnswer
 
       outcome :car_light_vehicle_entitlement, use_outcome_templates: true # A3
       outcome :full_entitlement, use_outcome_templates: true #A4
-      outcome :limited_trailer_entitlement #A6
+      outcome :limited_trailer_entitlement, use_outcome_templates: true #A6
       outcome :limited_trailer_entitlement_2013 # A7
       outcome :limited_conditional_trailer_entitlement_msv #A10
       outcome :limited_trailer_entitlement_msv #A11
