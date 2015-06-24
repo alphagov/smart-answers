@@ -742,9 +742,9 @@ en-GB:
           You’ll need to provide supporting documents, including:
 
           - your passport
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - a copy of your partner’s ID card and Certificato di Stato Libero from the comune
-          - a copy of your partner’s Nulla Osta, if possible
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
+          - equivalent documents for your partner and a copy of their identity document
         italy_consular_cni_os_partner_other: |
           You’ll need to provide supporting documents, including:
 
@@ -826,6 +826,17 @@ en-GB:
           ###What happens next
 
           The %{embassy_or_consulate_ceremony_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
+
+        issuing_cni_in_italy: |
+          ###What happens next
+
+          The embassy will charge a fee for taking the oath.
+
+          They’ll display your notice of marriage publicly for 7 days.
+
+          The British embassy will issue your CNI within 5 working days (as long as nobody has registered an objection). You can collect your CNI in person or have it delivered by post.
+
+          ^The embassy or consulate may charge a fee to return your documents to you.^
         consular_cni_os_foreign_resident_ceremony_notary_public: |
           ###What happens next
 
