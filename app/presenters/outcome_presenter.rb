@@ -37,6 +37,16 @@ class OutcomePresenter < NodePresenter
     end
   end
 
+  def next_steps
+    if use_template? && next_steps_erb_template_exists?
+      render_erb_template
+      govspeak = @view.content_for(:next_steps) || ''
+      GovspeakPresenter.new(govspeak.to_str).html
+    else
+      super
+    end
+  end
+
   def erb_template_path
     template_directory.join(erb_template_name)
   end
@@ -57,6 +67,10 @@ class OutcomePresenter < NodePresenter
 
   def body_erb_template_exists?
     erb_template_exists? && has_content_for_body?
+  end
+
+  def next_steps_erb_template_exists?
+    erb_template_exists? && has_content_for_next_steps?
   end
 
   def erb_template_exists?
@@ -87,5 +101,9 @@ class OutcomePresenter < NodePresenter
 
   def has_content_for_title?
     File.read(erb_template_path) =~ /content_for :title/
+  end
+
+  def has_content_for_next_steps?
+    File.read(erb_template_path) =~ /content_for :next_steps/
   end
 end

@@ -237,6 +237,128 @@ Hello world
       end
     end
 
+    test "#next_steps returns nil when the erb template doesn't exist" do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      options = { erb_template_directory: Pathname.new('/path/to/non-existent') }
+      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
+
+      assert_equal nil, presenter.next_steps
+    end
+
+    test '#body returns nil when content_for(:next_steps) is missing' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = ''
+
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal nil, presenter.next_steps
+      end
+    end
+
+    test '#next_steps returns a single newline when the template is empty' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_next_steps('')
+
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal "\n", presenter.next_steps
+      end
+    end
+
+    test "#next_steps trims newlines by default" do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_next_steps('<% if true %>
+Hello world
+<% end %>')
+
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal "<p>Hello world</p>\n", presenter.next_steps
+      end
+    end
+
+    test '#next_steps makes the state variables available to the ERB template' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_next_steps('<%= state_variable %>')
+
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        state = stub(to_hash: { state_variable: 'state-variable' })
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, erb_template_directory: erb_template_directory)
+
+        assert_match 'state-variable', presenter.next_steps
+      end
+    end
+
+    test "#next_steps raises an exception if the ERB template references a non-existent state variable" do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_next_steps('<%= non_existent_state_variable %>')
+
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        state = stub(to_hash: {})
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state, erb_template_directory: erb_template_directory)
+
+        e = assert_raises(ActionView::Template::Error) do
+          presenter.next_steps
+        end
+        assert_match "undefined local variable or method `non_existent_state_variable'", e.message
+      end
+    end
+
+    test '#next_steps makes the ActionView::Helpers::NumberHelper methods available to the ERB template' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_next_steps('<%= number_with_delimiter(123456789) %>')
+
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_match '123,456,789', presenter.next_steps
+      end
+    end
+
+    test '#next_steps passes output of ERB template through Govspeak' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_next_steps('^information^')
+
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        nodes = Capybara.string(presenter.next_steps)
+        assert nodes.has_css?(".application-notice", text: "information"), "Does not have information callout"
+      end
+    end
+
+    test '#next_steps delegates to NodePresenter when not using outcome templates' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: false)
+      presenter = OutcomePresenter.new('i18n-prefix', outcome)
+
+      presenter.stubs(:translate_and_render).with('next_steps').returns('node-presenter-body')
+      assert_equal 'node-presenter-body', presenter.next_steps
+    end
+
+    test '#next_steps returns the same content when called multiple times' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_next_steps('next-steps-content')
+
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal "<p>next-steps-content</p>\n", presenter.next_steps
+        assert_equal "<p>next-steps-content</p>\n", presenter.next_steps
+      end
+    end
+
     private
 
     def content_for_body(template)
@@ -247,6 +369,12 @@ Hello world
 
     def content_for_title(template)
 "<% content_for :title do %>
+#{template}
+<% end %>"
+    end
+
+    def content_for_next_steps(template)
+"<% content_for :next_steps do %>
 #{template}
 <% end %>"
     end
