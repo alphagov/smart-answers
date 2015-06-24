@@ -742,9 +742,7 @@ module SmartAnswer
             end
           end
 
-          if ceremony_country == 'italy' && resident_of != 'uk'
-            phrases << :required_supporting_documents_italy
-          elsif resident_of == 'ceremony_country' && %w(germany japan spain).exclude?(ceremony_country)
+          if resident_of == 'ceremony_country' && %w(germany italy japan spain).exclude?(ceremony_country)
             if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia spain).include?(ceremony_country)
               phrases << :required_supporting_documents_notary_public
             else
