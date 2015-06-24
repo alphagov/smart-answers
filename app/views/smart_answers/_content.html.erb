@@ -15,7 +15,7 @@
   </header>
 
   <% if @presenter.finished? %>
-    <%= render partial: "result" %>
+    <%= render partial: "result", locals: { outcome: @presenter.current_node } %>
   <% else %>
     <% if @presenter.page_title %>
       <h2 class="page-title"><%= @presenter.page_title %></h2>
