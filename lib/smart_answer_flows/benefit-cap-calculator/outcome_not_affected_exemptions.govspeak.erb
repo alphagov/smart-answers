@@ -1,3 +1,8 @@
+<% content_for :title do %>
+Based on the answers you’ve given, you’re not affected by the benefit cap.
+<% end %>
+
+<% content_for :body do %>
 These benefits are exempt from the benefit cap:
 
 - Attendance Allowance
@@ -15,3 +20,4 @@ You may be affected by the cap if your circumstances change.
 Contact the Department for Work and Pensions if you need further help:
 
 <%= render partial: 'dwp_contact_details.govspeak.erb' -%>
+<% end %>
