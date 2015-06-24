@@ -1,0 +1,25 @@
+<% content_for :title do %>
+The husband qualifies for Married Couple's Allowance - he'll get <%= number_to_currency(allowance, precision: ((allowance.to_f == allowance.to_f.round) ? 0 : 2)) %> off his tax bill.
+<% end %>
+
+<% content_for :body do %>
+Contact HM Revenue & Customs to claim.
+
+
+$C
+**HM Revenue & Customs**\\
+**Telephone** 0300 200 3300\\
+**Textphone** 0300 200 3319\\
+[Find out about call charges](/call-charges)
+$C
+
+
+%This result is an estimate based on your answers.%
+<% end %>
+
+<% content_for :next_steps do %>
+Read the [guide to Married Couple's Allowance](/married-couples-allowance) to:
+
+- learn more about what you'll get and how to claim
+- find out how to transfer your Married Couple's Allowance to your  partner
+<% end %>
