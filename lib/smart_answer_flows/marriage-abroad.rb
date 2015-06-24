@@ -1088,7 +1088,7 @@ module SmartAnswer
             if ceremony_country == 'finland'
               phrases << :pay_in_euros_or_visa_electron
             elsif ceremony_country == 'philippines'
-              phrases << :pay_in_cash_or_manager_cheque
+              phrases << :pay_in_cash_only
             elsif ceremony_country == 'cambodia'
               phrases << :pay_by_cash_or_us_dollars_only
             else
