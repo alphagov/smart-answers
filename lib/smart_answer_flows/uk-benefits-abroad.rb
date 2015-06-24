@@ -40,21 +40,13 @@ module SmartAnswer
           PhraseList.new(:"why_#{going_or_already_abroad}_title")
         end
 
-        calculate :already_abroad_text do |response|
-          if response == 'already_abroad'
-            PhraseList.new(:already_abroad_text)
-          end
+        calculate :is_already_abroad do |response|
+          response == 'already_abroad'
         end
 
         calculate :already_abroad_text_two do |response|
-          if response == 'already_abroad'
+          if is_already_abroad
             PhraseList.new(:already_abroad_text_two)
-          end
-        end
-
-        calculate :iidb_maybe do |response|
-          if response == 'already_abroad'
-            PhraseList.new(:iidb_maybe_text)
           end
         end
 
@@ -392,6 +384,8 @@ module SmartAnswer
         option is_more_than_a_year: :is_more_than_a_year_outcome # A41 going_abroad
       end
 
+      use_outcome_templates
+
       outcome :pension_going_abroad_outcome # A2 going_abroad
       outcome :jsa_less_than_a_year_medical_outcome # A3 going_abroad
       outcome :jsa_less_than_a_year_other_outcome # A4 going_abroad
@@ -420,23 +414,11 @@ module SmartAnswer
       outcome :child_benefit_jtu_outcome # A14 already_abroad
       outcome :ssp_already_abroad_entitled_outcome # A17 already_abroad
       outcome :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
-      outcome :tax_credits_crown_servant_outcome do # A19 already_abroad
-        precalculate :tax_credits_crown_servant do
-          PhraseList.new(:"tax_credits_#{going_or_already_abroad}_helpline")
-        end
-      end
-      outcome :tax_credits_cross_border_worker_outcome do # A20 already_abroad and A22 going_abroad
-        precalculate :tax_credits_cross_border_worker do
-          PhraseList.new(:"tax_credits_cross_border_#{going_or_already_abroad}", :tax_credits_cross_border, :"tax_credits_#{going_or_already_abroad}_helpline")
-        end
-      end
+      outcome :tax_credits_crown_servant_outcome # A19 already_abroad
+      outcome :tax_credits_cross_border_worker_outcome # A20 already_abroad and A22 going_abroad
       outcome :tax_credits_unlikely_outcome #A21 already_abroad and A23 going_abroad
       outcome :tax_credits_eea_entitled_outcome # A22 already_abroad and A24 going_abroad
-      outcome :tax_credits_holiday_outcome do # A23 already_abroad and A25 going_abroad and A26 going_abroad
-        precalculate :tax_credits_holiday do
-          PhraseList.new(:"tax_credits_holiday_#{going_or_already_abroad}", :tax_credits_holiday, :"tax_credits_#{going_or_already_abroad}_helpline")
-        end
-      end
+      outcome :tax_credits_holiday_outcome # A23 already_abroad and A25 going_abroad and A26 going_abroad
       outcome :esa_going_abroad_under_a_year_medical_outcome # A27 going_abroad
       outcome :esa_going_abroad_under_a_year_other_outcome # A28 going_abroad
       outcome :esa_going_abroad_eea_outcome # A29 going_abroad
@@ -456,11 +438,7 @@ module SmartAnswer
       outcome :is_abroad_for_treatment_outcome # A44 going_abroad
       outcome :is_not_eligible_outcome # A45 going_abroad
 
-      outcome :tax_credits_medical_death_outcome do # A24 already_abroad
-        precalculate :tax_credits_medical_death do
-          PhraseList.new(:"tax_credits_medical_death_#{going_or_already_abroad}", :tax_credits_medical_death, :"tax_credits_#{going_or_already_abroad}_helpline")
-        end
-      end
+      outcome :tax_credits_medical_death_outcome # A24 already_abroad
       outcome :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
       outcome :esa_already_abroad_under_a_year_other_outcome # A26 already_abroad
       outcome :esa_already_abroad_eea_outcome # A27 already_abroad
@@ -474,7 +452,7 @@ module SmartAnswer
       outcome :db_already_abroad_other_outcome # A35 already_abroad
       outcome :db_already_abroad_eea_outcome # A36 already_abroad
       outcome :bb_already_abroad_eea_outcome # A37 already_abroad
-      outcome :bb_already_abroad_ss_outcome # A38 already_abroad
+      outcome :bb_already_abroad_ss_outcome  # A38 already_abroad
       outcome :bb_already_abroad_other_outcome # A39 already_abroad
       outcome :is_already_abroad_outcome # A40 already_abroad
     end
