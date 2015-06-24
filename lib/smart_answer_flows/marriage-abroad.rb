@@ -797,11 +797,11 @@ module SmartAnswer
 
           if resident_of == 'ceremony_country'
             if %w(spain germany).exclude?(ceremony_country)
-              phrases << :consular_cni_os_download_documents_notary_public
+              phrases << :download_and_fill_notice_and_affidavit_but_not_sign
             end
           else
             if sex_of_your_partner == 'same_sex' || no_document_download_link_if_os_resident_of_uk_countries.exclude?(ceremony_country) && (cni_notary_public_countries + %w(italy japan macedonia spain) - %w(greece tunisia)).include?(ceremony_country)
-              phrases << :consular_cni_os_download_documents_notary_public
+              phrases << :download_and_fill_notice_and_affidavit_but_not_sign
             end
           end
 
