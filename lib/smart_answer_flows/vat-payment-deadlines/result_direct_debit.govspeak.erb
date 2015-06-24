@@ -1,3 +1,8 @@
+<% content_for :title do %>
+Paying by direct debit
+<% end %>
+
+<% content_for :body do %>
 The last date you can set up a direct debit is <%= last_dd_setup_date %>.
 
 The date the money will be taken from your account is <%= funds_taken %>.
@@ -7,3 +12,4 @@ The date the money will be taken from your account is <%= funds_taken %>.
 You only need to set up the direct debit once.
 
 Read more about [how to pay your VAT.](/pay-vat)
+<% end %>

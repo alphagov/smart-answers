@@ -1,3 +1,8 @@
+<% content_for :title do %>
+Paying by CHAPS
+<% end %>
+
+<% content_for :body do %>
 The last date you can pay is <%= last_payment_date %>.
 
 HMRC must receive the money by <%= funds_received_by %>.
@@ -9,3 +14,4 @@ CHAPS payments usually reach HMRC the same working day if you pay within your ba
 ^Check your bank’s transaction limits and processing times before making a payment.^
 
 Read more about [how to pay your VAT.](/pay-vat)
+<% end %>
