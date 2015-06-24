@@ -745,9 +745,9 @@ module SmartAnswer
 
           if resident_of == 'ceremony_country' && %w(germany italy japan spain).exclude?(ceremony_country)
             if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia spain).include?(ceremony_country)
-              phrases << :required_supporting_documents_notary_public
+              phrases << :required_supporting_documents_incl_birth_cert_notary_public
             else
-              phrases << :required_supporting_documents
+              phrases << :required_supporting_documents_incl_birth_cert
               if ceremony_country == 'jordan'
                 phrases << :documents_must_be_originals_when_in_sharia_court
               end
