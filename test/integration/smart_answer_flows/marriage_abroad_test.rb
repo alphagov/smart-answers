@@ -1855,7 +1855,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to os affirmation outcome" do
-      assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :contact_for_affidavit, "appointment_links.opposite_sex.philippines", :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :affirmation_os_download_affidavit_philippines, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :fee_table_55_70, :list_of_consular_fees, :pay_in_cash_or_manager_cheque]
+      assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :contact_for_affidavit, "appointment_links.opposite_sex.philippines", :required_supporting_documents_philippines, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :affirmation_os_download_affidavit_philippines, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :fee_table_55_70, :list_of_consular_fees, :pay_in_cash_or_manager_cheque]
     end
   end
 
