@@ -968,6 +968,11 @@ module SmartAnswer
               phrases << :download_and_fill_but_not_sign
               phrases << :download_affidavit_and_affirmation_belgium
             end
+
+            if ceremony_country == 'philippines'
+              phrases << :required_supporting_documents_philippines
+            end
+
             if ceremony_country == 'cambodia'
               phrases << :fee_and_required_supporting_documents_for_appointment
               phrases << :legalisation_and_translation
