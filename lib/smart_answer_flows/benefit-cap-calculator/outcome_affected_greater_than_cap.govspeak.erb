@@ -1,3 +1,8 @@
+<% content_for :title do %>
+Based on the answers you’ve given, you will be affected by the benefit cap as you get £<%= total_benefits %> in benefits and your benefit cap is £<%= benefit_cap %>.
+<% end %>
+
+<% content_for :body do %>
 This means your Housing Benefit will now be: £<%= new_housing_benefit %>.
 
 ##How this is worked out
@@ -27,3 +32,4 @@ New Housing Benefit amount: £<%= new_housing_benefit %>
 This is an estimate only. Contact the Department for Work and Pensions if you need further help.
 
 <%= render partial: 'dwp_contact_details.govspeak.erb' -%>
+<% end %>
