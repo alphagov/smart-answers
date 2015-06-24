@@ -34,7 +34,7 @@ module SmartAnswer
 
       erb_template = ''
 
-      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_equal nil, presenter.body
@@ -46,7 +46,7 @@ module SmartAnswer
 
       erb_template = content_for_body('')
 
-      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_equal "\n", presenter.body
@@ -60,7 +60,7 @@ module SmartAnswer
 Hello world
 <% end %>')
 
-      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_equal "<p>Hello world</p>\n", presenter.body
@@ -72,7 +72,7 @@ Hello world
 
       erb_template = content_for_body('<%= state_variable %>')
 
-      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         state = stub(to_hash: { state_variable: 'state-variable' })
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, erb_template_directory: erb_template_directory)
 
@@ -85,7 +85,7 @@ Hello world
 
       erb_template = content_for_body('<%= non_existent_state_variable %>')
 
-      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         state = stub(to_hash: {})
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, erb_template_directory: erb_template_directory)
 
@@ -101,7 +101,7 @@ Hello world
 
       erb_template = content_for_body('<%= number_with_delimiter(123456789) %>')
 
-      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_match '123,456,789', presenter.body
@@ -113,7 +113,7 @@ Hello world
 
       erb_template = content_for_body('^information^')
 
-      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         nodes = Capybara.string(presenter.body)
@@ -134,7 +134,7 @@ Hello world
 
       erb_template = content_for_body('body-content')
 
-      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_equal "<p>body-content</p>\n", presenter.body
@@ -156,7 +156,7 @@ Hello world
 
       erb_template = ''
 
-      with_title_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_equal nil, presenter.title
@@ -168,7 +168,7 @@ Hello world
 
       erb_template = content_for_title('')
 
-      with_title_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_equal '', presenter.title
@@ -180,7 +180,7 @@ Hello world
 
       erb_template = content_for_title("title-text\n")
 
-      with_title_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_equal "title-text\n", presenter.title
@@ -192,7 +192,7 @@ Hello world
 
       erb_template = content_for_title('<%= state_variable %>')
 
-      with_title_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         state = stub(to_hash: { state_variable: 'state-variable' })
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, erb_template_directory: erb_template_directory)
 
@@ -205,7 +205,7 @@ Hello world
 
       erb_template = content_for_title('<%= non_existent_state_variable %>')
 
-      with_title_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         state = stub(to_hash: {})
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state, erb_template_directory: erb_template_directory)
 
@@ -229,7 +229,7 @@ Hello world
 
       erb_template = content_for_title('title-content')
 
-      with_body_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_equal "title-content", presenter.title
@@ -251,15 +251,8 @@ Hello world
 <% end %>"
     end
 
-    def with_title_erb_template_file(outcome_name, erb_template, &block)
-      with_erb_template_file("#{outcome_name}.govspeak.erb", erb_template, &block)
-    end
-
-    def with_body_erb_template_file(outcome_name, erb_template, &block)
-      with_erb_template_file("#{outcome_name}.govspeak.erb", erb_template, &block)
-    end
-
-    def with_erb_template_file(erb_template_filename, erb_template)
+    def with_erb_template_file(outcome_name, erb_template)
+      erb_template_filename = "#{outcome_name}.govspeak.erb"
       Dir.mktmpdir do |directory|
         erb_template_directory = Pathname.new(directory)
 
