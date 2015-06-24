@@ -792,7 +792,7 @@ en-GB:
 
           The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 7 days, and if nobody has raised an objection, they’ll issue your CNI. There’s an additional fee for this.
 
-        consular_cni_os_download_documents_notary_public: |
+        download_and_fill_notice_and_affidavit_but_not_sign: |
           You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
 
           You can download and fill in (but not sign) the forms in advance.
