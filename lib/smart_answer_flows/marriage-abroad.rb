@@ -673,6 +673,7 @@ module SmartAnswer
             end
             if resident_of != 'uk'
               phrases << :nulla_osta_requirement
+              phrases << contact_method_key
             end
           end
 
