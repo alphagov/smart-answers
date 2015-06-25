@@ -13,41 +13,6 @@ en-GB:
 
         You’ll need to know when both you and your spouse or civil partner reach State Pension age to use this tool.
 
-      phrases:
-
-# Outcome 4
-        current_rules_national_insurance_and_state_pension: |
-          You might be able to increase the amount of basic [State Pension](/state-pension) you can get up to %{higher_basic_state_pension_rate} a week if both the following apply:
-
-          - your basic State Pension is less than %{higher_basic_state_pension_rate} a week
-          - your late spouse or civil partner had enough National Insurance contributions before 6 April 2016.
-
-          You’ll get the increase when you [claim your State Pension.](/state-pension/how-to-claim).
-
-          ^You won’t get this increase if you remarry or form a new civil partnership before you reach State Pension age.^
-
-          You may be able to inherit a portion of your late spouse or civil partner’s [Additional State Pension](/additional-state-pension).
-
-          You’ll inherit this when you [claim your State Pension](/state-pension/how-to-claim). It can also be paid as part of [Widowed Parent’s Allowance.](/widowed-parents-allowance).
-
-          ###When you can’t inherit Additional State Pension
-
-          ^You won’t inherit their Additional State Pension if you remarry or form a new civil partnership before you reach State Pension age.^
-
-          You may not be able to inherit your spouse or civil partner’s Additional State Pension if all of the following apply:
-
-          - you reached State Pension age before 6 April 2010
-          - your spouse or civil partner died before State Pension age
-          - you’re a man who was married or in a civil partnership or a woman who was married to another woman or in a civil partnership
-
-          ##Other help if you’re widowed
-
-          You might be eligible for the following if you haven’t yet reached State Pension age:
-
-          - [Widowed Parent’s Allowance](/widowed-parents-allowance)
-          - a [Bereavement payment](/bereavement-payment)
-          - [Bereavement Allowance](/bereavement-allowance)
-
 #Q1
       what_is_your_marital_status?:
         title:  What is your marital status?

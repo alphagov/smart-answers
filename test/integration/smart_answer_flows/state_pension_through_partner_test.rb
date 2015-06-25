@@ -120,7 +120,6 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_current_node :gender_not_needed_outcome
     end
   end #end current_rules_national_insurance_no_state_pension
-  #current_rules_national_insurance_and_state_pension
   #married_woman_no_state_pension
   context "old1 new2 new3 == married_woman_no_state_pension" do
     setup do
