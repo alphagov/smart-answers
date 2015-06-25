@@ -539,12 +539,20 @@ module SmartAnswer
           end
         end
 
+        precalculate :enough_qualifying_years do
+          qualifying_years_total >= 30
+        end
+
+        precalculate :enough_remaining_years do
+          remaining_years >= missing_years
+        end
+
+        precalculate :auto_years_entitlement do
+          (dob < Date.parse("6th October 1953") and (gender == "male"))
+        end
+
         precalculate :result_text do
           phrases = PhraseList.new
-
-          enough_qualifying_years = qualifying_years_total >= 30
-          enough_remaining_years = remaining_years >= missing_years
-          auto_years_entitlement = (dob < Date.parse("6th October 1953") and (gender == "male"))
 
           if calc.within_four_months_one_day_from_state_pension?
             if enough_qualifying_years
