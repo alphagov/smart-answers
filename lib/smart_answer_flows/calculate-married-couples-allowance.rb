@@ -115,6 +115,8 @@ module SmartAnswer
         end
       end
 
+      use_outcome_templates
+
       outcome :husband_done do
         precalculate :allowance do
           age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(birth_date)
