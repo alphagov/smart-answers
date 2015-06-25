@@ -138,7 +138,7 @@ module SmartAnswer
       outcome :full_entitlement_minibus, use_outcome_templates: true #A26
       outcome :included_entitlement_minibus, use_outcome_templates: true #A28
       outcome :limited_towing_entitlement_minibus, use_outcome_templates: true #A30
-      outcome :not_old_enough_minibus #A32
+      outcome :not_old_enough_minibus, use_outcome_templates: true #A32
       outcome :limited_overall_entitlement_minibus #A34
       outcome :full_entitlement_bus #A37
       outcome :not_old_enough_bus # A39
