@@ -105,18 +105,7 @@ module SmartAnswer
 
       outcome :widow_and_old_pension_outcome, use_outcome_templates: true
 
-      outcome :gender_not_needed_outcome do
-        precalculate :result_phrase do
-          phrases = PhraseList.new
-          if answers == [:old1, :old2, :old3] || answers == [:new1, :old2, :old3]
-            phrases << :current_rules_no_additional_pension #outcome 1
-          elsif answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
-            phrases << :current_rules_national_insurance_no_state_pension #outcome 3
-          end
-          phrases << :increase_retirement_income
-          phrases
-        end
-      end
+      outcome :gender_not_needed_outcome, use_outcome_templates: true
 
       outcome :final_outcome do
         precalculate :result_phrase do
