@@ -105,14 +105,6 @@ en-GB:
           under-21: "Under 21"
           21-or-over: "21 or over"
 
-      ## A13
-      included_entitlement_msv:
-        body: |
-          You already have the C1+E towing with a medium-sized vehicle entitlement on your licence.
-
-          This means you can tow trailers weighing more than 750kg with a C1 medium-sized vehicle. The total weight of the vehicle and trailer can’t be more than 12,000kg and the fully-loaded trailer can’t weigh more than the unladen vehicle weight.
-        next_steps: |
-          [Driving licence categories](/driving-licence-categories)
       ## A15
       full_entitlement_msv:
         body: |
