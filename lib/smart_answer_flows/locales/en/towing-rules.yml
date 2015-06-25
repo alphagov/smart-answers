@@ -105,16 +105,6 @@ en-GB:
           under-21: "Under 21"
           21-or-over: "21 or over"
 
-      ## A28
-      included_entitlement_minibus:
-        body: |
-          You can already tow with minibuses.
-
-          You have the D1+E towing entitlement, which means you can drive minibuses with trailers over 750 kg. The total weight of vehicle and trailer can’t be more than 12,000 kg and the fully loaded trailer can’t weigh more than the unladen vehicle.
-        next_steps: |
-          [Driving a minibus](/driving-a-minibus)
-
-          [Driving licence categories](/driving-licence-categories)
       ## A30
       limited_towing_entitlement_minibus:
         body: |
