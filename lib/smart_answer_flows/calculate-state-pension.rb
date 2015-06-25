@@ -70,42 +70,8 @@ module SmartAnswer
           calculator.state_pension_age
         end
 
-        calculate :tense_specific_title do
-          if state_pension_date > Date.today
-            PhraseList.new(:will_reach_pension_age)
-          else
-            PhraseList.new(:have_reached_pension_age)
-          end
-        end
-
         calculate :available_ni_years do
           calculator.ni_years_to_date_from_dob
-        end
-
-        calculate :state_pension_age_statement do
-          phrases = PhraseList.new
-          if state_pension_date > Date.today
-            if state_pension_date >= Date.parse('2016-04-06')
-              phrases << :state_pension_age_is_a
-              if Date.parse(pension_credit_date) > Date.today
-                phrases << :pension_credit_future
-              else
-                phrases << :pension_credit_past
-              end
-              phrases << :pension_age_review
-            else
-              phrases << :state_pension_age_is
-              if Date.parse(pension_credit_date) > Date.today
-                phrases << :pension_credit_future
-              else
-                phrases << :pension_credit_past
-              end
-            end
-          else
-            phrases << :state_pension_age_was << :pension_credit_past
-          end
-          phrases << :bus_pass
-          phrases
         end
 
         define_predicate(:near_pension_date?) do |response|
@@ -505,7 +471,7 @@ module SmartAnswer
       outcome :reached_state_pension_age, use_outcome_templates: true
       outcome :too_young, use_outcome_templates: true
 
-      outcome :age_result
+      outcome :age_result, use_outcome_templates: true
       outcome :over55_result
 
       outcome :amount_result do
