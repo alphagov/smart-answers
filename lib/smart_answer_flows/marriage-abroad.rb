@@ -968,6 +968,11 @@ module SmartAnswer
               phrases << :download_and_fill_but_not_sign
               phrases << :download_affidavit_and_affirmation_belgium
             end
+
+            if ceremony_country == 'philippines'
+              phrases << :required_supporting_documents_philippines
+            end
+
             if ceremony_country == 'cambodia'
               phrases << :fee_and_required_supporting_documents_for_appointment
               phrases << :legalisation_and_translation
@@ -1008,14 +1013,16 @@ module SmartAnswer
             phrases << :change_of_name_evidence
           elsif ceremony_country == 'china'
             phrases << :documents_for_divorced_or_widowed_china_colombia
+          elsif ceremony_country == 'philippines'
+            phrases << :documents_for_divorced_or_widowed_philippines
           elsif ceremony_country != 'turkey'
             phrases << :docs_decree_and_death_certificate
           end
 
-          if %w(cambodia china ecuador egypt morocco turkey).exclude?(ceremony_country)
+          if %w(cambodia china ecuador egypt morocco philippines turkey).exclude?(ceremony_country)
             phrases << :divorced_or_widowed_evidences
           end
-          if %w(cambodia ecuador morocco turkey).exclude?(ceremony_country)
+          if %w(cambodia ecuador morocco philippines turkey).exclude?(ceremony_country)
             phrases << :change_of_name_evidence
           end
 
@@ -1081,7 +1088,7 @@ module SmartAnswer
             if ceremony_country == 'finland'
               phrases << :pay_in_euros_or_visa_electron
             elsif ceremony_country == 'philippines'
-              phrases << :pay_in_cash_or_manager_cheque
+              phrases << :pay_in_cash_only
             elsif ceremony_country == 'cambodia'
               phrases << :pay_by_cash_or_us_dollars_only
             else
