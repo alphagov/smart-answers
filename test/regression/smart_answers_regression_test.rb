@@ -89,14 +89,14 @@ class SmartAnswersRegressionTest < ActionController::TestCase
             path_to_output = smart_answer_helper.save_output(responses, response)
 
             diff_output = `git diff #{path_to_output}`
-            assert_equal '', diff_output
+            assert diff_output.blank?, diff_output
           end
         end
       end
 
       should "#{RUN_ME_LAST} and generate the same set of output files" do
         diff_output = `git diff --stat -- #{smart_answer_helper.path_to_outputs_for_flow}`
-        assert_equal '', diff_output, "Unexpected difference in outputs for flow:"
+        assert diff_output.blank?, "Unexpected difference in outputs for flow:\n#{diff_output}"
       end
     end
   end
