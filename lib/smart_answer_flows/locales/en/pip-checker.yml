@@ -23,50 +23,49 @@ en-GB:
       phrases:
         scheme_postcodes: |
 
-          Check if this also applies in your area.
+         In the following areas you'll be asked to claim PIP from 27 July 2015:  
 
-          ###East of England
+         - AL (St Albans)
+         - CT (Canterbury)
+         - EN (Enfield)
+         - HA (Harrow)
+         - HS (Hebrides)
+         - KT (Kingston)
+         - KW (Kirkwall)
+         - ME (Maidstone) 
+         - N (London North)
+         - NW (London North West)
+         - SL (Slough)
+         - SM (Sutton)
+         - TN (Tonbridge)
+         - TW (Twickenham)
+         - UB (Uxbridge)
+         - W (London West)
+         - WD (Watford)
+         - ZE (Lerwick)
 
-          From 25 May | From 22 June | From 27 July
-          - | - | -
-          CB (Cambridge), SS (Southend), CO (Colchester), CM (Chelmsford) | SG (Stevenage), HP (Hemel Hempstead), LU (Luton) | AL (St Albans), WD (Watford)
+         ###Your DLA ends after September 2017 or DLA awards with no end date
 
-          ###London
+         Some people will be invited to claim PIP from 13 July 2015 if you live in the following areas:
 
-          From 25 May | From 22 June | From 27 July
-          - | - | -
-          RM (Romford) | BR (Bromley),  CR (Croydon), E (London East), EC (London East Central), IG (Ilford), SE (London South East), SW (London South West), WC (London West Central) | EN (Enfield), HA (Harrow), KT (Kingston), N (London North), NW (London North West), SM (Sutton), TW (Twickenham), UB (Uxbridge), W (London West)
+         - Blackburn (BB)
+         - Bolton (BL) 
+         - Derby (DE)
+         - Leicester (LE)
+         - Manchester (M)
+         - Oldham (OL)
+         - Preston (PR)
+         - Stoke (ST)
+         - Warrington (WA)
+         - Wigan (WN)
 
-          ###Northeast England (current postcodes)
+         This includes if you have an indefinite or long-term awards of DLA. 
 
-          DH (Durham), DL (Darlington), NE (Newcastle), SR (Sunderland)
+         ^You can be contacted anytime between 13 July 2015 and 30 September 2017. Not everyone in these postcode areas will be contacted to claim PIP right away.^
 
-          ###Northwest England (current postcodes)
-
-          BL (Bolton), BB (Blackburn), CA (Carlisle), CH (Chester), CW (Crewe), FY (Fylde), L (Liverpool), LA (Lancaster), M (Manchester), OL (Oldham), PR (Preston), SK (Stockport), WA (Warrington), WN (Wigan)
-
-          ###Southeast England
-
-          Current postcodes | From 25 May | From 22 June | From 27 July
-          - | - | -
-          PO (Portsmouth), SO (Southampton) | DA (Dartford), MK (Milton Keynes) | BN (Brighton), GU (Guildford), OX (Oxford), RH (Redhill),  RG (Reading) | CT (Canterbury), ME (Maidstone), TN (Tonbridge), SL (Slough)
-
-          ###Southwest England
-
-          Current postcodes | From 25 May | From 22 June
-          - | - | -
-          EX (Exeter), PL (Plymouth), TA (Taunton), TQ (Torquay), TR (Truro) | BS (Bristol), GL (Gloucester), SN (Swindon), SP (Salisbury) |  BA (Bath), BH (Bournemouth), DT (Dorchester)
-
-          ###Yorkshire and Humber (current postcodes)
-
-          BD (Bradford), DN (Doncaster), HD (Huddersfield), HG (Harrogate), HU (Hull), HX (Halifax), LS (Leeds), S (Sheffield), TS (Cleveland), WF (Wakefield), YO (York)
-
-          ###Scotland
-
-          Current postcodes | From 25 May | From 27 July
-          - | - | -
-          AB (Aberdeen), DD (Dundee), DG (Dumfries and Galloway), EH (Edinburgh), G (Glasgow, IV (Inverness), KA (Kilmarnock), KY (Kirkcaldy), ML (Motherwell), PH (Perth), TD (Galashiels), FK (Falkirk) | PA (Paisley)  | HS (Hebrides), KW (Kirkwall), ZE (Lerwick)
-
+         You'll continue to get DLA until DWP writes to you about when it will end.
+  
+  
       ## Q1
       are_you_getting_dla?:
         title: "Are you getting Disability Living Allowance?"
@@ -107,27 +106,20 @@ en-GB:
 
       result_4:
         body: |
-          $!You shouldn't be affected by Personal Independence Payment (PIP) until 2015 or later, but there are some exceptions.$!
+         $!Some people in England, Scotland and Wales have been invited to claim Personal Independence Payment (PIP).$! 
 
-          You don't need to do anything now - you'll get a letter in 2015 or later explaining:
+         If you're still getting Disability Living Allowance, when you'll be invited to claim PIP depends on:
 
-          + what will happen to your Disability Living Allowance (DLA)
-          + how you can claim PIP
+         - when your DLA ends
+         - your postcode area
+         - if your care and mobility needs change
 
-          ##Exceptions
+         ###Your DLA ends before September 2017
 
-          You’ll be invited to claim PIP if either:
+        You'll be told 20 weeks before your DLA ends and invited to claim PIP in most areas of England, Scotland and Wales. 
 
-          + there’s a change in how your condition affects you
-          + your DLA is due to end and you haven’t received a renewal letter
-
-          This applies if you live in:
-
-          - Wales
-          - East Midlands
-          - West Midlands
-          - East Anglia
-
+         You'll also be invited to claim PIP if you tell the Department for Work and Pensions (DWP) that your care or mobility needs have changed. 
+  
           %{postcodes}
 
           *[DLA]: Disability Living Allowance
@@ -135,21 +127,65 @@ en-GB:
 
       result_5:
         body: |
-          $!You can continue to claim Disability Living Allowance (DLA) for the child for now – but there are some exceptions.$!
+          $!Some people in England, Scotland and Wales have been invited to claim Personal Independence Payment (PIP).$! 
 
-          ##Exceptions
+         If your child is still getting Disability Living Allowance, when they'll be invited to claim PIP depends on:
 
-          Your child will normally get a letter before they turn 16 inviting them to apply for PIP if they live in:
+         - when their DLA ends
+         - their postcode area
+         - their age
+         - if their care and mobility needs change
 
-          - Wales
-          - East Midlands
-          - West Midlands
-          - East Anglia
+         ###Your child's DLA ends before September 2017
 
-          Contact the [Disability Benefits helpline](/disability-benefits-helpline) if their sixteenth birthday is in less than 28 days and they haven’t received this. Their payment may stop if you don’t.
+         Your child will normally get a letter before they turn 16 inviting them to apply for PIP. 
 
-          %{postcodes}
+         ^Contact the [Disability Benefits helpline](/disability-benefits-helpline) if your child's sixteenth birthday is in less than 28 days and you haven’t received a letter. Your child's payment may stop if you don’t.^
 
+         Your child will also be invited to claim PIP if you tell the Department for Work and Pensions (DWP) that their care or mobility needs have changed. 
+         
+          In the following areas your child be asked to claim PIP from 27 July 2015:  
+
+         - AL (St Albans)
+         - CT (Canterbury)
+         - EN (Enfield)
+         - HA (Harrow)
+         - HS (Hebrides)
+         - KT (Kingston)
+         - KW (Kirkwall)
+         - ME (Maidstone) 
+         - N (London North)
+         - NW (London North West)
+         - SL (Slough)
+         - SM (Sutton)
+         - TN (Tonbridge)
+         - TW (Twickenham)
+         - UB (Uxbridge)
+         - W (London West)
+         - WD (Watford)
+         - ZE (Lerwick)
+
+         ###Your DLA ends after September 2017 or DLA awards with no end date
+
+         Some people will be invited to claim PIP from 13 July 2015 if you live in the following areas:
+
+         - Blackburn (BB)
+         - Bolton (BL) 
+         - Derby (DE)
+         - Leicester (LE)
+         - Manchester (M)
+         - Oldham (OL)
+         - Preston (PR)
+         - Stoke (ST)
+         - Warrington (WA)
+         - Wigan (WN)
+
+         This includes if your child has an indefinite or long-term awards of DLA. 
+
+         ^You can be contacted anytime between 13 July 2015 and 30 September 2017. Not everyone in these postcode areas will be contacted to claim PIP right away.^
+
+         Your child will continue to get DLA until DWP writes to you about when it will end.
+  
           *[DLA]: Disability Living Allowance
           *[PIP]: Personal Independence Payment
 
@@ -161,26 +197,21 @@ en-GB:
 
       result_7:
         body: |
-          $!You shouldn't be affected by Personal Independence Payment (PIP) until 2015 or later, but there are some exceptions.$!
+          $!Some people in England, Scotland and Wales have been invited to claim Personal Independence Payment (PIP).$!
 
-          You don't need to do anything now - you'll get a letter in 2015 or later explaining:
+        If you're still getting Disability Living Allowance, when you'll be invited to claim PIP depends on:
 
-          + what will happen to your Disability Living Allowance (DLA)
-          + how you can claim PIP
+         - when your DLA ends
+         - your postcode area
+         - if your care and mobility needs change
 
-          ^Contact the [Disability Benefits helpline](/disability-benefits-helpline) if your DLA payment is due to end in less than 28 days and you haven't received a letter about making a new claim. Your payment may stop if you don't.^
+         ###Your DLA ends before September 2017
 
-          You’ll be invited to claim PIP if either:
+         You'll be told 20 weeks before your DLA ends and invited to claim PIP in most areas of England, Scotland and Wales. 
 
-          + there’s a change in how your condition affects you
-          + your DLA is due to end and you haven’t received a renewal letter
+         ^Contact the [Disability Benefits helpline](/disability-benefits-helpline) if your DLA payment is due to end in less than 28 days and you haven’t received a letter about making a new claim. Your payment may stop if you don’t.^
 
-          This applies if you live in:
-
-          - Wales
-          - East Midlands
-          - West Midlands
-          - East Anglia
+         You'll also be invited to claim PIP if you tell the Department for Work and Pensions (DWP) that your care or mobility needs have changed. 
 
           %{postcodes}
 
