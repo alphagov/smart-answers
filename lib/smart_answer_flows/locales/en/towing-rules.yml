@@ -105,14 +105,6 @@ en-GB:
           under-21: "Under 21"
           21-or-over: "21 or over"
 
-      ## A37
-      full_entitlement_bus:
-        body: |
-          You can already tow trailers up to 750 kg. To tow heavier trailers you need to apply for provisional D+E towing with a bus entitlement then pass the D+E test.
-        next_steps: |
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
-
-          [Driving licence categories](/driving-licence-categories)
       ## A39
       not_old_enough_bus:
         body: |
