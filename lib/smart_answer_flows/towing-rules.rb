@@ -128,7 +128,7 @@ module SmartAnswer
       outcome :limited_conditional_trailer_entitlement_msv, use_outcome_templates: true #A10
       outcome :limited_trailer_entitlement_msv, use_outcome_templates: true #A11
       outcome :included_entitlement_msv, use_outcome_templates: true #A13
-      outcome :full_entitlement_msv #A15
+      outcome :full_entitlement_msv, use_outcome_templates: true #A15
       outcome :too_young_msv #A17
       outcome :apply_for_provisional_with_exceptions_msv #A18
       outcome :apply_for_provisional_msv #A19
