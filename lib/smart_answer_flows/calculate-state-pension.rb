@@ -474,7 +474,11 @@ module SmartAnswer
       outcome :age_result, use_outcome_templates: true
       outcome :over55_result, use_outcome_templates: true
 
-      outcome :amount_result do
+      outcome :amount_result, use_outcome_templates: true do
+        precalculate :pays_reduced_ni_rate do
+          pays_reduced_ni_rate
+        end
+
         precalculate :calc do
           Calculators::StatePensionAmountCalculator.new(
             gender: gender, dob: dob, qualifying_years: (qualifying_years)
@@ -549,73 +553,6 @@ module SmartAnswer
 
         precalculate :auto_years_entitlement do
           (dob < Date.parse("6th October 1953") and (gender == "male"))
-        end
-
-        precalculate :result_text do
-          phrases = PhraseList.new
-
-          if calc.within_four_months_one_day_from_state_pension?
-            if enough_qualifying_years
-              phrases << :within_4_months_enough_qy_years
-            else
-              phrases << :within_4_months_not_enough_qy_years
-            end
-
-            if Date.today < calc.state_pension_date - 35
-              phrases << :pension_statement
-            end
-
-            if enough_qualifying_years
-              phrases << :within_4_months_enough_qy_years_more
-            else
-              phrases << :within_4_months_not_enough_qy_years_more
-            end
-
-            if auto_years_entitlement && !enough_qualifying_years
-              phrases << :automatic_years_phrase
-            end
-          elsif calculator.state_pension_date >= Date.parse('2016-04-06')
-            phrases << :too_few_qy_enough_remaining_years_a_intro
-            if qualifying_years_total >= 10
-              phrases << :ten_and_greater
-              if calculator.qualifies_for_rre_entitlements?
-                phrases << :rre_entitlements
-              end
-            else
-              phrases << :less_than_ten
-              if pays_reduced_ni_rate == "yes"
-                phrases << :reduced_rate_election
-              end
-              if lived_or_worked_abroad == "yes"
-                phrases << :lived_or_worked_overseas
-              end
-            end
-            phrases << :too_few_qy_enough_remaining_years_a
-            if auto_years_entitlement
-              phrases << :automatic_years_phrase
-            end
-          elsif !enough_qualifying_years
-            if enough_remaining_years
-              phrases << :too_few_qy_enough_remaining_years
-            else
-              phrases << :too_few_qy_not_enough_remaining_years
-            end
-            if auto_years_entitlement
-              phrases << :automatic_years_phrase
-            end
-          else
-            phrases << :you_get_full_state_pension
-          end
-          phrases
-        end
-
-        precalculate :automatic_credits do
-          date_of_birth = dob
-          if Date.civil(1957, 4, 5) < date_of_birth and date_of_birth < Date.civil(1994, 4, 6)
-            PhraseList.new :automatic_credits
-          else
-            ''
-          end
         end
       end
     end

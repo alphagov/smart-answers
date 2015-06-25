@@ -351,7 +351,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         end
       end
 
-
       context "is state pension age" do
         setup do
           Timecop.travel("2013-07-18")
@@ -461,7 +460,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           add_response 1    # jsa years
           add_response :no
           assert_current_node :amount_result
-          assert_phrase_list :automatic_credits, [:automatic_credits]
         end
       end
 
@@ -603,7 +601,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_state_variable :qualifying_years_total, 30
         assert_state_variable "state_pension_age", "65 years"
         assert_state_variable "formatted_state_pension_date", " 9 August 2013"
-        assert_phrase_list :result_text, [:within_4_months_enough_qy_years, :pension_statement, :within_4_months_enough_qy_years_more]
       end
     end
 
@@ -619,7 +616,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_state_variable :qualifying_years_total, 30
         assert_state_variable "state_pension_age", "65 years"
         assert_state_variable "formatted_state_pension_date", " 9 August 2013"
-        assert_phrase_list :result_text, [:within_4_months_enough_qy_years, :within_4_months_enough_qy_years_more]
       end
     end
 
@@ -638,7 +634,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_state_variable :qualifying_years_total, 23
         assert_state_variable "state_pension_age", "65 years"
         assert_state_variable "formatted_state_pension_date", " 9 August 2013"
-        assert_phrase_list :result_text, [:within_4_months_not_enough_qy_years, :pension_statement, :within_4_months_not_enough_qy_years_more, :automatic_years_phrase]
       end
     end
 
@@ -657,7 +652,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_state_variable :qualifying_years_total, 23
         assert_state_variable "state_pension_age", "65 years"
         assert_state_variable "formatted_state_pension_date", " 9 August 2013"
-        assert_phrase_list :result_text, [:within_4_months_not_enough_qy_years, :within_4_months_not_enough_qy_years_more, :automatic_years_phrase]
       end
     end
 
@@ -674,7 +668,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
         assert_state_variable "formatted_state_pension_date", " 6 September 2013"
         assert_current_node :amount_result
-        assert_phrase_list :result_text, [:within_4_months_enough_qy_years, :within_4_months_enough_qy_years_more]
       end
 
       should "should show the correct result with pay_reduced_ni_rate" do
@@ -687,7 +680,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
         assert_state_variable "formatted_state_pension_date", " 6 September 2013"
         assert_current_node :amount_result
-        assert_phrase_list :result_text, [:within_4_months_enough_qy_years, :within_4_months_enough_qy_years_more]
       end
 
       context "for someone who has reached state pension age" do
