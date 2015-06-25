@@ -121,28 +121,30 @@ module SmartAnswer
         option "21-or-over" => :apply_for_provisional_bus #A40
       end
 
-      outcome :car_light_vehicle_entitlement, use_outcome_templates: true # A3
-      outcome :full_entitlement, use_outcome_templates: true #A4
-      outcome :limited_trailer_entitlement, use_outcome_templates: true #A6
-      outcome :limited_trailer_entitlement_2013, use_outcome_templates: true # A7
-      outcome :limited_conditional_trailer_entitlement_msv, use_outcome_templates: true #A10
-      outcome :limited_trailer_entitlement_msv, use_outcome_templates: true #A11
-      outcome :included_entitlement_msv, use_outcome_templates: true #A13
-      outcome :full_entitlement_msv, use_outcome_templates: true #A15
-      outcome :too_young_msv, use_outcome_templates: true #A17
-      outcome :apply_for_provisional_with_exceptions_msv, use_outcome_templates: true #A18
-      outcome :apply_for_provisional_msv, use_outcome_templates: true #A19
-      outcome :full_cat_c_entitlement, use_outcome_templates: true # A21
-      outcome :not_old_enough_lv, use_outcome_templates: true #A23
-      outcome :apply_for_provisional_lv, use_outcome_templates: true #A24
-      outcome :full_entitlement_minibus, use_outcome_templates: true #A26
-      outcome :included_entitlement_minibus, use_outcome_templates: true #A28
-      outcome :limited_towing_entitlement_minibus, use_outcome_templates: true #A30
-      outcome :not_old_enough_minibus, use_outcome_templates: true #A32
-      outcome :limited_overall_entitlement_minibus, use_outcome_templates: true #A34
-      outcome :full_entitlement_bus, use_outcome_templates: true #A37
-      outcome :not_old_enough_bus, use_outcome_templates: true # A39
-      outcome :apply_for_provisional_bus, use_outcome_templates: true #A40
+      use_outcome_templates
+
+      outcome :car_light_vehicle_entitlement # A3
+      outcome :full_entitlement #A4
+      outcome :limited_trailer_entitlement #A6
+      outcome :limited_trailer_entitlement_2013 # A7
+      outcome :limited_conditional_trailer_entitlement_msv #A10
+      outcome :limited_trailer_entitlement_msv #A11
+      outcome :included_entitlement_msv #A13
+      outcome :full_entitlement_msv #A15
+      outcome :too_young_msv #A17
+      outcome :apply_for_provisional_with_exceptions_msv #A18
+      outcome :apply_for_provisional_msv #A19
+      outcome :full_cat_c_entitlement # A21
+      outcome :not_old_enough_lv #A23
+      outcome :apply_for_provisional_lv #A24
+      outcome :full_entitlement_minibus #A26
+      outcome :included_entitlement_minibus #A28
+      outcome :limited_towing_entitlement_minibus #A30
+      outcome :not_old_enough_minibus #A32
+      outcome :limited_overall_entitlement_minibus #A34
+      outcome :full_entitlement_bus #A37
+      outcome :not_old_enough_bus # A39
+      outcome :apply_for_provisional_bus #A40
     end
   end
 end
