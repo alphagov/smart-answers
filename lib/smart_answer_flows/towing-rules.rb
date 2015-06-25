@@ -142,7 +142,7 @@ module SmartAnswer
       outcome :limited_overall_entitlement_minibus, use_outcome_templates: true #A34
       outcome :full_entitlement_bus, use_outcome_templates: true #A37
       outcome :not_old_enough_bus, use_outcome_templates: true # A39
-      outcome :apply_for_provisional_bus #A40
+      outcome :apply_for_provisional_bus, use_outcome_templates: true #A40
     end
   end
 end
