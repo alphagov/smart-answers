@@ -3,6 +3,7 @@ class OutcomePresenter < NodePresenter
     @options = options
     super(i18n_prefix, node, state)
     @view = ActionView::Base.new([template_directory])
+    @view.extend(SmartAnswer::OutcomeHelper)
     @rendered_erb_template = false
   end
 
