@@ -1,7 +1,7 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../../config/environment', __FILE__)
 
-FLOW_REGISTRY_OPTIONS[:preload_flows] = true
+FLOW_REGISTRY_OPTIONS[:preload_flows] = false
 
 require 'rails/test_help'
 
