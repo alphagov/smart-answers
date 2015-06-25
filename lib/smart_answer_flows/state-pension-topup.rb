@@ -56,16 +56,18 @@ module SmartAnswer
         next_node :outcome_topup_calculations
       end
 
+      use_outcome_templates
+
       #A1
-      outcome :outcome_topup_calculations, use_outcome_templates: true do
+      outcome :outcome_topup_calculations do
         precalculate :amounts_vs_ages do
           calculator.lump_sum_and_age(date_of_birth, weekly_amount, gender)
         end
       end
       #A2
-      outcome :outcome_pension_age_not_reached, use_outcome_templates: true
+      outcome :outcome_pension_age_not_reached
       #A3
-      outcome :outcome_age_limit_reached_birth, use_outcome_templates: true
+      outcome :outcome_age_limit_reached_birth
     end
   end
 end
