@@ -3,11 +3,13 @@ class OutcomePresenter < NodePresenter
     @options = options
     super(i18n_prefix, node, state)
     @view = ActionView::Base.new([template_directory])
+    @rendered_erb_template = false
   end
 
   def title
     if use_template? && title_erb_template_exists?
-      title = @view.render(template: title_erb_template_name, locals: @state.to_hash)
+      render_erb_template
+      title = @view.content_for(:title) || ''
       title.chomp
     else
       translate!('title')
@@ -27,27 +29,20 @@ class OutcomePresenter < NodePresenter
 
   def body
     if use_template? && body_erb_template_exists?
-      govspeak = @view.render(template: body_erb_template_name, locals: @state.to_hash)
+      render_erb_template
+      govspeak = @view.content_for(:body) || ''
       GovspeakPresenter.new(govspeak.to_str).html
     else
       super()
     end
   end
 
-  def title_erb_template_path
-    template_directory.join(title_erb_template_name)
+  def erb_template_path
+    template_directory.join(erb_template_name)
   end
 
-  def title_erb_template_name
-    "#{name}_title.txt.erb"
-  end
-
-  def body_erb_template_path
-    template_directory.join(body_erb_template_name)
-  end
-
-  def body_erb_template_name
-    "#{name}_body.govspeak.erb"
+  def erb_template_name
+    "#{name}.govspeak.erb"
   end
 
   private
@@ -57,11 +52,15 @@ class OutcomePresenter < NodePresenter
   end
 
   def title_erb_template_exists?
-    File.exists?(title_erb_template_path)
+    erb_template_exists? && has_content_for_title?
   end
 
   def body_erb_template_exists?
-    File.exists?(body_erb_template_path)
+    erb_template_exists? && has_content_for_body?
+  end
+
+  def erb_template_exists?
+    File.exists?(erb_template_path)
   end
 
   def use_template?
@@ -73,5 +72,20 @@ class OutcomePresenter < NodePresenter
 
     partial_path = ::SmartAnswer::FlowRegistry.instance.load_path.join("data_partials", "_#{partial}")
     ApplicationController.new.render_to_string(file: partial_path.to_s, layout: false, locals: {variable_name.to_sym => data})
+  end
+
+  def render_erb_template
+    unless @rendered_erb_template
+      @view.render(template: erb_template_name, locals: @state.to_hash)
+      @rendered_erb_template = true
+    end
+  end
+
+  def has_content_for_body?
+    File.read(erb_template_path) =~ /content_for :body/
+  end
+
+  def has_content_for_title?
+    File.read(erb_template_path) =~ /content_for :title/
   end
 end

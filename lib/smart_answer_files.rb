@@ -38,7 +38,7 @@ class SmartAnswerFiles
   end
 
   def additional_files_absolute_paths
-    @additional_files_paths.map(&:realpath)
+    @additional_files_paths.select(&:exist?).map(&:realpath)
   end
 
   def flow_path
