@@ -63,7 +63,7 @@ module SmartAnswer
         end
       end
       #A2
-      outcome :outcome_pension_age_not_reached
+      outcome :outcome_pension_age_not_reached, use_outcome_templates: true
       #A3
       outcome :outcome_age_limit_reached_birth
     end
