@@ -960,6 +960,8 @@ module SmartAnswer
             phrases << prelude
             phrases << contact_method_key
             phrases << :book_online_china_affirmation_affidavit
+          elsif ceremony_country == 'macao'
+            phrases << :appointment_for_affidavit_in_hong_kong
           else
             phrases << :appointment_for_affidavit
           end
@@ -975,6 +977,14 @@ module SmartAnswer
 
             if ceremony_country == 'philippines'
               phrases << :required_supporting_documents_philippines
+            end
+
+            if ceremony_country == 'macao'
+              phrases << :complete_affirmation_or_affidavit_forms
+              phrases << :download_and_fill_but_not_sign
+              phrases << :download_affidavit_and_affirmation_macao
+              phrases << :required_supporting_documents_macao
+              phrases << :partner_probably_needs_affirmation
             end
 
             if ceremony_country == 'cambodia'
@@ -1071,7 +1081,7 @@ module SmartAnswer
           #fee tables
           if %w(south-korea thailand turkey vietnam).include?(ceremony_country)
             phrases << :fee_table_affidavit_55
-          elsif %w(cambodia ecuador morocco belgium).include? ceremony_country
+          elsif %w(belgium cambodia ecuador macao morocco).include?(ceremony_country)
             phrases << :fee_table_affirmation_55
           elsif ceremony_country == 'finland'
             phrases << :fee_table_affirmation_65
@@ -1418,7 +1428,6 @@ module SmartAnswer
       end
 
       outcome :outcome_os_marriage_impossible_no_laos_locals
-
     end
   end
 end
