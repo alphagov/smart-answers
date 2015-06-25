@@ -107,28 +107,7 @@ module SmartAnswer
 
       outcome :gender_not_needed_outcome, use_outcome_templates: true
 
-      outcome :final_outcome do
-        precalculate :result_phrase do
-          phrases = PhraseList.new
-          if gender == "male_gender"
-            if marital_status == "divorced"
-              phrases << :impossibility_due_to_divorce #outcome 9
-            else
-              phrases << :impossibility_to_increase_pension #outcome 8
-            end
-          else
-            if marital_status == "divorced"
-              phrases << :age_dependent_pension #outcome 10
-            elsif marital_status == "widowed"
-              phrases << :married_woman_and_state_pension #outcome 6
-            else
-              phrases << :married_woman_no_state_pension #outcome 5
-            end
-          end
-          phrases << :increase_retirement_income
-          phrases
-        end
-      end
+      outcome :final_outcome, use_outcome_templates: true
     end
   end
 end
