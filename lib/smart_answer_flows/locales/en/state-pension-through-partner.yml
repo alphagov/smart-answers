@@ -488,3 +488,11 @@ en-GB:
         title:
         body: |
           %{result_phrase}
+      widow_and_old_pension_outcome:
+        title:
+        body: |
+          %{result_phrase}
+      gender_not_needed_outcome:
+        title:
+        body: |
+          %{result_phrase}

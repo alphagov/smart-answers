@@ -72,7 +72,7 @@ module SmartAnswer
         end
 
         next_node_if(:what_is_your_gender?, widow_and_new_pension?)
-        next_node_if(:final_outcome, widow_and_old_pension?)
+        next_node_if(:widow_and_old_pension_outcome, widow_and_old_pension?)
         next_node :when_will_your_partner_reach_pension_age?
       end
 
@@ -105,7 +105,7 @@ module SmartAnswer
           answers == [:old1, :old2] || answers == [:new1, :old2]
         }
 
-        next_node_if(:final_outcome, gender_not_needed_for_outcome?)
+        next_node_if(:gender_not_needed_outcome, gender_not_needed_for_outcome?)
         next_node :what_is_your_gender?
       end
 
@@ -137,6 +137,8 @@ module SmartAnswer
         next_node :final_outcome
       end
 
+      outcome :widow_and_old_pension_outcome
+      outcome :gender_not_needed_outcome
       outcome :final_outcome
     end
   end

@@ -26,8 +26,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
 
       context "old3 - before specific date" do
         setup { add_response "partner_pension_age_before_specific_date" }
-        should "go to final_outcome" do
-          assert_current_node :final_outcome
+        should "go to gender_not_needed_outcome" do
+          assert_current_node :gender_not_needed_outcome
         end
       end
     end
@@ -75,8 +75,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "your_pension_age_before_specific_date"
       add_response "partner_pension_age_before_specific_date"
     end
-    should "take you to final_outcome with current_rules_no_additional_pension phraselist" do
-      assert_current_node :final_outcome
+    should "take you to gender_not_needed_outcome with current_rules_no_additional_pension phraselist" do
+      assert_current_node :gender_not_needed_outcome
       assert_phrase_list :result_phrase, [:current_rules_no_additional_pension, :increase_retirement_income]
     end
   end
@@ -98,8 +98,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "your_pension_age_before_specific_date"
       add_response "partner_pension_age_before_specific_date"
     end
-    should "take you to final_outcome with current_rules_no_additional_pension phraselist" do
-      assert_current_node :final_outcome
+    should "take you to gender_not_needed_outcome with current_rules_no_additional_pension phraselist" do
+      assert_current_node :gender_not_needed_outcome
       assert_phrase_list :result_phrase, [:current_rules_no_additional_pension, :increase_retirement_income]
     end
   end
@@ -110,8 +110,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "widowed"
       add_response "your_pension_age_before_specific_date"
     end
-    should "take you to final_outcome with current_rules_and_additional_pension phraselist" do
-      assert_current_node :final_outcome
+    should "take you to widow_and_old_pension_outcome with current_rules_and_additional_pension phraselist" do
+      assert_current_node :widow_and_old_pension_outcome
       assert_phrase_list :result_phrase, [:current_rules_and_additional_pension, :increase_retirement_income]
     end
   end #end current_rules_and_additional_pension
@@ -122,8 +122,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "your_pension_age_before_specific_date"
       add_response "partner_pension_age_after_specific_date"
     end
-    should "take you to final_outcome with current_rules_national_insurance_no_state_pension" do
-      assert_current_node :final_outcome
+    should "take you to gender_not_needed_outcome with current_rules_national_insurance_no_state_pension" do
+      assert_current_node :gender_not_needed_outcome
       assert_phrase_list :result_phrase, [:current_rules_national_insurance_no_state_pension, :increase_retirement_income]
     end
   end #end current_rules_national_insurance_no_state_pension
