@@ -14,6 +14,8 @@ module SmartAnswer
         option :widowed
         option :divorced
 
+        save_input_as :marital_status
+
         calculate :answers do |response|
           answers = []
           if response == "married" or response == "will_marry_before_specific_date"
@@ -50,12 +52,12 @@ module SmartAnswer
           elsif response == "your_pension_age_after_specific_date"
             answers << :new2
           end
-          answers << :old3 if responses.first == "widowed"
+          answers << :old3 if marital_status == "widowed"
           answers
         end
 
         calculate :result_phrase do |response|
-          if responses.first == "widowed" and response == "your_pension_age_before_specific_date"
+          if marital_status == "widowed" and response == "your_pension_age_before_specific_date"
             PhraseList.new(
               :current_rules_and_additional_pension,
               :increase_retirement_income #outcome 2
@@ -117,15 +119,15 @@ module SmartAnswer
         calculate :result_phrase do |response|
           phrases = PhraseList.new
           if response == "male_gender"
-            if responses.first == "divorced"
+            if marital_status == "divorced"
               phrases << :impossibility_due_to_divorce #outcome 9
             else
               phrases << :impossibility_to_increase_pension #outcome 8
             end
           else
-            if responses.first == "divorced"
+            if marital_status == "divorced"
               phrases << :age_dependent_pension #outcome 10
-            elsif responses.first == "widowed"
+            elsif marital_status == "widowed"
               phrases << :married_woman_and_state_pension #outcome 6
             else
               phrases << :married_woman_no_state_pension #outcome 5
