@@ -105,16 +105,6 @@ en-GB:
           under-21: "Under 21"
           21-or-over: "21 or over"
 
-      ## A24
-      apply_for_provisional_lv:
-        body: |
-          If you get provisional category C large vehicle entitlement then pass the category C test you can tow trailers up to 750 kg.
-
-          If you want to tow heavier trailers you can apply for provisional C+E towing entitlement and pass the C+E test.
-        next_steps: |
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
-
-          [Driving licence categories](/driving-licence-categories)
       ## A26
       full_entitlement_minibus:
         body: |

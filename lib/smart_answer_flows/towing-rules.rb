@@ -134,7 +134,7 @@ module SmartAnswer
       outcome :apply_for_provisional_msv, use_outcome_templates: true #A19
       outcome :full_cat_c_entitlement, use_outcome_templates: true # A21
       outcome :not_old_enough_lv, use_outcome_templates: true #A23
-      outcome :apply_for_provisional_lv #A24
+      outcome :apply_for_provisional_lv, use_outcome_templates: true #A24
       outcome :full_entitlement_minibus #A26
       outcome :included_entitlement_minibus #A28
       outcome :limited_towing_entitlement_minibus #A30
