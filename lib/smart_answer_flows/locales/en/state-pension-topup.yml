@@ -54,25 +54,6 @@ en-GB:
         options:
           "male": "Male"
           "female": "Female"
-      phrases:
-        body_phrase: |
-          Make sure you’ll get the full [basic State Pension](/state-pension-statement) before making Class 3A contributions.
-
-          You should get [financial advice](/plan-retirement-income/get-financial-advice) when planning your retirement income.
-
-          The contribution amount is an estimate.
-
-          To register your interest in the scheme and to get updates, email <statepension.topup@dwp.gsi.gov.uk>.
-#Outcome A1
-      outcome_topup_calculations:
-        title: |
-          Results
-        body: |
-          To top up your pension by %{weekly_amount} per week, you’ll need to make a lump sum payment of either:
-
-          %{amount_and_age}
-
-          %{body_phrase}
 #outcome A2
       outcome_pension_age_not_reached:
         title: |

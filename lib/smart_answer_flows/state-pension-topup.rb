@@ -53,22 +53,13 @@ module SmartAnswer
           end
         end
 
-        calculate :body_phrase do
-          PhraseList.new(:body_phrase)
-        end
-
         next_node :outcome_topup_calculations
       end
 
       #A1
-      outcome :outcome_topup_calculations do
-        precalculate :amount_and_age do
-          # Only needed for formatting amount
-          self.class.send :include, ActionView::Helpers::NumberHelper
-
-          calculator.lump_sum_and_age(date_of_birth, weekly_amount, gender).map do |amount_and_age|
-            %Q(- #{number_to_currency(amount_and_age[:amount], precision: 0)} when you're #{amount_and_age[:age]})
-          end.join("\n")
+      outcome :outcome_topup_calculations, use_outcome_templates: true do
+        precalculate :amounts_vs_ages do
+          calculator.lump_sum_and_age(date_of_birth, weekly_amount, gender)
         end
       end
       #A2
