@@ -58,15 +58,6 @@ module SmartAnswer
           answers
         end
 
-        calculate :result_phrase do |response|
-          if marital_status == "widowed" and when_will_you_reach_pension_age == "your_pension_age_before_specific_date"
-            PhraseList.new(
-              :current_rules_and_additional_pension,
-              :increase_retirement_income #outcome 2
-            )
-          end
-        end
-
         define_predicate(:widow_and_new_pension?) do |response|
           answers == [:widow] && response == "your_pension_age_after_specific_date"
         end
@@ -94,17 +85,6 @@ module SmartAnswer
           answers
         end
 
-        calculate :result_phrase do
-          phrases = PhraseList.new
-          if answers == [:old1, :old2, :old3] || answers == [:new1, :old2, :old3]
-            phrases << :current_rules_no_additional_pension #outcome 1
-          elsif answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
-            phrases << :current_rules_national_insurance_no_state_pension #outcome 3
-          end
-          phrases << :increase_retirement_income
-          phrases
-        end
-
         define_predicate(:gender_not_needed_for_outcome?) {
           answers == [:old1, :old2] || answers == [:new1, :old2]
         }
@@ -120,7 +100,35 @@ module SmartAnswer
 
         save_input_as :gender
 
-        calculate :result_phrase do |response|
+        next_node :final_outcome
+      end
+
+      outcome :widow_and_old_pension_outcome do
+        precalculate :result_phrase do
+          if marital_status == "widowed" and when_will_you_reach_pension_age == "your_pension_age_before_specific_date"
+            PhraseList.new(
+              :current_rules_and_additional_pension,
+              :increase_retirement_income #outcome 2
+            )
+          end
+        end
+      end
+
+      outcome :gender_not_needed_outcome do
+        precalculate :result_phrase do
+          phrases = PhraseList.new
+          if answers == [:old1, :old2, :old3] || answers == [:new1, :old2, :old3]
+            phrases << :current_rules_no_additional_pension #outcome 1
+          elsif answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
+            phrases << :current_rules_national_insurance_no_state_pension #outcome 3
+          end
+          phrases << :increase_retirement_income
+          phrases
+        end
+      end
+
+      outcome :final_outcome do
+        precalculate :result_phrase do
           phrases = PhraseList.new
           if gender == "male_gender"
             if marital_status == "divorced"
@@ -140,12 +148,7 @@ module SmartAnswer
           phrases << :increase_retirement_income
           phrases
         end
-        next_node :final_outcome
       end
-
-      outcome :widow_and_old_pension_outcome
-      outcome :gender_not_needed_outcome
-      outcome :final_outcome
     end
   end
 end
