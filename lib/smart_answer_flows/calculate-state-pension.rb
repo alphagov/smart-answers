@@ -500,15 +500,7 @@ module SmartAnswer
         next_node :amount_result
       end
 
-      outcome :near_state_pension_age do
-        precalculate :pension_credit do
-          if Date.parse(pension_credit_date) > Date.today
-            PhraseList.new(:pension_credit_future)
-          else
-            PhraseList.new(:pension_credit_past)
-          end
-        end
-      end
+      outcome :near_state_pension_age, use_outcome_templates: true
 
       outcome :reached_state_pension_age
       outcome :too_young do
