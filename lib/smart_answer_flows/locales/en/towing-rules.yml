@@ -105,18 +105,6 @@ en-GB:
           under-21: "Under 21"
           21-or-over: "21 or over"
 
-      ## A34
-      limited_overall_entitlement_minibus:
-        body: |
-          You need to apply for a provisional D1 minibus licence then pass a D1 minibus test to tow trailers up to 750 kg.
-
-          To tow heavier trailers you can then apply for provisional D1+E towing with a minibus entitlement then pass the D1+E test.
-        next_steps: |
-          [Driving a minibus](/driving-a-minibus)
-
-          [Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
-
-          [Driving licence categories](/driving-licence-categories)
       ## A37
       full_entitlement_bus:
         body: |
