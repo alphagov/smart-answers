@@ -502,7 +502,7 @@ module SmartAnswer
 
       outcome :near_state_pension_age, use_outcome_templates: true
 
-      outcome :reached_state_pension_age
+      outcome :reached_state_pension_age, use_outcome_templates: true
       outcome :too_young do
         precalculate :weekly_rate do
           sprintf("%.2f", calculator.current_weekly_rate)
