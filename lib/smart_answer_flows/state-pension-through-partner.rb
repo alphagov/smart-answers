@@ -103,16 +103,7 @@ module SmartAnswer
         next_node :final_outcome
       end
 
-      outcome :widow_and_old_pension_outcome do
-        precalculate :result_phrase do
-          if marital_status == "widowed" and when_will_you_reach_pension_age == "your_pension_age_before_specific_date"
-            PhraseList.new(
-              :current_rules_and_additional_pension,
-              :increase_retirement_income #outcome 2
-            )
-          end
-        end
-      end
+      outcome :widow_and_old_pension_outcome, use_outcome_templates: true
 
       outcome :gender_not_needed_outcome do
         precalculate :result_phrase do

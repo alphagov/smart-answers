@@ -110,9 +110,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "widowed"
       add_response "your_pension_age_before_specific_date"
     end
-    should "take you to widow_and_old_pension_outcome with current_rules_and_additional_pension phraselist" do
+    should "take you to widow_and_old_pension_outcome" do
       assert_current_node :widow_and_old_pension_outcome
-      assert_phrase_list :result_phrase, [:current_rules_and_additional_pension, :increase_retirement_income]
     end
   end #end current_rules_and_additional_pension
   #current_rules_national_insurance_no_state_pension
