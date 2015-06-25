@@ -49,7 +49,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
           assert_current_node :age_result
           assert_state_variable :state_pension_date, Date.parse("05 Dec 2018")
           assert_state_variable :pension_credit_date, Date.parse("06 Nov 2018").strftime("%-d %B %Y")
-          assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :pension_age_review, :bus_pass]
         end
       end
 
@@ -84,8 +83,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
         should "give an answer" do
           assert_current_node :age_result
-          assert_phrase_list :tense_specific_title, [:have_reached_pension_age]
-          assert_phrase_list :state_pension_age_statement, [:state_pension_age_was, :pension_credit_past, :bus_pass]
           assert_state_variable "state_pension_age", "65 years"
           assert_state_variable "formatted_state_pension_date", "6 April 2010"
         end
@@ -137,7 +134,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
       should "show result for state_pension_age_is outcome" do
         assert_current_node :age_result
-        assert_phrase_list :state_pension_age_statement, [:state_pension_age_is, :pension_credit_future, :bus_pass]
       end
     end
 
@@ -149,7 +145,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         add_response :male
         add_response Date.parse('6 March 1961')
         assert_current_node :age_result
-        assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_future, :pension_age_review, :bus_pass]
       end
     end
 
@@ -163,7 +158,6 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :age_result
         assert_state_variable :formatted_state_pension_date, '3 February 2017'
         assert_state_variable :pension_credit_date, '6 November 2013'
-        assert_phrase_list :state_pension_age_statement, [:state_pension_age_is_a, :pension_credit_past, :pension_age_review, :bus_pass]
       end
     end
 
