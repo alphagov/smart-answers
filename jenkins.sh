@@ -13,6 +13,11 @@ export GOVUK_APP_DOMAIN=dev.gov.uk
 export GOVUK_ASSET_HOST=http://static.dev.gov.uk
 
 export DISPLAY=:99
-RAILS_ENV=test TEST_COVERAGE=true bundle exec rake test
 
-bundle exec rake assets:precompile
+if [ -z "$RUN_REGRESSION_TESTS" ]; then
+  RAILS_ENV=test TEST_COVERAGE=true bundle exec rake test
+
+  bundle exec rake assets:precompile
+else
+  bundle exec ruby test/regression/smart_answers_regression_test.rb
+fi
