@@ -16,13 +16,13 @@ module SmartAnswer::Calculators
 
     OS_NO_CONSULAR_CNI_COUNTRIES = %w(argentina burundi czech-republic democratic-republic-of-congo mexico saint-barthelemy senegal st-martin slovakia taiwan usa uruguay)
 
-    OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo costa-rica cote-d-ivoire curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq israel kosovo laos liberia liechtenstein macao madagascar mali marshall-islands mauritania micronesia monaco nicaragua niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara)
+    OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo costa-rica cote-d-ivoire curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq israel kosovo laos liberia liechtenstein madagascar mali marshall-islands mauritania micronesia monaco nicaragua niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara)
 
     OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w(nicaragua)
 
     OS_OTHER_COUNTRIES = %w(burma north-korea iran somalia syria yemen saudi-arabia)
 
-    OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia colombia china ecuador egypt lebanon finland mongolia morocco peru philippines qatar south-korea thailand turkey united-arab-emirates vietnam)
+    OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia colombia china ecuador egypt lebanon finland macao mongolia morocco peru philippines qatar south-korea thailand turkey united-arab-emirates vietnam)
 
     CP_EQUIVALENT_COUNTRIES = %w(austria belgium brazil colombia czech-republic denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia sweden)
 
