@@ -46,6 +46,8 @@ module SmartAnswer
         option :your_pension_age_before_specific_date
         option :your_pension_age_after_specific_date
 
+        save_input_as :when_will_you_reach_pension_age
+
         calculate :answers do |response|
           if response == "your_pension_age_before_specific_date"
             answers << :old2
@@ -57,7 +59,7 @@ module SmartAnswer
         end
 
         calculate :result_phrase do |response|
-          if marital_status == "widowed" and response == "your_pension_age_before_specific_date"
+          if marital_status == "widowed" and when_will_you_reach_pension_age == "your_pension_age_before_specific_date"
             PhraseList.new(
               :current_rules_and_additional_pension,
               :increase_retirement_income #outcome 2
@@ -116,9 +118,11 @@ module SmartAnswer
         option :male_gender
         option :female_gender
 
+        save_input_as :gender
+
         calculate :result_phrase do |response|
           phrases = PhraseList.new
-          if response == "male_gender"
+          if gender == "male_gender"
             if marital_status == "divorced"
               phrases << :impossibility_due_to_divorce #outcome 9
             else
