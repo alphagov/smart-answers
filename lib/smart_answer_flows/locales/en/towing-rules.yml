@@ -105,12 +105,6 @@ en-GB:
           under-21: "Under 21"
           21-or-over: "21 or over"
 
-      ## A21
-      full_cat_c_entitlement:
-        body: |
-          You can tow trailers up to 750 kg with a standard category C large vehicle licence.
-
-          If you want to tow heavier trailers you need to pass the C+E test.
       ## A23
       not_old_enough_lv:
         body: |
