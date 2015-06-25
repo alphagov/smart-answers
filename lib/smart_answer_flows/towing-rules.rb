@@ -130,7 +130,7 @@ module SmartAnswer
       outcome :included_entitlement_msv, use_outcome_templates: true #A13
       outcome :full_entitlement_msv, use_outcome_templates: true #A15
       outcome :too_young_msv, use_outcome_templates: true #A17
-      outcome :apply_for_provisional_with_exceptions_msv #A18
+      outcome :apply_for_provisional_with_exceptions_msv, use_outcome_templates: true #A18
       outcome :apply_for_provisional_msv #A19
       outcome :full_cat_c_entitlement # A21
       outcome :not_old_enough_lv #A23
