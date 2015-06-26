@@ -1073,16 +1073,13 @@ module SmartAnswer
                   phrases << :partner_probably_needs_affirmation_or_affidavit
                 else
                   phrases << :callout_partner_equivalent_document
-                  if ceremony_country == 'ecuador'
+                  if %w(belgium cambodia ecuador).include?(ceremony_country)
                     phrases << :names_on_documents_must_match
                   end
                   phrases << :partner_naturalisation_in_uk
                 end
               end
             end
-          end
-          if ceremony_country == 'cambodia'
-            phrases << :names_on_documents_must_match
           end
 
           #fee tables
