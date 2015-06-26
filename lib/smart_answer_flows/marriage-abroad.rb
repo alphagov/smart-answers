@@ -974,10 +974,12 @@ module SmartAnswer
           unless %w(china turkey).include?(ceremony_country)
             phrases << contact_method_key
             if ceremony_country == 'belgium'
-              phrases << :documents_guidance_belgium
               phrases << :complete_affirmation_or_affidavit_forms
               phrases << :download_and_fill_but_not_sign
               phrases << :download_affidavit_and_affirmation_belgium
+              phrases << :partner_needs_affirmation
+              phrases << :required_supporting_documents_incl_birth_cert
+              phrases << :documents_guidance_belgium
             end
 
             if ceremony_country == 'philippines'
