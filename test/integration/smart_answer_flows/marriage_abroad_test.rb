@@ -2615,6 +2615,15 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_phrase_list :consular_cni_os_start, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :cni_at_local_register_office, :legisation_and_translation_intro_uk, :legalise_translate_and_check_with_authorities]
       assert_phrase_list :consular_cni_os_remainder, [:same_cni_process_and_fees_for_partner, :names_on_documents_must_match, :consular_cni_os_fees_not_italy_not_uk, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
+
+    should "lead to SS affirmation outcome" do
+      add_response 'ceremony_country'
+      add_response 'partner_british'
+      add_response 'same_sex'
+
+      assert_current_node :outcome_ss_affirmation
+      assert_phrase_list :body, [:synonyms_of_cp_in_norway, :contact_local_authorities_in_country_cp, :get_legal_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit_norway, "appointment_links.same_sex.norway", :partner_needs_affirmation, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :divorce_proof_cp, :partner_probably_needs_affirmation, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_visas_or_mastercard]
+    end
   end
 
   context "Seychelles" do

@@ -261,7 +261,7 @@ module SmartAnswer
           }
 
           define_predicate(:ss_affirmation) {
-            ceremony_country == 'belgium'
+            %w(belgium norway).include?(ceremony_country)
           }
 
           next_node_if(:outcome_ss_affirmation, ss_affirmation)
@@ -1468,7 +1468,13 @@ module SmartAnswer
           end
 
           phrases << :what_you_need_to_do_affirmation
-          phrases << :appointment_for_affidavit
+
+          if ceremony_country == 'norway'
+            phrases << :appointment_for_affidavit_norway
+          else
+            phrases << :appointment_for_affidavit
+          end
+
           phrases << contact_method_key
 
           if ceremony_country == 'belgium'
@@ -1501,7 +1507,12 @@ module SmartAnswer
 
           phrases << :fee_table_affirmation_55
           phrases << :list_of_consular_fees
-          phrases << :pay_by_cash_or_credit_card_no_cheque
+
+          if ceremony_country == 'norway'
+            phrases << :pay_by_visas_or_mastercard
+          else
+            phrases << :pay_by_cash_or_credit_card_no_cheque
+          end
         end
       end
 
