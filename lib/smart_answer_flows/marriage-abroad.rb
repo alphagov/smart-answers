@@ -255,6 +255,12 @@ module SmartAnswer
             data_query.ss_unknown_no_embassies?(ceremony_country)
           }
 
+          define_predicate(:ss_affirmation) {
+            ceremony_country == 'belgium'
+          }
+
+          next_node_if(:outcome_ss_affirmation, ss_affirmation)
+
           next_node_if(:outcome_os_no_cni, ss_unknown_no_embassies)
 
           next_node_if(:outcome_ss_marriage_malta, -> {ceremony_country == "malta"})
@@ -272,15 +278,19 @@ module SmartAnswer
           next_node_if(:outcome_cp_or_equivalent, -> {
             data_query.cp_equivalent_countries?(ceremony_country)
           })
+
           next_node_if(:outcome_cp_no_cni, -> {
             data_query.cp_cni_not_required_countries?(ceremony_country)
           })
+
           next_node_if(:outcome_cp_commonwealth_countries, -> {
             %w(canada new-zealand south-africa).include?(ceremony_country)
           })
+
           next_node_if(:outcome_cp_consular, -> {
             data_query.cp_consular_countries?(ceremony_country)
           })
+
           next_node(:outcome_cp_all_other_countries)
         end
       end
@@ -1428,6 +1438,61 @@ module SmartAnswer
       outcome :outcome_ss_marriage_malta do
         precalculate :ss_body do
           PhraseList.new(:able_to_ss_marriage_and_partnership_hc, :contact_to_make_appointment, contact_method_key, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership_hc, :will_display_in_14_days_hc, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_hc, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage)
+        end
+      end
+
+      outcome :outcome_ss_affirmation do
+        precalculate :body do
+          phrases = PhraseList.new
+          phrases << :"synonyms_of_cp_in_#{ceremony_country}"
+
+          if resident_of == 'uk'
+            phrases << :contact_embassy_of_ceremony_country_in_uk_cp
+          else
+            phrases << :contact_local_authorities_in_country_cp
+          end
+
+          if resident_of == 'ceremony_country'
+            phrases << :get_legal_advice
+          else
+            phrases << :get_legal_and_travel_advice
+          end
+
+          phrases << :what_you_need_to_do_affirmation
+          phrases << :appointment_for_affidavit
+          phrases << contact_method_key
+
+          if ceremony_country == 'belgium'
+            phrases << :complete_affirmation_or_affidavit_forms
+            phrases << :download_and_fill_but_not_sign
+            phrases << :download_affidavit_and_affirmation_belgium
+          end
+
+          phrases << :partner_needs_affirmation
+
+          if ceremony_country == 'belgium'
+            phrases << :required_supporting_documents_incl_birth_cert
+            phrases << :documents_guidance_belgium
+          end
+
+          phrases << :legalisation_and_translation
+          phrases << :affirmation_os_translation_in_local_language_text
+          phrases << :divorce_proof_cp
+
+          if ceremony_country == 'belgium'
+            phrases << :names_on_documents_must_match
+          end
+
+          if partner_nationality == 'partner_british'
+            phrases << :partner_probably_needs_affirmation
+          else
+            phrases << :callout_partner_equivalent_document
+            phrases << :partner_naturalisation_in_uk
+          end
+
+          phrases << :fee_table_affirmation_55
+          phrases << :list_of_consular_fees
+          phrases << :pay_by_cash_or_credit_card_no_cheque
         end
       end
 
