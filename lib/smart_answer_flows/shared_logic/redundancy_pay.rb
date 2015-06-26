@@ -6,11 +6,25 @@ date_question :date_of_redundancy? do
   calculate :rates do |response|
     Calculators::RedundancyCalculator.redundancy_rates(response)
   end
+
+  calculate :ni_rates do |response|
+    Calculators::RedundancyCalculator.northern_ireland_redundancy_rates(response)
+  end
+
   calculate :rate do
     rates.rate
   end
+
+  calculate :ni_rate do
+    ni_rates.rate
+  end
+
   calculate :max_amount do
     rates.max
+  end
+
+  calculate :ni_max_amount do
+    ni_rates.max
   end
 
   next_node :age_of_employee?
@@ -48,12 +62,23 @@ money_question :weekly_pay_before_tax? do
   calculate :calculator do |response|
     Calculators::RedundancyCalculator.new(rate, employee_age, years_employed, response)
   end
+
+  calculate :ni_calculator do |response|
+    Calculators::RedundancyCalculator.new(ni_rate, employee_age, years_employed, response)
+  end
+
   calculate :statutory_redundancy_pay do
     calculator.format_money(calculator.pay.to_f)
   end
+
+  calculate :statutory_redundancy_pay_ni do
+    calculator.format_money(ni_calculator.pay.to_f)
+  end
+
   calculate :number_of_weeks_entitlement do
     calculator.number_of_weeks_entitlement
   end
+
   next_node do |response|
     if years_employed < 2
       :done_no_statutory
