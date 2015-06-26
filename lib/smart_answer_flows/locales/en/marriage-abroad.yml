@@ -1014,6 +1014,15 @@ en-GB:
         change_of_name_evidence: |
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
 
+        divorce_proof_cp: |
+
+          If you’ve been divorced, widowed or previously in a civil partnership, you’ll need to provide:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate)
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
+          - a civil partnership dissolution or annulment certificate
+          - evidence if you’ve changed your name by deed poll
+
         affirmation_os_all_fees_45_70: |
           ##Fees
 
@@ -1870,6 +1879,12 @@ en-GB:
 
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
+
+      outcome_ss_affirmation:
+        title: Civil Partnership in %{country_name_lowercase_prefix}
+        body: |
+          %{body}
+
 #outcome country with no CNI or consular services
       outcome_os_no_cni:
         title: Marriage in %{country_name_lowercase_prefix}
