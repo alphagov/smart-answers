@@ -1,3 +1,4 @@
+<% content_for :body do %>
 You can’t increase your State Pension through your spouse or civil partner’s National Insurance contributions.
 
 The [new State Pension](/new-state-pension) is based on your own National Insurance record.
@@ -15,3 +16,6 @@ If partner reached State Pension age or died under State Pension age on or after
 ^You won’t be able to inherit either your late spouse or civil partner’s Additional State Pension or Protected Payment if you remarry before State Pension age.^
 
 You also might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you haven’t yet reached State Pension age.
+
+<%= render partial: 'increase_retirement_income.govspeak.erb' -%>
+<% end %>

@@ -1,3 +1,4 @@
+<% content_for :body do %>
 ##You reach State Pension age before 6 April 2016
 
 You may be able to increase your basic State Pension up to <%= higher_basic_state_pension_rate %> a week if:
@@ -12,3 +13,6 @@ You may be able to increase your basic State Pension up to <%= higher_basic_stat
 You can’t increase your State Pension through your former spouse’s or civil partner’s National Insurance contributions.
 
 The new State Pension is based on your own National Insurance record.
+
+<%= render partial: 'increase_retirement_income.govspeak.erb' -%>
+<% end %>

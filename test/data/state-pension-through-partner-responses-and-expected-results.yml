@@ -43,7 +43,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - male_gender
-  :next_node: :male_gender_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -66,7 +66,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - male_gender
-  :next_node: :male_gender_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -120,7 +120,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - male_gender
-  :next_node: :male_gender_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -143,7 +143,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - male_gender
-  :next_node: :male_gender_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -197,7 +197,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - male_gender
-  :next_node: :male_gender_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -220,7 +220,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - male_gender
-  :next_node: :male_gender_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -252,7 +252,7 @@
   - widowed
   - your_pension_age_after_specific_date
   - male_gender
-  :next_node: :male_gender_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -270,7 +270,7 @@
   :responses: 
   - divorced
   - male_gender
-  :next_node: :male_gender_outcome
+  :next_node: :impossibility_due_to_divorce_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 

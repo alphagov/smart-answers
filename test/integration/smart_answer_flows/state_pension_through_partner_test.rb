@@ -48,8 +48,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
 
       context "male" do
         setup { add_response "male_gender"}
-        should "go to male_gender_outcome" do
-          assert_current_node :male_gender_outcome
+        should "go to impossibility_to_increase_pension_outcome" do
+          assert_current_node :impossibility_to_increase_pension_outcome
         end
       end
     end
@@ -61,7 +61,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "male_gender"
     end
     should "ask male or female, answer male then go to result" do
-      assert_current_node :male_gender_outcome
+      assert_current_node :impossibility_due_to_divorce_outcome
     end
   end
 
@@ -182,8 +182,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "your_pension_age_after_specific_date"
       add_response "male_gender"
     end
-    should "take you to male_gender_outcome" do
-      assert_current_node :male_gender_outcome
+    should "take you to impossibility_to_increase_pension_outcome" do
+      assert_current_node :impossibility_to_increase_pension_outcome
     end
   end  #end impossibility_to_increase_pension
   context "divorced woman" do

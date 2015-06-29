@@ -100,7 +100,10 @@ module SmartAnswer
 
         save_input_as :gender
 
-        next_node_if(:male_gender_outcome, responded_with("male_gender"))
+        on_condition(responded_with("male_gender")) do
+          next_node_if(:impossibility_due_to_divorce_outcome, variable_matches(:marital_status, "divorced"))
+          next_node(:impossibility_to_increase_pension_outcome)
+        end
         next_node(:female_gender_outcome)
       end
 
@@ -108,7 +111,8 @@ module SmartAnswer
 
       outcome :gender_not_needed_outcome, use_outcome_templates: true
 
-      outcome :male_gender_outcome, use_outcome_templates: true
+      outcome :impossibility_due_to_divorce_outcome, use_outcome_templates: true
+      outcome :impossibility_to_increase_pension_outcome, use_outcome_templates: true
 
       outcome :female_gender_outcome, use_outcome_templates: true
     end
