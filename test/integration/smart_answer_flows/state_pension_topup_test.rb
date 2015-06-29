@@ -56,7 +56,11 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
           assert_current_node :outcome_topup_calculations
           assert_state_variable :weekly_amount, 10.0
           assert_state_variable :date_of_birth, Date.parse("1950-02-02")
-          assert_state_variable :amount_and_age, "- £8,900 when you're 65\n- £8,710 when you're 66\n- £8,470 when you're 67"
+          assert_state_variable :amounts_vs_ages, [
+            { amount: SmartAnswer::Money.new(8900), age: 65 },
+            { amount: SmartAnswer::Money.new(8710), age: 66 },
+            { amount: SmartAnswer::Money.new(8470), age: 67 }
+          ]
         end
       end
     end
@@ -69,7 +73,9 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     end
     should "show one rate" do
       assert_current_node :outcome_topup_calculations
-      assert_state_variable :amount_and_age, "- £890 when you're 65"
+      assert_state_variable :amounts_vs_ages, [
+        { amount: SmartAnswer::Money.new(890), age: 65 }
+      ]
     end
   end
   context "Man turns 65 on 6 April 2016 = DOB 6/4/1951 = not old enough" do
@@ -89,7 +95,9 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     end
     should "should show one rate only" do
       assert_current_node :outcome_topup_calculations
-      assert_state_variable :amount_and_age, "- £934 when you're 63"
+      assert_state_variable :amounts_vs_ages, [
+        { amount: SmartAnswer::Money.new(934), age: 63 }
+      ]
     end
   end
   context "Woman turns 63 on 6 April 2016 = DOB 6/4/1953 = not old enough" do
@@ -108,7 +116,10 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     end
     should "show two rates" do
       assert_current_node :outcome_topup_calculations
-      assert_state_variable :amount_and_age, "- £137 when you're 99\n- £127 when you're 100"
+      assert_state_variable :amounts_vs_ages, [
+        { amount: SmartAnswer::Money.new(137), age: 99 },
+        { amount: SmartAnswer::Money.new(127), age: 100 }
+      ]
       assert_state_variable :gender, "male"
     end
   end
@@ -120,7 +131,9 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     end
     should "show one rate" do
       assert_current_node :outcome_topup_calculations
-      assert_state_variable :amount_and_age, "- £127 when you're 100"
+      assert_state_variable :amounts_vs_ages, [
+        { amount: SmartAnswer::Money.new(127), age: 100 }
+      ]
       assert_state_variable :gender, "male"
     end
   end
@@ -140,7 +153,11 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     end
     should "go to calculations outcome and show 3 rates" do
       assert_current_node :outcome_topup_calculations
-      assert_state_variable :amount_and_age, "- £694 when you're 74\n- £674 when you're 75\n- £646 when you're 76"
+      assert_state_variable :amounts_vs_ages, [
+        { amount: SmartAnswer::Money.new(694), age: 74 },
+        { amount: SmartAnswer::Money.new(674), age: 75 },
+        { amount: SmartAnswer::Money.new(646), age: 76 }
+      ]
     end
   end
 end
