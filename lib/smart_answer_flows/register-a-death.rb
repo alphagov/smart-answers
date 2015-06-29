@@ -101,7 +101,7 @@ module SmartAnswer
         next_node :embassy_result
       end
 
-      outcome :commonwealth_result
+      outcome :commonwealth_result, use_outcome_templates: true
       outcome :no_embassy_result
 
       outcome :uk_result do
