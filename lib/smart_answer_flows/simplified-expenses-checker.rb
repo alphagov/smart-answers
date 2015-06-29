@@ -283,27 +283,41 @@ module SmartAnswer
       end
 
       outcome :you_cant_use_result, use_outcome_templates: true
-      outcome :you_can_use_result do
-        precalculate :simple_heading do
-          all_the_expenses = list_of_expenses
-          live_on_premises = ['live_on_business_premises']
-
-          if (all_the_expenses - live_on_premises).empty?
-            PhraseList.new(:live_on_business_premises_only_simple_costs_heading)
-          else
-            PhraseList.new(:all_schemes_simple_costs_heading)
-          end
+      outcome :you_can_use_result, use_outcome_templates: true do
+        precalculate :capital_allowance_claimed do
+          capital_allowance_claimed
         end
 
-        precalculate :current_scheme_costs_heading do
-          all_the_expenses = list_of_expenses
-          live_on_premises = ['live_on_business_premises']
+        precalculate :simple_vehicle_costs do
+          simple_vehicle_costs
+        end
 
-          if (all_the_expenses - live_on_premises).empty?
-            PhraseList.new(:live_on_business_premises_only_current_costs_heading)
-          else
-            PhraseList.new(:all_schemes_current_costs_heading)
-          end
+        precalculate :simple_motorcycle_costs do
+          simple_motorcycle_costs
+        end
+
+        precalculate :vehicle_costs do
+          vehicle_costs
+        end
+
+        precalculate :home_costs do
+          home_costs
+        end
+
+        precalculate :green_vehicle_write_off do
+          green_vehicle_write_off
+        end
+
+        precalculate :dirty_vehicle_write_off do
+          dirty_vehicle_write_off
+        end
+
+        precalculate :simple_business_costs do
+          simple_business_costs
+        end
+
+        precalculate :is_over_limit do
+          is_over_limit
         end
 
         precalculate :simple_total do
@@ -324,50 +338,6 @@ module SmartAnswer
 
         precalculate :can_use_simple do
           simple_total > current_scheme_costs
-        end
-
-        precalculate :simplified_bullets do
-          bullets = PhraseList.new
-          bullets << :simple_vehicle_costs_bullet unless capital_allowance_claimed or simple_vehicle_costs.to_f == 0.0
-          bullets << :simple_motorcycle_costs_bullet unless simple_motorcycle_costs.to_f == 0.0
-          if list_of_expenses.include?("using_home_for_business")
-            # if they ticked it but the cost is 0, it should show anyway
-            if simple_home_costs.to_f == 0.0
-              bullets << :simple_home_costs_none_bullet
-            else
-              bullets << :simple_home_costs_bullet
-            end
-          end
-          bullets
-        end
-
-        precalculate :simplified_more_bullets do
-          bullets = PhraseList.new
-          bullets << :simple_business_costs_bullet unless simple_business_costs.to_f == 0.0
-          bullets
-        end
-
-        precalculate :current_scheme_more_bullets do
-          bullets = PhraseList.new
-          bullets << :current_business_costs_bullet unless simple_business_costs.to_f == 0.0
-          bullets
-        end
-
-        precalculate :capital_allowances_claimed_message do
-          capital_allowance_claimed ? PhraseList.new(:cap_allow_text) : PhraseList.new
-        end
-
-        precalculate :current_scheme_bullets do
-          bullets = PhraseList.new
-          bullets << :current_vehicle_cost_bullet unless vehicle_costs.to_f == 0.0
-          bullets << :current_green_vehicle_write_off_bullet unless green_vehicle_write_off.to_f == 0.0
-          bullets << :current_dirty_vehicle_write_off_bullet unless dirty_vehicle_write_off.to_f == 0.0
-          bullets << :current_home_costs_bullet unless home_costs.to_f == 0.0
-          bullets
-        end
-
-        precalculate :over_van_limit_message do
-          is_over_limit ? PhraseList.new(:over_van_limit) : PhraseList.new
         end
       end
       outcome :capital_allowance_result, use_outcome_templates: true
