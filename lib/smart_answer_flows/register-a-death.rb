@@ -102,7 +102,7 @@ module SmartAnswer
       end
 
       outcome :commonwealth_result, use_outcome_templates: true
-      outcome :no_embassy_result
+      outcome :no_embassy_result, use_outcome_templates: true
 
       outcome :uk_result do
         precalculate :content_sections do
