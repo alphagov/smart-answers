@@ -7,12 +7,6 @@ en-GB:
       body: |
         Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
 
-        ##Dual nationals
-
-        You must send a colour photocopy of your non-British passport (every page including blank pages) as part of your application.
-
-        You may be asked to show your non-British passport at a later date.
-
       which_country_are_you_in?:
         title: Which country or territory are you in?
       which_opt?:
@@ -397,29 +391,29 @@ en-GB:
           [Find out about call charges](/call-charges)
 
         how_long_4_weeks: |
-          Your application will take **at least** 4 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application should take 4 weeks from when it’s received by Her Majesty’s Passport Office in the UK.
         how_long_5_weeks: |
-          Your application will take **at least** 5 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application should take 5 weeks from when it’s received by Her Majesty’s Passport Office in the UK.
         how_long_6_weeks: |
-          Your application will take **at least** 6 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application should take 6 weeks from when it’s received by Her Majesty’s Passport Office in the UK.
         how_long_8_weeks: |
-          Your application will take **at least** 8 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application should take 8 weeks from when it’s received by Her Majesty’s Passport Office in the UK.
         how_long_10_weeks: |
-          Your application will take **at least** 10 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application should take 10 weeks from when it’s received by Her Majesty’s Passport Office in the UK.
         how_long_12_weeks: |
-          Your application will take **at least** 12 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application should take 12 weeks from when it’s received by Her Majesty’s Passport Office in the UK.
         how_long_14_weeks: |
-          Your application will take **at least** 14 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application should take 14 weeks from when it’s received by Her Majesty’s Passport Office in the UK.
         how_long_16_weeks: |
-          Your application will take **at least** 16 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application should take 16 weeks from when it’s received by Her Majesty’s Passport Office in the UK.
         how_long_18_weeks: |
-          Your application will take **at least** 18 weeks from when it’s received by Her Majesty's Passport Office in the UK.
+          Your application should take 18 weeks from when it’s received by Her Majesty’s Passport Office in the UK.
         how_long_5_months: |
-          Your application will take **at least** 5 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview.
+          Your application should take 5 months from when it’s received by Her Majesty’s Passport Office in the UK. You may have to attend an interview.
         how_long_6_months: |
-          Your application will take **at least** 6 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview.
+          Your application should take 6 months from when it’s received by Her Majesty’s Passport Office in the UK. You may have to attend an interview.
         how_long_8_months: |
-          Your application will take **at least** 8 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview.
+          Your application should take 8 months from when it’s received by Her Majesty’s Passport Office in the UK. You may have to attend an interview.
         report_loss_or_theft: |
           If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 

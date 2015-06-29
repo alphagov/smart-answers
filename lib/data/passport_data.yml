@@ -31,19 +31,19 @@ american-samoa:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 andorra:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 angola:
   type: ips_application_1
   group: ips_documents_group_3
@@ -58,64 +58,64 @@ anguilla:
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 antigua-and-barbuda:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 argentina:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 armenia:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 aruba:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 australia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 austria:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 azerbaijan:
   type: ips_application_3
   group: ips_documents_group_3
@@ -130,19 +130,19 @@ bahamas:
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 bahrain:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 bangladesh:
   type: ips_application_3
   group: ips_documents_group_3
@@ -157,10 +157,10 @@ barbados:
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 belarus:
   type: ips_application_3
   group: ips_documents_group_3
@@ -175,19 +175,19 @@ belgium:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 belize:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 benin:
   type: ips_application_1
   group: ips_documents_group_3
@@ -202,19 +202,19 @@ bermuda:
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 bhutan:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 bolivia:
   type: ips_application_1
   group: ips_documents_group_3
@@ -229,37 +229,37 @@ bonaire-st-eustatius-saba:
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 bosnia-and-herzegovina:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 botswana:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 brazil:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 british-indian-ocean-territory:
   type: ips_application_1
   group: ips_documents_group_3
@@ -273,28 +273,28 @@ british-virgin-islands:
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 brunei:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 bulgaria:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 burkina-faso:
   type: ips_application_1
   group: ips_documents_group_3
@@ -342,28 +342,28 @@ canada:
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 10_weeks
-  applying: 10_weeks
-  replacing: 10_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 cape-verde:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 cayman-islands:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 central-african-republic:
   type: ips_application_1
   group: ips_documents_group_3
@@ -387,37 +387,37 @@ chile:
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 china:
   type: ips_application_3
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   application_office: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 colombia:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 comoros:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 congo:
   type: ips_application_1
   group: ips_documents_group_3
@@ -441,10 +441,10 @@ costa-rica:
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 cote-d-ivoire:
   type: ips_application_1
   group: ips_documents_group_3
@@ -459,54 +459,54 @@ croatia:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 cuba:
   type: ips_application_3
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 curacao:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 cyprus:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 czech-republic:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 denmark:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 djibouti:
   type: ips_application_1
   group: ips_documents_group_3
@@ -521,10 +521,10 @@ dominica:
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 dominican-republic:
   type: ips_application_1
   group: ips_documents_group_3
@@ -557,10 +557,10 @@ el-salvador:
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 equatorial-guinea:
   type: ips_application_1
   group: ips_documents_group_3
@@ -584,10 +584,10 @@ estonia:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 ethiopia:
   type: ips_application_1
   group: ips_documents_group_3
@@ -601,55 +601,55 @@ falkland-islands:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 fiji:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 finland:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 france:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 french-guiana:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 french-polynesia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 gabon:
   type: ips_application_1
   group: ips_documents_group_3
@@ -690,10 +690,10 @@ germany:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 ghana:
   type: ips_application_1
   group: ips_documents_group_3
@@ -707,47 +707,47 @@ gibraltar:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 greece:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 grenada:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   address: durham
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 guadeloupe:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 guatemala:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 guinea:
   type: ips_application_1
   group: ips_documents_group_3
@@ -789,37 +789,37 @@ honduras:
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 hong-kong:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 hungary:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 iceland:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 india:
   type: ips_application_3
   group: ips_documents_group_3
@@ -834,10 +834,10 @@ indonesia:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   application_office: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 iran:
   type: ips_application_1
   group: ips_documents_group_3
@@ -860,28 +860,28 @@ ireland:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 israel:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 italy:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 jamaica:
   type: ips_application_1
   group: ips_documents_group_3
@@ -896,10 +896,10 @@ japan:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 jerusalem-or-westbank:
   type: ips_application_1
   group: ips_documents_group_1
@@ -914,10 +914,10 @@ jordan:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   address: durham
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 kazakhstan:
   type: ips_application_3
   group: ips_documents_group_3
@@ -941,10 +941,10 @@ kiribati:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 kosovo:
   type: ips_application_1
   group: ips_documents_group_3
@@ -959,10 +959,10 @@ kuwait:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 kyrgyzstan:
   type: ips_application_3
   group: ips_documents_group_3
@@ -986,10 +986,10 @@ latvia:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 lebanon:
   type: ips_application_3
   group: ips_documents_group_3
@@ -1004,10 +1004,10 @@ lesotho:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 liberia:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1031,46 +1031,46 @@ liechtenstein:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 lithuania:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 luxembourg:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 macao:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 macedonia:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 madagascar:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1094,19 +1094,19 @@ malaysia:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 maldives:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 mali:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1121,28 +1121,28 @@ malta:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 marshall-islands:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 martinique:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 mauritania:
   type: ips_application_2
   group: ips_documents_group_3
@@ -1166,28 +1166,28 @@ mayotte:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 mexico:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 micronesia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 moldova:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1202,10 +1202,10 @@ monaco:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 mongolia:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1220,19 +1220,19 @@ montenegro:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 montserrat:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 morocco:
   type: ips_application_2
   group: ips_documents_group_3
@@ -1256,19 +1256,19 @@ namibia:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 nauru:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 nepal:
   type: ips_application_3
   group: ips_documents_group_3
@@ -1283,40 +1283,40 @@ netherlands:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 new-caledonia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 new-zealand:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 nicaragua:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 niger:
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_3
   app_form: hmpo_1_application_form
   online_application: true
   renewing_new: 6_weeks
@@ -1345,19 +1345,19 @@ norway:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 oman:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 pakistan:
   type: ips_application_3
   group: ips_documents_group_3
@@ -1372,28 +1372,28 @@ palau:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 panama:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 papua-new-guinea:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 paraguay:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1408,10 +1408,10 @@ peru:
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 philippines:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1426,55 +1426,55 @@ pitcairn-island:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   application_office: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 poland:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 portugal:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 qatar:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 reunion:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 romania:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 russia:
   type: ips_application_2
   group: ips_documents_group_3
@@ -1498,37 +1498,37 @@ samoa:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 san-marino:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 sao-tome-and-principe:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 saudi-arabia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 senegal:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1543,19 +1543,19 @@ serbia:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 seychelles:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 sierra-leone:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1570,37 +1570,37 @@ singapore:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 slovakia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 slovenia:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 solomon-islands:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 somalia:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1615,10 +1615,10 @@ south-africa:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 8_weeks
-  renewing_old: 10_weeks
-  applying: 10_weeks
-  replacing: 10_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 south-georgia-and-south-sandwich-islands:
   type: ips_application_1
   group: ips_documents_group_1
@@ -1632,10 +1632,10 @@ south-korea:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 south-sudan:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1650,10 +1650,10 @@ spain:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 sri-lanka:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1675,55 +1675,55 @@ st-kitts-and-nevis:
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 st-lucia:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 st-maarten:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 st-martin:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 st-pierre-and-miquelon:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 st-vincent-and-the-grenadines:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 sudan:
   type: ips_application_3
   group: ips_documents_group_3
@@ -1737,37 +1737,37 @@ suriname:
   group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 swaziland:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 sweden:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 switzerland:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 syria:
   type: syria
   group: ips_documents_group_3
@@ -1777,10 +1777,10 @@ taiwan:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 tajikistan:
   type: ips_application_2
   group: ips_documents_group_3
@@ -1804,10 +1804,10 @@ thailand:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   application_office: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 the-occupied-palestinian-territories:
   type:
   group: ips_documents_group_1
@@ -1835,10 +1835,10 @@ tonga:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 trinidad-and-tobago:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1862,10 +1862,10 @@ turkey:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 turkmenistan:
   type: ips_application_2
   group: ips_documents_group_3
@@ -1880,19 +1880,19 @@ turks-and-caicos-islands:
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 tuvalu:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 uganda:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1916,10 +1916,10 @@ united-arab-emirates:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 united-kingdom:
   type:
   group: ips_documents_group_1
@@ -1929,19 +1929,19 @@ uruguay:
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 usa:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_2_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 10_weeks
-  applying: 10_weeks
-  replacing: 10_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 uzbekistan:
   type: ips_application_3
   group: ips_documents_group_3
@@ -1956,10 +1956,10 @@ vanuatu:
   group: ips_documents_group_2
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 venezuela:
   type: ips_application_3
   group: ips_documents_group_3
@@ -1983,10 +1983,10 @@ wallis-and-futuna:
   group: ips_documents_group_1
   app_form: hmpo_1_application_form
   online_application: true
-  renewing_new: 6_weeks
-  renewing_old: 8_weeks
-  applying: 8_weeks
-  replacing: 8_weeks
+  renewing_new: 4_weeks
+  renewing_old: 6_weeks
+  applying: 6_weeks
+  replacing: 6_weeks
 western-sahara:
   type: ips_application_2
   group: ips_documents_group_3
