@@ -1,6 +1,15 @@
 --- 
-lib/smart_answer_flows/state-pension-through-partner.rb: fde6fc823fc6f523af9ffa6be793f0cc
-lib/smart_answer_flows/locales/en/state-pension-through-partner.yml: 741b1a6be2aeed88b3745e9351020ff0
+lib/smart_answer_flows/state-pension-through-partner.rb: d5f74f7e01c2edfdbeda4f06b62afee9
+lib/smart_answer_flows/locales/en/state-pension-through-partner.yml: 593e67d24efb2ec7fca5925a7f07618f
 test/data/state-pension-through-partner-questions-and-responses.yml: 34f2b5f7ac286bb3eea690564339051b
-test/data/state-pension-through-partner-responses-and-expected-results.yml: 40dfc8e1e81b26debb660cf64ca8ea15
+test/data/state-pension-through-partner-responses-and-expected-results.yml: 7886f7591361df671b51ad857265cf6a
+lib/smart_answer_flows/state-pension-through-partner/_increase_retirement_income.govspeak.erb: 2391bf6e80d1aa4d0d4258030b4f4e00
+lib/smart_answer_flows/state-pension-through-partner/age_dependent_pension_outcome.govspeak.erb: 9eaf33d8f1ce0ece1e7ce76b5dee9d16
+lib/smart_answer_flows/state-pension-through-partner/current_rules_national_insurance_no_state_pension_outcome.govspeak.erb: 3689f74a3d8c7ce252d2a3920810d6cd
+lib/smart_answer_flows/state-pension-through-partner/current_rules_no_additional_pension_outcome.govspeak.erb: 3e2b8ddea18ac60517e8b8f295c57c40
+lib/smart_answer_flows/state-pension-through-partner/impossibility_due_to_divorce_outcome.govspeak.erb: 1e09bc200f19fcad5336aba240f14d9d
+lib/smart_answer_flows/state-pension-through-partner/impossibility_to_increase_pension_outcome.govspeak.erb: 96a06c4a7a03a9feda72199da17e4554
+lib/smart_answer_flows/state-pension-through-partner/married_woman_and_state_pension_outcome.govspeak.erb: b79fe85a789f692fd9e7997968c3269a
+lib/smart_answer_flows/state-pension-through-partner/married_woman_no_state_pension_outcome.govspeak.erb: 657e07f7b8bec28cdc864f6b2f8da761
+lib/smart_answer_flows/state-pension-through-partner/widow_and_old_pension_outcome.govspeak.erb: 523c5fd19c8009a90f9bf35aacfb1f83
 lib/data/rates/state_pension.yml: 7e97e88500fb698038c49332b48b82bf

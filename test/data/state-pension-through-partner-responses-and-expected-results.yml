@@ -15,14 +15,14 @@
   - married
   - your_pension_age_before_specific_date
   - partner_pension_age_before_specific_date
-  :next_node: :final_outcome
+  :next_node: :current_rules_no_additional_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
   - married
   - your_pension_age_before_specific_date
   - partner_pension_age_after_specific_date
-  :next_node: :final_outcome
+  :next_node: :current_rules_national_insurance_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_you_reach_pension_age?
   :responses: 
@@ -43,7 +43,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - male_gender
-  :next_node: :final_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -51,7 +51,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - female_gender
-  :next_node: :final_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
@@ -66,7 +66,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - male_gender
-  :next_node: :final_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -74,7 +74,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - female_gender
-  :next_node: :final_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_marital_status?
   :responses: 
@@ -92,14 +92,14 @@
   - will_marry_before_specific_date
   - your_pension_age_before_specific_date
   - partner_pension_age_before_specific_date
-  :next_node: :final_outcome
+  :next_node: :current_rules_no_additional_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
   - will_marry_before_specific_date
   - your_pension_age_before_specific_date
   - partner_pension_age_after_specific_date
-  :next_node: :final_outcome
+  :next_node: :current_rules_national_insurance_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_you_reach_pension_age?
   :responses: 
@@ -120,7 +120,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - male_gender
-  :next_node: :final_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -128,7 +128,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - female_gender
-  :next_node: :final_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
@@ -143,7 +143,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - male_gender
-  :next_node: :final_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -151,7 +151,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - female_gender
-  :next_node: :final_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_marital_status?
   :responses: 
@@ -169,14 +169,14 @@
   - will_marry_on_or_after_specific_date
   - your_pension_age_before_specific_date
   - partner_pension_age_before_specific_date
-  :next_node: :final_outcome
+  :next_node: :current_rules_no_additional_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
   - will_marry_on_or_after_specific_date
   - your_pension_age_before_specific_date
   - partner_pension_age_after_specific_date
-  :next_node: :final_outcome
+  :next_node: :current_rules_national_insurance_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_you_reach_pension_age?
   :responses: 
@@ -197,7 +197,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - male_gender
-  :next_node: :final_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -205,7 +205,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - female_gender
-  :next_node: :final_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
@@ -220,7 +220,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - male_gender
-  :next_node: :final_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
@@ -228,7 +228,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - female_gender
-  :next_node: :final_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_marital_status?
   :responses: 
@@ -239,7 +239,7 @@
   :responses: 
   - widowed
   - your_pension_age_before_specific_date
-  :next_node: :final_outcome
+  :next_node: :widow_and_old_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_you_reach_pension_age?
   :responses: 
@@ -252,14 +252,14 @@
   - widowed
   - your_pension_age_after_specific_date
   - male_gender
-  :next_node: :final_outcome
+  :next_node: :impossibility_to_increase_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
   - widowed
   - your_pension_age_after_specific_date
   - female_gender
-  :next_node: :final_outcome
+  :next_node: :married_woman_and_state_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_marital_status?
   :responses: 
@@ -270,11 +270,11 @@
   :responses: 
   - divorced
   - male_gender
-  :next_node: :final_outcome
+  :next_node: :impossibility_due_to_divorce_outcome
   :outcome_node: true
 - :current_node: :what_is_your_gender?
   :responses: 
   - divorced
   - female_gender
-  :next_node: :final_outcome
+  :next_node: :age_dependent_pension_outcome
   :outcome_node: true

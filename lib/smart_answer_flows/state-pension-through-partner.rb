@@ -14,6 +14,8 @@ module SmartAnswer
         option :widowed
         option :divorced
 
+        save_input_as :marital_status
+
         calculate :answers do |response|
           answers = []
           if response == "married" or response == "will_marry_before_specific_date"
@@ -44,23 +46,16 @@ module SmartAnswer
         option :your_pension_age_before_specific_date
         option :your_pension_age_after_specific_date
 
+        save_input_as :when_will_you_reach_pension_age
+
         calculate :answers do |response|
           if response == "your_pension_age_before_specific_date"
             answers << :old2
           elsif response == "your_pension_age_after_specific_date"
             answers << :new2
           end
-          answers << :old3 if responses.first == "widowed"
+          answers << :old3 if marital_status == "widowed"
           answers
-        end
-
-        calculate :result_phrase do |response|
-          if responses.first == "widowed" and response == "your_pension_age_before_specific_date"
-            PhraseList.new(
-              :current_rules_and_additional_pension,
-              :increase_retirement_income #outcome 2
-            )
-          end
         end
 
         define_predicate(:widow_and_new_pension?) do |response|
@@ -72,7 +67,7 @@ module SmartAnswer
         end
 
         next_node_if(:what_is_your_gender?, widow_and_new_pension?)
-        next_node_if(:final_outcome, widow_and_old_pension?)
+        next_node_if(:widow_and_old_pension_outcome, widow_and_old_pension?)
         next_node :when_will_your_partner_reach_pension_age?
       end
 
@@ -81,7 +76,7 @@ module SmartAnswer
         option :partner_pension_age_before_specific_date
         option :partner_pension_age_after_specific_date
 
-        calculate :answers do |response|
+        next_node_calculation :answers do |response|
           if response == "partner_pension_age_before_specific_date"
             answers << :old3
           elsif response == "partner_pension_age_after_specific_date"
@@ -90,22 +85,16 @@ module SmartAnswer
           answers
         end
 
-        calculate :result_phrase do
-          phrases = PhraseList.new
-          if answers == [:old1, :old2, :old3] || answers == [:new1, :old2, :old3]
-            phrases << :current_rules_no_additional_pension #outcome 1
-          elsif answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
-            phrases << :current_rules_national_insurance_no_state_pension #outcome 3
-          end
-          phrases << :increase_retirement_income
-          phrases
-        end
-
-        define_predicate(:gender_not_needed_for_outcome?) {
-          answers == [:old1, :old2] || answers == [:new1, :old2]
+        define_predicate(:current_rules_no_additional_pension?) {
+          answers == [:old1, :old2, :old3] || answers == [:new1, :old2, :old3]
         }
 
-        next_node_if(:final_outcome, gender_not_needed_for_outcome?)
+        define_predicate(:current_rules_national_insurance_no_state_pension?) {
+          answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
+        }
+
+        next_node_if(:current_rules_no_additional_pension_outcome, current_rules_no_additional_pension?)
+        next_node_if(:current_rules_national_insurance_no_state_pension_outcome, current_rules_national_insurance_no_state_pension?)
         next_node :what_is_your_gender?
       end
 
@@ -114,30 +103,32 @@ module SmartAnswer
         option :male_gender
         option :female_gender
 
-        calculate :result_phrase do |response|
-          phrases = PhraseList.new
-          if response == "male_gender"
-            if responses.first == "divorced"
-              phrases << :impossibility_due_to_divorce #outcome 9
-            else
-              phrases << :impossibility_to_increase_pension #outcome 8
-            end
-          else
-            if responses.first == "divorced"
-              phrases << :age_dependent_pension #outcome 10
-            elsif responses.first == "widowed"
-              phrases << :married_woman_and_state_pension #outcome 6
-            else
-              phrases << :married_woman_no_state_pension #outcome 5
-            end
-          end
-          phrases << :increase_retirement_income
-          phrases
+        save_input_as :gender
+
+        on_condition(responded_with("male_gender")) do
+          next_node_if(:impossibility_due_to_divorce_outcome, variable_matches(:marital_status, "divorced"))
+          next_node(:impossibility_to_increase_pension_outcome)
         end
-        next_node :final_outcome
+        on_condition(responded_with("female_gender")) do
+          next_node_if(:age_dependent_pension_outcome, variable_matches(:marital_status, "divorced"))
+          next_node_if(:married_woman_and_state_pension_outcome, variable_matches(:marital_status, "widowed"))
+          next_node(:married_woman_no_state_pension_outcome)
+        end
       end
 
-      outcome :final_outcome
+      use_outcome_templates
+
+      outcome :widow_and_old_pension_outcome
+
+      outcome :current_rules_no_additional_pension_outcome
+      outcome :current_rules_national_insurance_no_state_pension_outcome
+
+      outcome :impossibility_due_to_divorce_outcome
+      outcome :impossibility_to_increase_pension_outcome
+
+      outcome :age_dependent_pension_outcome
+      outcome :married_woman_and_state_pension_outcome
+      outcome :married_woman_no_state_pension_outcome
     end
   end
 end
