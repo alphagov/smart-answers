@@ -282,8 +282,10 @@ module SmartAnswer
         next_node :you_can_use_result
       end
 
-      outcome :you_cant_use_result, use_outcome_templates: true
-      outcome :you_can_use_result, use_outcome_templates: true do
+      use_outcome_templates
+
+      outcome :you_cant_use_result
+      outcome :you_can_use_result do
         precalculate :capital_allowance_claimed do
           capital_allowance_claimed
         end
@@ -340,7 +342,7 @@ module SmartAnswer
           simple_total > current_scheme_costs
         end
       end
-      outcome :capital_allowance_result, use_outcome_templates: true
+      outcome :capital_allowance_result
     end
   end
 end
