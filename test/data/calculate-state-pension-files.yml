@@ -1,8 +1,13 @@
 --- 
-lib/smart_answer_flows/calculate-state-pension.rb: ed988eb7ff6e7e3d69564709709b79b5
-lib/smart_answer_flows/locales/en/calculate-state-pension.yml: 73b873585bb57c91854cb48309adbafe
+lib/smart_answer_flows/calculate-state-pension.rb: d2f2e499bf8251a0d878ba21dd87ffbc
+lib/smart_answer_flows/locales/en/calculate-state-pension.yml: f038891435c67535477373fb7f76cc3a
 test/data/calculate-state-pension-questions-and-responses.yml: 87fafb7435dc73a64114e7661f5b62d7
 test/data/calculate-state-pension-responses-and-expected-results.yml: 01dc35a2b2e443480318fe78bf3cc427
+lib/smart_answer_flows/calculate-state-pension/age_result.govspeak.erb: 090b4f69dec407de6c3b336e0b77d232
+lib/smart_answer_flows/calculate-state-pension/amount_result.govspeak.erb: e25bd8de609c930ad246df8aa94335a2
+lib/smart_answer_flows/calculate-state-pension/near_state_pension_age.govspeak.erb: 5cd1d57bb4125477fd006975e2f9cca8
+lib/smart_answer_flows/calculate-state-pension/reached_state_pension_age.govspeak.erb: 51a4bf5845eb8db39e95dd3d604a927a
+lib/smart_answer_flows/calculate-state-pension/too_young.govspeak.erb: 3c8ab154419bcb18a9c16eb95557e809
 lib/smart_answer/calculators/state_pension_amount_calculator.rb: 0ac1ebedc93860a25cea6813f48a8963
 lib/data/rates/state_pension.yml: 7e97e88500fb698038c49332b48b82bf
 lib/data/state_pension_query.rb: a6b0bf6e86b14f0cb8ad432836e46fe6
