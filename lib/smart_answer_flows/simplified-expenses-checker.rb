@@ -370,7 +370,7 @@ module SmartAnswer
           is_over_limit ? PhraseList.new(:over_van_limit) : PhraseList.new
         end
       end
-      outcome :capital_allowance_result
+      outcome :capital_allowance_result, use_outcome_templates: true
     end
   end
 end
