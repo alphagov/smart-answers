@@ -116,17 +116,19 @@ module SmartAnswer
         end
       end
 
-      outcome :widow_and_old_pension_outcome, use_outcome_templates: true
+      use_outcome_templates
 
-      outcome :current_rules_no_additional_pension_outcome, use_outcome_templates: true
-      outcome :current_rules_national_insurance_no_state_pension_outcome, use_outcome_templates: true
+      outcome :widow_and_old_pension_outcome
 
-      outcome :impossibility_due_to_divorce_outcome, use_outcome_templates: true
-      outcome :impossibility_to_increase_pension_outcome, use_outcome_templates: true
+      outcome :current_rules_no_additional_pension_outcome
+      outcome :current_rules_national_insurance_no_state_pension_outcome
 
-      outcome :age_dependent_pension_outcome, use_outcome_templates: true
-      outcome :married_woman_and_state_pension_outcome, use_outcome_templates: true
-      outcome :married_woman_no_state_pension_outcome, use_outcome_templates: true
+      outcome :impossibility_due_to_divorce_outcome
+      outcome :impossibility_to_increase_pension_outcome
+
+      outcome :age_dependent_pension_outcome
+      outcome :married_woman_and_state_pension_outcome
+      outcome :married_woman_no_state_pension_outcome
     end
   end
 end
