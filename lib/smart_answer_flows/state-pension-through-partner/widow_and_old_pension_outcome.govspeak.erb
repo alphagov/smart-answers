@@ -1,7 +1,5 @@
 <% content_for :body do %>
-  <% if marital_status == "widowed" and when_will_you_reach_pension_age == "your_pension_age_before_specific_date" %>
 <%= render partial: 'current_rules_and_additional_pension.govspeak.erb', locals: { higher_basic_state_pension_rate: higher_basic_state_pension_rate } -%>
 
 <%= render partial: 'increase_retirement_income.govspeak.erb' -%>
-  <% end %>
 <% end %>
