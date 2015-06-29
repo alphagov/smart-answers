@@ -120,7 +120,7 @@ module SmartAnswer
         end
       end
 
-      outcome :oru_result do
+      outcome :oru_result, use_outcome_templates: true do
         precalculate :button_data do
           {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
         end
@@ -129,59 +129,8 @@ module SmartAnswer
           translator_query.links[country_of_death]
         end
 
-        precalculate :translator_link do
-          if translator_link_url
-            PhraseList.new(:approved_translator_link)
-          else
-            PhraseList.new(:no_translator_link)
-          end
-        end
-
-        precalculate :waiting_time do
-          phrases = PhraseList.new
-          if reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.exclude?(country_of_death) && in_the_uk
-            phrases << :registration_can_take_3_months
-          else
-            phrases << :registration_takes_3_days
-          end
-          phrases
-        end
-
-        precalculate :oru_documents_variant_death do
-          if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH.include?(country_of_death)
-            PhraseList.new(:"oru_documents_variant_#{country_of_death}")
-          else
-            PhraseList.new(:oru_documents_death)
-          end
-        end
-
-        precalculate :oru_address do
-          if in_the_uk
-            PhraseList.new(:oru_address_uk)
-          else
-            PhraseList.new(:oru_address_abroad)
-          end
-        end
-
-        precalculate :oru_courier_text do
-          phrases = PhraseList.new
-          if reg_data_query.class::ORU_COURIER_VARIANTS.include?(current_location)
-            phrases << :"oru_courier_text_#{current_location}"
-            unless current_location.in?(reg_data_query.class::ORU_COURIER_BY_HIGH_COMISSION)
-              phrases << :oru_courier_text_common
-            end
-          else
-            phrases << :oru_courier_text_default
-          end
-          phrases
-        end
-
-        precalculate :payment_method do
-          if !in_the_uk && current_location == 'algeria'
-            PhraseList.new(:payment_method_in_algeria)
-          else
-            PhraseList.new(:standard_payment_method)
-          end
+        precalculate :reg_data_query do
+          SmartAnswer::Calculators::RegistrationsDataQuery.new
         end
       end
 
