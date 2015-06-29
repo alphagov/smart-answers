@@ -598,6 +598,11 @@ en-GB:
 
           %If you choose to post notice in Costa Rica, you’ll normally have to wait at least 10 days before you can get married.%
 
+        what_you_need_to_do_to_marry_in_norway_when_in_third_country: |
+          You’ll need to prove that you’re allowed to marry. There are 2 ways you can do this:
+
+          - [go to the UK and post notice with a UK registrar](%{uk_residence_outcome_path})
+          - [go to %{country_name_lowercase_prefix} and swear an affidavit (written statement of facts) that you’re free to marry](%{ceremony_country_residence_outcome_path})
         cni_at_local_register_office: |
           You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
 
