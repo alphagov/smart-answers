@@ -6165,7 +6165,7 @@
   - uk_england
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6191,7 +6191,7 @@
   - uk_england
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6217,7 +6217,7 @@
   - uk_england
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6250,7 +6250,7 @@
   - uk_wales
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6276,7 +6276,7 @@
   - uk_wales
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6302,7 +6302,7 @@
   - uk_wales
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6335,7 +6335,7 @@
   - uk_scotland
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6361,7 +6361,7 @@
   - uk_scotland
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6387,7 +6387,7 @@
   - uk_scotland
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6420,7 +6420,7 @@
   - uk_ni
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6446,7 +6446,7 @@
   - uk_ni
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6472,7 +6472,7 @@
   - uk_ni
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6516,7 +6516,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6539,7 +6539,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6562,7 +6562,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6591,7 +6591,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_consular_cni_os_residing_in_third_country
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6614,7 +6614,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_consular_cni_os_residing_in_third_country
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -6637,7 +6637,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_consular_cni_os_residing_in_third_country
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -25238,6 +25238,521 @@
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses: 
+  - kuwait
+  :next_node: :legal_residency?
+  :outcome_node: false
+- :current_node: :legal_residency?
+  :responses: 
+  - kuwait
+  - uk
+  :next_node: :residency_uk?
+  :outcome_node: false
+- :current_node: :residency_uk?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_england
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_england
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_england
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_england
+  - partner_british
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_england
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_england
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_england
+  - partner_local
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_england
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_england
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_england
+  - partner_other
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :residency_uk?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_wales
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_wales
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_wales
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_wales
+  - partner_british
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_wales
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_wales
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_wales
+  - partner_local
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_wales
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_wales
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_wales
+  - partner_other
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :residency_uk?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_scotland
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_scotland
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_scotland
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_scotland
+  - partner_british
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_scotland
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_scotland
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_scotland
+  - partner_local
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_scotland
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_scotland
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_scotland
+  - partner_other
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :residency_uk?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_ni
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_ni
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_ni
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_ni
+  - partner_british
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_ni
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_ni
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_ni
+  - partner_local
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_ni
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_ni
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_ni
+  - partner_other
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :residency_uk?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_iom
+  :next_node: :outcome_os_iom_ci
+  :outcome_node: true
+- :current_node: :residency_uk?
+  :responses: 
+  - kuwait
+  - uk
+  - uk_ci
+  :next_node: :outcome_os_iom_ci
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses: 
+  - kuwait
+  - ceremony_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - ceremony_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - ceremony_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - ceremony_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - ceremony_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - ceremony_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - ceremony_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - ceremony_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - ceremony_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_os_consular_cni
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - ceremony_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses: 
+  - kuwait
+  - third_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - third_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - third_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_consular_cni_os_residing_in_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - third_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - third_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - third_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_consular_cni_os_residing_in_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - third_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses: 
+  - kuwait
+  - third_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - third_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_consular_cni_os_residing_in_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses: 
+  - kuwait
+  - third_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_cp_all_other_countries
+  :outcome_node: true
+- :current_node: :country_of_ceremony?
+  :responses: 
   - laos
   :next_node: :legal_residency?
   :outcome_node: false
@@ -28000,7 +28515,7 @@
   - uk_england
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28026,7 +28541,7 @@
   - uk_england
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28052,7 +28567,7 @@
   - uk_england
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28085,7 +28600,7 @@
   - uk_wales
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28111,7 +28626,7 @@
   - uk_wales
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28137,7 +28652,7 @@
   - uk_wales
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28170,7 +28685,7 @@
   - uk_scotland
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28196,7 +28711,7 @@
   - uk_scotland
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28222,7 +28737,7 @@
   - uk_scotland
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28255,7 +28770,7 @@
   - uk_ni
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28281,7 +28796,7 @@
   - uk_ni
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28307,7 +28822,7 @@
   - uk_ni
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28351,7 +28866,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28374,7 +28889,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28397,7 +28912,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28426,7 +28941,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28449,7 +28964,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -28472,7 +28987,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_os_affirmation
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses: 
@@ -32307,7 +32822,7 @@
   - uk_england
   - partner_british
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32333,7 +32848,7 @@
   - uk_england
   - partner_local
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32359,7 +32874,7 @@
   - uk_england
   - partner_other
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :residency_uk?
   :responses: 
@@ -32392,7 +32907,7 @@
   - uk_wales
   - partner_british
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32418,7 +32933,7 @@
   - uk_wales
   - partner_local
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32444,7 +32959,7 @@
   - uk_wales
   - partner_other
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :residency_uk?
   :responses: 
@@ -32477,7 +32992,7 @@
   - uk_scotland
   - partner_british
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32503,7 +33018,7 @@
   - uk_scotland
   - partner_local
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32529,7 +33044,7 @@
   - uk_scotland
   - partner_other
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :residency_uk?
   :responses: 
@@ -32562,7 +33077,7 @@
   - uk_ni
   - partner_british
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32588,7 +33103,7 @@
   - uk_ni
   - partner_local
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32614,7 +33129,7 @@
   - uk_ni
   - partner_other
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :residency_uk?
   :responses: 
@@ -32657,7 +33172,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32680,7 +33195,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32703,7 +33218,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses: 
@@ -32732,7 +33247,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32755,7 +33270,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses: 
@@ -32778,7 +33293,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_cp_commonwealth_countries
+  :next_node: :outcome_cp_no_cni
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses: 
