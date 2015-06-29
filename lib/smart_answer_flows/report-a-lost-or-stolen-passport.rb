@@ -41,7 +41,7 @@ module SmartAnswer
 
       outcome :contact_the_embassy, use_outcome_templates: true
       outcome :contact_the_embassy_canada, use_outcome_templates: true
-      outcome :complete_LS01_form
+      outcome :complete_LS01_form, use_outcome_templates: true
     end
   end
 end
