@@ -51,7 +51,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - female_gender
-  :next_node: :female_gender_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
@@ -74,7 +74,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - female_gender
-  :next_node: :female_gender_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_marital_status?
   :responses: 
@@ -128,7 +128,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - female_gender
-  :next_node: :female_gender_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
@@ -151,7 +151,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - female_gender
-  :next_node: :female_gender_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_marital_status?
   :responses: 
@@ -205,7 +205,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_before_specific_date
   - female_gender
-  :next_node: :female_gender_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
@@ -228,7 +228,7 @@
   - your_pension_age_after_specific_date
   - partner_pension_age_after_specific_date
   - female_gender
-  :next_node: :female_gender_outcome
+  :next_node: :married_woman_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_marital_status?
   :responses: 
@@ -259,7 +259,7 @@
   - widowed
   - your_pension_age_after_specific_date
   - female_gender
-  :next_node: :female_gender_outcome
+  :next_node: :married_woman_and_state_pension_outcome
   :outcome_node: true
 - :current_node: :what_is_your_marital_status?
   :responses: 
@@ -276,5 +276,5 @@
   :responses: 
   - divorced
   - female_gender
-  :next_node: :female_gender_outcome
+  :next_node: :age_dependent_pension_outcome
   :outcome_node: true

@@ -1,3 +1,4 @@
+<% content_for :body do %>
 You might be able to increase your State Pension depending on when you reach State Pension age.
 
 ##You reach State Pension age before 6 April 2016
@@ -57,3 +58,6 @@ You'll get more if your [State Pension](/new-state-pension) is higher under your
 ^Your pension must have been calculated under the reduced rate election rules for this to apply.^
 
 You’ll get the increase when either you or your former partner reach [State Pension age](/calculate-state-pension), whichever is later.
+
+<%= render partial: 'increase_retirement_income.govspeak.erb' -%>
+<% end %>

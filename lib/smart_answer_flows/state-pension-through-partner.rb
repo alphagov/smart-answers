@@ -104,7 +104,11 @@ module SmartAnswer
           next_node_if(:impossibility_due_to_divorce_outcome, variable_matches(:marital_status, "divorced"))
           next_node(:impossibility_to_increase_pension_outcome)
         end
-        next_node(:female_gender_outcome)
+        on_condition(responded_with("female_gender")) do
+          next_node_if(:age_dependent_pension_outcome, variable_matches(:marital_status, "divorced"))
+          next_node_if(:married_woman_and_state_pension_outcome, variable_matches(:marital_status, "widowed"))
+          next_node(:married_woman_no_state_pension_outcome)
+        end
       end
 
       outcome :widow_and_old_pension_outcome, use_outcome_templates: true
@@ -114,7 +118,9 @@ module SmartAnswer
       outcome :impossibility_due_to_divorce_outcome, use_outcome_templates: true
       outcome :impossibility_to_increase_pension_outcome, use_outcome_templates: true
 
-      outcome :female_gender_outcome, use_outcome_templates: true
+      outcome :age_dependent_pension_outcome, use_outcome_templates: true
+      outcome :married_woman_and_state_pension_outcome, use_outcome_templates: true
+      outcome :married_woman_no_state_pension_outcome, use_outcome_templates: true
     end
   end
 end

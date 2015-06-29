@@ -1,3 +1,4 @@
+<% content_for :body do %>
 Your State Pension will normally be based on your own National Insurance contributions only.
 
 Your State Pension may be worked out in a different way if 1 of the following applied before 1977:
@@ -56,3 +57,6 @@ You may be able to inherit a portion of your late spouse or civil partner’s [A
 You also might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you hadn’t reached State Pension age.
 
 ^You can contact the [future pension centre](/future-pension-centre) for help and advice.^
+
+<%= render partial: 'increase_retirement_income.govspeak.erb' -%>
+<% end %>

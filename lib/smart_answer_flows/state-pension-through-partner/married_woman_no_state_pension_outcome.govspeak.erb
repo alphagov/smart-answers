@@ -1,3 +1,4 @@
+<% content_for :body do %>
 Your State Pension will normally be based on your own National Insurance contributions only.
 
 Your State Pension may be worked out in a different way if 1 of the following applied before 1977:
@@ -64,3 +65,6 @@ You might be eligible for the following if you haven’t yet reached State Pensi
 - [Bereavement Allowance](/bereavement-allowance)
 
 You should contact the [future pension centre](/future-pension-centre) if you become widowed.
+
+<%= render partial: 'increase_retirement_income.govspeak.erb' -%>
+<% end %>

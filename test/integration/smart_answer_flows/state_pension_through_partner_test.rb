@@ -84,8 +84,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "partner_pension_age_before_specific_date"
       add_response "female_gender"
     end
-    should "take you to female_gender_outcome" do
-      assert_current_node :female_gender_outcome
+    should "take you to married_woman_no_state_pension_outcome" do
+      assert_current_node :married_woman_no_state_pension_outcome
     end
   end
   context "new1 old2 old3 == current_rules_no_additional_pension" do
@@ -128,8 +128,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "partner_pension_age_after_specific_date"
       add_response "female_gender"
     end
-    should "take you to female_gender_outcome" do
-      assert_current_node :female_gender_outcome
+    should "take you to married_woman_no_state_pension_outcome" do
+      assert_current_node :married_woman_no_state_pension_outcome
     end
   end
   context "new1 new2 new3 == married_woman_no_state_pension" do
@@ -139,8 +139,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "partner_pension_age_after_specific_date"
       add_response "female_gender"
     end
-    should "take you to female_gender_outcome" do
-      assert_current_node :female_gender_outcome
+    should "take you to married_woman_no_state_pension_outcome" do
+      assert_current_node :married_woman_no_state_pension_outcome
     end
   end
   context "old1 new2 old3 == married_woman_no_state_pension" do
@@ -150,8 +150,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "partner_pension_age_before_specific_date"
       add_response "female_gender"
     end
-    should "take you to female_gender_outcome" do
-      assert_current_node :female_gender_outcome
+    should "take you to married_woman_no_state_pension_outcome" do
+      assert_current_node :married_woman_no_state_pension_outcome
     end
   end#end married_woman_no_state_pension
   #married_woman_and_state_pension
@@ -161,8 +161,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "your_pension_age_after_specific_date"
       add_response "female_gender"
     end
-    should "take you to female_gender_outcome" do
-      assert_current_node :female_gender_outcome
+    should "take you to married_woman_and_state_pension_outcome" do
+      assert_current_node :married_woman_and_state_pension_outcome
     end
   end
   context "widow new2 new3 female_gender == married_woman_and_state_pension" do
@@ -172,7 +172,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "female_gender"
     end
     should "take you to female_gender_outcome" do
-      assert_current_node :female_gender_outcome
+      assert_current_node :married_woman_and_state_pension_outcome
     end
   end #end married_woman_and_state_pension
   #impossibility_to_increase_pension
@@ -191,8 +191,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "divorced"
       add_response "female_gender"
     end
-    should "take you to female_gender_outcome" do
-      assert_current_node :female_gender_outcome
+    should "take you to age_dependent_pension_outcome" do
+      assert_current_node :age_dependent_pension_outcome
     end
   end # end testing for outcome 10
   context "new1 new2 old3 female go to current_rules_and_additional_pension" do
@@ -203,7 +203,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "female_gender"
     end
     should "take user to outcome married_woman_no_state_pension" do
-      assert_current_node :female_gender_outcome
+      assert_current_node :married_woman_no_state_pension_outcome
     end
   end
 end
