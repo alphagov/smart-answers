@@ -96,8 +96,16 @@ module SmartAnswer
         end
       end
 
-      outcome :done_no_statutory
-      outcome :done
+      outcome :done_no_statutory do
+        precalculate :tbd_for_code_coverage do
+          ''
+        end
+      end
+      outcome :done do
+        precalculate :tbd_for_code_coverage do
+          ''
+        end
+      end
     end
   end
 end
