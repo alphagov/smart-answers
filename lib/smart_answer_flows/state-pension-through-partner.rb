@@ -76,7 +76,7 @@ module SmartAnswer
         option :partner_pension_age_before_specific_date
         option :partner_pension_age_after_specific_date
 
-        calculate :answers do |response|
+        next_node_calculation :answers do |response|
           if response == "partner_pension_age_before_specific_date"
             answers << :old3
           elsif response == "partner_pension_age_after_specific_date"
@@ -85,11 +85,16 @@ module SmartAnswer
           answers
         end
 
-        define_predicate(:gender_not_needed_for_outcome?) {
-          answers == [:old1, :old2] || answers == [:new1, :old2]
+        define_predicate(:current_rules_no_additional_pension?) {
+          answers == [:old1, :old2, :old3] || answers == [:new1, :old2, :old3]
         }
 
-        next_node_if(:gender_not_needed_outcome, gender_not_needed_for_outcome?)
+        define_predicate(:current_rules_national_insurance_no_state_pension?) {
+          answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
+        }
+
+        next_node_if(:current_rules_no_additional_pension_outcome, current_rules_no_additional_pension?)
+        next_node_if(:current_rules_national_insurance_no_state_pension_outcome, current_rules_national_insurance_no_state_pension?)
         next_node :what_is_your_gender?
       end
 
@@ -113,7 +118,8 @@ module SmartAnswer
 
       outcome :widow_and_old_pension_outcome, use_outcome_templates: true
 
-      outcome :gender_not_needed_outcome, use_outcome_templates: true
+      outcome :current_rules_no_additional_pension_outcome, use_outcome_templates: true
+      outcome :current_rules_national_insurance_no_state_pension_outcome, use_outcome_templates: true
 
       outcome :impossibility_due_to_divorce_outcome, use_outcome_templates: true
       outcome :impossibility_to_increase_pension_outcome, use_outcome_templates: true

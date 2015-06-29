@@ -26,8 +26,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
 
       context "old3 - before specific date" do
         setup { add_response "partner_pension_age_before_specific_date" }
-        should "go to gender_not_needed_outcome" do
-          assert_current_node :gender_not_needed_outcome
+        should "go to current_rules_no_additional_pension_outcome" do
+          assert_current_node :current_rules_no_additional_pension_outcome
         end
       end
     end
@@ -73,8 +73,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "your_pension_age_before_specific_date"
       add_response "partner_pension_age_before_specific_date"
     end
-    should "take you to gender_not_needed_outcome" do
-      assert_current_node :gender_not_needed_outcome
+    should "take you to current_rules_no_additional_pension_outcome" do
+      assert_current_node :current_rules_no_additional_pension_outcome
     end
   end
   context "new1 new2 old3, female == married_woman_no_state_pension" do
@@ -94,8 +94,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "your_pension_age_before_specific_date"
       add_response "partner_pension_age_before_specific_date"
     end
-    should "take you to gender_not_needed_outcome" do
-      assert_current_node :gender_not_needed_outcome
+    should "take you to current_rules_no_additional_pension_outcome" do
+      assert_current_node :current_rules_no_additional_pension_outcome
     end
   end
   #end current_rules_no_additional_pension
@@ -116,8 +116,8 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       add_response "your_pension_age_before_specific_date"
       add_response "partner_pension_age_after_specific_date"
     end
-    should "take you to gender_not_needed_outcome" do
-      assert_current_node :gender_not_needed_outcome
+    should "take you to current_rules_national_insurance_no_state_pension_outcome" do
+      assert_current_node :current_rules_national_insurance_no_state_pension_outcome
     end
   end #end current_rules_national_insurance_no_state_pension
   #married_woman_no_state_pension

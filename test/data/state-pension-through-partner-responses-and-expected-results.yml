@@ -15,14 +15,14 @@
   - married
   - your_pension_age_before_specific_date
   - partner_pension_age_before_specific_date
-  :next_node: :gender_not_needed_outcome
+  :next_node: :current_rules_no_additional_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
   - married
   - your_pension_age_before_specific_date
   - partner_pension_age_after_specific_date
-  :next_node: :gender_not_needed_outcome
+  :next_node: :current_rules_national_insurance_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_you_reach_pension_age?
   :responses: 
@@ -92,14 +92,14 @@
   - will_marry_before_specific_date
   - your_pension_age_before_specific_date
   - partner_pension_age_before_specific_date
-  :next_node: :gender_not_needed_outcome
+  :next_node: :current_rules_no_additional_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
   - will_marry_before_specific_date
   - your_pension_age_before_specific_date
   - partner_pension_age_after_specific_date
-  :next_node: :gender_not_needed_outcome
+  :next_node: :current_rules_national_insurance_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_you_reach_pension_age?
   :responses: 
@@ -169,14 +169,14 @@
   - will_marry_on_or_after_specific_date
   - your_pension_age_before_specific_date
   - partner_pension_age_before_specific_date
-  :next_node: :gender_not_needed_outcome
+  :next_node: :current_rules_no_additional_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses: 
   - will_marry_on_or_after_specific_date
   - your_pension_age_before_specific_date
   - partner_pension_age_after_specific_date
-  :next_node: :gender_not_needed_outcome
+  :next_node: :current_rules_national_insurance_no_state_pension_outcome
   :outcome_node: true
 - :current_node: :when_will_you_reach_pension_age?
   :responses: 
