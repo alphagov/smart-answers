@@ -19,9 +19,15 @@ module SmartAnswer::Calculators
     end
 
     def ratio(age)
-      return 0.5 if (0..22).include?(age)
-      return 1.0 if (23..41).include?(age)
-      return 1.5 if (42..1000).include?(age)
+      if (0..22).include?(age)
+        return 0.5
+      end
+      if (23..41).include?(age)
+        return 1.0
+      end
+      if (42..1000).include?(age)
+        return 1.5
+      end
     end
 
     def format_money(amount)
