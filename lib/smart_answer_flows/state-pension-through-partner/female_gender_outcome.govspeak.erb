@@ -1,0 +1,19 @@
+<% content_for :body do %>
+  <% if marital_status == "divorced" %>
+<%= render partial: 'age_dependent_pension.govspeak.erb', locals: {
+lower_basic_state_pension_rate: lower_basic_state_pension_rate,
+higher_basic_state_pension_rate: higher_basic_state_pension_rate
+} -%>
+  <% elsif marital_status == "widowed" %>
+<%= render partial: 'married_woman_and_state_pension.govspeak.erb', locals: {
+lower_basic_state_pension_rate: lower_basic_state_pension_rate
+} -%>
+  <% else %>
+<%= render partial: 'married_woman_no_state_pension.govspeak.erb', locals: {
+lower_basic_state_pension_rate: lower_basic_state_pension_rate,
+higher_basic_state_pension_rate: higher_basic_state_pension_rate
+} -%>
+  <% end %>
+
+<%= render partial: 'increase_retirement_income.govspeak.erb' -%>
+<% end %>

@@ -100,14 +100,17 @@ module SmartAnswer
 
         save_input_as :gender
 
-        next_node :final_outcome
+        next_node_if(:male_gender_outcome, responded_with("male_gender"))
+        next_node(:female_gender_outcome)
       end
 
       outcome :widow_and_old_pension_outcome, use_outcome_templates: true
 
       outcome :gender_not_needed_outcome, use_outcome_templates: true
 
-      outcome :final_outcome, use_outcome_templates: true
+      outcome :male_gender_outcome, use_outcome_templates: true
+
+      outcome :female_gender_outcome, use_outcome_templates: true
     end
   end
 end
