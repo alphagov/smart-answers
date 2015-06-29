@@ -730,7 +730,12 @@ module SmartAnswer
               phrases << :cni_exception_for_permanent_residents_estonia
             end
 
-            phrases << :"#{ceremony_country}_os_local_resident" if %w(kazakhstan russia).include?(ceremony_country)
+            if %w(kazakhstan kyrgyzstan).include?(ceremony_country)
+              phrases << :kazakhstan_os_local_resident
+            elsif ceremony_country == 'russia'
+              phrases << :russia_os_local_resident
+            end
+
             unless %w(germany italy japan spain).include?(ceremony_country)
               if ceremony_country == 'macedonia'
                 phrases << :consular_cni_os_foreign_resident_3_days_macedonia
@@ -871,7 +876,7 @@ module SmartAnswer
             end
 
             unless data_query.countries_without_consular_facilities?(ceremony_country) || ceremony_country == 'cote-d-ivoire'
-              if ceremony_country == 'kazakhstan'
+              if %w(kazakhstan kyrgyzstan).include?(ceremony_country)
                 phrases << :list_of_consular_kazakhstan
               else
                 phrases << :list_of_consular_fees
