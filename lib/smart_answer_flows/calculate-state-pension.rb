@@ -466,15 +466,17 @@ module SmartAnswer
         next_node :amount_result
       end
 
-      outcome :near_state_pension_age, use_outcome_templates: true
+      use_outcome_templates
 
-      outcome :reached_state_pension_age, use_outcome_templates: true
-      outcome :too_young, use_outcome_templates: true
+      outcome :near_state_pension_age
 
-      outcome :age_result, use_outcome_templates: true
-      outcome :over55_result, use_outcome_templates: true
+      outcome :reached_state_pension_age
+      outcome :too_young
 
-      outcome :amount_result, use_outcome_templates: true do
+      outcome :age_result
+      outcome :over55_result
+
+      outcome :amount_result do
         precalculate :calc do
           Calculators::StatePensionAmountCalculator.new(
             gender: gender, dob: dob, qualifying_years: (qualifying_years)
