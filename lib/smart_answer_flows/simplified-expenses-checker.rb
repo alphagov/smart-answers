@@ -282,7 +282,7 @@ module SmartAnswer
         next_node :you_can_use_result
       end
 
-      outcome :you_cant_use_result
+      outcome :you_cant_use_result, use_outcome_templates: true
       outcome :you_can_use_result do
         precalculate :simple_heading do
           all_the_expenses = list_of_expenses
