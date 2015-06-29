@@ -207,6 +207,10 @@ module SmartAnswer
           ceremony_country == 'spain' && resident_of == 'third_country'
         }
 
+        define_predicate(:marriage_in_norway_third_country) {
+          ceremony_country == 'norway' && resident_of == 'third_country'
+        }
+
         next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
         next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
         next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
@@ -216,6 +220,7 @@ module SmartAnswer
 
         on_condition(responded_with('opposite_sex')) do
           next_node_if(:outcome_consular_cni_os_residing_in_third_country, consular_cni_residing_in_third_country)
+          next_node_if(:outcome_consular_cni_os_residing_in_third_country, marriage_in_norway_third_country)
           next_node_if(:outcome_os_local_japan, os_marriage_with_local_in_japan)
           next_node_if(:outcome_os_colombia, variable_matches(:ceremony_country, "colombia"))
           next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, "kosovo"))
@@ -594,11 +599,16 @@ module SmartAnswer
             phrases << :cni_os_consular_facilities_unavailable
           end
           phrases << :what_you_need_to_do
-          phrases << :you_may_be_asked_for_cni
-          if ceremony_country == 'nicaragua'
-            phrases << :getting_cni_from_costa_rica_when_in_third_country
+
+          if ceremony_country == 'norway'
+            phrases << :what_you_need_to_do_to_marry_in_norway_when_in_third_country
           else
-            phrases << :standard_ways_to_get_cni_in_third_country
+            phrases << :you_may_be_asked_for_cni
+            if ceremony_country == 'nicaragua'
+              phrases << :getting_cni_from_costa_rica_when_in_third_country
+            else
+              phrases << :standard_ways_to_get_cni_in_third_country
+            end
           end
         end
       end
