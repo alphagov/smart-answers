@@ -434,7 +434,6 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_state_variable :total_hours, 1500.0
       assert_state_variable :holiday_entitlement_hours, 'formatted hours'
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
-      assert_phrase_list :content_sections, [:answer_hours_minutes, :your_employer_with_rounding]
     end
   end # casual or irregular
 
