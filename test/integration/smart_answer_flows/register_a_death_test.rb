@@ -35,12 +35,10 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome1 if death was expected" do
         add_response 'yes'
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_ew, :who_can_register, :who_can_register_home_hospital, :what_you_need_to_do_expected, :need_to_tell_registrar, :documents_youll_get_ew_expected]
       end
       should "be outcome3 if death not expected" do
         add_response 'no'
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_ew, :who_can_register, :who_can_register_home_hospital, :what_you_need_to_do_unexpected, :need_to_tell_registrar, :documents_youll_get_ew_unexpected]
       end
     end
     context "answer elsewhere" do
@@ -53,13 +51,11 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome2 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_ew, :who_can_register, :who_can_register_elsewhere, :what_you_need_to_do_expected, :need_to_tell_registrar, :documents_youll_get_ew_expected]
       end
 
       should "be outcome4 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_ew, :who_can_register, :who_can_register_elsewhere, :what_you_need_to_do_unexpected, :need_to_tell_registrar, :documents_youll_get_ew_unexpected]
       end
     end
   end # England, Wales
@@ -81,12 +77,10 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome5 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland]
       end
       should "be outcome7 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland]
       end
     end
     context "answer elsewhere" do
@@ -99,13 +93,11 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome6 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland]
       end
 
       should "be outcome8 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland]
       end
     end
   end # Scotland
@@ -127,12 +119,10 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome5 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
       should "be outcome7 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
     end
     context "answer elsewhere" do
@@ -145,13 +135,11 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome6 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
 
       should "be outcome8 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
     end
   end # Northern Ireland

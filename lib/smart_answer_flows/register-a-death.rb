@@ -104,21 +104,7 @@ module SmartAnswer
       outcome :commonwealth_result, use_outcome_templates: true
       outcome :no_embassy_result, use_outcome_templates: true
 
-      outcome :uk_result do
-        precalculate :content_sections do
-          sections = PhraseList.new
-          if where_death_happened == 'england_wales'
-            sections << :intro_ew << :who_can_register
-            sections << (died_at_home_hospital ? :who_can_register_home_hospital : :who_can_register_elsewhere)
-            sections << :"what_you_need_to_do_#{death_expected ? :expected : :unexpected}"
-            sections << :need_to_tell_registrar
-            sections << :"documents_youll_get_ew_#{death_expected ? :expected : :unexpected}"
-          else
-            sections << :"intro_#{where_death_happened}"
-          end
-          sections
-        end
-      end
+      outcome :uk_result, use_outcome_templates: true
 
       outcome :oru_result, use_outcome_templates: true do
         precalculate :button_data do
