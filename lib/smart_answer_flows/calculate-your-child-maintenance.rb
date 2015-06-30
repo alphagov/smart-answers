@@ -113,9 +113,11 @@ module SmartAnswer
         next_node :reduced_and_basic_rates_result
       end
 
-      outcome :nil_rate_result, use_outcome_templates: true
+      use_outcome_templates
 
-      outcome :flat_rate_result, use_outcome_templates: true do
+      outcome :nil_rate_result
+
+      outcome :flat_rate_result do
         precalculate :flat_rate_amount do
           sprintf('%.2f', calculator.base_amount)
         end
@@ -130,7 +132,7 @@ module SmartAnswer
         end
       end
 
-      outcome :reduced_and_basic_rates_result, use_outcome_templates: true do
+      outcome :reduced_and_basic_rates_result do
         precalculate :rate_type_formatted do
           rate_type = calculator.rate_type
           if rate_type.to_s == 'basic_plus'
