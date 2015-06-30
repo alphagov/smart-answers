@@ -530,7 +530,7 @@
   - compressed-hours
   - "8.0"
   - "1"
-  :next_node: :done
+  :next_node: :compressed_hours_done
   :outcome_node: true
 - :current_node: :basis_of_calculation?
   :responses: 

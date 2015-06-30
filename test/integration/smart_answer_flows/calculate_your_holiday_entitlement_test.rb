@@ -530,7 +530,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
       add_response '20.5'
       add_response '3'
-      assert_current_node :done
+      assert_current_node :compressed_hours_done
       assert_state_variable :hours_per_week, 20.5
       assert_state_variable :days_per_week, 3
       assert_state_variable :holiday_entitlement_hours, 'formatted hours'
