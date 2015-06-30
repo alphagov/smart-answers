@@ -101,26 +101,8 @@ module SmartAnswer
 
       # Q10
       value_question :how_many_hours_per_week?, parse: Float do
-        calculate :calculator do |response|
-          Calculators::HolidayEntitlement.new(
-            hours_per_week: response,
-            start_date: start_date,
-            leaving_date: leaving_date,
-            leave_year_start_date: leave_year_start_date
-          )
-        end
-        calculate :holiday_entitlement_hours_and_minutes do
-          calculator.full_time_part_time_hours_and_minutes
-        end
-        calculate :holiday_entitlement_hours do
-          holiday_entitlement_hours_and_minutes.first
-        end
-        calculate :holiday_entitlement_minutes do
-          holiday_entitlement_hours_and_minutes.last
-        end
-        calculate :content_sections do
-          PhraseList.new :answer_hours, :your_employer_with_rounding
-        end
+        save_input_as :hours_per_week
+
         next_node :hours_per_week_done
       end
 
@@ -297,7 +279,29 @@ module SmartAnswer
         end
       end
 
-      outcome :hours_per_week_done
+      outcome :hours_per_week_done do
+        precalculate :calculator do |response|
+          Calculators::HolidayEntitlement.new(
+            hours_per_week: hours_per_week,
+            start_date: start_date,
+            leaving_date: leaving_date,
+            leave_year_start_date: leave_year_start_date
+          )
+        end
+        precalculate :holiday_entitlement_hours_and_minutes do
+          calculator.full_time_part_time_hours_and_minutes
+        end
+        precalculate :holiday_entitlement_hours do
+          holiday_entitlement_hours_and_minutes.first
+        end
+        precalculate :holiday_entitlement_minutes do
+          holiday_entitlement_hours_and_minutes.last
+        end
+        precalculate :content_sections do
+          PhraseList.new :answer_hours, :your_employer_with_rounding
+        end
+      end
+
       outcome :casual_or_irregular_hours_done
       outcome :compressed_hours_done
       outcome :annualised_hours_done
