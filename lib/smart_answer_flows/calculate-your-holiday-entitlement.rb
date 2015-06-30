@@ -181,7 +181,9 @@ module SmartAnswer
         next_node :shift_worker_done
       end
 
-      outcome :shift_worker_done, use_outcome_templates: true do
+      use_outcome_templates
+
+      outcome :shift_worker_done do
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(
             start_date: start_date,
@@ -200,7 +202,7 @@ module SmartAnswer
         end
       end
 
-      outcome :days_per_week_done, use_outcome_templates: true do
+      outcome :days_per_week_done do
         precalculate :days_per_week_calculated do
           (days_per_week < 5 ? days_per_week : 5)
         end
@@ -217,7 +219,7 @@ module SmartAnswer
         end
       end
 
-      outcome :hours_per_week_done, use_outcome_templates: true do
+      outcome :hours_per_week_done do
         precalculate :calculator do |response|
           Calculators::HolidayEntitlement.new(
             hours_per_week: hours_per_week,
@@ -237,7 +239,7 @@ module SmartAnswer
         end
       end
 
-      outcome :casual_or_irregular_hours_done, use_outcome_templates: true do
+      outcome :casual_or_irregular_hours_done do
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(total_hours: total_hours)
         end
@@ -249,7 +251,7 @@ module SmartAnswer
         end
       end
 
-      outcome :compressed_hours_done, use_outcome_templates: true do
+      outcome :compressed_hours_done do
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(
             hours_per_week: hours_per_week,
@@ -270,7 +272,7 @@ module SmartAnswer
         end
       end
 
-      outcome :annualised_hours_done, use_outcome_templates: true do
+      outcome :annualised_hours_done do
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(total_hours: total_hours)
         end
