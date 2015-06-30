@@ -523,7 +523,6 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
       assert_state_variable :hours_daily, 'formatted daily hours'
       assert_state_variable :minutes_daily, 'formatted daily minutes'
-      assert_phrase_list :content_sections, [:answer_compressed_hours, :your_employer_with_rounding]
     end
   end # compressed hours
 

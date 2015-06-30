@@ -252,7 +252,7 @@ module SmartAnswer
         end
       end
 
-      outcome :compressed_hours_done do
+      outcome :compressed_hours_done, use_outcome_templates: true do
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(
             hours_per_week: hours_per_week,
@@ -270,9 +270,6 @@ module SmartAnswer
         end
         precalculate :minutes_daily do
           calculator.compressed_hours_daily_average.last
-        end
-        precalculate :content_sections do
-          PhraseList.new :answer_compressed_hours, :your_employer_with_rounding
         end
       end
 
