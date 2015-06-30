@@ -106,13 +106,6 @@
 - uk
 - ceremony_country
 - third_country
-:residency_uk?:
-- uk_england
-- uk_wales
-- uk_scotland
-- uk_ni
-- uk_iom
-- uk_ci
 :marriage_or_pacs?:
 - marriage
 - pacs
