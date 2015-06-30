@@ -12,20 +12,6 @@ module SmartAnswer
 
         save_input_as :paying_or_receiving
 
-        calculate :fees_title do
-          PhraseList.new(:"#{paying_or_receiving}_title")
-        end
-
-        calculate :collect_and_pay_service do
-            PhraseList.new(:"#{paying_or_receiving}_collect_and_pay_service")
-          end
-
-        calculate :enforcement_charge do |response|
-          if response == "pay"
-            PhraseList.new(:enforcement_charge)
-          end
-        end
-
         next_node :how_many_children_paid_for?
       end
 
@@ -127,17 +113,9 @@ module SmartAnswer
         next_node :reduced_and_basic_rates_result
       end
 
-      outcome :nil_rate_result do
-        precalculate :nil_rate_reason do
-          if benefits == 'yes'
-            PhraseList.new(:nil_rate_reason_benefits)
-          else
-            PhraseList.new(:nil_rate_reason_income)
-          end
-        end
-      end
+      outcome :nil_rate_result, use_outcome_templates: true
 
-      outcome :flat_rate_result do
+      outcome :flat_rate_result, use_outcome_templates: true do
         precalculate :flat_rate_amount do
           sprintf('%.2f', calculator.base_amount)
         end
@@ -152,7 +130,7 @@ module SmartAnswer
         end
       end
 
-      outcome :reduced_and_basic_rates_result do
+      outcome :reduced_and_basic_rates_result, use_outcome_templates: true do
         precalculate :rate_type_formatted do
           rate_type = calculator.rate_type
           if rate_type.to_s == 'basic_plus'
