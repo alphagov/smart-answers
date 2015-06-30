@@ -102,35 +102,10 @@ module SmartAnswer
         save_input_as :resident_of
 
         next_node_if(:partner_opposite_or_same_sex?, variable_matches(:ceremony_country, 'switzerland'))
-        next_node_if(:residency_uk?, responded_with('uk'))
         next_node(:what_is_your_partners_nationality?)
       end
 
       # Q3a
-      multiple_choice :residency_uk? do
-        option :uk_england
-        option :uk_wales
-        option :uk_scotland
-        option :uk_ni
-        option :uk_iom
-        option :uk_ci
-
-        save_input_as :residency_uk_region
-
-        on_condition(responded_with(%w{uk_iom uk_ci})) do
-          next_node_if(:what_is_your_partners_nationality?,
-            -> {
-              data_query.os_other_countries?(ceremony_country) ||
-              data_query.ss_marriage_countries?(ceremony_country) ||
-              data_query.ss_marriage_and_partnership?(ceremony_country) ||
-              %w(portugal czech-republic).include?(ceremony_country)
-            })
-          next_node(:outcome_os_iom_ci)
-        end
-        next_node(:what_is_your_partners_nationality?)
-      end
-
-      # Q3b
       multiple_choice :marriage_or_pacs? do
         option :marriage
         option :pacs
@@ -303,27 +278,6 @@ module SmartAnswer
           })
 
           next_node(:outcome_cp_all_other_countries)
-        end
-      end
-
-      outcome :outcome_os_iom_ci do
-        precalculate :iom_ci_os_outcome do
-          phrases = PhraseList.new
-          phrases << :contact_local_authorities_in_country_marriage
-          if ceremony_country == 'spain'
-            phrases << :legal_restrictions_for_iom_residents_in_spain
-          end
-          if residency_uk_region == 'uk_iom'
-            phrases << :cni_for_iom_residents
-          else
-            phrases << :cni_for_channel_islands_residents
-          end
-          if ceremony_country == 'italy'
-            phrases << :british_embassy_in_rome_email
-          else
-            phrases << :embassies_data
-          end
-          phrases
         end
       end
 
