@@ -108,7 +108,7 @@ date_question :linked_sickness_end_date? do
   end
 
   calculate :prior_sick_days do |response|
-    start_date = sick_end_date_for_awe
+    start_date = sick_start_date_for_awe
     last_day_sick = response
     (last_day_sick - start_date).to_i + 1
   end
