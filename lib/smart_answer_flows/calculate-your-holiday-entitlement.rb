@@ -237,7 +237,7 @@ module SmartAnswer
         end
       end
 
-      outcome :casual_or_irregular_hours_done do
+      outcome :casual_or_irregular_hours_done, use_outcome_templates: true do
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(total_hours: total_hours)
         end
@@ -246,9 +246,6 @@ module SmartAnswer
         end
         precalculate :holiday_entitlement_minutes do
           calculator.casual_irregular_entitlement.last
-        end
-        precalculate :content_sections do
-          PhraseList.new :answer_hours_minutes, :your_employer_with_rounding
         end
       end
 
