@@ -155,27 +155,7 @@ module SmartAnswer
           raise InvalidResponse if days <= 0 or days > 7
           days
         end
-        calculate :calculator do
-          Calculators::HolidayEntitlement.new(
-            hours_per_week: hours_per_week,
-            days_per_week: days_per_week
-          )
-        end
-        calculate :holiday_entitlement_hours do
-          calculator.compressed_hours_entitlement.first
-        end
-        calculate :holiday_entitlement_minutes do
-          calculator.compressed_hours_entitlement.last
-        end
-        calculate :hours_daily do
-          calculator.compressed_hours_daily_average.first
-        end
-        calculate :minutes_daily do
-          calculator.compressed_hours_daily_average.last
-        end
-        calculate :content_sections do
-          PhraseList.new :answer_compressed_hours, :your_employer_with_rounding
-        end
+
         next_node :compressed_hours_done
       end
 
@@ -306,7 +286,30 @@ module SmartAnswer
         end
       end
 
-      outcome :compressed_hours_done
+      outcome :compressed_hours_done do
+        precalculate :calculator do
+          Calculators::HolidayEntitlement.new(
+            hours_per_week: hours_per_week,
+            days_per_week: days_per_week
+          )
+        end
+        precalculate :holiday_entitlement_hours do
+          calculator.compressed_hours_entitlement.first
+        end
+        precalculate :holiday_entitlement_minutes do
+          calculator.compressed_hours_entitlement.last
+        end
+        precalculate :hours_daily do
+          calculator.compressed_hours_daily_average.first
+        end
+        precalculate :minutes_daily do
+          calculator.compressed_hours_daily_average.last
+        end
+        precalculate :content_sections do
+          PhraseList.new :answer_compressed_hours, :your_employer_with_rounding
+        end
+      end
+
       outcome :annualised_hours_done
     end
   end
