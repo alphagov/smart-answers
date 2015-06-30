@@ -178,13 +178,6 @@ module SmartAnswer
           end
         end
 
-        precalculate :post_only do
-          if reg_data_query.post_only_countries?(current_location)
-            PhraseList.new(:"post_only_#{current_location}")
-          else
-            ''
-          end
-        end
         precalculate :postal_form_url do
           reg_data_query.postal_form(current_location)
         end
