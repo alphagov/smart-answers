@@ -14,7 +14,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   SS_COUNTRIES_WITH_APPOINTMENTS = translations["en-GB"]["flow"]["marriage-abroad"]["phrases"]["appointment_links"]["same_sex"].keys
 
   setup do
-    @location_slugs = (OS_COUNTRIES_WITH_APPOINTMENTS + SS_COUNTRIES_WITH_APPOINTMENTS + %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany greece indonesia iran ireland italy japan jordan kazakhstan kosovo laos latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)).uniq
+    @location_slugs = (OS_COUNTRIES_WITH_APPOINTMENTS + SS_COUNTRIES_WITH_APPOINTMENTS + %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany greece hong-kong indonesia iran ireland italy japan jordan kazakhstan kosovo laos latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)).uniq
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow 'marriage-abroad'
   end
@@ -2580,7 +2580,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   context "Macao" do
-    should "lead to an affirmation outcome for opposite sex marriages directing users to Hong-Kong" do
+    should "lead to an affirmation outcome for opposite sex marriages directing users to Hong Kong" do
       worldwide_api_has_no_organisations_for_location('macao')
       add_response 'macao'
       add_response 'ceremony_country'
@@ -2589,6 +2589,18 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       assert_current_node :outcome_os_affirmation
       assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit_in_hong_kong, "appointment_links.opposite_sex.macao", :complete_affirmation_or_affidavit_forms, :download_and_fill_but_not_sign, :download_affidavit_and_affirmation_macao, :required_supporting_documents_macao, :partner_probably_needs_affirmation, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_probably_needs_affirmation, :fee_table_affirmation_55, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+    end
+  end
+
+  context "Hong Kong" do
+    should "lead to the custom outcome directing users to the local Immigration Department for opposite sex marriages" do
+      worldwide_api_has_no_organisations_for_location('hong-kong')
+      add_response 'hong-kong'
+      add_response 'ceremony_country'
+      add_response 'partner_british'
+      add_response 'opposite_sex'
+
+      assert_current_node :outcome_os_hong_kong
     end
   end
 
