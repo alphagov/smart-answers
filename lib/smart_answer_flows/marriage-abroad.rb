@@ -541,7 +541,7 @@ module SmartAnswer
         end
 
         precalculate :uk_residence_outcome_path do
-          current_path.gsub('third_country', 'uk/uk_england')
+          current_path.gsub('third_country', 'uk')
         end
 
         precalculate :ceremony_country_residence_outcome_path do
