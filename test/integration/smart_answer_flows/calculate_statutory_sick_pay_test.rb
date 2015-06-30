@@ -300,18 +300,31 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
   context "no SSP payable as already had maximum" do
     should "take you to result A8 as already claimed > 28 weeks (max amount)" do
       add_response 'none'
+      assert_current_node :employee_tell_within_limit?
       add_response 'yes'
+      assert_current_node :employee_work_different_days?
       add_response 'no'
+      assert_current_node :first_sick_day?
       add_response '2014-10-10'
+      assert_current_node :last_sick_day?
       add_response '2014-10-20'
+      assert_current_node :has_linked_sickness?
       add_response 'yes'
+      assert_current_node :linked_sickness_start_date?
       add_response '2014-05-01'
+      assert_current_node :linked_sickness_end_date?
       add_response '2014-09-20'
+      assert_current_node :paid_at_least_8_weeks?
       add_response 'eight_weeks_more'
+      assert_current_node :how_often_pay_employee_pay_patterns?
       add_response 'monthly'
+      assert_current_node :last_payday_before_sickness?
       add_response '2013-04-01'
+      assert_current_node :last_payday_before_offset?
       add_response '2013-02-3'
+      assert_current_node :total_employee_earnings?
       add_response '4000'
+      assert_current_node :usual_work_days?
       add_response '1,2,3,4,5'
 
       assert_current_node :maximum_entitlement_reached
