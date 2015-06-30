@@ -15,14 +15,14 @@
   - days-worked-per-week
   - full-year
   - "1"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
   :responses: 
   - days-worked-per-week
   - full-year
   - "7"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
   :responses: 
@@ -52,7 +52,7 @@
   - "2012-01-01"
   - "2012-02-01"
   - "1"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
   :responses: 
@@ -61,7 +61,7 @@
   - "2012-01-01"
   - "2012-02-01"
   - "7"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
   :responses: 
@@ -78,7 +78,7 @@
   - "2012-01-01"
   - "2014-01-01"
   - "1"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
   :responses: 
@@ -87,7 +87,7 @@
   - "2012-01-01"
   - "2014-01-01"
   - "7"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
   :responses: 
@@ -111,7 +111,7 @@
   - "2014-01-01"
   - "2012-02-01"
   - "1"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
   :responses: 
@@ -120,7 +120,7 @@
   - "2014-01-01"
   - "2012-02-01"
   - "7"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
   :responses: 
@@ -137,7 +137,7 @@
   - "2014-01-01"
   - "2014-01-01"
   - "1"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
   :responses: 
@@ -146,7 +146,7 @@
   - "2014-01-01"
   - "2014-01-01"
   - "7"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
   :responses: 
@@ -176,7 +176,7 @@
   - "2014-12-31"
   - "2012-02-01"
   - "1"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
   :responses: 
@@ -185,7 +185,7 @@
   - "2014-12-31"
   - "2012-02-01"
   - "7"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
   :responses: 
@@ -202,7 +202,7 @@
   - "2014-12-31"
   - "2014-01-01"
   - "1"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
   :responses: 
@@ -211,7 +211,7 @@
   - "2014-12-31"
   - "2014-01-01"
   - "7"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
   :responses: 
@@ -241,7 +241,7 @@
   - "2012-01-01"
   - "2014-12-31"
   - "1"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
   :responses: 
@@ -250,7 +250,7 @@
   - "2012-01-01"
   - "2014-12-31"
   - "7"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
   :responses: 
@@ -274,7 +274,7 @@
   - "2014-01-01"
   - "2014-12-31"
   - "1"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
   :responses: 
@@ -283,7 +283,7 @@
   - "2014-01-01"
   - "2014-12-31"
   - "7"
-  :next_node: :done
+  :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :basis_of_calculation?
   :responses: 
