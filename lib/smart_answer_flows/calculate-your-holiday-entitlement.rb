@@ -43,28 +43,6 @@ module SmartAnswer
           raise InvalidResponse if days_per_week <= 0 or days_per_week > 7
           days_per_week
         end
-        calculate :days_per_week_calculated do
-          (days_per_week < 5 ? days_per_week : 5)
-        end
-        calculate :calculator do
-          Calculators::HolidayEntitlement.new(
-            days_per_week: (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
-            start_date: start_date,
-            leaving_date: leaving_date,
-            leave_year_start_date: leave_year_start_date
-          )
-        end
-        calculate :holiday_entitlement_days do
-          calculator.formatted_full_time_part_time_days
-        end
-        calculate :content_sections do
-          sections = PhraseList.new :answer_days
-          if days_per_week > 5 and calculator.full_time_part_time_days >= 28
-            sections << :maximum_days_calculated
-          end
-          sections << :your_employer_with_rounding
-          sections
-        end
         next_node :days_per_week_done
       end
 
@@ -293,7 +271,32 @@ module SmartAnswer
       end
 
       outcome :shift_worker_done
-      outcome :days_per_week_done
+
+      outcome :days_per_week_done do
+        precalculate :days_per_week_calculated do
+          (days_per_week < 5 ? days_per_week : 5)
+        end
+        precalculate :calculator do
+          Calculators::HolidayEntitlement.new(
+            days_per_week: (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
+            start_date: start_date,
+            leaving_date: leaving_date,
+            leave_year_start_date: leave_year_start_date
+          )
+        end
+        precalculate :holiday_entitlement_days do
+          calculator.formatted_full_time_part_time_days
+        end
+        precalculate :content_sections do
+          sections = PhraseList.new :answer_days
+          if days_per_week > 5 and calculator.full_time_part_time_days >= 28
+            sections << :maximum_days_calculated
+          end
+          sections << :your_employer_with_rounding
+          sections
+        end
+      end
+
       outcome :hours_per_week_done
       outcome :casual_or_irregular_hours_done
       outcome :compressed_hours_done
