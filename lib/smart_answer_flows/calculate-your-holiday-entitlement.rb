@@ -217,7 +217,7 @@ module SmartAnswer
         end
       end
 
-      outcome :hours_per_week_done do
+      outcome :hours_per_week_done, use_outcome_templates: true do
         precalculate :calculator do |response|
           Calculators::HolidayEntitlement.new(
             hours_per_week: hours_per_week,
@@ -234,9 +234,6 @@ module SmartAnswer
         end
         precalculate :holiday_entitlement_minutes do
           holiday_entitlement_hours_and_minutes.last
-        end
-        precalculate :content_sections do
-          PhraseList.new :answer_hours, :your_employer_with_rounding
         end
       end
 
