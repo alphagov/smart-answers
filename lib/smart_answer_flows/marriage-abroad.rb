@@ -219,6 +219,7 @@ module SmartAnswer
         next_node_if(:outcome_consular_cni_os_residing_in_third_country, marriage_in_spain_third_country)
 
         on_condition(responded_with('opposite_sex')) do
+          next_node_if(:outcome_os_hong_kong, variable_matches(:ceremony_country, 'hong-kong'))
           next_node_if(:outcome_consular_cni_os_residing_in_third_country, consular_cni_residing_in_third_country)
           next_node_if(:outcome_consular_cni_os_residing_in_third_country, marriage_in_norway_third_country)
           next_node_if(:outcome_os_local_japan, os_marriage_with_local_in_japan)
@@ -443,6 +444,8 @@ module SmartAnswer
           )
         end
       end
+
+      outcome :outcome_os_hong_kong
 
       outcome :outcome_os_kosovo do
         precalculate :kosovo_os_phraselist do
