@@ -137,3 +137,7 @@ en-GB:
       done:
         body: |
           %{content_sections}
+
+      days_per_week_done:
+        body: |
+          %{content_sections}

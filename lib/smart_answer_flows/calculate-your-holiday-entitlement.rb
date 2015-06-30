@@ -65,7 +65,7 @@ module SmartAnswer
           sections << :your_employer_with_rounding
           sections
         end
-        next_node :done
+        next_node :days_per_week_done
       end
 
       # Q4
@@ -293,6 +293,7 @@ module SmartAnswer
       end
 
       outcome :done
+      outcome :days_per_week_done
     end
   end
 end
