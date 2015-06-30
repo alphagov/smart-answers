@@ -385,7 +385,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
       assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
       assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/estonia/ceremony_country/partner_british/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/estonia/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/estonia/uk/partner_british/opposite_sex"
     end
   end
 
@@ -446,7 +446,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
       assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
       assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/italy/ceremony_country/partner_other/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/italy/uk/uk_england/partner_other/opposite_sex" # uk_england part will get removed soon
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/italy/uk/partner_other/opposite_sex"
     end
   end
 
@@ -572,7 +572,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
       assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
       assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/denmark/ceremony_country/partner_british/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/denmark/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/denmark/uk/partner_british/opposite_sex"
     end
   end
 
@@ -664,7 +664,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         assert_current_node :outcome_consular_cni_os_residing_in_third_country
         assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
         assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/spain/ceremony_country/partner_other/same_sex"
-        assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/spain/uk/uk_england/partner_other/same_sex" # uk_england part will get removed soon
+        assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/spain/uk/partner_other/same_sex"
       end
     end
   end
@@ -711,7 +711,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
       assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
       assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/azerbaijan/ceremony_country/partner_local/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/azerbaijan/uk/uk_england/partner_local/opposite_sex" # uk_england part will get removed soon
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/azerbaijan/uk/partner_local/opposite_sex"
     end
   end
 
@@ -727,7 +727,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
       assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
       assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/poland/ceremony_country/partner_british/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/poland/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/poland/uk/partner_british/opposite_sex"
     end
   end
 
@@ -1083,7 +1083,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
       assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
       assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/macedonia/ceremony_country/partner_other/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/macedonia/uk/uk_england/partner_other/opposite_sex" # uk_england part will get removed soon
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/macedonia/uk/partner_other/opposite_sex"
     end
   end
 
@@ -1931,7 +1931,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
       assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
       assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/kazakhstan/ceremony_country/partner_british/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/kazakhstan/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/kazakhstan/uk/partner_british/opposite_sex"
     end
   end
 
@@ -2046,7 +2046,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
       assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
       assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/belarus/ceremony_country/partner_british/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/belarus/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/belarus/uk/partner_british/opposite_sex"
     end
   end
 
@@ -2091,7 +2091,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
       assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
       assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/mexico/ceremony_country/partner_british/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/mexico/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/mexico/uk/partner_british/opposite_sex"
     end
 
     should "show outcome_os_consular_cni when partner is local" do
@@ -2121,7 +2121,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
       assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
       assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/albania/ceremony_country/partner_british/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/albania/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/albania/uk/partner_british/opposite_sex"
     end
   end
 
@@ -2137,7 +2137,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
       assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
       assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/democratic-republic-of-congo/ceremony_country/partner_british/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/democratic-republic-of-congo/uk/uk_england/partner_british/opposite_sex" # uk_england part will get removed soon
+      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/democratic-republic-of-congo/uk/partner_british/opposite_sex"
     end
   end
 
@@ -2280,7 +2280,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         assert_current_node :outcome_consular_cni_os_residing_in_third_country
         assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :standard_ways_to_get_cni_in_third_country]
         assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/greece/ceremony_country/partner_other/opposite_sex"
-        assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/greece/uk/uk_england/partner_other/opposite_sex" # uk_england part will get removed soon
+        assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/greece/uk/partner_other/opposite_sex"
       end
     end
 
