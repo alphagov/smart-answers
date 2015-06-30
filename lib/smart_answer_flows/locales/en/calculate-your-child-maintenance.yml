@@ -19,10 +19,6 @@ en-GB:
 
         *[CSA]: Child Support Agency
       phrases:
-        nil_rate_reason_benefits: |
-          This is because the parent paying child maintenance is receiving benefits and they have shared care of the child(ren).
-        nil_rate_reason_income: |
-          This is because the income of the parent paying child maintenance is too low.
         pay_hint: |
           Enter the total number of children - including children that you have family based arrangements for. They will be included in the calculation and you'll need to supply information about them when arranging Child Maintenance.
 
@@ -110,17 +106,6 @@ en-GB:
           "2": "104 to 155 (2 to 3 nights a week)"
           "3": "156 to 174 (approx. 3 nights a week)"
           "4": "175 or more (more than 3 nights a week)"
-
-      ## A1
-      nil_rate_result:
-        body: |
-          Based on your answers no child maintenance has to be paid.
-
-          %{nil_rate_reason}
-
-          The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
-
-          Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/how-the-child-maintenance-service-works-out-child-maintenance "How child maintenance is worked out")
 
       ## A2
       flat_rate_result:
