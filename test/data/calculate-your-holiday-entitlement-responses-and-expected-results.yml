@@ -501,7 +501,7 @@
   :responses: 
   - casual-or-irregular-hours
   - "35"
-  :next_node: :done
+  :next_node: :casual_or_irregular_hours_done
   :outcome_node: true
 - :current_node: :basis_of_calculation?
   :responses: 

@@ -444,7 +444,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       @stubbed_calculator.expects(:casual_irregular_entitlement).at_least_once.returns(['formatted hours', 'formatted minutes'])
 
       add_response '1500'
-      assert_current_node :done
+      assert_current_node :casual_or_irregular_hours_done
       assert_state_variable :total_hours, 1500.0
       assert_state_variable :holiday_entitlement_hours, 'formatted hours'
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'

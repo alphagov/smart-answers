@@ -145,3 +145,7 @@ en-GB:
       hours_per_week_done:
         body: |
           %{content_sections}
+
+      casual_or_irregular_hours_done:
+        body: |
+          %{content_sections}
