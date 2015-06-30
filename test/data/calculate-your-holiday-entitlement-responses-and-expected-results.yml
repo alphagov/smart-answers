@@ -512,7 +512,7 @@
   :responses: 
   - annualised-hours
   - "1680"
-  :next_node: :done
+  :next_node: :annualised_hours_done
   :outcome_node: true
 - :current_node: :basis_of_calculation?
   :responses: 

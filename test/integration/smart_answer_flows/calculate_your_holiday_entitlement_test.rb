@@ -475,7 +475,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       @stubbed_calculator.expects(:formatted_annualised_hours_per_week).returns('average hours per week')
 
       add_response '1400.5'
-      assert_current_node :done
+      assert_current_node :annualised_hours_done
       assert_state_variable :total_hours, 1400.5
       assert_state_variable :holiday_entitlement_hours, 'formatted hours'
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'

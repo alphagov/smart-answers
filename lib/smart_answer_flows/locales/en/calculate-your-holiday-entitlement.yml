@@ -153,3 +153,7 @@ en-GB:
       compressed_hours_done:
         body: |
           %{content_sections}
+
+      annualised_hours_done:
+        body: |
+          %{content_sections}
