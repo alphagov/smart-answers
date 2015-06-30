@@ -109,11 +109,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :current_scheme_costs, 1000
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
-        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-        assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
-        assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
-        assert_phrase_list :capital_allowances_claimed_message, []
       end
     end # no new vehicle
 
@@ -135,11 +130,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :current_scheme_costs, 8000
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
-        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-        assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
-        assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
-        assert_phrase_list :capital_allowances_claimed_message, []
       end
     end # new green vehicle
 
@@ -161,11 +151,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :current_scheme_costs, 1440
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
-        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-        assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
-        assert_phrase_list :current_scheme_bullets, [:current_dirty_vehicle_write_off_bullet]
-        assert_phrase_list :capital_allowances_claimed_message, []
       end
     end # new green vehicle
   end # end main result, existing business, car_or_van only
@@ -185,7 +170,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       add_response "55"
       add_response "20"
       assert_current_node :you_can_use_result
-      assert_phrase_list :simplified_bullets, [:simple_home_costs_bullet]
     end
   end
 
@@ -208,10 +192,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :current_scheme_costs, 1000
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
-        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-        assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
-        assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
       end
     end # no new vehicle
 
@@ -233,10 +213,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :current_scheme_costs, 8000
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
-        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-        assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
-        assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
       end
     end # new green vehicle
 
@@ -258,10 +234,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :current_scheme_costs, 1440
         assert_state_variable :simple_total, 5000
         assert_state_variable :can_use_simple, true
-        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-        assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
-        assert_phrase_list :current_scheme_bullets, [:current_dirty_vehicle_write_off_bullet]
       end
     end # new green vehicle
 
@@ -283,11 +255,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :current_scheme_costs, 260000
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
-        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-        assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet]
-        assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
-        assert_phrase_list :over_van_limit_message, [:over_van_limit]
       end
     end # new green vehicle
   end # main result, new business, car_or_van only
@@ -313,11 +280,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :current_scheme_costs, 1000
         assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, false
-        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-        assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
-        assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
-        assert_phrase_list :capital_allowances_claimed_message, []
       end
     end # no new vehicle
     context "new green motorcycle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q6, Q7, Q8, Q10 result 2)" do
@@ -338,10 +300,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :current_scheme_costs, 8000
         assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, false
-        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-        assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
-        assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet]
       end
     end # new green vehicle
     context "new dirty motorcycle costs 5000, 80% of time on business, expect to drive 2000 miles, (Q3, Q6, Q7, Q8, Q10 result 2)" do
@@ -362,10 +320,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :current_scheme_costs, 1440
         assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, false
-        assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-        assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-        assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
-        assert_phrase_list :current_scheme_bullets, [:current_dirty_vehicle_write_off_bullet]
       end
     end # new dirty vehicle
   end # main result, existing business, motorcycle only
@@ -384,10 +338,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       assert_state_variable :simple_home_costs, 312
       assert_state_variable :simple_total, 312
       assert_state_variable :current_scheme_costs, 1000
-      assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-      assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-      assert_phrase_list :simplified_bullets, [:simple_home_costs_bullet]
-      assert_phrase_list :current_scheme_bullets, [:current_home_costs_bullet]
     end
   end # main result, existing business, using home
 
@@ -404,11 +354,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       assert_state_variable :business_premises_cost, 1000
       assert_state_variable :simple_total, 0
       assert_state_variable :simple_business_costs, 7800
-      assert_phrase_list :simple_heading, [:live_on_business_premises_only_simple_costs_heading]
-      assert_phrase_list :current_scheme_costs_heading, [:live_on_business_premises_only_current_costs_heading]
-      assert_phrase_list :simplified_bullets, []
-      assert_phrase_list :simplified_more_bullets, [:simple_business_costs_bullet]
-      assert_phrase_list :current_scheme_more_bullets, [:current_business_costs_bullet]
     end
   end # main result, existing business, living on premises
 
@@ -435,12 +380,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       assert_state_variable :simple_home_costs, 312
       assert_state_variable :simple_total, 1212
       assert_state_variable :current_scheme_costs, 9000
-      assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-      assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-      assert_phrase_list :simplified_bullets, [:simple_vehicle_costs_bullet, :simple_home_costs_bullet]
-      assert_phrase_list :current_scheme_bullets, [:current_green_vehicle_write_off_bullet, :current_home_costs_bullet]
-      assert_phrase_list :over_van_limit_message, []
-      assert_phrase_list :capital_allowances_claimed_message, []
     end
   end # main result, existing business, car_or_van, using home
 
@@ -463,13 +402,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       assert_state_variable :simple_total, 240
       assert_state_variable :simple_business_costs, 6000
       assert_state_variable :current_scheme_costs, 1000
-      assert_phrase_list :simple_heading, [:all_schemes_simple_costs_heading]
-      assert_phrase_list :current_scheme_costs_heading, [:all_schemes_current_costs_heading]
-      assert_phrase_list :simplified_bullets, [:simple_motorcycle_costs_bullet]
-      assert_phrase_list :simplified_more_bullets, [:simple_business_costs_bullet]
-      assert_phrase_list :current_scheme_bullets, [:current_vehicle_cost_bullet]
-      assert_phrase_list :current_scheme_more_bullets, [:current_business_costs_bullet]
-      assert_phrase_list :capital_allowances_claimed_message, []
     end
   end # main result, existing business, motorcycle, living on premises
 
