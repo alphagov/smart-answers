@@ -273,7 +273,7 @@ module SmartAnswer
         end
       end
 
-      outcome :annualised_hours_done do
+      outcome :annualised_hours_done, use_outcome_templates: true do
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(total_hours: total_hours)
         end
@@ -285,9 +285,6 @@ module SmartAnswer
         end
         precalculate :holiday_entitlement_minutes do
           calculator.annualised_entitlement.last
-        end
-        precalculate :content_sections do
-          PhraseList.new :answer_hours_minutes_annualised, :your_employer_with_rounding
         end
       end
     end
