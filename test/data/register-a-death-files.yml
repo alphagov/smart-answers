@@ -3,6 +3,7 @@ lib/smart_answer_flows/register-a-death.rb: 429bedea94edc191d5a83a3d1e3f9c8f
 lib/smart_answer_flows/locales/en/register-a-death.yml: d2fc52e87066ac59083903774a090417
 test/data/register-a-death-questions-and-responses.yml: 6df917ccdc09d3d7ac36be40ae9203c9
 test/data/register-a-death-responses-and-expected-results.yml: 170051e64fd33b79a62eba850cbc6116
+lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: bf127beae0779af9821ba90df5febf6b
 test/fixtures/worldwide/italy_organisations.json: dc5feb424edeeb12835be916605caf46
 lib/smart_answer/calculators/registrations_data_query.rb: 2755d76a53d867b350940f1af65fa5d1
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
