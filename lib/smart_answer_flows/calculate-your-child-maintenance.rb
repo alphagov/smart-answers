@@ -129,7 +129,7 @@ module SmartAnswer
 
       outcome :nil_rate_result, use_outcome_templates: true
 
-      outcome :flat_rate_result do
+      outcome :flat_rate_result, use_outcome_templates: true do
         precalculate :flat_rate_amount do
           sprintf('%.2f', calculator.base_amount)
         end
