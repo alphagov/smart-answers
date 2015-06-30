@@ -588,7 +588,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         @stubbed_calculator.expects(:formatted_shifts_per_week).returns('shifts per week')
         @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
 
-        assert_current_node :done
+        assert_current_node :shift_worker_done
 
         assert_state_variable :hours_per_shift, '7.25'
         assert_state_variable :shifts_per_shift_pattern, 4
@@ -658,7 +658,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
             @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
 
-            assert_current_node :done
+            assert_current_node :shift_worker_done
 
             assert_state_variable :hours_per_shift, '7.5'
             assert_state_variable :shifts_per_shift_pattern, 4
@@ -731,7 +731,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
             @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
 
-            assert_current_node :done
+            assert_current_node :shift_worker_done
 
             assert_state_variable :hours_per_shift, '7'
             assert_state_variable :shifts_per_shift_pattern, 4
@@ -804,7 +804,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
             @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
 
-            assert_current_node :done
+            assert_current_node :shift_worker_done
 
             assert_state_variable :hours_per_shift, '7'
             assert_state_variable :shifts_per_shift_pattern, 4

@@ -289,10 +289,10 @@ module SmartAnswer
 
           PhraseList.new :answer_shift_worker, :your_employer_with_rounding
         end
-        next_node :done
+        next_node :shift_worker_done
       end
 
-      outcome :done
+      outcome :shift_worker_done
       outcome :days_per_week_done
       outcome :hours_per_week_done
       outcome :casual_or_irregular_hours_done

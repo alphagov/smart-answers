@@ -565,7 +565,7 @@
   - "8.0"
   - "3"
   - "3"
-  :next_node: :done
+  :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :shift_worker_basis?
   :responses: 
@@ -616,7 +616,7 @@
   - "8.0"
   - "3"
   - "3"
-  :next_node: :done
+  :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
   :responses: 
@@ -654,7 +654,7 @@
   - "8.0"
   - "3"
   - "3"
-  :next_node: :done
+  :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
   :responses: 
@@ -699,7 +699,7 @@
   - "8.0"
   - "3"
   - "3"
-  :next_node: :done
+  :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
   :responses: 
@@ -737,7 +737,7 @@
   - "8.0"
   - "3"
   - "3"
-  :next_node: :done
+  :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :shift_worker_basis?
   :responses: 
@@ -788,7 +788,7 @@
   - "8.0"
   - "3"
   - "3"
-  :next_node: :done
+  :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
   :responses: 
@@ -826,7 +826,7 @@
   - "8.0"
   - "3"
   - "3"
-  :next_node: :done
+  :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :shift_worker_basis?
   :responses: 
@@ -877,7 +877,7 @@
   - "8.0"
   - "3"
   - "3"
-  :next_node: :done
+  :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
   :responses: 
@@ -922,5 +922,5 @@
   - "8.0"
   - "3"
   - "3"
-  :next_node: :done
+  :next_node: :shift_worker_done
   :outcome_node: true
