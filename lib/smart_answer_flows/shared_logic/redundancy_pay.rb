@@ -88,5 +88,5 @@ money_question :weekly_pay_before_tax? do
   end
 end
 
-outcome :done_no_statutory
+outcome :done_no_statutory, use_outcome_templates: true
 outcome :done
