@@ -406,7 +406,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         should "give the embassy result (this is an exception to ORU transition)" do
           add_response 'same_country'
           assert_current_node :embassy_result
-          assert_phrase_list :documents_required_embassy_result, [:"documents_list_embassy_north-korea"]
         end
       end
       context "in another country" do
