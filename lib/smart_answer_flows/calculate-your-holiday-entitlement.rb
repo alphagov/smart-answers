@@ -188,7 +188,7 @@ module SmartAnswer
         calculate :content_sections do
           PhraseList.new :answer_hours_minutes_annualised, :your_employer_with_rounding
         end
-        next_node :done
+        next_node :annualised_hours_done
       end
 
       value_question :compressed_hours_how_many_hours_per_week?, parse: Float do
@@ -297,6 +297,7 @@ module SmartAnswer
       outcome :hours_per_week_done
       outcome :casual_or_irregular_hours_done
       outcome :compressed_hours_done
+      outcome :annualised_hours_done
     end
   end
 end
