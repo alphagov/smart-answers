@@ -181,7 +181,7 @@ module SmartAnswer
         next_node :shift_worker_done
       end
 
-      outcome :shift_worker_done do
+      outcome :shift_worker_done, use_outcome_templates: true do
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(
             start_date: start_date,
@@ -203,11 +203,6 @@ module SmartAnswer
         end
         precalculate :hours_per_shift do
           calculator.strip_zeros hours_per_shift
-        end
-        precalculate :content_sections do
-          full_year = start_date.nil? && leaving_date.nil?
-
-          PhraseList.new :answer_shift_worker, :your_employer_with_rounding
         end
       end
 

@@ -596,8 +596,6 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
         assert_state_variable :shifts_per_week, 'shifts per week'
         assert_state_variable :holiday_entitlement_shifts, 'some shifts'
-
-        assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding]
       end
     end # full year
 
@@ -667,8 +665,6 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_state_variable :shifts_per_week, 'shifts per week'
             assert_state_variable :holiday_entitlement_shifts, 'some shifts'
             assert_state_variable :fraction_of_year, 'fraction of year'
-
-            assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding]
           end
         end # with a leave year start date
       end # with a date
@@ -740,8 +736,6 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_state_variable :shifts_per_week, 'shifts per week'
             assert_state_variable :holiday_entitlement_shifts, 'some shifts'
             assert_state_variable :fraction_of_year, 'fraction of year'
-
-            assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding]
           end
         end # with a leave year start date
       end # with a date
@@ -813,8 +807,6 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_state_variable :shifts_per_week, 'shifts per week'
             assert_state_variable :holiday_entitlement_shifts, 'some shifts'
             assert_state_variable :fraction_of_year, 'fraction of year'
-
-            assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding]
           end
         end # with a leave year start date
       end # with a date
