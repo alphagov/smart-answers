@@ -143,7 +143,7 @@ module SmartAnswer
         calculate :content_sections do
           PhraseList.new :answer_hours, :your_employer_with_rounding
         end
-        next_node :done
+        next_node :hours_per_week_done
       end
 
       value_question :casual_or_irregular_hours?, parse: Float do
@@ -294,6 +294,7 @@ module SmartAnswer
 
       outcome :done
       outcome :days_per_week_done
+      outcome :hours_per_week_done
     end
   end
 end
