@@ -122,21 +122,7 @@ module SmartAnswer
           raise InvalidResponse if hours <= 0
           hours
         end
-        calculate :calculator do
-          Calculators::HolidayEntitlement.new(total_hours: total_hours)
-        end
-        calculate :average_hours_per_week do
-          calculator.formatted_annualised_hours_per_week
-        end
-        calculate :holiday_entitlement_hours do
-          calculator.annualised_entitlement.first
-        end
-        calculate :holiday_entitlement_minutes do
-          calculator.annualised_entitlement.last
-        end
-        calculate :content_sections do
-          PhraseList.new :answer_hours_minutes_annualised, :your_employer_with_rounding
-        end
+
         next_node :annualised_hours_done
       end
 
@@ -310,7 +296,23 @@ module SmartAnswer
         end
       end
 
-      outcome :annualised_hours_done
+      outcome :annualised_hours_done do
+        precalculate :calculator do
+          Calculators::HolidayEntitlement.new(total_hours: total_hours)
+        end
+        precalculate :average_hours_per_week do
+          calculator.formatted_annualised_hours_per_week
+        end
+        precalculate :holiday_entitlement_hours do
+          calculator.annualised_entitlement.first
+        end
+        precalculate :holiday_entitlement_minutes do
+          calculator.annualised_entitlement.last
+        end
+        precalculate :content_sections do
+          PhraseList.new :answer_hours_minutes_annualised, :your_employer_with_rounding
+        end
+      end
     end
   end
 end
