@@ -187,6 +187,10 @@ module SmartAnswer
           (ceremony_country == "finland") && (resident_of == "uk")
         }
 
+        define_predicate(:ceremony_in_norway_uk_resident) {
+          (ceremony_country == "norway") && (resident_of == "uk")
+        }
+
         define_predicate(:ceremony_in_brazil_not_resident_in_the_uk) {
           (ceremony_country == 'brazil') && (resident_of != 'uk')
         }
@@ -203,6 +207,10 @@ module SmartAnswer
           ceremony_country == 'spain' && resident_of == 'third_country'
         }
 
+        define_predicate(:marriage_in_norway_third_country) {
+          ceremony_country == 'norway' && resident_of == 'third_country'
+        }
+
         next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
         next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
         next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
@@ -212,6 +220,7 @@ module SmartAnswer
 
         on_condition(responded_with('opposite_sex')) do
           next_node_if(:outcome_consular_cni_os_residing_in_third_country, consular_cni_residing_in_third_country)
+          next_node_if(:outcome_consular_cni_os_residing_in_third_country, marriage_in_norway_third_country)
           next_node_if(:outcome_os_local_japan, os_marriage_with_local_in_japan)
           next_node_if(:outcome_os_colombia, variable_matches(:ceremony_country, "colombia"))
           next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, "kosovo"))
@@ -222,6 +231,7 @@ module SmartAnswer
             data_query.os_consular_cni_countries?(ceremony_country) || (resident_of == 'uk' && data_query.os_no_marriage_related_consular_services?(ceremony_country)) || data_query.os_consular_cni_in_nearby_country?(ceremony_country)
           })
           next_node_if(:outcome_os_consular_cni, ceremony_in_finland_uk_resident)
+          next_node_if(:outcome_os_consular_cni, ceremony_in_norway_uk_resident)
           next_node_if(:outcome_os_affirmation, -> { data_query.os_affirmation_countries?(ceremony_country) })
           next_node_if(:outcome_os_commonwealth, -> { data_query.commonwealth_country?(ceremony_country) || ceremony_country == 'zimbabwe' })
           next_node_if(:outcome_os_bot, -> { data_query.british_overseas_territories?(ceremony_country) })
@@ -255,6 +265,12 @@ module SmartAnswer
             data_query.ss_unknown_no_embassies?(ceremony_country)
           }
 
+          define_predicate(:ss_affirmation) {
+            %w(belgium norway).include?(ceremony_country)
+          }
+
+          next_node_if(:outcome_ss_affirmation, ss_affirmation)
+
           next_node_if(:outcome_os_no_cni, ss_unknown_no_embassies)
 
           next_node_if(:outcome_ss_marriage_malta, -> {ceremony_country == "malta"})
@@ -272,15 +288,19 @@ module SmartAnswer
           next_node_if(:outcome_cp_or_equivalent, -> {
             data_query.cp_equivalent_countries?(ceremony_country)
           })
+
           next_node_if(:outcome_cp_no_cni, -> {
             data_query.cp_cni_not_required_countries?(ceremony_country)
           })
+
           next_node_if(:outcome_cp_commonwealth_countries, -> {
             %w(canada new-zealand south-africa).include?(ceremony_country)
           })
+
           next_node_if(:outcome_cp_consular, -> {
             data_query.cp_consular_countries?(ceremony_country)
           })
+
           next_node(:outcome_cp_all_other_countries)
         end
       end
@@ -579,11 +599,16 @@ module SmartAnswer
             phrases << :cni_os_consular_facilities_unavailable
           end
           phrases << :what_you_need_to_do
-          phrases << :you_may_be_asked_for_cni
-          if ceremony_country == 'nicaragua'
-            phrases << :getting_cni_from_costa_rica_when_in_third_country
+
+          if ceremony_country == 'norway'
+            phrases << :what_you_need_to_do_to_marry_in_norway_when_in_third_country
           else
-            phrases << :standard_ways_to_get_cni_in_third_country
+            phrases << :you_may_be_asked_for_cni
+            if ceremony_country == 'nicaragua'
+              phrases << :getting_cni_from_costa_rica_when_in_third_country
+            else
+              phrases << :standard_ways_to_get_cni_in_third_country
+            end
           end
         end
       end
@@ -591,11 +616,11 @@ module SmartAnswer
       outcome :outcome_os_consular_cni do
         precalculate :consular_cni_os_start do
           phrases = PhraseList.new
-          three_day_residency_requirement_applies = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal norway panama poland romania russia serbia slovenia spain sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          three_day_residency_requirement_applies = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama poland romania russia serbia slovenia spain sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
           three_day_residency_handled_by_exception = %w(croatia italy spain russia)
           no_birth_cert_requirement = three_day_residency_requirement_applies - ['italy']
-          cni_notary_public_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro norway poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-          no_document_download_link_if_os_resident_of_uk_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua norway poland russia spain serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          cni_notary_public_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          no_document_download_link_if_os_resident_of_uk_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua poland russia spain serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
           cni_posted_after_14_days_countries = %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
           not_italy_or_spain = %w(italy spain).exclude?(ceremony_country)
@@ -965,6 +990,8 @@ module SmartAnswer
             phrases << prelude
             phrases << contact_method_key
             phrases << :book_online_china_affirmation_affidavit
+          elsif ceremony_country == 'norway'
+            phrases << :appointment_for_affidavit_norway
           elsif ceremony_country == 'macao'
             phrases << :appointment_for_affidavit_in_hong_kong
           else
@@ -974,10 +1001,12 @@ module SmartAnswer
           unless %w(china turkey).include?(ceremony_country)
             phrases << contact_method_key
             if ceremony_country == 'belgium'
-              phrases << :documents_guidance_belgium
               phrases << :complete_affirmation_or_affidavit_forms
               phrases << :download_and_fill_but_not_sign
               phrases << :download_affidavit_and_affirmation_belgium
+              phrases << :partner_needs_affirmation
+              phrases << :required_supporting_documents_incl_birth_cert
+              phrases << :documents_guidance_belgium
             end
 
             if ceremony_country == 'philippines'
@@ -1071,7 +1100,7 @@ module SmartAnswer
                   phrases << :partner_probably_needs_affirmation_or_affidavit
                 else
                   phrases << :callout_partner_equivalent_document
-                  if ceremony_country == 'ecuador'
+                  if %w(belgium cambodia ecuador).include?(ceremony_country)
                     phrases << :names_on_documents_must_match
                   end
                   phrases << :partner_naturalisation_in_uk
@@ -1079,14 +1108,11 @@ module SmartAnswer
               end
             end
           end
-          if ceremony_country == 'cambodia'
-            phrases << :names_on_documents_must_match
-          end
 
           #fee tables
           if %w(south-korea thailand turkey vietnam).include?(ceremony_country)
             phrases << :fee_table_affidavit_55
-          elsif %w(belgium cambodia ecuador macao morocco).include?(ceremony_country)
+          elsif %w(belgium cambodia ecuador macao morocco norway).include?(ceremony_country)
             phrases << :fee_table_affirmation_55
           elsif ceremony_country == 'finland'
             phrases << :fee_table_affirmation_65
@@ -1110,6 +1136,8 @@ module SmartAnswer
               phrases << :pay_in_cash_only
             elsif ceremony_country == 'cambodia'
               phrases << :pay_by_cash_or_us_dollars_only
+            elsif ceremony_country == 'norway'
+              phrases << :pay_by_visas_or_mastercard
             else
               phrases << :pay_by_cash_or_credit_card_no_cheque
             end
@@ -1429,6 +1457,72 @@ module SmartAnswer
       outcome :outcome_ss_marriage_malta do
         precalculate :ss_body do
           PhraseList.new(:able_to_ss_marriage_and_partnership_hc, :contact_to_make_appointment, contact_method_key, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership_hc, :will_display_in_14_days_hc, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_hc, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage)
+        end
+      end
+
+      outcome :outcome_ss_affirmation do
+        precalculate :body do
+          phrases = PhraseList.new
+          phrases << :"synonyms_of_cp_in_#{ceremony_country}"
+
+          if resident_of == 'uk'
+            phrases << :contact_embassy_of_ceremony_country_in_uk_cp
+          else
+            phrases << :contact_local_authorities_in_country_cp
+          end
+
+          if resident_of == 'ceremony_country'
+            phrases << :get_legal_advice
+          else
+            phrases << :get_legal_and_travel_advice
+          end
+
+          phrases << :what_you_need_to_do_affirmation
+
+          if ceremony_country == 'norway'
+            phrases << :appointment_for_affidavit_norway
+          else
+            phrases << :appointment_for_affidavit
+          end
+
+          phrases << contact_method_key
+
+          if ceremony_country == 'belgium'
+            phrases << :complete_affirmation_or_affidavit_forms
+            phrases << :download_and_fill_but_not_sign
+            phrases << :download_affidavit_and_affirmation_belgium
+          end
+
+          phrases << :partner_needs_affirmation
+
+          if ceremony_country == 'belgium'
+            phrases << :required_supporting_documents_incl_birth_cert
+            phrases << :documents_guidance_belgium
+          end
+
+          phrases << :legalisation_and_translation
+          phrases << :affirmation_os_translation_in_local_language_text
+          phrases << :divorce_proof_cp
+
+          if ceremony_country == 'belgium'
+            phrases << :names_on_documents_must_match
+          end
+
+          if partner_nationality == 'partner_british'
+            phrases << :partner_probably_needs_affirmation
+          else
+            phrases << :callout_partner_equivalent_document
+            phrases << :partner_naturalisation_in_uk
+          end
+
+          phrases << :fee_table_affirmation_55
+          phrases << :list_of_consular_fees
+
+          if ceremony_country == 'norway'
+            phrases << :pay_by_visas_or_mastercard
+          else
+            phrases << :pay_by_cash_or_credit_card_no_cheque
+          end
         end
       end
 
