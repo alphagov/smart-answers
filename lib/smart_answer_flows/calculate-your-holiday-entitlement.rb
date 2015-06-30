@@ -112,18 +112,7 @@ module SmartAnswer
           raise InvalidResponse if hours <= 0
           hours
         end
-        calculate :calculator do
-          Calculators::HolidayEntitlement.new(total_hours: total_hours)
-        end
-        calculate :holiday_entitlement_hours do
-          calculator.casual_irregular_entitlement.first
-        end
-        calculate :holiday_entitlement_minutes do
-          calculator.casual_irregular_entitlement.last
-        end
-        calculate :content_sections do
-          PhraseList.new :answer_hours_minutes, :your_employer_with_rounding
-        end
+
         next_node :casual_or_irregular_hours_done
       end
 
@@ -302,7 +291,21 @@ module SmartAnswer
         end
       end
 
-      outcome :casual_or_irregular_hours_done
+      outcome :casual_or_irregular_hours_done do
+        precalculate :calculator do
+          Calculators::HolidayEntitlement.new(total_hours: total_hours)
+        end
+        precalculate :holiday_entitlement_hours do
+          calculator.casual_irregular_entitlement.first
+        end
+        precalculate :holiday_entitlement_minutes do
+          calculator.casual_irregular_entitlement.last
+        end
+        precalculate :content_sections do
+          PhraseList.new :answer_hours_minutes, :your_employer_with_rounding
+        end
+      end
+
       outcome :compressed_hours_done
       outcome :annualised_hours_done
     end
