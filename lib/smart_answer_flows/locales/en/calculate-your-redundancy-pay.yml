@@ -31,13 +31,6 @@ en-GB:
         suffix_label: per week
         error_message: Please enter a number
 
-      done_no_statutory:
-        title: Based on your answers, you’re not entitled to statutory redundancy pay.
-        body: |
-            You need to have worked for your employer continuously for at least 2 years before you can get statutory redundancy pay.
-        next_steps: |
-            [Read the guide to Redundancy: your rights](https://www.gov.uk/redundant-your-rights)
-
       done:
         title: |
             Based on your answers, your statutory redundancy payment is £%{statutory_redundancy_pay} (£%{statutory_redundancy_pay_ni} In Northern Ireland).
