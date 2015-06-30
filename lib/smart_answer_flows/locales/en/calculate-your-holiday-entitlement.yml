@@ -8,9 +8,6 @@ en-GB:
         Calculate statutory holiday entitlement in days or hours for a full leave year or work out holiday someone is entitled to when they start or leave a job part way through a leave year.
       phrases:
 
-        answer_hours: |
-          $!The statutory entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes holiday.$!
-
         answer_hours_minutes: |
           $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes for the time that's been worked.$!
 
@@ -124,10 +121,6 @@ en-GB:
       when_does_your_leave_year_start?:
         title: When does the leave year start?
         hint: This is usually in the employment contract. If it isn’t and the job was started after 1 October 1998, the leave year will start on the 1st day of the job. If the job was started on or before 1 October 1998, the leave year will start on 1 October.
-
-      hours_per_week_done:
-        body: |
-          %{content_sections}
 
       casual_or_irregular_hours_done:
         body: |
