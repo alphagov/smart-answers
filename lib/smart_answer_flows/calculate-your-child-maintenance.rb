@@ -127,15 +127,7 @@ module SmartAnswer
         next_node :reduced_and_basic_rates_result
       end
 
-      outcome :nil_rate_result do
-        precalculate :nil_rate_reason do
-          if benefits == 'yes'
-            PhraseList.new(:nil_rate_reason_benefits)
-          else
-            PhraseList.new(:nil_rate_reason_income)
-          end
-        end
-      end
+      outcome :nil_rate_result, use_outcome_templates: true
 
       outcome :flat_rate_result do
         precalculate :flat_rate_amount do
