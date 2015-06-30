@@ -11,9 +11,6 @@ en-GB:
         answer_hours_minutes: |
           $!The statutory holiday entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes for the time that's been worked.$!
 
-        answer_hours_minutes_annualised: |
-          $!The statutory entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes holiday for the year.$!
-
         your_employer: |
           The employer:
 
@@ -120,9 +117,5 @@ en-GB:
         hint: This is usually in the employment contract. If it isn’t and the job was started after 1 October 1998, the leave year will start on the 1st day of the job. If the job was started on or before 1 October 1998, the leave year will start on 1 October.
 
       casual_or_irregular_hours_done:
-        body: |
-          %{content_sections}
-
-      annualised_hours_done:
         body: |
           %{content_sections}
