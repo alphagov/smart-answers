@@ -101,12 +101,14 @@ module SmartAnswer
         next_node :embassy_result
       end
 
-      outcome :commonwealth_result, use_outcome_templates: true
-      outcome :no_embassy_result, use_outcome_templates: true
+      use_outcome_templates
 
-      outcome :uk_result, use_outcome_templates: true
+      outcome :commonwealth_result
+      outcome :no_embassy_result
 
-      outcome :oru_result, use_outcome_templates: true do
+      outcome :uk_result
+
+      outcome :oru_result do
         precalculate :button_data do
           {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
         end
@@ -120,7 +122,7 @@ module SmartAnswer
         end
       end
 
-      outcome :embassy_result, use_outcome_templates: true do
+      outcome :embassy_result do
         precalculate :reg_data_query do
           SmartAnswer::Calculators::RegistrationsDataQuery.new
         end
