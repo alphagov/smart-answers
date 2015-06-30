@@ -8,9 +8,6 @@ en-GB:
         Calculate statutory holiday entitlement in days or hours for a full leave year or work out holiday someone is entitled to when they start or leave a job part way through a leave year.
       phrases:
 
-        answer_days: |
-          $!The statutory holiday entitlement is %{holiday_entitlement_days} days holiday.$!
-
         answer_hours: |
           $!The statutory entitlement is %{holiday_entitlement_hours} hours and %{holiday_entitlement_minutes} minutes holiday.$!
 
@@ -37,9 +34,6 @@ en-GB:
           * must not round down the holiday entitlement, but may round it up
           * must provide [holiday pay](/holiday-entitlement-rights/holiday-pay-the-basics "Holiday pay") during the statutory leave
           * can provide more paid holiday - this will be in the employment contract and is called 'contractual leave entitlement'
-
-        maximum_days_calculated: |
-          Even though more than 5 days a week are worked the maximum statutory holiday entitlement is 28 days.
 
       options:
         "days-worked-per-week": "days worked per week"
@@ -130,10 +124,6 @@ en-GB:
       when_does_your_leave_year_start?:
         title: When does the leave year start?
         hint: This is usually in the employment contract. If it isn’t and the job was started after 1 October 1998, the leave year will start on the 1st day of the job. If the job was started on or before 1 October 1998, the leave year will start on 1 October.
-
-      days_per_week_done:
-        body: |
-          %{content_sections}
 
       hours_per_week_done:
         body: |

@@ -200,7 +200,7 @@ module SmartAnswer
         end
       end
 
-      outcome :days_per_week_done do
+      outcome :days_per_week_done, use_outcome_templates: true do
         precalculate :days_per_week_calculated do
           (days_per_week < 5 ? days_per_week : 5)
         end
@@ -214,14 +214,6 @@ module SmartAnswer
         end
         precalculate :holiday_entitlement_days do
           calculator.formatted_full_time_part_time_days
-        end
-        precalculate :content_sections do
-          sections = PhraseList.new :answer_days
-          if days_per_week > 5 and calculator.full_time_part_time_days >= 28
-            sections << :maximum_days_calculated
-          end
-          sections << :your_employer_with_rounding
-          sections
         end
       end
 
