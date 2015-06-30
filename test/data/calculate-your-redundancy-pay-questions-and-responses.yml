@@ -1,0 +1,12 @@
+---
+:date_of_redundancy?:
+- 2012-01-01
+:age_of_employee?:
+- 21
+- 23
+- 42
+:years_employed?:
+- 1
+- 3
+:weekly_pay_before_tax?:
+- 100

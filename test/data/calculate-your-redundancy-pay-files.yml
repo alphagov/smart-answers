@@ -1,0 +1,8 @@
+--- 
+lib/smart_answer_flows/calculate-your-redundancy-pay.rb: 74b0bb1ff133a4691bd1b3cde434b6f7
+lib/smart_answer_flows/locales/en/calculate-your-redundancy-pay.yml: 0cf987fa8358b05d205438b7c7d30ddb
+test/data/calculate-your-redundancy-pay-questions-and-responses.yml: dca676f9f9cd34571e4338b66d18bd89
+test/data/calculate-your-redundancy-pay-responses-and-expected-results.yml: c2a4b09c482a4c3afdbedad7ce8089e0
+lib/smart_answer/calculators/redundancy_calculator.rb: 3d0942dcd707c9dcc37e06b47f55c2b6
+lib/data/rates/redundancy_pay.yml: 270b43298e223b28ba7ad3f81f5e0a08
+lib/data/rates/redundancy_pay_northern_ireland.yml: 01a56e2760328e0213318050689f2556
