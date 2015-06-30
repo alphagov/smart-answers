@@ -149,3 +149,7 @@ en-GB:
       casual_or_irregular_hours_done:
         body: |
           %{content_sections}
+
+      compressed_hours_done:
+        body: |
+          %{content_sections}

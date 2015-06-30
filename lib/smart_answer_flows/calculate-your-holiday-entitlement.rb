@@ -227,7 +227,7 @@ module SmartAnswer
         calculate :content_sections do
           PhraseList.new :answer_compressed_hours, :your_employer_with_rounding
         end
-        next_node :done
+        next_node :compressed_hours_done
       end
 
       multiple_choice :shift_worker_basis? do
@@ -296,6 +296,7 @@ module SmartAnswer
       outcome :days_per_week_done
       outcome :hours_per_week_done
       outcome :casual_or_irregular_hours_done
+      outcome :compressed_hours_done
     end
   end
 end
