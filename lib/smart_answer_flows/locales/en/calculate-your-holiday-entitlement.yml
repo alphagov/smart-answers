@@ -141,3 +141,7 @@ en-GB:
       days_per_week_done:
         body: |
           %{content_sections}
+
+      hours_per_week_done:
+        body: |
+          %{content_sections}

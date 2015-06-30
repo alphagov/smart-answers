@@ -301,7 +301,7 @@
   - hours-worked-per-week
   - full-year
   - "8"
-  :next_node: :done
+  :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
   :responses: 
@@ -331,7 +331,7 @@
   - "2012-01-01"
   - "2012-02-01"
   - "8"
-  :next_node: :done
+  :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
   :responses: 
@@ -348,7 +348,7 @@
   - "2012-01-01"
   - "2014-01-01"
   - "8"
-  :next_node: :done
+  :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
   :responses: 
@@ -372,7 +372,7 @@
   - "2014-01-01"
   - "2012-02-01"
   - "8"
-  :next_node: :done
+  :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
   :responses: 
@@ -389,7 +389,7 @@
   - "2014-01-01"
   - "2014-01-01"
   - "8"
-  :next_node: :done
+  :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
   :responses: 
@@ -419,7 +419,7 @@
   - "2014-12-31"
   - "2012-02-01"
   - "8"
-  :next_node: :done
+  :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
   :responses: 
@@ -436,7 +436,7 @@
   - "2014-12-31"
   - "2014-01-01"
   - "8"
-  :next_node: :done
+  :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
   :responses: 
@@ -466,7 +466,7 @@
   - "2012-01-01"
   - "2014-12-31"
   - "8"
-  :next_node: :done
+  :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
   :responses: 
@@ -490,7 +490,7 @@
   - "2014-01-01"
   - "2014-12-31"
   - "8"
-  :next_node: :done
+  :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :basis_of_calculation?
   :responses: 

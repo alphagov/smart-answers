@@ -277,11 +277,11 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             ).returns(@stubbed_calculator)
           @stubbed_calculator.expects(:full_time_part_time_hours).returns(179.2)
 
-          assert_current_node :done
+          assert_current_node :hours_per_week_done
           assert_state_variable "holiday_entitlement_hours", 179
           assert_state_variable "holiday_entitlement_minutes", 12
           assert_phrase_list :content_sections, [:answer_hours, :your_employer_with_rounding]
-          assert_current_node :done
+          assert_current_node :hours_per_week_done
         end
       end
     end
@@ -322,7 +322,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 returns(@stubbed_calculator)
               @stubbed_calculator.expects(:full_time_part_time_hours).returns(79.5)
 
-              assert_current_node :done
+              assert_current_node :hours_per_week_done
               assert_state_variable "holiday_entitlement_hours", 79
               assert_state_variable "holiday_entitlement_minutes", 30
               assert_phrase_list :content_sections, [:answer_hours, :your_employer_with_rounding]
@@ -369,7 +369,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 returns(@stubbed_calculator)
               @stubbed_calculator.expects(:full_time_part_time_hours).returns(19.75)
 
-              assert_current_node :done
+              assert_current_node :hours_per_week_done
               assert_state_variable "holiday_entitlement_hours", 19
               assert_state_variable "holiday_entitlement_minutes", 45
               assert_phrase_list :content_sections, [:answer_hours, :your_employer_with_rounding]
@@ -412,7 +412,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             @stubbed_calculator.expects(:full_time_part_time_hours).returns(79.5)
 
             add_response '37'
-            assert_current_node :done
+            assert_current_node :hours_per_week_done
             assert_state_variable "holiday_entitlement_hours", 79
             assert_state_variable "holiday_entitlement_minutes", 30
             assert_phrase_list :content_sections, [:answer_hours, :your_employer_with_rounding]
