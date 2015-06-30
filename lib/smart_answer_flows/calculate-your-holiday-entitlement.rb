@@ -177,7 +177,12 @@ module SmartAnswer
           raise InvalidResponse if days < shifts_per_shift_pattern
           days
         end
-        calculate :calculator do
+
+        next_node :shift_worker_done
+      end
+
+      outcome :shift_worker_done do
+        precalculate :calculator do
           Calculators::HolidayEntitlement.new(
             start_date: start_date,
             leaving_date: leaving_date,
@@ -187,27 +192,24 @@ module SmartAnswer
             days_per_shift_pattern: days_per_shift_pattern
           )
         end
-        calculate :shifts_per_week do
+        precalculate :shifts_per_week do
           calculator.formatted_shifts_per_week
         end
-        calculate :holiday_entitlement_shifts do
+        precalculate :holiday_entitlement_shifts do
           calculator.formatted_shift_entitlement
         end
-        calculate :fraction_of_year do
+        precalculate :fraction_of_year do
           calculator.formatted_fraction_of_year
         end
-        calculate :hours_per_shift do
+        precalculate :hours_per_shift do
           calculator.strip_zeros hours_per_shift
         end
-        calculate :content_sections do
+        precalculate :content_sections do
           full_year = start_date.nil? && leaving_date.nil?
 
           PhraseList.new :answer_shift_worker, :your_employer_with_rounding
         end
-        next_node :shift_worker_done
       end
-
-      outcome :shift_worker_done
 
       outcome :days_per_week_done do
         precalculate :days_per_week_calculated do
