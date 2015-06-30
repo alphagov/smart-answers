@@ -192,14 +192,8 @@ module SmartAnswer
             days_per_shift_pattern: days_per_shift_pattern
           )
         end
-        precalculate :shifts_per_week do
-          calculator.formatted_shifts_per_week
-        end
         precalculate :holiday_entitlement_shifts do
           calculator.formatted_shift_entitlement
-        end
-        precalculate :fraction_of_year do
-          calculator.formatted_fraction_of_year
         end
         precalculate :hours_per_shift do
           calculator.strip_zeros hours_per_shift
