@@ -34,13 +34,6 @@ en-GB:
         suffix_label: per week
         error_message: Please enter a number
 
-      done_no_statutory:
-        title: Your employee is not entitled to statutory redundancy pay.
-        body: |
-            A minimum of 2 years’ continuous service is needed before an employee can get statutory redundancy pay.
-        next_steps: |
-            [Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
-
       done:
         title: |
           Statutory redundancy payment: £%{statutory_redundancy_pay} (£%{statutory_redundancy_pay_ni} In Northern Ireland).
