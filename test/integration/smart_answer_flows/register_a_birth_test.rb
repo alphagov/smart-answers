@@ -170,7 +170,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_state_variable :british_national_parent, 'mother_and_father'
       assert_state_variable :custom_waiting_time, '6 months'
       assert_state_variable :translator_link_url, '/government/publications/afghanistan-list-of-lawyers'
-      assert_phrase_list :birth_registration_form, [:birth_registration_form]
       assert_phrase_list :oru_documents_variant, [:oru_documents]
       assert_phrase_list :translator_link, [:approved_translator_link]
       assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
@@ -441,7 +440,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'another_country'
       add_response 'st-kitts-and-nevis'
       assert_current_node :oru_result
-      assert_phrase_list :birth_registration_form, [:birth_registration_form]
     end
   end
 

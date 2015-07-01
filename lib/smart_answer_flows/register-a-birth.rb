@@ -23,14 +23,6 @@ module SmartAnswer
           country_name_query.definitive_article(registration_country)
         end
 
-        calculate :birth_registration_form do
-          if %w(usa).include?(country_of_birth)
-            PhraseList.new(:"birth_registration_form_#{country_of_birth}")
-          else
-            PhraseList.new(:birth_registration_form)
-          end
-        end
-
         next_node_if(:no_embassy_result, country_has_no_embassy)
         next_node_if(:commonwealth_result, reg_data_query.responded_with_commonwealth_country?)
         next_node(:who_has_british_nationality?)
@@ -121,83 +113,35 @@ module SmartAnswer
       end
 
       # Outcomes
-      outcome :embassy_result do
-        precalculate :embassy_high_commission_or_consulate do
-          if reg_data_query.has_high_commission?(registration_country)
-            "British high commission"
-          elsif reg_data_query.has_consulate?(registration_country)
-            "British consulate"
-          elsif reg_data_query.has_trade_and_cultural_office?(registration_country)
-            "British Trade & Cultural Office"
-          elsif reg_data_query.has_consulate_general?(registration_country)
-            "British consulate general"
-          else
-            "British embassy"
-          end
-        end
-        precalculate :documents_you_must_provide do
-          checklist_countries = %w(bangladesh kuwait libya north-korea pakistan philippines turkey)
-          key = "documents_you_must_provide_"
-          if checklist_countries.include?(country_of_birth)
-            key << country_of_birth
-          else
-            key << "all"
-          end
-          PhraseList.new(key.to_sym)
+      outcome :embassy_result, use_outcome_templates: true do
+        precalculate :reg_data_query do
+          reg_data_query
         end
 
-        precalculate :fees_for_consular_services do
-          phrases = PhraseList.new
-          if registration_country == 'libya'
-            phrases << :consular_service_fees_libya
+        precalculate :embassy_high_commission_or_consulate do
+          if reg_data_query.has_high_commission?(registration_country)
+            "British high commission".html_safe
+          elsif reg_data_query.has_consulate?(registration_country)
+            "British consulate".html_safe
+          elsif reg_data_query.has_trade_and_cultural_office?(registration_country)
+            "British Trade & Cultural Office".html_safe
+          elsif reg_data_query.has_consulate_general?(registration_country)
+            "British consulate general".html_safe
           else
-            phrases << :consular_service_fees
-          end
-          phrases
-        end
-        precalculate :go_to_the_embassy_heading do
-          unless reg_data_query.post_only_countries?(registration_country)
-            PhraseList.new(:go_to_the_embassy_heading_text)
+            "British embassy".html_safe
           end
         end
-        precalculate :go_to_the_embassy do
-          unless reg_data_query.post_only_countries?(registration_country)
-            phrases = PhraseList.new
-            if %w(hong-kong japan).include?(registration_country)
-              phrases << :"registering_#{registration_country}"
-            else
-              phrases << :registering_all
-            end
-            phrases << (paternity_declaration ? :registering_paternity_declaration : :registering_either_parent)
-            phrases
-          end
+
+        precalculate :checklist_countries do
+          %w(bangladesh kuwait libya north-korea pakistan philippines turkey)
         end
 
         precalculate :postal_form_url do
           reg_data_query.postal_form(registration_country)
         end
 
-        precalculate :postal do
-          if reg_data_query.modified_card_only_countries?(registration_country)
-            PhraseList.new(:post_only_pay_by_card_countries)
-          elsif reg_data_query.post_only_countries?(registration_country)
-            PhraseList.new(:"post_only_#{registration_country}")
-          elsif postal_form_url
-            PhraseList.new(:postal_form)
-          elsif reg_data_query.class::NO_POSTAL_COUNTRIES.include?(registration_country)
-            PhraseList.new(:postal_info, :"postal_info_#{registration_country}")
-          else
-            ''
-          end
-        end
-
         precalculate :postal_return_form_url do
           reg_data_query.postal_return_form(registration_country)
-        end
-        precalculate :postal_return do
-          if postal_return_form_url
-            PhraseList.new(:postal_form_return)
-          end
         end
 
         precalculate :location do
@@ -216,35 +160,6 @@ module SmartAnswer
             organisations.first.offices_with_service(service_title)
           else
             []
-          end
-        end
-
-        precalculate :cash_only do
-          if reg_data_query.pay_by_bank_draft?(registration_country)
-            PhraseList.new(:pay_by_bank_draft)
-          elsif reg_data_query.cash_only?(registration_country)
-            PhraseList.new(:cash_only)
-          elsif reg_data_query.cash_and_card_only?(registration_country)
-            PhraseList.new(:cash_and_card)
-          else
-            ''
-          end
-        end
-        precalculate :footnote do
-          if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_birth)
-            phrases = PhraseList.new(:footnote_exceptions)
-            phrases << :"footnote_oru_variants_#{registration_country}" if reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(registration_country)
-            phrases
-          elsif country_of_birth != registration_country and reg_data_query.eastern_caribbean_countries?(registration_country) and reg_data_query.eastern_caribbean_countries?(country_of_birth)
-            PhraseList.new(:footnote_caribbean)
-          elsif reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) and reg_data_query.class::ORU_COURIER_VARIANTS.exclude?(country_of_birth)
-            PhraseList.new(:footnote_oru_variants_intro,
-                            :"footnote_oru_variants_#{registration_country}",
-                            :footnote_oru_variants_out)
-          elsif another_country
-            PhraseList.new(:footnote_another_country)
-          else
-            PhraseList.new(:footnote)
           end
         end
       end
