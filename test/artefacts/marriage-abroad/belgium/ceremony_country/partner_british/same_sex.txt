@@ -1,4 +1,4 @@
-Civil partnership in Belgium
+Civil Partnership in Belgium
 
 Same-sex relationships in Belgium that are recognised as civil partnerships under British law are known as:
 
@@ -9,37 +9,71 @@ Same-sex relationships in Belgium that are recognised as civil partnerships unde
 Contact the relevant local authorities in Belgium to find out about local laws, including what documents you’ll need.
 
 
+^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
+
+
 ##What you need to do
 
-You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to enter into a civil partnership or equivalent in Belgium.
-
-Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
+You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
 
 
+Make an appointment at the local British embassy or consulate in Belgium to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
 
-$A
-British Embassy Brussels
-Avenue d’Auderghem 10
-1040 Brussels
-Belgium
-$A
+[Make an appointment at the British embassy in Brussels](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-brussels/oaths-affirmations-and-affidavits/slot_picker)
 
-$C
-Telephone : (+32) 2 287 62 11
-Fax: (+32) 2 287 62 50
 
-Email: <public.brussels@fco.gov.uk>
+You’ll need to complete an ‘Affirmation for marriage’ (non-religious) form or an ‘Affidavit for marriage’ (religious) form in English.
 
-$C
 
+You can download and fill in (but not sign) the forms in advance.
+
+
+$D
+[Download ‘Affidavit for marriage’ and ’Affirmation for marriage’](/government/publications/affidavitaffirmation-of-marital-status-form-belgium)
+$D
+
+
+^Your partner will need to get an affirmation as well.^
+
+
+You’ll need to provide supporting documents, including:
+
+- your passport
+- your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+- proof of residence, such as a residence certificate - check with the embassy to find out what you need
+- equivalent documents for your partner
+
+
+Read the guidance on the [documents that you’ll need](/notarial-and-documentary-services-guide-for-belgium#proof-of-address-and-identity).
+
+
+###Legalisation and translation
+
+
+You might need to get your affirmation [translated](/government/collections/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
+
+
+
+If you’ve been divorced, widowed or previously in a civil partnership, you’ll need to provide:
+
+- a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate)
+- evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
+- a civil partnership dissolution or annulment certificate
+- evidence if you’ve changed your name by deed poll
+
+
+%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+
+
+^Your partner will probably need to get an affirmation as well.^
 
 
 ##Fees
 
 Service | Fee
 -|-
-Issuing a CNI or equivalent | £65
+Affirmation for marriage | £55
 
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Belgium](/government/publications/belgium-consular-fees).
@@ -47,7 +81,4 @@ You normally have to pay fees for consular services in the local currency - thes
 
 You can pay by cash or credit card, but not by personal cheque.
 
-
-*[GRO]:General Register Office
-*[FCO]:Foreign &amp; Commonwealth Office
 
