@@ -270,7 +270,7 @@ module SmartAnswer
           })
 
           next_node_if(:outcome_cp_commonwealth_countries, -> {
-            %w(canada new-zealand south-africa).include?(ceremony_country)
+            %w(canada south-africa).include?(ceremony_country)
           })
 
           next_node_if(:outcome_cp_consular, -> {
@@ -1271,19 +1271,12 @@ module SmartAnswer
 
       outcome :outcome_cp_commonwealth_countries do
         precalculate :type_of_ceremony do
-          phrases = PhraseList.new
-          if ceremony_country == 'new-zealand'
-            phrases << :title_ss_marriage_and_partnership
-          else
-            phrases << :title_civil_partnership
-          end
+          phrases = PhraseList.new(:title_civil_partnership)
         end
 
         precalculate :commonwealth_countries_cp_outcome do
           phrases = PhraseList.new
-          if %w(canada south-africa).include?(ceremony_country)
-            phrases << "synonyms_of_cp_in_#{ceremony_country}".gsub('-', '_').to_sym
-          end
+          phrases << "synonyms_of_cp_in_#{ceremony_country}".gsub('-', '_').to_sym
 
           if resident_of == 'uk'
             phrases << :contact_high_comission_of_ceremony_country_in_uk_cp
@@ -1299,9 +1292,6 @@ module SmartAnswer
 
           phrases << contact_method_key
 
-          if ceremony_country == 'new-zealand'
-            phrases << :cant_issue_cni_for_commonwealth
-          end
           if partner_nationality != 'partner_british'
             phrases << :partner_naturalisation_in_uk
           end
