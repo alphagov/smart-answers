@@ -1,0 +1,421 @@
+--- 
+- :current_node: type_of_student
+  :responses: 
+  - uk-full-time
+  :next_node: form_needed_for_1
+  :outcome_node: false
+- :current_node: form_needed_for_1
+  :responses: 
+  - uk-full-time
+  - apply-loans-grants
+  :next_node: what_year_uk_fulltime
+  :outcome_node: false
+- :current_node: what_year
+  :responses: 
+  - uk-full-time
+  - apply-loans-grants
+  - year-1516
+  :next_node: continuing_student
+  :outcome_node: false
+- :current_node: continuing_student
+  :responses: 
+  - uk-full-time
+  - apply-loans-grants
+  - year-1516
+  - continuing-student
+  :next_node: outcome_uk_ft_1516_continuing
+  :outcome_node: true
+- :current_node: continuing_student
+  :responses: 
+  - uk-full-time
+  - apply-loans-grants
+  - year-1516
+  - new-student
+  :next_node: outcome_uk_ft_1516_new
+  :outcome_node: true
+- :current_node: what_year
+  :responses: 
+  - uk-full-time
+  - apply-loans-grants
+  - year-1415
+  :next_node: continuing_student
+  :outcome_node: false
+- :current_node: continuing_student
+  :responses: 
+  - uk-full-time
+  - apply-loans-grants
+  - year-1415
+  - continuing-student
+  :next_node: outcome_uk_ft_1415_continuing
+  :outcome_node: true
+- :current_node: continuing_student
+  :responses: 
+  - uk-full-time
+  - apply-loans-grants
+  - year-1415
+  - new-student
+  :next_node: outcome_uk_ft_1415_new
+  :outcome_node: true
+- :current_node: form_needed_for_1
+  :responses: 
+  - uk-full-time
+  - proof-identity
+  :next_node: what_year_uk_fulltime
+  :outcome_node: false
+- :current_node: what_year
+  :responses: 
+  - uk-full-time
+  - proof-identity
+  - year-1516
+  :next_node: outcome_proof_identity_1516
+  :outcome_node: true
+- :current_node: what_year
+  :responses: 
+  - uk-full-time
+  - proof-identity
+  - year-1415
+  :next_node: outcome_proof_identity_1415
+  :outcome_node: true
+- :current_node: form_needed_for_1
+  :responses: 
+  - uk-full-time
+  - income-details
+  :next_node: what_year_uk_fulltime
+  :outcome_node: false
+- :current_node: what_year
+  :responses: 
+  - uk-full-time
+  - income-details
+  - year-1516
+  :next_node: outcome_parent_partner_1516
+  :outcome_node: true
+- :current_node: what_year
+  :responses: 
+  - uk-full-time
+  - income-details
+  - year-1415
+  :next_node: outcome_parent_partner_1415
+  :outcome_node: true
+- :current_node: form_needed_for_1
+  :responses: 
+  - uk-full-time
+  - apply-dsa
+  :next_node: what_year_uk_fulltime
+  :outcome_node: false
+- :current_node: what_year
+  :responses: 
+  - uk-full-time
+  - apply-dsa
+  - year-1516
+  :next_node: outcome_dsa_1516
+  :outcome_node: true
+- :current_node: what_year
+  :responses: 
+  - uk-full-time
+  - apply-dsa
+  - year-1415
+  :next_node: outcome_dsa_1415
+  :outcome_node: true
+- :current_node: form_needed_for_1
+  :responses: 
+  - uk-full-time
+  - dsa-expenses
+  :next_node: outcome_dsa_expenses
+  :outcome_node: true
+- :current_node: form_needed_for_1
+  :responses: 
+  - uk-full-time
+  - apply-ccg
+  :next_node: what_year_uk_fulltime
+  :outcome_node: false
+- :current_node: what_year
+  :responses: 
+  - uk-full-time
+  - apply-ccg
+  - year-1516
+  :next_node: outcome_ccg_1516
+  :outcome_node: true
+- :current_node: what_year
+  :responses: 
+  - uk-full-time
+  - apply-ccg
+  - year-1415
+  :next_node: outcome_ccg_1415
+  :outcome_node: true
+- :current_node: form_needed_for_1
+  :responses: 
+  - uk-full-time
+  - ccg-expenses
+  :next_node: outcome_ccg_expenses
+  :outcome_node: true
+- :current_node: form_needed_for_1
+  :responses: 
+  - uk-full-time
+  - travel-grant
+  :next_node: outcome_travel
+  :outcome_node: true
+- :current_node: type_of_student
+  :responses: 
+  - uk-part-time
+  :next_node: form_needed_for_2
+  :outcome_node: false
+- :current_node: form_needed_for_2
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  :next_node: what_year
+  :outcome_node: false
+- :current_node: what_year
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1516
+  :next_node: continuing_student
+  :outcome_node: false
+- :current_node: continuing_student
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1516
+  - continuing-student
+  :next_node: pt_course_start
+  :outcome_node: false
+- :current_node: pt_course_start
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1516
+  - continuing-student
+  - course-start-before-01092012
+  :next_node: outcome_uk_ptgc_1516_grant
+  :outcome_node: true
+- :current_node: pt_course_start
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1516
+  - continuing-student
+  - course-start-after-01092012
+  :next_node: outcome_uk_pt_1516_continuing
+  :outcome_node: true
+- :current_node: continuing_student
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1516
+  - new-student
+  :next_node: pt_course_start
+  :outcome_node: false
+- :current_node: pt_course_start
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1516
+  - new-student
+  - course-start-before-01092012
+  :next_node: outcome_uk_ptgn_1516_grant
+  :outcome_node: true
+- :current_node: pt_course_start
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1516
+  - new-student
+  - course-start-after-01092012
+  :next_node: outcome_uk_pt_1516_new
+  :outcome_node: true
+- :current_node: what_year
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1415
+  :next_node: continuing_student
+  :outcome_node: false
+- :current_node: continuing_student
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1415
+  - continuing-student
+  :next_node: pt_course_start
+  :outcome_node: false
+- :current_node: pt_course_start
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1415
+  - continuing-student
+  - course-start-before-01092012
+  :next_node: outcome_uk_pt_1415_grant
+  :outcome_node: true
+- :current_node: pt_course_start
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1415
+  - continuing-student
+  - course-start-after-01092012
+  :next_node: outcome_uk_pt_1415_continuing
+  :outcome_node: true
+- :current_node: continuing_student
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1415
+  - new-student
+  :next_node: pt_course_start
+  :outcome_node: false
+- :current_node: pt_course_start
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1415
+  - new-student
+  - course-start-before-01092012
+  :next_node: outcome_uk_pt_1415_grant
+  :outcome_node: true
+- :current_node: pt_course_start
+  :responses: 
+  - uk-part-time
+  - apply-loans-grants
+  - year-1415
+  - new-student
+  - course-start-after-01092012
+  :next_node: outcome_uk_pt_1415_new
+  :outcome_node: true
+- :current_node: form_needed_for_2
+  :responses: 
+  - uk-part-time
+  - proof-identity
+  :next_node: what_year
+  :outcome_node: false
+- :current_node: what_year
+  :responses: 
+  - uk-part-time
+  - proof-identity
+  - year-1516
+  :next_node: outcome_proof_identity_1516
+  :outcome_node: true
+- :current_node: what_year
+  :responses: 
+  - uk-part-time
+  - proof-identity
+  - year-1415
+  :next_node: outcome_proof_identity_1415
+  :outcome_node: true
+- :current_node: form_needed_for_2
+  :responses: 
+  - uk-part-time
+  - apply-dsa
+  :next_node: what_year
+  :outcome_node: false
+- :current_node: what_year
+  :responses: 
+  - uk-part-time
+  - apply-dsa
+  - year-1516
+  :next_node: outcome_dsa_1516_pt
+  :outcome_node: true
+- :current_node: what_year
+  :responses: 
+  - uk-part-time
+  - apply-dsa
+  - year-1415
+  :next_node: outcome_dsa_1415_pt
+  :outcome_node: true
+- :current_node: form_needed_for_2
+  :responses: 
+  - uk-part-time
+  - dsa-expenses
+  :next_node: outcome_dsa_expenses
+  :outcome_node: true
+- :current_node: type_of_student
+  :responses: 
+  - eu-full-time
+  :next_node: what_year_eu_fulltime
+  :outcome_node: false
+- :current_node: what_year
+  :responses: 
+  - eu-full-time
+  - year-1516
+  :next_node: continuing_student
+  :outcome_node: false
+- :current_node: continuing_student
+  :responses: 
+  - eu-full-time
+  - year-1516
+  - continuing-student
+  :next_node: outcome_eu_ft_1516_continuing
+  :outcome_node: true
+- :current_node: continuing_student
+  :responses: 
+  - eu-full-time
+  - year-1516
+  - new-student
+  :next_node: outcome_eu_ft_1516_new
+  :outcome_node: true
+- :current_node: what_year
+  :responses: 
+  - eu-full-time
+  - year-1415
+  :next_node: continuing_student
+  :outcome_node: false
+- :current_node: continuing_student
+  :responses: 
+  - eu-full-time
+  - year-1415
+  - continuing-student
+  :next_node: outcome_eu_ft_1415_continuing
+  :outcome_node: true
+- :current_node: continuing_student
+  :responses: 
+  - eu-full-time
+  - year-1415
+  - new-student
+  :next_node: outcome_eu_ft_1415_new
+  :outcome_node: true
+- :current_node: type_of_student
+  :responses: 
+  - eu-part-time
+  :next_node: what_year
+  :outcome_node: false
+- :current_node: what_year
+  :responses: 
+  - eu-part-time
+  - year-1516
+  :next_node: continuing_student
+  :outcome_node: false
+- :current_node: continuing_student
+  :responses: 
+  - eu-part-time
+  - year-1516
+  - continuing-student
+  :next_node: outcome_eu_pt_1516_continuing
+  :outcome_node: true
+- :current_node: continuing_student
+  :responses: 
+  - eu-part-time
+  - year-1516
+  - new-student
+  :next_node: outcome_eu_pt_1516_new
+  :outcome_node: true
+- :current_node: what_year
+  :responses: 
+  - eu-part-time
+  - year-1415
+  :next_node: continuing_student
+  :outcome_node: false
+- :current_node: continuing_student
+  :responses: 
+  - eu-part-time
+  - year-1415
+  - continuing-student
+  :next_node: outcome_eu_pt_1415_continuing
+  :outcome_node: true
+- :current_node: continuing_student
+  :responses: 
+  - eu-part-time
+  - year-1415
+  - new-student
+  :next_node: outcome_eu_pt_1415_new
+  :outcome_node: true
