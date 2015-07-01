@@ -1,0 +1,29 @@
+--- 
+continuing_student: 
+- continuing-student
+- new-student
+form_needed_for_1: 
+- apply-loans-grants
+- proof-identity
+- income-details
+- apply-dsa
+- dsa-expenses
+- apply-ccg
+- ccg-expenses
+- travel-grant
+form_needed_for_2: 
+- apply-loans-grants
+- proof-identity
+- apply-dsa
+- dsa-expenses
+pt_course_start: 
+- course-start-before-01092012
+- course-start-after-01092012
+type_of_student: 
+- uk-full-time
+- uk-part-time
+- eu-full-time
+- eu-part-time
+what_year: 
+- year-1516
+- year-1415
