@@ -45,8 +45,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
 
         add_response '5'
-        assert_current_node :done
-        assert_phrase_list :content_sections, [:answer_days, :your_employer_with_rounding]
+        assert_current_node :days_per_week_done
         assert_state_variable :holiday_entitlement_days, 'formatted days'
       end
 
@@ -60,11 +59,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             leave_year_start_date: nil
           ).returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-        @stubbed_calculator.expects(:full_time_part_time_days).returns(29)
 
         add_response '6'
-        assert_current_node :done
-        assert_phrase_list :content_sections, [:answer_days, :maximum_days_calculated, :your_employer_with_rounding]
+        assert_current_node :days_per_week_done
         assert_state_variable :holiday_entitlement_days, 'formatted days'
       end
     end # full year
@@ -108,9 +105,8 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
 
             add_response '5'
-            assert_current_node :done
+            assert_current_node :days_per_week_done
             assert_state_variable :holiday_entitlement_days, 'formatted days'
-            assert_phrase_list :content_sections, [:answer_days, :your_employer_with_rounding]
             assert_state_variable :days_per_week, 5
           end
 
@@ -124,13 +120,11 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 leave_year_start_date: Date.parse("#{Date.today.year}-05-02")
               ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-            @stubbed_calculator.expects(:full_time_part_time_days).returns(29)
 
             add_response '6'
-            assert_current_node :done
+            assert_current_node :days_per_week_done
             assert_state_variable :holiday_entitlement_days, 'formatted days'
             assert_state_variable :days_per_week, 6
-            assert_phrase_list :content_sections, [:answer_days, :maximum_days_calculated, :your_employer_with_rounding]
             assert_state_variable :days_per_week_calculated, 5
           end
         end # with a leave year start date
@@ -176,9 +170,8 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
 
             add_response '5'
-            assert_current_node :done
+            assert_current_node :days_per_week_done
             assert_state_variable :holiday_entitlement_days, 'formatted days'
-            assert_phrase_list :content_sections, [:answer_days, :your_employer_with_rounding]
             assert_state_variable :days_per_week, 5
           end
 
@@ -192,12 +185,10 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 leave_year_start_date: Date.parse("#{Date.today.year}-01-01")
               ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
-            @stubbed_calculator.expects(:full_time_part_time_days).returns(29)
 
             add_response '6'
-            assert_current_node :done
+            assert_current_node :days_per_week_done
             assert_state_variable :holiday_entitlement_days, 'formatted days'
-            assert_phrase_list :content_sections, [:answer_days, :maximum_days_calculated, :your_employer_with_rounding]
             assert_state_variable :days_per_week, 6
           end
         end # with a leave year start date
@@ -237,9 +228,8 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns('formatted days')
 
             add_response '5'
-            assert_current_node :done
+            assert_current_node :days_per_week_done
             assert_state_variable :holiday_entitlement_days, 'formatted days'
-            assert_phrase_list :content_sections, [:answer_days, :your_employer_with_rounding]
             assert_state_variable :days_per_week, 5
           end
         end
@@ -277,11 +267,10 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             ).returns(@stubbed_calculator)
           @stubbed_calculator.expects(:full_time_part_time_hours).returns(179.2)
 
-          assert_current_node :done
+          assert_current_node :hours_per_week_done
           assert_state_variable "holiday_entitlement_hours", 179
           assert_state_variable "holiday_entitlement_minutes", 12
-          assert_phrase_list :content_sections, [:answer_hours, :your_employer_with_rounding]
-          assert_current_node :done
+          assert_current_node :hours_per_week_done
         end
       end
     end
@@ -322,10 +311,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 returns(@stubbed_calculator)
               @stubbed_calculator.expects(:full_time_part_time_hours).returns(79.5)
 
-              assert_current_node :done
+              assert_current_node :hours_per_week_done
               assert_state_variable "holiday_entitlement_hours", 79
               assert_state_variable "holiday_entitlement_minutes", 30
-              assert_phrase_list :content_sections, [:answer_hours, :your_employer_with_rounding]
             end
           end
         end
@@ -369,10 +357,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 returns(@stubbed_calculator)
               @stubbed_calculator.expects(:full_time_part_time_hours).returns(19.75)
 
-              assert_current_node :done
+              assert_current_node :hours_per_week_done
               assert_state_variable "holiday_entitlement_hours", 19
               assert_state_variable "holiday_entitlement_minutes", 45
-              assert_phrase_list :content_sections, [:answer_hours, :your_employer_with_rounding]
             end
           end
         end
@@ -412,10 +399,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             @stubbed_calculator.expects(:full_time_part_time_hours).returns(79.5)
 
             add_response '37'
-            assert_current_node :done
+            assert_current_node :hours_per_week_done
             assert_state_variable "holiday_entitlement_hours", 79
             assert_state_variable "holiday_entitlement_minutes", 30
-            assert_phrase_list :content_sections, [:answer_hours, :your_employer_with_rounding]
           end
         end
       end
@@ -444,11 +430,10 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       @stubbed_calculator.expects(:casual_irregular_entitlement).at_least_once.returns(['formatted hours', 'formatted minutes'])
 
       add_response '1500'
-      assert_current_node :done
+      assert_current_node :casual_or_irregular_hours_done
       assert_state_variable :total_hours, 1500.0
       assert_state_variable :holiday_entitlement_hours, 'formatted hours'
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
-      assert_phrase_list :content_sections, [:answer_hours_minutes, :your_employer_with_rounding]
     end
   end # casual or irregular
 
@@ -475,12 +460,11 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       @stubbed_calculator.expects(:formatted_annualised_hours_per_week).returns('average hours per week')
 
       add_response '1400.5'
-      assert_current_node :done
+      assert_current_node :annualised_hours_done
       assert_state_variable :total_hours, 1400.5
       assert_state_variable :holiday_entitlement_hours, 'formatted hours'
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
       assert_state_variable :average_hours_per_week, 'average hours per week'
-      assert_phrase_list :content_sections, [:answer_hours_minutes_annualised, :your_employer_with_rounding]
     end
   end # annualised hours
 
@@ -530,14 +514,13 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
       add_response '20.5'
       add_response '3'
-      assert_current_node :done
+      assert_current_node :compressed_hours_done
       assert_state_variable :hours_per_week, 20.5
       assert_state_variable :days_per_week, 3
       assert_state_variable :holiday_entitlement_hours, 'formatted hours'
       assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
       assert_state_variable :hours_daily, 'formatted daily hours'
       assert_state_variable :minutes_daily, 'formatted daily minutes'
-      assert_phrase_list :content_sections, [:answer_compressed_hours, :your_employer_with_rounding]
     end
   end # compressed hours
 
@@ -585,19 +568,15 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             shifts_per_shift_pattern: 4,
             days_per_shift_pattern: 8
           ).returns(@stubbed_calculator)
-        @stubbed_calculator.expects(:formatted_shifts_per_week).returns('shifts per week')
         @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
 
-        assert_current_node :done
+        assert_current_node :shift_worker_done
 
         assert_state_variable :hours_per_shift, '7.25'
         assert_state_variable :shifts_per_shift_pattern, 4
         assert_state_variable :days_per_shift_pattern, 8
 
-        assert_state_variable :shifts_per_week, 'shifts per week'
         assert_state_variable :holiday_entitlement_shifts, 'some shifts'
-
-        assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding]
       end
     end # full year
 
@@ -654,21 +633,15 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 shifts_per_shift_pattern: 4,
                 days_per_shift_pattern: 8
               ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_shifts_per_week).returns('shifts per week')
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
-            @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
 
-            assert_current_node :done
+            assert_current_node :shift_worker_done
 
             assert_state_variable :hours_per_shift, '7.5'
             assert_state_variable :shifts_per_shift_pattern, 4
             assert_state_variable :days_per_shift_pattern, 8
 
-            assert_state_variable :shifts_per_week, 'shifts per week'
             assert_state_variable :holiday_entitlement_shifts, 'some shifts'
-            assert_state_variable :fraction_of_year, 'fraction of year'
-
-            assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding]
           end
         end # with a leave year start date
       end # with a date
@@ -727,21 +700,15 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 shifts_per_shift_pattern: 4,
                 days_per_shift_pattern: 8
               ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_shifts_per_week).returns('shifts per week')
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
-            @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
 
-            assert_current_node :done
+            assert_current_node :shift_worker_done
 
             assert_state_variable :hours_per_shift, '7'
             assert_state_variable :shifts_per_shift_pattern, 4
             assert_state_variable :days_per_shift_pattern, 8
 
-            assert_state_variable :shifts_per_week, 'shifts per week'
             assert_state_variable :holiday_entitlement_shifts, 'some shifts'
-            assert_state_variable :fraction_of_year, 'fraction of year'
-
-            assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding]
           end
         end # with a leave year start date
       end # with a date
@@ -800,21 +767,15 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 shifts_per_shift_pattern: 4,
                 days_per_shift_pattern: 8
               ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_shifts_per_week).returns('shifts per week')
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns('some shifts')
-            @stubbed_calculator.expects(:formatted_fraction_of_year).returns('fraction of year')
 
-            assert_current_node :done
+            assert_current_node :shift_worker_done
 
             assert_state_variable :hours_per_shift, '7'
             assert_state_variable :shifts_per_shift_pattern, 4
             assert_state_variable :days_per_shift_pattern, 8
 
-            assert_state_variable :shifts_per_week, 'shifts per week'
             assert_state_variable :holiday_entitlement_shifts, 'some shifts'
-            assert_state_variable :fraction_of_year, 'fraction of year'
-
-            assert_phrase_list :content_sections, [:answer_shift_worker, :your_employer_with_rounding]
           end
         end # with a leave year start date
       end # with a date
