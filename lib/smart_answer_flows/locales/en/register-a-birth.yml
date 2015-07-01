@@ -134,10 +134,6 @@ en-GB:
           You may still be able to apply for [British citizenship](https://www.gov.uk/browse/citizenship/citizenship) for the child.
 
           You may also be able to register the birth if you’ve married the other parent since the child was born. [Contact your local British embassy](/government/world) to find out.
-      no_registration_result:
-        body: |
-          You can’t register your child’s birth with the UK authorities. Your child must have an automatic claim to British nationality at birth to be eligible.
-
       no_embassy_result:
         body: |
           $!You must register the birth according to the regulations in %{registration_country_name_lowercase_prefix}.$!
