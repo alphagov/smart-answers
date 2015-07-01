@@ -35,12 +35,10 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome1 if death was expected" do
         add_response 'yes'
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_ew, :who_can_register, :who_can_register_home_hospital, :what_you_need_to_do_expected, :need_to_tell_registrar, :documents_youll_get_ew_expected]
       end
       should "be outcome3 if death not expected" do
         add_response 'no'
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_ew, :who_can_register, :who_can_register_home_hospital, :what_you_need_to_do_unexpected, :need_to_tell_registrar, :documents_youll_get_ew_unexpected]
       end
     end
     context "answer elsewhere" do
@@ -53,13 +51,11 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome2 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_ew, :who_can_register, :who_can_register_elsewhere, :what_you_need_to_do_expected, :need_to_tell_registrar, :documents_youll_get_ew_expected]
       end
 
       should "be outcome4 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_ew, :who_can_register, :who_can_register_elsewhere, :what_you_need_to_do_unexpected, :need_to_tell_registrar, :documents_youll_get_ew_unexpected]
       end
     end
   end # England, Wales
@@ -81,12 +77,10 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome5 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland]
       end
       should "be outcome7 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland]
       end
     end
     context "answer elsewhere" do
@@ -99,13 +93,11 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome6 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland]
       end
 
       should "be outcome8 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_scotland]
       end
     end
   end # Scotland
@@ -127,12 +119,10 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome5 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
       should "be outcome7 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
     end
     context "answer elsewhere" do
@@ -145,13 +135,11 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "be outcome6 if death was expected" do
         add_response :yes
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
 
       should "be outcome8 if death not expected" do
         add_response :no
         assert_current_node :uk_result
-        assert_phrase_list :content_sections, [:intro_northern_ireland]
       end
     end
   end # Northern Ireland
@@ -188,10 +176,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         end
         should "give the embassy result and be done" do
           assert_current_node :oru_result
-          assert_phrase_list :oru_address, [:oru_address_abroad]
-          assert_phrase_list :translator_link, [:approved_translator_link]
           assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
-          assert_phrase_list :waiting_time, [:registration_takes_3_days]
         end
       end # Answer embassy
       context "answer ORU office in the uk" do
@@ -200,10 +185,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         end
         should "give the ORU result and be done" do
           assert_current_node :oru_result
-          assert_phrase_list :oru_address, [:oru_address_uk]
-          assert_phrase_list :translator_link, [:approved_translator_link]
           assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
-          assert_phrase_list :waiting_time, [:registration_takes_3_days]
         end
       end # Answer ORU
     end # Answer Spain
@@ -223,7 +205,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         end
         should "give the ORU result and be done" do
           assert_current_node :oru_result
-          assert_phrase_list :translator_link, [:approved_translator_link]
           assert_state_variable :translator_link_url, "/government/publications/morocco-list-of-lawyers"
         end
       end # Answer ORU
@@ -237,9 +218,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "give the ORU result and be done" do
         assert_current_node :oru_result
-        assert_phrase_list :oru_address, [:oru_address_abroad]
         assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
-        assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/italy-list-of-lawyers"
       end
     end # Answer Italy
@@ -253,9 +232,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "give the oru result and be done" do
         assert_current_node :oru_result
-        assert_phrase_list :oru_address, [:oru_address_abroad]
         assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
-        assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
     end # Answer Andorra, now in France
@@ -271,12 +248,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
           assert_current_node :oru_result
           assert_state_variable :translator_link_url, "/government/publications/afghanistan-list-of-lawyers"
-          assert_phrase_list :translator_link, [:approved_translator_link]
-          assert_phrase_list :waiting_time, [:registration_takes_3_days]
-          assert_phrase_list :oru_documents_variant_death, [:oru_documents_death]
-          assert_phrase_list :oru_address, [:oru_address_abroad]
-          assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
-          assert_phrase_list :payment_method, [:standard_payment_method]
         end
       end
       context "now back in the UK" do
@@ -284,9 +255,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
           add_response 'in_the_uk'
           assert_current_node :oru_result
           assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
-          assert_phrase_list :oru_address, [:oru_address_uk]
-          assert_phrase_list :translator_link, [:approved_translator_link]
-          assert_phrase_list :payment_method, [:standard_payment_method]
           assert_state_variable :translator_link_url, "/government/publications/afghanistan-list-of-lawyers"
         end
       end
@@ -303,9 +271,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
           add_response 'in_the_uk'
           assert_current_node :oru_result
           assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
-          assert_phrase_list :oru_address, [:oru_address_uk]
-          assert_phrase_list :translator_link, [:approved_translator_link]
-          assert_phrase_list :payment_method, [:standard_payment_method]
           assert_state_variable :translator_link_url, "/government/publications/algeria-list-of-lawyers"
         end
       end
@@ -316,9 +281,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
           add_response 'algeria'
           assert_current_node :oru_result
           assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"}
-          assert_phrase_list :oru_address, [:oru_address_abroad]
-          assert_phrase_list :translator_link, [:approved_translator_link]
-          assert_phrase_list :payment_method, [:payment_method_in_algeria]
           assert_state_variable :translator_link_url, "/government/publications/algeria-list-of-lawyers"
         end
       end
@@ -345,12 +307,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'same_country'
         assert_current_node :oru_result
         assert_state_variable :translator_link_url, "/government/publications/libya-list-of-translators"
-        assert_phrase_list :translator_link, [:approved_translator_link]
-        assert_phrase_list :waiting_time, [:registration_takes_3_days]
-        assert_phrase_list :oru_documents_variant_death, [:oru_documents_death]
-        assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
-        assert_phrase_list :payment_method, [:standard_payment_method]
       end
 
       should "give a custom algerian payment method if currently in Algeria " do
@@ -358,7 +314,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'another_country'
         add_response 'algeria'
         assert_current_node :oru_result
-        assert_phrase_list :payment_method, [:payment_method_in_algeria]
       end
     end # Answer Libya
 
@@ -383,9 +338,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "give the oru result and be done" do
         assert_current_node :oru_result
-        assert_phrase_list :oru_courier_text, [:oru_courier_text_cameroon]
-        assert_phrase_list :oru_documents_variant_death, [:oru_documents_variant_poland]
-        assert_phrase_list :payment_method, [:standard_payment_method]
       end
     end # Answer Poland, currently in Cameroon
 
@@ -396,8 +348,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'in_the_uk'
       end
       should "give the embassy result and be done" do
-        assert_phrase_list :oru_address, [:oru_address_uk]
-        assert_phrase_list :translator_link, [:approved_translator_link]
         assert_state_variable :translator_link_url, "/government/publications/list-of-translators-and-interpreters-in-serbia"
       end
     end # Answer Serbia
@@ -407,7 +357,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response "pakistan"
         add_response "in_the_uk"
         assert_current_node :oru_result
-        assert_phrase_list :waiting_time, [:registration_takes_3_days]
       end
     end # Pakistan and in UK
     context "answer death in dominica, user in st kitts" do
@@ -418,8 +367,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'st-kitts-and-nevis'
       end
       should "give the embassy result and be done" do
-        assert_phrase_list :oru_address, [:oru_address_abroad]
-        assert_phrase_list :translator_link, [:no_translator_link]
         assert_state_variable :translator_link_url, nil
       end
     end # Answer Dominica
@@ -447,7 +394,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
         should "give the embassy result (this is an exception to ORU transition)" do
           add_response 'same_country'
           assert_current_node :embassy_result
-          assert_phrase_list :documents_required_embassy_result, [:"documents_list_embassy_north-korea"]
         end
       end
       context "in another country" do
@@ -455,8 +401,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
           add_response 'another_country'
           add_response 'italy'
           assert_current_node :oru_result
-          assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
-          assert_phrase_list :waiting_time, [:registration_takes_3_days]
         end
       end
     end # Answer North Korea
@@ -483,7 +427,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
       should "take you to the ORU outcome with custom courier message without common text" do
         assert_current_node :oru_result
-        assert_phrase_list :oru_courier_text, [:oru_courier_text_kenya]
       end
     end
 
@@ -496,7 +439,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
       should "take you to the ORU outcome with custom courier message without common text" do
         assert_current_node :oru_result
-        assert_phrase_list :oru_courier_text, [:oru_courier_text_nigeria]
       end
     end
 
@@ -509,7 +451,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
       should "take you to the embassy outcome with custom courier message" do
         assert_current_node :oru_result
-        assert_phrase_list :oru_courier_text, [:oru_courier_text_uganda, :oru_courier_text_common]
       end
     end
 

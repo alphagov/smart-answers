@@ -1,8 +1,14 @@
 --- 
-lib/smart_answer_flows/register-a-death.rb: 429bedea94edc191d5a83a3d1e3f9c8f
-lib/smart_answer_flows/locales/en/register-a-death.yml: d2fc52e87066ac59083903774a090417
+lib/smart_answer_flows/register-a-death.rb: 18554292100028ece89c4b7e7f77c312
+lib/smart_answer_flows/locales/en/register-a-death.yml: c9145665b159632c36876580b0338bfb
 test/data/register-a-death-questions-and-responses.yml: 6df917ccdc09d3d7ac36be40ae9203c9
 test/data/register-a-death-responses-and-expected-results.yml: 170051e64fd33b79a62eba850cbc6116
+lib/smart_answer_flows/register-a-death/_footnote_oru_variants.govspeak.erb: b95386fd7f8467768f8d72810c73b7e8
+lib/smart_answer_flows/register-a-death/commonwealth_result.govspeak.erb: 6b5814f3cba887a5484ba498ed7de91a
+lib/smart_answer_flows/register-a-death/embassy_result.govspeak.erb: 9010cc642d909a096842712be6465615
+lib/smart_answer_flows/register-a-death/no_embassy_result.govspeak.erb: 185c14c695621e9e262e4310429b4411
+lib/smart_answer_flows/register-a-death/oru_result.govspeak.erb: 02fd17dc2179da8ce70e4249a9547ebf
+lib/smart_answer_flows/register-a-death/uk_result.govspeak.erb: ea696e35b5bb8fe3c31303e5db58a6ef
 lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
 lib/smart_answer_flows/data_partials/_button.erb: bdd3818dfd2b9d6396daf6f60fd887a0
 lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
