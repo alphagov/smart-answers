@@ -611,10 +611,53 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_state_variable "minimum_hourly_rate", "3.53"
           assert_state_variable "total_hourly_rate", "3.21"
           assert_state_variable "above_minimum_wage", false
-          assert_state_variable "historical_adjustment", 67.51
+          assert_state_variable "historical_adjustment", 70.38
         end
       end
 
     end
   end # Past pay
+
+  context "when underpayed by employer" do
+    setup do
+      Timecop.travel('2015-07-01')
+    end
+
+    should "adjust underpayment based on the current rate" do
+      assert_current_node :what_would_you_like_to_check?
+      add_response 'past_payment'
+
+      assert_current_node :past_payment_date?
+      add_response '2011-10-01'
+
+      assert_current_node :were_you_an_apprentice?
+      add_response 'no'
+
+      assert_current_node :how_old_were_you?
+      add_response '25'
+
+      assert_current_node :how_often_did_you_get_paid?
+      add_response '7'
+
+      assert_current_node :how_many_hours_did_you_work?
+      add_response '40'
+
+      assert_current_node :how_much_were_you_paid_during_pay_period?
+      add_response '200'
+
+      assert_current_node :how_many_hours_overtime_did_you_work?
+      add_response '0'
+
+      assert_current_node :was_provided_with_accommodation?
+      add_response 'no'
+
+      assert_current_node :past_payment_below
+      assert_state_variable :minimum_hourly_rate, '6.08' # rate on '2011-10-01'
+
+      expected_underpayment = 46.18.to_s
+      # (hours worked * hourly rate back then - paid by employer) / minimum hourly rate back then * minimum hourly rate today
+      # (40h * £6.08 - £200.0) / 6.08 * 6.50 = 46.18
+      assert_state_variable :total_underpayment, expected_underpayment
+    end
+  end
 end
