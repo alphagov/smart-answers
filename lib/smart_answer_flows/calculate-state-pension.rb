@@ -70,42 +70,8 @@ module SmartAnswer
           calculator.state_pension_age
         end
 
-        calculate :tense_specific_title do
-          if state_pension_date > Date.today
-            PhraseList.new(:will_reach_pension_age)
-          else
-            PhraseList.new(:have_reached_pension_age)
-          end
-        end
-
         calculate :available_ni_years do
           calculator.ni_years_to_date_from_dob
-        end
-
-        calculate :state_pension_age_statement do
-          phrases = PhraseList.new
-          if state_pension_date > Date.today
-            if state_pension_date >= Date.parse('2016-04-06')
-              phrases << :state_pension_age_is_a
-              if Date.parse(pension_credit_date) > Date.today
-                phrases << :pension_credit_future
-              else
-                phrases << :pension_credit_past
-              end
-              phrases << :pension_age_review
-            else
-              phrases << :state_pension_age_is
-              if Date.parse(pension_credit_date) > Date.today
-                phrases << :pension_credit_future
-              else
-                phrases << :pension_credit_past
-              end
-            end
-          else
-            phrases << :state_pension_age_was << :pension_credit_past
-          end
-          phrases << :bus_pass
-          phrases
         end
 
         define_predicate(:near_pension_date?) do |response|
@@ -486,22 +452,12 @@ module SmartAnswer
         next_node :amount_result
       end
 
-      outcome :near_state_pension_age do
-        precalculate :pension_credit do
-          if Date.parse(pension_credit_date) > Date.today
-            PhraseList.new(:pension_credit_future)
-          else
-            PhraseList.new(:pension_credit_past)
-          end
-        end
-      end
+      use_outcome_templates
+
+      outcome :near_state_pension_age
 
       outcome :reached_state_pension_age
-      outcome :too_young do
-        precalculate :weekly_rate do
-          sprintf("%.2f", calculator.current_weekly_rate)
-        end
-      end
+      outcome :too_young
 
       outcome :age_result
 
@@ -570,46 +526,16 @@ module SmartAnswer
           end
         end
 
-        precalculate :result_text do
-          phrases = PhraseList.new
-
-          enough_qualifying_years = qualifying_years_total >= 30
-          enough_remaining_years = remaining_years >= missing_years
-          auto_years_entitlement = (dob < Date.parse("6th October 1953") and (gender == "male"))
-
-          if calc.within_four_months_one_day_from_state_pension?
-            phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years : :within_4_months_not_enough_qy_years)
-            phrases << :pension_statement if Date.today < calc.state_pension_date - 35
-            phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years_more : :within_4_months_not_enough_qy_years_more)
-            phrases << :automatic_years_phrase if auto_years_entitlement and !enough_qualifying_years
-          elsif calculator.state_pension_date >= Date.parse('2016-04-06')
-            phrases << :too_few_qy_enough_remaining_years_a_intro
-            if qualifying_years_total >= 10
-              phrases << :ten_and_greater
-              phrases << :rre_entitlements if calculator.qualifies_for_rre_entitlements?
-            else
-              phrases << :less_than_ten
-              phrases << :reduced_rate_election if pays_reduced_ni_rate == "yes"
-              phrases << :lived_or_worked_overseas if lived_or_worked_abroad == "yes"
-            end
-            phrases << :too_few_qy_enough_remaining_years_a
-            phrases << :automatic_years_phrase if auto_years_entitlement
-          elsif !enough_qualifying_years
-            phrases << (enough_remaining_years ? :too_few_qy_enough_remaining_years : :too_few_qy_not_enough_remaining_years)
-            phrases << :automatic_years_phrase if auto_years_entitlement
-          else
-            phrases << :you_get_full_state_pension
-          end
-          phrases
+        precalculate :enough_qualifying_years do
+          qualifying_years_total >= 30
         end
 
-        precalculate :automatic_credits do
-          date_of_birth = dob
-          if Date.civil(1957, 4, 5) < date_of_birth and date_of_birth < Date.civil(1994, 4, 6)
-            PhraseList.new :automatic_credits
-          else
-            ''
-          end
+        precalculate :enough_remaining_years do
+          remaining_years >= missing_years
+        end
+
+        precalculate :auto_years_entitlement do
+          (dob < Date.parse("6th October 1953") and (gender == "male"))
         end
       end
     end
