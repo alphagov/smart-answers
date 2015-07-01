@@ -113,7 +113,10 @@ module SmartAnswer
       end
 
       # Outcomes
-      outcome :embassy_result, use_outcome_templates: true do
+
+      use_outcome_templates
+
+      outcome :embassy_result do
         precalculate :reg_data_query do
           reg_data_query
         end
@@ -164,7 +167,7 @@ module SmartAnswer
         end
       end
 
-      outcome :oru_result, use_outcome_templates: true do
+      outcome :oru_result do
         precalculate :reg_data_query do
           reg_data_query
         end
@@ -205,11 +208,11 @@ module SmartAnswer
         end
       end
 
-      outcome :commonwealth_result, use_outcome_templates: true
-      outcome :no_registration_result, use_outcome_templates: true
-      outcome :no_embassy_result, use_outcome_templates: true
-      outcome :homeoffice_result, use_outcome_templates: true
-      outcome :no_birth_certificate_result, use_outcome_templates: true do
+      outcome :commonwealth_result
+      outcome :no_registration_result
+      outcome :no_embassy_result
+      outcome :homeoffice_result
+      outcome :no_birth_certificate_result do
 
         precalculate :location do
           loc = WorldLocation.find(country_of_birth)
