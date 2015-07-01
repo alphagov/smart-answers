@@ -208,7 +208,7 @@ module SmartAnswer
       outcome :commonwealth_result, use_outcome_templates: true
       outcome :no_registration_result, use_outcome_templates: true
       outcome :no_embassy_result, use_outcome_templates: true
-      outcome :homeoffice_result
+      outcome :homeoffice_result, use_outcome_templates: true
       outcome :no_birth_certificate_result do
 
         precalculate :location do
