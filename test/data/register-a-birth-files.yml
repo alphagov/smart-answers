@@ -3,6 +3,7 @@ lib/smart_answer_flows/register-a-birth.rb: e652c29d97be2fee2d2349a63a9879d7
 lib/smart_answer_flows/locales/en/register-a-birth.yml: 7b865d215fad1348306d79b0ac954377
 test/data/register-a-birth-questions-and-responses.yml: b8656669a138a00d52afdd33cc9b4590
 test/data/register-a-birth-responses-and-expected-results.yml: 3c431cc901085e1e4c0fcc9fe50eef47
+lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
 lib/smart_answer_flows/data_partials/_button.erb: bdd3818dfd2b9d6396daf6f60fd887a0
 lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
 lib/data/registrations.yml: f9c542793c73aa0a8abd6920e49be735
