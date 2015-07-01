@@ -205,7 +205,7 @@ module SmartAnswer
         end
       end
 
-      outcome :commonwealth_result
+      outcome :commonwealth_result, use_outcome_templates: true
       outcome :no_registration_result
       outcome :no_embassy_result
       outcome :homeoffice_result
