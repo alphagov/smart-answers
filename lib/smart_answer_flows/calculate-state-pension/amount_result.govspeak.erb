@@ -1,6 +1,6 @@
 <% content_for :body do %>
-  <% if calc.within_four_months_one_day_from_state_pension? %>
-    <% if enough_qualifying_years %>
+<% if calc.within_four_months_one_day_from_state_pension? %>
+  <% if enough_qualifying_years %>
 You’re close to State Pension age. You’ll reach it on <%= formatted_state_pension_date %>.
 
 Your State Pension age is <%= state_pension_age %>.
@@ -15,7 +15,7 @@ You have enough qualifying years to get a full basic State Pension of £<%= week
 
 How much State Pension you get depends on how many years of [National Insurance contributions](/national-insurance) you have.
 
-    <% else %>
+  <% else %>
 You’re close to State Pension age. You’ll reach it on <%= formatted_state_pension_date %>.
 
 Your State Pension age is <%= state_pension_age %>.
@@ -40,15 +40,15 @@ National Insurance | Your results
 Years of contributions you already have | <%= qualifying_years_total %>
 Years of contributions you still need for a full basic State Pension | <%= missing_years %>
 
-    <% end %>
-    <% if Date.today < calc.state_pension_date - 35 %>
+  <% end %>
+  <% if Date.today < calc.state_pension_date - 35 %>
 
 ##Get a pension statement
 
 If you’re more than 30 days away from your State Pension age you can [apply for a State Pension statement](/state-pension-statement) to get an estimate of your full State Pension.
 
-    <% end %>
-    <% if enough_qualifying_years %>
+  <% end %>
+  <% if enough_qualifying_years %>
 ## More about the State Pension
 
 Read about:
@@ -59,7 +59,7 @@ Read about:
 - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
 
 You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
-    <% else %>
+  <% else %>
 ## More about the State Pension
 
 Read about:
@@ -73,11 +73,11 @@ Read about:
 
 You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
 
-    <% end %>
-    <% if auto_years_entitlement and !enough_qualifying_years %>
+  <% end %>
+  <% if auto_years_entitlement and !enough_qualifying_years %>
 You might be eligible for [credits towards your basic State Pension](/automatic-pension-credits-for-men) for the years immediately before you reach age 65.
-    <% end %>
-  <% elsif calculator.state_pension_date >= Date.parse('2016-04-06') %>
+  <% end %>
+<% elsif calculator.state_pension_date >= Date.parse('2016-04-06') %>
 
 
 $C
@@ -90,24 +90,24 @@ Your State Pension age | <%= state_pension_age %>
 When you’ll reach State Pension age | <%= formatted_state_pension_date %>
 How much per week you may get | £<%= pension_amount %>
 
-    <% if qualifying_years_total >= 10 %>
+  <% if qualifying_years_total >= 10 %>
 
 This will be the least amount you will get under the new State Pension rules.
-      <% if calculator.qualifies_for_rre_entitlements? %>
+    <% if calculator.qualifies_for_rre_entitlements? %>
 
 You should [check if you may get more](/state-pension-through-partner) for your State Pension because you paid the reduced National Insurance rate for married women and widows (married woman’s stamp.)
-      <% end %>
-    <% else %>
+    <% end %>
+  <% else %>
 ^You may not qualify for the new State Pension. Under the new State Pension rules [you need at least 10 years](/new-state-pension/eligibility) of National Insurance contributions.^
-      <% if defined?(pays_reduced_ni_rate) && pays_reduced_ni_rate == "yes" %>
+    <% if defined?(pays_reduced_ni_rate) && pays_reduced_ni_rate == "yes" %>
 
 You may still get some State Pension if you opted for the [married woman’s stamp before 1977.](/state-pension-through-partner)
-      <% end %>
-      <% if lived_or_worked_abroad == "yes" %>
+    <% end %>
+    <% if lived_or_worked_abroad == "yes" %>
 
 Check if the time [you lived or worked overseas](/new-state-pension/living-and-working-overseas) can help you meet the 10 years you need.
-      <% end %>
     <% end %>
+  <% end %>
 
 The State Pension age is regularly reviewed and may change in the future.
 
@@ -130,12 +130,12 @@ Read about:
 - [voluntary contributions](/voluntary-national-insurance-contributions)
 -  [increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions](/state-pension-through-partner)
 - [State Pension if you retire abroad](/state-pension-if-you-retire-abroad)
-    <% if auto_years_entitlement %>
+  <% if auto_years_entitlement %>
 
 You might be eligible for [credits towards your basic State Pension](/automatic-pension-credits-for-men) for the years immediately before you reach age 65.
-    <% end %>
-  <% elsif !enough_qualifying_years %>
-    <% if enough_remaining_years %>
+  <% end %>
+<% elsif !enough_qualifying_years %>
+  <% if enough_remaining_years %>
 
 
 $C
@@ -171,7 +171,7 @@ Read about:
 
 You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
 
-    <% else %>
+  <% else %>
 
 
 $C
@@ -206,11 +206,11 @@ Read about:
 
 You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
 
-    <% end %>
-    <% if auto_years_entitlement %>
+  <% end %>
+  <% if auto_years_entitlement %>
 You might be eligible for [credits towards your basic State Pension](/automatic-pension-credits-for-men) for the years immediately before you reach age 65.
-    <% end %>
-  <% else %>
+  <% end %>
+<% else %>
 
 
 $C
@@ -236,9 +236,9 @@ Read about:
 - [National Insurance contributions](/national-insurance)
 
 You may also be able to top up your Additional State Pension (up to £25 a week) by paying [Class 3A contributions](/state-pension-topup).
-  <% end %>
-  <% if Date.civil(1957, 4, 5) < dob and dob < Date.civil(1994, 4, 6) %>
+<% end %>
+<% if Date.civil(1957, 4, 5) < dob and dob < Date.civil(1994, 4, 6) %>
 
 Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.
-  <% end %>
+<% end %>
 <% end %>
