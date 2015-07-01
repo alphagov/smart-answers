@@ -19,8 +19,9 @@ module SmartdownAdapter
     end
 
     def factcheck_file_path
-      smartdown_factcheck_path = File.join(smartdown_factcheck_path(@name))
-      File.join(smartdown_factcheck_path, "factcheck", "birth_factcheck_#{@due_or_match_date}.md")
+      smartdown_factcheck_path = File.join(smartdown_factcheck_path(@name), "factcheck")
+      FileUtils.mkdir_p(smartdown_factcheck_path)
+      File.join(smartdown_factcheck_path, "birth_factcheck_#{@due_or_match_date}.md")
     end
 
   private
