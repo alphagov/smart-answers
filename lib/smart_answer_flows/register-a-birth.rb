@@ -209,7 +209,7 @@ module SmartAnswer
       outcome :no_registration_result, use_outcome_templates: true
       outcome :no_embassy_result, use_outcome_templates: true
       outcome :homeoffice_result, use_outcome_templates: true
-      outcome :no_birth_certificate_result do
+      outcome :no_birth_certificate_result, use_outcome_templates: true do
 
         precalculate :location do
           loc = WorldLocation.find(country_of_birth)
@@ -228,16 +228,6 @@ module SmartAnswer
           else
             []
           end
-        end
-
-        precalculate :registration_exception do
-          phrases = PhraseList.new
-          if same_country
-            phrases << :"#{country_of_birth}_same_country_certificate_exception"
-          else
-            phrases << :"#{country_of_birth}_another_country_certificate_exception" << :contact_fco
-          end
-          phrases
         end
       end
     end

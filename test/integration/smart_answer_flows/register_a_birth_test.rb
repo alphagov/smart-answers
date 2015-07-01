@@ -172,7 +172,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
 
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:afghanistan_same_country_certificate_exception]
     end
 
     should "give Libya-specific intro if currently there" do
@@ -197,7 +196,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
 
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:iraq_same_country_certificate_exception]
     end
 
     should "give the no_birth_certificate_result if the child born outside of marriage and currently in another country" do
@@ -206,7 +204,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
 
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:iraq_another_country_certificate_exception, :contact_fco]
     end
   end
 
@@ -252,7 +249,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
 
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:pakistan_same_country_certificate_exception]
     end
 
     should "give the no_birth_certificate_result if the child born outside of marriage and currently in another country" do
@@ -261,7 +257,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
 
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:pakistan_another_country_certificate_exception, :contact_fco]
     end
   end # Pakistan
 
@@ -312,7 +307,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "no"
       add_response "same_country"
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:"united-arab-emirates_same_country_certificate_exception"]
     end # Not married or CP
 
     should "give the no birth certificate result with another country phrase" do
@@ -320,7 +314,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "no"
       add_response "another_country"
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:"united-arab-emirates_another_country_certificate_exception", :contact_fco]
     end # Not married or CP
 
     should "give the oru result" do
