@@ -134,13 +134,9 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_no_visa_needed do
-        precalculate :no_visa_additional_sentence do
-          if %w(croatia).include?(passport_country)
-            PhraseList.new(:croatia_additional_sentence)
-          elsif purpose_of_visit_answer == 'study'
-            PhraseList.new(:study_additional_sentence)
-          end
+      outcome :outcome_no_visa_needed, use_outcome_templates: true do
+        precalculate :purpose_of_visit_answer do
+          purpose_of_visit_answer
         end
       end
       outcome :outcome_study_y
