@@ -867,8 +867,10 @@ module SmartAnswer
           end
 
           unless data_query.countries_without_consular_facilities?(ceremony_country)
-            if %w(armenia bosnia-and-herzegovina cambodia iceland kazakhstan latvia slovenia tunisia tajikistan).include?(ceremony_country)
+            if %w(armenia bosnia-and-herzegovina cambodia iceland latvia slovenia tunisia tajikistan).include?(ceremony_country)
               phrases << :pay_in_local_currency_ceremony_country_name
+            elsif %w(kazakhstan kyrgyzstan).include?(ceremony_country)
+              phrases << :pay_in_local_currency_ceremony_in_kazakhstan
             elsif ceremony_country == 'luxembourg'
               phrases << :pay_in_cash_visa_or_mastercard
             elsif ceremony_country == 'russia'
