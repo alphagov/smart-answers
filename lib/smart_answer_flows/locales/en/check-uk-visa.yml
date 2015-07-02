@@ -14,9 +14,6 @@ en-GB:
           You won't need a visa if your passport has a personal ID number on the bio data page.
 
       #phrases
-        apply_from_country_of_origin_or_residency: |
-          ^You must apply for your visa from the country you're originally from or currently living in.^
-
         b1_b2_visa_exception: |
           except if you have a B1 or B2 visit visa from the USA
 
