@@ -1222,7 +1222,7 @@ module SmartAnswer
           end
 
           if %w(iceland slovenia).include?(ceremony_country)
-            phrases << :pay_in_local_currency
+            phrases << :pay_in_local_currency_ceremony_country_name
           elsif ceremony_country == 'luxembourg'
             phrases << :pay_in_cash_visa_or_mastercard
           elsif %w(czech-republic cote-d-ivoire).exclude?(ceremony_country)
