@@ -346,15 +346,15 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :ordinary_statutory_paternity_pay
       add_response :yes
       add_response :no
-      add_response Date.parse("2013-01-07")
-      add_response Date.parse("2013-05-03")
+      add_response "2013-01-07"
+      add_response "2013-05-03"
       add_response :eight_weeks_more
       add_response :monthly
-      add_response Date.parse("2012-12-28")
-      add_response Date.parse("2012-10-26")
+      add_response "2012-12-28"
+      add_response "2012-10-26"
       add_response 1600.0
       add_response :yes
-      add_response Date.parse("2012-11-11")
+      add_response "2012-11-11"
       add_response 8
       add_response "3,6"
 
@@ -383,15 +383,15 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :ordinary_statutory_paternity_pay
       add_response :yes
       add_response :no
-      add_response Date.parse("2013-01-07")
-      add_response Date.parse("2013-05-03")
+      add_response "2013-01-07"
+      add_response "2013-05-03"
       add_response :eight_weeks_more
       add_response :monthly
-      add_response Date.parse("2012-12-28")
-      add_response Date.parse("2012-10-26")
+      add_response "2012-12-28"
+      add_response "2012-10-26"
       add_response 1250.75
       add_response :yes
-      add_response Date.parse("2012-11-09")
+      add_response "2012-11-09"
       add_response 23
       add_response "2,3,4"
 
@@ -420,12 +420,12 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :ordinary_statutory_paternity_pay
       add_response :yes
       add_response :no
-      add_response Date.parse("2013-01-07")
-      add_response Date.parse("2013-05-03")
+      add_response "2013-01-07"
+      add_response "2013-05-03"
       add_response :eight_weeks_more
       add_response :irregularly
-      add_response Date.parse("2012-12-28")
-      add_response Date.parse("2012-10-26")
+      add_response "2012-12-28"
+      add_response "2012-10-26"
       add_response 3000.0
       add_response :no
       add_response "1,2,3,4"
@@ -456,12 +456,12 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :additional_statutory_paternity_pay
       add_response :yes
       add_response :no
-      add_response Date.parse("2013-01-07")
-      add_response Date.parse("2013-05-03")
+      add_response "2013-01-07"
+      add_response "2013-05-03"
       add_response :eight_weeks_more
       add_response :irregularly
-      add_response Date.parse("2012-12-28")
-      add_response Date.parse("2012-10-26")
+      add_response "2012-12-28"
+      add_response "2012-10-26"
       add_response 3000.0
       add_response :no
       add_response "1,2,3,4"
