@@ -145,7 +145,7 @@ en-GB:
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 # payment methods
         pay_by_mastercard_or_visa: |
-          You can only by MasterCard and Visa credit cards.
+          You can only pay by MasterCard and Visa credit cards.
         payment_methods_japan: |
           You can pay by credit card, but not by personal cheque. The embassy in Tokyo will also accept cash.
         pay_by_card_no_amex_no_cheque: |
