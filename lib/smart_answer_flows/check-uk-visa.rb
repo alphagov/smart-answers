@@ -151,7 +151,7 @@ module SmartAnswer
       outcome :outcome_joining_family_nvn, use_outcome_templates: true
       outcome :outcome_standard_visit, use_outcome_templates: true
       outcome :outcome_marriage, use_outcome_templates: true
-      outcome :outcome_school_n
+      outcome :outcome_school_n, use_outcome_templates: true
       outcome :outcome_school_y
       outcome :outcome_medical_y
       outcome :outcome_medical_n

@@ -253,13 +253,6 @@ en-GB:
 
           Australian paper confirmation slips are not accepted.
 
-      outcome_school_n:
-        title: You won’t need a visa to come to the UK
-        body: |
-          However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
-
-          %You may want to [apply for a visa](/browse/visas-immigration/short-visit-visas) if you have a criminal record or you’ve previously been refused entry into the UK.%
-
       outcome_school_y:
         title: You’ll need a visa to visit your child in the UK
         body:
