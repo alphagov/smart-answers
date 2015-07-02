@@ -48,7 +48,7 @@ module SmartAnswer::Calculators
             assert_equal Date.parse("23 June 2012"), @calculator.qualifying_week.last
           end
 
-          should "earliest_start give last date of 11 December 2012" do
+          should "earliest_start give date of 11 December 2012" do
             assert_equal Date.parse("11 December 2012"), @calculator.earliest_start
           end
 
