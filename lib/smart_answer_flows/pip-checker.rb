@@ -58,7 +58,7 @@ module SmartAnswer
       outcome :result_4, use_outcome_templates: true
       outcome :result_5, use_outcome_templates: true
       outcome :result_6, use_outcome_templates: true
-      outcome :result_7
+      outcome :result_7, use_outcome_templates: true
     end
   end
 end
