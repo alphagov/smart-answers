@@ -33,6 +33,10 @@ module SmartAnswer::Calculators
       @arrival_date - 14
     end
 
+    def earliest_start_formatted
+      formatted_date(earliest_start)
+    end
+
     def expected_week
       sunday = @match_date - @match_date.wday
       saturday = sunday + 6
@@ -41,6 +45,10 @@ module SmartAnswer::Calculators
 
     def qualifying_week
       expected_week && weeks_later(expected_week, -1)
+    end
+
+    def last_qualifying_week_formatted
+      formatted_date(qualifying_week.last)
     end
 
     def period_of_ordinary_leave

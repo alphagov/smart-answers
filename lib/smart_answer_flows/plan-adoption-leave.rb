@@ -50,12 +50,11 @@ module SmartAnswer
         precalculate :distance_start do
           calculator.distance_start
         end
-        precalculate :qualifying_week do
-          calculator.qualifying_week.last
-          # calculator.formatted_date (match_date - 7)
+        precalculate :last_qualifying_week_formatted do
+          calculator.last_qualifying_week_formatted
         end
-        precalculate :earliest_start do
-          calculator.earliest_start
+        precalculate :earliest_start_formatted do
+          calculator.earliest_start_formatted
         end
         precalculate :period_of_ordinary_leave do
           calculator.format_date_range calculator.period_of_ordinary_leave

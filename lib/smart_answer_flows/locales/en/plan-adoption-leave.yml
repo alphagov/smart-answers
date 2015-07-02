@@ -37,8 +37,8 @@ en-GB:
           - | -
           Ordinary Adoption Leave (first 26 weeks): | %{period_of_ordinary_leave}
           Additional Adoption Leave (last 26 weeks): | %{period_of_additional_leave}
-          Earliest leave can start: | %{earliest_start}
-          Latest date to give notice: | %{qualifying_week}
+          Earliest leave can start: | %{earliest_start_formatted}
+          Latest date to give notice: | %{last_qualifying_week_formatted}
 
           You could get more time off if your employer has a company adoption leave scheme.
 
