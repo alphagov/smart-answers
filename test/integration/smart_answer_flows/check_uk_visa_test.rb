@@ -726,7 +726,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     should "mention B1 and B2 visas when not leaving the airport" do
       add_response 'no'
       assert_current_node :outcome_transit_not_leaving_airport
-      assert_phrase_list :if_syria, [:b1_b2_visa_exception]
     end
   end
 
