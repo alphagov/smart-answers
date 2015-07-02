@@ -75,15 +75,6 @@ en-GB:
         title: "What's your date of birth?"
         hint: "If you’re checking for someone else, enter their date of birth."
 
-      result_3:
-        body: |
-          $!You can make a claim for [Personal Independence Payment (PIP)](/pip).$!
-
-          You can no longer make a claim for Disability Living Allowance (DLA) because PIP has replaced DLA for people aged 16 to 64.
-
-          *[PIP]: Personal Independence Payment
-          *[DLA]: Disability Living Allowance
-
       result_4:
         body: |
           $!Some people in England, Scotland and Wales have been invited to claim Personal Independence Payment (PIP).$!
