@@ -23,12 +23,6 @@ module SmartAnswer
       country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: exclude_countries do
         save_input_as :passport_country
 
-        calculate :if_refugee do
-          if passport_country == 'stateless-or-refugee'
-            PhraseList.new(:apply_from_country_of_origin_or_residency)
-          end
-        end
-
         next_node_if(:outcome_no_visa_needed, country_in(country_group_eea))
         next_node(:purpose_of_visit?)
       end
