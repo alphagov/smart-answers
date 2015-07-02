@@ -156,6 +156,8 @@ en-GB:
           You can pay by credit card (Visa, Visa Electron or MasterCard), but not by personal cheque.
         pay_by_cash_or_us_dollars_only: |
           You can only pay fees for consular services by cash in US dollars.
+        pay_in_local_currency_ceremony_in_kazakhstan: |
+          ^You can only pay by cash in Kazakhstan. This must be in the local currency.^
         pay_in_local_currency_ceremony_country_name: |
           ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
         pay_in_euros_or_visa_electron: |
