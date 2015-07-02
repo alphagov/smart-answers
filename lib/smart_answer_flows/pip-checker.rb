@@ -18,10 +18,6 @@ module SmartAnswer
         calculate :getting_dla do |response|
           response == 'yes'
         end
-
-        calculate :postcodes do
-          PhraseList.new(:scheme_postcodes)
-        end
       end
 
       ## Q2
