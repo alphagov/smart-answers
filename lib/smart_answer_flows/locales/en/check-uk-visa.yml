@@ -20,11 +20,6 @@ en-GB:
         b1_b2_visa_exception: |
           except if you have a B1 or B2 visit visa from the USA
 
-        china_tour_group: |
-          ##Travelling in a tour group
-
-          You can apply for an [‘ADS visa’](/ads-visa) if you’re planning to travel to the UK as part of a tour group for less than 30 days.
-
         electronic_visa_waiver: |
           You can enter the UK with either an electronic visa waiver (EVW) or a visitor visa
 
@@ -257,15 +252,6 @@ en-GB:
           All visas and residence permits must be valid.
 
           Australian paper confirmation slips are not accepted.
-
-      outcome_standard_visit:
-        title: You’ll need a visa to come to the UK
-        body: |
-
-          Apply for a [Standard Visitor visa](/standard-visitor-visa) if you’re visiting the UK for a holiday or to visit family or friends.
-
-          %{if_china}
-          %{if_refugee}
 
       outcome_marriage:
         title: You’ll need a visa to come to the UK

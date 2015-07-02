@@ -332,7 +332,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
         should "take insert an additional phrase" do
           assert_current_node :outcome_standard_visit
-          assert_phrase_list :if_china, [:china_tour_group]
         end
       end
     end
