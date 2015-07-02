@@ -20,12 +20,6 @@ en-GB:
         b1_b2_visa_exception: |
           except if you have a B1 or B2 visit visa from the USA
 
-        study_additional_sentence: |
-          However, you should bring documents with you to show at the border. See the relevant [student visa](/browse/visas-immigration/study-visas) guide to see what documents to bring.
-
-        croatia_additional_sentence: |
-          However, you may need a [registration certificate](/croatian-national) if you want to stay and work.
-
         youth_mobility_scheme: |
           You can apply for the [‘youth mobility scheme’ visa](/tier-5-youth-mobility) if you want to live and work in the UK for up to 2 years.
 
@@ -168,11 +162,6 @@ en-GB:
           "yes": "Yes"
           "no": "No"
 
-
-      outcome_no_visa_needed:
-        title: You won’t need a visa to come to the UK
-        body: |
-          %{no_visa_additional_sentence}
 
       outcome_study_y:
         title: You’ll need a visa to study in the UK

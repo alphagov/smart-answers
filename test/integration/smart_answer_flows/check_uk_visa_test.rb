@@ -470,7 +470,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
     should "takes you to outcome_no_visa_needed with croatia phraselist" do
       assert_current_node :outcome_no_visa_needed
-      assert_phrase_list :no_visa_additional_sentence, [:croatia_additional_sentence]
     end
   end
 
@@ -506,7 +505,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
         should "take you to outcome_no_visa_needed" do
           assert_current_node :outcome_no_visa_needed
-          assert_phrase_list :no_visa_additional_sentence, [:study_additional_sentence]
         end
       end
     end #end canada study reason
