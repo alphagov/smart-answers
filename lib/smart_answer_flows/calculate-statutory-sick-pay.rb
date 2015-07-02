@@ -41,7 +41,7 @@ module SmartAnswer
       # Question 3
       multiple_choice :employee_work_different_days? do
         option yes: :not_regular_schedule # Answer 4
-          option no: :first_sick_day? # Question 4
+        option no: :first_sick_day? # Question 4
       end
 
       # Question 4
