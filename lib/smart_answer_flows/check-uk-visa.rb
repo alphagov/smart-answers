@@ -142,7 +142,7 @@ module SmartAnswer
       outcome :outcome_study_y, use_outcome_templates: true
       outcome :outcome_study_m, use_outcome_templates: true
       outcome :outcome_work_y, use_outcome_templates: true
-      outcome :outcome_work_m
+      outcome :outcome_work_m, use_outcome_templates: true
       outcome :outcome_work_n
       outcome :outcome_transit_leaving_airport
       outcome :outcome_transit_not_leaving_airport do
