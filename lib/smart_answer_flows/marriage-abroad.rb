@@ -753,12 +753,10 @@ module SmartAnswer
               phrases << :japan_consular_cni_os_local_resident
             end
             if ceremony_country == 'italy'
-              if partner_nationality == 'partner_local'
-                phrases << :italy_consular_cni_os_partner_local
-              elsif partner_nationality == 'partner_other'
-                phrases << :italy_consular_cni_os_partner_other
-              elsif partner_nationality == 'partner_british'
+              if partner_nationality == 'partner_british'
                 phrases << :italy_consular_cni_os_partner_british
+              else
+                phrases << :italy_consular_cni_os_partner_not_british
               end
             elsif ceremony_country == 'spain'
               phrases << :consular_cni_variant_local_resident_spain
