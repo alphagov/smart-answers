@@ -149,34 +149,7 @@ module SmartAnswer
       outcome :outcome_school_y, use_outcome_templates: true
       outcome :outcome_medical_y, use_outcome_templates: true
       outcome :outcome_medical_n, use_outcome_templates: true
-      outcome :outcome_visit_waiver do
-        precalculate :if_exception do
-          if %w(venezuela).include?(passport_country)
-            if leaving_airport_answer == "yes"
-              PhraseList.new(:epassport_crossing_border)
-            elsif leaving_airport_answer == "no"
-              PhraseList.new(:epassport_not_crossing_border)
-            end
-          elsif %w(taiwan).include?(passport_country)
-            if leaving_airport_answer == "yes"
-              PhraseList.new(:passport_bio_crossing_border)
-            else
-              PhraseList.new(:passport_bio_not_crossing_border)
-            end
-          elsif %w(oman qatar united-arab-emirates).include?(passport_country)
-            PhraseList.new(:electronic_visa_waiver, :apply_for_visitor_visa)
-          end
-        end
-        precalculate :outcome_title do
-          if %w(venezuela).include?(passport_country)
-            PhraseList.new(:epassport_visa_not_needed_title)
-          elsif %w(taiwan).include?(passport_country)
-            PhraseList.new(:passport_bio_visa_not_needed_title)
-          elsif %w(oman qatar united-arab-emirates).include?(passport_country)
-            PhraseList.new(:electronic_visa_waiver_needed_title)
-          end
-        end
-      end
+      outcome :outcome_visit_waiver, use_outcome_templates: true
       outcome :outcome_transit_leaving_airport_datv do
         precalculate :if_syria do
           PhraseList.new(:b1_b2_visa_exception) if passport_country == 'syria'
