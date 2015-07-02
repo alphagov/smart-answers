@@ -140,7 +140,7 @@ module SmartAnswer
         end
       end
       outcome :outcome_study_y, use_outcome_templates: true
-      outcome :outcome_study_m
+      outcome :outcome_study_m, use_outcome_templates: true
       outcome :outcome_work_y do
         precalculate :if_youth_mobility_scheme_country do
           if %w(australia canada japan monaco new-zealand hong-kong south-korea taiwan).include?(passport_country)

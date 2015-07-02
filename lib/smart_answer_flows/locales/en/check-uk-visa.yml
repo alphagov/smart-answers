@@ -162,16 +162,6 @@ en-GB:
           "yes": "Yes"
           "no": "No"
 
-
-      outcome_study_m:
-        title: You’ll need a visa to study in the UK
-
-        body: |
-          %{if_refugee}
-
-          Apply for a [Short-term Study visa](/study-visit-visa) if you are studying for 6 months or less.
-
-          You should apply as a [child visitor](/child-visit-visa) if you’re under 18.
       outcome_work_y:
         title: You’ll need a visa to work or do business or academic research in the UK
         body: |
