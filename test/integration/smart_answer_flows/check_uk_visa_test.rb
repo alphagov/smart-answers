@@ -451,7 +451,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
     should "takes you to outcome_work_y" do
       assert_current_node :outcome_work_y
-      assert_phrase_list :if_turkey, [:turkey_business_person_visa]
     end
   end
   context "testing outcome visit waiver" do
@@ -523,7 +522,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
         should "take you to outcome 2 study y" do
           assert_current_node :outcome_work_y
-          assert_phrase_list :if_youth_mobility_scheme_country, [:youth_mobility_scheme]
         end
       end
 

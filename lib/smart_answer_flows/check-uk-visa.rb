@@ -141,18 +141,7 @@ module SmartAnswer
       end
       outcome :outcome_study_y, use_outcome_templates: true
       outcome :outcome_study_m, use_outcome_templates: true
-      outcome :outcome_work_y do
-        precalculate :if_youth_mobility_scheme_country do
-          if %w(australia canada japan monaco new-zealand hong-kong south-korea taiwan).include?(passport_country)
-            PhraseList.new(:youth_mobility_scheme)
-          end
-        end
-        precalculate :if_turkey do
-          if %w(turkey).include?(passport_country)
-            PhraseList.new(:turkey_business_person_visa)
-          end
-        end
-      end
+      outcome :outcome_work_y, use_outcome_templates: true
       outcome :outcome_work_m
       outcome :outcome_work_n
       outcome :outcome_transit_leaving_airport
