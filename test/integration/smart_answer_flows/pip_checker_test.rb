@@ -26,7 +26,7 @@ class PIPCheckerTest < ActiveSupport::TestCase
 
     context "dates out of range" do
       should "not allow dates far in the past" do
-        add_response Date.parse("1850-12-21")
+        add_response Date.parse("1850-12-31")
         assert_current_node_is_error
       end
 

@@ -518,7 +518,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates before 2012" do
-      add_response Date.parse("2011-12-21")
+      add_response Date.parse("2011-12-31")
       assert_current_node_is_error
     end
 
