@@ -139,7 +139,7 @@ module SmartAnswer
           purpose_of_visit_answer
         end
       end
-      outcome :outcome_study_y
+      outcome :outcome_study_y, use_outcome_templates: true
       outcome :outcome_study_m
       outcome :outcome_work_y do
         precalculate :if_youth_mobility_scheme_country do
