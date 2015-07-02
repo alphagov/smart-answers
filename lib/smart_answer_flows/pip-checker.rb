@@ -48,13 +48,15 @@ module SmartAnswer
         end
       end
 
-      outcome :result_1, use_outcome_templates: true
-      outcome :result_2, use_outcome_templates: true
-      outcome :result_3, use_outcome_templates: true
-      outcome :result_4, use_outcome_templates: true
-      outcome :result_5, use_outcome_templates: true
-      outcome :result_6, use_outcome_templates: true
-      outcome :result_7, use_outcome_templates: true
+      use_outcome_templates
+
+      outcome :result_1
+      outcome :result_2
+      outcome :result_3
+      outcome :result_4
+      outcome :result_5
+      outcome :result_6
+      outcome :result_7
     end
   end
 end
