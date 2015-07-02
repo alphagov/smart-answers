@@ -150,11 +150,7 @@ module SmartAnswer
       outcome :outcome_medical_y, use_outcome_templates: true
       outcome :outcome_medical_n, use_outcome_templates: true
       outcome :outcome_visit_waiver, use_outcome_templates: true
-      outcome :outcome_transit_leaving_airport_datv do
-        precalculate :if_syria do
-          PhraseList.new(:b1_b2_visa_exception) if passport_country == 'syria'
-        end
-      end
+      outcome :outcome_transit_leaving_airport_datv, use_outcome_templates: true
       outcome :outcome_taiwan_exception
       outcome :outcome_diplomatic_business
       outcome :outcome_transit_refugee_not_leaving_airport
