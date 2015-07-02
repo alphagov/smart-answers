@@ -148,7 +148,7 @@ module SmartAnswer
       outcome :outcome_school_n, use_outcome_templates: true
       outcome :outcome_school_y, use_outcome_templates: true
       outcome :outcome_medical_y, use_outcome_templates: true
-      outcome :outcome_medical_n
+      outcome :outcome_medical_n, use_outcome_templates: true
       outcome :outcome_visit_waiver do
         precalculate :if_exception do
           if %w(venezuela).include?(passport_country)

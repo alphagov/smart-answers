@@ -250,11 +250,6 @@ en-GB:
 
           Australian paper confirmation slips are not accepted.
 
-      outcome_medical_n:
-        title: You won’t need a visa to visit the UK
-        body:
-          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a [Standard Visitor visa](/standard-visitor-visa), to show to officers at the UK border.
-
       outcome_visit_waiver:
         title: |
           %{outcome_title}
