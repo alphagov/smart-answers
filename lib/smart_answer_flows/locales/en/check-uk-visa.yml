@@ -253,12 +253,6 @@ en-GB:
 
           Australian paper confirmation slips are not accepted.
 
-      outcome_medical_y:
-        title: You’ll need a visa to visit the UK
-        body:
-          You should apply for a [Standard Visitor visa](/standard-visitor-visa).
-
-          %{if_refugee}
       outcome_medical_n:
         title: You won’t need a visa to visit the UK
         body:
