@@ -75,16 +75,6 @@ en-GB:
         title: "What's your date of birth?"
         hint: "If you’re checking for someone else, enter their date of birth."
 
-      result_1:
-        body: |
-          $!The child isn't affected by Personal Independence Payment (PIP) because they're under 16.$!
-
-          To qualify for PIP the child must be 16 or over.
-
-          Instead of PIP, you can make a claim for [Disability Living Allowance](/disability-living-allowance-children) for the child until they turn 16.
-
-          *[PIP]: Personal Independence Payment
-
       result_2:
         body: |
           $!You aren't affected by Personal Independence Payment (PIP) because you are aged 65 or over.$!

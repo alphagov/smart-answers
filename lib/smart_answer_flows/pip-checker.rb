@@ -52,7 +52,7 @@ module SmartAnswer
         end
       end
 
-      outcome :result_1
+      outcome :result_1, use_outcome_templates: true
       outcome :result_2
       outcome :result_3
       outcome :result_4
