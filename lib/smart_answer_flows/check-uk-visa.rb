@@ -146,7 +146,7 @@ module SmartAnswer
       outcome :outcome_work_n, use_outcome_templates: true
       outcome :outcome_transit_leaving_airport, use_outcome_templates: true
       outcome :outcome_transit_not_leaving_airport, use_outcome_templates: true
-      outcome :outcome_joining_family_y
+      outcome :outcome_joining_family_y, use_outcome_templates: true
       outcome :outcome_joining_family_m
       outcome :outcome_joining_family_nvn
       outcome :outcome_standard_visit do
