@@ -1594,7 +1594,7 @@ en-GB:
             luxembourg: |
               [Make an appointment at the embassy in Luxembourg.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-luxembourg/notice-of-marriage-or-civil-partnership/slot_picker)
             macao: |
-              [Make an appointment at the British Consulate General in Hong Kong](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-hong-kong/oaths-affirmations-and-affidavits/slot_picker)
+              [Make an appointment at the British Consulate General Hong Kong](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-hong-kong/oaths-affirmations-and-affidavits/slot_picker)
             mexico: |
               [Make an appointment at the embassy in Mexico City.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-mexico-city/notice-of-marriage-or-civil-partnership/slot_picker)
             moldova: |
@@ -1634,7 +1634,7 @@ en-GB:
             tunisia: |
               [Make an appointment at the embassy in Tunis.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tunis/notice-of-marriage-or-civil-partnership/slot_picker)
             turkey: |
-              [Make an appointment at the British Consulate General in Istanbul](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-istanbul/oaths-affirmations-and-affidavits/slot_picker)
+              [Make an appointment at the British Consulate General Istanbul](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-istanbul/oaths-affirmations-and-affidavits/slot_picker)
 
               [Make an appointment at the embassy in Ankara](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-ankara/oaths-affirmations-and-affidavits/slot_picker)
 
@@ -1653,7 +1653,7 @@ en-GB:
             australia: |
               Make an appointment at your nearest British embassy or consulate in %{country_name_lowercase_prefix}.
 
-              [Make an appointment at the British Consulate in Brisbane](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-brisbane/notice-of-marriage-or-civil-partnership/slot_picker)
+              [Make an appointment at the British Consulate Brisbane](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-brisbane/notice-of-marriage-or-civil-partnership/slot_picker)
 
               [Make an appointment at the British High Commission in Canberra](https://www.consular-appointments.service.gov.uk/fco/#!/british-high-commission-canberra/notice-of-marriage-or-civil-partnership/slot_picker)
 
@@ -1661,7 +1661,7 @@ en-GB:
 
               [Make an appointment at the British Consulate General in Melbourne](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-melbourne/notice-of-marriage-or-civil-partnership/slot_picker)
 
-              [Make an appointment at the British Consulate in Perth](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-perth/notice-of-marriage-or-civil-partnership/slot_picker)
+              [Make an appointment at the British Consulate Perth](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-perth/notice-of-marriage-or-civil-partnership/slot_picker)
             belgium: |
               [Make an appointment at the British embassy in Brussels](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-brussels/oaths-affirmations-and-affidavits/slot_picker)
             colombia: |
