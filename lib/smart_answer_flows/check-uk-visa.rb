@@ -148,7 +148,7 @@ module SmartAnswer
       outcome :outcome_transit_not_leaving_airport, use_outcome_templates: true
       outcome :outcome_joining_family_y, use_outcome_templates: true
       outcome :outcome_joining_family_m, use_outcome_templates: true
-      outcome :outcome_joining_family_nvn
+      outcome :outcome_joining_family_nvn, use_outcome_templates: true
       outcome :outcome_standard_visit do
         precalculate :if_china do
           if %w(china).include?(passport_country)
