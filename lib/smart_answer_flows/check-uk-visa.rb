@@ -153,7 +153,7 @@ module SmartAnswer
       outcome :outcome_transit_leaving_airport_datv, use_outcome_templates: true
       outcome :outcome_taiwan_exception, use_outcome_templates: true
       outcome :outcome_diplomatic_business, use_outcome_templates: true
-      outcome :outcome_transit_refugee_not_leaving_airport
+      outcome :outcome_transit_refugee_not_leaving_airport, use_outcome_templates: true
     end
   end
 end
