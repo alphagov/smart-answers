@@ -593,25 +593,54 @@ module SmartAnswer
           auto_years_entitlement = (dob < Date.parse("6th October 1953") and (gender == "male"))
 
           if calc.within_four_months_one_day_from_state_pension?
-            phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years : :within_4_months_not_enough_qy_years)
-            phrases << :pension_statement if Date.today < calc.state_pension_date - 35
-            phrases << (enough_qualifying_years ? :within_4_months_enough_qy_years_more : :within_4_months_not_enough_qy_years_more)
-            phrases << :automatic_years_phrase if auto_years_entitlement and !enough_qualifying_years
+            if enough_qualifying_years
+              phrases << :within_4_months_enough_qy_years
+            else
+              phrases << :within_4_months_not_enough_qy_years
+            end
+
+            if Date.today < calc.state_pension_date - 35
+              phrases << :pension_statement
+            end
+
+            if enough_qualifying_years
+              phrases << :within_4_months_enough_qy_years_more
+            else
+              phrases << :within_4_months_not_enough_qy_years_more
+            end
+
+            if auto_years_entitlement && !enough_qualifying_years
+              phrases << :automatic_years_phrase
+            end
           elsif calculator.state_pension_date >= Date.parse('2016-04-06')
             phrases << :too_few_qy_enough_remaining_years_a_intro
             if qualifying_years_total >= 10
               phrases << :ten_and_greater
-              phrases << :rre_entitlements if calculator.qualifies_for_rre_entitlements?
+              if calculator.qualifies_for_rre_entitlements?
+                phrases << :rre_entitlements
+              end
             else
               phrases << :less_than_ten
-              phrases << :reduced_rate_election if pays_reduced_ni_rate == "yes"
-              phrases << :lived_or_worked_overseas if lived_or_worked_abroad == "yes"
+              if pays_reduced_ni_rate == "yes"
+                phrases << :reduced_rate_election
+              end
+              if lived_or_worked_abroad == "yes"
+                phrases << :lived_or_worked_overseas
+              end
             end
             phrases << :too_few_qy_enough_remaining_years_a
-            phrases << :automatic_years_phrase if auto_years_entitlement
+            if auto_years_entitlement
+              phrases << :automatic_years_phrase
+            end
           elsif !enough_qualifying_years
-            phrases << (enough_remaining_years ? :too_few_qy_enough_remaining_years : :too_few_qy_not_enough_remaining_years)
-            phrases << :automatic_years_phrase if auto_years_entitlement
+            if enough_remaining_years
+              phrases << :too_few_qy_enough_remaining_years
+            else
+              phrases << :too_few_qy_not_enough_remaining_years
+            end
+            if auto_years_entitlement
+              phrases << :automatic_years_phrase
+            end
           else
             phrases << :you_get_full_state_pension
           end
