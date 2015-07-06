@@ -117,7 +117,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           end
           should "give the result and be done" do
             assert_current_node :ips_application_result
-            assert_phrase_list :fco_forms, [:adult_fco_forms]
             assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_it_takes_ips1]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
             assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
@@ -141,7 +140,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "give the result with alternative embassy details" do
       assert_current_node :ips_application_result
-      assert_phrase_list :fco_forms, [:adult_fco_forms]
       assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
@@ -175,7 +173,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
         end
         should "give the result and be done" do
-          assert_phrase_list :fco_forms, [:adult_fco_forms]
           assert_current_node :country_of_birth?
         end
         context "answer Greece" do
@@ -189,7 +186,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
 
           should "give the result" do
             assert_current_node :ips_application_result_online
-            assert_phrase_list :fco_forms, [:adult_fco_forms]
             assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_applying, :how_long_additional_time_online]
             assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_applying, :how_to_apply_online_guidance_doc_group_2, :how_to_apply_online_guidance_doc_outro]
             assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1]
@@ -221,7 +217,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :supporting_documents, 'ips_documents_group_1'
           assert_current_node :ips_application_result_online
-          assert_phrase_list :fco_forms, [:adult_fco_forms]
           assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_additional_info_replacing, :how_long_additional_time_online]
           assert_phrase_list :how_to_apply, [:how_to_apply_online, :how_to_apply_online_prerequisites_replacing, :how_to_apply_online_guidance_doc_group_1, :how_to_apply_online_guidance_doc_outro]
           assert_phrase_list :cost, [:passport_courier_costs_replacing_ips1, :adult_passport_costs_replacing_ips1]
@@ -493,7 +488,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :fco_forms, [:adult_fco_forms]
       assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
@@ -761,7 +755,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :fco_forms, [:adult_fco_forms_nigeria]
       assert_phrase_list :how_long_it_takes, [:how_long_14_weeks, :how_long_it_takes_ips1]
       assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]

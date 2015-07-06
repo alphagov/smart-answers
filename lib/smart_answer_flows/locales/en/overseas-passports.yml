@@ -50,32 +50,6 @@ en-GB:
 
           %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
 
-        adult_fco_forms: |
-          __Smart application form__
-
-          - [Smart application form](/government/publications/application-for-united-kingdom-passport-for-overseas-customers) (fill in on screen, print and sign)
-
-          __Blank application form__
-
-           If you can’t use the smart form above, print this [blank application form](/government/publications/application-for-united-kingdom-passport-for-applicants-aged-16-or-over), fill in on paper and sign
-
-          __Guidance notes__
-
-          - [Guidance notes for adult applications](/government/publications/application-for-united-kingdom-passport-for-applicants-16-and-over-notes)
-
-        child_fco_forms: |
-          __Smart application form__
-
-          - [Smart application form](/government/publications/application-for-united-kingdom-passport-for-overseas-customers) (fill in on screen, print and sign)
-
-          __Blank application form__
-
-           If you can’t use the smart form above, print this [blank application form](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16), fill in on paper and sign
-
-          __Guidance notes__
-
-            - [Guidance notes for child applications](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16-notes)
-
         hmpo_1_application_form: |
           ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
 

@@ -127,14 +127,6 @@ module SmartAnswer
 
         save_input_as :child_or_adult
 
-        calculate :fco_forms do |response|
-          if %w(nigeria).include?(current_location)
-            PhraseList.new(:"#{response}_fco_forms_nigeria")
-          else
-            PhraseList.new(:"#{response}_fco_forms")
-          end
-        end
-
         on_condition(data_query.ips_application?) do
           next_node_if(:country_of_birth?, variable_matches(:application_action, %w(applying renewing_old)))
           next_node_if(:ips_application_result_online, variable_matches(:ips_result_type, :ips_application_result_online))
