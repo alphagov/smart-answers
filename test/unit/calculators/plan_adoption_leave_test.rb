@@ -48,8 +48,16 @@ module SmartAnswer::Calculators
             assert_equal Date.parse("23 June 2012"), @calculator.qualifying_week.last
           end
 
+          should "last_qualifying_week_formatted give 23 June 2012" do
+            assert_equal "23 June 2012", @calculator.last_qualifying_week_formatted
+          end
+
           should "earliest_start give date of 11 December 2012" do
             assert_equal Date.parse("11 December 2012"), @calculator.earliest_start
+          end
+
+          should "earliest_start_formatted give 11 December 2012" do
+            assert_equal "11 December 2012", @calculator.earliest_start_formatted
           end
 
           should "period_of_ordinary_leave give range of 11 December 2012 - 11 June 2013" do
