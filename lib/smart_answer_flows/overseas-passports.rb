@@ -157,37 +157,9 @@ module SmartAnswer
       end
 
       ## Online IPS Application Result
-      outcome :ips_application_result_online do
-        precalculate :how_long_it_takes do
-          PhraseList.new(:"how_long_#{waiting_time}",
-                         :"how_long_additional_info_#{application_action}",
-                         :how_long_additional_time_online)
-        end
-
-        precalculate :cost do
-          if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1'
-            PhraseList.new(:"passport_courier_costs_replacing_ips#{ips_number}",
-                           :"#{child_or_adult}_passport_costs_replacing_ips#{ips_number}")
-          else
-            PhraseList.new(:"passport_courier_costs_ips#{ips_number}",
-                           :"#{child_or_adult}_passport_costs_ips#{ips_number}")
-          end
-        end
-
-        precalculate :how_to_apply do
-          phrases = PhraseList.new(:how_to_apply_online,
-                         :"how_to_apply_online_prerequisites_#{general_action}",
-                         :"how_to_apply_online_guidance_doc_group_#{ips_docs_number}")
-          phrases << :"birth_certificate_#{birth_location}" if %w(south-africa spain).include?(birth_location)
-          phrases << :hong_kong_id_required if %w(hong-kong).include?(current_location)
-          phrases << :how_to_apply_online_guidance_doc_outro
-        end
-
-        precalculate :getting_your_passport do
-          PhraseList.new(:"getting_your_passport_ips#{ips_number}")
-        end
-        precalculate :contact_passport_adviceline do
-          PhraseList.new(:contact_passport_adviceline)
+      outcome :ips_application_result_online, use_outcome_templates: true do
+        precalculate :birth_location do
+          birth_location
         end
       end
 

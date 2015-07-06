@@ -74,13 +74,6 @@ en-GB:
         passport_cost_and_admin_fee: |
           You must pay in cash. In addition to the passport fee you’ll need to pay any local administration fees which apply from the office where you make your application.
 
-        how_long_additional_time_online: |
-          Applications will take longer if:
-
-          - HM Passport Office need to ask you for more information or documents
-          - the photographs you send are rejected
-
-          Don’t book any travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
         passport_courier_costs_ips1: |
           You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
@@ -122,49 +115,6 @@ en-GB:
 
         send_application_ips1_pakistan: |
           5. You should fill in the [Applying for a passport from Pakistan form](https://www.gov.uk/government/publications/applying-for-a-passport-from-pakistan) if you are submitting supporting documents from the UK.
-
-        how_to_apply_online: |
-          You must apply and pay for your passport online.
-
-        how_to_apply_online_prerequisites_applying: |
-          Before you start you need:
-
-          - the passport numbers of both parents and their dates and place of birth, and in some cases the same details of grandparents
-          - 2 identical new photos of you (or your child, if it’s a child passport application)
-          - any other current passports issued by other countries
-          - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
-
-        how_to_apply_online_prerequisites_renewing: |
-          Before you start you need:
-
-          - your current passport
-          - 2 identical new photos of you (or your child, if it’s a child passport application)
-          - any other current passports issued by other countries
-          - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
-
-        how_to_apply_online_prerequisites_replacing: |
-          Before you start you need:
-
-          - 2 identical new photos of you (or your child, if it’s a child passport application)
-          - any other current passports issued by other countries
-          - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
-
-        how_to_apply_online_guidance_doc_group_1: |
-          Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
-
-        how_to_apply_online_guidance_doc_group_2: |
-          Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-2) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
-
-        how_to_apply_online_guidance_doc_group_3: |
-          Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-3) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
-
-        hong_kong_id_required: |
-          ^You must provide a colour photocopy of your Hong Kong Permanent Identity Card with your application if you’re applying for a British National (Overseas) passport.^
-
-        how_to_apply_online_guidance_doc_outro: |
-          You will need to print, sign and post your declaration form at the end.
-
-          [Start your application on Her Majesty’s Passport Office website](https://passportapplication.service.gov.uk/)
 
         send_application_ips1: |
           ## Send your application
@@ -359,18 +309,6 @@ en-GB:
           Your application will take **at least** 8 months from when it’s received by Her Majesty's Passport Office in the UK. You may have to attend an interview.
         report_loss_or_theft: |
           If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
-
-        how_long_additional_info_applying: |
-          You may have to attend an interview.
-
-        how_long_additional_info_replacing: |
-          If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
-
-          You may have to attend an interview.
-        how_long_additional_info_renewing_old: |
-          You may have to attend an interview.
-        how_long_additional_info_renewing_new: |
-          You may have to attend an interview.
 
         how_long_it_takes_ips1: |
           Applications will take longer if:
@@ -1326,28 +1264,6 @@ en-GB:
 
             Telephone: (+44) 207 008 1500
           $C
-
-      ips_application_result_online:
-        body: |
-          ## How long it takes
-
-          %{how_long_it_takes}
-
-          ## Cost
-
-          %{cost}
-
-          ## How to apply
-
-          %{how_to_apply}
-
-          %{incomplete_application_deadline}
-
-          ## Getting your passport
-
-          %{getting_your_passport}
-
-          %{contact_passport_adviceline}
 
       ips_application_result:
         body: |
