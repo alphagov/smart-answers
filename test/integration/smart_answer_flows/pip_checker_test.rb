@@ -70,19 +70,16 @@ class PIPCheckerTest < ActiveSupport::TestCase
     should "be result 4 if born between 08-06-1997 and 06-10-1997 (03/03/14)" do
       add_response '1997-06-08'
       assert_current_node :result_4
-      assert_phrase_list :postcodes, [:scheme_postcodes]
     end
 
     should "be result 5 if born on or after 07-10-1997 (03/03/14)" do
       add_response '1997-10-07'
       assert_current_node :result_5
-      assert_phrase_list :postcodes, [:scheme_postcodes]
     end
 
     should "be result 7 if born between 09-04-1948 and 07-04-1997 (03/03/14)" do
       add_response "1996-05-24"
       assert_current_node :result_7
-      assert_phrase_list :postcodes, [:scheme_postcodes]
     end
   end # getting DLA
 
