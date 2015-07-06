@@ -25,6 +25,18 @@ class SmartAnswersRegressionTest < ActionController::TestCase
     def setup_has_run?
       @setup_has_run
     end
+
+    def webmock_teardown_hook_installed?
+      Minitest::Test.method_defined?(:teardown_with_webmock)
+    end
+
+    def custom_teardown_hook_installed?
+      Minitest::Test.method_defined?(:teardown_with_customisations)
+    end
+
+    def teardown_hooks_installed?
+      webmock_teardown_hook_installed? || custom_teardown_hook_installed?
+    end
   end
 
   include GdsApi::TestHelpers::ContentApi
@@ -47,7 +59,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
     context "Smart Answer: #{flow_name}" do
       setup do
-        next if self.class.setup_has_run?
+        next if self.class.setup_has_run? && !self.class.teardown_hooks_installed?
         Timecop.freeze(Date.parse('2015-01-01'))
         stub_content_api_default_artefact
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
