@@ -168,18 +168,6 @@ module SmartAnswer
 
       ## No-op outcome.
       outcome :cannot_apply do
-        precalculate :organisation do
-          location.fco_organisation
-        end
-
-        precalculate :overseas_passports_embassies do
-          if organisation
-            organisation.offices_with_service 'Overseas Passports Service'
-          else
-            []
-          end
-        end
-
         precalculate :body_text do
           PhraseList.new(:"body_#{current_location}")
         end
