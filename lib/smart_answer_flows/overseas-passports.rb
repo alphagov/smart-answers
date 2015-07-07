@@ -148,15 +148,17 @@ module SmartAnswer
         end
       end
 
+      use_outcome_templates
+
       ## Online IPS Application Result
-      outcome :ips_application_result_online, use_outcome_templates: true do
+      outcome :ips_application_result_online do
         precalculate :birth_location do
           birth_location
         end
       end
 
       ## IPS Application Result
-      outcome :ips_application_result, use_outcome_templates: true do
+      outcome :ips_application_result do
         precalculate :data_query do
           data_query
         end
@@ -167,9 +169,9 @@ module SmartAnswer
       end
 
       ## No-op outcome.
-      outcome :cannot_apply, use_outcome_templates: true
+      outcome :cannot_apply
 
-      outcome :apply_in_neighbouring_country, use_outcome_templates: true do
+      outcome :apply_in_neighbouring_country do
         precalculate :title_output do
           location.name
         end
