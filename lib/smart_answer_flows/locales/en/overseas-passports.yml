@@ -38,24 +38,3 @@ en-GB:
         title: Which of the following best describes you?
       which_best_describes_you_child?:
         title: Which of the following best describes you?
-      phrases:
-        emergency_travel_help_kyrgyzstan: |
-          If you need help with emergency travel arrangements, contact the [British Embassy in Almaty, Kazakhstan](/government/world/organisations/british-embassy-astana/office/british-embassy-office-almaty).
-
-        emergency_travel_help_north-korea: |
-          If you need help with emergency travel arrangements in North Korea, contact the [British Embassy in Pyongyang](/government/world/organisations/british-embassy-pyonyang).
-
-      apply_in_neighbouring_country:
-        title: You can’t apply for a British passport from %{title_output}.
-        body: |
-          You should apply in a neighbouring country of your choice.
-
-          %{emergency_travel_help}
-
-          ###Passport Adviceline
-
-          $C
-          Telephone: +44 (0) 300 222 0000
-          Monday to Friday, 8am to 8pm (UK time)
-          Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
-          $C

@@ -169,15 +169,9 @@ module SmartAnswer
       ## No-op outcome.
       outcome :cannot_apply, use_outcome_templates: true
 
-      outcome :apply_in_neighbouring_country do
+      outcome :apply_in_neighbouring_country, use_outcome_templates: true do
         precalculate :title_output do
           location.name
-        end
-
-        precalculate :emergency_travel_help do
-          if %w(kyrgyzstan north-korea).include?(current_location)
-            PhraseList.new(:"emergency_travel_help_#{current_location}")
-          end
         end
       end
     end
