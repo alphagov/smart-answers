@@ -43,29 +43,7 @@ module SmartAnswer
           raise InvalidResponse if days_per_week <= 0 or days_per_week > 7
           days_per_week
         end
-        calculate :days_per_week_calculated do
-          (days_per_week < 5 ? days_per_week : 5)
-        end
-        calculate :calculator do
-          Calculators::HolidayEntitlement.new(
-            days_per_week: (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
-            start_date: start_date,
-            leaving_date: leaving_date,
-            leave_year_start_date: leave_year_start_date
-          )
-        end
-        calculate :holiday_entitlement_days do
-          calculator.formatted_full_time_part_time_days
-        end
-        calculate :content_sections do
-          sections = PhraseList.new :answer_days
-          if days_per_week > 5 and calculator.full_time_part_time_days >= 28
-            sections << :maximum_days_calculated
-          end
-          sections << :your_employer_with_rounding
-          sections
-        end
-        next_node :done
+        next_node :days_per_week_done
       end
 
       # Q4
@@ -123,27 +101,9 @@ module SmartAnswer
 
       # Q10
       value_question :how_many_hours_per_week?, parse: Float do
-        calculate :calculator do |response|
-          Calculators::HolidayEntitlement.new(
-            hours_per_week: response,
-            start_date: start_date,
-            leaving_date: leaving_date,
-            leave_year_start_date: leave_year_start_date
-          )
-        end
-        calculate :holiday_entitlement_hours_and_minutes do
-          calculator.full_time_part_time_hours_and_minutes
-        end
-        calculate :holiday_entitlement_hours do
-          holiday_entitlement_hours_and_minutes.first
-        end
-        calculate :holiday_entitlement_minutes do
-          holiday_entitlement_hours_and_minutes.last
-        end
-        calculate :content_sections do
-          PhraseList.new :answer_hours, :your_employer_with_rounding
-        end
-        next_node :done
+        save_input_as :hours_per_week
+
+        next_node :hours_per_week_done
       end
 
       value_question :casual_or_irregular_hours?, parse: Float do
@@ -152,19 +112,8 @@ module SmartAnswer
           raise InvalidResponse if hours <= 0
           hours
         end
-        calculate :calculator do
-          Calculators::HolidayEntitlement.new(total_hours: total_hours)
-        end
-        calculate :holiday_entitlement_hours do
-          calculator.casual_irregular_entitlement.first
-        end
-        calculate :holiday_entitlement_minutes do
-          calculator.casual_irregular_entitlement.last
-        end
-        calculate :content_sections do
-          PhraseList.new :answer_hours_minutes, :your_employer_with_rounding
-        end
-        next_node :done
+
+        next_node :casual_or_irregular_hours_done
       end
 
       value_question :annualised_hours?, parse: Float do
@@ -173,22 +122,8 @@ module SmartAnswer
           raise InvalidResponse if hours <= 0
           hours
         end
-        calculate :calculator do
-          Calculators::HolidayEntitlement.new(total_hours: total_hours)
-        end
-        calculate :average_hours_per_week do
-          calculator.formatted_annualised_hours_per_week
-        end
-        calculate :holiday_entitlement_hours do
-          calculator.annualised_entitlement.first
-        end
-        calculate :holiday_entitlement_minutes do
-          calculator.annualised_entitlement.last
-        end
-        calculate :content_sections do
-          PhraseList.new :answer_hours_minutes_annualised, :your_employer_with_rounding
-        end
-        next_node :done
+
+        next_node :annualised_hours_done
       end
 
       value_question :compressed_hours_how_many_hours_per_week?, parse: Float do
@@ -206,28 +141,8 @@ module SmartAnswer
           raise InvalidResponse if days <= 0 or days > 7
           days
         end
-        calculate :calculator do
-          Calculators::HolidayEntitlement.new(
-            hours_per_week: hours_per_week,
-            days_per_week: days_per_week
-          )
-        end
-        calculate :holiday_entitlement_hours do
-          calculator.compressed_hours_entitlement.first
-        end
-        calculate :holiday_entitlement_minutes do
-          calculator.compressed_hours_entitlement.last
-        end
-        calculate :hours_daily do
-          calculator.compressed_hours_daily_average.first
-        end
-        calculate :minutes_daily do
-          calculator.compressed_hours_daily_average.last
-        end
-        calculate :content_sections do
-          PhraseList.new :answer_compressed_hours, :your_employer_with_rounding
-        end
-        next_node :done
+
+        next_node :compressed_hours_done
       end
 
       multiple_choice :shift_worker_basis? do
@@ -262,7 +177,14 @@ module SmartAnswer
           raise InvalidResponse if days < shifts_per_shift_pattern
           days
         end
-        calculate :calculator do
+
+        next_node :shift_worker_done
+      end
+
+      use_outcome_templates
+
+      outcome :shift_worker_done do
+        precalculate :calculator do
           Calculators::HolidayEntitlement.new(
             start_date: start_date,
             leaving_date: leaving_date,
@@ -272,27 +194,98 @@ module SmartAnswer
             days_per_shift_pattern: days_per_shift_pattern
           )
         end
-        calculate :shifts_per_week do
-          calculator.formatted_shifts_per_week
-        end
-        calculate :holiday_entitlement_shifts do
+        precalculate :holiday_entitlement_shifts do
           calculator.formatted_shift_entitlement
         end
-        calculate :fraction_of_year do
-          calculator.formatted_fraction_of_year
-        end
-        calculate :hours_per_shift do
+        precalculate :hours_per_shift do
           calculator.strip_zeros hours_per_shift
         end
-        calculate :content_sections do
-          full_year = start_date.nil? && leaving_date.nil?
-
-          PhraseList.new :answer_shift_worker, :your_employer_with_rounding
-        end
-        next_node :done
       end
 
-      outcome :done
+      outcome :days_per_week_done do
+        precalculate :days_per_week_calculated do
+          (days_per_week < 5 ? days_per_week : 5)
+        end
+        precalculate :calculator do
+          Calculators::HolidayEntitlement.new(
+            days_per_week: (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
+            start_date: start_date,
+            leaving_date: leaving_date,
+            leave_year_start_date: leave_year_start_date
+          )
+        end
+        precalculate :holiday_entitlement_days do
+          calculator.formatted_full_time_part_time_days
+        end
+      end
+
+      outcome :hours_per_week_done do
+        precalculate :calculator do |response|
+          Calculators::HolidayEntitlement.new(
+            hours_per_week: hours_per_week,
+            start_date: start_date,
+            leaving_date: leaving_date,
+            leave_year_start_date: leave_year_start_date
+          )
+        end
+        precalculate :holiday_entitlement_hours_and_minutes do
+          calculator.full_time_part_time_hours_and_minutes
+        end
+        precalculate :holiday_entitlement_hours do
+          holiday_entitlement_hours_and_minutes.first
+        end
+        precalculate :holiday_entitlement_minutes do
+          holiday_entitlement_hours_and_minutes.last
+        end
+      end
+
+      outcome :casual_or_irregular_hours_done do
+        precalculate :calculator do
+          Calculators::HolidayEntitlement.new(total_hours: total_hours)
+        end
+        precalculate :holiday_entitlement_hours do
+          calculator.casual_irregular_entitlement.first
+        end
+        precalculate :holiday_entitlement_minutes do
+          calculator.casual_irregular_entitlement.last
+        end
+      end
+
+      outcome :compressed_hours_done do
+        precalculate :calculator do
+          Calculators::HolidayEntitlement.new(
+            hours_per_week: hours_per_week,
+            days_per_week: days_per_week
+          )
+        end
+        precalculate :holiday_entitlement_hours do
+          calculator.compressed_hours_entitlement.first
+        end
+        precalculate :holiday_entitlement_minutes do
+          calculator.compressed_hours_entitlement.last
+        end
+        precalculate :hours_daily do
+          calculator.compressed_hours_daily_average.first
+        end
+        precalculate :minutes_daily do
+          calculator.compressed_hours_daily_average.last
+        end
+      end
+
+      outcome :annualised_hours_done do
+        precalculate :calculator do
+          Calculators::HolidayEntitlement.new(total_hours: total_hours)
+        end
+        precalculate :average_hours_per_week do
+          calculator.formatted_annualised_hours_per_week
+        end
+        precalculate :holiday_entitlement_hours do
+          calculator.annualised_entitlement.first
+        end
+        precalculate :holiday_entitlement_minutes do
+          calculator.annualised_entitlement.last
+        end
+      end
     end
   end
 end
