@@ -88,6 +88,7 @@ en-GB:
       # Question 6.2
       linked_sickness_end_date?:
         title: Enter the end date for this linked period of sickness.
+        start_before_end:  End date should be on or after start date
 
       # Q7.1
       paid_at_least_8_weeks?:

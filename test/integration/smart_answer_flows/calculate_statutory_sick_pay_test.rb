@@ -518,6 +518,11 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response (Date.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
     end
+
+    should "not allow dates before start_date" do
+      add_response "01/04/2013"
+      assert_current_node_is_error
+    end
   end
 
   context "linked_sickness_start_date? date validation" do
@@ -561,6 +566,11 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
     should "not allow dates next year" do
       add_response (Date.today.end_of_year + 1.day).to_s
+      assert_current_node_is_error
+    end
+
+    should "not allow dates before start_date" do
+      add_response "01/03/2013"
       assert_current_node_is_error
     end
   end
