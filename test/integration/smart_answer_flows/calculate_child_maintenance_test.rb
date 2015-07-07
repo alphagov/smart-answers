@@ -60,7 +60,6 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
 
           should "take you to the nil rate outcome" do
             assert_current_node :nil_rate_result
-            assert_phrase_list :nil_rate_reason, [:nil_rate_reason_benefits]
           end
         end
       end
@@ -121,7 +120,6 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
 
       should "take you to flat rate result" do
         assert_current_node :nil_rate_result
-        assert_phrase_list :nil_rate_reason, [:nil_rate_reason_benefits]
       end
     end
 
