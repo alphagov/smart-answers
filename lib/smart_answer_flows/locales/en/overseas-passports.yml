@@ -45,28 +45,6 @@ en-GB:
           ^You must include your full birth certificate (‘certificación literal’) with your application - a photocopy won’t be accepted.^
         passport_delivered_by_courier: |
           Your passport will be delivered to you by courier.
-        you_may_have_to_attend_an_interview: |
-          You may have to attend an interview.
-
-        supporting_documents_south_africa_applying: |
-          ^[Supporting documents for adults born in the UK](/government/publications/british-passport-adult-supporting-documentation)^
-          ^[Supporting documents for adults born overseas](/government/publications/british-passport-adult-supporting-documentation-overseas)^
-          ^[Supporting documents for children born in the UK](/government/publications/british-passport-child-supporting-documentation)^
-          ^[Supporting documents for children born overseas](/government/publications/british-passport-child-supporting-documentation-overseas)^
-
-        passport_courier_costs_fco_europe: |
-          You’ll have to pay a fee for your passport and a courier fee of 24 Euros. The courier fee pays for your passport and supporting documents to be sent back to you securely.
-
-        adult_passport_costs_fco_europe: |
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Adult standard 32-page passport | %{costs_euros_adult_32}
-          Adult jumbo 48-page passport | %{costs_euros_adult_48}
-
-        child_passport_costs_fco_europe: |
-          Passport type | Passport fee | Total to pay (including courier fee)
-          -|-|-
-          Child passport | %{costs_euros_child}
 
         how_to_apply_incomplete_application_deadline: |
 
@@ -98,18 +76,6 @@ en-GB:
 
             - [Guidance notes for child applications](/government/publications/application-for-united-kingdom-passport-for-applicants-under-16-notes)
 
-        getting_your_passport_fco: |
-          Your passport and supporting documents will be delivered separately by courier.
-
-          When you get your passport, check your name, date of birth and other personal details are correct.
-
-          If they’re not, send the passport back to the address above with a covering letter and evidence of what needs to be corrected (eg if your name is spelled incorrectly, provide evidence of how your name should be spelled).
-
-          If the error was made by the passport processing office, you’ll get a replacement free of charge. If the error was yours, you’ll have to pay for a replacement passport.
-
-        send_application_fco_preamble: |
-          Send your application, photographs and supporting documents, ideally by courier.
-
         hmpo_1_application_form: |
           ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
 
@@ -130,9 +96,6 @@ en-GB:
 
         passport_costs_ips_cash: |
           You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
-
-        passport_costs_ips_euros: |
-          You must pay in cash in Euros, the prices above will be converted according to the exchange rate when you apply.
 
         passport_cost_and_admin_fee: |
           You must pay in cash. In addition to the passport fee you’ll need to pay any local administration fees which apply from the office where you make your application.
@@ -564,11 +527,6 @@ en-GB:
 
           You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
-        passport_costs_ips3_cash_or_card: |
-          Or you can fill in a [payment instruction form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
-
-          You can use Mastercard, Visa, Electron, Diners Club and JCB.
-
         passport_costs_pay_at_appointment: |
           You must pay at your scheduled appointment using a debit or credit card. American Express, Diner’s Club and Discovery cards aren’t accepted.
 
@@ -583,11 +541,6 @@ en-GB:
           You must apply in person. You must bring photo ID with you.
 
           Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
-        send_application_ips3_must_post: |
-          Send original supporting documents and a photocopy of each one. If you’re renewing a passport, you must also send your current passport and a full colour photocopy of the entire passport (every page including blank pages).
-        send_application_ips3_must_post_colour_photo: |
-          Send original supporting documents and a colour photocopy of each one. If you’re renewing a passport, you must also send your current passport and a full colour photocopy of the entire passport (every page including blank pages).
 
         send_application_uk_visa_renew_new: |
           ## Making your application
@@ -1347,9 +1300,6 @@ en-GB:
 
           They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
 
-        title_output_biot: |
-          British Indian Ocean Territory
-
         emergency_travel_help_kyrgyzstan: |
           If you need help with emergency travel arrangements, contact the [British Embassy in Almaty, Kazakhstan](/government/world/organisations/british-embassy-astana/office/british-embassy-office-almaty).
 
@@ -1403,26 +1353,6 @@ en-GB:
             Telephone: (+44) 207 008 1500
           $C
 
-        send_application_pretoria_south_africa: |
-
-          $A
-          Postal address:
-
-          British Passport Section
-          British Consulate
-          PO Box 13611
-          Hatfield, Pretoria 0028
-          South Africa
-
-          Courier address:
-
-          British Passport Section
-          British Consulate
-          256 Glyn Street
-          Hatfield
-          Pretoria 0083
-          South Africa
-          $A
       ips_application_result_online:
         body: |
           ## How long it takes
