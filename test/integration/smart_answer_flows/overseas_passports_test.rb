@@ -42,9 +42,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'afghanistan'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
-          assert_phrase_list :how_long_it_takes, [:how_long_6_months, :how_long_it_takes_ips3]
-          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
-          assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
         end
       end
     end
@@ -61,9 +58,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
-          assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
-          assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
-          assert_phrase_list :send_your_application, [:send_application_non_uk_visa_renew_new_colour, :send_application_embassy_address]
         end
       end
     end
@@ -80,7 +74,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
-          assert_phrase_list :how_long_it_takes, [:how_long_14_weeks, :report_loss_or_theft, :how_long_it_takes_ips3]
         end
       end
     end
@@ -117,12 +110,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           end
           should "give the result and be done" do
             assert_current_node :ips_application_result
-            assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_it_takes_ips1]
-            assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-            assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
-            assert_phrase_list :send_your_application, [:send_application_durham]
-            assert_phrase_list :getting_your_passport, [:getting_your_passport_iraq, :getting_your_passport_uk_visa_where_to_collect, :getting_your_passport_id_apply_renew_old_replace]
-            assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
             assert_match /Millburngate House/, outcome_body
           end
         end
@@ -140,12 +127,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "give the result with alternative embassy details" do
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_it_takes_ips1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
-      assert_phrase_list :send_your_application, [:send_application_durham]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_benin, :getting_your_passport_contact_and_id]
-      assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
     end
   end
 
@@ -337,11 +318,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
       should "give the IPS application result" do
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :report_loss_or_theft, :how_long_it_takes_ips3]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour, :send_application_address_azerbaijan]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact_and_id]
       end
     end # Applying
   end # Azerbaijan - IPS_application_3
@@ -356,32 +332,27 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     should "give the correct result when renewing new style passport" do
       add_response 'renewing_new'
       add_response 'adult'
-      assert_phrase_list :send_your_application,
-        [:send_application_non_uk_visa_renew_new_colour, :send_application_embassy_address]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi_renew_new]
+      assert_current_node :ips_application_result
     end
 
     should "give the correct result when renewing old style passport" do
       add_response 'renewing_old'
       add_response 'adult'
       add_response 'united-kingdom'
-      assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi, :getting_your_passport_contact_and_id]
+      assert_current_node :ips_application_result
     end
 
     should "give the correct result when applying for the first time" do
       add_response 'applying'
       add_response 'adult'
       add_response 'united-kingdom'
-      assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi, :getting_your_passport_contact_and_id]
+      assert_current_node :ips_application_result
     end
 
     should "give the correct result when replacing lost or stolen passport" do
       add_response 'replacing'
       add_response 'adult'
-      assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_burundi, :getting_your_passport_contact_and_id]
+      assert_current_node :ips_application_result
     end
   end # Burundi
 
@@ -406,10 +377,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'india'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_16_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour,:send_application_address_india]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact_and_id]
       end
     end
     context "renewing a new adult passport" do
@@ -417,7 +384,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_5_weeks, :how_long_it_takes_ips3]
       end
     end
     context "renewing a new adult passport" do
@@ -425,7 +391,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'replacing'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :report_loss_or_theft, :how_long_it_takes_ips3]
       end
     end
   end # India
@@ -449,12 +414,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :how_long_it_takes_ips1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
-      assert_phrase_list :send_your_application, [:send_application_durham]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_congo, :getting_your_passport_contact_and_id]
-      assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
     end
   end # Congo
 
@@ -485,7 +444,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'applying'
       add_response 'adult'
       add_response 'united-kingdom'
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_jordan]
       assert_current_node :ips_application_result
       assert_match /Millburngate House/, outcome_body
     end
@@ -499,9 +457,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_pitcairn-island"]
-      assert_phrase_list :send_your_application, [:"send_application_address_pitcairn-island"]
-      assert_phrase_list :cost, [:"passport_courier_costs_ips3_pitcairn-island", :adult_passport_costs_ips3,:passport_costs_ips3]
     end
   end # Pitcairn Island (IPS1 with custom phrases)
 
@@ -513,9 +468,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_ukraine]
-      assert_phrase_list :send_your_application, [:send_application_ips3_ukraine_apply_renew_old_replace, :send_application_address_ukraine]
     end
   end # Ukraine (IPS3 with custom phrases)
 
@@ -526,9 +478,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact, :getting_your_passport_id_renew_new]
-      assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_ukraine]
     end
   end # Ukraine (IPS3 with custom phrases)
 
@@ -539,8 +488,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :"send_application_address_nepal"]
-      assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
   end # nepal (IPS3 with custom phrases)
@@ -552,8 +499,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour, :"send_application_address_nepal"]
-      assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
       assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
   end # nepal (IPS1 with custom phrases)
@@ -592,8 +537,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_cameroon, :getting_your_passport_contact_and_id]
       assert_match /Millburngate House/, outcome_body
     end
   end # Cameroon (custom phrases)
@@ -606,9 +549,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_it_takes_ips1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_kenya, :getting_your_passport_contact_and_id]
       assert_state_variable :application_address, 'durham'
       assert_match /Millburngate House/, outcome_body
     end
@@ -622,9 +562,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_it_takes_ips1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_kenya, :getting_your_passport_contact_and_id]
       assert_state_variable :application_address, 'durham'
       assert_match /Millburngate House/, outcome_body
     end
@@ -672,20 +609,12 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'st-helena-ascension-and-tristan-da-cunha'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
-      assert_phrase_list :cost, [:passport_costs_fee_only, :adult_passport_costs_only, :passport_cost_and_admin_fee]
-      assert_phrase_list :send_your_application, [:send_application_ips3, :send_application_address_st_helena_ascension_and_tristan_da_cunha]
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_st-helena-ascension-and-tristan-da-cunha", :getting_your_passport_contact, :getting_your_passport_id_apply_renew_old_replace]
     end
     should "give the ips application result for renewing_new" do
       add_response 'st-helena-ascension-and-tristan-da-cunha'
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
-      assert_phrase_list :cost, [:passport_costs_fee_only, :adult_passport_costs_only, :passport_cost_and_admin_fee]
-      assert_phrase_list :send_your_application, [:send_application_ips3, :renewing_new_renewing_old, :send_application_address_st_helena_ascension_and_tristan_da_cunha]
-      assert_phrase_list :getting_your_passport, [:"getting_your_passport_st-helena-ascension-and-tristan-da-cunha", :getting_your_passport_contact, :getting_your_passport_id_renew_new]
     end
   end # St Helena
 
@@ -697,12 +626,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_14_weeks, :how_long_it_takes_ips1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_1_application_form, :ips_documents_group_3]
-      assert_phrase_list :send_your_application, [:send_application_durham]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_nigeria, :getting_your_passport_contact_and_id]
-      assert_phrase_list :contact_passport_adviceline, [:contact_passport_adviceline]
     end
   end # Nigeria
 
@@ -713,9 +636,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :report_loss_or_theft, :how_long_it_takes_ips1]
-      assert_phrase_list :how_to_apply, [:how_to_apply_ips1, :hmpo_2_application_form, :ips_documents_group_3]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
       assert_match /Millburngate House/, outcome_body
     end
   end # Jamaica
@@ -730,27 +650,16 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_18_weeks, :how_long_it_takes_ips1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_zimbabwe, :getting_your_passport_contact_and_id]
     end
     should "give the ips outcome with renewing_new phrases" do
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :send_your_application, [:send_application_durham]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_zimbabwe, :getting_your_passport_contact_and_id]
     end
     should "give the ips outcome with replacing phrases" do
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :report_loss_or_theft, :how_long_it_takes_ips1]
-      assert_phrase_list :cost, [:passport_courier_costs_ips1, :adult_passport_costs_ips1, :passport_costs_ips1]
-      assert_phrase_list :send_your_application, [:send_application_durham]
-      assert_phrase_list :getting_your_passport, [:getting_your_passport_zimbabwe, :getting_your_passport_contact_and_id]
     end
   end # Zimbabwe
 
@@ -764,9 +673,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_bangladesh]
       end
     end
     context "replacing a new adult passport" do
@@ -774,8 +680,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'replacing'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_18_weeks, :report_loss_or_theft, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
       end
     end
     context "applying for a new adult passport" do
@@ -784,8 +688,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'bangladesh'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_8_months, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
       end
     end
   end # Bangladesh
@@ -800,11 +702,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
       should "give the correct ips result" do
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips2]
-        assert_phrase_list :cost, [:passport_courier_costs_tajikistan, :adult_passport_costs_ips2, :passport_costs_ips2]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_tajikistan]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_tajikistan]
       end
     end
   end
@@ -819,11 +716,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
       should "give the ips result" do
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips2]
-        assert_phrase_list :cost, [:passport_courier_costs_turkmenistan, :adult_passport_costs_ips2, :passport_costs_ips2]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_turkmenistan]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_turkmenistan]
       end
     end
     context "applying for a new adult passport" do
@@ -836,11 +728,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
       should "give the ips result" do
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :how_long_it_takes_ips2]
-        assert_phrase_list :cost, [:passport_courier_costs_turkmenistan, :adult_passport_costs_ips2, :passport_costs_ips2]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour, :send_application_address_turkmenistan]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_turkmenistan]
       end
     end
     context "replacing a lost or stolen passport for a child" do
@@ -852,10 +739,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
       should "give the specific reference to embassy location" do
         assert_current_node :ips_application_result
-        assert_phrase_list :cost, [:passport_courier_costs_turkmenistan, :child_passport_costs_ips2, :passport_costs_ips2]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips2, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour, :send_application_address_turkmenistan]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_turkmenistan]
       end
     end
   end # Turkmenistan
@@ -870,11 +753,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_uzbekistan, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_uzbekistan]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_uzbekistan]
       end
     end
     context "applying for a new adult passport" do
@@ -883,11 +761,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_10_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_uzbekistan, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour, :send_application_address_uzbekistan]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_uzbekistan]
       end
     end
     context "replacing a lost or stolen passport for a child" do
@@ -895,10 +768,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'replacing'
         add_response 'child'
         assert_current_node :ips_application_result
-        assert_phrase_list :cost, [:passport_courier_costs_uzbekistan, :child_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour, :send_application_address_uzbekistan]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_uzbekistan]
       end
     end
   end # Uzbekistan
@@ -947,11 +816,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_algeria]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact, :getting_your_passport_id_renew_new]
       end
     end
     context "applying for a new adult passport" do
@@ -960,11 +824,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_12_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour, :send_application_address_algeria]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact_and_id]
       end
     end
   end # Algeria
@@ -979,11 +838,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_renew_new_colour, :send_application_embassy_address]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_burma, :getting_your_passport_contact, :getting_your_passport_id_renew_new]
       end
     end
     context "applying for a new adult passport" do
@@ -992,11 +846,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_16_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :send_your_application, [:send_application_non_uk_visa_apply_renew_old_replace_colour, :send_application_embassy_address]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_burma, :getting_your_passport_contact, :getting_your_passport_id_apply_renew_old_replace]
       end
     end
   end # Burma
@@ -1011,7 +860,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia, :getting_your_passport_uk_visa_where_to_collect, :getting_your_passport_with_id]
       end
     end
     context "applying for a new adult passport" do
@@ -1020,7 +868,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_cambodia, :getting_your_passport_uk_visa_where_to_collect, :getting_your_passport_id_apply_renew_old_replace]
       end
     end
   end # Cambodia
@@ -1032,7 +879,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_kyrgyzstan]
     end
   end # Kyrgyzstan
 
@@ -1044,7 +890,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_phrase_list :cost, [:passport_courier_costs_ips2_uk_visa, :adult_passport_costs_ips2, :passport_costs_ips2]
     end
   end # Georgia
 
@@ -1058,7 +903,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :send_your_application, [:"send_application_timor-leste", :"send_application_address_timor-leste"]
       end
     end
     context "applying for a new adult passport" do
@@ -1067,7 +911,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :send_your_application, [:"send_application_timor-leste", :"send_application_address_timor-leste"]
       end
     end
   end # Timor-Leste
@@ -1082,9 +925,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_pay_at_appointment]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_venezuela]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact, :getting_your_passport_id_renew_new]
       end
     end
     context "applying for a new adult passport" do
@@ -1093,9 +933,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'united-kingdom'
         assert_current_node :ips_application_result
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_pay_at_appointment]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour, :send_application_address_venezuela]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact_and_id]
       end
     end
   end # Venezuela
@@ -1132,7 +969,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_6_weeks, :how_long_it_takes_ips3]
       end
     end
     context "renewing an old adult passport" do
@@ -1141,7 +977,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'adult'
         add_response 'afghanistan'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
       end
     end
   end
@@ -1156,11 +991,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_8_weeks, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :adult_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour, :send_application_address_pakistan]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :send_application_ips1_pakistan, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact, :getting_your_passport_id_renew_new]
       end
     end # renewing_new adult
     context "replacing adult passport" do
@@ -1168,12 +998,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'replacing'
         add_response 'child'
         assert_current_node :ips_application_result
-        assert_phrase_list :how_long_it_takes, [:how_long_14_weeks,:report_loss_or_theft, :how_long_it_takes_ips3]
-        assert_phrase_list :cost, [:passport_courier_costs_ips3_uk_visa, :child_passport_costs_ips3, :passport_costs_ips3]
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour,
-          :send_application_address_pakistan]
-        assert_phrase_list :how_to_apply, [:how_to_apply_ips3, :send_application_ips1_pakistan, :hmpo_1_application_form, :ips_documents_group_3]
-        assert_phrase_list :getting_your_passport, [:getting_your_passport_uk_visa_centre, :getting_your_passport_contact_and_id]
       end
     end # replacing child
   end # Pakistan tests
@@ -1203,7 +1027,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'renewing_new'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_renew_new_colour_laos, :send_application_address_laos]
       end
     end
 
@@ -1212,7 +1035,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'replacing'
         add_response 'adult'
         assert_current_node :ips_application_result
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour_laos, :send_application_address_laos]
       end
     end
 
@@ -1223,7 +1045,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'laos'
 
         assert_current_node :ips_application_result
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour_laos, :send_application_address_laos]
       end
     end
 
@@ -1234,7 +1055,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'laos'
 
         assert_current_node :ips_application_result
-        assert_phrase_list :send_your_application, [:send_application_uk_visa_apply_renew_old_replace_colour_laos, :send_application_address_laos]
       end
     end
   end
