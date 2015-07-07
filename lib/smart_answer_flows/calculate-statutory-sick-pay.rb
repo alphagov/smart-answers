@@ -116,10 +116,14 @@ module SmartAnswer
           response
         end
 
-        calculate :prior_sick_days do |response|
+        next_node_calculation :prior_sick_days do |response|
           start_date = sick_start_date_for_awe
           last_day_sick = response
           (last_day_sick - start_date).to_i + 1
+        end
+
+        validate :start_before_end do
+          prior_sick_days >= 1
         end
 
         next_node(:paid_at_least_8_weeks?)
