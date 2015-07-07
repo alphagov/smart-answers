@@ -167,11 +167,7 @@ module SmartAnswer
       end
 
       ## No-op outcome.
-      outcome :cannot_apply do
-        precalculate :body_text do
-          PhraseList.new(:"body_#{current_location}")
-        end
-      end
+      outcome :cannot_apply, use_outcome_templates: true
 
       outcome :apply_in_neighbouring_country do
         precalculate :title_output do

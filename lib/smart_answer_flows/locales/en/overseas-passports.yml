@@ -45,57 +45,6 @@ en-GB:
         emergency_travel_help_north-korea: |
           If you need help with emergency travel arrangements in North Korea, contact the [British Embassy in Pyongyang](/government/world/organisations/british-embassy-pyonyang).
 
-
-        body_iran: |
-          You can’t apply for a British passport from Iran at this time.
-
-          You should apply in a neighbouring country of your choice.
-
-          If you need an emergency travel document to leave Iran, contact the Foreign and Commonwealth Office for further information.
-
-
-          $C
-            Foreign and Commonwealth Office
-
-            Email: consularenquiries.tehran@fco.gov.uk
-
-            Telephone: (+44) 207 008 1500
-          $C
-
-        body_libya: |
-          You can’t apply for a British passport from Libya at this time.
-
-          You should apply in a neighbouring country of your choice.
-
-          If you need more information read the [Foreign Commonwealth Office travel advice](/foreign-travel-advice/libya).
-
-        body_yemen: |
-          You can’t apply for a British passport from Yemen at this time.
-
-          You should apply in a neighbouring country of your choice.
-
-          If you need more information read the [Foreign Commonwealth Office travel advice](/foreign-travel-advice/yemen).
-
-        body_syria: |
-          You can’t apply for a British passport from Syria at this time.
-
-          You should apply in a neighbouring country of your choice.
-
-          If you need an emergency travel document to leave Syria, contact the Foreign and Commonwealth Office for further information.
-
-
-          $C
-            Foreign and Commonwealth Office
-
-            Email: consularenquiries.damascus@fco.gov.uk
-
-            Telephone: (+44) 207 008 1500
-          $C
-
-      cannot_apply:
-        body: |
-          %{body_text}
-
       apply_in_neighbouring_country:
         title: You can’t apply for a British passport from %{title_output}.
         body: |

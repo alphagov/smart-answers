@@ -508,7 +508,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('yemen', read_fixture_file('worldwide/yemen_organisations.json'))
       add_response 'yemen'
       assert_current_node :cannot_apply
-      assert_phrase_list :body_text, [:body_yemen]
     end
   end # Yemen - no application outcome
 
@@ -517,7 +516,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
       add_response 'iran'
       assert_current_node :cannot_apply
-      assert_phrase_list :body_text, [:body_iran]
     end
   end # Iran - no application outcome
 
@@ -526,7 +524,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('syria', read_fixture_file('worldwide/syria_organisations.json'))
       add_response 'syria'
       assert_current_node :cannot_apply
-      assert_phrase_list :body_text, [:body_syria]
     end
   end # Syria - no application outcome
 
