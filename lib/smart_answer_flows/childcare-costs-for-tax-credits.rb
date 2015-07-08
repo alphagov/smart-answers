@@ -219,23 +219,25 @@ module SmartAnswer
       end
 
       ### Outcomes
+      use_outcome_templates
+
       #O1
-      outcome :call_helpline_detailed, use_outcome_templates: true
+      outcome :call_helpline_detailed
 
       #O5
-      outcome :call_helpline_plain, use_outcome_templates: true
+      outcome :call_helpline_plain
 
       #O2
-      outcome :no_change, use_outcome_templates: true
+      outcome :no_change
 
       #O3
-      outcome :round_up_weekly, use_outcome_templates: true
+      outcome :round_up_weekly
 
       #O4
-      outcome :weekly_costs_are_x, use_outcome_templates: true
+      outcome :weekly_costs_are_x
 
       #O6, 7, 8
-      outcome :cost_changed, use_outcome_templates: true do
+      outcome :cost_changed do
         precalculate :ten_or_more do
           weekly_difference_abs >= 10
         end
@@ -250,7 +252,7 @@ module SmartAnswer
       end
 
       #O9
-      outcome :no_longer_paying, use_outcome_templates: true
+      outcome :no_longer_paying
     end
   end
 end
