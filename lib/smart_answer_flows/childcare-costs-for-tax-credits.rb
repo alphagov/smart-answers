@@ -220,7 +220,7 @@ module SmartAnswer
 
       ### Outcomes
       #O1
-      outcome :call_helpline_detailed
+      outcome :call_helpline_detailed, use_outcome_templates: true
 
       #O5
       outcome :call_helpline_plain

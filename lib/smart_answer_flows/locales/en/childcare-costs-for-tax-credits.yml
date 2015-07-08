@@ -157,16 +157,6 @@ en-GB:
           Round the total up to the nearest pound.
 
       # OUTCOMES
-      call_helpline_detailed:
-        title: "Call the Tax Credit Helpline to work out your average weekly childcare costs."
-        body: |
-          You’ll need to tell them:
-
-          - the start and end date of the childcare
-
-          - how much you spent on childcare for the short period
-          - your childcare provider’s details - their name, address, phone number, childcare registration or approval number
-
       call_helpline_plain:
         title: "Contact the Tax Credit Office for help in working out your costs."
 
