@@ -57,7 +57,17 @@ Fax: +(43) (1) 71613 2900</p>
 
 <script type="text/javascript">
   var flowName = 'marriage-abroad';
-  GOVUK.analytics.trackEvent('Smart Answer', 'Completed', {label: flowName, nonInteraction: true});
+  event = {
+    hitType: 'event',
+    eventCategory: 'Smart Answer',
+    eventAction: 'Completed',
+    eventLabel: flowName,
+    nonInteraction: 1,
+    page: document.location.pathname
+  };
+  if (typeof window.ga === "function") {
+    window.ga('send', event);
+  };
 </script>
 
     <div class="previous-answers ">
