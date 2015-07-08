@@ -195,12 +195,6 @@ en-GB:
           draught_proofing: Draught proofing
 
 
-# outcome 3b measures_help and green_deal
-      outcome_measures_help_green_deal:
-        title: %{title_end}
-        body: |
-          %{eligibilities}
-
 # outcome 3c bills and measures - no benefits
       outcome_bills_and_measures_no_benefits:
         title: %{title_end}

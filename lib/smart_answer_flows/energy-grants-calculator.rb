@@ -320,49 +320,9 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_measures_help_green_deal do
-        precalculate :title_end do
-          PhraseList.new(:title_under_green_deal)
-        end
-        precalculate :eligibilities do
-          phrases = PhraseList.new
-          phrases << :header_boilers_and_insulation
-          unless (features & %w(modern_boiler)).any?
-            phrases << :opt_condensing_boiler
-          end
-          phrases << :opt_cavity_wall_insulation
-          phrases << :opt_solid_wall_insulation
-          unless (features & %w(draught_proofing)).any?
-            phrases << :opt_draught_proofing
-          end
-          unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-            phrases << :opt_loft_roof_insulation
-          end
-          unless flat_type == "top_floor"
-            if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
-              phrases << :opt_room_roof_insulation
-            end
-            unless modern
-              phrases << :opt_under_floor_insulation
-            end
-          end
-          phrases << :header_heating
-          phrases << :opt_better_heating_controls
-          unless (features & %w(mains_gas)).any?
-            phrases << :opt_heat_pump
-            phrases << :opt_biomass_boilers_heaters
-            phrases << :opt_solar_water_heating
-          end
-          unless (features & %w(modern_double_glazing)).any?
-            phrases << :header_windows_and_doors
-            phrases << :opt_replacement_glazing
-          end
-          unless bills_help
-            phrases << :opt_renewal_heat
-          end
-          phrases << :help_and_advice
-          phrases << :help_and_advice_body
-          phrases
+      outcome :outcome_measures_help_green_deal, use_outcome_templates: true do
+        precalculate :flat_type do
+          flat_type
         end
       end
 
