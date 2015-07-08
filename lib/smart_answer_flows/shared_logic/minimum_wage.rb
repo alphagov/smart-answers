@@ -447,7 +447,7 @@ value_question :past_accommodation_usage?, parse: Integer do
   end
 end
 
-outcome :current_payment_above do
+outcome :current_payment_above, use_outcome_templates: true do
   precalculate :total_working_pay do
     calculator.total_working_pay
   end

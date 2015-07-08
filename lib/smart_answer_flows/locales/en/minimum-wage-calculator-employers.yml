@@ -155,29 +155,6 @@ en-GB:
         title: "How many days per week did the worker live in the accommodation?"
         suffix_label: days per week
         error_message: 7 is the highest number of days you can enter.
-      # Current result over minimum wage
-      current_payment_above:
-        body: |
-          $C
-          You are paying the National Minimum Wage.
-          $C
-
-          The National Minimum Wage per hour for the worker’s age | The worker’s actual pay
-          - | -
-          £%{minimum_hourly_rate} | £%{total_hourly_rate}
-
-          If the worker works overtime or you provide them with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
-
-          This result is an estimate. If you have any questions, call the confidential helpline:
-
-
-          $C
-          Acas helpline
-          Telephone: 0300 123 1100
-          [Find out about call charges](/call-charges)
-          $C
-
-          Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work).
       current_payment_below:
         body: |
           $C
