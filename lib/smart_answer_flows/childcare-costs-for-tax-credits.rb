@@ -229,7 +229,7 @@ module SmartAnswer
       outcome :no_change, use_outcome_templates: true
 
       #O3
-      outcome :round_up_weekly
+      outcome :round_up_weekly, use_outcome_templates: true
 
       #O4
       outcome :weekly_costs_are_x
