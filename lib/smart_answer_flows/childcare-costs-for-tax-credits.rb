@@ -226,7 +226,7 @@ module SmartAnswer
       outcome :call_helpline_plain, use_outcome_templates: true
 
       #O2
-      outcome :no_change
+      outcome :no_change, use_outcome_templates: true
 
       #O3
       outcome :round_up_weekly

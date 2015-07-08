@@ -157,10 +157,6 @@ en-GB:
           Round the total up to the nearest pound.
 
       # OUTCOMES
-      no_change:
-        title: "There is no change to your tax credits."
-        body: "You don’t have to report anything to the Tax Credit Office."
-
       round_up_weekly:
         title: "Your weekly childcare costs are the total amount you pay each week rounded up to the nearest pound."
         body: "Use this figure on your claim form."
