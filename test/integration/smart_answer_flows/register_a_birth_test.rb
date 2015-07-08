@@ -60,7 +60,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_state_variable :registration_country, 'spain'
-      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_andorra]
     end
   end # Andorra
 
@@ -72,7 +71,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_israel]
     end
   end # Andorra
 
@@ -145,11 +143,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
             assert_state_variable :registration_country, 'spain'
             assert_state_variable :button_data, {text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"}
             assert_current_node :oru_result
-            assert_phrase_list :oru_documents_variant, [:oru_documents_variant_spain]
-            assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_uk]
-            assert_phrase_list :translator_link, [:approved_translator_link]
             assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
-            assert_phrase_list :waiting_time, [:registration_takes_5_days]
           end
         end
       end # married
@@ -170,13 +164,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_state_variable :british_national_parent, 'mother_and_father'
       assert_state_variable :custom_waiting_time, '6 months'
       assert_state_variable :translator_link_url, '/government/publications/afghanistan-list-of-lawyers'
-      assert_phrase_list :birth_registration_form, [:birth_registration_form]
-      assert_phrase_list :oru_documents_variant, [:oru_documents]
-      assert_phrase_list :translator_link, [:approved_translator_link]
-      assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
-      assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
-      assert_phrase_list :oru_outcome_introduction, [:oru_outcome_higher_risk_country_introduction]
-      assert_phrase_list :waiting_time, [:custom_registration_duration]
     end
 
     should "give the no_birth_certificate_result if the child born outside of marriage" do
@@ -185,7 +172,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
 
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:afghanistan_same_country_certificate_exception]
     end
 
     should "give Libya-specific intro if currently there" do
@@ -194,7 +180,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "another_country"
       add_response "libya"
-      assert_phrase_list :oru_outcome_introduction, [:oru_outcome_higher_risk_country_currently_in_libya_introduction]
+      assert_current_node :oru_result
     end
   end
 
@@ -210,7 +196,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
 
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:iraq_same_country_certificate_exception]
     end
 
     should "give the no_birth_certificate_result if the child born outside of marriage and currently in another country" do
@@ -219,7 +204,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
 
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:iraq_another_country_certificate_exception, :contact_fco]
     end
   end
 
@@ -233,10 +217,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
       add_response "pakistan"
       assert_current_node :oru_result
-      assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
-      assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
-      assert_phrase_list :oru_documents_variant, [:oru_documents]
-      assert_phrase_list :waiting_time, [:custom_registration_duration]
       assert_state_variable :custom_waiting_time, '8 months'
     end
   end # Afghanistan
@@ -252,7 +232,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "in_the_uk"
       assert_current_node :oru_result
-      assert_phrase_list :waiting_time, [:custom_registration_duration]
       assert_state_variable :custom_waiting_time, '6 months'
     end
 
@@ -262,7 +241,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_phrase_list :oru_outcome_introduction, [:oru_outcome_higher_risk_country_introduction]
     end
 
     should "give the no_birth_certificate_result if the child born outside of marriage" do
@@ -271,7 +249,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
 
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:pakistan_same_country_certificate_exception]
     end
 
     should "give the no_birth_certificate_result if the child born outside of marriage and currently in another country" do
@@ -280,7 +257,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
 
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:pakistan_another_country_certificate_exception, :contact_fco]
     end
   end # Pakistan
 
@@ -293,10 +269,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "2006-07-01"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:oru_documents]
-      assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
-      assert_phrase_list :translator_link, [:no_translator_link]
-      assert_phrase_list :waiting_time, [:registration_takes_5_days]
     end # Not married or CP
   end # Belize
 
@@ -311,11 +283,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_current_node :oru_result
       assert_state_variable :british_national_parent, 'father'
       assert_state_variable :custom_waiting_time, '6 months'
-      assert_phrase_list :waiting_time, [:registration_duration_in_libya]
-      assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
-      assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
-      assert_phrase_list :oru_documents_variant, [:oru_documents]
-      assert_phrase_list :oru_outcome_introduction, [:oru_outcome_higher_risk_country_currently_in_libya_introduction]
     end # Not married or CP
   end # Libya
 
@@ -340,7 +307,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "no"
       add_response "same_country"
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:"united-arab-emirates_same_country_certificate_exception"]
     end # Not married or CP
 
     should "give the no birth certificate result with another country phrase" do
@@ -348,7 +314,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "no"
       add_response "another_country"
       assert_current_node :no_birth_certificate_result
-      assert_phrase_list :registration_exception, [:"united-arab-emirates_another_country_certificate_exception", :contact_fco]
     end # Not married or CP
 
     should "give the oru result" do
@@ -357,8 +322,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
       assert_current_node :oru_result
       assert_state_variable :british_national_parent, 'father'
-      assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_united-arab-emirates"]
-      assert_phrase_list :translator_link, [:approved_translator_link]
       assert_state_variable :translator_link_url, "/government/publications/united-arab-emirates-list-of-lawyers"
     end
   end # UAE
@@ -415,7 +378,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'same_country'
 
       assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_sri-lanka"]
     end
   end
   context "India" do
@@ -429,7 +391,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'same_country'
 
       assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_india]
     end
   end
   context "child born in grenada, parent in St kitts" do
@@ -441,7 +402,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'another_country'
       add_response 'st-kitts-and-nevis'
       assert_current_node :oru_result
-      assert_phrase_list :birth_registration_form, [:birth_registration_form]
     end
   end
 
@@ -453,11 +413,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_netherlands]
-      assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
-      assert_phrase_list :translator_link, [:approved_translator_link]
       assert_state_variable :translator_link_url, "/government/publications/netherlands-list-of-lawyers"
-      assert_phrase_list :oru_outcome_introduction, [:oru_outcome_standard_introduction]
     end
   end # Netherlands
   context "answer serbia" do
@@ -468,9 +424,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:oru_documents]
-      assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
-      assert_phrase_list :translator_link, [:approved_translator_link]
       assert_state_variable :translator_link_url, "/government/publications/list-of-translators-and-interpreters-in-serbia"
     end
   end # Serbia
@@ -482,9 +435,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:oru_documents]
-      assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
-      assert_phrase_list :translator_link, [:no_translator_link]
     end
   end # Estonia
 
@@ -496,9 +446,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_phrase_list :oru_documents_variant, [:"oru_documents_variant_united-arab-emirates"]
-      assert_phrase_list :oru_address, [:send_registration_oru, :oru_address_abroad]
-      assert_phrase_list :translator_link, [:approved_translator_link]
       assert_state_variable :translator_link_url, "/government/publications/united-arab-emirates-list-of-lawyers"
     end
   end # UAE
@@ -512,8 +459,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
       add_response "germany"
       assert_current_node :oru_result
-      assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
-      assert_phrase_list :waiting_time, [:registration_takes_5_days]
     end
   end
 
@@ -526,10 +471,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
       add_response "germany"
       assert_current_node :oru_result
-      assert_phrase_list :oru_courier_text, [:oru_courier_text_default]
-      assert_phrase_list :translator_link, [:approved_translator_link]
-      assert_phrase_list :morocco_swear_in_court, [:swear_in_moroccan_court]
-      assert_phrase_list :oru_documents_variant, [:oru_documents_variant_morocco]
     end
   end
 
@@ -543,7 +484,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
       add_response "cameroon"
       assert_current_node :oru_result
-      assert_phrase_list :oru_courier_text, [:oru_courier_text_cameroon]
     end
   end
 
@@ -555,7 +495,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "no"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_phrase_list :oru_address, [:book_appointment_at_embassy]
     end
   end
 
@@ -572,7 +511,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
       add_response "australia"
       assert_current_node :oru_result
-      assert_phrase_list :oru_extra_documents, [:oru_extra_documents_variant_intro, :oru_extra_documents_variant_philippines]
     end
 
     should "show ORU outcome and require even more extra documents if only the father is british" do
@@ -581,7 +519,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "2014-03-04"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_phrase_list :oru_extra_documents, [:oru_extra_documents_variant_intro, :oru_extra_documents_in_philippines_when_mother_not_british, :oru_extra_documents_variant_philippines]
     end
   end
 
@@ -593,7 +530,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "no"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_phrase_list :oru_extra_documents, [:oru_extra_documents_variant_intro, :oru_extra_documents_variant_uganda]
     end
   end
 
@@ -620,7 +556,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "north-korea"
 
       assert_current_node :oru_result
-      assert_phrase_list :waiting_time, [:registration_duration_in_countries_with_an_exception]
     end
 
     should "display 3 months if child born in a lower risk (non phase-5) country and currently in Cambodia" do
@@ -633,7 +568,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "cambodia"
 
       assert_current_node :oru_result
-      assert_phrase_list :waiting_time, [:registration_can_take_3_months]
     end
   end
 
@@ -650,7 +584,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
       add_response "algeria"
       assert_current_node :oru_result
-      assert_phrase_list :payment_method, [:payment_method_in_algeria]
     end
 
     should "display a default payment message if currently not in Algeria" do
@@ -660,7 +593,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
       add_response "netherlands"
       assert_current_node :oru_result
-      assert_phrase_list :payment_method, [:standard_payment_method]
     end
 
     should "display a default payment message if child was born in Algeria but currently in the UK" do
@@ -669,7 +601,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "in_the_uk"
       assert_current_node :oru_result
-      assert_phrase_list :payment_method, [:standard_payment_method]
     end
   end
 end
