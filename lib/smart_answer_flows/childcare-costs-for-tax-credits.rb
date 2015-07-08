@@ -223,7 +223,7 @@ module SmartAnswer
       outcome :call_helpline_detailed, use_outcome_templates: true
 
       #O5
-      outcome :call_helpline_plain
+      outcome :call_helpline_plain, use_outcome_templates: true
 
       #O2
       outcome :no_change
