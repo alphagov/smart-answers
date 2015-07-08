@@ -188,16 +188,6 @@ en-GB:
           draught_proofing: Draught proofing
 
 
-# outcome 1 help with bills
-      outcome_help_with_bills:
-        title: %{help_with_bills_outcome_title}
-        body: |
-          %{eligibilities_bills}
-
-          See which [improvements your property may qualify for](/energy-grants-calculator/y/help_energy_efficiency).
-
-          For some of these schemes further eligibility criteria apply. These can differ depending on your supplier.
-
 # outcome 3b measures_help and green_deal
       outcome_measures_help_green_deal:
         title: %{title_end}
