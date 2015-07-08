@@ -23,12 +23,6 @@ module SmartAnswer
       country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: exclude_countries do
         save_input_as :passport_country
 
-        calculate :if_refugee do
-          if passport_country == 'stateless-or-refugee'
-            PhraseList.new(:apply_from_country_of_origin_or_residency)
-          end
-        end
-
         next_node_if(:outcome_no_visa_needed, country_in(country_group_eea))
         next_node(:purpose_of_visit?)
       end
@@ -134,85 +128,31 @@ module SmartAnswer
         end
       end
 
+      use_outcome_templates
+
       outcome :outcome_no_visa_needed do
-        precalculate :no_visa_additional_sentence do
-          if %w(croatia).include?(passport_country)
-            PhraseList.new(:croatia_additional_sentence)
-          elsif purpose_of_visit_answer == 'study'
-            PhraseList.new(:study_additional_sentence)
-          end
+        precalculate :purpose_of_visit_answer do
+          purpose_of_visit_answer
         end
       end
       outcome :outcome_study_y
       outcome :outcome_study_m
-      outcome :outcome_work_y do
-        precalculate :if_youth_mobility_scheme_country do
-          if %w(australia canada japan monaco new-zealand hong-kong south-korea taiwan).include?(passport_country)
-            PhraseList.new(:youth_mobility_scheme)
-          end
-        end
-        precalculate :if_turkey do
-          if %w(turkey).include?(passport_country)
-            PhraseList.new(:turkey_business_person_visa)
-          end
-        end
-      end
+      outcome :outcome_work_y
       outcome :outcome_work_m
       outcome :outcome_work_n
       outcome :outcome_transit_leaving_airport
-      outcome :outcome_transit_not_leaving_airport do
-        precalculate :if_syria do
-          PhraseList.new(:b1_b2_visa_exception) if passport_country == 'syria'
-        end
-      end
+      outcome :outcome_transit_not_leaving_airport
       outcome :outcome_joining_family_y
       outcome :outcome_joining_family_m
       outcome :outcome_joining_family_nvn
-      outcome :outcome_standard_visit do
-        precalculate :if_china do
-          if %w(china).include?(passport_country)
-            PhraseList.new(:china_tour_group)
-          end
-        end
-      end
+      outcome :outcome_standard_visit
       outcome :outcome_marriage
       outcome :outcome_school_n
       outcome :outcome_school_y
       outcome :outcome_medical_y
       outcome :outcome_medical_n
-      outcome :outcome_visit_waiver do
-        precalculate :if_exception do
-          if %w(venezuela).include?(passport_country)
-            if leaving_airport_answer == "yes"
-              PhraseList.new(:epassport_crossing_border)
-            elsif leaving_airport_answer == "no"
-              PhraseList.new(:epassport_not_crossing_border)
-            end
-          elsif %w(taiwan).include?(passport_country)
-            if leaving_airport_answer == "yes"
-              PhraseList.new(:passport_bio_crossing_border)
-            else
-              PhraseList.new(:passport_bio_not_crossing_border)
-            end
-          elsif %w(oman qatar united-arab-emirates).include?(passport_country)
-            PhraseList.new(:electronic_visa_waiver, :apply_for_visitor_visa)
-          end
-        end
-        precalculate :outcome_title do
-          if %w(venezuela).include?(passport_country)
-            PhraseList.new(:epassport_visa_not_needed_title)
-          elsif %w(taiwan).include?(passport_country)
-            PhraseList.new(:passport_bio_visa_not_needed_title)
-          elsif %w(oman qatar united-arab-emirates).include?(passport_country)
-            PhraseList.new(:electronic_visa_waiver_needed_title)
-          end
-        end
-      end
-      outcome :outcome_transit_leaving_airport_datv do
-        precalculate :if_syria do
-          PhraseList.new(:b1_b2_visa_exception) if passport_country == 'syria'
-        end
-      end
+      outcome :outcome_visit_waiver
+      outcome :outcome_transit_leaving_airport_datv
       outcome :outcome_taiwan_exception
       outcome :outcome_diplomatic_business
       outcome :outcome_transit_refugee_not_leaving_airport

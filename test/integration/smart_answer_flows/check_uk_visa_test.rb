@@ -27,7 +27,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'marriage'
 
       assert_current_node :outcome_marriage
-      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
 
     should "suggest to apply in country of originallity or residence for outcome_study_m" do
@@ -35,7 +34,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'six_months_or_less'
 
       assert_current_node :outcome_study_m
-      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
 
     should "suggest to apply in country of originallity or residence for outcome_study_y" do
@@ -43,21 +41,18 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'longer_than_six_months'
 
       assert_current_node :outcome_study_y
-      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
 
     should "suggest to apply in country of originallity or residence for outcome_work_m" do
       add_response 'work'
       add_response 'six_months_or_less'
       assert_current_node :outcome_work_m
-      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
 
     should "suggest to apply in country of originallity or residence for outcome_work_y" do
       add_response 'work'
       add_response 'longer_than_six_months'
       assert_current_node :outcome_work_y
-      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
 
     should "suggest to apply in country of originallity or residence for outcome_transit_leaving_airport" do
@@ -65,7 +60,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'yes'
 
       assert_current_node :outcome_transit_leaving_airport
-      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
 
     should "suggests to get a Direct Airside Transit visa if not leaving the airport" do
@@ -79,25 +73,21 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'tourism'
 
       assert_current_node :outcome_standard_visit
-      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
 
     should "suggest to apply in country of originallity or residence for outcome_school_y" do
       add_response 'school'
       assert_current_node :outcome_school_y
-      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
 
     should "suggest to apply in country of originallity or residence for outcome_medical_y" do
       add_response 'medical'
       assert_current_node :outcome_medical_y
-      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
 
     should "suggest to apply in country of originallity or residence for outcome_joining_family_y" do
       add_response 'family'
       assert_current_node :outcome_joining_family_y
-      assert_phrase_list :if_refugee, [:apply_from_country_of_origin_or_residency]
     end
   end
 
@@ -249,7 +239,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
         should "take you to outcome study_m" do
           assert_current_node :outcome_study_m
-          assert_phrase_blank :if_refugee
         end
       end
 
@@ -260,7 +249,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
         should "take you to outcome work_m" do
           assert_current_node :outcome_work_m
-          assert_phrase_blank :if_refugee
         end
       end
 
@@ -277,7 +265,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           end
           should "take you to transit_leaving_airport outcome" do
             assert_current_node :outcome_transit_leaving_airport
-            assert_phrase_blank :if_refugee
           end
         end
         context "not planning to leave airport" do
@@ -332,7 +319,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
         should "take insert an additional phrase" do
           assert_current_node :outcome_standard_visit
-          assert_phrase_list :if_china, [:china_tour_group]
         end
       end
     end
@@ -408,8 +394,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           end
           should "take you to the visit waiver outcome with leaving airport phraselist" do
             assert_current_node :outcome_visit_waiver
-            assert_phrase_list :if_exception, [:epassport_crossing_border]
-            assert_phrase_list :outcome_title, [:epassport_visa_not_needed_title]
           end
         end
         context "leaving airport" do
@@ -418,8 +402,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           end
           should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
             assert_current_node :outcome_visit_waiver
-            assert_phrase_list :if_exception, [:epassport_not_crossing_border]
-            assert_phrase_list :outcome_title, [:epassport_visa_not_needed_title]
           end
         end
       end
@@ -451,7 +433,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
     should "takes you to outcome_work_y" do
       assert_current_node :outcome_work_y
-      assert_phrase_list :if_turkey, [:turkey_business_person_visa]
     end
   end
   context "testing outcome visit waiver" do
@@ -461,7 +442,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
       should "take you to outcome visit waiver" do
       assert_current_node :outcome_visit_waiver
-        assert_phrase_list :if_exception, [:electronic_visa_waiver, :apply_for_visitor_visa]
     end
   end
   context "testing croatia phrase list" do
@@ -470,7 +450,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
     should "takes you to outcome_no_visa_needed with croatia phraselist" do
       assert_current_node :outcome_no_visa_needed
-      assert_phrase_list :no_visa_additional_sentence, [:croatia_additional_sentence]
     end
   end
 
@@ -506,7 +485,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
         should "take you to outcome_no_visa_needed" do
           assert_current_node :outcome_no_visa_needed
-          assert_phrase_list :no_visa_additional_sentence, [:study_additional_sentence]
         end
       end
     end #end canada study reason
@@ -525,7 +503,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
         should "take you to outcome 2 study y" do
           assert_current_node :outcome_work_y
-          assert_phrase_list :if_youth_mobility_scheme_country, [:youth_mobility_scheme]
         end
       end
 
@@ -647,8 +624,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       should "take you to the visit waiver outcome with leaving airport phraselist" do
         assert_current_node :outcome_visit_waiver
-        assert_phrase_list :if_exception, [:passport_bio_crossing_border]
-        assert_phrase_list :outcome_title, [:passport_bio_visa_not_needed_title]
       end
     end
     context "leaving airport" do
@@ -657,8 +632,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
         assert_current_node :outcome_visit_waiver
-        assert_phrase_list :if_exception, [:passport_bio_not_crossing_border]
-        assert_phrase_list :outcome_title, [:passport_bio_visa_not_needed_title]
       end
     end
   end
@@ -682,7 +655,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       should "take you to school outcome without personalised phraselist" do
         assert_current_node :outcome_school_y
-        assert_state_variable :if_exception, nil
       end
     end
     context "coming to the UK for tourism" do
@@ -691,7 +663,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       should "take you to tourism outcome without personalised phraselist" do
         assert_current_node :outcome_standard_visit
-        assert_state_variable :if_exception, nil
       end
     end
     context "coming to the UK for study" do
@@ -701,7 +672,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       should "take you to study outcome without personalised phraselist" do
         assert_current_node :outcome_study_m
-        assert_state_variable :if_exception, nil
       end
     end
     context "coming to the UK for study" do
@@ -710,7 +680,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       should "take you to medical outcome without personalised phraselist" do
         assert_current_node :outcome_medical_y
-        assert_state_variable :if_exception, nil
       end
     end
   end
@@ -724,13 +693,11 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     should "mention B1 and B2 visas when leaving the airport" do
       add_response 'yes'
       assert_current_node :outcome_transit_leaving_airport_datv
-      assert_phrase_list :if_syria, [:b1_b2_visa_exception]
     end
 
     should "mention B1 and B2 visas when not leaving the airport" do
       add_response 'no'
       assert_current_node :outcome_transit_not_leaving_airport
-      assert_phrase_list :if_syria, [:b1_b2_visa_exception]
     end
   end
 
