@@ -67,7 +67,17 @@ Consular fax: +91 (11) 2419 2491 (not for visa issues)</p>
 
 <script type="text/javascript">
   var flowName = 'marriage-abroad';
-  GOVUK.analytics.trackEvent('Smart Answer', 'Completed', {label: flowName, nonInteraction: true});
+  event = {
+    hitType: 'event',
+    eventCategory: 'Smart Answer',
+    eventAction: 'Completed',
+    eventLabel: flowName,
+    nonInteraction: 1,
+    page: document.location.pathname
+  };
+  if (typeof window.ga === "function") {
+    window.ga('send', event);
+  };
 </script>
 
     <div class="previous-answers ">
