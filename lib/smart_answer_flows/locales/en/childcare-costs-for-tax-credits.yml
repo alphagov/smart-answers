@@ -1,14 +1,6 @@
 en-GB:
   flow:
     childcare-costs-for-tax-credits:
-      phrases:
-        cost_change_doesnt_matter: "This doesn’t affect your tax credits. You don’t need to report it."
-        cost_change_does_matter: "Tell the Tax Credit Office so they can adjust your tax credit."
-        cost_change_4_weeks: |
-          Call the Tax Credit Office if you expect this to last for 4 weeks in a row or more.
-
-          You don’t need to report it if this won’t last 4 weeks in a row or more.
-
       options:
         "yes": "Yes"
         "no": "No"
@@ -157,11 +149,6 @@ en-GB:
           Round the total up to the nearest pound.
 
       # OUTCOMES
-      cost_changed:
-        title: "Your average weekly childcare costs have %{title_change_text} by %{difference_money}."
-        body: |
-          %{body_phrases}
-
       no_longer_paying:
         title: "You’re no longer paying for childcare."
         body: |
