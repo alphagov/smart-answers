@@ -1,0 +1,18 @@
+{::comment}begin-title{::/comment}
+You don't qualify for the Green Deal or for any help with energy efficient measures for your home.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You can find more help on saving money on your energy bills from the Citizens Advice Bureau:</p>
+
+<ul>
+  <li>how to <a rel="external" href="http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_saving_money_on_energy_bills_e/saving_money_on_energy_bills.htm">save money on your energy bill</a></li>
+  <li>understand <a rel="external" href="http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_energy_bills_e/consumer_understanding_your_energy_bill_e.htm">your energy bill</a></li>
+  <li>find out how to <a rel="external" href="http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_choosing_and_switching_supplier_e/switching_gas_or_electricity_supplier.htm">switch energy suppliers</a></li>
+  <li>make a complaint about <a rel="external" href="http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_complaining_about_energy_companies_e.htm">your energy company</a></li>
+  <li>find out about <a rel="external" href="http://www.energysavingtrust.org.uk/Electricity/Products-and-appliances">energy efficient appliances</a></li>
+  <li>visit an <a rel="external" href="http://www.greenopenhomes.net/search">energy-efficient home near you</a></li>
+</ul>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

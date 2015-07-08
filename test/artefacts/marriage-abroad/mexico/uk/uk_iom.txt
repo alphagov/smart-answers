@@ -1,0 +1,27 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in Mexico to find out about local marriage laws, including what documents you’ll need.</p>
+
+<p>You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in the <a rel="external" href="http://www.gov.im/registries/general/civilregistry/">Isle of Man</a> to find out what they can provide, then contact the authorities in Mexico to confirm if this is acceptable.</p>
+
+<p>The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the Manx authorities.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Mexico City<br />British Embassy<br />Río Lerma, No. 71, 
+<br />Col. Cuauhtémoc, CP. 06500<br /> Mexico City <br />Mexico<br />
+</p></div></div>
+
+<div class="contact">
+<p>Switchboard: +52 (55) 1670 3200
+Facsmile: +52 (55) 1670 3217</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#117;&#107;&#105;&#110;&#109;&#101;&#120;&#105;&#099;&#111;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;">&#117;&#107;&#105;&#110;&#109;&#101;&#120;&#105;&#099;&#111;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;</a></p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-embassy-mexico-city/office/british-embassy-mexico-city">British Embassy Mexico City - opening hours</a></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

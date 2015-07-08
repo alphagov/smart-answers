@@ -1,0 +1,57 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="statutory-maternity-leave">Statutory Maternity Leave</h2>
+
+<p>The employee is entitled to up to 52 weeks Statutory Maternity Leave.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Leave</th>
+      <th>Key dates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Start</td>
+      <td>1 January 2015</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td>30 December 2015</td>
+    </tr>
+    <tr>
+      <td>Latest date to <a href="/maternity-leave-pay-employees/notice-period" title="Notice period">claim leave</a></td>
+      <td>20 September 2014</td>
+    </tr>
+    <tr>
+      <td>Earliest date leave can start</td>
+      <td>12 October 2014</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="statutory-maternity-pay">Statutory maternity pay</h2>
+
+<p>The employee is not entitled to statutory maternity pay.
+Their average weekly earnings are £11.53846 (you can’t round this figure up or down). To qualify:</p>
+
+<ul>
+  <li>their average weekly earnings (£11.53846) between Friday, 25 July 2014 and Friday, 19 September 2014 must be at least £111.00</li>
+</ul>
+
+<p>You must write confirming this within 28 days of their maternity pay request.</p>
+
+<p>Send them form SMP1 within 7 days of your decision. They must get this form within 28 days of their pay request or the birth (whichever is earlier).</p>
+
+<div class="form-download">
+<p><a href="http://www.dwp.gov.uk/advisers/claimforms/smp1_print.pdf">Download Form SMP1, Non-payment of Statutory Maternity Pay (PDF, 59KB)</a></p>
+</div>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the <a href="/maternity-leave-pay-employees">guide to Statutory Maternity Pay and Leave</a></p>
+{::comment}end-next-steps{::/comment}

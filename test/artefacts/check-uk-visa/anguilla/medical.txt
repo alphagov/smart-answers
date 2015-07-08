@@ -1,0 +1,9 @@
+{::comment}begin-title{::/comment}
+You won’t need a visa to visit the UK{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a [Standard Visitor visa](/standard-visitor-visa), to show to officers at the UK border.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

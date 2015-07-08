@@ -1,0 +1,15 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in Saint Barthelemy to find out about local marriage laws, including what documents you’ll need.</p>
+
+<p>You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in <a rel="external" href="http://www.gov.je/pages/contacts.aspx?contactId=71">Jersey</a> or <a rel="external" href="http://www.guernseyroyalcourt.gg/article/1663/Contact-Us">Guernsey</a> to find out what they can provide, then contact the authorities in Saint Barthelemy to confirm if this is acceptable.</p>
+
+<p>The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the authorities in Jersey or Guernsey.</p>
+
+<p>No embassy details found</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

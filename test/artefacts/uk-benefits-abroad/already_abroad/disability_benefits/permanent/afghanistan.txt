@@ -1,0 +1,16 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can't get these benefits abroad:
+
+* [Attendance Allowance](/attendance-allowance)
+* [Carer's Allowance](/carers-allowance)
+* [Disability Living Allowance](/dla-disability-living-allowance-benefit)
+* [Personal Independence Payment](/pip)
+
+You may be able to get benefits from Afghanistan if you've been paying into a local insurance scheme.  Contact the local authorities to find out if you qualify.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,67 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>paternity_entitled_to_leave</p>
+
+<h2 id="statutory-paternity-pay-spp">Statutory Paternity Pay (SPP)</h2>
+
+<p>The employee is entitled to SPP.</p>
+
+<p>Their average weekly earnings are: £375.00</p>
+
+<h2 id="spp-calculation">SPP calculation</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>SPP amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>23 April 2015</td>
+      <td>£1012.50</td>
+    </tr>
+    <tr>
+      <td>21 May 2015</td>
+      <td>£1236.91</td>
+    </tr>
+    <tr>
+      <td>18 June 2015</td>
+      <td>£558.32</td>
+    </tr>
+    <tr>
+      <td>16 July 2015</td>
+      <td>£558.32</td>
+    </tr>
+    <tr>
+      <td>13 August 2015</td>
+      <td>£558.32</td>
+    </tr>
+    <tr>
+      <td>10 September 2015</td>
+      <td>£558.32</td>
+    </tr>
+    <tr>
+      <td>8 October 2015</td>
+      <td>£558.32</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><strong>Total SPP: £5041.01</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>This calculator doesn’t check eligibility for <a href="/shared-parental-leave-and-pay-employer-guide">Shared Parental Leave and Pay</a>.</p>
+</div>
+
+<p>adoption_spp_claim_link</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the <a href="/paternity-leave-pay-employees">guide to Statutory Paternity Pay and Leave</a></p>
+{::comment}end-next-steps{::/comment}

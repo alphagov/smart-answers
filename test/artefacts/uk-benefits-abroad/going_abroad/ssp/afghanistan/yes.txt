@@ -1,0 +1,9 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can export your Statutory Sick Pay. [Claim Statutory Sick Pay](/statutory-sick-pay-ssp/how-to-claim) the usual way, or talk to your employer about exporting it.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

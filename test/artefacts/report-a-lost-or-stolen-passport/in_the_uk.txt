@@ -1,0 +1,37 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You must report your lost or stolen passport to Her Majesty's Passport Office.
+
+To report your lost passport you can do any of:
+
+- [download a copy of form LS01](/government/publications/report-a-lost-or-stolen-passport-form-ls01) and post the completed form to Her Majesty's Passport Office - the address is on the form
+- get a copy of form LS01 from a Post Office that offers the [Check and Send service](/how-the-post-office-check-and-send-service-works)
+- use the new [online service](https://www.loststolenpassport.service.gov.uk/report) - this service is [in beta](/help/beta)
+
+
+^You’ll need a daytime telephone number and either an email address or UK mobile number to use the online service.^
+
+
+%Your signature will be compared to the signature on the original passport application form. If the original application was made by someone else, you’ll also need to send a signed letter from that person confirming that the passport has been lost or stolen. This is to help prevent child abduction.%
+
+You can use the [online enquiry form](https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml) to contact Her Majesty’s Passport Office for general advice.
+
+##Replacing your passport
+
+You can apply for a replacement at the same time if you’re a British national and in the UK.
+
+Follow the same process as [renewing a passport](/renew-adult-passport) but you must send a completed form LS01 with your application (if you haven’t already reported it as lost)
+
+^Use the [online enquiry form](https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml) to contact Her Majesty’s Passport Office for general advice.
+
+% You can’t use the [1-day Premium service](/get-a-passport-urgently) if you’re replacing a lost passport. %
+
+##If you find your passport
+
+If you find your passport, don’t sign the form. Instead, return the form in the envelope provided with a signed note confirming that you have found your passport and don’t want to cancel it.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

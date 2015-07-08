@@ -1,0 +1,76 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You’re close to State Pension age. You’ll reach it on  1 February 2015.</p>
+
+<p>Your State Pension age is 65 years.</p>
+
+<p>You can now <a href="/state-pension/how-to-claim">claim your State Pension</a> if you haven’t already done so.</p>
+
+<p>Once you claim your <a href="/state-pension">State Pension</a>, the Pension Service will work out exactly how much you get.</p>
+
+<h2 id="your-state-pension-estimate">Your State Pension estimate</h2>
+
+<p>You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £113.1 per week.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Basic State Pension</th>
+      <th>Your results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>How much per week you may get</td>
+      <td>£45.24</td>
+    </tr>
+    <tr>
+      <td>Difference to the full basic State Pension of £113.1</td>
+      <td>£67.86</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>How much State Pension you get depends on how many years of <a href="/national-insurance">National Insurance contributions</a> you have.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>National Insurance</th>
+      <th>Your results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Years of contributions you already have</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Years of contributions you still need for a full basic State Pension</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="more-about-the-state-pension">More about the State Pension</h2>
+
+<p>Read about:</p>
+
+<ul>
+  <li><a href="/voluntary-national-insurance-contributions/who-can-pay-voluntary-contributions">Class 3 voluntary contributions</a></li>
+  <li><a href="/state-pension-through-partner">increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions</a></li>
+  <li><a href="/deferring-state-pension">putting off claiming your State Pension</a></li>
+  <li><a href="/state-pension">the Basic Pension</a></li>
+  <li><a href="/additional-state-pension">the additional State Pension</a></li>
+  <li><a href="/state-pension-if-you-retire-abroad">State Pension if you retire abroad</a></li>
+</ul>
+
+<p>You may also be able to top up your Additional State Pension (up to £25 a week) by paying <a href="/state-pension-topup">Class 3A contributions</a>.</p>
+
+<p>You might be eligible for <a href="/automatic-pension-credits-for-men">credits towards your basic State Pension</a> for the years immediately before you reach age 65.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

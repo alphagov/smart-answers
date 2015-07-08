@@ -1,0 +1,75 @@
+{::comment}begin-title{::/comment}
+Marriage in Thailand{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in Thailand to find out about local marriage laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> and check the <a href="/foreign-travel-advice/thailand">travel advice for Thailand</a> before making any plans.</p>
+</div>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.</p>
+
+<p>Make an appointment at the local British embassy or consulate in Thailand to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Bangkok<br />14 Wireless Road
+<br />Lumpini
+<br />Pathumwan<br />Bangkok  10330<br />Thailand<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: +66 (0) 2 305 8333
+Fax: +66 (0) 2 255 9278</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#073;&#110;&#102;&#111;&#046;&#066;&#097;&#110;&#103;&#107;&#111;&#107;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;">&#073;&#110;&#102;&#111;&#046;&#066;&#097;&#110;&#103;&#107;&#111;&#107;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;</a></p>
+</div>
+
+<h3 id="legalisation-and-translation">Legalisation and translation</h3>
+
+<p>You might need to get your affirmation <a href="/government/collections/list-of-lawyers">translated</a> into the local language and ‘<a href="/get-document-legalised">legalised</a>’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.</p>
+
+<p>If you’ve been divorced or widowed, you’ll also need:</p>
+
+<ul>
+  <li>
+    <p>a <a href="/copy-decree-absolute-final-order">decree absolute or final order</a> or the <a href="/order-copy-birth-death-marriage-certificate/">death certificate</a></p>
+  </li>
+  <li>
+    <p>evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it <a href="/government/collections/list-of-lawyers">translated</a> if it’s not in English.</p>
+  </li>
+</ul>
+
+<p>You’ll also need to provide evidence if you’ve changed your name by deed poll.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>Your partner will probably need to get an affirmation as well.</p>
+</div>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Affidavit for marriage</td>
+      <td>£55</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/thailand-consular-fees">consular fees for Thailand</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

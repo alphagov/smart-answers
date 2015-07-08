@@ -1,0 +1,78 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+
+<div class="contact">
+<p>You currently don’t have the 30 qualifying years needed to get a full basic State Pension of £113.10. You don’t have enough years before your State Pension age to get the further years needed.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Basic State Pension</th>
+      <th>Your results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Your State Pension age</td>
+      <td>65 years</td>
+    </tr>
+    <tr>
+      <td>When you’ll reach State Pension age</td>
+      <td>1 January 2016</td>
+    </tr>
+    <tr>
+      <td>How much per week you may get</td>
+      <td>£26.39</td>
+    </tr>
+    <tr>
+      <td>How much you may get if you make contributions or get credits for the years you have left until State Pension age</td>
+      <td>£30.16</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>How much State Pension you get depends on how many years of <a href="/national-insurance">National Insurance contributions</a> you have.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>National Insurance</th>
+      <th>Your results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Years of contributions you already have</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>Years you have left for contributions until you reach State Pension age</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-a-pension-statement">Get a pension statement</h2>
+<p>You can <a href="/state-pension-statement">apply for a State Pension statement</a> to get an estimate of your full State Pension.</p>
+
+<h2 id="more-about-the-state-pension">More about the State Pension</h2>
+<p>Read about:</p>
+
+<ul>
+  <li><a href="/state-pension">basic State Pension or how to top it up</a></li>
+  <li><a href="/additional-state-pension">additional State Pension</a></li>
+  <li><a href="/voluntary-national-insurance-contributions/who-can-pay-voluntary-contributions">Class 3 voluntary contributions</a></li>
+  <li><a href="/state-pension-through-partner">increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions</a></li>
+  <li><a href="/state-pension-if-you-retire-abroad">State Pension if you retire abroad</a></li>
+</ul>
+
+<p>You may also be able to top up your Additional State Pension (up to £25 a week) by paying <a href="/state-pension-topup">Class 3A contributions</a>.</p>
+
+<p>You might be eligible for <a href="/automatic-pension-credits-for-men">credits towards your basic State Pension</a> for the years immediately before you reach age 65.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

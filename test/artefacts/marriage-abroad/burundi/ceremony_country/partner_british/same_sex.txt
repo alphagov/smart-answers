@@ -1,0 +1,20 @@
+{::comment}begin-title{::/comment}
+Civil partnership in Burundi{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>synonyms_of_cp_in_burundi</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> before making any plans.</p>
+</div>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>Contact the relevant local authorities in Burundi to find out about local laws, including what documents you’ll need.</p>
+
+<p>There aren’t any British consular facilities to register a same-sex relationship, or get legal documents to prove you’re eligible enter into a same-sex relationship, in Burundi.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

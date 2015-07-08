@@ -1,0 +1,39 @@
+{::comment}begin-title{::/comment}
+Civil Partnership in South Africa{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Same-sex relationships in South Africa that are recognised as civil partnerships under British law are known as:</p>
+
+<ul>
+  <li>marriage</li>
+  <li>civil partnership</li>
+</ul>
+
+<p>Contact the relevant local authorities in South Africa to find out about local laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> before making any plans.</p>
+</div>
+
+<div class="address"><div class="adr org fn"><p>
+British High Commission, Pretoria<br />British High Commission<br />255 Hill Street<br />Arcadia<br />Pretoria<br />0028<br />South Africa<br />
+</p></div></div>
+
+<div class="contact">
+<p>General enquiries: Telephone +27 12 421 7500
+General enquiries: Fax +27 12 421 7599
+Passport Enquiries: Telephone +44 208 082 4743
+Passport enquiries: Fax +44 208  082 4743 (Monday to Friday 8 am to 5 pm) 
+Visa enquiries from within South Africa: Telephone +861 837 221 
+Visa enquiries from outside South Africa: Telephone +27 11 399 6373
+Visa enquiries: Fax +27 12 421 7888
+Consular enquiries : Telephone +27 12 421 7500
+Consular enquiries: Fax +27 86 535 5422</p>
+
+<p>Email: &lt;media.pretoria@fco.gov.uk (for general enquiries only)&gt;</p>
+</div>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

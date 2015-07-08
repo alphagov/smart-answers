@@ -1,0 +1,88 @@
+{::comment}begin-title{::/comment}
+Marriage in Saudi Arabia{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>One of you must be a Muslim to get married under local laws in Saudi Arabia. Contact the <a rel="external" href="http://www.saudiembassy.org.uk/">Embassy of Saudi Arabia</a> to find out about local marriage laws.</p>
+
+<h2 id="getting-married-at-the-british-embassy">Getting married at the British Embassy</h2>
+
+<p>You can only apply to get married at the British Embassy in Riyadh if you’re resident in Saudi Arabia and neither of you is a Muslim. Contact them to make an appointment.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Riyadh, main contact<br />British Embassy <br />PO Box 94351<br />11693 <br />Saudi Arabia<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: +966 (0) 11 4819 100 
+Fax information 	: +966 (0) 11 481 9350
+Fax defence : +966 (0) 11 481 9235
+Fax  corporate services: +966 (0) 11 481 9337
+UKTI : +966 (0) 11 481 9339
+UKBA : +966 (0) 11 481 9294
+Consular: +966 (0) 11 481 9229</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#067;&#111;&#110;&#115;&#117;&#108;&#097;&#114;&#046;&#082;&#105;&#121;&#097;&#100;&#104;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;">&#067;&#111;&#110;&#115;&#117;&#108;&#097;&#114;&#046;&#082;&#105;&#121;&#097;&#100;&#104;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;</a></p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-embassy-riyadh/office/british-embassy-riyadh-main-contact">British Embassy Riyadh, main contact - opening hours</a></p>
+</div>
+
+<p>You’ll need to provide:</p>
+
+<ul>
+  <li>proof that you’ve been living in the country where you intend to get married for at least 21 days, e.g. an employer’s letter or a bank statement (you’ll also need to sign a declaration to confirm this)</li>
+  <li>your original passport and <a href="/order-copy-birth-death-marriage-certificate">full birth certificate</a> or <a href="/get-replacement-citizenship-certificate">naturalisation certificate</a></li>
+  <li>proof that you’re both over the age of 16, not within prohibited degrees of relationship to each other, and there’s no other impediment to your proposed marriage</li>
+  <li>equivalent document for your partner</li>
+</ul>
+
+<p>If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:</p>
+
+<ul>
+  <li>a <a href="/copy-decree-absolute-final-order">decree absolute or final order</a>, or</li>
+  <li>the <a href="/order-copy-birth-death-marriage-certificate/">death certificate</a></li>
+</ul>
+
+<h3 id="what-happens-next">What happens next</h3>
+
+<p>Once you’ve submitted these and paid the registration fee (see below), the embassy or consulate will post your marriage notice publicly for 14 days.</p>
+
+<p>As long as nobody has registered an objection after this time, the consular officer can then perform the marriage ceremony any time until 3 months after the date you gave notice.</p>
+
+<p>You’ll need to pay additional fees for the marriage ceremony and to get your marriage certificate (see below).</p>
+
+<h2 id="naturalisation-of-your-partner-if-they-move-to-the-uk">Naturalisation of your partner if they move to the UK</h2>
+
+<p>Your partner can apply to <a href="/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen">become a British citizen</a> once they’ve lived in the UK for 3 years.</p>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Posting a marriage notice</td>
+      <td>£65</td>
+    </tr>
+    <tr>
+      <td>Performing a marriage ceremony</td>
+      <td>£140</td>
+    </tr>
+    <tr>
+      <td>Issuing a marriage certificate</td>
+      <td>£65</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/saudi-arabia-consular-fees">consular fees for Saudi Arabia</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

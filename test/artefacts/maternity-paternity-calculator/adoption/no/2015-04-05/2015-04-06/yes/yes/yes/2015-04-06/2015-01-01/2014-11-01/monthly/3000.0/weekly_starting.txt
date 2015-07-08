@@ -1,0 +1,212 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="statutory-adoption-leave">Statutory Adoption Leave</h2>
+
+<p>The employee is entitled to up to 52 weeks Statutory Adoption Leave if they <a href="/employers-adoption-pay-leave/notice-period">claim the leave on time</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Leave</th>
+      <th>Key dates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Start</td>
+      <td>6 April 2015</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td>3 April 2016</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="statutory-adoption-pay">Statutory Adoption Pay</h2>
+
+<p>The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP) if they <a href="/employers-adoption-pay-leave/notice-period">claim SAP in time</a> and give you <a href="/employers-adoption-pay-leave/proof-of-adoption">proof of the adoption</a>.</p>
+
+<p>The employee’s average weekly earnings are: £346.15.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>SAP amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>12 April 2015</td>
+      <td>£311.54</td>
+    </tr>
+    <tr>
+      <td>19 April 2015</td>
+      <td>£311.54</td>
+    </tr>
+    <tr>
+      <td>26 April 2015</td>
+      <td>£311.54</td>
+    </tr>
+    <tr>
+      <td>3 May 2015</td>
+      <td>£311.54</td>
+    </tr>
+    <tr>
+      <td>10 May 2015</td>
+      <td>£311.54</td>
+    </tr>
+    <tr>
+      <td>17 May 2015</td>
+      <td>£311.54</td>
+    </tr>
+    <tr>
+      <td>24 May 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>31 May 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>7 June 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>14 June 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>21 June 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>28 June 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>5 July 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>12 July 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>19 July 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>26 July 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>2 August 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>9 August 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>16 August 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>23 August 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>30 August 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>6 September 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>13 September 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>20 September 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>27 September 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>4 October 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>11 October 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>18 October 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>25 October 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>1 November 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>8 November 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>15 November 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>22 November 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>29 November 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>6 December 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>13 December 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>20 December 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>27 December 2015</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>3 January 2016</td>
+      <td>£139.58</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><strong>Total SAP: £6475.38</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>This calculator doesn’t check eligibility for <a href="/shared-parental-leave-and-pay-employer-guide">Shared Parental Leave and Pay</a>.</p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the <a href="/adoption-leave-pay-employees">guide to Statutory Adoption Pay and Leave</a></p>
+{::comment}end-next-steps{::/comment}

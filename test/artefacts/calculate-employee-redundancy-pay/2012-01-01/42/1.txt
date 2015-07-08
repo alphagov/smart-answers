@@ -1,0 +1,10 @@
+{::comment}begin-title{::/comment}
+Your employee is not entitled to statutory redundancy pay.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+A minimum of 2 years’ continuous service is needed before an employee can get statutory redundancy pay.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+[Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,82 @@
+{::comment}begin-title{::/comment}
+Marriage in Belarus{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the <a href="/government/publications/foreign-embassies-in-the-uk">Embassy of Belarus</a> before making any plans to find out about local marriage laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> and check the <a href="/foreign-travel-advice/belarus">travel advice for Belarus</a> before making any plans.</p>
+</div>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>You may be asked to provide a certificate of no impediment (<abbr title="certificate of no impediment">CNI</abbr>) or a similar document to prove you’re allowed to marry.</p>
+
+<p>You can normally get a <abbr title="certificate of no impediment">CNI</abbr> by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in <a href="/register-offices">England and Wales</a>, <a rel="external" href="http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf">Scotland</a> or <a rel="external" href="http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm">Northern Ireland</a>.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>A <abbr title="certificate of no impediment">CNI</abbr> issued in Scotland is valid for 3 months. A <abbr title="certificate of no impediment">CNI</abbr> issued in England, Wales or Northern Ireland will not expire, but you should check with the local authorities in the country where you intend to marry to find out how long a <abbr title="certificate of no impediment">CNI</abbr> is valid under local law.</p>
+</div>
+
+<h3 id="legalisation-and-translation">Legalisation and translation</h3>
+
+<p>You might need to exchange your UK-issued <abbr title="certificate of no impediment">CNI</abbr> for one that’s valid in Belarus at the nearest embassy or consulate to where you’re getting married.</p>
+
+<p>You should also check if it needs to be:</p>
+
+<ul>
+  <li>‘<a href="/get-document-legalised">legalised</a>’ (certified as genuine)</li>
+  <li>translated - <a href="/government/collections/list-of-lawyers">find a translator abroad</a>, or in the UK through the <a rel="external" href="http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046">Institute of Linguists</a></li>
+</ul>
+
+<p>You should also check with the local authorities in Belarus to find out if you need to provide legalised and translated copies of any other documents.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>Your partner will need to follow the same process and pay the fees to get their own <abbr title="certificate of no impediment">CNI</abbr>.</p>
+</div>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).</p>
+</div>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Receiving a notice of marriage</td>
+      <td>£65</td>
+    </tr>
+    <tr>
+      <td>Issuing a <abbr title="certificate of no impediment">CNI</abbr>, Nulla Osta or equivalent</td>
+      <td>£65</td>
+    </tr>
+    <tr>
+      <td>Issuing any other consular letter or certificate in English</td>
+      <td>£45</td>
+    </tr>
+    <tr>
+      <td>Issuing any other consular letter or certificate in any other language</td>
+      <td>£70</td>
+    </tr>
+    <tr>
+      <td>Administering an oath or making a declaration</td>
+      <td>£55</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/belarus-consular-fees">consular fees for Belarus</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

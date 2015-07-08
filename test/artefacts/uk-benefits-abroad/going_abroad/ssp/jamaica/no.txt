@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can't get Statutory Sick Pay while you're abroad.
+
+You may be able to get benefits from Jamaica if you've paid into a social security insurance scheme there.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

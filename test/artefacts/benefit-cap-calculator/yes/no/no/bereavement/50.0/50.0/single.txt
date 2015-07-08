@@ -1,0 +1,25 @@
+{::comment}begin-title{::/comment}
+Based on the answers you’ve given, you won’t be affected by the benefit cap. This is because the total amount of benefits you get are less than the benefit cap.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+##How this is worked out
+
+The total amount of your benefits are added together:
+
+Total amount of benefits affected by cap: £100.00
+
+As this amount is lower than your benefit cap of £350.00, your benefits won’t change.
+
+This is an estimate only. Contact the Department for Work and Pensions if you need further help.
+
+$C
+**Department for Work and Pensions**
+Telephone: 0845 605 7064
+Telephone (Welsh): 0845 605 7066
+Textphone: 0845 608 8551
+[Find out about call charges](/call-charges)
+$C
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,14 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+If you apply for a provisional C1 medium-sized vehicle licence then pass the C1 test you can tow trailers up to 750 kg, as long as the combined vehicle and trailer weight isn’t more than 7,500 kg.
+
+If you want to tow heavier trailers you need to apply for provisional C1+E medium-sized vehicle entitlement then pass the C1+E test.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+[Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
+
+[Driving licence categories](/driving-licence-categories)
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,9 @@
+{::comment}begin-title{::/comment}
+There is no change to your tax credits.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You don’t have to report anything to the Tax Credit Office.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,16 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can tow trailers up to 750 kg with a standard C1 medium-sized vehicle licence as long as the towing vehicle weight isn’t more than 7,500 kg.
+
+If you want to tow heavier trailers you’ll need to apply for provisional C1+E entitlement then pass the C1+E test.
+
+This will let you can tow vehicle and trailer combinations up to 12,000 kg. The fully loaded trailer can’t weigh more than the unladen vehicle.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+[Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
+
+[Driving licence categories](/driving-licence-categories)
+{::comment}end-next-steps{::/comment}

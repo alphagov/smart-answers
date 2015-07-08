@@ -1,0 +1,51 @@
+{::comment}begin-title{::/comment}
+PACS in Monaco
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities to find out about local PACS laws, including what documents you’ll need.</p>
+
+<p>There isn’t a British Embassy in Monaco. Contact the <a href="/government/world/organisations/british-embassy-paris">British Embassy in Paris</a> for help entering into a PACS in Monaco.</p>
+
+<p>If you’re not in Monaco, <a rel="external" href="http://en.gouv.mc/Policy-Practice/Monaco-Worldwide/Diplomacy-and-International-Presence/bilateral-relations/All-the-countries">your closest Monegasque embassy</a> may be able to give you advice, or give you the contact details of the relevant local authorities.</p>
+
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> before making any plans.</p>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>You may be asked to provide a certificate of custom law (‘certificat de coutume’) if you’re entering into a PACS in Monaco. You can get one of these from the <a href="/government/world/organisations/british-embassy-paris">British Embassy in Paris</a>.</p>
+
+<p>You should check with the relevant local authorities in the town where you’re entering into a PACS to find out if you need one.</p>
+
+<p>Some local authorities only issue a certificate of custom law less than 6 months before the date of your PACS. You should check with them before you apply. If your certificate is refused because you applied too early, you will need to apply and pay again.</p>
+
+<h3 id="applying-for-a-certificate-of-custom-law-from-the-british-embassy">Applying for a certificate of custom law from the British Embassy</h3>
+
+<ol class="steps">
+<li><p>Download the <a href="/government/publications/application-form-for-certificate-of-custom-law-for-pacs-france">certificate of custom law application form</a></p>
+</li>
+<li><p>Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.</p>
+</li>
+<li><p>You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.</p>
+</li>
+<li><p>Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See fee 11 on <a href="/government/publications/france-consular-fees">consular fees for France</a> for the current cost.</p>
+</li>
+<li><p>The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.</p>
+</li>
+</ol>
+
+<h3 id="the-certificate-of-celibacy">The certificate of celibacy</h3>
+
+<p>The local authority might also ask you for a certificate of celibacy (‘certificat de célibat’) to prove you’re not already married or in a PACS. There’s no equivalent to this document in British law, so you’ll need to download the official note which explains this and take it with you instead.</p>
+
+<div class="form-download">
+<p><a href="/government/publications/france-explanatory-note-in-lieu-of-certificat-celibat">Download ‘Explanatory note in lieu of a certificate of celibacy’</a></p>
+</div>
+
+<h2 id="naturalisation-of-your-foreign-partner-if-they-move-to-the-uk">Naturalisation of your foreign partner if they move to the UK</h2>
+
+<p>If your partner isn’t British, they can apply to <a href="/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen">become a British citizen</a> once they’ve lived in the UK for 3 years.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

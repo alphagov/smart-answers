@@ -1,0 +1,23 @@
+{::comment}begin-title{::/comment}
+You may need a visa to join a member of your family or partner for a long stay{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+^You **won’t need a visa** if you’re visiting for a short period (up to 6 months) and you won’t work or study.^
+
+The visa you apply for depends on your family member or partner’s situation.
+
+##They’re settled in the UK
+
+Apply for a [‘family of a settled person’ visa](/join-family-in-uk) if your family member or partner is either a British citizen or from outside the European Economic Area (EEA) and settled in the UK.
+
+##They’re working or studying in the UK
+
+You may be able to apply as a ‘dependant’ of [your family member or partner's visa category](/visas-immigration) if they're from outside the EEA and they're working or studying in the UK.
+
+##They’re from the EEA
+
+Apply for a [family permit](/family-permit) to join your family or partner in the UK.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

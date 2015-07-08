@@ -1,0 +1,55 @@
+{::comment}begin-title{::/comment}
+Civil partnership in Switzerland
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Same-sex relationships in Switzerland that are recognised as civil partnerships under British law are known as ’eingetragene Partnerschaft’, ’partenariat enregistré’, ’unione domestica registrata’ or ’partenadi registrà’ (’registered partnership’).</p>
+
+<p>Contact the Civil Register Office where you’re entering into a civil partnership to find out about local laws, including what documents you’ll need.</p>
+
+<p>You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to enter into a civil partnership or equivalent in Switzerland.</p>
+
+<p>Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.</p>
+
+<p><a rel="external" href="http://www.eda.admin.ch/eda/en/home/reps.html">Your closest Swiss embassy</a> may be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/publications/switzerland-list-of-lawyers">get legal advice</a> and check the <a href="/foreign-travel-advice/switzerland">travel advice for Switzerland</a> before making any plans.</p>
+</div>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>You may be asked to provide a civil status declaration to prove you’re allowed to enter into a civil partnership.</p>
+
+<p>If you need a civil status declaration, you can get one from the British Embassy in Berne in the language of the canton where the ceremony is taking place.</p>
+
+<h2 id="getting-your-civil-status-declaration">Getting your civil status declaration</h2>
+
+<p>You’ll need to provide supporting documents, including:</p>
+
+<ul>
+  <li>your passport</li>
+  <li>your <a href="/order-copy-birth-death-marriage-certificate">full birth certificate</a> or <a href="/get-replacement-citizenship-certificate">naturalisation certificate</a></li>
+  <li>proof of residence, such as a residence certificate - check with the consulate to find out what you need</li>
+</ul>
+
+<p>If you’ve been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:</p>
+
+<ul>
+  <li>a <a href="/copy-decree-absolute-final-order">decree absolute or final order</a></li>
+  <li>a civil partnership dissolution or annulment certificate</li>
+  <li>your former spouse or civil partner’s <a href="/order-copy-birth-death-marriage-certificate/">death certificate</a></li>
+</ul>
+
+<p>You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it <a href="/government/collections/list-of-lawyers">translated</a> if it’s not in English.</p>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>The name on all documents you provide must appear exactly as they do on your passport - if not, the authorities may refuse to allow the ceremony to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage or civil partnership certificate, or deed poll).</p>
+</div>
+
+<p>You should check if your civil status declaration needs to be legalised (certified as genuine) by the local authorities in Switzerland.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

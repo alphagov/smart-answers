@@ -1,0 +1,77 @@
+{::comment}begin-title{::/comment}
+Civil partnership in Guatemala{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You may be able to register a civil partnership at the British embassy or consulate in Guatemala.</p>
+
+<p>Contact them to make an appointment:</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy<br />Edificio Torre Internacional, 
+<br />Nivel 11, 16 Calle 0-55, 
+<br />Zona 10 Guatemala City <br />Guatemala<br />
+</p></div></div>
+
+<div class="contact">
+<p>Switchboard: +502-2380-7300</p>
+</div>
+
+<h2 id="what-documents-youll-need">What documents you’ll need</h2>
+
+<p>You’ll need proof that you’ve been resident in the area covered by the British embassy or consulate for at least 7 days, like an employer’s letter or a bank statement.</p>
+
+<p>You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:</p>
+
+<ul>
+  <li>a <a href="/copy-decree-absolute-final-order">decree absolute or final order</a>, or</li>
+  <li>the <a href="/order-copy-birth-death-marriage-certificate/">death certificate</a></li>
+</ul>
+
+<h3 id="what-you-need-to-do">What you need to do</h3>
+
+<p>Once you’ve made your appointment, the British embassy or consulate will give you:</p>
+
+<ul>
+  <li>a notice of registration</li>
+  <li>a declaration that you and your partner will need to swear, stating that you’re legally entitled to enter into a civil partnership</li>
+</ul>
+
+<p>Once you’ve submitted these and paid the registration fee (see below), the British embassy or consulate will display your notice publicly for 14 days.</p>
+
+<p>As long as nobody has registered an objection after this time, the registration officer can then register your partnership any time until 3 months after the date you gave notice.</p>
+
+<p>You’ll need to provide two witnesses and pay a fee to register your civil partnership. You’ll need to pay an additional fee for your civil partnership certificate (see below).</p>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Receiving a notice of registration</td>
+      <td>£65</td>
+    </tr>
+    <tr>
+      <td>Registering a civil partnership</td>
+      <td>£140</td>
+    </tr>
+    <tr>
+      <td>Issuing a civil partnership certificate</td>
+      <td>£65</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/guatemala-consular-fees">consular fees for Guatemala</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

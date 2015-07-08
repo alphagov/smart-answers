@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+You won't need a visa if your passport has a personal ID number on the bio data page.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+However, you should bring the [same documents](https://www.gov.uk/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border. 
+
+^If the bio data page in your passport doesn't include a personal ID number, you must [apply for a Short-term Study visa](/study-visit-visa).^
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

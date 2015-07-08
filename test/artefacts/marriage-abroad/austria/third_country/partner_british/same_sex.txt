@@ -1,0 +1,54 @@
+{::comment}begin-title{::/comment}
+Civil partnership in Austria{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Same-sex relationships in Austria that are recognised as civil partnerships under British law are known as ‘eingetragene Partnerschaft’, or ‘registered partnership’.</p>
+
+<p>Contact the relevant local authorities in Austria to find out about local laws, including what documents you’ll need.</p>
+
+<p>You should also check the <a href="/foreign-travel-advice/austria">travel advice for Austria</a>.</p>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to enter into a civil partnership or equivalent in Austria.</p>
+
+<p>Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy<br />Jauresgasse 12<br />1030  Vienna<br />Austria<br />
+</p></div></div>
+
+<div class="contact">
+<p>Visa enquiries: www.visainfoservices.com
+Consular enquiries: viennaconsularenquiries@fco.gov.uk
+Telephone: +43 (1) 716130
+Fax: +(43) (1) 71613 2900</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#112;&#114;&#101;&#115;&#115;&#064;&#098;&#114;&#105;&#116;&#105;&#115;&#104;&#101;&#109;&#098;&#097;&#115;&#115;&#121;&#046;&#097;&#116;">&#112;&#114;&#101;&#115;&#115;&#064;&#098;&#114;&#105;&#116;&#105;&#115;&#104;&#101;&#109;&#098;&#097;&#115;&#115;&#121;&#046;&#097;&#116;</a></p>
+</div>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Issuing a CNI or equivalent</td>
+      <td>£65</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/austria-consular-fees">consular fees for Austria</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

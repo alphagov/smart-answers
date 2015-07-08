@@ -96,7 +96,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
         if outcome_node
           should "render and save output for responses: #{responses.join(', ')}" do
-            get :show, id: flow_name, started: 'y', responses: responses
+            get :show, id: flow_name, started: 'y', responses: responses, format: 'txt'
 
             path_to_output = smart_answer_helper.save_output(responses, response)
 

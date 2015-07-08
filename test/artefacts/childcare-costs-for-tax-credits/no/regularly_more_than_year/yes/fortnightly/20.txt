@@ -1,0 +1,9 @@
+{::comment}begin-title{::/comment}
+Your weekly childcare costs are £10.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Use this figure on your claim form.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,62 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+$!You must register the death according to the regulations in Pitcairn Island. You will be given a local death certificate.$!
+
+This local death certificate will be accepted in the UK (it may need to be a [certified translation](/certifying-a-document) of the document if it’s not in English).
+
+##Register the death with the UK authorities
+
+You can also apply to register the death with the British embassy in the South Georgia And South Sandwich Islands.
+
+You don’t have to do this, but it means:
+
+- a British-style death certificate will be issued
+- having the death registered at the General Register Office in the UK
+
+##How to register
+
+Download and complete a [registration form](/government/publications/application-to-register-an-overseas-death).
+
+##Documents
+
+You must provide originals and a photocopy of:
+
+- a local death certificate (not a certificate issued by a doctor)
+- the person’s passport
+- their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
+- written permission from the person's next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+
+Fill in [form D1, 'Returning the passport of a deceased person'](/government/publications/returning-the-passport-of-a-deceased-person) if you provide their passport.
+
+Fill in [form LS01, 'Lost or Stolen Passport Notification'](/government/publications/lost-or-stolen-passport-notification--2) if the passport is lost or unavailable.
+
+##Cost
+
+Service | Fee
+-|-
+Register a death | £105
+Copy of a death registration certificate | £65
+
+You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
+
+You can order copies of the registration certificate from the British embassy when you register the death.
+
+You can also get copies from the [General Register Office](http://www.gro.gov.uk/) from September the year after you register - they will cost less.
+
+##Go to the British embassy
+
+You can book an appointment at the British embassy and bring along the registration form, supporting documents and the fee.
+
+
+
+
+^Registration can take up to 3 months - your application will be sent to local British embassy, consulate or high commission where the death will be registered.^
+
+
+No embassy details found
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

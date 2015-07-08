@@ -1,0 +1,8 @@
+{::comment}begin-title{::/comment}
+Your statutory holiday entitlement is 0.2 days.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

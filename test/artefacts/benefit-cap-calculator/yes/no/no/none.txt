@@ -1,0 +1,19 @@
+{::comment}begin-title{::/comment}
+Based on the answers you’ve given, you’re not affected by the benefit cap.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+There are only certain benefits that are affected by the benefit cap.  You may still get benefits and not be affected.
+
+You should contact the Department for Work and Pensions if you need further help or your circumstances change:
+
+$C
+**Department for Work and Pensions**
+Telephone: 0845 605 7064
+Telephone (Welsh): 0845 605 7066
+Textphone: 0845 608 8551
+[Find out about call charges](/call-charges)
+$C
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

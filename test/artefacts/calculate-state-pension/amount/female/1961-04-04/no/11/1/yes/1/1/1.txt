@@ -1,0 +1,77 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+
+<div class="contact">
+<p>The State Pension will change on 6 April 2016. When you reach State Pension age you’ll claim the <a href="/new-state-pension">new State Pension</a>. This is an estimate of your basic State Pension under the current rules.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Basic State Pension</th>
+      <th>Your results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Your State Pension age</td>
+      <td>67 years</td>
+    </tr>
+    <tr>
+      <td>When you’ll reach State Pension age</td>
+      <td>4 April 2028</td>
+    </tr>
+    <tr>
+      <td>How much per week you may get</td>
+      <td>£67.86</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This will be the least amount you will get under the new State Pension rules.</p>
+
+<p>The State Pension age is regularly reviewed and may change in the future.</p>
+
+<p>This estimate doesn’t include any <a href="/additional-state-pension">Additional State Pension</a> you may have before 6 April 2016. It may change if you make more <a href="/national-insurance">National Insurance contributions</a> before you reach State Pension age.</p>
+
+<p>How much State Pension you get depends on how many years of <a href="/national-insurance">National Insurance contributions</a> you have.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>National Insurance</th>
+      <th>Your results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Years of contributions you already have</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>Years you can still make contributions</td>
+      <td>13</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-a-pension-statement">Get a pension statement</h2>
+<p>Find out how you can <a href="/state-pension-statement">get a State Pension statement</a> to get an estimate of your full State Pension.</p>
+
+<h2 id="more-about-the-state-pension">More about the State Pension</h2>
+<p>Read about:</p>
+
+<ul>
+  <li><a href="/new-state-pension">the new State Pension</a></li>
+  <li><a href="/voluntary-national-insurance-contributions">voluntary contributions</a></li>
+  <li><a href="/state-pension-through-partner">increasing your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions</a></li>
+  <li><a href="/state-pension-if-you-retire-abroad">State Pension if you retire abroad</a></li>
+</ul>
+
+<p>Your estimate may include up to 3 years of automatic credits for the years containing your 16th, 17th and 18th birthdays. If you got your National Insurance number after April 2010 you don’t get these automatic credits.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

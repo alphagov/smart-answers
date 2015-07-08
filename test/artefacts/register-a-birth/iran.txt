@@ -1,0 +1,13 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+$!You must register the birth according to the regulations in Iran.$!
+
+You can’t currently register the birth with the UK authorities.
+
+The local birth certificate, with a [certified translation](/certifying-a-document), should be acceptable for all purposes in the UK. You can apply for registration at any time in the future - check [travel advice](/foreign-travel-advice) to find out if consular services have reopened in Iran.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,19 @@
+{::comment}begin-title{::/comment}
+The husband, wife or civil partner keeps all the assets (including property), up to £250,000, and all the personal possessions, whatever their value.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>The remainder of the estate will be shared as follows:</p>
+
+<ul>
+  <li>the husband, wife or civil partner gets an absolute interest in half of the remainder</li>
+  <li>the other half is then divided equally between the surviving children</li>
+</ul>
+
+<p>If a son or daughter (or other child where the deceased had a parental role) has already died, their children will inherit in their place.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the guide to <a href="/wills-probate-inheritance" title="Wills, probate and inheritance">wills, probate and inheritance.</a></p>
+
+<p>Find out how to pay <a href="https://www.gov.uk/inheritance-tax" title="Inheritance Tax">Inheritance Tax.</a></p>
+{::comment}end-next-steps{::/comment}

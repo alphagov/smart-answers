@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+Marriage in Laos{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>It’s not possible for 2 foreigners to get married in Laos. One of you must be a Lao national.</p>
+
+<p>Contact the <a href="/government/publications/foreign-embassies-in-the-uk">Embassy of Laos</a> to find out about local marriage laws.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

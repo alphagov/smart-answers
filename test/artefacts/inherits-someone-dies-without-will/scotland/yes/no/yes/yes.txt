@@ -1,0 +1,26 @@
+{::comment}begin-title{::/comment}
+The husband, wife or civil partner gets the house up to a value of £473,000. They’ll get a lump sum of £473,000 if the house is worth more, and may have to sell off the property.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>They also get:</p>
+
+<ul>
+  <li>up to £89,000 in cash</li>
+  <li>a third of the rest of the estate (or the entire estate if the cash sum was less than £89,000)</li>
+</ul>
+
+<p>The rest of the estate is divided in half between any surviving:</p>
+
+<ul>
+  <li>parents</li>
+  <li>brothers or sisters</li>
+</ul>
+
+<p>If a brother or sister has already died, their children (nieces or nephews of the deceased) inherit in their place.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the guide to <a href="/wills-probate-inheritance" title="Wills, probate and inheritance">wills, probate and inheritance.</a></p>
+
+<p>Find out how to pay <a href="https://www.gov.uk/inheritance-tax" title="Inheritance Tax">Inheritance Tax.</a></p>
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,70 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+$!Some people in England, Scotland and Wales have been invited to claim Personal Independence Payment (PIP).$!
+
+If you're still getting Disability Living Allowance, when you'll be invited to claim PIP depends on:
+
+- when your DLA ends
+- your postcode area
+- if your care and mobility needs change
+
+###Your DLA ends before September 2017
+
+You'll be told 20 weeks before your DLA ends and invited to claim PIP in most areas of England, Scotland and Wales.
+
+^Contact the [Disability Benefits helpline](/disability-benefits-helpline) if your DLA payment is due to end in less than 28 days and you haven’t received a letter about making a new claim. Your payment may stop if you don’t.^
+
+You'll also be invited to claim PIP if you tell the Department for Work and Pensions (DWP) that your care or mobility needs have changed.
+
+
+In the following areas you'll be asked to claim PIP from 27 July 2015:
+
+- AL (St Albans)
+- CT (Canterbury)
+- EN (Enfield)
+- HA (Harrow)
+- HS (Hebrides)
+- KT (Kingston)
+- KW (Kirkwall)
+- ME (Maidstone)
+- N (London North)
+- NW (London North West)
+- SL (Slough)
+- SM (Sutton)
+- TN (Tonbridge)
+- TW (Twickenham)
+- UB (Uxbridge)
+- W (London West)
+- WD (Watford)
+- ZE (Lerwick)
+
+###Your DLA ends after September 2017 or DLA awards with no end date
+
+Some people will be invited to claim PIP from 13 July 2015 if you live in the following areas:
+
+- Blackburn (BB)
+- Bolton (BL)
+- Derby (DE)
+- Leicester (LE)
+- Manchester (M)
+- Oldham (OL)
+- Preston (PR)
+- Stoke (ST)
+- Warrington (WA)
+- Wigan (WN)
+
+This includes if you have an indefinite or long-term awards of DLA.
+
+^You can be contacted anytime between 13 July 2015 and 30 September 2017. Not everyone in these postcode areas will be contacted to claim PIP right away.^
+
+You'll continue to get DLA until DWP writes to you about when it will end.
+
+
+*[DLA]: Disability Living Allowance
+*[PIP]: Personal Independence Payment
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

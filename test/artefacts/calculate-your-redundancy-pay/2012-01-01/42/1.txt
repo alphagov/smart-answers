@@ -1,0 +1,10 @@
+{::comment}begin-title{::/comment}
+Based on your answers, you’re not entitled to statutory redundancy pay.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You need to have worked for your employer continuously for at least 2 years before you can get statutory redundancy pay.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+[Read the guide to Redundancy: your rights](https://www.gov.uk/redundant-your-rights)
+{::comment}end-next-steps{::/comment}

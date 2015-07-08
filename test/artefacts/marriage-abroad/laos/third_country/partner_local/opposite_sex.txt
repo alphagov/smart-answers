@@ -1,0 +1,88 @@
+{::comment}begin-title{::/comment}
+Marriage in Laos
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in Laos to find out about local marriage laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> and check the <a href="/foreign-travel-advice/laos">travel advice for Laos</a> before making any plans.</p>
+</div>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>You may be asked to provide an <a href="/government/publications/information-for-british-nationals-intending-to-marry-in-laos">affirmation of freedom to marry document</a> to prove you’re allowed to marry.</p>
+
+<p>Make an appointment at the British Embassy in Vientiane to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s ID and pay a fee.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Vientiane<br />Rue J. Nehru 
+<br />Phonexay, 
+<br />Saysettha District, <br />Vientiane<br />Laos<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: +856 (0)30 770 0000</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#066;&#114;&#105;&#116;&#105;&#115;&#104;&#069;&#109;&#098;&#097;&#115;&#115;&#121;&#046;&#086;&#105;&#101;&#110;&#116;&#105;&#097;&#110;&#101;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;">&#066;&#114;&#105;&#116;&#105;&#115;&#104;&#069;&#109;&#098;&#097;&#115;&#115;&#121;&#046;&#086;&#105;&#101;&#110;&#116;&#105;&#097;&#110;&#101;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;</a></p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-embassy-vientiane/office/british-embassy-vientiane">British Embassy Vientiane - opening hours</a></p>
+</div>
+
+<p>You’ll need to pay a fee and bring the following to your appointment:</p>
+
+<ul>
+  <li>your passport</li>
+  <li>your <a href="/order-copy-birth-death-marriage-certificate/">birth certificate</a> or <a href="/get-replacement-citizenship-certificate">naturalisation certificate</a></li>
+  <li>proof of residence, eg a residence certificate - check with the embassy or consulate for advice</li>
+</ul>
+
+<h3 id="legalisation-and-translation">Legalisation and translation</h3>
+
+<p>You might need to get your affirmation <a href="/government/collections/list-of-lawyers">translated</a> into the local language and ‘<a href="/get-document-legalised">legalised</a>’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.</p>
+
+<p>If you’ve been divorced or widowed, you’ll also need:</p>
+
+<ul>
+  <li>
+    <p>a <a href="/copy-decree-absolute-final-order">decree absolute or final order</a> or the <a href="/order-copy-birth-death-marriage-certificate/">death certificate</a></p>
+  </li>
+  <li>
+    <p>evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it <a href="/government/collections/list-of-lawyers">translated</a> if it’s not in English.</p>
+  </li>
+</ul>
+
+<p>You’ll also need to provide evidence if you’ve changed your name by deed poll.</p>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).</p>
+</div>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Affirmation for marriage</td>
+      <td>£55</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/laos-consular-fees">consular fees for Laos</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+
+<h2 id="naturalisation-of-your-partner-if-they-move-to-the-uk">Naturalisation of your partner if they move to the UK</h2>
+
+<p>Your partner can apply to <a href="/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen">become a British citizen</a> once they’ve lived in the UK for 3 years.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

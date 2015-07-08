@@ -1,0 +1,27 @@
+{::comment}begin-title{::/comment}
+Marriage in Burma{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>The British Embassy in Rangoon doesn’t register marriages of British citizens in Burma. Contact the embassy if you need further advice.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Rangoon<br />British Embassy Rangoon
+<br />80 Strand Road
+<br />(Box No 638)<br />Rangoon<br />Burma<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: (95) (1) 380322
+Telephone: (95) (1) 256438 
+Fax: (95) (1) 370866</p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-embassy-rangoon/office/british-embassy-rangoon">British Embassy Rangoon - opening hours</a></p>
+</div>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>Marriage between a Burmese citizen and a foreign national is not allowed under local law.</p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

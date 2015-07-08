@@ -1,0 +1,10 @@
+{::comment}begin-title{::/comment}
+Marriage in Ireland
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>The General Register Office of Ireland’s website explains what you need to do if you want to <a rel="external" href="http://www.groireland.ie/getting_married.htm">get married in Ireland</a>.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

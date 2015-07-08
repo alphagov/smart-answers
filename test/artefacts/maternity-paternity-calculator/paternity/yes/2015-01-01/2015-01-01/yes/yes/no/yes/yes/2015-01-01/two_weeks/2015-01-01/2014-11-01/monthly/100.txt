@@ -1,0 +1,28 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="statutory-paternity-leave">Statutory Paternity Leave</h2>
+
+<p>The employee is not entitled to Statutory Paternity Leave because they don’t have an employment contract with you.</p>
+
+<p>Write to them within 28 days of their leave request confirming this.</p>
+
+<h2 id="statutory-paternity-pay">Statutory Paternity Pay</h2>
+
+<p>The employee is not entitled to Statutory Paternity Pay. To qualify:</p>
+
+<ul>
+  <li>their average weekly earnings (£11.54) between Sunday, 02 November 2014 and Thursday, 01 January 2015 must be at least £111.00</li>
+</ul>
+
+<p>Send them form OSPP1 confirming this within 28 days of their pay request.</p>
+
+<div class="form-download">
+<p><a href="http://www.hmrc.gov.uk/forms/spp1.pdf">Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)</a></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the <a href="/paternity-leave-pay-employees">guide to Statutory Paternity Pay and Leave</a></p>
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+$!You aren’t affected by Personal Independence Payment (PIP).$!
+
+Because you were aged 65 or over on 8 April 2013 when PIP was introduced, you can continue to get [Disability Living Allowance](/dla-disability-living-allowance-benefit) for as long as you're eligible.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

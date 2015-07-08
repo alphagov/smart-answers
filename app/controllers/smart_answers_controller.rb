@@ -10,6 +10,7 @@ class SmartAnswersController < ApplicationController
     set_slimmer_artefact(@presenter.artefact)
     respond_to do |format|
       format.html { render }
+      format.text { render layout: false }
       format.json {
         html_fragment = with_format('html') {
           render_to_string(partial: "content")

@@ -1,0 +1,76 @@
+{::comment}begin-title{::/comment}
+Based on your answers you might qualify for help from your energy supplier with the following:{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<ul>
+  <li>
+    <p><a href="/cold-weather-payment">Cold Weather Payment</a> - £25 a week during very cold weather between November and March</p>
+  </li>
+  <li>
+    <p>You could also get help with insulation or boiler repairs under the <a href="/energy-grants-calculator/y/help_boiler_measure">Energy Company Obligation</a></p>
+  </li>
+</ul>
+
+<h3 id="boilers-and-insulation">Boilers and insulation</h3>
+
+<ul>
+  <li>
+    <p><a rel="external" href="http://www.energysavingtrust.org.uk/Heating-and-hot-water/Replacing-your-boiler">A new Boiler</a> (high efficiency or oil condensing boiler)</p>
+  </li>
+  <li>
+    <p><a rel="external" href="http://www.energysavingtrust.org.uk/Insulation/Cavity-wall-insulation">Cavity wall insulation</a></p>
+  </li>
+  <li>
+    <p><a rel="external" href="http://www.energysavingtrust.org.uk/Insulation/Solid-wall-insulation">Solid Wall insulation</a></p>
+  </li>
+  <li>
+    <p><a rel="external" href="http://www.energysavingtrust.org.uk/Insulation/Draught-proofing">Draught proofing</a></p>
+  </li>
+  <li>
+    <p><a rel="external" href="http://www.energysavingtrust.org.uk/Insulation/Roof-and-loft-insulation">Loft or roof insulation</a></p>
+  </li>
+</ul>
+
+<p>You may also be able to get some of the following improvements without having to pay all the costs up front through the Green Deal:</p>
+
+<h3 id="heating">Heating</h3>
+
+<ul>
+  <li>
+    <p>Better heating controls (eg room thermostats)</p>
+  </li>
+  <li>
+    <p>Heat pump (air or ground source)</p>
+  </li>
+  <li>
+    <p><a rel="external" href="http://www.energysavingtrust.org.uk/Generating-energy/Choosing-a-renewable-technology/Wood-fuelled-heating">Biomass boilers and heaters</a></p>
+  </li>
+  <li>
+    <p><a rel="external" href="http://www.energysavingtrust.org.uk/domestic/content/solar-water-heating">Solar water heating</a></p>
+  </li>
+</ul>
+
+<h3 id="windows-and-doors">Windows and doors</h3>
+
+<ul>
+  <li>Double glazing (or secondary glazing for listed properties)</li>
+</ul>
+
+<p>If your home is well insulated you could also qualify for money towards a <a href="/renewable-heat-premium-payment">renewable heating system</a> and get paid for <a href="/feed-in-tariffs">generating your own electricity</a>.</p>
+
+<h3 id="help-and-advice">Help and advice</h3>
+
+<p>You can find more help on saving money on your energy bills from the Citizens Advice Bureau:</p>
+
+<ul>
+  <li>how to <a rel="external" href="http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_saving_money_on_energy_bills_e/saving_money_on_energy_bills.htm">save money on your energy bill</a></li>
+  <li>understand <a rel="external" href="http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_energy_bills_e/consumer_understanding_your_energy_bill_e.htm">your energy bill</a></li>
+  <li>find out how to <a rel="external" href="http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_choosing_and_switching_supplier_e/switching_gas_or_electricity_supplier.htm">switch energy suppliers</a></li>
+  <li>make a complaint about <a rel="external" href="http://www.adviceguide.org.uk/england/consumer_e/consumer_energy_and_water_supply_e/consumer_energy_supply_e/consumer_complaining_about_energy_companies_e.htm">your energy company</a></li>
+  <li>find out about <a rel="external" href="http://www.energysavingtrust.org.uk/Electricity/Products-and-appliances">energy efficient appliances</a></li>
+  <li>visit an <a rel="external" href="http://www.greenopenhomes.net/search">energy-efficient home near you</a></li>
+</ul>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

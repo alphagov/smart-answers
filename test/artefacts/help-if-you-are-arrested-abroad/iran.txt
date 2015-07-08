@@ -1,0 +1,37 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>There are no British consular services in Iran.  British nationals who need help should contact the Swedish Embassy in Tehran.</p>
+</div>
+
+<div class="contact">
+<p><strong>The Swedish Embassy</strong>
+021-2371 2200
+<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#097;&#109;&#098;&#097;&#115;&#115;&#097;&#100;&#101;&#110;&#046;&#116;&#101;&#104;&#101;&#114;&#097;&#110;&#064;&#102;&#111;&#114;&#101;&#105;&#103;&#110;&#046;&#109;&#105;&#110;&#105;&#115;&#116;&#114;&#121;&#046;&#115;&#101;">&#097;&#109;&#098;&#097;&#115;&#115;&#097;&#100;&#101;&#110;&#046;&#116;&#101;&#104;&#101;&#114;&#097;&#110;&#064;&#102;&#111;&#114;&#101;&#105;&#103;&#110;&#046;&#109;&#105;&#110;&#105;&#115;&#116;&#114;&#121;&#046;&#115;&#101;</a></p>
+</div>
+
+<div class="address"><div class="adr org fn"><p>
+The Swedish Embassy<br />Boostan Avenue,<br />Nastaran Street No 27.<br />Tehran<br />
+</p></div></div>
+
+<p>Read more about how the FCO can help someone arrested abroad.</p>
+
+<ul>
+  <li><a href="/government/publications/support-for-british-nationals-abroad-a-guide">Support for British nationals</a></li>
+  <li><a href="/government/publications/arrest-or-detention">In prison abroad</a></li>
+</ul>
+
+<p>Further help and advice is available from:</p>
+
+<ul>
+  <li><a rel="external" href="http://www.fairtrials.net/" title="Fair Trials International">Fair Trials International</a></li>
+  <li><a rel="external" href="http://www.prisonersabroad.org.uk" title="Prisoners Abroad">Prisoners Abroad</a></li>
+  <li><a rel="external" href="http://www.reprieve.org.uk/" title="Reprieve">Reprieve</a></li>
+</ul>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

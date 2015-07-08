@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can carry on getting [Income Support](/income-support) for up to 4 weeks while you're abroad.
+
+Tell your local [Jobcentre Plus](/contact-jobcentre-plus) before you go.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

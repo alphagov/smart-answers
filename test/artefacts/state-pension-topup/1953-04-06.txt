@@ -1,0 +1,10 @@
+{::comment}begin-title{::/comment}
+You must reach State Pension age before 6 April 2016 to use this calculator
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+State Pension age is 63 if you’re a woman, or 65 if you’re a man.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

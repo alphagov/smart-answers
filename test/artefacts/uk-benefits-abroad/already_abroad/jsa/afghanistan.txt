@@ -1,0 +1,13 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can't get JSA abroad.
+
+Ask the authorities in Afghanistan about any benefits you might be entitled to.
+
+*[JSA]: Jobseeker's Allowance
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

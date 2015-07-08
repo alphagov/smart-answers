@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+Your average weekly childcare costs have increased by £10.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Call the Tax Credit Office if you expect this to last for 4 weeks in a row or more.</p>
+
+<p>You don’t need to report it if this won’t last 4 weeks in a row or more.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

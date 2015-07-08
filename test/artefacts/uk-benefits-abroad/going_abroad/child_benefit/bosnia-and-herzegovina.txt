@@ -1,0 +1,16 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+There is a social security agreement between the UK and Bosnia And Herzegovina. You may be able to get Child Benefit abroad if you (or your spouse if you go with them):
+
+- go to work in Bosnia And Herzegovina
+- continue to pay National Insurance contributions
+
+The UK and Bosnia And Herzegovina can count time you spend living or working in the other country when deciding if you qualify for benefits there.
+
+Contact [HMRC](/child-benefit/further-information) to find out how to claim abroad.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

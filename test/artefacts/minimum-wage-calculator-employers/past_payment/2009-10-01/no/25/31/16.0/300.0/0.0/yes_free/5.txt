@@ -1,0 +1,41 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+
+<div class="contact">
+<p>You were paying the National Minimum Wage.</p>
+
+<p>You don’t owe the worker any past payments.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>The National Minimum Wage per hour at the time</th>
+      <th>The worker’s actual pay</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>£5.80</td>
+      <td>£24.99</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If the worker worked overtime or you provided <a href="/national-minimum-wage-accommodation">accommodation</a>, this has been added to the calculation.</p>
+
+<p>This result is an estimate. If you have any questions, call the confidential helpline:</p>
+
+<div class="contact">
+<p>Acas helpline
+Telephone: 0300 123 1100
+<a href="/call-charges">Find out about call charges</a></p>
+</div>
+
+<p>Read the guidance on <a href="/minimum-wage-different-types-work">how to calculate the National Minimum Wage</a>.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

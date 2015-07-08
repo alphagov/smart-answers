@@ -1,0 +1,13 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can’t claim JSA from abroad. You may qualify for unemployment benefits in Guernsey.
+
+Ask the authorities in Guernsey about any benefits you might be entitled to.
+
+*[JSA]: Jobseeker's Allowance
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

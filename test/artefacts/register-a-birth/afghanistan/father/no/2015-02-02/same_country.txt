@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+^It’s illegal in Afghanistan to have a child outside of marriage. You can’t get a local birth certificate.^
+
+A local birth certificate is normally needed to register an overseas birth. Contact the FCO at birthregistrationenquiries@fco.gov.uk for advice.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

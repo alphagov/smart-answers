@@ -1,0 +1,34 @@
+{::comment}begin-title{::/comment}
+Same-sex marriage and civil partnership in New Zealand{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You may be able to get married or enter into a ‘civil union’ at the British embassy or consulate in New Zealand. Civil unions are recognised as civil partnerships under British law.</p>
+
+<p>Contact the relevant local authorities in New Zealand to find out about local laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> before making any plans.</p>
+</div>
+
+<div class="address"><div class="adr org fn"><p>
+British High Commission New Zealand<br />British High Commission<br />44 Hill Street
+<br />Thorndon<br />Wellington 6011<br />New Zealand<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: +64 (0) 4 924 2888
+Fax: +64 (0) 4 473 4982</p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-high-commission-wellington/office/british-high-commission-new-zealand">British High Commission New Zealand - opening hours</a></p>
+</div>
+
+<p>The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.</p>
+
+<h2 id="naturalisation-of-your-partner-if-they-move-to-the-uk">Naturalisation of your partner if they move to the UK</h2>
+
+<p>Your partner can apply to <a href="/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen">become a British citizen</a> once they’ve lived in the UK for 3 years.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

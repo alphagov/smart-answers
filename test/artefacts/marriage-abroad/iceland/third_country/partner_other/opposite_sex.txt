@@ -1,0 +1,29 @@
+{::comment}begin-title{::/comment}
+Marriage in Iceland{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in Iceland to find out about local marriage laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> and check the <a href="/foreign-travel-advice/iceland">travel advice for Iceland</a> before making any plans.</p>
+</div>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>You may be asked to provide a certificate of no impediment (<abbr title="Certificate of no impediment">CNI</abbr>) or a similar document to prove you’re allowed to marry.</p>
+
+<p>There are 2 ways you can get a <abbr title="Certificate of no impediment">CNI</abbr>:</p>
+
+<ul>
+  <li><a href="/marriage-abroad/y/iceland/uk/uk_england/partner_other/opposite_sex">go to the UK and post notice with a UK registrar</a></li>
+  <li><a href="/marriage-abroad/y/iceland/ceremony_country/partner_other/opposite_sex">go to Iceland and post notice at the embassy or consulate there</a></li>
+</ul>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>If you choose to post notice in Iceland, you’ll normally have to wait at least 10 days before you can get married.</p>
+</div>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

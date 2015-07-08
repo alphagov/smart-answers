@@ -1,0 +1,13 @@
+{::comment}begin-title{::/comment}
+Civil partnership in Switzerland
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Same-sex relationships in Switzerland that are recognised as civil partnerships under British law are known as ’eingetragene Partnerschaft’, ’partenariat enregistré’, ’unione domestica registrata’ or ’partenadi registrà’ (’registered partnership’).</p>
+
+<p>Contact the Civil Register Office where you’re entering into a civil partnership to find out about local laws, including what documents you’ll need.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

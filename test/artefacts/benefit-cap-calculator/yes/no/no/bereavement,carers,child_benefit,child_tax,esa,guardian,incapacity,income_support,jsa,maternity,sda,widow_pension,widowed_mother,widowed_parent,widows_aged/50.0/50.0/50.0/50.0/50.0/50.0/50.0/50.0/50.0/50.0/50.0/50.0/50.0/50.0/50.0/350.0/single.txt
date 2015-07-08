@@ -1,0 +1,41 @@
+{::comment}begin-title{::/comment}
+Based on the answers you’ve given, you will be affected by the benefit cap as you get £1100.00 in benefits and your benefit cap is £350.00.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+This means your Housing Benefit will now be: £0.50.
+
+##How this is worked out
+
+The benefits you get are added together. The total amount of benefits over your benefit cap is subtracted from your Housing Benefit:
+
+Total amount of benefits affected by cap: £1100.00
+
+Your Housing Benefit is reduced by the amount you are over your benefit cap of £350.00:
+
+Total benefits affected: £1100.00
+
+Minus benefit cap: £350.00
+
+Total over cap: £750.00
+
+Housing benefit: £350.00
+
+Minus total over cap: £750.00
+
+New Housing Benefit amount: £0.50
+
+  Your Housing Benefit won’t be reduced to 0. You need to be getting some Housing Benefit to be eligible for other services.
+
+This is an estimate only. Contact the Department for Work and Pensions if you need further help.
+
+$C
+**Department for Work and Pensions**
+Telephone: 0845 605 7064
+Telephone (Welsh): 0845 605 7066
+Textphone: 0845 608 8551
+[Find out about call charges](/call-charges)
+$C
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,14 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can already tow with minibuses.
+
+You have the D1+E towing entitlement, which means you can drive minibuses with trailers over 750 kg. The total weight of vehicle and trailer can’t be more than 12,000 kg and the fully loaded trailer can’t weigh more than the unladen vehicle.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+[Driving a minibus](/driving-a-minibus)
+
+[Driving licence categories](/driving-licence-categories)
+{::comment}end-next-steps{::/comment}

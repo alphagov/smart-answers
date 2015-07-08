@@ -1,0 +1,34 @@
+{::comment}begin-title{::/comment}
+Marriage in Saudi Arabia{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>One of you must be a Muslim to get married under local laws in Saudi Arabia. You can only get married at the British Embassy if you’re resident in the country.</p>
+</div>
+
+<p>Contact the <a rel="external" href="http://www.saudiembassy.org.uk/">Embassy of Saudi Arabia</a> to find out about local marriage laws.</p>
+
+<p>The British Embassy in Saudi Arabia may also be able to give you advice.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Riyadh, main contact<br />British Embassy <br />PO Box 94351<br />11693 <br />Saudi Arabia<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: +966 (0) 11 4819 100 
+Fax information 	: +966 (0) 11 481 9350
+Fax defence : +966 (0) 11 481 9235
+Fax  corporate services: +966 (0) 11 481 9337
+UKTI : +966 (0) 11 481 9339
+UKBA : +966 (0) 11 481 9294
+Consular: +966 (0) 11 481 9229</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#067;&#111;&#110;&#115;&#117;&#108;&#097;&#114;&#046;&#082;&#105;&#121;&#097;&#100;&#104;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;">&#067;&#111;&#110;&#115;&#117;&#108;&#097;&#114;&#046;&#082;&#105;&#121;&#097;&#100;&#104;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;</a></p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-embassy-riyadh/office/british-embassy-riyadh-main-contact">British Embassy Riyadh, main contact - opening hours</a></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

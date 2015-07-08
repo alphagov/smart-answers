@@ -1,0 +1,8 @@
+{::comment}begin-title{::/comment}
+The product composition you indicated is not possible.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}
