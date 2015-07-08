@@ -232,7 +232,7 @@ module SmartAnswer
       outcome :round_up_weekly, use_outcome_templates: true
 
       #O4
-      outcome :weekly_costs_are_x
+      outcome :weekly_costs_are_x, use_outcome_templates: true
 
       #O6, 7, 8
       outcome :cost_changed do
