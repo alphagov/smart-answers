@@ -180,11 +180,6 @@ module SmartAnswer::Calculators
       ! (available_years_sum(qual_years) < 0)
     end
 
-    # enough years to get full basic state pension - used only in flow to test if we should ask more questions
-    def enough_qualifying_years?(qual_years = @qualifying_years)
-      qual_years > 29
-    end
-
     # used for flow optimisation so users who haven't entered enough qy but will get
     # 1,2 or 3 starting credit years are sent to last question or result
     def enough_qualifying_years_and_credits?(qual_years = @qualifying_years)
@@ -209,6 +204,10 @@ module SmartAnswer::Calculators
         gender == :female &&
         qualifying_years.between?(10,29) &&
         dob.between?(rre_start_date, rre_end_date)
+    end
+
+    def over_55?
+      dob <= 55.years.ago
     end
   end
 end
