@@ -250,7 +250,7 @@ module SmartAnswer
       end
 
       #O9
-      outcome :no_longer_paying
+      outcome :no_longer_paying, use_outcome_templates: true
     end
   end
 end
