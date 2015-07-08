@@ -157,9 +157,6 @@ en-GB:
           Round the total up to the nearest pound.
 
       # OUTCOMES
-      call_helpline_plain:
-        title: "Contact the Tax Credit Office for help in working out your costs."
-
       no_change:
         title: "There is no change to your tax credits."
         body: "You don’t have to report anything to the Tax Credit Office."
