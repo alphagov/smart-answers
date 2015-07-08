@@ -147,9 +147,3 @@ en-GB:
           If you don’t know what your previous childcare costs were, check your award or renewal notice.
 
           Round the total up to the nearest pound.
-
-      # OUTCOMES
-      no_longer_paying:
-        title: "You’re no longer paying for childcare."
-        body: |
-          If you expect this to last for 4 weeks or more, tell the [Tax Credit Office](/contact-the-tax-credit-office "Contact the Tax Credit Office").
