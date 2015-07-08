@@ -235,7 +235,7 @@ module SmartAnswer
       outcome :weekly_costs_are_x, use_outcome_templates: true
 
       #O6, 7, 8
-      outcome :cost_changed do
+      outcome :cost_changed, use_outcome_templates: true do
         precalculate :ten_or_more do
           weekly_difference_abs >= 10
         end
@@ -247,18 +247,6 @@ module SmartAnswer
         precalculate :difference_money do
           Money.new(weekly_difference.abs)
         end
-        precalculate :body_phrases do
-          if ten_or_more
-            if cost_change_4_weeks
-              PhraseList.new(:cost_change_4_weeks)
-            else
-              PhraseList.new(:cost_change_does_matter)
-            end
-          else
-            PhraseList.new(:cost_change_doesnt_matter)
-          end
-        end
-
       end
 
       #O9

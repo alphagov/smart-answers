@@ -291,7 +291,6 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
       end
 
       should "show correct phrases" do
-        assert_phrase_list :body_phrases, [:cost_change_4_weeks]
         assert_state_variable :title_change_text, "decreased"
       end
 
@@ -333,11 +332,6 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
         assert_state_variable :title_change_text, "decreased"
         assert_current_node :cost_changed
       end
-
-      should "show the correct phrase list" do
-        assert_phrase_list :body_phrases, [:cost_change_doesnt_matter]
-      end
-
     end
   end
 
