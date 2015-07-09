@@ -273,7 +273,7 @@ module SmartAnswer
         next_node_if(:outcome_62, responded_with('no'))
       end
 
-      outcome :outcome_1
+      outcome :outcome_1, use_outcome_templates: true
       outcome :outcome_2
       outcome :outcome_3
       outcome :outcome_4

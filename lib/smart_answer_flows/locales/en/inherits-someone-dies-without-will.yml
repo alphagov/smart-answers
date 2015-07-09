@@ -86,11 +86,6 @@ en-GB:
 
       # Outcomes
 
-      outcome_1:
-        title: The husband, wife or civil partner gets all of the estate.
-        next_steps: |
-          %{next_step_links}
-
       outcome_2:
         title: The estate is shared equally between the children or their descendants.
         body: |
