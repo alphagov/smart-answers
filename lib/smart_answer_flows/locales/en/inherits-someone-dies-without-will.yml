@@ -88,13 +88,6 @@ en-GB:
 
       # Scotland
 
-      outcome_44:
-        title: The estate is split in two, half goes to the parents and half to the brothers or sisters.
-        body: |
-          If a brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
-        next_steps: |
-          %{next_step_links}
-
       outcome_45:
         title: The estate is shared equally between any great aunts or great uncles.
         body: |
