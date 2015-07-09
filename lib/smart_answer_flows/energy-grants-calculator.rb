@@ -350,11 +350,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_no_green_deal_no_energy_measures do
-        precalculate :eligibilities do
-          PhraseList.new(:help_and_advice_body)
-        end
-      end
+      outcome :outcome_no_green_deal_no_energy_measures, use_outcome_templates: true
     end
   end
 end
