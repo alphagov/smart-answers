@@ -17,6 +17,18 @@ outcome_check_not_needed
 outcome_can_not_rent
 
 - property: B1 1PW
+- main_home: yes
+- tenant_over_18: yes
+- has_uk_passport: no
+- right_to_abode: no
+- has_certificate: no
+- tenant_country: non_eea_but_with_eu_eea_switzerland_family_member
+- has_residence_card_or_eu_eea_swiss_family_member: no
+- has_asylum_card: no
+- immigration_application: no
+outcome_can_not_rent
+
+- property: B1 1PW
 - main_home: no
 - property_type: holiday_accommodation
 outcome_check_not_needed_if_holiday_or_under_3_months
