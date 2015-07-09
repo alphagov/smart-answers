@@ -193,10 +193,3 @@ en-GB:
           solid_wall_insulation: Solid wall insulation
           modern_boiler: Modern boiler (less than 10 years)
           draught_proofing: Draught proofing
-
-
-# outcome 4 don't qualify for green deal or help with energy efficiency
-      outcome_no_green_deal_no_energy_measures:
-        title: You don't qualify for the Green Deal or for any help with energy efficient measures for your home.
-        body: |
-          %{eligibilities}
