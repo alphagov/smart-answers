@@ -1,0 +1,38 @@
+<% case ips_number %>
+<% when '1' %>
+  <% case child_or_adult %>
+  <% when 'adult' %>
+| Passport type | Passport fee | Total to pay (including courier fee) |
+|---------------|--------------|--------------------------------------|
+| Adult standard 32-page passport | £83.00 | £102.86 |
+| Adult jumbo 48-page passport | £91.00 | £110.86 |
+  <% when 'child' %>
+| Passport type | Passport fee | Total to pay (including courier fee) |
+|---------------|--------------|--------------------------------------|
+| Child passport | £53.00 | £72.86 |
+  <% end %>
+<% when '2' %>
+  <% case child_or_adult %>
+  <% when 'adult' %>
+| Passport type | Passport fee | Total to pay (including courier fee) |
+|---------------|--------------|--------------------------------------|
+| Adult standard 32-page passport | £83.00 | £107.72 |
+| Adult jumbo 48-page passport | £91.00 | £115.72 |
+  <% when 'child' %>
+| Passport type | Passport fee | Total to pay (including courier fee) |
+|---------------|--------------|--------------------------------------|
+| Child passport | £53.00 | £77.72 |
+  <% end %>
+<% when '3' %>
+  <% case child_or_adult %>
+  <% when 'adult' %>
+| Passport type | Passport fee | Total to pay (including courier fee) |
+|---------------|--------------|--------------------------------------|
+| Adult standard 32-page passport | £83.00 | £106.01  |
+| Adult jumbo 48-page passport | £91.00 | £114.01 |
+  <% when 'child' %>
+| Passport type | Passport fee | Total to pay (including courier fee) |
+|---------------|--------------|--------------------------------------|
+| Child passport | £53.00 | £76.01 |
+  <% end %>
+<% end %>
