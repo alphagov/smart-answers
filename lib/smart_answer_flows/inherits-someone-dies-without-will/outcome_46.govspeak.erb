@@ -1,0 +1,11 @@
+<% content_for :title do %>
+The whole estate goes to the Crown.
+<% end %>
+
+<% content_for :body do %>
+However, before this can happen there would need to be proof that there are no surviving relatives in any generation.
+<% end %>
+
+<% content_for :next_steps do %>
+<%= render partial: 'next_step_links.govspeak.erb', locals: { next_steps: next_steps } -%>
+<% end %>

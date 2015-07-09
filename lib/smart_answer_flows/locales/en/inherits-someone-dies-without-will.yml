@@ -86,16 +86,6 @@ en-GB:
 
       # Outcomes
 
-      # Scotland
-
-      outcome_46:
-        title: The whole estate goes to the Crown.
-        body: |
-          However, before this can happen there would need to be proof that there are no surviving relatives in any generation.
-        next_steps: |
-          %{next_step_links}
-
-
       # Northern Ireland
 
       outcome_60:

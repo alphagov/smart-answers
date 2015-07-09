@@ -297,9 +297,9 @@ module SmartAnswer
       outcome :outcome_44, use_outcome_templates: true
       outcome :outcome_45, use_outcome_templates: true
 
-      outcome :outcome_46 do
-        precalculate :next_step_links do
-          PhraseList.new(:ownerless_link)
+      outcome :outcome_46, use_outcome_templates: true do
+        precalculate :next_steps do
+          [:ownerless_link]
         end
       end
 
