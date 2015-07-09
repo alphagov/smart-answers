@@ -303,7 +303,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_60
+      outcome :outcome_60, use_outcome_templates: true
       outcome :outcome_61
       outcome :outcome_62
       outcome :outcome_63

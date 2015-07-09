@@ -88,11 +88,6 @@ en-GB:
 
       # Northern Ireland
 
-      outcome_60:
-        title: The husband, wife or civil partner gets all of the estate but they must survive the deceased by at least 28 days.
-        next_steps: |
-          %{next_step_links}
-
       outcome_61:
         title: The husband, wife or civil partner keeps all the assets (including property), up to £250,000, and all the personal possessions, whatever their value.
         body: |
