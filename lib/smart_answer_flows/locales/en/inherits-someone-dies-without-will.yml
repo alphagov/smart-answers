@@ -88,20 +88,6 @@ en-GB:
 
       # Northern Ireland
 
-      outcome_62:
-        title: The husband, wife or civil partner keeps all the assets (including property), up to £250,000, and all the personal possessions, whatever their value.
-        body: |
-          The husband, wife or civil partner must survive the deceased by at least 28 days to inherit.
-
-          The remainder of the estate is divided in half between the:
-
-          - husband, wife or civil partner
-          - son or daughter
-
-          If the son or daughter has already died, their children (the grandchildren of the deceased) will inherit in their parent’s place.
-        next_steps: |
-          %{next_step_links}
-
       outcome_63:
         title: The husband, wife or civil partner keeps all the assets (including property) up to £450,000, and all the personal possessions, whatever their value.
         body: |
