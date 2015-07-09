@@ -195,13 +195,6 @@ en-GB:
           draught_proofing: Draught proofing
 
 
-# outcome 3c bills and measures - no benefits
-      outcome_bills_and_measures_no_benefits:
-        title: %{title_end}
-        body: |
-          %{eligibilities_bills}
-          %{eligibilities}
-
 # outcome 3d bills and measures, benefits and eco_eligible
       outcome_bills_and_measures_on_benefits_eco_eligible:
         title: %{title_end}
