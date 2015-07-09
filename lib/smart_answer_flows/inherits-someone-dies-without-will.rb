@@ -281,7 +281,7 @@ module SmartAnswer
       outcome :outcome_6, use_outcome_templates: true
 
       outcome :outcome_20, use_outcome_templates: true
-      outcome :outcome_23
+      outcome :outcome_23, use_outcome_templates: true
       outcome :outcome_24
 
       outcome :outcome_25 do
