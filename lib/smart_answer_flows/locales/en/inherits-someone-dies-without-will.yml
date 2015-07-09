@@ -88,15 +88,6 @@ en-GB:
 
       # Northern Ireland
 
-      outcome_66:
-        title: The estate is shared equally between the children.
-        body: |
-          If a son or daughter has already died, their children (the grandchildren of the deceased) inherit in their place.
-
-          They may have to pay Inheritance Tax.
-        next_steps: |
-          %{next_step_links}
-
       outcome_67:
         title: The estate goes to the next of kin - the person is closest in blood relationship to the deceased in the family tree.
         body: |
