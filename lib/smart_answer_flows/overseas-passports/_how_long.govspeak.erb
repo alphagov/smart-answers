@@ -1,1 +1,9 @@
+## How long it takes
+
 Your application <%= timing_prefix(optimistic_processing_time) %> <%= waiting_time %> from when it’s received by Her Majesty's Passport Office in the UK.
+
+<% if application_action == "replacing" %>
+If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
+
+<% end %>
+You may have to attend an interview.
