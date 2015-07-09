@@ -472,7 +472,7 @@ module SmartAnswer
       outcome :too_young, use_outcome_templates: true
 
       outcome :age_result, use_outcome_templates: true
-      outcome :over55_result
+      outcome :over55_result, use_outcome_templates: true
 
       outcome :amount_result do
         precalculate :calc do
