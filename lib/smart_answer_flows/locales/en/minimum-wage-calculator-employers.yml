@@ -155,6 +155,3 @@ en-GB:
         title: "How many days per week did the worker live in the accommodation?"
         suffix_label: days per week
         error_message: 7 is the highest number of days you can enter.
-
-      under_school_leaving_age_past:
-        body: The worker must have been at least [school leaving age](/know-when-you-can-leave-school) at the time to be entitled to the National Minimum Wage.
