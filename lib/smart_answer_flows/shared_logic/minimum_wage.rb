@@ -502,5 +502,5 @@ outcome :past_payment_below, use_outcome_templates: true do
 end
 
 outcome :under_school_leaving_age, use_outcome_templates: true
-outcome :does_not_apply_to_historical_apprentices
+outcome :does_not_apply_to_historical_apprentices, use_outcome_templates: true
 outcome :under_school_leaving_age_past
