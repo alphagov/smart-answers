@@ -86,13 +86,6 @@ en-GB:
 
       # Outcomes
 
-      outcome_4:
-        title: The estate is shared equally between the brothers or sisters.
-        body: |
-          If a brother or sister has already died, their children (nieces and nephews of the deceased) inherit in their place.
-        next_steps: |
-          %{next_step_links}
-
       outcome_5:
         title: The estate is shared equally between the grandparent(s).
         body: |
