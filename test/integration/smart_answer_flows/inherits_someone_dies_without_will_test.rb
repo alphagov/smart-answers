@@ -137,7 +137,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
                     should "give outcome 25" do
                       assert_current_node :outcome_25 # T32
-                      assert_phrase_list :next_step_links, [:ownerless_link]
                     end
                   end
                 end

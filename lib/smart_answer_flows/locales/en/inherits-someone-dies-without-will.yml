@@ -86,13 +86,6 @@ en-GB:
 
       # Outcomes
 
-      # England and Wales
-
-      outcome_25:
-        title: The whole estate goes to the Crown.
-        next_steps: |
-          %{next_step_links}
-
       # Scotland
 
       outcome_40:
