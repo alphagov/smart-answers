@@ -88,13 +88,6 @@ en-GB:
 
       # Scotland
 
-      outcome_45:
-        title: The estate is shared equally between any great aunts or great uncles.
-        body: |
-          They may have to pay Inheritance Tax.
-        next_steps: |
-          %{next_step_links}
-
       outcome_46:
         title: The whole estate goes to the Crown.
         body: |
