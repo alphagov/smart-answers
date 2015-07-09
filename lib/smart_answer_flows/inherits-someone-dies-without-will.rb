@@ -282,7 +282,7 @@ module SmartAnswer
 
       outcome :outcome_20, use_outcome_templates: true
       outcome :outcome_23, use_outcome_templates: true
-      outcome :outcome_24
+      outcome :outcome_24, use_outcome_templates: true
 
       outcome :outcome_25 do
         precalculate :next_step_links do

@@ -88,13 +88,6 @@ en-GB:
 
       # England and Wales
 
-      outcome_24:
-        title: The estate is shared equally between the half-aunts or half-uncles.
-        body: |
-          If an aunt or uncle has already died, their children (the cousins of the deceased) inherit in their place.
-        next_steps: |
-          %{next_step_links}
-
       outcome_25:
         title: The whole estate goes to the Crown.
         next_steps: |
