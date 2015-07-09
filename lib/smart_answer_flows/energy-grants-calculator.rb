@@ -326,68 +326,9 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_bills_and_measures_no_benefits do
-        precalculate :eligibilities_bills do
-          phrases = PhraseList.new
-          if both_help
-            if age_variant == :winter_fuel_payment
-              phrases << :winter_fuel_payments
-              phrases << :cold_weather_payment
-            end
-            phrases << :smartmeters
-          end
-          phrases
-        end
-
-        precalculate :title_end do
-          if both_help && !circumstances.include?('benefits')
-            PhraseList.new(:title_under_green_deal)
-          else
-            PhraseList.new(:title_energy_supplier)
-          end
-        end
-
-        precalculate :eligibilities do
-          phrases = PhraseList.new
-          phrases << :header_boilers_and_insulation
-          unless (features & %w(modern_boiler)).any?
-            phrases << :opt_condensing_boiler
-          end
-          unless (features & %w(mains_gas)).any?
-            phrases << :opt_cavity_wall_insulation
-          end
-          unless (features & %w(mains_gas solid_wall_insulation)).any?
-            phrases << :opt_solid_wall_insulation
-          end
-          unless (features & %w(draught_proofing mains_gas)).any?
-            phrases << :opt_draught_proofing
-          end
-          unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat'
-            phrases << :opt_loft_roof_insulation
-          end
-          unless flat_type == "top_floor"
-            if (features & %w(loft_attic_conversion)).any? || property_type == 'flat'
-              phrases << :opt_room_roof_insulation
-            end
-            unless modern
-              phrases << :opt_under_floor_insulation
-            end
-          end
-          phrases << :header_heating
-          phrases << :opt_better_heating_controls
-          unless (features & %w(mains_gas)).any?
-            phrases << :opt_heat_pump
-            phrases << :opt_biomass_boilers_heaters
-            phrases << :opt_solar_water_heating
-          end
-          unless (features & %w(modern_double_glazing)).any?
-            phrases << :header_windows_and_doors
-            phrases << :opt_replacement_glazing
-          end
-          phrases << :opt_renewal_heat
-          phrases << :help_and_advice
-          phrases << :help_and_advice_body
-          phrases
+      outcome :outcome_bills_and_measures_no_benefits, use_outcome_templates: true do
+        precalculate :flat_type do
+          flat_type
         end
       end
 

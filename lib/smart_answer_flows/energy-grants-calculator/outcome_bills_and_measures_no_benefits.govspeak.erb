@@ -1,0 +1,55 @@
+<% content_for :title do %>
+<% if both_help && !circumstances.include?('benefits') %>
+<% render partial: 'title_under_green_deal.govspeak.erb' %>
+<% else %>
+<% render partial: 'title_energy_supplier.govspeak.erb' %>
+<% end %>
+<% end %>
+
+<% content_for :body do %>
+<% if both_help %>
+  <% if age_variant == :winter_fuel_payment %>
+<%= render partial: 'winter_fuel_payments.govspeak.erb' %>
+<%= render partial: 'cold_weather_payment.govspeak.erb' %>
+  <% end %>
+<%= render partial: 'smartmeters.govspeak.erb' %>
+<% end %>
+<%= render partial: 'header_boilers_and_insulation.govspeak.erb' %>
+<% unless (features & %w(modern_boiler)).any? %>
+<%= render partial: 'opt_condensing_boiler.govspeak.erb' %>
+<% end %>
+<% unless (features & %w(mains_gas)).any? %>
+<%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>
+<% end %>
+<% unless (features & %w(mains_gas solid_wall_insulation)).any? %>
+<%= render partial: 'opt_solid_wall_insulation.govspeak.erb' %>
+<% end %>
+<% unless (features & %w(draught_proofing mains_gas)).any? %>
+<%= render partial: 'opt_draught_proofing.govspeak.erb' %>
+<% end %>
+<% unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat' %>
+<%= render partial: 'opt_loft_roof_insulation.govspeak.erb' %>
+<% end %>
+<% unless flat_type == "top_floor" %>
+  <% if (features & %w(loft_attic_conversion)).any? || property_type == 'flat' %>
+<%= render partial: 'opt_room_roof_insulation.govspeak.erb' %>
+  <% end %>
+  <% unless modern %>
+<%= render partial: 'opt_under_floor_insulation.govspeak.erb' %>
+  <% end %>
+<% end %>
+<%= render partial: 'header_heating.govspeak.erb' %>
+<%= render partial: 'opt_better_heating_controls.govspeak.erb' %>
+<% unless (features & %w(mains_gas)).any? %>
+<%= render partial: 'opt_heat_pump.govspeak.erb' %>
+<%= render partial: 'opt_biomass_boilers_heaters.govspeak.erb' %>
+<%= render partial: 'opt_solar_water_heating.govspeak.erb' %>
+<% end %>
+<% unless (features & %w(modern_double_glazing)).any? %>
+<%= render partial: 'header_windows_and_doors.govspeak.erb' %>
+<%= render partial: 'opt_replacement_glazing.govspeak.erb' %>
+<% end %>
+<%= render partial: 'opt_renewal_heat.govspeak.erb' %>
+<%= render partial: 'help_and_advice.govspeak.erb' %>
+<%= render partial: 'help_and_advice_body.govspeak.erb' -%>
+<% end %>
