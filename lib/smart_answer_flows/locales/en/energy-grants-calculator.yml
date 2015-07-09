@@ -195,13 +195,6 @@ en-GB:
           draught_proofing: Draught proofing
 
 
-# outcome 3e bills and measures, no benefits but eco_eligible
-      outcome_bills_and_measures_on_benefits_not_eco_eligible:
-        title: %{title_end}
-        body: |
-          %{eligibilities_bills}
-          %{eligibilities}
-
 # outcome 4 don't qualify for green deal or help with energy efficiency
       outcome_no_green_deal_no_energy_measures:
         title: You don't qualify for the Green Deal or for any help with energy efficient measures for your home.
