@@ -274,7 +274,7 @@ module SmartAnswer
       end
 
       outcome :outcome_1, use_outcome_templates: true
-      outcome :outcome_2
+      outcome :outcome_2, use_outcome_templates: true
       outcome :outcome_3
       outcome :outcome_4
       outcome :outcome_5

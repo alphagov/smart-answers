@@ -86,13 +86,6 @@ en-GB:
 
       # Outcomes
 
-      outcome_2:
-        title: The estate is shared equally between the children or their descendants.
-        body: |
-          If a son or daughter has already died, their children (the grandchildren of the deceased) inherit in their place.
-        next_steps: |
-          %{next_step_links}
-
       outcome_3:
         title: The estate is shared equally between the parents.
         body: |
