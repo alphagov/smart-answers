@@ -86,13 +86,6 @@ en-GB:
 
       # Outcomes
 
-      outcome_6:
-        title: The estate is shared equally between the aunts or uncles.
-        body: |
-          If an aunt or uncle has already died, their children (the cousins of the deceased) inherit in their place.
-        next_steps: |
-          %{next_step_links}
-
       # England and Wales
 
       outcome_20:
