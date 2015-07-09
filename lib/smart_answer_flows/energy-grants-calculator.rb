@@ -314,34 +314,27 @@ module SmartAnswer
         next_node(:outcome_bills_and_measures_on_benefits_not_eco_eligible)
       end
 
-      outcome :outcome_help_with_bills, use_outcome_templates: true do
+      use_outcome_templates
+
+      outcome :outcome_help_with_bills do
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
         end
       end
 
-      outcome :outcome_measures_help_green_deal, use_outcome_templates: true do
+      outcome :outcome_measures_help_green_deal do
         precalculate :flat_type do
           flat_type
         end
       end
 
-      outcome :outcome_bills_and_measures_no_benefits, use_outcome_templates: true do
+      outcome :outcome_bills_and_measures_no_benefits do
         precalculate :flat_type do
           flat_type
         end
       end
 
-      outcome :outcome_bills_and_measures_on_benefits_eco_eligible, use_outcome_templates: true do
-        precalculate :incomesupp_jobseekers_1 do
-          incomesupp_jobseekers_1
-        end
-        precalculate :flat_type do
-          flat_type
-        end
-      end
-
-      outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible, use_outcome_templates: true do
+      outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
         end
@@ -350,7 +343,16 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_no_green_deal_no_energy_measures, use_outcome_templates: true
+      outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
+        precalculate :incomesupp_jobseekers_1 do
+          incomesupp_jobseekers_1
+        end
+        precalculate :flat_type do
+          flat_type
+        end
+      end
+
+      outcome :outcome_no_green_deal_no_energy_measures
     end
   end
 end
