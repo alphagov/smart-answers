@@ -273,45 +273,47 @@ module SmartAnswer
         next_node_if(:outcome_62, responded_with('no'))
       end
 
-      outcome :outcome_1, use_outcome_templates: true
-      outcome :outcome_2, use_outcome_templates: true
-      outcome :outcome_3, use_outcome_templates: true
-      outcome :outcome_4, use_outcome_templates: true
-      outcome :outcome_5, use_outcome_templates: true
-      outcome :outcome_6, use_outcome_templates: true
+      use_outcome_templates
 
-      outcome :outcome_20, use_outcome_templates: true
-      outcome :outcome_23, use_outcome_templates: true
-      outcome :outcome_24, use_outcome_templates: true
+      outcome :outcome_1
+      outcome :outcome_2
+      outcome :outcome_3
+      outcome :outcome_4
+      outcome :outcome_5
+      outcome :outcome_6
 
-      outcome :outcome_25, use_outcome_templates: true do
+      outcome :outcome_20
+      outcome :outcome_23
+      outcome :outcome_24
+
+      outcome :outcome_25 do
         precalculate :next_steps do
           [:ownerless_link]
         end
       end
 
-      outcome :outcome_40, use_outcome_templates: true
-      outcome :outcome_41, use_outcome_templates: true
-      outcome :outcome_42, use_outcome_templates: true
-      outcome :outcome_43, use_outcome_templates: true
-      outcome :outcome_44, use_outcome_templates: true
-      outcome :outcome_45, use_outcome_templates: true
+      outcome :outcome_40
+      outcome :outcome_41
+      outcome :outcome_42
+      outcome :outcome_43
+      outcome :outcome_44
+      outcome :outcome_45
 
-      outcome :outcome_46, use_outcome_templates: true do
+      outcome :outcome_46 do
         precalculate :next_steps do
           [:ownerless_link]
         end
       end
 
-      outcome :outcome_60, use_outcome_templates: true
-      outcome :outcome_61, use_outcome_templates: true
-      outcome :outcome_62, use_outcome_templates: true
-      outcome :outcome_63, use_outcome_templates: true
-      outcome :outcome_64, use_outcome_templates: true
-      outcome :outcome_65, use_outcome_templates: true
-      outcome :outcome_66, use_outcome_templates: true
+      outcome :outcome_60
+      outcome :outcome_61
+      outcome :outcome_62
+      outcome :outcome_63
+      outcome :outcome_64
+      outcome :outcome_65
+      outcome :outcome_66
 
-      outcome :outcome_67, use_outcome_templates: true do
+      outcome :outcome_67 do
         precalculate :next_steps do
           [:ownerless_link]
         end
