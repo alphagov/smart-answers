@@ -1,13 +1,5 @@
 <% content_for :body do %>
-## How long it takes
-
-<%= render partial: 'how_long.govspeak.erb', locals: { waiting_time: waiting_time } %>
-<% if application_action == "replacing" %>
-If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
-
-<% end %>
-You may have to attend an interview.
-
+<%= render partial: 'how_long.govspeak.erb', locals: { optimistic_processing_time: optimistic_processing_time, waiting_time: waiting_time, application_action: application_action } %>
 <% case ips_number %>
 <% when '1' %>
 Applications will take longer if:
