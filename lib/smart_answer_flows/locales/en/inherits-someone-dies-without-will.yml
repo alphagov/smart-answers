@@ -88,18 +88,6 @@ en-GB:
 
       # England and Wales
 
-      outcome_20:
-        title: The husband, wife or civil partner keeps all the assets (including property), up to £250,000, and all the personal possessions, whatever their value.
-        body: |
-          The remainder of the estate will be shared as follows:
-
-          * the husband, wife or civil partner gets an absolute interest in half of the remainder
-          * the other half is then divided equally between the surviving children
-
-          If a son or daughter (or other child where the deceased had a parental role) has already died, their children will inherit in their place.
-        next_steps: |
-          %{next_step_links}
-
       outcome_23:
         title: The estate is shared equally between the half-brothers or half-sisters.
         body: |
