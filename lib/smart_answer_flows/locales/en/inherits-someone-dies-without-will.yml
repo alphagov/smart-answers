@@ -82,15 +82,3 @@ en-GB:
       # Q60
       more_than_one_child?:
         title: Did they have more than one child?
-
-
-      # Outcomes
-
-      # Northern Ireland
-
-      outcome_67:
-        title: The estate goes to the next of kin - the person is closest in blood relationship to the deceased in the family tree.
-        body: |
-          If nobody claims the estate, the whole estate goes to the Crown.
-        next_steps: |
-          %{next_step_links}
