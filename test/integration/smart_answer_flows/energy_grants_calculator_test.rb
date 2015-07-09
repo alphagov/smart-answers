@@ -668,9 +668,6 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         end
         should "take you to bills & measures, on benefits with variants" do
           assert_current_node :outcome_bills_and_measures_on_benefits_eco_eligible
-          assert_phrase_list :eligibilities_bills, [:cold_weather_payment, :energy_company_obligation]
-          assert_phrase_list :title_end, [:title_energy_supplier]
-          assert_phrase_list :eligibilities, [:header_boilers_and_insulation, :opt_condensing_boiler, :opt_room_roof_insulation, :opt_eco_help, :header_heating, :opt_better_heating_controls, :header_windows_and_doors, :opt_replacement_glazing, :opt_renewal_heat, :help_and_advice, :help_and_advice_body]
 
           assert_state_variable :opt_fan_assisted_heater, nil
           assert_state_variable :opt_warm_air_unit, nil
@@ -699,9 +696,6 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         end
         should "take you to bills & measures, on benefits with variants" do
           assert_current_node :outcome_bills_and_measures_on_benefits_eco_eligible
-          assert_phrase_list :eligibilities_bills, [:cold_weather_payment, :energy_company_obligation]
-          assert_phrase_list :title_end, [:title_energy_supplier]
-          assert_phrase_list :eligibilities, [:header_boilers_and_insulation, :opt_condensing_boiler, :opt_cavity_wall_insulation, :opt_solid_wall_insulation, :opt_draught_proofing, :opt_room_roof_insulation, :opt_eco_help, :header_heating, :opt_better_heating_controls, :opt_heat_pump, :opt_biomass_boilers_heaters, :opt_solar_water_heating, :header_windows_and_doors, :opt_replacement_glazing, :opt_renewal_heat, :help_and_advice, :help_and_advice_body]
 
           assert_state_variable :opt_fan_assisted_heater, nil
           assert_state_variable :opt_warm_air_unit, nil
