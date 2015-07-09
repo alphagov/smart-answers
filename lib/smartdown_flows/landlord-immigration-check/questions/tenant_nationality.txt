@@ -1,12 +1,10 @@
 # Is the person:
 
 [choice: tenant_country]
-* ci_or_iom: from the Channel Islands or Isle of Man
 * eu_eea_switzerland: from the EU, EEA or Switzerland
 * non_eea_but_with_eu_eea_switzerland_family_member: a non-EEA family member of someone from the EU, EEA or Switzerland
 * somewhere_else: from somewhere else
 
-* tenant_country is 'ci_or_iom' => outcome_can_rent
 * tenant_country is 'eu_eea_switzerland' => documents_exempting_from_immigration_control
 * tenant_country is 'non_eea_but_with_eu_eea_switzerland_family_member' => named_person_of_eea_switzerland_person
 * tenant_country is 'somewhere_else' => other_documents_for_indefinite_leave_to_remain
