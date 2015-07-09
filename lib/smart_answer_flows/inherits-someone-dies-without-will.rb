@@ -290,7 +290,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_40
+      outcome :outcome_40, use_outcome_templates: true
       outcome :outcome_41
       outcome :outcome_42
       outcome :outcome_43
