@@ -337,7 +337,8 @@ module SmartAnswer
             end
             if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1
               if benefits_claimed.include?('pension_credit')
-                phrases << :warm_home_discount << :cold_weather_payment
+                phrases << :warm_home_discount
+                phrases << :cold_weather_payment
               else
                 phrases << :cold_weather_payment
               end
@@ -368,7 +369,8 @@ module SmartAnswer
           unless (features & %w(modern_boiler)).any?
             phrases << :opt_condensing_boiler
           end
-          phrases << :opt_cavity_wall_insulation << :opt_solid_wall_insulation
+          phrases << :opt_cavity_wall_insulation
+          phrases << :opt_solid_wall_insulation
           unless (features & %w(draught_proofing)).any?
             phrases << :opt_draught_proofing
           end
@@ -383,17 +385,22 @@ module SmartAnswer
               phrases << :opt_under_floor_insulation
             end
           end
-          phrases << :header_heating << :opt_better_heating_controls
+          phrases << :header_heating
+          phrases << :opt_better_heating_controls
           unless (features & %w(mains_gas)).any?
-            (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating)
+            phrases << :opt_heat_pump
+            phrases << :opt_biomass_boilers_heaters
+            phrases << :opt_solar_water_heating
           end
           unless (features & %w(modern_double_glazing)).any?
-            (phrases << :header_windows_and_doors << :opt_replacement_glazing)
+            phrases << :header_windows_and_doors
+            phrases << :opt_replacement_glazing
           end
           unless bills_help
             phrases << :opt_renewal_heat
           end
-          phrases << :help_and_advice << :help_and_advice_body
+          phrases << :help_and_advice
+          phrases << :help_and_advice_body
           phrases
         end
       end
@@ -403,7 +410,8 @@ module SmartAnswer
           phrases = PhraseList.new
           if both_help
             if age_variant == :winter_fuel_payment
-              (phrases << :winter_fuel_payments << :cold_weather_payment)
+              phrases << :winter_fuel_payments
+              phrases << :cold_weather_payment
             end
             phrases << :smartmeters
           end
@@ -444,14 +452,20 @@ module SmartAnswer
               phrases << :opt_under_floor_insulation
             end
           end
-          phrases << :header_heating << :opt_better_heating_controls
+          phrases << :header_heating
+          phrases << :opt_better_heating_controls
           unless (features & %w(mains_gas)).any?
-            (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating)
+            phrases << :opt_heat_pump
+            phrases << :opt_biomass_boilers_heaters
+            phrases << :opt_solar_water_heating
           end
           unless (features & %w(modern_double_glazing)).any?
-            (phrases << :header_windows_and_doors << :opt_replacement_glazing)
+            phrases << :header_windows_and_doors
+            phrases << :opt_replacement_glazing
           end
-          phrases << :opt_renewal_heat << :help_and_advice << :help_and_advice_body
+          phrases << :opt_renewal_heat
+          phrases << :help_and_advice
+          phrases << :help_and_advice_body
           phrases
         end
       end
@@ -510,14 +524,21 @@ module SmartAnswer
               phrases << :opt_under_floor_insulation
             end
           end
-          phrases << :opt_eco_help << :header_heating << :opt_better_heating_controls
+          phrases << :opt_eco_help
+          phrases << :header_heating
+          phrases << :opt_better_heating_controls
           unless (features & %w(mains_gas)).any?
-            (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating)
+            phrases << :opt_heat_pump
+            phrases << :opt_biomass_boilers_heaters
+            phrases << :opt_solar_water_heating
           end
           unless (features & %w(modern_double_glazing)).any?
-            (phrases << :header_windows_and_doors << :opt_replacement_glazing)
+            phrases << :header_windows_and_doors
+            phrases << :opt_replacement_glazing
           end
-          phrases << :opt_renewal_heat << :help_and_advice << :help_and_advice_body
+          phrases << :opt_renewal_heat
+          phrases << :help_and_advice
+          phrases << :help_and_advice_body
           phrases
         end
       end
@@ -557,7 +578,8 @@ module SmartAnswer
             phrases << :opt_condensing_boiler
           end
           unless (features & %w(mains_gas)).any?
-            (phrases << :opt_cavity_wall_insulation << :opt_solid_wall_insulation)
+            phrases << :opt_cavity_wall_insulation
+            phrases << :opt_solid_wall_insulation
           end
           unless (features & %w(draught_proofing mains_gas)).any?
             phrases << :opt_draught_proofing
@@ -573,14 +595,21 @@ module SmartAnswer
               phrases << :opt_under_floor_insulation
             end
           end
-          phrases << :opt_eco_help << :header_heating << :opt_better_heating_controls
+          phrases << :opt_eco_help
+          phrases << :header_heating
+          phrases << :opt_better_heating_controls
           unless (features & %w(mains_gas)).any?
-            (phrases << :opt_heat_pump << :opt_biomass_boilers_heaters << :opt_solar_water_heating)
+            phrases << :opt_heat_pump
+            phrases << :opt_biomass_boilers_heaters
+            phrases << :opt_solar_water_heating
           end
           unless (features & %w(modern_double_glazing)).any?
-            (phrases << :header_windows_and_doors << :opt_replacement_glazing)
+            phrases << :header_windows_and_doors
+            phrases << :opt_replacement_glazing
           end
-          phrases << :opt_renewal_heat << :help_and_advice << :help_and_advice_body
+          phrases << :opt_renewal_heat
+          phrases << :help_and_advice
+          phrases << :help_and_advice_body
           phrases
         end
       end
