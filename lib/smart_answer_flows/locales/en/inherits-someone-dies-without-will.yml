@@ -1,13 +1,6 @@
 en-GB:
   flow:
     inherits-someone-dies-without-will:
-      phrases:
-        wills_link: |
-          Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
-        inheritance_link: |
-          Find out how to pay [Inheritance Tax.](https://www.gov.uk/inheritance-tax "Inheritance Tax")
-        ownerless_link: |
-          Find out what happens to [ownerless property](/unclaimed-estates-bona-vacantia "Ownerless property (bona vacantia)")
       options:
         "yes": "Yes"
         "no": "No"

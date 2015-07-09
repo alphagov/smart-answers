@@ -20,10 +20,6 @@ module SmartAnswer
           [:wills_link, :inheritance_link]
         end
 
-        calculate :next_step_links do
-          PhraseList.new(*next_steps)
-        end
-
         next_node :partner?
       end
 
@@ -56,10 +52,6 @@ module SmartAnswer
           else
             [:wills_link]
           end
-        end
-
-        calculate :next_step_links do
-          PhraseList.new(*next_steps)
         end
 
         on_condition(variable_matches(:region, 'england-and-wales')) do

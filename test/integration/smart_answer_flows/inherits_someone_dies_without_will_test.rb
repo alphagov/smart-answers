@@ -21,7 +21,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
         should "give outcome 1" do
           assert_current_node :outcome_1 # T20
-          assert_phrase_list :next_step_links, [:wills_link]
         end
       end
 
@@ -33,7 +32,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
           should "give outcome 20" do
             assert_current_node :outcome_20 # T21
-            assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
           end
         end
 
@@ -42,7 +40,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
           should "give outcome 1" do
             assert_current_node :outcome_1
-            assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
           end
         end
       end
@@ -56,7 +53,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
         should "give outcome 2" do
           assert_current_node :outcome_2 # T25
-          assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
         end
       end
 
@@ -68,7 +64,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
           should "give outcome 3" do
             assert_current_node :outcome_3 # T26
-            assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
           end
         end
 
@@ -80,7 +75,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 4" do
               assert_current_node :outcome_4 # T27
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
 
@@ -92,7 +86,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
               should "give outcome 23" do
                 assert_current_node :outcome_23 # T28
-                assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
               end
             end
 
@@ -104,7 +97,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
                 should "give outcome 5" do
                   assert_current_node :outcome_5 # T29
-                  assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
                 end
               end
 
@@ -116,7 +108,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
                   should "give outcome 6" do
                     assert_current_node :outcome_6 # T30
-                    assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
                   end
                 end
 
@@ -128,7 +119,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
                     should "give outcome 24" do
                       assert_current_node :outcome_24 # T31
-                      assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
                     end
                   end
 
@@ -159,7 +149,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
         should "give outcome 40" do
           assert_current_node :outcome_40 # T40
-          assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
         end
       end
 
@@ -174,7 +163,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 1" do
               assert_current_node :outcome_1 # T41
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
 
@@ -183,7 +171,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 41" do
               assert_current_node :outcome_41 # T42
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
         end
@@ -196,7 +183,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 42" do
               assert_current_node :outcome_42 # T43
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
 
@@ -205,7 +191,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 43" do
               assert_current_node :outcome_43 # T44
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
         end
@@ -220,7 +205,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
         should "give outcome 2" do
           assert_current_node :outcome_2 # T46
-          assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
         end
       end
 
@@ -235,7 +219,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 44" do
               assert_current_node :outcome_44 # T48
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
 
@@ -244,7 +227,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 3" do
               assert_current_node :outcome_3 # T47
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
         end
@@ -257,7 +239,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 4" do
               assert_current_node :outcome_4 # T45
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
 
@@ -269,7 +250,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
               should "give outcome 6" do
                 assert_current_node :outcome_6 # T49
-                assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
               end
             end
 
@@ -281,7 +261,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
                 should "give outcome 5" do
                   assert_current_node :outcome_5 # T50
-                  assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
                 end
               end
 
@@ -293,7 +272,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
                   should "give outcome 45" do
                     assert_current_node :outcome_45 # T51
-                    assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
                   end
                 end
 
@@ -323,7 +301,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
         should "give outcome 60" do
           assert_current_node :outcome_60 # T60
-          assert_phrase_list :next_step_links, [:wills_link]
         end
       end
 
@@ -338,7 +315,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 61" do
               assert_current_node :outcome_61 # T61
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
 
@@ -347,7 +323,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 62" do
               assert_current_node :outcome_62 # T62
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
         end
@@ -360,7 +335,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 63" do
               assert_current_node :outcome_63 # T63
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
 
@@ -372,7 +346,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
               should "give outcome 64" do
                 assert_current_node :outcome_64 # T64
-                assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
               end
             end
 
@@ -381,7 +354,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
               should "give outcome 65" do
                 assert_current_node :outcome_65 # T65
-                assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
               end
             end
           end
@@ -397,7 +369,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
         should "give outcome 66" do
           assert_current_node :outcome_66 # T66
-          assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
         end
       end
 
@@ -409,7 +380,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
           should "give outcome 3" do
             assert_current_node :outcome_3 # T67
-            assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
           end
         end
 
@@ -421,7 +391,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
             should "give outcome 4" do
               assert_current_node :outcome_4 # T68
-              assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
             end
           end
 
@@ -433,7 +402,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
               should "give outcome 5" do
                 assert_current_node :outcome_5 # T70
-                assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
               end
             end
 
@@ -445,7 +413,6 @@ class InheritsSomeoneDiesWithoutWillTest < ActiveSupport::TestCase
 
                 should "give outcome 6" do
                   assert_current_node :outcome_6 # T69
-                  assert_phrase_list :next_step_links, [:wills_link, :inheritance_link]
                 end
               end
 
