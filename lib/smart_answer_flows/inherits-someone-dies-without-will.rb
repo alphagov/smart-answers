@@ -16,8 +16,12 @@ module SmartAnswer
 
         save_input_as :region
 
+        calculate :next_steps do
+          [:wills_link, :inheritance_link]
+        end
+
         calculate :next_step_links do
-          PhraseList.new(:wills_link, :inheritance_link)
+          PhraseList.new(*next_steps)
         end
 
         next_node :partner?
@@ -46,12 +50,16 @@ module SmartAnswer
 
         save_input_as :estate_over_250000
 
-        calculate :next_step_links do
+        calculate :next_steps do
           if estate_over_250000 == "yes"
-            next_step_links
+            next_steps
           else
-            PhraseList.new(:wills_link)
+            [:wills_link]
           end
+        end
+
+        calculate :next_step_links do
+          PhraseList.new(*next_steps)
         end
 
         on_condition(variable_matches(:region, 'england-and-wales')) do
