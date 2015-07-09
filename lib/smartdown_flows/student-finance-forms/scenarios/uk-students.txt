@@ -130,6 +130,7 @@ outcome_dsa_1415_pt
 - continuing_student: continuing-student
 - pt_course_start: course-start-before-01092012
 outcome_uk_ptgc_1516_grant
+has marker: circumstances_changed
 
 - type_of_student: uk-part-time
 - form_needed_for_2: apply-loans-grants
@@ -144,6 +145,7 @@ outcome_uk_pt_1516_continuing
 - continuing_student: new-student
 - pt_course_start: course-start-before-01092012
 outcome_uk_ptgn_1516_grant
+has marker: circumstances_changed
 
 - type_of_student: uk-part-time
 - form_needed_for_2: apply-loans-grants

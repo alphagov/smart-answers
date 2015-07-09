@@ -16,3 +16,5 @@ You need to download and fill in [form CB1 (PDF, 463KB)](http://media.slc.co.uk/
 - Income-related Employment Support Allowance (ESA)
 - Housing Benefit
 - Local Housing Allowance
+
+{{snippet: circumstances-changed-co2-form}}
