@@ -293,7 +293,7 @@ module SmartAnswer
       outcome :outcome_40, use_outcome_templates: true
       outcome :outcome_41, use_outcome_templates: true
       outcome :outcome_42, use_outcome_templates: true
-      outcome :outcome_43
+      outcome :outcome_43, use_outcome_templates: true
       outcome :outcome_44
       outcome :outcome_45
 
