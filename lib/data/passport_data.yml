@@ -341,6 +341,7 @@ burma:
   type: ips_application_3
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
+  application_office: true
   renewing_new: 6 weeks
   renewing_old: 16 weeks
   applying: 16 weeks
