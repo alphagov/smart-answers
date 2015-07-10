@@ -87,7 +87,7 @@ The courier fee pays for your passport to be sent securely to the British Embass
 
 <%= render partial: 'passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number } %>
 <% else %>
-  <% uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela western-sahara) %>
+  <% uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela western-sahara) %>
   <% pay_at_appointment_countries = %w(venezuela) %>
 
   <% if uk_visa_application_centre_countries.include?(current_location) %>
@@ -176,8 +176,8 @@ You must pay at your scheduled appointment using a debit or credit card. America
 %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
 <% end %>
 
-<% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burundi china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia tajikistan thailand turkmenistan ukraine uzbekistan western-sahara venezuela) %>
-<% uk_visa_application_with_colour_pictures = %w(azerbaijan algeria bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia venezuela) %>
+<% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burundi burma china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia tajikistan thailand turkmenistan ukraine uzbekistan western-sahara venezuela) %>
+<% uk_visa_application_with_colour_pictures = %w(azerbaijan algeria bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia venezuela) %>
 <% non_uk_visa_application_with_colour_pictures = %w(burma cuba sudan tajikistan turkmenistan uzbekistan) %>
 
 <% if application_address %>
@@ -394,7 +394,7 @@ You need to book an appointment - contact the embassy to arrange one.
 <% collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe) %>
 <% collect_in_person_variant_countries = %w(burundi india jordan pitcairn-island) %>
 <% collect_in_person_renewing_new_variant_countries = %w(burma nepal north-korea st-helena-ascension-and-tristan-da-cunha) %>
-<% uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus china georgia india indonesia kazakhstan kyrgyzstan lebanon mauritania morocco pakistan russia thailand ukraine venezuela western-sahara) %>
+<% uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan lebanon mauritania morocco pakistan russia thailand ukraine venezuela western-sahara) %>
 <% uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda) %>
 <% collect_with_photo_id_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda) %>
 <% passport_delivered_by_courier_countries = %w(laos) %>
