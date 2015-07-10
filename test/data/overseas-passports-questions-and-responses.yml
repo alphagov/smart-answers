@@ -1,4 +1,4 @@
---- 
+---
 :which_country_are_you_in?:
 - france # overseas_passports_embassies (organisation)
 - st-martin # overseas_passports_embassies (no organisation)
@@ -23,15 +23,20 @@
 - north-korea # emergency_travel_help_#{current_location}
 - the-occupied-palestinian-territories # which_opt?
 - hong-kong # hong_kong_id_required
-:which_opt?: 
+# Added temporarily for tt_overseas_passports_process_changes branch
+- burma
+- china
+- nepal
+- vietnam
+:which_opt?:
 - gaza
 - jerusalem-or-westbank
-:renewing_replacing_applying?: 
+:renewing_replacing_applying?:
 - renewing_new
 - renewing_old
 - applying
 - replacing
-:child_or_adult_passport?: 
+:child_or_adult_passport?:
 - adult
 - child
 :country_of_birth?:
