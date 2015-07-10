@@ -235,21 +235,15 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end
 
-  context "answer Vietnam, an example of online application, doc group 3" do
+  context "answer Vietnam, an example of in person application, doc group 1" do
     setup do
       worldwide_api_has_organisations_for_location('vietnam', read_fixture_file('worldwide/vietnam_organisations.json'))
       add_response 'vietnam'
     end
-    should "show how to apply online" do
+    should "show how to apply in person" do
       add_response 'renewing_new'
       add_response 'adult'
-      assert_current_node :ips_application_result_online
-    end
-    should "use the document group of the country of birth - Spain (which is 1)" do
-      add_response 'applying'
-      add_response 'adult'
-      add_response 'spain'
-      assert_current_node :ips_application_result_online
+      assert_current_node :ips_application_result
     end
   end
 
