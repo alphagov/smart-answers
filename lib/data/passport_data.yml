@@ -312,6 +312,7 @@ burma:
   renewing_old: 16_weeks
   applying: 16_weeks
   replacing: 12_weeks
+  application_office: true
 burundi:
   type: ips_application_3
   group: ips_documents_group_3
