@@ -25,7 +25,7 @@ class LegalisationDocumentCheckerTest < ActiveSupport::TestCase
     end
 
     should "show extra generic content" do
-      assert_phrase_list :generic_conditional_content, [:generic_certifying_content]
+      assert_state_variable :no_content, true
     end
   end
 
@@ -35,7 +35,7 @@ class LegalisationDocumentCheckerTest < ActiveSupport::TestCase
     end
 
     should "not show extra generic content" do
-      assert_phrase_list :generic_conditional_content, []
+      assert_state_variable :no_content, false
     end
   end
 
@@ -64,7 +64,7 @@ class LegalisationDocumentCheckerTest < ActiveSupport::TestCase
     end
 
     should "show the generic output" do
-      assert_phrase_list :generic_conditional_content, [:generic_certifying_content]
+      assert_state_variable :no_content, true
     end
   end
 
@@ -78,7 +78,7 @@ class LegalisationDocumentCheckerTest < ActiveSupport::TestCase
     end
 
     should "show the generic content" do
-      assert_phrase_list :generic_conditional_content, [:generic_certifying_content]
+      assert_state_variable :no_content, true
     end
   end
 
@@ -88,7 +88,7 @@ class LegalisationDocumentCheckerTest < ActiveSupport::TestCase
     end
 
     should "not show generic content" do
-      assert_phrase_list :generic_conditional_content, []
+      assert_state_variable :no_content, false
     end
   end
 

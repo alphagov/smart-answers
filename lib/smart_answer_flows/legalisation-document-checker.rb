@@ -5,7 +5,6 @@ module SmartAnswer
       status :published
       satisfies_need "101010"
 
-      data_query = SmartAnswer::Calculators::LegalisationDocumentsDataQuery.new
       i18n_prefix = "flow.legalisation-document-checker"
 
       #Q1
@@ -81,7 +80,13 @@ module SmartAnswer
 
       end
 
+      use_outcome_templates
+
       outcome :outcome_results do
+        precalculate :data_query do
+          SmartAnswer::Calculators::LegalisationDocumentsDataQuery.new
+        end
+
         precalculate :groups_selected do
           choices.map do |choice|
             info = data_query.find_document_data choice
@@ -89,23 +94,9 @@ module SmartAnswer
           end
         end
 
-        precalculate :document_details do
-          phrases = PhraseList.new
-          choices.each do |choice|
-            choice_info = data_query.find_document_data choice
-            heading = choice_info["heading"]
-            type = choice_info["type"]
-            group = choice_info["group"]
-            phrases << I18n.translate!("#{i18n_prefix}.phrases.#{group}", document_heading: heading, document_type: type)
-          end
-          phrases
-        end
-
-        precalculate :generic_conditional_content do
+        precalculate :no_content do
           # all apart from birth_death, certificate_impediment and medical_reports
           no_content = (groups_selected - ["birth_death" , "certificate_impediment", "medical_reports", "vet_health"]).size > 0
-
-          no_content ? PhraseList.new(:generic_certifying_content) : PhraseList.new
         end
       end
     end
