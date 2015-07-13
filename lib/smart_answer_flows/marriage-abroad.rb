@@ -285,33 +285,7 @@ module SmartAnswer
 
       outcome :outcome_os_indonesia, use_outcome_templates: true
 
-      outcome :outcome_os_laos do
-        precalculate :laos_os_phraselist do
-          phrases = PhraseList.new
-
-          if resident_of == 'uk'
-            phrases << :contact_embassy_of_ceremony_country_in_uk_marriage
-          else
-            phrases << :contact_local_authorities_in_country_marriage
-          end
-
-          phrases << :get_legal_and_travel_advice
-          phrases << :what_you_need_to_do
-          phrases << :what_to_do_laos
-          phrases << contact_method_key
-          phrases << :fee_and_required_supporting_documents_for_appointment
-          phrases << :legalisation_and_translation
-          phrases << :affirmation_os_translation_in_local_language_text
-          phrases << :docs_decree_and_death_certificate
-          phrases << :divorced_or_widowed_evidences
-          phrases << :change_of_name_evidence
-          phrases << :names_on_documents_must_match
-          phrases << :fee_table_affirmation_55
-          phrases << :link_to_consular_fees
-          phrases << :pay_by_cash_or_credit_card_no_cheque
-          phrases << :partner_naturalisation_in_uk
-        end
-      end
+      outcome :outcome_os_laos, use_outcome_templates: true
 
       outcome :outcome_os_local_japan do
         precalculate :japan_os_local_phraselist do

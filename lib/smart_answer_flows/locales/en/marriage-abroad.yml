@@ -326,10 +326,6 @@ en-GB:
           - evidence of parental consent if you’re below the age you can legally get married without consent in the country you’re from (eg 18 in England and Wales)
           - evidence if you’ve changed your name (eg by deed poll)
 
-        what_to_do_laos: |
-          You may be asked to provide an [affirmation of freedom to marry document](/government/publications/information-for-british-nationals-intending-to-marry-in-laos) to prove you’re allowed to marry.
-
-          Make an appointment at the British Embassy in Vientiane to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s ID and pay a fee.
         get_legal_advice: |
           ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
         check_travel_advice: |
@@ -1719,12 +1715,6 @@ en-GB:
           Marriage in Kosovo
         body: |
           %{kosovo_os_phraselist}
-# outcome Laos - Opposite sex
-      outcome_os_laos:
-        title: |
-          Marriage in Laos
-        body: |
-          %{laos_os_phraselist}
 # outcome Brazil not living in the UK
       outcome_brazil_not_living_in_the_uk:
         title: |
