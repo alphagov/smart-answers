@@ -41,6 +41,7 @@ SMART_ANSWER_FLOW_NAMES.each do |name|
 end
 
 SMART_ANSWER_TEST_FLOW_NAMES = %w(
+  bridge-of-death
 )
 
 SMART_ANSWER_TEST_FLOW_NAMES.each do |name|
