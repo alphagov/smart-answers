@@ -88,7 +88,9 @@ module SmartAnswer
 
       end
 
-      outcome :answer_one_generic, use_outcome_templates: true do
+      use_outcome_templates
+
+      outcome :answer_one_generic do
         precalculate :transfers_back_to_uk_treaty_change_countries do
           %w(austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia)
         end
@@ -98,9 +100,9 @@ module SmartAnswer
         end
       end
 
-      outcome :answer_two_iran, use_outcome_templates: true
+      outcome :answer_two_iran
 
-      outcome :answer_three_syria, use_outcome_templates: true
+      outcome :answer_three_syria
     end
   end
 end
