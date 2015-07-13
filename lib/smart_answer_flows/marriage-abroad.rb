@@ -287,23 +287,7 @@ module SmartAnswer
 
       outcome :outcome_os_laos, use_outcome_templates: true
 
-      outcome :outcome_os_local_japan do
-        precalculate :japan_os_local_phraselist do
-          PhraseList.new(
-            :contact_local_authorities_in_country_marriage,
-            :japan_legal_advice,
-            :what_you_need_to_do,
-            :what_to_do_os_local_japan,
-            :consular_cni_os_not_uk_resident_ceremony_not_germany,
-            :what_happens_next_os_local_japan,
-            :names_on_documents_must_match,
-            :partner_naturalisation_in_uk,
-            :fee_table_oath_declaration_55,
-            :link_to_consular_fees,
-            :payment_methods_japan
-          )
-        end
-      end
+      outcome :outcome_os_local_japan, use_outcome_templates: true
 
       outcome :outcome_os_hong_kong
 

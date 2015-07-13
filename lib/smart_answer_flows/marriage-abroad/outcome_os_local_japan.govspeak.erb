@@ -1,0 +1,65 @@
+<% content_for :title do %>
+  Marriage in Japan
+
+<% end %>
+
+<% content_for :body do %>
+  <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+             locals: {
+               country_name_lowercase_prefix: country_name_lowercase_prefix
+             } %>
+
+  ^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
+
+
+  <%= render partial: 'what_you_need_to_do.govspeak.erb' -%>
+
+
+  Make an appointment at the British embassy in Tokyo or British Consulate General in Osaka to swear an affirmation/affidavit (written statement of facts) that you’re free to marry.
+
+  [Make an appointment at the embassy in Tokyo](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tokyo/oaths-affirmations-and-affidavits/slot_picker).
+
+  [Make an appointment at the Consulate General in Osaka](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-osaka/oaths-affirmations-and-affidavits/slot_picker).
+
+  You can [download and fill in a form](/government/publications/affidavitaffirmation-of-marital-status-japan) for an ‘Affirmation for marriage’ (non-religious) or an ‘Affidavit for marriage’ (religious) before your appointment. Don’t sign it - you’ll do that at the appointment.
+
+  You’ll need to bring:
+
+  - your UK passport
+  - proof of residence showing your current address, such as a residence card
+  - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+  - evidence of parental consent if you’re below the age you can legally get married without consent in the country you’re from (eg 18 in England and Wales)
+  - evidence if you’ve changed your name (eg by deed poll)
+
+
+  <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' -%>
+
+
+  ###What happens next
+
+  The embassy will charge a fee for taking the oath, and then give you your notice of marriage. You should take this to the local authorities where you’re getting married. You’ll need to bring your passport.
+
+
+  <%= render partial: 'names_on_documents_must_match.govspeak.erb' -%>
+
+
+  <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' -%>
+
+
+  ##Fees
+
+  Service | Fee
+  -|-
+  Administering an oath or making a declaration | £55
+
+
+  <%= render partial: 'link_to_consular_fees.govspeak.erb',
+             locals: {
+               country_name_lowercase_prefix: country_name_lowercase_prefix,
+               ceremony_country: ceremony_country
+             } -%>
+
+
+  You can pay by credit card, but not by personal cheque. The embassy in Tokyo will also accept cash.
+
+<% end %>
