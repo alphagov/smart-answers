@@ -281,17 +281,9 @@ module SmartAnswer
 
       outcome :outcome_netherlands, use_outcome_templates: true
 
-      outcome :outcome_portugal do
+      outcome :outcome_portugal, use_outcome_templates: true do
         precalculate :portugal_phraselist do
           PhraseList.new(:contact_civil_register_office_portugal)
-        end
-        precalculate :portugal_title do
-          phrases = PhraseList.new
-          if sex_of_your_partner == 'opposite_sex'
-            phrases << :marriage_title
-          else
-            phrases << :same_sex_marriage_title
-          end
         end
       end
 
