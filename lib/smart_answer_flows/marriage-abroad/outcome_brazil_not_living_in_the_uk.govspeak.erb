@@ -1,0 +1,74 @@
+<% content_for :title do %>
+  Marriage in Brazil
+
+<% end %>
+
+<% content_for :body do %>
+  <% if resident_of == 'ceremony_country' %>
+    <%= render partial: 'contact_local_authorities.govspeak.erb' %>
+
+    <%= render partial: 'get_legal_advice.govspeak.erb' %>
+
+    You’ll need to swear an oath or affidavit (written statement of facts) in front of a notary public stating that you’re free to marry.
+
+    You can download and fill in (but not sign) the forms in advance.
+
+
+    $D
+    [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
+
+    [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
+    $D
+
+
+    The notary public will charge a fee for taking the oath, and then give you your notice of marriage. You should take this notice to the local authorities where you’re getting married.
+
+
+    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+
+    <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+
+    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+
+    Make an appointment at the British embassy or consulate in Brazil to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
+
+
+    <%= render partial: 'link_to_consular_fees.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+
+    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
+
+    <%= render partial: 'contact_method.govspeak.erb',
+               locals: {
+                 sex_of_your_partner: sex_of_your_partner,
+                 ceremony_country: ceremony_country,
+                 overseas_passports_embassies: overseas_passports_embassies,
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+
+
+    You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. You can download and fill in (but not sign) the forms in advance.
+
+
+    $D
+    [Download ’Affidavit for Marriage’ (PDF, 60KB)](/government/uploads/system/uploads/attachment_data/file/286008/Declaration_Marriage.pdf)
+    $D
+
+
+    <%= render partial: 'documents_for_divorced_or_widowed.govspeak.erb' %>
+  <% end %>
+<% end %>

@@ -190,12 +190,6 @@ en-GB:
         make_an_appointment_bring_passport_and_pay_55_colombia: |
           Make an appointment at the British embassy in Bogota to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
 
-        make_an_appointment_bring_passport_and_pay_55_brazil: |
-          Make an appointment at the British embassy or consulate in Brazil to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
-
-        download_affidavit_forms_but_do_not_sign: |
-          You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. You can download and fill in (but not sign) the forms in advance.
-
         complete_affirmation_or_affidavit_forms: |
           You’ll need to complete an ‘Affirmation for marriage’ (non-religious) form or an ‘Affidavit for marriage’ (religious) form in English.
         download_and_fill_but_not_sign: |
@@ -209,10 +203,6 @@ en-GB:
           [Download ’Affidavit for Marriage’ (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
           $D
 
-        download_affidavit_brazil: |
-          $D
-          [Download ’Affidavit for Marriage’ (PDF, 60KB)](/government/uploads/system/uploads/attachment_data/file/286008/Declaration_Marriage.pdf)
-          $D
         download_affidavit_and_affirmation_belgium: |
           $D
           [Download ‘Affidavit for marriage’ and ’Affirmation for marriage’](/government/publications/affidavitaffirmation-of-marital-status-form-belgium)
@@ -309,8 +299,6 @@ en-GB:
           You should also check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}).
         get_legal_and_travel_advice: |
           ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
-        contact_local_authorities: |
-          Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
         contact_local_authorities_in_country_marriage: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
         contact_local_authorities_in_country_cp: |
@@ -843,18 +831,6 @@ en-GB:
           [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
           $D
 
-        consular_cni_os_download_affidavit_notary_public: |
-          You’ll need to swear an oath or affidavit (written statement of facts) in front of a notary public stating that you’re free to marry.
-
-          You can download and fill in (but not sign) the forms in advance.
-
-
-          $D
-          [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
-
-          [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
-          $D
-
         wait_300_days_before_remarrying: |
           ^If you’re a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
         display_notice_of_marriage_7_days: |
@@ -899,9 +875,6 @@ en-GB:
           You can then collect your CNI at the British embassy in Athens or ask for it to be sent to you by post. You must provide the registrar’s original Notice of Marriage if you posted notice in the UK.
 
           [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
-
-        notary_public_will_charge_a_fee: |
-          The notary public will charge a fee for taking the oath, and then give you your notice of marriage. You should take this notice to the local authorities where you’re getting married.
 
         same_cni_process_and_fees_for_partner: |
           ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
@@ -1563,12 +1536,6 @@ en-GB:
           Contact the [Immigration Department ](http://www.immd.gov.hk/eng/faq/marriage-registration.html) in Hong Kong to find out about local marriage laws, including what documents you’ll need.
 
           ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
-# outcome Brazil not living in the UK
-      outcome_brazil_not_living_in_the_uk:
-        title: |
-          Marriage in Brazil
-        body: |
-          %{brazil_phraselist_not_in_the_uk}
 # outcome Monaco
       outcome_monaco:
         title: |

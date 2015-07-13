@@ -293,31 +293,7 @@ module SmartAnswer
 
       outcome :outcome_os_kosovo, use_outcome_templates: true
 
-      outcome :outcome_brazil_not_living_in_the_uk do
-        precalculate :brazil_phraselist_not_in_the_uk do
-          phrases = PhraseList.new
-          if resident_of == 'ceremony_country'
-            phrases << :contact_local_authorities
-            phrases << :get_legal_advice
-            phrases << :consular_cni_os_download_affidavit_notary_public
-            phrases << :notary_public_will_charge_a_fee
-            phrases << :names_on_documents_must_match
-            phrases << :partner_naturalisation_in_uk
-          else
-            phrases << :contact_local_authorities_in_country_marriage
-            phrases << :get_legal_and_travel_advice
-            phrases << :what_you_need_to_do
-            phrases << :make_an_appointment_bring_passport_and_pay_55_brazil
-            phrases << :link_to_consular_fees
-            phrases << :pay_by_cash_or_credit_card_no_cheque
-            phrases << contact_method_key
-            phrases << :download_affidavit_forms_but_do_not_sign
-            phrases << :download_affidavit_brazil
-            phrases << :documents_for_divorced_or_widowed
-          end
-          phrases
-        end
-      end
+      outcome :outcome_brazil_not_living_in_the_uk, use_outcome_templates: true
 
       outcome :outcome_os_colombia do
         precalculate :colombia_os_phraselist do

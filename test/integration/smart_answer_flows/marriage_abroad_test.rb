@@ -2223,7 +2223,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
       assert_current_node :outcome_brazil_not_living_in_the_uk
-      assert_phrase_list :brazil_phraselist_not_in_the_uk, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :make_an_appointment_bring_passport_and_pay_55_brazil, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :embassies_data, :download_affidavit_forms_but_do_not_sign, :download_affidavit_brazil, :documents_for_divorced_or_widowed]
     end
 
     should "suggest to swear affidavit in front of notary public when in ceremony country" do
@@ -2231,7 +2230,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
       assert_current_node :outcome_brazil_not_living_in_the_uk
-      assert_phrase_list :brazil_phraselist_not_in_the_uk, [:contact_local_authorities, :get_legal_advice, :consular_cni_os_download_affidavit_notary_public, :notary_public_will_charge_a_fee, :names_on_documents_must_match, :partner_naturalisation_in_uk]
     end
   end
 
