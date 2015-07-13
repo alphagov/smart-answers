@@ -1,0 +1,19 @@
+{::comment}begin-title{::/comment}
+You’ll need an electronic visa waiver (EVW)  or a visitor visa
+
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can enter the UK with either an electronic visa waiver (EVW) or a visitor visa
+
+###EVW
+
+You must [apply for an EVW](https://www.visa4uk.fco.gov.uk/) online at least 48 hours before you travel.
+
+###Visitor visa
+
+Apply for a [Standard Visitor visa](/standard-visitor-visa).
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

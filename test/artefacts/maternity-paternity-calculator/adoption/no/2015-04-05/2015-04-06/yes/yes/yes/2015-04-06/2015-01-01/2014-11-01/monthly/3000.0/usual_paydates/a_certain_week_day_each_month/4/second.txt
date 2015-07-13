@@ -1,0 +1,96 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="statutory-adoption-leave">Statutory Adoption Leave</h2>
+
+<p>The employee is entitled to up to 52 weeks Statutory Adoption Leave if they <a href="/employers-adoption-pay-leave/notice-period">claim the leave on time</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Leave</th>
+      <th>Key dates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Start</td>
+      <td>6 April 2015</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td>3 April 2016</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="statutory-adoption-pay">Statutory Adoption Pay</h2>
+
+<p>The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP) if they <a href="/employers-adoption-pay-leave/notice-period">claim SAP in time</a> and give you <a href="/employers-adoption-pay-leave/proof-of-adoption">proof of the adoption</a>.</p>
+
+<p>The employee’s average weekly earnings are: £346.15.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>SAP amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>9 April 2015</td>
+      <td>£178.03</td>
+    </tr>
+    <tr>
+      <td>14 May 2015</td>
+      <td>£1557.70</td>
+    </tr>
+    <tr>
+      <td>11 June 2015</td>
+      <td>£632.02</td>
+    </tr>
+    <tr>
+      <td>9 July 2015</td>
+      <td>£558.32</td>
+    </tr>
+    <tr>
+      <td>13 August 2015</td>
+      <td>£697.91</td>
+    </tr>
+    <tr>
+      <td>10 September 2015</td>
+      <td>£558.32</td>
+    </tr>
+    <tr>
+      <td>8 October 2015</td>
+      <td>£558.32</td>
+    </tr>
+    <tr>
+      <td>12 November 2015</td>
+      <td>£697.91</td>
+    </tr>
+    <tr>
+      <td>10 December 2015</td>
+      <td>£558.32</td>
+    </tr>
+    <tr>
+      <td>14 January 2016</td>
+      <td>£478.56</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><strong>Total SAP: £6475.41</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>This calculator doesn’t check eligibility for <a href="/shared-parental-leave-and-pay-employer-guide">Shared Parental Leave and Pay</a>.</p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the <a href="/adoption-leave-pay-employees">guide to Statutory Adoption Pay and Leave</a></p>
+{::comment}end-next-steps{::/comment}

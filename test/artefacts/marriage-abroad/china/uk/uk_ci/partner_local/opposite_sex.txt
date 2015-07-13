@@ -1,0 +1,74 @@
+{::comment}begin-title{::/comment}
+Marriage in China{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the <a href="/government/publications/foreign-embassies-in-the-uk">Embassy of China</a> before making any plans to find out about local marriage laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> and check the <a href="/foreign-travel-advice/china">travel advice for China</a> before making any plans.</p>
+</div>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>Make an appointment at the British embassy or consulate in China nearest to the address in your partner’s Hukou (family registration) book, to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s Hukou and pay a fee.</p>
+
+<p>You’ll need to complete an <a href="/government/publications/affirmation-form-china">‘Affirmation for marriage’</a> (non-religious) form or an <a href="/government/publications/affidavit-form-china">‘Affidavit for marriage’</a> (religious) form in English.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Beijing<br />11 Guang Hua Lu, Jian Guo Men Wai, Beijing<br />100600  <br />China<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone (General enquiries only): +86 0(10) 5192 4000 
+Telephone (Consular assistance for British nationals): +86 0(10) 8529 6083
+Fax (General): +86 0(10) 5192 4239
+Fax (Trade &amp; Investment): +86 0(10) 5192 4218
+Fax (Consular): +86 0(10) 8529 6081</p>
+</div>
+
+<p>If you’ve been divorced or widowed, you’ll need to provide:</p>
+
+<ul>
+  <li>a <a href="/copy-decree-absolute-final-order">decree absolute or final order</a> or <a href="/order-copy-birth-death-marriage-certificate/">death certificate</a></li>
+  <li>evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it <a href="/government/collections/list-of-lawyers">translated</a> if it’s not in English</li>
+</ul>
+
+<p>You’ll also need to provide evidence if you’ve changed your name by deed poll.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>Your partner will probably need to get an equivalent document from their national authorities.</p>
+</div>
+
+<h2 id="naturalisation-of-your-partner-if-they-move-to-the-uk">Naturalisation of your partner if they move to the UK</h2>
+
+<p>Your partner can apply to <a href="/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen">become a British citizen</a> once they’ve lived in the UK for 3 years.</p>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Affirmation for freedom to marry in English</td>
+      <td>£45</td>
+    </tr>
+    <tr>
+      <td>Affirmation for freedom to marry in any other language</td>
+      <td>£70</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/china-consular-fees">consular fees for China</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,9 @@
+{::comment}begin-title{::/comment}
+Your average weekly childcare costs have decreased by £0.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>This doesn’t affect your tax credits. You don’t need to report it.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

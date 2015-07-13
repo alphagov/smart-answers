@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+There is a social security agreement between the UK and Bosnia And Herzegovina. You may be able to get Child Benefit abroad.
+
+Contact [HMRC](/child-benefit/further-information) to find out how to claim abroad.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

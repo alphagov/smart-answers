@@ -1,0 +1,67 @@
+{::comment}begin-title{::/comment}
+Marriage in Egypt{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the <a href="/government/publications/foreign-embassies-in-the-uk">Embassy of Egypt</a> before making any plans to find out about local marriage laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> and check the <a href="/foreign-travel-advice/egypt">travel advice for Egypt</a> before making any plans.</p>
+</div>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>Make an appointment at the local British embassy or consulate in Egypt to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Cairo, main contact<br />British Embassy<br />7 Ahmed Ragheb Street<br /> Garden City<br />Egypt<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: +2 (02) 27916000<br />
+Fax trade &amp; investment: +2 (02) 2791 6130
+Fax political: +2 (02) 2791 6131
+Fax Press: +2 (02) 2791 6132
+Fax consular: +2 (02) 2791 6133</p>
+</div>
+
+<p>If you’ve been divorced or widowed, you’ll also need:</p>
+
+<ul>
+  <li>a <a href="/copy-decree-absolute-final-order">decree absolute or final order</a> or the <a href="/order-copy-birth-death-marriage-certificate/">death certificate</a></li>
+</ul>
+
+<p>You’ll also need to provide evidence if you’ve changed your name by deed poll.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>Your partner will probably need to get an equivalent document from their national authorities.</p>
+</div>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Marriage declaration</td>
+      <td>£45</td>
+    </tr>
+    <tr>
+      <td>Making an oath</td>
+      <td>£55</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/egypt-consular-fees">consular fees for Egypt</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

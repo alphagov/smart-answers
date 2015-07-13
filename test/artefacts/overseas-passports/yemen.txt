@@ -1,0 +1,13 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You can’t apply for a British passport from Yemen at this time.</p>
+
+<p>You should apply in a neighbouring country of your choice.</p>
+
+<p>If you need more information read the <a href="/foreign-travel-advice/yemen">Foreign Commonwealth Office travel advice</a>.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

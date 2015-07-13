@@ -1,0 +1,14 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can already tow with minibuses, but ‘not for hire or reward’.
+
+You have the D1+E towing entitlement, which means you can drive minibuses with trailers over 750 kg.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+[Driving a minibus](/driving-a-minibus)
+
+[Driving licence categories](/driving-licence-categories)
+{::comment}end-next-steps{::/comment}

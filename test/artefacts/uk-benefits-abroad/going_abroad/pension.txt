@@ -1,0 +1,9 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can carry on getting your [State Pension while you're abroad](/state-pension-if-you-retire-abroad). Contact the [International Pension Centre](/international-pension-centre) to find out how moving abroad will affect your pension.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,26 @@
+{::comment}begin-title{::/comment}
+Marriage in Anguilla{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Anguilla is a British overseas territory.</p>
+
+<p>Contact the Anguilla Government to find out about getting married there, including what documents you’ll need.</p>
+
+<div class="address"><div class="adr org fn"><p>
+The Governor&#39;s Office, Anguilla<br />PO Box 60<br />The Valley<br />AI-2640<br />Anguilla<br />
+</p></div></div>
+
+<div class="contact">
+<p>Main: +(1) (264) 497 2621
+Fax: +(1) (264) 497 3314</p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/the-governors-office-anguilla/office/the-governor-s-office-anguilla">The Governor's Office, Anguilla - opening hours</a></p>
+</div>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> before making any plans.</p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

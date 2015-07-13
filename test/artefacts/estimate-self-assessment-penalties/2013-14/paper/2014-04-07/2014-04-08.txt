@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+You don't have to pay a penalty{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You sent your tax return on or before the deadline, so you don’t have to pay a penalty.</p>
+
+<p>You paid your bill on time, so there is no interest or penalty for late payment.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

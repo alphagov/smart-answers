@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can't apply for [Income Support](/income-support) while you're abroad.
+
+Ask the authorities in the country you live in about any benefits you might be entitled to.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

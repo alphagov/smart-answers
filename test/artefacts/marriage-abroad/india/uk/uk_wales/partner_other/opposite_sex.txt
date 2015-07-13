@@ -1,0 +1,39 @@
+{::comment}begin-title{::/comment}
+Marriage in India
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the <a href="/government/publications/foreign-embassies-in-the-uk">High Commission of India</a> to find out about local marriage laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> and check the <a href="/foreign-travel-advice/india">travel advice for India</a> before making any plans.</p>
+</div>
+
+<p>The UK doesn’t issue certificates of no impediment (<abbr title="certificate of no impediment">CNI</abbr>) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a <abbr title="certificate of no impediment">CNI</abbr> or a similar document to prove you’re allowed to marry.</p>
+
+<p>The British High Commission in India can provide you with a letter explaining this position for a charge - see <a href="/government/publications/india-consular-fees">consular fees for India</a>.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British High Commission New Delhi<br />Shantipath, Chanakyapuri<br />New Delhi 110021<br />India<br />
+</p></div></div>
+
+<div class="contact">
+<p>General telephone: +91  (11) 2419 2100 (24 hrs a day)
+Management fax: +91 (11) 2419 2492 
+Press &amp; Public Affairs fax: +91 (11) 2419 2411
+Economic &amp; Commercial fax: +91 (11) 2419 2301
+Defence fax: +91 (11) 2419 2252
+Political fax: +91 (11) 2419 2464
+Consular fax: +91 (11) 2419 2491 (not for visa issues)</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#119;&#101;&#098;&#046;&#110;&#101;&#119;&#100;&#101;&#108;&#104;&#105;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;">&#119;&#101;&#098;&#046;&#110;&#101;&#119;&#100;&#101;&#108;&#104;&#105;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;</a></p>
+</div>
+
+<h2 id="naturalisation-of-your-partner-if-they-move-to-the-uk">Naturalisation of your partner if they move to the UK</h2>
+
+<p>Your partner can apply to <a href="/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen">become a British citizen</a> once they’ve lived in the UK for 3 years.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

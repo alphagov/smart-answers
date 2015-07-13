@@ -1,0 +1,15 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can claim Bereavement Allowance, Bereavement Payment or Widowed Parent's Allowance as appropriate.
+
+Find out how to claim:
+
+- [Bereavement Allowance](/bereavement-allowance#how-to-claim)
+- [Bereavement Payment](/bereavement-payment#how-to-claim)
+- [Widowed Parent's Allowance](/widowed-parents-allowance#how-to-claim)
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

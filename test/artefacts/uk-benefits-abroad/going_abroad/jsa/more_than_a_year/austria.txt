@@ -1,0 +1,33 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can’t claim [income-based JSA](/jobseekers-allowance/overview) abroad.
+
+You can get [contribution-based JSA](/jobseekers-allowance) for up to 3 months if you're going abroad to look for work and you:
+
+- are entitled to it on the day you go abroad
+- register as a jobseeker at least 4 weeks before you leave
+- are looking for work in the UK up to the day you leave
+- register at the equivalent of a Jobcentre in the country you're going to
+- follow the other country's rules on registering and looking for work
+
+Tell your local [Jobcentre Plus](/contact-jobcentre-plus) that you want to move and get JSA while you're abroad.
+
+You'll  also need to get form U2 from Jobseekers and Benefit Enhancement Section (JBES) which will allow you to register with the unemployment services in the country you're going to.
+
+
+$A
+Jobseekers and Benefit Enhancement Section (JBES)
+Room TC013
+International Pension Centre
+Tyneview Park
+Newcastle Upon Tyne
+NE98 1BA
+$A
+
+*[JSA]: Jobseeker's Allowance
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

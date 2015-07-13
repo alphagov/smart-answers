@@ -1,0 +1,25 @@
+{::comment}begin-title{::/comment}
+Based on your answers you might be eligible for help with your energy bills.
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<ul>
+  <li>
+    <p><a href="/cold-weather-payment">Cold Weather Payment</a> - £25 a week during very cold weather between November and March</p>
+  </li>
+  <li>
+    <p>You could also get help with insulation or boiler repairs under the <a href="/energy-grants-calculator/y/help_boiler_measure">Energy Company Obligation</a></p>
+  </li>
+</ul>
+
+<p><a href="/smart-meters">Smart meters</a> can help you keep track of how much energy you&rsquo;re using. You won&rsquo;t get estimated bills and won&rsquo;t need to take meter readings.</p>
+
+<p>Renewable heating and Microgeneration measures could also help reduce your bill.</p>
+
+<p>See which <a href="/energy-grants-calculator/y/help_energy_efficiency">improvements your property may qualify for</a>.</p>
+
+<p>For some of these schemes further eligibility criteria apply. These can differ depending on your supplier.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,46 @@
+{::comment}begin-title{::/comment}
+You paid tax or sent your return late{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<table>
+  <thead>
+    <tr>
+      <th>Key facts</th>
+      <th>Your results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Your penalty for sending the return late</td>
+      <td>£100</td>
+    </tr>
+    <tr>
+      <td>What you said your tax bill was</td>
+      <td>£500</td>
+    </tr>
+    <tr>
+      <td>Interest added for paying your bill late</td>
+      <td>£17.71</td>
+    </tr>
+    <tr>
+      <td>Penalty for paying your bill late</td>
+      <td>£75</td>
+    </tr>
+    <tr>
+      <td>Estimate of the total you owe</td>
+      <td>£692</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Your penalty can be up to 100% of your tax bill if you deliberately don’t pay it.</p>
+
+<p>These figures are estimates based on the figures you gave. The total is rounded down to the nearest pound.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You don’t have to pay any penalties unless you&rsquo;re asked to by HMRC. The amount that HMRC asks for might be different than this estimate.</p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

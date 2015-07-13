@@ -1,0 +1,39 @@
+{::comment}begin-title{::/comment}
+You’ll reach State Pension age on  1 June 2016.
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Your State Pension age is 65 years.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>The State Pension will change on 6 April 2016. You will claim the <a href="/new-state-pension">new State Pension</a> when you reach your State Pension age.</p>
+</div>
+
+<p>You’ll have to contact the Future Pension Centre to get an estimate of your pension calculated under the new State Pension rules.</p>
+
+<h2 id="contact-the-future-pension-centre">Contact the Future Pension Centre</h2>
+
+<p>You can call the Future Pension centre or <a href="/government/publications/application-for-a-state-pension-statement">download an application form</a>. The address is on the form.</p>
+
+<h3 id="request-by-phone-from-inside-the-uk">Request by phone from inside the UK</h3>
+
+<div class="contact">
+<p><strong>Future Pension Centre helpline</strong> <br />
+Telephone: 0345 3000 168 <br />
+Textphone: 0345 3000 169 <br />
+Monday to Friday, 8am to 6pm <br />
+<a href="/call-charges">Find out about call charges</a> <br /></p>
+</div>
+
+<h3 id="request-by-phone-from-outside-the-uk">Request by phone from outside the UK</h3>
+
+<div class="contact">
+<p><strong>Future Pension Centre helpline</strong> <br />
+Telephone: +44 (0)191 218 3600 <br />
+Textphone: +44 (0)191 218 2051 <br />
+Monday to Friday, 8am to 6pm <br /></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

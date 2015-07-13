@@ -1,0 +1,13 @@
+{::comment}begin-title{::/comment}
+You’ll need a visa to come to the UK{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+Apply for a [Standard Visitor visa](/standard-visitor-visa) if you’re visiting the UK for a holiday or to visit family or friends.
+
+##Travelling in a tour group
+
+You can apply for an [‘ADS visa’](/ads-visa) if you’re planning to travel to the UK as part of a tour group for less than 30 days.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

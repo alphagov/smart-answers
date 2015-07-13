@@ -1,0 +1,55 @@
+{::comment}begin-title{::/comment}
+Civil partnership in Belgium{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Same-sex relationships in Belgium that are recognised as civil partnerships under British law are known as:</p>
+
+<ul>
+  <li>marriage</li>
+  <li>’cohabitation légale’, ’wettelijke samenwoning’, or ’gesetzliches zusammenwohnen’ (’statutory cohabitation’)</li>
+</ul>
+
+<p>Contact the relevant local authorities in Belgium to find out about local laws, including what documents you’ll need.</p>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to enter into a civil partnership or equivalent in Belgium.</p>
+
+<p>Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Brussels<br />Avenue d’Auderghem 10<br />1040 Brussels<br />Belgium<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone : (+32) 2 287 62 11
+Fax: (+32) 2 287 62 50</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#112;&#117;&#098;&#108;&#105;&#099;&#046;&#098;&#114;&#117;&#115;&#115;&#101;&#108;&#115;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;">&#112;&#117;&#098;&#108;&#105;&#099;&#046;&#098;&#114;&#117;&#115;&#115;&#101;&#108;&#115;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;</a></p>
+</div>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Issuing a CNI or equivalent</td>
+      <td>£65</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/belgium-consular-fees">consular fees for Belgium</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

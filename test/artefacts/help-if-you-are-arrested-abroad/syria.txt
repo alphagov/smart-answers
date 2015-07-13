@@ -1,0 +1,34 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>There are no British consular services in Syria.  British nationals who need help should contact an embassy from any EU state in Damascus.</p>
+</div>
+
+<p>In emergency you can also call:</p>
+
+<div class="contact">
+<p>The Foreign and Commonwealth Office in London
++44 (0)20 7008 1500</p>
+</div>
+
+<p>Read more about how the FCO can help someone arrested abroad.</p>
+
+<ul>
+  <li><a href="/government/publications/support-for-british-nationals-abroad-a-guide">Support for British nationals</a></li>
+  <li><a href="/government/publications/arrest-or-detention">In prison abroad</a></li>
+</ul>
+
+<p>Further help and advice is available from:</p>
+
+<ul>
+  <li><a rel="external" href="http://www.fairtrials.net/" title="Fair Trials International">Fair Trials International</a></li>
+  <li><a rel="external" href="http://www.prisonersabroad.org.uk" title="Prisoners Abroad">Prisoners Abroad</a></li>
+  <li><a rel="external" href="http://www.reprieve.org.uk/" title="Reprieve">Reprieve</a></li>
+</ul>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

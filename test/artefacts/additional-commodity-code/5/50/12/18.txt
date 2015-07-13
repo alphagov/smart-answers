@@ -1,0 +1,9 @@
+{::comment}begin-title{::/comment}
+The Meursing code for a product with this composition is 7568.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+Use these four digits together with the ten-digit commodity code from Trade Tariff.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,37 @@
+{::comment}begin-title{::/comment}
+You’ll reach State Pension age on 6 April 2016.
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Your State Pension age is 65 years.</p>
+
+<p>You should get your pension claim pack shortly before you reach your State Pension age.</p>
+
+<p>Once you claim your State Pension, the Pension Service will work out your full State Pension.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>The State Pension will change on 6 April 2016. You will claim the <a href="/new-state-pension">new State Pension</a> when you reach your State Pension age.</p>
+</div>
+
+<h2 id="pension-credit">Pension Credit</h2>
+<p>You might get <a href="/pension-credit">Pension Credit</a> if you’re retired and on a low income.</p>
+
+<p>You’ve already reached the Pension Credit qualifying age. Check if you’re eligible to claim <a href="/pension-credit/eligibility">Pension Credit</a>.</p>
+
+<p>The State Pension age is regularly reviewed and may change in the future. This may also affect Pension Credit.</p>
+
+<h2 id="bus-pass">Bus pass</h2>
+<p>The date you qualify for a bus pass depends on where you live:</p>
+
+<ul>
+  <li>on 6 May 2012 in England</li>
+  <li>when you turn 60 years old in <a rel="external" href="http://www.transportscotland.gov.uk/public-transport/concessionary-travel-people-aged-60-or-disability">Scotland</a>,<a rel="external" href="http://wales.gov.uk/topics/transport/public/concessionary/?lang=en">Wales</a>,<a rel="external" href="http://www.nidirect.gov.uk/free-bus-travel-and-concessions">Northern Ireland</a></li>
+</ul>
+
+<p>The dates may be different in some areas <a rel="external" href="https://www.tfl.gov.uk/fares-and-payments/adult-discounts-and-concessions/60-london-oyster?intcmp=1763">(including London)</a>, check with your council when you can <a href="/apply-for-elderly-person-bus-pass">apply for a bus pass</a>.</p>
+
+<p>You need to check with <a rel="external" href="https://www.tfl.gov.uk/fares-and-payments/adult-discounts-and-concessions/60-london-oyster?intcmp=1763">Transport for London</a> if you live in Greater London.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

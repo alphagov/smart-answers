@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+You don't qualify for Married Couple's Allowance.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You or your partner had to be born before 6 April 1935 to be [eligible for Married Couple's Allowance](/married-couples-allowance/eligibility).
+
+If you and your partner were born on or after 6 April 1935, you may be able to claim [Marriage Allowance](/marriage-allowance) instead.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

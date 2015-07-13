@@ -1,0 +1,41 @@
+{::comment}begin-title{::/comment}
+Marriage in Malaysia
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in Malaysia to find out about local marriage laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> before making any plans.</p>
+</div>
+
+<p>The UK doesn’t issue certificates of no impediment (<abbr title="certificate of no impediment">CNI</abbr>) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a <abbr title="certificate of no impediment">CNI</abbr> or a similar document to prove you’re allowed to marry.</p>
+
+<p>The British High Commission in Malaysia can provide you with a letter explaining this position for a charge - see <a href="/government/publications/malaysia-consular-fees">consular fees for Malaysia</a>.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British High Commission Kuala Lumpur<br />185 Jalan Ampang
+<br />Kuala Lumpur<br />50450 <br />Malaysia<br />
+</p></div></div>
+
+<div class="contact">
+<p>Switchboard Telephone : +6 03 2170 2200 
+Switchboard Fax: +6 03 2170 2370</p>
+</div>
+
+<p>You’ll need to provide the following documents:</p>
+
+<ul>
+  <li>a statutory declaration made at the local High Court or at the office of a notary public in the UK or Malaysia</li>
+  <li>your original passport and your partner’s passport</li>
+  <li>a divorce certificate (if you have been previously married)</li>
+</ul>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You must get married through an Islamic ceremony in Malaysia if you or your partner is a Muslim. Otherwise, you’ll need to have a civil marriage.</p>
+</div>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

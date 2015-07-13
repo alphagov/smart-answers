@@ -1,0 +1,28 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in Ecuador to find out about local marriage laws, including what documents you’ll need.</p>
+
+<p>You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in the <a rel="external" href="http://www.gov.im/registries/general/civilregistry/">Isle of Man</a> to find out what they can provide, then contact the authorities in Ecuador to confirm if this is acceptable.</p>
+
+<p>The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the Manx authorities.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy<br />Citiplaza Building,
+<br />Naciones Unidas Avenue and República de El Salvador,
+<br />14th Floor
+<br />(Consular Section 12th floor)
+<br />PO Box 17-17-830
+<br />Quito<br />Ecuador<br />
+</p></div></div>
+
+<div class="contact">
+<p>Switchboard: (593) (2) 2970 800 / 801 </p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-embassy-in-ecuador/office/british-embassy">British Embassy - opening hours</a></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,22 @@
+{::comment}begin-title{::/comment}
+The husband, wife or civil partner gets the house up to a value of £473,000.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>They also get:</p>
+
+<ul>
+  <li>furniture and moveable household goods up to the value of £29,000</li>
+  <li>£50,000 in cash</li>
+  <li>a third of the rest of the estate</li>
+</ul>
+
+<p>(If the cash left is less than £50,000, they will get all of the money.)</p>
+
+<p>The rest of the estate goes to the parent or parents.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the guide to <a href="/wills-probate-inheritance" title="Wills, probate and inheritance">wills, probate and inheritance.</a></p>
+
+<p>Find out how to pay <a href="https://www.gov.uk/inheritance-tax" title="Inheritance Tax">Inheritance Tax.</a></p>
+{::comment}end-next-steps{::/comment}

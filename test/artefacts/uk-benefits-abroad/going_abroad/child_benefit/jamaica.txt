@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can't get Child Benefit in Jamaica. If you're responsible for a child whose parents have died, you may be able to claim UK [Guardian's Allowance](/guardians-allowance) there.
+
+Contact [HMRC](/child-benefit/further-information) to check if you're eligible.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

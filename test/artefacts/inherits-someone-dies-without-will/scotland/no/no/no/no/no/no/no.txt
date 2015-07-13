@@ -1,0 +1,10 @@
+{::comment}begin-title{::/comment}
+The whole estate goes to the Crown.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>However, before this can happen there would need to be proof that there are no surviving relatives in any generation.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Find out what happens to <a href="/unclaimed-estates-bona-vacantia" title="Ownerless property (bona vacantia)">ownerless property</a></p>
+{::comment}end-next-steps{::/comment}

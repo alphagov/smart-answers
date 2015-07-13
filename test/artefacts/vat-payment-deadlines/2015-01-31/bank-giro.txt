@@ -1,0 +1,17 @@
+{::comment}begin-title{::/comment}
+Paying by Bank Giro{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+The last date you can pay is 4 March 2015.
+
+The money must have cleared by 6 March 2015.
+
+You’ll need a book of paying-in slips from HMRC with your VAT number and HRMC’s account details.
+
+To order the slips can take up to 6 weeks.
+
+Read more about [how to pay your VAT and how to order paying-in slips.](/pay-vat)
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

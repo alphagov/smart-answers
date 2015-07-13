@@ -1,0 +1,16 @@
+{::comment}begin-title{::/comment}
+The husband, wife or civil partner keeps all the assets (including property) up to £450,000, and all the personal possessions, whatever their value.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>The husband, wife or civil partner must survive the deceased by at least 28 days to inherit.</p>
+
+<p>They also get half of the amount left over.</p>
+
+<p>The remainder goes to the parents.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the guide to <a href="/wills-probate-inheritance" title="Wills, probate and inheritance">wills, probate and inheritance.</a></p>
+
+<p>Find out how to pay <a href="https://www.gov.uk/inheritance-tax" title="Inheritance Tax">Inheritance Tax.</a></p>
+{::comment}end-next-steps{::/comment}

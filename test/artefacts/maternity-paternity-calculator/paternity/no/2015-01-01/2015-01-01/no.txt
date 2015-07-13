@@ -1,0 +1,22 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="not-entitled-to-statutory-paternity-pay-or-leave">Not entitled to Statutory Paternity Pay or Leave</h2>
+
+<p>The employee is not entitled to Statutory Paternity Leave or Pay because:</p>
+
+<ul>
+  <li>aren&rsquo;t responsible for the child&rsquo;s upbringing or the biological father or mother&rsquo;s partner</li>
+</ul>
+
+<p>You must write confirming this. Also, send them form OSP1 confirming they’re not entitled to pay within 28 days of their pay request.</p>
+
+<div class="form-download">
+<p><a href="http://www.hmrc.gov.uk/forms/spp1.pdf">Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)</a></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the <a href="/paternity-leave-pay-employees">guide to Statutory Paternity Pay and Leave</a></p>
+{::comment}end-next-steps{::/comment}

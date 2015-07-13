@@ -1,0 +1,17 @@
+{::comment}begin-title{::/comment}
+You can’t apply for a British passport from South Georgia And South Sandwich Islands.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You should apply in a neighbouring country of your choice.</p>
+
+<h3 id="passport-adviceline">Passport Adviceline</h3>
+
+<div class="contact">
+<p>Telephone: +44 (0) 300 222 0000
+Monday to Friday, 8am to 8pm (UK time)
+Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)</p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

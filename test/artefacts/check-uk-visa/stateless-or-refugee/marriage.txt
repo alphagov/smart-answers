@@ -1,0 +1,12 @@
+{::comment}begin-title{::/comment}
+You’ll need a visa to come to the UK{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+^You must apply for your visa from the country you're originally from or currently living in.^
+Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married or enter into a civil partnership in the UK.
+
+Apply for a [family of a settled person visa](/join-family-in-uk) if your partner is British or settled in the UK and you wish to join them to live in the UK permanently.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

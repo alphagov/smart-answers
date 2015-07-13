@@ -1,0 +1,58 @@
+{::comment}begin-title{::/comment}
+Civil partnership in Sweden{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Same-sex relationships in Sweden that are recognised as civil partnerships under British law are known as:</p>
+
+<ul>
+  <li>marriage</li>
+  <li>’registrerat partnerskap’, or ’registered partnership’.</li>
+</ul>
+
+<p>Contact the relevant local authorities in Sweden to find out about local laws, including what documents you’ll need.</p>
+
+<p>You should also check the <a href="/foreign-travel-advice/sweden">travel advice for Sweden</a>.</p>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to enter into a civil partnership or equivalent in Sweden.</p>
+
+<p>Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Stockholm<br />Skarpögatan 6-8
+<br />Box 27819<br />115 93 Stockholm<br />Sweden<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: +46 (0)8 671 30 00
+Fax: +46 (0)8 662 99 89</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#083;&#116;&#111;&#099;&#107;&#104;&#111;&#108;&#109;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;">&#083;&#116;&#111;&#099;&#107;&#104;&#111;&#108;&#109;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;</a></p>
+</div>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Issuing a CNI or equivalent</td>
+      <td>£65</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/sweden-consular-fees">consular fees for Sweden</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

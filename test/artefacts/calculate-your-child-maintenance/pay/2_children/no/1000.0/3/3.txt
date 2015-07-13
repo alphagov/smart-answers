@@ -1,0 +1,30 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+Based on your answers the child maintenance payment is the basic plus rate of £76.00 per week.
+
+This is the total weekly amount, not the amount per child.
+
+Depending on how child maintenance is arranged, fees may be added to this amount.
+
+Payment type | Weekly payment | Additional weekly fees | Total amount to pay per week | Application fee  - you only pay this once
+- | -
+[Collect and pay](/child-maintenance/how-to-pay) | £76.00 | £15.20 | £91.20 | £20.00
+[Direct pay](/child-maintenance/how-to-pay) | £76.00 | No fees | £76.00 | £20.00
+[Arranging child maintenance yourself](/arranging-child-maintenance-yourself) | £76.00 | No fees | £76.00 | No fee
+
+
+You will pay up to £790.40 in fees per year if you pay child maintenance through the Collect and Pay service.
+
+^You don’t have to pay an application fee if you’re in Northern Ireland.^
+
+You may also have to pay an enforcement charge if you don’t make your full payments on time.
+
+The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
+
+Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

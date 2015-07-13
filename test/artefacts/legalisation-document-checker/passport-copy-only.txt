@@ -1,0 +1,52 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="passport-copy-only">Passport (copy only)</h2>
+<p>Your copy of your passport can only be legalised if it has been certified.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You must send a photocopy - your actual passport won’t be accepted.</p>
+</div>
+
+<h2 id="certifying-documents">Certifying documents</h2>
+
+<p>If you provide a certified document, it must be certified in the UK by a solicitor or ‘notary public’.</p>
+
+<p>When the solicitor or notary public signs the document, they must:</p>
+
+<ul>
+  <li>note the type of certification they have done (eg the document is a true copy of the original)</li>
+  <li>use their personal signature, not a company signature</li>
+  <li>include the date of certification</li>
+  <li>include their company address</li>
+</ul>
+
+<p>If they add a notarial certificate, it must be attached to the document. The certificate must also  contain a specific reference to the document they have certified.</p>
+
+<p>If a notary public from England, Wales or Northern Ireland signs a document for legalisation, they must also stamp or emboss the document with their notarial seal.</p>
+
+<p>You can find:</p>
+
+<ul>
+  <li>
+    <p><a rel="external" href="http://www.lawsociety.org.uk/home.law">solicitors in England and Wales</a></p>
+  </li>
+  <li>
+    <p><a rel="external" href="http://www.facultyoffice.org.uk/notary/find-a-notary/">notaries public in England and Wales</a></p>
+  </li>
+  <li>
+    <p><a rel="external" href="http://www.lawscot.org.uk/">solicitors and notaries public in Scotland</a></p>
+  </li>
+  <li>
+    <p><a rel="external" href="http://www.lawsoc-ni.org/">solicitors and notaries public in Northern Ireland</a></p>
+  </li>
+</ul>
+
+<h2 id="get-your-documents-legalised">Get your documents legalised</h2>
+
+<p>You can <a href="/get-document-legalised">get your documents legalised</a> by the Legalisation Office if they meet the standards above.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

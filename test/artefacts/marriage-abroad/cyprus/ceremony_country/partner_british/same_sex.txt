@@ -1,0 +1,82 @@
+{::comment}begin-title{::/comment}
+Civil partnership in Cyprus{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You may be able to register a civil partnership at the High Commission in Cyprus.</p>
+
+<p>Contact them to make an appointment:</p>
+
+<div class="address"><div class="adr org fn"><p>
+British High Commission Nicosia<br />Alexander Pallis Street
+<br />PO Box 21978<br />Nicosia<br />1587<br />Cyprus<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: +357 22 861100
+Fax: +357 22 861125
+Consular email enquiries: nicosia.consular@fco.gov.uk</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#098;&#114;&#105;&#116;&#104;&#099;&#046;&#050;&#064;&#099;&#121;&#116;&#097;&#110;&#101;&#116;&#046;&#099;&#111;&#109;&#046;&#099;&#121;">&#098;&#114;&#105;&#116;&#104;&#099;&#046;&#050;&#064;&#099;&#121;&#116;&#097;&#110;&#101;&#116;&#046;&#099;&#111;&#109;&#046;&#099;&#121;</a></p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-high-commission-nicosia/office/british-high-commission">British High Commission Nicosia - opening hours</a></p>
+</div>
+
+<h2 id="what-documents-youll-need">What documents you’ll need</h2>
+
+<p>You’ll need proof that you’ve been resident in the area covered by the High Commission for at least 7 days, like an employer’s letter or a bank statement.</p>
+
+<p>You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:</p>
+
+<ul>
+  <li>a <a href="/copy-decree-absolute-final-order">decree absolute or final order</a>, or</li>
+  <li>the <a href="/order-copy-birth-death-marriage-certificate/">death certificate</a></li>
+</ul>
+
+<h3 id="what-you-need-to-do">What you need to do</h3>
+
+<p>Once you’ve made your appointment, the High Commission will give you:</p>
+
+<ul>
+  <li>a notice of registration</li>
+  <li>a declaration that you and your partner will need to swear, stating that you’re legally entitled to enter into a civil partnership</li>
+</ul>
+
+<p>Once you’ve submitted these and paid the registration fee (see below), the High Commission will display your notice publicly for 14 days.</p>
+
+<p>As long as nobody has registered an objection after this time, the registration officer can then register your partnership any time until 3 months after the date you gave notice.</p>
+
+<p>You’ll need to provide two witnesses and pay a fee to register your civil partnership. You’ll need to pay an additional fee for your civil partnership certificate (see below).</p>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Receiving a notice of registration</td>
+      <td>£65</td>
+    </tr>
+    <tr>
+      <td>Registering a civil partnership</td>
+      <td>£140</td>
+    </tr>
+    <tr>
+      <td>Issuing a civil partnership certificate</td>
+      <td>£65</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/cyprus-consular-fees">consular fees for Cyprus</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

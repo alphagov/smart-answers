@@ -1,0 +1,12 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can already tow trailers up to 3,500kg MAM (maximum authorised mass) with a car.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+[Vehicle weights explained](/vehicle-weights-explained)
+
+[Driving licence categories](/driving-licence-categories)
+{::comment}end-next-steps{::/comment}

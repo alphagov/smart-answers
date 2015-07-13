@@ -1,0 +1,75 @@
+{::comment}begin-title{::/comment}
+Marriage in Japan
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in Japan to find out about local marriage laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/publications/japan-list-of-lawyers">get legal advice</a> before making any plans.</p>
+</div>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>Make an appointment at the British embassy in Tokyo or British consulate-general in Osaka to swear an affirmation/affidavit (written statement of facts) that you’re free to marry.</p>
+
+<p><a rel="external" href="https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tokyo/oaths-affirmations-and-affidavits/slot_picker">Make an appointment at the embassy in Tokyo</a></p>
+
+<p><a rel="external" href="https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-osaka/oaths-affirmations-and-affidavits/slot_picker">Make an appointment at the consulate-general in Osaka</a></p>
+
+<p>You can <a href="/government/publications/affidavitaffirmation-of-marital-status-japan">download and fill in a form</a> for an ‘Affirmation for marriage’ (non-religious) or an ‘Affidavit for marriage’ (religious) before your appointment. Don’t sign it - you’ll do that at the appointment.</p>
+
+<p>You’ll need to bring:</p>
+
+<ul>
+  <li>your UK passport</li>
+  <li>proof of residence showing your current address, such as a residence card</li>
+  <li>your <a href="/order-copy-birth-death-marriage-certificate/">full birth certificate</a> or <a href="/get-replacement-citizenship-certificate">naturalisation certificate</a></li>
+  <li>evidence of parental consent if you’re below the age you can legally get married without consent in the country you’re from (eg 18 in England and Wales)</li>
+  <li>evidence if you’ve changed your name (eg by deed poll)</li>
+</ul>
+
+<p>If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:</p>
+
+<ul>
+  <li>a <a href="/copy-decree-absolute-final-order">decree absolute or final order</a></li>
+  <li>a civil partnership dissolution or annulment certificate</li>
+  <li>your (or your partner’s) former spouse or civil partner’s <a href="/order-copy-birth-death-marriage-certificate/">death certificate</a></li>
+</ul>
+
+<h3 id="what-happens-next">What happens next</h3>
+
+<p>The embassy will charge a fee for taking the oath, and then give you your notice of marriage. You should take this to the local authorities where you’re getting married. You’ll need to bring your passport.</p>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).</p>
+</div>
+
+<h2 id="naturalisation-of-your-partner-if-they-move-to-the-uk">Naturalisation of your partner if they move to the UK</h2>
+
+<p>Your partner can apply to <a href="/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen">become a British citizen</a> once they’ve lived in the UK for 3 years.</p>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Administering an oath or making a declaration</td>
+      <td>£55</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/japan-consular-fees">consular fees for Japan</a>.</p>
+
+<p>You can pay by credit card, but not by personal cheque. The embassy in Tokyo will also accept cash.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

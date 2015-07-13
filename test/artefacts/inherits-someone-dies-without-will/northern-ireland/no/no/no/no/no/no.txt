@@ -1,0 +1,10 @@
+{::comment}begin-title{::/comment}
+The estate goes to the next of kin - the person is closest in blood relationship to the deceased in the family tree.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>If nobody claims the estate, the whole estate goes to the Crown.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Find out what happens to <a href="/unclaimed-estates-bona-vacantia" title="Ownerless property (bona vacantia)">ownerless property</a></p>
+{::comment}end-next-steps{::/comment}

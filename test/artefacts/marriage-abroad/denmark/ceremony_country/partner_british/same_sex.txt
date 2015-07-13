@@ -1,0 +1,58 @@
+{::comment}begin-title{::/comment}
+Civil partnership in Denmark{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Same-sex relationships in Denmark that are recognised as civil partnerships under British law are known as:</p>
+
+<ul>
+  <li>marriage</li>
+  <li>’registreret partnerskab’ (’registered partnership’)</li>
+  <li>‘nalunaarsukkamik inooqatigiinneq’ (in Greenland)</li>
+</ul>
+
+<p>Contact the relevant local authorities in Denmark to find out about local laws, including what documents you’ll need.</p>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to enter into a civil partnership or equivalent in Denmark.</p>
+
+<p>Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Copenhagen<br />Kastelsvej 36-40<br />DK-2100  Copenhagen<br />Denmark<br />
+</p></div></div>
+
+<div class="contact">
+<p>Consular / passport enquiries: consular.copenhagen@fco.gov.uk
+Telephone : +45 35 44 52 00</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#069;&#110;&#113;&#117;&#105;&#114;&#121;&#046;&#067;&#111;&#112;&#101;&#110;&#104;&#097;&#103;&#101;&#110;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;">&#069;&#110;&#113;&#117;&#105;&#114;&#121;&#046;&#067;&#111;&#112;&#101;&#110;&#104;&#097;&#103;&#101;&#110;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;</a></p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-embassy-copenhagen/office/british-embassy">British Embassy Copenhagen - opening hours</a></p>
+</div>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Issuing a CNI or equivalent</td>
+      <td>£65</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/denmark-consular-fees">consular fees for Denmark</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

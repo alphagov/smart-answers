@@ -1,0 +1,72 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="statutory-paternity-leave">Statutory Paternity Leave</h2>
+
+<p>The employee is entitled to Statutory Paternity Leave.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Leave</th>
+      <th>Key dates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Start</td>
+      <td>1 January 2015</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td>8 January 2015</td>
+    </tr>
+    <tr>
+      <td>Latest date to <a href="/employers-paternity-pay-leave/adoption">claim leave</a></td>
+      <td>20 September 2014</td>
+    </tr>
+  </tbody>
+</table>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>Leave must finish within 56 days of the birth (or due date if the baby is early).</p>
+</div>
+
+<h2 id="statutory-paternity-pay-spp">Statutory Paternity Pay (SPP)</h2>
+
+<p>The employee is entitled to SPP.</p>
+
+<p>Their average weekly earnings are: £346.15</p>
+
+<h2 id="spp-calculation">SPP calculation</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>SPP amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>25 January 2015</td>
+      <td>£276.36</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><strong>Total SPP: £276.36</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>This calculator doesn’t check eligibility for <a href="/shared-parental-leave-and-pay-employer-guide">Shared Parental Leave and Pay</a>.</p>
+</div>
+
+<p>The latest date for them to <a href="/employers-paternity-pay-leave/adoption">claim SPP</a> is usually 28 days before they want it to start.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the <a href="/paternity-leave-pay-employees">guide to Statutory Paternity Pay and Leave</a></p>
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,79 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="statutory-adoption-leave">Statutory Adoption Leave</h2>
+
+<p>The employee is not entitled to Statutory Adoption Leave because they don’t have an employment contract with you.</p>
+
+<p>Write to them within 28 days of their leave request confirming this.</p>
+
+<h2 id="statutory-adoption-pay">Statutory Adoption Pay</h2>
+
+<p>The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP) if they <a href="/employers-adoption-pay-leave/notice-period">claim SAP in time</a> and give you <a href="/employers-adoption-pay-leave/proof-of-adoption">proof of the adoption</a>.</p>
+
+<p>The employee’s average weekly earnings are: £346.15.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>SAP amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>30 April 2015</td>
+      <td>£1112.65</td>
+    </tr>
+    <tr>
+      <td>31 May 2015</td>
+      <td>£1035.76</td>
+    </tr>
+    <tr>
+      <td>30 June 2015</td>
+      <td>£598.21</td>
+    </tr>
+    <tr>
+      <td>31 July 2015</td>
+      <td>£618.15</td>
+    </tr>
+    <tr>
+      <td>31 August 2015</td>
+      <td>£618.15</td>
+    </tr>
+    <tr>
+      <td>30 September 2015</td>
+      <td>£598.21</td>
+    </tr>
+    <tr>
+      <td>31 October 2015</td>
+      <td>£618.15</td>
+    </tr>
+    <tr>
+      <td>30 November 2015</td>
+      <td>£598.21</td>
+    </tr>
+    <tr>
+      <td>31 December 2015</td>
+      <td>£618.15</td>
+    </tr>
+    <tr>
+      <td>31 January 2016</td>
+      <td>£59.83</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><strong>Total SAP: £6475.47</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>This calculator doesn’t check eligibility for <a href="/shared-parental-leave-and-pay-employer-guide">Shared Parental Leave and Pay</a>.</p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the <a href="/adoption-leave-pay-employees">guide to Statutory Adoption Pay and Leave</a></p>
+{::comment}end-next-steps{::/comment}

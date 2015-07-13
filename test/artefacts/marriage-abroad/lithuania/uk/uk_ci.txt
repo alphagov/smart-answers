@@ -1,0 +1,27 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in Lithuania to find out about local marriage laws, including what documents you’ll need.</p>
+
+<p>You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in <a rel="external" href="http://www.gov.je/pages/contacts.aspx?contactId=71">Jersey</a> or <a rel="external" href="http://www.guernseyroyalcourt.gg/article/1663/Contact-Us">Guernsey</a> to find out what they can provide, then contact the authorities in Lithuania to confirm if this is acceptable.</p>
+
+<p>The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the authorities in Jersey or Guernsey.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Vilnius<br />Antakalnio str. 2 <br />Vilnius<br />LT-10308<br />Lithuania<br />
+</p></div></div>
+
+<div class="contact">
+<p>Email (consular): Consular.Vilnius@fco.gov.uk
+Telephone: +370 5 2462900
+Fax: +370 5 2462901</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#098;&#101;&#045;&#118;&#105;&#108;&#110;&#105;&#117;&#115;&#064;&#098;&#114;&#105;&#116;&#097;&#105;&#110;&#046;&#108;&#116;">&#098;&#101;&#045;&#118;&#105;&#108;&#110;&#105;&#117;&#115;&#064;&#098;&#114;&#105;&#116;&#097;&#105;&#110;&#046;&#108;&#116;</a></p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-embassy-vilnius/office/british-embassy">British Embassy Vilnius - opening hours</a></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

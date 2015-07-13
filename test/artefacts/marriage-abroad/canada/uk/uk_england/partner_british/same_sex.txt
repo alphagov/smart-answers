@@ -1,0 +1,36 @@
+{::comment}begin-title{::/comment}
+Civil Partnership in Canada{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Same-sex relationships in Canada that are recognised as civil partnerships under British law are known as:</p>
+
+<ul>
+  <li>marriage</li>
+  <li>’union de fait’, or ’common-law relationship’ (in Manitoba)</li>
+  <li>’domestic partnership’ (in Nova Scotia)</li>
+  <li>’union civile’, or ’civil union’ (in Quebec)</li>
+</ul>
+
+<p>Contact the <a href="/government/publications/foreign-embassies-in-the-uk">High Commission of Canada</a> to find out about local laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> and check the <a href="/foreign-travel-advice/canada">travel advice for Canada</a> before making any plans.</p>
+</div>
+
+<div class="address"><div class="adr org fn"><p>
+British High Commission Ottawa<br />80 Elgin Street<br />Ottawa Ontario K1P 5K7<br />Canada<br />
+</p></div></div>
+
+<div class="contact">
+<p>Switchboard: +1 613 237 1530
+Facsmile: +1 613 232 0738</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#117;&#107;&#105;&#110;&#099;&#097;&#110;&#097;&#100;&#097;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;">&#117;&#107;&#105;&#110;&#099;&#097;&#110;&#097;&#100;&#097;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;</a></p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-high-commission-ottawa/office/british-high-commission-ottawa">British High Commission Ottawa - opening hours</a></p>
+</div>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

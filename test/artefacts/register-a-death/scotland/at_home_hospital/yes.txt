@@ -1,0 +1,15 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You should register the death within 8 days.
+
+You can go to any [register office](/register-offices) but if you use the one in the area where the person died you’ll be given the documents you’ll need on the day.
+
+If you use a different register office the documents will be sent to the office in the area where the person died before they’re issued to you. This means you’ll usually wait a few days.
+
+^Registering the death will take about 30 minutes - you might need to make an appointment.^
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

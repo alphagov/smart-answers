@@ -1,0 +1,89 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+$!You can apply to register the birth with the British consulate in China.$!
+
+Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
+
+##Documents
+
+You and the other parent must provide:
+
+- your child’s local birth certificate
+- your British birth certificates (long version) showing details of your parents
+- a naturalisation or registration certificate (if either of you were not born in the UK)
+- your current British passports
+- a copy of a passport or birth certificate (if one of you isn’t British)
+- a marriage certificate (if you’re married)
+- divorce documents (if either of you has ever been divorced)
+- a change of name document (if either of you has ever changed your name)
+
+You’ll need to provide originals and a photocopy of each document.
+
+##Cost
+
+Service | Fee
+-|-
+Register a birth | £105
+Copy of a birth registration certificate | £65
+
+You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
+
+You can order copies of the registration certificate from the British consulate when you register the birth.
+
+Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk) in the UK, but not until September the year after you register.
+
+##Go to the British consulate
+
+Book an appointment at the British consulate and bring the registration form, supporting documents and the fee.
+
+The mother must register the birth. If you want the father’s name on the consular birth certificate, both parents will need to swear a paternity declaration in person at the nearest consulate.
+
+Paternity declarations are free. Contact the consulate for more details.
+
+
+
+
+
+
+$A
+British Embassy Beijing
+11 Guang Hua Lu, Jian Guo Men Wai, Beijing
+100600  
+China
+$A
+
+$C
+Telephone (General enquiries only): +86 0(10) 5192 4000 
+Telephone (Consular assistance for British nationals): +86 0(10) 8529 6083
+Fax (General): +86 0(10) 5192 4239
+Fax (Trade &amp; Investment): +86 0(10) 5192 4218
+Fax (Consular): +86 0(10) 8529 6081
+
+
+$C
+
+
+$A
+The Consular Section of the British Embassy Beijing
+21st Floor North Tower, Kerry Centre, No.1 Guanghua Road, Chaoyang District, Beijing
+100020  
+China
+$A
+
+$C
+Telephone: +86 (0)10 8529 6083
+Out of Hours: +86 (0)10 5192 4000
+Fax: +86 (0)10 8529 6081
+
+Email: <consular.beijing@fco.gov.uk>
+
+$C
+
+
+^Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.^
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

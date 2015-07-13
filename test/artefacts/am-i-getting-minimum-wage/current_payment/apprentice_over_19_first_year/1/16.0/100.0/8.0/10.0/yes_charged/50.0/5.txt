@@ -1,0 +1,28 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+$C
+You are getting the National Minimum Wage.
+$C
+
+The National Minimum Wage per hour for your age | Your actual pay
+- | -
+£2.73 | £4.91
+
+If you work overtime or your employer provides you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
+
+This result is an estimate. If you have any questions, call the confidential helpline:
+
+
+$C
+Acas helpline
+Telephone: 0300 123 1100
+[Find out about call charges](/call-charges)
+$C
+
+Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work).
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

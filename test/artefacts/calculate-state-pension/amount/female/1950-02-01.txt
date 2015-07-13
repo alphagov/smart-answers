@@ -1,0 +1,38 @@
+{::comment}begin-title{::/comment}
+You can’t get an estimate because you’ve already reached State Pension age.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You reached State Pension age on  1 February 2010.</p>
+
+<p>Your State Pension age was 60 years.</p>
+
+<h2 id="if-you-havent-claimed-your-state-pension">If you haven’t claimed your State Pension</h2>
+
+<p>You can <a href="/state-pension#how-to-claim" title="Claim your state pension">claim your State Pension</a> if you haven’t done so already. You need a Government Gateway account to claim online.</p>
+
+<p>Once you claim your State Pension, the Pension Service will work out your full State Pension.</p>
+
+<div class="contact">
+<p><strong>Pension Service claim line:</strong> 0800 731 7898</p>
+</div>
+
+<h2 id="claiming-later">Claiming later</h2>
+<p>You can <a href="/deferring-state-pension" title="Deferring your State Pension">put off claiming your State Pension</a> when you reach State Pension age or take a break from claiming it.</p>
+
+<h2 id="if-you-have-a-problem-with-your-state-pension">If you have a problem with your State Pension</h2>
+
+<p>You can contact your <a href="/find-pension-centre">Pension Centre</a> if you have a problem with your State Pension.</p>
+
+<h2 id="pension-credit">Pension Credit</h2>
+<p>You might get <a href="/pension-credit">Pension Credit</a> if you’re retired and on a low income.</p>
+
+<h2 id="voluntary-contributions">Voluntary contributions</h2>
+<p>If you don’t get the full basic State Pension you might still be able to <a href="/voluntary-national-insurance-contributions">pay voluntary National Insurance contributions</a> to fill in gaps in your National Insurance record.</p>
+
+<p>You may also be able to top up your Additional State Pension (up to £25 a week) by paying <a href="/state-pension-topup">Class 3A contributions</a>.</p>
+
+<p>More information on the <a href="/state-pension">basic State Pension</a> and the <a href="/additional-state-pension">additional State Pension</a>.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

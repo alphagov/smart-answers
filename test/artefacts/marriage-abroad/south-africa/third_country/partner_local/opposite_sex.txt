@@ -1,0 +1,25 @@
+{::comment}begin-title{::/comment}
+Marriage in South Africa
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in South Africa to find out about local marriage laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> and check the <a href="/foreign-travel-advice/south-africa">travel advice for South Africa</a> before making any plans.</p>
+</div>
+
+<p>The UK doesn’t issue certificates of no impediment (<abbr title="certificate of no impediment">CNI</abbr>) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a <abbr title="certificate of no impediment">CNI</abbr> or a similar document to prove you’re allowed to marry.</p>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>You’ll probably be asked for a <abbr title="certificate of no impediment">CNI</abbr> if you want to marry a South African citizen in South Africa. You’ll need to ask if there are any other documents the authorities will accept instead.</p>
+</div>
+
+<h2 id="naturalisation-of-your-partner-if-they-move-to-the-uk">Naturalisation of your partner if they move to the UK</h2>
+
+<p>Your partner can apply to <a href="/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen">become a British citizen</a> once they’ve lived in the UK for 3 years.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

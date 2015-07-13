@@ -1,0 +1,28 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="certificate-of-no-impediment">Certificate of no impediment</h2>
+
+<p>Your certificate of no impediment can be legalised if it:</p>
+
+<ul>
+  <li>
+    <p>is an original certificate (or original certified copy) issued by a local register office</p>
+  </li>
+  <li>
+    <p>has the original signature of the official who issued the certificate</p>
+  </li>
+</ul>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>A photocopy of your document won’t be accepted.</p>
+</div>
+
+<h2 id="get-your-documents-legalised">Get your documents legalised</h2>
+
+<p>You can <a href="/get-document-legalised">get your documents legalised</a> by the Legalisation Office if they meet the standards above.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,12 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can already tow trailers up to 750 kg. To tow heavier trailers you need to apply for provisional D+E towing with a bus entitlement then pass the D+E test.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+[Adding higher categories to your driving licence](/adding-higher-categories-to-your-driving-licence)
+
+[Driving licence categories](/driving-licence-categories)
+{::comment}end-next-steps{::/comment}

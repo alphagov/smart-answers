@@ -1,0 +1,9 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can get your [State Pension while you're abroad](/state-pension-if-you-retire-abroad/how-to-claim).
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

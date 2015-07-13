@@ -1,0 +1,18 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="doctors-letter-medical">Doctor’s letter (medical)</h2>
+<p>Your doctor’s letter must be signed by a <a rel="external" href="http://www.gmc-uk.org/doctors/register/LRMP.asp">doctor registered with the General Medical Council.</a></p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>Your document can’t be legalised if it has been signed on behalf of your doctor by another doctor or member of staff.</p>
+</div>
+
+<h2 id="get-your-documents-legalised">Get your documents legalised</h2>
+
+<p>You can <a href="/get-document-legalised">get your documents legalised</a> by the Legalisation Office if they meet the standards above.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

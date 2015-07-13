@@ -1,0 +1,56 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+$!You can apply to register the birth with the British embassy in St Martin.$!
+
+Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
+
+##Documents
+
+You and the other parent must provide:
+
+- your child’s local birth certificate
+- your British birth certificates (long version) showing details of your parents
+- a naturalisation or registration certificate (if either of you were not born in the UK)
+- your current British passports
+- a copy of a passport or birth certificate (if one of you isn’t British)
+- a marriage certificate (if you’re married)
+- divorce documents (if either of you has ever been divorced)
+- a change of name document (if either of you has ever changed your name)
+
+You’ll need to provide originals and a photocopy of each document.
+
+##Cost
+
+Service | Fee
+-|-
+Register a birth | £105
+Copy of a birth registration certificate | £65
+
+You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
+
+You can order copies of the registration certificate from the British embassy when you register the birth.
+
+Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk) in the UK, but not until September the year after you register.
+
+##Go to the British embassy
+
+Book an appointment at the British embassy and bring the registration form, supporting documents and the fee.
+
+The mother must register the birth. If you want the father’s name on the consular birth certificate, both parents will need to swear a paternity declaration in person at the nearest consulate.
+
+Paternity declarations are free. Contact the consulate for more details.
+
+
+
+
+
+No embassy details found
+
+
+^It takes about 5 working days for the birth to be officially registered.^
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

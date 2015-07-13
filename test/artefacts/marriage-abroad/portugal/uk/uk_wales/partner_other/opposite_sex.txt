@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+Marriage in Portugal{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact your nearest <a rel="external" href="http://www.irn.mj.pt/IRN/sections/irn/a_registral/servicos-externos-docs/contactos/contactos-dos-servicos-civil/">Civil Register Office</a> in Portugal to find out about local marriage laws, including what documents you’ll need.</p>
+
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> before making any plans.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

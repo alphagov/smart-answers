@@ -1,0 +1,57 @@
+{::comment}begin-title{::/comment}
+You must report your lost or stolen passport{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+[Download form LS01 - 'Lost or stolen passport notification'](/government/publications/report-a-lost-or-stolen-passport-form-ls01)
+
+Fill in form LS01 and post it to your nearest British embassy, high commission or consulate.
+
+You can use the [online enquiry form](https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml) to contact Her Majesty’s Passport Office for general advice.
+
+
+
+$A
+British Consulate-General Toronto
+777 Bay Street, Suite 2800
+Toronto,  Ontario M5G 2G2
+Canada
+$A
+
+$C
+Switchboard: +1 416 593 1290
+Facsmile: +1 416 593 1229
+
+Email: <britcon.toronto@fco.gov.uk>
+
+[British Consulate-General Toronto - opening hours](https://www.gov.uk/government/world/organisations/british-high-commission-ottawa/office/british-consulate-general-toronto)
+$C
+
+
+$A
+British Consulate-General Vancouver
+1111 Melville Street, Suite 800
+Vancouver British Columbia V6E 3V6
+Canada
+$A
+
+$C
+Switchboard: +1 604 683 4421
+Facsmile: +1 604 681 0693
+
+Email: <britishconsulate.vancouver@fco.gov.uk>
+
+[British Consulate-General Vancouver - opening hours](https://www.gov.uk/government/world/organisations/british-high-commission-ottawa/office/british-consulate-general-vancouver)
+$C
+
+
+##Get a replacement passport
+
+If you don’t need to travel urgently, you can [apply for a replacement passport from the country you’re in.](/apply-renew-passport-abroad)
+
+##Emergency travel documents
+
+If you need to travel urgently, you may be able to get an [emergency travel document](/emergency-travel-document) from the Embassy, High Commission or Consulate. You will have to pay a fee.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

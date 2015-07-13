@@ -1,0 +1,17 @@
+{::comment}begin-title{::/comment}
+Paying by Bacs Direct Credit{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+The last date you can pay is 4 March 2015.
+
+The money must have cleared by 6 March 2015.
+
+You need your VAT registration number as the payment reference.
+
+^Check beforehand how long it takes to send a payment and what your daily transfer limit is.^
+
+Read more about [how to pay your VAT.](/pay-vat)
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

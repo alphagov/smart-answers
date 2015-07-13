@@ -1,0 +1,90 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="how-long-it-takes">How long it takes</h2>
+
+<p>Your application will take <strong>at least</strong> 8 weeks from when it’s received by Her Majesty&rsquo;s Passport Office in the UK.</p>
+
+<p>If you haven’t already reported the loss or theft, you must include <a href="/government/publications/lost-or-stolen-passport-notification--2">form LS01</a> with your declaration form.</p>
+
+<p>You may have to attend an interview.</p>
+
+<p>Applications will take longer if:</p>
+
+<ul>
+  <li>HM Passport Office need to ask you for more information or documents</li>
+  <li>the photographs you send are rejected</li>
+</ul>
+
+<p>Don’t book any travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an <a href="/emergency-travel-document">Emergency Travel Document</a>.</p>
+
+<h2 id="cost">Cost</h2>
+
+<p>You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Passport type</th>
+      <th>Passport fee</th>
+      <th>Total to pay (including courier fee)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Adult standard 32-page passport</td>
+      <td>£83.00</td>
+      <td>£102.86</td>
+    </tr>
+    <tr>
+      <td>Adult jumbo 48-page passport</td>
+      <td>£91.00</td>
+      <td>£110.86</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="how-to-apply">How to apply</h2>
+
+<p>You must apply and pay for your passport online.</p>
+
+<p>Before you start you need:</p>
+
+<ul>
+  <li>2 identical new photos of you (or your child, if it’s a child passport application)</li>
+  <li>any other current passports issued by other countries</li>
+  <li>a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted</li>
+</ul>
+
+<p>Read the <a href="/government/publications/help-completing-the-online-passport-application-from-outside-the-uk">guidance notes</a> to help you fill in your online application. Check which <a href="/government/publications/overseas-passport-supporting-documents-group-2">supporting documents</a> you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You must provide a colour photocopy of your Hong Kong Permanent Identity Card with your application if you’re applying for a British National (Overseas) passport.</p>
+</div>
+
+<p>You will need to print, sign and post your declaration form at the end.</p>
+
+<p><a rel="external" href="https://passportapplication.service.gov.uk/">Start your application on Her Majesty’s Passport Office website</a></p>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.</p>
+</div>
+
+<h2 id="getting-your-passport">Getting your passport</h2>
+
+<p>Your passport and supporting documents will be delivered separately by courier.</p>
+
+<h2 id="contact-the-passport-adviceline">Contact the Passport Adviceline</h2>
+
+<div class="contact">
+<p>Telephone: +44 (0) 300 222 0000
+Monday to Friday, 8am to 8pm (UK time)
+Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)</p>
+</div>
+
+<p><a href="/call-charges">Find out about call charges</a></p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

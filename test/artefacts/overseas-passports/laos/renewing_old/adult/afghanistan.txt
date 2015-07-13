@@ -1,0 +1,100 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="how-long-it-takes">How long it takes</h2>
+
+<p>Your application will take <strong>at least</strong> 16 weeks from when it’s received by Her Majesty&rsquo;s Passport Office in the UK.</p>
+
+<p>Applications will take longer if:</p>
+
+<ul>
+  <li>Her Majesty&rsquo;s Passport Office needs to ask you for more information or documents</li>
+  <li>the photographs you send are rejected</li>
+</ul>
+
+<p>Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an <a href="/emergency-travel-document">Emergency Travel Document.</a></p>
+
+<h2 id="cost">Cost</h2>
+
+<p>You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Passport type</th>
+      <th>Passport fee</th>
+      <th>Total to pay (including courier fee)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Adult standard 32-page passport</td>
+      <td>£83.00</td>
+      <td>£106.01</td>
+    </tr>
+    <tr>
+      <td>Adult jumbo 48-page passport</td>
+      <td>£91.00</td>
+      <td>£114.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Fill in a <a href="/government/publications/overseas-passport-creditdebit-card-payment-authorisation">‘Paying by credit card or debit card’ form</a> for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.</p>
+
+<p>You can use Mastercard, Visa, Electron, Diners Club and JCB.</p>
+
+<h2 id="how-to-apply">How to apply</h2>
+
+<ol>
+  <li>Download the application form.</li>
+  <li>Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.</li>
+  <li>Include 2 identical new photos of you (or your child, if it’s a child passport application). <a href="/photos-for-passports">Follow the rules about passport photos</a> or your application may be delayed.</li>
+  <li>Check which supporting documents you must submit with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.</li>
+</ol>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p><a href="/government/publications/applying-for-a-passport-from-outside-the-uk-application-form">Application form - applying for a British passport overseas</a></p>
+</div>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p><a href="/government/publications/overseas-passports-guidance">Guidance notes - applying for a passport if you’re outside the UK</a></p>
+</div>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p><a href="/government/publications/overseas-passport-supporting-documents-group-3">Supporting documents you must send with your application</a></p>
+</div>
+
+<h2 id="making-your-application">Making your application</h2>
+<p>You must apply in person. If you’re unable to, someone else can go on your behalf.
+You must bring photo ID with you.</p>
+
+<p>Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.</p>
+
+<p>You’ll need to book an appointment by email. Include your first name and last name. You will receive an email confirming your appointment.</p>
+
+<div class="address"><div class="adr org fn"><p>
+UK Visa Application Centre<br />British Embassy<br />Rue J. Nehru<br />Saysettha District<br />Vientiane<br />Laos<br />
+</p></div></div>
+<div class="contact">
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#076;&#097;&#111;&#115;&#072;&#077;&#080;&#079;&#064;&#118;&#102;&#115;&#104;&#101;&#108;&#112;&#108;&#105;&#110;&#101;&#046;&#099;&#111;&#109;">&#076;&#097;&#111;&#115;&#072;&#077;&#080;&#079;&#064;&#118;&#102;&#115;&#104;&#101;&#108;&#112;&#108;&#105;&#110;&#101;&#046;&#099;&#111;&#109;</a></p>
+</div>
+
+<h2 id="getting-your-passport">Getting your passport</h2>
+
+<p>Your passport will be delivered to you by courier.</p>
+
+<h2 id="contact-the-passport-adviceline">Contact the Passport Adviceline</h2>
+
+<div class="contact">
+<p>Telephone: +44 (0) 300 222 0000
+Monday to Friday, 8am to 8pm (UK time)
+Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)</p>
+</div>
+
+<p><a href="/call-charges">Find out about call charges</a></p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

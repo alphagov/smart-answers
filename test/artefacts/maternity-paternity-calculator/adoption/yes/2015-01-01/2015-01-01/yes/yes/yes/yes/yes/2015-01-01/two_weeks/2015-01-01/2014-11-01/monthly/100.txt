@@ -1,0 +1,53 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="statutory-paternity-leave">Statutory Paternity Leave</h2>
+
+<p>The employee is entitled to Statutory Paternity Leave.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Leave</th>
+      <th>Key dates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Start</td>
+      <td>1 January 2015</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td>15 January 2015</td>
+    </tr>
+    <tr>
+      <td>Latest date to <a href="/employers-paternity-pay-leave/adoption">claim leave</a></td>
+      <td>20 September 2014</td>
+    </tr>
+  </tbody>
+</table>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>Leave must finish within 56 days of the birth (or due date if the baby is early).</p>
+</div>
+
+<h2 id="statutory-paternity-pay">Statutory Paternity Pay</h2>
+
+<p>The employee is not entitled to Statutory Paternity Pay. To qualify:</p>
+
+<ul>
+  <li>their average weekly earnings (£11.54) between Sunday, 02 November 2014 and Thursday, 01 January 2015 must be at least £111.00</li>
+</ul>
+
+<p>Send them form OSPP1 confirming this within 28 days of their pay request.</p>
+
+<div class="form-download">
+<p><a href="http://www.hmrc.gov.uk/forms/spp1.pdf">Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)</a></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the <a href="/paternity-leave-pay-employees">guide to Statutory Paternity Pay and Leave</a></p>
+{::comment}end-next-steps{::/comment}

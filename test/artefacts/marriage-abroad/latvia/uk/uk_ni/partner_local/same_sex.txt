@@ -1,0 +1,9 @@
+{::comment}begin-title{::/comment}
+Same-sex marriage and civil partnership in Latvia{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>It’s not possible to get legal recognition for your same-sex relationship in Latvia.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,20 @@
+{::comment}begin-title{::/comment}
+Marriage in Yemen{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>There are only limited British consular services available in Yemen. See below if you need further advice.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Sana’a, main contact<br />British Embassy<br />938 Thahr Himyar Street<br />PO Box 1287 East Ring Road, near Mövenpick Hotel<br />Yemen<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: +967 1 308114
+Fax: +967 1 302454</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#098;&#114;&#105;&#116;&#105;&#115;&#104;&#101;&#109;&#098;&#097;&#115;&#115;&#121;&#115;&#097;&#110;&#097;&#097;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;">&#098;&#114;&#105;&#116;&#105;&#115;&#104;&#101;&#109;&#098;&#097;&#115;&#115;&#121;&#115;&#097;&#110;&#097;&#097;&#064;&#102;&#099;&#111;&#046;&#103;&#111;&#118;&#046;&#117;&#107;</a></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

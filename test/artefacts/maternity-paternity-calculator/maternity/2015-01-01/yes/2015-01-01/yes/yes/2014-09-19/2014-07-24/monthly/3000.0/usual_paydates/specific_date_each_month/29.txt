@@ -1,0 +1,128 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="statutory-maternity-leave">Statutory Maternity Leave</h2>
+
+<p>The employee is entitled to up to 52 weeks Statutory Maternity Leave.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Leave</th>
+      <th>Key dates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Start</td>
+      <td>1 January 2015</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td>30 December 2015</td>
+    </tr>
+    <tr>
+      <td>Latest date to <a href="/maternity-leave-pay-employees/notice-period" title="Notice period">claim leave</a></td>
+      <td>20 September 2014</td>
+    </tr>
+    <tr>
+      <td>Earliest date leave can start</td>
+      <td>12 October 2014</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="statutory-maternity-pay">Statutory Maternity Pay</h2>
+
+<p>The employee is entitled to up to 39 weeks Statutory Maternity Pay (<abbr title="Statutory Maternity Pay">SMP</abbr>) if they <a href="/maternity-leave-pay-employees/notice-period" title="Notice period">claim <abbr title="Statutory Maternity Pay">SMP</abbr> in time</a> and give <a href="/maternity-leave-pay-employees/eligibility" title="Proof of pregnancy">proof of the pregnancy</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pay</th>
+      <th>Key facts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Average weekly earnings</td>
+      <td>£346.15385 (don&rsquo;t round this up or down)</td>
+    </tr>
+    <tr>
+      <td>Latest date to claim <abbr title="Statutory Maternity Pay">SMP</abbr></td>
+      <td>4 December 2014</td>
+    </tr>
+    <tr>
+      <td><abbr title="Statutory Maternity Pay">SMP</abbr> start date due to pregnancy related illness</td>
+      <td>30 November 2014</td>
+    </tr>
+    <tr>
+      <td>Proof of pregnancy</td>
+      <td>Usually within 21 days of the <abbr title="Statutory Maternity Pay">SMP</abbr> start date (or as soon as possible if baby born early)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div role="note" aria-label="Help" class="application-notice help-notice">
+<p>This calculator doesn’t check eligibility for <a href="/shared-parental-leave-and-pay-employer-guide">Shared Parental Leave and Pay</a>.</p>
+</div>
+
+<h2 id="smp-calculation"><abbr title="Statutory Maternity Pay">SMP</abbr> calculation</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th><abbr title="Statutory Maternity Pay">SMP</abbr> amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>31 January 2015</td>
+      <td>£1379.68</td>
+    </tr>
+    <tr>
+      <td>28 February 2015</td>
+      <td>£825.15</td>
+    </tr>
+    <tr>
+      <td>31 March 2015</td>
+      <td>£611.94</td>
+    </tr>
+    <tr>
+      <td>30 April 2015</td>
+      <td>£596.61</td>
+    </tr>
+    <tr>
+      <td>31 May 2015</td>
+      <td>£618.15</td>
+    </tr>
+    <tr>
+      <td>30 June 2015</td>
+      <td>£598.21</td>
+    </tr>
+    <tr>
+      <td>31 July 2015</td>
+      <td>£618.15</td>
+    </tr>
+    <tr>
+      <td>31 August 2015</td>
+      <td>£618.15</td>
+    </tr>
+    <tr>
+      <td>30 September 2015</td>
+      <td>£598.21</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><strong>Total <abbr title="Statutory Maternity Pay">SMP</abbr>: £6464.25</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the <a href="/maternity-leave-pay-employees">guide to Statutory Maternity Pay and Leave</a></p>
+{::comment}end-next-steps{::/comment}

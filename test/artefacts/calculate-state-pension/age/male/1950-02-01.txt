@@ -1,0 +1,34 @@
+{::comment}begin-title{::/comment}
+You’re close to State Pension age. You'll reach it on 1 February 2015.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Your State Pension age is 65 years.</p>
+
+<p>You can now <a href="/state-pension#how-to-claim" title="Claim your state pension">claim your State Pension</a> if you haven&rsquo;t already done so. You need a Government Gateway account to claim online.</p>
+
+<p>Once you claim your State Pension, the Pension Service will work out your full State Pension.</p>
+
+<h2 id="pension-credit">Pension Credit</h2>
+<p>You might get <a href="/pension-credit">Pension Credit</a> if you’re retired and on a low income.</p>
+
+<p>You’ve already reached the Pension Credit qualifying age. Check if you’re eligible to claim <a href="/pension-credit/eligibility">Pension Credit</a>.</p>
+
+<h2 id="claiming-later">Claiming later</h2>
+<p>You don’t have to stop working or claim your State Pension when you reach State Pension age.</p>
+
+<p>You can <a href="/deferring-state-pension" title="Deferring your State Pension">put off claiming your State Pension</a> when you reach State Pension age or take a break from claiming it.</p>
+
+<h2 id="voluntary-contributions">Voluntary contributions</h2>
+<p>If you don’t get the full basic State Pension you might still be able to <a href="/voluntary-national-insurance-contributions">pay voluntary National Insurance contributions</a> to fill gaps in your National Insurance record.</p>
+
+<p>You may also be able to top up your Additional State Pension (up to £25 a week) by paying <a href="/state-pension-topup">Class 3A contributions</a>.</p>
+
+<h2 id="increase-your-state-pension-based-on-your-partners-national-insurance-record">Increase your State Pension based on your partner’s National Insurance record</h2>
+
+<p>Check if you can <a href="/state-pension-through-partner">increase your basic State Pension with your partner’s (or late or former partner’s) National Insurance contributions</a>.</p>
+
+<p>More information on the <a href="/state-pension">basic State Pension and how to increase it</a> and the <a href="/additional-state-pension">additional State Pension</a>.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

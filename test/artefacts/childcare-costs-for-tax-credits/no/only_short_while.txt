@@ -1,0 +1,17 @@
+{::comment}begin-title{::/comment}
+Call the Tax Credit Helpline to work out your average weekly childcare costs.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You’ll need to tell them:</p>
+
+<ul>
+  <li>
+    <p>the start and end date of the childcare</p>
+  </li>
+  <li>how much you spent on childcare for the short period</li>
+  <li>your childcare provider’s details - their name, address, phone number, childcare registration or approval number</li>
+</ul>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,13 @@
+{::comment}begin-title{::/comment}
+Paying online or by telephone banking{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+The last date you can pay is 7 March 2015.
+
+You need your VAT registration number as the payment reference.
+
+Read more about [how to pay your VAT.](/pay-vat)
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

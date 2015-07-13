@@ -1,0 +1,17 @@
+{::comment}begin-title{::/comment}
+Marriage in New Zealand
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in New Zealand to find out about local marriage laws, including what documents you’ll need.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You should <a href="/government/collections/list-of-lawyers">get legal advice</a> before making any plans.</p>
+</div>
+
+<p>The UK doesn’t issue certificates of no impediment (<abbr title="certificate of no impediment">CNI</abbr>) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a <abbr title="certificate of no impediment">CNI</abbr> or a similar document to prove you’re allowed to marry.</p>
+
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

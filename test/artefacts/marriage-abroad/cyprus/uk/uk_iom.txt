@@ -1,0 +1,28 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Contact the relevant local authorities in Cyprus to find out about local marriage laws, including what documents you’ll need.</p>
+
+<p>You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in the <a rel="external" href="http://www.gov.im/registries/general/civilregistry/">Isle of Man</a> to find out what they can provide, then contact the authorities in Cyprus to confirm if this is acceptable.</p>
+
+<p>The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the Manx authorities.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British High Commission Nicosia<br />Alexander Pallis Street
+<br />PO Box 21978<br />Nicosia<br />1587<br />Cyprus<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: +357 22 861100
+Fax: +357 22 861125
+Consular email enquiries: nicosia.consular@fco.gov.uk</p>
+
+<p>Email: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#098;&#114;&#105;&#116;&#104;&#099;&#046;&#050;&#064;&#099;&#121;&#116;&#097;&#110;&#101;&#116;&#046;&#099;&#111;&#109;&#046;&#099;&#121;">&#098;&#114;&#105;&#116;&#104;&#099;&#046;&#050;&#064;&#099;&#121;&#116;&#097;&#110;&#101;&#116;&#046;&#099;&#111;&#109;&#046;&#099;&#121;</a></p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-high-commission-nicosia/office/british-high-commission">British High Commission Nicosia - opening hours</a></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

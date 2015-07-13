@@ -1,0 +1,13 @@
+<% if @presenter.finished? %>
+{::comment}begin-title{::/comment}
+<%= @presenter.current_node.title -%>
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<%= @presenter.current_node.body(html: false) -%>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<%= @presenter.current_node.next_steps(html: false) -%>
+{::comment}end-next-steps{::/comment}
+<% end %>

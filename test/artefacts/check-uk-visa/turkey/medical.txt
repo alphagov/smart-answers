@@ -1,0 +1,9 @@
+{::comment}begin-title{::/comment}
+You’ll need a visa to visit the UK{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You should apply for a [Standard Visitor visa](/standard-visitor-visa).
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

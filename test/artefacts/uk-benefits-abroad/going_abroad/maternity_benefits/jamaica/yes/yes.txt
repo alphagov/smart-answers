@@ -1,0 +1,11 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+You can get [Statutory Maternity Pay](/statutory-maternity-pay#how-to-claim).
+
+Contact the [International Pension Centre](/international-pension-centre) to claim Statutory Maternity Pay from abroad.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

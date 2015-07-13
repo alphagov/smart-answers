@@ -1,0 +1,22 @@
+{::comment}begin-title{::/comment}
+You must be at least 20 years old for the calculator to work out how much new State Pension you’ll get.
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>Your State Pension age is 68 years.</p>
+
+<p>You’ll reach State Pension age on 1 January 2068</p>
+
+<p>The State Pension age is regularly reviewed and may change in the future.</p>
+
+<p>How much State Pension you get depends on how many years of <a href="/national-insurance/overview">National Insurance contributions</a> you have.</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>You’ll need at least 10 years to get any State Pension.</p>
+</div>
+
+<p>Find out more information about the <a href="/new-state-pension">new State Pension</a>.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

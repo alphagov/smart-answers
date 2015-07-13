@@ -1,0 +1,23 @@
+{::comment}begin-title{::/comment}
+Marriage in North Korea{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>It’s very unlikely that foreign nationals would be allowed to marry in North Korea. Contact the British Embassy in Pyongyang if you need further advice.</p>
+
+<div class="address"><div class="adr org fn"><p>
+ British Embassy Pyongyang<br />Munsu-Dong Compound,, 
+<br />Pyongyang,
+<br />Democratic People&#39;s Republic of Korea<br />North Korea<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone: (+850) 2 381 7980
+Telephone (out-of-hours emergency): (+850) 191 250 7980 (from outside DPRK)
+Fax: (+850) 2 381 7985</p>
+
+<p><a href="https://www.gov.uk/government/world/organisations/british-embassy-pyonyang/office/british-embassy-pyongyang"> British Embassy Pyongyang - opening hours</a></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

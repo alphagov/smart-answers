@@ -1,0 +1,40 @@
+{::comment}begin-title{::/comment}
+You must report your lost or stolen passport{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+[Download form LS01 - 'Lost or stolen passport notification'](/government/publications/report-a-lost-or-stolen-passport-form-ls01)
+
+Fill in form LS01 and post, fax or take it to your nearest British embassy, high commission or consulate. Check if you need to make an appointment first if you’re taking it in.
+
+You can use the [online enquiry form](https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml) to contact Her Majesty’s Passport Office for general advice.
+
+
+
+$A
+British Embassy Baku
+45 Khagani Street
+AZ1010
+Baku 
+Azerbaijan
+$A
+
+$C
+Telephone: + 994 (12) 4377878 
+Fax: + 994 (12) 4922739 
+
+Email: <generalenquiries@fco.gov.uk>
+
+$C
+
+
+##Get a replacement passport
+
+If you don’t need to travel urgently, you can [apply for a replacement passport from the country you’re in.](/apply-renew-passport-abroad)
+
+##Emergency travel documents
+
+If you need to travel urgently, you may be able to get an [emergency travel document](/emergency-travel-document) from the Embassy, High Commission or Consulate. You will have to pay a fee.
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,45 @@
+{::comment}begin-title{::/comment}
+{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<h2 id="statutory-adoption-leave">Statutory Adoption Leave</h2>
+
+<p>The employee is entitled to up to 52 weeks Statutory Adoption Leave if they <a href="/employers-adoption-pay-leave/notice-period">claim the leave on time</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Leave</th>
+      <th>Key dates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Start</td>
+      <td>6 April 2015</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td>3 April 2016</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="statutory-adoption-pay">Statutory Adoption Pay</h2>
+
+<p>The employee is not entitled to Statutory Adoption Pay. To qualify:</p>
+
+<ul>
+  <li>you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll</li>
+</ul>
+
+<p>Send them form SAP1 within 7 days of your decision. They must get this form within 28 days of their pay request or the date they were matched with the child (whichever is earlier).</p>
+
+<div class="form-download">
+<p><a href="http://www.hmrc.gov.uk/forms/sap1.pdf">Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)</a></p>
+</div>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+<p>Read the <a href="/adoption-leave-pay-employees">guide to Statutory Adoption Pay and Leave</a></p>
+{::comment}end-next-steps{::/comment}

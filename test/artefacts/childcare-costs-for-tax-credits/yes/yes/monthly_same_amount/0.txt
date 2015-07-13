@@ -1,0 +1,9 @@
+{::comment}begin-title{::/comment}
+You’re no longer paying for childcare.{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>If you expect this to last for 4 weeks or more, tell the <a href="/contact-the-tax-credit-office" title="Contact the Tax Credit Office">Tax Credit Office</a>.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}

@@ -1,0 +1,86 @@
+{::comment}begin-title{::/comment}
+Same-sex marriage in China{::comment}end-title{::/comment}
+
+{::comment}begin-body{::/comment}
+<p>You may be able to get married at the British embassy or consulate in China.</p>
+
+<p>Contact the embassy or consulate to make an appointment.</p>
+
+<div class="address"><div class="adr org fn"><p>
+British Embassy Beijing<br />11 Guang Hua Lu, Jian Guo Men Wai, Beijing<br />100600  <br />China<br />
+</p></div></div>
+
+<div class="contact">
+<p>Telephone (General enquiries only): +86 0(10) 5192 4000 
+Telephone (Consular assistance for British nationals): +86 0(10) 8529 6083
+Fax (General): +86 0(10) 5192 4239
+Fax (Trade &amp; Investment): +86 0(10) 5192 4218
+Fax (Consular): +86 0(10) 8529 6081</p>
+</div>
+
+<h2 id="what-documents-youll-need">What documents you’ll need</h2>
+
+<p>You need to have been living in the country where you intend to marry for 21 days. You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.</p>
+
+<p>You’ll both need your original passports. You’ll also need evidence that your partner is free to marry - a document from their government or their passport that says they are unmarried. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:</p>
+
+<ul>
+  <li>a <a href="/copy-decree-absolute-final-order">decree absolute or final order</a></li>
+  <li>the <a href="/order-copy-birth-death-marriage-certificate/">death certificate</a></li>
+</ul>
+
+<h2 id="what-you-need-to-do">What you need to do</h2>
+
+<p>Once you’ve made your appointment, the embassy or consulate will give you:</p>
+
+<ul>
+  <li>a notice of registration</li>
+  <li>a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry</li>
+</ul>
+
+<p>Once you’ve submitted these and paid the registration fee (read the fees table on this page), the embassy or consulate will display your notice publicly for 14 days.</p>
+
+<p>As long as nobody registers an objection during the 14 days, the registration officer can then register your marriage any time until 3 months after you gave notice.</p>
+
+<p>You’ll need to provide two witnesses and pay a fee to register your marriage. You’ll need to pay an additional fee for your marriage certificate (read the fees table on this page).</p>
+
+<div role="note" aria-label="Information" class="application-notice info-notice">
+<p>All same-sex marriages must take place under English and Welsh or Scottish law even if you live in or are from Northern Ireland. Tell the embassy or consulate which law you want to get married under at your appointment.</p>
+</div>
+
+<h2 id="naturalisation-of-your-partner-if-they-move-to-the-uk">Naturalisation of your partner if they move to the UK</h2>
+
+<p>Your partner can apply to <a href="/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen">become a British citizen</a> once they’ve lived in the UK for 3 years.</p>
+
+<h2 id="fees">Fees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Receiving a notice of registration</td>
+      <td>£65</td>
+    </tr>
+    <tr>
+      <td>Registering a marriage</td>
+      <td>£140</td>
+    </tr>
+    <tr>
+      <td>Issuing a marriage certificate</td>
+      <td>£65</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You normally have to pay fees for consular services in the local currency - these are shown in the list of <a href="/government/publications/china-consular-fees">consular fees for China</a>.</p>
+
+<p>You can pay by cash or credit card, but not by personal cheque.</p>
+{::comment}end-body{::/comment}
+
+{::comment}begin-next-steps{::/comment}
+{::comment}end-next-steps{::/comment}
