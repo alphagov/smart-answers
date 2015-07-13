@@ -45,6 +45,7 @@ SMART_ANSWER_TEST_FLOW_NAMES = %w(
   checkbox-sample
   country-and-date-sample
   country-legacy-sample
+  custom-errors-sample
 )
 
 SMART_ANSWER_TEST_FLOW_NAMES.each do |name|
