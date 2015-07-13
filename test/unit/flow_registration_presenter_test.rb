@@ -1,7 +1,7 @@
 # coding:utf-8
 require_relative "../test_helper"
 
-require File.expand_path('../../fixtures/flow_registraion_presenter_sample/flow-sample', __FILE__)
+require File.expand_path('../../fixtures/flow-sample', __FILE__)
 
 class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   def setup
