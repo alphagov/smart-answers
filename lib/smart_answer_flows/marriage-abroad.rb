@@ -297,9 +297,23 @@ module SmartAnswer
         precalculate :brazil_phraselist_not_in_the_uk do
           phrases = PhraseList.new
           if resident_of == 'ceremony_country'
-            phrases << :contact_local_authorities << :get_legal_advice << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :names_on_documents_must_match << :partner_naturalisation_in_uk
+            phrases << :contact_local_authorities
+            phrases << :get_legal_advice
+            phrases << :consular_cni_os_download_affidavit_notary_public
+            phrases << :notary_public_will_charge_a_fee
+            phrases << :names_on_documents_must_match
+            phrases << :partner_naturalisation_in_uk
           else
-            phrases << :contact_local_authorities_in_country_marriage << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :link_to_consular_fees << :pay_by_cash_or_credit_card_no_cheque << contact_method_key << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed
+            phrases << :contact_local_authorities_in_country_marriage
+            phrases << :get_legal_and_travel_advice
+            phrases << :what_you_need_to_do
+            phrases << :make_an_appointment_bring_passport_and_pay_55_brazil
+            phrases << :link_to_consular_fees
+            phrases << :pay_by_cash_or_credit_card_no_cheque
+            phrases << contact_method_key
+            phrases << :download_affidavit_forms_but_do_not_sign
+            phrases << :download_affidavit_brazil
+            phrases << :documents_for_divorced_or_widowed
           end
           phrases
         end
