@@ -98,15 +98,7 @@ module SmartAnswer
         end
       end
 
-      outcome :answer_two_iran do
-        precalculate :downloads do
-          PhraseList.new(:common_downloads)
-        end
-
-        precalculate :further_help_links do
-          PhraseList.new(:further_links)
-        end
-      end
+      outcome :answer_two_iran, use_outcome_templates: true
 
       outcome :answer_three_syria do
         precalculate :downloads do

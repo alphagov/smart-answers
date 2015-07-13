@@ -87,8 +87,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
 
     should "take them to the special Iran outcome" do
       assert_current_node :answer_two_iran
-      assert_phrase_list :downloads, [:common_downloads]
-      assert_phrase_list :further_help_links, [:further_links]
     end
 
   end
