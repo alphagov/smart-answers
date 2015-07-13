@@ -277,31 +277,7 @@ module SmartAnswer
 
       outcome :outcome_ireland, use_outcome_templates: true
 
-      outcome :outcome_switzerland do
-        precalculate :switzerland_marriage_outcome do
-          phrases = PhraseList.new
-          if sex_of_your_partner == 'opposite_sex'
-            phrases << :switzerland_os_variant
-          else
-            phrases << :switzerland_ss_variant
-          end
-
-          unless resident_of == 'ceremony_country'
-            if resident_of == 'uk'
-              phrases << :what_you_need_to_do_switzerland_resident_uk
-            end
-            phrases << :switzerland_not_resident
-            phrases << :what_you_need_to_do
-            if sex_of_your_partner == 'opposite_sex'
-              phrases << :switzerland_os_not_resident
-            else
-              phrases << :switzerland_ss_not_resident
-            end
-            phrases << :switzerland_not_resident_two
-          end
-          phrases
-        end
-      end
+      outcome :outcome_switzerland, use_outcome_templates: true
 
       outcome :outcome_netherlands do
         precalculate :netherlands_phraselist do

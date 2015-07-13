@@ -7,5 +7,9 @@ module SmartAnswer
         'Civil partnership'
       end
     end
+
+    def ceremony_type_lowercase(sex_of_your_partner)
+      ceremony_type(sex_of_your_partner).downcase
+    end
   end
 end

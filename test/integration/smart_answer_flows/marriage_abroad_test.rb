@@ -1615,7 +1615,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
       assert_current_node :outcome_switzerland
       assert_state_variable :ceremony_type_lowercase, 'marriage'
-      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :what_you_need_to_do_switzerland_resident_uk, :switzerland_not_resident, :what_you_need_to_do, :switzerland_os_not_resident, :switzerland_not_resident_two]
     end
   end
 
@@ -1627,7 +1626,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
       assert_current_node :outcome_switzerland
       assert_state_variable :ceremony_type_lowercase, 'civil partnership'
-      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant]
     end
   end
 
@@ -1639,7 +1637,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
       assert_current_node :outcome_switzerland
       assert_state_variable :ceremony_type_lowercase, 'civil partnership'
-      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_ss_variant, :what_you_need_to_do_switzerland_resident_uk, :switzerland_not_resident, :what_you_need_to_do, :switzerland_ss_not_resident, :switzerland_not_resident_two]
     end
   end
 
@@ -1651,7 +1648,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
       assert_current_node :outcome_switzerland
       assert_state_variable :ceremony_type_lowercase, 'marriage'
-      assert_phrase_list :switzerland_marriage_outcome, [:switzerland_os_variant, :switzerland_not_resident, :what_you_need_to_do, :switzerland_os_not_resident, :switzerland_not_resident_two]
     end
   end
 

@@ -412,51 +412,6 @@ en-GB:
           [Download ‘Affidavit for marriage’](/government/publications/affidavit-form-china)
           $D
 
-# Marriage & CP in Switzerland phrases
-
-        what_you_need_to_do_switzerland_resident_uk: |
-
-          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to enter into a %{ceremony_type_lowercase} or equivalent in Switzerland.
-
-          Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
-
-        switzerland_os_variant: |
-          Contact the Civil Register Office where you’re getting married to find out about local laws, including what documents you’ll need.
-        switzerland_ss_variant: |
-          Same-sex relationships in Switzerland that are recognised as civil partnerships under British law are known as ’eingetragene Partnerschaft’, ’partenariat enregistré’, ’unione domestica registrata’ or ’partenadi registrà’ (’registered partnership’).
-
-          Contact the Civil Register Office where you’re entering into a civil partnership to find out about local laws, including what documents you’ll need.
-        switzerland_not_resident: |
-          [Your closest Swiss embassy](http://www.eda.admin.ch/eda/en/home/reps.html) may be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
-
-          ^You should [get legal advice](/government/publications/switzerland-list-of-lawyers) and check the [travel advice for Switzerland](/foreign-travel-advice/switzerland) before making any plans.^
-        switzerland_os_not_resident: |
-          You may be asked to provide a civil status declaration to prove you’re allowed to marry.
-        switzerland_ss_not_resident: |
-          You may be asked to provide a civil status declaration to prove you’re allowed to enter into a civil partnership.
-        switzerland_not_resident_two: |
-          If you need a civil status declaration, you can get one from the British Embassy in Berne in the language of the canton where the ceremony is taking place.
-
-          ##Getting your civil status declaration
-
-          You’ll need to provide supporting documents, including:
-
-          - your passport
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - proof of residence, such as a residence certificate - check with the consulate to find out what you need
-
-          If you’ve been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
-
-          - a [decree absolute or final order](/copy-decree-absolute-final-order)
-          - a civil partnership dissolution or annulment certificate
-          - your former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
-
-          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.
-
-          %The name on all documents you provide must appear exactly as they do on your passport - if not, the authorities may refuse to allow the ceremony to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage or civil partnership certificate, or deed poll).%
-
-          You should check if your civil status declaration needs to be legalised (certified as genuine) by the local authorities in Switzerland.
-
 # Marriage in commonwealth countries phrases
         contact_high_comission_of_ceremony_country_in_uk: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
@@ -1815,15 +1770,6 @@ en-GB:
           Marriage in Colombia
         body: |
           %{colombia_os_phraselist}
-# outcome Switzerland
-      outcome_switzerland:
-        title: |
-          %{ceremony_type} in Switzerland
-        body: |
-          %{switzerland_marriage_outcome}
-
-          *[GRO]:General Register Office
-          *[FCO]:Foreign & Commonwealth Office
 # outcome Portugal
       outcome_portugal:
         title: "%{portugal_title}"
