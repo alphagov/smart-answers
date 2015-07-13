@@ -1,14 +1,16 @@
 require_relative '../test_helper'
 require_relative '../helpers/i18n_test_helper'
 
+require 'fixtures/graph_presenter_test/graph'
+require 'fixtures/graph_presenter_test/missing_transition'
+
 module SmartAnswer
   class GraphPresenterTest < ActiveSupport::TestCase
     include I18nTestHelper
 
     setup do
       use_only_translation_file!(fixture_file('graph_presenter_test/graph.yml'))
-      @registry = FlowRegistry.new(smart_answer_load_path: fixture_file('graph_presenter_test'), show_drafts: true)
-      @flow = @registry.find('graph')
+      @flow = SmartAnswer::GraphFlow.build
       @presenter = GraphPresenter.new(@flow)
     end
 
@@ -41,10 +43,10 @@ module SmartAnswer
     end
 
     test "indicates does not define transitions in a way which can be visualised" do
-      p = GraphPresenter.new(@registry.find('graph'))
+      p = GraphPresenter.new(SmartAnswer::GraphFlow.build)
       assert p.visualisable?, "'graph' should be visualisable"
 
-      p = GraphPresenter.new(@registry.find('missing_transition'))
+      p = GraphPresenter.new(SmartAnswer::MissingTransitionFlow.build)
       refute p.visualisable?, "'missing_transition' should not be visualisable"
     end
   end
