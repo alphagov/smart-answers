@@ -46,6 +46,7 @@ SMART_ANSWER_TEST_FLOW_NAMES = %w(
   country-and-date-sample
   country-legacy-sample
   custom-errors-sample
+  data-partial-sample
 )
 
 SMART_ANSWER_TEST_FLOW_NAMES.each do |name|
