@@ -99,8 +99,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
 
     should "take the user to the Syria answer" do
       assert_current_node :answer_three_syria
-      assert_phrase_list :downloads, [:common_downloads]
-      assert_phrase_list :further_help_links, [:further_links]
     end
   end
 
