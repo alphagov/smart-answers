@@ -49,6 +49,7 @@ SMART_ANSWER_TEST_FLOW_NAMES = %w(
   data-partial-sample
   money-and-salary-sample
   precalculation-sample
+  value-sample
 )
 
 SMART_ANSWER_TEST_FLOW_NAMES.each do |name|
