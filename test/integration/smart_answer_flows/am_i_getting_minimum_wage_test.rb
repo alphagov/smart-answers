@@ -283,8 +283,8 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
         should "make outcome calculations" do
           assert_state_variable "total_hours", 45
-          assert_state_variable "minimum_hourly_rate", 6.08
-          assert_state_variable "total_hourly_rate", 6.07
+          assert_state_variable "minimum_hourly_rate", 6.5
+          assert_state_variable "total_hourly_rate", "6.12"
           assert_state_variable "above_minimum_wage", false
         end
       end
@@ -321,7 +321,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end
 
       # Scenario 8 - part 2 - living in free accommodation instead of charged
-      context "25 year old" do
+      context "25 year old, living in free accommodation" do
         setup do
           add_response 25         # age
           add_response 7          # pay_frequency

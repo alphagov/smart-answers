@@ -1104,12 +1104,12 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     end
 
     # Child benefits
-    context "answer Guernsey/Jersey" do
+    context "answer Guernsey/Jersey and child benefits" do
       setup do
         add_response 'child_benefit'
-        add_response 'guernsey_jersey'
+        add_response 'jersey'
       end
-      should "take you to SS outcome" do
+      should "take you to which country question" do
         assert_current_node :child_benefit_ss_outcome
       end
     end
@@ -1461,7 +1461,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     end
 
     # Bereavement benefits
-    context "answer Guernsey/Jersey" do
+    context "answer Guernsey/Jersey and bereavement benefits" do
       setup do
         add_response 'bereavement_benefits'
         add_response 'guernsey'
