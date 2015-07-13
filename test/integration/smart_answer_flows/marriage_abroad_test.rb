@@ -315,7 +315,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to bot os outcome" do
       assert_current_node :outcome_os_bot
-      assert_phrase_list :bot_outcome, [:bot_os_ceremony_biot, :embassies_data]
     end
   end
 
@@ -329,7 +328,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to bos os outcome" do
       assert_current_node :outcome_os_bot
-      assert_phrase_list :bot_outcome, [:bot_os_ceremony_non_biot, :embassies_data, :get_legal_advice, :partner_naturalisation_in_uk]
     end
   end
 

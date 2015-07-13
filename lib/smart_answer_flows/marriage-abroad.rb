@@ -383,31 +383,7 @@ module SmartAnswer
 
       outcome :outcome_os_commonwealth, use_outcome_templates: true
 
-      outcome :outcome_os_bot do
-        precalculate :bot_outcome do
-          phrases = PhraseList.new
-          if ceremony_country == 'british-indian-ocean-territory'
-            phrases << :bot_os_ceremony_biot
-            phrases << contact_method_key
-          elsif ceremony_country == 'british-virgin-islands'
-            phrases << :bot_os_ceremony_bvi
-            phrases << :get_legal_advice
-          else
-            phrases << :bot_os_ceremony_non_biot
-            phrases << contact_method_key
-
-            if resident_of == 'ceremony_country'
-              phrases << :get_legal_advice
-            else
-              phrases << :get_legal_and_travel_advice
-            end
-            unless partner_nationality == 'partner_british'
-              phrases << :partner_naturalisation_in_uk
-            end
-          end
-          phrases
-        end
-      end
+      outcome :outcome_os_bot, use_outcome_templates: true
 
       outcome :outcome_consular_cni_os_residing_in_third_country do
         precalculate :current_path do
