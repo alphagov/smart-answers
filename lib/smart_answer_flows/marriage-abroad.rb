@@ -295,25 +295,7 @@ module SmartAnswer
 
       outcome :outcome_brazil_not_living_in_the_uk, use_outcome_templates: true
 
-      outcome :outcome_os_colombia do
-        precalculate :colombia_os_phraselist do
-          PhraseList.new(
-            :contact_embassy_of_ceremony_country_in_uk_marriage,
-            :get_legal_and_travel_advice,
-            :what_you_need_to_do_affirmation,
-            :make_an_appointment_bring_passport_and_pay_55_colombia,
-            contact_method_key,
-            :link_to_consular_fees,
-            :pay_by_cash_or_credit_card_no_cheque,
-            :legalisation_and_translation,
-            :affirmation_os_translation_in_local_language_text,
-            :documents_for_divorced_or_widowed_china_colombia,
-            :change_of_name_evidence,
-            :names_on_documents_must_match,
-            :partner_naturalisation_in_uk
-          )
-        end
-      end
+      outcome :outcome_os_colombia, use_outcome_templates: true
 
       outcome :outcome_monaco do
         precalculate :monaco_title do
