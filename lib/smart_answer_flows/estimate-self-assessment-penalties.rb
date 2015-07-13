@@ -113,7 +113,7 @@ module SmartAnswer
         next_node :late
       end
 
-      outcome :late do
+      outcome :late, use_outcome_templates: true do
         precalculate :calculator do
           Calculators::SelfAssessmentPenalties.new(
             submission_method: submission_method,
@@ -139,23 +139,6 @@ module SmartAnswer
 
         precalculate :late_payment_penalty do
           calculator.late_payment_penalty
-        end
-
-        precalculate :late_filing_penalty_formatted do
-          late_filing_penalty == 0 ? 'none' : late_filing_penalty
-        end
-
-        precalculate :result_parts do
-          phrases = PhraseList.new
-          if calculator.late_payment_penalty == 0
-            phrases << :result_part2_no_penalty
-          else
-            phrases << :result_part2_penalty
-          end
-          if payment_date >= one_year_after_start_date_for_penalties
-            phrases << :result_part_one_year_late
-          end
-          phrases
         end
       end
 
