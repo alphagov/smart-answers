@@ -1,0 +1,9 @@
+en-GB:
+  flow:
+    sample:
+      you_have_a_sweet_tooth:
+        title: sweet-tooth-outcome-title
+        body: |
+          sweet-tooth-outcome-govspeak-body
+        next_steps: |
+          sweet-tooth-outcome-govspeak-next-steps

@@ -1,0 +1,7 @@
+<% if @presenter.finished? %>
+<%= @presenter.current_node.title %>
+
+<%= @presenter.current_node.body(html: false) -%>
+
+<%= @presenter.current_node.next_steps(html: false) -%>
+<% end %>
