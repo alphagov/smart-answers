@@ -113,7 +113,9 @@ module SmartAnswer
         next_node :late
       end
 
-      outcome :late, use_outcome_templates: true do
+      use_outcome_templates
+
+      outcome :late do
         precalculate :calculator do
           Calculators::SelfAssessmentPenalties.new(
             submission_method: submission_method,
@@ -142,7 +144,7 @@ module SmartAnswer
         end
       end
 
-      outcome :filed_and_paid_on_time, use_outcome_templates: true
+      outcome :filed_and_paid_on_time
     end
   end
 end
