@@ -34,9 +34,6 @@ SMART_ANSWER_FLOW_NAMES = %w(
   towing-rules
   uk-benefits-abroad
   vat-payment-deadlines
-)
-
-SMART_ANSWER_TEST_FLOW_NAMES = %w(
   bridge-of-death
   checkbox-sample
   country-and-date-sample
@@ -101,7 +98,7 @@ module SmartAnswer
     end
 
     def build_flow(name)
-      if (SMART_ANSWER_FLOW_NAMES + SMART_ANSWER_TEST_FLOW_NAMES).include?(name)
+      if SMART_ANSWER_FLOW_NAMES.include?(name)
         class_prefix = name.gsub("-", "_").camelize
         if Rails.env.development?
           load @load_path.join("#{name}.rb")
