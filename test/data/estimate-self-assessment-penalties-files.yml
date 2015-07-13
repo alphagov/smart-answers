@@ -1,6 +1,8 @@
 --- 
-lib/smart_answer_flows/estimate-self-assessment-penalties.rb: fe4648c896af9e8f74a1d1795aa85b27
-lib/smart_answer_flows/locales/en/estimate-self-assessment-penalties.yml: 8aa810f78f3b29a6f3996d7e11aef275
+lib/smart_answer_flows/estimate-self-assessment-penalties.rb: cd353c7d2390d5e88c9d08e1b5a488d0
+lib/smart_answer_flows/locales/en/estimate-self-assessment-penalties.yml: 2d15a489772e13429a7efdee5ef40e1a
 test/data/estimate-self-assessment-penalties-questions-and-responses.yml: 186d93854ea5dc9321408e14dcc8d61f
 test/data/estimate-self-assessment-penalties-responses-and-expected-results.yml: 07a0cd26b8c5e4b1fff6dfe51c20142e
+lib/smart_answer_flows/estimate-self-assessment-penalties/filed_and_paid_on_time.govspeak.erb: 8cef5992d15add5c11deffee31a334a0
+lib/smart_answer_flows/estimate-self-assessment-penalties/late.govspeak.erb: ab6d773d3433a28b5e16940a87dcbf31
 lib/smart_answer/calculators/self_assessment_penalties.rb: 194f3f08f7430a27011e0f9466b3003c
