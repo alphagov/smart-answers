@@ -1,6 +1,8 @@
 # coding:utf-8
 require_relative "../test_helper"
 
+require File.expand_path('../../fixtures/flow-sample', __FILE__)
+
 class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   def setup
     @old_load_path = I18n.config.load_path.dup
@@ -8,8 +10,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
       File.expand_path('../../fixtures/flow_registraion_presenter_sample/flow_sample.yml', __FILE__)
     I18n.config.load_path.unshift example_translation_file
     I18n.reload!
-    registry = SmartAnswer::FlowRegistry.new(smart_answer_load_path: File.expand_path('../../fixtures/flow_registraion_presenter_sample', __FILE__))
-    @flow = registry.flows.first
+    @flow = SmartAnswer::FlowSampleFlow.build
     @presenter = FlowRegistrationPresenter.new(@flow)
   end
 

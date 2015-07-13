@@ -1,45 +1,3 @@
-SMART_ANSWER_FLOW_NAMES = %w(
-  additional-commodity-code
-  am-i-getting-minimum-wage
-  apply-tier-4-visa
-  benefit-cap-calculator
-  calculate-agricultural-holiday-entitlement
-  calculate-employee-redundancy-pay
-  calculate-married-couples-allowance
-  calculate-state-pension
-  calculate-statutory-sick-pay
-  calculate-your-child-maintenance
-  calculate-your-holiday-entitlement
-  calculate-your-redundancy-pay
-  check-uk-visa
-  childcare-costs-for-tax-credits
-  energy-grants-calculator
-  estimate-self-assessment-penalties
-  help-if-you-are-arrested-abroad
-  inherits-someone-dies-without-will
-  legalisation-document-checker
-  marriage-abroad
-  maternity-paternity-calculator
-  minimum-wage-calculator-employers
-  overseas-passports
-  pip-checker
-  plan-adoption-leave
-  register-a-birth
-  register-a-death
-  report-a-lost-or-stolen-passport
-  simplified-expenses-checker
-  state-pension-through-partner
-  state-pension-topup
-  student-finance-calculator
-  towing-rules
-  uk-benefits-abroad
-  vat-payment-deadlines
-)
-
-SMART_ANSWER_FLOW_NAMES.each do |name|
-  require "smart_answer_flows/#{name}"
-end
-
 module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
@@ -93,18 +51,14 @@ module SmartAnswer
     end
 
     def build_flow(name)
-      if SMART_ANSWER_FLOW_NAMES.include?(name)
-        class_prefix = name.gsub("-", "_").camelize
-        load "smart_answer_flows/#{name}.rb" if Rails.env.development?
-        namespaced_class = "SmartAnswer::#{class_prefix}Flow".constantize
-        namespaced_class.build
+      class_prefix = name.gsub("-", "_").camelize
+      if Rails.env.development?
+        load @load_path.join("#{name}.rb")
       else
-        absolute_path = @load_path.join("#{name}.rb").to_s
-        Flow.new do
-          eval(File.read(absolute_path), binding, absolute_path)
-          name(name)
-        end
+        require @load_path.join(name)
       end
+      namespaced_class = "SmartAnswer::#{class_prefix}Flow".constantize
+      namespaced_class.build
     end
 
     def preload_flows!
