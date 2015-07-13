@@ -1714,12 +1714,6 @@ en-GB:
           same_sex: "Same sex"
 
 # Outcomes
-# outcome Netherlands
-      outcome_netherlands:
-        title: |
-          %{ceremony_type} in Netherlands
-        body: |
-          %{netherlands_phraselist}
 # outcome Japan - Opposite sex, local resident and partner
       outcome_os_local_japan:
         title: |

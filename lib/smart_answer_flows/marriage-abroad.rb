@@ -279,15 +279,7 @@ module SmartAnswer
 
       outcome :outcome_switzerland, use_outcome_templates: true
 
-      outcome :outcome_netherlands do
-        precalculate :netherlands_phraselist do
-          PhraseList.new(
-            :contact_local_authorities,
-            :get_legal_advice,
-            :partner_naturalisation_in_uk
-          )
-        end
-      end
+      outcome :outcome_netherlands, use_outcome_templates: true
 
       outcome :outcome_portugal do
         precalculate :portugal_phraselist do

@@ -1803,7 +1803,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_netherlands
-      assert_phrase_list :netherlands_phraselist, [:contact_local_authorities, :get_legal_advice, :partner_naturalisation_in_uk]
     end
   end
 
