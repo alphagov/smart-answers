@@ -42,6 +42,7 @@ end
 
 SMART_ANSWER_TEST_FLOW_NAMES = %w(
   bridge-of-death
+  checkbox-sample
 )
 
 SMART_ANSWER_TEST_FLOW_NAMES.each do |name|
