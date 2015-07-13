@@ -219,6 +219,8 @@ module SmartAnswer
       end
 
       ### Outcomes
+      use_outcome_templates
+
       #O1
       outcome :call_helpline_detailed
 
@@ -247,18 +249,6 @@ module SmartAnswer
         precalculate :difference_money do
           Money.new(weekly_difference.abs)
         end
-        precalculate :body_phrases do
-          if ten_or_more
-            if cost_change_4_weeks
-              PhraseList.new(:cost_change_4_weeks)
-            else
-              PhraseList.new(:cost_change_does_matter)
-            end
-          else
-            PhraseList.new(:cost_change_doesnt_matter)
-          end
-        end
-
       end
 
       #O9

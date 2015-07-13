@@ -1,14 +1,6 @@
 en-GB:
   flow:
     childcare-costs-for-tax-credits:
-      phrases:
-        cost_change_doesnt_matter: "This doesn’t affect your tax credits. You don’t need to report it."
-        cost_change_does_matter: "Tell the Tax Credit Office so they can adjust your tax credit."
-        cost_change_4_weeks: |
-          Call the Tax Credit Office if you expect this to last for 4 weeks in a row or more.
-
-          You don’t need to report it if this won’t last 4 weeks in a row or more.
-
       options:
         "yes": "Yes"
         "no": "No"
@@ -155,38 +147,3 @@ en-GB:
           If you don’t know what your previous childcare costs were, check your award or renewal notice.
 
           Round the total up to the nearest pound.
-
-      # OUTCOMES
-      call_helpline_detailed:
-        title: "Call the Tax Credit Helpline to work out your average weekly childcare costs."
-        body: |
-          You’ll need to tell them:
-
-          - the start and end date of the childcare
-
-          - how much you spent on childcare for the short period
-          - your childcare provider’s details - their name, address, phone number, childcare registration or approval number
-
-      call_helpline_plain:
-        title: "Contact the Tax Credit Office for help in working out your costs."
-
-      no_change:
-        title: "There is no change to your tax credits."
-        body: "You don’t have to report anything to the Tax Credit Office."
-
-      round_up_weekly:
-        title: "Your weekly childcare costs are the total amount you pay each week rounded up to the nearest pound."
-        body: "Use this figure on your claim form."
-      weekly_costs_are_x:
-        title: "Your weekly childcare costs are £%{weekly_cost}."
-        body: "Use this figure on your claim form."
-
-      cost_changed:
-        title: "Your average weekly childcare costs have %{title_change_text} by %{difference_money}."
-        body: |
-          %{body_phrases}
-
-      no_longer_paying:
-        title: "You’re no longer paying for childcare."
-        body: |
-          If you expect this to last for 4 weeks or more, tell the [Tax Credit Office](/contact-the-tax-credit-office "Contact the Tax Credit Office").
