@@ -5,7 +5,7 @@ require_relative '../test_helper'
 module SmartAnswer
   class FlowRegistryTest < ActiveSupport::TestCase
     def registry(options = {})
-      FlowRegistry.new(options.merge(smart_answer_load_path: File.dirname(__FILE__) + '/../fixtures/'))
+      FlowRegistry.new(options.merge(smart_answer_load_path: File.expand_path('../../fixtures/', __FILE__)))
     end
 
     test "Can load a flow from a file" do

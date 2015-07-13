@@ -43,6 +43,8 @@ SMART_ANSWER_FLOW_NAMES = %w(
   money-and-salary-sample
   precalculation-sample
   value-sample
+  draft-flow-sample
+  flow-sample
 )
 
 module SmartAnswer
