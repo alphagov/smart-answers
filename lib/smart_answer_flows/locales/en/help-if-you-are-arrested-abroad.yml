@@ -18,28 +18,6 @@ en-GB:
           - [Fair Trials International](http://www.fairtrials.net/ "Fair Trials International"){:rel="external"}
           - [Prisoners Abroad](http://www.prisonersabroad.org.uk "Prisoners Abroad"){:rel="external"}
           - [Reprieve](http://www.reprieve.org.uk/ "Reprieve"){:rel="external"}
-      answer_two_iran:
-        body: |
-          %There are no British consular services in Iran.  British nationals who need help should contact the Swedish Embassy in Tehran.%
-
-          $C
-          **The Swedish Embassy**
-          021-2371 2200
-          <ambassaden.teheran@foreign.ministry.se>
-          $C
-
-          $A
-          The Swedish Embassy
-          Boostan Avenue,
-          Nastaran Street No 27.
-          Tehran
-          $A
-
-          %{downloads}
-
-          %{further_help_links}
-
-
       answer_three_syria:
         body: |
 
