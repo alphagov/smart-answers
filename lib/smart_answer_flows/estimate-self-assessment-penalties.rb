@@ -142,7 +142,7 @@ module SmartAnswer
         end
       end
 
-      outcome :filed_and_paid_on_time
+      outcome :filed_and_paid_on_time, use_outcome_templates: true
     end
   end
 end
