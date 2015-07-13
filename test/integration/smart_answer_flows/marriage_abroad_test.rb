@@ -51,7 +51,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
       should "give outcome ireland os" do
         assert_current_node :outcome_ireland
-        assert_phrase_list :ireland_partner_sex_variant, [:outcome_ireland_opposite_sex]
       end
     end
     context "partner is same sex" do
@@ -60,7 +59,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
       should "give outcome ireland ss" do
         assert_current_node :outcome_ireland
-        assert_phrase_list :ireland_partner_sex_variant, [:outcome_ireland_same_sex]
         expected_location = WorldLocation.find('ireland')
         assert_state_variable :location, expected_location
       end

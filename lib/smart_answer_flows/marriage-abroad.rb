@@ -275,15 +275,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_ireland do
-        precalculate :ireland_partner_sex_variant do
-          if sex_of_your_partner == 'opposite_sex'
-            PhraseList.new(:outcome_ireland_opposite_sex)
-          else
-            PhraseList.new(:outcome_ireland_same_sex)
-          end
-        end
-      end
+      outcome :outcome_ireland, use_outcome_templates: true
 
       outcome :outcome_switzerland do
         precalculate :switzerland_marriage_outcome do
