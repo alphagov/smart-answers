@@ -40,6 +40,13 @@ SMART_ANSWER_FLOW_NAMES.each do |name|
   require "smart_answer_flows/#{name}"
 end
 
+SMART_ANSWER_TEST_FLOW_NAMES = %w(
+)
+
+SMART_ANSWER_TEST_FLOW_NAMES.each do |name|
+  require Rails.root.join("test/fixtures/smart_answer_flows/#{name}")
+end
+
 module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
@@ -93,7 +100,7 @@ module SmartAnswer
     end
 
     def build_flow(name)
-      if SMART_ANSWER_FLOW_NAMES.include?(name)
+      if (SMART_ANSWER_FLOW_NAMES + SMART_ANSWER_TEST_FLOW_NAMES).include?(name)
         class_prefix = name.gsub("-", "_").camelize
         load "smart_answer_flows/#{name}.rb" if Rails.env.development?
         namespaced_class = "SmartAnswer::#{class_prefix}Flow".constantize
