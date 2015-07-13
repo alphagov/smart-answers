@@ -38,11 +38,7 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
         end
 
         should "correctly set up phrase lists" do
-          assert_phrase_list :intro, [:common_intro]
-          assert_phrase_list :generic_downloads, [:common_downloads, :transfers_back_to_the_uk_download]
-          assert_phrase_list :after_downloads, [:fco_cant_do, :dual_nationals_other_help, :further_links]
           assert_state_variable :has_extra_downloads, false
-          assert_phrase_list :country_downloads, []
         end
 
       end # context: Andorra
@@ -63,13 +59,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
 
         should "set up the country specific downloads phraselist" do
           assert_state_variable :has_extra_downloads, true
-          assert_phrase_list :country_downloads, [:specific_downloads]
-        end
-
-        should "correctly calculate other phrase lists" do
-          assert_phrase_list :intro, [:common_intro]
-          assert_phrase_list :generic_downloads, [:common_downloads]
-          assert_phrase_list :after_downloads, [:fco_cant_do, :dual_nationals_other_help, :further_links]
         end
       end
 
@@ -85,7 +74,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
 
         should "set up the country specific downloads phraselist" do
           assert_state_variable :has_extra_downloads, true
-          assert_phrase_list :country_downloads, [:specific_downloads]
         end
       end
     end # context: country with specific info

@@ -6,69 +6,11 @@ en-GB:
         description: Find out what the Foreign and Commonwealth Office can do to help if you or someone you know is arrested abroad.
       body: Find out what help you can get if you or someone you know is arrested abroad.
       phrases:
-        common_intro: |
-          $!
-          The Foreign & Commonwealth Office (FCO) or the nearest British embassy, high commission or consulate can give advice on local laws and procedures, contact friends and family and help find a lawyer.
-          $!
-
-          %
-          The person arrested or detained should contact the nearest British embassy, high commission or consulate as soon as possible - the police might also do this on their behalf.
-          %
-
-          The British embassy, high commission or consulate will contact the arrested person within 24 hours of being told about the arrest and try to visit them as soon as possible.
-
-          The British consulate will also arrange for friends and family to be told:
-
-          - the person’s been arrested
-          - details of the arrest
-          - contact details for the arrested person
-
-          ^The FCO can only give out this information if the arrested person has given their permission.^
-
-          ##Help available
-
-          The FCO and British consulate can offer help to arrested persons or prisoners. This includes:
-
-          - providing general information about the country, prison conditions and the local legal system (including if legal aid is available)
-          - providing a list of local lawyers and interpreters
-          - telling the police or prison doctor about any medical or dental problems with the arrested person’s permission
-          - helping with complaints about the police or prison (eg, ill treatment, personal safety, discrimination) with the arrested person or prisoner’s permission
-          - sending money to the arrested person from their family
-          - sending messages between the arrested person and their family
-          - putting the prisoners in touch with the charity [Prisoners Abroad](http://www.prisonersabroad.org.uk "Prisoners Abroad"){:rel="external"}
-          - helping British prisoners apply for a transfer to UK where possible
-          - visiting prisoners when needed
-
         common_downloads: |
           Read more about how the FCO can help someone arrested abroad.
 
           - [Support for British nationals](/government/publications/support-for-british-nationals-abroad-a-guide)
           - [In prison abroad](/government/publications/arrest-or-detention)
-
-        transfers_back_to_the_uk_download: |
-          - [Transfers back to the UK](/government/publications/arrest-or-detention)
-        fco_cant_do: |
-          ##What the FCO and British consulate can’t do
-
-          The FCO and British consulate won’t be able to:
-
-          - get someone out of prison or detention
-          - help someone get special treatment
-          - offer legal advice, start legal proceedings or investigate a crime
-          - pay for any costs as a result of being arrested
-          - forward packages sent by friends or family to an arrested person or prisoner
-          - prevent authorities from deporting a British national after release
-
-        dual_nationals_other_help: |
-          ##Dual nationals
-
-          The FCO and British consulate can help a dual British national (with a valid British passport) as long as they’re arrested in a country other than the one they hold dual nationality with.
-
-          They won’t get involved if someone’s arrested in a country for which they hold a valid passport, unless there’s a special humanitarian reason to do so.
-
-          ##Other organisations that can help
-
-
         further_links: |
 
           Further help and advice is available from:
@@ -76,34 +18,6 @@ en-GB:
           - [Fair Trials International](http://www.fairtrials.net/ "Fair Trials International"){:rel="external"}
           - [Prisoners Abroad](http://www.prisonersabroad.org.uk "Prisoners Abroad"){:rel="external"}
           - [Reprieve](http://www.reprieve.org.uk/ "Reprieve"){:rel="external"}
-
-        specific_downloads: |
-          ##Download prisoner packs and other helpful information
-
-          The FCO has produced guides explaining the legal and prison system in different countries for British nationals arrested abroad.
-
-          %{pdf}
-          %{doc}
-          %{benefits}
-          %{judicial}
-          %{prison}
-          %{police}
-          %{consul}
-          %{lawyer}
-
-          %{region_downloads}
-
-      answer_one_generic:
-        title: Help for British nationals arrested abroad
-        body: |
-          %{intro}
-
-          %{country_downloads}
-
-          %{generic_downloads}
-
-          %{after_downloads}
-
       answer_two_iran:
         body: |
           %There are no British consular services in Iran.  British nationals who need help should contact the Swedish Embassy in Tehran.%
