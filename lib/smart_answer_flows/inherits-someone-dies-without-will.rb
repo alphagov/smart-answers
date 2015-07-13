@@ -16,8 +16,8 @@ module SmartAnswer
 
         save_input_as :region
 
-        calculate :next_step_links do
-          PhraseList.new(:wills_link, :inheritance_link)
+        calculate :next_steps do
+          [:wills_link, :inheritance_link]
         end
 
         next_node :partner?
@@ -46,11 +46,11 @@ module SmartAnswer
 
         save_input_as :estate_over_250000
 
-        calculate :next_step_links do
+        calculate :next_steps do
           if estate_over_250000 == "yes"
-            next_step_links
+            next_steps
           else
-            PhraseList.new(:wills_link)
+            [:wills_link]
           end
         end
 
@@ -265,6 +265,8 @@ module SmartAnswer
         next_node_if(:outcome_62, responded_with('no'))
       end
 
+      use_outcome_templates
+
       outcome :outcome_1
       outcome :outcome_2
       outcome :outcome_3
@@ -277,8 +279,8 @@ module SmartAnswer
       outcome :outcome_24
 
       outcome :outcome_25 do
-        precalculate :next_step_links do
-          PhraseList.new(:ownerless_link)
+        precalculate :next_steps do
+          [:ownerless_link]
         end
       end
 
@@ -290,8 +292,8 @@ module SmartAnswer
       outcome :outcome_45
 
       outcome :outcome_46 do
-        precalculate :next_step_links do
-          PhraseList.new(:ownerless_link)
+        precalculate :next_steps do
+          [:ownerless_link]
         end
       end
 
@@ -304,8 +306,8 @@ module SmartAnswer
       outcome :outcome_66
 
       outcome :outcome_67 do
-        precalculate :next_step_links do
-          PhraseList.new(:ownerless_link)
+        precalculate :next_steps do
+          [:ownerless_link]
         end
       end
     end

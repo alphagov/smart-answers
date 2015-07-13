@@ -1,0 +1,18 @@
+<% content_for :title do %>
+The husband, wife or civil partner keeps all the assets (including property), up to £250,000, and all the personal possessions, whatever their value.
+<% end %>
+
+<% content_for :body do %>
+The husband, wife or civil partner must survive the deceased by at least 28 days to inherit.
+
+The remainder of the estate is divided in half between the:
+
+- husband, wife or civil partner
+- son or daughter
+
+If the son or daughter has already died, their children (the grandchildren of the deceased) will inherit in their parent’s place.
+<% end %>
+
+<% content_for :next_steps do %>
+<%= render partial: 'next_step_links.govspeak.erb', locals: { next_steps: next_steps } -%>
+<% end %>

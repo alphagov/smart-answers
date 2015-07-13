@@ -1,0 +1,17 @@
+<% content_for :title do %>
+The husband, wife or civil partner keeps all the assets (including property) up to £450,000, and all the personal possessions, whatever their value.
+<% end %>
+
+<% content_for :body do %>
+The husband, wife or civil partner must survive the deceased by at least 28 days to inherit.
+
+They also get half the amount left over.
+
+The remainder is divided between any brothers or sisters.
+
+If any brother or sister is dead, their children (the deceased’s nieces and nephews) inherit.
+<% end %>
+
+<% content_for :next_steps do %>
+<%= render partial: 'next_step_links.govspeak.erb', locals: { next_steps: next_steps } -%>
+<% end %>

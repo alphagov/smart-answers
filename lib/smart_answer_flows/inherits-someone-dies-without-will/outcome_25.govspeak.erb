@@ -1,0 +1,7 @@
+<% content_for :title do %>
+The whole estate goes to the Crown.
+<% end %>
+
+<% content_for :next_steps do %>
+<%= render partial: 'next_step_links.govspeak.erb', locals: { next_steps: next_steps } -%>
+<% end %>
