@@ -308,7 +308,11 @@ module SmartAnswer
           phrases
         end
         precalculate :monaco_phraselist do
-          PhraseList.new(:"monaco_#{marriage_or_pacs}")
+          if marriage_or_pacs == 'marriage'
+            PhraseList.new(:monaco_marriage)
+          else
+            PhraseList.new(:monaco_pacs)
+          end
         end
       end
 
