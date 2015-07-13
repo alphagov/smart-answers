@@ -18,22 +18,6 @@ en-GB:
         - outstanding interest or penalties for previous tax years
         - credit you have from previous tax years
 
-      phrases:
-        result_part2_no_penalty: |
-          | What you said your tax bill was | %{estimated_bill} |
-          | Interest added for paying your bill late | %{interest} |
-          | Penalty for paying your bill late | none |
-          | Estimate of the total you owe | %{total_owed} |
-
-        result_part2_penalty: |
-          | What you said your tax bill was | %{estimated_bill} |
-          | Interest added for paying your bill late | %{interest} |
-          | Penalty for paying your bill late | %{late_payment_penalty} |
-          | Estimate of the total you owe | %{total_owed} |
-
-        result_part_one_year_late: |
-          Your penalty can be up to 100% of your tax bill if you deliberately don’t pay it.
-
       which_year?:
         title: For which tax year do you want the estimate?
         options:
@@ -68,14 +52,3 @@ en-GB:
           You sent your tax return on or before the deadline, so you don’t have to pay a penalty.
 
           You paid your bill on time, so there is no interest or penalty for late payment.
-      late:
-        title: You paid tax or sent your return late
-        body: |
-          | Key facts | Your results |
-          |-----------|--------------|
-          | Your penalty for sending the return late | %{late_filing_penalty_formatted} |
-          %{result_parts}
-
-          These figures are estimates based on the figures you gave. The total is rounded down to the nearest pound.
-
-          ^You don’t have to pay any penalties unless you're asked to by HMRC. The amount that HMRC asks for might be different than this estimate.^
