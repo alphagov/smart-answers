@@ -297,24 +297,7 @@ module SmartAnswer
 
       outcome :outcome_os_colombia, use_outcome_templates: true
 
-      outcome :outcome_monaco do
-        precalculate :monaco_title do
-          phrases = PhraseList.new
-          if marriage_or_pacs == 'marriage'
-            phrases << "Marriage in Monaco"
-          else
-            phrases << "PACS in Monaco"
-          end
-          phrases
-        end
-        precalculate :monaco_phraselist do
-          if marriage_or_pacs == 'marriage'
-            PhraseList.new(:monaco_marriage)
-          else
-            PhraseList.new(:monaco_pacs)
-          end
-        end
-      end
+      outcome :outcome_monaco, use_outcome_templates: true
 
       outcome :outcome_spain do
         precalculate :ceremony_type do

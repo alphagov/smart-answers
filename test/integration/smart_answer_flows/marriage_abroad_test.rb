@@ -1036,7 +1036,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_monaco
-      assert_phrase_list :monaco_phraselist, [:monaco_marriage]
     end
   end
 
@@ -1048,7 +1047,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_monaco
-      assert_phrase_list :monaco_phraselist, [:monaco_pacs]
     end
   end
 
