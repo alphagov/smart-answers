@@ -36,10 +36,6 @@ SMART_ANSWER_FLOW_NAMES = %w(
   vat-payment-deadlines
 )
 
-SMART_ANSWER_FLOW_NAMES.each do |name|
-  require "smart_answer_flows/#{name}"
-end
-
 SMART_ANSWER_TEST_FLOW_NAMES = %w(
   bridge-of-death
   checkbox-sample
@@ -51,10 +47,6 @@ SMART_ANSWER_TEST_FLOW_NAMES = %w(
   precalculation-sample
   value-sample
 )
-
-SMART_ANSWER_TEST_FLOW_NAMES.each do |name|
-  require Rails.root.join("test/fixtures/smart_answer_flows/#{name}")
-end
 
 module SmartAnswer
   class FlowRegistry
@@ -111,7 +103,11 @@ module SmartAnswer
     def build_flow(name)
       if (SMART_ANSWER_FLOW_NAMES + SMART_ANSWER_TEST_FLOW_NAMES).include?(name)
         class_prefix = name.gsub("-", "_").camelize
-        load "smart_answer_flows/#{name}.rb" if Rails.env.development?
+        if Rails.env.development?
+          load @load_path.join("#{name}.rb")
+        else
+          require @load_path.join(name)
+        end
         namespaced_class = "SmartAnswer::#{class_prefix}Flow".constantize
         namespaced_class.build
       else
