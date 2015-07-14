@@ -1,0 +1,20 @@
+Statutory redundancy payment: £150 (£150 In Northern Ireland).
+
+
+##How it’s worked out
+
+Your employee's entitlement is 1.5 weeks.
+
+They get:
+
++ 0.5 week’s pay for each full year they were under 22
++ 1 week’s pay for each full year they were 22 or older, but under 41
++ 1.5 week’s pay for each full year they were 41 or older
+
+Length of service is capped at 20 years and weekly pay at £430 (£430 In Northern Ireland). Years of service or earnings over these amounts are not included in the calculation.
+
+The maximum amount of statutory redundancy pay is £12,900 (£12,900 In Northern Ireland).
+
+^Redundancy pay under £30,000 is not taxable.^
+
+[Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
