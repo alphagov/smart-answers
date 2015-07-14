@@ -88,7 +88,7 @@ module SmartAnswer
       ".gsub /^      /, ''), presenter.body
     end
 
-    test "Node body looked up from translation file, rendered using govspeak" do
+    test "Node body looked up from translation file, rendered as HTML using govspeak by default" do
       question = Question::Date.new(:example_question?)
       presenter = NodePresenter.new("flow.test", question)
 
@@ -179,6 +179,13 @@ module SmartAnswer
       presenter = OutcomePresenter.new("flow.test", outcome)
 
       refute presenter.has_title?
+    end
+
+    test "Node next_steps looked up from translation file, rendered as HTML using govspeak by default" do
+      question = Question::Date.new(:example_question?)
+      presenter = NodePresenter.new("flow.test", question)
+
+      assert_equal "<p>The next steps copy</p>\n", presenter.next_steps
     end
   end
 end
