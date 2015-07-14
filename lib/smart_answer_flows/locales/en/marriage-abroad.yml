@@ -190,7 +190,7 @@ en-GB:
           Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
         make_an_appointment_bring_passport_and_pay_55_colombia: |
-          Make an appointment at the local British embassy or consulate in Colombia to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
+          Make an appointment at the British embassy in Bogota to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
 
         make_an_appointment_bring_passport_and_pay_55_brazil: |
           Make an appointment at the local British embassy or consulate in Brazil to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
@@ -233,9 +233,9 @@ en-GB:
         appointment_for_affidavit_in_hong_kong: |
           Make an appointment at the British embassy or consulate in Hong Kong to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         appointment_for_affidavit_norway: |
-          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, a copy of your partner’s passport and pay a fee.
+          Make an appointment at the British embassy in Oslo to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, a copy of your partner’s passport and pay a fee.
         appointment_for_affidavit_indonesia: |
-          Make an appointment at the local British embassy or consulate in Indonesia to swear an affidavit (written statement of facts) that you’re free to marry.
+          Make an appointment at the British Embassy in Jakarta to swear an affidavit (written statement of facts) that you’re free to marry.
 
           Before the appointment you’ll need to pay a fee to the British Embassy in Jakarta. You can do this by credit card or in cash in the local currency. You also need to complete 2 copies of the [‘Affidavit for marriage’ form](/government/publications/marriage-in-indonesia).
 
@@ -662,7 +662,7 @@ en-GB:
         kazakhstan_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
 
-          Make an appointment at the embassy in Kazakhstan to give notice of your marriage. There’s a fee for this service (see below).
+          Make an appointment at the embassy in Almaty to give notice of your marriage. There’s a fee for this service (see below).
         russia_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_ceremony_country}.
 
@@ -1550,7 +1550,7 @@ en-GB:
             bosnia-and-herzegovina: |
               [Make an appointment at the embassy in Sarajevo](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-sarajevo/notice-of-marriage-or-civil-partnership/slot_picker).
             colombia: |
-              [Make an appointment at the embassy in Colombia](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-bogot%25C3%25A1/oaths-affirmations-and-affidavits/slot_picker).
+              [Make an appointment at the embassy in Bogota](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-bogot%25C3%25A1/oaths-affirmations-and-affidavits/slot_picker).
             chile: |
               [Make an appointment at the embassy in Santiago](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-santiago/notice-of-marriage-or-civil-partnership/slot_picker).
             china: |
@@ -1677,7 +1677,7 @@ en-GB:
             belgium: |
               [Make an appointment at the British embassy in Brussels](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-brussels/oaths-affirmations-and-affidavits/slot_picker).
             colombia: |
-              [Make an appointment at the British embassy in Colombia](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-bogot%25C3%25A1/notice-of-marriage-or-civil-partnership/slot_picker).
+              [Make an appointment at the British embassy in Bogota](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-bogot%25C3%25A1/notice-of-marriage-or-civil-partnership/slot_picker).
             montenegro: |
               [Make an appointment at the embassy in Podgorica](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-podgorica/notice-of-marriage-or-civil-partnership/slot_picker).
             norway: |
