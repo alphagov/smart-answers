@@ -1,0 +1,18 @@
+You paid tax or sent your return late
+
+| Key facts | Your results |
+|-----------|--------------|
+| Your penalty for sending the return late | £100 |
+| What you said your tax bill was | £500 |
+| Interest added for paying your bill late | £17.71 |
+| Penalty for paying your bill late | £75 |
+| Estimate of the total you owe | £692 |
+
+
+Your penalty can be up to 100% of your tax bill if you deliberately don’t pay it.
+
+
+These figures are estimates based on the figures you gave. The total is rounded down to the nearest pound.
+
+^You don’t have to pay any penalties unless you're asked to by HMRC. The amount that HMRC asks for might be different than this estimate.^
+
