@@ -13,9 +13,10 @@ class NodePresenter
     nil
   end
 
-  def translate_and_render(subkey)
+  def translate_and_render(subkey, html: true)
     markup = translate!(subkey)
-    markup && GovspeakPresenter.new(markup.strip).html
+    return unless markup
+    html ? GovspeakPresenter.new(markup.strip).html : markup
   end
 
   def state_for_interpolation(nested = false)
@@ -72,8 +73,8 @@ class NodePresenter
     !!error_message
   end
 
-  def body
-    translate_and_render('body')
+  def body(html: true)
+    translate_and_render('body', html: html)
   end
 
   def has_body?
@@ -113,8 +114,8 @@ class NodePresenter
     !!label or !!suffix_label
   end
 
-  def next_steps
-    translate_and_render('next_steps')
+  def next_steps(html: true)
+    translate_and_render('next_steps', html: html)
   end
 
   def has_next_steps?

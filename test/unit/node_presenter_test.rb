@@ -95,6 +95,13 @@ module SmartAnswer
       assert_equal "<p>The body copy</p>\n", presenter.body
     end
 
+    test "Node body looked up from translation file, rendered as raw text when HTML disabled" do
+      question = Question::Date.new(:example_question?)
+      presenter = NodePresenter.new("flow.test", question)
+
+      assert_equal "The body copy", presenter.body(html: false)
+    end
+
     test "Can check if a node has body" do
       assert NodePresenter.new("flow.test", Question::Date.new(:example_question?)).has_body?, "example_question? has body"
       assert !NodePresenter.new("flow.test", Question::Date.new(:missing)).has_body?, "missing has no body"
@@ -186,6 +193,13 @@ module SmartAnswer
       presenter = NodePresenter.new("flow.test", question)
 
       assert_equal "<p>The next steps copy</p>\n", presenter.next_steps
+    end
+
+    test "Node next_steps looked up from translation file, rendered as raw text when HTML disabled" do
+      question = Question::Date.new(:example_question?)
+      presenter = NodePresenter.new("flow.test", question)
+
+      assert_equal "The next steps copy", presenter.next_steps(html: false)
     end
   end
 end

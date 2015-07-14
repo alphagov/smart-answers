@@ -34,7 +34,7 @@ class OutcomePresenter < NodePresenter
       govspeak = @view.content_for(:body) || ''
       html ? GovspeakPresenter.new(govspeak.to_str).html : govspeak.to_str
     else
-      super()
+      super
     end
   end
 
@@ -44,7 +44,7 @@ class OutcomePresenter < NodePresenter
       govspeak = @view.content_for(:next_steps) || ''
       html ? GovspeakPresenter.new(govspeak.to_str).html : govspeak.to_str
     else
-      super()
+      super
     end
   end
 

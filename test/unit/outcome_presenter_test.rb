@@ -137,7 +137,7 @@ Hello world
       outcome = Outcome.new('outcome-name', use_outcome_templates: false)
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
-      presenter.stubs(:translate_and_render).with('body').returns('node-presenter-body')
+      presenter.stubs(:translate_and_render).with('body', optionally(anything)).returns('node-presenter-body')
       assert_equal 'node-presenter-body', presenter.body
     end
 
@@ -366,7 +366,7 @@ Hello world
       outcome = Outcome.new('outcome-name', use_outcome_templates: false)
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
-      presenter.stubs(:translate_and_render).with('next_steps').returns('node-presenter-body')
+      presenter.stubs(:translate_and_render).with('next_steps', optionally(anything)).returns('node-presenter-body')
       assert_equal 'node-presenter-body', presenter.next_steps
     end
 
