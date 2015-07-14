@@ -1,0 +1,48 @@
+
+
+##Statutory Maternity Leave
+
+The employee is entitled to up to 52 weeks Statutory Maternity Leave.
+
+|Leave                         | Key dates                    |
+|------------------------------|------------------------------|
+|Start                         |  1 January 2015          |
+|End                           | 30 December 2015            |
+|Latest date to [claim leave](/maternity-leave-pay-employees/notice-period "Notice period")    | 20 September 2014  |
+|Earliest date leave can start | 12 October 2014 |
+
+
+##Statutory Maternity Pay
+
+The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP) if they [claim SMP in time](/maternity-leave-pay-employees/notice-period "Notice period") and give [proof of the pregnancy](/maternity-leave-pay-employees/eligibility "Proof of pregnancy").
+
+Pay | Key facts
+-|-
+Average weekly earnings | £346.15385 (don't round this up or down)
+Latest date to claim SMP |  4 December 2014
+SMP start date due to pregnancy related illness| 30 November 2014
+Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
+
+%This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
+
+
+## SMP calculation
+
+Date | SMP amount
+-|-
+ 1 January 2015|£44.51
+ 1 February 2015|£1379.68
+ 1 March 2015|£800.38
+ 1 April 2015|£611.94
+ 1 May 2015|£596.81
+ 1 June 2015|£618.15
+ 1 July 2015|£598.21
+ 1 August 2015|£618.15
+ 1 September 2015|£618.15
+ 1 October 2015|£578.27
+ | **Total SMP: £6464.25**
+
+
+*[SMP]: Statutory Maternity Pay
+
+Read the [guide to Statutory Maternity Pay and Leave](/maternity-leave-pay-employees)

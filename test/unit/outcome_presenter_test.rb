@@ -121,11 +121,23 @@ Hello world
       end
     end
 
+    test '#body does not pass output of ERB template through Govspeak when HTML disabled' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_body('^information^')
+
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal "^information^\n", presenter.body(html: false)
+      end
+    end
+
     test '#body delegates to NodePresenter when not using outcome templates' do
       outcome = Outcome.new('outcome-name', use_outcome_templates: false)
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
-      presenter.stubs(:translate_and_render).with('body').returns('node-presenter-body')
+      presenter.stubs(:translate_and_render).with('body', optionally(anything)).returns('node-presenter-body')
       assert_equal 'node-presenter-body', presenter.body
     end
 
@@ -338,11 +350,23 @@ Hello world
       end
     end
 
+    test '#next_steps does not pass output of ERB template through Govspeak when HTML disabled' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_next_steps('^information^')
+
+      with_erb_template_file("outcome-name", erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal "^information^\n", presenter.next_steps(html: false)
+      end
+    end
+
     test '#next_steps delegates to NodePresenter when not using outcome templates' do
       outcome = Outcome.new('outcome-name', use_outcome_templates: false)
       presenter = OutcomePresenter.new('i18n-prefix', outcome)
 
-      presenter.stubs(:translate_and_render).with('next_steps').returns('node-presenter-body')
+      presenter.stubs(:translate_and_render).with('next_steps', optionally(anything)).returns('node-presenter-body')
       assert_equal 'node-presenter-body', presenter.next_steps
     end
 

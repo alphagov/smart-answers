@@ -1,0 +1,62 @@
+
+
+paternity_entitled_to_leave
+
+##Statutory Paternity Pay (SPP)
+
+The employee is entitled to SPP.
+
+Their average weekly earnings are: £375.00
+
+## SPP calculation
+
+Date | SPP amount
+-|-
+ 9 April 2015|£192.86
+16 April 2015|£337.50
+23 April 2015|£337.50
+30 April 2015|£337.50
+ 7 May 2015|£337.50
+14 May 2015|£337.50
+21 May 2015|£224.41
+28 May 2015|£139.58
+ 4 June 2015|£139.58
+11 June 2015|£139.58
+18 June 2015|£139.58
+25 June 2015|£139.58
+ 2 July 2015|£139.58
+ 9 July 2015|£139.58
+16 July 2015|£139.58
+23 July 2015|£139.58
+30 July 2015|£139.58
+ 6 August 2015|£139.58
+13 August 2015|£139.58
+20 August 2015|£139.58
+27 August 2015|£139.58
+ 3 September 2015|£139.58
+10 September 2015|£139.58
+17 September 2015|£139.58
+24 September 2015|£139.58
+ 1 October 2015|£139.58
+ 8 October 2015|£139.58
+15 October 2015|£139.58
+22 October 2015|£139.58
+29 October 2015|£139.58
+ 5 November 2015|£139.58
+12 November 2015|£139.58
+19 November 2015|£139.58
+26 November 2015|£139.58
+ 3 December 2015|£139.58
+10 December 2015|£139.58
+17 December 2015|£139.58
+24 December 2015|£139.58
+31 December 2015|£139.58
+ 7 January 2016|£59.83
+ | **Total SPP: £6631.16**
+
+%This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
+
+
+adoption_spp_claim_link
+
+Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)

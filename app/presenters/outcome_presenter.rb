@@ -28,21 +28,21 @@ class OutcomePresenter < NodePresenter
     output
   end
 
-  def body
+  def body(html: true)
     if use_template? && body_erb_template_exists?
       render_erb_template
       govspeak = @view.content_for(:body) || ''
-      GovspeakPresenter.new(govspeak.to_str).html
+      html ? GovspeakPresenter.new(govspeak.to_str).html : govspeak.to_str
     else
-      super()
+      super
     end
   end
 
-  def next_steps
+  def next_steps(html: true)
     if use_template? && next_steps_erb_template_exists?
       render_erb_template
       govspeak = @view.content_for(:next_steps) || ''
-      GovspeakPresenter.new(govspeak.to_str).html
+      html ? GovspeakPresenter.new(govspeak.to_str).html : govspeak.to_str
     else
       super
     end

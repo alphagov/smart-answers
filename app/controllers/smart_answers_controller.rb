@@ -20,6 +20,9 @@ class SmartAnswersController < ApplicationController
           title: @presenter.current_node.title
         }
       }
+      if @presenter.finished? && !Rails.env.production?
+        format.text { render }
+      end
     end
 
     set_expiry
