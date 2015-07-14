@@ -4,6 +4,7 @@ class OutcomePresenter < NodePresenter
     super(i18n_prefix, node, state)
     @view = ActionView::Base.new([template_directory])
     @view.extend(SmartAnswer::OutcomeHelper)
+    @view.extend(SmartAnswer::OverseasPassportsHelper)
     @rendered_erb_template = false
   end
 

@@ -105,6 +105,10 @@ module SmartAnswer
           passport_data[application_action]
         end
 
+        calculate :optimistic_processing_time do
+          passport_data['optimistic_processing_time?']
+        end
+
         calculate :incomplete_deadline_countries do
           %w(afghanistan australia austria bahrain bangladesh barbados belgium brazil canada china denmark egypt ethiopia finland france germany ghana greece hong-kong india indonesia iraq ireland israel italy jamaica japan kenya lebanon malawi malaysia netherlands new-zealand nigeria norway pakistan philippines portugal qatar russia saudi-arabia sierra-leone singapore south-africa spain sri-lanka sudan sweden switzerland thailand trinidad-and-tobago turkey uganda united-arab-emirates usa venezuela vietnam zambia zimbabwe)
         end
