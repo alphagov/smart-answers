@@ -670,7 +670,7 @@ en-GB:
           You’ll need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.. You can then book an appointment at the British Embassy in Rome.
 
         consular_cni_os_giving_notice_in_ceremony_country: |
-          If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at a British embassy or in front of a notary public in that country.
+          If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at the British embassy or in front of a notary public in that country.
 
         arrange_cni_via_costa_rica: |
           If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
@@ -1373,7 +1373,7 @@ en-GB:
 
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
 
-          If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at a British embassy or in front of a notary public in that country.
+          If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at the British embassy or in front of a notary public in that country.
 
           [Make an appointment at the embassy in Pristina](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-pristina/notice-of-marriage-or-civil-partnership/slot_picker).
 
