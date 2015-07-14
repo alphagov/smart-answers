@@ -179,7 +179,7 @@ money_question :earnings_for_pay_period_adoption? do
     sprintf("%.2f", calculator.average_weekly_earnings)
   end
 
-  calculate :above_lower_earning_limit? do
+  calculate :above_lower_earning_limit do
     calculator.average_weekly_earnings > calculator.lower_earning_limit
   end
 
@@ -250,7 +250,7 @@ outcome :adoption_leave_and_pay do
   end
 
   precalculate :pay_dates_and_pay do
-    if above_lower_earning_limit?
+    if above_lower_earning_limit
       calculator.paydates_and_pay.map do |date_and_pay|
         %Q(#{date_and_pay[:date].strftime("%e %B %Y")}|£#{sprintf("%.2f", date_and_pay[:pay])})
       end.join("\n")
@@ -258,7 +258,7 @@ outcome :adoption_leave_and_pay do
   end
 
   precalculate :total_sap do
-    if above_lower_earning_limit?
+    if above_lower_earning_limit
       sprintf("%.2f", calculator.total_statutory_pay)
     end
   end
