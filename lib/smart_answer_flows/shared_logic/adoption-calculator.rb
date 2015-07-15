@@ -219,13 +219,13 @@ outcome :adoption_leave_and_pay do
 
   precalculate :adoption_pay_info do |response|
     phrases = PhraseList.new
-    if on_payroll == 'no'
+    if on_payroll == 'no' || calculator.average_weekly_earnings < calculator.lower_earning_limit
       phrases << :adoption_not_entitled_to_pay_intro
-      phrases << :must_be_on_payroll
-      phrases << :adoption_not_entitled_to_pay_outro
-    elsif calculator.average_weekly_earnings < calculator.lower_earning_limit
-      phrases << :adoption_not_entitled_to_pay_intro
-      phrases << :must_earn_over_threshold
+      if on_payroll == 'no'
+        phrases << :must_be_on_payroll
+      elsif calculator.average_weekly_earnings < calculator.lower_earning_limit
+        phrases << :must_earn_over_threshold
+      end
       phrases << :adoption_not_entitled_to_pay_outro
     else
       phrases << :adoption_pay_table
