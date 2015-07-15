@@ -663,8 +663,6 @@ en-GB:
           You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
         kazakhstan_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
-
-          Make an appointment at the embassy in Almaty to give notice of your marriage. There’s a fee for this service (see below).
         russia_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_ceremony_country}.
 
