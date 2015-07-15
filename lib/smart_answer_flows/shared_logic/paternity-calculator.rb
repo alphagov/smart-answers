@@ -135,16 +135,7 @@ multiple_choice :employee_on_payroll_paternity? do
     paternity_adoption? ? 'adoption' : 'notice-period'
   end
 
-  calculate :not_entitled_reason do |response|
-    if response == 'no' && has_contract == 'no'
-      PhraseList.new(
-        :paternity_not_entitled_to_leave,
-        :paternity_not_entitled_to_pay_intro,
-        :must_be_on_payroll,
-        :paternity_not_entitled_to_pay_outro
-      )
-    end
-  end
+
 
   calculate :to_saturday do
     if paternity_adoption?
@@ -175,17 +166,6 @@ multiple_choice :employee_still_employed_on_birth_date? do
   option :yes
   option :no
   save_input_as :employed_dob
-
-  calculate :not_entitled_reason do |response|
-    if response == 'no' and has_contract == 'no'
-      PhraseList.new(
-        :paternity_not_entitled_to_leave,
-        :paternity_not_entitled_to_pay_intro,
-        :"#{leave_type}_must_be_employed_by_you",
-        :paternity_not_entitled_to_pay_outro
-      )
-    end
-  end
 
   next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no') & responded_with('no'))
   next_node :employee_start_paternity?
@@ -227,26 +207,6 @@ multiple_choice :employee_paternity_length? do
         1.week.since(leave_start_date)
       else
         2.weeks.since(leave_start_date)
-      end
-    end
-  end
-
-  calculate :not_entitled_reason do
-    if has_contract == 'yes'
-      if employed_dob == 'no'
-        PhraseList.new(
-          :paternity_entitled_to_leave,
-          :paternity_not_entitled_to_pay_intro,
-          :"#{leave_type}_must_be_employed_by_you",
-          :paternity_not_entitled_to_pay_outro
-        )
-      elsif on_payroll == 'no'
-        PhraseList.new(
-          :paternity_entitled_to_leave,
-          :paternity_not_entitled_to_pay_intro,
-          :must_be_on_payroll,
-          :paternity_not_entitled_to_pay_outro
-        )
       end
     end
   end
@@ -499,6 +459,42 @@ outcome :paternity_leave_and_pay do
 end
 
 outcome :paternity_not_entitled_to_leave_or_pay do
+  precalculate :not_entitled_reason do |response|
+    if has_contract == 'no'
+      if on_payroll == 'no'
+        PhraseList.new(
+          :paternity_not_entitled_to_leave,
+          :paternity_not_entitled_to_pay_intro,
+          :must_be_on_payroll,
+          :paternity_not_entitled_to_pay_outro
+        )
+      elsif employed_dob == 'no'
+        PhraseList.new(
+          :paternity_not_entitled_to_leave,
+          :paternity_not_entitled_to_pay_intro,
+          :"#{leave_type}_must_be_employed_by_you",
+          :paternity_not_entitled_to_pay_outro
+        )
+      end
+    elsif has_contract == 'yes'
+      if employed_dob == 'no'
+        PhraseList.new(
+          :paternity_entitled_to_leave,
+          :paternity_not_entitled_to_pay_intro,
+          :"#{leave_type}_must_be_employed_by_you",
+          :paternity_not_entitled_to_pay_outro
+        )
+      elsif on_payroll == 'no'
+        PhraseList.new(
+          :paternity_entitled_to_leave,
+          :paternity_not_entitled_to_pay_intro,
+          :must_be_on_payroll,
+          :paternity_not_entitled_to_pay_outro
+        )
+      end
+    end
+  end
+
   precalculate :not_entitled_reason do
     if not_entitled_reason.nil?
       phrases = PhraseList.new(:paternity_not_entitled_to_leave_or_pay_intro)
