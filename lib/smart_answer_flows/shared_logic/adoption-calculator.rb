@@ -43,10 +43,6 @@ end
 multiple_choice :adoption_did_the_employee_work_for_you? do
   option yes: :adoption_employment_contract?
   option no: :adoption_not_entitled_to_leave_or_pay
-
-  calculate :adoption_leave_info do
-    PhraseList.new(:adoption_not_entitled_to_leave_or_pay)
-  end
 end
 
 ## QA4
