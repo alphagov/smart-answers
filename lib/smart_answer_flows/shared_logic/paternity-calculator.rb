@@ -460,38 +460,26 @@ end
 
 outcome :paternity_not_entitled_to_leave_or_pay do
   precalculate :not_entitled_reason do |response|
+    phrases = PhraseList.new
+
     if has_contract == 'no'
+      phrases << :paternity_not_entitled_to_leave
+      phrases << :paternity_not_entitled_to_pay_intro
       if on_payroll == 'no'
-        PhraseList.new(
-          :paternity_not_entitled_to_leave,
-          :paternity_not_entitled_to_pay_intro,
-          :must_be_on_payroll,
-          :paternity_not_entitled_to_pay_outro
-        )
+        phrases << :must_be_on_payroll
       elsif employed_dob == 'no'
-        PhraseList.new(
-          :paternity_not_entitled_to_leave,
-          :paternity_not_entitled_to_pay_intro,
-          :"#{leave_type}_must_be_employed_by_you",
-          :paternity_not_entitled_to_pay_outro
-        )
+        phrases << :"#{leave_type}_must_be_employed_by_you"
       end
+      phrases << :paternity_not_entitled_to_pay_outro
     elsif has_contract == 'yes'
+      phrases << :paternity_entitled_to_leave
+      phrases << :paternity_not_entitled_to_pay_intro
       if on_payroll == 'no'
-        PhraseList.new(
-          :paternity_entitled_to_leave,
-          :paternity_not_entitled_to_pay_intro,
-          :must_be_on_payroll,
-          :paternity_not_entitled_to_pay_outro
-        )
+        phrases << :must_be_on_payroll
       elsif employed_dob == 'no'
-        PhraseList.new(
-          :paternity_entitled_to_leave,
-          :paternity_not_entitled_to_pay_intro,
-          :"#{leave_type}_must_be_employed_by_you",
-          :paternity_not_entitled_to_pay_outro
-        )
+        phrases << :"#{leave_type}_must_be_employed_by_you"
       end
+      phrases << :paternity_not_entitled_to_pay_outro
     end
   end
 
