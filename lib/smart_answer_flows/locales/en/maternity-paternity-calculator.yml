@@ -48,10 +48,6 @@ en-GB:
         paternity_must_be_employed_by_you: + they must still be employed by you on %{due_date}
         paternity_adoption_not_responsible_for_upbringing: + aren’t responsible for the child’s upbringing or the adopter’s partner
         paternity_not_responsible_for_upbringing: + aren't responsible for the child's upbringing or the biological father or mother's partner
-        paternity_spp_claim_link: |
-          The latest date for them to [claim SPP](/employers-paternity-pay-leave/notice-period) is usually 28 days before they want it to start.
-        paternity_adoption_spp_claim_link: |
-          The latest date for them to [claim SPP](/employers-paternity-pay-leave/adoption) is usually 28 days before they want it to start.
         maternity_leave_table: |
           ##Statutory Maternity Leave
 
@@ -132,22 +128,6 @@ en-GB:
           The employee is not entitled to Statutory Paternity Leave because they don’t have an employment contract with you.
 
           Write to them within 28 days of their leave request confirming this.
-
-        paternity_entitled_to_pay: |
-          ##Statutory Paternity Pay (SPP)
-
-          The employee is entitled to SPP.
-
-          Their average weekly earnings are: £%{average_weekly_earnings}
-
-          ## SPP calculation
-
-          Date | SPP amount
-          -|-
-          %{pay_dates_and_pay}
-           | **Total SPP: £%{total_spp}**
-
-          %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
         paternity_not_entitled_to_leave_or_pay_intro: |
           ##Not entitled to Statutory Paternity Pay or Leave
@@ -383,11 +363,6 @@ en-GB:
           "fourth": "4th"
           "last": "last"
       ## Paternity Results:
-      paternity_leave_and_pay:
-        next_steps: |
-          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
-        body: |
-          %{paternity_info}
 
       paternity_not_entitled_to_leave_or_pay:
         next_steps: |
