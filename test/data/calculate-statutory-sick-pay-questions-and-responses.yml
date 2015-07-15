@@ -12,16 +12,16 @@
 - "yes"
 - "no"
 :first_sick_day?: 
-- "TODO: During their most recent period of sickness, when did your employee first become sick?"
+- 2013-04-02
 :last_sick_day?: 
-- "TODO: Enter the last day of sickness"
+- 2013-04-10
 :has_linked_sickness?: 
 - "yes"
 - "no"
 :linked_sickness_start_date?: 
-- "TODO: Enter the start date for this linked period of sickness."
+- 2014-02-01
 :linked_sickness_end_date?: 
-- "TODO: Enter the end date for this linked period of sickness."
+- 2014-02-15
 :paid_at_least_8_weeks?: 
 - eight_weeks_more
 - eight_weeks_less
@@ -33,19 +33,19 @@
 - monthly
 - irregularly
 :last_payday_before_sickness?: 
-- "TODO: What was the last normal payday before %{sick_start_date_for_awe}?"
+- 2013-03-31
 :last_payday_before_offset?: 
-- "TODO: What was the last normal payday on or before %{pay_day_offset}?"
+- 2013-01-31
 :total_employee_earnings?: 
-- "TODO: Enter the total amount (before deductions like Income Tax and National Insurance) of your employee\xE2\x80\x99s earnings on paydays between %{relevant_period_from} and %{relevant_period_to}."
+- "4000"
 :pay_amount_if_not_sick?: 
-- "TODO: Enter how much you would have paid the employee on their first payday if they hadn\xE2\x80\x99t been sick."
+- "2000"
 :contractual_days_covered_by_earnings?: 
-- "TODO: How many days does the period represented by these earnings cover?"
+- "30"
 :total_earnings_before_sick_period?: 
-- "TODO: Enter the total earnings paid before %{sick_start_date_for_awe}."
+- "3000"
 :days_covered_by_earnings?: 
-- "TODO: How many days does the period represented by these earnings cover?"
+- "35"
 :usual_work_days?: 
 - "1"
 - "2"
