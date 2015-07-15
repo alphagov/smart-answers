@@ -658,7 +658,9 @@ en-GB:
 
           ###Applying for a CNI from the %{embassy_or_consulate_ceremony_country}
 
-          You’ll need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.. You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
+          You’ll need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
+
+          You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
         kazakhstan_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
 
@@ -677,7 +679,7 @@ en-GB:
 
           ###Applying for a Nulla Osta from the embassy
 
-          You’ll need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.. You can then book an appointment at the British Embassy in Rome.
+          You’ll need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday. You can then book an appointment at the British Embassy in Rome.
 
         consular_cni_os_giving_notice_in_ceremony_country: |
           If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at the British embassy or in front of a notary public in that country.
