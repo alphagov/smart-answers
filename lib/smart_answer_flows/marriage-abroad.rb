@@ -375,7 +375,7 @@ module SmartAnswer
           phrases << :change_of_name_evidence
           phrases << :names_on_documents_must_match
           phrases << :fee_table_affirmation_55
-          phrases << :list_of_consular_fees
+          phrases << :link_to_consular_fees
           phrases << :pay_by_cash_or_credit_card_no_cheque
           phrases << :partner_naturalisation_in_uk
         end
@@ -393,7 +393,7 @@ module SmartAnswer
             :names_on_documents_must_match,
             :partner_naturalisation_in_uk,
             :fee_table_oath_declaration_55,
-            :list_of_consular_fees,
+            :link_to_consular_fees,
             :payment_methods_japan
           )
         end
@@ -418,7 +418,7 @@ module SmartAnswer
           if resident_of == 'ceremony_country'
             phrases << :contact_local_authorities << :get_legal_advice << :consular_cni_os_download_affidavit_notary_public << :notary_public_will_charge_a_fee << :names_on_documents_must_match << :partner_naturalisation_in_uk
           else
-            phrases << :contact_local_authorities_in_country_marriage << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque << contact_method_key << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed
+            phrases << :contact_local_authorities_in_country_marriage << :get_legal_and_travel_advice << :what_you_need_to_do << :make_an_appointment_bring_passport_and_pay_55_brazil << :link_to_consular_fees << :pay_by_cash_or_credit_card_no_cheque << contact_method_key << :download_affidavit_forms_but_do_not_sign << :download_affidavit_brazil << :documents_for_divorced_or_widowed
           end
           phrases
         end
@@ -432,7 +432,7 @@ module SmartAnswer
             :what_you_need_to_do_affirmation,
             :make_an_appointment_bring_passport_and_pay_55_colombia,
             contact_method_key,
-            :list_of_consular_fees,
+            :link_to_consular_fees,
             :pay_by_cash_or_credit_card_no_cheque,
             :legalisation_and_translation,
             :affirmation_os_translation_in_local_language_text,
@@ -863,7 +863,7 @@ module SmartAnswer
               if %w(kazakhstan kyrgyzstan).include?(ceremony_country)
                 phrases << :list_of_consular_kazakhstan
               else
-                phrases << :list_of_consular_fees
+                phrases << :link_to_consular_fees
               end
             end
           end
@@ -1088,7 +1088,7 @@ module SmartAnswer
           end
           unless data_query.countries_without_consular_facilities?(ceremony_country)
             if ceremony_country != 'cambodia'
-              phrases << :list_of_consular_fees
+              phrases << :link_to_consular_fees
             end
 
             if ceremony_country == 'finland'
@@ -1134,7 +1134,7 @@ module SmartAnswer
           phrases << :cni_os_consular_facilities_unavailable
 
           unless data_query.countries_without_consular_facilities?(ceremony_country)
-            phrases << :list_of_consular_fees
+            phrases << :link_to_consular_fees
             phrases << :pay_by_cash_or_credit_card_no_cheque
           end
           if partner_nationality != 'partner_british'
@@ -1220,7 +1220,7 @@ module SmartAnswer
           end
 
           unless (ceremony_country == 'czech-republic' || data_query.countries_without_consular_facilities?(ceremony_country))
-            phrases << :list_of_consular_fees
+            phrases << :link_to_consular_fees
           end
 
           if %w(iceland slovenia).include?(ceremony_country)
@@ -1393,7 +1393,7 @@ module SmartAnswer
           if ceremony_country == 'cambodia'
             phrases << :pay_by_cash_or_us_dollars_only
           else
-            phrases << :list_of_consular_fees << :pay_by_cash_or_credit_card_no_cheque
+            phrases << :link_to_consular_fees << :pay_by_cash_or_credit_card_no_cheque
           end
 
           if %w{albania australia germany japan philippines russia serbia vietnam}.include?(ceremony_country)
@@ -1407,7 +1407,7 @@ module SmartAnswer
 
       outcome :outcome_ss_marriage_malta do
         precalculate :ss_body do
-          PhraseList.new(:able_to_ss_marriage_and_partnership_hc, :contact_to_make_appointment, contact_method_key, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership_hc, :will_display_in_14_days_hc, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_hc, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage)
+          PhraseList.new(:able_to_ss_marriage_and_partnership_hc, :contact_to_make_appointment, contact_method_key, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership_hc, :will_display_in_14_days_hc, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote_hc, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage)
         end
       end
 
@@ -1467,7 +1467,7 @@ module SmartAnswer
           end
 
           phrases << :fee_table_affirmation_55
-          phrases << :list_of_consular_fees
+          phrases << :link_to_consular_fees
 
           if ceremony_country == 'norway'
             phrases << :pay_by_visas_or_mastercard
