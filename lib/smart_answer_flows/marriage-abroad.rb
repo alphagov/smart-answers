@@ -951,6 +951,8 @@ module SmartAnswer
             phrases << :what_you_need_to_do
           elsif data_query.os_21_days_residency_required_countries?(ceremony_country)
             phrases << :what_you_need_to_do_affirmation_21_days
+          elsif ceremony_country == 'thailand'
+            phrases << :what_you_need_to_do_affirmation_or_affidavit
           else
             phrases << :what_you_need_to_do_affirmation
           end
@@ -970,6 +972,8 @@ module SmartAnswer
             phrases << :appointment_for_affidavit_norway
           elsif ceremony_country == 'macao'
             phrases << :appointment_for_affidavit_in_hong_kong
+          elsif ceremony_country == 'thailand'
+            phrases << :appointment_for_affirmation_or_affidavit
           else
             phrases << :appointment_for_affidavit
           end
@@ -1008,7 +1012,11 @@ module SmartAnswer
               end
             else
               phrases << :legalisation_and_translation
-              phrases << :affirmation_os_translation_in_local_language_text
+              if ceremony_country == 'thailand'
+                phrases << :affirmation_or_affidavit_os_translation_in_local_language_text
+              else
+                phrases << :affirmation_os_translation_in_local_language_text
+              end
             end
           end
           if ceremony_country == 'philippines'
