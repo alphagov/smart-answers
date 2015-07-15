@@ -892,7 +892,7 @@ module SmartAnswer
               phrases << :pay_in_euros_or_visa_electron
             elsif ceremony_country == 'kuwait'
               phrases << :pay_by_card_no_amex_no_cheque
-            elsif %w(cote-d-ivoire burundi).exclude?(ceremony_country)
+            elsif %w(cote-d-ivoire burundi).exclude?(ceremony_country) && !(ceremony_country == 'italy' && resident_of == 'uk')
               phrases << :pay_by_cash_or_credit_card_no_cheque
             end
           end
