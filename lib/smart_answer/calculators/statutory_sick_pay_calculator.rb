@@ -146,13 +146,5 @@ module SmartAnswer::Calculators
       ## 2. return only the first days_that_can_be_paid_for_this_period
       payable_days_temp.shift(days_that_can_be_paid_for_this_period)
     end
-
-    def find_6th_april_after(date)
-      year = date.year
-      if (date.month > 4) or (date.month == 4 and date.day > 6)
-        year += 1
-      end
-      Date.new(year, 4, 6)
-    end
   end
 end
