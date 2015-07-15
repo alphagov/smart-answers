@@ -790,7 +790,7 @@ en-GB:
           - your passport
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
-          - equivalent documents for your partner and a copy of their identity document
+          - a copy of your partner’s identity document
         italy_consular_cni_os_partner_british: |
           You and your partner will need to provide your passports and [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate).
         consular_cni_variant_local_resident_spain: |
