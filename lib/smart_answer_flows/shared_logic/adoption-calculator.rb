@@ -208,31 +208,7 @@ multiple_choice :how_do_you_want_the_sap_calculated? do
   next_node :next_pay_day_paternity? ## Shared with paternity calculator
 end
 
-outcome :adoption_leave_and_pay do
-  precalculate :adoption_leave_info do |response|
-    if employee_has_contract_adoption == 'no'
-      PhraseList.new(:adoption_not_entitled_to_leave)
-    else
-      PhraseList.new(:adoption_leave_table)
-    end
-  end
-
-  precalculate :adoption_pay_info do |response|
-    phrases = PhraseList.new
-    if on_payroll == 'no' || calculator.average_weekly_earnings < calculator.lower_earning_limit
-      phrases << :adoption_not_entitled_to_pay_intro
-      if on_payroll == 'no'
-        phrases << :must_be_on_payroll
-      elsif calculator.average_weekly_earnings < calculator.lower_earning_limit
-        phrases << :must_earn_over_threshold
-      end
-      phrases << :adoption_not_entitled_to_pay_outro
-    else
-      phrases << :adoption_pay_table
-    end
-    phrases
-  end
-
+outcome :adoption_leave_and_pay, use_outcome_templates: true do
   precalculate :pay_method do
     calculator.pay_method = (
       if monthly_pay_method

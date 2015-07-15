@@ -96,8 +96,6 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                             should "go to outcome" do
                               assert_current_node :adoption_leave_and_pay
                               assert_state_variable :average_weekly_earnings, "346.15"
-                              assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
-                              assert_phrase_list :adoption_pay_info, [:adoption_pay_table]
                             end
                           end # weekly_starting
                           context "answer based on usual paydates" do
@@ -110,8 +108,6 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                               setup { add_response "first_day_of_the_month" }
                               should "go to outcome and show leave and pay results" do
                                 assert_current_node :adoption_leave_and_pay
-                                assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
-                                assert_phrase_list :adoption_pay_info, [:adoption_pay_table]
                               end
                             end # first day in month
                             context "answer specific day in month" do
@@ -124,8 +120,6 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                                 setup { add_response 20 }
                                 should "go to outcome and show leave and pay tables" do
                                   assert_current_node :adoption_leave_and_pay
-                                  assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
-                                  assert_phrase_list :adoption_pay_info, [:adoption_pay_table]
                                 end
                               end
                             end # specific day in month
@@ -139,8 +133,6 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                                 setup { add_response "1,2,3,4" }
                                 should "go to outcome and show pay and leave tables" do
                                   assert_current_node :adoption_leave_and_pay
-                                  assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
-                                  assert_phrase_list :adoption_pay_info, [:adoption_pay_table]
                                 end
                               end
                             end # last working day of the month
@@ -161,8 +153,6 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                                   setup { add_response "last" }
                                   should "go to outcome and show pay tables" do
                                     assert_current_node :adoption_leave_and_pay
-                                    assert_phrase_list :adoption_leave_info, [:adoption_leave_table]
-                                    assert_phrase_list :adoption_pay_info, [:adoption_pay_table]
                                   end
                                 end
                               end
@@ -206,8 +196,6 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
               end
               should "go through to outcome show pay table but not entitled to leave" do
                 assert_current_node :adoption_leave_and_pay
-                assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
-                assert_phrase_list :adoption_pay_info, [:adoption_pay_table]
               end
             end # no contract but on payroll
           end # worked long enough
