@@ -415,7 +415,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:italy_os_consular_cni_ceremony_italy, :what_you_need_to_do, :get_cni_from_uk, :partner_cni_requirements_the_same, :cni_at_local_register_office, :getting_statutory_declaration_for_italy_partner_british, :bilingual_statutory_declaration_download_for_italy, :legalising_italian_statutory_declaration]
-      assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match]
     end
   end
 
