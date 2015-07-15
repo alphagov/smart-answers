@@ -49,8 +49,6 @@ $D
 
 ###What happens next
 
-The embassy will charge a fee for taking the oath.
-
 They’ll display your notice of marriage publicly for 7 days.
 
 The British embassy will issue your CNI within 5 working days (as long as nobody has registered an objection). You can collect your CNI in person or have it delivered by post.
@@ -69,9 +67,6 @@ Service | Fee
 -|-
 Receiving a notice of marriage | £65
 Issuing a CNI, Nulla Osta or equivalent | £65
-Issuing any other consular letter or certificate in English | £45
-Issuing any other consular letter or certificate in any other language | £70
-Administering an oath or making a declaration | £55
 
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Italy](/government/publications/italy-consular-fees).
