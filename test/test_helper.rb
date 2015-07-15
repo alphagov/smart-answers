@@ -17,7 +17,7 @@ require 'rails/test_help'
 require 'mocha/setup'
 
 require 'webmock/minitest'
-WebMock.disable_net_connect!(allow_localhost: true)
+WebMock.disable_net_connect!(allow_localhost: true, net_http_connect_on_start: true)
 
 class Minitest::Test
   def teardown_with_customisations
