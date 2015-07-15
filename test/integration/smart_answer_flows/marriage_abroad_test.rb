@@ -430,7 +430,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_start, [:italy_os_consular_cni_ceremony_italy, :what_you_need_to_do, :nulla_osta_requirement, "appointment_links.opposite_sex.italy", :consular_cni_os_local_resident_italy, :italy_consular_cni_os_partner_not_british, :consular_cni_os_not_uk_resident_ceremony_not_germany, :consular_cni_os_other_resident_ceremony_italy, :wait_300_days_before_remarrying, :download_and_fill_notice_and_affidavit_but_not_sign, :issuing_cni_in_italy]
-      assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :partner_naturalisation_in_uk, :no_need_to_stay_after_posting_notice, :consular_cni_os_fees_incl_null_osta_oath_consular_letter, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
+      assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :partner_naturalisation_in_uk, :no_need_to_stay_after_posting_notice, :list_of_consular_fees_italy, :list_of_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 

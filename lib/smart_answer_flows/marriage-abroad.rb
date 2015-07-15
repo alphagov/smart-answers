@@ -850,9 +850,11 @@ module SmartAnswer
             phrases << :no_need_to_stay_after_posting_notice
           end
 
-          unless (ceremony_country == 'italy' && resident_of == 'uk')
+          unless ceremony_country == 'italy' && resident_of == 'uk'
             if ceremony_country == 'croatia' && resident_of == 'ceremony_country'
               phrases << :fee_table_croatia
+            elsif ceremony_country == 'italy'
+              phrases << :list_of_consular_fees_italy
             else
               phrases << :consular_cni_os_fees_incl_null_osta_oath_consular_letter
             end
