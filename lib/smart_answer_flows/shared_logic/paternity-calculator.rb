@@ -450,39 +450,11 @@ outcome :paternity_leave_and_pay, use_outcome_templates: true do
 
 end
 
-outcome :paternity_not_entitled_to_leave_or_pay do
-  precalculate :not_entitled_reason do |response|
-    phrases = PhraseList.new
-
-    if (has_contract == 'yes' || has_contract == 'no') &&
-      (on_payroll == 'no' || employed_dob == 'no')
-
-      if has_contract == 'no'
-        phrases << :paternity_not_entitled_to_leave
-      elsif has_contract == 'yes'
-        phrases << :paternity_entitled_to_leave
-      end
-
-      phrases << :paternity_not_entitled_to_pay_intro
-
-      if on_payroll == 'no'
-        phrases << :must_be_on_payroll
-      elsif employed_dob == 'no'
-        phrases << :"#{leave_type}_must_be_employed_by_you"
-      end
-
-      phrases << :paternity_not_entitled_to_pay_outro
-    else
-      phrases << :paternity_not_entitled_to_leave_or_pay_intro
-      if paternity_responsible == 'no'
-        phrases << :"#{leave_type}_not_responsible_for_upbringing"
-      end
-      if paternity_employment_start == "no"
-        phrases << :not_worked_long_enough
-      end
-      phrases << :paternity_not_entitled_to_leave_or_pay_outro
-    end
-
-    phrases
+outcome :paternity_not_entitled_to_leave_or_pay, use_outcome_templates: true do
+  precalculate :has_contract do
+    has_contract
+  end
+  precalculate :paternity_employment_start do
+    paternity_employment_start
   end
 end

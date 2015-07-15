@@ -1,0 +1,62 @@
+<% content_for :body do %>
+<% if (has_contract == 'yes' || has_contract == 'no') &&
+  (on_payroll == 'no' || employed_dob == 'no') %>
+  <% if has_contract == 'no' %>
+<%= render partial: 'paternity_not_entitled_to_leave.govspeak.erb' %>
+  <% elsif has_contract == 'yes' %>
+<%= render partial: 'paternity_entitled_to_leave.govspeak.erb',
+           locals: {
+             leave_start_date: leave_start_date,
+             leave_end_date: leave_end_date,
+             leave_spp_claim_link: leave_spp_claim_link,
+             notice_of_leave_deadline: notice_of_leave_deadline
+           } %>
+  <% end %>
+
+<%= render partial: 'paternity_not_entitled_to_pay_intro.govspeak.erb' %>
+
+  <% if on_payroll == 'no' %>
+<%= render partial: 'must_be_on_payroll.govspeak.erb' %>
+  <% elsif employed_dob == 'no' %>
+    <% case leave_type %>
+    <% when 'paternity' %>
++ they must still be employed by you on <%= format_date(due_date) %>
+    <% when 'paternity_adoption' %>
++ they must still be employed by you on <%= ap_adoption_date_formatted %>
+    <% end %>
+
+  <% end %>
+
+<%= render partial: 'paternity_not_entitled_to_pay_outro.govspeak.erb' %>
+<% else %>
+##Not entitled to Statutory Paternity Pay or Leave
+
+The employee is not entitled to Statutory Paternity Leave or Pay because:
+
+  <% if paternity_responsible == 'no' %>
+    <% case leave_type %>
+    <% when 'paternity' %>
+
++ aren't responsible for the child's upbringing or the biological father or mother's partner
+    <% when 'paternity_adoption' %>
+
++ aren’t responsible for the child’s upbringing or the adopter’s partner
+    <% end %>
+
+  <% end %>
+  <% if paternity_employment_start == "no" %>
+
+<%= render partial: 'not_worked_long_enough.govspeak.erb',
+           locals: {employment_start: employment_start} %>
+  <% end %>
+
+You must write confirming this. Also, send them form OSP1 confirming they’re not entitled to pay within 28 days of their pay request.
+
+$D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
+
+<% end %>
+<% end %>
+
+<% content_for :next_steps do %>
+Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
+<% end %>

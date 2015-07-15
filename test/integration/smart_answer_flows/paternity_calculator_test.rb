@@ -288,7 +288,6 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                           setup { add_response "two_weeks" }
 
                           should "go to outcome" do
-                            assert_phrase_list :not_entitled_reason, [:paternity_entitled_to_leave, :paternity_not_entitled_to_pay_intro, :paternity_must_be_employed_by_you, :paternity_not_entitled_to_pay_outro]
                             assert_current_node :paternity_not_entitled_to_leave_or_pay
                           end
                         end # QP9 leave length
@@ -316,7 +315,6 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                         setup { add_response 'two_weeks'}
 
                         should "go to outcome" do
-                          assert_phrase_list :not_entitled_reason, [:paternity_entitled_to_leave, :paternity_not_entitled_to_pay_intro, :must_be_on_payroll, :paternity_not_entitled_to_pay_outro]
                           assert_current_node :paternity_not_entitled_to_leave_or_pay
                         end
                       end
@@ -338,7 +336,6 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                     setup { add_response :no }
 
                     should "not be entitled to leave or pay" do
-                      assert_phrase_list :not_entitled_reason, [:paternity_not_entitled_to_leave, :paternity_not_entitled_to_pay_intro, :must_be_on_payroll, :paternity_not_entitled_to_pay_outro]
                       assert_current_node :paternity_not_entitled_to_leave_or_pay
                     end
                   end #QP6 - not on payroll
@@ -366,7 +363,6 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                 setup { add_response :no }
 
                 should "go to outcome" do
-                  assert_phrase_list :not_entitled_reason, [:paternity_not_entitled_to_leave_or_pay_intro, :not_worked_long_enough, :paternity_not_entitled_to_leave_or_pay_outro]
                   assert_current_node :paternity_not_entitled_to_leave_or_pay
                 end
               end #QP4 did not work at employment_start
@@ -376,7 +372,6 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
               setup { add_response :no }
 
               should "state that they are not entitled to leave or pay because they're not responsible for upbringing" do
-                assert_phrase_list :not_entitled_reason, [:paternity_not_entitled_to_leave_or_pay_intro, :paternity_not_responsible_for_upbringing, :paternity_not_entitled_to_leave_or_pay_outro]
                 assert_current_node :paternity_not_entitled_to_leave_or_pay
               end
             end
@@ -440,7 +435,6 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
             add_response "2014-02-01"
             add_response "no"
             assert_current_node :paternity_not_entitled_to_leave_or_pay
-            assert_phrase_list :not_entitled_reason, [:paternity_not_entitled_to_leave_or_pay_intro, :paternity_adoption_not_responsible_for_upbringing, :paternity_not_entitled_to_leave_or_pay_outro]
           end
         end
 
@@ -451,7 +445,6 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
             add_response "yes"
             add_response "no"
             assert_current_node :paternity_not_entitled_to_leave_or_pay
-            assert_phrase_list :not_entitled_reason, [:paternity_not_entitled_to_leave_or_pay_intro, :not_worked_long_enough, :paternity_not_entitled_to_leave_or_pay_outro]
           end
         end
 
@@ -507,7 +500,6 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
             add_response "yes"
             add_response "no" # not employed on matched date
             assert_current_node :paternity_not_entitled_to_leave_or_pay
-            assert_phrase_list :not_entitled_reason, [:paternity_not_entitled_to_leave, :paternity_not_entitled_to_pay_intro, :paternity_adoption_must_be_employed_by_you, :paternity_not_entitled_to_pay_outro]
           end
         end
       end
