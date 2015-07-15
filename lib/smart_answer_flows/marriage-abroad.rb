@@ -672,7 +672,18 @@ module SmartAnswer
             end
 
             if ceremony_country == 'italy'
-              phrases << :consular_cni_os_resident_in_uk_ceremony_in_italy
+              if partner_nationality == 'partner_british'
+                phrases << :getting_statutory_declaration_for_italy_partner_british
+              else
+                phrases << :getting_statutory_declaration_for_italy_partner_non_british
+              end
+              phrases << :bilingual_statutory_declaration_download_for_italy
+
+              if partner_nationality != 'partner_british'
+                phrases << :statutory_declaration_for_non_british_partner
+              end
+
+              phrases << :legalising_italian_statutory_declaration
             end
           end
 
