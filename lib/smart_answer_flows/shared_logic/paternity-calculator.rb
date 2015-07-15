@@ -477,18 +477,18 @@ outcome :paternity_not_entitled_to_leave_or_pay do
         )
       end
     elsif has_contract == 'yes'
-      if employed_dob == 'no'
-        PhraseList.new(
-          :paternity_entitled_to_leave,
-          :paternity_not_entitled_to_pay_intro,
-          :"#{leave_type}_must_be_employed_by_you",
-          :paternity_not_entitled_to_pay_outro
-        )
-      elsif on_payroll == 'no'
+      if on_payroll == 'no'
         PhraseList.new(
           :paternity_entitled_to_leave,
           :paternity_not_entitled_to_pay_intro,
           :must_be_on_payroll,
+          :paternity_not_entitled_to_pay_outro
+        )
+      elsif employed_dob == 'no'
+        PhraseList.new(
+          :paternity_entitled_to_leave,
+          :paternity_not_entitled_to_pay_intro,
+          :"#{leave_type}_must_be_employed_by_you",
           :paternity_not_entitled_to_pay_outro
         )
       end
