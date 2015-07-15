@@ -389,7 +389,18 @@ multiple_choice :pay_date_options_paternity? do
 end
 
 # Paternity outcomes
-outcome :paternity_leave_and_pay do
+outcome :paternity_leave_and_pay, use_outcome_templates: true do
+  precalculate :has_contract do
+    has_contract
+  end
+
+  precalculate :leave_spp_claim_link do
+    leave_spp_claim_link
+  end
+
+  precalculate :notice_of_leave_deadline do
+    notice_of_leave_deadline
+  end
 
   precalculate :pay_method do
     calculator.pay_method = (
@@ -411,31 +422,12 @@ outcome :paternity_leave_and_pay do
     calculator.average_weekly_earnings > calculator.lower_earning_limit
   end
 
-  precalculate :paternity_info do
-    phrases = PhraseList.new
-
-    if has_contract == "no"
-      phrases << :paternity_not_entitled_to_leave
-    else
-      phrases << :paternity_entitled_to_leave
-    end
-
-    unless above_lower_earning_limit
-      phrases << :paternity_not_entitled_to_pay_intro <<
-                  :must_earn_over_threshold <<
-                  :paternity_not_entitled_to_pay_outro
-    else
-      phrases << :paternity_entitled_to_pay << :"#{leave_type}_spp_claim_link"
-    end
-    phrases
-  end
-
   precalculate :lower_earning_limit do
     sprintf("%.2f", calculator.lower_earning_limit)
   end
 
   precalculate :entitled_to_pay do
-    !paternity_info.nil? && paternity_info.phrase_keys.include?(:paternity_entitled_to_pay)
+    above_lower_earning_limit
   end
 
   precalculate :pay_dates_and_pay do

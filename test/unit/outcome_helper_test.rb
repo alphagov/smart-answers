@@ -16,5 +16,9 @@ module SmartAnswer
     test '#format_date returns the date formatted using "%e %B %Y"' do
       assert_equal ' 1 January 2015', format_date(Date.parse('2015-01-01'))
     end
+
+    test '#format_date returns nil when the value is nil' do
+      assert_equal nil, format_date(nil)
+    end
   end
 end
