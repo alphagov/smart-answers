@@ -595,16 +595,26 @@ en-GB:
         cni_subject_to_objection_14_days:
           They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
 
-        consular_cni_os_resident_in_uk_ceremony_in_italy: |
+        getting_statutory_declaration_for_italy_partner_british: |
           ###Getting a statutory declaration
 
           While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
+        getting_statutory_declaration_for_italy_partner_non_british: |
+          ###Getting a statutory declaration
+
+          While you’re waiting for your CNI, you will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
 
 
+        bilingual_statutory_declaration_download_for_italy: |
           $D
           [Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 90KB)](/government/uploads/system/uploads/attachment_data/file/153753/bilingual-statutory-declaration.pdf)
           $D
 
+        statutory_declaration_for_non_british_partner: |
+
+          ^Your partner should check what they need to do with their own consulate.^
+
+        legalising_italian_statutory_declaration: |
           ###Legalisation and translation
 
           You’ll need to get your statutory declaration and CNI ’[legalised](/get-document-legalised)’ (certified as genuine) by the Foreign & Commonwealth Office (FCO).
