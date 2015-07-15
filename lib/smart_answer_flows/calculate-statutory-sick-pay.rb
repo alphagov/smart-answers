@@ -319,10 +319,18 @@ module SmartAnswer
 
       # Answer 6
       outcome :entitled_to_sick_pay do
-        precalculate :days_paid do calculator.days_paid end
-        precalculate :normal_workdays_out do calculator.normal_workdays end
-        precalculate :pattern_days do calculator.pattern_days end
-        precalculate :pattern_days_total do calculator.pattern_days * 28 end
+        precalculate :days_paid do
+          calculator.days_paid
+        end
+        precalculate :normal_workdays_out do
+          calculator.normal_workdays
+        end
+        precalculate :pattern_days do
+          calculator.pattern_days
+        end
+        precalculate :pattern_days_total do
+          calculator.pattern_days * 28
+        end
 
         precalculate :proof_of_illness do
           unless enough_notice_of_absence
@@ -345,7 +353,9 @@ module SmartAnswer
 
       # Answer 7
       outcome :not_entitled_3_days_not_paid do
-        precalculate :normal_workdays_out do calculator.normal_workdays end
+        precalculate :normal_workdays_out do
+          calculator.normal_workdays
+        end
       end
 
       # Answer 8
