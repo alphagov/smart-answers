@@ -953,7 +953,7 @@ en-GB:
           - utility bills
           - recent proof of entitlement to local or state benefits, eg tax credits, pension, education or other benefits
 
-        consular_cni_os_fees_not_italy_not_uk: |
+        consular_cni_os_fees_incl_null_osta_oath_consular_letter: |
           ##Fees
 
           Service | Fee
