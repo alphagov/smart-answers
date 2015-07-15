@@ -62,16 +62,6 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
 
   save_input_as :on_payroll
 
-  calculate :adoption_pay_info do |response|
-    if response == 'no'
-      PhraseList.new(
-        :adoption_not_entitled_to_pay_intro,
-        :must_be_on_payroll,
-        :adoption_not_entitled_to_pay_outro
-      )
-    end
-  end
-
   calculate :to_saturday do
     calculator.matched_week.last
   end
@@ -202,18 +192,6 @@ money_question :earnings_for_pay_period_adoption? do
     calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
 
-   calculate :adoption_pay_info do
-    if calculator.average_weekly_earnings < calculator.lower_earning_limit
-      PhraseList.new(
-        :adoption_not_entitled_to_pay_intro,
-        :must_earn_over_threshold,
-        :adoption_not_entitled_to_pay_outro
-      )
-    else
-      PhraseList.new(:adoption_pay_table)
-    end
-  end
-
   next_node_if(:adoption_leave_and_pay, average_weekly_earnings_under_lower_earning_limit?)
   next_node :how_do_you_want_the_sap_calculated?
 end
@@ -224,10 +202,6 @@ multiple_choice :how_do_you_want_the_sap_calculated? do
   option :usual_paydates
 
   save_input_as :sap_calculation_method
-
-  calculate :adoption_pay_info do
-    PhraseList.new(:adoption_pay_table)
-  end
 
   next_node_if(:adoption_leave_and_pay, responded_with('weekly_starting'))
   next_node_if(:monthly_pay_paternity?, variable_matches(:pay_pattern, 'monthly')) ## Shared with paternity calculator
@@ -240,6 +214,24 @@ outcome :adoption_leave_and_pay do
       PhraseList.new(:adoption_not_entitled_to_leave)
     else
       PhraseList.new(:adoption_leave_table)
+    end
+  end
+
+  precalculate :adoption_pay_info do |response|
+    if on_payroll == 'no'
+      PhraseList.new(
+        :adoption_not_entitled_to_pay_intro,
+        :must_be_on_payroll,
+        :adoption_not_entitled_to_pay_outro
+      )
+    elsif calculator.average_weekly_earnings < calculator.lower_earning_limit
+      PhraseList.new(
+        :adoption_not_entitled_to_pay_intro,
+        :must_earn_over_threshold,
+        :adoption_not_entitled_to_pay_outro
+      )
+    else
+      PhraseList.new(:adoption_pay_table)
     end
   end
 
