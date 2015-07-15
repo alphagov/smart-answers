@@ -1,0 +1,61 @@
+<% content_for :body do %>
+<% if employee_has_contract_adoption == 'no' %>
+##Statutory Adoption Leave
+
+The employee is not entitled to Statutory Adoption Leave because they don’t have an employment contract with you.
+
+Write to them within 28 days of their leave request confirming this.
+<% else %>
+##Statutory Adoption Leave
+
+The employee is entitled to up to 52 weeks Statutory Adoption Leave if they [claim the leave on time](/employers-adoption-pay-leave/notice-period).
+
+|Leave                         | Key dates                   |
+|------------------------------|-----------------------------|
+|Start                         | <%= format_date(leave_start_date) %>         |
+|End                           | <%= format_date(leave_end_date) %>           |
+<% end %>
+
+<% if on_payroll == 'no' || calculator.average_weekly_earnings < calculator.lower_earning_limit %>
+
+##Statutory Adoption Pay
+
+The employee is not entitled to Statutory Adoption Pay. To qualify:
+
+  <% if on_payroll == 'no' %>
+
+<%= render partial: 'must_be_on_payroll.govspeak.erb' %>
+  <% elsif calculator.average_weekly_earnings < calculator.lower_earning_limit %>
+
+<%= render partial: 'must_earn_over_threshold.govspeak.erb',
+           locals: {
+             average_weekly_earnings: average_weekly_earnings,
+             relevant_period: relevant_period,
+             lower_earning_limit: lower_earning_limit
+           } %>
+  <% end %>
+Send them form SAP1 within 7 days of your decision. They must get this form within 28 days of their pay request or the date they were matched with the child (whichever is earlier).
+
+
+$D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf) $D
+<% else %>
+
+##Statutory Adoption Pay
+
+The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP) if they [claim SAP in time](/employers-adoption-pay-leave/notice-period) and give you [proof of the adoption](/employers-adoption-pay-leave/proof-of-adoption).
+
+The employee’s average weekly earnings are: £<%= average_weekly_earnings %>.
+
+Date | SAP amount
+-|-
+<%= pay_dates_and_pay %>
+ | **Total SAP: £<%= total_sap %>**
+
+%This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
+<% end %>
+<% end %>
+
+<% content_for :next_steps do %>
+
+Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees)
+<% end %>

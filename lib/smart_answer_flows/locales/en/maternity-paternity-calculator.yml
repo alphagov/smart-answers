@@ -173,49 +173,6 @@ en-GB:
 
           $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
 
-
-        adoption_leave_table: |
-          ##Statutory Adoption Leave
-
-          The employee is entitled to up to 52 weeks Statutory Adoption Leave if they [claim the leave on time](/employers-adoption-pay-leave/notice-period).
-
-          |Leave                         | Key dates                   |
-          |------------------------------|-----------------------------|
-          |Start                         | %{leave_start_date}         |
-          |End                           | %{leave_end_date}           |
-
-        adoption_not_entitled_to_leave: |
-          ##Statutory Adoption Leave
-
-          The employee is not entitled to Statutory Adoption Leave because they don’t have an employment contract with you.
-
-          Write to them within 28 days of their leave request confirming this.
-
-        adoption_pay_table: |
-          ##Statutory Adoption Pay
-
-          The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP) if they [claim SAP in time](/employers-adoption-pay-leave/notice-period) and give you [proof of the adoption](/employers-adoption-pay-leave/proof-of-adoption).
-
-          The employee’s average weekly earnings are: £%{average_weekly_earnings}.
-
-          Date | SAP amount
-          -|-
-          %{pay_dates_and_pay}
-           | **Total SAP: £%{total_sap}**
-
-          %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
-
-        adoption_not_entitled_to_pay_intro: |
-          ##Statutory Adoption Pay
-
-          The employee is not entitled to Statutory Adoption Pay. To qualify:
-
-        adoption_not_entitled_to_pay_outro: |
-          Send them form SAP1 within 7 days of your decision. They must get this form within 28 days of their pay request or the date they were matched with the child (whichever is earlier).
-
-
-          $D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf) $D
-
       ## Q1
       what_type_of_leave?:
         title: What do you want to check?
@@ -506,14 +463,6 @@ en-GB:
           "weekly_starting": "Weekly starting %{leave_start_date}"
           "usual_paydates": "Based on their usual paydates"
       ## Adoption outcomes
-      adoption_leave_and_pay:
-        next_steps: |
-          Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees)
-        body: |
-          %{adoption_leave_info}
-
-          %{adoption_pay_info}
-
       adoption_not_entitled_to_leave_or_pay:
         next_steps: |
           Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees)
