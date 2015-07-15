@@ -240,4 +240,4 @@ outcome :adoption_leave_and_pay, use_outcome_templates: true do
   end
 end
 
-outcome :adoption_not_entitled_to_leave_or_pay
+outcome :adoption_not_entitled_to_leave_or_pay, use_outcome_templates: true
