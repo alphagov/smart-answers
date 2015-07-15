@@ -16,12 +16,17 @@ You can normally get a CNI by giving a notice of marriage at your local register
 
 ###Getting a statutory declaration
 
-While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
+While you’re waiting for your CNI, you will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
 
 
 $D
 [Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 90KB)](/government/uploads/system/uploads/attachment_data/file/153753/bilingual-statutory-declaration.pdf)
 $D
+
+
+
+^Your partner should check what they need to do with their own consulate.^
+
 
 ###Legalisation and translation
 
@@ -35,9 +40,6 @@ You’ll also need to get your CNI [translated](/government/publications/italy-l
 ##Naturalisation of your partner if they move to the UK
 
 Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
-
-
-You can pay by cash or credit card, but not by personal cheque.
 
 
 *[CNI]:certificate of no impediment

@@ -24,7 +24,7 @@ You’ll need to provide supporting documents, including:
 - your passport
 - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
 - proof of residence, such as a residence certificate - check with the embassy to find out what you need
-- equivalent documents for your partner and a copy of their identity document
+- a copy of your partner’s identity document
 
 
 If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
@@ -54,8 +54,6 @@ $D
 
 ###What happens next
 
-The embassy will charge a fee for taking the oath.
-
 They’ll display your notice of marriage publicly for 7 days.
 
 The British embassy will issue your CNI within 5 working days (as long as nobody has registered an objection). You can collect your CNI in person or have it delivered by post.
@@ -65,12 +63,12 @@ The British embassy will issue your CNI within 5 working days (as long as nobody
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
 
+^You don't need to stay in the country while your notice is posted.^
+
+
 ##Naturalisation of your partner if they move to the UK
 
 Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
-
-
-^You don't need to stay in the country while your notice is posted.^
 
 
 ##Fees
@@ -79,9 +77,6 @@ Service | Fee
 -|-
 Receiving a notice of marriage | £65
 Issuing a CNI, Nulla Osta or equivalent | £65
-Issuing any other consular letter or certificate in English | £45
-Issuing any other consular letter or certificate in any other language | £70
-Administering an oath or making a declaration | £55
 
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Italy](/government/publications/italy-consular-fees).
