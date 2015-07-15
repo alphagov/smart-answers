@@ -964,6 +964,14 @@ en-GB:
           Issuing any other consular letter or certificate in any other language | £70
           Administering an oath or making a declaration | £55
 
+        list_of_consular_fees_italy: |
+          ##Fees
+
+          Service | Fee
+          -|-
+          Receiving a notice of marriage | £65
+          Issuing a CNI, Nulla Osta or equivalent | £65
+
 # France and French Overseas Territories phrases
         fot_os_rules_similar_to_france: |
           %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
