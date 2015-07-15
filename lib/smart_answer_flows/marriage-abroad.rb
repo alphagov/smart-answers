@@ -842,12 +842,12 @@ module SmartAnswer
             phrases << :other_requirements_for_spain
           end
 
-          if partner_nationality != 'partner_british'
-            phrases << :partner_naturalisation_in_uk
-          end
-
           if resident_of == 'ceremony_country'
             phrases << :no_need_to_stay_after_posting_notice
+          end
+
+          if partner_nationality != 'partner_british'
+            phrases << :partner_naturalisation_in_uk
           end
 
           unless ceremony_country == 'italy' && resident_of == 'uk'
