@@ -52,13 +52,6 @@ multiple_choice :adoption_employment_contract? do
 
   save_input_as :employee_has_contract_adoption
 
-  #not entitled to leave if no contract; keep asking questions to check eligibility
-  calculate :adoption_leave_info do |response|
-    if response == 'no'
-      PhraseList.new(:adoption_not_entitled_to_leave)
-    end
-  end
-
   next_node :adoption_is_the_employee_on_your_payroll?
 end
 
@@ -121,14 +114,6 @@ date_question :adoption_date_leave_starts? do
 
   calculate :a_notice_leave do
     calculator.format_date calculator.a_notice_leave
-  end
-
-  calculate :adoption_leave_info do
-    if adoption_leave_info.nil?
-      PhraseList.new(:adoption_leave_table)
-    else
-      adoption_leave_info
-    end
   end
 
   define_predicate(:has_contract_not_on_payroll?) do
@@ -250,6 +235,13 @@ multiple_choice :how_do_you_want_the_sap_calculated? do
 end
 
 outcome :adoption_leave_and_pay do
+  precalculate :adoption_leave_info do |response|
+    if employee_has_contract_adoption == 'no'
+      PhraseList.new(:adoption_not_entitled_to_leave)
+    else
+      PhraseList.new(:adoption_leave_table)
+    end
+  end
 
   precalculate :pay_method do
     calculator.pay_method = (
