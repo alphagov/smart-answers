@@ -1,0 +1,56 @@
+--- 
+:is_your_employee_getting?: 
+- statutory_maternity_pay
+- maternity_allowance
+- ordinary_statutory_paternity_pay
+- statutory_adoption_pay
+- additional_statutory_paternity_pay
+:employee_tell_within_limit?: 
+- "yes"
+- "no"
+:employee_work_different_days?: 
+- "yes"
+- "no"
+:first_sick_day?: 
+- "TODO: During their most recent period of sickness, when did your employee first become sick?"
+:last_sick_day?: 
+- "TODO: Enter the last day of sickness"
+:has_linked_sickness?: 
+- "yes"
+- "no"
+:linked_sickness_start_date?: 
+- "TODO: Enter the start date for this linked period of sickness."
+:linked_sickness_end_date?: 
+- "TODO: Enter the end date for this linked period of sickness."
+:paid_at_least_8_weeks?: 
+- eight_weeks_more
+- eight_weeks_less
+- before_payday
+:how_often_pay_employee_pay_patterns?: 
+- weekly
+- fortnightly
+- every_4_weeks
+- monthly
+- irregularly
+:last_payday_before_sickness?: 
+- "TODO: What was the last normal payday before %{sick_start_date_for_awe}?"
+:last_payday_before_offset?: 
+- "TODO: What was the last normal payday on or before %{pay_day_offset}?"
+:total_employee_earnings?: 
+- "TODO: Enter the total amount (before deductions like Income Tax and National Insurance) of your employee\xE2\x80\x99s earnings on paydays between %{relevant_period_from} and %{relevant_period_to}."
+:pay_amount_if_not_sick?: 
+- "TODO: Enter how much you would have paid the employee on their first payday if they hadn\xE2\x80\x99t been sick."
+:contractual_days_covered_by_earnings?: 
+- "TODO: How many days does the period represented by these earnings cover?"
+:total_earnings_before_sick_period?: 
+- "TODO: Enter the total earnings paid before %{sick_start_date_for_awe}."
+:days_covered_by_earnings?: 
+- "TODO: How many days does the period represented by these earnings cover?"
+:usual_work_days?: 
+- "1"
+- "2"
+- "3"
+- "4"
+- "5"
+- "6"
+- "0"
