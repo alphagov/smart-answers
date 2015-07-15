@@ -854,7 +854,7 @@ module SmartAnswer
             if ceremony_country == 'croatia' && resident_of == 'ceremony_country'
               phrases << :fee_table_croatia
             else
-              phrases << :consular_cni_os_fees_not_italy_not_uk
+              phrases << :consular_cni_os_fees_incl_null_osta_oath_consular_letter
             end
 
             unless data_query.countries_without_consular_facilities?(ceremony_country) || ceremony_country == 'cote-d-ivoire'
