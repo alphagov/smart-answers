@@ -191,7 +191,6 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
               end
               should "go to outcome with not entitled to leave or pay phraselists" do
                 assert_current_node :adoption_not_entitled_to_leave_or_pay
-                assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave]
                 assert_phrase_list :adoption_pay_info, [:adoption_not_entitled_to_pay_intro, :must_be_on_payroll, :adoption_not_entitled_to_pay_outro]
               end
             end # no contract and not on payroll
@@ -217,7 +216,6 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
             setup { add_response :no }
             should "go to outcome not entitled to leave or pay" do
               assert_current_node :adoption_not_entitled_to_leave_or_pay
-              assert_phrase_list :adoption_leave_info, [:adoption_not_entitled_to_leave_or_pay]
             end
           end # not worked long enough
         end
