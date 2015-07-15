@@ -5,7 +5,11 @@ module SmartAnswer::Calculators
 
     def initialize(prev_sick_days, sick_start_date, sick_end_date, days_of_the_week_worked)
       @prev_sick_days = prev_sick_days
-      @waiting_days = (@prev_sick_days >= 3 ? 0 : 3 - @prev_sick_days)
+      @waiting_days = if (@prev_sick_days >= 3)
+        0
+      else
+        3 - @prev_sick_days
+      end
       @sick_start_date = sick_start_date
       @sick_end_date = sick_end_date
       @pattern_days = days_of_the_week_worked.length
@@ -57,7 +61,11 @@ module SmartAnswer::Calculators
       # we need to calculate the daily rate by truncating to four decimal places to match unrounded daily rates used by HMRC
       # doing .round(6) after multiplication to avoid float precision issues
       # Simply using .round(4) on ssp_weekly_rate/@pattern_days will be off by 0.0001 for 3 and 7 pattern days and lead to 1p difference in some statutory amount calculations
-      pattern_days > 0 ? ((((weekly_rate / pattern_days) * 10000).round(6).floor) / 10000.0) : 0.0000
+      if pattern_days > 0
+        ((((weekly_rate / pattern_days) * 10000).round(6).floor) / 10000.0)
+      else
+        0.0000
+      end
     end
 
     def max_days_that_can_be_paid
