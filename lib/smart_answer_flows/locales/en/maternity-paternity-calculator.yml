@@ -44,10 +44,6 @@ en-GB:
         not_worked_long_enough: + they must have started working for you on or before %{employment_start}
         must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
         must_earn_over_threshold: + their average weekly earnings (£%{average_weekly_earnings}) between %{relevant_period} must be at least £%{lower_earning_limit}
-        paternity_adoption_must_be_employed_by_you: + they must still be employed by you on %{ap_adoption_date_formatted}
-        paternity_must_be_employed_by_you: + they must still be employed by you on %{due_date}
-        paternity_adoption_not_responsible_for_upbringing: + aren’t responsible for the child’s upbringing or the adopter’s partner
-        paternity_not_responsible_for_upbringing: + aren't responsible for the child's upbringing or the biological father or mother's partner
         maternity_leave_table: |
           ##Statutory Maternity Leave
 
@@ -107,51 +103,6 @@ en-GB:
 
 
           $D [Download Form SMP1, Non-payment of Statutory Maternity Pay (PDF, 59KB)](http://www.dwp.gov.uk/advisers/claimforms/smp1_print.pdf) $D
-
-        paternity_entitled_to_leave: |
-          ##Statutory Paternity Leave
-
-          The employee is entitled to Statutory Paternity Leave.
-
-          |Leave                         | Key dates                    |
-          |------------------------------|------------------------------|
-          |Start                         | %{leave_start_date}          |
-          |End                           | %{leave_end_date}            |
-          |Latest date to [claim leave](/employers-paternity-pay-leave/%{leave_spp_claim_link})     | %{notice_of_leave_deadline}  |
-
-          ^Leave must finish within 56 days of the birth (or due date if the baby is early).^
-
-        #Result 2
-        paternity_not_entitled_to_leave: |
-          ##Statutory Paternity Leave
-
-          The employee is not entitled to Statutory Paternity Leave because they don’t have an employment contract with you.
-
-          Write to them within 28 days of their leave request confirming this.
-
-        paternity_not_entitled_to_leave_or_pay_intro: |
-          ##Not entitled to Statutory Paternity Pay or Leave
-
-          The employee is not entitled to Statutory Paternity Leave or Pay because:
-
-        paternity_not_entitled_to_leave_or_pay_outro: |
-
-          You must write confirming this. Also, send them form OSP1 confirming they’re not entitled to pay within 28 days of their pay request.
-
-          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
-
-        # Result 3
-        paternity_not_entitled_to_pay_intro: |
-          ##Statutory Paternity Pay
-
-          The employee is not entitled to Statutory Paternity Pay. To qualify:
-
-        paternity_not_entitled_to_pay_outro: |
-
-          Send them form OSPP1 confirming this within 28 days of their pay request.
-
-
-          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
 
       ## Q1
       what_type_of_leave?:
@@ -362,13 +313,6 @@ en-GB:
           "third": "3rd"
           "fourth": "4th"
           "last": "last"
-      ## Paternity Results:
-
-      paternity_not_entitled_to_leave_or_pay:
-        next_steps: |
-          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
-        body: |
-          %{not_entitled_reason}
 
       ## Paternity Adoption
       ## QAP1
