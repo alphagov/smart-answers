@@ -46,7 +46,7 @@ Either parent can register the birth.
 $A
 British Consulate-General Hong Kong
 1 Supreme Court Road
- Admiralty 
+Admiralty 
 Hong Kong
 $A
 
