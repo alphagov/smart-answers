@@ -4,7 +4,7 @@ Your sponsor institution is: Wishford Schools Limited
 
 Your sponsor number is: QNCPTDW26
 
-  Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
+Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
 
 You should read the guidance before you apply:
 
@@ -17,5 +17,5 @@ You must complete your application to switch your visa by 3 July if you’ve alr
 
 You’ll have to [claim a refund for the immigration health surcharge](/healthcare-immigration-application/refunds) if you don’t complete your application in time.
 
-  Go back to the [Tier 4 (Child) student visa](/child-study-visa/extend-your-visa) guide.
+Go back to the [Tier 4 (Child) student visa](/child-study-visa/extend-your-visa) guide.
 

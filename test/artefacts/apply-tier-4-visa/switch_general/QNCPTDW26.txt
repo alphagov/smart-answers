@@ -4,7 +4,7 @@ Your sponsor institution is: Wishford Schools Limited
 
 Your sponsor number is: QNCPTDW26
 
-  Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
+Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
 
 You should read the guidance before you apply:
 
@@ -19,5 +19,5 @@ You’ll have to [claim a refund for the immigration health surcharge](/healthca
 
 ^You must already be in the UK to switch to this visa.^
 
-  Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/switch-to-this-visa) guide.
+Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/switch-to-this-visa) guide.
 
