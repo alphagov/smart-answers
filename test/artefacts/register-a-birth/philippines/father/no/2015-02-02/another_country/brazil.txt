@@ -87,13 +87,13 @@ Post the registration form and documents by secure post to:
 
 
 $A
-  Overseas Registration Unit
-  Foreign & Commonwealth Office
-  Hanslope Park
-  Hanslope
-  Milton Keynes
-  MK19 7BH
-  United Kingdom
+Overseas Registration Unit
+Foreign & Commonwealth Office
+Hanslope Park
+Hanslope
+Milton Keynes
+MK19 7BH
+United Kingdom
 $A
 
 ##Return of your documents
