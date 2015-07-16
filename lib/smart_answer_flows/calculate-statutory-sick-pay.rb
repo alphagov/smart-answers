@@ -112,8 +112,13 @@ module SmartAnswer
         to { Date.today.end_of_year }
         validate_in_range
 
-        calculate :sick_end_date_for_awe do |response|
+        next_node_calculation :sick_end_date_for_awe do |response|
           response
+        end
+
+        validate :must_be_within_eight_weeks do
+          furthest_allowed_date = sick_start_date - 8.weeks
+          sick_end_date_for_awe > furthest_allowed_date
         end
 
         next_node_calculation :prior_sick_days do |response|

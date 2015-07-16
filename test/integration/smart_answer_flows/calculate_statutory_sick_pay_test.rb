@@ -530,8 +530,8 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :additional_statutory_paternity_pay
       add_response :yes
       add_response :no
-      add_response "02/04/2013"
-      add_response "10/04/2013"
+      add_response "2015-03-19"
+      add_response "2015-03-27"
       add_response :yes
       assert_current_node :linked_sickness_start_date?
     end
@@ -552,11 +552,12 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :additional_statutory_paternity_pay
       add_response :yes
       add_response :no
-      add_response "02/04/2013"
-      add_response "10/04/2013"
+      add_response "2015-05-21"
+      add_response "2015-05-29"
       add_response :yes
-      add_response "12/03/2013"
+      add_response "2015-03-20"
       assert_current_node :linked_sickness_end_date?
+      @furthest_linked_sickness_end_date = Date.parse("2015-03-27") # (Date.parse("2015-05-21") - 8.weeks).tomorrow
     end
 
     should "not allow dates before 2010" do
@@ -570,8 +571,18 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates before start_date" do
-      add_response "01/03/2013"
+      add_response "2013-01-31"
       assert_current_node_is_error
+    end
+
+    should "allow the latest allowed end date" do
+      add_response @furthest_linked_sickness_end_date.to_s
+      assert_current_node :paid_at_least_8_weeks?
+    end
+
+    should "not allow a day before the latest allowed date" do
+      add_response (@furthest_linked_sickness_end_date - 1.day).to_s
+      assert_current_node_is_error "must_be_within_eight_weeks"
     end
   end
 
