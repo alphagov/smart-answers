@@ -324,6 +324,18 @@ Hello world
       end
     end
 
+    test '#next_steps strips spaces from the beginning of the line so that we can indent text within content_for blocks' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_next_steps('  indented-next-steps-text')
+
+      with_erb_template_file('outcome-name', erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal "indented-next-steps-text\n", presenter.next_steps(html: false)
+      end
+    end
+
     test '#next_steps makes the state variables available to the ERB template' do
       outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
