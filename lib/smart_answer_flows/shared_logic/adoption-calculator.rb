@@ -208,7 +208,7 @@ multiple_choice :how_do_you_want_the_sap_calculated? do
   next_node :next_pay_day_paternity? ## Shared with paternity calculator
 end
 
-outcome :adoption_leave_and_pay, use_outcome_templates: true do
+outcome :adoption_leave_and_pay do
   precalculate :pay_method do
     calculator.pay_method = (
       if monthly_pay_method
@@ -240,4 +240,4 @@ outcome :adoption_leave_and_pay, use_outcome_templates: true do
   end
 end
 
-outcome :adoption_not_entitled_to_leave_or_pay, use_outcome_templates: true
+outcome :adoption_not_entitled_to_leave_or_pay
