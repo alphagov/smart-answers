@@ -338,7 +338,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :ordinary_statutory_paternity_pay
       add_response :yes
       add_response :no
-      add_response "2013-01-07"
+      add_response "2013-01-08"
       add_response "2013-05-03"
       add_response :yes
       add_response "2013-01-07"
@@ -375,7 +375,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :ordinary_statutory_paternity_pay
       add_response :yes
       add_response :no
-      add_response "2013-01-07"
+      add_response "2013-01-08"
       add_response "2013-05-03"
       add_response :yes
       add_response "2013-01-07"
@@ -544,6 +544,11 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     should "not allow dates next year" do
       add_response (Date.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
+    end
+
+    should "only allow linked sickness to be before the recent one" do
+      add_response "2015-03-20"
+      assert_current_node_is_error "linked_sickness_must_be_before"
     end
   end
 

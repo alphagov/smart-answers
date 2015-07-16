@@ -84,6 +84,7 @@ en-GB:
       # Question 6.1
       linked_sickness_start_date?:
         title: Enter the start date for this linked period of sickness.
+        linked_sickness_must_be_before: Linked sickness must be in the past
 
       # Question 6.2
       linked_sickness_end_date?:
