@@ -964,7 +964,7 @@ module SmartAnswer
               phrases << :download_and_fill_but_not_sign
               phrases << :download_affidavit_and_affirmation_belgium
               phrases << :partner_needs_affirmation
-              phrases << :required_supporting_documents_incl_birth_cert
+              phrases << :required_supporting_documents
               phrases << :documents_guidance_belgium
             end
 
