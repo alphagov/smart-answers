@@ -151,7 +151,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                         end
 
                         should "calculate and present the result" do
-                          assert_phrase_list :maternity_leave_info, [:maternity_leave_table]
                           assert_current_node :how_do_you_want_the_smp_calculated?
                         end
 
@@ -187,7 +186,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                               assert_state_variable "smp_a", "121.86"
                               assert_state_variable "smp_b", "121.86"
                               assert_state_variable "total_smp", "4752.93"
-                              assert_phrase_list :maternity_pay_info, [:maternity_pay_table, :paydates_table]
                             end
                           end
                         end
@@ -314,7 +312,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                   add_response :no
                   assert_state_variable "not_entitled_to_pay_reason", :must_be_on_payroll
                   assert_current_node :maternity_leave_and_pay_result
-                  assert_phrase_list :maternity_pay_info, [:not_entitled_to_smp_intro, :must_be_on_payroll, :not_entitled_to_smp_outro]
                 end
               end #answer no to QM5 on payroll
 
@@ -324,7 +321,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                 add_response :no
                 assert_state_variable "not_entitled_to_pay_reason", :not_worked_long_enough
                 assert_current_node :maternity_leave_and_pay_result
-                assert_phrase_list :maternity_pay_info, [:not_entitled_to_smp_intro, :not_worked_long_enough, :not_entitled_to_smp_outro]
               end
             end
           end
@@ -419,11 +415,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                           assert_state_variable "smp_a", "121.86"
                           assert_state_variable "smp_b", "121.86"
                           assert_state_variable "total_smp", "4752.93"
-                          assert_phrase_list :maternity_pay_info, [:maternity_pay_table, :paydates_table]
-                        end
-
-                        should "calculate and present the result" do
-                          assert_phrase_list :maternity_leave_info, [:not_entitled_to_statutory_maternity_leave]
                         end
 
                       end
