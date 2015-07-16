@@ -33,7 +33,8 @@ class OutcomePresenter < NodePresenter
     if use_template? && body_erb_template_exists?
       render_erb_template
       govspeak = @view.content_for(:body) || ''
-      html ? GovspeakPresenter.new(govspeak.to_str).html : govspeak.to_str
+      govspeak = strip_leading_spaces(govspeak.to_str)
+      html ? GovspeakPresenter.new(govspeak).html : govspeak
     else
       super
     end
