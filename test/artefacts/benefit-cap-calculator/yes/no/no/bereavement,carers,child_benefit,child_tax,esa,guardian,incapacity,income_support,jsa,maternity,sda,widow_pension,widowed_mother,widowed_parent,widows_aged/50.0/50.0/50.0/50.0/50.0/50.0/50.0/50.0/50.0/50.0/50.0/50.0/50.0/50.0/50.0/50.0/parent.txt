@@ -22,7 +22,7 @@ Minus total over cap: £300.00
 
 New Housing Benefit amount: £0.50
 
-  Your Housing Benefit won’t be reduced to 0. You need to be getting some Housing Benefit to be eligible for other services.
+Your Housing Benefit won’t be reduced to 0. You need to be getting some Housing Benefit to be eligible for other services.
 
 This is an estimate only. Contact the Department for Work and Pensions if you need further help.
 
