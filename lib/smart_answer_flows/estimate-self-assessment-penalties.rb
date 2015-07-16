@@ -110,54 +110,40 @@ module SmartAnswer
       money_question :how_much_tax? do
         save_input_as :estimated_bill
 
-        calculate :calculator do |response|
+        next_node :late
+      end
+
+      use_outcome_templates
+
+      outcome :late do
+        precalculate :calculator do
           Calculators::SelfAssessmentPenalties.new(
             submission_method: submission_method,
             filing_date: filing_date,
             payment_date: payment_date,
-            estimated_bill: response,
+            estimated_bill: estimated_bill,
             dates: calculator_dates,
             tax_year: tax_year
           )
         end
 
-        calculate :late_filing_penalty do
+        precalculate :late_filing_penalty do
           calculator.late_filing_penalty
         end
 
-        calculate :total_owed do
+        precalculate :total_owed do
           calculator.total_owed_plus_filing_penalty
         end
 
-        calculate :interest do
+        precalculate :interest do
           calculator.interest
         end
 
-        calculate :late_payment_penalty do
+        precalculate :late_payment_penalty do
           calculator.late_payment_penalty
         end
-
-        calculate :late_filing_penalty_formatted do
-          late_filing_penalty == 0 ? 'none' : late_filing_penalty
-        end
-
-        calculate :result_parts do
-          phrases = PhraseList.new
-          if calculator.late_payment_penalty == 0
-            phrases << :result_part2_no_penalty
-          else
-            phrases << :result_part2_penalty
-          end
-          if payment_date >= one_year_after_start_date_for_penalties
-            phrases << :result_part_one_year_late
-          end
-          phrases
-        end
-
-        next_node :late
       end
 
-      outcome :late
       outcome :filed_and_paid_on_time
     end
   end

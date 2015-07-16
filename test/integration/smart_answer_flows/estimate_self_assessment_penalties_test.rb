@@ -103,7 +103,6 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
               assert_state_variable :total_owed, 0
               assert_state_variable :interest, 0
               assert_state_variable :late_payment_penalty, 0
-              assert_phrase_list :result_parts, [:result_part2_no_penalty]
             end
           end
         end #end testing paid late but less than 3 months after
@@ -121,7 +120,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     end
 
     should "show results" do
-      assert_phrase_list :result_parts, [:result_part2_penalty, :result_part_one_year_late]
+      assert_current_node :late
     end
   end
 
@@ -143,7 +142,6 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         add_response "0.00"
       end
       should "show results" do
-        assert_phrase_list :result_parts, [:result_part2_no_penalty]
         assert_state_variable :late_filing_penalty, 100
         assert_state_variable :total_owed, 100
       end
@@ -157,7 +155,6 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         add_response "0.00"
       end
       should "show results" do
-        assert_phrase_list :result_parts, [:result_part2_no_penalty]
         assert_state_variable :late_filing_penalty, 110
         assert_state_variable :total_owed, 110
       end
@@ -171,7 +168,6 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         add_response "0.00"
       end
       should "show results" do
-        assert_phrase_list :result_parts, [:result_part2_no_penalty]
         assert_state_variable :late_filing_penalty, 1000
         assert_state_variable :total_owed, 1000
       end
@@ -185,7 +181,6 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         add_response "0.00"
       end
       should "show results" do
-        assert_phrase_list :result_parts, [:result_part2_no_penalty]
         assert_state_variable :late_filing_penalty, 1300
         assert_state_variable :total_owed, 1300
       end
@@ -199,7 +194,6 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         add_response "10000.00"
       end
       should "show results" do
-        assert_phrase_list :result_parts, [:result_part2_penalty]
         assert_state_variable :late_filing_penalty, 1500
         assert_state_variable :estimated_bill, 10000
         assert_state_variable :interest, 148.77
@@ -216,7 +210,6 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         add_response "0.00"
       end
       should "show results" do
-        assert_phrase_list :result_parts, [:result_part2_no_penalty, :result_part_one_year_late]
         assert_state_variable :late_filing_penalty, 1600
         assert_state_variable :total_owed, 1600
       end
@@ -230,7 +223,6 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
         add_response "10000.00"
       end
       should "show results" do
-        assert_phrase_list :result_parts, [:result_part2_penalty, :result_part_one_year_late]
         assert_state_variable :late_filing_penalty, 2000
         assert_state_variable :estimated_bill, 10000
         assert_state_variable :interest, 300
