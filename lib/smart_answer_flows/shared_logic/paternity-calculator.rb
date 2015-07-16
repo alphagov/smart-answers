@@ -389,7 +389,7 @@ multiple_choice :pay_date_options_paternity? do
 end
 
 # Paternity outcomes
-outcome :paternity_leave_and_pay, use_outcome_templates: true do
+outcome :paternity_leave_and_pay do
   precalculate :has_contract do
     has_contract
   end
@@ -450,7 +450,7 @@ outcome :paternity_leave_and_pay, use_outcome_templates: true do
 
 end
 
-outcome :paternity_not_entitled_to_leave_or_pay, use_outcome_templates: true do
+outcome :paternity_not_entitled_to_leave_or_pay do
   precalculate :has_contract do
     has_contract
   end

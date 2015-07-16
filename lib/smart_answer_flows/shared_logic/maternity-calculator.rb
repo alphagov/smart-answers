@@ -236,7 +236,7 @@ multiple_choice :which_week_in_month_is_the_employee_paid? do
 end
 
 ## Maternity outcomes
-outcome :maternity_leave_and_pay_result, use_outcome_templates: true do
+outcome :maternity_leave_and_pay_result do
 
   precalculate :pay_method do
     calculator.pay_method = (
