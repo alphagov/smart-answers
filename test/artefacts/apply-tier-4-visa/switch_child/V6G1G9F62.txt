@@ -4,7 +4,7 @@ Your sponsor institution is: The Moat Shool
 
 Your sponsor number is: V6G1G9F62
 
-  Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
+Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
 
 You should read the guidance before you apply:
 
@@ -19,5 +19,5 @@ You’ll have to [claim a refund for the immigration health surcharge](/healthca
 
 ^You must already be in the UK to switch to this visa.^
 
-  Go back to the [Tier 4 (Child) student visa](/child-study-visa/switch-to-this-visa) guide.
+Go back to the [Tier 4 (Child) student visa](/child-study-visa/switch-to-this-visa) guide.
 
