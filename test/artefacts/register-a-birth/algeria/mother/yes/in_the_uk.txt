@@ -77,11 +77,11 @@ Post the registration form and documents by secure post to:
 
 
 $A
-  Overseas Registration Unit
-  Foreign and Commonwealth Office
-  PO Box 6255
-  Milton Keynes
-  MK10 1XX
+Overseas Registration Unit
+Foreign and Commonwealth Office
+PO Box 6255
+Milton Keynes
+MK10 1XX
 $A
 
 ##Return of your documents

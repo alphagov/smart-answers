@@ -11,7 +11,7 @@ class OutcomePresenter < NodePresenter
     if use_template? && title_erb_template_exists?
       render_erb_template
       title = @view.content_for(:title) || ''
-      title.chomp
+      strip_leading_spaces(title.chomp)
     else
       translate!('title')
     end
@@ -32,7 +32,8 @@ class OutcomePresenter < NodePresenter
     if use_template? && body_erb_template_exists?
       render_erb_template
       govspeak = @view.content_for(:body) || ''
-      html ? GovspeakPresenter.new(govspeak.to_str).html : govspeak.to_str
+      govspeak = strip_leading_spaces(govspeak.to_str)
+      html ? GovspeakPresenter.new(govspeak).html : govspeak
     else
       super
     end
@@ -42,7 +43,8 @@ class OutcomePresenter < NodePresenter
     if use_template? && next_steps_erb_template_exists?
       render_erb_template
       govspeak = @view.content_for(:next_steps) || ''
-      html ? GovspeakPresenter.new(govspeak.to_str).html : govspeak.to_str
+      govspeak = strip_leading_spaces(govspeak.to_str)
+      html ? GovspeakPresenter.new(govspeak).html : govspeak
     else
       super
     end
@@ -106,5 +108,9 @@ class OutcomePresenter < NodePresenter
 
   def has_content_for_next_steps?
     File.read(erb_template_path) =~ /content_for :next_steps/
+  end
+
+  def strip_leading_spaces(string)
+    string.gsub(/^ */, '')
   end
 end
