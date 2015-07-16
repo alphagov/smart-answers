@@ -11,7 +11,7 @@ class OutcomePresenter < NodePresenter
     if use_template? && title_erb_template_exists?
       render_erb_template
       title = @view.content_for(:title) || ''
-      title.chomp
+      strip_leading_spaces(title.chomp)
     else
       translate!('title')
     end
@@ -106,5 +106,9 @@ class OutcomePresenter < NodePresenter
 
   def has_content_for_next_steps?
     File.read(erb_template_path) =~ /content_for :next_steps/
+  end
+
+  def strip_leading_spaces(string)
+    string.gsub(/^ */, '')
   end
 end
