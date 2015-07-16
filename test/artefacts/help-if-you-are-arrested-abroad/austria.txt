@@ -32,7 +32,6 @@ The FCO and British consulate can offer help to arrested persons or prisoners. T
 - helping British prisoners apply for a transfer to UK where possible
 - visiting prisoners when needed
 
-
 ##Download prisoner packs and other helpful information
 
 The FCO has produced guides explaining the legal and prison system in different countries for British nationals arrested abroad.
@@ -45,7 +44,6 @@ The FCO has produced guides explaining the legal and prison system in different 
 
 - [Consul help available in Austria](/government/publications/austria-prisoner-pack-how-the-consul-can-help-you)
 - [English speaking lawyers and translators/interpreters in Austria](/government/publications/austria-list-of-lawyers)
-
 
 
 
@@ -66,7 +64,6 @@ The FCO and British consulate won’t be able to:
 - forward packages sent by friends or family to an arrested person or prisoner
 - prevent authorities from deporting a British national after release
 
-
 ##Dual nationals
 
 The FCO and British consulate can help a dual British national (with a valid British passport) as long as they’re arrested in a country other than the one they hold dual nationality with.
@@ -76,11 +73,9 @@ They won’t get involved if someone’s arrested in a country for which they ho
 ##Other organisations that can help
 
 
-
 Further help and advice is available from:
 
 - [Fair Trials International](http://www.fairtrials.net/ "Fair Trials International"){:rel="external"}
 - [Prisoners Abroad](http://www.prisonersabroad.org.uk "Prisoners Abroad"){:rel="external"}
 - [Reprieve](http://www.reprieve.org.uk/ "Reprieve"){:rel="external"}
-
 
