@@ -99,8 +99,12 @@ module SmartAnswer
         to { Date.today.end_of_year }
         validate_in_range
 
-        calculate :sick_start_date_for_awe do |response|
+        next_node_calculation :sick_start_date_for_awe do |response|
           response
+        end
+
+        validate :linked_sickness_must_be_before do
+          sick_start_date > sick_start_date_for_awe
         end
 
         next_node(:linked_sickness_end_date?)
