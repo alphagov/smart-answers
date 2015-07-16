@@ -88,55 +88,21 @@ module SmartAnswer
 
       end
 
+      use_outcome_templates
+
       outcome :answer_one_generic do
-        precalculate :intro do
-          PhraseList.new(:common_intro)
-        end
-
-        precalculate :generic_downloads do
-          transfers_back_to_uk_treaty_change_countries = %w(austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia)
-
-          phrases = PhraseList.new
-          phrases << :common_downloads
-          if transfers_back_to_uk_treaty_change_countries.exclude?(country)
-            phrases << :transfers_back_to_the_uk_download
-          end
-          phrases
-        end
-
-        precalculate :country_downloads do
-          has_extra_downloads ? PhraseList.new(:specific_downloads) : PhraseList.new
+        precalculate :transfers_back_to_uk_treaty_change_countries do
+          %w(austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia)
         end
 
         precalculate :region_downloads do
           region_links.join("\n")
         end
-
-        precalculate :after_downloads do
-          PhraseList.new(:fco_cant_do, :dual_nationals_other_help, :further_links)
-        end
-
       end
 
-      outcome :answer_two_iran do
-        precalculate :downloads do
-          PhraseList.new(:common_downloads)
-        end
+      outcome :answer_two_iran
 
-        precalculate :further_help_links do
-          PhraseList.new(:further_links)
-        end
-      end
-
-      outcome :answer_three_syria do
-        precalculate :downloads do
-          PhraseList.new(:common_downloads)
-        end
-
-        precalculate :further_help_links do
-          PhraseList.new(:further_links)
-        end
-      end
+      outcome :answer_three_syria
     end
   end
 end
