@@ -27,12 +27,8 @@ module SmartAnswer::Calculators
       end_month = end_date.month
       current_month = start_date.next_month
       count = 0
-      if start_date.day < 17
-        count += 1
-      end
-      if end_date.day > 15
-        count += 1
-      end
+      count += 1 if start_date.day < 17
+      count += 1 if end_date.day > 15
       while current_month.month != end_month
         count += 1
         current_month = current_month.next_month
@@ -112,9 +108,7 @@ module SmartAnswer::Calculators
     def weekly_payment(week_start_date)
       pay = 0.0
       ((week_start_date - 6)..week_start_date).each do |date|
-        if @payable_days.include?(date)
-          pay += daily_rate_from_weekly(weekly_rate_on(date), @pattern_days)
-        end
+        pay += daily_rate_from_weekly(weekly_rate_on(date), @pattern_days) if @payable_days.include?(date)
       end
       BigDecimal.new(pay.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
     end

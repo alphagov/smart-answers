@@ -325,21 +325,15 @@ module SmartAnswer
         precalculate :pattern_days_total do calculator.pattern_days * 28 end
 
         precalculate :proof_of_illness do
-          unless enough_notice_of_absence
-            PhraseList.new(:enough_notice)
-          end
+          PhraseList.new(:enough_notice) unless enough_notice_of_absence
         end
 
         precalculate :entitled_to_esa do
-          if enough_notice_of_absence
-            PhraseList.new(:esa)
-          end
+          PhraseList.new(:esa) if enough_notice_of_absence
         end
 
         precalculate :paternity_adoption_warning do
-          if paternity_maternity_warning
-            PhraseList.new(:paternity_warning)
-          end
+          PhraseList.new(:paternity_warning) if paternity_maternity_warning
         end
       end
 
