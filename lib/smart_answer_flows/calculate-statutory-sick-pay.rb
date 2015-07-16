@@ -302,25 +302,13 @@ module SmartAnswer
       end
 
       # Answer 1
-      outcome :already_getting_maternity do
-        precalculate :temp do
-          :temp
-        end
-      end
+      outcome :already_getting_maternity
 
       # Answer 2
-      outcome :must_be_sick_for_4_days do
-        precalculate :temp do
-          :temp
-        end
-      end
+      outcome :must_be_sick_for_4_days
 
       # Answer 4
-      outcome :not_regular_schedule do
-        precalculate :temp do
-          :temp
-        end
-      end
+      outcome :not_regular_schedule
 
       # Answer 5
       outcome :not_earned_enough do
@@ -371,11 +359,7 @@ module SmartAnswer
       end
 
       # Answer 8
-      outcome :maximum_entitlement_reached do
-        precalculate :temp do
-          :temp
-        end
-      end
+      outcome :maximum_entitlement_reached
     end
   end
 end
