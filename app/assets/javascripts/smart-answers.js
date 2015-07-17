@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     // events
     // get new questions on submit
-    $(formSelector).live('submit', function(event) {
+    $('#content').on('submit', formSelector, function(event) {
       $('input[type=submit]', this).attr('disabled', 'disabled');
       var form = $(this);
       var postData = form.serializeArray();
@@ -25,14 +25,14 @@ $(document).ready(function() {
     });
 
     // Track when a user clicks on 'Start again' link
-    $('.start-right').live('click', function() {
+    $('#content').on('click', '.start-right', function() {
       GOVUK && GOVUK.analytics && GOVUK.analytics.trackEvent && GOVUK.analytics.trackEvent('MS_smart_answer', getCurrentPosition(), {label: 'Start again'});
       reloadQuestions($(this).attr('href'));
       return false;
     });
 
     // Track when a user clicks on a 'Change Answer' link
-    $('.link-right a').live('click', function() {
+    $('#content').on('click', '.link-right a', function() {
       var href = $(this).attr('href');
       GOVUK && GOVUK.analytics && GOVUK.analytics.trackEvent && GOVUK.analytics.trackEvent('MS_smart_answer', href, {label: 'Change Answer'});
       reloadQuestions(href);
