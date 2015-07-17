@@ -16,7 +16,6 @@ gem 'rack_strip_client_ip', '0.0.1'
 gem 'diffy', '3.0.6'
 gem 'filesize'
 gem 'tilt', '1.4.1'
-gem 'syck', '1.0.5'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'therubyracer', '~> 0.12.1'

@@ -255,7 +255,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    syck (1.0.5)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
@@ -322,7 +321,6 @@ DEPENDENCIES
   simplecov-rcov (~> 0.2.3)
   slimmer (= 8.2.1)
   smartdown (~> 0.15.1)
-  syck (= 1.0.5)
   therubyracer (~> 0.12.1)
   tilt (= 1.4.1)
   timecop

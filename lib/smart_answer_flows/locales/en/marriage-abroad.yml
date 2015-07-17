@@ -1838,7 +1838,7 @@ en-GB:
           *[FCO]:Foreign & Commonwealth Office
 # outcome Portugal
       outcome_portugal:
-        title: %{portugal_title}
+        title: "%{portugal_title}"
         body: |
           Contact your nearest [Civil Register Office](http://www.irn.mj.pt/IRN/sections/irn/a_registral/servicos-externos-docs/contactos/contactos-dos-servicos-civil/) in Portugal to find out about local marriage laws, including what documents you’ll need.
 
@@ -2027,7 +2027,7 @@ en-GB:
           *[FCO]:Foreign &amp; Commonwealth Office
 #outcome for CP in commonwealth countries
       outcome_cp_commonwealth_countries:
-        title: %{type_of_ceremony} in %{country_name_lowercase_prefix}
+        title: "%{type_of_ceremony} in %{country_name_lowercase_prefix}"
         body: |
           %{commonwealth_countries_cp_outcome}
 
