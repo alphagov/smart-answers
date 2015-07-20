@@ -187,13 +187,13 @@ en-GB:
 
           You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
         make_an_appointment: |
-          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
+          Make an appointment at the British embassy or consulate in %{country_name_lowercase_prefix} to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
         make_an_appointment_bring_passport_and_pay_55_colombia: |
           Make an appointment at the British embassy in Bogota to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
 
         make_an_appointment_bring_passport_and_pay_55_brazil: |
-          Make an appointment at the local British embassy or consulate in Brazil to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
+          Make an appointment at the British embassy or consulate in Brazil to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
 
         download_affidavit_forms_but_do_not_sign: |
           You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. You can download and fill in (but not sign) the forms in advance.
@@ -227,9 +227,9 @@ en-GB:
           $D
 
         contact_for_affidavit: |
-          Contact the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+          Contact the British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         appointment_for_affidavit: |
-          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+          Make an appointment at the British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         appointment_for_affidavit_in_hong_kong: |
           Make an appointment at the British Consulate General Hong Kong to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         appointment_for_affidavit_norway: |
