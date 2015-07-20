@@ -914,6 +914,10 @@ module SmartAnswer
         precalculate :affirmation_os_outcome do
           phrases = PhraseList.new
 
+          if ceremony_country == 'macao' && resident_of != 'ceremony_country'
+            phrases << :one_must_be_a_resident
+          end
+
           if resident_of == 'uk'
             phrases << :contact_embassy_of_ceremony_country_in_uk_marriage
             if ceremony_country == 'morocco'
