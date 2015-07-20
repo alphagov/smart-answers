@@ -27,6 +27,8 @@ en-GB:
         title_ss_marriage: Same-sex marriage
         title_ss_marriage_and_partnership: Same-sex marriage and civil partnership
         title_civil_partnership: Civil Partnership
+        one_must_be_a_resident: |
+          You can only get married in %{country_name_lowercase_prefix} if you or your partner live there, eg on a valid work visa.
         able_to_ss_marriage: |
           You may be able to get married at the British embassy or consulate in %{country_name_lowercase_prefix}.
         able_to_ss_marriage_and_partnership: |
