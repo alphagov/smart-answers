@@ -207,7 +207,7 @@ Service | Fee
 Register a birth | £105
 Copy of a birth registration certificate | £65
 
-<%= render partial: '../shared/births_and_deaths_registration/document_return_fees.govspeak.erb' %>
+<%= render partial: '../shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
 <%= render partial: '../data_partials/button.erb', locals: { button_data: button_data } %>
 
 <% if country_of_birth == 'venezuela' && same_country %>

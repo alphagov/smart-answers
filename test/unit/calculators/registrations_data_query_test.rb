@@ -84,6 +84,31 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "fetching document return fees" do
+        context "when before 2015-08-01" do
+          setup do
+            Timecop.travel("2015-07-31")
+          end
+
+          should "display 4.50, 12.50 and 22" do
+            assert_equal "£4.50", @query.document_return_fees.post_to_uk
+            assert_equal "£12.50", @query.document_return_fees.post_to_europe
+            assert_equal "£22", @query.document_return_fees.post_to_rest_of_the_world
+          end
+        end
+
+        context "on and after 2015-08-01" do
+          setup do
+            Timecop.travel("2015-08-01")
+          end
+
+          should "display 4.50, 12.50 and 22" do
+            assert_equal "£5.50", @query.document_return_fees.post_to_uk
+            assert_equal "£14.50", @query.document_return_fees.post_to_europe
+            assert_equal "£25", @query.document_return_fees.post_to_rest_of_the_world
+          end
+        end
+      end
     end
   end
 end
