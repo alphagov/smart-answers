@@ -481,6 +481,10 @@ module SmartAnswer
           pays_reduced_ni_rate
         end
 
+        precalculate :lived_or_worked_abroad do
+          lived_or_worked_abroad
+        end
+
         precalculate :calc do
           Calculators::StatePensionAmountCalculator.new(
             gender: gender, dob: dob, qualifying_years: (qualifying_years)
