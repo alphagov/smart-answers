@@ -242,6 +242,10 @@ module SmartAnswer
           weekly_difference_abs >= 10
         end
 
+        precalculate :cost_change_4_weeks do
+          cost_change_4_weeks || false
+        end
+
         precalculate :title_change_text do
           weekly_difference >= 10 ? "increased" : "decreased"
         end

@@ -155,6 +155,23 @@
   - "10"
   :next_node: :cost_changed
   :outcome_node: true
+- :current_node: :how_much_12_months_2?
+  :responses: 
+  - "yes"
+  - "yes"
+  - monthly_diff_amount
+  - "2400"
+  :next_node: :old_weekly_amount_1?
+  :outcome_node: false
+- :current_node: :old_weekly_amount_1?
+  :responses: 
+  - "yes"
+  - "yes"
+  - monthly_diff_amount
+  - "2400.0"
+  - "10"
+  :next_node: :cost_changed
+  :outcome_node: true
 - :current_node: :how_often_pay_2?
   :responses: 
   - "yes"

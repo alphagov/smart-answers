@@ -248,6 +248,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
         assert_state_variable :old_weekly_cost, 2
         assert_state_variable :weekly_difference, -1
         assert_state_variable :weekly_difference_abs, 1
+        assert_state_variable :cost_change_4_weeks, false
         assert_current_node :cost_changed
       end
     end # Q18
@@ -287,6 +288,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
         assert_state_variable :weekly_difference, -10
         assert_state_variable :weekly_difference_abs, 10
         assert_state_variable :ten_or_more, true
+        assert_state_variable :cost_change_4_weeks, true
         assert_current_node :cost_changed
       end
 
@@ -330,6 +332,7 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
         assert_state_variable :weekly_difference, -9
         assert_state_variable :ten_or_more, false
         assert_state_variable :title_change_text, "decreased"
+        assert_state_variable :cost_change_4_weeks, false
         assert_current_node :cost_changed
       end
     end
