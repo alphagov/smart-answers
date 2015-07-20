@@ -120,6 +120,10 @@ module SmartAnswer
         precalculate :reg_data_query do
           SmartAnswer::Calculators::RegistrationsDataQuery.new
         end
+
+        precalculate :document_return_fees do
+          reg_data_query.document_return_fees
+        end
       end
 
       outcome :embassy_result do
