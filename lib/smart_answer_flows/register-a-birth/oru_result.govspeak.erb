@@ -250,7 +250,7 @@ $A
 
 ##Return of your documents
 
-<% if country_of_birth == 'libya' %>
+<% if reg_data_query.may_require_dna_tests?(country_of_birth) %>
 Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
 
 * at least <%= custom_waiting_time %> if the child doesn’t have a British passport

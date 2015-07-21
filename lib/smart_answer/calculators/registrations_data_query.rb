@@ -45,6 +45,8 @@ module SmartAnswer::Calculators
 
     HIGHER_RISK_COUNTRIES = %w(afghanistan algeria azerbaijan bangladesh bhutan colombia india iraq kenya lebanon libya nepal new-caledonia nigeria pakistan philippines russia sierra-leone somalia south-sudan sri-lanka sudan uganda)
 
+    MAY_REQUIRE_DNA_TESTS = %w(libya somalia)
+
     ORU_REGISTRATION_DURATION = {
       "afghanistan" => "6 months",
       "algeria" => "12 weeks",
@@ -141,6 +143,10 @@ module SmartAnswer::Calculators
 
     def modified_card_only_countries?(country_slug)
       MODIFIED_CARD_ONLY_COUNTRIES.include?(country_slug)
+    end
+
+    def may_require_dna_tests?(country_slug)
+      MAY_REQUIRE_DNA_TESTS.include?(country_slug)
     end
 
     def postal_form(country_slug)
