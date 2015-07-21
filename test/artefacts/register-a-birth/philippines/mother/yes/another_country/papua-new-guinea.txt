@@ -72,7 +72,7 @@ You must also pay for your documents to be returned to you.
 Postage destination | Fee
 -|-
 UK | £4.50
-Europe | £12.50
+Europe (excluding Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Georgia, Liechtenstein, Macedonia, Moldova, Montenegro, Russia, Serbia, Turkey and Ukraine) | £12.50
 Rest of world | £22
 
 <a rel="nofollow" href= "https://pay-register-birth-abroad.service.gov.uk/start" class="big button">Pay now</a>
