@@ -44,12 +44,14 @@ Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> i
 The registration fee doesn't include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
 
 Service | Fee
+-|-
 Register a death | £105
 Copy of a death registration certificate | £65
 
 You must also pay for your documents to be returned to you.
 
 Postage destination | Fee
+-|-
 UK | £4.50
 Europe | £12.50
 Rest of world | £22
