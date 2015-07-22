@@ -8,81 +8,60 @@ Contact the relevant local authorities in Belgium to find out about local marria
 
 ##What you need to do
 
-
-You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
-
-
-If you need a CNI, you must give notice of your intended marriage in Belgium. You must do this at a British embassy or in front of a notary public in that country.
+You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
 
 
+Make an appointment at the British embassy or consulate in Belgium to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
 
-$A
-British Embassy Brussels
-Avenue d’Auderghem 10
-1040 Brussels
-Belgium
-$A
-
-$C
-Telephone : (+32) 2 287 62 11
-Fax: (+32) 2 287 62 50
-
-Email: <public.brussels@fco.gov.uk>
-
-$C
+[Make an appointment at the British embassy in Brussels](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-brussels/oaths-affirmations-and-affidavits/slot_picker).
 
 
+You’ll need to complete an ‘Affirmation for marriage’ (non-religious) form or an ‘Affidavit for marriage’ (religious) form in English.
 
-You’ll need to provide supporting documents, including:
-
-- your passport
-- your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-- proof of residence, such as a residence certificate - check with the embassy to find out what you need
-- equivalent documents for your partner
-
-
-If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
-
-- a [decree absolute or final order](/copy-decree-absolute-final-order)
-- a civil partnership dissolution or annulment certificate
-- your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
-
-
-^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.^
-
-
-You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
 
 You can download and fill in (but not sign) the forms in advance.
 
 
 $D
-[Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
-
-[Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
+[Download ‘Affidavit for marriage’ and ’Affirmation for marriage’](/government/publications/affidavitaffirmation-of-marital-status-form-belgium)
 $D
 
 
-###What happens next
+^Your partner will need to get an affirmation as well.^
 
-The embassy will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
+
+You’ll need to provide supporting documents, including:
+
+- your passport
+- proof of residence, such as a residence certificate - check with the embassy to find out what you need
+- equivalent documents for your partner
+
+
+Read the guidance on the [documents that you’ll need](/notarial-and-documentary-services-guide-for-belgium#proof-of-address-and-identity).
+
+
+###Legalisation and translation
+
+
+You might need to get your affirmation [translated](/government/collections/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
+
+
+If you’ve been divorced or widowed, you’ll also need:
+
+- a [decree absolute or final order](/copy-decree-absolute-final-order) or the [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+
+- evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.
+
+
+You’ll also need to provide evidence if you’ve changed your name by deed poll.
+
+
+^Your partner will probably need to get an equivalent document from their national authorities.^
+
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
-
-
-You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in Belgium.
-
-
-###Other requirements for Belgium
-
-There are several other documents you might need to get from the British Embassy if requested by the town hall, including:
-
-- certificate of custom law (‘certificat de coutume’ / ‘attest van gewoonterecht’)
-- certificate of nationality (‘certificat de nationalité’ ‘certificaat van nationaliteit’) - this can be a certified copy of your passport
-- certificate of celibacy (‘certificat de celibat’ / ‘certificaat van celibaat’) - there’s no UK equivalent, but you can make a statutory declaration at the British embassy instead
-
-Check with the town hall to find out if you need any of these documents. You’ll need to make an appointment at the embassy to get them. Bring any supporting documents they ask for, and pay a fee (see below).
 
 
 ##Naturalisation of your partner if they move to the UK
@@ -90,18 +69,11 @@ Check with the town hall to find out if you need any of these documents. You’l
 Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
 
 
-^You don't need to stay in the country while your notice is posted.^
-
-
 ##Fees
 
 Service | Fee
 -|-
-Receiving a notice of marriage | £65
-Issuing a CNI, Nulla Osta or equivalent | £65
-Issuing any other consular letter or certificate in English | £45
-Issuing any other consular letter or certificate in any other language | £70
-Administering an oath or making a declaration | £55
+Affirmation for marriage | £55
 
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Belgium](/government/publications/belgium-consular-fees).
@@ -110,7 +82,6 @@ You normally have to pay fees for consular services in the local currency - thes
 You can pay by cash or credit card, but not by personal cheque.
 
 
-*[CNI]:certificate of no impediment
 *[GRO]:General Register Office
 *[FCO]:Foreign &amp; Commonwealth Office
 

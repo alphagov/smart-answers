@@ -21,14 +21,14 @@ en-GB:
         *[GRO]:General Register Office
 
       phrases:
-        appointment_booking_link_albania: |
-          [Make an appointment at the embassy in Tirana](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tirana/notice-of-marriage-or-civil-partnership/slot_picker)
         ceremony_type_marriage: Marriage
         ceremony_type_civil_partnership: Civil partnership
 
         title_ss_marriage: Same-sex marriage
         title_ss_marriage_and_partnership: Same-sex marriage and civil partnership
         title_civil_partnership: Civil Partnership
+        one_must_be_a_resident: |
+          You can only get married in %{country_name_lowercase_prefix} if you or your partner live there, eg on a valid work visa.
         able_to_ss_marriage: |
           You may be able to get married at the British embassy or consulate in %{country_name_lowercase_prefix}.
         able_to_ss_marriage_and_partnership: |
@@ -59,6 +59,8 @@ en-GB:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
+        documents_guidance_belgium: |
+          Read the guidance on the [documents that you’ll need](/notarial-and-documentary-services-guide-for-belgium#proof-of-address-and-identity).
         convert_cc_to_ss_marriage: |
           ##Convert a civil partnership to a same-sex marriage
 
@@ -144,24 +146,30 @@ en-GB:
         embassies_data: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 # payment methods
+        pay_by_mastercard_or_visa: |
+          You can only pay by MasterCard and Visa credit cards.
         payment_methods_japan: |
           You can pay by credit card, but not by personal cheque. The embassy in Tokyo will also accept cash.
+        pay_by_card_no_amex_no_cheque: |
+          You can pay by cash or credit card (except American Express), but not by personal cheque.
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
+        pay_by_visas_or_mastercard: |
+          You can pay by credit card (Visa, Visa Electron or MasterCard), but not by personal cheque.
         pay_by_cash_or_us_dollars_only: |
           You can only pay fees for consular services by cash in US dollars.
-        pay_in_local_currency: |
-          ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
+        pay_in_local_currency_ceremony_in_kazakhstan: |
+          ^You can only pay by cash in Kazakhstan. This must be in the local currency.^
         pay_in_local_currency_ceremony_country_name: |
           ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
         pay_in_euros_or_visa_electron: |
           You can pay by cash (euros only) or credit card (but not Visa Electron).
-        pay_in_cash_or_manager_cheque: |
-          You can pay in cash or with a bank manager’s cheque made payable to ’British Embassy’.
+        pay_in_cash_only: |
+          You can pay in cash only.
         pay_in_cash_visa_or_mastercard: |
           ^You can pay by cash in the local currency in %{country_name_lowercase_prefix}. You can also pay by Visa or Mastercard - other types of credit cards and debit cards are not accepted.^
 #fees
-        list_of_consular_fees: |
+        link_to_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
         list_of_consular_kazakhstan: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
@@ -181,16 +189,21 @@ en-GB:
 
           You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
         make_an_appointment: |
-          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
+          Make an appointment at the British embassy or consulate in %{country_name_lowercase_prefix} to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
         make_an_appointment_bring_passport_and_pay_55_colombia: |
-          Make an appointment at the local British embassy or consulate in Colombia to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
+          Make an appointment at the British embassy in Bogota to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
 
         make_an_appointment_bring_passport_and_pay_55_brazil: |
-          Make an appointment at the local British embassy or consulate in Brazil to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
+          Make an appointment at the British embassy or consulate in Brazil to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
 
         download_affidavit_forms_but_do_not_sign: |
           You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. You can download and fill in (but not sign) the forms in advance.
+
+        complete_affirmation_or_affidavit_forms: |
+          You’ll need to complete an ‘Affirmation for marriage’ (non-religious) form or an ‘Affidavit for marriage’ (religious) form in English.
+        download_and_fill_but_not_sign: |
+          You can download and fill in (but not sign) the forms in advance.
 # affidavit phrases
         complete_affidavit: |
           You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. Take the completed form with you to your appointment.
@@ -204,13 +217,27 @@ en-GB:
           $D
           [Download ’Affidavit for Marriage’ (PDF, 60KB)](/government/uploads/system/uploads/attachment_data/file/286008/Declaration_Marriage.pdf)
           $D
+        download_affidavit_and_affirmation_belgium: |
+          $D
+          [Download ‘Affidavit for marriage’ and ’Affirmation for marriage’](/government/publications/affidavitaffirmation-of-marital-status-form-belgium)
+          $D
+
+        download_affidavit_and_affirmation_macao: |
+          $D
+          [Download ‘Affidavit for marriage’](/government/publications/affidavit-form-macao)
+          [Download ’Affirmation for marriage’](/government/publications/affirmation-form-macao)
+          $D
 
         contact_for_affidavit: |
-          Contact the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+          Contact the British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         appointment_for_affidavit: |
-          Make an appointment at the local British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+          Make an appointment at the British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+        appointment_for_affidavit_in_hong_kong: |
+          Make an appointment at the British Consulate General Hong Kong to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+        appointment_for_affidavit_norway: |
+          Make an appointment at the British embassy in Oslo to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, a copy of your partner’s passport and pay a fee.
         appointment_for_affidavit_indonesia: |
-          Make an appointment at the local British embassy or consulate in Indonesia to swear an affidavit (written statement of facts) that you’re free to marry.
+          Make an appointment at the British Embassy in Jakarta to swear an affidavit (written statement of facts) that you’re free to marry.
 
           Before the appointment you’ll need to pay a fee to the British Embassy in Jakarta. You can do this by credit card or in cash in the local currency. You also need to complete 2 copies of the [‘Affidavit for marriage’ form](/government/publications/marriage-in-indonesia).
 
@@ -286,16 +313,20 @@ en-GB:
           Your partner will probably need to get an equivalent document from their national authorities.
         partner_declaration: |
           ^Your partner will need to make a declaration as well.^
+        cni_exception_for_permanent_residents_estonia: |
+          ^You may be able to get married without a CNI if you have a permanent address in Estonia and have a 6 month residence permit - contact the local authorities to find out.^
+        check_with_notary_public_if_you_need_cni: |
+          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry. Contact the local notary public to check if you need a CNI.
         what_to_do_croatia: |
           You may be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
 
           The local registrar may also need a certificate of custom and law, which confirms the marriage is valid - the Embassy in Zagreb can provide this.
         what_to_do_os_local_japan: |
-          Make an appointment at the British embassy in Tokyo or British consulate-general in Osaka to swear an affirmation/affidavit (written statement of facts) that you’re free to marry.
+          Make an appointment at the British embassy in Tokyo or British Consulate General in Osaka to swear an affirmation/affidavit (written statement of facts) that you’re free to marry.
 
-          [Make an appointment at the embassy in Tokyo](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tokyo/oaths-affirmations-and-affidavits/slot_picker)
+          [Make an appointment at the embassy in Tokyo](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tokyo/oaths-affirmations-and-affidavits/slot_picker).
 
-          [Make an appointment at the consulate-general in Osaka](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-osaka/oaths-affirmations-and-affidavits/slot_picker)
+          [Make an appointment at the Consulate General in Osaka](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-osaka/oaths-affirmations-and-affidavits/slot_picker).
 
           You can [download and fill in a form](/government/publications/affidavitaffirmation-of-marital-status-japan) for an ‘Affirmation for marriage’ (non-religious) or an ‘Affidavit for marriage’ (religious) before your appointment. Don’t sign it - you’ll do that at the appointment.
 
@@ -353,6 +384,14 @@ en-GB:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
           - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
+        documents_for_divorced_or_widowed_philippines: |
+          If you’ve been divorced or widowed, you’ll also need:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) - you’ll need to get the document [translated](/government/collections/list-of-lawyers) if it’s not in English (bring the original and English translation with you)
+          - the original marriage certificate, Advisory of Marriage and court documents (if the previous marriage was annulled in the Philippines)
+          - evidence if you’ve changed your name by deed poll
+
+          You must bring photocopies of all your supporting documents.
 
         contact_civil_register_office_portugal: |
           Contact your nearest [Civil Register Office](http://www.irn.mj.pt/IRN/sections/irn/a_registral/servicos-externos-docs/contactos/contactos-dos-servicos-civil/) in Portugal to find out about local marriage laws, including what documents you’ll need.
@@ -362,24 +401,15 @@ en-GB:
         book_online_china_local_prelude:
           Make an appointment at the British embassy or consulate in China nearest to the address in your partner’s Hukou (family registration) book, to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s Hukou and pay a fee.
         book_online_china_affirmation_affidavit: |
-          You’ll need to complete an [‘Affirmation for marriage’](/government/publications/affirmation-form-china) (non-religious) form or an [‘Affidavit for marriage’](/government/publications/affidavit-form-china) (religious) form in English.
+          You’ll need to complete an ‘Affirmation for marriage’ (non-religious) form or an ‘Affidavit for marriage’ form‘.
 
-# Marriage if resident of Isle of Man or Channel Islands
-        legal_restrictions_for_iom_residents_in_spain: |
-          %There are certain legal restrictions if neither of you is resident in Spain. You should check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
-        cni_for_iom_residents: |
-          You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in the [Isle of Man](http://www.gov.im/registries/general/civilregistry/) to find out what they can provide, then contact the authorities in %{country_name_lowercase_prefix} to confirm if this is acceptable.
+          You can download and fill in (but not sign) the forms in advance.
 
-          The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the Manx authorities.
-        cni_for_channel_islands_residents: |
-          You may be asked for a certificate of no impediment (CNI) or similar document. Check with the authorities in [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us) to find out what they can provide, then contact the authorities in %{country_name_lowercase_prefix} to confirm if this is acceptable.
+          $D
+          [Download ‘Affirmation for marriage’](/government/publications/affirmation-form-china)
 
-          The local British embassy or consulate may be able to advise if you have any problems getting the documents you need from the authorities in Jersey or Guernsey.
-        british_embassy_in_rome_email: |
-          $C
-          **British Embassy in Rome - marriages**
-          <rome.marriages@fco.gov.uk>
-          $C
+          [Download ‘Affidavit for marriage’](/government/publications/affidavit-form-china)
+          $D
 
 # Marriage in Ireland outcome phrases
         outcome_ireland_opposite_sex: |
@@ -554,29 +584,44 @@ en-GB:
 
           %If you choose to post notice in Costa Rica, you’ll normally have to wait at least 10 days before you can get married.%
 
-        cni_at_local_register_office: |
-          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
+        what_you_need_to_do_to_marry_in_norway_when_in_third_country: |
+          You’ll need to prove that you’re allowed to marry. There are 2 ways you can do this:
 
-          ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire, but you should check with the local authorities in the country where you intend to marry to find out how long a CNI is valid under local law.^
+          - [go to the UK and post notice with a UK registrar](%{uk_residence_outcome_path})
+          - [go to %{country_name_lowercase_prefix} and swear an affidavit (written statement of facts) that you’re free to marry](%{ceremony_country_residence_outcome_path})
+        cni_at_local_register_office: |
+          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
+
+          ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire. Check with your local register office to find out how long a CNI is valid if you live in the Channel Islands or the Isle of Man. You should also check with the local authorities in %{country_name_lowercase_prefix} to find out how long a CNI is valid under local law.^
 
         cni_subject_to_objection_14_days:
           They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
 
-        consular_cni_os_resident_in_uk_ceremony_in_italy: |
+        getting_statutory_declaration_for_italy_partner_british: |
           ###Getting a statutory declaration
 
           While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
+        getting_statutory_declaration_for_italy_partner_non_british: |
+          ###Getting a statutory declaration
+
+          While you’re waiting for your CNI, you will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
 
 
+        bilingual_statutory_declaration_download_for_italy: |
           $D
           [Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 90KB)](/government/uploads/system/uploads/attachment_data/file/153753/bilingual-statutory-declaration.pdf)
           $D
 
+        statutory_declaration_for_non_british_partner: |
+
+          ^Your partner should check what they need to do with their own consulate.^
+
+        legalising_italian_statutory_declaration: |
           ###Legalisation and translation
 
           You’ll need to get your statutory declaration and CNI ’[legalised](/get-document-legalised)’ (certified as genuine) by the Foreign & Commonwealth Office (FCO).
 
-          You’ll also need to get your CNI [translated](/government/publications/italy-list-of-lawyers) and sworn before the Italian courts or an Italian Justice of the Peace.
+          You’ll also need to get your CNI [translated](/government/publications/italy-list-of-translators-and-interpreters) and sworn before the Italian courts or an Italian Justice of the Peace.
         consular_cni_os_uk_resident_montenegro: |
           ###Getting a Montenegrin version of your CNI
 
@@ -615,32 +660,29 @@ en-GB:
 
           ###Applying for a CNI from the %{embassy_or_consulate_ceremony_country}
 
-          You’ll need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.. You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
+          You’ll need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
+
+          You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
         kazakhstan_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
-
-          ###Applying for a CNI from the consulate
-
-          You’ll normally need to have been living in Kazakhstan for at least 3 days. You can then book an appointment at the consulate to give notice of your marriage. There’s a fee for this service (see below).
         russia_os_local_resident: |
           If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_ceremony_country}.
 
           ###Applying for a CNI from the consulate
 
           You’ll need to have been living in the Russian Federation for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
-          You can then book an appointment at the consulate in the district you’re living, to give notice of your marriage.
 
-          Email <RussiaConsular@fco.gov.uk> to find out where your local consulate is.
+          You can then book an appointment at the consulate in the district you’re living in, to give notice of your marriage.
 
         consular_cni_os_local_resident_italy: |
           To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
 
           ###Applying for a Nulla Osta from the embassy
 
-          You’ll need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.. You can then book an appointment at the British Embassy in Rome.
+          You’ll need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday. You can then book an appointment at the British Embassy in Rome.
 
         consular_cni_os_giving_notice_in_ceremony_country: |
-          If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at a British embassy or in front of a notary public in that country.
+          If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at the British embassy or in front of a notary public in that country.
 
         arrange_cni_via_costa_rica: |
           If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
@@ -669,7 +711,7 @@ en-GB:
         documents_must_be_originals_when_in_sharia_court:
           ^Documents must be originals if you are getting married at the Sharia Court.^
 
-        required_supporting_documents: |
+        required_supporting_documents_incl_birth_cert: |
           You’ll need to provide supporting documents, including:
 
           - your passport
@@ -677,7 +719,14 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
           - equivalent documents for your partner
 
-        required_supporting_documents_notary_public: |
+        required_supporting_documents: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
+          - equivalent documents for your partner
+
+        required_supporting_documents_incl_birth_cert_notary_public: |
           You’ll need to provide supporting documents, including:
 
           - your passport
@@ -685,14 +734,49 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
           - equivalent documents for your partner
 
-
-        required_supporting_documents_italy: |
+        required_supporting_documents_notary_public: |
           You’ll need to provide supporting documents, including:
 
           - your passport
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
           - equivalent documents for your partner
+
+
+        required_supporting_documents_egypt: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - a valid Egyptian visa
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
+          - equivalent documents for your partner
+
+        required_supporting_documents_greece: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - Greek ID card (if available)
+          - proof of residence, such as a residence permit - check with the embassy or notary public to find out what you need
+          - equivalent documents for your partner
+
+        required_supporting_documents_philippines: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/)
+          - equivalent documents for your partner
+
+        required_supporting_documents_macao: |
+          You’ll need to provide supporting documents, including:
+
+          - your passport
+          - your partner’s passport (if they’re not British)
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+          - proof of residence, such as a residence certificate - check with the embassy or notary public to find out what you need
+          - equivalent documents for your partner
+
+
+        partner_needs_egyptian_id: |
+          Your partner will need to provide their Egyptian ID card, if they’re an Egyptian national.
 
         fee_and_required_supporting_documents_for_appointment: |
           You’ll need to pay a fee and bring the following to your appointment:
@@ -712,19 +796,13 @@ en-GB:
           - equivalent documents for your partner
         japan_consular_cni_os_local_resident_partner_local: |
           Your partner can provide a recently certified copy of the family register (‘koseki-tohon’) as evidence that they’re free to marry.
-        italy_consular_cni_os_partner_local: |
+        italy_consular_cni_os_partner_not_british: |
           You’ll need to provide supporting documents, including:
 
           - your passport
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - a copy of your partner’s ID card and Certificato di Stato Libero from the comune
-          - a copy of your partner’s Nulla Osta, if possible
-        italy_consular_cni_os_partner_other: |
-          You’ll need to provide supporting documents, including:
-
-          - your passport
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - a copy of your partner’s passport and, if possible, a copy of their Certificate of No Impediment (CNI) or similar document to prove they’re allowed to marry
+          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
+          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
+          - a copy of your partner’s identity document
         italy_consular_cni_os_partner_british: |
           You and your partner will need to provide your passports and [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate).
         consular_cni_variant_local_resident_spain: |
@@ -752,7 +830,7 @@ en-GB:
           ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
         consular_cni_os_other_resident_ceremony_italy: |
-          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.
+          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/publications/italy-list-of-translators-and-interpreters) if it’s not in English.
         sending_cni_and_booking_appointment_spain: |
           Send your completed CNI service request form and copies of the supporting documents to your [nearest British consulate](/notarial-and-documentary-services-guide-for-spain#where-to-send-your-request). You can send them as scanned attachments by email or by fax. You’ll need to bring the original documents to your appointment.
 
@@ -766,7 +844,7 @@ en-GB:
 
           The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 7 days, and if nobody has raised an objection, they’ll issue your CNI. There’s an additional fee for this.
 
-        consular_cni_os_download_documents_notary_public: |
+        download_and_fill_notice_and_affidavit_but_not_sign: |
           You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
 
           You can download and fill in (but not sign) the forms in advance.
@@ -800,6 +878,15 @@ en-GB:
           ###What happens next
 
           The %{embassy_or_consulate_ceremony_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
+
+        issuing_cni_in_italy: |
+          ###What happens next
+
+          They’ll display your notice of marriage publicly for 7 days.
+
+          The British embassy will issue your CNI within 5 working days (as long as nobody has registered an objection). You can collect your CNI in person or have it delivered by post.
+
+          ^The embassy or consulate may charge a fee to return your documents to you.^
         consular_cni_os_foreign_resident_ceremony_notary_public: |
           ###What happens next
 
@@ -826,6 +913,10 @@ en-GB:
 
           There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
 
+          You can then collect your CNI at the British embassy in Athens or ask for it to be sent to you by post. You must provide the registrar’s original Notice of Marriage if you posted notice in the UK.
+
+          [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
+
         notary_public_will_charge_a_fee: |
           The notary public will charge a fee for taking the oath, and then give you your notice of marriage. You should take this notice to the local authorities where you’re getting married.
 
@@ -835,16 +926,6 @@ en-GB:
           %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
         check_if_cni_needs_to_be_legalised: |
           You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in %{country_name_lowercase_prefix}.
-        consular_cni_os_ceremony_belgium: |
-          ###Other requirements for Belgium
-
-          There are several other documents you might need to get from the British Embassy if requested by the town hall, including:
-
-          - certificate of custom law (‘certificat de coutume’ / ‘attest van gewoonterecht’)
-          - certificate of nationality (‘certificat de nationalité’ ‘certificaat van nationaliteit’) - this can be a certified copy of your passport
-          - certificate of celibacy (‘certificat de celibat’ / ‘certificaat van celibaat’) - there’s no UK equivalent, but you can make a statutory declaration at the British embassy instead
-
-          Check with the town hall to find out if you need any of these documents. You’ll need to make an appointment at the embassy to get them. Bring any supporting documents they ask for, and pay a fee (see below).
         consular_cni_os_ceremony_spain: |
           ###Getting a marital status certificate
 
@@ -884,7 +965,7 @@ en-GB:
           - utility bills
           - recent proof of entitlement to local or state benefits, eg tax credits, pension, education or other benefits
 
-        consular_cni_os_fees_not_italy_not_uk: |
+        consular_cni_os_fees_incl_null_osta_oath_consular_letter: |
           ##Fees
 
           Service | Fee
@@ -895,10 +976,14 @@ en-GB:
           Issuing any other consular letter or certificate in any other language | £70
           Administering an oath or making a declaration | £55
 
-        consular_cni_os_fees_russia: |
-          You can pay by cash or credit card in Moscow, but not by personal cheque.
+        list_of_consular_fees_italy: |
+          ##Fees
 
-          You can pay by credit card only in St Petersburg and Ekaterinburg.
+          Service | Fee
+          -|-
+          Receiving a notice of marriage | £65
+          Issuing a CNI, Nulla Osta or equivalent | £65
+
 # France and French Overseas Territories phrases
         fot_os_rules_similar_to_france: |
           %{country_name_uppercase_prefix} is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
@@ -936,7 +1021,7 @@ en-GB:
           You’ll need to get your affidavit ‘[legalised](https://www.gov.uk/get-document-legalised)’ (certified as genuine) before you travel to Turkey.
 
         affirmation_os_download_affidavit_philippines: |
-          The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can print and fill in (but not sign) the [affidavit/affirmation for marriage form](/government/publications/marriage-in-the-philippines) in advance.
+          The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can print and fill in (but not sign) the [affidavit/affirmation for marriage form](/government/publications/marriage-in-the-philippines) in advance - it must fit on one page.
 
         docs_decree_and_death_certificate: |
           If you’ve been divorced or widowed, you’ll also need:
@@ -947,6 +1032,15 @@ en-GB:
         change_of_name_evidence: |
           You’ll also need to provide evidence if you’ve changed your name by deed poll.
 
+        divorce_proof_cp: |
+
+          If you’ve been divorced, widowed or previously in a civil partnership, you’ll need to provide:
+
+          - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate)
+          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
+          - a civil partnership dissolution or annulment certificate
+          - evidence if you’ve changed your name by deed poll
+
         affirmation_os_all_fees_45_70: |
           ##Fees
 
@@ -955,12 +1049,12 @@ en-GB:
           Affirmation for freedom to marry in English | £45
           Affirmation for freedom to marry in any other language | £70
 
-        fee_table_45_55: |
+        fee_table_55_55: |
           ##Fees
 
           Service | Fee
           -|-
-          Marriage declaration | £45
+          Marriage declaration | £55
           Making an oath | £55
 
         fee_table_55_70: |
@@ -1159,7 +1253,7 @@ en-GB:
           - ’union de fait’, or ’common-law relationship’ (in Manitoba)
           - ’domestic partnership’ (in Nova Scotia)
           - ’union civile’, or ’civil union’ (in Quebec)
-        synonyms_of_cp_in_new_zealand: |
+        synonyms_of_cp_in_new-zealand: |
           You may be able to get married or enter into a ‘civil union’ at the British embassy or consulate in New Zealand. Civil unions are recognised as civil partnerships under British law.
         synonyms_of_cp_in_south_africa: |
           Same-sex relationships in South Africa that are recognised as civil partnerships under British law are known as:
@@ -1254,9 +1348,9 @@ en-GB:
 
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
 
-          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf) or [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm).
+          You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
 
-          ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire, but you should check with the local authorities in the country where you intend to marry to find out how long a CNI is valid under local law.^
+          ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire. Check with your local register office to find out how long a CNI is valid if you live in the Channel Islands or the Isle of Man. You should also check with the local authorities in %{country_name_lowercase_prefix} to find out how long a CNI is valid under local law.^
 
           ###Legalisation and translation
 
@@ -1297,9 +1391,9 @@ en-GB:
 
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
 
-          If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at a British embassy or in front of a notary public in that country.
+          If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at the British embassy or in front of a notary public in that country.
 
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
+          [Make an appointment at the embassy in Pristina](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-pristina/notice-of-marriage-or-civil-partnership/slot_picker).
 
           You need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
 
@@ -1435,6 +1529,161 @@ en-GB:
           If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
 
 
+        appointment_links:
+          opposite_sex:
+            albania: |
+              [Make an appointment at the embassy in Tirana](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tirana/notice-of-marriage-or-civil-partnership/slot_picker).
+            algeria: |
+              [Make an appointment at the embassy in Algeria](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-algeria/notice-of-marriage-or-civil-partnership/slot_picker).
+            angola: |
+              [Make an appointment at the embassy in Luanda](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-luanda/notice-of-marriage-or-civil-partnership/slot_picker).
+            armenia: |
+              [Make an appointment at the embassy in Yerevan](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-yerevan/notice-of-marriage-or-civil-partnership/slot_picker).
+            austria: |
+              [Make an appointment at the embassy in Vienna](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-vienna/notice-of-marriage-or-civil-partnership/slot_picker).
+            azerbaijan: |
+              [Make an appointment at the embassy in Baku](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-baku/notice-of-marriage-or-civil-partnership/slot_picker).
+            bahrain: |
+              [Make an appointment at the embassy in Manama](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-manama/notice-of-marriage-or-civil-partnership/slot_picker).
+            belgium: |
+              [Make an appointment at the British embassy in Brussels](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-brussels/oaths-affirmations-and-affidavits/slot_picker).
+            bolivia: |
+              [Make an appointment at the embassy in La Paz](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-la-paz/notice-of-marriage-or-civil-partnership/slot_picker).
+            bosnia-and-herzegovina: |
+              [Make an appointment at the embassy in Sarajevo](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-sarajevo/notice-of-marriage-or-civil-partnership/slot_picker).
+            colombia: |
+              [Make an appointment at the embassy in Bogota](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-bogot%25C3%25A1/oaths-affirmations-and-affidavits/slot_picker).
+            chile: |
+              [Make an appointment at the embassy in Santiago](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-santiago/notice-of-marriage-or-civil-partnership/slot_picker).
+            china: |
+              [Make an appointment at the embassy in Beijing](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-beijing/oaths-affirmations-and-affidavits/slot_picker).
+
+              [Make an appointment at the embassy in Shanghai](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-shanghai/oaths-affirmations-and-affidavits/slot_picker).
+
+              [Make an appointment at the embassy in Chongqing](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-chongqing/oaths-affirmations-and-affidavits/slot_picker).
+
+              [Make an appointment at the embassy in Guangzhou](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-guangzhou/oaths-affirmations-and-affidavits/slot_picker).
+            croatia: |
+              [Make an appointment at the embassy in Zagreb](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-zagreb/notice-of-marriage-or-civil-partnership/slot_picker).
+            cuba: |
+              [Make an appointment at the embassy in Havana](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-havana/notice-of-marriage-or-civil-partnership/slot_picker).
+            democratic-republic-of-congo: |
+              [Make an appointment at the embassy in Kinshasa](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-kinshasa/notice-of-marriage-or-civil-partnership/slot_picker).
+            denmark: |
+              [Make an appointment at the embassy in Copenhagen](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-copenhagen/notice-of-marriage-or-civil-partnership/slot_picker).
+            egypt: |
+              [Make an appointment at the embassy in Cairo](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-cairo/oaths-affirmations-and-affidavits/slot_picker).
+            el-salvador: |
+              [Make an appointment at the embassy in San Salvador](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-san-salvador/notice-of-marriage-or-civil-partnership/slot_picker).
+            estonia: |
+              [Make an appointment at the embassy in Tallinn](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-tallinn/notice-of-marriage-or-civil-partnership/slot_picker).
+            georgia: |
+              [Make an appointment at the embassy in Tblisi](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-tblisi/notice-of-marriage-or-civil-partnership/slot_picker).
+            greece: |
+              [Make an appointment at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/notice-of-marriage-or-civil-partnership/slot_picker).
+            guatemala: |
+              [Make an appointment at the embassy in Guatamala City](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-guatemala-city/notice-of-marriage-or-civil-partnership/slot_picker).
+            hungary: |
+              [Make an appointment at the embassy in Budapest](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-budapest/notice-of-marriage-or-civil-partnership/slot_picker).
+            iceland: |
+              [Make an appointment at the embassy in Reykjavik](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-reykjavik/notice-of-marriage-or-civil-partnership/slot_picker).
+            italy: |
+              [Make an appointment at the embassy in Rome](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-rome/notice-of-marriage-or-civil-partnership/slot_picker).
+            kazakhstan: |
+              [Make an appointment at the embassy in Almaty](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-office-almaty/certificate-of-no-impediment/slot_picker).
+            kosovo: |
+              [Make an appointment at the embassy in Pristina](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-pristina/notice-of-marriage-or-civil-partnership/slot_picker).
+            kuwait: |
+              [Make an appointment at the embassy in Kuwait City](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-kuwait-city/notice-of-marriage-or-civil-partnership/slot_picker).
+            kyrgyzstan: |
+              [Make an appointment at the embassy in Almaty](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-office-almaty/certificate-of-no-impediment/slot_picker).
+            laos: |
+              [Make an appointment at the embassy in Vientiane](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-kinshasa/notice-of-marriage-or-civil-partnership/slot_picker).
+            latvia: |
+              [Make an appointment at the embassy in Riga](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-riga/notice-of-marriage-or-civil-partnership/slot_picker).
+            lebanon: |
+              [Make an appointment at the embassy in Beirut](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-beirut/oaths-affirmations-and-affidavits/slot_picker).
+            lithuania: |
+              [Make an appointment at the embassy in Vilnius](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-vilnius/notice-of-marriage-or-civil-partnership/slot_picker).
+            luxembourg: |
+              [Make an appointment at the embassy in Luxembourg](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-luxembourg/notice-of-marriage-or-civil-partnership/slot_picker).
+            macao: |
+              [Make an appointment at the British Consulate General Hong Kong](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-hong-kong/oaths-affirmations-and-affidavits/slot_picker).
+            mexico: |
+              [Make an appointment at the embassy in Mexico City](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-mexico-city/notice-of-marriage-or-civil-partnership/slot_picker).
+            moldova: |
+              [Make an appointment at the embassy in Chisinau](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-chisinau/notice-of-marriage-or-civil-partnership/slot_picker).
+            mongolia: |
+              [Make an appointment at the embassy in Ulaanbaatar](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-ulaanbaatar/oaths-affirmations-and-affidavits/slot_picker).
+            montenegro: |
+              [Make an appointment at the embassy in Podgorica](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-podgorica/notice-of-marriage-or-civil-partnership/slot_picker).
+            morocco: |
+              [Make an appointment at the embassy in Rabat](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-rabat/oaths-affirmations-and-affidavits/slot_picker).
+            nepal: |
+              [Make an appointment at the embassy in Kathmandu](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-kathmandu/notice-of-marriage-or-civil-partnership/slot_picker).
+            norway: |
+              [Make an appointment at the embassy in Oslo](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-oslo/oaths-affirmations-and-affidavits/slot_picker).
+            panama: |
+              [Make an appointment at the embassy in Panama City](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-panama-city/notice-of-marriage-or-civil-partnership/slot_picker).
+            philippines: |
+              [Make an appointment at the embassy in Manila](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-manila/oaths-affirmations-and-affidavits/slot_picker).
+            peru: |
+              [Make an appointment at the embassy in Lima](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-lima/oaths-affirmations-and-affidavits/slot_picker).
+            poland: |
+              [Make an appointment at the embassy in Warsaw](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-warsaw/notice-of-marriage-or-civil-partnership/slot_picker).
+            romania: |
+              [Make an appointment at the embassy in Budapest](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-budapest/notice-of-marriage-or-civil-partnership/slot_picker).
+            russia: |
+              [Make an appointment at the embassy in Moscow](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-moscow/notice-of-marriage-or-civil-partnership/slot_picker).
+
+              [Make an appointment at the embassy in St Petersburg](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-st-petersburg/notice-of-marriage-or-civil-partnership/slot_picker).
+            serbia: |
+              [Make an appointment at the embassy in Belgrade](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-belgrade/notice-of-marriage-or-civil-partnership/slot_picker).
+            sudan: |
+              [Make an appointment at the embassy in Khartoum](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-khartoum/notice-of-marriage-or-civil-partnership/slot_picker).
+            tajikistan: |
+              [Make an appointment at the embassy in Dushanbe](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-dushanbe/notice-of-marriage-or-civil-partnership/slot_picker).
+            thailand: |
+              [Make an appointment at the embassy in Bangkok](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-bangkok/oaths-affirmations-and-affidavits/slot_picker).
+            tunisia: |
+              [Make an appointment at the embassy in Tunis](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tunis/notice-of-marriage-or-civil-partnership/slot_picker).
+            turkey: |
+              [Make an appointment at the British Consulate General Istanbul](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-istanbul/oaths-affirmations-and-affidavits/slot_picker).
+
+              [Make an appointment at the embassy in Ankara](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-ankara/oaths-affirmations-and-affidavits/slot_picker).
+
+              [Make an appointment at the consulate in Izmir](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-izmir/oaths-affirmations-and-affidavits/slot_picker).
+
+              [Make an appointment at the consulate in Antalya](https://www.consular-appointments.service.gov.uk/fco/#!/british-vice-consulate-antalya/oaths-affirmations-and-affidavits/slot_picker).
+            turkmenistan: |
+              [Make an appointment at the embassy in Ashgabat](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-ashgabat/notice-of-marriage-or-civil-partnership/slot_picker).
+            uzbekistan: |
+              [Make an appointment at the embassy in Tashkent](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tashkent/notice-of-marriage-or-civil-partnership/slot_picker).
+            venezuela: |
+              [Make an appointment at the embassy in Caracas](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-caracas/notice-of-marriage-or-civil-partnership/slot_picker).
+          same_sex:
+            albania: |
+              [Make an appointment at the embassy in Tirana](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tirana/notice-of-marriage-or-civil-partnership/slot_picker).
+            australia: |
+              Make an appointment at your nearest British embassy or consulate in %{country_name_lowercase_prefix}.
+
+              [Make an appointment at the British Consulate Brisbane](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-brisbane/notice-of-marriage-or-civil-partnership/slot_picker).
+
+              [Make an appointment at the British High Commission in Canberra](https://www.consular-appointments.service.gov.uk/fco/#!/british-high-commission-canberra/notice-of-marriage-or-civil-partnership/slot_picker).
+
+              [Make an appointment at the British Consulate General in Sydney](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-sydney/notice-of-marriage-or-civil-partnership/slot_picker).
+
+              [Make an appointment at the British Consulate General in Melbourne](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-melbourne/notice-of-marriage-or-civil-partnership/slot_picker).
+
+              [Make an appointment at the British Consulate Perth](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-perth/notice-of-marriage-or-civil-partnership/slot_picker).
+            belgium: |
+              [Make an appointment at the British embassy in Brussels](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-brussels/oaths-affirmations-and-affidavits/slot_picker).
+            colombia: |
+              [Make an appointment at the British embassy in Bogota](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-bogot%25C3%25A1/notice-of-marriage-or-civil-partnership/slot_picker).
+            montenegro: |
+              [Make an appointment at the embassy in Podgorica](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-podgorica/notice-of-marriage-or-civil-partnership/slot_picker).
+            norway: |
+              [Make an appointment at the embassy in Oslo](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-oslo/oaths-affirmations-and-affidavits/slot_picker).
 
 # Q1
       country_of_ceremony?:
@@ -1447,18 +1696,8 @@ en-GB:
           uk: "UK"
           ceremony_country: "%{ceremony_country_name}"
           third_country: "Elsewhere"
-# Q3a
-      residency_uk?:
-        title: Where do you live?
-        options:
-          uk_england: "England"
-          uk_wales: "Wales"
-          uk_scotland: "Scotland"
-          uk_ni: "Northern Ireland"
-          uk_iom: "Isle of Man"
-          uk_ci: "Channel Islands"
 
-# Q3b
+# Q3a
       marriage_or_pacs?:
         title: Do you want to get married or enter into a PACS?
         hint: PACS (‘pacte civil de solidarité’, or ‘civil solidarity pact’) is the French version of civil partnership, and can be entered into by same-sex or opposite-sex couples.
@@ -1510,6 +1749,14 @@ en-GB:
           Marriage in Indonesia
         body: |
           %{indonesia_os_phraselist}
+# Opposite sex outcome in Hong Kong
+      outcome_os_hong_kong:
+        title: |
+          Marriage in Hong Kong
+        body: |
+          Contact the [Immigration Department ](http://www.immd.gov.hk/eng/faq/marriage-registration.html) in Hong Kong to find out about local marriage laws, including what documents you’ll need.
+
+          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
 # outcome Kosovo - Opposite sex
       outcome_os_kosovo:
         title: |
@@ -1648,6 +1895,12 @@ en-GB:
 
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
+
+      outcome_ss_affirmation:
+        title: Civil Partnership in %{country_name_lowercase_prefix}
+        body: |
+          %{body}
+
 #outcome country with no CNI or consular services
       outcome_os_no_cni:
         title: Marriage in %{country_name_lowercase_prefix}

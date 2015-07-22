@@ -2,6 +2,7 @@ module SmartAnswer
   module Question
     class Base < Node
       attr_reader :next_node_function_chain
+      class NextNodeUndefined < StandardError; end
 
       def initialize(name, options = {}, &block)
         @save_input_as = nil
@@ -42,7 +43,7 @@ module SmartAnswer
         validate!(current_state, input)
         next_node = next_node_from_function_chain(current_state, input) || next_node_from_default_function(current_state, input)
         responses_and_input = current_state.responses + [input]
-        raise "Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}" unless next_node
+        raise NextNodeUndefined.new("Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}") unless next_node
         next_node
       end
 
@@ -157,7 +158,6 @@ module SmartAnswer
       def next_node_from_default_function(current_state, input)
         current_state.instance_exec(input, &@default_next_node_function)
       end
-
     end
   end
 end

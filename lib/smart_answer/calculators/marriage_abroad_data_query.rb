@@ -12,27 +12,27 @@ module SmartAnswer::Calculators
 
     NON_COMMONWEALTH_COUNTRIES = %w(afghanistan albania algeria american-samoa andorra angola anguilla argentina armenia aruba austria azerbaijan bahrain belarus belgium benin bermuda bhutan bolivia bonaire-st-eustatius-saba bosnia-and-herzegovina brazil british-indian-ocean-territory british-virgin-islands bulgaria burkina-faso burma burundi cambodia cape-verde cayman-islands central-african-republic chad chile china colombia comoros congo democratic-republic-of-congo costa-rica cote-d-ivoire croatia cuba curacao czech-republic denmark djibouti dominican-republic ecuador egypt el-salvador equatorial-guinea eritrea estonia ethiopia falkland-islands fiji finland france french-guiana french-polynesia gabon georgia germany gibraltar greece guadeloupe guatemala guinea guinea-bissau haiti honduras hong-kong hungary iceland indonesia iran iraq ireland israel italy japan jordan kazakhstan south-korea kosovo kuwait kyrgyzstan laos latvia lebanon liberia libya liechtenstein lithuania luxembourg macao macedonia madagascar mali marshall-islands martinique mauritania mayotte mexico micronesia moldova monaco mongolia montenegro montserrat morocco nepal netherlands new-caledonia nicaragua niger north-korea norway oman palau panama paraguay peru philippines pitcairn-island poland portugal qatar reunion romania russia rwanda saint-barthelemy san-marino sao-tome-and-principe saudi-arabia senegal serbia slovakia slovenia somalia south-georgia-and-south-sandwich-islands south-sudan spain st-helena-ascension-and-tristan-da-cunha st-maarten st-martin st-pierre-and-miquelon sudan suriname sweden switzerland syria taiwan tajikistan thailand timor-leste togo tunisia turkmenistan turks-and-caicos-islands ukraine united-arab-emirates usa uruguay uzbekistan venezuela wallis-and-futuna western-sahara vietnam yemen zimbabwe)
 
-    OS_CONSULAR_CNI_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain belarus belgium bolivia bosnia-and-herzegovina brazil bulgaria chile croatia cuba denmark dominican-republic el-salvador estonia ethiopia georgia germany greece guatemala honduras hungary iceland italy japan jordan kazakhstan kuwait kyrgyzstan latvia libya lithuania luxembourg macedonia mexico moldova montenegro netherlands nepal norway oman panama poland romania russia serbia slovenia spain sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+    OS_CONSULAR_CNI_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina brazil bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia germany greece guatemala honduras hungary iceland italy japan jordan kazakhstan kuwait kyrgyzstan latvia libya lithuania luxembourg macedonia mexico moldova montenegro netherlands nepal oman panama poland romania russia serbia slovenia spain sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
     OS_NO_CONSULAR_CNI_COUNTRIES = %w(argentina burundi czech-republic democratic-republic-of-congo mexico saint-barthelemy senegal st-martin slovakia taiwan usa uruguay)
 
-    OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo costa-rica cote-d-ivoire curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq israel kosovo laos liberia liechtenstein macao madagascar mali marshall-islands mauritania micronesia monaco nicaragua niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara)
+    OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo costa-rica cote-d-ivoire curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq israel kosovo laos liberia liechtenstein madagascar mali marshall-islands mauritania micronesia monaco nicaragua niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara)
 
     OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w(nicaragua)
 
     OS_OTHER_COUNTRIES = %w(burma north-korea iran somalia syria yemen saudi-arabia)
 
-    OS_AFFIRMATION_COUNTRIES = %w(cambodia colombia china ecuador egypt lebanon finland mongolia morocco peru philippines portugal qatar south-korea thailand turkey united-arab-emirates vietnam)
+    OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia colombia china ecuador egypt lebanon finland macao mongolia morocco norway peru philippines qatar south-korea thailand turkey united-arab-emirates vietnam)
 
-    CP_EQUIVALENT_COUNTRIES = %w(austria belgium brazil colombia czech-republic denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia sweden)
+    CP_EQUIVALENT_COUNTRIES = %w(austria brazil colombia czech-republic denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia sweden)
 
-    CP_CNI_NOT_REQUIRED_COUNTRIES = %w(argentina mexico uruguay usa andorra bonaire-st-eustatius-saba liechtenstein burundi )
+    CP_CNI_NOT_REQUIRED_COUNTRIES = %w(andorra argentina bonaire-st-eustatius-saba burundi liechtenstein mexico new-zealand uruguay usa)
 
     CP_CONSULAR_COUNTRIES = %w(bulgaria croatia cyprus guatemala moldova panama venezuela)
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(aruba slovakia curacao bonaire-st-eustatius-saba saint-barthelemy st-maarten st-martin taiwan czech-republic argentina cote-d-ivoire burundi)
 
-    SS_MARRIAGE_COUNTRIES = %w(australia azerbaijan bolivia chile china colombia dominican-republic estonia germany kosovo latvia mongolia montenegro nicaragua russia san-marino hungary serbia)
+    SS_MARRIAGE_COUNTRIES = %w(australia azerbaijan bolivia chile china colombia dominican-republic estonia germany hungary kosovo latvia mongolia montenegro nicaragua russia san-marino serbia seychelles)
 
     NO_SS_MARRIAGE_COUNTRIES = %w(san-marino)
 
@@ -40,7 +40,7 @@ module SmartAnswer::Calculators
 
     SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia japan peru philippines vietnam)
 
-    SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia china estonia san-marino serbia)
+    SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia china estonia san-marino serbia seychelles)
 
     SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A = %w(hungary mongolia montenegro nicaragua russia)
 
@@ -145,6 +145,17 @@ module SmartAnswer::Calculators
 
     def os_consular_cni_in_nearby_country?(country_slug)
       OS_CONSULAR_CNI_IN_NEARBY_COUNTRY.include?(country_slug)
+    end
+
+    def appointment_link_key_for(country_slug, partner_gender)
+      key = "appointment_links.#{partner_gender}.#{country_slug}"
+      if phrase_exists?(key)
+        key
+      end
+    end
+
+    def phrase_exists?(key)
+      I18n.exists?("flow.marriage-abroad.phrases.#{key}")
     end
   end
 end

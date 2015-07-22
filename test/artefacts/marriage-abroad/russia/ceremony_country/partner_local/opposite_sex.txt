@@ -17,42 +17,18 @@ If you need a CNI, you’ll first need to give notice of your intended marriage 
 ###Applying for a CNI from the consulate
 
 You’ll need to have been living in the Russian Federation for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
-You can then book an appointment at the consulate in the district you’re living, to give notice of your marriage.
 
-Email <RussiaConsular@fco.gov.uk> to find out where your local consulate is.
-
+You can then book an appointment at the consulate in the district you’re living in, to give notice of your marriage.
 
 
+[Make an appointment at the embassy in Moscow](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-moscow/notice-of-marriage-or-civil-partnership/slot_picker).
 
-$A
-British Embassy Moscow
-121099 Moscow
-Smolenskaya Naberezhnaya 10
-Russia
-$A
-
-$C
-Telephone (visa/consular/press and general enquiries): +7 495 956 7200 
-Fax (general): +7 495 956 7481
-Fax (visa): +7 495 956 7441 
-Fax (press &amp; public affairs): +7 495 956 7430 
-General enquiries: ukinrussia@fco.gov.uk
-Consular Services for British Nationals : RussiaConsular@fco.gov.uk
-Media enquiries: Media.Moscow@fco.gov.uk
-Visa enquiries: info@ukvac-ru.com
-Library for Foreign Literature (British Council), Nikoloyamskaya 1 Moscow: Telephone +7 495 287 1800   Fax: +7 495 287 1801
-
-Email: <ukinrussia@fco.gov.uk>
-
-[British Embassy Moscow - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-moscow/office/british-embassy-moscow-main-contact)
-$C
-
+[Make an appointment at the embassy in St Petersburg](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-st-petersburg/notice-of-marriage-or-civil-partnership/slot_picker).
 
 
 You’ll need to provide supporting documents, including:
 
 - your passport
-- your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
 - proof of residence, such as a residence certificate - check with the consulate or notary public to find out what you need
 - equivalent documents for your partner
 
@@ -99,12 +75,12 @@ There’s an additional fee for this - the embassy or consulate will contact you
 You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in Russia.
 
 
+^You don't need to stay in the country while your notice is posted.^
+
+
 ##Naturalisation of your partner if they move to the UK
 
 Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
-
-
-^You don't need to stay in the country while your notice is posted.^
 
 
 ##Fees
@@ -121,9 +97,7 @@ Administering an oath or making a declaration | £55
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Russia](/government/publications/russia-consular-fees).
 
 
-You can pay by cash or credit card in Moscow, but not by personal cheque.
-
-You can pay by credit card only in St Petersburg and Ekaterinburg.
+You can only pay by MasterCard and Visa credit cards.
 
 
 *[CNI]:certificate of no impediment
