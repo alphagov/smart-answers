@@ -1,77 +1,92 @@
 
 
-$!You can apply to register the birth with the British consulate general in Hong Kong.$!
+$!You must register the birth in the country where the child was born. You'll be given a local birth certificate.$!
 
-Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
 
-##Documents
+You can also register the birth with the UK authorities. You must:
 
-You and the other parent must provide:
+s1. Check that you have the right documents.
+s2. Print out and fill in the birth registration form.
+s3. Pay.
+s4. Post your documents and the form.
 
-- your child’s local birth certificate
-- your British birth certificates (long version) showing details of your parents
-- a naturalisation or registration certificate (if either of you were not born in the UK)
-- your current British passports
-- a copy of a passport or birth certificate (if one of you isn’t British)
-- a marriage certificate (if you’re married)
-- divorce documents (if either of you has ever been divorced)
-- a change of name document (if either of you has ever changed your name)
 
-You’ll need to provide originals and a photocopy of each document.
+##1. Check your documents
 
-##Cost
+^Send English translations of all foreign documents. Use a professional translator and include their name and address with your application. Don't send laminated documents.^
+
+
+You must send the original copies of:
+
+- the child’s full local birth certificate - it must have both parents' names
+
+- the long version of the parent’s birth certificate showing the child’s grandparents’ details (for parents who were born in the UK)
+- the parent’s naturalisation or registration certificate (for parents who weren’t born in the UK)
+- the parents’ marriage or civil partnership certificate (if applicable)
+- evidence that the parents’ previous marriages or civil partnerships have ended (eg divorce or death certificates)
+- change of name documents (if either parent has ever changed their name)
+- a letter from the parent’s employer if they’re working abroad as a UK civil servant, EU civil servant, diplomat or member of HM Forces (for British parents)
+- written evidence if the parent was born overseas while one of their own parents was working abroad as a UK civil servant, EU civil servant, diplomat or member of HM Forces (for British parents)
+
+You must also send photocopies of:
+
+- the photo page of the child’s British passport if they have one
+- the photo page of the parent’s current passport (for British parents)
+- the birth certificate or the photo page of the parent’s current passport (for parents who aren’t British)
+
+
+%Your application will be rejected if the documents aren’t authentic, don’t confirm the child’s identity or don’t prove that the child has a claim to British nationality. The registration fee won’t be refunded.%
+
+
+##2. Fill in the application form
+
+Print out and fill in the [application form](/government/publications/application-to-register-an-overseas-birth).
+
+
+##3. Pay
+
+You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you’re unable to pay online.
+
+The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office or the National Records Office of Scotland, but only from September the year after you register.
+
+Once you’ve paid you will be given a reference number to use on your birth registration form.
 
 Service | Fee
 -|-
 Register a birth | £105
 Copy of a birth registration certificate | £65
 
-You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
+You must also pay for your documents to be returned to you.
 
-You can order copies of the registration certificate from the British consulate general when you register the birth.
+Postage destination | Fee
+-|-
+UK address or British Forces Post Office | £4.50
+Europe (excluding Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Georgia, Liechtenstein, Macedonia, Moldova, Montenegro, Russia, Serbia, Turkey and Ukraine) | £12.50
+Rest of world | £22
 
-Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk) in the UK, but not until September the year after you register.
-
-##Go to the British consulate general
-
-Bring the registration form, supporting documents and the fee.
-
-Either parent can register the birth.
+<a rel="nofollow" href= "https://pay-register-birth-abroad.service.gov.uk/start" class="big button">Pay now</a>
 
 
+##4. Send your registration
 
-
-
-
-$A
-British Consulate-General Hong Kong
-1 Supreme Court Road
- Admiralty 
-Hong Kong
-$A
-
-$C
-Main switchboard: (+852) 2901 3000
-Fax: (+852) 2901 3008
-
-
-$C
+Post the registration form and documents by secure post to:
 
 
 $A
-Consular section
-
+  Overseas Registration Unit
+  Foreign & Commonwealth Office
+  Hanslope Park
+  Hanslope
+  Milton Keynes
+  MK19 7BH
+  United Kingdom
 $A
 
-$C
-Telephone: (+852) 2901 3222
-Fax: (+852) 2901 3204
-Email: hongkong.consular@fco.gov.uk
-Out of office hours Consular Emergency Service: (+852) 2901 3000 
+##Return of your documents
 
+It usually takes 5 working days for the birth to be registered, once the Overseas Registration Unit has received your form and the right documents.
 
-$C
+They’ll contact you within the 5 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the birth to be registered.
 
-
-^Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.^
+Your documents will be returned to you by secure courier after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them.
 
