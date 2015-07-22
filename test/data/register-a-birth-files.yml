@@ -17,7 +17,7 @@ lib/smart_answer_flows/data_partials/_button.erb: bdd3818dfd2b9d6396daf6f60fd887
 lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
 lib/data/registrations.yml: f9c542793c73aa0a8abd6920e49be735
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
-lib/smart_answer/calculators/registrations_data_query.rb: 4b0db14f78256c2b58c4a8dd795d375f
+lib/smart_answer/calculators/registrations_data_query.rb: bac4dcf2a38b005e6169cf7e8a6eaa39
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
 test/fixtures/worldwide_locations.yml: 063711faceec3a4081d6d5fb386c8029
 test/fixtures/worldwide/afghanistan_organisations.json: 1fd89b60eb079c7b3fddcab985f37366
