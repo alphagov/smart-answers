@@ -63,17 +63,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "oru transition countries" do
-        should "be true for Wallis and Fortuna" do
-          assert @described_class::ORU_TRANSITIONED_COUNTRIES.include?('wallis-and-futuna')
-        end
-
-        should "be true for Martinique" do
-          assert @described_class::ORU_TRANSITIONED_COUNTRIES.include?('martinique')
-          refute @described_class::ORU_TRANSITIONED_COUNTRIES.include?('ireland')
-        end
-      end
-
       context "oru birth documents variant countries" do
         should "be true for Netherlands" do
           assert @described_class::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?('netherlands')
