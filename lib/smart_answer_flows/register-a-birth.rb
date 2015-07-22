@@ -87,14 +87,16 @@ module SmartAnswer
           reg_data_query.has_birth_registration_exception?(country_of_birth) & paternity_declaration
         }
 
+        define_predicate(:born_in_north_korea) {
+          country_of_birth == 'north-korea'
+        }
+
         next_node_if(:no_birth_certificate_result, no_birth_certificate_exception)
         next_node_if(:which_country?, responded_with('another_country'))
-        on_condition(->(_) { reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(country_of_birth) }) do
-          next_node_if(:embassy_result, responded_with('same_country'))
+        on_condition(responded_with('same_country')) do
+          next_node_if(:embassy_result, born_in_north_korea)
         end
-        next_node_if(:oru_result, reg_data_query.born_in_oru_transitioned_country? | responded_with('in_the_uk'))
-        next_node_if(:embassy_result, responded_with('same_country'))
-        next_node(:which_country?)
+        next_node(:oru_result)
       end
 
       # Q6
@@ -107,9 +109,12 @@ module SmartAnswer
           country_name_query.definitive_article(registration_country)
         end
 
-        next_node_if(:oru_result, reg_data_query.born_in_oru_transitioned_country?)
-        next_node_if(:no_embassy_result, country_has_no_embassy)
-        next_node(:embassy_result)
+        define_predicate(:currently_in_north_korea) {
+          response == 'north-korea'
+        }
+
+        next_node_if(:embassy_result, currently_in_north_korea)
+        next_node(:oru_result)
       end
 
       # Outcomes
