@@ -245,7 +245,7 @@ You can pay by cash or credit card, but not by personal cheque.
 
 <% if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_birth) %>
 ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
-  <% if reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(registration_country) %>
+  <% if registration_country == 'north-korea' %>
 
 <%= render partial: 'footnote_oru_variants.govspeak.erb', locals: { registration_country: registration_country } -%>
   <% end %>
