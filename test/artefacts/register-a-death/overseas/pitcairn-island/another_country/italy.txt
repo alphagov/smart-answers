@@ -1,78 +1,86 @@
 
 
-$!You must register the death according to the regulations in Pitcairn Island. You will be given a local death certificate.$!
+$!You must register the death according to the regulations in the country where the person died. You will be given a local death certificate.$!
 
-This local death certificate will be accepted in the UK (it may need to be a [certified translation](/certifying-a-document) of the document if it’s not in English).
+This local death certificate will be accepted in the UK. It may need to be a [certified translation](/certifying-a-document) of the document if it’s not in English.
 
 ##Register the death with the UK authorities
 
-You can also apply to register the death with the British embassy in Italy.
+You can also apply to register the death with the UK authorities. You don’t have to do this, but it means:
 
-You don’t have to do this, but it means:
+- the death will be recorded with the General Register Offices (for England, Wales and Northern Ireland) and the National Records Office of Scotland
+- you can order a consular death registration certificate
 
-- a British-style death certificate will be issued
-- having the death registered at the General Register Office in the UK
+You will need to:
 
-##How to register
+s1. Check that you have the right documents.
+s2. Print out and fill in the forms.
+s3. Pay.
+s4. Post your documents and the forms.
 
-Download and complete a [registration form](/government/publications/application-to-register-an-overseas-death).
 
-##Documents
+###1. Documents
 
-You must provide originals and a photocopy of:
+^Send English translations of all foreign documents. Use a professional translator and include their name and address with your application. Don't send laminated documents.^
 
-- a local death certificate (not a certificate issued by a doctor)
-- the person’s passport
-- their full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
-- written permission from the person's next of kin or the ‘executor’ of their estate (if you’re not next of kin or the executor)
+You must provide:
 
-Fill in [form D1, 'Returning the passport of a deceased person'](/government/publications/returning-the-passport-of-a-deceased-person) if you provide their passport.
+- the original local death certificate (not a certificate issued by a doctor)
 
-Fill in [form LS01, 'Lost or Stolen Passport Notification'](/government/publications/lost-or-stolen-passport-notification--2) if the passport is lost or unavailable.
+- a photocopy of the photo page of the passport of the person who died
+- their original full UK birth, naturalisation or registration certificate (if you can’t provide their passport)
+- written permission from the person’s next of kin or the executor of their estate (if you’re not next of kin or the executor)
 
-##Cost
+%Your application will be rejected if the documents aren’t authentic, don’t confirm the person’s identity or don’t prove that they were a British national when they died. The registration fee won’t be refunded.%
+
+###2. Forms
+
+Print out and fill in the [death registration form](/government/publications/application-to-register-an-overseas-death).
+
+###3. Pay
+
+Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> if you are unable to pay online.
+
+The registration fee doesn't include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
 
 Service | Fee
 -|-
 Register a death | £105
 Copy of a death registration certificate | £65
 
-You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
+You must also pay for your documents to be returned to you.
 
-You can order copies of the registration certificate from the British embassy when you register the death.
+Postage destination | Fee
+-|-
+UK address or British Forces Post Office | £4.50
+Europe (excluding Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Georgia, Liechtenstein, Macedonia, Moldova, Montenegro, Russia, Serbia, Turkey and Ukraine) | £12.50
+Rest of world | £22
 
-You can also get copies from the [General Register Office](http://www.gro.gov.uk/) from September the year after you register - they will cost less.
-
-##Go to the British embassy
-
-You can book an appointment at the British embassy and bring along the registration form, supporting documents and the fee.
-
-## Send your registration
-
-You can also post your application to the British embassy.
-
-Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/passport-credit-debit-card-payment-authorisation-slip-italy) and post it with your registration form.
-
-Use the [delivery return form](/government/publications/registered-post-return-delivery-form-italy) to get your documents delivered back to you.
+<a rel="nofollow" href= "https://pay-register-death-abroad.service.gov.uk/start" class="big button">Pay now</a>
 
 
+###4. Send your registration
 
-^Registration can take up to 3 months - your application will be sent to local British embassy, consulate or high commission where the death will be registered.^
+Once you've paid you will be given a reference number to use on your death registration form.
 
+Post your registration form and documents by secure post to:
 
 
 $A
-British Embassy
-Via XX Settembre 80/a
-00187 Rome 
-Italy
+Overseas Registration Unit
+Foreign & Commonwealth Office
+Hanslope Park
+Hanslope
+Milton Keynes
+MK19 7BH
+United Kingdom
 $A
 
-$C
-Telephone: +39 06 4220 0001
-Fax: +39 06 4220 2333
+##Return of your documents
 
-Email: <InfoRome@fco.gov.uk>
+It usually takes 3 working days for the death to be registered in the UK once the Overseas Registration Unit has received your form and the right documents.
 
-$C
+They’ll contact you within the 3 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the death to be registered.
+
+Your documents will be returned to you by secure courier after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them.
 

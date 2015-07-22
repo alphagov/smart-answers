@@ -6,4 +6,4 @@ test/data/marriage-abroad-responses-and-expected-results.yml: e2a77265651bd20a98
 lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: ce67dce87d17b77e1edd2cb5c630ca89
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
-lib/smart_answer/calculators/registrations_data_query.rb: 4b0db14f78256c2b58c4a8dd795d375f
+lib/smart_answer/calculators/registrations_data_query.rb: bac4dcf2a38b005e6169cf7e8a6eaa39
