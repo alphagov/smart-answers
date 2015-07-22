@@ -9,7 +9,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines serbia sierra-leone spain sri-lanka st-kitts-and-nevis thailand turkey uganda united-arab-emirates venezuela)
+    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines pitcairn-island saint-barthelemy serbia sierra-leone spain sri-lanka st-kitts-and-nevis st-martin thailand turkey uganda united-arab-emirates venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::RegisterABirthFlow
   end
@@ -543,6 +543,39 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
       assert_current_node :oru_result
       assert_state_variable  :translator_link_url, '/government/publications/democratic-republic-of-congo-list-of-lawyers'
+    end
+  end
+
+  context "Pitcairn Island" do
+    should "lead to the ORU result" do
+      worldwide_api_has_no_organisations_for_location('pitcairn-island')
+      add_response 'pitcairn-island'
+      add_response 'mother'
+      add_response 'no'
+      add_response 'same_country'
+      assert_current_node :oru_result
+    end
+  end
+
+  context "St Martin" do
+    should "lead to the ORU result" do
+      worldwide_api_has_no_organisations_for_location('st-martin')
+      add_response 'st-martin'
+      add_response 'mother'
+      add_response 'no'
+      add_response 'same_country'
+      assert_current_node :oru_result
+    end
+  end
+
+  context "Saint Barthelemy" do
+    should "lead to the ORU result" do
+      worldwide_api_has_no_organisations_for_location('saint-barthelemy')
+      add_response 'saint-barthelemy'
+      add_response 'mother'
+      add_response 'no'
+      add_response 'same_country'
+      assert_current_node :oru_result
     end
   end
 
