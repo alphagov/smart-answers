@@ -1,17 +1,17 @@
 <% content_for :body do %>
-<% if is_already_abroad %>
-  You can carry on getting tax credits for up to 12 weeks after leaving the UK if you were already receiving them before you left.
-<% else %>
-  You may be able to carry on getting tax credits for up to 12 weeks.
-<% end %>
+  <% if is_already_abroad %>
+    You can carry on getting tax credits for up to 12 weeks after leaving the UK if you were already receiving them before you left.
+  <% else %>
+    You may be able to carry on getting tax credits for up to 12 weeks.
+  <% end %>
 
-You must let the Tax Credit Office know within 1 month of the date you find out if you need to stay abroad for longer than 12 weeks.
+  You must let the Tax Credit Office know within 1 month of the date you find out if you need to stay abroad for longer than 12 weeks.
 
-You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn't have.
+  You can receive tax credits for longer in some circumstances. You can be fined £300 if you receive credits you shouldn't have.
 
-<% if is_already_abroad %>
-  <%= render partial: 'tax_credits_already_abroad_helpline.govspeak.erb' -%>
-<% else %>
-  <%= render partial: 'tax_credits_going_abroad_helpline.govspeak.erb' -%>
-<% end %>
+  <% if is_already_abroad %>
+    <%= render partial: 'tax_credits_already_abroad_helpline.govspeak.erb' -%>
+  <% else %>
+    <%= render partial: 'tax_credits_going_abroad_helpline.govspeak.erb' -%>
+  <% end %>
 <% end %>
