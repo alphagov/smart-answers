@@ -5,8 +5,8 @@ test/data/calculate-married-couples-allowance-questions-and-responses.yml: 1bbef
 test/data/calculate-married-couples-allowance-responses-and-expected-results.yml: 3bb53e4211718b8b1b7dacfaa52f3f49
 lib/smart_answer_flows/calculate-married-couples-allowance/_done_body.govspeak.erb: cb025369e07d6cdbedbfe7d54df39eee
 lib/smart_answer_flows/calculate-married-couples-allowance/_done_next_steps.govspeak.erb: bd570369ab0b5cf668541917daa5ef9b
-lib/smart_answer_flows/calculate-married-couples-allowance/highest_earner_done.govspeak.erb: f1d32989c01c015a1e604213e83e4e2a
-lib/smart_answer_flows/calculate-married-couples-allowance/husband_done.govspeak.erb: 149f7a295ed3e9d19d02a484f8c43012
-lib/smart_answer_flows/calculate-married-couples-allowance/sorry.govspeak.erb: db151933e18cc0b0b30764723f5ffc22
+lib/smart_answer_flows/calculate-married-couples-allowance/highest_earner_done.govspeak.erb: 47155704eda98a167c0a1a7a7aea7fea
+lib/smart_answer_flows/calculate-married-couples-allowance/husband_done.govspeak.erb: 55ee6f57d88f61f8ae338466dd8223ff
+lib/smart_answer_flows/calculate-married-couples-allowance/sorry.govspeak.erb: d862e76cbe8111a3c04eb46fcd042e7a
 lib/data/rates/married_couples_allowance.yml: 2a981979d28576078696119ea1938315
 lib/smart_answer/calculators/married_couples_allowance_calculator.rb: e1e66b360f09a5f3282348151e7ffdfd
