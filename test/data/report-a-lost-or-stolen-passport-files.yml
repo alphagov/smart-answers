@@ -3,9 +3,9 @@ lib/smart_answer_flows/report-a-lost-or-stolen-passport.rb: 0d35e8f5bb346d669c72
 lib/smart_answer_flows/locales/en/report-a-lost-or-stolen-passport.yml: 08170c87d6f075fc0ca529dea22a430c
 test/data/report-a-lost-or-stolen-passport-questions-and-responses.yml: cb7d64407b737eeb4924389f3bd335c6
 test/data/report-a-lost-or-stolen-passport-responses-and-expected-results.yml: 2ef8837f76907e72aadb198636a62078
-lib/smart_answer_flows/report-a-lost-or-stolen-passport/complete_LS01_form.govspeak.erb: b78b4f4d4f386ed1a98ae4ae882be780
-lib/smart_answer_flows/report-a-lost-or-stolen-passport/contact_the_embassy.govspeak.erb: d84fcb1f9279b1d604270e6195902ba3
-lib/smart_answer_flows/report-a-lost-or-stolen-passport/contact_the_embassy_canada.govspeak.erb: 9ecc81832284b2228b1fbb6b08a6ce22
+lib/smart_answer_flows/report-a-lost-or-stolen-passport/complete_LS01_form.govspeak.erb: 225db51aaf197cf33716eef922e77a1d
+lib/smart_answer_flows/report-a-lost-or-stolen-passport/contact_the_embassy.govspeak.erb: a069cd49c208407a70a322e7d7f6bfb5
+lib/smart_answer_flows/report-a-lost-or-stolen-passport/contact_the_embassy_canada.govspeak.erb: edd49b8ac49001f81675874441498014
 lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
 test/fixtures/worldwide/azerbaijan_organisations.json: fc20a7069e6457f95fc9198ea6c3d2d0
 test/fixtures/worldwide/canada_organisations.json: 5995a2f7b236fbb891d74851c9fb5ae4
