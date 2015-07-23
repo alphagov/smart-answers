@@ -1,17 +1,17 @@
 <% content_for :title do %>
-Your average weekly childcare costs have <%= title_change_text %> by <%= format_money(difference_money) %>.
+  Your average weekly childcare costs have <%= title_change_text %> by <%= format_money(difference_money) %>.
 <% end %>
 
 <% content_for :body do %>
-<% if ten_or_more %>
-  <% if cost_change_4_weeks %>
-Call the Tax Credit Office if you expect this to last for 4 weeks in a row or more.
+  <% if ten_or_more %>
+    <% if cost_change_4_weeks %>
+      Call the Tax Credit Office if you expect this to last for 4 weeks in a row or more.
 
-You don’t need to report it if this won’t last 4 weeks in a row or more.
+      You don’t need to report it if this won’t last 4 weeks in a row or more.
+    <% else %>
+      Tell the Tax Credit Office so they can adjust your tax credit.
+    <% end %>
   <% else %>
-Tell the Tax Credit Office so they can adjust your tax credit.
+    This doesn’t affect your tax credits. You don’t need to report it.
   <% end %>
-<% else %>
-This doesn’t affect your tax credits. You don’t need to report it.
-<% end %>
 <% end %>
