@@ -3,8 +3,8 @@ lib/smart_answer_flows/calculate-your-redundancy-pay.rb: b6b4b001749728acd0c2345
 lib/smart_answer_flows/locales/en/calculate-your-redundancy-pay.yml: d9dc798455fc5e039abd10ad7135769a
 test/data/calculate-your-redundancy-pay-questions-and-responses.yml: dca676f9f9cd34571e4338b66d18bd89
 test/data/calculate-your-redundancy-pay-responses-and-expected-results.yml: c2a4b09c482a4c3afdbedad7ce8089e0
-lib/smart_answer_flows/calculate-your-redundancy-pay/done.govspeak.erb: f121e468c57e101c3f4c129caaaed50a
-lib/smart_answer_flows/calculate-your-redundancy-pay/done_no_statutory.govspeak.erb: e6772ff673e9e341606c0f16ad4c0d36
+lib/smart_answer_flows/calculate-your-redundancy-pay/done.govspeak.erb: 627ae9150dfcf72d8294f9f68019ba91
+lib/smart_answer_flows/calculate-your-redundancy-pay/done_no_statutory.govspeak.erb: e4f6b40f10295e4757075ff698b39707
 lib/smart_answer/calculators/redundancy_calculator.rb: 3d0942dcd707c9dcc37e06b47f55c2b6
 lib/data/rates/redundancy_pay.yml: 270b43298e223b28ba7ad3f81f5e0a08
 lib/data/rates/redundancy_pay_northern_ireland.yml: 01a56e2760328e0213318050689f2556
