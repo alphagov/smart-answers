@@ -43,10 +43,6 @@ end
 multiple_choice :adoption_did_the_employee_work_for_you? do
   option yes: :adoption_employment_contract?
   option no: :adoption_not_entitled_to_leave_or_pay
-
-  calculate :adoption_leave_info do
-    PhraseList.new(:adoption_not_entitled_to_leave_or_pay)
-  end
 end
 
 ## QA4
@@ -55,13 +51,6 @@ multiple_choice :adoption_employment_contract? do
   option :no
 
   save_input_as :employee_has_contract_adoption
-
-  #not entitled to leave if no contract; keep asking questions to check eligibility
-  calculate :adoption_leave_info do |response|
-    if response == 'no'
-      PhraseList.new(:adoption_not_entitled_to_leave)
-    end
-  end
 
   next_node :adoption_is_the_employee_on_your_payroll?
 end
@@ -72,16 +61,6 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
   option :no
 
   save_input_as :on_payroll
-
-  calculate :adoption_pay_info do |response|
-    if response == 'no'
-      PhraseList.new(
-        :adoption_not_entitled_to_pay_intro,
-        :must_be_on_payroll,
-        :adoption_not_entitled_to_pay_outro
-      )
-    end
-  end
 
   calculate :to_saturday do
     calculator.matched_week.last
@@ -125,14 +104,6 @@ date_question :adoption_date_leave_starts? do
 
   calculate :a_notice_leave do
     calculator.format_date calculator.a_notice_leave
-  end
-
-  calculate :adoption_leave_info do
-    if adoption_leave_info.nil?
-      PhraseList.new(:adoption_leave_table)
-    else
-      adoption_leave_info
-    end
   end
 
   define_predicate(:has_contract_not_on_payroll?) do
@@ -208,7 +179,7 @@ money_question :earnings_for_pay_period_adoption? do
     sprintf("%.2f", calculator.average_weekly_earnings)
   end
 
-  calculate :above_lower_earning_limit? do
+  calculate :above_lower_earning_limit do
     calculator.average_weekly_earnings > calculator.lower_earning_limit
   end
 
@@ -219,18 +190,6 @@ money_question :earnings_for_pay_period_adoption? do
 
   define_predicate(:average_weekly_earnings_under_lower_earning_limit?) do
     calculator.average_weekly_earnings < calculator.lower_earning_limit
-  end
-
-   calculate :adoption_pay_info do
-    if calculator.average_weekly_earnings < calculator.lower_earning_limit
-      PhraseList.new(
-        :adoption_not_entitled_to_pay_intro,
-        :must_earn_over_threshold,
-        :adoption_not_entitled_to_pay_outro
-      )
-    else
-      PhraseList.new(:adoption_pay_table)
-    end
   end
 
   next_node_if(:adoption_leave_and_pay, average_weekly_earnings_under_lower_earning_limit?)
@@ -244,17 +203,12 @@ multiple_choice :how_do_you_want_the_sap_calculated? do
 
   save_input_as :sap_calculation_method
 
-  calculate :adoption_pay_info do
-    PhraseList.new(:adoption_pay_table)
-  end
-
   next_node_if(:adoption_leave_and_pay, responded_with('weekly_starting'))
   next_node_if(:monthly_pay_paternity?, variable_matches(:pay_pattern, 'monthly')) ## Shared with paternity calculator
   next_node :next_pay_day_paternity? ## Shared with paternity calculator
 end
 
 outcome :adoption_leave_and_pay do
-
   precalculate :pay_method do
     calculator.pay_method = (
       if monthly_pay_method
@@ -272,7 +226,7 @@ outcome :adoption_leave_and_pay do
   end
 
   precalculate :pay_dates_and_pay do
-    if above_lower_earning_limit?
+    if above_lower_earning_limit
       calculator.paydates_and_pay.map do |date_and_pay|
         %Q(#{date_and_pay[:date].strftime("%e %B %Y")}|£#{sprintf("%.2f", date_and_pay[:pay])})
       end.join("\n")
@@ -280,7 +234,7 @@ outcome :adoption_leave_and_pay do
   end
 
   precalculate :total_sap do
-    if above_lower_earning_limit?
+    if above_lower_earning_limit
       sprintf("%.2f", calculator.total_statutory_pay)
     end
   end

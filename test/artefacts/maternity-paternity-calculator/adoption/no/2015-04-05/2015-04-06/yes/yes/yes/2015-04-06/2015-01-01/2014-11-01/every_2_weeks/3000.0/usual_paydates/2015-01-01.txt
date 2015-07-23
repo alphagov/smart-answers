@@ -1,6 +1,17 @@
 
 
-paternity_entitled_to_leave
+##Statutory Paternity Leave
+
+The employee is entitled to Statutory Paternity Leave.
+
+|Leave                         | Key dates                    |
+|------------------------------|------------------------------|
+|Start                         |  6 April 2015          |
+|End                           |  3 April 2016            |
+|Latest date to [claim leave](/employers-paternity-pay-leave/)     |   |
+
+^Leave must finish within 56 days of the birth (or due date if the baby is early).^
+
 
 ##Statutory Paternity Pay (SPP)
 
@@ -31,6 +42,5 @@ Date | SPP amount
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
 
-adoption_spp_claim_link
 
 Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)

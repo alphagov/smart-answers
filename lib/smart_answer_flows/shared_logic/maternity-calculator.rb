@@ -16,13 +16,9 @@ end
 multiple_choice :employment_contract? do
   option :yes
   option :no
-  calculate :maternity_leave_info do |response|
-    if response == 'yes'
-      PhraseList.new(:maternity_leave_table)
-    else
-      PhraseList.new(:not_entitled_to_statutory_maternity_leave)
-    end
-  end
+
+  save_input_as :has_employment_contract
+
   next_node :date_leave_starts?
 end
 
@@ -288,18 +284,6 @@ outcome :maternity_leave_and_pay_result do
     unless not_entitled_to_pay_reason.present?
       sprintf("%.2f", calculator.total_statutory_pay)
     end
-  end
-
-  precalculate :maternity_pay_info do
-    if not_entitled_to_pay_reason.present?
-      pay_info = PhraseList.new(calculator.average_weekly_earnings ?
-                                :not_entitled_to_smp_intro_with_awe : :not_entitled_to_smp_intro)
-      pay_info << not_entitled_to_pay_reason
-      pay_info << :not_entitled_to_smp_outro
-    else
-      pay_info = PhraseList.new(:maternity_pay_table, :paydates_table)
-    end
-    pay_info
   end
 
   precalculate :pay_dates_and_pay do

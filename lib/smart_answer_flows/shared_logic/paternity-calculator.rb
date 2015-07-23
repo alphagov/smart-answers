@@ -33,7 +33,7 @@ date_question :employee_date_matched_paternity_adoption? do
     'paternity_adoption'
   end
 
-  calculate :paternity_adoption? do
+  calculate :paternity_adoption do
     leave_type == 'paternity_adoption'
   end
 
@@ -132,22 +132,13 @@ multiple_choice :employee_on_payroll_paternity? do
   save_input_as :on_payroll
 
   calculate :leave_spp_claim_link do
-    paternity_adoption? ? 'adoption' : 'notice-period'
+    paternity_adoption ? 'adoption' : 'notice-period'
   end
 
-  calculate :not_entitled_reason do |response|
-    if response == 'no' && has_contract == 'no'
-      PhraseList.new(
-        :paternity_not_entitled_to_leave,
-        :paternity_not_entitled_to_pay_intro,
-        :must_be_on_payroll,
-        :paternity_not_entitled_to_pay_outro
-      )
-    end
-  end
+
 
   calculate :to_saturday do
-    if paternity_adoption?
+    if paternity_adoption
       calculator.matched_week.last
     else
       calculator.qualifying_week.last
@@ -159,11 +150,11 @@ multiple_choice :employee_on_payroll_paternity? do
   end
 
   calculate :still_employed_date do
-    paternity_adoption? ? calculator.employment_end : date_of_birth
+    paternity_adoption ? calculator.employment_end : date_of_birth
   end
 
   calculate :start_leave_hint do
-    paternity_adoption? ? ap_adoption_date_formatted : date_of_birth
+    paternity_adoption ? ap_adoption_date_formatted : date_of_birth
   end
 
   next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no'))
@@ -175,17 +166,6 @@ multiple_choice :employee_still_employed_on_birth_date? do
   option :yes
   option :no
   save_input_as :employed_dob
-
-  calculate :not_entitled_reason do |response|
-    if response == 'no' and has_contract == 'no'
-      PhraseList.new(
-        :paternity_not_entitled_to_leave,
-        :paternity_not_entitled_to_pay_intro,
-        :"#{leave_type}_must_be_employed_by_you",
-        :paternity_not_entitled_to_pay_outro
-      )
-    end
-  end
 
   next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no') & responded_with('no'))
   next_node :employee_start_paternity?
@@ -200,7 +180,7 @@ date_question :employee_start_paternity? do
 
   calculate :leave_start_date do |response|
     calculator.leave_start_date = response
-    if paternity_adoption?
+    if paternity_adoption
       raise SmartAnswer::InvalidResponse if calculator.leave_start_date < ap_adoption_date
     else
       raise SmartAnswer::InvalidResponse if calculator.leave_start_date < date_of_birth
@@ -227,26 +207,6 @@ multiple_choice :employee_paternity_length? do
         1.week.since(leave_start_date)
       else
         2.weeks.since(leave_start_date)
-      end
-    end
-  end
-
-  calculate :not_entitled_reason do
-    if has_contract == 'yes'
-      if employed_dob == 'no'
-        PhraseList.new(
-          :paternity_entitled_to_leave,
-          :paternity_not_entitled_to_pay_intro,
-          :"#{leave_type}_must_be_employed_by_you",
-          :paternity_not_entitled_to_pay_outro
-        )
-      elsif on_payroll == 'no'
-        PhraseList.new(
-          :paternity_entitled_to_leave,
-          :paternity_not_entitled_to_pay_intro,
-          :must_be_on_payroll,
-          :paternity_not_entitled_to_pay_outro
-        )
       end
     end
   end
@@ -430,6 +390,17 @@ end
 
 # Paternity outcomes
 outcome :paternity_leave_and_pay do
+  precalculate :has_contract do
+    has_contract
+  end
+
+  precalculate :leave_spp_claim_link do
+    leave_spp_claim_link
+  end
+
+  precalculate :notice_of_leave_deadline do
+    notice_of_leave_deadline
+  end
 
   precalculate :pay_method do
     calculator.pay_method = (
@@ -447,39 +418,20 @@ outcome :paternity_leave_and_pay do
     )
   end
 
-  precalculate :above_lower_earning_limit? do
+  precalculate :above_lower_earning_limit do
     calculator.average_weekly_earnings > calculator.lower_earning_limit
-  end
-
-  precalculate :paternity_info do
-    phrases = PhraseList.new
-
-    if has_contract == "no"
-      phrases << :paternity_not_entitled_to_leave
-    else
-      phrases << :paternity_entitled_to_leave
-    end
-
-    unless above_lower_earning_limit?
-      phrases << :paternity_not_entitled_to_pay_intro <<
-                  :must_earn_over_threshold <<
-                  :paternity_not_entitled_to_pay_outro
-    else
-      phrases << :paternity_entitled_to_pay << :"#{leave_type}_spp_claim_link"
-    end
-    phrases
   end
 
   precalculate :lower_earning_limit do
     sprintf("%.2f", calculator.lower_earning_limit)
   end
 
-  precalculate :entitled_to_pay? do
-    !paternity_info.nil? && paternity_info.phrase_keys.include?(:paternity_entitled_to_pay)
+  precalculate :entitled_to_pay do
+    above_lower_earning_limit
   end
 
   precalculate :pay_dates_and_pay do
-    if entitled_to_pay? && above_lower_earning_limit?
+    if entitled_to_pay && above_lower_earning_limit
       calculator.paydates_and_pay.map do |date_and_pay|
         %Q(#{date_and_pay[:date].strftime("%e %B %Y")}|£#{sprintf("%.2f", date_and_pay[:pay])})
       end.join("\n")
@@ -487,7 +439,7 @@ outcome :paternity_leave_and_pay do
   end
 
   precalculate :total_spp do
-    if above_lower_earning_limit?
+    if above_lower_earning_limit
       sprintf("%.2f", calculator.total_statutory_pay)
     end
   end
@@ -499,15 +451,10 @@ outcome :paternity_leave_and_pay do
 end
 
 outcome :paternity_not_entitled_to_leave_or_pay do
-  precalculate :not_entitled_reason do
-    if not_entitled_reason.nil?
-      phrases = PhraseList.new(:paternity_not_entitled_to_leave_or_pay_intro)
-      phrases << :"#{leave_type}_not_responsible_for_upbringing" if paternity_responsible == 'no'
-      phrases << :not_worked_long_enough if paternity_employment_start == "no"
-      phrases << :paternity_not_entitled_to_leave_or_pay_outro
-      phrases
-    else
-      not_entitled_reason
-    end
+  precalculate :has_contract do
+    has_contract
+  end
+  precalculate :paternity_employment_start do
+    paternity_employment_start
   end
 end

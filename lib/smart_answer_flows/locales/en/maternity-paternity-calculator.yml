@@ -40,182 +40,6 @@ en-GB:
         + paternity leave or pay for [overseas adoptions](/paternity-leave-pay-employees)
         + [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide)
 
-      phrases:
-        not_worked_long_enough: + they must have started working for you on or before %{employment_start}
-        must_be_on_payroll: + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
-        must_earn_over_threshold: + their average weekly earnings (£%{average_weekly_earnings}) between %{relevant_period} must be at least £%{lower_earning_limit}
-        paternity_adoption_must_be_employed_by_you: + they must still be employed by you on %{ap_adoption_date_formatted}
-        paternity_must_be_employed_by_you: + they must still be employed by you on %{due_date}
-        paternity_adoption_not_responsible_for_upbringing: + aren’t responsible for the child’s upbringing or the adopter’s partner
-        paternity_not_responsible_for_upbringing: + aren't responsible for the child's upbringing or the biological father or mother's partner
-        paternity_spp_claim_link: |
-          The latest date for them to [claim SPP](/employers-paternity-pay-leave/notice-period) is usually 28 days before they want it to start.
-        paternity_adoption_spp_claim_link: |
-          The latest date for them to [claim SPP](/employers-paternity-pay-leave/adoption) is usually 28 days before they want it to start.
-        maternity_leave_table: |
-          ##Statutory Maternity Leave
-
-          The employee is entitled to up to 52 weeks Statutory Maternity Leave.
-
-          |Leave                         | Key dates                    |
-          |------------------------------|------------------------------|
-          |Start                         | %{leave_start_date}          |
-          |End                           | %{leave_end_date}            |
-          |Latest date to [claim leave](/maternity-leave-pay-employees/notice-period "Notice period")    | %{notice_of_leave_deadline}  |
-          |Earliest date leave can start | %{leave_earliest_start_date} |
-
-        not_entitled_to_statutory_maternity_leave: |
-          ##Statutory Maternity Leave
-
-          The employee is not entitled to Statutory Maternity Leave because they don’t have an employment contract with you.
-
-          Write to them within 28 days of their leave request confirming this.
-
-        maternity_pay_table: |
-          ##Statutory Maternity Pay
-
-          The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP) if they [claim SMP in time](/maternity-leave-pay-employees/notice-period "Notice period") and give [proof of the pregnancy](/maternity-leave-pay-employees/eligibility "Proof of pregnancy").
-
-          Pay | Key facts
-          -|-
-          Average weekly earnings | £%{average_weekly_earnings} (don't round this up or down)
-          Latest date to claim SMP | %{notice_request_pay}
-          SMP start date due to pregnancy related illness| %{ssp_stop}
-          Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
-
-          %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
-
-        paydates_table: |
-          ## SMP calculation
-
-          Date | SMP amount
-          -|-
-          %{pay_dates_and_pay}
-           | **Total SMP: £%{total_smp}**
-
-        not_entitled_to_smp_intro: |
-          ##Statutory maternity pay
-
-          The employee is not entitled to statutory maternity pay. To qualify:
-
-        not_entitled_to_smp_intro_with_awe: |
-          ##Statutory maternity pay
-
-          The employee is not entitled to statutory maternity pay.
-          Their average weekly earnings are £%{average_weekly_earnings} (you can’t round this figure up or down). To qualify:
-
-        not_entitled_to_smp_outro: |
-          You must write confirming this within 28 days of their maternity pay request.
-
-          Send them form SMP1 within 7 days of your decision. They must get this form within 28 days of their pay request or the birth (whichever is earlier).
-
-
-          $D [Download Form SMP1, Non-payment of Statutory Maternity Pay (PDF, 59KB)](http://www.dwp.gov.uk/advisers/claimforms/smp1_print.pdf) $D
-
-        paternity_entitled_to_leave: |
-          ##Statutory Paternity Leave
-
-          The employee is entitled to Statutory Paternity Leave.
-
-          |Leave                         | Key dates                    |
-          |------------------------------|------------------------------|
-          |Start                         | %{leave_start_date}          |
-          |End                           | %{leave_end_date}            |
-          |Latest date to [claim leave](/employers-paternity-pay-leave/%{leave_spp_claim_link})     | %{notice_of_leave_deadline}  |
-
-          ^Leave must finish within 56 days of the birth (or due date if the baby is early).^
-
-        #Result 2
-        paternity_not_entitled_to_leave: |
-          ##Statutory Paternity Leave
-
-          The employee is not entitled to Statutory Paternity Leave because they don’t have an employment contract with you.
-
-          Write to them within 28 days of their leave request confirming this.
-
-        paternity_entitled_to_pay: |
-          ##Statutory Paternity Pay (SPP)
-
-          The employee is entitled to SPP.
-
-          Their average weekly earnings are: £%{average_weekly_earnings}
-
-          ## SPP calculation
-
-          Date | SPP amount
-          -|-
-          %{pay_dates_and_pay}
-           | **Total SPP: £%{total_spp}**
-
-          %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
-
-        paternity_not_entitled_to_leave_or_pay_intro: |
-          ##Not entitled to Statutory Paternity Pay or Leave
-
-          The employee is not entitled to Statutory Paternity Leave or Pay because:
-
-        paternity_not_entitled_to_leave_or_pay_outro: |
-
-          You must write confirming this. Also, send them form OSP1 confirming they’re not entitled to pay within 28 days of their pay request.
-
-          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
-
-        # Result 3
-        paternity_not_entitled_to_pay_intro: |
-          ##Statutory Paternity Pay
-
-          The employee is not entitled to Statutory Paternity Pay. To qualify:
-
-        paternity_not_entitled_to_pay_outro: |
-
-          Send them form OSPP1 confirming this within 28 days of their pay request.
-
-
-          $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
-
-
-        adoption_leave_table: |
-          ##Statutory Adoption Leave
-
-          The employee is entitled to up to 52 weeks Statutory Adoption Leave if they [claim the leave on time](/employers-adoption-pay-leave/notice-period).
-
-          |Leave                         | Key dates                   |
-          |------------------------------|-----------------------------|
-          |Start                         | %{leave_start_date}         |
-          |End                           | %{leave_end_date}           |
-
-        adoption_not_entitled_to_leave: |
-          ##Statutory Adoption Leave
-
-          The employee is not entitled to Statutory Adoption Leave because they don’t have an employment contract with you.
-
-          Write to them within 28 days of their leave request confirming this.
-
-        adoption_pay_table: |
-          ##Statutory Adoption Pay
-
-          The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP) if they [claim SAP in time](/employers-adoption-pay-leave/notice-period) and give you [proof of the adoption](/employers-adoption-pay-leave/proof-of-adoption).
-
-          The employee’s average weekly earnings are: £%{average_weekly_earnings}.
-
-          Date | SAP amount
-          -|-
-          %{pay_dates_and_pay}
-           | **Total SAP: £%{total_sap}**
-
-          %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
-
-        adoption_not_entitled_to_pay_intro: |
-          ##Statutory Adoption Pay
-
-          The employee is not entitled to Statutory Adoption Pay. To qualify:
-
-        adoption_not_entitled_to_pay_outro: |
-          Send them form SAP1 within 7 days of your decision. They must get this form within 28 days of their pay request or the date they were matched with the child (whichever is earlier).
-
-
-          $D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf) $D
-
       ## Q1
       what_type_of_leave?:
         title: What do you want to check?
@@ -303,16 +127,6 @@ en-GB:
           "third": "3rd"
           "fourth": "4th"
           "last": "last"
-      ## Combined result for maternity leave and pay.
-      maternity_leave_and_pay_result:
-        next_steps: |
-          Read the [guide to Statutory Maternity Pay and Leave](/maternity-leave-pay-employees)
-        body: |
-          %{maternity_leave_info}
-
-          %{maternity_pay_info}
-
-          *[SMP]: Statutory Maternity Pay
 
       ## QP0
       leave_or_pay_for_adoption?:
@@ -425,18 +239,6 @@ en-GB:
           "third": "3rd"
           "fourth": "4th"
           "last": "last"
-      ## Paternity Results:
-      paternity_leave_and_pay:
-        next_steps: |
-          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
-        body: |
-          %{paternity_info}
-
-      paternity_not_entitled_to_leave_or_pay:
-        next_steps: |
-          Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
-        body: |
-          %{not_entitled_reason}
 
       ## Paternity Adoption
       ## QAP1
@@ -505,24 +307,3 @@ en-GB:
         options:
           "weekly_starting": "Weekly starting %{leave_start_date}"
           "usual_paydates": "Based on their usual paydates"
-      ## Adoption outcomes
-      adoption_leave_and_pay:
-        next_steps: |
-          Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees)
-        body: |
-          %{adoption_leave_info}
-
-          %{adoption_pay_info}
-
-      adoption_not_entitled_to_leave_or_pay:
-        next_steps: |
-          Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees)
-        body: |
-          ##Not entitled to Statutory Adoption Leave and Pay
-
-          The employee is not entitled to Statutory Adoption Leave or Pay because they must have started working for you on %{employment_start}
-
-          You must write confirming this. Also, send them form SAP1 confirming they’re not entitled to pay within 28 days of their pay request.
-
-
-          $D [Download Form SAP1, Non-payment of Statutory Adoption Pay (PDF, 59KB)](http://www.hmrc.gov.uk/forms/sap1.pdf) $D
