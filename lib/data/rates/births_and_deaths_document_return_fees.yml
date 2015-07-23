@@ -1,0 +1,13 @@
+---
+- start_date: 2014-01-01 # This is an arbitrary date, it's not know when's the last time the rates changed
+  end_date: 2015-07-31
+  post_to_uk: £4.50
+  post_to_europe: £12.50
+  post_to_rest_of_the_world: £22
+
+- start_date: 2015-08-01
+  end_date: 2999-01-01
+  post_to_uk: £5.50
+  post_to_europe: £14.50
+  post_to_rest_of_the_world: £25
+

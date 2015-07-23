@@ -172,6 +172,10 @@ module SmartAnswer
           reg_data_query
         end
 
+        precalculate :document_return_fees do
+          reg_data_query.document_return_fees
+        end
+
         precalculate :button_data do
           {text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"}
         end
@@ -179,7 +183,7 @@ module SmartAnswer
         precalculate :custom_waiting_time do
           reg_data_query.custom_registration_duration(country_of_birth)
         end
-        
+
         precalculate :born_in_lower_risk_country do
           reg_data_query.class::HIGHER_RISK_COUNTRIES.exclude?(country_of_birth)
         end

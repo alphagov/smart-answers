@@ -40,6 +40,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
         should "ask where you are now and go to oru result" do
           add_response "same_country"
           assert_current_node :oru_result
+          assert current_state.send(:document_return_fees).present?
         end
       end # not married/cp
     end # mother

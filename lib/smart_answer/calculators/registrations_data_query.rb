@@ -163,6 +163,10 @@ module SmartAnswer::Calculators
       ORU_REGISTRATION_DURATION[country_slug]
     end
 
+    def document_return_fees
+      SmartAnswer::Calculators::RatesQuery.new('births_and_deaths_document_return_fees').rates
+    end
+
     def self.registration_data
       @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "registrations.yml"))
     end
