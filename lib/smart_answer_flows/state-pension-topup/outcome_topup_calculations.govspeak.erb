@@ -1,20 +1,20 @@
 <% content_for :title do %>
-Results
+  Results
 
 <% end %>
 
 <% content_for :body do %>
-To top up your pension by <%= format_money(weekly_amount) %> per week, you’ll need to make a lump sum payment of either:
+  To top up your pension by <%= format_money(weekly_amount) %> per week, you’ll need to make a lump sum payment of either:
 
-<% amounts_vs_ages.each do |amount_and_age| %>
-- <%= number_to_currency(amount_and_age[:amount], precision: 0) %> when you're <%= amount_and_age[:age] %>
-<% end %>
+  <% amounts_vs_ages.each do |amount_and_age| %>
+    - <%= number_to_currency(amount_and_age[:amount], precision: 0) %> when you're <%= amount_and_age[:age] %>
+  <% end %>
 
-Make sure you’ll get the full [basic State Pension](/state-pension-statement) before making Class 3A contributions.
+  Make sure you’ll get the full [basic State Pension](/state-pension-statement) before making Class 3A contributions.
 
-You should get [financial advice](/plan-retirement-income/get-financial-advice) when planning your retirement income.
+  You should get [financial advice](/plan-retirement-income/get-financial-advice) when planning your retirement income.
 
-The contribution amount is an estimate.
+  The contribution amount is an estimate.
 
-To register your interest in the scheme and to get updates, email <statepension.topup@dwp.gsi.gov.uk>.
+  To register your interest in the scheme and to get updates, email <statepension.topup@dwp.gsi.gov.uk>.
 <% end %>
