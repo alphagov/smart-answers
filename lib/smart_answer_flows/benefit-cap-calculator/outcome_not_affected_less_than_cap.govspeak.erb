@@ -1,17 +1,17 @@
 <% content_for :title do %>
-Based on the answers you’ve given, you won’t be affected by the benefit cap. This is because the total amount of benefits you get are less than the benefit cap.
+  Based on the answers you’ve given, you won’t be affected by the benefit cap. This is because the total amount of benefits you get are less than the benefit cap.
 <% end %>
 
 <% content_for :body do %>
-##How this is worked out
+  ##How this is worked out
 
-The total amount of your benefits are added together:
+  The total amount of your benefits are added together:
 
-Total amount of benefits affected by cap: £<%= total_benefits %>
+  Total amount of benefits affected by cap: £<%= total_benefits %>
 
-As this amount is lower than your benefit cap of £<%= benefit_cap %>, your benefits won’t change.
+  As this amount is lower than your benefit cap of £<%= benefit_cap %>, your benefits won’t change.
 
-This is an estimate only. Contact the Department for Work and Pensions if you need further help.
+  This is an estimate only. Contact the Department for Work and Pensions if you need further help.
 
-<%= render partial: 'dwp_contact_details.govspeak.erb' -%>
+  <%= render partial: 'dwp_contact_details.govspeak.erb' -%>
 <% end %>
