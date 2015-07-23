@@ -14,7 +14,7 @@ lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
 lib/smart_answer_flows/data_partials/_button.erb: bdd3818dfd2b9d6396daf6f60fd887a0
 lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
 test/fixtures/worldwide/italy_organisations.json: dc5feb424edeeb12835be916605caf46
-lib/smart_answer/calculators/registrations_data_query.rb: 09acc40de6b1da5c350c3ec8126bcb20
+lib/smart_answer/calculators/registrations_data_query.rb: cbb0fad828d74606eb708d3442cf4ca5
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
 test/fixtures/worldwide_locations.yml: 063711faceec3a4081d6d5fb386c8029
