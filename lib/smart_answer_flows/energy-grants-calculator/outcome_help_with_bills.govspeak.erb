@@ -1,45 +1,45 @@
 <% content_for :title do %>
-<% if age_variant == :winter_fuel_payment %>
-<%= render partial: 'title_help_with_bills_outcome.govspeak.erb' %>
-<% elsif circumstances.include?('benefits') %>
-  <% if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60 %>
-<%= render partial: 'title_help_with_bills_outcome.govspeak.erb' %>
+  <% if age_variant == :winter_fuel_payment %>
+    <%= render partial: 'title_help_with_bills_outcome.govspeak.erb' %>
+  <% elsif circumstances.include?('benefits') %>
+    <% if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60 %>
+      <%= render partial: 'title_help_with_bills_outcome.govspeak.erb' %>
+    <% else %>
+      <%= render partial: 'title_no_help_with_bills_outcome.govspeak.erb' %>
+    <% end %>
   <% else %>
-<%= render partial: 'title_no_help_with_bills_outcome.govspeak.erb' %>
+    <%= render partial: 'title_no_help_with_bills_outcome.govspeak.erb' %>
   <% end %>
-<% else %>
-<%= render partial: 'title_no_help_with_bills_outcome.govspeak.erb' %>
-<% end %>
 <% end %>
 
 <% content_for :body do %>
-<% if circumstances.include?('benefits') %>
-  <% if age_variant == :winter_fuel_payment %>
-<%= render partial: 'winter_fuel_payments.govspeak.erb' %>
-  <% end %>
-  <% if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1 %>
-    <% if benefits_claimed.include?('pension_credit') %>
-<%= render partial: 'warm_home_discount.govspeak.erb', locals: {warm_home_discount_amount: warm_home_discount_amount} %>
-<%= render partial: 'cold_weather_payment.govspeak.erb' %>
-    <% else %>
-<%= render partial: 'cold_weather_payment.govspeak.erb' %>
+  <% if circumstances.include?('benefits') %>
+    <% if age_variant == :winter_fuel_payment %>
+      <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
+    <% end %>
+    <% if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1 %>
+      <% if benefits_claimed.include?('pension_credit') %>
+        <%= render partial: 'warm_home_discount.govspeak.erb', locals: {warm_home_discount_amount: warm_home_discount_amount} %>
+        <%= render partial: 'cold_weather_payment.govspeak.erb' %>
+      <% else %>
+        <%= render partial: 'cold_weather_payment.govspeak.erb' %>
+      <% end %>
+    <% end %>
+    <% if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60 %>
+      <%= render partial: 'energy_company_obligation.govspeak.erb' %>
+    <% end %>
+  <% else %>
+    <% if age_variant == :winter_fuel_payment %>
+      <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>
   <% end %>
-  <% if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60 %>
-<%= render partial: 'energy_company_obligation.govspeak.erb' %>
+  <%= render partial: 'smartmeters.govspeak.erb' %>
+  <% if circumstances.include?('benefits') or bills_help %>
+
+    Renewable heating and Microgeneration measures could also help reduce your bill.
   <% end %>
-<% else %>
-  <% if age_variant == :winter_fuel_payment %>
-<%= render partial: 'winter_fuel_payments.govspeak.erb' %>
-  <% end %>
-<% end %>
-<%= render partial: 'smartmeters.govspeak.erb' %>
-<% if circumstances.include?('benefits') or bills_help %>
 
-Renewable heating and Microgeneration measures could also help reduce your bill.
-<% end %>
+  See which [improvements your property may qualify for](/energy-grants-calculator/y/help_energy_efficiency).
 
-See which [improvements your property may qualify for](/energy-grants-calculator/y/help_energy_efficiency).
-
-For some of these schemes further eligibility criteria apply. These can differ depending on your supplier.
+  For some of these schemes further eligibility criteria apply. These can differ depending on your supplier.
 <% end %>

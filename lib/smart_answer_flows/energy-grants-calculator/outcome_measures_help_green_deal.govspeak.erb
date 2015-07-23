@@ -1,44 +1,44 @@
 <% content_for :title do %>
-Under the Green Deal you could get some of these improvements without having to pay all the cost upfront:
+  Under the Green Deal you could get some of these improvements without having to pay all the cost upfront:
 <% end %>
 
 <% content_for :body do %>
-<%= render partial: 'header_boilers_and_insulation.govspeak.erb' %>
+  <%= render partial: 'header_boilers_and_insulation.govspeak.erb' %>
 
-<% unless (features & %w(modern_boiler)).any? %>
-<%= render partial: 'opt_condensing_boiler.govspeak.erb' %>
-<% end %>
-<%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>
-<%= render partial: 'opt_solid_wall_insulation.govspeak.erb' %>
-<% unless (features & %w(draught_proofing)).any? %>
-<%= render partial: 'opt_draught_proofing.govspeak.erb' %>
-<% end %>
-<% unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat' %>
-<%= render partial: 'opt_loft_roof_insulation.govspeak.erb' %>
-<% end %>
-<% unless flat_type == "top_floor" %>
-  <% if (features & %w(loft_attic_conversion)).any? || property_type == 'flat' %>
-<%= render partial: 'opt_room_roof_insulation.govspeak.erb' %>
+  <% unless (features & %w(modern_boiler)).any? %>
+    <%= render partial: 'opt_condensing_boiler.govspeak.erb' %>
   <% end %>
-  <% unless modern %>
-<%= render partial: 'opt_under_floor_insulation.govspeak.erb' %>
+  <%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>
+  <%= render partial: 'opt_solid_wall_insulation.govspeak.erb' %>
+  <% unless (features & %w(draught_proofing)).any? %>
+    <%= render partial: 'opt_draught_proofing.govspeak.erb' %>
   <% end %>
-<% end %>
-<%= render partial: 'header_heating.govspeak.erb' %>
+  <% unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat' %>
+    <%= render partial: 'opt_loft_roof_insulation.govspeak.erb' %>
+  <% end %>
+  <% unless flat_type == "top_floor" %>
+    <% if (features & %w(loft_attic_conversion)).any? || property_type == 'flat' %>
+      <%= render partial: 'opt_room_roof_insulation.govspeak.erb' %>
+    <% end %>
+    <% unless modern %>
+      <%= render partial: 'opt_under_floor_insulation.govspeak.erb' %>
+    <% end %>
+  <% end %>
+  <%= render partial: 'header_heating.govspeak.erb' %>
 
-<%= render partial: 'opt_better_heating_controls.govspeak.erb' %>
-<% unless (features & %w(mains_gas)).any? %>
-<%= render partial: 'opt_heat_pump.govspeak.erb' %>
-<%= render partial: 'opt_biomass_boilers_heaters.govspeak.erb' %>
-<%= render partial: 'opt_solar_water_heating.govspeak.erb' %>
-<% end %>
-<% unless (features & %w(modern_double_glazing)).any? %>
-<%= render partial: 'header_windows_and_doors.govspeak.erb' %>
-<%= render partial: 'opt_replacement_glazing.govspeak.erb' %>
-<% end %>
-<% unless bills_help %>
-<%= render partial: 'opt_renewal_heat.govspeak.erb' %>
-<% end %>
-<%= render partial: 'help_and_advice.govspeak.erb' %>
-<%= render partial: 'help_and_advice_body.govspeak.erb' -%>
+  <%= render partial: 'opt_better_heating_controls.govspeak.erb' %>
+  <% unless (features & %w(mains_gas)).any? %>
+    <%= render partial: 'opt_heat_pump.govspeak.erb' %>
+    <%= render partial: 'opt_biomass_boilers_heaters.govspeak.erb' %>
+    <%= render partial: 'opt_solar_water_heating.govspeak.erb' %>
+  <% end %>
+  <% unless (features & %w(modern_double_glazing)).any? %>
+    <%= render partial: 'header_windows_and_doors.govspeak.erb' %>
+    <%= render partial: 'opt_replacement_glazing.govspeak.erb' %>
+  <% end %>
+  <% unless bills_help %>
+    <%= render partial: 'opt_renewal_heat.govspeak.erb' %>
+  <% end %>
+  <%= render partial: 'help_and_advice.govspeak.erb' %>
+  <%= render partial: 'help_and_advice_body.govspeak.erb' -%>
 <% end %>
