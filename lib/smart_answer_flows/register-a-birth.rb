@@ -126,20 +126,6 @@ module SmartAnswer
           reg_data_query
         end
 
-        precalculate :embassy_high_commission_or_consulate do
-          if reg_data_query.has_high_commission?(registration_country)
-            "British high commission".html_safe
-          elsif reg_data_query.has_consulate?(registration_country)
-            "British consulate".html_safe
-          elsif reg_data_query.has_trade_and_cultural_office?(registration_country)
-            "British Trade & Cultural Office".html_safe
-          elsif reg_data_query.has_consulate_general?(registration_country)
-            "British consulate general".html_safe
-          else
-            "British embassy".html_safe
-          end
-        end
-
         precalculate :checklist_countries do
           %w(bangladesh kuwait libya north-korea pakistan philippines turkey)
         end
