@@ -1,54 +1,54 @@
 <% content_for :body do %>
-$!
-This is an estimate of your student finance. You must apply to find out exactly what you'll get.
-$!
+  $!
+  This is an estimate of your student finance. You must apply to find out exactly what you'll get.
+  $!
 
-##Student finance
+  ##Student finance
 
-You could get per year:
+  You could get per year:
 
-- <%= number_to_currency(tuition_fee_amount, precision: 0) %> Tuition Fee Loan
+  - <%= number_to_currency(tuition_fee_amount, precision: 0) %> Tuition Fee Loan
 
-###Extra student funding
+  ###Extra student funding
 
-<% if all_uk_students_circumstances.include?('no') and course_studied == 'none-of-the-above' %>
-You don’t qualify for extra grants and allowances.
-<% else %>
-You could get:
+  <% if all_uk_students_circumstances.include?('no') and course_studied == 'none-of-the-above' %>
+    You don’t qualify for extra grants and allowances.
+  <% else %>
+    You could get:
 
-  <% if all_uk_students_circumstances.include?('has-disability') %>
-- [Disabled Students' Allowances](/disabled-students-allowances-dsas)
+    <% if all_uk_students_circumstances.include?('has-disability') %>
+      - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
+    <% end %>
+
+    <% if all_uk_students_circumstances.include?('low-income') %>
+      - [University and college hardship funds](/extra-money-pay-university/university-and-college-hardship-funds) (extra help with costs while studying)
+    <% end %>
+
+    <% if course_studied == 'teacher-training' %>
+      - [Funding for teacher training](/teacher-training-funding)
+    <% elsif course_studied == 'dental-medical-healthcare' %>
+      - [NHS Bursary](/nhs-bursaries) (NHS funding towards your fees and living costs)
+    <% elsif course_studied == 'social-work' %>
+      - [Social Work Bursary](/social-work-bursaries) (NHS funding towards your fees and living costs)
+    <% end %>
+
   <% end %>
 
-  <% if all_uk_students_circumstances.include?('low-income') %>
-- [University and college hardship funds](/extra-money-pay-university/university-and-college-hardship-funds) (extra help with costs while studying)
-  <% end %>
+  ^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - check if you [qualify](/student-finance/who-qualifies).^
 
-  <% if course_studied == 'teacher-training' %>
-- [Funding for teacher training](/teacher-training-funding)
-  <% elsif course_studied == 'dental-medical-healthcare' %>
-- [NHS Bursary](/nhs-bursaries) (NHS funding towards your fees and living costs)
-  <% elsif course_studied == 'social-work' %>
-- [Social Work Bursary](/social-work-bursaries) (NHS funding towards your fees and living costs)
-  <% end %>
+  ##Extra help
 
-<% end %>
+  You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college.
 
-^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - check if you [qualify](/student-finance/who-qualifies).^
+  You might be able to get [help with the costs of travel for study or work placements](/travel-grants-medical-dental-students-england) as part of your course.
 
-##Extra help
+  Use the [Family Action grant search](http://www.family-action.org.uk/section.aspx?id=21211) to check whether you qualify for funding from a charitable trust.
 
-You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college.
+  ^Student loans have to be paid back - grants, bursaries and allowances don’t.^
 
-You might be able to get [help with the costs of travel for study or work placements](/travel-grants-medical-dental-students-england) as part of your course.
+  ##Your next steps
 
-Use the [Family Action grant search](http://www.family-action.org.uk/section.aspx?id=21211) to check whether you qualify for funding from a charitable trust.
-
-^Student loans have to be paid back - grants, bursaries and allowances don’t.^
-
-##Your next steps
-
-s1. Find out how to [apply](/apply-for-student-finance) for student finance
-s2. Check if you [qualify](/student-finance/who-qualifies) for student finance
+  s1. Find out how to [apply](/apply-for-student-finance) for student finance
+  s2. Check if you [qualify](/student-finance/who-qualifies) for student finance
 
 <% end %>
