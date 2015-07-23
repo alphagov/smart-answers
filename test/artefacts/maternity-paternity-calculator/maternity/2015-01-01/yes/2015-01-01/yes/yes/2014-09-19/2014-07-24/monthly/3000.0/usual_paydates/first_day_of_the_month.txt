@@ -30,17 +30,17 @@ Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as
 
 Date | SMP amount
 -|-
- 1 January 2015|£44.51
- 1 February 2015|£1379.68
- 1 March 2015|£800.38
- 1 April 2015|£611.94
- 1 May 2015|£596.81
- 1 June 2015|£618.15
- 1 July 2015|£598.21
- 1 August 2015|£618.15
- 1 September 2015|£618.15
- 1 October 2015|£578.27
- | **Total SMP: £6464.25**
+1 January 2015|£44.51
+1 February 2015|£1379.68
+1 March 2015|£800.38
+1 April 2015|£611.94
+1 May 2015|£596.81
+1 June 2015|£618.15
+1 July 2015|£598.21
+1 August 2015|£618.15
+1 September 2015|£618.15
+1 October 2015|£578.27
+| **Total SMP: £6464.25**
 
 
 *[SMP]: Statutory Maternity Pay

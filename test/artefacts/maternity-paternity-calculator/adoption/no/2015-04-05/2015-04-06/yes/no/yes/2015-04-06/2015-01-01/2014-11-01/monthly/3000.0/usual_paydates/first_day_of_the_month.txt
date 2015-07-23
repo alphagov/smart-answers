@@ -15,17 +15,17 @@ The employee’s average weekly earnings are: £346.15.
 
 Date | SAP amount
 -|-
- 1 May 2015|£1157.15
- 1 June 2015|£1011.20
- 1 July 2015|£598.21
- 1 August 2015|£618.15
- 1 September 2015|£618.15
- 1 October 2015|£598.21
- 1 November 2015|£618.15
- 1 December 2015|£598.21
- 1 January 2016|£618.15
- 1 February 2016|£39.88
- | **Total SAP: £6475.46**
+1 May 2015|£1157.15
+1 June 2015|£1011.20
+1 July 2015|£598.21
+1 August 2015|£618.15
+1 September 2015|£618.15
+1 October 2015|£598.21
+1 November 2015|£618.15
+1 December 2015|£598.21
+1 January 2016|£618.15
+1 February 2016|£39.88
+| **Total SAP: £6475.46**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 

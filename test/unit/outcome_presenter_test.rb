@@ -67,6 +67,22 @@ Hello world
       end
     end
 
+    test '#body strips spaces from the beginning of lines so that we can indent content in our content_for blocks' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_body('  <% if true %>
+    line 1
+
+    line 2
+  <% end %>')
+
+      with_erb_template_file('outcome-name', erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal "line 1\n\nline 2\n", presenter.body(html: false)
+      end
+    end
+
     test '#body makes the state variables available to the ERB template' do
       outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
@@ -199,6 +215,18 @@ Hello world
       end
     end
 
+    test '#title strips spaces from the beginning of the line so that we can indent text within content_for blocks' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_title('  indented-title-text')
+
+      with_erb_template_file('outcome-name', erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal 'indented-title-text', presenter.title
+      end
+    end
+
     test '#title makes the state variables available to the ERB template' do
       outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
@@ -293,6 +321,18 @@ Hello world
         presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
 
         assert_equal "<p>Hello world</p>\n", presenter.next_steps
+      end
+    end
+
+    test '#next_steps strips spaces from the beginning of the line so that we can indent text within content_for blocks' do
+      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+
+      erb_template = content_for_next_steps('  indented-next-steps-text')
+
+      with_erb_template_file('outcome-name', erb_template) do |erb_template_directory|
+        presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, erb_template_directory: erb_template_directory)
+
+        assert_equal "indented-next-steps-text\n", presenter.next_steps(html: false)
       end
     end
 

@@ -25,7 +25,7 @@ Date | SAP amount
 30 November 2015|£598.21
 31 December 2015|£618.15
 31 January 2016|£59.83
- | **Total SAP: £6475.47**
+| **Total SAP: £6475.47**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
