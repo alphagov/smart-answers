@@ -1,45 +1,45 @@
 <% content_for :title do %>
-Check that your sponsor details are correct before applying.
+  Check that your sponsor details are correct before applying.
 <% end %>
 
 <% content_for :body do %>
-Your sponsor institution is: <%= sponsor_name %>
+  Your sponsor institution is: <%= sponsor_name %>
 
-Your sponsor number is: <%= sponsor_id %>
+  Your sponsor number is: <%= sponsor_id %>
 
-<% if postal_application && switching %>
-  Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
-<% elsif postal_application && extending %>
-  Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
-<% elsif online_application && switching %>
-  Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
-<% elsif online_application && extending %>
-  Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
-<% end %>
+  <% if postal_application && switching %>
+    Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
+  <% elsif postal_application && extending %>
+    Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4PrintAndSend&rpl=formList)
+  <% elsif online_application && switching %>
+    Apply to [switch to this visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
+  <% elsif online_application && extending %>
+    Apply to [extend your visa.](https://apply.ukba.homeoffice.gov.uk/iapply.portal?_nfpb=true&_pageLabel=confirmAndDownload&com.sun.faces.portlet.CLEAR_STATE=true&_nfls=false&formId=Tier4&rpl=formList).
+  <% end %>
 
-You should read the guidance before you apply:
+  You should read the guidance before you apply:
 
-- [Tier 4 (General) student visa](/government/publications/guidance-on-application-to-extend-visa-under-tier-4-general) guidance
-- [Tier 4 (Child) student visa](/government/publications/guidance-on-application-to-extend-visa-under-tier-4-child) guidance
+  - [Tier 4 (General) student visa](/government/publications/guidance-on-application-to-extend-visa-under-tier-4-general) guidance
+  - [Tier 4 (Child) student visa](/government/publications/guidance-on-application-to-extend-visa-under-tier-4-child) guidance
 
-You should apply during the last 3 months of your current permission to stay and no later than 6 months after your confirmation of acceptance for studies (CAS) has been assigned.
+  You should apply during the last 3 months of your current permission to stay and no later than 6 months after your confirmation of acceptance for studies (CAS) has been assigned.
 
-You must complete your application to switch your visa by 3 July if you’ve already paid the immigration health surcharge or you might have to pay it twice.
+  You must complete your application to switch your visa by 3 July if you’ve already paid the immigration health surcharge or you might have to pay it twice.
 
-You’ll have to [claim a refund for the immigration health surcharge](/healthcare-immigration-application/refunds) if you don’t complete your application in time.
+  You’ll have to [claim a refund for the immigration health surcharge](/healthcare-immigration-application/refunds) if you don’t complete your application in time.
 
-<% if switching %>
-^You must already be in the UK to switch to this visa.^
+  <% if switching %>
+    ^You must already be in the UK to switch to this visa.^
 
-<% end %>
-<% case type_of_visa %>
-<% when 'switch_child' %>
-  Go back to the [Tier 4 (Child) student visa](/child-study-visa/switch-to-this-visa) guide.
-<% when 'extend_child' %>
-  Go back to the [Tier 4 (Child) student visa](/child-study-visa/extend-your-visa) guide.
-<% when 'switch_general' %>
-  Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/switch-to-this-visa) guide.
-<% when 'extend_general' %>
-  Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/extend-your-visa) guide.
-<% end %>
+  <% end %>
+  <% case type_of_visa %>
+  <% when 'switch_child' %>
+    Go back to the [Tier 4 (Child) student visa](/child-study-visa/switch-to-this-visa) guide.
+  <% when 'extend_child' %>
+    Go back to the [Tier 4 (Child) student visa](/child-study-visa/extend-your-visa) guide.
+  <% when 'switch_general' %>
+    Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/switch-to-this-visa) guide.
+  <% when 'extend_general' %>
+    Go back to the [Tier 4 (General) student visa](/tier-4-general-visa/extend-your-visa) guide.
+  <% end %>
 <% end %>
