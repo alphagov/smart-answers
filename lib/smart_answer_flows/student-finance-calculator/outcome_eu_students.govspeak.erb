@@ -1,34 +1,34 @@
 <% content_for :body do %>
-$!
-This is an estimate of your student finance. You must apply to find out exactly what you'll get.
-$!
+  $!
+  This is an estimate of your student finance. You must apply to find out exactly what you'll get.
+  $!
 
-##Tuition costs
+  ##Tuition costs
 
-You could get a Tuition Fee Loan - <%= number_to_currency(tuition_fee_amount, precision: 0) %> per year.
+  You could get a Tuition Fee Loan - <%= number_to_currency(tuition_fee_amount, precision: 0) %> per year.
 
-The loan pays for the cost of your course and must be paid back.
+  The loan pays for the cost of your course and must be paid back.
 
-<% if course_type == 'eu-full-time' %>
-##Living costs
+  <% if course_type == 'eu-full-time' %>
+    ##Living costs
 
-Most EU full-time students don't [qualify](/student-finance/who-qualifies) for help with living costs (known as 'maintenance').
-<% else %>
-##Living costs
+    Most EU full-time students don't [qualify](/student-finance/who-qualifies) for help with living costs (known as 'maintenance').
+  <% else %>
+    ##Living costs
 
-EU part-time students don't qualify for help with living costs (known as 'maintenance').
-<% end %>
+    EU part-time students don't qualify for help with living costs (known as 'maintenance').
+  <% end %>
 
-##Extra help
+  ##Extra help
 
-You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college. Usually, this doesn't have to be paid back.
+  You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college. Usually, this doesn't have to be paid back.
 
-Use the [Family Action grant search](http://www.family-action.org.uk/section.aspx?id=21211) to check whether you qualify for funding from a charitable trust.
+  Use the [Family Action grant search](http://www.family-action.org.uk/section.aspx?id=21211) to check whether you qualify for funding from a charitable trust.
 
-##Your next steps
+  ##Your next steps
 
-s1. Find out how to [apply](/apply-for-student-finance) for student finance
-s2. Check if you [qualify](/student-finance/who-qualifies) for student finance
+  s1. Find out how to [apply](/apply-for-student-finance) for student finance
+  s2. Check if you [qualify](/student-finance/who-qualifies) for student finance
 
-^Usually, you’ll only get student finance if you’re doing your first higher education qualification.^
+  ^Usually, you’ll only get student finance if you’re doing your first higher education qualification.^
 <% end %>
