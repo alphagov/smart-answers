@@ -39,7 +39,7 @@ Date | SMP amount
 27 July 2015|£558.32
 31 August 2015|£697.91
 28 September 2015|£558.32
- | **Total SMP: £6424.35**
+| **Total SMP: £6424.35**
 
 
 *[SMP]: Statutory Maternity Pay

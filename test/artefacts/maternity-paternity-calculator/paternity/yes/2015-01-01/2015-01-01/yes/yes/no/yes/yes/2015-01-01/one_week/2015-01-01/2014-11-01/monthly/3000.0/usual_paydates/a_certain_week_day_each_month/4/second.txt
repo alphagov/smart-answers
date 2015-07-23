@@ -17,9 +17,9 @@ Their average weekly earnings are: £346.15
 
 Date | SPP amount
 -|-
- 8 January 2015|£157.93
+8 January 2015|£157.93
 12 February 2015|£118.44
- | **Total SPP: £276.37**
+| **Total SPP: £276.37**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 

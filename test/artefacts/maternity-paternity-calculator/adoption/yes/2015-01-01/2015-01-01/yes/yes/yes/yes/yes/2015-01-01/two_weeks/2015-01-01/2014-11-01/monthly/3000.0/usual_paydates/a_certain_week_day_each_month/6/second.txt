@@ -25,7 +25,7 @@ Date | SPP amount
 -|-
 10 January 2015|£197.41
 14 February 2015|£78.96
- | **Total SPP: £276.37**
+| **Total SPP: £276.37**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
