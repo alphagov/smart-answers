@@ -126,18 +126,6 @@ module SmartAnswer
           reg_data_query
         end
 
-        precalculate :checklist_countries do
-          %w(bangladesh kuwait libya north-korea pakistan philippines turkey)
-        end
-
-        precalculate :postal_form_url do
-          reg_data_query.postal_form(registration_country)
-        end
-
-        precalculate :postal_return_form_url do
-          reg_data_query.postal_return_form(registration_country)
-        end
-
         precalculate :location do
           loc = WorldLocation.find(registration_country)
           raise InvalidResponse unless loc
