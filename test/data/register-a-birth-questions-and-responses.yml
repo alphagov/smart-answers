@@ -1,5 +1,5 @@
---- 
-:country_of_birth?: 
+---
+:country_of_birth?:
 - afghanistan # no_birth_certificate_exception
 - algeria # payment_method_in_algeria
 - australia # commonwealth_result
@@ -9,28 +9,27 @@
 - north-korea # ORU_TRANSITION_EXCEPTIONS
 - papua-new-guinea # registration_can_take_3_months
 - philippines # oru_extra_documents_in_philippines_when_mother_not_british
-- pitcairn-island # footnote & footnote_another_country
 - sierra-leone # oru_extra_documents_variant_intro
 - st-martin # overseas_passports_embassies empty
 - timor-leste # indonesia_british_father_paternity
 - usa # birth_registration_form_usa
 - venezuela # book_appointment_at_embassy
-:who_has_british_nationality?: 
+:who_has_british_nationality?:
 - mother
 - father
 - mother_and_father
 - neither
-:married_couple_or_civil_partnership?: 
+:married_couple_or_civil_partnership?:
 - "yes"
 - "no"
-:childs_date_of_birth?: 
+:childs_date_of_birth?:
 - 2006-06-30 # :homeoffice_result
 - 2015-02-02
-:where_are_you_now?: 
+:where_are_you_now?:
 - same_country
 - another_country
 - in_the_uk
-:which_country?: 
+:which_country?:
 - brazil # :embassy_high_commission_or_consulate "British consulate general"
 - china # :embassy_high_commission_or_consulate "British consulate"
 - czech-republic # :post_only_pay_by_card_countries
