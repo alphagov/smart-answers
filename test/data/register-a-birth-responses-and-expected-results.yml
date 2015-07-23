@@ -2889,7 +2889,7 @@
   - mother
   - "yes"
   - same_country
-  :next_node: :embassy_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
   :responses: 
@@ -3010,7 +3010,7 @@
   - mother
   - "no"
   - same_country
-  :next_node: :embassy_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
   :responses: 
@@ -3137,7 +3137,7 @@
   - father
   - "yes"
   - same_country
-  :next_node: :embassy_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
   :responses: 
@@ -3275,7 +3275,7 @@
   - "no"
   - "2015-02-02"
   - same_country
-  :next_node: :embassy_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
   :responses: 
@@ -3414,7 +3414,7 @@
   - mother_and_father
   - "yes"
   - same_country
-  :next_node: :embassy_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
   :responses: 
@@ -3535,7 +3535,7 @@
   - mother_and_father
   - "no"
   - same_country
-  :next_node: :embassy_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
   :responses: 
