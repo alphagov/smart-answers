@@ -126,18 +126,11 @@ module SmartAnswer
           reg_data_query
         end
 
-        precalculate :location do
-          loc = WorldLocation.find(registration_country)
-          raise InvalidResponse unless loc
-          loc
-        end
-
-        precalculate :organisations do
-          [location.fco_organisation]
-        end
-
         precalculate :overseas_passports_embassies do
-          if organisations and organisations.any?
+          location = WorldLocation.find(registration_country)
+          raise InvalidResponse unless location
+          organisations = [location.fco_organisation]
+          if organisations.present?
             service_title = 'Births and Deaths registration service'
             organisations.first.offices_with_service(service_title)
           else
