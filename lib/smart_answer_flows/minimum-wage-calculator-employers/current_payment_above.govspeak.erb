@@ -1,13 +1,13 @@
 <% content_for :body do %>
-$C
-You are paying the National Minimum Wage.
-$C
+  $C
+  You are paying the National Minimum Wage.
+  $C
 
-The National Minimum Wage per hour for the worker’s age | The worker’s actual pay
-- | -
-£<%= minimum_hourly_rate %> | £<%= total_hourly_rate %>
+  The National Minimum Wage per hour for the worker’s age | The worker’s actual pay
+  - | -
+  £<%= minimum_hourly_rate %> | £<%= total_hourly_rate %>
 
-If the worker works overtime or you provide them with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
+  If the worker works overtime or you provide them with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 
-<%= render partial: '../shared/minimum_wage/acas_information.govspeak.erb' -%>
+  <%= render partial: '../shared/minimum_wage/acas_information.govspeak.erb' -%>
 <% end %>
