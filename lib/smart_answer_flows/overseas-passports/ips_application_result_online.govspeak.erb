@@ -1,125 +1,125 @@
 <% content_for :body do %>
-## How long it takes
+  ## How long it takes
 
-<%= render partial: 'how_long.govspeak.erb', locals: { optimistic_processing_time: optimistic_processing_time, waiting_time: waiting_time } %>
-<% if application_action == "replacing" %>
-If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
+  <%= render partial: 'how_long.govspeak.erb', locals: { optimistic_processing_time: optimistic_processing_time, waiting_time: waiting_time } %>
+  <% if application_action == "replacing" %>
+    If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
 
-<% end %>
-You may have to attend an interview.
-
-Applications will take longer if:
-
-- HM Passport Office need to ask you for more information or documents
-- the photographs you send are rejected
-
-Don’t book any travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
-
-## Cost
-
-<% if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1' %>
-You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
-
-  <% case child_or_adult %>
-  <% when 'adult' %>
-| Passport type | Passport fee | Total to pay (including courier fee) |
-|---------------|--------------|--------------------------------------|
-| Adult standard 32-page passport | £83.00 | £92.70 |
-| Adult jumbo 48-page passport | £91.00 | £100.70 |
-  <% when 'child' %>
-| Passport type | Passport fee | Total to pay (including courier fee) |
-|---------------|--------------|--------------------------------------|
-| Child passport | £53.00 | £62.70 |
   <% end %>
-<% else %>
+  You may have to attend an interview.
+
+  Applications will take longer if:
+
+  - HM Passport Office need to ask you for more information or documents
+  - the photographs you send are rejected
+
+  Don’t book any travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
+
+  ## Cost
+
+  <% if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1' %>
+    You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
+
+    <% case child_or_adult %>
+    <% when 'adult' %>
+      | Passport type | Passport fee | Total to pay (including courier fee) |
+      |---------------|--------------|--------------------------------------|
+      | Adult standard 32-page passport | £83.00 | £92.70 |
+      | Adult jumbo 48-page passport | £91.00 | £100.70 |
+    <% when 'child' %>
+      | Passport type | Passport fee | Total to pay (including courier fee) |
+      |---------------|--------------|--------------------------------------|
+      | Child passport | £53.00 | £62.70 |
+    <% end %>
+  <% else %>
+    <% case ips_number %>
+    <% when '1' %>
+      You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+    <% when '2' %>
+      You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
+    <% when '3' %>
+      You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
+    <% end %>
+
+    <%= render partial: 'child_or_adult_passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number, child_or_adult: child_or_adult } %>
+  <% end %>
+
+
+  ## How to apply
+
+  You must apply and pay for your passport online.
+
+  <% case general_action %>
+  <% when 'applying' %>
+    Before you start you need:
+
+    - the passport numbers of both parents and their dates and place of birth, and in some cases the same details of grandparents
+    - 2 identical new photos of you (or your child, if it’s a child passport application)
+    - any other current passports issued by other countries
+    - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
+  <% when 'renewing' %>
+    Before you start you need:
+
+    - your current passport
+    - 2 identical new photos of you (or your child, if it’s a child passport application)
+    - any other current passports issued by other countries
+    - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
+  <% when 'replacing' %>
+    Before you start you need:
+
+    - 2 identical new photos of you (or your child, if it’s a child passport application)
+    - any other current passports issued by other countries
+    - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
+  <% end %>
+
+  <% case ips_docs_number %>
+  <% when '1' %>
+    Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+  <% when '2' %>
+    Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-2) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+  <% when '3' %>
+    Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-3) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+  <% end %>
+  <% case birth_location %>
+  <% when 'south-africa' %>
+    ^You must include your Vault birth certificate with your application – a photocopy won’t be accepted.^
+  <% when 'spain' %>
+    ^You must include your full birth certificate (‘certificación literal’) with your application - a photocopy won’t be accepted.^
+  <% end %>
+  <% if %w(hong-kong).include?(current_location) %>
+    ^You must provide a colour photocopy of your Hong Kong Permanent Identity Card with your application if you’re applying for a British National (Overseas) passport.^
+  <% end %>
+
+  You will need to print, sign and post your declaration form at the end.
+
+  [Start your application on Her Majesty’s Passport Office website](https://passportapplication.service.gov.uk/)
+
+  <% if incomplete_deadline_countries.include?(current_location) %>
+    %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
+  <% end %>
+
+  ## Getting your passport
+
   <% case ips_number %>
   <% when '1' %>
-You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+    Your passport and supporting documents will be delivered separately by courier.
   <% when '2' %>
-You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
+    Your passport will be delivered to the British Embassy, high commission or consulate where you applied  - you must collect it in person.
+
+    They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
   <% when '3' %>
-You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
+    Your passport will be delivered to the British Embassy, high commission or consulate where you applied - you must collect it in person.
+
+    They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
   <% end %>
 
-<%= render partial: 'child_or_adult_passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number, child_or_adult: child_or_adult } %>
-<% end %>
+  ##Contact the Passport Adviceline
 
+  $C
+  Telephone: +44 (0) 300 222 0000
+  Monday to Friday, 8am to 8pm (UK time)
+  Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
+  $C
 
-## How to apply
-
-You must apply and pay for your passport online.
-
-<% case general_action %>
-<% when 'applying' %>
-Before you start you need:
-
-- the passport numbers of both parents and their dates and place of birth, and in some cases the same details of grandparents
-- 2 identical new photos of you (or your child, if it’s a child passport application)
-- any other current passports issued by other countries
-- a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
-<% when 'renewing' %>
-Before you start you need:
-
-- your current passport
-- 2 identical new photos of you (or your child, if it’s a child passport application)
-- any other current passports issued by other countries
-- a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
-<% when 'replacing' %>
-Before you start you need:
-
-- 2 identical new photos of you (or your child, if it’s a child passport application)
-- any other current passports issued by other countries
-- a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
-<% end %>
-
-<% case ips_docs_number %>
-<% when '1' %>
-Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
-<% when '2' %>
-Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-2) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
-<% when '3' %>
-Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-3) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
-<% end %>
-<% case birth_location %>
-<% when 'south-africa' %>
-^You must include your Vault birth certificate with your application – a photocopy won’t be accepted.^
-<% when 'spain' %>
-^You must include your full birth certificate (‘certificación literal’) with your application - a photocopy won’t be accepted.^
-<% end %>
-<% if %w(hong-kong).include?(current_location) %>
-^You must provide a colour photocopy of your Hong Kong Permanent Identity Card with your application if you’re applying for a British National (Overseas) passport.^
-<% end %>
-
-You will need to print, sign and post your declaration form at the end.
-
-[Start your application on Her Majesty’s Passport Office website](https://passportapplication.service.gov.uk/)
-
-<% if incomplete_deadline_countries.include?(current_location) %>
-%You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
-<% end %>
-
-## Getting your passport
-
-<% case ips_number %>
-<% when '1' %>
-Your passport and supporting documents will be delivered separately by courier.
-<% when '2' %>
-Your passport will be delivered to the British Embassy, high commission or consulate where you applied  - you must collect it in person.
-
-They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-<% when '3' %>
-Your passport will be delivered to the British Embassy, high commission or consulate where you applied - you must collect it in person.
-
-They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-<% end %>
-
-##Contact the Passport Adviceline
-
-$C
-Telephone: +44 (0) 300 222 0000
-Monday to Friday, 8am to 8pm (UK time)
-Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
-$C
-
-[Find out about call charges](/call-charges)
+  [Find out about call charges](/call-charges)
 <% end %>
