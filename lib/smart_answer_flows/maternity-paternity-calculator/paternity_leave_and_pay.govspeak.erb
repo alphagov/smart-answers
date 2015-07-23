@@ -1,48 +1,48 @@
 <% content_for :body do %>
-<% if has_contract == "no" %>
-<%= render partial: 'paternity_not_entitled_to_leave.govspeak.erb' %>
-<% else %>
-<%= render partial: 'paternity_entitled_to_leave.govspeak.erb',
-           locals: {
-             leave_start_date: leave_start_date,
-             leave_end_date: leave_end_date,
-             leave_spp_claim_link: leave_spp_claim_link,
-             notice_of_leave_deadline: notice_of_leave_deadline
-           } %>
-<% end %>
+  <% if has_contract == "no" %>
+    <%= render partial: 'paternity_not_entitled_to_leave.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'paternity_entitled_to_leave.govspeak.erb',
+               locals: {
+                 leave_start_date: leave_start_date,
+                 leave_end_date: leave_end_date,
+                 leave_spp_claim_link: leave_spp_claim_link,
+                 notice_of_leave_deadline: notice_of_leave_deadline
+               } %>
+  <% end %>
 
-<% unless above_lower_earning_limit %>
-<%= render partial: 'paternity_not_entitled_to_pay_intro.govspeak.erb' %>
+  <% unless above_lower_earning_limit %>
+    <%= render partial: 'paternity_not_entitled_to_pay_intro.govspeak.erb' %>
 
-<%= render partial: 'must_earn_over_threshold.govspeak.erb',
-           locals: {
-             average_weekly_earnings: average_weekly_earnings,
-             relevant_period: relevant_period,
-             lower_earning_limit: lower_earning_limit
-           } %>
+    <%= render partial: 'must_earn_over_threshold.govspeak.erb',
+               locals: {
+                 average_weekly_earnings: average_weekly_earnings,
+                 relevant_period: relevant_period,
+                 lower_earning_limit: lower_earning_limit
+               } %>
 
-<%= render partial: 'paternity_not_entitled_to_pay_outro.govspeak.erb' %>
-<% else %>
-##Statutory Paternity Pay (SPP)
+    <%= render partial: 'paternity_not_entitled_to_pay_outro.govspeak.erb' %>
+  <% else %>
+    ##Statutory Paternity Pay (SPP)
 
-The employee is entitled to SPP.
+    The employee is entitled to SPP.
 
-Their average weekly earnings are: £<%= average_weekly_earnings %>
+    Their average weekly earnings are: £<%= average_weekly_earnings %>
 
-## SPP calculation
+    ## SPP calculation
 
-Date | SPP amount
--|-
-<%= pay_dates_and_pay %>
- | **Total SPP: £<%= total_spp %>**
+    Date | SPP amount
+    -|-
+    <%= pay_dates_and_pay %>
+     | **Total SPP: £<%= total_spp %>**
 
-%This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
+    %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
-<%= render partial: 'spp_claim_link.govspeak.erb',
-           locals: {leave_type: leave_type} %>
-<% end %>
+    <%= render partial: 'spp_claim_link.govspeak.erb',
+               locals: {leave_type: leave_type} %>
+  <% end %>
 <% end %>
 
 <% content_for :next_steps do %>
-Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
+  Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
 <% end %>
