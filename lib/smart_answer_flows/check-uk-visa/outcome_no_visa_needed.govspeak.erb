@@ -1,11 +1,11 @@
 <% content_for :title do %>
-You won’t need a visa to come to the UK
+  You won’t need a visa to come to the UK
 <% end %>
 
 <% content_for :body do %>
-<% if %w(croatia).include?(passport_country) %>
-However, you may need a [registration certificate](/croatian-national) if you want to stay and work.
-<% elsif purpose_of_visit_answer == 'study' %>
-However, you should bring documents with you to show at the border. See the relevant [student visa](/browse/visas-immigration/study-visas) guide to see what documents to bring.
-<% end %>
+  <% if %w(croatia).include?(passport_country) %>
+    However, you may need a [registration certificate](/croatian-national) if you want to stay and work.
+  <% elsif purpose_of_visit_answer == 'study' %>
+    However, you should bring documents with you to show at the border. See the relevant [student visa](/browse/visas-immigration/study-visas) guide to see what documents to bring.
+  <% end %>
 <% end %>
