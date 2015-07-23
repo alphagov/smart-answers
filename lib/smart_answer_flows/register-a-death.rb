@@ -10,7 +10,6 @@ module SmartAnswer
       translator_query = SmartAnswer::Calculators::TranslatorLinks.new
       country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
       exclude_countries = %w(holy-see british-antarctic-territory)
-      modified_card_only_countries = %w(czech-republic slovakia hungary poland switzerland)
 
       # Q1
       multiple_choice :where_did_the_death_happen? do
@@ -138,30 +137,6 @@ module SmartAnswer
           SmartAnswer::Calculators::RegistrationsDataQuery.new
         end
 
-        precalculate :modified_card_only_countries do
-          modified_card_only_countries
-        end
-
-        precalculate :embassy_high_commission_or_consulate do
-          if reg_data_query.has_high_commission?(current_location)
-            "British high commission".html_safe
-          elsif reg_data_query.has_consulate?(current_location)
-            "British embassy or consulate".html_safe
-          elsif reg_data_query.has_trade_and_cultural_office?(current_location)
-            "British Trade & Cultural Office".html_safe
-          elsif reg_data_query.has_consulate_general?(current_location)
-            "British consulate general".html_safe
-          else
-            "British embassy".html_safe
-          end
-        end
-
-        precalculate :postal_form_url do
-          reg_data_query.postal_form(current_location)
-        end
-        precalculate :postal_return_form_url do
-          reg_data_query.postal_return_form(current_location)
-        end
 
         precalculate :location do
           loc = WorldLocation.find(current_location)
