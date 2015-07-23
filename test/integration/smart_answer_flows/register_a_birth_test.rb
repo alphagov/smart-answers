@@ -534,6 +534,32 @@ class RegisterABirthTest < ActiveSupport::TestCase
     end
   end
 
+  context "North Korea" do
+    setup do
+      worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
+      add_response "north-korea"
+      add_response "mother_and_father"
+      add_response "yes"
+    end
+
+    should "lead to the embassy result if still there" do
+      add_response "same_country"
+      assert_current_node :embassy_result
+    end
+
+    should "lead to the ORU result if in the UK" do
+      add_response "in_the_uk"
+      assert_current_node :oru_result
+    end
+
+    should "lead to the ORU result if in another country" do
+      worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
+      add_response "another_country"
+      add_response "netherlands"
+      assert_current_node :oru_result
+    end
+  end
+
   context "Democratic Republic of Congo" do
     should "lead to an ORU outcome with a custom translator link" do
       worldwide_api_has_organisations_for_location('democratic-republic-of-congo', read_fixture_file('worldwide/democratic-republic-of-congo_organisations.json'))

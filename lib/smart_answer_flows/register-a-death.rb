@@ -78,13 +78,16 @@ module SmartAnswer
           response == 'in_the_uk'
         end
 
-        on_condition(->(_) { reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(country_of_death) }) do
-          next_node_if(:embassy_result, responded_with('same_country'))
+        define_predicate(:died_in_north_korea) {
+          country_of_death == 'north-korea'
+        }
+
+        on_condition(responded_with('same_country')) do
+          next_node_if(:embassy_result, died_in_north_korea)
         end
 
-        next_node_if(:oru_result, reg_data_query.died_in_oru_transitioned_country? | responded_with('in_the_uk'))
-        next_node_if(:embassy_result, responded_with('same_country'))
-        next_node(:which_country_are_you_in_now?)
+        next_node_if(:which_country_are_you_in_now?, responded_with('another_country'))
+        next_node(:oru_result)
       end
 
       # Q6
@@ -97,8 +100,12 @@ module SmartAnswer
           country_name_query.definitive_article(current_location)
         end
 
-        next_node_if(:oru_result, reg_data_query.died_in_oru_transitioned_country?)
-        next_node :embassy_result
+        define_predicate(:currently_in_north_korea) {
+          response == 'north-korea'
+        }
+
+        next_node_if(:embassy_result, currently_in_north_korea)
+        next_node(:oru_result)
       end
 
       use_outcome_templates

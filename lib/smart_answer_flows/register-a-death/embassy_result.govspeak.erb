@@ -138,7 +138,7 @@ You can pay by cash or credit card, but not by personal cheque.
 <% if reg_data_query.class::FOOTNOTE_EXCLUSIONS.include?(country_of_death) %>
 ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the death will be registered.^
 
-  <% if reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(current_location) %>
+  <% if current_location == 'north-korea' %>
 <%= render partial: 'footnote_oru_variants.govspeak.erb', locals: { current_location: current_location } %>
   <% end %>
 <% elsif country_of_death != current_location and reg_data_query.eastern_caribbean_countries?(country_of_death) and reg_data_query.eastern_caribbean_countries?(current_location) %>
