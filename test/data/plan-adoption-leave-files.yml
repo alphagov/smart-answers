@@ -3,5 +3,5 @@ lib/smart_answer_flows/plan-adoption-leave.rb: b7e08de391492d2554121d8fb4712d53
 lib/smart_answer_flows/locales/en/plan-adoption-leave.yml: 8c28c1f6a3946d3f57fc06538a72703b
 test/data/plan-adoption-leave-questions-and-responses.yml: 19cde22548bdc648de4a1616676283ae
 test/data/plan-adoption-leave-responses-and-expected-results.yml: 11998cff3f7d722bfb842851dde611b8
-lib/smart_answer_flows/plan-adoption-leave/adoption_leave_details.govspeak.erb: 7ec32e7c82044dc88dc1fd2578513413
+lib/smart_answer_flows/plan-adoption-leave/adoption_leave_details.govspeak.erb: 983d9818c81838dcf8c893007102e8f1
 lib/smart_answer/calculators/plan_adoption_leave.rb: 80b6eb2de784f121761a36e60ce16a57
