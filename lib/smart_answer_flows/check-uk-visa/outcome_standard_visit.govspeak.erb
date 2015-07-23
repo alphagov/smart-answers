@@ -1,14 +1,14 @@
 <% content_for :title do %>
-You’ll need a visa to come to the UK
+  You’ll need a visa to come to the UK
 <% end %>
 
 <% content_for :body do %>
-Apply for a [Standard Visitor visa](/standard-visitor-visa) if you’re visiting the UK for a holiday or to visit family or friends.
-<% if %w(china).include?(passport_country) %>
+  Apply for a [Standard Visitor visa](/standard-visitor-visa) if you’re visiting the UK for a holiday or to visit family or friends.
+  <% if %w(china).include?(passport_country) %>
 
-##Travelling in a tour group
+    ##Travelling in a tour group
 
-You can apply for an [‘ADS visa’](/ads-visa) if you’re planning to travel to the UK as part of a tour group for less than 30 days.
-<% end %>
-<%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {passport_country: passport_country} -%>
+    You can apply for an [‘ADS visa’](/ads-visa) if you’re planning to travel to the UK as part of a tour group for less than 30 days.
+  <% end %>
+  <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {passport_country: passport_country} -%>
 <% end %>
