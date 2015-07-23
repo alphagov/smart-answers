@@ -1,9 +1,9 @@
 <% content_for :body do %>
-$!The statutory holiday entitlement is <%= holiday_entitlement_days %> days holiday.$!
+  $!The statutory holiday entitlement is <%= holiday_entitlement_days %> days holiday.$!
 
-<% if days_per_week > 5 and calculator.full_time_part_time_days >= 28 %>
-Even though more than 5 days a week are worked the maximum statutory holiday entitlement is 28 days.
-<% end %>
+  <% if days_per_week > 5 and calculator.full_time_part_time_days >= 28 %>
+    Even though more than 5 days a week are worked the maximum statutory holiday entitlement is 28 days.
+  <% end %>
 
-<%= render partial: 'your_employer_with_rounding.govspeak.erb' -%>
+  <%= render partial: 'your_employer_with_rounding.govspeak.erb' -%>
 <% end %>
