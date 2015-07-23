@@ -94,7 +94,7 @@ module SmartAnswer
         next_node_if(:no_birth_certificate_result, no_birth_certificate_exception)
         next_node_if(:which_country?, responded_with('another_country'))
         on_condition(responded_with('same_country')) do
-          next_node_if(:embassy_result, born_in_north_korea)
+          next_node_if(:north_korea_result, born_in_north_korea)
         end
         next_node(:oru_result)
       end
@@ -113,7 +113,7 @@ module SmartAnswer
           response == 'north-korea'
         }
 
-        next_node_if(:embassy_result, currently_in_north_korea)
+        next_node_if(:north_korea_result, currently_in_north_korea)
         next_node(:oru_result)
       end
 
@@ -121,7 +121,7 @@ module SmartAnswer
 
       use_outcome_templates
 
-      outcome :embassy_result do
+      outcome :north_korea_result do
         precalculate :reg_data_query do
           reg_data_query
         end
