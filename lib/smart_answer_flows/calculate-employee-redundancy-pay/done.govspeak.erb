@@ -1,26 +1,26 @@
 <% content_for :title do %>
-Statutory redundancy payment: £<%= statutory_redundancy_pay %> (£<%= statutory_redundancy_pay_ni %> In Northern Ireland).
+  Statutory redundancy payment: £<%= statutory_redundancy_pay %> (£<%= statutory_redundancy_pay_ni %> In Northern Ireland).
 
 <% end %>
 
 <% content_for :body do %>
-##How it’s worked out
+  ##How it’s worked out
 
-Your employee's entitlement is <%= number_of_weeks_entitlement %> weeks.
+  Your employee's entitlement is <%= number_of_weeks_entitlement %> weeks.
 
-They get:
+  They get:
 
-+ 0.5 week’s pay for each full year they were under 22
-+ 1 week’s pay for each full year they were 22 or older, but under 41
-+ 1.5 week’s pay for each full year they were 41 or older
+  + 0.5 week’s pay for each full year they were under 22
+  + 1 week’s pay for each full year they were 22 or older, but under 41
+  + 1.5 week’s pay for each full year they were 41 or older
 
-Length of service is capped at 20 years and weekly pay at £<%= rate %> (£<%= ni_rate %> In Northern Ireland). Years of service or earnings over these amounts are not included in the calculation.
+  Length of service is capped at 20 years and weekly pay at £<%= rate %> (£<%= ni_rate %> In Northern Ireland). Years of service or earnings over these amounts are not included in the calculation.
 
-The maximum amount of statutory redundancy pay is £<%= max_amount %> (£<%= ni_max_amount %> In Northern Ireland).
+  The maximum amount of statutory redundancy pay is £<%= max_amount %> (£<%= ni_max_amount %> In Northern Ireland).
 
-^Redundancy pay under £30,000 is not taxable.^
+  ^Redundancy pay under £30,000 is not taxable.^
 <% end %>
 
 <% content_for :next_steps do %>
-[Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
+  [Read the guide to Making staff redundant](https://www.gov.uk/staff-redundant)
 <% end %>
