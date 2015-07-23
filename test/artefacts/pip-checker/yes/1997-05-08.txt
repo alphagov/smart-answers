@@ -2,7 +2,7 @@
 
 $!Some people in England, Scotland and Wales have been invited to claim Personal Independence Payment (PIP).$!
 
-If you're still getting Disability Living Allowance, when you'll be invited to claim PIP depends on:
+If you're still getting Disability Living Allowance (DLA), when you'll be invited to claim PIP depends on:
 
 - when your DLA ends
 - your postcode area
@@ -10,33 +10,12 @@ If you're still getting Disability Living Allowance, when you'll be invited to c
 
 ###Your DLA ends before September 2017
 
-You'll be told 20 weeks before your DLA ends and invited to claim PIP in most areas of England, Scotland and Wales.
+You'll be told 20 weeks before your DLA ends and invited to claim PIP in most areas.
 
 You'll also be invited to claim PIP if you tell the Department for Work and Pensions (DWP) that your care or mobility needs have changed.
 
 
-In the following areas you'll be asked to claim PIP from 27 July 2015:
-
-- AL (St Albans)
-- CT (Canterbury)
-- EN (Enfield)
-- HA (Harrow)
-- HS (Hebrides)
-- KT (Kingston)
-- KW (Kirkwall)
-- ME (Maidstone)
-- N (London North)
-- NW (London North West)
-- SL (Slough)
-- SM (Sutton)
-- TN (Tonbridge)
-- TW (Twickenham)
-- UB (Uxbridge)
-- W (London West)
-- WD (Watford)
-- ZE (Lerwick)
-
-###Your DLA ends after September 2017 or DLA awards with no end date
+###Your DLA ends after September 2017 or your DLA award has no end date
 
 Some people will be invited to claim PIP from 13 July 2015 if you live in the following areas:
 
@@ -47,7 +26,7 @@ Some people will be invited to claim PIP from 13 July 2015 if you live in the fo
 - Manchester (M)
 - Oldham (OL)
 - Preston (PR)
-- Stoke (ST)
+- Stoke-on-Trent (ST)
 - Warrington (WA)
 - Wigan (WN)
 
