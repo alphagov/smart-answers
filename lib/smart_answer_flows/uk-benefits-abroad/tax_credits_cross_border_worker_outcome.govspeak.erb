@@ -1,34 +1,34 @@
 <% content_for :body do %>
-<% if is_already_abroad %>
-You may be able to claim tax credits while you're abroad.
-<% else %>
-You may be able to get tax credits while you're abroad.
-<% end %>
+  <% if is_already_abroad %>
+    You may be able to claim tax credits while you're abroad.
+  <% else %>
+    You may be able to get tax credits while you're abroad.
+  <% end %>
 
-##Working Tax Credit
+  ##Working Tax Credit
 
-You could get [Working Tax Credit](/working-tax-credit) if you either:
+  You could get [Working Tax Credit](/working-tax-credit) if you either:
 
-- live in Switzerland or an [European Economic Area](/eu-eea) (EEA) country and travel to the UK to work
-- travel abroad to work, but are ‘ordinarily resident' in the UK
+  - live in Switzerland or an [European Economic Area](/eu-eea) (EEA) country and travel to the UK to work
+  - travel abroad to work, but are ‘ordinarily resident' in the UK
 
-^Ordinarily resident means you normally live in the UK, and plan to stay for the time being.^
+  ^Ordinarily resident means you normally live in the UK, and plan to stay for the time being.^
 
-##Child Tax Credit
+  ##Child Tax Credit
 
-You could get [Child Tax Credit](/child-tax-credit) if:
+  You could get [Child Tax Credit](/child-tax-credit) if:
 
-- you are ordinarily resident in the UK
-- you work in the UK and pay [National Insurance contributions](/national-insurance) here
-- your child lives in an EEA country or in Switzerland and depends on you to support them
+  - you are ordinarily resident in the UK
+  - you work in the UK and pay [National Insurance contributions](/national-insurance) here
+  - your child lives in an EEA country or in Switzerland and depends on you to support them
 
-Contact the Tax Credits Helpline to claim.
+  Contact the Tax Credits Helpline to claim.
 
-<% if is_already_abroad %>
-  <%= render partial: 'tax_credits_already_abroad_helpline.govspeak.erb' -%>
-<% else %>
-  <%= render partial: 'tax_credits_going_abroad_helpline.govspeak.erb' -%>
-<% end %>
+  <% if is_already_abroad %>
+    <%= render partial: 'tax_credits_already_abroad_helpline.govspeak.erb' -%>
+  <% else %>
+    <%= render partial: 'tax_credits_going_abroad_helpline.govspeak.erb' -%>
+  <% end %>
 
-*[EEA]: European Economic Area
+  *[EEA]: European Economic Area
 <% end %>
