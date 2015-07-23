@@ -1,31 +1,31 @@
 <% content_for :body do %>
-<% if paying_or_receiving == 'pay'
-  fees_title = 'Additional weekly fees | Total amount to pay per week'
-else
-  fees_title = 'Fees | Total amount you’ll receive'
-end %>
-Based on your answers the child maintenance payment is the flat rate of £<%= flat_rate_amount %> per week.
+  <% if paying_or_receiving == 'pay'
+    fees_title = 'Additional weekly fees | Total amount to pay per week'
+  else
+    fees_title = 'Fees | Total amount you’ll receive'
+  end %>
+  Based on your answers the child maintenance payment is the flat rate of £<%= flat_rate_amount %> per week.
 
-This is the total weekly amount, not the amount per child.
+  This is the total weekly amount, not the amount per child.
 
-Depending on how child maintenance is arranged, fees may be added to this amount.
+  Depending on how child maintenance is arranged, fees may be added to this amount.
 
-Payment type | Weekly flat rate payment | <%= fees_title %> | Application fee  - you only pay this once
-- | -
-[Collect and pay](/child-maintenance/how-to-pay) | £<%= flat_rate_amount %> | £<%= collect_fees %> | £<%= total_fees %> | £20.00
-[Direct pay](/child-maintenance/how-to-pay) | £<%= flat_rate_amount %> | No fees | £<%= flat_rate_amount %> | £20.00
-[Arranging child maintenance yourself](/arranging-child-maintenance-yourself) | £<%= flat_rate_amount %> | No fees | £<%= flat_rate_amount %> | No fee
+  Payment type | Weekly flat rate payment | <%= fees_title %> | Application fee  - you only pay this once
+  - | -
+  [Collect and pay](/child-maintenance/how-to-pay) | £<%= flat_rate_amount %> | £<%= collect_fees %> | £<%= total_fees %> | £20.00
+  [Direct pay](/child-maintenance/how-to-pay) | £<%= flat_rate_amount %> | No fees | £<%= flat_rate_amount %> | £20.00
+  [Arranging child maintenance yourself](/arranging-child-maintenance-yourself) | £<%= flat_rate_amount %> | No fees | £<%= flat_rate_amount %> | No fee
 
 
-You will pay up to £<%= total_yearly_fees %> in fees per year if you <%= paying_or_receiving %> child maintenance through the Collect and Pay service.
+  You will pay up to £<%= total_yearly_fees %> in fees per year if you <%= paying_or_receiving %> child maintenance through the Collect and Pay service.
 
-^You don’t have to pay an application fee if you’re in Northern Ireland.^
+  ^You don’t have to pay an application fee if you’re in Northern Ireland.^
 
-<% if paying_or_receiving == 'pay' %>
-You may also have to pay an enforcement charge if you don’t make your full payments on time.
-<% end %>
+  <% if paying_or_receiving == 'pay' %>
+    You may also have to pay an enforcement charge if you don’t make your full payments on time.
+  <% end %>
 
-The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
+  The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
-Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
+  Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
 <% end %>
