@@ -417,9 +417,9 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'north-korea'
       end
       context "still in North Korea" do
-        should "give the embassy result (this is an exception to ORU transition)" do
+        should "give the North Korea-specific result" do
           add_response 'same_country'
-          assert_current_node :embassy_result
+          assert_current_node :north_korea_result
         end
       end
       context "in another country" do

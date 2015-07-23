@@ -82,7 +82,7 @@ module SmartAnswer
         }
 
         on_condition(responded_with('same_country')) do
-          next_node_if(:embassy_result, died_in_north_korea)
+          next_node_if(:north_korea_result, died_in_north_korea)
         end
 
         next_node_if(:which_country_are_you_in_now?, responded_with('another_country'))
@@ -103,7 +103,7 @@ module SmartAnswer
           response == 'north-korea'
         }
 
-        next_node_if(:embassy_result, currently_in_north_korea)
+        next_node_if(:north_korea_result, currently_in_north_korea)
         next_node(:oru_result)
       end
 
@@ -132,7 +132,7 @@ module SmartAnswer
         end
       end
 
-      outcome :embassy_result do
+      outcome :north_korea_result do
         precalculate :reg_data_query do
           SmartAnswer::Calculators::RegistrationsDataQuery.new
         end
