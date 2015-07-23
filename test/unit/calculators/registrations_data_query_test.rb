@@ -18,40 +18,10 @@ module SmartAnswer::Calculators
           refute @query.commonwealth_country?('spain')
         end
       end
-      context "has_high_commission?" do
-        should "be true for countries with a high commission" do
-          assert @query.has_high_commission?('trinidad-and-tobago')
-          refute @query.has_high_commission?('australia')
-        end
-      end
       context "has_consulate?" do
         should "be true for countries with a consulate" do
           assert @query.has_consulate?('russia')
           refute @query.has_consulate?('uganda')
-        end
-      end
-      context "cash_only?" do
-        should "be true for countries that only accept cash" do
-          assert @query.cash_only?('iceland')
-          refute @query.cash_only?('spain')
-        end
-      end
-      context "register_death_by_post?" do
-        should "be true for countries that allow registration by post" do
-          assert @query.register_death_by_post?('barbados')
-          refute @query.register_death_by_post?('afghanistan')
-        end
-      end
-      context "postal_form" do
-        should "give the form url if it exists" do
-          assert_equal "/government/publications/passport-credit-debit-card-payment-authorisation-slip-austria", @query.postal_form('austria')
-          refute @query.postal_form('usa')
-        end
-      end
-      context "postal_return_form" do
-        should "give the form url if it exists" do
-          assert_equal "/government/publications/registered-post-return-delivery-form-italy", @query.postal_return_form('italy')
-          refute @query.postal_return_form('belgium')
         end
       end
       context "registration_country_slug" do
