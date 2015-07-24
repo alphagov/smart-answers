@@ -178,10 +178,6 @@ module SmartAnswer
           resident_of == 'third_country' && (data_query.os_consular_cni_countries?(ceremony_country) || %w(kosovo).include?(ceremony_country) || data_query.os_consular_cni_in_nearby_country?(ceremony_country))
         }
 
-        define_predicate(:marriage_in_spain_third_country) {
-          ceremony_country == 'spain' && resident_of == 'third_country'
-        }
-
         define_predicate(:marriage_in_norway_third_country) {
           ceremony_country == 'norway' && resident_of == 'third_country'
         }
@@ -191,7 +187,7 @@ module SmartAnswer
         next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
         next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
         next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
-        next_node_if(:outcome_consular_cni_os_residing_in_third_country, marriage_in_spain_third_country)
+        next_node_if(:outcome_spain, variable_matches(:ceremony_country, "spain"))
 
         on_condition(responded_with('opposite_sex')) do
           next_node_if(:outcome_os_hong_kong, variable_matches(:ceremony_country, 'hong-kong'))
@@ -258,8 +254,6 @@ module SmartAnswer
           next_node_if(:outcome_ss_marriage,
             ss_marriage_countries? | ss_marriage_countries_when_couple_british? | ss_marriage_and_partnership?
           )
-
-          next_node_if(:outcome_os_consular_cni, variable_matches(:ceremony_country, "spain"))
 
           next_node_if(:outcome_cp_or_equivalent, -> {
             data_query.cp_equivalent_countries?(ceremony_country)
@@ -456,6 +450,75 @@ module SmartAnswer
         end
         precalculate :monaco_phraselist do
           PhraseList.new(:"monaco_#{marriage_or_pacs}")
+        end
+      end
+
+      outcome :outcome_spain do
+        precalculate :current_path do
+          (['/marriage-abroad/y'] + responses).join('/')
+        end
+
+        precalculate :uk_residence_outcome_path do
+          current_path.gsub('third_country', 'uk')
+        end
+
+        precalculate :ceremony_country_residence_outcome_path do
+          current_path.gsub('third_country', 'ceremony_country')
+        end
+
+        precalculate :spain_body do
+          phrases = PhraseList.new
+          if resident_of != 'uk'
+            if sex_of_your_partner == 'opposite_sex'
+              phrases << :contact_local_authorities_in_country_marriage
+            else
+              phrases << :contact_local_authorities_in_country_cp
+            end
+          end
+
+          if resident_of != 'third_country' && sex_of_your_partner == 'opposite_sex'
+            phrases << :civil_weddings_in_spain
+          end
+
+          if sex_of_your_partner == 'same_sex'
+            phrases << :ss_process_and_recognition_in_spain
+          end
+
+          if resident_of == 'ceremony_country'
+            phrases << :get_legal_advice
+          else
+            phrases << :get_legal_and_travel_advice
+            phrases << :legal_restrictions_for_non_residents_spain
+          end
+
+          if resident_of == 'third_country'
+            phrases << :what_you_need_to_do_spain_third_country
+          else
+            phrases << :what_you_need_to_do_spain
+          end
+
+          if resident_of == 'uk'
+            phrases << :get_cni_in_uk_for_spain_title
+            phrases << :cni_at_local_register_office
+            phrases << :get_cni_in_uk_for_spain
+          elsif resident_of == 'ceremony_country'
+            phrases << :get_cni_in_spain
+          end
+
+          if resident_of != 'third_country'
+            phrases << :get_maritial_status_certificate_spain
+            phrases << :other_requirements_in_spain
+            phrases << :names_on_documents_must_match
+
+            unless partner_nationality == 'partner_british'
+              phrases << :partner_naturalisation_in_uk
+            end
+
+            phrases << :consular_cni_os_fees_incl_null_osta_oath_consular_letter
+            phrases << :link_to_consular_fees
+            phrases << :pay_by_visas_or_mastercard
+          end
+          phrases
         end
       end
 
