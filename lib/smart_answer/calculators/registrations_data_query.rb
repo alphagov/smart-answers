@@ -31,10 +31,6 @@ module SmartAnswer::Calculators
 
     FOOTNOTE_EXCLUSIONS = %w(afghanistan cambodia central-african-republic chad comoros dominican-republic east-timor eritrea haiti kosovo laos lesotho liberia madagascar montenegro north-korea paraguay samoa slovenia somalia swaziland taiwan tajikistan western-sahara)
 
-    ORU_TRANSITIONED_COUNTRIES = %w(afghanistan albania algeria american-samoa andorra angola antigua-and-barbuda argentina armenia aruba austria azerbaijan bahamas bahrain bangladesh barbados belarus belgium belize benin bhutan bolivia bonaire-st-eustatius-saba bosnia-and-herzegovina botswana brazil brunei bulgaria burkina-faso burma burundi cambodia cameroon cape-verde central-african-republic chad chile china colombia comoros congo costa-rica cote-d-ivoire croatia cuba curacao cyprus czech-republic democratic-republic-of-congo denmark djibouti dominica dominican-republic ecuador egypt el-salvador equatorial-guinea eritrea estonia ethiopia fiji finland france french-guiana french-polynesia gabon gambia georgia germany ghana greece grenada guadeloupe guatemala guinea guinea-bissau guyana haiti honduras hong-kong hungary iceland india indonesia iran iraq israel italy jamaica japan jordan kazakhstan kenya kiribati kosovo kuwait kyrgyzstan laos latvia lebanon lesotho liberia libya liechtenstein lithuania luxembourg macao macedonia madagascar malawi malaysia maldives mali malta marshall-islands martinique mauritania mauritius mayotte mexico micronesia moldova monaco mongolia montenegro morocco mozambique namibia nauru nepal netherlands new-caledonia nicaragua niger nigeria north-korea norway oman pakistan palau panama papua-new-guinea paraguay peru philippines pitcairn-island poland portugal qatar reunion romania russia rwanda saint-barthelemy samoa san-marino sao-tome-and-principe saudi-arabia senegal serbia seychelles sierra-leone singapore slovakia slovenia solomon-islands somalia south-korea south-sudan spain sri-lanka st-kitts-and-nevis st-lucia st-maarten st-martin st-pierre-and-miquelon st-vincent-and-the-grenadines sudan suriname swaziland sweden switzerland syria taiwan tajikistan tanzania thailand the-occupied-palestinian-territories timor-leste togo tonga trinidad-and-tobago tunisia turkey turkmenistan tuvalu uganda ukraine united-arab-emirates uruguay usa uzbekistan vanuatu venezuela vietnam wallis-and-futuna western-sahara yemen zambia zimbabwe)
-
-    ORU_TRANSITION_EXCEPTIONS = %w(north-korea)
-
     ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH = %w(andorra belgium denmark finland france india israel italy japan monaco morocco nepal netherlands nigeria poland portugal russia sierra-leone south-korea spain sri-lanka sweden taiwan the-occupied-palestinian-territories turkey united-arab-emirates usa)
 
     ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH = %w(papua-new-guinea poland)
@@ -88,14 +84,6 @@ module SmartAnswer::Calculators
 
     def responded_with_commonwealth_country?
       SmartAnswer::Predicate::RespondedWith.new(COMMONWEALTH_COUNTRIES, "commonwealth country")
-    end
-
-    def born_in_oru_transitioned_country?
-      SmartAnswer::Predicate::VariableMatches.new(:country_of_birth, ORU_TRANSITIONED_COUNTRIES, "ORU transitioned country")
-    end
-
-    def died_in_oru_transitioned_country?
-      SmartAnswer::Predicate::VariableMatches.new(:country_of_death, ORU_TRANSITIONED_COUNTRIES, "ORU transitioned country of death")
     end
 
     def has_high_commission?(country_slug)
