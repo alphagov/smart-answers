@@ -18,6 +18,8 @@ module SmartAnswer::Calculators
       @commodity_code_matrix[milk_fat_milk_protein_index][glucose_sucrose_index]
     end
 
+    private
+
     def glucose_sucrose_index
       starch_glucose_to_sucrose[@starch_glucose_weight][@sucrose_weight]
     end
