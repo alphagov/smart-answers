@@ -164,7 +164,9 @@ module SmartAnswer
         next_node :commodity_code_result
       end
 
-      outcome :commodity_code_result, use_outcome_templates: true do
+      use_outcome_templates
+
+      outcome :commodity_code_result do
         precalculate :calculator do
           Calculators::CommodityCodeCalculator.new(
             starch_glucose_weight: starch_glucose_weight,
