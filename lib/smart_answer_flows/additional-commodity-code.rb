@@ -174,10 +174,6 @@ module SmartAnswer
             milk_fat_weight: milk_fat_weight,
             milk_protein_weight: milk_protein_weight || 0)
         end
-
-        precalculate :has_commodity_code do
-          calculator.commodity_code != 'X'
-        end
       end
     end
   end

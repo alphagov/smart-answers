@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <% unless has_commodity_code %>
+  <% unless calculator.has_commodity_code? %>
     The product composition you indicated is not possible.
   <% else %>
     The Meursing code for a product with this composition is 7<%= calculator.commodity_code %>.
@@ -7,7 +7,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if has_commodity_code %>
+  <% if calculator.has_commodity_code? %>
     Use these four digits together with the ten-digit commodity code from Trade Tariff.
   <% end %>
 <% end %>
