@@ -1,8 +1,8 @@
 --- 
 lib/smart_answer_flows/minimum-wage-calculator-employers.rb: aa193c977054901f9db4dca7a7463f43
 lib/smart_answer_flows/locales/en/minimum-wage-calculator-employers.yml: 1d69047c9eda71bf80fc761516b0e90e
-test/data/minimum-wage-calculator-employers-questions-and-responses.yml: 173bbd0ad46b728bdd6498fa71585ddc
-test/data/minimum-wage-calculator-employers-responses-and-expected-results.yml: ca94e66d32e727c77a4472dce71a198d
+test/data/minimum-wage-calculator-employers-questions-and-responses.yml: 8d05a23bb72740b2d9c9f1196f212e0e
+test/data/minimum-wage-calculator-employers-responses-and-expected-results.yml: 4f24160d38e41983f72ce1352fad9702
 lib/smart_answer_flows/minimum-wage-calculator-employers/current_payment_above.govspeak.erb: 4a33a726da01da0015e6f42f10e49e1c
 lib/smart_answer_flows/minimum-wage-calculator-employers/current_payment_below.govspeak.erb: b7cb141635eba3e83d09591c77ffeec9
 lib/smart_answer_flows/minimum-wage-calculator-employers/does_not_apply_to_historical_apprentices.govspeak.erb: b7db231cc648b8b6abc846efd5a840ff
@@ -11,6 +11,6 @@ lib/smart_answer_flows/minimum-wage-calculator-employers/past_payment_below.govs
 lib/smart_answer_flows/minimum-wage-calculator-employers/under_school_leaving_age.govspeak.erb: 13de5d10bbbb015df597f78c66da1b67
 lib/smart_answer_flows/minimum-wage-calculator-employers/under_school_leaving_age_past.govspeak.erb: 9c56f76e04984f07627efbc1f42b2b63
 lib/smart_answer_flows/shared/minimum_wage/_acas_information.govspeak.erb: 0d2f7c4d01e3c928701e7d649663707e
-lib/smart_answer_flows/shared_logic/minimum_wage.rb: 0266518e125cf1fd950e8b081c71274f
+lib/smart_answer_flows/shared_logic/minimum_wage.rb: 0b04eddea8ce323c7a6b3bdf38e85b7c
 lib/smart_answer/calculators/minimum_wage_calculator.rb: 8f2af19b8bee681ac27fae1874e95460
 lib/data/minimum_wage_data.yml: 55c71c9ff8252c17a679dad888ad5ad7
