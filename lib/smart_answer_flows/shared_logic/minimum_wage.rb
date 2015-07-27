@@ -451,7 +451,7 @@ outcome :current_payment_above
 
 outcome :current_payment_below do
   precalculate :total_underpayment do
-    calculator.format_money calculator.total_underpayment
+    calculator.total_underpayment
   end
 end
 
