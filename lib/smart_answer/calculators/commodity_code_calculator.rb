@@ -18,6 +18,10 @@ module SmartAnswer::Calculators
       @commodity_code_matrix[milk_fat_milk_protein_index][glucose_sucrose_index]
     end
 
+    def has_commodity_code?
+      commodity_code != 'X'
+    end
+
     private
 
     def glucose_sucrose_index
