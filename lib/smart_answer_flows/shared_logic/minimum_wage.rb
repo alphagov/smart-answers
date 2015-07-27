@@ -448,9 +448,6 @@ value_question :past_accommodation_usage?, parse: Integer do
 end
 
 outcome :current_payment_above do
-  precalculate :total_working_pay do
-    calculator.total_working_pay
-  end
   precalculate :accommodation_charged do
     accommodation_charge and accommodation_charge > 0
   end
@@ -460,9 +457,6 @@ outcome :current_payment_above do
 end
 
 outcome :current_payment_below do
-  precalculate :total_working_pay do
-    calculator.total_working_pay
-  end
   precalculate :accommodation_charged do
     accommodation_charge and accommodation_charge > 0
   end
@@ -475,9 +469,6 @@ outcome :current_payment_below do
 end
 
 outcome :past_payment_above do
-  precalculate :total_working_pay do
-    calculator.total_working_pay
-  end
   precalculate :accommodation_charged do
     accommodation_charge and accommodation_charge > 0
   end
@@ -487,9 +478,6 @@ outcome :past_payment_above do
 end
 
 outcome :past_payment_below do
-  precalculate :total_working_pay do
-    calculator.total_working_pay
-  end
   precalculate :accommodation_charged do
     accommodation_charge and accommodation_charge > 0
   end

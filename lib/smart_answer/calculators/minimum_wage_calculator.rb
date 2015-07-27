@@ -50,10 +50,6 @@ module SmartAnswer::Calculators
       (@overtime_hours * overtime_hourly_rate).round(2)
     end
 
-    def total_working_pay
-      (basic_total + total_overtime_pay).round(2)
-    end
-
     def total_pay
       (basic_total + total_overtime_pay + @accommodation_cost).round(2)
     end

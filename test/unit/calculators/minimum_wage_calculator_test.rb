@@ -584,18 +584,10 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "total_pay, total_working_pay and basic_rate calculations" do
+    context "total_pay and basic_rate calculations" do
       setup do
         @calculator = MinimumWageCalculator.new(
           age: 25, pay_frequency: 5, basic_pay: 260, basic_hours: 40)
-      end
-
-      should "calculate total_working_pay" do
-        assert_equal 260, @calculator.total_working_pay
-        @calculator.overtime_hours = 10
-        @calculator.overtime_hourly_rate = 7
-        # Basic rate is used for overtime pay calc
-        assert_equal 325, @calculator.total_working_pay
       end
 
       should "return overtime (5) as the lower rate" do
