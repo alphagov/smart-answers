@@ -451,17 +451,11 @@ outcome :current_payment_above do
   precalculate :accommodation_charged do
     accommodation_charge and accommodation_charge > 0
   end
-  precalculate :accommodation_rate do
-    accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
-  end
 end
 
 outcome :current_payment_below do
   precalculate :accommodation_charged do
     accommodation_charge and accommodation_charge > 0
-  end
-  precalculate :accommodation_rate do
-    accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
   end
   precalculate :total_underpayment do
     calculator.format_money calculator.total_underpayment
@@ -472,17 +466,11 @@ outcome :past_payment_above do
   precalculate :accommodation_charged do
     accommodation_charge and accommodation_charge > 0
   end
-  precalculate :accommodation_rate do
-    accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
-  end
 end
 
 outcome :past_payment_below do
   precalculate :accommodation_charged do
     accommodation_charge and accommodation_charge > 0
-  end
-  precalculate :accommodation_rate do
-    accommodation_charged ? accommodation_charge : calculator.free_accommodation_rate
   end
   precalculate :total_underpayment do
     calculator.format_money calculator.historical_adjustment
