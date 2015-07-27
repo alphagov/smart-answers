@@ -447,31 +447,17 @@ value_question :past_accommodation_usage?, parse: Integer do
   end
 end
 
-outcome :current_payment_above do
-  precalculate :accommodation_charged do
-    accommodation_charge and accommodation_charge > 0
-  end
-end
+outcome :current_payment_above
 
 outcome :current_payment_below do
-  precalculate :accommodation_charged do
-    accommodation_charge and accommodation_charge > 0
-  end
   precalculate :total_underpayment do
     calculator.format_money calculator.total_underpayment
   end
 end
 
-outcome :past_payment_above do
-  precalculate :accommodation_charged do
-    accommodation_charge and accommodation_charge > 0
-  end
-end
+outcome :past_payment_above
 
 outcome :past_payment_below do
-  precalculate :accommodation_charged do
-    accommodation_charge and accommodation_charge > 0
-  end
   precalculate :total_underpayment do
     calculator.format_money calculator.historical_adjustment
   end
