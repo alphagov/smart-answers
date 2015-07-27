@@ -24,19 +24,25 @@ module SmartAnswer::Calculators
       end
 
       context "commodity_code method" do
-        should "give the correct commodity code for the glucose, sucrose and mil fat and protein weights" do
-          @calculator = CommodityCodeCalculator.new(
+        should "lookup and return commodity code 042" do
+          calculator = CommodityCodeCalculator.new(
             starch_glucose_weight: 0, sucrose_weight: 30,
             milk_fat_weight: 0, milk_protein_weight: 6)
-          assert_equal "042", @calculator.commodity_code
-          @calculator = CommodityCodeCalculator.new(
+          assert_equal "042", calculator.commodity_code
+        end
+
+        should "lookup and return commodity code 367" do
+          calculator = CommodityCodeCalculator.new(
             starch_glucose_weight: 5, sucrose_weight: 30,
             milk_fat_weight: 6, milk_protein_weight: 15)
-          assert_equal "367", @calculator.commodity_code
-          @calculator = CommodityCodeCalculator.new(
+          assert_equal "367", calculator.commodity_code
+        end
+
+        should "lookup and return commodity code X" do
+          calculator = CommodityCodeCalculator.new(
             starch_glucose_weight: 5, sucrose_weight: 30,
             milk_fat_weight: 70, milk_protein_weight: 0)
-          assert_equal "X", @calculator.commodity_code
+          assert_equal "X", calculator.commodity_code
         end
       end
     end
