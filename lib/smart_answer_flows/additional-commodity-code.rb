@@ -172,7 +172,7 @@ module SmartAnswer
             starch_glucose_weight: starch_glucose_weight,
             sucrose_weight: sucrose_weight,
             milk_fat_weight: milk_fat_weight,
-            milk_protein_weight: milk_protein_weight || 0)
+            milk_protein_weight: milk_protein_weight)
         end
       end
     end
