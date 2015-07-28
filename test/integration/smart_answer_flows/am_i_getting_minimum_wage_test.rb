@@ -657,60 +657,36 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
   end
 
   context 'validation' do
-    context 'for how_old_are_you?' do
-      setup do
-        @question = @flow.questions.find { |question| question.name == :how_old_are_you? }
-        @state = SmartAnswer::State.new(@question)
-      end
-
-      should 'not accept ages less than or equal to 0' do
-        assert_raise(SmartAnswer::InvalidResponse) do
-          @question.transition(@state, '0')
-        end
-      end
-
-      should 'not accept ages greater than 200' do
-        assert_raise(SmartAnswer::InvalidResponse) do
-          @question.transition(@state, '201')
-        end
-      end
-
-      should 'accept ages between 1 and 200' do
-        assert_nothing_raised do
-          @question.transition(@state, '1')
+    [
+      :how_old_are_you?,
+      :how_old_were_you?
+    ].each do |age_question_name|
+      context "for #{age_question_name}" do
+        setup do
+          @question = @flow.questions.find { |question| question.name == age_question_name }
+          @state = SmartAnswer::State.new(@question)
         end
 
-        assert_nothing_raised do
-          @question.transition(@state, '200')
-        end
-      end
-    end
-
-    context 'for how_old_were_you?' do
-      setup do
-        @question = @flow.questions.find { |question| question.name == :how_old_were_you? }
-        @state = SmartAnswer::State.new(@question)
-      end
-
-      should 'not accept ages less than or equal to 0' do
-        assert_raise(SmartAnswer::InvalidResponse) do
-          @question.transition(@state, '0')
-        end
-      end
-
-      should 'not accept ages greater than 200' do
-        assert_raise(SmartAnswer::InvalidResponse) do
-          @question.transition(@state, '201')
-        end
-      end
-
-      should 'accept ages between 1 and 200' do
-        assert_nothing_raised do
-          @question.transition(@state, '1')
+        should 'not accept ages less than or equal to 0' do
+          assert_raise(SmartAnswer::InvalidResponse) do
+            @question.transition(@state, '0')
+          end
         end
 
-        assert_nothing_raised do
-          @question.transition(@state, '200')
+        should 'not accept ages greater than 200' do
+          assert_raise(SmartAnswer::InvalidResponse) do
+            @question.transition(@state, '201')
+          end
+        end
+
+        should 'accept ages between 1 and 200' do
+          assert_nothing_raised do
+            @question.transition(@state, '1')
+          end
+
+          assert_nothing_raised do
+            @question.transition(@state, '200')
+          end
         end
       end
     end
