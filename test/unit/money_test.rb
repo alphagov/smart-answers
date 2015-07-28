@@ -31,5 +31,11 @@ module SmartAnswer
       money = Money.new(v)
       assert_equal "1234.5678", money.to_s
     end
+
+    test 'should not accept negative numbers' do
+      assert_raises(SmartAnswer::InvalidResponse) do
+        Money.new('-1')
+      end
+    end
   end
 end
