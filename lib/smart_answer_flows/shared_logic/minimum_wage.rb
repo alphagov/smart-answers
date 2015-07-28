@@ -74,7 +74,7 @@ value_question :how_old_were_you?, parse: Integer do
   save_input_as :age
 
   validate do |response|
-    response > 0
+    response > 0 && response <= 200
   end
 
   next_node do |response|

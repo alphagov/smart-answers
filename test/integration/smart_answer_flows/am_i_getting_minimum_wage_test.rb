@@ -698,9 +698,19 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
       end
 
-      should 'accept ages greater than or equal to 1' do
+      should 'not accept ages greater than 200' do
+        assert_raise(SmartAnswer::InvalidResponse) do
+          @question.transition(@state, '201')
+        end
+      end
+
+      should 'accept ages between 1 and 200' do
         assert_nothing_raised do
           @question.transition(@state, '1')
+        end
+
+        assert_nothing_raised do
+          @question.transition(@state, '200')
         end
       end
     end
