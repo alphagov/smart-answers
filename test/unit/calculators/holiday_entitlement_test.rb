@@ -164,10 +164,9 @@ module SmartAnswer::Calculators
 
     context "calculating full-time or part-time holiday entitlement" do
       context "working for a full year" do
-
         should "calculate entitlement for 5 days a week" do
           calc = HolidayEntitlement.new(
-     days_per_week: 5
+            days_per_week: 5
           )
 
           assert_equal 28, calc.full_time_part_time_days
@@ -175,7 +174,7 @@ module SmartAnswer::Calculators
 
         should "calculate entitlement for more than 5 days a week" do
           calc = HolidayEntitlement.new(
-     days_per_week: 6
+            days_per_week: 6
           )
 
           # 28 is the max
@@ -184,7 +183,7 @@ module SmartAnswer::Calculators
 
         should "calculate entitlement for less than 5 days a week" do
           calc = HolidayEntitlement.new(
-     days_per_week: 3
+            days_per_week: 3
           )
 
           assert_equal '16.80', sprintf('%.2f', calc.full_time_part_time_days)
@@ -194,16 +193,16 @@ module SmartAnswer::Calculators
       context "starting this year" do
         should "calculate entitlement for 5 days a week" do
           calc = HolidayEntitlement.new(
-     start_date: Date.parse("2012-03-12"),
-     days_per_week: 5
+            start_date: Date.parse("2012-03-12"),
+            days_per_week: 5
           )
           assert_equal '22.57', sprintf('%.2f', calc.full_time_part_time_days)
         end
 
         should "calculate entitlement for more than 5 days a week" do
           calc = HolidayEntitlement.new(
-     start_date: Date.parse("2012-03-12"),
-     days_per_week: 7
+            start_date: Date.parse("2012-03-12"),
+            days_per_week: 7
           )
           # Capped
           assert_equal '22.57', sprintf('%.2f', calc.full_time_part_time_days)
@@ -211,16 +210,16 @@ module SmartAnswer::Calculators
 
         should "cap entitlement at 28 days if starting on first day" do
           calc = HolidayEntitlement.new(
-      start_date: Date.parse("2012-01-01"),
-     days_per_week: 7
+            start_date: Date.parse("2012-01-01"),
+            days_per_week: 7
           )
           assert_equal 28, calc.full_time_part_time_days
         end
 
         should "calculate entitlement for less than 5 days per week" do
           calc = HolidayEntitlement.new(
-     start_date: Date.parse("2012-03-12"),
-     days_per_week: 3
+            start_date: Date.parse("2012-03-12"),
+            days_per_week: 3
           )
           assert_equal '13.54', sprintf('%.2f', calc.full_time_part_time_days)
         end
@@ -229,16 +228,16 @@ module SmartAnswer::Calculators
       context "leaving this year" do
         should "calculate entitlement for 5 days a week" do
           calc = HolidayEntitlement.new(
-     leaving_date: Date.parse('2012-07-24'),
-     days_per_week: 5
+            leaving_date: Date.parse('2012-07-24'),
+            days_per_week: 5
           )
           assert_equal '15.76', sprintf('%.2f', calc.full_time_part_time_days)
         end
 
         should "calculate entitlement for more than 5 days a week" do
           calc = HolidayEntitlement.new(
-     leaving_date: Date.parse('2012-07-24'),
-     days_per_week: 6
+            leaving_date: Date.parse('2012-07-24'),
+            days_per_week: 6
           )
           # Capped
           assert_equal '15.76', sprintf('%.2f', calc.full_time_part_time_days)
@@ -246,16 +245,16 @@ module SmartAnswer::Calculators
 
         should "cap entitlement at 28 days if leaving at end of year" do
           calc = HolidayEntitlement.new(
-     leaving_date: Date.parse("2012-12-31"),
-     days_per_week: 7
+            leaving_date: Date.parse("2012-12-31"),
+            days_per_week: 7
           )
           assert_equal 28, calc.full_time_part_time_days
         end
 
         should "calculate entitlement for less than 5 days a week" do
           calc = HolidayEntitlement.new(
-     leaving_date: Date.parse('2012-07-24'),
-     days_per_week: 3
+            leaving_date: Date.parse('2012-07-24'),
+            days_per_week: 3
           )
           assert_equal '9.46', sprintf('%.2f', calc.full_time_part_time_days)
         end
@@ -272,7 +271,10 @@ module SmartAnswer::Calculators
     context "calculating full time or part time holiday entitlement by hour" do
       should "return the hours of entitlement" do
         calc = HolidayEntitlement.new(
-   hours_per_week: 32.5, start_date: Date.parse('2012-03-01'), leave_year_start_date: Date.parse('2011-04-01'))
+          hours_per_week: 32.5,
+          start_date: Date.parse('2012-03-01'),
+          leave_year_start_date: Date.parse('2011-04-01')
+        )
         assert_equal '15.4', calc.formatted_full_time_part_time_hours
       end
     end
@@ -312,9 +314,9 @@ module SmartAnswer::Calculators
       context "full year" do
         setup do
           @calc = HolidayEntitlement.new(
-     hours_per_shift: 7.5,
-     shifts_per_shift_pattern: 4,
-     days_per_shift_pattern: 8
+            hours_per_shift: 7.5,
+            shifts_per_shift_pattern: 4,
+            days_per_shift_pattern: 8
           )
         end
 
@@ -330,10 +332,10 @@ module SmartAnswer::Calculators
       context "starting this year" do
         setup do
           @calc = HolidayEntitlement.new(
-     start_date: Date.parse('2012-07-01'),
-     hours_per_shift: 7.5,
-     shifts_per_shift_pattern: 4,
-     days_per_shift_pattern: 8
+            start_date: Date.parse('2012-07-01'),
+            hours_per_shift: 7.5,
+            shifts_per_shift_pattern: 4,
+            days_per_shift_pattern: 8
           )
         end
 
@@ -345,10 +347,10 @@ module SmartAnswer::Calculators
       context "leaving this year" do
         setup do
           @calc = HolidayEntitlement.new(
-     leaving_date: Date.parse('2012-09-30'),
-     hours_per_shift: 7.5,
-     shifts_per_shift_pattern: 4,
-     days_per_shift_pattern: 8
+            leaving_date: Date.parse('2012-09-30'),
+            hours_per_shift: 7.5,
+            shifts_per_shift_pattern: 4,
+            days_per_shift_pattern: 8
           )
         end
 
@@ -397,9 +399,9 @@ module SmartAnswer::Calculators
     context "decimal precision in hours and minutes calculations" do
       setup do
         @calc = HolidayEntitlement.new(
-   hours_per_week: 28,
-   start_date: nil,
-   leave_year_start_date: nil
+          hours_per_week: 28,
+          start_date: nil,
+          leave_year_start_date: nil
         )
       end
       should "calculate with the correct precision" do
@@ -409,9 +411,9 @@ module SmartAnswer::Calculators
     context "decimal precision in days_per_week calculations" do
       setup do
         @calc = HolidayEntitlement.new(
-   days_per_week: 4.5,
-   start_date: nil,
-   leave_year_start_date: nil
+          days_per_week: 4.5,
+          start_date: nil,
+          leave_year_start_date: nil
         )
       end
       should "calculate with the correct precision" do
