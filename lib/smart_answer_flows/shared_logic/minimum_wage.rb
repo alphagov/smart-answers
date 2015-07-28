@@ -259,10 +259,6 @@ multiple_choice :is_provided_with_accommodation? do
     response != 'no'
   end
 
-  calculate :total_hours do
-    calculator.total_hours
-  end
-
   next_node do |response|
 
     case response
@@ -288,10 +284,6 @@ multiple_choice :was_provided_with_accommodation? do
 
   calculate :accommodation_provided do |response|
     response != 'no'
-  end
-
-  calculate :total_hours do
-    calculator.total_hours
   end
 
   next_node do |response|
@@ -349,10 +341,6 @@ value_question :current_accommodation_usage?, parse: Integer do
     calculator
   end
 
-  calculate :total_hours do
-    calculator.total_hours
-  end
-
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))
 
@@ -377,10 +365,6 @@ value_question :past_accommodation_usage?, parse: Integer do
     end
     calculator.accommodation_adjustment(accommodation_charge, days_per_week)
     calculator
-  end
-
-  calculate :total_hours do
-    calculator.total_hours
   end
 
   next_node do |response|
