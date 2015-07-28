@@ -4,7 +4,7 @@ To apply for a Tuition Fee Loan use form EU14N.
 
 Academic year | Form
 - | -
-2014 to 2015 | [EU14N - form and notes (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/722324/eu_eu14n_1415_d.pdf)
+2014 to 2015 | [EU14N - form and notes (PDF, 200KB)](http://media.slc.co.uk/sfe/1415/eu/eu_eu14n_1415_d.pdf)
 
 
 ##Additional information
@@ -14,10 +14,10 @@ You may need to include additional information on the following forms.
 
 Form | When to use the form
 - | -
-[EUTFLR - form (PDF, 200KB)](http://www.sfengland.slc.co.uk/media/722318/eu_tlrf_1415_d.pdf) | To change the amount of loan you want to apply for 
-[Evidence factsheet (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/722312/eu_evidence_factsheet_d.pdf) | List of evidence to send with your application - eg proof of identity or income 
-[Certifier checklist (PDF, 75KB)](http://www.sfengland.slc.co.uk/media/722309/eu_certifier_checklist_d.pdf) | Get the person who verifies your evidence to sign this form
-[EUCO1 - form (PDF, 100KB)](http://www.sfengland.slc.co.uk/media/722315/eu_co1_1415_d.pdf) | To update your course, name and other details
+[EUTFLR - form (PDF, 200KB)](http://media.slc.co.uk/sfe/1415/eu/eu_tlrf_1415_d.pdf) | To change the amount of loan you want to apply for 
+[Evidence factsheet (PDF, 100KB)](http://media.slc.co.uk/sfe/nysf/eu_evidence_factsheet_d.pdf) | List of evidence to send with your application - eg proof of identity or income 
+[Certifier checklist (PDF, 75KB)](http://media.slc.co.uk/sfe/nysf/eu_certifier_checklist_d.pdf) | Get the person who verifies your evidence to sign this form
+[EUCO1 - form (PDF, 100KB)](http://media.slc.co.uk/sfe/1415/eu/eu_co1_1415_d.pdf) | To update your course, name and other details
 
 ^You can apply up to 9 months after the start of your course.^
 
