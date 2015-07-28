@@ -662,7 +662,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       assert_current_node :past_payment_below
       assert_state_variable :minimum_hourly_rate, '6.08' # rate on '2011-10-01'
 
-      expected_underpayment = 46.18.to_s
+      expected_underpayment = 46.18
       # (hours worked * hourly rate back then - paid by employer) / minimum hourly rate back then * minimum hourly rate today
       # (40h * £6.08 - £200.0) / 6.08 * 6.50 = 46.18
       assert_state_variable :total_underpayment, expected_underpayment

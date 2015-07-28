@@ -459,7 +459,7 @@ outcome :past_payment_above
 
 outcome :past_payment_below do
   precalculate :total_underpayment do
-    calculator.format_money calculator.historical_adjustment
+    calculator.historical_adjustment
   end
 end
 
