@@ -289,7 +289,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_state_variable "total_hours", 45
           assert_equal 6.50, current_state.calculator.minimum_hourly_rate
           assert_equal 6.12, current_state.calculator.total_hourly_rate
-          assert_state_variable "above_minimum_wage", false
+          assert_equal false, current_state.calculator.minimum_wage_or_above?
         end
       end
 
@@ -344,7 +344,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           # NOTE: these are date sensitive vars - will be tested in the calculator tests
           # assert_state_variable "minimum_hourly_rate", 6.08 #
           # assert_state_variable "total_hourly_rate", "10.74" # time sensitive
-          assert_state_variable "above_minimum_wage", true
+          assert_equal true, current_state.calculator.minimum_wage_or_above?
         end
       end
     end # Apprentice
@@ -536,7 +536,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                           assert_state_variable "total_hours", 42
                           assert_equal 4.83, current_state.calculator.minimum_hourly_rate
                           assert_equal 3.75, current_state.calculator.total_hourly_rate
-                          assert_state_variable "above_minimum_wage", false
+                          assert_equal false, current_state.calculator.minimum_wage_or_above?
                         end
                       end
                     end
@@ -600,7 +600,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_state_variable "total_hours", 210
           assert_equal 3.53, current_state.calculator.minimum_hourly_rate
           assert_equal 4.46, current_state.calculator.total_hourly_rate
-          assert_state_variable "above_minimum_wage", true
+          assert_equal true, current_state.calculator.minimum_wage_or_above?
           assert_equal 0, current_state.calculator.historical_adjustment
         end
       end
@@ -618,7 +618,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_state_variable "total_hours", 210
           assert_equal 3.53, current_state.calculator.minimum_hourly_rate
           assert_equal 3.21, current_state.calculator.total_hourly_rate
-          assert_state_variable "above_minimum_wage", false
+          assert_equal false, current_state.calculator.minimum_wage_or_above?
           assert_equal 70.38, current_state.calculator.historical_adjustment
         end
       end
