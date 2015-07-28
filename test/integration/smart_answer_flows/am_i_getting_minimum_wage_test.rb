@@ -288,7 +288,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         should "make outcome calculations" do
           assert_state_variable "total_hours", 45
           assert_state_variable "minimum_hourly_rate", 6.50
-          assert_state_variable "total_hourly_rate", "6.12"
+          assert_state_variable "total_hourly_rate", 6.12
           assert_state_variable "above_minimum_wage", false
         end
       end
@@ -535,7 +535,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         should "make outcome calculations" do
                           assert_state_variable "total_hours", 42
                           assert_state_variable "minimum_hourly_rate", 4.83
-                          assert_state_variable "total_hourly_rate", "3.75"
+                          assert_state_variable "total_hourly_rate", 3.75
                           assert_state_variable "above_minimum_wage", false
                         end
                       end
@@ -599,7 +599,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         should "make outcome calculations" do
           assert_state_variable "total_hours", 210
           assert_state_variable "minimum_hourly_rate", 3.53
-          assert_state_variable "total_hourly_rate", "4.46"
+          assert_state_variable "total_hourly_rate", 4.46
           assert_state_variable "above_minimum_wage", true
           assert_state_variable "historical_adjustment", 0
         end
@@ -617,7 +617,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         should "make outcome calculations" do
           assert_state_variable "total_hours", 210
           assert_state_variable "minimum_hourly_rate", 3.53
-          assert_state_variable "total_hourly_rate", "3.21"
+          assert_state_variable "total_hourly_rate", 3.21
           assert_state_variable "above_minimum_wage", false
           assert_state_variable "historical_adjustment", 70.38
         end
