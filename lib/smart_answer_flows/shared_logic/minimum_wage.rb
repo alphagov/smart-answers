@@ -264,7 +264,7 @@ multiple_choice :is_provided_with_accommodation? do
   end
 
   calculate :minimum_hourly_rate do
-    calculator.format_money calculator.minimum_hourly_rate
+    calculator.minimum_hourly_rate
   end
 
   calculate :total_hourly_rate do
@@ -307,7 +307,7 @@ multiple_choice :was_provided_with_accommodation? do
   end
 
   calculate :minimum_hourly_rate do
-    calculator.format_money calculator.minimum_hourly_rate
+    calculator.minimum_hourly_rate
   end
 
   calculate :total_hourly_rate do
@@ -420,7 +420,7 @@ value_question :past_accommodation_usage?, parse: Integer do
   end
 
   calculate :minimum_hourly_rate do
-    calculator.format_money calculator.minimum_hourly_rate
+    calculator.minimum_hourly_rate
   end
 
   calculate :above_minimum_wage do
