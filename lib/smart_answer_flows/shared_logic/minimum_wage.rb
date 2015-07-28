@@ -206,8 +206,6 @@ end
 
 # Q8
 money_question :what_is_overtime_pay_per_hour? do
-  save_input_as :overtime_rate
-
   calculate :overtime_rate do |response|
     overtime_hourly_rate = Float(response)
     if overtime_hourly_rate < 0
@@ -221,8 +219,6 @@ end
 
 # Q8 Past
 money_question :what_was_overtime_pay_per_hour? do
-  save_input_as :overtime_rate
-
   calculate :overtime_rate do |response|
     overtime_hourly_rate = Float(response)
     if overtime_hourly_rate < 0
