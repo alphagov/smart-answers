@@ -719,5 +719,34 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
       end
     end
+
+    context 'for how_often_did_you_get_paid?' do
+      setup do
+        @question = @flow.questions.find { |question| question.name == :how_often_did_you_get_paid? }
+        @state = SmartAnswer::State.new(@question)
+      end
+
+      should 'not accept frequency less than 1' do
+        assert_raise(SmartAnswer::InvalidResponse) do
+          @question.transition(@state, '0')
+        end
+      end
+
+      should 'not accept frequency greater than 31' do
+        assert_raise(SmartAnswer::InvalidResponse) do
+          @question.transition(@state, '32')
+        end
+      end
+
+      should 'accept frequency between 1 and 31' do
+        assert_nothing_raised do
+          @question.transition(@state, '1')
+        end
+
+        assert_nothing_raised do
+          @question.transition(@state, '31')
+        end
+      end
+    end
   end
 end
