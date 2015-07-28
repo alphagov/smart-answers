@@ -207,11 +207,7 @@ end
 # Q8
 money_question :what_is_overtime_pay_per_hour? do
   calculate :overtime_rate do |response|
-    overtime_hourly_rate = Float(response)
-    if overtime_hourly_rate < 0
-      raise SmartAnswer::InvalidResponse
-    end
-    calculator.overtime_hourly_rate = overtime_hourly_rate
+    calculator.overtime_hourly_rate = Float(response)
   end
 
   next_node :is_provided_with_accommodation?
@@ -220,11 +216,7 @@ end
 # Q8 Past
 money_question :what_was_overtime_pay_per_hour? do
   calculate :overtime_rate do |response|
-    overtime_hourly_rate = Float(response)
-    if overtime_hourly_rate < 0
-      raise SmartAnswer::InvalidResponse
-    end
-    calculator.overtime_hourly_rate = overtime_hourly_rate
+    calculator.overtime_hourly_rate = Float(response)
   end
 
   next_node :was_provided_with_accommodation?
