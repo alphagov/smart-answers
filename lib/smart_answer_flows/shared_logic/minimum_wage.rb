@@ -298,11 +298,6 @@ value_question :current_accommodation_usage?, parse: Integer do
     response >= 0 && response <= 7
   end
 
-  calculate :calculator do |response|
-    calculator.accommodation_adjustment(accommodation_charge, response)
-    calculator
-  end
-
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))
     if calculator.minimum_wage_or_above?
@@ -317,11 +312,6 @@ end
 value_question :past_accommodation_usage?, parse: Integer do
   validate do |response|
     response >= 0 && response <= 7
-  end
-
-  calculate :calculator do |response|
-    calculator.accommodation_adjustment(accommodation_charge, response)
-    calculator
   end
 
   next_node do |response|
