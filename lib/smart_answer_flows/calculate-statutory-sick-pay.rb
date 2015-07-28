@@ -251,17 +251,10 @@ module SmartAnswer
         end
 
         # Answer 8
-        next_node_if(:maximum_entitlement_reached) do |response|
-          days_worked = response.split(',').size
-
-          prior_sick_days and prior_sick_days.to_i >= (days_worked * 28 + 3)
-        end
+        next_node_if(:maximum_entitlement_reached) { calculator.days_that_can_be_paid_for_this_period == 0 }
 
         # Answer 6
         next_node_if(:entitled_to_sick_pay) { calculator.ssp_payment > 0 }
-
-        # Answer 8
-        next_node_if(:maximum_entitlement_reached) { calculator.days_that_can_be_paid_for_this_period == 0 }
 
         # Answer 7
         next_node(:not_entitled_3_days_not_paid)
