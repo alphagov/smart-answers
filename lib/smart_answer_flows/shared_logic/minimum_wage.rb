@@ -2,12 +2,12 @@
 multiple_choice :what_would_you_like_to_check? do
   option "current_payment" => :are_you_an_apprentice?
   option "past_payment" => :past_payment_date?
+
   save_input_as :current_or_past_payments
 end
 
 # Q1A
 multiple_choice :past_payment_date? do
-
   option "2013-10-01"
   option "2012-10-01"
   option "2011-10-01"
@@ -22,19 +22,21 @@ end
 
 # Q2
 multiple_choice :are_you_an_apprentice? do
-  save_input_as :is_apprentice
   option "not_an_apprentice" => :how_old_are_you?
   option "apprentice_under_19" => :how_often_do_you_get_paid?
   option "apprentice_over_19_first_year" => :how_often_do_you_get_paid?
   option "apprentice_over_19_second_year_onwards" => :how_old_are_you?
+
+  save_input_as :is_apprentice
 end
 
 # Q2 Past
 multiple_choice :were_you_an_apprentice? do
-  save_input_as :was_apprentice
   option "no"
   option "apprentice_under_19"
   option "apprentice_over_19"
+
+  save_input_as :was_apprentice
 
   next_node do |response|
     case response
@@ -59,6 +61,7 @@ value_question :how_old_are_you?, parse: Integer do
     end
     age
   end
+
   next_node do |response|
     if response.to_i < 16
       :under_school_leaving_age
@@ -96,6 +99,7 @@ value_question :how_often_do_you_get_paid?, parse: :to_i do
     end
     pay_frequency
   end
+
   next_node :how_many_hours_do_you_work?
 end
 
@@ -108,6 +112,7 @@ value_question :how_often_did_you_get_paid?, parse: :to_i do
     end
     pay_frequency
   end
+
   next_node :how_many_hours_did_you_work?
 end
 
@@ -120,6 +125,7 @@ value_question :how_many_hours_do_you_work?, parse: Float do
     end
     basic_hours
   end
+
   next_node :how_much_are_you_paid_during_pay_period?
 end
 
@@ -132,12 +138,12 @@ value_question :how_many_hours_did_you_work?, parse: Float do
     end
     basic_hours
   end
+
   next_node :how_much_were_you_paid_during_pay_period?
 end
 
 # Q6
 money_question :how_much_are_you_paid_during_pay_period? do
-
   calculate :calculator do |response|
     amount_paid = Float(response)
     if amount_paid < 0
@@ -158,7 +164,6 @@ end
 
 # Q6 Past
 money_question :how_much_were_you_paid_during_pay_period? do
-
   calculate :calculator do |response|
     amount_paid = Float(response)
     if amount_paid < 0
@@ -179,7 +184,6 @@ end
 
 # Q7
 value_question :how_many_hours_overtime_do_you_work?, parse: Float do
-
   calculate :overtime_hours do |response|
     overtime_hours = response
     if overtime_hours < 0
@@ -250,13 +254,11 @@ end
 
 # Q9
 multiple_choice :is_provided_with_accommodation? do
-
   option "no"
   option "yes_free"
   option "yes_charged"
 
   next_node do |response|
-
     case response
     when "yes_free"
       :current_accommodation_usage?
@@ -279,7 +281,6 @@ multiple_choice :was_provided_with_accommodation? do
   option "yes_charged"
 
   next_node do |response|
-
     case response
     when "yes_free"
       :past_accommodation_usage?
@@ -304,6 +305,7 @@ money_question :current_accommodation_charge? do
     end
     accommodation_charge
   end
+
   next_node :current_accommodation_usage?
 end
 
@@ -316,12 +318,12 @@ money_question :past_accommodation_charge? do
     end
     accommodation_charge
   end
+
   next_node :past_accommodation_usage?
 end
 
 # Q11
 value_question :current_accommodation_usage?, parse: Integer do
-
   save_input_as :accommodation_usage
 
   calculate :calculator do |response|
@@ -335,19 +337,16 @@ value_question :current_accommodation_usage?, parse: Integer do
 
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, Integer(response))
-
     if calculator.minimum_wage_or_above?
       :current_payment_above
     else
       :current_payment_below
     end
-
   end
 end
 
 # Q11 Past
 value_question :past_accommodation_usage?, parse: Integer do
-
   save_input_as :accommodation_usage
 
   calculate :calculator do |response|
@@ -361,13 +360,11 @@ value_question :past_accommodation_usage?, parse: Integer do
 
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, response)
-
     if calculator.historical_adjustment <= 0
       :past_payment_above
     else
       :past_payment_below
     end
-
   end
 end
 
