@@ -448,12 +448,7 @@ value_question :past_accommodation_usage?, parse: Integer do
 end
 
 outcome :current_payment_above
-
-outcome :current_payment_below do
-  precalculate :total_underpayment do
-    calculator.total_underpayment
-  end
-end
+outcome :current_payment_below
 
 outcome :past_payment_above
 
