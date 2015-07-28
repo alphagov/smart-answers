@@ -294,8 +294,6 @@ end
 
 # Q11
 value_question :current_accommodation_usage?, parse: Integer do
-  save_input_as :accommodation_usage
-
   calculate :calculator do |response|
     days_per_week = response
     if days_per_week < 0 or days_per_week > 7
@@ -317,8 +315,6 @@ end
 
 # Q11 Past
 value_question :past_accommodation_usage?, parse: Integer do
-  save_input_as :accommodation_usage
-
   calculate :calculator do |response|
     days_per_week = response
     if days_per_week < 0 or days_per_week > 7
