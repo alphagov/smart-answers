@@ -136,9 +136,6 @@ end
 money_question :how_much_are_you_paid_during_pay_period? do
   calculate :calculator do |response|
     amount_paid = Float(response)
-    if amount_paid < 0
-      raise SmartAnswer::InvalidResponse
-    end
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
       pay_frequency: pay_frequency,
@@ -156,9 +153,6 @@ end
 money_question :how_much_were_you_paid_during_pay_period? do
   calculate :calculator do |response|
     amount_paid = Float(response)
-    if amount_paid < 0
-      raise SmartAnswer::InvalidResponse
-    end
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
       date: payment_date,
