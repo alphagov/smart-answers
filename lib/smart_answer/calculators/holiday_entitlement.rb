@@ -18,10 +18,6 @@ module SmartAnswer::Calculators
       (full_time_part_time_hours * 60).floor.divmod(60).map(&:floor)
     end
 
-    def days_cap
-      (28 * fraction_of_year).round(10)
-    end
-
     def casual_irregular_entitlement
       minutes = (5.6 / 46.4 * total_hours * 60).round(10)
       minutes.floor.divmod(60).map(&:floor)
@@ -46,24 +42,8 @@ module SmartAnswer::Calculators
       minutes.floor.divmod(60).map(&:floor)
     end
 
-    def shifts_per_week
-      (shifts_per_shift_pattern.to_f / days_per_shift_pattern.to_f * 7).round(10)
-    end
-
     def shift_entitlement
       (5.6 * fraction_of_year * shifts_per_week).round(10)
-    end
-
-    def date_calc
-      if self.start_date
-        start_date
-      else
-        leaving_date
-      end
-    end
-
-    def feb29th_in_year_of_date(date)
-      Date.new(date.year, 2, 29)
     end
 
     def feb29th_in_range(start_date, end_date)
@@ -74,32 +54,6 @@ module SmartAnswer::Calculators
       end
       # Helps with edge conditions - e.g 2011-12-31 to 2012-12-30
       feb29th_in_year_range end_date, start_date, end_date
-    end
-
-    def feb29th_in_year_range(iterator, start_date, end_date)
-      if iterator.leap?
-        feb29th = feb29th_in_year_of_date iterator
-        start_date <= feb29th and end_date >= feb29th
-      else
-        false
-      end
-    end
-
-    def leave_year_start_end
-      if self.leave_year_start_date
-        date_leave_year_start_date = leave_year_start_date
-
-        needs_offset = date_calc >= date_of_year(date_leave_year_start_date, date_calc.year)
-        number_years = date_calc.year - (needs_offset ? 0 : 1)
-
-        leave_year_start = date_of_year(date_leave_year_start_date, number_years)
-        leave_year_end = leave_year_start + 1.years - 1.days
-      else
-        leave_year_start = date_calc.beginning_of_year
-        leave_year_end = date_calc.end_of_year
-      end
-
-      [leave_year_start, leave_year_end]
     end
 
     def fraction_of_year
@@ -127,15 +81,6 @@ module SmartAnswer::Calculators
       format_number fraction_of_year, dp
     end
 
-    def format_number(number, dp = 1)
-      str = sprintf("%.#{dp}f", number)
-      strip_zeros(str)
-    end
-
-    def date_of_year(date, year)
-      Date.civil(year, date.month, date.day)
-    end
-
     def strip_zeros(number)
       number.to_s.sub(/\.0+$/, '')
     end
@@ -147,6 +92,63 @@ module SmartAnswer::Calculators
       else
         super
       end
+    end
+
+  private
+
+    def leave_year_start_end
+      if self.leave_year_start_date
+        date_leave_year_start_date = leave_year_start_date
+
+        needs_offset = date_calc >= date_of_year(date_leave_year_start_date, date_calc.year)
+        number_years = date_calc.year - (needs_offset ? 0 : 1)
+
+        leave_year_start = date_of_year(date_leave_year_start_date, number_years)
+        leave_year_end = leave_year_start + 1.years - 1.days
+      else
+        leave_year_start = date_calc.beginning_of_year
+        leave_year_end = date_calc.end_of_year
+      end
+
+      [leave_year_start, leave_year_end]
+    end
+
+    def shifts_per_week
+      (shifts_per_shift_pattern.to_f / days_per_shift_pattern.to_f * 7).round(10)
+    end
+
+    def date_calc
+      if self.start_date
+        start_date
+      else
+        leaving_date
+      end
+    end
+
+    def feb29th_in_year_of_date(date)
+      Date.new(date.year, 2, 29)
+    end
+
+    def feb29th_in_year_range(iterator, start_date, end_date)
+      if iterator.leap?
+        feb29th = feb29th_in_year_of_date iterator
+        start_date <= feb29th and end_date >= feb29th
+      else
+        false
+      end
+    end
+
+    def format_number(number, dp = 1)
+      str = sprintf("%.#{dp}f", number)
+      strip_zeros(str)
+    end
+
+    def date_of_year(date, year)
+      Date.civil(year, date.month, date.day)
+    end
+
+    def days_cap
+      (28 * fraction_of_year).round(10)
     end
   end
 end

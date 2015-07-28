@@ -321,7 +321,7 @@ module SmartAnswer::Calculators
         end
 
         should "return the average shifts per week" do
-          assert_equal 3.5, @calc.shifts_per_week
+          assert_equal 3.5, @calc.send(:shifts_per_week)
         end
 
         should "return the holiday entitlement in shifts" do
