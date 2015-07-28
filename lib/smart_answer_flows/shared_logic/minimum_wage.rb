@@ -15,7 +15,9 @@ multiple_choice :past_payment_date? do
   option "2009-10-01"
   option "2008-10-01"
 
-  save_input_as :payment_date
+  calculate :payment_date do |response|
+    Date.parse(response)
+  end
 
   next_node :were_you_an_apprentice?
 end
@@ -43,7 +45,7 @@ multiple_choice :were_you_an_apprentice? do
     when "no"
       :how_old_were_you?
     else
-      if Date.parse(payment_date) < Date.parse('2010-10-01')
+      if payment_date < Date.parse('2010-10-01')
         :does_not_apply_to_historical_apprentices
       else
         :how_often_did_you_get_paid?
@@ -159,7 +161,7 @@ money_question :how_much_were_you_paid_during_pay_period? do
     end
     Calculators::MinimumWageCalculator.new({
       age: age.to_i,
-      date: Date.parse(payment_date),
+      date: payment_date,
       pay_frequency: pay_frequency,
       basic_hours: basic_hours,
       basic_pay: amount_paid,
