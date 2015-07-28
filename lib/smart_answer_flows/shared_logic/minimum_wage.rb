@@ -399,10 +399,6 @@ value_question :past_accommodation_usage?, parse: Integer do
     calculator.minimum_wage_or_above?
   end
 
-  calculate :historical_adjustment do
-    calculator.historical_adjustment
-  end
-
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, response)
 

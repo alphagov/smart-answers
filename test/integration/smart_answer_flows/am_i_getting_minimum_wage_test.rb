@@ -601,7 +601,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_equal 3.53, current_state.calculator.minimum_hourly_rate
           assert_equal 4.46, current_state.calculator.total_hourly_rate
           assert_state_variable "above_minimum_wage", true
-          assert_state_variable "historical_adjustment", 0
+          assert_equal 0, current_state.calculator.historical_adjustment
         end
       end
       # Scenario 12 in accommodation charged above the threshold
@@ -619,7 +619,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_equal 3.53, current_state.calculator.minimum_hourly_rate
           assert_equal 3.21, current_state.calculator.total_hourly_rate
           assert_state_variable "above_minimum_wage", false
-          assert_state_variable "historical_adjustment", 70.38
+          assert_equal 70.38, current_state.calculator.historical_adjustment
         end
       end
 
