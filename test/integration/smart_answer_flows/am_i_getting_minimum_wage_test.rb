@@ -86,19 +86,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
       end
 
-      context "answer invalid for Q3 how old" do
-        should "not accept 0 age" do
-          add_response 0
-          assert_current_node :how_old_are_you?, error: true
-        end
-
-        should "not accept age > 200" do
-          add_response 250
-          assert_current_node :how_old_are_you?, error: true
-        end
-
-      end
-
       context "answered 19 to 'how old are you?'" do
         setup do
           add_response 19
@@ -666,6 +653,37 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       # (hours worked * hourly rate back then - paid by employer) / minimum hourly rate back then * minimum hourly rate today
       # (40h * £6.08 - £200.0) / 6.08 * 6.50 = 46.18
       assert_equal expected_underpayment, current_state.calculator.historical_adjustment
+    end
+  end
+
+  context 'validation' do
+    context 'for how_old_are_you?' do
+      setup do
+        @question = @flow.questions.find { |question| question.name == :how_old_are_you? }
+        @state = SmartAnswer::State.new(@question)
+      end
+
+      should 'not accept ages less than or equal to 0' do
+        assert_raise(SmartAnswer::InvalidResponse) do
+          @question.transition(@state, '0')
+        end
+      end
+
+      should 'not accept ages greater than 200' do
+        assert_raise(SmartAnswer::InvalidResponse) do
+          @question.transition(@state, '201')
+        end
+      end
+
+      should 'accept ages between 1 and 200' do
+        assert_nothing_raised do
+          @question.transition(@state, '1')
+        end
+
+        assert_nothing_raised do
+          @question.transition(@state, '200')
+        end
+      end
     end
   end
 end

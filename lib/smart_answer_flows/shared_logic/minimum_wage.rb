@@ -54,12 +54,10 @@ end
 
 # Q3
 value_question :how_old_are_you?, parse: Integer do
-  calculate :age do |response|
-    age = response
-    if age <= 0 || age > 200
-      raise SmartAnswer::InvalidResponse
-    end
-    age
+  save_input_as :age
+
+  validate do |response|
+    response > 0 && response <= 200
   end
 
   next_node do |response|
