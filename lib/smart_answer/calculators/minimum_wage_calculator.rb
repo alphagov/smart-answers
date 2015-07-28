@@ -121,11 +121,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    def format_money(value)
-      # regex strips zeros
-      str = sprintf("%.#{2}f", value).to_s.sub(/\.0+$/, '')
-    end
-
     def free_accommodation_rate
       @minimum_wage_data[:accommodation_rate]
     end

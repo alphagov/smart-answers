@@ -18,12 +18,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "format_money" do
-        should "format values to 2 decimal places with zero padding" do
-          assert_equal "4.40", @calculator.format_money(4.4)
-        end
-      end
-
       context "minimum_wage_data_for_date" do
         should "retrieve a map of historical minimum wage data" do
           assert_equal 4.91, @calculator.minimum_wage_data_for_date(Date.parse("2013-10-01"))[:accommodation_rate]
