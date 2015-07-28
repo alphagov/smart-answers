@@ -451,12 +451,7 @@ outcome :current_payment_above
 outcome :current_payment_below
 
 outcome :past_payment_above
-
-outcome :past_payment_below do
-  precalculate :total_underpayment do
-    calculator.historical_adjustment
-  end
-end
+outcome :past_payment_below
 
 outcome :under_school_leaving_age
 outcome :does_not_apply_to_historical_apprentices
