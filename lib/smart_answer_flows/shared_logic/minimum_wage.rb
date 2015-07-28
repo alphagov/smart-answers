@@ -187,8 +187,6 @@ end
 
 # Q7 Past
 value_question :how_many_hours_overtime_did_you_work?, parse: Float do
-  save_input_as :overtime_hours
-
   calculate :overtime_hours do |response|
     overtime_hours = response
     if overtime_hours < 0
