@@ -26,7 +26,6 @@ en-GB:
         You’re only responsible for paying SSP if:
 
         - you pay Class 1 National Insurance contributions for your employee (or would do if not for their age or their level of earnings)
-        - you don’t provide your own occupational sick pay scheme
         - your employee was sick for 4 or more days in a row (including non-working days)
         - your employee has told you they’re sick within your own time limit (or 7 days if you don’t have one)
 
@@ -73,72 +72,73 @@ en-GB:
         hint: This can include non-working days and bank holidays
         error_message:  End date should be on or after start date
 
-      # Q5.1
-      paid_at_least_8_weeks?:
-        title: On %{sick_start_date} had you paid your employee at least 8 weeks of earnings?
-        options:
-          eight_weeks_more: "Yes, paid at least 8 weeks earnings"
-          eight_weeks_less: "No, paid less than 8 weeks earnings"
-          before_payday: "No, employee is new and fell sick before their first payday"
-
-      # Q5.2
-      how_often_pay_employee_pay_patterns?:
-        title: How often do you pay the employee?
-
       # Question 6
-      last_payday_before_sickness?:
-        title: What was the last normal payday before %{sick_start_date}?
-        error_message: You must enter a date before %{sick_start_date}
-
-      # Question 6.1
-      last_payday_before_offset?:
-        title: What was the last normal payday on or before %{pay_day_offset}?
-        error_message: You must enter a date on or before %{pay_day_offset}
-
-      # Question 6.2
-      total_employee_earnings?:
-        title: Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between %{relevant_period_from} and %{relevant_period_to}.
-        body: |
-          Different rules apply for [directors of limited companies incorporated before 1 October 2009](/statutory-sick-pay-how-different-employment-types-affect-what-you-pay)
-        error_message: Please enter a number greater than 0
-
-      # Question 7
-      pay_amount_if_not_sick?:
-        title: Enter how much you would have paid the employee on their first payday if they hadn’t been sick.
-
-      # Question 7.1
-      contractual_days_covered_by_earnings?:
-        title: How many days does the period represented by these earnings cover?
-        hint: If it’s 2 weeks and 3 days enter ‘17’.
-
-      # Question 8
-      total_earnings_before_sick_period?:
-        title: Enter the total earnings paid before %{sick_start_date}.
-
-      # Question 8.1
-      days_covered_by_earnings?:
-        title: How many days does the period represented by these earnings cover?
-        hint: If it’s 2 weeks and 3 days enter ‘17’.
-
-      # Question 11
-      off_sick_4_days?:
+      has_linked_sickness?:
         title: Was your employee off sick within the previous 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
         body: |
           These are called ‘linked Periods of Incapacity for Work (PIW)’. Check if an employee’s [PIW links to a previous one.](/government/publications/statutory-sick-pay-tables-for-linking-periods-of-incapacity-for-work)
 
           *[PIW]: Period of Incapacity for Work
 
-      # Question 11.1
+      # Question 6.1
       linked_sickness_start_date?:
         title: Enter the start date for this linked period of sickness.
+        linked_sickness_must_be_before: Linked sickness must be in the past
 
-      # Question 12
-      how_many_days_sick?:
-        title: During the previous illness(es), how many normal workdays did your employee take off sick?
-        hint: ‘Normal workdays’ are the days your employee works on a regular basis.
+      # Question 6.2
+      linked_sickness_end_date?:
+        title: Enter the end date for this linked period of sickness.
+        start_before_end:  End date should be on or after start date
+        must_be_within_eight_weeks: You need to enter a date within 8 weeks of the current period of sickness or it isn't a linked period of sickness.
+
+      # Q7.1
+      paid_at_least_8_weeks?:
+        title: On %{sick_start_date_for_awe} had you paid your employee at least 8 weeks of earnings?
+        options:
+          eight_weeks_more: "Yes, paid at least 8 weeks earnings"
+          eight_weeks_less: "No, paid less than 8 weeks earnings"
+          before_payday: "No, employee is new and fell sick before their first payday"
+
+      # Q7.2
+      how_often_pay_employee_pay_patterns?:
+        title: How often do you pay the employee?
+
+      # Question 8
+      last_payday_before_sickness?:
+        title: What was the last normal payday before %{sick_start_date_for_awe}?
+        error_message: You must enter a date before %{sick_start_date_for_awe}
+
+      # Question 8.1
+      last_payday_before_offset?:
+        title: What was the last normal payday on or before %{pay_day_offset}?
+        error_message: You must enter a date on or before %{pay_day_offset}
+
+      # Question 8.2
+      total_employee_earnings?:
+        title: Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between %{relevant_period_from} and %{relevant_period_to}.
+        body: |
+          Different rules apply for [directors of limited companies incorporated before 1 October 2009](/statutory-sick-pay-how-different-employment-types-affect-what-you-pay)
         error_message: Please enter a number greater than 0
 
-      # Question 13:
+      # Question 9
+      pay_amount_if_not_sick?:
+        title: Enter how much you would have paid the employee on their first payday if they hadn’t been sick.
+
+      # Question 9.1
+      contractual_days_covered_by_earnings?:
+        title: How many days does the period represented by these earnings cover?
+        hint: If it’s 2 weeks and 3 days enter ‘17’.
+
+      # Question 10
+      total_earnings_before_sick_period?:
+        title: Enter the total earnings paid before %{sick_start_date_for_awe}.
+
+      # Question 10.1
+      days_covered_by_earnings?:
+        title: How many days does the period represented by these earnings cover?
+        hint: If it’s 2 weeks and 3 days enter ‘17’.
+
+      # Question 11:
       usual_work_days?:
         title: Which days of the week do they usually work?
         options:
