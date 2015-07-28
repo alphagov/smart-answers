@@ -3,7 +3,7 @@ lib/smart_answer_flows/calculate-state-pension.rb: 4dd65f17b2009898d50fcee8d028d
 lib/smart_answer_flows/locales/en/calculate-state-pension.yml: 2bd34b293ff55be8c395f527682c410a
 test/data/calculate-state-pension-questions-and-responses.yml: 62d1841ee3292988bcec43d8bbf21ea7
 test/data/calculate-state-pension-responses-and-expected-results.yml: d467d2445671cb21151d59d9dd004d9f
-lib/smart_answer_flows/calculate-state-pension/age_result.govspeak.erb: 583c63d61b9e1e816345651eb5de8921
+lib/smart_answer_flows/calculate-state-pension/age_result.govspeak.erb: 09497f3940d7a32cc51d06a5964d005b
 lib/smart_answer_flows/calculate-state-pension/amount_result.govspeak.erb: b46187c00300132102d7e5c214385b0d
 lib/smart_answer_flows/calculate-state-pension/near_state_pension_age.govspeak.erb: 2cf95f1256106b0c55f9af59c8e9cce1
 lib/smart_answer_flows/calculate-state-pension/over55_result.govspeak.erb: a30aa788e427c1c77840642b9cd6a816
