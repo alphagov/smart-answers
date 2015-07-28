@@ -685,5 +685,24 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
       end
     end
+
+    context 'for how_old_were_you?' do
+      setup do
+        @question = @flow.questions.find { |question| question.name == :how_old_were_you? }
+        @state = SmartAnswer::State.new(@question)
+      end
+
+      should 'not accept ages less than or equal to 0' do
+        assert_raise(SmartAnswer::InvalidResponse) do
+          @question.transition(@state, '0')
+        end
+      end
+
+      should 'accept ages greater than or equal to 1' do
+        assert_nothing_raised do
+          @question.transition(@state, '1')
+        end
+      end
+    end
   end
 end
