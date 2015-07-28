@@ -268,12 +268,12 @@ end
 
 # Q10
 money_question :current_accommodation_charge? do
+  validate do |response|
+    response > 0
+  end
+
   calculate :accommodation_charge do |response|
-    accommodation_charge = Float(response)
-    if accommodation_charge <= 0
-      raise SmartAnswer::InvalidResponse
-    end
-    accommodation_charge
+    Float(response)
   end
 
   next_node :current_accommodation_usage?
@@ -281,12 +281,12 @@ end
 
 # Q10 Past
 money_question :past_accommodation_charge? do
+  validate do |response|
+    response > 0
+  end
+
   calculate :accommodation_charge do |response|
-    accommodation_charge = Float(response)
-    if accommodation_charge <= 0
-      raise SmartAnswer::InvalidResponse
-    end
-    accommodation_charge
+    Float(response)
   end
 
   next_node :past_accommodation_usage?
