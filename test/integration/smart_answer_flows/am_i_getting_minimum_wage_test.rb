@@ -288,7 +288,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         should "make outcome calculations" do
           assert_state_variable "total_hours", 45
           assert_equal 6.50, current_state.calculator.minimum_hourly_rate
-          assert_state_variable "total_hourly_rate", 6.12
+          assert_equal 6.12, current_state.calculator.total_hourly_rate
           assert_state_variable "above_minimum_wage", false
         end
       end
@@ -535,7 +535,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         should "make outcome calculations" do
                           assert_state_variable "total_hours", 42
                           assert_equal 4.83, current_state.calculator.minimum_hourly_rate
-                          assert_state_variable "total_hourly_rate", 3.75
+                          assert_equal 3.75, current_state.calculator.total_hourly_rate
                           assert_state_variable "above_minimum_wage", false
                         end
                       end
@@ -599,7 +599,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         should "make outcome calculations" do
           assert_state_variable "total_hours", 210
           assert_equal 3.53, current_state.calculator.minimum_hourly_rate
-          assert_state_variable "total_hourly_rate", 4.46
+          assert_equal 4.46, current_state.calculator.total_hourly_rate
           assert_state_variable "above_minimum_wage", true
           assert_state_variable "historical_adjustment", 0
         end
@@ -617,7 +617,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         should "make outcome calculations" do
           assert_state_variable "total_hours", 210
           assert_equal 3.53, current_state.calculator.minimum_hourly_rate
-          assert_state_variable "total_hourly_rate", 3.21
+          assert_equal 3.21, current_state.calculator.total_hourly_rate
           assert_state_variable "above_minimum_wage", false
           assert_state_variable "historical_adjustment", 70.38
         end

@@ -263,10 +263,6 @@ multiple_choice :is_provided_with_accommodation? do
     calculator.total_hours
   end
 
-  calculate :total_hourly_rate do
-    calculator.total_hourly_rate
-  end
-
   calculate :above_minimum_wage do
     calculator.minimum_wage_or_above?
   end
@@ -300,10 +296,6 @@ multiple_choice :was_provided_with_accommodation? do
 
   calculate :total_hours do
     calculator.total_hours
-  end
-
-  calculate :total_hourly_rate do
-    calculator.total_hourly_rate
   end
 
   calculate :above_minimum_wage do
@@ -369,10 +361,6 @@ value_question :current_accommodation_usage?, parse: Integer do
     calculator.total_hours
   end
 
-  calculate :total_hourly_rate do
-    calculator.total_hourly_rate
-  end
-
   calculate :above_minimum_wage do
     calculator.minimum_wage_or_above?
   end
@@ -409,10 +397,6 @@ value_question :past_accommodation_usage?, parse: Integer do
 
   calculate :above_minimum_wage do
     calculator.minimum_wage_or_above?
-  end
-
-  calculate :total_hourly_rate do
-    calculator.total_hourly_rate
   end
 
   calculate :historical_adjustment do
