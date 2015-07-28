@@ -255,10 +255,6 @@ multiple_choice :is_provided_with_accommodation? do
   option "yes_free"
   option "yes_charged"
 
-  calculate :accommodation_provided do |response|
-    response != 'no'
-  end
-
   next_node do |response|
 
     case response
@@ -281,10 +277,6 @@ multiple_choice :was_provided_with_accommodation? do
   option "no"
   option "yes_free"
   option "yes_charged"
-
-  calculate :accommodation_provided do |response|
-    response != 'no'
-  end
 
   next_node do |response|
 
