@@ -94,7 +94,7 @@ module SmartAnswer
         next_node_if(:no_birth_certificate_result, no_birth_certificate_exception)
         next_node_if(:which_country?, responded_with('another_country'))
         on_condition(responded_with('same_country')) do
-          next_node_if(:embassy_result, born_in_north_korea)
+          next_node_if(:north_korea_result, born_in_north_korea)
         end
         next_node(:oru_result)
       end
@@ -113,7 +113,7 @@ module SmartAnswer
           response == 'north-korea'
         }
 
-        next_node_if(:embassy_result, currently_in_north_korea)
+        next_node_if(:north_korea_result, currently_in_north_korea)
         next_node(:oru_result)
       end
 
@@ -121,49 +121,16 @@ module SmartAnswer
 
       use_outcome_templates
 
-      outcome :embassy_result do
+      outcome :north_korea_result do
         precalculate :reg_data_query do
           reg_data_query
         end
 
-        precalculate :embassy_high_commission_or_consulate do
-          if reg_data_query.has_high_commission?(registration_country)
-            "British high commission".html_safe
-          elsif reg_data_query.has_consulate?(registration_country)
-            "British consulate".html_safe
-          elsif reg_data_query.has_trade_and_cultural_office?(registration_country)
-            "British Trade & Cultural Office".html_safe
-          elsif reg_data_query.has_consulate_general?(registration_country)
-            "British consulate general".html_safe
-          else
-            "British embassy".html_safe
-          end
-        end
-
-        precalculate :checklist_countries do
-          %w(bangladesh kuwait libya north-korea pakistan philippines turkey)
-        end
-
-        precalculate :postal_form_url do
-          reg_data_query.postal_form(registration_country)
-        end
-
-        precalculate :postal_return_form_url do
-          reg_data_query.postal_return_form(registration_country)
-        end
-
-        precalculate :location do
-          loc = WorldLocation.find(registration_country)
-          raise InvalidResponse unless loc
-          loc
-        end
-
-        precalculate :organisations do
-          [location.fco_organisation]
-        end
-
         precalculate :overseas_passports_embassies do
-          if organisations and organisations.any?
+          location = WorldLocation.find(registration_country)
+          raise InvalidResponse unless location
+          organisations = [location.fco_organisation]
+          if organisations.present?
             service_title = 'Births and Deaths registration service'
             organisations.first.offices_with_service(service_title)
           else

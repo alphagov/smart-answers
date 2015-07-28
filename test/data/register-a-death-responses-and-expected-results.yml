@@ -285,7 +285,7 @@
   - overseas
   - north-korea
   - same_country
-  :next_node: :embassy_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
   :responses: 

@@ -1,12 +1,11 @@
-
-
-$!You must register the death according to the regulations in North Korea. You will be given a local death certificate.$!
+<% content_for :body do %>
+$!You must register the death according to the regulations in <%= death_country_name_lowercase_prefix %>. You will be given a local death certificate.$!
 
 This local death certificate will be accepted in the UK (it may need to be a [certified translation](/certifying-a-document) of the document if it’s not in English).
 
 ##Register the death with the UK authorities
 
-You can also apply to register the death with the British embassy in North Korea.
+You can also apply to register the death with the British embassy in <%= current_location_name_lowercase_prefix %>.
 
 You don’t have to do this, but it means:
 
@@ -51,22 +50,5 @@ You can book an appointment at the British embassy and bring along the registrat
 
 Your documents will be returned to the British Embassy in Pyongyang after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
 
-
-
-$A
-British Embassy Pyongyang
-Munsu-Dong Compound,, 
-Pyongyang,
-Democratic People&#39;s Republic of Korea
-North Korea
-$A
-
-$C
-Telephone: (+850) 2 381 7980
-Telephone (out-of-hours emergency): (+850) 191 250 7980 (from outside DPRK)
-Fax: (+850) 2 381 7985
-
-
-[ British Embassy Pyongyang - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-pyonyang/office/british-embassy-pyongyang)
-$C
-
+<%= render partial: '../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } -%>
+<% end %>

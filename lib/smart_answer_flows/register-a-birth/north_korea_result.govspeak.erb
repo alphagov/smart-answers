@@ -1,6 +1,5 @@
-
-
-$!You can apply to register the birth with the British embassy in North Korea.$!
+<% content_for :body do %>
+$!You can apply to register the birth with the British embassy in <%= registration_country_name_lowercase_prefix %>.$!
 
 Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
 
@@ -46,29 +45,17 @@ Cheaper copies will be available from the [General Register Office](http://www.g
 
 Book an appointment at the British embassy and bring the registration form, supporting documents and the fee.
 
+<% if paternity_declaration %>
+The mother must register the birth. If you want the father’s name on the consular birth certificate, both parents will need to swear a paternity declaration in person at the nearest consulate.
+
+Paternity declarations are free. Contact the consulate for more details.
+<% else %>
 Either parent can register the birth.
+<% end %>
 
-
-
-$A
-British Embassy Pyongyang
-Munsu-Dong Compound,, 
-Pyongyang,
-Democratic People&#39;s Republic of Korea
-North Korea
-$A
-
-$C
-Telephone: (+850) 2 381 7980
-Telephone (out-of-hours emergency): (+850) 191 250 7980 (from outside DPRK)
-Fax: (+850) 2 381 7985
-
-
-[ British Embassy Pyongyang - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-pyonyang/office/british-embassy-pyongyang)
-$C
-
+<%= render partial: '../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
 
 ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
 
 Your documents will be returned to the British Embassy in Pyongyang after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
-
+<% end %>

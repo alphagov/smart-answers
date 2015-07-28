@@ -542,9 +542,9 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
     end
 
-    should "lead to the embassy result if still there" do
+    should "lead to the North Korea-specific result if the user is still there" do
       add_response "same_country"
-      assert_current_node :embassy_result
+      assert_current_node :north_korea_result
     end
 
     should "lead to the ORU result if in the UK" do

@@ -10,7 +10,6 @@ module SmartAnswer
       translator_query = SmartAnswer::Calculators::TranslatorLinks.new
       country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
       exclude_countries = %w(holy-see british-antarctic-territory)
-      modified_card_only_countries = %w(czech-republic slovakia hungary poland switzerland)
 
       # Q1
       multiple_choice :where_did_the_death_happen? do
@@ -83,7 +82,7 @@ module SmartAnswer
         }
 
         on_condition(responded_with('same_country')) do
-          next_node_if(:embassy_result, died_in_north_korea)
+          next_node_if(:north_korea_result, died_in_north_korea)
         end
 
         next_node_if(:which_country_are_you_in_now?, responded_with('another_country'))
@@ -104,7 +103,7 @@ module SmartAnswer
           response == 'north-korea'
         }
 
-        next_node_if(:embassy_result, currently_in_north_korea)
+        next_node_if(:north_korea_result, currently_in_north_korea)
         next_node(:oru_result)
       end
 
@@ -133,45 +132,16 @@ module SmartAnswer
         end
       end
 
-      outcome :embassy_result do
+      outcome :north_korea_result do
         precalculate :reg_data_query do
           SmartAnswer::Calculators::RegistrationsDataQuery.new
         end
 
-        precalculate :modified_card_only_countries do
-          modified_card_only_countries
-        end
-
-        precalculate :embassy_high_commission_or_consulate do
-          if reg_data_query.has_high_commission?(current_location)
-            "British high commission".html_safe
-          elsif reg_data_query.has_consulate?(current_location)
-            "British embassy or consulate".html_safe
-          elsif reg_data_query.has_trade_and_cultural_office?(current_location)
-            "British Trade & Cultural Office".html_safe
-          elsif reg_data_query.has_consulate_general?(current_location)
-            "British consulate general".html_safe
-          else
-            "British embassy".html_safe
-          end
-        end
-
-        precalculate :postal_form_url do
-          reg_data_query.postal_form(current_location)
-        end
-        precalculate :postal_return_form_url do
-          reg_data_query.postal_return_form(current_location)
-        end
-
-        precalculate :location do
-          loc = WorldLocation.find(current_location)
-          raise InvalidResponse unless loc
-          loc
-        end
-        precalculate :organisation do
-          location.fco_organisation
-        end
         precalculate :overseas_passports_embassies do
+          location = WorldLocation.find(current_location)
+          raise InvalidResponse unless location
+          organisation = location.fco_organisation
+
           if organisation
             organisation.offices_with_service 'Births and Deaths registration service'
           else
