@@ -121,12 +121,10 @@ end
 
 # Q5 Past
 value_question :how_many_hours_did_you_work?, parse: Float do
-  calculate :basic_hours do |response|
-    basic_hours = response
-    if basic_hours <= 0 or basic_hours > (pay_frequency * 16)
-      raise SmartAnswer::InvalidResponse, :error_hours
-    end
-    basic_hours
+  save_input_as :basic_hours
+
+  validate(:error_hours) do |response|
+    response > 0 && response <= (pay_frequency * 16)
   end
 
   next_node :how_much_were_you_paid_during_pay_period?
