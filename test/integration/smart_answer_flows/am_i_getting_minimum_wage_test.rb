@@ -717,84 +717,48 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end
     end
 
-    context 'for how_many_hours_do_you_work?' do
-      setup do
-        @question = @flow.questions.find { |question| question.name == :how_many_hours_do_you_work? }
-        @state = SmartAnswer::State.new(@question)
-        @state.pay_frequency = 1
-      end
-
-      should 'use the error_hours error message' do
-        exception = assert_raise(SmartAnswer::InvalidResponse) do
-          @question.transition(@state, '0')
+    [
+      :how_many_hours_do_you_work?,
+      :how_many_hours_did_you_work?
+    ].each do |hours_question_name|
+      context "for #{hours_question_name}" do
+        setup do
+          @question = @flow.questions.find { |question| question.name == hours_question_name }
+          @state = SmartAnswer::State.new(@question)
+          @state.pay_frequency = 1
         end
-        assert_equal 'error_hours', exception.message
-      end
 
-      should 'not accept hours less than 0' do
-        assert_raise(SmartAnswer::InvalidResponse) do
-          @question.transition(@state, '0')
+        should 'use the error_hours error message' do
+          exception = assert_raise(SmartAnswer::InvalidResponse) do
+            @question.transition(@state, '0')
+          end
+          assert_equal 'error_hours', exception.message
         end
-      end
 
-      should 'not accept hours greater than 16 times the pay frequency' do
-        invalid_hours = (16 * @state.pay_frequency) + 1
-        assert_raise(SmartAnswer::InvalidResponse) do
-          @question.transition(@state, invalid_hours)
+        should 'not accept hours less than 0' do
+          assert_raise(SmartAnswer::InvalidResponse) do
+            @question.transition(@state, '0')
+          end
         end
-      end
 
-      should 'accept hours greater than or equal to 1' do
-        assert_nothing_raised do
-          @question.transition(@state, '1')
+        should 'not accept hours greater than 16 times the pay frequency' do
+          invalid_hours = (16 * @state.pay_frequency) + 1
+          assert_raise(SmartAnswer::InvalidResponse) do
+            @question.transition(@state, invalid_hours)
+          end
         end
-      end
 
-      should 'accept hours less than or equal to 16 times the pay frequency' do
-        valid_hours = 16 * @state.pay_frequency
-        assert_nothing_raised do
-          @question.transition(@state, valid_hours)
+        should 'accept hours greater than or equal to 1' do
+          assert_nothing_raised do
+            @question.transition(@state, '1')
+          end
         end
-      end
-    end
 
-    context 'for how_many_hours_did_you_work?' do
-      setup do
-        @question = @flow.questions.find { |question| question.name == :how_many_hours_did_you_work? }
-        @state = SmartAnswer::State.new(@question)
-        @state.pay_frequency = 1
-      end
-
-      should 'use the error_hours error message' do
-        exception = assert_raise(SmartAnswer::InvalidResponse) do
-          @question.transition(@state, '0')
-        end
-        assert_equal 'error_hours', exception.message
-      end
-
-      should 'not accept hours less than 0' do
-        assert_raise(SmartAnswer::InvalidResponse) do
-          @question.transition(@state, '0')
-        end
-      end
-
-      should 'not accept hours greater than 16 times the pay frequency' do
-        invalid_hours = (16 * @state.pay_frequency) + 1
-        assert_raise(SmartAnswer::InvalidResponse) do
-          @question.transition(@state, invalid_hours)
-        end
-      end
-
-      should 'accept hours greater than or equal to 1' do
-        assert_nothing_raised do
-          @question.transition(@state, '1')
-        end
-      end
-
-      should 'accept hours less than or equal to 16 times the pay frequency' do
-        valid_hours = 16 * @state.pay_frequency
-        assert_nothing_raised do
-          @question.transition(@state, valid_hours)
+        should 'accept hours less than or equal to 16 times the pay frequency' do
+          valid_hours = 16 * @state.pay_frequency
+          assert_nothing_raised do
+            @question.transition(@state, valid_hours)
+          end
         end
       end
     end
