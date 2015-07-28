@@ -88,12 +88,10 @@ end
 
 # Q4
 value_question :how_often_do_you_get_paid?, parse: :to_i do
-  calculate :pay_frequency do |response|
-    pay_frequency = response
-    if pay_frequency < 1 or pay_frequency > 31
-      raise SmartAnswer::InvalidResponse
-    end
-    pay_frequency
+  save_input_as :pay_frequency
+
+  validate do |response|
+    response >= 1 && response <= 31
   end
 
   next_node :how_many_hours_do_you_work?
