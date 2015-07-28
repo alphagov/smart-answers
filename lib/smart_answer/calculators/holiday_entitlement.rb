@@ -57,7 +57,7 @@ module SmartAnswer::Calculators
     end
 
     def fraction_of_year
-      return 1 if not self.start_date and not self.leaving_date
+      return 1 if self.start_date.nil? && self.leaving_date.nil?
 
       leave_year_start, leave_year_end = leave_year_start_end
 
@@ -68,7 +68,7 @@ module SmartAnswer::Calculators
       # when it is not set.
       days_divide = feb29th_in_range(leave_year_start, leave_year_end) ? 366 : 365
 
-      if start_date and leaving_date
+      if start_date && leaving_date
         (leaving_date - start_date + 1) / days_divide
       elsif leaving_date
         (leaving_date - leave_year_start + 1) / days_divide
@@ -132,7 +132,7 @@ module SmartAnswer::Calculators
     def feb29th_in_year_range(iterator, start_date, end_date)
       if iterator.leap?
         feb29th = feb29th_in_year_of_date(iterator)
-        start_date <= feb29th and end_date >= feb29th
+        start_date <= feb29th && end_date >= feb29th
       else
         false
       end
