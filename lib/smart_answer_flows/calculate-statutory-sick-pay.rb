@@ -302,7 +302,7 @@ module SmartAnswer
       end
 
       # Answer 1
-      outcome :already_getting_maternity
+      outcome :already_getting_maternity, use_outcome_templates: true
 
       # Answer 2
       outcome :must_be_sick_for_4_days

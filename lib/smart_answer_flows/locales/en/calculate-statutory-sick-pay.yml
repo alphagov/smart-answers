@@ -150,11 +150,6 @@ en-GB:
           "6": Saturday
           "0": Sunday
 
-      # Answer 1
-      already_getting_maternity:
-        body: |
-          Your employee isn’t entitled to statutory sick pay because they’re already receiving Statutory Maternity Pay or Maternity Allowance.
-
       # Answer 2
       must_be_sick_for_4_days:
         body: |
