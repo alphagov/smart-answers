@@ -134,7 +134,7 @@ end
 # Q5
 value_question :how_many_hours_do_you_work?, parse: Float do
   validate(:error_hours) do |response|
-    response > 0 && response <= (calculator.pay_frequency * 16)
+    calculator.valid_hours_worked?(response)
   end
 
   next_node do |response|
@@ -146,7 +146,7 @@ end
 # Q5 Past
 value_question :how_many_hours_did_you_work?, parse: Float do
   validate(:error_hours) do |response|
-    response > 0 && response <= (calculator.pay_frequency * 16)
+    calculator.valid_hours_worked?(response)
   end
 
   next_node do |response|

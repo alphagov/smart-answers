@@ -31,6 +31,10 @@ module SmartAnswer::Calculators
       pay_frequency >= 1 && pay_frequency <= 31
     end
 
+    def valid_hours_worked?(hours_worked)
+      hours_worked > 0 && hours_worked <= (@pay_frequency * 16)
+    end
+
     def basic_rate
       rate = @basic_pay / @basic_hours
       if overtime_hours > 0 and overtime_hourly_rate > 0 and rate > overtime_hourly_rate

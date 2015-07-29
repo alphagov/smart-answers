@@ -721,43 +721,36 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         setup do
           @question = @flow.questions.find { |question| question.name == hours_question_name }
           @state = SmartAnswer::State.new(@question)
-          calculator = stub('calculator',
+          @calculator = stub('calculator',
             pay_frequency: 1,
             :basic_hours= => nil
           )
-          @state.calculator = calculator
+          @state.calculator = @calculator
         end
 
         should 'use the error_hours error message' do
+          @calculator.stubs(:valid_hours_worked?).returns(false)
           exception = assert_raise(SmartAnswer::InvalidResponse) do
             @question.transition(@state, '0')
           end
           assert_equal 'error_hours', exception.message
         end
 
-        should 'not accept hours less than 0' do
+        should 'raise if the calculator says the hours_worked is invalid' do
+          invalid_hours_worked = 3
+          @calculator.stubs(:valid_hours_worked?).with(invalid_hours_worked).returns(false)
+
           assert_raise(SmartAnswer::InvalidResponse) do
-            @question.transition(@state, '0')
+            @question.transition(@state, invalid_hours_worked)
           end
         end
 
-        should 'not accept hours greater than 16 times the pay frequency' do
-          invalid_hours = (16 * @state.calculator.pay_frequency) + 1
-          assert_raise(SmartAnswer::InvalidResponse) do
-            @question.transition(@state, invalid_hours)
-          end
-        end
+        should 'not raise if the calculator says the hours_worked is valid' do
+          valid_hours_worked = 4
+          @calculator.stubs(:valid_hours_worked?).with(valid_hours_worked).returns(true)
 
-        should 'accept hours greater than or equal to 1' do
           assert_nothing_raised do
-            @question.transition(@state, '1')
-          end
-        end
-
-        should 'accept hours less than or equal to 16 times the pay frequency' do
-          valid_hours = 16 * @state.calculator.pay_frequency
-          assert_nothing_raised do
-            @question.transition(@state, valid_hours)
+            @question.transition(@state, valid_hours_worked)
           end
         end
       end

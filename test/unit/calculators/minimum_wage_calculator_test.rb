@@ -36,6 +36,30 @@ module SmartAnswer::Calculators
           assert @calculator.valid_pay_frequency?(31)
         end
       end
+
+      context 'for hours worked' do
+        setup do
+          @calculator.pay_frequency = 1
+        end
+
+        should 'not accept hours less than 0' do
+          refute @calculator.valid_hours_worked?(0)
+        end
+
+        should 'not accept hours greater than 16 times the pay frequency' do
+          invalid_hours = (16 * @calculator.pay_frequency) + 1
+          refute @calculator.valid_hours_worked?(invalid_hours)
+        end
+
+        should 'accept hours greater than or equal to 1' do
+          assert @calculator.valid_hours_worked?(1)
+        end
+
+        should 'accept hours less than or equal to 16 times the pay frequency' do
+          valid_hours = 16 * @calculator.pay_frequency
+          assert @calculator.valid_hours_worked?(valid_hours)
+        end
+      end
     end
 
     context "MinimumWageCalculator" do
