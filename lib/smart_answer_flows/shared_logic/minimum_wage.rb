@@ -291,7 +291,7 @@ value_question :current_accommodation_usage?, parse: Integer do
   end
 
   next_node do |response|
-    calculator.accommodation_adjustment(accommodation_charge, Integer(response))
+    calculator.accommodation_adjustment(accommodation_charge, response)
     if calculator.minimum_wage_or_above?
       :current_payment_above
     else
