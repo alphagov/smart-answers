@@ -292,7 +292,7 @@ end
 # Q11
 value_question :current_accommodation_usage?, parse: Integer do
   validate do |response|
-    response >= 0 && response <= 7
+    calculator.valid_accommodation_usage?(response)
   end
 
   next_node do |response|
@@ -308,7 +308,7 @@ end
 # Q11 Past
 value_question :past_accommodation_usage?, parse: Integer do
   validate do |response|
-    response >= 0 && response <= 7
+    calculator.valid_accommodation_usage?(response)
   end
 
   next_node do |response|

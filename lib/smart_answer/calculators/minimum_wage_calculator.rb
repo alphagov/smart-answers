@@ -43,6 +43,10 @@ module SmartAnswer::Calculators
       accommodation_charge > 0
     end
 
+    def valid_accommodation_usage?(accommodation_usage)
+      accommodation_usage >= 0 && accommodation_usage <= 7
+    end
+
     def basic_rate
       rate = @basic_pay / @basic_hours
       if overtime_hours > 0 and overtime_hourly_rate > 0 and rate > overtime_hourly_rate

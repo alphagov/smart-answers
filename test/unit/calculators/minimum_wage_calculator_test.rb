@@ -80,6 +80,24 @@ module SmartAnswer::Calculators
           assert @calculator.valid_accommodation_charge?(1)
         end
       end
+
+      context 'for accommodation usage' do
+        should 'not accept days per week of less than or equal to -1' do
+          refute @calculator.valid_accommodation_usage?(-1)
+        end
+
+        should 'not accept days per week of greater than or equal to 8' do
+          refute @calculator.valid_accommodation_usage?(8)
+        end
+
+        should 'accept days per week greater than or equal to 0' do
+          assert @calculator.valid_accommodation_usage?(0)
+        end
+
+        should 'accept days per week less than or equal to 7' do
+          assert @calculator.valid_accommodation_usage?(7)
+        end
+      end
     end
 
     context "MinimumWageCalculator" do

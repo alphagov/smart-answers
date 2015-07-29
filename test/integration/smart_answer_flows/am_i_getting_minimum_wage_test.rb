@@ -828,35 +828,29 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         setup do
           @question = @flow.questions.find { |question| question.name == accommodation_usage_question_name }
           @state = SmartAnswer::State.new(@question)
-          calculator = stub('calculator',
+          @calculator = stub('calculator',
             accommodation_adjustment: nil,
             minimum_wage_or_above?: nil,
             historical_adjustment: 0
           )
-          @state.calculator = calculator
+          @state.calculator = @calculator
         end
 
-        should 'not accept days per week of less than or equal to -1' do
+        should 'raise if the calculator says the accommodation_usage is invalid' do
+          invalid_accommodation_usage = 3
+          @calculator.stubs(:valid_accommodation_usage?).with(invalid_accommodation_usage).returns(false)
+
           assert_raise(SmartAnswer::InvalidResponse) do
-            @question.transition(@state, '-1')
+            @question.transition(@state, invalid_accommodation_usage)
           end
         end
 
-        should 'not accept days per week of greater than or equal to 8' do
-          assert_raise(SmartAnswer::InvalidResponse) do
-            @question.transition(@state, '8')
-          end
-        end
+        should 'not raise if the calculator says the accommodation_usage is valid' do
+          valid_accommodation_usage = 4
+          @calculator.stubs(:valid_accommodation_usage?).with(valid_accommodation_usage).returns(true)
 
-        should 'accept days per week greater than or equal to 0' do
           assert_nothing_raised do
-            @question.transition(@state, '0')
-          end
-        end
-
-        should 'accept days per week less than or equal to 7' do
-          assert_nothing_raised do
-            @question.transition(@state, '7')
+            @question.transition(@state, valid_accommodation_usage)
           end
         end
       end
