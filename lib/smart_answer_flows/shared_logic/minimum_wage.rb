@@ -28,11 +28,10 @@ multiple_choice :past_payment_date? do
   option "2009-10-01"
   option "2008-10-01"
 
-  calculate :payment_date do |response|
-    Date.parse(response)
+  next_node do |response|
+    calculator.date = Date.parse(response)
+    :were_you_an_apprentice?
   end
-
-  next_node :were_you_an_apprentice?
 end
 
 # Q2
@@ -67,7 +66,7 @@ multiple_choice :were_you_an_apprentice? do
     when "no"
       :how_old_were_you?
     else
-      if payment_date < Date.parse('2010-10-01')
+      if calculator.date < Date.parse('2010-10-01')
         :does_not_apply_to_historical_apprentices
       else
         :how_often_did_you_get_paid?
@@ -169,7 +168,6 @@ end
 # Q6 Past
 money_question :how_much_were_you_paid_during_pay_period? do
   calculate :calculator do |response|
-    calculator.date = payment_date
     calculator.pay_frequency = pay_frequency
     calculator.basic_hours = basic_hours
     calculator.basic_pay = Float(response)
