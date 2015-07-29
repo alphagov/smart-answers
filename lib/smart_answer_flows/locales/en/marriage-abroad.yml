@@ -595,11 +595,17 @@ en-GB:
           It takes 10 working days after your payment has been approved for the consulate to process your application.
 
           They’ll send your certificate and supporting documents to you by registered post.
-        other_requirements_in_spain: |
+        other_requirements_in_spain_intro: |
           ##Other requirements for Spain
 
           The civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).
 
+        other_requirements_in_spain_for_residents_intro: |
+          ##Other requirements for Spain
+
+          If you’ve been living in Spain for less than 2 years, the civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).
+
+        other_requirements_in_spain: |
           You’ll need to show one of the following:
 
           - a letter confirming your address, eg electoral roll

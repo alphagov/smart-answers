@@ -507,7 +507,14 @@ module SmartAnswer
 
           if resident_of != 'third_country'
             phrases << :get_maritial_status_certificate_spain
+
+            if resident_of == 'ceremony_country'
+              phrases << :other_requirements_in_spain_for_residents_intro
+            else
+              phrases << :other_requirements_in_spain_intro
+            end
             phrases << :other_requirements_in_spain
+
             phrases << :names_on_documents_must_match
 
             unless partner_nationality == 'partner_british'
