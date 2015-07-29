@@ -78,13 +78,12 @@ end
 
 # Q3
 value_question :how_old_are_you?, parse: Integer do
-  save_input_as :age
-
   validate do |response|
     response > 0 && response <= 200
   end
 
   next_node do |response|
+    calculator.age = response
     if response < 16
       :under_school_leaving_age
     else
@@ -95,13 +94,12 @@ end
 
 # Q3 Past
 value_question :how_old_were_you?, parse: Integer do
-  save_input_as :age
-
   validate do |response|
     response > 0 && response <= 200
   end
 
   next_node do |response|
+    calculator.age = response
     if response < 16
       :under_school_leaving_age_past
     else
@@ -157,7 +155,6 @@ end
 # Q6
 money_question :how_much_are_you_paid_during_pay_period? do
   calculate :calculator do |response|
-    calculator.age = age
     calculator.pay_frequency = pay_frequency
     calculator.basic_hours = basic_hours
     calculator.basic_pay = Float(response)
@@ -172,7 +169,6 @@ end
 # Q6 Past
 money_question :how_much_were_you_paid_during_pay_period? do
   calculate :calculator do |response|
-    calculator.age = age
     calculator.date = payment_date
     calculator.pay_frequency = pay_frequency
     calculator.basic_hours = basic_hours

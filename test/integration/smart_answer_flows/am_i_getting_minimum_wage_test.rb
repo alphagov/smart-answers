@@ -657,6 +657,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         setup do
           @question = @flow.questions.find { |question| question.name == age_question_name }
           @state = SmartAnswer::State.new(@question)
+          calculator = stub('calculator',
+            :age= => nil
+          )
+          @state.calculator = calculator
         end
 
         should 'not accept ages less than or equal to 0' do
