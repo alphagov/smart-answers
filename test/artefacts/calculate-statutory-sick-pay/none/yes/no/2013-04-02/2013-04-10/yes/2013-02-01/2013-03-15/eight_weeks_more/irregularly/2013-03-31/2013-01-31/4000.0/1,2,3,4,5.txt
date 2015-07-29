@@ -1,0 +1,27 @@
+
+
+##Statutory Sick Pay (SSP)
+
+Your employee is entitled to SSP for 7 days out of 7 working days taken off sick between  2 April 2013 and 10 April 2013
+
+
+
+Week ending | SSP amount
+-|-
+ 6 April 2013|£68.68
+13 April 2013|£52.02
+ | **Total SSP: £120.70**
+
+##What you need to know
+
+
+
+SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of 140 days. After that you must give them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of SSP ending. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
+
+
+There are also [records you must keep](/sick-leave-pay-employees/entitlement) and rules on [proof of illness](/sick-leave-pay-employees/notice-and-fit-notes) you can ask for.
+
+You can [claim back sick pay](http://www.hmrc.gov.uk/payerti/employee/statutory-pay/ssp-calc.htm) paid before 5 April 2014. You must do this by 6 April 2016.
+
+*[SSP]: Statutory Sick Pay
+

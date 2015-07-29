@@ -37,6 +37,19 @@ module SmartAnswer::Calculators
       end
     end # end .average_weekly_earnings
 
+    context "0 days per week worked" do
+      setup do
+        @days_worked = []
+        @start_date = Date.parse("1 October 2012")
+        @calculator = StatutorySickPayCalculator.new(5, @start_date, Date.parse("7 October 2012"), @days_worked)
+      end
+
+      should "return daily rate of 0.0" do
+        @weekly_rate = @calculator.weekly_rate_on(@start_date)
+        assert_equal @calculator.daily_rate_from_weekly(@weekly_rate, @days_worked.length), 0.0
+      end
+    end
+    
     context "prev_sick_days is 5, M-F, 7 days out" do
       setup do
         @start_date = Date.parse("1 October 2012")

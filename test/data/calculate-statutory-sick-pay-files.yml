@@ -1,0 +1,8 @@
+--- 
+lib/smart_answer_flows/calculate-statutory-sick-pay.rb: 553f7bb3f72ac2871671900e1fce34b4
+lib/smart_answer_flows/locales/en/calculate-statutory-sick-pay.yml: 426b7883ddca0ace2bd0fedc1cd6f700
+test/data/calculate-statutory-sick-pay-questions-and-responses.yml: 225bf0303e9d1c7fa1a929c24b543db3
+test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: 171dcf9d94ad17c5c64d6e776c73c69b
+lib/smart_answer/calculators/statutory_sick_pay_calculator.rb: d1b53da112834359536fe7ecdfff667a
+lib/smart_answer/calculators/rates_query.rb: c9568eac2742cad26f93458ed2276876
+lib/data/rates/statutory_sick_pay.yml: de2d34118e3016d1137c394745d33280
