@@ -128,6 +128,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               add_response "no numbers"
               assert_current_node_is_error
             end
+            should "fail if 0 entered" do
+              add_response "0"
+              assert_current_node_is_error
+            end
             should "succeed on 0.01 entered" do
               add_response "0.01"
             end
@@ -425,6 +429,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             end
             should "fail on text entered" do
               add_response "no numbers"
+              assert_current_node_is_error
+            end
+            should "fail if 0 entered" do
+              add_response "0"
               assert_current_node_is_error
             end
             should "succeed on 0.01 entered" do
