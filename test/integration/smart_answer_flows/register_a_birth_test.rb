@@ -9,7 +9,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines serbia sierra-leone spain sri-lanka st-kitts-and-nevis thailand turkey uganda united-arab-emirates venezuela)
+    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines pitcairn-island saint-barthelemy serbia sierra-leone spain sri-lanka st-kitts-and-nevis st-martin thailand turkey uganda united-arab-emirates venezuela)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::RegisterABirthFlow
   end
@@ -40,6 +40,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
         should "ask where you are now and go to oru result" do
           add_response "same_country"
           assert_current_node :oru_result
+          assert current_state.send(:document_return_fees).present?
         end
       end # not married/cp
     end # mother
@@ -533,6 +534,32 @@ class RegisterABirthTest < ActiveSupport::TestCase
     end
   end
 
+  context "North Korea" do
+    setup do
+      worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
+      add_response "north-korea"
+      add_response "mother_and_father"
+      add_response "yes"
+    end
+
+    should "lead to the North Korea-specific result if the user is still there" do
+      add_response "same_country"
+      assert_current_node :north_korea_result
+    end
+
+    should "lead to the ORU result if in the UK" do
+      add_response "in_the_uk"
+      assert_current_node :oru_result
+    end
+
+    should "lead to the ORU result if in another country" do
+      worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
+      add_response "another_country"
+      add_response "netherlands"
+      assert_current_node :oru_result
+    end
+  end
+
   context "Democratic Republic of Congo" do
     should "lead to an ORU outcome with a custom translator link" do
       worldwide_api_has_organisations_for_location('democratic-republic-of-congo', read_fixture_file('worldwide/democratic-republic-of-congo_organisations.json'))
@@ -542,6 +569,39 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
       assert_current_node :oru_result
       assert_state_variable  :translator_link_url, '/government/publications/democratic-republic-of-congo-list-of-lawyers'
+    end
+  end
+
+  context "Pitcairn Island" do
+    should "lead to the ORU result" do
+      worldwide_api_has_no_organisations_for_location('pitcairn-island')
+      add_response 'pitcairn-island'
+      add_response 'mother'
+      add_response 'no'
+      add_response 'same_country'
+      assert_current_node :oru_result
+    end
+  end
+
+  context "St Martin" do
+    should "lead to the ORU result" do
+      worldwide_api_has_no_organisations_for_location('st-martin')
+      add_response 'st-martin'
+      add_response 'mother'
+      add_response 'no'
+      add_response 'same_country'
+      assert_current_node :oru_result
+    end
+  end
+
+  context "Saint Barthelemy" do
+    should "lead to the ORU result" do
+      worldwide_api_has_no_organisations_for_location('saint-barthelemy')
+      add_response 'saint-barthelemy'
+      add_response 'mother'
+      add_response 'no'
+      add_response 'same_country'
+      assert_current_node :oru_result
     end
   end
 

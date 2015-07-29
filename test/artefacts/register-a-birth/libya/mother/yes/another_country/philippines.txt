@@ -53,7 +53,7 @@ You should pay online for the registration. Email <birthregistrationenquiries@fc
 
 The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office or the National Records Office of Scotland, but only from September the year after you register.
 
-Once you’ve paid you will be given a reference number to use on your birth registration form. You’ll also be able to scan and email your documents to check that you have the right ones.
+Once you’ve paid you will be given a reference number to use on your birth registration form.
 
 Service | Fee
 -|-
@@ -64,8 +64,8 @@ You must also pay for your documents to be returned to you.
 
 Postage destination | Fee
 -|-
-UK | £4.50
-Europe | £12.50
+UK address or British Forces Post Office | £4.50
+Europe (excluding Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Georgia, Liechtenstein, Macedonia, Moldova, Montenegro, Russia, Serbia, Turkey and Ukraine) | £12.50
 Rest of world | £22
 
 <a rel="nofollow" href= "https://pay-register-birth-abroad.service.gov.uk/start" class="big button">Pay now</a>
@@ -93,7 +93,15 @@ Once the Overseas Registration Unit gets your form and the right documents, regi
 * at least 6 months if the child doesn’t have a British passport
 * 5 working days if the child has a British passport
 
-The Overseas Registration Unit will contact you if they need more information, to verify your documents or for the child to take a DNA test. If this happens then it could take longer for the birth to be registered.
+The Overseas Registration Unit will contact you if they need:
+
+- more information
+- to verify your documents
+- the child or parents to take a DNA test
+
+If this happens, it will take longer for the birth to be registered.
+
+^You must pay all costs relating to DNA testing.^
 
 Your documents will be returned to you by secure courier after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them.
 

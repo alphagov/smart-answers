@@ -1,27 +1,26 @@
---- 
-:where_did_the_death_happen?: 
+---
+:where_did_the_death_happen?:
 - england_wales
 - scotland
 - northern_ireland
 - overseas
-:did_the_person_die_at_home_hospital?: 
+:did_the_person_die_at_home_hospital?:
 - at_home_hospital
 - elsewhere
-:was_death_expected?: 
+:was_death_expected?:
 - "yes"
 - "no"
-:which_country?: 
+:which_country?:
 - australia # :commonwealth_result
 - iran # country_has_no_embassy
 - libya # :approved_translator_link
 - north-korea # :documents_list_embassy_north-korea, :footnote_exceptions
 - papua-new-guinea # :oru_documents_variant_papua-new-guinea
-- pitcairn-island # :registration_can_take_3_months
-:where_are_you_now?: 
+:where_are_you_now?:
 - same_country
 - another_country
 - in_the_uk
-:which_country_are_you_in_now?: 
+:which_country_are_you_in_now?:
 - algeria # :payment_method_in_algeria
 - brazil # :postal_registration_by_form
 - china # :embassy_high_commission_or_consulate "British embassy or consulate"

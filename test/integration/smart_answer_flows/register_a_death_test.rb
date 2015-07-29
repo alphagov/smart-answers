@@ -9,7 +9,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
 
   setup do
-    @location_slugs = %w(afghanistan algeria andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan  poland serbia slovakia spain st-kitts-and-nevis uganda)
+    @location_slugs = %w(afghanistan algeria andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan pitcairn-island poland saint-barthelemy serbia slovakia spain st-kitts-and-nevis st-martin uganda)
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::RegisterADeathFlow
   end
@@ -152,6 +152,31 @@ class RegisterADeathTest < ActiveSupport::TestCase
     should "ask which country" do
       assert_current_node :which_country?
     end
+
+    context "Pitcairn Island" do
+      should "lead to the ORU result" do
+        add_response 'pitcairn-island'
+        add_response 'same_country'
+        assert_current_node :oru_result
+      end
+    end
+
+    context "St Martin" do
+      should "lead to the ORU result" do
+        add_response 'st-martin'
+        add_response 'same_country'
+        assert_current_node :oru_result
+      end
+    end
+
+    context "Saint Barthelemy" do
+      should "lead to the ORU result" do
+        add_response 'saint-barthelemy'
+        add_response 'same_country'
+        assert_current_node :oru_result
+      end
+    end
+
     context "answer Australia" do
       setup do
         add_response 'australia'
@@ -177,6 +202,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         should "give the embassy result and be done" do
           assert_current_node :oru_result
           assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
+          assert current_state.send(:document_return_fees).present?
         end
       end # Answer embassy
       context "answer ORU office in the uk" do
@@ -391,9 +417,9 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'north-korea'
       end
       context "still in North Korea" do
-        should "give the embassy result (this is an exception to ORU transition)" do
+        should "give the North Korea-specific result" do
           add_response 'same_country'
-          assert_current_node :embassy_result
+          assert_current_node :north_korea_result
         end
       end
       context "in another country" do

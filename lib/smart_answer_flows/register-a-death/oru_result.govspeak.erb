@@ -55,16 +55,11 @@ Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> i
 The registration fee doesn't include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
 
 Service | Fee
+-|-
 Register a death | £105
 Copy of a death registration certificate | £65
 
-You must also pay for your documents to be returned to you.
-
-Postage destination | Fee
-UK | £4.50
-Europe | £12.50
-Rest of world | £22
-
+<%= render partial: '../shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
 <%= render partial: '../data_partials/button.erb', locals: { button_data: button_data } %>
 
 
@@ -97,13 +92,9 @@ $A
 
 ##Return of your documents
 
-<% if reg_data_query.class::ORU_TRANSITIONED_COUNTRIES.exclude?(country_of_death) && in_the_uk %>
-Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where the death happened to be registered there.
-<% else %>
 It usually takes 3 working days for the death to be registered in the UK once the Overseas Registration Unit has received your form and the right documents.
 
 They’ll contact you within the 3 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the death to be registered.
-<% end %>
 
 <% if reg_data_query.class::ORU_COURIER_VARIANTS.include?(current_location) %>
   <% case current_location %>

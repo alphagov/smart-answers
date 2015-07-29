@@ -44,14 +44,16 @@ Pay by credit or debit card - fill in the [credit card authorisation slip](/gove
 The registration fee doesn't include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
 
 Service | Fee
+-|-
 Register a death | £105
 Copy of a death registration certificate | £65
 
 You must also pay for your documents to be returned to you.
 
 Postage destination | Fee
-UK | £4.50
-Europe | £12.50
+-|-
+UK address or British Forces Post Office | £4.50
+Europe (excluding Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Georgia, Liechtenstein, Macedonia, Moldova, Montenegro, Russia, Serbia, Turkey and Ukraine) | £12.50
 Rest of world | £22
 
 <a rel="nofollow" href= "https://pay-register-death-abroad.service.gov.uk/start" class="big button">Pay now</a>

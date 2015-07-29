@@ -87,14 +87,16 @@ module SmartAnswer
           reg_data_query.has_birth_registration_exception?(country_of_birth) & paternity_declaration
         }
 
+        define_predicate(:born_in_north_korea) {
+          country_of_birth == 'north-korea'
+        }
+
         next_node_if(:no_birth_certificate_result, no_birth_certificate_exception)
         next_node_if(:which_country?, responded_with('another_country'))
-        on_condition(->(_) { reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(country_of_birth) }) do
-          next_node_if(:embassy_result, responded_with('same_country'))
+        on_condition(responded_with('same_country')) do
+          next_node_if(:north_korea_result, born_in_north_korea)
         end
-        next_node_if(:oru_result, reg_data_query.born_in_oru_transitioned_country? | responded_with('in_the_uk'))
-        next_node_if(:embassy_result, responded_with('same_country'))
-        next_node(:which_country?)
+        next_node(:oru_result)
       end
 
       # Q6
@@ -107,58 +109,28 @@ module SmartAnswer
           country_name_query.definitive_article(registration_country)
         end
 
-        next_node_if(:oru_result, reg_data_query.born_in_oru_transitioned_country?)
-        next_node_if(:no_embassy_result, country_has_no_embassy)
-        next_node(:embassy_result)
+        define_predicate(:currently_in_north_korea) {
+          response == 'north-korea'
+        }
+
+        next_node_if(:north_korea_result, currently_in_north_korea)
+        next_node(:oru_result)
       end
 
       # Outcomes
 
       use_outcome_templates
 
-      outcome :embassy_result do
+      outcome :north_korea_result do
         precalculate :reg_data_query do
           reg_data_query
         end
 
-        precalculate :embassy_high_commission_or_consulate do
-          if reg_data_query.has_high_commission?(registration_country)
-            "British high commission".html_safe
-          elsif reg_data_query.has_consulate?(registration_country)
-            "British consulate".html_safe
-          elsif reg_data_query.has_trade_and_cultural_office?(registration_country)
-            "British Trade & Cultural Office".html_safe
-          elsif reg_data_query.has_consulate_general?(registration_country)
-            "British consulate general".html_safe
-          else
-            "British embassy".html_safe
-          end
-        end
-
-        precalculate :checklist_countries do
-          %w(bangladesh kuwait libya north-korea pakistan philippines turkey)
-        end
-
-        precalculate :postal_form_url do
-          reg_data_query.postal_form(registration_country)
-        end
-
-        precalculate :postal_return_form_url do
-          reg_data_query.postal_return_form(registration_country)
-        end
-
-        precalculate :location do
-          loc = WorldLocation.find(registration_country)
-          raise InvalidResponse unless loc
-          loc
-        end
-
-        precalculate :organisations do
-          [location.fco_organisation]
-        end
-
         precalculate :overseas_passports_embassies do
-          if organisations and organisations.any?
+          location = WorldLocation.find(registration_country)
+          raise InvalidResponse unless location
+          organisations = [location.fco_organisation]
+          if organisations.present?
             service_title = 'Births and Deaths registration service'
             organisations.first.offices_with_service(service_title)
           else
@@ -172,6 +144,10 @@ module SmartAnswer
           reg_data_query
         end
 
+        precalculate :document_return_fees do
+          reg_data_query.document_return_fees
+        end
+
         precalculate :button_data do
           {text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"}
         end
@@ -179,7 +155,7 @@ module SmartAnswer
         precalculate :custom_waiting_time do
           reg_data_query.custom_registration_duration(country_of_birth)
         end
-        
+
         precalculate :born_in_lower_risk_country do
           reg_data_query.class::HIGHER_RISK_COUNTRIES.exclude?(country_of_birth)
         end

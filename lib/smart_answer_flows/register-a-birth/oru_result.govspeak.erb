@@ -200,21 +200,14 @@ You should pay online for the registration. Email <birthregistrationenquiries@fc
 
 The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office or the National Records Office of Scotland, but only from September the year after you register.
 
-Once you’ve paid you will be given a reference number to use on your birth registration form. You’ll also be able to scan and email your documents to check that you have the right ones.
+Once you’ve paid you will be given a reference number to use on your birth registration form.
 
 Service | Fee
 -|-
 Register a birth | £105
 Copy of a birth registration certificate | £65
 
-You must also pay for your documents to be returned to you.
-
-Postage destination | Fee
--|-
-UK | £4.50
-Europe | £12.50
-Rest of world | £22
-
+<%= render partial: '../shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
 <%= render partial: '../data_partials/button.erb', locals: { button_data: button_data } %>
 
 <% if country_of_birth == 'venezuela' && same_country %>
@@ -257,13 +250,21 @@ $A
 
 ##Return of your documents
 
-<% if country_of_birth == 'libya' %>
+<% if reg_data_query.may_require_dna_tests?(country_of_birth) %>
 Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
 
 * at least <%= custom_waiting_time %> if the child doesn’t have a British passport
 * 5 working days if the child has a British passport
 
-The Overseas Registration Unit will contact you if they need more information, to verify your documents or for the child to take a DNA test. If this happens then it could take longer for the birth to be registered.
+The Overseas Registration Unit will contact you if they need:
+
+- more information
+- to verify your documents
+- the child or parents to take a DNA test
+
+If this happens, it will take longer for the birth to be registered.
+
+^You must pay all costs relating to DNA testing.^
 <% elsif custom_waiting_time %>
 Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
 
@@ -271,7 +272,7 @@ Once the Overseas Registration Unit gets your form and the right documents, regi
 * 5 working days if the child has a British passport
 
 The Overseas Registration Unit will contact you if they need more information or if they need to verify your documents. If this happens then it could take longer for the birth to be registered.
-<% elsif reg_data_query.class::ORU_TRANSITION_EXCEPTIONS.include?(registration_country) and born_in_lower_risk_country %>
+<% elsif registration_country == 'north-korea' and born_in_lower_risk_country %>
 ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
 <% elsif registration_country.in?(%w[papua-new-guinea cambodia]) and born_in_lower_risk_country %>
 Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.
