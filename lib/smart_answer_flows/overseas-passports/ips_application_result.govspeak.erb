@@ -153,7 +153,7 @@
   <% end %>
 
   <% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burundi burma china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia tajikistan thailand turkmenistan ukraine uzbekistan western-sahara vietnam venezuela) %>
-  <% uk_visa_application_with_colour_pictures = %w(azerbaijan algeria bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia vietnam venezuela) %>
+  <% uk_visa_application_with_colour_pictures = %w(azerbaijan algeria bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia vietnam venezuela western-sahara) %>
   <% non_uk_visa_application_with_colour_pictures = %w(burma cuba sudan tajikistan turkmenistan uzbekistan) %>
 
   <% if application_address %>
@@ -192,20 +192,7 @@
   <% elsif uk_visa_application_centre_countries.include?(current_location) %>
     <% if %w(renewing_new).include?(application_action) %>
       <% if passport_data['application_office'] %>
-        <% if %w(western-sahara).include?(current_location) %>
-          ## Making your application
-
-          You must apply in person. If you’re unable to, someone else can go on your behalf.
-          You must bring photo ID with you.
-
-          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
-
-          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
-
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
-          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
-        <% elsif %w(laos vietnam).include?(current_location) %>
+        <% if %w(laos vietnam).include?(current_location) %>
           ## Making your application
 
           You must apply in person. If you’re unable to, someone else can go on your behalf. You must bring photo ID with you.
@@ -261,16 +248,7 @@
       <% end %>
     <% else %>
       <% if passport_data['application_office'] %>
-        <% if %w(western-sahara).include?(current_location) %>
-          ## Making your application
-
-          You must apply in person. If you’re unable to, someone else can go on your behalf.
-          You must bring photo ID with you.
-
-          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
-
-          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
-        <% elsif %w(laos vietnam).include?(current_location) %>
+        <% if %w(laos vietnam).include?(current_location) %>
           ## Making your application
           You must apply in person. If you’re unable to, someone else can go on your behalf.
           You must bring photo ID with you.
