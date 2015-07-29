@@ -63,7 +63,7 @@ value_question :how_old_are_you?, parse: Integer do
   end
 
   next_node do |response|
-    if response.to_i < 16
+    if response < 16
       :under_school_leaving_age
     else
       :how_often_do_you_get_paid?
@@ -80,7 +80,7 @@ value_question :how_old_were_you?, parse: Integer do
   end
 
   next_node do |response|
-    if response.to_i < 16
+    if response < 16
       :under_school_leaving_age_past
     else
       :how_often_did_you_get_paid?
@@ -137,7 +137,7 @@ money_question :how_much_are_you_paid_during_pay_period? do
   calculate :calculator do |response|
     amount_paid = Float(response)
     Calculators::MinimumWageCalculator.new({
-      age: age.to_i,
+      age: age,
       pay_frequency: pay_frequency,
       basic_hours: basic_hours,
       basic_pay: amount_paid,
@@ -154,7 +154,7 @@ money_question :how_much_were_you_paid_during_pay_period? do
   calculate :calculator do |response|
     amount_paid = Float(response)
     Calculators::MinimumWageCalculator.new({
-      age: age.to_i,
+      age: age,
       date: payment_date,
       pay_frequency: pay_frequency,
       basic_hours: basic_hours,
