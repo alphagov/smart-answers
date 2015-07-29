@@ -311,7 +311,7 @@ module SmartAnswer
       outcome :not_regular_schedule, use_outcome_templates: true
 
       # Answer 5
-      outcome :not_earned_enough do
+      outcome :not_earned_enough, use_outcome_templates: true do
         precalculate :lower_earning_limit do
           Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
         end

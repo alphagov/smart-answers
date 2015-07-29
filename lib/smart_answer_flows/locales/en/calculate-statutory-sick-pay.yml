@@ -150,14 +150,6 @@ en-GB:
           "6": Saturday
           "0": Sunday
 
-      # Answer 5
-      not_earned_enough:
-        body: |
-          Your employee isn’t entitled to Statutory Sick Pay because their average weekly earnings must be at least £%{lower_earning_limit}. Their average weekly earnings are £%{employee_average_weekly_earnings}.
-
-          You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
-
-
       # Answer 6
       entitled_to_sick_pay:
         body: |
