@@ -23,6 +23,10 @@ module SmartAnswer::Calculators
       @minimum_wage_data = minimum_wage_data_for_date(@date)
     end
 
+    def valid_age?(age)
+      age > 0 && age <= 200
+    end
+
     def basic_rate
       rate = @basic_pay / @basic_hours
       if overtime_hours > 0 and overtime_hourly_rate > 0 and rate > overtime_hourly_rate

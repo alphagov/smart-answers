@@ -78,7 +78,7 @@ end
 # Q3
 value_question :how_old_are_you?, parse: Integer do
   validate do |response|
-    response > 0 && response <= 200
+    calculator.valid_age?(response)
   end
 
   next_node do |response|
@@ -94,7 +94,7 @@ end
 # Q3 Past
 value_question :how_old_were_you?, parse: Integer do
   validate do |response|
-    response > 0 && response <= 200
+    calculator.valid_age?(response)
   end
 
   next_node do |response|

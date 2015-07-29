@@ -657,31 +657,25 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         setup do
           @question = @flow.questions.find { |question| question.name == age_question_name }
           @state = SmartAnswer::State.new(@question)
-          calculator = stub('calculator',
+          @calculator = stub('calculator',
             :age= => nil
           )
-          @state.calculator = calculator
+          @state.calculator = @calculator
         end
 
-        should 'not accept ages less than or equal to 0' do
+        should 'raise if the calculator says the age is invalid' do
+          invalid_age = 0
+          @calculator.stubs(:valid_age?).with(invalid_age).returns(false)
           assert_raise(SmartAnswer::InvalidResponse) do
-            @question.transition(@state, '0')
+            @question.transition(@state, invalid_age)
           end
         end
 
-        should 'not accept ages greater than 200' do
-          assert_raise(SmartAnswer::InvalidResponse) do
-            @question.transition(@state, '201')
-          end
-        end
-
-        should 'accept ages between 1 and 200' do
+        should 'not raise if the calculator says the age is valid' do
+          valid_age = 50
+          @calculator.stubs(:valid_age?).with(valid_age).returns(true)
           assert_nothing_raised do
-            @question.transition(@state, '1')
-          end
-
-          assert_nothing_raised do
-            @question.transition(@state, '200')
+            @question.transition(@state, valid_age)
           end
         end
       end

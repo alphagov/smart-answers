@@ -2,6 +2,26 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class MinimumWageCalculatorTest < ActiveSupport::TestCase
+    context "Validation" do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      context 'for age' do
+        should 'not accept ages less than or equal to 0' do
+          refute @calculator.valid_age?(0)
+        end
+
+        should 'not accept ages greater than 200' do
+          refute @calculator.valid_age?(201)
+        end
+
+        should 'accept ages between 1 and 200' do
+          assert @calculator.valid_age?(1)
+          assert @calculator.valid_age?(200)
+        end
+      end
+    end
 
     context "MinimumWageCalculator" do
       setup do
