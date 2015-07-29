@@ -150,11 +150,6 @@ en-GB:
           "6": Saturday
           "0": Sunday
 
-      # Answer 4
-      not_regular_schedule:
-        body: |
-          If your employee has an irregular work schedule, you’ll need to [work out Statutory Sick Pay manually](/statutory-sick-pay-manually-calculate-your-employees-payments).
-
       # Answer 5
       not_earned_enough:
         body: |

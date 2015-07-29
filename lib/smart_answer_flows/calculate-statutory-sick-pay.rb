@@ -308,7 +308,7 @@ module SmartAnswer
       outcome :must_be_sick_for_4_days, use_outcome_templates: true
 
       # Answer 4
-      outcome :not_regular_schedule
+      outcome :not_regular_schedule, use_outcome_templates: true
 
       # Answer 5
       outcome :not_earned_enough do
