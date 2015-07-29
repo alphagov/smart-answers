@@ -157,22 +157,18 @@ end
 
 # Q6
 money_question :how_much_are_you_paid_during_pay_period? do
-  calculate :calculator do |response|
+  next_node do |response|
     calculator.basic_pay = Float(response)
-    calculator
+    :how_many_hours_overtime_do_you_work?
   end
-
-  next_node :how_many_hours_overtime_do_you_work?
 end
 
 # Q6 Past
 money_question :how_much_were_you_paid_during_pay_period? do
-  calculate :calculator do |response|
+  next_node do |response|
     calculator.basic_pay = Float(response)
-    calculator
+    :how_many_hours_overtime_did_you_work?
   end
-
-  next_node :how_many_hours_overtime_did_you_work?
 end
 
 # Q7
