@@ -1,9 +1,18 @@
 # Q1
 multiple_choice :what_would_you_like_to_check? do
-  option "current_payment" => :are_you_an_apprentice?
-  option "past_payment" => :past_payment_date?
+  option "current_payment"
+  option "past_payment"
 
   save_input_as :current_or_past_payments
+
+  next_node do |response|
+    case response
+    when 'current_payment'
+      :are_you_an_apprentice?
+    when 'past_payment'
+      :past_payment_date?
+    end
+  end
 end
 
 # Q1A
@@ -24,12 +33,21 @@ end
 
 # Q2
 multiple_choice :are_you_an_apprentice? do
-  option "not_an_apprentice" => :how_old_are_you?
-  option "apprentice_under_19" => :how_often_do_you_get_paid?
-  option "apprentice_over_19_first_year" => :how_often_do_you_get_paid?
-  option "apprentice_over_19_second_year_onwards" => :how_old_are_you?
+  option "not_an_apprentice"
+  option "apprentice_under_19"
+  option "apprentice_over_19_first_year"
+  option "apprentice_over_19_second_year_onwards"
 
   save_input_as :is_apprentice
+
+  next_node do |response|
+    case response
+    when 'not_an_apprentice', 'apprentice_over_19_second_year_onwards'
+      :how_old_are_you?
+    when 'apprentice_under_19', 'apprentice_over_19_first_year'
+      :how_often_do_you_get_paid?
+    end
+  end
 end
 
 # Q2 Past
