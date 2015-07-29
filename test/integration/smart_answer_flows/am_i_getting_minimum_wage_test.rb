@@ -689,31 +689,25 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         setup do
           @question = @flow.questions.find { |question| question.name == pay_frequency_question_name }
           @state = SmartAnswer::State.new(@question)
-          calculator = stub('calculator',
+          @calculator = stub('calculator',
             :pay_frequency= => nil
           )
-          @state.calculator = calculator
+          @state.calculator = @calculator
         end
 
-        should 'not accept frequency less than 1' do
+        should 'raise if the calculator says the pay_frequency is invalid' do
+          invalid_pay_frequency = 3
+          @calculator.stubs(:valid_pay_frequency?).with(invalid_pay_frequency).returns(false)
           assert_raise(SmartAnswer::InvalidResponse) do
-            @question.transition(@state, '0')
+            @question.transition(@state, invalid_pay_frequency)
           end
         end
 
-        should 'not accept frequency greater than 31' do
-          assert_raise(SmartAnswer::InvalidResponse) do
-            @question.transition(@state, '32')
-          end
-        end
-
-        should 'accept frequency between 1 and 31' do
+        should 'not raise if the calculator says the pay_frequency is valid' do
+          valid_pay_frequency = 4
+          @calculator.stubs(:valid_pay_frequency?).with(valid_pay_frequency).returns(true)
           assert_nothing_raised do
-            @question.transition(@state, '1')
-          end
-
-          assert_nothing_raised do
-            @question.transition(@state, '31')
+            @question.transition(@state, valid_pay_frequency)
           end
         end
       end

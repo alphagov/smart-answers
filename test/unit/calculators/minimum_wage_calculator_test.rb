@@ -21,6 +21,21 @@ module SmartAnswer::Calculators
           assert @calculator.valid_age?(200)
         end
       end
+
+      context 'for pay frequency' do
+        should 'not accept frequency less than 1' do
+          refute @calculator.valid_pay_frequency?(0)
+        end
+
+        should 'not accept frequency greater than 31' do
+          refute @calculator.valid_pay_frequency?(32)
+        end
+
+        should 'accept frequency between 1 and 31' do
+          assert @calculator.valid_pay_frequency?(1)
+          assert @calculator.valid_pay_frequency?(31)
+        end
+      end
     end
 
     context "MinimumWageCalculator" do

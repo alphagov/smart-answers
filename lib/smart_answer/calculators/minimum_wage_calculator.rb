@@ -27,6 +27,10 @@ module SmartAnswer::Calculators
       age > 0 && age <= 200
     end
 
+    def valid_pay_frequency?(pay_frequency)
+      pay_frequency >= 1 && pay_frequency <= 31
+    end
+
     def basic_rate
       rate = @basic_pay / @basic_hours
       if overtime_hours > 0 and overtime_hourly_rate > 0 and rate > overtime_hourly_rate

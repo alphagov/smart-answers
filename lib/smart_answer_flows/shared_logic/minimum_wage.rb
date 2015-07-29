@@ -110,7 +110,7 @@ end
 # Q4
 value_question :how_often_do_you_get_paid?, parse: :to_i do
   validate do |response|
-    response >= 1 && response <= 31
+    calculator.valid_pay_frequency?(response)
   end
 
   next_node do |response|
@@ -122,7 +122,7 @@ end
 # Q4 Past
 value_question :how_often_did_you_get_paid?, parse: :to_i do
   validate do |response|
-    response >= 1 && response <= 31
+    calculator.valid_pay_frequency?(response)
   end
 
   next_node do |response|
