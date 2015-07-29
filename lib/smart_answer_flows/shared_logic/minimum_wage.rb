@@ -41,13 +41,13 @@ multiple_choice :are_you_an_apprentice? do
   option "apprentice_over_19_first_year"
   option "apprentice_over_19_second_year_onwards"
 
-  save_input_as :is_apprentice
-
   next_node do |response|
     case response
     when 'not_an_apprentice', 'apprentice_over_19_second_year_onwards'
+      calculator.is_apprentice = false
       :how_old_are_you?
     when 'apprentice_under_19', 'apprentice_over_19_first_year'
+      calculator.is_apprentice = true
       :how_often_do_you_get_paid?
     end
   end
@@ -59,13 +59,13 @@ multiple_choice :were_you_an_apprentice? do
   option "apprentice_under_19"
   option "apprentice_over_19"
 
-  save_input_as :was_apprentice
-
   next_node do |response|
     case response
     when "no"
+      calculator.is_apprentice = false
       :how_old_were_you?
     else
+      calculator.is_apprentice = true
       if calculator.date < Date.parse('2010-10-01')
         :does_not_apply_to_historical_apprentices
       else
@@ -159,8 +159,6 @@ end
 money_question :how_much_are_you_paid_during_pay_period? do
   calculate :calculator do |response|
     calculator.basic_pay = Float(response)
-    calculator.is_apprentice = (is_apprentice == 'apprentice_under_19' ||
-                    is_apprentice == 'apprentice_over_19_first_year')
     calculator
   end
 
@@ -171,7 +169,6 @@ end
 money_question :how_much_were_you_paid_during_pay_period? do
   calculate :calculator do |response|
     calculator.basic_pay = Float(response)
-    calculator.is_apprentice = (was_apprentice != 'no')
     calculator
   end
 
