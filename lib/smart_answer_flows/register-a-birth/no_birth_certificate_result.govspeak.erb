@@ -1,66 +1,66 @@
 <% content_for :body do %>
-<% if same_country %>
-  <% case country_of_birth %>
-      <% when 'afghanistan' %>
-^It’s illegal in Afghanistan to have a child outside of marriage. You can’t get a local birth certificate.^
+  <% if same_country %>
+    <% case country_of_birth %>
+    <% when 'afghanistan' %>
+      ^It’s illegal in Afghanistan to have a child outside of marriage. You can’t get a local birth certificate.^
 
-A local birth certificate is normally needed to register an overseas birth. Contact the FCO at birthregistrationenquiries@fco.gov.uk for advice.
-      <% when 'iraq' %>
-^It’s illegal in Iraq to register the birth of a child if the parents aren't married. You can’t get a local birth certificate.^
+      A local birth certificate is normally needed to register an overseas birth. Contact the FCO at birthregistrationenquiries@fco.gov.uk for advice.
+    <% when 'iraq' %>
+      ^It’s illegal in Iraq to register the birth of a child if the parents aren't married. You can’t get a local birth certificate.^
 
-The parents can register the birth if they get married, even if it’s after the birth.
-      <% when 'jordan' %>
-^It’s illegal in Jordan to have a child outside of marriage. You can’t get a local birth certificate.^
+      The parents can register the birth if they get married, even if it’s after the birth.
+    <% when 'jordan' %>
+      ^It’s illegal in Jordan to have a child outside of marriage. You can’t get a local birth certificate.^
 
-A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
-      <% when 'kuwait' %>
-^It’s illegal in Kuwait to have a child outside of marriage or within the first 6 months of marriage. You can’t get a local birth certificate.^
+      A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+    <% when 'kuwait' %>
+      ^It’s illegal in Kuwait to have a child outside of marriage or within the first 6 months of marriage. You can’t get a local birth certificate.^
 
-A local birth certificate is normally needed to register an overseas birth. Contact the FCO at 
-<birthregistrationenquiries@fco.gov.uk> for advice.
-      <% when 'oman' %>
-^It’s illegal in Oman to have a child outside of marriage. You can’t get a local birth certificate.^
+      A local birth certificate is normally needed to register an overseas birth. Contact the FCO at
+      <birthregistrationenquiries@fco.gov.uk> for advice.
+    <% when 'oman' %>
+      ^It’s illegal in Oman to have a child outside of marriage. You can’t get a local birth certificate.^
 
-A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
-      <% when 'pakistan' %>
-^It’s illegal in Pakistan to have a child outside of marriage. You can’t get a local birth certificate.^
+      A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+    <% when 'pakistan' %>
+      ^It’s illegal in Pakistan to have a child outside of marriage. You can’t get a local birth certificate.^
 
-A local birth certificate is normally needed to register an overseas birth. Contact the FCO at birthregistrationenquiries@fco.gov.uk for advice.
-      <% when 'qatar' %>
-^It’s illegal in Qatar to have a child outside of marriage. You can’t get a local birth certificate.^
+      A local birth certificate is normally needed to register an overseas birth. Contact the FCO at birthregistrationenquiries@fco.gov.uk for advice.
+    <% when 'qatar' %>
+      ^It’s illegal in Qatar to have a child outside of marriage. You can’t get a local birth certificate.^
 
-A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
-      <% when 'saudi-arabia' %>
-^It’s illegal in Saudi Arabia to have a child outside of marriage. You can’t get a local birth certificate.^
+      A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+    <% when 'saudi-arabia' %>
+      ^It’s illegal in Saudi Arabia to have a child outside of marriage. You can’t get a local birth certificate.^
 
-A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
-      <% when 'united-arab-emirates' %>
-^It’s illegal in the United Arab Emirates to have a child outside of marriage. You can’t get a local birth certificate.^
+      A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+    <% when 'united-arab-emirates' %>
+      ^It’s illegal in the United Arab Emirates to have a child outside of marriage. You can’t get a local birth certificate.^
 
-A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+      A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
+    <% end %>
+  <% else %>
+    <% case country_of_birth %>
+    <% when 'afghanistan' %>
+      You can’t get a local birth certificate if you weren’t married when you had your child.
+    <% when 'iraq' %>
+      You can’t get a local birth certificate if you weren’t married when you had your child.
+    <% when 'jordan' %>
+      You can’t get a local birth certificate if you weren’t married when you had your child.
+    <% when 'kuwait' %>
+      You can’t get a local birth certificate if you weren’t married when you had your child.
+    <% when 'oman' %>
+      You can’t get a local birth certificate if you weren’t married when you had your child.
+    <% when 'pakistan' %>
+      You can’t get a local birth certificate if you weren’t married when you had your child.
+    <% when 'qatar' %>
+      You can’t get a local birth certificate if you weren’t married when you had your child.
+    <% when 'saudi-arabia' %>
+      You can’t get a local birth certificate if you weren’t married when you had your child.
+    <% when 'united-arab-emirates' %>
+      You can’t get a local birth certificate if you weren’t married when you had your child.
+    <% end %>
+
+    A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> to find out what other proof can be accepted.
   <% end %>
-<% else %>
-  <% case country_of_birth %>
-  <% when 'afghanistan' %>
-You can’t get a local birth certificate if you weren’t married when you had your child.
-  <% when 'iraq' %>
-You can’t get a local birth certificate if you weren’t married when you had your child.
-  <% when 'jordan' %>
-You can’t get a local birth certificate if you weren’t married when you had your child.
-  <% when 'kuwait' %>
-You can’t get a local birth certificate if you weren’t married when you had your child.
-  <% when 'oman' %>
-You can’t get a local birth certificate if you weren’t married when you had your child.
-  <% when 'pakistan' %>
-You can’t get a local birth certificate if you weren’t married when you had your child.
-  <% when 'qatar' %>
-You can’t get a local birth certificate if you weren’t married when you had your child.
-  <% when 'saudi-arabia' %>
-You can’t get a local birth certificate if you weren’t married when you had your child.
-  <% when 'united-arab-emirates' %>
-You can’t get a local birth certificate if you weren’t married when you had your child.
-  <% end %>
-
-A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> to find out what other proof can be accepted.
-<% end %>
 <% end %>
