@@ -13,6 +13,10 @@ multiple_choice :what_would_you_like_to_check? do
       :past_payment_date?
     end
   end
+
+  calculate :calculator do
+    Calculators::MinimumWageCalculator.new
+  end
 end
 
 # Q1A
@@ -153,14 +157,13 @@ end
 # Q6
 money_question :how_much_are_you_paid_during_pay_period? do
   calculate :calculator do |response|
-    Calculators::MinimumWageCalculator.new({
-      age: age,
-      pay_frequency: pay_frequency,
-      basic_hours: basic_hours,
-      basic_pay: Float(response),
-      is_apprentice: (is_apprentice == 'apprentice_under_19' ||
-                      is_apprentice == 'apprentice_over_19_first_year')
-    })
+    calculator.age = age
+    calculator.pay_frequency = pay_frequency
+    calculator.basic_hours = basic_hours
+    calculator.basic_pay = Float(response)
+    calculator.is_apprentice = (is_apprentice == 'apprentice_under_19' ||
+                    is_apprentice == 'apprentice_over_19_first_year')
+    calculator
   end
 
   next_node :how_many_hours_overtime_do_you_work?
@@ -169,14 +172,13 @@ end
 # Q6 Past
 money_question :how_much_were_you_paid_during_pay_period? do
   calculate :calculator do |response|
-    Calculators::MinimumWageCalculator.new({
-      age: age,
-      date: payment_date,
-      pay_frequency: pay_frequency,
-      basic_hours: basic_hours,
-      basic_pay: Float(response),
-      is_apprentice: (was_apprentice != 'no')
-    })
+    calculator.age = age
+    calculator.date = payment_date
+    calculator.pay_frequency = pay_frequency
+    calculator.basic_hours = basic_hours
+    calculator.basic_pay = Float(response)
+    calculator.is_apprentice = (was_apprentice != 'no')
+    calculator
   end
 
   next_node :how_many_hours_overtime_did_you_work?

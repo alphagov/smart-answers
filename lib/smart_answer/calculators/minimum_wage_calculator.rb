@@ -3,6 +3,13 @@ module SmartAnswer::Calculators
 
     attr_accessor :overtime_hours, :overtime_hourly_rate, :accommodation_cost
 
+    attr_accessor :age, :date, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice
+
+    def date=(date)
+      @date = date
+      @minimum_wage_data = minimum_wage_data_for_date(@date)
+    end
+
     def initialize(params = {})
       @age = params[:age]
       @date = (params[:date].nil? ? Date.today : params[:date])
