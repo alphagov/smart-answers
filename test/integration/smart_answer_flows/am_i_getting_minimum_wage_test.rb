@@ -796,17 +796,25 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         setup do
           @question = @flow.questions.find { |question| question.name == accommodation_charge_question_name }
           @state = SmartAnswer::State.new(@question)
+          @calculator = stub('calculator')
+          @state.calculator = @calculator
         end
 
-        should 'not accept amount less than or equal to 0' do
+        should 'raise if the calculator says the accommodation_charge is invalid' do
+          invalid_accommodation_charge = 3
+          @calculator.stubs(:valid_accommodation_charge?).with(invalid_accommodation_charge).returns(false)
+
           assert_raise(SmartAnswer::InvalidResponse) do
-            @question.transition(@state, '0')
+            @question.transition(@state, invalid_accommodation_charge)
           end
         end
 
-        should 'accept 1 or more' do
+        should 'not raise if the calculator says the accommodation_charge is valid' do
+          valid_accommodation_charge = 4
+          @calculator.stubs(:valid_accommodation_charge?).with(valid_accommodation_charge).returns(true)
+
           assert_nothing_raised do
-            @question.transition(@state, '1')
+            @question.transition(@state, valid_accommodation_charge)
           end
         end
       end

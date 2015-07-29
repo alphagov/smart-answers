@@ -70,6 +70,16 @@ module SmartAnswer::Calculators
           assert @calculator.valid_overtime_hours_worked?(0)
         end
       end
+
+      context 'for accommodation charge' do
+        should 'not accept amount less than or equal to 0' do
+          refute @calculator.valid_accommodation_charge?(0)
+        end
+
+        should 'accept 1 or more' do
+          assert @calculator.valid_accommodation_charge?(1)
+        end
+      end
     end
 
     context "MinimumWageCalculator" do

@@ -266,7 +266,7 @@ end
 # Q10
 money_question :current_accommodation_charge? do
   validate do |response|
-    response > 0
+    calculator.valid_accommodation_charge?(response)
   end
 
   calculate :accommodation_charge do |response|
@@ -279,7 +279,7 @@ end
 # Q10 Past
 money_question :past_accommodation_charge? do
   validate do |response|
-    response > 0
+    calculator.valid_accommodation_charge?(response)
   end
 
   calculate :accommodation_charge do |response|
