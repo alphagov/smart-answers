@@ -60,6 +60,16 @@ module SmartAnswer::Calculators
           assert @calculator.valid_hours_worked?(valid_hours)
         end
       end
+
+      context 'for overtime hours worked' do
+        should 'not accept amount less than 0' do
+          refute @calculator.valid_overtime_hours_worked?(-1)
+        end
+
+        should 'accept 0 or more' do
+          assert @calculator.valid_overtime_hours_worked?(0)
+        end
+      end
     end
 
     context "MinimumWageCalculator" do

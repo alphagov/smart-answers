@@ -174,7 +174,7 @@ end
 # Q7
 value_question :how_many_hours_overtime_do_you_work?, parse: Float do
   validate do |response|
-    response >= 0
+    calculator.valid_overtime_hours_worked?(response)
   end
 
   next_node do |response|
@@ -190,7 +190,7 @@ end
 # Q7 Past
 value_question :how_many_hours_overtime_did_you_work?, parse: Float do
   validate do |response|
-    response >= 0
+    calculator.valid_overtime_hours_worked?(response)
   end
 
   next_node do |response|

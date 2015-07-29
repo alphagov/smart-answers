@@ -764,18 +764,25 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         setup do
           @question = @flow.questions.find { |question| question.name == overtime_hours_question_name }
           @state = SmartAnswer::State.new(@question)
-          @state.calculator = stub('calculator', :overtime_hours= => nil)
+          @calculator = stub('calculator', :overtime_hours= => nil)
+          @state.calculator = @calculator
         end
 
-        should 'not accept amount less than 0' do
+        should 'raise if the calculator says the overtime_hours_worked is invalid' do
+          invalid_overtime_hours_worked = 3
+          @calculator.stubs(:valid_overtime_hours_worked?).with(invalid_overtime_hours_worked).returns(false)
+
           assert_raise(SmartAnswer::InvalidResponse) do
-            @question.transition(@state, '-1')
+            @question.transition(@state, invalid_overtime_hours_worked)
           end
         end
 
-        should 'accept 0 or more' do
+        should 'not raise if the calculator says the hours_worked is valid' do
+          valid_overtime_hours_worked = 4
+          @calculator.stubs(:valid_overtime_hours_worked?).with(valid_overtime_hours_worked).returns(true)
+
           assert_nothing_raised do
-            @question.transition(@state, '0')
+            @question.transition(@state, valid_overtime_hours_worked)
           end
         end
       end
