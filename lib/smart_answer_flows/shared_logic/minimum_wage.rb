@@ -109,24 +109,26 @@ end
 
 # Q4
 value_question :how_often_do_you_get_paid?, parse: :to_i do
-  save_input_as :pay_frequency
-
   validate do |response|
     response >= 1 && response <= 31
   end
 
-  next_node :how_many_hours_do_you_work?
+  next_node do |response|
+    calculator.pay_frequency = response
+    :how_many_hours_do_you_work?
+  end
 end
 
 # Q4 Past
 value_question :how_often_did_you_get_paid?, parse: :to_i do
-  save_input_as :pay_frequency
-
   validate do |response|
     response >= 1 && response <= 31
   end
 
-  next_node :how_many_hours_did_you_work?
+  next_node do |response|
+    calculator.pay_frequency = response
+    :how_many_hours_did_you_work?
+  end
 end
 
 # Q5
@@ -134,7 +136,7 @@ value_question :how_many_hours_do_you_work?, parse: Float do
   save_input_as :basic_hours
 
   validate(:error_hours) do |response|
-    response > 0 && response <= (pay_frequency * 16)
+    response > 0 && response <= (calculator.pay_frequency * 16)
   end
 
   next_node :how_much_are_you_paid_during_pay_period?
@@ -145,7 +147,7 @@ value_question :how_many_hours_did_you_work?, parse: Float do
   save_input_as :basic_hours
 
   validate(:error_hours) do |response|
-    response > 0 && response <= (pay_frequency * 16)
+    response > 0 && response <= (calculator.pay_frequency * 16)
   end
 
   next_node :how_much_were_you_paid_during_pay_period?
@@ -154,7 +156,6 @@ end
 # Q6
 money_question :how_much_are_you_paid_during_pay_period? do
   calculate :calculator do |response|
-    calculator.pay_frequency = pay_frequency
     calculator.basic_hours = basic_hours
     calculator.basic_pay = Float(response)
     calculator.is_apprentice = (is_apprentice == 'apprentice_under_19' ||
@@ -168,7 +169,6 @@ end
 # Q6 Past
 money_question :how_much_were_you_paid_during_pay_period? do
   calculate :calculator do |response|
-    calculator.pay_frequency = pay_frequency
     calculator.basic_hours = basic_hours
     calculator.basic_pay = Float(response)
     calculator.is_apprentice = (was_apprentice != 'no')

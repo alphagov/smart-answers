@@ -695,6 +695,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         setup do
           @question = @flow.questions.find { |question| question.name == pay_frequency_question_name }
           @state = SmartAnswer::State.new(@question)
+          calculator = stub('calculator',
+            :pay_frequency= => nil
+          )
+          @state.calculator = calculator
         end
 
         should 'not accept frequency less than 1' do
@@ -729,7 +733,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         setup do
           @question = @flow.questions.find { |question| question.name == hours_question_name }
           @state = SmartAnswer::State.new(@question)
-          @state.pay_frequency = 1
+          calculator = stub('calculator',
+            pay_frequency: 1
+          )
+          @state.calculator = calculator
         end
 
         should 'use the error_hours error message' do
@@ -746,7 +753,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
 
         should 'not accept hours greater than 16 times the pay frequency' do
-          invalid_hours = (16 * @state.pay_frequency) + 1
+          invalid_hours = (16 * @state.calculator.pay_frequency) + 1
           assert_raise(SmartAnswer::InvalidResponse) do
             @question.transition(@state, invalid_hours)
           end
@@ -759,7 +766,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
 
         should 'accept hours less than or equal to 16 times the pay frequency' do
-          valid_hours = 16 * @state.pay_frequency
+          valid_hours = 16 * @state.calculator.pay_frequency
           assert_nothing_raised do
             @question.transition(@state, valid_hours)
           end
