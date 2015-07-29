@@ -200,20 +200,18 @@ end
 
 # Q8
 money_question :what_is_overtime_pay_per_hour? do
-  calculate :overtime_rate do |response|
+  next_node do |response|
     calculator.overtime_hourly_rate = Float(response)
+    :is_provided_with_accommodation?
   end
-
-  next_node :is_provided_with_accommodation?
 end
 
 # Q8 Past
 money_question :what_was_overtime_pay_per_hour? do
-  calculate :overtime_rate do |response|
+  next_node do |response|
     calculator.overtime_hourly_rate = Float(response)
+    :was_provided_with_accommodation?
   end
-
-  next_node :was_provided_with_accommodation?
 end
 
 # Q9
