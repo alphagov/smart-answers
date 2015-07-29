@@ -1,112 +1,112 @@
 <% content_for :body do %>
-<% case where_death_happened %>
-<% when 'england_wales' %>
-You should register the death within 5 days.
+  <% case where_death_happened %>
+  <% when 'england_wales' %>
+    You should register the death within 5 days.
 
-You can go to any [register office](/register-offices) but if you use the one in the area where the person died you’ll be given the documents you’ll need on the day.
+    You can go to any [register office](/register-offices) but if you use the one in the area where the person died you’ll be given the documents you’ll need on the day.
 
-If you use a different register office the documents will be sent to the office in the area where the person died before they’re issued to you. This means you’ll usually wait a few days.
+    If you use a different register office the documents will be sent to the office in the area where the person died before they’re issued to you. This means you’ll usually wait a few days.
 
-^Registering the death will take about 30 minutes - you might need to make an appointment.^
+    ^Registering the death will take about 30 minutes - you might need to make an appointment.^
 
-Who can register the death
---------
+    Who can register the death
+    --------
 
-You can register the death if you’re:
+    You can register the death if you’re:
 
-  <% if died_at_home_hospital %>
-- a relative
-- someone present at the death
-- an administrator from the hospital
-- the person making arrangements with the funeral directors
-  <% else %>
-- a relative
-- someone present at the death
-- the person who found the body
-- the person in charge of the body
-- the person making arrangements with the funeral directors
+    <% if died_at_home_hospital %>
+      - a relative
+      - someone present at the death
+      - an administrator from the hospital
+      - the person making arrangements with the funeral directors
+    <% else %>
+      - a relative
+      - someone present at the death
+      - the person who found the body
+      - the person in charge of the body
+      - the person making arrangements with the funeral directors
+    <% end %>
+
+    <% if death_expected %>
+      What you need to do
+      --------
+
+      Take the medical certificate showing the cause of death (signed by a doctor) with you.
+
+      If available (but don't worry if not), also take the person’s:
+
+      - birth certificate
+      - Council Tax bill
+      - driving licence
+      - marriage or civil partnership certificate
+      - NHS medical card
+      - passport
+      - proof of address (eg utility bill)
+    <% else %>
+      What you need to do
+      --------
+
+      Take the medical certificate showing the cause of death (signed by a doctor) with you.
+
+      If the cause of death is unknown, sudden or unexplained it may be reported to the coroner.
+
+      The coroner will give you the documents you need, or they’ll send them direct to the registrar. The table below shows the documents needed.
+
+      Cause of death | Documents issued by coroner
+      - | -
+      Natural causes | Form 100A, or Pink Form 100B if there's a post-mortem - these forms are sent to the  registrar, but sometimes given to you
+      Unnatural causes/not enough evidence of natural causes | Order for Burial (form 101) or Certificate for Cremation (form 6) so the funeral can take place – will be given to you; Certificate After Inquest (form 99 (rev)) - this states the cause of death and is sent to the registrar (the death is registered by the registrar with no-one present)
+
+      ###If form 100A or 100B is issued (ie there is no inquest)
+
+      If available (but don't worry if not), also take the person’s:
+
+      - birth certificate
+      - marriage or civil partnership certificate
+      - NHS medical card
+    <% end %>
+
+    You’ll need to tell the registrar:
+
+    - the person’s full name at the time of death
+    - any names previously used, eg maiden name
+    - the person’s date and place of birth
+    - their last address
+    - their occupation
+    - the full name, date of birth and occupation of a surviving or late spouse or civil partner
+    - whether they were getting a State Pension or any other benefits
+
+    You should also take supporting documents that show your name and address (eg a utility bill) but you can still register a death without them.
+
+    <% if death_expected %>
+      Documents you’ll get
+      --------
+
+      When you register a death you’ll get:
+
+      - a Certificate for Burial or Cremation (the ‘green form’) - gives permission for burial or an application for cremation
+      - a Certificate of Registration of Death (form BD8) - you may need to fill this out and return it if the person was getting a State Pension or benefits (the form will come with a pre-paid envelope so you know where to send it)
+
+      You can buy extra death certificates - these will be needed for [sorting out the person’s affairs](/after-a-death/overview).
+    <% else %>
+      Documents you’ll get
+      --------
+
+      When you register a death you’ll get a Certificate of Registration of Death (form BD8). You may need to fill this out and return it if the person was getting a State Pension or benefits (the form will come with a pre-paid envelope so you know where to send it).
+
+      You can buy extra death certificates - these will be needed for [sorting out the person’s affairs](/after-a-death/overview).
+    <% end %>
+  <% when 'scotland' %>
+    You should register the death within 8 days.
+
+    You can go to any [register office](/register-offices) but if you use the one in the area where the person died you’ll be given the documents you’ll need on the day.
+
+    If you use a different register office the documents will be sent to the office in the area where the person died before they’re issued to you. This means you’ll usually wait a few days.
+
+    ^Registering the death will take about 30 minutes - you might need to make an appointment.^
+  <% when 'northern_ireland' %>
+    You should [register the death locally in Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm).
+
+    If the body’s being brought back to England or Wales to be buried or cremated, the person bringing the body back must report this to the local registrar. They will issue a ‘Certificate of No Liability to Register’.
   <% end %>
-
-  <% if death_expected %>
-What you need to do
---------
-
-Take the medical certificate showing the cause of death (signed by a doctor) with you.
-
-If available (but don't worry if not), also take the person’s:
-
-- birth certificate
-- Council Tax bill
-- driving licence
-- marriage or civil partnership certificate
-- NHS medical card
-- passport
-- proof of address (eg utility bill)
-  <% else %>
-What you need to do
---------
-
-Take the medical certificate showing the cause of death (signed by a doctor) with you.
-
-If the cause of death is unknown, sudden or unexplained it may be reported to the coroner.
-
-The coroner will give you the documents you need, or they’ll send them direct to the registrar. The table below shows the documents needed.
-
-Cause of death | Documents issued by coroner
-- | -
-Natural causes | Form 100A, or Pink Form 100B if there's a post-mortem - these forms are sent to the  registrar, but sometimes given to you
-Unnatural causes/not enough evidence of natural causes | Order for Burial (form 101) or Certificate for Cremation (form 6) so the funeral can take place – will be given to you; Certificate After Inquest (form 99 (rev)) - this states the cause of death and is sent to the registrar (the death is registered by the registrar with no-one present)
-
-###If form 100A or 100B is issued (ie there is no inquest)
-
-If available (but don't worry if not), also take the person’s:
-
-- birth certificate
-- marriage or civil partnership certificate
-- NHS medical card
-  <% end %>
-
-You’ll need to tell the registrar:
-
-- the person’s full name at the time of death
-- any names previously used, eg maiden name
-- the person’s date and place of birth
-- their last address
-- their occupation
-- the full name, date of birth and occupation of a surviving or late spouse or civil partner
-- whether they were getting a State Pension or any other benefits
-
-You should also take supporting documents that show your name and address (eg a utility bill) but you can still register a death without them.
-
-  <% if death_expected %>
-Documents you’ll get
---------
-
-When you register a death you’ll get:
-
-- a Certificate for Burial or Cremation (the ‘green form’) - gives permission for burial or an application for cremation
-- a Certificate of Registration of Death (form BD8) - you may need to fill this out and return it if the person was getting a State Pension or benefits (the form will come with a pre-paid envelope so you know where to send it)
-
-You can buy extra death certificates - these will be needed for [sorting out the person’s affairs](/after-a-death/overview).
-  <% else %>
-Documents you’ll get
---------
-
-When you register a death you’ll get a Certificate of Registration of Death (form BD8). You may need to fill this out and return it if the person was getting a State Pension or benefits (the form will come with a pre-paid envelope so you know where to send it).
-
-You can buy extra death certificates - these will be needed for [sorting out the person’s affairs](/after-a-death/overview).
-  <% end %>
-<% when 'scotland' %>
-You should register the death within 8 days.
-
-You can go to any [register office](/register-offices) but if you use the one in the area where the person died you’ll be given the documents you’ll need on the day.
-
-If you use a different register office the documents will be sent to the office in the area where the person died before they’re issued to you. This means you’ll usually wait a few days.
-
-^Registering the death will take about 30 minutes - you might need to make an appointment.^
-<% when 'northern_ireland' %>
-You should [register the death locally in Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/death-and-bereavement/death-and-bereavement-what-to-do-when-someone-dies/registering-a-death.htm).
-
-If the body’s being brought back to England or Wales to be buried or cremated, the person bringing the body back must report this to the local registrar. They will issue a ‘Certificate of No Liability to Register’.
-<% end %>
 <% end %>
