@@ -305,7 +305,7 @@ module SmartAnswer
       outcome :already_getting_maternity, use_outcome_templates: true
 
       # Answer 2
-      outcome :must_be_sick_for_4_days
+      outcome :must_be_sick_for_4_days, use_outcome_templates: true
 
       # Answer 4
       outcome :not_regular_schedule
