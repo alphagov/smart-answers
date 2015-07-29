@@ -734,7 +734,8 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           @question = @flow.questions.find { |question| question.name == hours_question_name }
           @state = SmartAnswer::State.new(@question)
           calculator = stub('calculator',
-            pay_frequency: 1
+            pay_frequency: 1,
+            :basic_hours= => nil
           )
           @state.calculator = calculator
         end

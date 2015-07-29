@@ -133,30 +133,31 @@ end
 
 # Q5
 value_question :how_many_hours_do_you_work?, parse: Float do
-  save_input_as :basic_hours
-
   validate(:error_hours) do |response|
     response > 0 && response <= (calculator.pay_frequency * 16)
   end
 
-  next_node :how_much_are_you_paid_during_pay_period?
+  next_node do |response|
+    calculator.basic_hours = response
+    :how_much_are_you_paid_during_pay_period?
+  end
 end
 
 # Q5 Past
 value_question :how_many_hours_did_you_work?, parse: Float do
-  save_input_as :basic_hours
-
   validate(:error_hours) do |response|
     response > 0 && response <= (calculator.pay_frequency * 16)
   end
 
-  next_node :how_much_were_you_paid_during_pay_period?
+  next_node do |response|
+    calculator.basic_hours = response
+    :how_much_were_you_paid_during_pay_period?
+  end
 end
 
 # Q6
 money_question :how_much_are_you_paid_during_pay_period? do
   calculate :calculator do |response|
-    calculator.basic_hours = basic_hours
     calculator.basic_pay = Float(response)
     calculator.is_apprentice = (is_apprentice == 'apprentice_under_19' ||
                     is_apprentice == 'apprentice_over_19_first_year')
@@ -169,7 +170,6 @@ end
 # Q6 Past
 money_question :how_much_were_you_paid_during_pay_period? do
   calculate :calculator do |response|
-    calculator.basic_hours = basic_hours
     calculator.basic_pay = Float(response)
     calculator.is_apprentice = (was_apprentice != 'no')
     calculator
