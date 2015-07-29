@@ -164,21 +164,15 @@ module SmartAnswer
         next_node :commodity_code_result
       end
 
-      outcome :commodity_code_result, use_outcome_templates: true do
+      use_outcome_templates
+
+      outcome :commodity_code_result do
         precalculate :calculator do
           Calculators::CommodityCodeCalculator.new(
             starch_glucose_weight: starch_glucose_weight,
             sucrose_weight: sucrose_weight,
             milk_fat_weight: milk_fat_weight,
-            milk_protein_weight: milk_protein_weight || 0)
-        end
-
-        precalculate :commodity_code do
-          calculator.commodity_code
-        end
-
-        precalculate :has_commodity_code do
-          commodity_code != 'X'
+            milk_protein_weight: milk_protein_weight)
         end
       end
     end
