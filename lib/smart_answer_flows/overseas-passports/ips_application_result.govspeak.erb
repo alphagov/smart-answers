@@ -387,7 +387,7 @@
       <%= render partial: 'getting_your_passport_contact_and_id.govspeak.erb' %>
     <% end %>
   <% elsif uk_visa_application_centre_variant_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
     They will contact you with details of where to collect your passport when it arrives, using the contact details you provided on your form.
     <% if %w(renewing_new).include?(application_action) %>
       <% if collect_with_photo_id_countries.include?(current_location) %>
@@ -400,9 +400,9 @@
       <%= render partial: 'getting_your_passport_id_apply_renew_old_replace.govspeak.erb' %>
     <% end %>
   <% elsif named_embassy_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
   <% elsif collect_in_person_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
     <%= render partial: 'getting_your_passport_contact_and_id.govspeak.erb' %>
   <% elsif collect_in_person_variant_countries.include?(current_location) %>
     <% if %w(burundi).include?(current_location) %>
@@ -413,14 +413,14 @@
 
         You must bring your existing passport as photo ID.
       <% else %>
-        <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+        <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
         <%= render partial: 'getting_your_passport_contact_and_id.govspeak.erb' %>
       <% end %>
     <% else %>
-      <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+      <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
     <% end %>
   <% elsif collect_in_person_renewing_new_variant_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
     <%= render partial: 'getting_your_passport_contact.govspeak.erb' %>
     <% if %w(renewing_new).include?(application_action) %>
       <%= render partial: 'getting_your_passport_id_renew_new.govspeak.erb' %>
