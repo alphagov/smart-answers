@@ -301,24 +301,26 @@ module SmartAnswer
         next_node(:not_entitled_3_days_not_paid)
       end
 
+      use_outcome_templates
+
       # Answer 1
-      outcome :already_getting_maternity, use_outcome_templates: true
+      outcome :already_getting_maternity
 
       # Answer 2
-      outcome :must_be_sick_for_4_days, use_outcome_templates: true
+      outcome :must_be_sick_for_4_days
 
       # Answer 4
-      outcome :not_regular_schedule, use_outcome_templates: true
+      outcome :not_regular_schedule
 
       # Answer 5
-      outcome :not_earned_enough, use_outcome_templates: true do
+      outcome :not_earned_enough do
         precalculate :lower_earning_limit do
           Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
         end
       end
 
       # Answer 6
-      outcome :entitled_to_sick_pay, use_outcome_templates: true do
+      outcome :entitled_to_sick_pay do
         precalculate :days_paid do calculator.days_paid end
         precalculate :normal_workdays_out do calculator.normal_workdays end
         precalculate :pattern_days do calculator.pattern_days end
@@ -326,12 +328,12 @@ module SmartAnswer
       end
 
       # Answer 7
-      outcome :not_entitled_3_days_not_paid, use_outcome_templates: true do
+      outcome :not_entitled_3_days_not_paid do
         precalculate :normal_workdays_out do calculator.normal_workdays end
       end
 
       # Answer 8
-      outcome :maximum_entitlement_reached, use_outcome_templates: true
+      outcome :maximum_entitlement_reached
     end
   end
 end
