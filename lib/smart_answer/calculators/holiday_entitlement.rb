@@ -85,16 +85,25 @@ module SmartAnswer::Calculators
       number.to_s.sub(/\.0+$/, '')
     end
 
-    def method_missing(*args)
+    def method_missing(symbol, *args)
       # formatted_foo calls format_number on foo
-      if args.first.to_s =~ /\Aformatted_(.*)\z/
-        format_number(self.send($1.to_sym), args[1] || 1)
+      if formatting_method = formatting_method(symbol)
+        format_number(send(formatting_method), args.first || 1)
       else
         super
       end
     end
 
+    def respond_to?(symbol, include_all = false)
+      formatting_method(symbol).present?
+    end
+
   private
+
+    def formatting_method(symbol)
+      matches = symbol.to_s.match(/\Aformatted_(.*)\z/)
+      matches ? matches[1].to_sym : nil
+    end
 
     def leave_year_start_end
       if self.leave_year_start_date
