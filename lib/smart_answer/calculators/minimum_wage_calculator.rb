@@ -160,6 +160,10 @@ module SmartAnswer::Calculators
       date >= Date.parse('2010-10-01')
     end
 
+    def under_school_leaving_age?
+      age < 16
+    end
+
     protected
 
     def weekly_multiplier

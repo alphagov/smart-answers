@@ -83,7 +83,7 @@ value_question :how_old_are_you?, parse: Integer do
 
   next_node do |response|
     calculator.age = response
-    if response < 16
+    if calculator.under_school_leaving_age?
       :under_school_leaving_age
     else
       :how_often_do_you_get_paid?
@@ -99,7 +99,7 @@ value_question :how_old_were_you?, parse: Integer do
 
   next_node do |response|
     calculator.age = response
-    if response < 16
+    if calculator.under_school_leaving_age?
       :under_school_leaving_age_past
     else
       :how_often_did_you_get_paid?

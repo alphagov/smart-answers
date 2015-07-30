@@ -116,6 +116,22 @@ module SmartAnswer::Calculators
       end
     end
 
+    context '#under_school_leaving_age?' do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      should 'return true if age is lower than 16' do
+        @calculator.age = 15
+        assert @calculator.under_school_leaving_age?
+      end
+
+      should 'return false if age is greater than or equal to 16' do
+        @calculator.age = 16
+        refute @calculator.under_school_leaving_age?
+      end
+    end
+
     context "MinimumWageCalculator" do
       setup do
         @age = 19

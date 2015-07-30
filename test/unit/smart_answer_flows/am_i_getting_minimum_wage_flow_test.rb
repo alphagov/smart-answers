@@ -18,7 +18,8 @@ module SmartAnswer
             @question = @flow.questions.find { |question| question.name == age_question_name }
             @state = SmartAnswer::State.new(@question)
             @calculator = stub('calculator',
-              :age= => nil
+              :age= => nil,
+              :under_school_leaving_age? => nil
             )
             @state.calculator = @calculator
           end
