@@ -51,8 +51,8 @@ module SmartdownAdapter
       # current state is only used for responses and error, which are both
       # available on state and could be called directly, requires controller change
       OpenStruct.new(
-        :responses => accepted_responses,
-        :unaccepted_responses => @smartdown_state.current_answers.map(&:value).map(&:to_s),
+        responses: accepted_responses,
+        unaccepted_responses: @smartdown_state.current_answers.map(&:value).map(&:to_s),
       )
     end
 
