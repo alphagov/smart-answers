@@ -15,7 +15,7 @@ module SmartAnswer
       ].each do |age_question_name|
         context "for #{age_question_name}" do
           setup do
-            @question = @flow.questions.find { |question| question.name == age_question_name }
+            @question = @flow.node(age_question_name)
             @state = SmartAnswer::State.new(@question)
             @calculator = stub('calculator',
               :age= => nil,
@@ -48,7 +48,7 @@ module SmartAnswer
       ].each do |pay_frequency_question_name|
         context "for #{pay_frequency_question_name}" do
           setup do
-            @question = @flow.questions.find { |question| question.name == pay_frequency_question_name }
+            @question = @flow.node(pay_frequency_question_name)
             @state = SmartAnswer::State.new(@question)
             @calculator = stub('calculator',
               :pay_frequency= => nil
@@ -80,7 +80,7 @@ module SmartAnswer
       ].each do |hours_question_name|
         context "for #{hours_question_name}" do
           setup do
-            @question = @flow.questions.find { |question| question.name == hours_question_name }
+            @question = @flow.node(hours_question_name)
             @state = SmartAnswer::State.new(@question)
             @calculator = stub('calculator',
               pay_frequency: 1,
@@ -123,7 +123,7 @@ module SmartAnswer
       ].each do |overtime_hours_question_name|
         context "for #{overtime_hours_question_name}" do
           setup do
-            @question = @flow.questions.find { |question| question.name == overtime_hours_question_name }
+            @question = @flow.node(overtime_hours_question_name)
             @state = SmartAnswer::State.new(@question)
             @calculator = stub('calculator', :overtime_hours= => nil)
             @state.calculator = @calculator
@@ -155,7 +155,7 @@ module SmartAnswer
       ].each do |accommodation_charge_question_name|
         context "for #{accommodation_charge_question_name}" do
           setup do
-            @question = @flow.questions.find { |question| question.name == accommodation_charge_question_name }
+            @question = @flow.node(accommodation_charge_question_name)
             @state = SmartAnswer::State.new(@question)
             @calculator = stub('calculator')
             @state.calculator = @calculator
@@ -187,7 +187,7 @@ module SmartAnswer
       ].each do |accommodation_usage_question_name|
         context "for #{accommodation_usage_question_name}" do
           setup do
-            @question = @flow.questions.find { |question| question.name == accommodation_usage_question_name }
+            @question = @flow.node(accommodation_usage_question_name)
             @state = SmartAnswer::State.new(@question)
             @calculator = stub('calculator',
               accommodation_adjustment: nil,
