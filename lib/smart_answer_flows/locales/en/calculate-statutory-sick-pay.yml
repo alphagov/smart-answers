@@ -143,10 +143,3 @@ en-GB:
           "5": Friday
           "6": Saturday
           "0": Sunday
-
-      # Answer 8
-      maximum_entitlement_reached:
-        body: |
-          Your employee isn’t entitled to Statutory Sick Pay because they’ve already received the maximum amount of SSP (28 weeks).
-
-          You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of them going off sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).

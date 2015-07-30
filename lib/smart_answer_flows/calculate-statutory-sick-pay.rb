@@ -331,7 +331,7 @@ module SmartAnswer
       end
 
       # Answer 8
-      outcome :maximum_entitlement_reached
+      outcome :maximum_entitlement_reached, use_outcome_templates: true
     end
   end
 end
