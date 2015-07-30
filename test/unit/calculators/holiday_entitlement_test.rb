@@ -378,6 +378,9 @@ module SmartAnswer::Calculators
       # implemented with method_missing
       setup do
         @calc = HolidayEntitlement.new
+        class << @calc
+          def foo; end
+        end
       end
 
       should "return foo to 1 dp by default" do
