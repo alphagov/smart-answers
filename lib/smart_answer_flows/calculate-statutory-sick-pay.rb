@@ -326,7 +326,7 @@ module SmartAnswer
       end
 
       # Answer 7
-      outcome :not_entitled_3_days_not_paid do
+      outcome :not_entitled_3_days_not_paid, use_outcome_templates: true do
         precalculate :normal_workdays_out do calculator.normal_workdays end
       end
 

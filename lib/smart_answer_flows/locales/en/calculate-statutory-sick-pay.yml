@@ -144,13 +144,6 @@ en-GB:
           "6": Saturday
           "0": Sunday
 
-      # Answer 7
-      not_entitled_3_days_not_paid:
-        body: |
-          Your employee isn’t entitled to Statutory Sick Pay because the first 3 days of illness aren’t paid.
-
-          This employee has taken %{normal_workdays_out} working days off sick between %{sick_start_date} and %{sick_end_date}.
-
       # Answer 8
       maximum_entitlement_reached:
         body: |
