@@ -8,29 +8,12 @@
   <% end %>
   You may have to attend an interview.
 
-  <% case ips_number %>
-  <% when '1' %>
-    Applications will take longer if:
+  Applications will take longer if:
 
-    - Her Majesty's Passport Office needs to ask you for more information or documents
-    - the photographs you send are rejected
+  - Her Majesty's Passport Office needs to ask you for more information or documents
+  - the photographs you send are rejected
 
-    Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
-  <% when '2' %>
-    Applications will take longer if:
-
-    - Her Majesty's Passport Office needs to ask you for more information or documents
-    - the photographs you send are rejected
-
-    Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
-  <% when '3' %>
-    Applications will take longer if:
-
-    - Her Majesty's Passport Office needs to ask you for more information or documents
-    - the photographs you send are rejected
-
-    Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
-  <% end %>
+  Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
   ## Cost
 
@@ -123,23 +106,16 @@
 
   ## How to apply
 
-  <% if passport_data['online_application'] %>
-  <% else %>
+  <% if passport_data['online_application'].blank? %>
+    1. Download the application form.
+    2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
+    3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
     <% case ips_number %>
     <% when '1' %>
-      1. Download the application form.
-      2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
-      3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
       4. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
     <% when '2' %>
-      1. Download the application form.
-      2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
-      3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
       4. Check which supporting documents you must include with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
     <% when '3' %>
-      1. Download the application form.
-      2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
-      3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
       4. Check which supporting documents you must submit with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
     <% end %>
 
@@ -177,7 +153,7 @@
   <% end %>
 
   <% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burundi burma china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia tajikistan thailand turkmenistan ukraine uzbekistan western-sahara vietnam venezuela) %>
-  <% uk_visa_application_with_colour_pictures = %w(azerbaijan algeria bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia vietnam venezuela) %>
+  <% uk_visa_application_with_colour_pictures = %w(azerbaijan algeria bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia vietnam venezuela western-sahara) %>
   <% non_uk_visa_application_with_colour_pictures = %w(burma cuba sudan tajikistan turkmenistan uzbekistan) %>
 
   <% if application_address %>
@@ -216,20 +192,7 @@
   <% elsif uk_visa_application_centre_countries.include?(current_location) %>
     <% if %w(renewing_new).include?(application_action) %>
       <% if passport_data['application_office'] %>
-        <% if %w(western-sahara).include?(current_location) %>
-          ## Making your application
-
-          You must apply in person. If you’re unable to, someone else can go on your behalf.
-          You must bring photo ID with you.
-
-          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
-
-          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
-
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
-          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
-        <% elsif %w(laos vietnam).include?(current_location) %>
+        <% if %w(laos vietnam).include?(current_location) %>
           ## Making your application
 
           You must apply in person. If you’re unable to, someone else can go on your behalf. You must bring photo ID with you.
@@ -285,16 +248,7 @@
       <% end %>
     <% else %>
       <% if passport_data['application_office'] %>
-        <% if %w(western-sahara).include?(current_location) %>
-          ## Making your application
-
-          You must apply in person. If you’re unable to, someone else can go on your behalf.
-          You must bring photo ID with you.
-
-          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
-
-          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
-        <% elsif %w(laos vietnam).include?(current_location) %>
+        <% if %w(laos vietnam).include?(current_location) %>
           ## Making your application
           You must apply in person. If you’re unable to, someone else can go on your behalf.
           You must bring photo ID with you.
@@ -411,7 +365,7 @@
       <%= render partial: 'getting_your_passport_contact_and_id.govspeak.erb' %>
     <% end %>
   <% elsif uk_visa_application_centre_variant_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
     They will contact you with details of where to collect your passport when it arrives, using the contact details you provided on your form.
     <% if %w(renewing_new).include?(application_action) %>
       <% if collect_with_photo_id_countries.include?(current_location) %>
@@ -424,9 +378,9 @@
       <%= render partial: 'getting_your_passport_id_apply_renew_old_replace.govspeak.erb' %>
     <% end %>
   <% elsif named_embassy_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
   <% elsif collect_in_person_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
     <%= render partial: 'getting_your_passport_contact_and_id.govspeak.erb' %>
   <% elsif collect_in_person_variant_countries.include?(current_location) %>
     <% if %w(burundi).include?(current_location) %>
@@ -437,14 +391,14 @@
 
         You must bring your existing passport as photo ID.
       <% else %>
-        <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+        <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
         <%= render partial: 'getting_your_passport_contact_and_id.govspeak.erb' %>
       <% end %>
     <% else %>
-      <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+      <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
     <% end %>
   <% elsif collect_in_person_renewing_new_variant_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport.govspeak.erb', locals: { current_location: current_location } %>
+    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
     <%= render partial: 'getting_your_passport_contact.govspeak.erb' %>
     <% if %w(renewing_new).include?(application_action) %>
       <%= render partial: 'getting_your_passport_id_renew_new.govspeak.erb' %>
@@ -452,27 +406,8 @@
       <%= render partial: 'getting_your_passport_id_apply_renew_old_replace.govspeak.erb' %>
     <% end %>
   <% else %>
-    <% case ips_number %>
-    <% when '1' %>
-      Your passport and supporting documents will be delivered separately by courier.
-    <% when '2' %>
-      Your passport will be delivered to the British Embassy, high commission or consulate where you applied  - you must collect it in person.
-
-      They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-    <% when '3' %>
-      Your passport will be delivered to the British Embassy, high commission or consulate where you applied - you must collect it in person.
-
-      They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-    <% end %>
+    <%= render partial: 'getting_your_passport_by_ips_number.govspeak.erb', locals: { ips_number: ips_number } %>
   <% end %>
 
-  ##Contact the Passport Adviceline
-
-  $C
-  Telephone: +44 (0) 300 222 0000
-  Monday to Friday, 8am to 8pm (UK time)
-  Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
-  $C
-
-  [Find out about call charges](/call-charges)
+  <%= render partial: 'passport_adviceline_contacts.govspeak.erb' %>
 <% end %>

@@ -47,7 +47,6 @@ You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
 
 ## Making your application
-
 You must apply in person. If you’re unable to, someone else can go on your behalf.
 You must bring photo ID with you.
 
@@ -86,4 +85,5 @@ Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
 $C
 
 [Find out about call charges](/call-charges)
+
 
