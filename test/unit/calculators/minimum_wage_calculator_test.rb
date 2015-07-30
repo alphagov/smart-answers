@@ -100,6 +100,22 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "#apprentice_eligible_for_minimum_wage?" do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      should 'return true if date is equal to or later than 1st October 2010' do
+        @calculator.date = Date.parse('2010-10-01')
+        assert @calculator.apprentice_eligible_for_minimum_wage?
+      end
+
+      should 'return false if date is earlier than 1st October 2010' do
+        @calculator.date = Date.parse('2010-09-30')
+        refute @calculator.apprentice_eligible_for_minimum_wage?
+      end
+    end
+
     context "MinimumWageCalculator" do
       setup do
         @age = 19

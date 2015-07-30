@@ -156,6 +156,10 @@ module SmartAnswer::Calculators
       @minimum_wage_data[:accommodation_rate]
     end
 
+    def apprentice_eligible_for_minimum_wage?
+      date >= Date.parse('2010-10-01')
+    end
+
     protected
 
     def weekly_multiplier

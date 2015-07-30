@@ -66,10 +66,10 @@ multiple_choice :were_you_an_apprentice? do
       :how_old_were_you?
     else
       calculator.is_apprentice = true
-      if calculator.date < Date.parse('2010-10-01')
-        :does_not_apply_to_historical_apprentices
-      else
+      if calculator.apprentice_eligible_for_minimum_wage?
         :how_often_did_you_get_paid?
+      else
+        :does_not_apply_to_historical_apprentices
       end
     end
   end
