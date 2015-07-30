@@ -19,8 +19,8 @@ module SmartdownAdapter
       end
       context "an unstarted flow" do
         setup do
-          request = { started: false }
-          request.stubs(:query_parameters).returns({})
+          request = ActionDispatch::TestRequest.new
+          request[:started] = false
           @presenter = SmartdownAdapter::Presenter.new(@flow, request)
         end
         should "initialize sets internal state" do
@@ -32,8 +32,9 @@ module SmartdownAdapter
       end
       context "a started flow with a response" do
         setup do
-          request = { started: true, response: 'lion', params: "" }
-          request.stubs(:query_parameters).returns({})
+          request = ActionDispatch::TestRequest.new
+          request[:started] = true
+          request[:response] = 'lion'
           @presenter = SmartdownAdapter::Presenter.new(@flow, request)
         end
         should "initialize sets internal state" do
@@ -45,7 +46,10 @@ module SmartdownAdapter
       end
       context "a started flow with responses" do
         setup do
-          request = { started: true, responses: 'lion', params: "", next: "y" }
+          request = ActionDispatch::TestRequest.new
+          request[:started] = true
+          request[:responses] = 'lion'
+          request[:next] = 'y'
           request.stubs(:query_parameters).returns({ 'response_1' => "no" })
           @presenter = SmartdownAdapter::Presenter.new(@flow, request)
         end
@@ -58,7 +62,10 @@ module SmartdownAdapter
       end
       context "a flow with an empty response" do
         setup do
-          request = { started: true, responses: "lion", params: "", next: "y" }
+          request = ActionDispatch::TestRequest.new
+          request[:started] = true
+          request[:responses] = 'lion'
+          request[:next] = 'y'
           request.stubs(:query_parameters).returns({ "response_1" => "" })
           @presenter = SmartdownAdapter::Presenter.new(@flow, request)
         end
