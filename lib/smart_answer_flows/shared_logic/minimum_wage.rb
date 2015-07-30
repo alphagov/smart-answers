@@ -313,7 +313,7 @@ value_question :past_accommodation_usage?, parse: Integer do
 
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, response)
-    if calculator.historical_adjustment <= 0
+    if calculator.historically_receiving_minimum_wage?
       :past_payment_above
     else
       :past_payment_below

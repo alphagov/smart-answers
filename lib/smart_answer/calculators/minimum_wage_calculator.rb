@@ -164,6 +164,10 @@ module SmartAnswer::Calculators
       age < 16
     end
 
+    def historically_receiving_minimum_wage?
+      historical_adjustment <= 0
+    end
+
     protected
 
     def weekly_multiplier

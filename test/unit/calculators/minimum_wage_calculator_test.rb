@@ -132,6 +132,22 @@ module SmartAnswer::Calculators
       end
     end
 
+    context '#historically_receiving_minimum_wage?' do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      should 'return true if the historical adjustment is less than or equal to 0' do
+        @calculator.stubs(:historical_adjustment).returns(0)
+        assert @calculator.historically_receiving_minimum_wage?
+      end
+
+      should 'return false if the historical adjustment is greater than 0' do
+        @calculator.stubs(:historical_adjustment).returns(1)
+        refute @calculator.historically_receiving_minimum_wage?
+      end
+    end
+
     context "MinimumWageCalculator" do
       setup do
         @age = 19
