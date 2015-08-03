@@ -1,0 +1,19 @@
+<% content_for :body do %>
+  Your part-year taxable profit is <%= format_money(calculator.part_year_profit) %>.
+
+  Use this figure to complete box 2.4 on your award review. Enter <%= format_money(0) %> if your profit you’ve made a loss (your part-year profit is less than <%= format_money(0) %>).
+
+  ^If you have more than one business, you need to calculate the part-year profits from all your businesses and add them together to complete box 2.4.^
+
+  You may be able to [make deductions from this amount](/link-to-guidance).
+
+  %If you changed your accounting period part way through the year, you’ll have to work out your part-year taxable profit [using the helpsheet](/link-to-guidance) that came with your Award Review.%
+
+  Details you’ve entered:
+
+  Your tax credits award ended on: <%= format_date(calculator.tax_credits_awarded_on) %>
+
+  Your business accounts started on: <%= format_date(calculator.accounts_start_on) %>
+
+  Your estimated taxable profit between <%= format_date(calculator.basis_period.begins_on) %> and <%= format_date(calculator.basis_period.ends_on) %> was: <%= format_money(calculator.profit_for_current_period) %>
+<% end %>
