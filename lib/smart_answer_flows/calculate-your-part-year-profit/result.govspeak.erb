@@ -1,0 +1,21 @@
+<% content_for :body do %>
+  ## You told us:
+
+  Your tax credits award ended on: <%= format_date(calculator.tax_credits_award_ends_on) %>
+
+  Your business accounts cover 12 months to: <%= format_date(calculator.accounts_end_on) %>
+
+  Your actual or estimated taxable profit for this 12 month period is: <%= format_money(calculator.taxable_profit) %>
+
+  Your part-year taxable profit is: <%= format_money(calculator.part_year_taxable_profit) %>
+
+  Use this figure to complete box 2.4 on your award declaration.
+
+  If your business made a loss enter '0' in box 2.4.
+
+  If you have more than one business, use the calculator again for each of your businesses and enter the total combined profit in box 2.4.
+
+  Print this page for a record of your calculation. We may need to check this with you.
+
+  If you need help working out your income contact the [Tax Credit Helpline](https://www.gov.uk/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries).
+<% end %>
