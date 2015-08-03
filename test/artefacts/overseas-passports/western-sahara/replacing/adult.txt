@@ -79,8 +79,8 @@ You must bring photo ID with you.
 ##Contact the Passport Adviceline
 
 $C
-Telephone: +44 (0) 300 222 0000
-Monday to Friday, 8am to 8pm (UK time)
+Telephone: +44 (0) 300 222 0000\\
+Monday to Friday, 8am to 8pm (UK time)\\
 Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
 $C
 
