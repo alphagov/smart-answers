@@ -59,3 +59,8 @@
   - pet-export-document
   :next_node: :outcome_results
   :outcome_node: true
+- :current_node: :which_documents_do_you_want_legalised?
+  :responses: 
+  - certificate-of-freesale
+  :next_node: :outcome_results
+  :outcome_node: true
