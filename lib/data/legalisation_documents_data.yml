@@ -30,7 +30,7 @@ certificate-of-incorporation:
 certificate-of-freesale:
   heading: Certificate of freesale
   type: certificate of freesale
-  group: government_companies
+  group: certificate_of_freesale
 certificate-of-memorandum:
   heading: Certificate of memorandum
   type: certificate of memorandum
