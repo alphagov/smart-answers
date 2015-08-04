@@ -41,6 +41,7 @@ You will need to print, sign and post your declaration form at the end.
 
 [Start your application on Her Majesty’s Passport Office website](https://passportapplication.service.gov.uk/)
 
+%You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
 
 ## Getting your passport
 
@@ -50,8 +51,8 @@ Your passport and supporting documents will be delivered separately by courier.
 ##Contact the Passport Adviceline
 
 $C
-Telephone: +44 (0) 300 222 0000
-Monday to Friday, 8am to 8pm (UK time)
+Telephone: +44 (0) 300 222 0000\\
+Monday to Friday, 8am to 8pm (UK time)\\
 Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
 $C
 

@@ -42,6 +42,7 @@ You can use Mastercard, Visa, Electron, Diners Club and JCB.
 ^[Supporting documents you must send with your application](/government/publications/overseas-passport-applications-supporting-documents-guidance)^
 
 
+%You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
 
 
 
@@ -69,8 +70,8 @@ Your passport and supporting documents will be delivered separately by courier.
 ##Contact the Passport Adviceline
 
 $C
-Telephone: +44 (0) 300 222 0000
-Monday to Friday, 8am to 8pm (UK time)
+Telephone: +44 (0) 300 222 0000\\
+Monday to Friday, 8am to 8pm (UK time)\\
 Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
 $C
 
