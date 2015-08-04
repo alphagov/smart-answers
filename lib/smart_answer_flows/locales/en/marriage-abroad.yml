@@ -144,18 +144,12 @@ en-GB:
         embassies_data: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 # payment methods
-        pay_by_mastercard_or_visa: |
-          You can only pay by MasterCard and Visa credit cards.
-        pay_by_card_no_amex_no_cheque: |
-          You can pay by cash or credit card (except American Express), but not by personal cheque.
         pay_by_cash_or_credit_card_no_cheque: |
           You can pay by cash or credit card, but not by personal cheque.
         pay_by_visas_or_mastercard: |
           You can pay by credit card (Visa, Visa Electron or MasterCard), but not by personal cheque.
         pay_by_cash_or_us_dollars_only: |
           You can only pay fees for consular services by cash in US dollars.
-        pay_in_local_currency_ceremony_in_kazakhstan: |
-          ^You can only pay by cash in Kazakhstan. This must be in the local currency.^
         pay_in_local_currency_ceremony_country_name: |
           ^You can only pay by cash in %{country_name_lowercase_prefix}. This must be in the local currency.^
         pay_in_euros_or_visa_electron: |
@@ -167,8 +161,6 @@ en-GB:
 #fees
         link_to_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
-        list_of_consular_kazakhstan: |
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
         list_of_consular_fees_france: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/france-consular-fees).
 # "what you need to do" phrases
@@ -237,18 +229,6 @@ en-GB:
           Issuing any other consular letter or certificate in any other language | £70
           Affidavit for marriage | £55
 
-        fee_table_croatia: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Receiving a notice of marriage | £65
-          Issuing a CNI, Nulla Osta or equivalent | £65
-          Issuing any other consular letter or certificate in English | £45
-          Issuing any other consular letter or certificate in any other language | £70
-          Administering an oath or making a declaration | £55
-          Issuing a certificate of custom and law | £65
-
         fee_table_affidavit_55: |
           ##Fees
 
@@ -268,10 +248,6 @@ en-GB:
           -|-
           Affirmation for marriage | £65
 #other phrases
-        no_need_to_stay_after_posting_notice: |
-          ^You don't need to stay in the country while your notice is posted.^
-        living_in_ceremony_country_3_days: |
-          You need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
         morocco_affidavit_length: |
           ^An ’affirmation for marriage’ document issued in Morocco is valid for 3 months.^
         callout_partner_equivalent_document: |
@@ -280,14 +256,6 @@ en-GB:
           Your partner will probably need to get an equivalent document from their national authorities.
         partner_declaration: |
           ^Your partner will need to make a declaration as well.^
-        cni_exception_for_permanent_residents_estonia: |
-          ^You may be able to get married without a CNI if you have a permanent address in Estonia and have a 6 month residence permit - contact the local authorities to find out.^
-        check_with_notary_public_if_you_need_cni: |
-          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry. Contact the local notary public to check if you need a CNI.
-        what_to_do_croatia: |
-          You may be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
-
-          The local registrar may also need a certificate of custom and law, which confirms the marriage is valid - the Embassy in Zagreb can provide this.
         get_legal_advice: |
           ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
         check_travel_advice: |
@@ -469,106 +437,22 @@ en-GB:
         fees_spain: |
 
 # Marriage in a country with consular CNI phrases
-        japan_intro: |
-          Contact your [nearest embassy or consulate](http://www.mofa.go.jp/about/emb_cons/over/index.html) of Japan to find out about local marriage laws, including what documents you’ll need.
-
-          ^You should [get legal advice](/government/publications/japan-list-of-lawyers) and check the [travel advice for Japan](/foreign-travel-advice/japan) before making any plans.^
         contact_embassy_of_ceremony_country_in_uk_marriage: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
         contact_embassy_of_ceremony_country_in_uk_cp: |
           Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local laws, including what documents you’ll need.
-        contact_dutch_embassy_for_dutch_caribbean_islands: |
-          %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
-
-          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need
         gulf_states_os_consular_cni: |
           ^There are no civil marriages in %{country_name_lowercase_prefix}, but you can get married through a religious ceremony at a church or Sharia court.^
         gulf_states_os_consular_cni_local_resident: |
           You may be able to get married at the British Embassy if you’re both resident in %{country_name_lowercase_prefix} and can prove that there are no other suitable facilities.
 
           Contact the British Embassy in %{country_name_lowercase_prefix} for more information.
-        italy_os_consular_cni_ceremony_italy: |
-          Contact the local comune (town hall) before making any plans to find out about local marriage laws, including what documents you’ll need.
-        consular_cni_os_ceremony_21_day_requirement: |
-          You need to have been living in the country where you intend to marry for 21 full days.
-        you_may_be_asked_for_cni: |
-          You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
-        get_cni_from_uk: |
-          You’ll need to get a certificate of no impediment (CNI) from the authorities in the UK to prove you’re allowed to marry.
-        partner_cni_requirements_the_same: |
-          ^Your partner will need to follow the same process to get their own CNI.^
-        nulla_osta_requirement: |
-          You’ll be asked to provide a ‘Nulla Osta’ by the authorities in Italy. This is a certificate that proves you’re allowed to marry.
-        consular_cni_os_denmark: |
-          ^You don’t need a CNI if you’re getting married in the main town hall in Copenhagen.^
-        consular_cni_requirements_in_germany: |
-          You don’t need a certificate of no impediment (CNI) to prove you’re allowed to marry if you’re a British national resident outside of the UK. However, you’ll need to apply for an exemption (‘Befreiung von der Beibringung des Ehefähigkeitszeugnisses’).
-
-          The local registry office (‘Standesamt’) where you’re getting married should tell you what to do.
-
-          If the Standesamt does ask you for a CNI (‘Ehefähigkeitszeugnis’), refer them to the relevant part of the [German Civil Code](http://www.gesetze-im-internet.de/bgb/__1309.html) (‘Bürgerliches Gesetzbuch’). This is published on the Stuttgart Higher Regional Court (‘Oberlandesgericht’) website, but it applies to the whole of Germany.
-
-          Check with the Higher Regional Court where you’re getting married if they don’t accept this.
 
         cni_at_local_register_office: |
           You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
         cni_issued_locally_validity: |
           ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire. Check with your local register office to find out how long a CNI is valid if you live in the Channel Islands or the Isle of Man. You should also check with the local authorities in %{country_name_lowercase_prefix} to find out how long a CNI is valid under local law.^
 
-        cni_subject_to_objection_14_days:
-          They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
-
-        getting_statutory_declaration_for_italy_partner_british: |
-          ###Getting a statutory declaration
-
-          While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
-        getting_statutory_declaration_for_italy_partner_non_british: |
-          ###Getting a statutory declaration
-
-          While you’re waiting for your CNI, you will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
-
-
-        bilingual_statutory_declaration_download_for_italy: |
-          $D
-          [Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 90KB)](/government/uploads/system/uploads/attachment_data/file/153753/bilingual-statutory-declaration.pdf)
-          $D
-
-        statutory_declaration_for_non_british_partner: |
-
-          ^Your partner should check what they need to do with their own consulate.^
-
-        legalising_italian_statutory_declaration: |
-          ###Legalisation and translation
-
-          You’ll need to get your statutory declaration and CNI ’[legalised](/get-document-legalised)’ (certified as genuine) by the Foreign & Commonwealth Office (FCO).
-
-          You’ll also need to get your CNI [translated](/government/publications/italy-list-of-translators-and-interpreters) and sworn before the Italian courts or an Italian Justice of the Peace.
-        consular_cni_os_uk_resident_montenegro: |
-          ###Getting a Montenegrin version of your CNI
-
-          You might need to exchange your UK-issued CNI for one that’s valid in Montenegro at the British Embassy in Podgorica.
-
-          Contact the embassy to make an appointment. You’ll need to pay the fee for issuing a CNI or equivalent - see below. Check with the local authorities to make sure they’ll accept your UK-issued CNI, and whether it needs to be:
-        legalisation_and_translation_check_with_authorities: |
-          ###Legalisation and translation
-
-          You should check with the local authorities in %{country_name_lowercase_prefix} to see if your CNI needs to be:
-
-        germany_legalisation_and_translation: |
-          ###Translation
-
-          Check with the local authorities in %{country_name_lowercase_prefix} if you need to get your UK-issued CNI translated.
-
-          [Find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
-
-          You should also check with the local authorities if you need to provide [legalised](/get-document-legalised) and translated copies of any other documents.
-
-        tunisia_legalisation_and_translation: |
-          You’ll need to exchange your UK-issued CNI for one that’s valid in Tunisia at the nearest British embassy to where you’re getting married.
-        uk_cni_accepted_in_townhall: |
-          Your UK-issued CNI should be accepted by the town hall.
-
-          You should also check if it needs to be:
         legisation_and_translation_intro_uk: |
           ###Legalisation and translation
 
@@ -581,69 +465,6 @@ en-GB:
 
           You should also check with the local authorities in %{country_name_lowercase_prefix} to find out if you need to provide legalised and translated copies of any other documents.
 
-        consular_cni_os_local_resident_table: |
-
-          ###Applying for a CNI from the %{embassy_or_consulate_ceremony_country}
-
-          You’ll need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
-
-          You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
-        kazakhstan_os_local_resident: |
-          If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
-        russia_os_local_resident: |
-          If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British %{embassy_or_consulate_ceremony_country}.
-
-          ###Applying for a CNI from the consulate
-
-          You’ll need to have been living in the Russian Federation for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
-
-          You can then book an appointment at the consulate in the district you’re living in, to give notice of your marriage.
-
-        consular_cni_os_local_resident_italy: |
-          To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
-
-          ###Applying for a Nulla Osta from the embassy
-
-          You’ll need to have been living in %{country_name_lowercase_prefix} for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday. You can then book an appointment at the British Embassy in Rome.
-
-        consular_cni_os_giving_notice_in_ceremony_country: |
-          If you need a CNI, you must give notice of your intended marriage in %{country_name_lowercase_prefix}. You must do this at the British embassy or in front of a notary public in that country.
-
-        arrange_cni_via_costa_rica: |
-          If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
-
-        consular_cni_os_foreign_resident_3_days_macedonia: |
-          Contact a notary public or British Embassy in Macedonia to get advice:
-
-          $C
-          British Embassy Macedonia
-          Telephone: + 389 (2) 3299 299
-          <consular.skopje@fco.gov.uk>
-          $C
-
-          %You can’t book an appointment to get advice at the embassy in person.%
-        consular_cni_os_foreign_resident_21_days_jordan: |
-          You need to have been living in the country where you intend to marry for 21 days.
-
-          If you’re getting married at the Sharia Court, you’ll need to provide a [single declaration document](/government/publications/single-declaration-form-for-islamic-marriages-jordan) to prove you’re allowed to marry, or a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re divorced.
-
-          Make an appointment at the local British embassy or consulate to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring the single declaration, your passport, your partner’s passport and pay a fee.
-
-          ^Documents must be originals if you are getting married at the Sharia Court.^
-
-          For non-Islamic marriages, you may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
-
-        documents_must_be_originals_when_in_sharia_court:
-          ^Documents must be originals if you are getting married at the Sharia Court.^
-
-        required_supporting_documents_incl_birth_cert: |
-          You’ll need to provide supporting documents, including:
-
-          - your passport
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
-          - equivalent documents for your partner
-
         required_supporting_documents: |
           You’ll need to provide supporting documents, including:
 
@@ -651,36 +472,12 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
           - equivalent documents for your partner
 
-        required_supporting_documents_incl_birth_cert_notary_public: |
-          You’ll need to provide supporting documents, including:
-
-          - your passport
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
-          - equivalent documents for your partner
-
-        required_supporting_documents_notary_public: |
-          You’ll need to provide supporting documents, including:
-
-          - your passport
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} or notary public to find out what you need
-          - equivalent documents for your partner
-
-
         required_supporting_documents_egypt: |
           You’ll need to provide supporting documents, including:
 
           - your passport
           - a valid Egyptian visa
           - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
-          - equivalent documents for your partner
-
-        required_supporting_documents_greece: |
-          You’ll need to provide supporting documents, including:
-
-          - your passport
-          - Greek ID card (if available)
-          - proof of residence, such as a residence permit - check with the embassy or notary public to find out what you need
           - equivalent documents for your partner
 
         required_supporting_documents_philippines: |
@@ -710,108 +507,13 @@ en-GB:
             - your [birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
             - proof of residence, eg a residence certificate - check with the embassy or consulate for advice
 
-        japan_consular_cni_os_local_resident: |
-          ##Giving notice of marriage
-
-          You’ll need to provide supporting documents, including:
-
-          - your passport, showing that you’ve been in Japan for at least 3 days (if you’ve been outside of Japan for a short period and recently returned, a residence visa is normally acceptable)
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - evidence of parental consent if you’re below the age you can legally get married without consent in the country you’re from (eg 18 in England and Wales)
-          - equivalent documents for your partner
-        japan_consular_cni_os_local_resident_partner_local: |
-          Your partner can provide a recently certified copy of the family register (‘koseki-tohon’) as evidence that they’re free to marry.
-        italy_consular_cni_os_partner_not_british: |
-          You’ll need to provide supporting documents, including:
-
-          - your passport
-          - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
-          - a copy of your partner’s identity document
-        italy_consular_cni_os_partner_british: |
-          You and your partner will need to provide your passports and [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate).
-        consular_cni_os_not_uk_resident_ceremony_not_germany: |
-          If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
-
-          - a [decree absolute or final order](/copy-decree-absolute-final-order)
-          - a civil partnership dissolution or annulment certificate
-          - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
-        consular_cni_os_not_uk_resident_ceremony_jordan: |
-          If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
-
-          - a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re getting married at the Sharia Court
-          - a [decree absolute or final order](/copy-decree-absolute-final-order)
-          - a civil partnership dissolution or annulment certificate
-          - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
-        evidence_if_divorced_outside_uk: |
-          ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.^
-
-        consular_cni_os_other_resident_ceremony_italy: |
-          You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/publications/italy-list-of-translators-and-interpreters) if it’s not in English.
-
-        download_and_fill_notice_and_affidavit_but_not_sign: |
-          You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
-
-          You can download and fill in (but not sign) the forms in advance.
-
-
-          $D
-          [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
-
-          [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
-          $D
-
-        wait_300_days_before_remarrying: |
-          ^If you’re a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
         display_notice_of_marriage_7_days: |
           ###What happens next
 
           The %{embassy_or_consulate_ceremony_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
 
-        issuing_cni_in_italy: |
-          ###What happens next
-
-          They’ll display your notice of marriage publicly for 7 days.
-
-          The British embassy will issue your CNI within 5 working days (as long as nobody has registered an objection). You can collect your CNI in person or have it delivered by post.
-
-          ^The embassy or consulate may charge a fee to return your documents to you.^
-        consular_cni_os_foreign_resident_ceremony_notary_public: |
-          ###What happens next
-
-          The embassy or notary public will charge a fee for taking the oath.
-
-          If you give notice at a notary public, you must post the signed forms and any supporting documents to your nearest British embassy or consulate afterwards.
-
-          ^The embassy or consulate may charge a fee to return your documents to you.^
-
-          The consulate will display your notice of marriage publicly for 7 days.
-
-          They’ll then send all of your documentation to the British embassy or consulate nearest to where you’re getting married in %{country_name_lowercase_prefix}, who will issue your CNI (as long as nobody has registered an objection).
-
-          There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
-
-        consular_cni_os_foreign_resident_ceremony_notary_public_greece: |
-          ###What happens next
-
-          An embassy or notary public can take your oath and post notice of your marriage. The notary public may charge 2 separate fees for this.
-
-          If you give notice at a notary public, you must post the signed forms and any supporting documents to the British Embassy in Athens afterwards.
-
-          Your local embassy will display your notice of marriage publicly for 7 days. They’ll then issue the CNI (as long as nobody has registered an objection).
-
-          There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
-
-          You can then collect your CNI at the British embassy in Athens or ask for it to be sent to you by post. You must provide the registrar’s original Notice of Marriage if you posted notice in the UK.
-
-          [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
-
-        same_cni_process_and_fees_for_partner: |
-          ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
         names_on_documents_must_match: |
           %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
-        check_if_cni_needs_to_be_legalised: |
-          You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in %{country_name_lowercase_prefix}.
         consular_cni_os_fees_incl_null_osta_oath_consular_letter: |
           ##Fees
 
@@ -822,14 +524,6 @@ en-GB:
           Issuing any other consular letter or certificate in English | £45
           Issuing any other consular letter or certificate in any other language | £70
           Administering an oath or making a declaration | £55
-
-        list_of_consular_fees_italy: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Receiving a notice of marriage | £65
-          Issuing a CNI, Nulla Osta or equivalent | £65
 
 # France and French Overseas Territories phrases
         fot_os_rules_similar_to_france: |
@@ -1390,16 +1084,6 @@ en-GB:
 
           *[CNI]:certificate of no impediment
 
-# outcome Countries with consular CNI, opposite sex
-      outcome_os_consular_cni:
-        title: Marriage in %{country_name_lowercase_prefix}
-        body: |
-          %{consular_cni_os_start}
-          %{consular_cni_os_remainder}
-
-          *[CNI]:certificate of no impediment
-          *[GRO]:General Register Office
-          *[FCO]:Foreign &amp; Commonwealth Office
 #outcome France or french overseas territories
       outcome_os_france_or_fot:
         title: Marriage in %{country_name_lowercase_prefix}
