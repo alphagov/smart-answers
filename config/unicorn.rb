@@ -3,4 +3,4 @@ def load_file_if_exists(config, file)
 end
 load_file_if_exists(self, "/etc/govuk/unicorn.rb")
 working_directory File.dirname(File.dirname(__FILE__))
-worker_processes 6
+worker_processes 4
