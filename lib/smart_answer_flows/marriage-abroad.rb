@@ -381,55 +381,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_os_commonwealth do
-        precalculate :commonwealth_os_outcome do
-          phrases = PhraseList.new
-
-          if resident_of == 'uk'
-            if ceremony_country == 'zimbabwe'
-              phrases << :contact_zimbabwean_embassy_in_uk
-            else
-              phrases << :contact_high_comission_of_ceremony_country_in_uk
-            end
-          else
-            phrases << :contact_local_authorities_in_country_marriage
-          end
-
-          if resident_of == 'ceremony_country'
-            phrases << :get_legal_advice
-          else
-            phrases << :get_legal_and_travel_advice
-          end
-
-          if ceremony_country == 'zimbabwe'
-            phrases << :cant_issue_cni_for_zimbabwe
-          else
-            phrases << :cant_issue_cni_for_commonwealth
-          end
-
-          case ceremony_country
-          when 'south-africa'
-            phrases << :commonwealth_os_marriage_subtleties_in_south_africa  if  partner_nationality == 'partner_local'
-          when 'india'
-            phrases << :commonwealth_os_marriage_subtleties_in_india
-            phrases << contact_method_key
-          when 'malaysia'
-            phrases << :commonwealth_os_marriage_subtleties_in_malaysia
-          when 'singapore'
-            phrases << :commonwealth_os_marriage_subtleties_in_singapore
-          when 'brunei'
-            phrases << :commonwealth_os_marriage_subtleties_in_brunei
-          when 'cyprus'
-            if resident_of == 'ceremony_country'
-              phrases << :commonwealth_os_marriage_subtleties_in_cyprus
-            end
-          end
-          unless partner_nationality == 'partner_british'
-            phrases << :partner_naturalisation_in_uk
-          end
-          phrases
-        end
-      end
+      outcome :outcome_os_commonwealth, use_outcome_templates: true
 
       outcome :outcome_os_bot do
         precalculate :bot_outcome do

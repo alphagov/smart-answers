@@ -354,40 +354,8 @@ en-GB:
           $D
 
 # Marriage in commonwealth countries phrases
-        contact_high_comission_of_ceremony_country_in_uk: |
-          Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
         contact_high_comission_of_ceremony_country_in_uk_cp: |
           Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
-        contact_zimbabwean_embassy_in_uk: |
-          Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us) to find out about local marriage laws, including what documents you’ll need.
-        cant_issue_cni_for_commonwealth: |
-          The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
-        cant_issue_cni_for_zimbabwe: |
-          The UK doesn’t issue certificates of no impediment (CNI) for marriages in Zimbabwe. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
-        commonwealth_os_marriage_subtleties_in_south_africa: |
-          %You’ll probably be asked for a CNI if you want to marry a South African citizen in South Africa. You’ll need to ask if there are any other documents the authorities will accept instead.%
-        commonwealth_os_marriage_subtleties_in_india: |
-          The British High Commission in India can provide you with a letter explaining this position for a charge - see [consular fees for India](/government/publications/india-consular-fees).
-        commonwealth_os_marriage_subtleties_in_malaysia: |
-          The British High Commission in Malaysia can provide you with a letter explaining this position for a charge - see [consular fees for Malaysia](/government/publications/malaysia-consular-fees).
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-          You’ll need to provide the following documents:
-
-          - a statutory declaration made at the local High Court or at the office of a notary public in the UK or Malaysia
-          - your original passport and your partner’s passport
-          - a divorce certificate (if you have been previously married)
-
-          ^You must get married through an Islamic ceremony in Malaysia if you or your partner is a Muslim. Otherwise, you’ll need to have a civil marriage.^
-        commonwealth_os_marriage_subtleties_in_singapore: |
-          However, you can swear an affidavit (written statement of facts) that you’re free to marry in front of a local [notary public or commissioner of oaths](http://www.conp.sg/co-np-directory-listing).
-        commonwealth_os_marriage_subtleties_in_brunei: |
-          ^You must get married through an Islamic ceremony in Brunei if you or your partner is a Muslim. Otherwise, you’ll need to have a civil marriage.^
-        commonwealth_os_marriage_subtleties_in_cyprus: |
-          ###Other requirements for Cyprus
-
-          You must provide evidence that you’re allowed to marry if you’re resident in Cyprus but you’ve been there for less than 3 years. However, the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK can only provide letters covering a specified 3-year period, not including the most recent 18 months.
-
-          You should [contact the municipality](http://www.ucm.org.cy/Account_List.aspx) in the area of Cyprus where you’d like to marry to check if they’ll accept this.
 
 # Marriage in British overseas territories phrases
         bot_os_ceremony_biot: |
@@ -1458,15 +1426,6 @@ en-GB:
         body: |
           %{ss_body}
 
-# outcome Commonwealth, opposite sex
-      outcome_os_commonwealth:
-        title: |
-          Marriage in %{country_name_lowercase_prefix}
-        body: |
-          %{commonwealth_os_outcome}
-
-          *[CNI]:certificate of no impediment
-          *[GRO]:General Register Office
 # outcome British oversesas territory, opposite sex
       outcome_os_bot:
         title: Marriage in %{country_name_lowercase_prefix}
