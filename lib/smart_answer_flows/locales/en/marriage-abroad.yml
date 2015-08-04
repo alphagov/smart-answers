@@ -234,21 +234,11 @@ en-GB:
           Make an appointment at the British Consulate General Hong Kong to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
         appointment_for_affidavit_norway: |
           Make an appointment at the British embassy in Oslo to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, a copy of your partner’s passport and pay a fee.
-        appointment_for_affidavit_indonesia: |
-          Make an appointment at the British Embassy in Jakarta to swear an affidavit (written statement of facts) that you’re free to marry.
-
-          Before the appointment you’ll need to pay a fee to the British Embassy in Jakarta. You can do this by credit card or in cash in the local currency. You also need to complete 2 copies of the [‘Affidavit for marriage’ form](/government/publications/marriage-in-indonesia).
-
-          Send one copy to the British Embassy in Jakarta by email or post. Take the other one with you when you go to your local appointment, along with your passport.
-
-          ^Allow the embassy at least 2 days to process your paperwork before turning up for your appointment.^
         appointment_for_affidavit_notary: |
           Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
 # partner affirmation phrases
         legalisation_and_translation: |
           ###Legalisation and translation
-        partner_affidavit_needed: |
-          ^Your partner will need to get an affidavit as well.^
         affirmation_os_translation_in_local_language_text: |
           You might need to get your affirmation [translated](/government/collections/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
 
@@ -1715,12 +1705,6 @@ en-GB:
           Marriage in Japan
         body: |
           %{japan_os_local_phraselist}
-# outcome Indonesia - Opposite sex
-      outcome_os_indonesia:
-        title: |
-          Marriage in Indonesia
-        body: |
-          %{indonesia_os_phraselist}
 # Opposite sex outcome in Hong Kong
       outcome_os_hong_kong:
         title: |

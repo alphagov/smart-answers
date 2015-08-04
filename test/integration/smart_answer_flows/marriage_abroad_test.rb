@@ -1817,7 +1817,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_indonesia
-      assert_phrase_list :indonesia_os_phraselist, [:appointment_for_affidavit_indonesia, :embassies_data, :documents_for_divorced_or_widowed, :partner_affidavit_needed, :fee_table_45_70_55]
     end
 
     should "bring you to the custom Indonesia os outcome for third country residents" do
@@ -1825,7 +1824,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_indonesia
-      assert_phrase_list :indonesia_os_phraselist, [:appointment_for_affidavit_indonesia, :embassies_data, :documents_for_divorced_or_widowed, :partner_affidavit_needed, :fee_table_45_70_55]
     end
   end
 

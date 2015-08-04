@@ -1,0 +1,30 @@
+<% content_for :title do %>
+  Marriage in Indonesia
+
+<% end %>
+
+<% content_for :body do %>
+  Make an appointment at the British Embassy in Jakarta to swear an affidavit (written statement of facts) that you’re free to marry.
+
+  Before the appointment you’ll need to pay a fee to the British Embassy in Jakarta. You can do this by credit card or in cash in the local currency. You also need to complete 2 copies of the [‘Affidavit for marriage’ form](/government/publications/marriage-in-indonesia).
+
+  Send one copy to the British Embassy in Jakarta by email or post. Take the other one with you when you go to your local appointment, along with your passport.
+
+  ^Allow the embassy at least 2 days to process your paperwork before turning up for your appointment.^
+
+
+  <%= render partial: 'contact_method.govspeak.erb',
+             locals: {
+               sex_of_your_partner: sex_of_your_partner,
+               ceremony_country: ceremony_country,
+               overseas_passports_embassies: overseas_passports_embassies,
+               country_name_lowercase_prefix: country_name_lowercase_prefix
+             } %>
+
+  <%= render partial: 'documents_for_divorced_or_widowed.govspeak.erb' %>
+
+  ^Your partner will need to get an affidavit as well.^
+
+
+  <%= render partial: 'fee_table_45_70_55.govspeak.erb' %>
+<% end %>
