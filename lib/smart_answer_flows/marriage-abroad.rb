@@ -385,7 +385,11 @@ module SmartAnswer
 
       outcome :outcome_os_bot, use_outcome_templates: true
 
-      outcome :outcome_consular_cni_os_residing_in_third_country do
+      outcome :outcome_consular_cni_os_residing_in_third_country, use_outcome_templates: true do
+        precalculate :data_query do
+          data_query
+        end
+
         precalculate :current_path do
           (['/marriage-abroad/y'] + responses).join('/')
         end
@@ -396,27 +400,6 @@ module SmartAnswer
 
         precalculate :ceremony_country_residence_outcome_path do
           current_path.gsub('third_country', 'ceremony_country')
-        end
-
-        precalculate :body do
-          phrases = PhraseList.new
-          phrases << :contact_local_authorities_in_country_marriage
-          phrases << :get_legal_and_travel_advice
-          if data_query.os_no_marriage_related_consular_services?(ceremony_country)
-            phrases << :cni_os_consular_facilities_unavailable
-          end
-          phrases << :what_you_need_to_do
-
-          if ceremony_country == 'norway'
-            phrases << :what_you_need_to_do_to_marry_in_norway_when_in_third_country
-          else
-            phrases << :you_may_be_asked_for_cni
-            if ceremony_country == 'nicaragua'
-              phrases << :getting_cni_from_costa_rica_when_in_third_country
-            else
-              phrases << :standard_ways_to_get_cni_in_third_country
-            end
-          end
         end
       end
 

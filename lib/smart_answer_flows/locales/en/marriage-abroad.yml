@@ -510,28 +510,6 @@ en-GB:
 
           Check with the Higher Regional Court where you’re getting married if they don’t accept this.
 
-        standard_ways_to_get_cni_in_third_country: |
-          There are 2 ways you can get a CNI:
-
-          - [go to the UK and post notice with a UK registrar](%{uk_residence_outcome_path})
-          - [go to %{country_name_lowercase_prefix} and post notice at the embassy or consulate there](%{ceremony_country_residence_outcome_path})
-
-          %If you choose to post notice in %{country_name_lowercase_prefix}, you’ll normally have to wait at least 10 days before you can get married.%
-
-        getting_cni_from_costa_rica_when_in_third_country: |
-          There are 2 ways you can get a CNI:
-
-          - [go to the UK and post notice with a UK registrar](%{uk_residence_outcome_path})
-          - [arrange this through the British Embassy in Costa Rica](%{ceremony_country_residence_outcome_path})
-
-
-          %If you choose to post notice in Costa Rica, you’ll normally have to wait at least 10 days before you can get married.%
-
-        what_you_need_to_do_to_marry_in_norway_when_in_third_country: |
-          You’ll need to prove that you’re allowed to marry. There are 2 ways you can do this:
-
-          - [go to the UK and post notice with a UK registrar](%{uk_residence_outcome_path})
-          - [go to %{country_name_lowercase_prefix} and swear an affidavit (written statement of facts) that you’re free to marry](%{ceremony_country_residence_outcome_path})
         cni_at_local_register_office: |
           You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
         cni_issued_locally_validity: |
@@ -1411,14 +1389,6 @@ en-GB:
           %{body}
 
           *[CNI]:certificate of no impediment
-
-# CNI outcome for opposite sex partners residing in third country
-      outcome_consular_cni_os_residing_in_third_country:
-        title: Marriage in %{country_name_lowercase_prefix}
-        body: |
-          %{body}
-
-          *[CNI]:Certificate of no impediment
 
 # outcome Countries with consular CNI, opposite sex
       outcome_os_consular_cni:
