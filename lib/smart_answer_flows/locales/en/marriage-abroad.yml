@@ -1720,11 +1720,6 @@ en-GB:
           same_sex: "Same sex"
 
 # Outcomes
-# outcome Channel Isles and Isle of Man
-      outcome_os_iom_ci:
-        title:
-        body: |
-          %{iom_ci_os_outcome}
 # outcome Netherlands
       outcome_netherlands:
         title: |
