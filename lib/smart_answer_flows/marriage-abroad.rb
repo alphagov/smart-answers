@@ -404,18 +404,44 @@ module SmartAnswer
       end
 
       outcome :outcome_os_consular_cni do
+        precalculate :three_day_residency_requirement_applies do
+          %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama poland romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+        end
+        precalculate :three_day_residency_handled_by_exception do
+          %w(croatia italy russia)
+        end
+        precalculate :no_birth_cert_requirement do
+          three_day_residency_requirement_applies - ['italy']
+        end
+        precalculate :cni_notary_public_countries do
+          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+        end
+        precalculate :no_document_download_link_if_os_resident_of_uk_countries do
+          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+        end
+        precalculate :cni_posted_after_14_days_countries do
+          %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
+        end
+        precalculate :ceremony_not_germany_or_not_resident_other do
+          # TODO verify this is ok
+          (ceremony_country != 'germany' || resident_of == 'uk')
+        end
+        precalculate :ceremony_and_residency_in_croatia do
+          (ceremony_country == 'croatia' && resident_of == 'ceremony_country')
+        end
+        precalculate :birth_cert_inclusion do
+          if no_birth_cert_requirement.exclude?(ceremony_country)
+            '_incl_birth_cert'
+          end
+        end
+        precalculate :notary_public_inclusion do
+          if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia).include?(ceremony_country)
+            '_notary_public'
+          end
+        end
+
         precalculate :consular_cni_os_start do
           phrases = PhraseList.new
-          three_day_residency_requirement_applies = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama poland romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-          three_day_residency_handled_by_exception = %w(croatia italy russia)
-          no_birth_cert_requirement = three_day_residency_requirement_applies - ['italy']
-          cni_notary_public_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-          no_document_download_link_if_os_resident_of_uk_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-
-          cni_posted_after_14_days_countries = %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
-          ceremony_not_germany_or_not_resident_other = (ceremony_country != 'germany' || resident_of == 'uk') # TODO verify this is ok
-          ceremony_and_residency_in_croatia = (ceremony_country == 'croatia' && resident_of == 'ceremony_country')
-
           if ceremony_country == 'japan'
             phrases << :japan_intro
           end
@@ -568,13 +594,6 @@ module SmartAnswer
           if resident_of != 'uk' && data_query.phrase_exists?("required_supporting_documents_#{ceremony_country}")
             phrases << :"required_supporting_documents_#{ceremony_country}"
           elsif resident_of == 'ceremony_country' && %w(germany italy japan).exclude?(ceremony_country)
-            birth_cert_inclusion = if no_birth_cert_requirement.exclude?(ceremony_country)
-              '_incl_birth_cert'
-            end
-
-            notary_public_inclusion = if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia).include?(ceremony_country)
-              '_notary_public'
-            end
             phrases << "required_supporting_documents#{birth_cert_inclusion}#{notary_public_inclusion}".to_sym
 
             if ceremony_country == 'jordan'
