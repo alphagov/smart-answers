@@ -313,7 +313,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       context "Chinese passport" do
         setup do
-          setup_for_testing_flow 'check-uk-visa'
+          reset_responses
           add_response "china"
           add_response "tourism"
         end
@@ -331,7 +331,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       context "Oman passport" do
         setup do
-          setup_for_testing_flow 'check-uk-visa'
+          reset_responses
           add_response "oman"
           add_response "school"
         end
@@ -381,7 +381,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       context "Venezuelan passport" do
         setup do
-          setup_for_testing_flow 'check-uk-visa'
+          reset_responses
           add_response "venezuela"
           add_response "transit"
         end

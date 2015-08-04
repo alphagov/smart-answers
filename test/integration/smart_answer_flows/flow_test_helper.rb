@@ -5,6 +5,10 @@ module FlowTestHelper
     else
       @flow = flow_slug_or_class.build
     end
+    reset_responses
+  end
+
+  def reset_responses
     @responses = []
   end
 
