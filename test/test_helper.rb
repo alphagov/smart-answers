@@ -18,7 +18,7 @@ require 'mocha/setup'
 Mocha::Configuration.prevent(:stubbing_non_existent_method)
 
 require 'webmock/minitest'
-WebMock.disable_net_connect!(allow_localhost: true, net_http_connect_on_start: true)
+WebMock.disable_net_connect!(allow_localhost: true)
 
 class Minitest::Test
   def teardown_with_customisations
