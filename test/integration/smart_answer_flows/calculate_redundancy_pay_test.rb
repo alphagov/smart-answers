@@ -2,6 +2,7 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
 require "smart_answer_flows/calculate-employee-redundancy-pay"
+require "smart_answer_flows/calculate-your-redundancy-pay"
 
 class CalculateRedundancyPayTest < ActiveSupport::TestCase
   include FlowTestHelper
@@ -240,7 +241,7 @@ class CalculateRedundancyPayTest < ActiveSupport::TestCase
 
   context "Employee" do
     setup do
-      setup_for_testing_flow 'calculate-your-redundancy-pay'
+      setup_for_testing_flow SmartAnswer::CalculateYourRedundancyPayFlow
     end
 
     should "ask when you were made redundant" do

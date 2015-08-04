@@ -224,7 +224,7 @@ You used to need to use nested contexts/tests in order to test Ruby/YAML Smart A
 This test passes using the example flow above.
 
     setup do
-      setup_for_testing_flow 'example-flow'
+      setup_for_testing_flow SmartAnswer::ExampleFlow
     end
 
     should "be on question 1" do
@@ -266,7 +266,7 @@ This test passes using the example flow above.
 The same test as above in a flattened form. It passes using the example flow above.
 
     should "exercise the example flow" do
-      setup_for_testing_flow 'example-flow'
+      setup_for_testing_flow SmartAnswer::ExampleFlow
 
       assert_current_node :question_1
       add_response :A

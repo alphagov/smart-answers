@@ -2,6 +2,8 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
+require 'smart_answer_flows/marriage-abroad'
+
 class MarriageAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Worldwide
@@ -16,7 +18,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   setup do
     @location_slugs = (OS_COUNTRIES_WITH_APPOINTMENTS + SS_COUNTRIES_WITH_APPOINTMENTS + %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany greece hong-kong indonesia iran ireland italy japan jordan kazakhstan kosovo laos latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)).uniq
     worldwide_api_has_locations(@location_slugs)
-    setup_for_testing_flow 'marriage-abroad'
+    setup_for_testing_flow SmartAnswer::MarriageAbroadFlow
   end
 
   should "which country you want the ceremony to take place in" do
