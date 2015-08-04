@@ -289,7 +289,7 @@ module SmartAnswer
 
       outcome :outcome_os_local_japan, use_outcome_templates: true
 
-      outcome :outcome_os_hong_kong
+      outcome :outcome_os_hong_kong, use_outcome_templates: true
 
       outcome :outcome_os_kosovo, use_outcome_templates: true
 

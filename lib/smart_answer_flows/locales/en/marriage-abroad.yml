@@ -1399,15 +1399,6 @@ en-GB:
           same_sex: "Same sex"
 
 # Outcomes
-# Opposite sex outcome in Hong Kong
-      outcome_os_hong_kong:
-        title: |
-          Marriage in Hong Kong
-        body: |
-          Contact the [Immigration Department ](http://www.immd.gov.hk/eng/faq/marriage-registration.html) in Hong Kong to find out about local marriage laws, including what documents you’ll need.
-
-          ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
-
       outcome_ss_marriage_malta:
         title: Same-sex marriage and civil partnership in Malta
         body: |
