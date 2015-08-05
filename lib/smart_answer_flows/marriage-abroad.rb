@@ -55,7 +55,7 @@ module SmartAnswer
           if country_name_query.class::COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(ceremony_country)
             country_name_query.definitive_article(ceremony_country)
           elsif country_name_query.class::FRIENDLY_COUNTRY_NAME.has_key?(ceremony_country)
-            country_name_query.class::FRIENDLY_COUNTRY_NAME[ceremony_country]
+            country_name_query.class::FRIENDLY_COUNTRY_NAME[ceremony_country].html_safe
           else
             ceremony_country_name
           end
