@@ -32,9 +32,7 @@ You should also check with the local authorities in Cote d'Ivoire to find out if
 
 ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
 
-
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
-
 
 ##Fees
 
@@ -45,6 +43,7 @@ Issuing a CNI, Nulla Osta or equivalent | £65
 Issuing any other consular letter or certificate in English | £45
 Issuing any other consular letter or certificate in any other language | £70
 Administering an oath or making a declaration | £55
+
 
 
 *[CNI]:certificate of no impediment
