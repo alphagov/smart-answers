@@ -65,6 +65,6 @@ class WorldLocation
   end
 
   def fco_organisation
-    self.organisations.find {|o| o.fco_sponsored? }
+    self.organisations.find(&:fco_sponsored?)
   end
 end

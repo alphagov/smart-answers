@@ -314,7 +314,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                   assert_current_node :maternity_leave_and_pay_result
                 end
               end #answer no to QM5 on payroll
-
             end #answer yes to QM4
             context "answer no" do
               should "state that you they are not entitled to pay" do
@@ -416,7 +415,6 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                           assert_state_variable "smp_b", "121.86"
                           assert_state_variable "total_smp", "4752.93"
                         end
-
                       end
                     end
                     context "answer every 2 weeks" do
@@ -690,6 +688,5 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         assert_current_node :maternity_leave_and_pay_result
       end
     end
-
   end
 end

@@ -40,11 +40,11 @@ module SmartAnswer::Calculators
       end
 
       should "Show 2 rates for ages 85 and 86" do
-        assert_equal [{amount:3940.0, age:85}, {amount:3660.0, age:86}], @calculator.lump_sum_and_age(Date.parse('1930-04-06'), 10, 'male')
+        assert_equal [{amount: 3940.0, age: 85}, {amount: 3660.0, age: 86}], @calculator.lump_sum_and_age(Date.parse('1930-04-06'), 10, 'male')
       end
 
       should "Show rate for 65" do
-        assert_equal [{amount:8900.0, age:65}], @calculator.lump_sum_and_age(Date.parse('1951-04-06'), 10, 'male')
+        assert_equal [{amount: 8900.0, age: 65}], @calculator.lump_sum_and_age(Date.parse('1951-04-06'), 10, 'male')
       end
     end
 
@@ -54,7 +54,7 @@ module SmartAnswer::Calculators
       end
 
       should "Show rate for 63" do
-        assert_equal [{amount:9340.0, age:63}], @calculator.lump_sum_and_age(Date.parse('1953-04-06'), 10, 'female')
+        assert_equal [{amount: 9340.0, age: 63}], @calculator.lump_sum_and_age(Date.parse('1953-04-06'), 10, 'female')
       end
     end
   end

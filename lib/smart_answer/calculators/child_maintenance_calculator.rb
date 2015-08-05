@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class ChildMaintenanceCalculator
-
     attr_accessor :income, :number_of_other_children, :number_of_shared_care_nights
 
     SCHEME_BASE_AMOUNT = 7.00

@@ -45,11 +45,11 @@ class LegalisationDocumentCheckerTest < ActiveSupport::TestCase
     end
 
     should "take you to the outcome for these police disclosure documents" do
-      selected = [].tap { |ary|
+      selected = [].tap do |ary|
         5.times do
           ary.push "police_disclosure"
         end
-      }
+      end
       assert_state_variable :groups_selected, selected
     end
   end

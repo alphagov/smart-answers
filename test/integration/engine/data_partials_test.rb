@@ -1,7 +1,6 @@
 require_relative 'engine_test_helper'
 
 class DataPartialsTest < EngineIntegrationTest
-
   setup do
     SmartdownAdapter::Registry.reset_instance
   end

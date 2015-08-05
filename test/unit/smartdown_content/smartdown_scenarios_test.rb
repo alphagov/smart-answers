@@ -24,7 +24,7 @@ class SmartdownScenariosTest < ActiveSupport::TestCase
 
     smartdown_flow.scenario_sets.each do |scenario_set|
       scenario_set.scenarios.each_with_index do |scenario, scenario_index|
-        description = scenario.description.empty? ? scenario_index+1 : scenario.description
+        description = scenario.description.empty? ? scenario_index + 1 : scenario.description
         test "scenario #{description} in set #{scenario_set.name} for flow #{smartdown_flow.name}" do
           scenario.question_groups.each_with_index do |question_group, question_index|
             answers = scenario.question_groups.take(question_index).flatten.map(&:answer)

@@ -2,7 +2,6 @@ require 'test_helper'
 require 'smartdown_plugins/pay-leave-for-parents-adoption/render_time'
 
 module SmartdownPlugins
-
   class PayLeaveForParentsAdoptionTest < ActiveSupport::TestCase
     due_date = Smartdown::Model::Answer::Date.new("2015-1-1")
 
@@ -284,6 +283,5 @@ module SmartdownPlugins
       salary_1 = Smartdown::Model::Answer::Salary.new("150-week")
       assert_equal 135.0, SmartdownPlugins::PayLeaveForParentsAdoption.rate_of_smp_6_weeks(salary_1)
     end
-
   end
 end

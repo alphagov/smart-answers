@@ -1,4 +1,4 @@
-# optional: 
+# optional:
 # REGIONAL_FILTER = ';ga:region==Wales,ga:region==England'
 REGIONAL_FILTER = ''
 
@@ -13,7 +13,7 @@ namespace :analytics do
     end
 
     begin
-      config = YAML.load_file(File.join(ENV['HOME'],".google-api.yaml"))
+      config = YAML.load_file(File.join(ENV['HOME'], ".google-api.yaml"))
     rescue Errno::ENOENT
       puts <<EOF
 To run this task you need valid Google API credentials for the OAuth 2
@@ -38,19 +38,19 @@ EOF
     client.authorization.client_secret = config['client_secret']
     client.authorization.scope = config['scope']
     client.authorization.redirect_uri = "urn:ietf:wg:oauth:2.0:oob"
-    client.authorization.update_token!({"access_token"=>config['access_token'], "refresh_token"=>config['request_token']})
+    client.authorization.update_token!({"access_token" => config['access_token'], "refresh_token" => config['request_token']})
     analytics = client.discovered_api("analytics", "v3")
 
     smart_name = args[:smart_answer_name]
-    smart_answer = SmartAnswer::FlowRegistry.new.flows.select { |f| f.name == smart_name }.first
+    smart_answer = SmartAnswer::FlowRegistry.new.flows.find { |f| f.name == smart_name }
 
-    input = {"ids"=>"ga:53872948", # GDS Google Analytics ID
-      "dimensions"=>"ga:pagePath,ga:referralPath",
-      "metrics"=>"ga:pageviews",
-      "filters"=>"ga:pagePath=~^/#{smart_name}/.*;ga:referralPath==(not set)" + REGIONAL_FILTER,
-      "start-date"=>"2012-01-01",
-      "end-date"=>Date.today.to_s,
-      "max-results"=>"20000"}
+    input = {"ids" => "ga:53872948", # GDS Google Analytics ID
+      "dimensions" => "ga:pagePath,ga:referralPath",
+      "metrics" => "ga:pageviews",
+      "filters" => "ga:pagePath=~^/#{smart_name}/.*;ga:referralPath==(not set)" + REGIONAL_FILTER,
+      "start-date" => "2012-01-01",
+      "end-date" => Date.today.to_s,
+      "max-results" => "20000"}
     data = JSON.parse(client.execute(analytics.data.ga.get, input).body)
     if !data.has_key?('rows')
       puts data.inspect
@@ -63,12 +63,12 @@ EOF
     steps = ["begin"] + smart_answer.nodes.map(&:to_s)
     graph = {}
 
-    rows.each { |path,referral,count| 
+    rows.each do |path, referral, count|
       count = count.to_i
 
       forwards = true
       if path.match '\?'
-        path,querystring = path.split(/\?/)
+        path, querystring = path.split(/\?/)
         if querystring.match "previous_response=(.*)"
           forwards = false
           path += "/" + $1
@@ -102,19 +102,19 @@ EOF
           stats[step] = stats.fetch(step, 0) - count
         end
       end
-    }
+    end
 
-    puts "digraph #{smart_name.tr("-","_")} {"
-    steps.each_with_index { |step|
+    puts "digraph #{smart_name.tr('-', '_')} {"
+    steps.each_with_index do |step|
       if !stats[step].nil?
-        puts "\"#{step.to_s.gsub(/[^a-zA-Z_]/,"")}\" [label=\"#{step.to_s.tr("_", " ")}\\n(#{stats[step]} people get this far)\"];"
+        puts "\"#{step.to_s.gsub(/[^a-zA-Z_]/, '')}\" [label=\"#{step.to_s.tr('_', ' ')}\\n(#{stats[step]} people get this far)\"];"
       end
-    }
-    graph.each { |from_node, to_nodes|
-      to_nodes.each { |to_node|
-        puts "\"#{from_node.to_s.gsub(/[^a-zA-Z_]/,"")}\" -> \"#{to_node.to_s.gsub(/[^a-zA-Z_]/,"")}\";"
-      }
-    }
+    end
+    graph.each do |from_node, to_nodes|
+      to_nodes.each do |to_node|
+        puts "\"#{from_node.to_s.gsub(/[^a-zA-Z_]/, '')}\" -> \"#{to_node.to_s.gsub(/[^a-zA-Z_]/, '')}\";"
+      end
+    end
     puts "}"
   end
 end

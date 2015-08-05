@@ -17,13 +17,13 @@ require_relative '../../lib/smartdown_adapter/plugin_factory.rb'
 module Benchmarker
   REGISTRY_OPTIONS = { load_path: "#{`pwd`.chomp}/lib/smartdown_flows/", show_drafts: true}
 
-  COMPLICATED_RESPONSES = ['birth','yes','2016-1-1','worker','employee','yes','yes','400-week','yes','yes','yes','400-week','yes']
+  COMPLICATED_RESPONSES = ['birth', 'yes', '2016-1-1', 'worker', 'employee', 'yes', 'yes', '400-week', 'yes', 'yes', 'yes', '400-week', 'yes']
 
   THINGS_TO_BENCHMARK = [
-    ["Loading All flows", ->{ all_flows }],
-    ["Selecting 'start' on spl", ->{  spl_flow.state('y', [])}],
-    ["Answering one question for spl", ->{  spl_flow.state('y', ['birth','yes'])}],
-    ["Answering lots of questions with complicated outcome for spl", ->{  spl_flow.state('y', COMPLICATED_RESPONSES)}]
+    ["Loading All flows", -> { all_flows }],
+    ["Selecting 'start' on spl", -> {  spl_flow.state('y', [])}],
+    ["Answering one question for spl", -> {  spl_flow.state('y', ['birth', 'yes'])}],
+    ["Answering lots of questions with complicated outcome for spl", -> {  spl_flow.state('y', COMPLICATED_RESPONSES)}]
   ]
 
   def all_flows
@@ -71,7 +71,6 @@ module Benchmarker
     puts "Size of all the preloaded flows: #{memory_footprint}"
     puts
   end
-
 
   def benchmark_things
     THINGS_TO_BENCHMARK.each do |description, code|

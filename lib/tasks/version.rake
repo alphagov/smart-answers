@@ -19,19 +19,19 @@ namespace :version do
     raise_error(NO_FLOW_NAME_ERR_MSG)
   end
 
-  def flow_path(flow, version='')
+  def flow_path(flow, version = '')
     version = "-#{version}" unless version.empty?
     "#{FLOWS_PATH}#{flow}#{version}.rb"
   end
 
-  def yml_path(flow, version='')
+  def yml_path(flow, version = '')
     version = "-#{version}" unless version.empty?
     "#{LOCALES_PATH}#{flow}#{version}.yml"
   end
 
-  def flow_test_path(flow, version='')
+  def flow_test_path(flow, version = '')
     version = "_#{version}" unless version.empty?
-    "#{FLOWS_TEST_PATH}#{flow.gsub('-','_')}#{version}_test.rb"
+    "#{FLOWS_TEST_PATH}#{flow.gsub('-', '_')}#{version}_test.rb"
   end
 
   def replace_in_file(filepath, replacements)
@@ -57,12 +57,12 @@ namespace :version do
     [flow_data, calculators]
   end
 
-  def process_calculators(calculators, publish=false)
+  def process_calculators(calculators, publish = false)
     calculators.uniq.each do |calc|
       class_name = calc.split("::").last
       filename = class_name.underscore
-      filepath = File.join(CALCULATORS_PATH,"#{filename}.rb")
-      v2_filepath = File.join(CALCULATORS_PATH,"#{filename}_v2.rb")
+      filepath = File.join(CALCULATORS_PATH, "#{filename}.rb")
+      v2_filepath = File.join(CALCULATORS_PATH, "#{filename}_v2.rb")
       test_filepath = File.join(UNIT_TEST_PATH, "#{filename}_test.rb")
       v2_test_filepath = File.join(UNIT_TEST_PATH, "#{filename}_v2_test.rb")
 
@@ -138,7 +138,6 @@ namespace :version do
     puts "Created #{yml_path(flow, 'v2')}"
     FileUtils.cp(flow_test_path(flow), flow_test_path(flow, 'v2'))
     puts "Created #{flow_test_path(flow, 'v2')}"
-
 
     # Set the flow to draft
     flow_data = File.read(flow_path(flow, 'v2'))

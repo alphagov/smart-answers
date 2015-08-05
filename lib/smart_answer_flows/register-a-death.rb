@@ -77,9 +77,9 @@ module SmartAnswer
           response == 'in_the_uk'
         end
 
-        define_predicate(:died_in_north_korea) {
+        define_predicate(:died_in_north_korea) do
           country_of_death == 'north-korea'
-        }
+        end
 
         on_condition(responded_with('same_country')) do
           next_node_if(:north_korea_result, died_in_north_korea)
@@ -99,9 +99,9 @@ module SmartAnswer
           country_name_query.definitive_article(current_location)
         end
 
-        define_predicate(:currently_in_north_korea) {
+        define_predicate(:currently_in_north_korea) do
           response == 'north-korea'
-        }
+        end
 
         next_node_if(:north_korea_result, currently_in_north_korea)
         next_node(:oru_result)

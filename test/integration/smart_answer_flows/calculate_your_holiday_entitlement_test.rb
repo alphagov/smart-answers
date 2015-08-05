@@ -235,7 +235,6 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         end
       end
     end
-
   end # calculate for days worked
 
   context "for hours worked per week" do

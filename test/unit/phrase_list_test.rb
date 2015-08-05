@@ -4,7 +4,6 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class PhraseListTest < ActiveSupport::TestCase
-
     test "the constructor arguments used as initial phrase keys" do
       phrase_list = PhraseList.new(:cat, :dog)
 

@@ -51,6 +51,5 @@ module SmartAnswer::Calculators
         end
       end
     end
-
   end
 end

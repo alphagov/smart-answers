@@ -2,9 +2,7 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class PassportAndEmbassyDataQueryTest < ActiveSupport::TestCase
-
     context PassportAndEmbassyDataQuery do
-
       setup do
         @query = PassportAndEmbassyDataQuery.new
       end
@@ -30,7 +28,6 @@ module SmartAnswer::Calculators
           assert_match /^\d,\d\d\d South African Rand/, @query.passport_costs["south_african_rand_adult_48"]
         end
       end
-
     end
   end
 end

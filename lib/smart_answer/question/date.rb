@@ -89,8 +89,8 @@ module SmartAnswer
 
       def parse_input(input)
         date = case input
-          when Hash, ActiveSupport::HashWithIndifferentAccess
-           input = input.symbolize_keys
+               when Hash, ActiveSupport::HashWithIndifferentAccess
+                 input = input.symbolize_keys
            expected_keys = []
            expected_keys << :day unless defaulted_day?
            expected_keys << :month unless defaulted_month?
@@ -102,12 +102,12 @@ module SmartAnswer
            month = (default_month || input[:month]).to_i
            year = (default_year || input[:year]).to_i
            ::Date.new(year, month, day)
-          when String
-           ::Date.parse(input)
-          when ::Date
-           input
-          else
-           raise InvalidResponse, "Bad date", caller
+               when String
+                 ::Date.parse(input)
+               when ::Date
+                 input
+               else
+                 raise InvalidResponse, "Bad date", caller
           end
         validate_input(date) if @validate_in_range
         date

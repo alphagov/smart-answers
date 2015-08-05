@@ -90,9 +90,9 @@ module SmartAnswer::Calculators
     end
 
     def formatted_sick_pay_weekly_amounts
-      weekly_payments.map { |week|
+      weekly_payments.map do |week|
         [week.first.strftime("%e %B %Y"), sprintf("£%.2f", week.second)].join("|")
-      }.join("\n")
+      end.join("\n")
     end
 
     def ssp_payment

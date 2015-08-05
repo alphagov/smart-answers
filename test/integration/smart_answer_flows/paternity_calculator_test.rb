@@ -242,12 +242,10 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                   setup { add_response "10"}
 
                                   should "go to outcome" do
-
                                     assert_state_variable :has_contract, "yes"
                                     assert_state_variable :lower_earning_limit, '107.00'
                                     assert_current_node :paternity_leave_and_pay
                                   end
-
                                 end #QP 13 end earnings less than 109 between relevant period
                               end  #QP12 end pay freqency
 
@@ -320,7 +318,6 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                       end
                     end #QP7 employed at birth date
                   end #QP 6 end employee not on payroll but has contract
-
                 end #QP5 end has contract
 
                 #QP4 - no employment contract

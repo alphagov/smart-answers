@@ -11,17 +11,17 @@ module SmartAnswer
       end
 
       def or(other, new_label = nil)
-        SmartAnswer::Predicate::Base.new(new_label || "#{self.label} | #{other.label}", ->(state, input) {
+        SmartAnswer::Predicate::Base.new(new_label || "#{self.label} | #{other.label}", ->(state, input) do
           self.call(state, input) || other.call(state, input)
-        })
+        end)
       end
 
       alias_method :|, :or
 
       def and(other, new_label = nil)
-        SmartAnswer::Predicate::Base.new(new_label || "#{self.label} AND #{other.label}", ->(state, input) {
+        SmartAnswer::Predicate::Base.new(new_label || "#{self.label} AND #{other.label}", ->(state, input) do
           self.call(state, input) && other.call(state, input)
-        })
+        end)
       end
 
       alias_method :&, :and
@@ -29,7 +29,6 @@ module SmartAnswer
       def label
         @label || "-- undefined --"
       end
-
     end
   end
 end

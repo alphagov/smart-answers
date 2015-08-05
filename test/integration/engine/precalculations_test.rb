@@ -1,7 +1,6 @@
 require_relative 'engine_test_helper'
 
 class PrecalculationsTest < EngineIntegrationTest
-
   with_and_without_javascript do
     should "handle precalculations" do
       visit "/precalculation-sample"

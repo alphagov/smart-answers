@@ -37,7 +37,7 @@ class FCOEmbassyScraper
                   when "Pitcairn Henderson Ducie & Oeno Islands"
                     {slug: "pitcairn"}
                   else
-                    @countries.select {|c| c[:name].downcase == country_name.downcase }.first
+                    @countries.find {|c| c[:name].downcase == country_name.downcase }
                   end
         if country
           @embassies[country[:slug]] ||= []

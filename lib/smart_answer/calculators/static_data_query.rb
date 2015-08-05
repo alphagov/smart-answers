@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class StaticDataQuery
-
     cattr_reader :datas
     attr_reader :data
 

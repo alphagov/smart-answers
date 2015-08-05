@@ -46,10 +46,10 @@ module SmartAnswer
           []
         end
 
-        validate(:error_perm_prop_house) { |r| ! r.include?('permission,property,social_housing') }
-        validate(:error_prop_house) { |r| ! r.include?('property,social_housing') }
-        validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
-        validate(:error_perm_house) { |r| ! r.include?('permission,social_housing')}
+        validate(:error_perm_prop_house) { |r| !r.include?('permission,property,social_housing') }
+        validate(:error_prop_house) { |r| !r.include?('property,social_housing') }
+        validate(:error_perm_prop) { |r| !r.include?('permission,property') }
+        validate(:error_perm_house) { |r| !r.include?('permission,social_housing')}
 
         next_node(:date_of_birth?) # Q3
       end
@@ -68,11 +68,11 @@ module SmartAnswer
           []
         end
 
-        validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
+        validate(:error_perm_prop) { |r| !r.include?('permission,property') }
 
-        define_predicate(:measure?) {
+        define_predicate(:measure?) do
           %w(help_energy_efficiency help_boiler_measure).include?(which_help)
-        }
+        end
 
         next_node_if(:date_of_birth?) { both_help }
         on_condition(measure?) do
@@ -121,12 +121,12 @@ module SmartAnswer
 
         define_predicate(:disabled_or_have_children_question?) do |response|
           response == 'income_support' ||
-          response == 'jsa' ||
-          response == 'esa' ||
-          response == 'working_tax_credit' ||
-          %w{child_tax_credit esa income_support jsa pension_credit}.all? {|key| response.include? key} ||
-          %w{child_tax_credit esa income_support pension_credit}.all? {|key| response.include? key} ||
-          %w{child_tax_credit esa jsa pension_credit}.all? {|key| response.include? key}
+            response == 'jsa' ||
+            response == 'esa' ||
+            response == 'working_tax_credit' ||
+            %w{child_tax_credit esa income_support jsa pension_credit}.all? {|key| response.include? key} ||
+            %w{child_tax_credit esa income_support pension_credit}.all? {|key| response.include? key} ||
+            %w{child_tax_credit esa jsa pension_credit}.all? {|key| response.include? key}
         end
 
         on_condition(responded_with('pension_credit') || responded_with('child_tax_credit')) do

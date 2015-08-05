@@ -5,4 +5,3 @@ module SmartdownAdapter
     end
   end
 end
-

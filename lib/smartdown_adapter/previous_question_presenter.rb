@@ -19,6 +19,5 @@ module SmartdownAdapter
 
   private
     attr_reader :smartdown_previous_question
-
   end
 end

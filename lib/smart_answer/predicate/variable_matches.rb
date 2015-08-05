@@ -46,7 +46,7 @@ module SmartAnswer
       end
 
       def wrap_in_braces(set)
-        "{ #{set.join(" | ")} }"
+        "{ #{set.join(' | ')} }"
       end
     end
   end

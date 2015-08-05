@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class WorkplacePensionCalculator
-
     attr_reader :data
 
     def threshold_annual_rate

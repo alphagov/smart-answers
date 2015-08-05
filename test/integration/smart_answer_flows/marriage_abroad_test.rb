@@ -1701,7 +1701,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to cni outcome" do
-      assert_current_node :outcome_os_consular_cni
+       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :consular_cni_os_fees_incl_null_osta_oath_consular_letter, :link_to_consular_fees, :pay_in_euros_or_visa_electron]
       assert_phrase_list :consular_cni_os_start, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :cni_at_local_register_office, :legalisation_and_translation_check_with_authorities, :legalise_translate_and_check_with_authorities]
      end
@@ -1716,7 +1716,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to cni outcome" do
-      assert_current_node :outcome_os_consular_cni
+       assert_current_node :outcome_os_consular_cni
       assert_phrase_list :consular_cni_os_remainder, [:names_on_documents_must_match, :partner_naturalisation_in_uk, :consular_cni_os_fees_incl_null_osta_oath_consular_letter, :link_to_consular_fees, :pay_in_euros_or_visa_electron]
       assert_phrase_list :consular_cni_os_start, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :you_may_be_asked_for_cni, :cni_at_local_register_office, :legalisation_and_translation_check_with_authorities, :legalise_translate_and_check_with_authorities]
      end

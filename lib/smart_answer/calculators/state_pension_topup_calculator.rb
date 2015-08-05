@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class StatePensionTopupCalculator
-
     UPPER_AGE = 100
     LOWER_AGE = 62
     MALE_LOWER_AGE = 64

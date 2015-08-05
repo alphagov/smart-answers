@@ -20,9 +20,9 @@ module SmartAnswer::Calculators
 
       @due_date = @match_date = match_or_due_date
       @leave_type = leave_type
-      @expected_week = @matched_week = expected_start .. expected_start + 6.days
+      @expected_week = @matched_week = expected_start..expected_start + 6.days
       @notice_of_leave_deadline = next_saturday(qualifying_start)
-      @qualifying_week = qualifying_start .. qualifying_start + 6.days
+      @qualifying_week = qualifying_start..qualifying_start + 6.days
       @employment_start = 25.weeks.ago(@qualifying_week.last)
       @a_employment_start = 25.weeks.ago(@matched_week.last)
       @leave_earliest_start_date = 11.weeks.ago(@expected_week.first)
@@ -90,7 +90,6 @@ module SmartAnswer::Calculators
     def statutory_maternity_rate_b
       [current_statutory_rate, statutory_maternity_rate].min
     end
-
 
     def lower_earning_limit_birth
       RatesQuery.new('maternity_paternity_birth').rates(@qualifying_week.last).lower_earning_limit_rate
@@ -322,7 +321,7 @@ module SmartAnswer::Calculators
     end
 
     def uprating_date(year)
-      date = first_sunday_in_month(4 , year)
+      date = first_sunday_in_month(4, year)
       date += leave_start_date.wday if leave_start_date
       date
     end

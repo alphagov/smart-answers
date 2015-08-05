@@ -7,7 +7,6 @@ end
 
 # Q1A
 multiple_choice :past_payment_date? do
-
   option "2013-10-01"
   option "2012-10-01"
   option "2011-10-01"
@@ -137,7 +136,6 @@ end
 
 # Q6
 money_question :how_much_are_you_paid_during_pay_period? do
-
   calculate :calculator do |response|
     amount_paid = Float(response)
     if amount_paid < 0
@@ -158,7 +156,6 @@ end
 
 # Q6 Past
 money_question :how_much_were_you_paid_during_pay_period? do
-
   calculate :calculator do |response|
     amount_paid = Float(response)
     if amount_paid < 0
@@ -179,7 +176,6 @@ end
 
 # Q7
 value_question :how_many_hours_overtime_do_you_work?, parse: Float do
-
   calculate :overtime_hours do |response|
     overtime_hours = response
     if overtime_hours < 0
@@ -250,7 +246,6 @@ end
 
 # Q9
 multiple_choice :is_provided_with_accommodation? do
-
   option "no"
   option "yes_free"
   option "yes_charged"
@@ -276,7 +271,6 @@ multiple_choice :is_provided_with_accommodation? do
   end
 
   next_node do |response|
-
     case response
     when "yes_free"
       :current_accommodation_usage?
@@ -319,7 +313,6 @@ multiple_choice :was_provided_with_accommodation? do
   end
 
   next_node do |response|
-
     case response
     when "yes_free"
       :past_accommodation_usage?
@@ -361,7 +354,6 @@ end
 
 # Q11
 value_question :current_accommodation_usage?, parse: Integer do
-
   save_input_as :accommodation_usage
 
   calculate :calculator do |response|
@@ -397,13 +389,11 @@ value_question :current_accommodation_usage?, parse: Integer do
     else
       :current_payment_below
     end
-
   end
 end
 
 # Q11 Past
 value_question :past_accommodation_usage?, parse: Integer do
-
   save_input_as :accommodation_usage
 
   calculate :calculator do |response|
@@ -443,7 +433,6 @@ value_question :past_accommodation_usage?, parse: Integer do
     else
       :past_payment_below
     end
-
   end
 end
 

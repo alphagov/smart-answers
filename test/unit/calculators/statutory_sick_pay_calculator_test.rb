@@ -3,7 +3,6 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class StatutorySickPayCalculatorTest < ActiveSupport::TestCase
-
     context ".months_between" do
       should "calculate number of months between dates" do
         months = StatutorySickPayCalculator.months_between(Date.parse("04/02/2012"), Date.parse("17/05/2012"))
@@ -49,7 +48,7 @@ module SmartAnswer::Calculators
         assert_equal @calculator.daily_rate_from_weekly(@weekly_rate, @days_worked.length), 0.0
       end
     end
-    
+
     context "prev_sick_days is 5, M-F, 7 days out" do
       setup do
         @start_date = Date.parse("1 October 2012")
@@ -138,7 +137,6 @@ module SmartAnswer::Calculators
         assert_equal @calculator.waiting_days, 2
         assert_equal @calculator.normal_workdays, 5
         assert_equal @calculator.days_to_pay, 3
-
       end
     end
 
@@ -443,7 +441,7 @@ module SmartAnswer::Calculators
     context "sick_pay_weekly_dates" do
       should "produce a list of Saturdays for the provided sick period" do
         calculator = StatutorySickPayCalculator.new(
-                      42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
+          42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
 
         assert_equal [Date.parse("12 Jan 2013"),
                       Date.parse("19 Jan 2013"),
@@ -469,7 +467,7 @@ module SmartAnswer::Calculators
     context "sick_pay_weekly_amounts" do
       should "return the payable weeks by taking into account the final SSP payment" do
         calculator = StatutorySickPayCalculator.new(
-                      42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
+          42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
 
         assert_equal [[Date.parse("12 Jan 2013"), 85.85],
                       [Date.parse("19 Jan 2013"), 85.85],
@@ -491,7 +489,7 @@ module SmartAnswer::Calculators
 
       should "have the same reduced value as the ssp_payment value" do
         calculator = StatutorySickPayCalculator.new(
-                      42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
+          42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
 
         assert_equal calculator.ssp_payment,
                      calculator.weekly_payments.map(&:second).sum
@@ -501,7 +499,7 @@ module SmartAnswer::Calculators
     context "formatted_sick_pay_weekly_amounts" do
       should "produce a markdown (value) formatted string of weekly SSP dates and pay rates" do
         calculator = StatutorySickPayCalculator.new(
-                      42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
+          42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
 
         assert_equal ["12 January 2013|£85.85",
                       "19 January 2013|£85.85",

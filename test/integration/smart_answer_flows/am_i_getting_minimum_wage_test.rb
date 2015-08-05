@@ -96,7 +96,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           add_response 250
           assert_current_node :how_old_are_you?, error: true
         end
-
       end
 
       context "answered 19 to 'how old are you?'" do
@@ -388,7 +387,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         should "ask 'how often did you get paid?'" do
           assert_current_node :does_not_apply_to_historical_apprentices
         end
-
       end
 
       context "answered 'no' to 'were you an apprentice?'" do
@@ -498,7 +496,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                       assert_current_node :past_payment_below
                       # assert_current_node :past_payment_above
                     end
-
                   end
 
                   # Where accommodation is charged under the £4.73 threshold.
@@ -622,7 +619,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_state_variable "historical_adjustment", 70.38
         end
       end
-
     end
   end # Past pay
 

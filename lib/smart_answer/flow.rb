@@ -6,9 +6,7 @@ module SmartAnswer
     attr_accessor :state, :status, :need_id
 
     def self.build
-      new.tap do |flow|
-        flow.define
-      end
+      new.tap(&:define)
     end
 
     def initialize(&block)

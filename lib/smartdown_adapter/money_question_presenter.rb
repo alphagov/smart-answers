@@ -7,7 +7,5 @@ module SmartdownAdapter
     def has_suffix_label?
       false
     end
-
   end
 end
-

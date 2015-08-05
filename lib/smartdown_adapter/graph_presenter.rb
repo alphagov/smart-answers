@@ -56,24 +56,24 @@ module SmartdownAdapter
 
     def rule_label(rule, parent_rules)
       all_rules = parent_rules.push(rule)
-      all_rules.map(&:predicate).map{ |predicate|
+      all_rules.map(&:predicate).map do |predicate|
         # Fixed in smartdown, but not released yet
         if predicate.is_a? Smartdown::Model::Predicate::Otherwise
           "otherwise"
         else
           predicate.humanize
         end
-      }.join(" AND ")
+      end.join(" AND ")
     end
 
     def graph_label_text(node)
       text = node.class.to_s.split("::").last + "\n-\n"
       case node
-        when Smartdown::Api::QuestionPage
-          if node.questions.count > 1
-            text << word_wrap(node.title.to_s)
-            text << "\n\n"
-          end
+      when Smartdown::Api::QuestionPage
+        if node.questions.count > 1
+          text << word_wrap(node.title.to_s)
+          text << "\n\n"
+        end
           node.questions.each do |question|
             text << word_wrap(question.title.to_s)
             text << "\n\n"
@@ -90,14 +90,14 @@ module SmartdownAdapter
             end
             text << "\n\n"
           end
-        when Smartdown::Api::Outcome
-          candidate_texts = [
-              node.title.to_s,
-              node.name.to_s
-          ]
+      when Smartdown::Api::Outcome
+        candidate_texts = [
+            node.title.to_s,
+            node.name.to_s
+        ]
           text << word_wrap(candidate_texts.find(&:present?))
-        else
-          text << "Unknown node type"
+      else
+        text << "Unknown node type"
       end
       text
     end

@@ -26,7 +26,6 @@ module SmartAnswer
 
       #Q2
       value_question :sponsor_id? do
-
         save_input_as :sponsor_id
 
         precalculate :data do
@@ -55,4 +54,3 @@ module SmartAnswer
     end
   end
 end
-

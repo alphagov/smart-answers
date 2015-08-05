@@ -4,7 +4,6 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class CheckboxQuestionTest < ActiveSupport::TestCase
-
     context "specifying options" do
       should "be able to specify options, and retreive them in the order specified" do
         q = Question::Checkbox.new(:something) do

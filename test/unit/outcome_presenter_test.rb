@@ -426,21 +426,21 @@ Hello world
     private
 
     def content_for_body(template)
-"<% content_for :body do %>
-#{template}
-<% end %>"
+      "<% content_for :body do %>
+      #{template}
+      <% end %>"
     end
 
     def content_for_title(template)
-"<% content_for :title do %>
-#{template}
-<% end %>"
+      "<% content_for :title do %>
+      #{template}
+      <% end %>"
     end
 
     def content_for_next_steps(template)
-"<% content_for :next_steps do %>
-#{template}
-<% end %>"
+      "<% content_for :next_steps do %>
+      #{template}
+      <% end %>"
     end
 
     def with_erb_template_file(outcome_name, erb_template)

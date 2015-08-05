@@ -85,13 +85,13 @@ module SmartAnswer
           answers
         end
 
-        define_predicate(:current_rules_no_additional_pension?) {
+        define_predicate(:current_rules_no_additional_pension?) do
           answers == [:old1, :old2, :old3] || answers == [:new1, :old2, :old3]
-        }
+        end
 
-        define_predicate(:current_rules_national_insurance_no_state_pension?) {
+        define_predicate(:current_rules_national_insurance_no_state_pension?) do
           answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
-        }
+        end
 
         next_node_if(:current_rules_no_additional_pension_outcome, current_rules_no_additional_pension?)
         next_node_if(:current_rules_national_insurance_no_state_pension_outcome, current_rules_national_insurance_no_state_pension?)

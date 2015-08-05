@@ -441,7 +441,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                              "20 April 2013|£86.70",
                              "27 April 2013|£86.70",
                              " 4 May 2013|£86.70"].join("\n")
-
     end
 
     should "show formatted weekly payment amounts with adjusted 3 days start amount for additional SPP" do
@@ -477,7 +476,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
                              "20 April 2013|£86.70",
                              "27 April 2013|£86.70",
                              " 4 May 2013|£86.70"].join("\n")
-
     end
   end
 

@@ -730,6 +730,5 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :over55_result
       end
     end
-
   end #amount calculation
 end #ask which calculation

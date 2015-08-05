@@ -2,7 +2,6 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class PIPDatesTest < ActiveSupport::TestCase
-
     context "in_group_65?" do
       setup do
         @calc = PIPDates.new
@@ -74,7 +73,6 @@ module SmartAnswer::Calculators
         @calc.dob = Date.parse('1997-10-08')
         assert ! @calc.turning_16_before_oct_2013?
       end
-
     end
 
     context "is_65_or_over?" do

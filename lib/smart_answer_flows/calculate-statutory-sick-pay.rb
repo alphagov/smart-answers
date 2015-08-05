@@ -59,7 +59,6 @@ module SmartAnswer
         end
 
         next_node :last_sick_day?
-
       end
 
       # Question 5
@@ -249,7 +248,6 @@ module SmartAnswer
 
       # Question 10.1
       value_question :days_covered_by_earnings? do
-
         calculate :employee_average_weekly_earnings do |response|
           pay = earnings
           days_worked = response.to_i

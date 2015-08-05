@@ -404,5 +404,4 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       assert_state_variable :current_scheme_costs, 1000
     end
   end # main result, existing business, motorcycle, living on premises
-
 end

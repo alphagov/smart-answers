@@ -35,7 +35,7 @@ module SmartAnswer
 
         define_predicate(:male_and_too_young?) do |response|
           (response == "male") &
-          (date_of_birth > calculator.class::MALE_YOUNGEST_DOB)
+            (date_of_birth > calculator.class::MALE_YOUNGEST_DOB)
         end
 
         next_node_if(:outcome_pension_age_not_reached, male_and_too_young?)

@@ -22,7 +22,7 @@ module SmartAnswer
       end
 
       def valid_option?(option)
-        options.map {|v| v.slug}.include? (option.to_s)
+        options.map(&:slug).include? (option.to_s)
       end
 
       def parse_input(raw_input)

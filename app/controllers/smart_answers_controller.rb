@@ -10,16 +10,16 @@ class SmartAnswersController < ApplicationController
     set_slimmer_artefact(@presenter.artefact)
     respond_to do |format|
       format.html { render }
-      format.json {
-        html_fragment = with_format('html') {
+      format.json do
+        html_fragment = with_format('html') do
           render_to_string(partial: "content")
-        }
+        end
         render json: {
           url: smart_answer_path(params[:id], 'y', @presenter.current_state.responses),
           html_fragment: html_fragment,
           title: @presenter.current_node.title
         }
-      }
+      end
       if @presenter.finished? && !Rails.env.production?
         format.text { render }
       end
@@ -30,7 +30,7 @@ class SmartAnswersController < ApplicationController
 
   def visualise
     respond_to do |format|
-      format.html {
+      format.html do
         if smartdown_question(@name)
           @graph_presenter = SmartdownAdapter::GraphPresenter.new(@name.to_s)
         else
@@ -38,17 +38,16 @@ class SmartAnswersController < ApplicationController
         end
         @graph_data = @graph_presenter.to_hash
         render layout: true
-      }
-      format.gv {
+      end
+      format.gv do
         if smartdown_question(@name)
           render text: SmartdownAdapter::GraphvizPresenter.new(@name.to_s).to_gv
         else
           render text: GraphvizPresenter.new(@smart_answer).to_gv
         end
-      }
+      end
     end
   end
-
 
 private
 
@@ -95,7 +94,7 @@ private
       }
       if @presenter.current_state.unaccepted_responses
         @presenter.current_state.unaccepted_responses.each_with_index do |unaccepted_response, index|
-          redirect_params["previous_response_#{index+1}".to_sym] = unaccepted_response.to_s
+          redirect_params["previous_response_#{index + 1}".to_sym] = unaccepted_response.to_s
         end
       end
       redirect_to redirect_params

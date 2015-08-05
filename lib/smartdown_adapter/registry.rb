@@ -3,7 +3,6 @@ require 'smartdown/api/directory_input'
 
 module SmartdownAdapter
   class Registry
-
     def self.instance(options = FLOW_REGISTRY_OPTIONS)
       if @options && @options != options
         raise "Unexpected modification of flow registry options, got #{options} and had #{@options}"
@@ -44,7 +43,7 @@ module SmartdownAdapter
       if @preloaded
         @preloaded.values
       else
-        available_flows.select{ |n| check(n) }.map { |f| build_flow(f) }
+        available_flows.select { |n| check(n) }.map { |f| build_flow(f) }
       end
     end
 
@@ -80,7 +79,7 @@ module SmartdownAdapter
       available_flows.each do |flow_name|
         @preloaded[flow_name] = build_flow(flow_name)
       end
-      @preloaded.select! { |k,v| check(v.name) }
+      @preloaded.select! { |k, v| check(v.name) }
     end
 
     def get_render_time_plugins(flow_name)

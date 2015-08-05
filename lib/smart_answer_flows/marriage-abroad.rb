@@ -154,37 +154,37 @@ module SmartAnswer
           appointment_link_key || :embassies_data
         end
 
-        define_predicate(:ceremony_in_laos_partners_not_local) {
+        define_predicate(:ceremony_in_laos_partners_not_local) do
           (ceremony_country == "laos") && (partner_nationality != "partner_local")
-        }
+        end
 
-        define_predicate(:ceremony_in_finland_uk_resident) {
+        define_predicate(:ceremony_in_finland_uk_resident) do
           (ceremony_country == "finland") && (resident_of == "uk")
-        }
+        end
 
-        define_predicate(:ceremony_in_norway_uk_resident) {
+        define_predicate(:ceremony_in_norway_uk_resident) do
           (ceremony_country == "norway") && (resident_of == "uk")
-        }
+        end
 
-        define_predicate(:ceremony_in_brazil_not_resident_in_the_uk) {
+        define_predicate(:ceremony_in_brazil_not_resident_in_the_uk) do
           (ceremony_country == 'brazil') && (resident_of != 'uk')
-        }
+        end
 
-        define_predicate(:os_marriage_with_local_in_japan) {
+        define_predicate(:os_marriage_with_local_in_japan) do
           ceremony_country == 'japan' && resident_of == 'ceremony_country' && partner_nationality == 'partner_local'
-        }
+        end
 
-        define_predicate(:consular_cni_residing_in_third_country) {
+        define_predicate(:consular_cni_residing_in_third_country) do
           resident_of == 'third_country' && (data_query.os_consular_cni_countries?(ceremony_country) || %w(kosovo).include?(ceremony_country) || data_query.os_consular_cni_in_nearby_country?(ceremony_country))
-        }
+        end
 
-        define_predicate(:marriage_in_spain_third_country) {
+        define_predicate(:marriage_in_spain_third_country) do
           ceremony_country == 'spain' && resident_of == 'third_country'
-        }
+        end
 
-        define_predicate(:marriage_in_norway_third_country) {
+        define_predicate(:marriage_in_norway_third_country) do
           ceremony_country == 'norway' && resident_of == 'third_country'
-        }
+        end
 
         next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
         next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
@@ -203,47 +203,47 @@ module SmartAnswer
           next_node_if(:outcome_os_indonesia, variable_matches(:ceremony_country, "indonesia"))
           next_node_if(:outcome_os_marriage_impossible_no_laos_locals, ceremony_in_laos_partners_not_local)
           next_node_if(:outcome_os_laos, variable_matches(:ceremony_country, "laos"))
-          next_node_if(:outcome_os_consular_cni, -> {
+          next_node_if(:outcome_os_consular_cni, -> do
             data_query.os_consular_cni_countries?(ceremony_country) || (resident_of == 'uk' && data_query.os_no_marriage_related_consular_services?(ceremony_country)) || data_query.os_consular_cni_in_nearby_country?(ceremony_country)
-          })
+          end)
           next_node_if(:outcome_os_consular_cni, ceremony_in_finland_uk_resident)
           next_node_if(:outcome_os_consular_cni, ceremony_in_norway_uk_resident)
           next_node_if(:outcome_os_affirmation, -> { data_query.os_affirmation_countries?(ceremony_country) })
           next_node_if(:outcome_os_commonwealth, -> { data_query.commonwealth_country?(ceremony_country) || ceremony_country == 'zimbabwe' })
           next_node_if(:outcome_os_bot, -> { data_query.british_overseas_territories?(ceremony_country) })
-          next_node_if(:outcome_os_no_cni, -> {
+          next_node_if(:outcome_os_no_cni, -> do
             data_query.os_no_consular_cni_countries?(ceremony_country) || (resident_of != 'uk' && data_query.os_no_marriage_related_consular_services?(ceremony_country))
-          })
-          next_node_if(:outcome_os_other_countries, -> {
+          end)
+          next_node_if(:outcome_os_other_countries, -> do
             data_query.os_other_countries?(ceremony_country)
-          })
+          end)
         end
 
         on_condition(responded_with('same_sex')) do
-          define_predicate(:ss_marriage_germany_partner_local?) {
+          define_predicate(:ss_marriage_germany_partner_local?) do
             (ceremony_country == "germany") && (partner_nationality == "partner_local") && (ceremony_type != 'opposite_sex')
-          }
-          define_predicate(:ss_marriage_countries?) {
+          end
+          define_predicate(:ss_marriage_countries?) do
             data_query.ss_marriage_countries?(ceremony_country)
-          }
-          define_predicate(:ss_marriage_countries_when_couple_british?) {
+          end
+          define_predicate(:ss_marriage_countries_when_couple_british?) do
             data_query.ss_marriage_countries_when_couple_british?(ceremony_country) && %w(partner_british).include?(partner_nationality)
-          }
-          define_predicate(:ss_marriage_and_partnership?) {
+          end
+          define_predicate(:ss_marriage_and_partnership?) do
             data_query.ss_marriage_and_partnership?(ceremony_country)
-          }
+          end
 
-          define_predicate(:ss_marriage_not_possible?) {
+          define_predicate(:ss_marriage_not_possible?) do
             data_query.ss_marriage_not_possible?(ceremony_country, partner_nationality)
-          }
+          end
 
-          define_predicate(:ss_unknown_no_embassies) {
+          define_predicate(:ss_unknown_no_embassies) do
             data_query.ss_unknown_no_embassies?(ceremony_country)
-          }
+          end
 
-          define_predicate(:ss_affirmation) {
+          define_predicate(:ss_affirmation) do
             %w(belgium norway).include?(ceremony_country)
-          }
+          end
 
           next_node_if(:outcome_ss_affirmation, ss_affirmation)
 
@@ -257,25 +257,25 @@ module SmartAnswer
 
           next_node_if(:outcome_ss_marriage,
             ss_marriage_countries? | ss_marriage_countries_when_couple_british? | ss_marriage_and_partnership?
-          )
+                      )
 
           next_node_if(:outcome_os_consular_cni, variable_matches(:ceremony_country, "spain"))
 
-          next_node_if(:outcome_cp_or_equivalent, -> {
+          next_node_if(:outcome_cp_or_equivalent, -> do
             data_query.cp_equivalent_countries?(ceremony_country)
-          })
+          end)
 
-          next_node_if(:outcome_cp_no_cni, -> {
+          next_node_if(:outcome_cp_no_cni, -> do
             data_query.cp_cni_not_required_countries?(ceremony_country)
-          })
+          end)
 
-          next_node_if(:outcome_cp_commonwealth_countries, -> {
+          next_node_if(:outcome_cp_commonwealth_countries, -> do
             %w(canada south-africa).include?(ceremony_country)
-          })
+          end)
 
-          next_node_if(:outcome_cp_consular, -> {
+          next_node_if(:outcome_cp_consular, -> do
             data_query.cp_consular_countries?(ceremony_country)
-          })
+          end)
 
           next_node(:outcome_cp_all_other_countries)
         end
@@ -745,11 +745,11 @@ module SmartAnswer
             phrases << :"required_supporting_documents_#{ceremony_country}"
           elsif resident_of == 'ceremony_country' && %w(germany italy japan spain).exclude?(ceremony_country)
             birth_cert_inclusion = if no_birth_cert_requirement.exclude?(ceremony_country)
-              '_incl_birth_cert'
+                                     '_incl_birth_cert'
             end
 
             notary_public_inclusion = if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia spain).include?(ceremony_country)
-              '_notary_public'
+                                        '_notary_public'
             end
             phrases << "required_supporting_documents#{birth_cert_inclusion}#{notary_public_inclusion}".to_sym
 
@@ -837,7 +837,7 @@ module SmartAnswer
             phrases << :same_cni_process_and_fees_for_partner
           end
 
-          if ceremony_country != 'germany'  || (ceremony_country == 'germany' && resident_of == 'uk')
+          if ceremony_country != 'germany' || (ceremony_country == 'germany' && resident_of == 'uk')
             phrases << :names_on_documents_must_match
           end
 

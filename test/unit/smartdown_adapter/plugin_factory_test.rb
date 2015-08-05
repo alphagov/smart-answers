@@ -34,7 +34,6 @@ module SmartdownAdapter
     test "plugins defined in included modules are also included in the plugin set" do
       refute get_processed_render_time_plugins['included_method_based_plugin'].nil?
     end
-
   end
 
   class PluginFactoryTestWithFileFixtures < ActiveSupport::TestCase
@@ -60,9 +59,9 @@ module SmartdownAdapter
     end
 
     test "when a module file is present but doesn't define a module with the corresponding name, it should raise an exception" do
-      assert_raises(SmartdownAdapter::PluginFactory::PluginModuleNotDefined) {
+      assert_raises(SmartdownAdapter::PluginFactory::PluginModuleNotDefined) do
         SmartdownAdapter::PluginFactory.for('plugin-factory-test-without-correct-module')
-      }
+      end
     end
 
     test "should ignore other modules in plugin definintion files" do

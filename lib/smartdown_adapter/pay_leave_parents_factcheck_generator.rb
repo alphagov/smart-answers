@@ -1,6 +1,5 @@
 module SmartdownAdapter
   class PayLeaveParentsFactcheckGenerator
-
     def initialize(question_name, due_or_match_date, answer_combinations, human_readable_snippet_names)
       @name = question_name
       @due_or_match_date = due_or_match_date
@@ -58,7 +57,7 @@ module SmartdownAdapter
         line_content << format_birth_hash(birth_hash)
       end
       unique_line_content = remove_duplicate_circumstances(line_content)
-      lines += unique_line_content.each.with_index(1).map{ |line_array, i| ([i]+line_array).join(" | ") }
+      lines += unique_line_content.each.with_index(1).map { |line_array, i| ([i] + line_array).join(" | ") }
       lines.uniq.join("\n")
     end
 
@@ -88,36 +87,36 @@ module SmartdownAdapter
     end
 
     def order_hashes(hashes)
-      hashes.sort { |a,b|
-        [
-          a[:employment_status_1],
-          a[:employment_status_2] || "",
-          a[:job_before_x_1] || "",
-          a[:job_after_y_1] || "",
-          a[:lel_1] || "",
-          a[:earnings_employment_1] || "",
-          a[:job_before_x_2] || "",
-          a[:job_after_y_2] || "",
-          a[:lel_2] || "",
-          a[:earnings_employment_2] || "",
-        ] <=>
-        [
-          b[:employment_status_1],
-          b[:employment_status_2] || "",
-          b[:job_before_x_1] || "",
-          b[:job_after_y_1] || "",
-          b[:lel_1] || "",
-          b[:earnings_employment_1] || "",
-          b[:job_before_x_2] || "",
-          b[:job_after_y_2] || "",
-          b[:lel_2] || "",
-          b[:earnings_employment_2] || "",
-        ]
-       }
+      hashes.sort do |a, b|
+         [
+           a[:employment_status_1],
+           a[:employment_status_2] || "",
+           a[:job_before_x_1] || "",
+           a[:job_after_y_1] || "",
+           a[:lel_1] || "",
+           a[:earnings_employment_1] || "",
+           a[:job_before_x_2] || "",
+           a[:job_after_y_2] || "",
+           a[:lel_2] || "",
+           a[:earnings_employment_2] || "",
+         ] <=>
+           [
+             b[:employment_status_1],
+             b[:employment_status_2] || "",
+             b[:job_before_x_1] || "",
+             b[:job_after_y_1] || "",
+             b[:lel_1] || "",
+             b[:earnings_employment_1] || "",
+             b[:job_before_x_2] || "",
+             b[:job_after_y_2] || "",
+             b[:lel_2] || "",
+             b[:earnings_employment_2] || "",
+           ]
+       end
     end
 
     def url_from_hash(hash)
-      "[link](https://www.preview.alphagov.co.uk/pay-leave-for-parents/y/#{hash.values[0..-2].join("/")})"
+      "[link](https://www.preview.alphagov.co.uk/pay-leave-for-parents/y/#{hash.values[0..-2].join('/')})"
     end
 
     def remove_duplicate_circumstances(line_content_array)
@@ -145,6 +144,5 @@ module SmartdownAdapter
         10008.chr
       end
     end
-
   end
 end

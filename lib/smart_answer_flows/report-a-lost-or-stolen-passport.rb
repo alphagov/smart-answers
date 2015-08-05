@@ -32,7 +32,6 @@ module SmartAnswer
           else
             []
           end
-
         end
 
         next_node_if(:contact_the_embassy_canada, responded_with('canada'))

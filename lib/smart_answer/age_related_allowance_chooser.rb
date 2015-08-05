@@ -1,6 +1,5 @@
 module SmartAnswer
   class AgeRelatedAllowanceChooser
-
     # created for married couples allowance calculator.
     # this could be extended for use across smart answers
     # and/or GOV.UK
@@ -40,6 +39,5 @@ module SmartAnswer
         age_related_allowance = @over_75_allowance
       end
     end
-
   end
 end

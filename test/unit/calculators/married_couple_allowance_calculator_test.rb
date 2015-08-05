@@ -2,7 +2,6 @@ require_relative '../../test_helper'
 
 module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculatorTest < ActiveSupport::TestCase
-
     setup do
       @income_limit = 27000
       @age_related_allowance = 12000
@@ -26,13 +25,12 @@ module SmartAnswer::Calculators
         personal_allowance: @personal_allowance)
     end
 
-
     test "worked example on directgov for 2011-12" do
       hmrc_example_calculator = calculator(
-          maximum_mca: 7295,
-          minimum_mca: 2800,
-          income_limit_for_personal_allowances: 24000,
-          personal_allowance: 7475)
+        maximum_mca: 7295,
+        minimum_mca: 2800,
+        income_limit_for_personal_allowances: 24000,
+        personal_allowance: 7475)
 
       age_related_allowance_2011_12 = 10090
       result = hmrc_example_calculator.calculate_allowance(age_related_allowance_2011_12, 29600)
@@ -42,10 +40,10 @@ module SmartAnswer::Calculators
     #add one for 2013-14 when the worked example is released
     test "worked example on HMRC site for 2012-13" do
       hmrc_example_calculator = calculator(
-          maximum_mca: 7705,
-          minimum_mca: 2960,
-          income_limit_for_personal_allowances: 25400,
-          personal_allowance: 8105)
+        maximum_mca: 7705,
+        minimum_mca: 2960,
+        income_limit_for_personal_allowances: 25400,
+        personal_allowance: 8105)
       age_related_allowance_2012_13 = 10660
       result = hmrc_example_calculator.calculate_allowance(age_related_allowance_2012_13, 31500)
       assert_equal SmartAnswer::Money.new("721"), result

@@ -2,7 +2,6 @@ require 'nokogiri'
 
 module SmartdownAdapter
   class SmartAnswerCompareHelper
-
     def initialize(smartdown_flow)
       @controller = SmartAnswersController.new
       @smartdown_flow = smartdown_flow
@@ -10,11 +9,11 @@ module SmartdownAdapter
       @session = ActionDispatch::Integration::Session.new(Rails.application)
     end
 
-    def get_smartanswer_content(started=false, responses=[])
+    def get_smartanswer_content(started = false, responses = [])
       get_content(@question_name.chomp('-transition'), false, started, responses)
     end
 
-    def get_smartdown_content(started=false, responses=[])
+    def get_smartdown_content(started = false, responses = [])
       get_content(@question_name, true, started, responses)
     end
 
@@ -39,7 +38,7 @@ module SmartdownAdapter
         url += "/y"
       end
       unless responses.empty?
-        url += "/"+responses.join("/")
+        url += "/" + responses.join("/")
       end
       @session.get url
       normalise_content(@session.response.body, is_smartdown)

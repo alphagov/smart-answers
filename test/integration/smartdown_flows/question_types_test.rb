@@ -33,4 +33,3 @@ class QuestionTypesTest < ActionDispatch::IntegrationTest
     assert page.has_content?("You've trained with lions")
   end
 end
- 

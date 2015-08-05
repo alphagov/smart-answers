@@ -21,7 +21,6 @@ module SmartAnswer
         calculate :calculator do
           Calculators::MarriedCouplesAllowanceCalculator.new(validate_income: false)
         end
-
       end
 
       multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
@@ -133,4 +132,3 @@ module SmartAnswer
     end
   end
 end
-
