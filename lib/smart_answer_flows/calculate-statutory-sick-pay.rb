@@ -318,23 +318,11 @@ module SmartAnswer
       end
 
       # Answer 6
-      outcome :entitled_to_sick_pay do
+      outcome :entitled_to_sick_pay, use_outcome_templates: true do
         precalculate :days_paid do calculator.days_paid end
         precalculate :normal_workdays_out do calculator.normal_workdays end
         precalculate :pattern_days do calculator.pattern_days end
         precalculate :pattern_days_total do calculator.pattern_days * 28 end
-
-        precalculate :proof_of_illness do
-          PhraseList.new(:enough_notice) unless enough_notice_of_absence
-        end
-
-        precalculate :entitled_to_esa do
-          PhraseList.new(:esa) if enough_notice_of_absence
-        end
-
-        precalculate :paternity_adoption_warning do
-          PhraseList.new(:paternity_warning) if paternity_maternity_warning
-        end
       end
 
       # Answer 7

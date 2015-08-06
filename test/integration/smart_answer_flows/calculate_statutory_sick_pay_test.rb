@@ -75,8 +75,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
         assert_current_node :usual_work_days?
         add_response '1,2,3,4,5'
         assert_current_node :entitled_to_sick_pay
-        assert_phrase_list :proof_of_illness, [:enough_notice]
-        assert_phrase_list :paternity_adoption_warning, [:paternity_warning]
       end
     end
 
@@ -163,8 +161,6 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           assert_current_node :usual_work_days?
           add_response '1,2,3,4,5'
           assert_current_node :entitled_to_sick_pay
-          assert_phrase_list :entitled_to_esa, [:esa]
-          assert_phrase_list :paternity_adoption_warning, [:paternity_warning]
         end
 
         should "lead to entitled_to_sick_pay if worker got sick before payday and had linked sickness" do
