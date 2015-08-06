@@ -737,7 +737,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to marriage in france or fot outcome" do
       assert_current_node :outcome_os_france_or_fot
-      assert_phrase_list :france_or_fot_os_outcome, [:fot_os_rules_similar_to_france]
     end
   end
 

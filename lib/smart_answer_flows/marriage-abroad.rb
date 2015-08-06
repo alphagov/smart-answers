@@ -444,13 +444,9 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_os_france_or_fot do
-        precalculate :france_or_fot_os_outcome do
-          phrases = PhraseList.new
-          if data_query.french_overseas_territories?(ceremony_country)
-            phrases << :fot_os_rules_similar_to_france
-          end
-          phrases
+      outcome :outcome_os_france_or_fot, use_outcome_templates: true do
+        precalculate :data_query do
+          data_query
         end
       end
 
