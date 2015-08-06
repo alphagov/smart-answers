@@ -12,11 +12,10 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     @translations ||= YAML.load_file("lib/smart_answer_flows/locales/en/marriage-abroad.yml")
   end
 
-  OS_COUNTRIES_WITH_APPOINTMENTS = translations["en-GB"]["flow"]["marriage-abroad"]["phrases"]["appointment_links"]["opposite_sex"].keys
   SS_COUNTRIES_WITH_APPOINTMENTS = translations["en-GB"]["flow"]["marriage-abroad"]["phrases"]["appointment_links"]["same_sex"].keys
 
   setup do
-    @location_slugs = (OS_COUNTRIES_WITH_APPOINTMENTS + SS_COUNTRIES_WITH_APPOINTMENTS + %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic denmark ecuador egypt estonia finland france germany greece hong-kong indonesia iran ireland italy japan jordan kazakhstan kosovo laos latvia lebanon lithuania macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)).uniq
+    @location_slugs = (SS_COUNTRIES_WITH_APPOINTMENTS + %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic democratic-republic-of-congo denmark ecuador egypt estonia finland france germany greece hong-kong indonesia iran ireland italy japan jordan kazakhstan kosovo kyrgyzstan laos latvia lebanon lithuania macao macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)).uniq
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::MarriageAbroadFlow
   end
@@ -696,7 +695,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, "appointment_links.opposite_sex.belgium", :complete_affirmation_or_affidavit_forms, :download_and_fill_but_not_sign, :download_affidavit_and_affirmation_belgium, :partner_needs_affirmation, :required_supporting_documents, :documents_guidance_belgium, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :callout_partner_equivalent_document, :names_on_documents_must_match, :partner_naturalisation_in_uk, :fee_table_affirmation_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
 
     should "go to outcome_ss_affirmation for same sex marriages for residents in a third country" do
@@ -762,7 +760,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, "appointment_links.opposite_sex.thailand", :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :fee_table_affidavit_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -789,7 +786,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :what_you_need_to_do, :make_an_appointment, "appointment_links.opposite_sex.egypt", :required_supporting_documents_egypt, :docs_decree_and_death_certificate, :change_of_name_evidence, :partner_declaration, :fee_table_55_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -803,7 +799,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, "appointment_links.opposite_sex.lebanon", :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :affirmation_os_all_fees_45_70, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -817,7 +812,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :affirmation_os_uae, :what_you_need_to_do_affirmation_21_days, :appointment_for_affidavit, :embassies_data, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :affirmation_os_all_fees_45_70, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -844,7 +838,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :appointment_for_affidavit_notary, :complete_affidavit, :download_affidavit, :affirmation_os_legalised, :documents_for_divorced_or_widowed, :callout_partner_equivalent_document, :check_legalised_document, :fee_table_affidavit_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -858,7 +851,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :what_you_need_to_do, :appointment_for_affidavit, "appointment_links.opposite_sex.turkey", :complete_affidavit, :download_affidavit, :affirmation_os_legalised_in_turkey, :documents_for_divorced_or_widowed, :callout_partner_equivalent_document, :check_legalised_document, :fee_table_affidavit_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -872,7 +864,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :documents_for_divorced_or_widowed_ecuador, :callout_partner_equivalent_document, :names_on_documents_must_match, :partner_naturalisation_in_uk, :fee_table_affirmation_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -890,7 +881,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
       should "go to os affirmation outcome" do
         assert_current_node :outcome_os_affirmation
-        assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :fee_and_required_supporting_documents_for_appointment, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :documents_for_divorced_or_widowed_cambodia, :change_of_name_evidence, :callout_partner_equivalent_document, :names_on_documents_must_match, :partner_naturalisation_in_uk, :fee_table_affirmation_55, :pay_by_cash_or_us_dollars_only]
       end
     end
 
@@ -1454,7 +1444,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do, :book_online_china_non_local_prelude, "appointment_links.opposite_sex.china", :book_online_china_affirmation_affidavit, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :partner_probably_needs_affirmation_or_affidavit, :affirmation_os_all_fees_45_70, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1478,7 +1467,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :what_you_need_to_do, :book_online_china_local_prelude, "appointment_links.opposite_sex.china", :book_online_china_affirmation_affidavit, :documents_for_divorced_or_widowed_china_colombia, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :affirmation_os_all_fees_45_70, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1539,7 +1527,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
       assert_state_variable :ceremony_type_lowercase, 'marriage'
-      assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :fee_table_affidavit_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1657,7 +1644,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to affirmation outcome with specific fee table" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :fee_table_affirmation_65, :link_to_consular_fees, :pay_in_euros_or_visa_electron]
     end
   end
 
@@ -1696,7 +1682,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_probably_needs_affirmation, :fee_table_affidavit_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1709,7 +1694,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to os affirmation outcome" do
-      assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :contact_for_affidavit, "appointment_links.opposite_sex.philippines", :required_supporting_documents_philippines, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :affirmation_os_download_affidavit_philippines, :documents_for_divorced_or_widowed_philippines, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :fee_table_55_70, :link_to_consular_fees, :pay_in_cash_only]
+      assert_current_node :outcome_os_affirmation
     end
   end
 
@@ -1819,7 +1804,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to affirmation_os_outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, :embassies_data, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :fee_table_affidavit_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1887,7 +1871,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :gulf_states_os_consular_cni, :gulf_states_os_consular_cni_local_resident, :get_legal_advice, :what_you_need_to_do_affirmation_21_days, :appointment_for_affidavit, :embassies_data, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :fee_table_45_70_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
 
     should "go to outcome_os_consular_cni and show specific phraselist for OS marriage of residents in a 3rd country" do
@@ -1895,7 +1878,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :gulf_states_os_consular_cni, :gulf_states_os_consular_cni_local_resident, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation_21_days, :appointment_for_affidavit, :embassies_data, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :callout_partner_equivalent_document, :partner_naturalisation_in_uk, :fee_table_45_70_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1959,7 +1941,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_embassy_of_ceremony_country_in_uk_marriage, :contact_laadoul, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, "appointment_links.opposite_sex.morocco", :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :documents_for_divorced_or_widowed, :morocco_affidavit_length, :partner_equivalent_document, :fee_table_affirmation_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1973,7 +1954,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :contact_laadoul, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, "appointment_links.opposite_sex.morocco", :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :documents_for_divorced_or_widowed, :morocco_affidavit_length, :partner_equivalent_document, :fee_table_affirmation_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -2381,7 +2361,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
 
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit_in_hong_kong, "appointment_links.opposite_sex.macao", :complete_affirmation_or_affidavit_forms, :download_and_fill_but_not_sign, :download_affidavit_and_affirmation_macao, :required_supporting_documents_macao, :partner_probably_needs_affirmation, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_probably_needs_affirmation, :fee_table_affirmation_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
 
     should "lead to an affirmation outcome for opposite sex marriages directing users to Hong Kong with an intro about residency" do
@@ -2392,7 +2371,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
 
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:one_must_be_a_resident, :contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit_in_hong_kong, "appointment_links.opposite_sex.macao", :complete_affirmation_or_affidavit_forms, :download_and_fill_but_not_sign, :download_affidavit_and_affirmation_macao, :required_supporting_documents_macao, :partner_probably_needs_affirmation, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_probably_needs_affirmation, :fee_table_affirmation_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -2419,7 +2397,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_phrase_list :affirmation_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit_norway, "appointment_links.opposite_sex.norway", :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :docs_decree_and_death_certificate, :divorced_or_widowed_evidences, :change_of_name_evidence, :partner_probably_needs_affirmation, :fee_table_affirmation_55, :link_to_consular_fees, :pay_by_visas_or_mastercard]
     end
 
     should "lead to the CNI outcome for opposite sex marriages for UK residents" do
@@ -2466,24 +2443,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_consular_cni
-    end
-  end
-
-  context "when appointment links for opposite sex marriage exist" do
-    # Kosovo is excluded, because it has a custom outcome
-    (OS_COUNTRIES_WITH_APPOINTMENTS - ['kosovo', 'laos']).each do |country|
-      should "countain an appointment link in the outcome for #{country.titleize}" do
-        worldwide_api_has_no_organisations_for_location(country)
-        add_response country
-        add_response 'ceremony_country'
-        add_response 'partner_local'
-        add_response 'opposite_sex'
-
-        unless current_state.current_node == :outcome_os_consular_cni
-          assert current_state.current_node.to_s.include?('outcome'), "Expected to have reached an outcome node, but is at #{current_state.current_node}"
-          assert_phrase_lists_include "appointment_links.opposite_sex.#{country}"
-        end
-      end
     end
   end
 
