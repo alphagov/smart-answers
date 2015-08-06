@@ -9,12 +9,11 @@ You don’t have to pay until your employee tells you that they’re ill. You’
 
 Week ending | SSP amount
 -|-
- 6 April 2013|£0.00
+6 April 2013|£0.00
 13 April 2013|£57.80
- | **Total SSP: £57.80**
+| **Total SSP: £57.80**
 
 ##What you need to know
-
 
 
 SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of 84 days. After that you must give them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of SSP ending. 
