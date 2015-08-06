@@ -3,6 +3,13 @@ module SmartAnswer::Calculators
 
     attr_accessor :overtime_hours, :overtime_hourly_rate, :accommodation_cost
 
+    attr_accessor :age, :date, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice
+
+    def date=(date)
+      @date = date
+      @minimum_wage_data = minimum_wage_data_for_date(@date)
+    end
+
     def initialize(params = {})
       @age = params[:age]
       @date = (params[:date].nil? ? Date.today : params[:date])
@@ -14,6 +21,30 @@ module SmartAnswer::Calculators
       @overtime_hourly_rate = 0
       @accommodation_cost = 0
       @minimum_wage_data = minimum_wage_data_for_date(@date)
+    end
+
+    def valid_age?(age)
+      age > 0 && age <= 200
+    end
+
+    def valid_pay_frequency?(pay_frequency)
+      pay_frequency >= 1 && pay_frequency <= 31
+    end
+
+    def valid_hours_worked?(hours_worked)
+      hours_worked > 0 && hours_worked <= (@pay_frequency * 16)
+    end
+
+    def valid_overtime_hours_worked?(overtime_hours_worked)
+      overtime_hours_worked >= 0
+    end
+
+    def valid_accommodation_charge?(accommodation_charge)
+      accommodation_charge > 0
+    end
+
+    def valid_accommodation_usage?(accommodation_usage)
+      accommodation_usage >= 0 && accommodation_usage <= 7
     end
 
     def basic_rate
@@ -48,10 +79,6 @@ module SmartAnswer::Calculators
     def total_overtime_pay
       @overtime_hourly_rate = basic_hourly_rate if overtime_hourly_rate > basic_hourly_rate
       (@overtime_hours * overtime_hourly_rate).round(2)
-    end
-
-    def total_working_pay
-      (basic_total + total_overtime_pay).round(2)
     end
 
     def total_pay
@@ -125,13 +152,24 @@ module SmartAnswer::Calculators
       end
     end
 
-    def format_money(value)
-      # regex strips zeros
-      str = sprintf("%.#{2}f", value).to_s.sub(/\.0+$/, '')
-    end
-
     def free_accommodation_rate
       @minimum_wage_data[:accommodation_rate]
+    end
+
+    def apprentice_eligible_for_minimum_wage?
+      date >= Date.parse('2010-10-01')
+    end
+
+    def under_school_leaving_age?
+      age < 16
+    end
+
+    def historically_receiving_minimum_wage?
+      historical_adjustment <= 0
+    end
+
+    def any_overtime_hours_worked?
+      overtime_hours > 0
     end
 
     protected

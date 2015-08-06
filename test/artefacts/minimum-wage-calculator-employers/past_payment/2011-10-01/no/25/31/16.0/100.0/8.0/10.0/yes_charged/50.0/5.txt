@@ -7,7 +7,7 @@ $C
 
 The National Minimum Wage per hour at the time | The worker’s actual pay | For each pay period you owe the worker
 - | -
-£6.08 | £-35.52 * | £1067.39
+£6.08 | -£35.52 * | £1,067.39
 
 \* This figure has been rounded to the nearest penny.
 

@@ -6,7 +6,7 @@ $C
 
 The National Minimum Wage per hour for your age | Your actual pay
 - | -
-£6.5 | £13.28
+£6.50 | £13.28
 
 If you work overtime or your employer provides you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 

@@ -6,7 +6,7 @@
 
   The National Minimum Wage per hour at the time | The worker’s actual pay | For each pay period you owe the worker
   - | -
-  £<%= minimum_hourly_rate %> | £<%= total_hourly_rate %> * | £<%= total_underpayment %>
+  <%= format_money(calculator.minimum_hourly_rate) %> | <%= format_money(calculator.total_hourly_rate) %> * | <%= format_money(calculator.historical_adjustment) %>
 
   \* This figure has been rounded to the nearest penny.
 

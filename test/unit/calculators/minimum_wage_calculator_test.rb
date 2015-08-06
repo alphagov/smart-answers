@@ -2,6 +2,167 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class MinimumWageCalculatorTest < ActiveSupport::TestCase
+    context "Validation" do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      context 'for age' do
+        should 'not accept ages less than or equal to 0' do
+          refute @calculator.valid_age?(0)
+        end
+
+        should 'not accept ages greater than 200' do
+          refute @calculator.valid_age?(201)
+        end
+
+        should 'accept ages between 1 and 200' do
+          assert @calculator.valid_age?(1)
+          assert @calculator.valid_age?(200)
+        end
+      end
+
+      context 'for pay frequency' do
+        should 'not accept frequency less than 1' do
+          refute @calculator.valid_pay_frequency?(0)
+        end
+
+        should 'not accept frequency greater than 31' do
+          refute @calculator.valid_pay_frequency?(32)
+        end
+
+        should 'accept frequency between 1 and 31' do
+          assert @calculator.valid_pay_frequency?(1)
+          assert @calculator.valid_pay_frequency?(31)
+        end
+      end
+
+      context 'for hours worked' do
+        setup do
+          @calculator.pay_frequency = 1
+        end
+
+        should 'not accept hours less than 0' do
+          refute @calculator.valid_hours_worked?(0)
+        end
+
+        should 'not accept hours greater than 16 times the pay frequency' do
+          invalid_hours = (16 * @calculator.pay_frequency) + 1
+          refute @calculator.valid_hours_worked?(invalid_hours)
+        end
+
+        should 'accept hours greater than or equal to 1' do
+          assert @calculator.valid_hours_worked?(1)
+        end
+
+        should 'accept hours less than or equal to 16 times the pay frequency' do
+          valid_hours = 16 * @calculator.pay_frequency
+          assert @calculator.valid_hours_worked?(valid_hours)
+        end
+      end
+
+      context 'for overtime hours worked' do
+        should 'not accept amount less than 0' do
+          refute @calculator.valid_overtime_hours_worked?(-1)
+        end
+
+        should 'accept 0 or more' do
+          assert @calculator.valid_overtime_hours_worked?(0)
+        end
+      end
+
+      context 'for accommodation charge' do
+        should 'not accept amount less than or equal to 0' do
+          refute @calculator.valid_accommodation_charge?(0)
+        end
+
+        should 'accept 1 or more' do
+          assert @calculator.valid_accommodation_charge?(1)
+        end
+      end
+
+      context 'for accommodation usage' do
+        should 'not accept days per week of less than or equal to -1' do
+          refute @calculator.valid_accommodation_usage?(-1)
+        end
+
+        should 'not accept days per week of greater than or equal to 8' do
+          refute @calculator.valid_accommodation_usage?(8)
+        end
+
+        should 'accept days per week greater than or equal to 0' do
+          assert @calculator.valid_accommodation_usage?(0)
+        end
+
+        should 'accept days per week less than or equal to 7' do
+          assert @calculator.valid_accommodation_usage?(7)
+        end
+      end
+    end
+
+    context '#any_overtime_hours_worked?' do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      should 'return true if overtime_hours is greater than 0' do
+        @calculator.overtime_hours = 1
+        assert @calculator.any_overtime_hours_worked?
+      end
+
+      should 'return false if overtime hours is 0' do
+        @calculator.overtime_hours = 0
+        refute @calculator.any_overtime_hours_worked?
+      end
+    end
+
+    context "#apprentice_eligible_for_minimum_wage?" do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      should 'return true if date is equal to or later than 1st October 2010' do
+        @calculator.date = Date.parse('2010-10-01')
+        assert @calculator.apprentice_eligible_for_minimum_wage?
+      end
+
+      should 'return false if date is earlier than 1st October 2010' do
+        @calculator.date = Date.parse('2010-09-30')
+        refute @calculator.apprentice_eligible_for_minimum_wage?
+      end
+    end
+
+    context '#under_school_leaving_age?' do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      should 'return true if age is lower than 16' do
+        @calculator.age = 15
+        assert @calculator.under_school_leaving_age?
+      end
+
+      should 'return false if age is greater than or equal to 16' do
+        @calculator.age = 16
+        refute @calculator.under_school_leaving_age?
+      end
+    end
+
+    context '#historically_receiving_minimum_wage?' do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      should 'return true if the historical adjustment is less than or equal to 0' do
+        @calculator.stubs(:historical_adjustment).returns(0)
+        assert @calculator.historically_receiving_minimum_wage?
+      end
+
+      should 'return false if the historical adjustment is greater than 0' do
+        @calculator.stubs(:historical_adjustment).returns(1)
+        refute @calculator.historically_receiving_minimum_wage?
+      end
+    end
 
     context "MinimumWageCalculator" do
       setup do
@@ -15,12 +176,6 @@ module SmartAnswer::Calculators
       context "compare basic_pay_check and @basic_pay" do
         should "be the same " do
           assert_equal @basic_pay, @calculator.basic_total
-        end
-      end
-
-      context "format_money" do
-        should "format values to 2 decimal places with zero padding" do
-          assert_equal "4.40", @calculator.format_money(4.4)
         end
       end
 
@@ -584,18 +739,10 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "total_pay, total_working_pay and basic_rate calculations" do
+    context "total_pay and basic_rate calculations" do
       setup do
         @calculator = MinimumWageCalculator.new(
           age: 25, pay_frequency: 5, basic_pay: 260, basic_hours: 40)
-      end
-
-      should "calculate total_working_pay" do
-        assert_equal 260, @calculator.total_working_pay
-        @calculator.overtime_hours = 10
-        @calculator.overtime_hourly_rate = 7
-        # Basic rate is used for overtime pay calc
-        assert_equal 325, @calculator.total_working_pay
       end
 
       should "return overtime (5) as the lower rate" do

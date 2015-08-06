@@ -62,7 +62,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           add_response "no"
         end
         should "show current minimum wage rate" do
-          assert_state_variable "minimum_hourly_rate", "6.50"
+          assert_equal 6.50, current_state.calculator.minimum_hourly_rate
         end
       end
     end
@@ -84,19 +84,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         should "display under school leaving age outcome" do
           assert_current_node :under_school_leaving_age
         end
-      end
-
-      context "answer invalid for Q3 how old" do
-        should "not accept 0 age" do
-          add_response 0
-          assert_current_node :how_old_are_you?, error: true
-        end
-
-        should "not accept age > 200" do
-          add_response 250
-          assert_current_node :how_old_are_you?, error: true
-        end
-
       end
 
       context "answered 19 to 'how old are you?'" do
@@ -126,10 +113,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             end
             should "fail on text entered" do
               add_response "no numbers"
-              assert_current_node_is_error
-            end
-            should "fail if 0 entered" do
-              add_response "0"
               assert_current_node_is_error
             end
             should "succeed on 0.01 entered" do
@@ -286,10 +269,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_current_node :current_payment_below
         end
         should "make outcome calculations" do
-          assert_state_variable "total_hours", 45
-          assert_state_variable "minimum_hourly_rate", 6.5
-          assert_state_variable "total_hourly_rate", "6.12"
-          assert_state_variable "above_minimum_wage", false
+          assert_equal 45, current_state.calculator.total_hours
+          assert_equal 6.50, current_state.calculator.minimum_hourly_rate
+          assert_equal 6.12, current_state.calculator.total_hourly_rate
+          assert_equal false, current_state.calculator.minimum_wage_or_above?
         end
       end
 
@@ -305,7 +288,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           add_response "no"
         end
         should "show current minimum wage rate" do
-          assert_state_variable "minimum_hourly_rate", "6.31"
+          assert_equal 6.31, current_state.calculator.minimum_hourly_rate
         end
       end
 
@@ -320,7 +303,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           add_response "no"
         end
         should "show current minimum wage rate" do
-          assert_state_variable "minimum_hourly_rate", "6.50"
+          assert_equal 6.50, current_state.calculator.minimum_hourly_rate
         end
       end
 
@@ -340,11 +323,11 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_current_node :current_payment_above
         end
         should "make outcome calculations" do
-          assert_state_variable "total_hours", 45
+          assert_equal 45, current_state.calculator.total_hours
           # NOTE: these are date sensitive vars - will be tested in the calculator tests
           # assert_state_variable "minimum_hourly_rate", 6.08 #
           # assert_state_variable "total_hourly_rate", "10.74" # time sensitive
-          assert_state_variable "above_minimum_wage", true
+          assert_equal true, current_state.calculator.minimum_wage_or_above?
         end
       end
     end # Apprentice
@@ -429,10 +412,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             end
             should "fail on text entered" do
               add_response "no numbers"
-              assert_current_node_is_error
-            end
-            should "fail if 0 entered" do
-              add_response "0"
               assert_current_node_is_error
             end
             should "succeed on 0.01 entered" do
@@ -533,10 +512,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         end
 
                         should "make outcome calculations" do
-                          assert_state_variable "total_hours", 42
-                          assert_state_variable "minimum_hourly_rate", "4.83"
-                          assert_state_variable "total_hourly_rate", "3.75"
-                          assert_state_variable "above_minimum_wage", false
+                          assert_equal 42, current_state.calculator.total_hours
+                          assert_equal 4.83, current_state.calculator.minimum_hourly_rate
+                          assert_equal 3.75, current_state.calculator.total_hourly_rate
+                          assert_equal false, current_state.calculator.minimum_wage_or_above?
                         end
                       end
                     end
@@ -597,11 +576,11 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_current_node :past_payment_above
         end
         should "make outcome calculations" do
-          assert_state_variable "total_hours", 210
-          assert_state_variable "minimum_hourly_rate", "3.53"
-          assert_state_variable "total_hourly_rate", "4.46"
-          assert_state_variable "above_minimum_wage", true
-          assert_state_variable "historical_adjustment", 0
+          assert_equal 210, current_state.calculator.total_hours
+          assert_equal 3.53, current_state.calculator.minimum_hourly_rate
+          assert_equal 4.46, current_state.calculator.total_hourly_rate
+          assert_equal true, current_state.calculator.minimum_wage_or_above?
+          assert_equal 0, current_state.calculator.historical_adjustment
         end
       end
       # Scenario 12 in accommodation charged above the threshold
@@ -615,11 +594,11 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_current_node :past_payment_below
         end
         should "make outcome calculations" do
-          assert_state_variable "total_hours", 210
-          assert_state_variable "minimum_hourly_rate", "3.53"
-          assert_state_variable "total_hourly_rate", "3.21"
-          assert_state_variable "above_minimum_wage", false
-          assert_state_variable "historical_adjustment", 70.38
+          assert_equal 210, current_state.calculator.total_hours
+          assert_equal 3.53, current_state.calculator.minimum_hourly_rate
+          assert_equal 3.21, current_state.calculator.total_hourly_rate
+          assert_equal false, current_state.calculator.minimum_wage_or_above?
+          assert_equal 70.38, current_state.calculator.historical_adjustment
         end
       end
 
@@ -660,12 +639,12 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       add_response 'no'
 
       assert_current_node :past_payment_below
-      assert_state_variable :minimum_hourly_rate, '6.08' # rate on '2011-10-01'
+      assert_equal 6.08, current_state.calculator.minimum_hourly_rate # rate on '2011-10-01'
 
-      expected_underpayment = 46.18.to_s
+      expected_underpayment = 46.18
       # (hours worked * hourly rate back then - paid by employer) / minimum hourly rate back then * minimum hourly rate today
       # (40h * £6.08 - £200.0) / 6.08 * 6.50 = 46.18
-      assert_state_variable :total_underpayment, expected_underpayment
+      assert_equal expected_underpayment, current_state.calculator.historical_adjustment
     end
   end
 end
