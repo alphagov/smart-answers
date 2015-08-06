@@ -281,11 +281,7 @@ module SmartAnswer
 
       outcome :outcome_netherlands, use_outcome_templates: true
 
-      outcome :outcome_portugal, use_outcome_templates: true do
-        precalculate :portugal_phraselist do
-          PhraseList.new(:contact_civil_register_office_portugal)
-        end
-      end
+      outcome :outcome_portugal, use_outcome_templates: true
 
       outcome :outcome_os_indonesia do
         precalculate :indonesia_os_phraselist do
