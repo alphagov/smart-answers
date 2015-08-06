@@ -56,7 +56,6 @@ end
 
 ## QAP2 - Paternity Adoption
 date_question :padoption_date_of_adoption_placement? do
-
   calculate :ap_adoption_date do |response|
     placement_date = response
     raise SmartAnswer::InvalidResponse if placement_date < matched_date
@@ -127,15 +126,13 @@ end
 
 ## QP6
 multiple_choice :employee_on_payroll_paternity? do
-  option :yes => :employee_still_employed_on_birth_date?
+  option yes: :employee_still_employed_on_birth_date?
   option :no
   save_input_as :on_payroll
 
   calculate :leave_spp_claim_link do
     paternity_adoption ? 'adoption' : 'notice-period'
   end
-
-
 
   calculate :to_saturday do
     if paternity_adoption
@@ -269,7 +266,6 @@ multiple_choice :pay_frequency_paternity? do
     calculator.pay_method = response
     calculator
   end
-
 end
 
 ## QP13
@@ -330,7 +326,6 @@ end
 
 ## QP17
 value_question :specific_date_each_month_paternity?, parse: :to_i do
-
   calculate :pay_day_in_month do |response|
     day = response
     raise InvalidResponse unless day > 0 and day < 32
@@ -374,11 +369,11 @@ end
 
 ## QP20
 multiple_choice :pay_date_options_paternity? do
-  option :"first"
-  option :"second"
-  option :"third"
-  option :"fourth"
-  option :"last"
+  option :first
+  option :second
+  option :third
+  option :fourth
+  option :last
 
   calculate :pay_week_in_month do |response|
     calculator.pay_week_in_month = response
@@ -433,7 +428,7 @@ outcome :paternity_leave_and_pay do
   precalculate :pay_dates_and_pay do
     if entitled_to_pay && above_lower_earning_limit
       calculator.paydates_and_pay.map do |date_and_pay|
-        %Q(#{date_and_pay[:date].strftime("%e %B %Y")}|£#{sprintf("%.2f", date_and_pay[:pay])})
+        %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
       end.join("\n")
     end
   end
@@ -447,7 +442,6 @@ outcome :paternity_leave_and_pay do
   precalculate :average_weekly_earnings do
     sprintf("%.2f", calculator.average_weekly_earnings)
   end
-
 end
 
 outcome :paternity_not_entitled_to_leave_or_pay do

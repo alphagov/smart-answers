@@ -3,7 +3,6 @@ require 'smartdown_plugins/shared/data_partial'
 
 module SmartdownPlugins
   class DataPartialTest < ActiveSupport::TestCase
-
     def data_partial_template_directory
       File.join(Rails.root, 'test', 'fixtures', 'smart_answer_flows', 'data_partials')
     end
@@ -37,4 +36,3 @@ expectedoutput
     end
   end
 end
-

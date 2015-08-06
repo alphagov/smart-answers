@@ -58,9 +58,7 @@ class PlanAdoptionLeaveTest < ActiveSupport::TestCase
             assert_current_node :adoption_leave_details
           end
         end
-
       end
     end
-
   end
 end

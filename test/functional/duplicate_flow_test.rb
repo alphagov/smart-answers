@@ -19,5 +19,4 @@ class DuplicateFlowTest < Minitest::Test
     dup_names = smartdown_flows & smart_answer_flows
     assert_equal [], dup_names
   end
-
 end

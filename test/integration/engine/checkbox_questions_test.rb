@@ -1,7 +1,6 @@
 require_relative 'engine_test_helper'
 
 class CheckboxQuestionsTest < EngineIntegrationTest
-
   with_and_without_javascript do
     should "handle checkbox questions" do
       visit "/checkbox-sample/y"

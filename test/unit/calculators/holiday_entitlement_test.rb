@@ -2,7 +2,6 @@ require_relative '../../test_helper'
 
 module SmartAnswer::Calculators
   class HolidayEntitlementTest < ActiveSupport::TestCase
-
     context "seeing if feb 29th in range" do
       should "return true for 2010-01-01 to 2012-05-05" do
         assert_equal true, HolidayEntitlement.new.feb29th_in_range(Date.new(2010, 1, 1), Date.new(2012, 5, 5))

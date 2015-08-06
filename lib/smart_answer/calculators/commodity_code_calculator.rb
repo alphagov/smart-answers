@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class CommodityCodeCalculator
-
     attr_reader :matrix_data, :commodity_code_matrix
     attr_accessor :milk_protein_weight
 

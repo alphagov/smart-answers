@@ -1,6 +1,5 @@
 namespace :smartdown do
-
-  def smartdown_coversheet_path(flow_name, coversheet_name= flow_name)
+  def smartdown_coversheet_path(flow_name, coversheet_name = flow_name)
     File.join(smartdown_flow_path(flow_name), "#{coversheet_name}.txt")
   end
 

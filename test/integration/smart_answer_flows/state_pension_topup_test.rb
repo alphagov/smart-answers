@@ -46,7 +46,6 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       end
       should "ask you topup amount" do
         assert_current_node :how_much_extra_per_week?
-
       end
       context "correct top up amount inserted" do
         setup do

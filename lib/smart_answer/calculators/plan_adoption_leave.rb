@@ -52,7 +52,7 @@ module SmartAnswer::Calculators
     end
 
     def period_of_ordinary_leave
-      @start_date .. @start_date + 26 * 7
+      @start_date..@start_date + 26 * 7
     end
 
     def period_of_additional_leave
@@ -61,8 +61,7 @@ module SmartAnswer::Calculators
 
     private
       def weeks_later(range, weeks)
-        (range.first + weeks * 7) .. (range.last + weeks * 7)
+        (range.first + weeks * 7)..(range.last + weeks * 7)
       end
-
   end
 end

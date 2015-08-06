@@ -5,19 +5,19 @@ require "smart_answer_flows/estimate-self-assessment-penalties"
 
 TEST_CALCULATOR_DATES = {
   online_filing_deadline: {
-    :"2011-12" => Date.new(2013, 1, 31),
-    :"2012-13" => Date.new(2014, 1, 31),
-    :"2013-14" => Date.new(2015, 1, 31),
+    "2011-12": Date.new(2013, 1, 31),
+    "2012-13": Date.new(2014, 1, 31),
+    "2013-14": Date.new(2015, 1, 31),
   },
   offline_filing_deadline: {
-    :"2011-12" => Date.new(2012, 10, 31),
-    :"2012-13" => Date.new(2013, 10, 31),
-    :"2013-14" => Date.new(2014, 10, 31),
+    "2011-12": Date.new(2012, 10, 31),
+    "2012-13": Date.new(2013, 10, 31),
+    "2013-14": Date.new(2014, 10, 31),
   },
   payment_deadline: {
-    :"2011-12" => Date.new(2013, 1, 31),
-    :"2012-13" => Date.new(2014, 1, 31),
-    :"2013-14" => Date.new(2015, 1, 31),
+    "2011-12": Date.new(2013, 1, 31),
+    "2012-13": Date.new(2014, 1, 31),
+    "2013-14": Date.new(2015, 1, 31),
   },
 }
 class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
@@ -106,7 +106,6 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
             end
           end
         end #end testing paid late but less than 3 months after
-
       end
     end
   end

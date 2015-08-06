@@ -5,9 +5,9 @@ require_relative '../test_helper'
 
 class QuestionBaseTest < ActiveSupport::TestCase
   test "State is carried over on a state transition" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node :done
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     initial_state.something_else = "Carried over"
     new_state = q.transition(initial_state, :yes)
@@ -15,9 +15,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   test "Next node is taken from next_node_for method" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node :done
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     q.stubs(:next_node_for).returns(:done)
     new_state = q.transition(initial_state, :anything)
@@ -25,31 +25,31 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   test "Can define next_node by passing a value" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node :done
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     new_state = q.transition(initial_state, :anything)
     assert_equal :done, new_state.current_node
   end
 
   test "Can define next_node by giving a block, provided that next node is declared" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node { :done_done }
       permitted_next_nodes(:done_done)
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     new_state = q.transition(initial_state, :anything)
     assert_equal :done_done, new_state.current_node
   end
 
   test "next_node block can refer to state" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node do
         colour == 'red' ? :was_red : :wasnt_red
       end
       permitted_next_nodes(:was_red, :wasnt_red)
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     initial_state.colour = 'red'
     new_state = q.transition(initial_state, 'anything')
@@ -58,13 +58,13 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
   test "next_node block is passed input" do
     input_was = nil
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node(:done) do |input|
         input_was = input
         :done
       end
       permitted_next_nodes(:done)
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     new_state = q.transition(initial_state, 'something')
     assert_equal 'something', input_was
@@ -81,9 +81,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   test "Input sequence is saved into responses" do
-    q = SmartAnswer::Question::Base.new(:favourite_colour?) {
+    q = SmartAnswer::Question::Base.new(:favourite_colour?) do
       next_node :done
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     new_state = q.transition(initial_state, :red)
     assert_equal [:red], new_state.responses
@@ -133,9 +133,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
       next_node_calculation :blah do
         "blah"
       end
-      next_node_if(:done) {
+      next_node_if(:done) do
         complementary_colour == :green
-      }
+      end
       next_node(:shouldnt_go_here)
     end
     initial_state = SmartAnswer::State.new(q.name)
@@ -146,84 +146,84 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   test "conditional next node can be specified using next_node_if passing a block" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node_if(:bar) { true }
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     assert_equal :bar, q.next_node_for(initial_state, :red)
   end
 
   test "conditional next node can be specified using next_node_if passing a predicate" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node_if(:bar, ->(_) {true})
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     assert_equal :bar, q.next_node_for(initial_state, :red)
   end
 
   test "conditional next node can be specified using next_node_if passing a list of predicates all of which must be true" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node_if(:bar, ->(_) {true}, ->(_) {false})
       next_node_if(:baz, ->(_) {true})
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     assert_equal :baz, q.next_node_for(initial_state, :red)
   end
 
   test "conditional next nodes are evaluated in order" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node_if(:skipped) { false }
       next_node_if(:first) { true }
       next_node_if(:second) { true }
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     assert_equal :first, q.next_node_for(initial_state, :red)
   end
 
   test "conditional block is passed input and can refer to state" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node_if(:is_red) do |input|
         color == input
       end
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     initial_state.color = :red
     assert_equal :is_red, q.next_node_for(initial_state, :red)
   end
 
   test "next_node block used as fallback" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node_if(:skipped) { false }
       next_node { :next }
       permitted_next_nodes(:next)
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     assert_equal :next, q.next_node_for(initial_state, :red)
   end
 
   test "conditional next_node used if triggered ignoring fallback" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node_if(:next) { true }
       next_node { :ignored }
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     assert_equal :next, q.next_node_for(initial_state, :red)
   end
 
   test "next_node value used as fallback" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node_if(:skipped) { false }
       next_node(:next)
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     assert_equal :next, q.next_node_for(initial_state, :red)
   end
 
   test "next_node value ignored if conditional fires" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       next_node_if(:next) { true }
       next_node(:ignored)
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     assert_equal :next, q.next_node_for(initial_state, :red)
   end
@@ -231,9 +231,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
   test "error if no conditional transitions found and no fallback" do
     question_name = :example
     responses = [:blue, :red]
-    q = SmartAnswer::Question::Base.new(question_name) {
+    q = SmartAnswer::Question::Base.new(question_name) do
       next_node_if(:skipped) { false }
-    }
+    end
     initial_state = SmartAnswer::State.new(q.name)
     initial_state.responses << responses[0]
     error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
@@ -244,10 +244,10 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   test "can define a predicate on a node" do
-    q = SmartAnswer::Question::Base.new(:example) {
+    q = SmartAnswer::Question::Base.new(:example) do
       define_predicate(:response_red?) { |response| response == 'red' }
       define_predicate(:color_red?) { color == 'red' }
-    }
+    end
 
     assert q.response_red?.is_a?(SmartAnswer::Predicate::Callable)
     assert q.color_red?.is_a?(SmartAnswer::Predicate::Callable)
@@ -263,9 +263,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
   test "may not define a predicate for a method which already exists" do
     assert_raises RuntimeError, /method define_predicate already defined/ do
-      SmartAnswer::Question::Base.new(:example) {
+      SmartAnswer::Question::Base.new(:example) do
         define_predicate(:define_predicate) {}
-      }
+      end
     end
   end
 end

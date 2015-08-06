@@ -52,12 +52,12 @@ module SmartdownAdapter
     end
 
     def self.build_plugin_set(plugin_module)
-      {}.tap { |plugin_set|
-        plugin_module.included_modules.each { |included_module|
+      {}.tap do |plugin_set|
+        plugin_module.included_modules.each do |included_module|
           plugin_set.merge!(build_plugin_set(included_module))
-        }
+        end
         plugin_module.singleton_methods.each {|method_name| plugin_set[method_name.to_s] = plugin_module.method(method_name) }
-      }
+      end
     end
 
     def self.get_descendant_constant_named(parent_object, wanted_constant_name)

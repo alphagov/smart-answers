@@ -33,7 +33,7 @@ class GraphvizPresenter < GraphPresenter
         )
       end
       attribute_clause = attrs.map {|k, v| "#{k}=\"#{v}\""}.join(' ')
-      %Q{#{normalize_name(name)} [#{attribute_clause}]}
+      %{#{normalize_name(name)} [#{attribute_clause}]}
     end
   end
 
@@ -49,7 +49,7 @@ class GraphvizPresenter < GraphPresenter
     adjacency_list.map do |name, exits|
       exits.map do |nextnode, label|
         next unless nextnode
-        %Q{#{normalize_name(name)}->#{normalize_name(nextnode)} [label="#{label}"];}
+        %{#{normalize_name(name)}->#{normalize_name(nextnode)} [label="#{label}"];}
       end
     end.flatten
   end
@@ -58,7 +58,7 @@ class GraphvizPresenter < GraphPresenter
     [
       'overlap=false;',
       'splines=true;',
-      %Q{label="#{escape(presenter.title)}";},
+      %{label="#{escape(presenter.title)}";},
       'fontsize=12;'
     ]
   end

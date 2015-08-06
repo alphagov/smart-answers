@@ -2,7 +2,6 @@ require 'rails/html/sanitizer'
 
 module SmartdownAdapter
   class FlowRegistrationPresenter
-
     def initialize(flow)
       @flow = flow
     end

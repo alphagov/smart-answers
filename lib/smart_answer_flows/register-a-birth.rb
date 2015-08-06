@@ -83,13 +83,13 @@ module SmartAnswer
           response == 'in_the_uk'
         end
 
-        define_predicate(:no_birth_certificate_exception) {
+        define_predicate(:no_birth_certificate_exception) do
           reg_data_query.has_birth_registration_exception?(country_of_birth) & paternity_declaration
-        }
+        end
 
-        define_predicate(:born_in_north_korea) {
+        define_predicate(:born_in_north_korea) do
           country_of_birth == 'north-korea'
-        }
+        end
 
         next_node_if(:no_birth_certificate_result, no_birth_certificate_exception)
         next_node_if(:which_country?, responded_with('another_country'))
@@ -109,9 +109,9 @@ module SmartAnswer
           country_name_query.definitive_article(registration_country)
         end
 
-        define_predicate(:currently_in_north_korea) {
+        define_predicate(:currently_in_north_korea) do
           response == 'north-korea'
-        }
+        end
 
         next_node_if(:north_korea_result, currently_in_north_korea)
         next_node(:oru_result)
@@ -189,7 +189,6 @@ module SmartAnswer
       outcome :no_embassy_result
       outcome :homeoffice_result
       outcome :no_birth_certificate_result do
-
         precalculate :location do
           loc = WorldLocation.find(country_of_birth)
           raise InvalidResponse unless loc

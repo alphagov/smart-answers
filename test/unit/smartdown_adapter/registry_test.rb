@@ -4,7 +4,6 @@ require_relative '../../test_helper'
 
 module SmartdownAdapter
   class RegistryTest < ActiveSupport::TestCase
-
     def test_options
       {
         smartdown_load_path: Rails.root.join("test", "fixtures", "smartdown_flows").to_s,
@@ -19,7 +18,8 @@ module SmartdownAdapter
     end
     test "registry is a singleton" do
       SmartdownAdapter::Registry.reset_instance
-      a, b = SmartdownAdapter::Registry.instance, SmartdownAdapter::Registry.instance
+      a = SmartdownAdapter::Registry.instance
+      b = SmartdownAdapter::Registry.instance
       assert_equal a, b
     end
     test "flows are loaded dynamically depending on registry options" do

@@ -2,7 +2,6 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class StaticDataQueryTest < ActiveSupport::TestCase
-
     context StaticDataQueryTest do
       setup do
         @query = SmartAnswer::Calculators::StaticDataQuery.new("apply_tier_4_visa_data")

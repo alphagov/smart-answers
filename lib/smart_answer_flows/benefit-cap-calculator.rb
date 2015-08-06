@@ -95,7 +95,6 @@ module SmartAnswer
 
       #Q5a
       money_question :bereavement_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -107,7 +106,6 @@ module SmartAnswer
 
       #Q5b
       money_question :carers_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -119,7 +117,6 @@ module SmartAnswer
 
       #Q5c
       money_question :child_benefit_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -131,7 +128,6 @@ module SmartAnswer
 
       #Q5d
       money_question :child_tax_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -143,7 +139,6 @@ module SmartAnswer
 
       #Q5e
       money_question :esa_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -155,7 +150,6 @@ module SmartAnswer
 
       #Q5f
       money_question :guardian_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -167,7 +161,6 @@ module SmartAnswer
 
       #Q5g
       money_question :incapacity_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -179,7 +172,6 @@ module SmartAnswer
 
       #Q5h
       money_question :income_support_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -191,7 +183,6 @@ module SmartAnswer
 
       #Q5i
       money_question :jsa_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -203,7 +194,6 @@ module SmartAnswer
 
       #Q5j
       money_question :maternity_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -215,7 +205,6 @@ module SmartAnswer
 
       #Q5k
       money_question :sda_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -227,7 +216,6 @@ module SmartAnswer
 
       #Q5l
       money_question :widowed_mother_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -239,7 +227,6 @@ module SmartAnswer
 
       #Q5m
       money_question :widowed_parent_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -251,7 +238,6 @@ module SmartAnswer
 
       #Q5n
       money_question :widow_pension_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -263,7 +249,6 @@ module SmartAnswer
 
       #Q5o
       money_question :widows_aged_amount? do
-
         calculate :total_benefits do |response|
           total_benefits + response.to_f
         end
@@ -275,7 +260,6 @@ module SmartAnswer
 
       #Q5p
       money_question :housing_benefit_amount? do
-
         save_input_as :housing_benefit_amount
 
         calculate :total_benefits do |response|
@@ -329,7 +313,6 @@ module SmartAnswer
 
       ## Outcome 3
       outcome :outcome_affected_greater_than_cap do
-
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
         end
@@ -360,7 +343,6 @@ module SmartAnswer
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
         end
-
       end
 
       ## Outcome 5

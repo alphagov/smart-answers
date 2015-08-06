@@ -3,7 +3,6 @@ require_relative '../../test_helper'
 
 module SmartdownAdapter
   class PresenterTest < ActiveSupport::TestCase
-
     context "initialize" do
       setup do
         SmartdownAdapter::Registry.reset_instance

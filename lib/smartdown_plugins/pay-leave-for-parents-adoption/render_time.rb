@@ -3,7 +3,6 @@ require 'smartdown/model/answer/date'
 
 module SmartdownPlugins
   module PayLeaveForParentsAdoption
-
     #Uprate helpers
 
     def self.lower_earnings_amount(due_date)
@@ -55,13 +54,13 @@ module SmartdownPlugins
 
     def self.qualifies_for_pay?(employment_status, job_before, job_after, lel)
       (employment_status == 'employee' || employment_status == 'worker') &&
-      continuity(job_before, job_after) &&
-      lower_earnings(lel)
+        continuity(job_before, job_after) &&
+        lower_earnings(lel)
     end
 
     def self.qualifies_for_leave?(employment_status, job_before, job_after)
       employment_status == 'employee' &&
-      continuity(job_before, job_after)
+        continuity(job_before, job_after)
     end
 
     def self.qualifies_for_maternity_leave?(employment_status, job_after)
@@ -70,7 +69,7 @@ module SmartdownPlugins
 
     def self.both_qualifies_for_shared_pay?(employment_status_1, job_before_1, job_after_1, lel_1, employment_status_2, job_before_2, job_after_2, lel_2)
       qualifies_for_pay?(employment_status_1, job_before_1, job_after_1, lel_1) &&
-      qualifies_for_pay?(employment_status_2, job_before_2, job_after_2, lel_2)
+        qualifies_for_pay?(employment_status_2, job_before_2, job_after_2, lel_2)
     end
 
     def self.both_qualifies_for_shared_leave?(employment_status_1, job_before_1, job_after_1, lel_1, work_employment_1, earnings_employment_1, employment_status_2, job_before_2, job_after_2, lel_2, work_employment_2, earnings_employment_2)
@@ -78,12 +77,12 @@ module SmartdownPlugins
       qualifies_for_leave?(employment_status_1, job_before_1, job_after_1) ||
       qualifies_for_pay?(employment_status_1, job_before_1, job_after_1, lel_1) ||
       qualifies_for_pay?(employment_status_2, job_before_2, job_after_2, lel_2)) &&
-      employment_status_1 == 'employee' &&
-      continuity(job_before_1, job_after_1) &&
-      earnings_employment(earnings_employment_1, work_employment_1) &&
-      employment_status_2 == 'employee' &&
-      continuity(job_before_2, job_after_2) &&
-      earnings_employment(earnings_employment_2, work_employment_2)
+        employment_status_1 == 'employee' &&
+        continuity(job_before_1, job_after_1) &&
+        earnings_employment(earnings_employment_1, work_employment_1) &&
+        employment_status_2 == 'employee' &&
+        continuity(job_before_2, job_after_2) &&
+        earnings_employment(earnings_employment_2, work_employment_2)
     end
 
     #Continuity test
@@ -231,14 +230,13 @@ module SmartdownPlugins
       rate_of_smp_33_weeks(salary_1, build_date_answer(Smartdown::Model::Answer::Date.new("2016-1-1")))
     end
 
-
   private
 
     def self.date_in_39_week_range?(range_start, range_end, date)
       start_date = date.value
       end_date = start_date + 39.weeks
       (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(start_date) ||
-      (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(end_date)
+        (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(end_date)
     end
 
     def self.build_date_answer(date)
@@ -270,7 +268,7 @@ module SmartdownPlugins
 
       weekly_salary = salary.value / 52
       rate = weekly_salary * 0.9
-      [ rate, max_rate ].min
+      [rate, max_rate].min
     end
   end
 end

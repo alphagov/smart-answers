@@ -29,4 +29,3 @@ class ChangingTheAnswerTest < ActionDispatch::IntegrationTest
     assert page.has_content?("How do you highlight instance vars in your editor?")
   end
 end
-

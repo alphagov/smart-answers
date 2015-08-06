@@ -67,7 +67,6 @@ class ActionDispatch::IntegrationTest
 
   def self.without_javascript
     context "without javascript" do
-
       yield
     end
   end

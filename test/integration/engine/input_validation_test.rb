@@ -1,10 +1,8 @@
 require_relative 'engine_test_helper'
 
 class InputValidationTest < EngineIntegrationTest
-
   with_and_without_javascript do
     should "validate input and display errors" do
-
       visit "/money-and-salary-sample/y"
 
       fill_in "£", with: "-123"
@@ -73,7 +71,6 @@ class InputValidationTest < EngineIntegrationTest
         within('.error') { assert_page_has_content "Sorry, but that is not a number. Please try again." }
         assert page.has_field?("Things", type: "text", with: "asdfasdf")
       end
-
     end
   end # with_and_without_javascript
 

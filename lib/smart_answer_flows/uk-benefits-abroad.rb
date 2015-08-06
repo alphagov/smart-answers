@@ -57,15 +57,15 @@ module SmartAnswer
       multiple_choice :which_benefit? do
         option :jsa
         option :pension
-        option :winter_fuel_payment => :which_country? # Country Question - Shared
-        option :maternity_benefits => :which_country? # Country Question - Shared
-        option :child_benefit => :which_country? # Country Question - Shared
-        option :iidb => :iidb_already_claiming? # Q26 going_abroad and Q25 already_abroad
-        option :ssp => :which_country? # Country Question - Shared
-        option :esa => :esa_how_long_abroad? # Q24 going_abroad and Q23 already_abroad
-        option :disability_benefits => :db_how_long_abroad? # Q28 going_abroad and Q27 already_abroad
-        option :bereavement_benefits => :which_country? # Country Question - Shared
-        option :tax_credits => :eligible_for_tax_credits? # Q17 going_abroad and Q16 already_abroad
+        option winter_fuel_payment: :which_country? # Country Question - Shared
+        option maternity_benefits: :which_country? # Country Question - Shared
+        option child_benefit: :which_country? # Country Question - Shared
+        option iidb: :iidb_already_claiming? # Q26 going_abroad and Q25 already_abroad
+        option ssp: :which_country? # Country Question - Shared
+        option esa: :esa_how_long_abroad? # Q24 going_abroad and Q23 already_abroad
+        option disability_benefits: :db_how_long_abroad? # Q28 going_abroad and Q27 already_abroad
+        option bereavement_benefits: :which_country? # Country Question - Shared
+        option tax_credits: :eligible_for_tax_credits? # Q17 going_abroad and Q16 already_abroad
         option :income_support
 
         save_input_as :benefit
@@ -91,8 +91,7 @@ module SmartAnswer
       end
 
       ## Country Question - Shared
-      country_select :which_country?,additional_countries: additional_countries, exclude_countries: exclude_countries do
-
+      country_select :which_country?, additional_countries: additional_countries, exclude_countries: exclude_countries do
         save_input_as :country
 
         calculate :country_name do
@@ -257,9 +256,9 @@ module SmartAnswer
 
       # Q17 going_abroad and Q16 already_abroad
       multiple_choice :eligible_for_tax_credits? do
-        option :crown_servant => :tax_credits_crown_servant_outcome # A19 already_abroad
-        option :cross_border_worker => :tax_credits_cross_border_worker_outcome # A20 already_abroad
-        option :none_of_the_above => :tax_credits_how_long_abroad? # Q18 going_abroad and Q17 already_abroad
+        option crown_servant: :tax_credits_crown_servant_outcome # A19 already_abroad
+        option cross_border_worker: :tax_credits_cross_border_worker_outcome # A20 already_abroad
+        option none_of_the_above: :tax_credits_how_long_abroad? # Q18 going_abroad and Q17 already_abroad
       end
 
       # Q19 going_abroad and Q18 already_abroad
@@ -371,7 +370,7 @@ module SmartAnswer
       # Going abroad Q28 going_abroad (Disability Benefits) and Q27 already_abroad
       multiple_choice :db_how_long_abroad? do
         option :temporary
-        option :permanent => :which_country? # Q25
+        option permanent: :which_country? # Q25
 
         next_node_if(:db_going_abroad_temporary_outcome, going_abroad) # A35 going_abroad
         next_node(:db_already_abroad_temporary_outcome) # A34 already_abroad

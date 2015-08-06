@@ -19,7 +19,7 @@ module Memory
 
   class Analyzer
     attr_accessor :roots
-    attr_reader   :result
+    attr_reader :result
 
     def analyze
       @result = MemoryInfo.new roots, 0, 0, 0
@@ -47,7 +47,7 @@ module Memory
         when Hash
           visit(obj) do
             @result.bytes += obj.size * REF_SIZE * 2
-            obj.each {|k,v| queue.push(k).push(v)}
+            obj.each {|k, v| queue.push(k).push(v)}
           end
         when Enumerable
           visit(obj) do

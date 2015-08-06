@@ -68,7 +68,6 @@ module SmartAnswer
             end
           end
         end
-
       end
 
       #Q4 - capital allowances claimed?
@@ -102,7 +101,6 @@ module SmartAnswer
             :how_much_expect_to_claim?
           end
         end
-
       end
 
       #Q5 - claim vehicle expenses
@@ -159,11 +157,11 @@ module SmartAnswer
           response
         end
         calculate :green_vehicle_write_off do
-          vehicle_is_green ? Money.new(green_vehicle_price * ( business_use_percent / 100)) : nil
+          vehicle_is_green ? Money.new(green_vehicle_price * (business_use_percent / 100)) : nil
         end
 
         calculate :dirty_vehicle_write_off do
-          vehicle_is_green ? nil : Money.new(dirty_vehicle_price * ( business_use_percent / 100))
+          vehicle_is_green ? nil : Money.new(dirty_vehicle_price * (business_use_percent / 100))
         end
 
         next_node do |response|
@@ -218,7 +216,6 @@ module SmartAnswer
 
       #Q11 - hours for home work
       value_question :hours_work_home? do
-
         calculate :hours_worked_home do |response|
           response.gsub(",", "").to_f
         end
@@ -252,7 +249,6 @@ module SmartAnswer
         next_node do
           list_of_expenses.include?("live_on_business_premises") ? :deduct_from_premises? : :you_can_use_result
         end
-
       end
 
       #Q13 = how much do you deduct from premises for private use?

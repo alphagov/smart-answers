@@ -3,7 +3,6 @@ require 'smartdown/model/answer/date'
 
 module SmartdownPlugins
   module PayLeaveForParents
-
     #Uprate helpers
 
     def self.lower_earnings_amount(due_date)
@@ -254,7 +253,7 @@ module SmartdownPlugins
       start_date = date.value
       end_date = start_date + 39.weeks
       (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(start_date) ||
-      (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(end_date)
+        (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(end_date)
     end
 
     def self.build_date_answer(date)
@@ -286,7 +285,7 @@ module SmartdownPlugins
 
       weekly_salary = salary.value / 52
       rate = weekly_salary * 0.9
-      [ rate, max_rate ].min
+      [rate, max_rate].min
     end
   end
 end

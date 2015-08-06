@@ -10,4 +10,3 @@ module SmartAnswer
     end
   end
 end
-

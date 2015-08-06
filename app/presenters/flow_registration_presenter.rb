@@ -1,5 +1,4 @@
 class FlowRegistrationPresenter
-
   def initialize(flow)
     @flow = flow
     @i18n_prefix = "flow.#{@flow.name}"
@@ -33,17 +32,17 @@ class FlowRegistrationPresenter
 
   def indexable_content
     HTMLEntities.new.decode(
-      text = @flow.nodes.inject([lookup_translation("body")]) { |acc, node|
+      text = @flow.nodes.inject([lookup_translation("body")]) do |acc, node|
         pres = NodePresenter.new(@i18n_prefix, node)
-        acc.concat(NODE_PRESENTER_METHODS.map { |method|
+        acc.concat(NODE_PRESENTER_METHODS.map do |method|
           begin
             pres.send(method)
           rescue I18n::MissingInterpolationArgument
             # We can't do much about this, so we ignore these text nodes
             nil
           end
-        })
-      }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
+        end)
+      end.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
     )
   end
 

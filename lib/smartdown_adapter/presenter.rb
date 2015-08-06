@@ -1,7 +1,6 @@
 require 'gds_api/helpers'
 
 module SmartdownAdapter
-
   class Presenter
     include GdsApi::Helpers
     extend Forwardable
@@ -51,8 +50,8 @@ module SmartdownAdapter
       # current state is only used for responses and error, which are both
       # available on state and could be called directly, requires controller change
       OpenStruct.new(
-        :responses => accepted_responses,
-        :unaccepted_responses => @smartdown_state.current_answers.map(&:value).map(&:to_s),
+        responses: accepted_responses,
+        unaccepted_responses: @smartdown_state.current_answers.map(&:value).map(&:to_s),
       )
     end
 
@@ -85,7 +84,7 @@ module SmartdownAdapter
     def change_collapsed_question_link(question_number, number_questions_changed_page = 1)
       responses_up_to_changed_page = accepted_responses[0...question_number - 1]
       number_responses_to_keep = question_number + number_questions_changed_page
-      responses_including_changed_page =  accepted_responses[0...number_responses_to_keep -1]
+      responses_including_changed_page =  accepted_responses[0...number_responses_to_keep - 1]
       previous_responses_hash = {}
       responses_including_changed_page
         .last(number_questions_changed_page)
@@ -107,7 +106,7 @@ module SmartdownAdapter
 
     def responses_from_request(request)
       responses_from_url(request) +
-      responses_from_query_params(request)
+        responses_from_query_params(request)
     end
 
     def responses_from_url(request)
@@ -132,7 +131,7 @@ module SmartdownAdapter
 
       if request[:next]
         (@previous_smartdown_state.current_node.questions.count - responses.count).times do |index|
-          responses << request.query_parameters["response_#{index+1}"] || nil
+          responses << request.query_parameters["response_#{index + 1}"] || nil
         end
       end
       responses
@@ -160,10 +159,10 @@ module SmartdownAdapter
       smartdown_node = smartdown_state.current_node
       current_smartdown_answers = smartdown_state.current_answers
       case smartdown_node
-        when Smartdown::Api::QuestionPage
-          SmartdownAdapter::QuestionPagePresenter.new(smartdown_node, current_smartdown_answers)
-        else
-          SmartdownAdapter::NodePresenter.new(smartdown_node)
+      when Smartdown::Api::QuestionPage
+        SmartdownAdapter::QuestionPagePresenter.new(smartdown_node, current_smartdown_answers)
+      else
+        SmartdownAdapter::NodePresenter.new(smartdown_node)
       end
     end
 
@@ -172,6 +171,5 @@ module SmartdownAdapter
         SmartdownAdapter::PreviousQuestionPagePresenter.new(smartdown_previous_question_page)
       end
     end
-
   end
 end

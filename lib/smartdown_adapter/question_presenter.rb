@@ -59,6 +59,5 @@ module SmartdownAdapter
     def markdown_to_html markdown
       Govspeak::Document.new(markdown).to_html.html_safe
     end
-
   end
 end

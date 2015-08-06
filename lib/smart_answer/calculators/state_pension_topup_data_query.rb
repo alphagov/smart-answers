@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class StatePensionTopupDataQuery
-
     attr_reader :data
 
     def initialize

@@ -99,7 +99,6 @@ module SmartAnswer::Calculators
             @calculator.average_weekly_earnings = 135.40
             assert_equal 121.86, @calculator.statutory_maternity_rate_b.round(2)
           end
-
         end
 
         context "with an adoption placement date of a week ago" do
@@ -438,7 +437,6 @@ module SmartAnswer::Calculators
           @calculator.leave_start_date = Date.parse('1 March 2013')
           @calculator.pay_method = 'first_day_of_the_month'
           @calculator.average_weekly_earnings = 300.0
-
         end
         should "pay on the leave start date" do
           assert_equal '2013-03-01', @calculator.paydates_first_day_of_the_month.first.to_s
@@ -746,8 +744,7 @@ module SmartAnswer::Calculators
 
         should "calculate 39 weeks of dates and pay, first 6 weeks is 90% of avg weekly pay, \
                 the remaining weeks is the minimum of 90% of avg weekly pay or 139.58" do
-
-                  expected_pay_dates = %w(2015-04-07 2015-04-14 2015-04-21 2015-04-28 2015-05-05 2015-05-12 2015-05-19 2015-05-26 2015-06-02 2015-06-09 2015-06-16 2015-06-23 2015-06-30 2015-07-07 2015-07-14 2015-07-21 2015-07-28 2015-08-04 2015-08-11 2015-08-18 2015-08-25 2015-09-01 2015-09-08 2015-09-15 2015-09-22 2015-09-29 2015-10-06 2015-10-13 2015-10-20 2015-10-27 2015-11-03 2015-11-10 2015-11-17 2015-11-24 2015-12-01 2015-12-08 2015-12-15 2015-12-22 2015-12-29)
+          expected_pay_dates = %w(2015-04-07 2015-04-14 2015-04-21 2015-04-28 2015-05-05 2015-05-12 2015-05-19 2015-05-26 2015-06-02 2015-06-09 2015-06-16 2015-06-23 2015-06-30 2015-07-07 2015-07-14 2015-07-21 2015-07-28 2015-08-04 2015-08-11 2015-08-18 2015-08-25 2015-09-01 2015-09-08 2015-09-15 2015-09-22 2015-09-29 2015-10-06 2015-10-13 2015-10-20 2015-10-27 2015-11-03 2015-11-10 2015-11-17 2015-11-24 2015-12-01 2015-12-08 2015-12-15 2015-12-22 2015-12-29)
                   assert_equal 346.15, @calculator.calculate_average_weekly_pay('monthly', 3000).round(2)
                   assert_equal expected_pay_dates, @calculator.paydates_and_pay.map { |p| p[:date].to_s }
 

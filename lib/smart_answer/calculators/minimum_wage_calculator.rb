@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class MinimumWageCalculator
-
     attr_accessor :overtime_hours, :overtime_hourly_rate, :accommodation_cost
 
     def initialize(params = {})
@@ -156,6 +155,5 @@ module SmartAnswer::Calculators
     def historical_minimum_wage_data
       @@historical_minimum_wage_data ||= YAML.load_file(Rails.root.join("lib/data/minimum_wage_data.yml"))[:minimum_wage_data]
     end
-
   end
 end

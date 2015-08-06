@@ -1,6 +1,5 @@
 module SmartdownAdapter
   class CombinationGenerator
-
     def initialize(question_name, answer_combinations)
       @question_name = question_name
       @answer_combinations = answer_combinations
@@ -74,7 +73,7 @@ module SmartdownAdapter
       first_question_answers.each do |answer|
         combinations << [{ question_keys.first => answer }]
       end
-      question_keys.last(question_keys.length-1).each do |question_key|
+      question_keys.last(question_keys.length - 1).each do |question_key|
         answers = @answer_combinations.fetch(question_key)
         new_combinations = []
         combinations.each do |combination|

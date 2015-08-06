@@ -479,6 +479,5 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :oru_result
       end
     end
-
   end # Overseas
 end

@@ -68,7 +68,7 @@ module SmartAnswer
         assert_equal 0, new_state.myval
       end
     end
-    
+
     context "when parse option is Float" do
       setup do
         @q = Question::Value.new(:example, parse: Float) do
@@ -94,7 +94,7 @@ module SmartAnswer
         assert_raises(InvalidResponse) { @q.transition(@initial_state, nil) }
       end
     end
-    
+
     context "when parse option is :to_f" do
       setup do
         @q = Question::Value.new(:example, parse: :to_f) do

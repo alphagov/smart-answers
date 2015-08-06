@@ -2,7 +2,6 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class RedundancyCalculatorTest < ActiveSupport::TestCase
-
     context "Money formatting conforms to styleguide" do
       should "lop off trailing 00s" do
         assert_equal RedundancyCalculator.format_money(12.00), "12"
@@ -47,7 +46,6 @@ module SmartAnswer::Calculators
       end
     end
     context "use correct weekly pay and number of years limits" do
-
       # Aged 45, 12 years service, 350 per week
       should "be 4900" do
         @calculator = RedundancyCalculator.new(430, "45", 12, 350)

@@ -60,7 +60,6 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
             assert_current_node :how_much_12_months_2?
           end
         end #Q5
-
       end #Q3
     end
 
@@ -134,7 +133,6 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
               assert_current_node :weekly_costs_are_x
               assert_state_variable :weekly_cost, 1
             end
-
           end #Q7
 
           context "answering Q6" do
@@ -149,13 +147,9 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
             should "calculate the weekly cost" do
               assert_state_variable :weekly_cost, 1
             end
-
           end #Q6
-
         end #Q4
-
       end #Q2
-
     end
   end #Q1
 
@@ -252,7 +246,6 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
         assert_current_node :cost_changed
       end
     end # Q18
-
   end # questions that calculate cost difference
 
   context "going through Question 17" do
@@ -295,7 +288,6 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
       should "show correct phrases" do
         assert_state_variable :title_change_text, "decreased"
       end
-
     end # Q20
   end # Q17
 
@@ -354,6 +346,5 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
       assert_state_variable :weekly_cost, 1
       assert_current_node :weekly_costs_are_x
     end
-
   end
 end

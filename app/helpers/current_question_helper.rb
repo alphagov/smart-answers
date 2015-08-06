@@ -35,9 +35,9 @@ module CurrentQuestionHelper
 
   def prefill_value_for(question, question_number = nil, attribute = nil)
     response = if params[previous_response_key(question_number)]
-      question.to_response(params[previous_response_key(question_number)])
-    elsif params[:response]
-      params[:response]
+                 question.to_response(params[previous_response_key(question_number)])
+               elsif params[:response]
+                 params[:response]
     end
     if !response.blank? && attribute
       begin

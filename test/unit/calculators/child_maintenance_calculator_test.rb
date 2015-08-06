@@ -2,7 +2,6 @@ require_relative '../../test_helper'
 
 module SmartAnswer::Calculators
   class ChildMaintenanceCalculatorTest < ActiveSupport::TestCase
-
     context "rate_type when benefits and no shared care" do
       should "show nil rate for low income or any income and benefits and shared care > 0" do
         @calculator = ChildMaintenanceCalculator.new(4, 'no', 'pay')

@@ -568,7 +568,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "no"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_state_variable  :translator_link_url, '/government/publications/democratic-republic-of-congo-list-of-lawyers'
+      assert_state_variable :translator_link_url, '/government/publications/democratic-republic-of-congo-list-of-lawyers'
     end
   end
 

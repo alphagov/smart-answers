@@ -200,7 +200,6 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             should "ask if you're elderly or disabled" do
               assert_current_node :disabled_or_have_children?
             end
-
           end
           context "answer child tax credit, esa & pension credit" do
             setup do
@@ -747,7 +746,6 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'flat'
         add_response 'top_floor'
         add_response 'loft_attic_conversion'
-
       end
       should "take you to the green deal outcome with these variations" do
         assert_state_variable :property_type, "flat"

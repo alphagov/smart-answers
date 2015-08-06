@@ -170,13 +170,13 @@ module SmartAnswer
         option :no
         save_input_as :pays_reduced_ni_rate
 
-        define_predicate(:before_state_pension_date?) {
+        define_predicate(:before_state_pension_date?) do
           calculator.before_state_pension_date?
-        }
+        end
 
-        define_predicate(:under_20_years_old?) {
+        define_predicate(:under_20_years_old?) do
           calculator.under_20_years_old?
-        }
+        end
 
         on_condition(before_state_pension_date?) do
           next_node_if(:too_young, under_20_years_old?)
@@ -234,7 +234,6 @@ module SmartAnswer
 
       # Q5
       value_question :years_of_jsa?, parse: Integer do
-
         validate do |response|
           jsa_years = response
           qy = qualifying_years + jsa_years
@@ -264,14 +263,14 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:enough_years_credits_or_no_more_years?) {
+        define_predicate(:enough_years_credits_or_no_more_years?) do
           (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
             (calculator.no_more_available_years?(ni) && calculator.three_year_credit_age?)
-        }
+        end
 
-        define_predicate(:no_more_available_years?) {
+        define_predicate(:no_more_available_years?) do
           calculator.no_more_available_years?(ni)
-        }
+        end
 
         next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
         next_node_if(:years_of_work?, no_more_available_years?)
@@ -287,14 +286,14 @@ module SmartAnswer
           ni_years_to_date_from_dob
         end
 
-        define_predicate(:automatic_ni?) {
+        define_predicate(:automatic_ni?) do
           calculator.automatic_ni_age_group?
-        }
+        end
 
-        define_predicate(:new_rules_and_less_than_10_ni?) {
+        define_predicate(:new_rules_and_less_than_10_ni?) do
           ni_and_credits = ni + calculator.starting_credits
           calculator.new_rules_and_less_than_10_ni?(ni_and_credits) && !calculator.credit_band
-        }
+        end
 
         define_predicate(:credit_age?) { calculator.credit_age? }
 
@@ -307,7 +306,6 @@ module SmartAnswer
 
       ## Q7
       value_question :years_of_benefit?, parse: Integer do
-
         precalculate :years_you_can_enter do
           calculator.years_can_be_entered(available_ni_years, 22)
         end
@@ -335,14 +333,14 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:enough_years_credits_or_no_more_years?) {
+        define_predicate(:enough_years_credits_or_no_more_years?) do
           (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
             (calculator.no_more_available_years?(ni) && calculator.three_year_credit_age?)
-        }
+        end
 
-        define_predicate(:no_more_available_years?) {
+        define_predicate(:no_more_available_years?) do
           calculator.no_more_available_years?(ni)
-        }
+        end
 
         next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
         next_node_if(:years_of_work?, no_more_available_years?)
@@ -382,14 +380,14 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:enough_years_credits_or_no_more_years?) {
+        define_predicate(:enough_years_credits_or_no_more_years?) do
           (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
             (calculator.no_more_available_years?(ni) && calculator.three_year_credit_age?)
-        }
+        end
 
-        define_predicate(:no_more_available_years?) {
+        define_predicate(:no_more_available_years?) do
           calculator.no_more_available_years?(ni)
-        }
+        end
 
         next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
         next_node_if(:years_of_work?, no_more_available_years?)
@@ -413,14 +411,14 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:enough_years_credits_or_three_year_credit?) {
+        define_predicate(:enough_years_credits_or_three_year_credit?) do
           (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
             calculator.three_year_credit_age?
-        }
+        end
 
-        define_predicate(:new_rules_and_less_than_10_ni?) {
+        define_predicate(:new_rules_and_less_than_10_ni?) do
           calculator.new_rules_and_less_than_10_ni? ni
-        }
+        end
 
         define_predicate(:credit_age?) { calculator.credit_age? }
 
@@ -449,9 +447,9 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:new_rules_and_less_than_10_ni?) {
+        define_predicate(:new_rules_and_less_than_10_ni?) do
           calculator.new_rules_and_less_than_10_ni? ni
-        }
+        end
 
         next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
         next_node :amount_result

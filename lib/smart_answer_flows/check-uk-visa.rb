@@ -65,7 +65,7 @@ module SmartAnswer
         on_condition(responded_with('transit')) do
           next_node_if(:planning_to_leave_airport?) do
             country_group_datv.include?(passport_country) or
-               country_group_visa_national.include?(passport_country) or %w(taiwan venezuela).include?(passport_country)
+              country_group_visa_national.include?(passport_country) or %w(taiwan venezuela).include?(passport_country)
           end
           next_node(:outcome_no_visa_needed)
         end
@@ -117,11 +117,11 @@ module SmartAnswer
           end
           on_condition(->(_) { purpose_of_visit_answer == 'work' }) do
             #outcome 5.5 work N no visa needed
-            next_node_if(:outcome_work_n) {
-              ( (country_group_ukot +
+            next_node_if(:outcome_work_n) do
+              ((country_group_ukot +
                 country_group_non_visa_national) |
-                %w(taiwan) ).include?(passport_country)
-            }
+                %w(taiwan)).include?(passport_country)
+            end
             # outcome 5 work m visa needed short courses
             next_node_if(:outcome_work_m) { (country_group_datv + country_group_visa_national).include?(passport_country) }
           end

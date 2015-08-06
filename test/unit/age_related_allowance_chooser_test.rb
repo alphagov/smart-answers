@@ -2,7 +2,6 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class AgeRelatedAllowanceChooserTest < ActiveSupport::TestCase
-
     def setup
       @personal_allowance = 8105
       @over_65_allowance = 10500
@@ -73,6 +72,5 @@ module SmartAnswer
       result = @chooser.get_age_related_allowance(date_of_birth)
       assert_equal(@over_75_allowance, result)
      end
-
   end
 end

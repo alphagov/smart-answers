@@ -1,6 +1,5 @@
 module SmartAnswer
   class PhraseList
-
     attr_accessor :phrase_keys
 
     def initialize(*phrase_keys)

@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class StatePensionAmountCalculator
     include FriendlyTimeDiff
 
-    attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits, :pays_reduced_ni_rate
+    attr_reader :gender, :dob, :qualifying_years, :available_years, :starting_credits, :pays_reduced_ni_rate
     attr_accessor :qualifying_years
 
     NEW_RULES_START_DATE = Date.parse('6 April 2016')
@@ -115,17 +115,17 @@ module SmartAnswer::Calculators
 
     # these people always get at least 2 years of starting credits
     def at_least_two_year_credit_age?
-      ( dob >= Date.parse('1958-04-06') and dob <= Date.parse('1959-04-05')) or
-      ( dob >= Date.parse('1992-04-06') and dob <= Date.parse('1993-04-05'))
+      (dob >= Date.parse('1958-04-06') and dob <= Date.parse('1959-04-05')) or
+        (dob >= Date.parse('1992-04-06') and dob <= Date.parse('1993-04-05'))
     end
 
     # these people always get at least 1 year of starting credits
     def at_least_one_year_credit_age?
-      ( dob >= Date.parse('1957-04-06') and dob <= Date.parse('1958-04-05')) or
-      ( dob >= Date.parse('1993-04-06') and dob <= Date.parse('1994-04-05'))
+      (dob >= Date.parse('1957-04-06') and dob <= Date.parse('1958-04-05')) or
+        (dob >= Date.parse('1993-04-06') and dob <= Date.parse('1994-04-05'))
     end
 
-     CREDIT_BANDS= [
+     CREDIT_BANDS = [
                     { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1, validate: 0 },
                     { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1, validate: 0 },
                     { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2, validate: 1 },
@@ -197,12 +197,12 @@ module SmartAnswer::Calculators
     end
 
     def qualifies_for_rre_entitlements?
-      rre_start_date = Date.new(1953,4,6)
-      rre_end_date = Date.new(1961,4,5)
+      rre_start_date = Date.new(1953, 4, 6)
+      rre_end_date = Date.new(1961, 4, 5)
 
       pays_reduced_ni_rate &&
         gender == :female &&
-        qualifying_years.between?(10,29) &&
+        qualifying_years.between?(10, 29) &&
         dob.between?(rre_start_date, rre_end_date)
     end
 

@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class PIPDates
-
     GROUP_65_CUTOFF = Date.parse('1948-04-08')
     MIDDLE_GROUP_CUTOFF = Date.parse('1997-04-08')
     TURNING_16_UPPER_CUTOFF = Date.parse('1997-10-07')

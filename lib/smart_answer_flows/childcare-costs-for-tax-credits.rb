@@ -16,7 +16,6 @@ module SmartAnswer
         option regularly_less_than_year: :how_often_pay_1? #Q4
         option regularly_more_than_year: :pay_same_each_time? #Q11
         option only_short_while: :call_helpline_detailed #O1
-
       end
 
       #Q3
