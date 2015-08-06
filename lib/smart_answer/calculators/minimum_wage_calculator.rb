@@ -168,6 +168,10 @@ module SmartAnswer::Calculators
       historical_adjustment <= 0
     end
 
+    def any_overtime_hours_worked?
+      overtime_hours > 0
+    end
+
     protected
 
     def weekly_multiplier

@@ -125,7 +125,9 @@ module SmartAnswer
           setup do
             @question = @flow.node(overtime_hours_question_name)
             @state = SmartAnswer::State.new(@question)
-            @calculator = stub('calculator', :overtime_hours= => nil)
+            @calculator = stub('calculator',
+              :overtime_hours= => nil,
+              :any_overtime_hours_worked? => nil)
             @state.calculator = @calculator
           end
 

@@ -100,6 +100,22 @@ module SmartAnswer::Calculators
       end
     end
 
+    context '#any_overtime_hours_worked?' do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      should 'return true if overtime_hours is greater than 0' do
+        @calculator.overtime_hours = 1
+        assert @calculator.any_overtime_hours_worked?
+      end
+
+      should 'return false if overtime hours is 0' do
+        @calculator.overtime_hours = 0
+        refute @calculator.any_overtime_hours_worked?
+      end
+    end
+
     context "#apprentice_eligible_for_minimum_wage?" do
       setup do
         @calculator = MinimumWageCalculator.new

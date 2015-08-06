@@ -177,10 +177,10 @@ value_question :how_many_hours_overtime_do_you_work?, parse: Float do
 
   next_node do |response|
     calculator.overtime_hours = response
-    if response.to_i == 0
-      :is_provided_with_accommodation?
-    else
+    if calculator.any_overtime_hours_worked?
       :what_is_overtime_pay_per_hour?
+    else
+      :is_provided_with_accommodation?
     end
   end
 end
@@ -193,10 +193,10 @@ value_question :how_many_hours_overtime_did_you_work?, parse: Float do
 
   next_node do |response|
     calculator.overtime_hours = response
-    if response.to_i == 0
-      :was_provided_with_accommodation?
-    else
+    if calculator.any_overtime_hours_worked?
       :what_was_overtime_pay_per_hour?
+    else
+      :was_provided_with_accommodation?
     end
   end
 end
