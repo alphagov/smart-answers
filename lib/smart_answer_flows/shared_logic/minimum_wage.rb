@@ -3,8 +3,6 @@ multiple_choice :what_would_you_like_to_check? do
   option "current_payment"
   option "past_payment"
 
-  save_input_as :current_or_past_payments
-
   next_node do |response|
     case response
     when 'current_payment'
