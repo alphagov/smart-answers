@@ -267,11 +267,9 @@ money_question :current_accommodation_charge? do
     calculator.valid_accommodation_charge?(response)
   end
 
-  calculate :accommodation_charge do |response|
-    Float(response)
-  end
-
   next_node :current_accommodation_usage?
+
+  save_input_as :accommodation_charge
 end
 
 # Q10 Past
@@ -280,11 +278,9 @@ money_question :past_accommodation_charge? do
     calculator.valid_accommodation_charge?(response)
   end
 
-  calculate :accommodation_charge do |response|
-    Float(response)
-  end
-
   next_node :past_accommodation_usage?
+
+  save_input_as :accommodation_charge
 end
 
 # Q11
