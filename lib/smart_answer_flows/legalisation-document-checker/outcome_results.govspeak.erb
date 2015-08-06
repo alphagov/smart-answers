@@ -88,6 +88,15 @@
       - certified
 
       ^A photocopy of your document can be legalised, but it must be certified.^
+    <% when 'certificate_of_freesale' %>
+      ##<%= heading %>
+      Your <%= type %> can only be legalised if either:
+
+      - it’s been signed by an official from the issuing authority
+      - it says ‘signature valid’ next to a tick
+      - it’s certified
+
+      ^A photocopy of your document can be legalised, but it must be certified.^
     <% when 'marriage_document' %>
       ##<%= heading %>
 

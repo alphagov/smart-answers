@@ -1,5 +1,5 @@
---- 
-:which_documents_do_you_want_legalised?: 
+---
+:which_documents_do_you_want_legalised?:
 - acro-police-certificate # police_disclosure
 - affidavit # solicitors_notaries
 - articles-of-association # government_companies
@@ -12,3 +12,4 @@
 - marriage-certificate # marriage_document
 - passport-copy-only # solicitors_notaries_copy_passport
 - pet-export-document # vet_health
+- certificate-of-freesale # its own certificate_of_freesale group
