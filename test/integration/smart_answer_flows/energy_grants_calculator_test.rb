@@ -137,6 +137,32 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
             end
           end
+          context "answer with Universal Credit" do
+            setup do
+              add_response 'universal_credit'
+            end
+            should "ask if you're elderly or disabled" do
+              assert_current_node :disabled_or_have_children?
+            end
+            context "answer with at least one option" do
+              setup do
+                add_response 'child_under_16'
+              end
+              should "take you to help with bills outcome with may_qualify_for_affordable_warmth_obligation" do
+                assert_current_node :outcome_help_with_bills
+                assert_state_variable 'may_qualify_for_affordable_warmth_obligation', true
+              end
+            end
+            context "answer with none" do
+              setup do
+                add_response ''
+              end
+              should "take you to help with bills outcome without may_qualify_for_affordable_warmth_obligation" do
+                assert_current_node :outcome_help_with_bills
+                assert_state_variable 'may_qualify_for_affordable_warmth_obligation', false
+              end
+            end
+          end
           context "answer child tax credit and esa" do
             setup do
               add_response 'child_tax_credit,esa'
