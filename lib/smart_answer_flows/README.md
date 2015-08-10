@@ -187,6 +187,34 @@ To enable for the entire flow, call the `use_outcome_templates` method on the fl
 
 You will have to remove the relevant parts of the flow's integration test, because the phrase list keys will no longer exist, so the `assert_phrase_list` method cannot be used. You may also want to remove the tests which assert against outcome nodes, because these are well covered in the regression tests.
 
+##### Indentation
+
+Since all the content in the ERB templates is within one or other `content_for` blocks, we've chosen not to indent the outer level of ERB tags within the blocks.
+
+Content within ERB tags should be indented at the appropriate level - leading spaces are stripped before the content is processed by Govspeak.
+
+###### Correct indentation example
+
+    <% content_for :body do %>
+    <% if foo %>
+      Foo text
+      <% if bar %>
+        Bar text
+      <% end %>
+    <% end %>
+    <% end %>
+
+###### Incorrect indentation example
+
+    <% content_for :body do %>
+      <% if foo %>
+    Foo text
+        <% if bar %>
+    Bar text
+        <% end %>
+      <% end %>
+    <% end %>
+
 ## Testing Smart Answers
 
 You used to need to use nested contexts/tests in order to test Ruby/YAML Smart Answers. This is no longer needed, feel free to flatten tests that are too deeply nested.
