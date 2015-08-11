@@ -1216,7 +1216,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to france or fot pacs outcome" do
       assert_current_node :outcome_cp_france_pacs
-      assert_phrase_list :france_pacs_law_cp_outcome, [:fot_cp_all]
     end
   end
 

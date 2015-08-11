@@ -471,11 +471,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_cp_france_pacs do
-        precalculate :france_pacs_law_cp_outcome do
-          PhraseList.new(:fot_cp_all) if %w(new-caledonia wallis-and-futuna).include?(ceremony_country)
-        end
-      end
+      outcome :outcome_cp_france_pacs, use_outcome_templates: true
 
       outcome :outcome_cp_no_cni do
         precalculate :no_cni_required_cp_outcome do
