@@ -1348,7 +1348,7 @@ module SmartAnswer
 
         precalculate :commonwealth_countries_cp_outcome do
           phrases = PhraseList.new
-          phrases << "synonyms_of_cp_in_#{ceremony_country}".gsub('-', '_').to_sym
+          phrases << :"synonyms_of_cp_in_#{ceremony_country}"
 
           if resident_of == 'uk'
             phrases << :contact_high_comission_of_ceremony_country_in_uk_cp
