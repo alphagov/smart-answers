@@ -10,9 +10,19 @@ Civil weddings in Spain take place at a town hall, register office or district c
 %There are certain legal restrictions on getting married in Spain if neither of you lives there. If you both live outside Spain, you must check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
 
 
-## What you need to do
+##What you need to do
 
-You may be asked to provide a [certificate of no impediment (CNI)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/315447/EXAMPLE_CERT_Certificate_of_No_Impediment_CNI__1_.pdf), [marital status certificate](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/420038/Marital_Status_example.pdf), or both to prove you’re allowed to marry.
+
+You may be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you’re allowed to marry.
+
+$D
+[Download 'Certificate of no impediment' (PDF, 198KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/315447/EXAMPLE_CERT_Certificate_of_No_Impediment_CNI__1_.pdf)
+$D
+
+$D
+[Download 'Marital status certificate' (PDF, 145KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/420038/Marital_Status_example.pdf)
+$D
+
 
 ^Document requirements vary across Spain - check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re getting married to find out what you’ll need.^
 
@@ -37,7 +47,7 @@ $D
 [Download 'CNI for UK residents application pack' (PDF, 426KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/446265/UK_CNI_Pack.pdf)
 $D
 
-Send the documents and fee by registered post to the address in the application pack.
+Send the documents by registered post to the address in the application pack.
 
 
 ##Getting a marital status certificate
@@ -48,9 +58,9 @@ $D
 [Download 'Marital status certificate application pack' (PDF, 424KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/446267/Marital_Status_for_Marriage_Pack.pdf)
 $D
 
-You must sign the affirmation in the application pack in front of a local [notary public](http://www.notaries-directory.eu/) in Spain before you post the other documents.
+You must sign the affirmation in the application pack in front of a local [notary public](http://www.notaries-directory.eu/) in Spain before you send your application to the consulate.
 
-Send the documents and fee by registered post to the address in the application pack.
+Send the documents by registered post to the address in the application pack.
 
 ### What happens next
 
@@ -58,7 +68,7 @@ The consulate will check your forms and documents, and contact you if they have 
 
 It takes 10 working days after your payment has been approved for the consulate to process your application.
 
-They’ll send your certificate and supporting documents to you by registered post.
+They’ll send your certificate and original documents to you by registered post.
 
 
 ##Other requirements for Spain
