@@ -449,7 +449,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to cp or equivalent outcome" do
       assert_current_node :outcome_cp_or_equivalent
-      assert_phrase_list :cp_or_equivalent_cp_outcome, [:synonyms_of_cp_in_germany, :contact_local_authorities_in_country_cp, :cp_or_equivalent_cp_what_you_need_to_do, :embassies_data, :partner_naturalisation_in_uk, :standard_cni_fee_for_cp, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1167,7 +1166,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to cp or equivalent outcome" do
       assert_current_node :outcome_cp_or_equivalent
-      assert_phrase_list :cp_or_equivalent_cp_outcome, [:synonyms_of_cp_in_denmark, :contact_embassy_of_ceremony_country_in_uk_cp, :also_check_travel_advice, :cp_or_equivalent_cp_what_you_need_to_do, :embassies_data, :partner_naturalisation_in_uk, :standard_cni_fee_for_cp, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1182,7 +1180,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to cp or equivalent outcome" do
       assert_current_node :outcome_cp_or_equivalent
       assert_state_variable :country_name_lowercase_prefix, 'the Czech Republic'
-      assert_phrase_list :cp_or_equivalent_cp_outcome, [:"synonyms_of_cp_in_czech-republic", :contact_local_authorities_in_country_cp, :also_check_travel_advice, :partner_naturalisation_in_uk]
       assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end
@@ -1197,7 +1194,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to cp or equivalent os outcome" do
       assert_current_node :outcome_cp_or_equivalent
-      assert_phrase_list :cp_or_equivalent_cp_outcome, [:synonyms_of_cp_in_sweden, :contact_local_authorities_in_country_cp, :cp_or_equivalent_cp_what_you_need_to_do, :embassies_data, :partner_naturalisation_in_uk, :standard_cni_fee_for_cp, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1315,7 +1311,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni cp countries outcome" do
       assert_current_node :outcome_cp_or_equivalent
-      assert_phrase_list :cp_or_equivalent_cp_outcome, [:"synonyms_of_cp_in_czech-republic", :contact_embassy_of_ceremony_country_in_uk_cp, :also_check_travel_advice, :partner_naturalisation_in_uk]
       assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end
@@ -1657,7 +1652,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to affirmation outcome with specific fee table" do
       assert_current_node :outcome_cp_or_equivalent
-      assert_phrase_list :cp_or_equivalent_cp_outcome, [:synonyms_of_cp_in_finland, :contact_embassy_of_ceremony_country_in_uk_cp, :also_check_travel_advice, :cp_or_equivalent_cp_what_you_need_to_do, :embassies_data, :partner_naturalisation_in_uk, :standard_cni_fee_for_cp, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 

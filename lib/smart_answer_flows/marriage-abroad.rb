@@ -465,54 +465,12 @@ module SmartAnswer
       outcome :outcome_os_other_countries, use_outcome_templates: true
 
       #CP outcomes
-      outcome :outcome_cp_or_equivalent do
-        precalculate :cp_or_equivalent_cp_outcome do
-          phrases = PhraseList.new
-          if data_query.cp_equivalent_countries?(ceremony_country)
-            phrases << :"synonyms_of_cp_in_#{ceremony_country}"
-          end
-
-          if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' && resident_of != 'ceremony_country'
-            phrases << :check_travel_advice
-          elsif resident_of == 'uk'
-            phrases << :contact_embassy_of_ceremony_country_in_uk_cp
-          else
-            phrases << :contact_local_authorities_in_country_cp
-          end
-
-          if resident_of != 'ceremony_country' && ceremony_country != 'brazil'
-            phrases << :also_check_travel_advice
-          end
-
-          unless ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex'
-            if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' && resident_of == 'uk'
-              phrases << :what_you_need_to_do_cni_cp << :cni_at_local_register_office << :cni_issued_locally_validity << :legisation_and_translation_intro_uk << :legalise_translate_and_check_with_authorities << :names_on_documents_must_match
-            else
-              phrases << :cp_or_equivalent_cp_what_you_need_to_do
-              phrases << contact_method_key
-            end
-          end
-          if partner_nationality != 'partner_british'
-            phrases << :partner_naturalisation_in_uk
-          end
-          unless ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex'
-            phrases << :standard_cni_fee_for_cp
-          end
-
-          unless (ceremony_country == 'czech-republic' || data_query.countries_without_consular_facilities?(ceremony_country))
-            phrases << :link_to_consular_fees
-          end
-
-          if %w(iceland slovenia).include?(ceremony_country)
-            phrases << :pay_in_local_currency_ceremony_country_name
-          elsif ceremony_country == 'luxembourg'
-            phrases << :pay_in_cash_visa_or_mastercard
-          elsif %w(czech-republic cote-d-ivoire).exclude?(ceremony_country)
-            phrases << :pay_by_cash_or_credit_card_no_cheque
-          end
-          phrases
+      outcome :outcome_cp_or_equivalent, use_outcome_templates: true do
+        precalculate :data_query do
+          data_query
         end
       end
+
       outcome :outcome_cp_france_pacs do
         precalculate :france_pacs_law_cp_outcome do
           PhraseList.new(:fot_cp_all) if %w(new-caledonia wallis-and-futuna).include?(ceremony_country)
