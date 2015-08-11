@@ -391,69 +391,6 @@ en-GB:
           %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
         contact_dutch_embassy_in_uk_cp: |
           Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local laws, including what documents you’ll need.
-# Other countries outcome phrases
-        embassy_in_burma_doesnt_register_marriages: |
-          The British Embassy in Rangoon doesn’t register marriages of British citizens in Burma. Contact the embassy if you need further advice.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        cant_marry_burmese_citizen: |
-          %Marriage between a Burmese citizen and a foreign national is not allowed under local law.%
-        marriage_in_north_korea_unlikely: |
-          It’s very unlikely that foreign nationals would be allowed to marry in North Korea. Contact the British Embassy in Pyongyang if you need further advice.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        cant_marry_north_korean_citizen: |
-          %Marriage between a citizen of North Korea and a foreign national is not allowed under local law.%
-        no_consular_services_contact_embassy: |
-          There are currently no British consular services available in %{country_name_lowercase_prefix}. See below if you need further advice.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        limited_consular_services_contact_embassy: |
-          There are only limited British consular services available in %{country_name_lowercase_prefix}. See below if you need further advice.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-        saudi_arabia_requirements_for_foreigners: |
-          ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can only get married at the British Embassy if you’re resident in the country.^
-
-          Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
-
-          The British Embassy in Saudi Arabia may also be able to give you advice.
-        saudi_arabia_requirements_for_residents: |
-          One of you must be a Muslim to get married under local laws in Saudi Arabia. Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
-
-          ##Getting married at the British Embassy
-
-          You can only apply to get married at the British Embassy in Riyadh if you’re resident in Saudi Arabia and neither of you is a Muslim. Contact them to make an appointment.
-          +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-          You’ll need to provide:
-
-          - proof that you’ve been living in the country where you intend to get married for at least 21 days, e.g. an employer’s letter or a bank statement (you’ll also need to sign a declaration to confirm this)
-          - your original passport and [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-          - proof that you’re both over the age of 16, not within prohibited degrees of relationship to each other, and there’s no other impediment to your proposed marriage
-          - equivalent document for your partner
-
-          If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:
-
-          - a [decree absolute or final order](/copy-decree-absolute-final-order), or
-          - the [death certificate](/order-copy-birth-death-marriage-certificate/)
-
-          ###What happens next
-
-          Once you’ve submitted these and paid the registration fee (see below), the embassy or consulate will post your marriage notice publicly for 14 days.
-
-          As long as nobody has registered an objection after this time, the consular officer can then perform the marriage ceremony any time until 3 months after the date you gave notice.
-
-          You’ll need to pay additional fees for the marriage ceremony and to get your marriage certificate (see below).
-
-        fees_table_and_payment_instructions_saudi_arabia: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Posting a marriage notice | £65
-          Performing a marriage ceremony| £140
-          Issuing a marriage certificate | £65
-
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{ceremony_country}-consular-fees).
-
-          You can pay by cash or credit card, but not by personal cheque.
-
 # Synonyms of Civil Partnership phrases
         synonyms_of_cp_in_austria: |
           Same-sex relationships in Austria that are recognised as civil partnerships under British law are known as ‘eingetragene Partnerschaft’, or ‘registered partnership’.
@@ -863,12 +800,6 @@ en-GB:
         title: Civil Partnership in %{country_name_lowercase_prefix}
         body: |
           %{body}
-
-#outcome other countries
-      outcome_os_other_countries:
-        title: Marriage in %{country_name_lowercase_prefix}
-        body: |
-          %{other_countries_os_outcome}
 
 #outcome for CP in country with CP or equivalent
       outcome_cp_or_equivalent:

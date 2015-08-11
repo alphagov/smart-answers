@@ -1050,7 +1050,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_other_countries
-      assert_phrase_list :other_countries_os_outcome, [:embassy_in_burma_doesnt_register_marriages, :cant_marry_burmese_citizen]
     end
   end
 
@@ -1077,7 +1076,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_other_countries
-      assert_phrase_list :other_countries_os_outcome, [:marriage_in_north_korea_unlikely, :cant_marry_north_korean_citizen]
     end
   end
 
@@ -1091,7 +1089,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_other_countries
-      assert_phrase_list :other_countries_os_outcome, [:no_consular_services_contact_embassy]
     end
   end
 
@@ -1105,7 +1102,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to outcome_os_other_countries" do # Consular services in Yemen are temporarily ceased. Normal outcome: consular cni os outcome
       assert_current_node :outcome_os_other_countries
-      assert_phrase_list :other_countries_os_outcome, [:limited_consular_services_contact_embassy]
     end
   end
 
@@ -1119,7 +1115,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_other_countries
-      assert_phrase_list :other_countries_os_outcome, [:saudi_arabia_requirements_for_foreigners, :embassies_data]
     end
   end
 
@@ -1133,7 +1128,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_other_countries
-      assert_phrase_list :other_countries_os_outcome, [:saudi_arabia_requirements_for_residents, :fees_table_and_payment_instructions_saudi_arabia]
     end
   end
 
@@ -1147,7 +1141,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_other_countries
-      assert_phrase_list :other_countries_os_outcome, [:saudi_arabia_requirements_for_residents, :partner_naturalisation_in_uk, :fees_table_and_payment_instructions_saudi_arabia]
     end
   end
 
