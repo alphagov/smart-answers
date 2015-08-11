@@ -21,7 +21,6 @@ Contact the local British embassy or consulate where you’re planning the cerem
 
 
 
-
 $A
 British Embassy Copenhagen
 Kastelsvej 36-40
@@ -39,13 +38,11 @@ Email: <Enquiry.Copenhagen@fco.gov.uk>
 $C
 
 
-
 ##Fees
 
 Service | Fee
 -|-
 Issuing a CNI or equivalent | £65
-
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Denmark](/government/publications/denmark-consular-fees).
 
