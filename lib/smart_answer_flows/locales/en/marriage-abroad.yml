@@ -344,10 +344,6 @@ en-GB:
           Administering an oath or making a declaration | £55
 
 # Affirmation to marry phrases
-        contact_embassy_or_consulate_representing_ceremony_country_in_uk_cp: |
-          Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing %{country_name_lowercase_prefix} before making any plans to find out about local laws, including what documents you’ll need.
-        no_consular_facilities_to_register_ss: |
-          There aren’t any British consular facilities to register a same-sex relationship, or get legal documents to prove you’re eligible enter into a same-sex relationship, in %{country_name_lowercase_prefix}.
         partner_needs_affirmation: |
           ^Your partner will need to get an affirmation as well.^
 
@@ -363,11 +359,6 @@ en-GB:
           - a civil partnership dissolution or annulment certificate
           - evidence if you’ve changed your name by deed poll
 
-# No CNI or consular services phrases
-        country_is_dutch_caribbean_island: |
-          %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
-        contact_dutch_embassy_in_uk_cp: |
-          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local laws, including what documents you’ll need.
 # Synonyms of Civil Partnership phrases
         synonyms_of_cp_in_austria: |
           Same-sex relationships in Austria that are recognised as civil partnerships under British law are known as ‘eingetragene Partnerschaft’, or ‘registered partnership’.
@@ -755,14 +746,6 @@ en-GB:
         body: |
           %{body}
 
-#outcome for CP in countries where no CNI or equivalent required
-      outcome_cp_no_cni:
-        title: Civil partnership in %{country_name_lowercase_prefix}
-        body: |
-          %{no_cni_required_cp_outcome}
-
-          *[GRO]:General Register Office
-          *[FCO]:Foreign &amp; Commonwealth Office
 #outcome for CP in commonwealth countries
       outcome_cp_commonwealth_countries:
         title: "%{type_of_ceremony} in %{country_name_lowercase_prefix}"

@@ -473,37 +473,9 @@ module SmartAnswer
 
       outcome :outcome_cp_france_pacs, use_outcome_templates: true
 
-      outcome :outcome_cp_no_cni do
-        precalculate :no_cni_required_cp_outcome do
-          phrases = PhraseList.new
-          phrases << :"synonyms_of_cp_in_#{ceremony_country}" if data_query.cp_cni_not_required_countries?(ceremony_country)
-
-          if resident_of == 'ceremony_country'
-            phrases << :get_legal_advice
-          else
-            phrases << :get_legal_and_travel_advice
-          end
-
-          phrases << :what_you_need_to_do
-          if ceremony_country == 'bonaire-st-eustatius-saba'
-            phrases << :country_is_dutch_caribbean_island
-            if resident_of == 'uk'
-              phrases << :contact_dutch_embassy_in_uk_cp
-            else
-              phrases << :contact_local_authorities_in_country_cp
-            end
-          else
-            if resident_of == 'uk'
-              phrases << :contact_embassy_or_consulate_representing_ceremony_country_in_uk_cp
-            else
-              phrases << :contact_local_authorities_in_country_cp
-            end
-          end
-          phrases << :no_consular_facilities_to_register_ss
-          if partner_nationality != 'partner_british'
-            phrases << :partner_naturalisation_in_uk
-          end
-          phrases
+      outcome :outcome_cp_no_cni, use_outcome_templates: true do
+        precalculate :data_query do
+          data_query
         end
       end
 
