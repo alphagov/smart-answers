@@ -921,7 +921,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:country_is_dutch_caribbean_island, :contact_local_authorities_in_country_marriage, :get_legal_advice, :cni_os_consular_facilities_unavailable]
     end
   end
 
@@ -935,7 +934,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:country_is_dutch_caribbean_island, :contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
     end
   end
 
@@ -963,7 +961,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go os no cni outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable]
     end
   end
 
@@ -1027,7 +1024,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :partner_naturalisation_in_uk]
     end
   end
 
@@ -1041,7 +1037,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
     end
   end
 
@@ -1069,7 +1064,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni os outcome" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :partner_naturalisation_in_uk]
     end
   end
 
@@ -1706,7 +1700,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:contact_embassy_or_consulate_representing_ceremony_country_in_uk, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable]
     end
   end
 
@@ -2067,7 +2060,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "show 7 day notice" do
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :display_notice_of_marriage_7_days]
     end
   end
 
@@ -2317,14 +2309,12 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
 
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable]
     end
 
     should "suggest to contact local authorities even if the user is in third country for SS (because they don't have many embassies)" do
       add_response 'same_sex'
 
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable]
     end
   end
 
@@ -2341,14 +2331,12 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
 
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable]
     end
 
     should "suggest to contact local authorities even if the user is in third country for SS (because they don't have many embassies)" do
       add_response 'same_sex'
 
       assert_current_node :outcome_os_no_cni
-      assert_phrase_list :no_cni_os_outcome, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :cni_os_consular_facilities_unavailable]
     end
   end
 

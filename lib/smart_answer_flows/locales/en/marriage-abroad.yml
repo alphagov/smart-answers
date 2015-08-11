@@ -353,11 +353,6 @@ en-GB:
           - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
           - equivalent documents for your partner
 
-        display_notice_of_marriage_7_days: |
-          ###What happens next
-
-          The %{embassy_or_consulate_ceremony_country} will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
-
         names_on_documents_must_match: |
           %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
         consular_cni_os_fees_incl_null_osta_oath_consular_letter: |
@@ -372,8 +367,6 @@ en-GB:
           Administering an oath or making a declaration | £55
 
 # Affirmation to marry phrases
-        contact_embassy_or_consulate_representing_ceremony_country_in_uk: |
-          Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing %{country_name_lowercase_prefix} before making any plans to find out about local marriage laws, including what documents you’ll need.
         contact_embassy_or_consulate_representing_ceremony_country_in_uk_cp: |
           Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing %{country_name_lowercase_prefix} before making any plans to find out about local laws, including what documents you’ll need.
         no_consular_facilities_to_register_ss: |
@@ -396,13 +389,8 @@ en-GB:
 # No CNI or consular services phrases
         country_is_dutch_caribbean_island: |
           %{country_name_uppercase_prefix} is one of the Dutch Caribbean islands.
-        contact_dutch_embassy_in_uk: |
-          Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need.
         contact_dutch_embassy_in_uk_cp: |
           Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local laws, including what documents you’ll need.
-        cni_os_consular_facilities_unavailable: |
-          There aren’t any British consular facilities to register a marriage or get legal documents to prove you’re eligible to marry in %{country_name_lowercase_prefix}.
-
 # Other countries outcome phrases
         embassy_in_burma_doesnt_register_marriages: |
           The British Embassy in Rangoon doesn’t register marriages of British citizens in Burma. Contact the embassy if you need further advice.
@@ -876,14 +864,6 @@ en-GB:
         body: |
           %{body}
 
-#outcome country with no CNI or consular services
-      outcome_os_no_cni:
-        title: Marriage in %{country_name_lowercase_prefix}
-        body: |
-          %{no_cni_os_outcome}
-
-          *[GRO]:General Register Office
-          *[FCO]:Foreign &amp; Commonwealth Office
 #outcome other countries
       outcome_os_other_countries:
         title: Marriage in %{country_name_lowercase_prefix}

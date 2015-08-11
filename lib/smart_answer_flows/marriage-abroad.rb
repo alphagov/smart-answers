@@ -456,44 +456,9 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_os_no_cni do
-        precalculate :no_cni_os_outcome do
-          phrases = PhraseList.new
-          if data_query.dutch_caribbean_islands?(ceremony_country)
-            phrases << :country_is_dutch_caribbean_island
-            if resident_of == 'uk'
-              phrases << :contact_dutch_embassy_in_uk
-            else
-              phrases << :contact_local_authorities_in_country_marriage
-            end
-          else
-            if resident_of != 'uk' || data_query.ss_unknown_no_embassies?(ceremony_country)
-              phrases << :contact_local_authorities_in_country_marriage
-            elsif resident_of == 'uk'
-              phrases << :contact_embassy_or_consulate_representing_ceremony_country_in_uk
-            end
-          end
-
-          if resident_of == 'ceremony_country'
-            phrases << :get_legal_advice
-          else
-            phrases << :get_legal_and_travel_advice
-          end
-
-          phrases << :cni_os_consular_facilities_unavailable
-
-          unless data_query.countries_without_consular_facilities?(ceremony_country)
-            phrases << :link_to_consular_fees
-            phrases << :pay_by_cash_or_credit_card_no_cheque
-          end
-          if partner_nationality != 'partner_british'
-            phrases << :partner_naturalisation_in_uk
-          end
-          if data_query.requires_7_day_notice?(ceremony_country)
-            phrases << :display_notice_of_marriage_7_days
-          end
-
-          phrases
+      outcome :outcome_os_no_cni, use_outcome_templates: true do
+        precalculate :data_query do
+          data_query
         end
       end
 
