@@ -608,7 +608,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
       should "go to outcome_spain with UK/OS specific phrases" do
         assert_current_node :outcome_spain
-        assert_phrase_list :body, [:civil_weddings_in_spain, :get_legal_and_travel_advice, :legal_restrictions_for_non_residents_spain, :what_you_need_to_do_spain, :get_cni_in_uk_for_spain_title, :cni_at_local_register_office, :get_cni_in_uk_for_spain, :get_maritial_status_certificate_spain, :other_requirements_in_spain_intro, :other_requirements_in_spain, :names_on_documents_must_match, :consular_cni_os_fees_incl_null_osta_oath_consular_letter, :link_to_consular_fees, :pay_by_visas_or_mastercard]
+        assert_phrase_list :body, [:civil_weddings_in_spain, :get_legal_and_travel_advice, :legal_restrictions_for_non_residents_spain, :what_you_need_to_do, :cni_maritial_status_certificate_spain, :what_you_need_to_do_spain, :get_cni_in_uk_for_spain_title, :cni_at_local_register_office, :get_cni_in_uk_for_spain, :get_maritial_status_certificate_spain, :other_requirements_in_spain_intro, :other_requirements_in_spain, :names_on_documents_must_match, :consular_cni_os_fees_incl_null_osta_oath_consular_letter, :link_to_consular_fees, :pay_by_visas_or_mastercard]
       end
     end
 
@@ -620,7 +620,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
       should "go to outcome_spain with ceremony country OS specific phrases" do
         assert_current_node :outcome_spain
-        assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :civil_weddings_in_spain, :get_legal_advice, :what_you_need_to_do_spain, :get_cni_in_spain, :get_maritial_status_certificate_spain, :other_requirements_in_spain_for_residents_intro, :other_requirements_in_spain, :names_on_documents_must_match, :partner_naturalisation_in_uk, :consular_cni_os_fees_incl_null_osta_oath_consular_letter, :link_to_consular_fees, :pay_by_visas_or_mastercard]
+        assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :civil_weddings_in_spain, :get_legal_advice, :what_you_need_to_do, :cni_maritial_status_certificate_spain, :what_you_need_to_do_spain, :get_cni_in_spain, :get_maritial_status_certificate_spain, :other_requirements_in_spain_for_residents_intro, :other_requirements_in_spain, :names_on_documents_must_match, :partner_naturalisation_in_uk, :consular_cni_os_fees_incl_null_osta_oath_consular_letter, :link_to_consular_fees, :pay_by_visas_or_mastercard]
       end
     end
 
@@ -633,7 +633,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to outcome_spain with third country OS specific phrases" do
         assert_current_node :outcome_spain
-        assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :legal_restrictions_for_non_residents_spain, :what_you_need_to_do_spain_third_country]
+        assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :get_legal_and_travel_advice, :legal_restrictions_for_non_residents_spain, :what_you_need_to_do, :cni_maritial_status_certificate_spain, :what_you_need_to_do_spain_third_country]
         assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/spain/ceremony_country/partner_other/opposite_sex"
         assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/spain/uk/partner_other/opposite_sex"
       end
@@ -648,7 +648,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to outcome_spain with UK/SS specific phrases" do
         assert_current_node :outcome_spain
-        assert_phrase_list :body, [:ss_process_in_spain, :get_legal_and_travel_advice, :legal_restrictions_for_non_residents_spain, :what_you_need_to_do_spain, :get_cni_in_uk_for_spain_title, :cni_at_local_register_office, :get_cni_in_uk_for_spain, :get_maritial_status_certificate_spain, :other_requirements_in_spain_intro, :other_requirements_in_spain, :names_on_documents_must_match, :consular_cni_os_fees_incl_null_osta_oath_consular_letter, :link_to_consular_fees, :pay_by_visas_or_mastercard]
+        assert_phrase_list :body, [:ss_process_in_spain, :get_legal_and_travel_advice, :legal_restrictions_for_non_residents_spain, :what_you_need_to_do, :cni_maritial_status_certificate_spain, :what_you_need_to_do_spain, :get_cni_in_uk_for_spain_title, :cni_at_local_register_office, :get_cni_in_uk_for_spain, :get_maritial_status_certificate_spain, :other_requirements_in_spain_intro, :other_requirements_in_spain, :names_on_documents_must_match, :consular_cni_os_fees_incl_null_osta_oath_consular_letter, :link_to_consular_fees, :pay_by_visas_or_mastercard]
       end
     end
 
@@ -661,7 +661,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to outcome_spain with third country SS specific phrases" do
         assert_current_node :outcome_spain
-        assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :ss_process_in_spain, :get_legal_and_travel_advice, :legal_restrictions_for_non_residents_spain, :what_you_need_to_do_spain_third_country]
+        assert_phrase_list :body, [:contact_local_authorities_in_country_marriage, :ss_process_in_spain, :get_legal_and_travel_advice, :legal_restrictions_for_non_residents_spain, :what_you_need_to_do, :cni_maritial_status_certificate_spain, :what_you_need_to_do_spain_third_country]
         assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/spain/ceremony_country/partner_other/same_sex"
         assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/spain/uk/partner_other/same_sex"
       end

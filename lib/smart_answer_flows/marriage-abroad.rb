@@ -495,6 +495,8 @@ module SmartAnswer
             phrases << :legal_restrictions_for_non_residents_spain
           end
 
+          phrases << :what_you_need_to_do
+          phrases << :cni_maritial_status_certificate_spain
           if resident_of == 'third_country'
             phrases << :what_you_need_to_do_spain_third_country
           else
