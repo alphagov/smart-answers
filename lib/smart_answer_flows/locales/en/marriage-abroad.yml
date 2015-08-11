@@ -22,6 +22,7 @@ en-GB:
 
       phrases:
         ceremony_type_marriage: Marriage
+        ceremony_type_ss_marriage: Same-sex Marriage
         ceremony_type_civil_partnership: Civil partnership
 
         title_ss_marriage: Same-sex marriage
@@ -516,8 +517,8 @@ en-GB:
           Civil weddings in Spain take place at a town hall, register office or district court. You must register with the local civil authorities afterwards to get an official marriage certificate if you have a religious wedding.
         legal_restrictions_for_non_residents_spain: |
           %There are certain legal restrictions on getting married in Spain if neither of you lives there. If you both live outside Spain, you must check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
-        ss_process_and_recognition_in_spain: |
-          The process for same-sex marriages in Spain is the same as for opposite-sex civil marriages. Your marriage will be recognised as a civil partnership under British law.
+        ss_process_in_spain: |
+          The process for same-sex marriages in Spain is the same as for opposite-sex civil marriages.
         what_you_need_to_do_spain_third_country: |
           ## What you need to do
 

@@ -454,6 +454,14 @@ module SmartAnswer
       end
 
       outcome :outcome_spain do
+        precalculate :ceremony_type do
+          if sex_of_your_partner == 'opposite_sex'
+            PhraseList.new(:ceremony_type_marriage)
+          else
+            PhraseList.new(:ceremony_type_ss_marriage)
+          end
+        end
+
         precalculate :current_path do
           (['/marriage-abroad/y'] + responses).join('/')
         end
@@ -469,11 +477,7 @@ module SmartAnswer
         precalculate :body do
           phrases = PhraseList.new
           if resident_of != 'uk'
-            if sex_of_your_partner == 'opposite_sex'
-              phrases << :contact_local_authorities_in_country_marriage
-            else
-              phrases << :contact_local_authorities_in_country_cp
-            end
+            phrases << :contact_local_authorities_in_country_marriage
           end
 
           if resident_of != 'third_country' && sex_of_your_partner == 'opposite_sex'
@@ -481,7 +485,7 @@ module SmartAnswer
           end
 
           if sex_of_your_partner == 'same_sex'
-            phrases << :ss_process_and_recognition_in_spain
+            phrases << :ss_process_in_spain
           end
 
           if resident_of == 'ceremony_country'
