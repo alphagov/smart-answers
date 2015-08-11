@@ -696,6 +696,9 @@ module SmartAnswer
               phrases << :consular_cni_os_uk_resident_montenegro
             elsif %w(finland kazakhstan kyrgyzstan poland).include?(ceremony_country)
               phrases << :legalisation_and_translation_check_with_authorities
+            elsif ceremony_country == 'greece'
+              phrases << :legalisation_and_translation
+              phrases << :uk_cni_accepted_in_townhall
             elsif %w(italy).exclude?(ceremony_country)
               phrases << :legisation_and_translation_intro_uk
             end
