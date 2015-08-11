@@ -9,6 +9,7 @@ Contact the [Embassy of Macao](/government/publications/foreign-embassies-in-the
 ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for Macao](/foreign-travel-advice/macao) before making any plans.
 
 
+
 ##What you need to do
 
 You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
@@ -20,11 +21,10 @@ Make an appointment at the British Consulate General Hong Kong to swear an affir
 [Make an appointment at the British Consulate General Hong Kong](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-hong-kong/oaths-affirmations-and-affidavits/slot_picker).
 
 
+
 You’ll need to complete an ‘Affirmation for marriage’ (non-religious) form or an ‘Affidavit for marriage’ (religious) form in English.
 
-
 You can download and fill in (but not sign) the forms in advance.
-
 
 $D
 [Download ‘Affidavit for marriage’](/government/publications/affidavit-form-macao)
@@ -44,10 +44,12 @@ You’ll need to provide supporting documents, including:
 ^Your partner will probably need to get an affirmation as well.^
 
 
+
 ###Legalisation and translation
 
-
 You might need to get your affirmation [translated](/government/collections/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
+
+
 
 
 If you’ve been divorced or widowed, you’ll also need:
@@ -57,16 +59,16 @@ If you’ve been divorced or widowed, you’ll also need:
 
 - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.
 
-
 You’ll also need to provide evidence if you’ve changed your name by deed poll.
+
 
 
 ^Your partner will probably need to get an equivalent document from their national authorities.^
 
-
 ##Naturalisation of your partner if they move to the UK
 
 Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
+
 
 
 ##Fees
@@ -74,7 +76,6 @@ Your partner can apply to [become a British citizen](/becoming-a-british-citizen
 Service | Fee
 -|-
 Affirmation for marriage | £55
-
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Macao](/government/publications/macao-consular-fees).
 
