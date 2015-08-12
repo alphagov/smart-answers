@@ -22,6 +22,7 @@ en-GB:
 
       phrases:
         ceremony_type_marriage: Marriage
+        ceremony_type_ss_marriage: Same-sex Marriage
         ceremony_type_civil_partnership: Civil partnership
 
         title_ss_marriage: Same-sex marriage
@@ -511,6 +512,117 @@ en-GB:
           %{country_name_uppercase_prefix} is a British overseas territory.
 
           Contact the %{ceremony_country_name} Government to find out about getting married there, including what documents you’ll need.
+# Marriage in Spain phrases
+        civil_weddings_in_spain: |
+          Civil weddings in Spain take place at a town hall, register office or district court. You must register with the local civil authorities afterwards to get an official marriage certificate if you have a religious wedding.
+        legal_restrictions_for_non_residents_spain: |
+          %There are certain legal restrictions on getting married in Spain if neither of you lives there. If you both live outside Spain, you must check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
+        ss_process_in_spain: |
+          The process for same-sex marriages in Spain is the same as for opposite-sex civil marriages.
+        cni_maritial_status_certificate_spain: |
+          You may be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you’re allowed to marry.
+
+          $D
+          [Download 'Certificate of no impediment' (PDF, 198KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/315447/EXAMPLE_CERT_Certificate_of_No_Impediment_CNI__1_.pdf)
+          $D
+
+          $D
+          [Download 'Marital status certificate' (PDF, 145KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/420038/Marital_Status_example.pdf)
+          $D
+        what_you_need_to_do_spain_third_country: |
+          Check with the civil registry  where you’re getting married to find out what certificate you’ll need.
+
+          There are 2 ways you can get these certificates:
+
+          - [go to the UK and post notice with a UK registrar](%{uk_residence_outcome_path})
+          - [go to %{country_name_lowercase_prefix} and post notice at the embassy or consulate there](%{ceremony_country_residence_outcome_path})
+
+          You need to apply for all certificates at least 3 months before the date you intend to get married.
+
+          You must be physically present in Spain for at least 3 days before you apply for a CNI.
+        what_you_need_to_do_spain: |
+          ^Document requirements vary across Spain - check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re getting married to find out what you’ll need.^
+
+          Your partner must also provide their own certificates.
+
+          You must apply for all certificates at least 3 months before you get married.
+        get_cni_in_uk_for_spain_title: |
+          ## Getting a certificate of no impediment
+        get_cni_in_uk_for_spain: |
+          ^Your CNI will be valid for 3 months in Spain.^
+
+          You must then exchange your UK-issued CNI for one that’s valid in Spain.
+
+          Download and fill in the CNI application pack - it contains a list of the documents you’ll need.
+
+          $D
+          [Download 'CNI for UK residents application pack' (PDF, 426KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/446265/UK_CNI_Pack.pdf)
+          $D
+
+          Send the documents by registered post to the address in the application pack.
+        get_cni_in_spain: |
+          ## Getting a certificate of no impediment
+
+          Download and the complete the CNI application pack - it contains a list of the documents you’ll need.
+
+          $D
+          [Download 'CNI application pack' (PDF, 464KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/446264/CNI_Pack.pdf)
+          $D
+
+          You must sign the notice of marriage and affirmation in front of a local [notary public](http://www.notaries-directory.eu/) in Spain before you send your application to the consulate.
+
+          Send all the documents and fee by registered post to the address in the application pack.
+
+          ###What happens next
+
+          The consulate will check your forms and documents. Once everything is approved, they’ll take your payment and display your notice of marriage for 7 days. If nobody raises an objection, they’ll then issue your CNI and send it to you with your supporting documents by registered post.
+
+          It takes 10 working days after payment for the consulate to process your application.
+        get_maritial_status_certificate_spain: |
+          ##Getting a marital status certificate
+
+          Download and complete the marital status certificate application pack - it contains a list of the documents you’ll need.
+
+          $D
+          [Download 'Marital status certificate application pack' (PDF, 424KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/446267/Marital_Status_for_Marriage_Pack.pdf)
+          $D
+
+          You must sign the affirmation in the application pack in front of a local [notary public](http://www.notaries-directory.eu/) in Spain before you send your application to the consulate.
+
+          Send the documents by registered post to the address in the application pack.
+
+          ### What happens next
+
+          The consulate will check your forms and documents, and contact you if they have any queries.
+
+          It takes 10 working days after your payment has been approved for the consulate to process your application.
+
+          They’ll send your certificate and original documents to you by registered post.
+        other_requirements_in_spain_intro: |
+          ##Other requirements for Spain
+
+          The civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).
+
+        other_requirements_in_spain_for_residents_intro: |
+          ##Other requirements for Spain
+
+          If you’ve been living in Spain for less than 2 years, the civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).
+
+        other_requirements_in_spain: |
+          You’ll need to show one of the following:
+
+          - a letter confirming your address, eg electoral roll
+          - a bank or building society statement, credit card statement
+          - a mortgage statement
+          - a council tax letter
+          - utility bills
+          - recent proof of entitlement to local or state benefits, eg tax credits, pension, education or other benefits
+
+          If you’re asked to provide a document from the British consulate, print out a copy of the [‘communication proof of address’](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/288272/Communication_re_Proof_of_Address.pdf).
+
+          ^You must get your documents translated if they’re not in English or Spanish.^
+        fees_spain: |
+
 # Marriage in a country with consular CNI phrases
         japan_intro: |
           Contact your [nearest embassy or consulate](http://www.mofa.go.jp/about/emb_cons/over/index.html) of Japan to find out about local marriage laws, including what documents you’ll need.
@@ -532,24 +644,12 @@ en-GB:
           You may be able to get married at the British Embassy if you’re both resident in %{country_name_lowercase_prefix} and can prove that there are no other suitable facilities.
 
           Contact the British Embassy in %{country_name_lowercase_prefix} for more information.
-        spain_os_consular_cni_opposite_sex: |
-          Civil weddings in Spain take place at a town hall, register office or district court. You need to register with the local civil authorities afterwards to get an official marriage certificate if you have a religious wedding.
-        spain_os_consular_cni_same_sex: |
-          The process for same-sex marriages in Spain is the same as for opposite-sex civil marriages. Your marriage will be recognised as a civil partnership under British law.
-        spain_os_consular_civil_registry: |
-          Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re getting married.
-        spain_os_consular_cni_not_local_resident: |
-          %There are certain legal restrictions if neither of you is resident in Spain. If you both live outside Spain, you should check with the civil registry where you’re planning to getting married to find out if this is allowed.%
         italy_os_consular_cni_ceremony_italy: |
           Contact the local comune (town hall) before making any plans to find out about local marriage laws, including what documents you’ll need.
         consular_cni_os_ceremony_21_day_requirement: |
           You need to have been living in the country where you intend to marry for 21 full days.
         you_may_be_asked_for_cni: |
           You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
-        cni_pareja_de_hecho_requirements_spain: |
-          You may be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you’re allowed to marry.
-
-          ^You may also need to get a marital status certificate if you’re living with your partner and want to get a ‘[pareja de hecho](/notarial-and-documentary-services-guide-for-spain#marital-status-certificate-for-pareja-de-hecho)’ (cohabitation registration).^
         get_cni_from_uk: |
           You’ll need to get a certificate of no impediment (CNI) from the authorities in the UK to prove you’re allowed to marry.
         partner_cni_requirements_the_same: |
@@ -591,7 +691,7 @@ en-GB:
           - [go to %{country_name_lowercase_prefix} and swear an affidavit (written statement of facts) that you’re free to marry](%{ceremony_country_residence_outcome_path})
         cni_at_local_register_office: |
           You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
-
+        cni_issued_locally_validity: |
           ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire. Check with your local register office to find out how long a CNI is valid if you live in the Channel Islands or the Isle of Man. You should also check with the local authorities in %{country_name_lowercase_prefix} to find out how long a CNI is valid under local law.^
 
         cni_subject_to_objection_14_days:
@@ -809,14 +909,6 @@ en-GB:
           - a copy of your partner’s identity document
         italy_consular_cni_os_partner_british: |
           You and your partner will need to provide your passports and [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate).
-        consular_cni_variant_local_resident_spain: |
-          The documents you need are:
-
-          - your passport
-          - your partner’s passport or national identity document
-          - a ‘certificado de empadronamiento’ (town hall registration certificate) or Spanish police residence certificate (green document with your NIE number address) issued at least 3 days ago
-
-          ^The Civil Registry will usually ask you for a certificado de empadronamiento issued in the last 3 months.^
         consular_cni_os_not_uk_resident_ceremony_not_germany: |
           If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
@@ -830,23 +922,11 @@ en-GB:
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - a civil partnership dissolution or annulment certificate
           - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
-        consular_cni_os_other_resident_ceremony_not_germany_or_spain: |
+        evidence_if_divorced_outside_uk: |
           ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
         consular_cni_os_other_resident_ceremony_italy: |
           You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/publications/italy-list-of-translators-and-interpreters) if it’s not in English.
-        sending_cni_and_booking_appointment_spain: |
-          Send your completed CNI service request form and copies of the supporting documents to your [nearest British consulate](/notarial-and-documentary-services-guide-for-spain#where-to-send-your-request). You can send them as scanned attachments by email or by fax. You’ll need to bring the original documents to your appointment.
-
-          To request an appointment, fill in the CNI service request form and make sure you’ve got all of the necessary supporting documents.
-
-          $D
-          [Download ’CNI service request form’ (DOC, 29KB)](/government/publications/certificate-of-no-impediment-service-request-form-spain)
-          $D
-
-          ###What happens next
-
-          The consulate will check your form and documents, and if everything’s in order they’ll send you details of how to book your appointment to give official notice of your marriage. They’ll then display your notice publicly for 7 days, and if nobody has raised an objection, they’ll issue your CNI. There’s an additional fee for this.
 
         download_and_fill_notice_and_affidavit_but_not_sign: |
           You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
@@ -930,45 +1010,6 @@ en-GB:
           %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
         check_if_cni_needs_to_be_legalised: |
           You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in %{country_name_lowercase_prefix}.
-        consular_cni_os_ceremony_spain: |
-          ###Getting a marital status certificate
-
-          In some parts of Spain you may need to to get a ‘marital status certificate’ (‘certificado de estado civil’) instead of, or as well as, a CNI (’certificado de no impedimento’).
-
-          Check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re getting married. If you need one, ask a [solicitor](/government/publications/spain-list-of-lawyers) (‘abogado’) to draw up a declaration for you printed on their headed paper.
-
-          ^If it’s on blank, non-headed paper, they’ll need to give you a separate letter including their contact details, confirming that they’ve drawn up the declaration.^
-
-          You’ll then need to make an appointment at the consulate to make the declaration and sign the document in front of a consular officer - so don’t sign it beforehand.
-
-          Download instructions in English and Spanish on what the declaration needs to include.
-
-          $D
-          [Download ‘Marital status declaration instructions in English’ (PDF, 363KB)](/government/uploads/system/uploads/attachment_data/file/136832/marital-status-declaration-instruction-en.pdf)
-          [Download ‘Declaración de estado civil instrucciones en Español’ (PDF, 236KB)](/government/uploads/system/uploads/attachment_data/file/136833/marital-status-declaration-instruction-sp.pdf)
-          $D
-
-          You’ll also need a completed marital status certificate application form, as well as the supporting documents and the fee (see below).
-
-          $D
-          [Download ’Marital status certificate appointment request form’ (DOC, 53KB)](/government/uploads/system/uploads/attachment_data/file/182249/Appointment_request_form_marital_status_marriage.doc)
-          $D
-        consular_cni_os_ceremony_spain_partner_british: |
-          Your partner will also need to get a marital status certificate from the consulate and pay the fees if the civil registry have told you that they need one.
-        other_requirements_for_spain: |
-          ###Other requirements for Spain
-
-          The civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).
-
-          You’ll need to show one of the following:
-
-          - a letter confirming your address, eg electoral roll
-          - a bank or building society statement, credit card statement
-          - a mortgage statement
-          - a council tax letter
-          - utility bills
-          - recent proof of entitlement to local or state benefits, eg tax credits, pension, education or other benefits
-
         consular_cni_os_fees_incl_null_osta_oath_consular_letter: |
           ##Fees
 
@@ -1822,6 +1863,13 @@ en-GB:
         title: Marriage in %{country_name_lowercase_prefix}
         body: |
           %{bot_outcome}
+      outcome_spain:
+        title: |
+          %{ceremony_type} in Spain
+        body: |
+          %{body}
+
+          *[CNI]:certificate of no impediment
 
 # CNI outcome for opposite sex partners residing in third country
       outcome_consular_cni_os_residing_in_third_country:

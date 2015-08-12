@@ -178,10 +178,6 @@ module SmartAnswer
           resident_of == 'third_country' && (data_query.os_consular_cni_countries?(ceremony_country) || %w(kosovo).include?(ceremony_country) || data_query.os_consular_cni_in_nearby_country?(ceremony_country))
         }
 
-        define_predicate(:marriage_in_spain_third_country) {
-          ceremony_country == 'spain' && resident_of == 'third_country'
-        }
-
         define_predicate(:marriage_in_norway_third_country) {
           ceremony_country == 'norway' && resident_of == 'third_country'
         }
@@ -191,7 +187,7 @@ module SmartAnswer
         next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
         next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
         next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
-        next_node_if(:outcome_consular_cni_os_residing_in_third_country, marriage_in_spain_third_country)
+        next_node_if(:outcome_spain, variable_matches(:ceremony_country, "spain"))
 
         on_condition(responded_with('opposite_sex')) do
           next_node_if(:outcome_os_hong_kong, variable_matches(:ceremony_country, 'hong-kong'))
@@ -258,8 +254,6 @@ module SmartAnswer
           next_node_if(:outcome_ss_marriage,
             ss_marriage_countries? | ss_marriage_countries_when_couple_british? | ss_marriage_and_partnership?
           )
-
-          next_node_if(:outcome_os_consular_cni, variable_matches(:ceremony_country, "spain"))
 
           next_node_if(:outcome_cp_or_equivalent, -> {
             data_query.cp_equivalent_countries?(ceremony_country)
@@ -459,6 +453,88 @@ module SmartAnswer
         end
       end
 
+      outcome :outcome_spain do
+        precalculate :ceremony_type do
+          if sex_of_your_partner == 'opposite_sex'
+            PhraseList.new(:ceremony_type_marriage)
+          else
+            PhraseList.new(:ceremony_type_ss_marriage)
+          end
+        end
+
+        precalculate :current_path do
+          (['/marriage-abroad/y'] + responses).join('/')
+        end
+
+        precalculate :uk_residence_outcome_path do
+          current_path.gsub('third_country', 'uk')
+        end
+
+        precalculate :ceremony_country_residence_outcome_path do
+          current_path.gsub('third_country', 'ceremony_country')
+        end
+
+        precalculate :body do
+          phrases = PhraseList.new
+          if resident_of != 'uk'
+            phrases << :contact_local_authorities_in_country_marriage
+          end
+
+          if resident_of != 'third_country' && sex_of_your_partner == 'opposite_sex'
+            phrases << :civil_weddings_in_spain
+          end
+
+          if sex_of_your_partner == 'same_sex'
+            phrases << :ss_process_in_spain
+          end
+
+          if resident_of == 'ceremony_country'
+            phrases << :get_legal_advice
+          else
+            phrases << :get_legal_and_travel_advice
+            phrases << :legal_restrictions_for_non_residents_spain
+          end
+
+          phrases << :what_you_need_to_do
+          phrases << :cni_maritial_status_certificate_spain
+          if resident_of == 'third_country'
+            phrases << :what_you_need_to_do_spain_third_country
+          else
+            phrases << :what_you_need_to_do_spain
+          end
+
+          if resident_of == 'uk'
+            phrases << :get_cni_in_uk_for_spain_title
+            phrases << :cni_at_local_register_office
+            phrases << :get_cni_in_uk_for_spain
+          elsif resident_of == 'ceremony_country'
+            phrases << :get_cni_in_spain
+          end
+
+          if resident_of != 'third_country'
+            phrases << :get_maritial_status_certificate_spain
+
+            if resident_of == 'ceremony_country'
+              phrases << :other_requirements_in_spain_for_residents_intro
+            else
+              phrases << :other_requirements_in_spain_intro
+            end
+            phrases << :other_requirements_in_spain
+
+            phrases << :names_on_documents_must_match
+
+            unless partner_nationality == 'partner_british'
+              phrases << :partner_naturalisation_in_uk
+            end
+
+            phrases << :consular_cni_os_fees_incl_null_osta_oath_consular_letter
+            phrases << :link_to_consular_fees
+            phrases << :pay_by_visas_or_mastercard
+          end
+          phrases
+        end
+      end
+
       outcome :outcome_os_commonwealth do
         precalculate :commonwealth_os_outcome do
           phrases = PhraseList.new
@@ -573,14 +649,13 @@ module SmartAnswer
       outcome :outcome_os_consular_cni do
         precalculate :consular_cni_os_start do
           phrases = PhraseList.new
-          three_day_residency_requirement_applies = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama poland romania russia serbia slovenia spain sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-          three_day_residency_handled_by_exception = %w(croatia italy spain russia)
+          three_day_residency_requirement_applies = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama poland romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          three_day_residency_handled_by_exception = %w(croatia italy russia)
           no_birth_cert_requirement = three_day_residency_requirement_applies - ['italy']
           cni_notary_public_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-          no_document_download_link_if_os_resident_of_uk_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua poland russia spain serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          no_document_download_link_if_os_resident_of_uk_countries = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
           cni_posted_after_14_days_countries = %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
-          not_italy_or_spain = %w(italy spain).exclude?(ceremony_country)
           ceremony_not_germany_or_not_resident_other = (ceremony_country != 'germany' || resident_of == 'uk') # TODO verify this is ok
           ceremony_and_residency_in_croatia = (ceremony_country == 'croatia' && resident_of == 'ceremony_country')
 
@@ -607,7 +682,7 @@ module SmartAnswer
             end
           end
 
-          if %(japan italy spain).exclude?(ceremony_country)
+          if %(japan italy).exclude?(ceremony_country)
             if resident_of == 'ceremony_country'
               phrases << :get_legal_advice
             else
@@ -615,17 +690,7 @@ module SmartAnswer
             end
           end
 
-          if ceremony_country == 'spain'
-            if sex_of_your_partner == 'opposite_sex'
-              phrases << :spain_os_consular_cni_opposite_sex
-            else
-              phrases << :spain_os_consular_cni_same_sex
-            end
-            phrases << :spain_os_consular_civil_registry
-            unless resident_of == 'ceremony_country'
-              phrases << :spain_os_consular_cni_not_local_resident
-            end
-          elsif ceremony_country == 'italy'
+          if ceremony_country == 'italy'
             phrases << :italy_os_consular_cni_ceremony_italy
           end
 
@@ -640,13 +705,11 @@ module SmartAnswer
           elsif data_query.os_21_days_residency_required_countries?(ceremony_country)
             phrases << :consular_cni_os_ceremony_21_day_requirement
             phrases << :you_may_be_asked_for_cni
-          elsif not_italy_or_spain && ceremony_not_germany_or_not_resident_other
+          elsif ceremony_country != 'italy' && ceremony_not_germany_or_not_resident_other
             phrases << :you_may_be_asked_for_cni
           end
 
-          if ceremony_country == 'spain'
-            phrases << :cni_pareja_de_hecho_requirements_spain
-          elsif ceremony_country == 'italy'
+          if ceremony_country == 'italy'
             if resident_of == 'uk'
               phrases << :get_cni_from_uk
             end
@@ -667,6 +730,7 @@ module SmartAnswer
 
           if resident_of == 'uk'
             phrases << :cni_at_local_register_office
+            phrases << :cni_issued_locally_validity
             if cni_posted_after_14_days_countries.include?(ceremony_country)
               phrases << :cni_subject_to_objection_14_days
             end
@@ -732,7 +796,7 @@ module SmartAnswer
               phrases << :russia_os_local_resident
             end
 
-            unless %w(germany italy japan spain).include?(ceremony_country)
+            unless %w(germany italy japan).include?(ceremony_country)
               if ceremony_country == 'macedonia'
                 phrases << :consular_cni_os_foreign_resident_3_days_macedonia
               else
@@ -746,12 +810,12 @@ module SmartAnswer
 
           if resident_of != 'uk' && data_query.phrase_exists?("required_supporting_documents_#{ceremony_country}")
             phrases << :"required_supporting_documents_#{ceremony_country}"
-          elsif resident_of == 'ceremony_country' && %w(germany italy japan spain).exclude?(ceremony_country)
+          elsif resident_of == 'ceremony_country' && %w(germany italy japan).exclude?(ceremony_country)
             birth_cert_inclusion = if no_birth_cert_requirement.exclude?(ceremony_country)
               '_incl_birth_cert'
             end
 
-            notary_public_inclusion = if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia spain).include?(ceremony_country)
+            notary_public_inclusion = if cni_notary_public_countries.include?(ceremony_country) || %w(japan macedonia).include?(ceremony_country)
               '_notary_public'
             end
             phrases << "required_supporting_documents#{birth_cert_inclusion}#{notary_public_inclusion}".to_sym
@@ -772,8 +836,6 @@ module SmartAnswer
               else
                 phrases << :italy_consular_cni_os_partner_not_british
               end
-            elsif ceremony_country == 'spain'
-              phrases << :consular_cni_variant_local_resident_spain
             end
           end
 
@@ -788,13 +850,9 @@ module SmartAnswer
           if resident_of != 'uk'
             if ceremony_country == 'italy' && resident_of != 'uk'
               phrases << :consular_cni_os_other_resident_ceremony_italy
-            elsif %(germany spain).exclude?(ceremony_country)
-              phrases << :consular_cni_os_other_resident_ceremony_not_germany_or_spain
+            elsif %(germany).exclude?(ceremony_country)
+              phrases << :evidence_if_divorced_outside_uk
             end
-          end
-
-          if resident_of == 'ceremony_country' && ceremony_country == 'spain'
-            phrases << :sending_cni_and_booking_appointment_spain
           end
 
           if ceremony_country == 'italy' && resident_of != 'uk'
@@ -802,11 +860,11 @@ module SmartAnswer
           end
 
           if resident_of == 'ceremony_country'
-            if %w(spain germany).exclude?(ceremony_country)
+            if %w(germany).exclude?(ceremony_country)
               phrases << :download_and_fill_notice_and_affidavit_but_not_sign
             end
           else
-            if sex_of_your_partner == 'same_sex' || no_document_download_link_if_os_resident_of_uk_countries.exclude?(ceremony_country) && (cni_notary_public_countries + %w(italy japan macedonia spain) - %w(greece tunisia)).include?(ceremony_country)
+            if sex_of_your_partner == 'same_sex' || no_document_download_link_if_os_resident_of_uk_countries.exclude?(ceremony_country) && (cni_notary_public_countries + %w(italy japan macedonia) - %w(greece tunisia)).include?(ceremony_country)
               phrases << :download_and_fill_notice_and_affidavit_but_not_sign
             end
           end
@@ -820,7 +878,7 @@ module SmartAnswer
               phrases << :consular_cni_os_foreign_resident_ceremony_notary_public_greece
             elsif cni_notary_public_countries.include?(ceremony_country) || ceremony_country == 'japan'
               phrases << :consular_cni_os_foreign_resident_ceremony_notary_public
-            elsif %w(germany spain).exclude?(ceremony_country)
+            elsif %w(germany).exclude?(ceremony_country)
               phrases << :display_notice_of_marriage_7_days
             end
           elsif data_query.requires_7_day_notice?(ceremony_country)
@@ -844,16 +902,8 @@ module SmartAnswer
             phrases << :names_on_documents_must_match
           end
 
-          if resident_of != 'uk' && %w(italy spain germany).exclude?(ceremony_country)
+          if resident_of != 'uk' && %w(italy germany).exclude?(ceremony_country)
             phrases << :check_if_cni_needs_to_be_legalised
-          end
-
-          if ceremony_country == 'spain'
-            phrases << :consular_cni_os_ceremony_spain
-            if partner_nationality == 'partner_british'
-              phrases << :consular_cni_os_ceremony_spain_partner_british
-            end
-            phrases << :other_requirements_for_spain
           end
 
           if resident_of == 'ceremony_country'
@@ -1224,7 +1274,7 @@ module SmartAnswer
 
           unless ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex'
             if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' && resident_of == 'uk'
-              phrases << :what_you_need_to_do_cni_cp << :cni_at_local_register_office << :legisation_and_translation_intro_uk << :legalise_translate_and_check_with_authorities << :names_on_documents_must_match
+              phrases << :what_you_need_to_do_cni_cp << :cni_at_local_register_office << :cni_issued_locally_validity << :legisation_and_translation_intro_uk << :legalise_translate_and_check_with_authorities << :names_on_documents_must_match
             else
               phrases << :cp_or_equivalent_cp_what_you_need_to_do
               phrases << contact_method_key
