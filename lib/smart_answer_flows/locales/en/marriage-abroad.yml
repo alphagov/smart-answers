@@ -710,10 +710,6 @@ en-GB:
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
 #outcome for CP in all other countries
-      outcome_cp_all_other_countries:
-        title: Same-sex marriage and civil partnership in %{country_name_lowercase_prefix}
-        body: |
-          It’s not possible to get legal recognition for a same-sex relationship in %{country_name_lowercase_prefix}.
       outcome_ss_marriage:
         title: "%{ss_title} in %{country_name_lowercase_prefix}"
         body: |

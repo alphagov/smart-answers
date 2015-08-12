@@ -519,7 +519,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_cp_all_other_countries
+      outcome :outcome_cp_all_other_countries, use_outcome_templates: true
 
       outcome :outcome_ss_marriage do
         precalculate :ss_title do
