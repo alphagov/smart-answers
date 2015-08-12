@@ -461,7 +461,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to ss marriage" do
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_british_embassy_or_consulate_berlin, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_not_british_germany_same_sex, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
     end
   end
   #variants for uk residency (again)
@@ -890,7 +889,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
       should "go to outcome_ss_marriage" do
         assert_current_node :outcome_ss_marriage
-        assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :pay_by_cash_or_us_dollars_only]
       end
     end
   end
@@ -1344,7 +1342,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni cp countries outcome" do
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1393,8 +1390,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to outcome_ss_marriage" do
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_title, [:title_ss_marriage]
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, "appointment_links.same_sex.australia", :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :australia_ss_relationships, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
     end
   end
 
@@ -1406,8 +1401,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'same_sex'
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_title, [:title_ss_marriage]
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, "appointment_links.same_sex.australia", :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :australia_ss_relationships, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
     end
   end
 
@@ -1430,7 +1423,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'same_sex'
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1464,7 +1456,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       should "give ss outcome with japan variants" do
         add_response 'same_sex'
         assert_current_node :outcome_ss_marriage
-        assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :contact_to_make_appointment, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
       end
     end
 
@@ -1557,7 +1548,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'same_sex'
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1749,8 +1739,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to ss outcome" do
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_title, [:title_ss_marriage]
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -1864,7 +1852,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to outcome_ss_marriage" do
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -2209,7 +2196,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
 
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage_and_partnership, "appointment_links.same_sex.albania", :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage_and_partnership, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage_and_partnership, :provide_two_witnesses_ss_marriage_and_partnership, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_and_partnership, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque, :convert_cc_to_ss_marriage]
     end
   end
 
@@ -2399,7 +2385,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'same_sex'
       assert_current_node :outcome_ss_marriage
-      assert_phrase_list :ss_ceremony_body, [:able_to_ss_marriage, :contact_embassy_or_consulate, :embassies_data, :documents_needed_21_days_residency, :documents_needed_ss_not_british, :what_to_do_ss_marriage, :will_display_in_14_days, :no_objection_in_14_days_ss_marriage, :provide_two_witnesses_ss_marriage, :ss_marriage_footnote, :partner_naturalisation_in_uk, :fees_table_ss_marriage_alt, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -2423,8 +2408,10 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'partner_british'
         add_response 'same_sex'
 
-        assert current_state.current_node.to_s.include?('outcome'), "Expected to have reached an outcome node, but is at #{current_state.current_node}"
-        assert_phrase_lists_include "appointment_links.same_sex.#{country}"
+        unless current_state.current_node == :outcome_ss_marriage
+          assert current_state.current_node.to_s.include?('outcome'), "Expected to have reached an outcome node, but is at #{current_state.current_node}"
+          assert_phrase_lists_include "appointment_links.same_sex.#{country}"
+        end
       end
     end
   end

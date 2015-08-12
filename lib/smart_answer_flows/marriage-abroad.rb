@@ -521,63 +521,9 @@ module SmartAnswer
 
       outcome :outcome_cp_all_other_countries, use_outcome_templates: true
 
-      outcome :outcome_ss_marriage do
-        precalculate :ss_title do
-          PhraseList.new(:"title_#{marriage_and_partnership_phrases}")
-        end
-
-        precalculate :ss_fees_table do
-          if data_query.ss_alt_fees_table_country?(ceremony_country, partner_nationality)
-            :"#{marriage_and_partnership_phrases}_alt"
-          else
-            :"#{marriage_and_partnership_phrases}"
-          end
-        end
-
-        precalculate :ss_ceremony_body do
-          phrases = PhraseList.new
-          phrases << :"able_to_#{marriage_and_partnership_phrases}"
-
-          if ceremony_country == 'japan'
-            phrases << :contact_to_make_appointment << contact_method_key << :documents_needed_21_days_residency << :documents_needed_ss_british
-          elsif ceremony_country == 'germany'
-            phrases << :contact_british_embassy_or_consulate_berlin << contact_method_key
-          else
-            if contact_method_key == :embassies_data
-              phrases << :contact_embassy_or_consulate
-            end
-            phrases << contact_method_key
-          end
-
-          unless ceremony_country == 'japan'
-            phrases << :documents_needed_21_days_residency
-
-            if partner_nationality == 'partner_british'
-              phrases << :documents_needed_ss_british
-            elsif ceremony_country == 'germany'
-              phrases << :documents_needed_ss_not_british_germany_same_sex
-            else
-              phrases << :documents_needed_ss_not_british
-            end
-          end
-          phrases << :"what_to_do_#{marriage_and_partnership_phrases}" << :will_display_in_14_days << :"no_objection_in_14_days_#{marriage_and_partnership_phrases}" << :"provide_two_witnesses_#{marriage_and_partnership_phrases}"
-          if ceremony_country == 'australia'
-            phrases << :australia_ss_relationships
-          end
-
-          phrases << :ss_marriage_footnote
-          phrases << :partner_naturalisation_in_uk << :"fees_table_#{ss_fees_table}"
-
-          if ceremony_country == 'cambodia'
-            phrases << :pay_by_cash_or_us_dollars_only
-          else
-            phrases << :link_to_consular_fees << :pay_by_cash_or_credit_card_no_cheque
-          end
-
-          if %w{albania australia germany japan philippines russia serbia vietnam}.include?(ceremony_country)
-            phrases << :convert_cc_to_ss_marriage
-          end
-          phrases
+      outcome :outcome_ss_marriage, use_outcome_templates: true do
+        precalculate :data_query do
+          data_query
         end
       end
 

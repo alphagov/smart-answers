@@ -25,13 +25,7 @@ en-GB:
         ceremony_type_ss_marriage: Same-sex Marriage
         ceremony_type_civil_partnership: Civil partnership
 
-        title_ss_marriage: Same-sex marriage
-        title_ss_marriage_and_partnership: Same-sex marriage and civil partnership
         title_civil_partnership: Civil Partnership
-        able_to_ss_marriage: |
-          You may be able to get married at the British embassy or consulate in %{country_name_lowercase_prefix}.
-        able_to_ss_marriage_and_partnership: |
-          You may be able to register a civil partnership or get married at the British embassy or consulate in %{country_name_lowercase_prefix}.
         able_to_ss_marriage_and_partnership_hc: |
           You may be able to register a civil partnership or get married at the High Commission of %{country_name_lowercase_prefix}.
 
@@ -44,36 +38,12 @@ en-GB:
 
           - a [decree absolute or final order](/copy-decree-absolute-final-order)
           - the [death certificate](/order-copy-birth-death-marriage-certificate/)
-        documents_needed_ss_not_british_germany_same_sex: |
-          You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
-
-          - a [decree absolute or final order](/copy-decree-absolute-final-order)
-          - the [death certificate](/order-copy-birth-death-marriage-certificate/)
-        documents_needed_ss_not_british: |
-          You’ll both need your original passports. You’ll also need evidence that your partner is free to marry - a document from their government or their passport that says they are unmarried. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
-
-          - a [decree absolute or final order](/copy-decree-absolute-final-order)
-          - the [death certificate](/order-copy-birth-death-marriage-certificate/)
         documents_guidance_belgium: |
           Read the guidance on the [documents that you’ll need](/notarial-and-documentary-services-guide-for-belgium#proof-of-address-and-identity).
         convert_cc_to_ss_marriage: |
           ##Convert a civil partnership to a same-sex marriage
 
           If you’ve already entered into a civil partnership you may be able to convert it to a same-sex marriage - read [‘Convert a civil partnership to a same-sex marriage abroad’](/convert-civil-partnership-abroad).
-        what_to_do_ss_marriage: |
-          ##What you need to do
-
-          Once you’ve made your appointment, the embassy or consulate will give you:
-
-          - a notice of registration
-          - a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry
-        what_to_do_ss_marriage_and_partnership: |
-          ##What you need to do
-
-          Once you’ve made your appointment, the embassy or consulate will give you:
-
-          -  a notice of registration
-          -  a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry or enter into a civil partnership
         what_to_do_ss_marriage_and_partnership_hc: |
           ##What you need to do
 
@@ -81,30 +51,15 @@ en-GB:
 
           -  a notice of registration
           -  a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry or enter into a civil partnership
-        will_display_in_14_days: |
-          Once you’ve submitted these and paid the registration fee (read the fees table on this page), the embassy or consulate will display your notice publicly for 14 days.
+
         will_display_in_14_days_hc: |
           Once you’ve submitted these and paid the registration fee (read the fees table on this page), the high commission will display your notice publicly for 14 days.
-        no_objection_in_14_days_ss_marriage: |
-          As long as nobody registers an objection during the 14 days, the registration officer can then register your marriage any time until 3 months after you gave notice.
         no_objection_in_14_days_ss_marriage_and_partnership: |
           As long as nobody registers an objection during the 14 days, the registration officer can then register your marriage or partnership any time until 3 months after you gave notice.
-        provide_two_witnesses_ss_marriage: |
-          You’ll need to provide two witnesses and pay a fee to register your marriage. You’ll need to pay an additional fee for your marriage certificate (read the fees table on this page).
         provide_two_witnesses_ss_marriage_and_partnership: |
           You’ll need to provide 2 witnesses and pay a fee to register your marriage or civil partnership. You’ll need to pay an additional fee for your marriage or civil partnership certificate (read the fees table on this page).
-        ss_marriage_footnote: |
-          ^All same-sex marriages must take place under English and Welsh or Scottish law even if you live in or are from Northern Ireland. Tell the embassy or consulate which law you want to get married under at your appointment.^
         ss_marriage_footnote_hc: |
           ^All same-sex marriages must take place under English and Welsh or Scottish law even if you live in or are from Northern Ireland. Tell the high commission which law you want to get married under at your appointment.^
-        fees_table_ss_marriage: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Posting a marriage notice | £65
-          Performing a marriage ceremony | £140
-          Issuing a marriage certificate | £65
         fees_table_ss_marriage_and_partnership: |
           ##Fees
 
@@ -113,28 +68,8 @@ en-GB:
           Receiving a notice of registration | £65
           Registering a marriage or civil partnership | £140
           Issuing a marriage or civil partnership certificate | £65
-        fees_table_ss_marriage_alt: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Receiving a notice of registration  | £65
-          Registering a marriage | £140
-          Issuing a marriage certificate | £65
-        australia_ss_relationships: |
-          You can’t have a same-sex marriage in a British embassy or consulate if you’re already in one of these relationships:
-
-          * civil partnership (Australian Capital Territory)
-          * relationship registered under the Relationships Register Act 2010 (New South Wales)
-          * civil partnership (Queensland)
-          * significant relationship (Tasmania)
-          * registered domestic relationship (Victoria)
 # Reusable phrases
 # embassies
-        contact_british_embassy_or_consulate_berlin: |
-          Contact the British Embassy in Berlin to make an appointment.
-        contact_embassy_or_consulate: |
-          Contact the embassy or consulate to make an appointment.
         embassies_data: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 # payment methods
@@ -142,8 +77,6 @@ en-GB:
           You can pay by cash or credit card, but not by personal cheque.
         pay_by_visas_or_mastercard: |
           You can pay by credit card (Visa, Visa Electron or MasterCard), but not by personal cheque.
-        pay_by_cash_or_us_dollars_only: |
-          You can only pay fees for consular services by cash in US dollars.
 #fees
         link_to_consular_fees: |
           You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/%{ceremony_country}-consular-fees).
@@ -710,10 +643,6 @@ en-GB:
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
 #outcome for CP in all other countries
-      outcome_ss_marriage:
-        title: "%{ss_title} in %{country_name_lowercase_prefix}"
-        body: |
-          %{ss_ceremony_body}
       outcome_ss_marriage_not_possible:
         title: Same-sex marriage and civil partnership in %{country_name_lowercase_prefix}
         body: |
