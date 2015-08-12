@@ -8,16 +8,16 @@ module SmartdownAdapter
       @smartdown_node = smartdown_node
     end
 
-    def body
-      @smartdown_node.body && markdown_to_html(@smartdown_node.body)
+    def body(html: true)
+      render(@smartdown_node.body, html: html)
     end
 
     def post_body
       @smartdown_node.post_body && markdown_to_html(@smartdown_node.post_body)
     end
 
-    def next_steps
-      @smartdown_node.next_steps && markdown_to_html(@smartdown_node.next_steps)
+    def next_steps(html: true)
+      render(@smartdown_node.next_steps, html: html)
     end
 
     def has_body?
@@ -38,9 +38,13 @@ module SmartdownAdapter
 
   private
 
-    def markdown_to_html markdown
-      Govspeak::Document.new(markdown).to_html.html_safe
+    def render(smartdown, html:)
+      return unless smartdown
+      html ? markdown_to_html(smartdown) : smartdown
     end
 
+    def markdown_to_html(markdown)
+      Govspeak::Document.new(markdown).to_html.html_safe
+    end
   end
 end
