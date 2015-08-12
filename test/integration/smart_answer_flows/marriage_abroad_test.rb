@@ -300,7 +300,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to consular cp outcome" do
       assert_current_node :outcome_cp_consular
       assert_state_variable :institution_name, "High Commission"
-      assert_phrase_list :consular_cp_outcome, [:cp_may_be_possible, :contact_to_make_appointment, :embassies_data, :documents_needed_7_days_residency, :documents_for_both_partners_cp, :additional_non_british_partner_documents_cp, :consular_cp_what_you_need_to_do, :partner_naturalisation_in_uk, :consular_cp_standard_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 

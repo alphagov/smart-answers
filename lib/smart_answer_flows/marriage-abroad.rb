@@ -509,41 +509,13 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_cp_consular do
+      outcome :outcome_cp_consular, use_outcome_templates: true do
         precalculate :institution_name do
           if ceremony_country == 'cyprus'
             "High Commission"
           else
             "British embassy or consulate"
           end
-        end
-
-        precalculate :consular_cp_outcome do
-          phrases = PhraseList.new(:cp_may_be_possible)
-
-          if %w(croatia bulgaria).include?(ceremony_country) && partner_nationality == 'partner_local'
-            phrases << :cant_register_cp_with_country_national
-          else
-            phrases << :contact_to_make_appointment
-          end
-          phrases << contact_method_key
-
-          phrases << :documents_needed_7_days_residency
-
-          phrases << :documents_for_both_partners_cp
-          if partner_nationality != 'partner_british'
-            phrases << :additional_non_british_partner_documents_cp
-          end
-
-          phrases << :consular_cp_what_you_need_to_do
-
-          unless partner_nationality == 'partner_british'
-            phrases << :partner_naturalisation_in_uk
-          end
-
-          phrases << :consular_cp_standard_fees
-          phrases << :pay_by_cash_or_credit_card_no_cheque
-          phrases
         end
       end
 

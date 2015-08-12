@@ -35,10 +35,6 @@ en-GB:
         able_to_ss_marriage_and_partnership_hc: |
           You may be able to register a civil partnership or get married at the High Commission of %{country_name_lowercase_prefix}.
 
-        documents_needed_7_days_residency: |
-          ##What documents you’ll need
-
-          You’ll need proof that you’ve been resident in the area covered by the %{institution_name} for at least 7 days, like an employer’s letter or a bank statement.
         documents_needed_21_days_residency: |
           ##What documents you’ll need
 
@@ -492,51 +488,10 @@ en-GB:
           - a Single Status Certificate issued by state or territory authorities, if they’ve been resident in Australia for at least 21 days
 
 # CP in countries with consular CP (exc australia) phrases
-        cp_may_be_possible: |
-          You may be able to register a civil partnership at the %{institution_name} in %{country_name_lowercase_prefix}.
         no_cp_with_vietnamese_national: |
           %However, you can’t enter into a civil partnership with a Vietnamese national.%
-        cant_register_cp_with_country_national: |
-          %However, they can’t register a civil partnership between a British national and a national of %{country_name_lowercase_prefix}.%
         contact_to_make_appointment: |
           Contact them to make an appointment:
-        documents_for_both_partners_cp: |
-          You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:
-
-          - a [decree absolute or final order](/copy-decree-absolute-final-order), or
-          - the [death certificate](/order-copy-birth-death-marriage-certificate/)
-        additional_non_british_partner_documents_cp: |
-          Your partner will also need either:
-
-          - a ‘certificate of no impediment’ (CNI) or similar document to prove they’re allowed to enter into a civil partnership from their national authorities
-          - an official letter from the local authorities in the country where they’re resident confirming that they’re single
-
-          ^Any foreign documents may need to be ’[legalised](/get-document-legalised)’ (certified as genuine) in the country they were issued (or that country’s embassy in %{country_name_lowercase_prefix}), and [translated into English](/government/collections/list-of-lawyers).^
-        consular_cp_what_you_need_to_do: |
-          ###What you need to do
-
-          Once you’ve made your appointment, the %{institution_name} will give you:
-
-          - a notice of registration
-          - a declaration that you and your partner will need to swear, stating that you’re legally entitled to enter into a civil partnership
-
-          Once you’ve submitted these and paid the registration fee (see below), the %{institution_name} will display your notice publicly for 14 days.
-
-          As long as nobody has registered an objection after this time, the registration officer can then register your partnership any time until 3 months after the date you gave notice.
-
-          You’ll need to provide two witnesses and pay a fee to register your civil partnership. You’ll need to pay an additional fee for your civil partnership certificate (see below).
-
-        consular_cp_standard_fees: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Receiving a notice of registration | £65
-          Registering a civil partnership | £140
-          Issuing a civil partnership certificate | £65
-
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{ceremony_country_name}](/government/publications/%{ceremony_country}-consular-fees).
-
         appointment_links:
           opposite_sex:
             albania: |
@@ -754,13 +709,6 @@ en-GB:
 
           *[GRO]:General Register Office
           *[FCO]:Foreign &amp; Commonwealth Office
-#outcome for CP in countries with consular CNI (exc. australia)
-      outcome_cp_consular:
-        title: Civil partnership in %{country_name_lowercase_prefix}
-        body: |
-          %{consular_cp_outcome}
-
-          *[CNI]:certificate of no impediment
 #outcome for CP in all other countries
       outcome_cp_all_other_countries:
         title: Same-sex marriage and civil partnership in %{country_name_lowercase_prefix}
