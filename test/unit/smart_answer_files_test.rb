@@ -1,6 +1,14 @@
 require_relative '../test_helper'
 
 class SmartAnswerFilesTest < ActiveSupport::TestCase
+  context 'when provided with a misspelled flow name' do
+    should 'be empty' do
+      files = SmartAnswerFiles.new("i-dont-exist")
+      assert files.empty?
+      assert_equal [], files.existing_paths
+    end
+  end
+
   context 'with no additional files' do
     setup do
       @flow_name = 'flow-name'
@@ -40,6 +48,19 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
         erb_template_files.each do |file|
           expected_path = file.path.relative_path_from(Rails.root)
           assert_equal true, smart_answer_files.paths.include?(expected_path)
+        end
+      end
+    end
+  end
+
+  context 'with smartdown flows' do
+    should 'return relative paths to questions, outcomes and snippets' do
+      amsrtanswer_name = 'smartdown-answer'
+      temporary_smartdown_answer(amsrtanswer_name) do |smartdown_txt_files|
+        smart_answer_files = SmartAnswerFiles.new(amsrtanswer_name)
+        smartdown_txt_files.each do |file|
+          expected_path = file.path.relative_path_from(Rails.root)
+          assert smart_answer_files.paths.include?(expected_path), "Expected #{expected_path} to be detected"
         end
       end
     end
@@ -97,6 +118,26 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
       yield files
     ensure
       FileUtils.rm_f(erb_template_directory)
+      files.each do |file|
+        file.unlink
+        file.close
+      end
+    end
+  end
+
+  def temporary_smartdown_answer(flow_name)
+    begin
+      smartdown_files_directory = Rails.root.join('lib', 'smartdown_flows', flow_name)
+      FileUtils.mkdir_p(smartdown_files_directory)
+
+      files = ['outcomes', 'questions', 'snippets', ''].collect do |dir|
+        FileUtils.mkdir_p(File.join(smartdown_files_directory, dir)) if dir.present?
+        Tempfile.new(["#{flow_name}#{dir.singularize}", '.txt'], File.join(smartdown_files_directory, dir))
+      end
+
+      yield files
+    ensure
+      FileUtils.rm_f(smartdown_files_directory)
       files.each do |file|
         file.unlink
         file.close

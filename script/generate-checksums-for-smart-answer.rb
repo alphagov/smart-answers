@@ -14,7 +14,9 @@ end
 additional_flow_file_paths = ARGV + existing_additional_flow_file_paths
 flow_files = SmartAnswerFiles.new(flow_name, *additional_flow_file_paths)
 
-hasher = SmartAnswerHasher.new(flow_files.paths)
+abort "No files detected, did you misspell the smartanswer name? (#{flow_name})" if flow_files.empty?
+
+hasher = SmartAnswerHasher.new(flow_files.existing_paths)
 
 flow_helper.write_files_checksum(hasher)
 

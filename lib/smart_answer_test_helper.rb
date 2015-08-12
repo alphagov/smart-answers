@@ -136,7 +136,7 @@ class SmartAnswerTestHelper
     checksum_data = read_files_checksums
     known_smart_answer_files = checksum_data.keys
     detected_smart_answer_files = SmartAnswerFiles.new(@flow_name)
-    unknown_files = detected_smart_answer_files.paths - known_smart_answer_files
+    unknown_files = detected_smart_answer_files.existing_paths - known_smart_answer_files
     unknown_files.any?
   end
 end

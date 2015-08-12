@@ -5,7 +5,7 @@ class SmartAnswerTestHelperTest < ActiveSupport::TestCase
     setup do
       @flow_name = 'flow-name'
       @temp_file = Tempfile.new('filename')
-      @smart_answer_files = stub(paths: [@temp_file.path])
+      @smart_answer_files = stub(existing_paths: [@temp_file.path], paths: [@temp_file.path])
       SmartAnswerFiles.stubs(:new).with(@flow_name).returns(@smart_answer_files)
       @hasher = SmartAnswerHasher.new(@smart_answer_files.paths)
       @test_helper = SmartAnswerTestHelper.new(@flow_name)
