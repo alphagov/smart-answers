@@ -12,10 +12,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     @translations ||= YAML.load_file("lib/smart_answer_flows/locales/en/marriage-abroad.yml")
   end
 
-  SS_COUNTRIES_WITH_APPOINTMENTS = translations["en-GB"]["flow"]["marriage-abroad"]["phrases"]["appointment_links"]["same_sex"].keys
-
   setup do
-    @location_slugs = (SS_COUNTRIES_WITH_APPOINTMENTS + %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic democratic-republic-of-congo denmark ecuador egypt estonia finland france germany greece hong-kong indonesia iran ireland italy japan jordan kazakhstan kosovo kyrgyzstan laos latvia lebanon lithuania macao macedonia malta mayotte mexico monaco morocco netherlands nicaragua north-korea oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe)).uniq
+    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic democratic-republic-of-congo denmark ecuador egypt estonia finland france germany greece hong-kong indonesia iran ireland italy japan jordan kazakhstan kosovo kyrgyzstan laos latvia lebanon lithuania macao macedonia malta mayotte mexico monaco montenegro morocco netherlands nicaragua north-korea norway oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe).uniq
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::MarriageAbroadFlow
   end
@@ -699,7 +697,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'same_sex'
       assert_current_node :outcome_ss_affirmation
-      assert_phrase_list :body, [:synonyms_of_cp_in_belgium, :contact_local_authorities_in_country_cp, :get_legal_and_travel_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, "appointment_links.same_sex.belgium", :complete_affirmation_or_affidavit_forms, :download_and_fill_but_not_sign, :download_affidavit_and_affirmation_belgium, :partner_needs_affirmation, :required_supporting_documents, :documents_guidance_belgium, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :divorce_proof_cp, :names_on_documents_must_match, :partner_probably_needs_affirmation, :fee_table_affirmation_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
 
     should "go to outcome_ss_affirmation for same sex marriages for residents in Belgium" do
@@ -707,7 +704,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'same_sex'
       assert_current_node :outcome_ss_affirmation
-      assert_phrase_list :body, [:synonyms_of_cp_in_belgium, :contact_local_authorities_in_country_cp, :get_legal_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit, "appointment_links.same_sex.belgium", :complete_affirmation_or_affidavit_forms, :download_and_fill_but_not_sign, :download_affidavit_and_affirmation_belgium, :partner_needs_affirmation, :required_supporting_documents, :documents_guidance_belgium, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :divorce_proof_cp, :names_on_documents_must_match, :partner_probably_needs_affirmation, :fee_table_affirmation_55, :link_to_consular_fees, :pay_by_cash_or_credit_card_no_cheque]
     end
   end
 
@@ -2372,7 +2368,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
 
       assert_current_node :outcome_ss_affirmation
-      assert_phrase_list :body, [:synonyms_of_cp_in_norway, :contact_local_authorities_in_country_cp, :get_legal_advice, :what_you_need_to_do_affirmation, :appointment_for_affidavit_norway, "appointment_links.same_sex.norway", :partner_needs_affirmation, :legalisation_and_translation, :affirmation_os_translation_in_local_language_text, :divorce_proof_cp, :partner_probably_needs_affirmation, :fee_table_affirmation_55, :link_to_consular_fees, :pay_by_visas_or_mastercard]
     end
   end
 
@@ -2395,23 +2390,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_consular_cni
-    end
-  end
-
-  context "when appointment links for same sex marriage exist" do
-    SS_COUNTRIES_WITH_APPOINTMENTS.each do |country|
-      should "countain an appointment link in the outcome for #{country.titleize}" do
-        worldwide_api_has_no_organisations_for_location(country)
-        add_response country
-        add_response 'ceremony_country'
-        add_response 'partner_british'
-        add_response 'same_sex'
-
-        unless current_state.current_node == :outcome_ss_marriage
-          assert current_state.current_node.to_s.include?('outcome'), "Expected to have reached an outcome node, but is at #{current_state.current_node}"
-          assert_phrase_lists_include "appointment_links.same_sex.#{country}"
-        end
-      end
     end
   end
 end

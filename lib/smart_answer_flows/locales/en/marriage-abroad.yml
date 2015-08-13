@@ -26,15 +26,11 @@ en-GB:
         ceremony_type_civil_partnership: Civil partnership
 
         title_civil_partnership: Civil Partnership
-        documents_guidance_belgium: |
-          Read the guidance on the [documents that you’ll need](/notarial-and-documentary-services-guide-for-belgium#proof-of-address-and-identity).
 # Reusable phrases
 # embassies
         embassies_data: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
 # payment methods
-        pay_by_cash_or_credit_card_no_cheque: |
-          You can pay by cash or credit card, but not by personal cheque.
         pay_by_visas_or_mastercard: |
           You can pay by credit card (Visa, Visa Electron or MasterCard), but not by personal cheque.
 #fees
@@ -45,40 +41,7 @@ en-GB:
 # "what you need to do" phrases
         what_you_need_to_do: |
           ##What you need to do
-        what_you_need_to_do_affirmation: |
-          ##What you need to do
-
-          You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
-        complete_affirmation_or_affidavit_forms: |
-          You’ll need to complete an ‘Affirmation for marriage’ (non-religious) form or an ‘Affidavit for marriage’ (religious) form in English.
-        download_and_fill_but_not_sign: |
-          You can download and fill in (but not sign) the forms in advance.
-# affidavit phrases
-        download_affidavit_and_affirmation_belgium: |
-          $D
-          [Download ‘Affidavit for marriage’ and ’Affirmation for marriage’](/government/publications/affidavitaffirmation-of-marital-status-form-belgium)
-          $D
-
-        appointment_for_affidavit: |
-          Make an appointment at the British embassy or consulate in %{country_name_lowercase_prefix} to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
-        appointment_for_affidavit_norway: |
-          Make an appointment at the British embassy in Oslo to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, a copy of your partner’s passport and pay a fee.
-# partner affirmation phrases
-        legalisation_and_translation: |
-          ###Legalisation and translation
-        affirmation_os_translation_in_local_language_text: |
-          You might need to get your affirmation [translated](/government/collections/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
-
-# fee tables
-        fee_table_affirmation_55: |
-          ##Fees
-
-          Service | Fee
-          -|-
-          Affirmation for marriage | £55
 #other phrases
-        callout_partner_equivalent_document: |
-          ^Your partner will probably need to get an equivalent document from their national authorities.^
         get_legal_advice: |
           ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
         get_legal_and_travel_advice: |
@@ -208,17 +171,8 @@ en-GB:
         fees_spain: |
 
 # Marriage in a country with consular CNI phrases
-        contact_embassy_of_ceremony_country_in_uk_cp: |
-          Contact the [Embassy of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local laws, including what documents you’ll need.
         cni_at_local_register_office: |
           You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
-        required_supporting_documents: |
-          You’ll need to provide supporting documents, including:
-
-          - your passport
-          - proof of residence, such as a residence certificate - check with the %{embassy_or_consulate_ceremony_country} to find out what you need
-          - equivalent documents for your partner
-
         names_on_documents_must_match: |
           %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
         consular_cni_os_fees_incl_null_osta_oath_consular_letter: |
@@ -231,22 +185,6 @@ en-GB:
           Issuing any other consular letter or certificate in English | £45
           Issuing any other consular letter or certificate in any other language | £70
           Administering an oath or making a declaration | £55
-
-# Affirmation to marry phrases
-        partner_needs_affirmation: |
-          ^Your partner will need to get an affirmation as well.^
-
-        partner_probably_needs_affirmation: |
-          ^Your partner will probably need to get an affirmation as well.^
-
-        divorce_proof_cp: |
-
-          If you’ve been divorced, widowed or previously in a civil partnership, you’ll need to provide:
-
-          - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate)
-          - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
-          - a civil partnership dissolution or annulment certificate
-          - evidence if you’ve changed your name by deed poll
 
 # Synonyms of Civil Partnership phrases
         synonyms_of_cp_in_austria: |
@@ -582,11 +520,6 @@ en-GB:
           %{body}
 
           *[CNI]:certificate of no impediment
-
-      outcome_ss_affirmation:
-        title: Civil Partnership in %{country_name_lowercase_prefix}
-        body: |
-          %{body}
 
 #outcome for CP in commonwealth countries
       outcome_cp_commonwealth_countries:

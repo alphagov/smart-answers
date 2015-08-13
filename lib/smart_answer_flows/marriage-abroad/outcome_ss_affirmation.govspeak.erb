@@ -1,0 +1,101 @@
+<% content_for :title do %>
+  Civil Partnership in <%= country_name_lowercase_prefix %>
+<% end %>
+
+<% content_for :body do %>
+  <%= render partial: 'synonyms_of_cp.govspeak.erb',
+             locals: {
+               ceremony_country: ceremony_country
+             } %>
+
+  <% if resident_of == 'uk' %>
+    <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_cp.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+  <% else %>
+    <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+  <% end %>
+
+  <% if resident_of == 'ceremony_country' %>
+    <%= render partial: 'get_legal_advice.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+  <% end %>
+
+  <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
+
+  <% if ceremony_country == 'norway' %>
+    <%= render partial: 'appointment_for_affidavit_norway.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'appointment_for_affidavit.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+  <% end %>
+
+  <%= render partial: 'contact_method.govspeak.erb',
+             locals: {
+               sex_of_your_partner: sex_of_your_partner,
+               ceremony_country: ceremony_country,
+               overseas_passports_embassies: overseas_passports_embassies,
+               country_name_lowercase_prefix: country_name_lowercase_prefix
+             } %>
+
+  <% if ceremony_country == 'belgium' %>
+    <%= render partial: 'complete_affirmation_or_affidavit_forms.govspeak.erb' %>
+    <%= render partial: 'download_and_fill_but_not_sign.govspeak.erb' %>
+    <%= render partial: 'download_affidavit_and_affirmation_belgium.govspeak.erb' %>
+  <% end %>
+
+  <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
+
+  <% if ceremony_country == 'belgium' %>
+    <%= render partial: 'required_supporting_documents.govspeak.erb',
+               locals: {
+                 embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
+               } %>
+    <%= render partial: 'documents_guidance_belgium.govspeak.erb' %>
+  <% end %>
+
+  <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
+  <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
+
+  If you’ve been divorced, widowed or previously in a civil partnership, you’ll need to provide:
+
+  - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate)
+  - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
+  - a civil partnership dissolution or annulment certificate
+  - evidence if you’ve changed your name by deed poll
+
+  <% if ceremony_country == 'belgium' %>
+    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+  <% end %>
+
+  <% if partner_nationality == 'partner_british' %>
+    <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
+    <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+  <% end %>
+
+  <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
+  <%= render partial: 'link_to_consular_fees.govspeak.erb',
+             locals: {
+               country_name_lowercase_prefix: country_name_lowercase_prefix,
+               ceremony_country: ceremony_country
+             } %>
+
+  <% if ceremony_country == 'norway' %>
+    <%= render partial: 'pay_by_visas_or_mastercard.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
+  <% end %>
+<% end %>

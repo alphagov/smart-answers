@@ -531,71 +531,7 @@ module SmartAnswer
 
       outcome :outcome_ss_marriage_malta, use_outcome_templates: true
 
-      outcome :outcome_ss_affirmation do
-        precalculate :body do
-          phrases = PhraseList.new
-          phrases << :"synonyms_of_cp_in_#{ceremony_country}"
-
-          if resident_of == 'uk'
-            phrases << :contact_embassy_of_ceremony_country_in_uk_cp
-          else
-            phrases << :contact_local_authorities_in_country_cp
-          end
-
-          if resident_of == 'ceremony_country'
-            phrases << :get_legal_advice
-          else
-            phrases << :get_legal_and_travel_advice
-          end
-
-          phrases << :what_you_need_to_do_affirmation
-
-          if ceremony_country == 'norway'
-            phrases << :appointment_for_affidavit_norway
-          else
-            phrases << :appointment_for_affidavit
-          end
-
-          phrases << contact_method_key
-
-          if ceremony_country == 'belgium'
-            phrases << :complete_affirmation_or_affidavit_forms
-            phrases << :download_and_fill_but_not_sign
-            phrases << :download_affidavit_and_affirmation_belgium
-          end
-
-          phrases << :partner_needs_affirmation
-
-          if ceremony_country == 'belgium'
-            phrases << :required_supporting_documents
-            phrases << :documents_guidance_belgium
-          end
-
-          phrases << :legalisation_and_translation
-          phrases << :affirmation_os_translation_in_local_language_text
-          phrases << :divorce_proof_cp
-
-          if ceremony_country == 'belgium'
-            phrases << :names_on_documents_must_match
-          end
-
-          if partner_nationality == 'partner_british'
-            phrases << :partner_probably_needs_affirmation
-          else
-            phrases << :callout_partner_equivalent_document
-            phrases << :partner_naturalisation_in_uk
-          end
-
-          phrases << :fee_table_affirmation_55
-          phrases << :link_to_consular_fees
-
-          if ceremony_country == 'norway'
-            phrases << :pay_by_visas_or_mastercard
-          else
-            phrases << :pay_by_cash_or_credit_card_no_cheque
-          end
-        end
-      end
+      outcome :outcome_ss_affirmation, use_outcome_templates: true
 
       outcome :outcome_os_marriage_impossible_no_laos_locals
     end
