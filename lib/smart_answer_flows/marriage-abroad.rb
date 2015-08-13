@@ -533,7 +533,7 @@ module SmartAnswer
 
       outcome :outcome_ss_affirmation, use_outcome_templates: true
 
-      outcome :outcome_os_marriage_impossible_no_laos_locals
+      outcome :outcome_os_marriage_impossible_no_laos_locals, use_outcome_templates: true
     end
   end
 end
