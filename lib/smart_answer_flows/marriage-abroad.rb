@@ -299,15 +299,7 @@ module SmartAnswer
 
       outcome :outcome_monaco, use_outcome_templates: true
 
-      outcome :outcome_spain do
-        precalculate :ceremony_type do
-          if sex_of_your_partner == 'opposite_sex'
-            PhraseList.new(:ceremony_type_marriage)
-          else
-            PhraseList.new(:ceremony_type_ss_marriage)
-          end
-        end
-
+      outcome :outcome_spain, use_outcome_templates: true do
         precalculate :current_path do
           (['/marriage-abroad/y'] + responses).join('/')
         end
@@ -318,66 +310,6 @@ module SmartAnswer
 
         precalculate :ceremony_country_residence_outcome_path do
           current_path.gsub('third_country', 'ceremony_country')
-        end
-
-        precalculate :body do
-          phrases = PhraseList.new
-          if resident_of != 'uk'
-            phrases << :contact_local_authorities_in_country_marriage
-          end
-
-          if resident_of != 'third_country' && sex_of_your_partner == 'opposite_sex'
-            phrases << :civil_weddings_in_spain
-          end
-
-          if sex_of_your_partner == 'same_sex'
-            phrases << :ss_process_in_spain
-          end
-
-          if resident_of == 'ceremony_country'
-            phrases << :get_legal_advice
-          else
-            phrases << :get_legal_and_travel_advice
-            phrases << :legal_restrictions_for_non_residents_spain
-          end
-
-          phrases << :what_you_need_to_do
-          phrases << :cni_maritial_status_certificate_spain
-          if resident_of == 'third_country'
-            phrases << :what_you_need_to_do_spain_third_country
-          else
-            phrases << :what_you_need_to_do_spain
-          end
-
-          if resident_of == 'uk'
-            phrases << :get_cni_in_uk_for_spain_title
-            phrases << :cni_at_local_register_office
-            phrases << :get_cni_in_uk_for_spain
-          elsif resident_of == 'ceremony_country'
-            phrases << :get_cni_in_spain
-          end
-
-          if resident_of != 'third_country'
-            phrases << :get_maritial_status_certificate_spain
-
-            if resident_of == 'ceremony_country'
-              phrases << :other_requirements_in_spain_for_residents_intro
-            else
-              phrases << :other_requirements_in_spain_intro
-            end
-            phrases << :other_requirements_in_spain
-
-            phrases << :names_on_documents_must_match
-
-            unless partner_nationality == 'partner_british'
-              phrases << :partner_naturalisation_in_uk
-            end
-
-            phrases << :consular_cni_os_fees_incl_null_osta_oath_consular_letter
-            phrases << :link_to_consular_fees
-            phrases << :pay_by_visas_or_mastercard
-          end
-          phrases
         end
       end
 
