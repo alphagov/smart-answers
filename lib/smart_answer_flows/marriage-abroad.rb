@@ -527,7 +527,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_ss_marriage_not_possible
+      outcome :outcome_ss_marriage_not_possible, use_outcome_templates: true
 
       outcome :outcome_ss_marriage_malta do
         precalculate :ss_body do
