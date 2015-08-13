@@ -1,7 +1,8 @@
 Marriage in Spain
 
-
 Contact the relevant local authorities in Spain to find out about local marriage laws, including what documents you’ll need.
+
+
 
 
 ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for Spain](/foreign-travel-advice/spain) before making any plans.
@@ -23,7 +24,6 @@ $D
 [Download 'Marital status certificate' (PDF, 145KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/420038/Marital_Status_example.pdf)
 $D
 
-
 Check with the civil registry  where you’re getting married to find out what certificate you’ll need.
 
 There are 2 ways you can get these certificates:
@@ -34,6 +34,8 @@ There are 2 ways you can get these certificates:
 You need to apply for all certificates at least 3 months before the date you intend to get married.
 
 You must be physically present in Spain for at least 3 days before you apply for a CNI.
+
+
 
 
 *[CNI]:certificate of no impediment

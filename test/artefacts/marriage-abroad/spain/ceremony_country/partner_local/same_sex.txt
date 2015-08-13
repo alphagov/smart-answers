@@ -1,7 +1,7 @@
 Same-sex Marriage in Spain
 
-
 Contact the relevant local authorities in Spain to find out about local marriage laws, including what documents you’ll need.
+
 
 
 The process for same-sex marriages in Spain is the same as for opposite-sex civil marriages.
@@ -22,7 +22,6 @@ $D
 $D
 [Download 'Marital status certificate' (PDF, 145KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/420038/Marital_Status_example.pdf)
 $D
-
 
 ^Document requirements vary across Spain - check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re getting married to find out what you’ll need.^
 
@@ -70,11 +69,9 @@ It takes 10 working days after your payment has been approved for the consulate 
 
 They’ll send your certificate and original documents to you by registered post.
 
-
 ##Other requirements for Spain
 
 If you’ve been living in Spain for less than 2 years, the civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).
-
 
 You’ll need to show one of the following:
 
@@ -88,7 +85,6 @@ You’ll need to show one of the following:
 If you’re asked to provide a document from the British consulate, print out a copy of the [‘communication proof of address’](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/288272/Communication_re_Proof_of_Address.pdf).
 
 ^You must get your documents translated if they’re not in English or Spanish.^
-
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
@@ -108,9 +104,7 @@ Issuing any other consular letter or certificate in English | £45
 Issuing any other consular letter or certificate in any other language | £70
 Administering an oath or making a declaration | £55
 
-
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Spain](/government/publications/spain-consular-fees).
-
 
 You can pay by credit card (Visa, Visa Electron or MasterCard), but not by personal cheque.
 
