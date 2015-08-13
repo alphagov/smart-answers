@@ -25,7 +25,6 @@ en-GB:
         ceremony_type_ss_marriage: Same-sex Marriage
         ceremony_type_civil_partnership: Civil partnership
 
-        title_civil_partnership: Civil Partnership
 # Reusable phrases
 # embassies
         embassies_data: |
@@ -48,16 +47,10 @@ en-GB:
           ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for %{country_name_lowercase_prefix}](/foreign-travel-advice/%{ceremony_country}) before making any plans.
         contact_local_authorities_in_country_marriage: |
           Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local marriage laws, including what documents you’ll need.
-        contact_local_authorities_in_country_cp: |
-          Contact the relevant local authorities in %{country_name_lowercase_prefix} to find out about local laws, including what documents you’ll need.
         partner_naturalisation_in_uk: |
           ##Naturalisation of your partner if they move to the UK
 
           Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
-
-# Marriage in commonwealth countries phrases
-        contact_high_comission_of_ceremony_country_in_uk_cp: |
-          Contact the [High Commission of %{country_name_lowercase_prefix}](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
 
 # Marriage in Spain phrases
         civil_weddings_in_spain: |
@@ -185,129 +178,6 @@ en-GB:
           Issuing any other consular letter or certificate in English | £45
           Issuing any other consular letter or certificate in any other language | £70
           Administering an oath or making a declaration | £55
-
-# Synonyms of Civil Partnership phrases
-        synonyms_of_cp_in_austria: |
-          Same-sex relationships in Austria that are recognised as civil partnerships under British law are known as ‘eingetragene Partnerschaft’, or ‘registered partnership’.
-        synonyms_of_cp_in_belgium: |
-          Same-sex relationships in Belgium that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - ’cohabitation légale’, ’wettelijke samenwoning’, or ’gesetzliches zusammenwohnen’ (’statutory cohabitation’)
-        synonyms_of_cp_in_brazil: |
-          Same-sex relationships in Brazil that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - ’união estável’, or ’stable union’.
-        synonyms_of_cp_in_colombia: |
-          Same-sex relationships in Colombia that are recognised as civil partnerships under British law are known as ‘unión de hecho’, or ‘common-law relationship’.
-        synonyms_of_cp_in_czech-republic: |
-          Same-sex relationships in the Czech Republic that are recognised as civil partnerships under British law are known as ’registrované partnerství’, or ‘registered partnership’.
-        synonyms_of_cp_in_denmark: |
-          Same-sex relationships in Denmark that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - ’registreret partnerskab’ (’registered partnership’)
-          - ‘nalunaarsukkamik inooqatigiinneq’ (in Greenland)
-        synonyms_of_cp_in_ecuador: |
-          Same-sex relationships in Ecuador that are recognised as civil partnerships under British law are known as ‘unión civil’, or ‘civil union’.
-        synonyms_of_cp_in_finland: |
-          Same-sex relationships in Finland that are recognised as civil partnerships under British law are known as ’rekisteröity parisuhde’, or ’registrerad partnerskap’ (’registered partnership’).
-        synonyms_of_cp_in_germany: |
-          Same-sex relationships in Germany that are recognised as civil partnerships under British law are known as ’Lebenspartnerschaft’, or ’life partnership’.
-        synonyms_of_cp_in_hungary: |
-          Same-sex relationships in Hungary that are recognised as civil partnerships under British law are known as ’bejegyzett élettársi kapcsolat’, or ’registered partnership’.
-        synonyms_of_cp_in_iceland: |
-          Same-sex relationships in Iceland that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - ’staðfesta samvist’, or ’confirmed cohabitation’
-        synonyms_of_cp_in_luxembourg: |
-          Same-sex relationships in Luxembourg that are recognised as civil partnerships under British law are known as ’partenariat enregistré’, or ’eingetragene partnerschaft’ (’registered partnership’).
-        synonyms_of_cp_in_netherlands: |
-          Same-sex relationships in the Netherlands that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - ’geregistreerd partnerschap’ (’registered partnership’)
-        synonyms_of_cp_in_norway: |
-          Same-sex relationships in Norway that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - ’registrert partnerskap’, or ’registered partnership’.
-        synonyms_of_cp_in_portugal: |
-          Same-sex relationships in Portugal that are recognised as civil partnerships under British law are known as ‘marriage’.
-        synonyms_of_cp_in_slovenia: |
-          Same-sex relationships in Slovenia that are recognised as civil partnerships under British law are known as ’istospolne partnerske skupnosti’, or ‘same-sex partnerships’.
-        synonyms_of_cp_in_sweden: |
-          Same-sex relationships in Sweden that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - ’registrerat partnerskap’, or ’registered partnership’.
-        synonyms_of_cp_in_switzerland: |
-          Same-sex relationships in Switzerland that are recognised as civil partnerships under British law are known as ’eingetragene Partnerschaft’, ’partenariat enregistré’, ’unione domestica registrata’ or ’partenadi registrà’ (’registered partnership’).
-
-        synonyms_of_cp_in_argentina: |
-          Same-sex relationships in Argentina that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - ‘unión civil’, or ‘civil union’
-        synonyms_of_cp_in_andorra: |
-          Same-sex relationships in Andorra that are recognised as civil partnerships under British law are known as ’unió estable de parella’, or ’stable union of pairs’.
-        synonyms_of_cp_in_bonaire-st-eustatius-saba: |
-          Same-sex relationships in Bonaire, St Eustatius and Saba that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - ’geregistreerd partnerschap’, or ’registered partnership’
-        synonyms_of_cp_in_liechtenstein: |
-          Same-sex relationships in Liechtenstein that are recognised as civil partnerships under British law are known as ‘eingetragene Partnerschaft’, or ’registered partnership’.
-        synonyms_of_cp_in_mexico: |
-          Same-sex relationships in Mexico that are recognised as civil partnerships under British law are known as:
-
-          - ‘pacto civil de solidaridad’, or ‘civil solidarity pact’ (in Coahuila)
-          - ‘sociedad de convivencia’, or ‘domestic partnership’ (in Mexico City Federal District)
-          - marriage (in Mexico City Federal District)
-        synonyms_of_cp_in_uruguay: |
-          Same-sex relationships in Uruguay that are recognised as civil partnerships under British law are known as ‘unión concubinaria’, or ‘civil union’.
-        synonyms_of_cp_in_usa: |
-          You can get a same-sex relationship legally recognised in some states in the United States.
-
-          Same-sex relationships in US states that are recognised as civil partnerships under British law are known as:
-
-          - ‘domestic partnership’ or ‘marriage’ (California)
-          - ‘the relationship between designated beneficiaries’ (Colorado)
-          - ‘civil union’ or ‘marriage’ (Connecticut)
-          - ‘civil union’ (Delaware)
-          - ‘marriage’ (District of Colombia)
-          - ‘civil union’ or ‘reciprocal beneficiary relationship’ (Hawaii)
-          - ‘civil union’ (Illinois)
-          - ‘marriage’ (Iowa)
-          - ‘domestic partnership’ (Maine)
-          - ‘marriage’ (Massachusetts)
-          - ‘domestic partnership’ (Nevada)
-          - ‘marriage’ (New Hampshire)
-          - ‘civil union’ or ‘domestic partnership’ (New Jersey)
-          - ‘marriage’ (New York)
-          - ‘domestic partnership’ (Oregon)
-          - ‘civil union’ (Rhode Island)
-          - ‘civil union’ or ‘marriage’ (Vermont)
-          - ‘state registered domestic partnership’ (Washington)
-          - ‘domestic partnership’ (Wisconsin)
-
-
-        synonyms_of_cp_in_canada: |
-          Same-sex relationships in Canada that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - ’union de fait’, or ’common-law relationship’ (in Manitoba)
-          - ’domestic partnership’ (in Nova Scotia)
-          - ’union civile’, or ’civil union’ (in Quebec)
-        synonyms_of_cp_in_new-zealand: |
-          You may be able to get married or enter into a ‘civil union’ at the British embassy or consulate in New Zealand. Civil unions are recognised as civil partnerships under British law.
-        synonyms_of_cp_in_south-africa: |
-          Same-sex relationships in South Africa that are recognised as civil partnerships under British law are known as:
-
-          - marriage
-          - civil partnership
 
 # CP in countries where no CNI is required phrases
         commonwealth_countries_cp_australia_partner_local: |
@@ -520,12 +390,3 @@ en-GB:
           %{body}
 
           *[CNI]:certificate of no impediment
-
-#outcome for CP in commonwealth countries
-      outcome_cp_commonwealth_countries:
-        title: "%{type_of_ceremony} in %{country_name_lowercase_prefix}"
-        body: |
-          %{commonwealth_countries_cp_outcome}
-
-          *[GRO]:General Register Office
-          *[FCO]:Foreign &amp; Commonwealth Office

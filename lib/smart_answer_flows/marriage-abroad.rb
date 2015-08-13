@@ -479,35 +479,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_cp_commonwealth_countries do
-        precalculate :type_of_ceremony do
-          phrases = PhraseList.new(:title_civil_partnership)
-        end
-
-        precalculate :commonwealth_countries_cp_outcome do
-          phrases = PhraseList.new
-          phrases << :"synonyms_of_cp_in_#{ceremony_country}"
-
-          if resident_of == 'uk'
-            phrases << :contact_high_comission_of_ceremony_country_in_uk_cp
-          else
-            phrases << :contact_local_authorities_in_country_cp
-          end
-
-          if resident_of == 'ceremony_country'
-            phrases << :get_legal_advice
-          else
-            phrases << :get_legal_and_travel_advice
-          end
-
-          phrases << contact_method_key
-
-          if partner_nationality != 'partner_british'
-            phrases << :partner_naturalisation_in_uk
-          end
-          phrases
-        end
-      end
+      outcome :outcome_cp_commonwealth_countries, use_outcome_templates: true
 
       outcome :outcome_cp_consular, use_outcome_templates: true do
         precalculate :institution_name do
