@@ -270,31 +270,33 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_ireland, use_outcome_templates: true
+      use_outcome_templates
 
-      outcome :outcome_switzerland, use_outcome_templates: true
+      outcome :outcome_ireland
 
-      outcome :outcome_netherlands, use_outcome_templates: true
+      outcome :outcome_switzerland
 
-      outcome :outcome_portugal, use_outcome_templates: true
+      outcome :outcome_netherlands
 
-      outcome :outcome_os_indonesia, use_outcome_templates: true
+      outcome :outcome_portugal
 
-      outcome :outcome_os_laos, use_outcome_templates: true
+      outcome :outcome_os_indonesia
 
-      outcome :outcome_os_local_japan, use_outcome_templates: true
+      outcome :outcome_os_laos
 
-      outcome :outcome_os_hong_kong, use_outcome_templates: true
+      outcome :outcome_os_local_japan
 
-      outcome :outcome_os_kosovo, use_outcome_templates: true
+      outcome :outcome_os_hong_kong
 
-      outcome :outcome_brazil_not_living_in_the_uk, use_outcome_templates: true
+      outcome :outcome_os_kosovo
 
-      outcome :outcome_os_colombia, use_outcome_templates: true
+      outcome :outcome_brazil_not_living_in_the_uk
 
-      outcome :outcome_monaco, use_outcome_templates: true
+      outcome :outcome_os_colombia
 
-      outcome :outcome_spain, use_outcome_templates: true do
+      outcome :outcome_monaco
+
+      outcome :outcome_spain do
         precalculate :current_path do
           (['/marriage-abroad/y'] + responses).join('/')
         end
@@ -308,11 +310,11 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_os_commonwealth, use_outcome_templates: true
+      outcome :outcome_os_commonwealth
 
-      outcome :outcome_os_bot, use_outcome_templates: true
+      outcome :outcome_os_bot
 
-      outcome :outcome_consular_cni_os_residing_in_third_country, use_outcome_templates: true do
+      outcome :outcome_consular_cni_os_residing_in_third_country do
         precalculate :data_query do
           data_query
         end
@@ -330,7 +332,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_os_consular_cni, use_outcome_templates: true do
+      outcome :outcome_os_consular_cni do
         precalculate :data_query do
           data_query
         end
@@ -371,44 +373,44 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_os_france_or_fot, use_outcome_templates: true do
+      outcome :outcome_os_france_or_fot do
         precalculate :data_query do
           data_query
         end
       end
 
-      outcome :outcome_os_affirmation, use_outcome_templates: true do
+      outcome :outcome_os_affirmation do
         precalculate :data_query do
           data_query
         end
       end
 
-      outcome :outcome_os_no_cni, use_outcome_templates: true do
+      outcome :outcome_os_no_cni do
         precalculate :data_query do
           data_query
         end
       end
 
-      outcome :outcome_os_other_countries, use_outcome_templates: true
+      outcome :outcome_os_other_countries
 
       #CP outcomes
-      outcome :outcome_cp_or_equivalent, use_outcome_templates: true do
+      outcome :outcome_cp_or_equivalent do
         precalculate :data_query do
           data_query
         end
       end
 
-      outcome :outcome_cp_france_pacs, use_outcome_templates: true
+      outcome :outcome_cp_france_pacs
 
-      outcome :outcome_cp_no_cni, use_outcome_templates: true do
+      outcome :outcome_cp_no_cni do
         precalculate :data_query do
           data_query
         end
       end
 
-      outcome :outcome_cp_commonwealth_countries, use_outcome_templates: true
+      outcome :outcome_cp_commonwealth_countries
 
-      outcome :outcome_cp_consular, use_outcome_templates: true do
+      outcome :outcome_cp_consular do
         precalculate :institution_name do
           if ceremony_country == 'cyprus'
             "High Commission"
@@ -418,21 +420,21 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_cp_all_other_countries, use_outcome_templates: true
+      outcome :outcome_cp_all_other_countries
 
-      outcome :outcome_ss_marriage, use_outcome_templates: true do
+      outcome :outcome_ss_marriage do
         precalculate :data_query do
           data_query
         end
       end
 
-      outcome :outcome_ss_marriage_not_possible, use_outcome_templates: true
+      outcome :outcome_ss_marriage_not_possible
 
-      outcome :outcome_ss_marriage_malta, use_outcome_templates: true
+      outcome :outcome_ss_marriage_malta
 
-      outcome :outcome_ss_affirmation, use_outcome_templates: true
+      outcome :outcome_ss_affirmation
 
-      outcome :outcome_os_marriage_impossible_no_laos_locals, use_outcome_templates: true
+      outcome :outcome_os_marriage_impossible_no_laos_locals
     end
   end
 end
