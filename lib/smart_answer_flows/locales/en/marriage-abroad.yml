@@ -28,24 +28,7 @@ en-GB:
 # embassies
         embassies_data: |
           +[data_partial:overseas_passports_embassies:overseas_passports_embassies]
-#fees
-        list_of_consular_fees_france: |
-          You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for %{country_name_lowercase_prefix}](/government/publications/france-consular-fees).
-# Marriage in Spain phrases
-        fees_spain: |
-
-# CP in countries where no CNI is required phrases
-        commonwealth_countries_cp_australia_partner_local: |
-          Your Australian partner will also need a Single Status Certificate issued by state or territory authorities.
-        commonwealth_countries_cp_australia_partner_other: |
-          Your partner will also need either:
-
-          - a ‘certificate of no impediment’ (CNI) or similar document to prove they’re allowed to enter into a civil partnership from their national authorities
-          - a Single Status Certificate issued by state or territory authorities, if they’ve been resident in Australia for at least 21 days
-
 # CP in countries with consular CP (exc australia) phrases
-        no_cp_with_vietnamese_national: |
-          %However, you can’t enter into a civil partnership with a Vietnamese national.%
         appointment_links:
           opposite_sex:
             albania: |
