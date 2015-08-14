@@ -151,13 +151,17 @@ module SmartAnswer
           end
         end
 
-        # * what_year is 'year-1516'
-        #   * pt_course_start is 'course-start-before-01092012'
-        #     * continuing_student is 'continuing-student' => outcome_uk_ptgc_1516_grant
-        #     * continuing_student is 'new-student' => outcome_uk_ptgn_1516_grant
-        #   * pt_course_start is 'course-start-after-01092012'
-        #     * continuing_student is 'continuing-student' => outcome_uk_pt_1516_continuing
-        #     * continuing_student is 'new-student' => outcome_uk_pt_1516_new
+        on_condition(variable_matches(:what_year, 'year-1516')) do
+          on_condition(responded_with('course-start-before-01092012')) do
+            next_node_if(:outcome_uk_ptgc_1516_grant, variable_matches(:continuing_student, 'continuing-student'))
+            next_node_if(:outcome_uk_ptgn_1516_grant, variable_matches(:continuing_student, 'new-student'))
+          end
+
+          on_condition(responded_with('course-start-after-01092012')) do
+            next_node_if(:outcome_uk_pt_1516_continuing, variable_matches(:continuing_student, 'continuing-student'))
+            next_node_if(:outcome_uk_pt_1516_new, variable_matches(:continuing_student, 'new-student'))
+          end
+        end
       end
 
 
