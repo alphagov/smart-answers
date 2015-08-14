@@ -136,7 +136,7 @@ module SmartAnswer
           end
         end
 
-        # * type_of_student is 'uk-part-time' => pt_course_start
+        next_node_if(:pt_course_start?, variable_matches(:type_of_student, 'uk-part-time'))
       end
 
       multiple_choice :pt_course_start? do
