@@ -1,20 +1,25 @@
-# Student finance - application form
+<% content_for :title do %>
+  Student finance - application form
+<% end %>
 
-To apply for a Fee Grant and Course Grant downland and fill in form PTGN.
+<% content_for :body do %>
 
-**Academic year** | **Form** |   
-2015 to 2016 | [PTGN - form (PDF, 615KB)](http://media.slc.co.uk/sfe/1516/pt/sfe_ptgn_form_1516_d.pdf)  
-2015 to 2016 | [PTGN - guidance notes (PDF, 100KB)](http://media.slc.co.uk/sfe/1516/pt/sfe_ptgn_notes_1516_d.pdf)   
+  To apply for a Fee Grant and Course Grant downland and fill in form PTGN.
 
-##You or your partner get benefits
+  **Academic year** | **Form** |
+  2015 to 2016 | [PTGN - form (PDF, 615KB)](http://media.slc.co.uk/sfe/1516/pt/sfe_ptgn_form_1516_d.pdf)
+  2015 to 2016 | [PTGN - guidance notes (PDF, 100KB)](http://media.slc.co.uk/sfe/1516/pt/sfe_ptgn_notes_1516_d.pdf)
 
-You need to download and fill in [form CB1 (PDF, 463KB)](http://media.slc.co.uk/sfe/1516/pt/sfe_cb1_form_1516_d.pdf) if you or your partner get:
+  ##You or your partner get benefits
 
-- Universal Credit
-- Income Support
-- Income-based Jobseeker’s Allowance (JSA)
-- Income-related Employment Support Allowance (ESA)
-- Housing Benefit
-- Local Housing Allowance
+  You need to download and fill in [form CB1 (PDF, 463KB)](http://media.slc.co.uk/sfe/1516/pt/sfe_cb1_form_1516_d.pdf) if you or your partner get:
 
-{{snippet: circumstances-changed-co2-form}}
+  - Universal Credit
+  - Income Support
+  - Income-based Jobseeker’s Allowance (JSA)
+  - Income-related Employment Support Allowance (ESA)
+  - Housing Benefit
+  - Local Housing Allowance
+
+  <%= render partial: 'circumstances_changed_co2_form.govspeak.erb' -%>
+<% end %>

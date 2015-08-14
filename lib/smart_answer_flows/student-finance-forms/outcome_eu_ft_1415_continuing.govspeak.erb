@@ -1,22 +1,27 @@
-# EU full-time student
+<% content_for :title do %>
+  EU full-time student
+<% end %>
 
-To apply for a Tuition Fee Loan use form EUPR1A.
+<% content_for :body do %>
 
-Academic year | Form
-- | -
-2014 to 2015 | [EUPR1A - form (PDF, 108KB)](http://media.slc.co.uk/sfe/1415/eu/eu_eupr1a_form_1415_d.pdf)
+  To apply for a Tuition Fee Loan use form EUPR1A.
 
-##Additional information
+  Academic year | Form
+  - | -
+  2014 to 2015 | [EUPR1A - form (PDF, 108KB)](http://media.slc.co.uk/sfe/1415/eu/eu_eupr1a_form_1415_d.pdf)
 
-You may need to include additional information on the following forms.
+  ##Additional information
 
-Form | When to use the form
-- | -
-[EUTFLR - form (PDF, 421KB)](http://media.slc.co.uk/sfe/1415/eu/eu_tlrf_1415_d.pdf) | To change the amount of loan you want to apply for
-[Evidence factsheet (PDF, 468KB)](http://media.slc.co.uk/sfe/nysf/eu_evidence_factsheet_d.pdf) | List of evidence to send with your application - eg proof of identity or income
-[Certifier checklist (PDF, 477KB)](http://media.slc.co.uk/sfe/nysf/eu_certifier_checklist_d.pdf) | Get the person who verifies your evidence to sign this form
-[EUCO1 - form (PDF, 483KB)](http://media.slc.co.uk/sfe/1415/eu/eu_co1_1415_d.pdf) | To update your course, name and other details
+  You may need to include additional information on the following forms.
 
-^You can apply up to 9 months after the start of your course.^
+  Form | When to use the form
+  - | -
+  [EUTFLR - form (PDF, 421KB)](http://media.slc.co.uk/sfe/1415/eu/eu_tlrf_1415_d.pdf) | To change the amount of loan you want to apply for
+  [Evidence factsheet (PDF, 468KB)](http://media.slc.co.uk/sfe/nysf/eu_evidence_factsheet_d.pdf) | List of evidence to send with your application - eg proof of identity or income
+  [Certifier checklist (PDF, 477KB)](http://media.slc.co.uk/sfe/nysf/eu_certifier_checklist_d.pdf) | Get the person who verifies your evidence to sign this form
+  [EUCO1 - form (PDF, 483KB)](http://media.slc.co.uk/sfe/1415/eu/eu_co1_1415_d.pdf) | To update your course, name and other details
 
-{{snippet: where-to-send-your-forms-non-uk}}
+  ^You can apply up to 9 months after the start of your course.^
+
+  <%= render partial: 'where_to_send_your_forms_non_uk.govspeak.erb' -%>
+<% end %>
