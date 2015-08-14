@@ -121,15 +121,21 @@ module SmartAnswer
             next_node_if(:outcome_eu_pt_1516_new, responded_with('new-student'))
           end
         end
-        # * type_of_student is 'uk-full-time'
-        #   * what_year is 'year-1415'
-        #     * form_needed_for_1 is 'apply-loans-grants'
-        #       * continuing_student is 'continuing-student' => outcome_uk_ft_1415_continuing
-        #       * continuing_student is 'new-student' => outcome_uk_ft_1415_new
-        #   * what_year is 'year-1516'
-        #     * form_needed_for_1 is 'apply-loans-grants'
-        #       * continuing_student is 'continuing-student' => outcome_uk_ft_1516_continuing
-        #       * continuing_student is 'new-student' => outcome_uk_ft_1516_new
+
+        on_condition(variable_matches(:type_of_student, 'uk-full-time')) do
+          on_condition(variable_matches(:form_needed_for_1, 'apply-loans-grants')) do
+            on_condition(variable_matches(:what_year, 'year-1415')) do
+              next_node_if(:outcome_uk_ft_1415_continuing, responded_with('continuing-student'))
+              next_node_if(:outcome_uk_ft_1415_new, responded_with('new-student'))
+            end
+
+            on_condition(variable_matches(:what_year, 'year-1516')) do
+              next_node_if(:outcome_uk_ft_1516_continuing, responded_with('continuing-student'))
+              next_node_if(:outcome_uk_ft_1516_new, responded_with('new-student'))
+            end
+          end
+        end
+
         # * type_of_student is 'uk-part-time' => pt_course_start
       end
 
