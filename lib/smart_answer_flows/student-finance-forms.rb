@@ -15,11 +15,8 @@ module SmartAnswer
       end
 
       multiple_choice :what_year? do
-        # # What academic year do you want funding for?
-
-        # [choice: what_year]
-        # * year-1516: 2015 to 2016
-        # * year-1415: 2014 to 2015
+        option 'year-1516'
+        option 'year-1415'
 
         # * type_of_student is 'eu-full-time' => continuing_student
         # * type_of_student is 'eu-part-time' => continuing_student
@@ -48,17 +45,14 @@ module SmartAnswer
       end
 
       multiple_choice :form_needed_for_1? do
-        # # What do you need the form for?
-
-        # [choice: form_needed_for_1]
-        # * apply-loans-grants: Apply for student loans and grants
-        # * proof-identity: Send proof of identity
-        # * income-details: Send parent or partner’s income detail - eg PFF2 or CYI
-        # * apply-dsa: Apply for Disabled Students’ Allowances
-        # * dsa-expenses: Claim Disabled Students’ Allowances expenses
-        # * apply-ccg: Apply for Childcare Grant
-        # * ccg-expenses: Childcare Grant costs confirmation
-        # * travel-grant: Travel Grant
+        option 'apply-loans-grants'
+        option 'proof-identity'
+        option 'income-details'
+        option 'apply-dsa'
+        option 'dsa-expenses'
+        option 'apply-ccg'
+        option 'ccg-expenses'
+        option 'travel-grant'
 
         # * form_needed_for_1 is 'dsa-expenses' => outcome_dsa_expenses
         # * form_needed_for_1 is 'ccg-expenses' => outcome_ccg_expenses
@@ -67,26 +61,18 @@ module SmartAnswer
       end
 
       multiple_choice :form_needed_for_2? do
-        # # What do you need the form for?
-
-        # [choice: form_needed_for_2]
-        # * apply-loans-grants: Apply for student loans and grants
-        # * proof-identity: Send proof of identity
-        # * apply-dsa: Apply for Disabled Students’ Allowances
-        # * dsa-expenses: Claim Disabled Students’ Allowances expenses
+        option 'apply-loans-grants'
+        option 'proof-identity'
+        option 'apply-dsa'
+        option 'dsa-expenses'
 
         # * form_needed_for_2 is 'dsa-expenses' => outcome_dsa_expenses
         # * otherwise => what_year
       end
 
       multiple_choice :continuing_student? do
-        # # Are you a continuing student?
-
-        # You’re usually a continuing student if you got student finance last year.
-
-        # [choice: continuing_student]
-        # * continuing-student: Yes
-        # * new-student: No
+        option 'continuing-student'
+        option 'new-student'
 
         # * type_of_student is 'eu-full-time'
         #   * what_year is 'year-1415'
@@ -115,11 +101,8 @@ module SmartAnswer
       end
 
       multiple_choice :pt_course_start? do
-        # Did your part-time course start before 1 September 2012?
-
-        # [choice: pt_course_start]
-        # * course-start-before-01092012: Yes
-        # * course-start-after-01092012: No
+        option 'course-start-before-01092012'
+        option 'course-start-after-01092012'
 
         # * what_year is 'year-1415'
         #   * pt_course_start is 'course-start-before-01092012' => outcome_uk_pt_1415_grant

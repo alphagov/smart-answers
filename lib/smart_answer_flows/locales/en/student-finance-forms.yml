@@ -26,6 +26,7 @@ en-GB:
         $C
 
         You can [call Student Finance England](https://www.gov.uk/contact-student-finance-england) if you want to [apply online](https://www.gov.uk/apply-online-for-student-finance) but you can't use a computer without help.
+
       type_of_student?:
         title: What type of a student are you?
         options:
@@ -33,5 +34,44 @@ en-GB:
           uk-part-time: English student - part-time
           eu-full-time: EU student - full-time
           eu-part-time: EU student - part-time
+
+      what_year?:
+        title: What academic year do you want funding for?
+        options:
+          year-1516: 2015 to 2016
+          year-1415: 2014 to 2015
+
+      form_needed_for_1?:
+        title: What do you need the form for?
+        options:
+          apply-loans_grants: Apply for student loans and grants
+          proof-identity: Send proof of identity
+          income-details: Send parent or partner’s income detail - eg PFF2 or CYI
+          apply-dsa: Apply for Disabled Students’ Allowances
+          dsa-expenses: Claim Disabled Students’ Allowances expenses
+          apply-ccg: Apply for Childcare Grant
+          ccg-expenses: Childcare Grant costs confirmation
+          travel-grant: Travel Grant
+
+      form_needed_for_2?:
+        title: What do you need the form for?
+        options:
+          apply-loans-grants: Apply for student loans and grants
+          proof-identity: Send proof of identity
+          apply-dsa: Apply for Disabled Students’ Allowances
+          dsa-expenses: Claim Disabled Students’ Allowances expenses
+
+      continuing_student?:
+        title: Are you a continuing student?
+        hint: You’re usually a continuing student if you got student finance last year.
+        options:
+          continuing-student: Yes
+          new-student: No
+
+      pt_course_start?:
+        title: Did your part-time course start before 1 September 2012?
+        options:
+          course-start-before-01092012: Yes
+          course-start-after-01092012: No
 
 
