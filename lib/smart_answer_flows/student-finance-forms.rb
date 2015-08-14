@@ -75,10 +75,10 @@ module SmartAnswer
 
         save_input_as :form_needed_for_1
 
-        # * form_needed_for_1 is 'dsa-expenses' => outcome_dsa_expenses
-        # * form_needed_for_1 is 'ccg-expenses' => outcome_ccg_expenses
-        # * form_needed_for_1 is 'travel-grant' => outcome_travel
-        # * otherwise => what_year_uk_fulltime
+        next_node_if(:outcome_dsa_expenses, responded_with('dsa-expenses'))
+        next_node_if(:outcome_ccg_expenses, responded_with('ccg-expenses'))
+        next_node_if(:outcome_travel, responded_with('travel-grant'))
+        next_node(:what_year?)
       end
 
       multiple_choice :form_needed_for_2? do
