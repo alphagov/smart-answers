@@ -89,8 +89,8 @@ module SmartAnswer
 
         save_input_as :form_needed_for_2
 
-        # * form_needed_for_2 is 'dsa-expenses' => outcome_dsa_expenses
-        # * otherwise => what_year
+        next_node_if(:outcome_dsa_expenses, responded_with('dsa-expenses'))
+        next_node(:what_year?)
       end
 
       multiple_choice :continuing_student? do
