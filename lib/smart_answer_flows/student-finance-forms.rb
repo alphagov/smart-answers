@@ -18,8 +18,10 @@ module SmartAnswer
         option 'year-1516'
         option 'year-1415'
 
-        # * type_of_student is 'eu-full-time' => continuing_student
-        # * type_of_student is 'eu-part-time' => continuing_student
+        save_input_as :what_year
+
+        next_node_if(:continuing_student?, variable_matches(:type_of_student, %w(eu-full-time eu-part-time)))
+
         # * type_of_student is 'uk-full-time'
         #   * form_needed_for_1 is 'proof-identity'
         #     * what_year is 'year-1415' => outcome_proof_identity_1415
