@@ -47,15 +47,20 @@ module SmartAnswer
           next_node_if(:continuing_student?, variable_matches(:form_needed_for_1, 'apply-loans-grants'))
         end
 
+        on_condition(variable_matches(:type_of_student, 'uk-part-time')) do
 
-        # * type_of_student is 'uk-part-time'
-        #   * form_needed_for_2 is 'proof-identity'
-        #     * what_year is 'year-1415' => outcome_proof_identity_1415
-        #     * what_year is 'year-1516' => outcome_proof_identity_1516
-        #   * form_needed_for_2 is 'apply-dsa'
-        #     * what_year is 'year-1415' => outcome_dsa_1415_pt
-        #     * what_year is 'year-1516' => outcome_dsa_1516_pt
-        #   * form_needed_for_2 is 'apply-loans-grants' => continuing_student
+          on_condition(variable_matches(:form_needed_for_2, 'proof-identity')) do
+            next_node_if(:outcome_proof_identity_1415, responded_with('year-1415'))
+            next_node_if(:outcome_proof_identity_1516, responded_with('year-1516'))
+          end
+
+          on_condition(variable_matches(:form_needed_for_2, 'apply-dsa')) do
+            next_node_if(:outcome_dsa_1415_pt, responded_with('year-1415'))
+            next_node_if(:outcome_dsa_1516_pt, responded_with('year-1516'))
+          end
+
+          next_node_if(:continuing_student?, variable_matches(:form_needed_for_2, 'apply-loans-grants'))
+        end
       end
 
       multiple_choice :form_needed_for_1? do
@@ -68,6 +73,8 @@ module SmartAnswer
         option 'ccg-expenses'
         option 'travel-grant'
 
+        save_input_as :form_needed_for_1
+
         # * form_needed_for_1 is 'dsa-expenses' => outcome_dsa_expenses
         # * form_needed_for_1 is 'ccg-expenses' => outcome_ccg_expenses
         # * form_needed_for_1 is 'travel-grant' => outcome_travel
@@ -79,6 +86,8 @@ module SmartAnswer
         option 'proof-identity'
         option 'apply-dsa'
         option 'dsa-expenses'
+
+        save_input_as :form_needed_for_2
 
         # * form_needed_for_2 is 'dsa-expenses' => outcome_dsa_expenses
         # * otherwise => what_year
