@@ -1,14 +1,19 @@
-# Disabled Students' Allowances – expenses
+<% content_for :title do %>
+  Disabled Students' Allowances – expenses
+<% end %>
 
-Use the claim form for the academic year the expenses relate to. You reclaim these expenses at the end of the academic year.
+<% content_for :body do %>
 
-Academic year | Form
-- | -
-2015 to 2016 | [Costs claim form (PDF, 57KB)](http://media.slc.co.uk/sfe/1516/ft/sfe_dsa_claim_form_1516_d.pdf)
-2014 to 2015 | [Costs claim form (PDF, 55KB)](http://media.slc.co.uk/sfe/1415/ft/sfe_dsa_expenses_claim_form_1415_d.pdf)
+  Use the claim form for the academic year the expenses relate to. You reclaim these expenses at the end of the academic year.
 
-{{snippet: where-to-send-your-forms-uk}}
+  Academic year | Form
+  - | -
+  2015 to 2016 | [Costs claim form (PDF, 57KB)](http://media.slc.co.uk/sfe/1516/ft/sfe_dsa_claim_form_1516_d.pdf)
+  2014 to 2015 | [Costs claim form (PDF, 55KB)](http://media.slc.co.uk/sfe/1415/ft/sfe_dsa_expenses_claim_form_1415_d.pdf)
 
-[next_steps]
-[Disabled Student's Allowances](/disabled-students-allowances-dsas)
-[end_next_steps]
+  <%= render partial: 'where_to_send_your_forms_uk.govspeak.erb' %>
+<% end %>
+
+<% content_for :next_steps do %>
+  [Disabled Student's Allowances](/disabled-students-allowances-dsas)
+<% end %>

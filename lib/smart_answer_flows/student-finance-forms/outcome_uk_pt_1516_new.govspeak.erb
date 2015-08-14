@@ -1,13 +1,18 @@
-# Student finance - application form
+<% content_for :title do %>
+  Student finance - application form
+<% end %>
 
-You should [apply online](/apply-online-for-student-finance) for a Tuition Fee Loan. If you can't apply online, use form PTL1.
+<% content_for :body do %>
 
-Academic Year | Form
-- | -
-2015 to 2016 | [Apply online](/apply-online-for-student-finance)
-2015 to 2016 | [PTL1 - form (PDF, 728KB)](http://media.slc.co.uk/sfe/1516/pt/sfe_ptl1_form_1516_d.pdf)
-2015 to 2016 | [PTL1 - guidance notes (PDF, 116KB)](http://media.slc.co.uk/sfe/1516/pt/sfe_ptl1_notes_1516_d.pdf)
+  You should [apply online](/apply-online-for-student-finance) for a Tuition Fee Loan. If you can't apply online, use form PTL1.
 
-^You can apply up to 9 months after the start of your course.^
+  Academic Year | Form
+  - | -
+  2015 to 2016 | [Apply online](/apply-online-for-student-finance)
+  2015 to 2016 | [PTL1 - form (PDF, 728KB)](http://media.slc.co.uk/sfe/1516/pt/sfe_ptl1_form_1516_d.pdf)
+  2015 to 2016 | [PTL1 - guidance notes (PDF, 116KB)](http://media.slc.co.uk/sfe/1516/pt/sfe_ptl1_notes_1516_d.pdf)
 
-{{snippet: where-to-send-your-forms-uk}}
+  ^You can apply up to 9 months after the start of your course.^
+
+  <%= render partial: 'where_to_send_your_forms_uk.govspeak.erb' -%>
+<% end %>

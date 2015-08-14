@@ -1,16 +1,21 @@
-# Proof of identity
+<% content_for :title do %>
+  Proof of identity
+<% end %>
 
-If you haven’t included your UK passport details in your application, use the passport details form. If you don’t have a passport (or it has expired), send your birth or adoption certificate using the certificate form.
+<% content_for :body do %>
 
-Academic year | Form
-- | -
-2014 to 2015 | [UK passport details form (PDF, 428KB)](http://media.slc.co.uk/sfe/1415/ft/sfe_uk_passport_details_1415_d.pdf)
-2014 to 2015 | [Birth or adoption certificate form (PDF, 85KB)](http://media.slc.co.uk/sfe/1415/ft/sfe_birth_adopt_cert_form_1415_d.pdf)
+  If you haven’t included your UK passport details in your application, use the passport details form. If you don’t have a passport (or it has expired), send your birth or adoption certificate using the certificate form.
 
-^Don't send your UK passport.^
+  Academic year | Form
+  - | -
+  2014 to 2015 | [UK passport details form (PDF, 428KB)](http://media.slc.co.uk/sfe/1415/ft/sfe_uk_passport_details_1415_d.pdf)
+  2014 to 2015 | [Birth or adoption certificate form (PDF, 85KB)](http://media.slc.co.uk/sfe/1415/ft/sfe_birth_adopt_cert_form_1415_d.pdf)
 
-{{snippet: where-to-send-your-forms-uk}}
+  ^Don't send your UK passport.^
 
-[next_steps]
-[How to apply for student finance](/apply-for-student-finance)
-[end_next_steps]
+  <%= render partial: 'where_to_send_your_forms_uk.govspeak.erb' %>
+<% end %>
+
+<% content_for :next_steps do %>
+  [How to apply for student finance](/apply-for-student-finance)
+<% end %>

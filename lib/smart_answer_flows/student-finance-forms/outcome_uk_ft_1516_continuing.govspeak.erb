@@ -1,18 +1,23 @@
-# Student finance - application form
+<% content_for :title do %>
+  Student finance - application form
+<% end %>
 
-You should [apply online](/apply-online-for-student-finance) for help with your tuition and living costs.
+<% content_for :body do %>
 
-If you can't apply online, use form PR1.
+  You should [apply online](/apply-online-for-student-finance) for help with your tuition and living costs.
 
-Academic Year | Form
-- | -
-2015 to 2016 | [PR1 - form (PDF, 569KB)](http://media.slc.co.uk/sfe/1516/ft/sfe_pr1_form_1516_d.pdf)
-2015 to 2016 | [PR1 - guidance notes (PDF, 199KB)](http://media.slc.co.uk/sfe/1516/ft/sfe_pr1_notes_1516_d.pdf)
+  If you can't apply online, use form PR1.
 
-^You can apply up to 9 months after the start of your course.^
+  Academic Year | Form
+  - | -
+  2015 to 2016 | [PR1 - form (PDF, 569KB)](http://media.slc.co.uk/sfe/1516/ft/sfe_pr1_form_1516_d.pdf)
+  2015 to 2016 | [PR1 - guidance notes (PDF, 199KB)](http://media.slc.co.uk/sfe/1516/ft/sfe_pr1_notes_1516_d.pdf)
 
-{{snippet: where-to-send-your-forms-uk}}
+  ^You can apply up to 9 months after the start of your course.^
 
-[next_steps]
-[How to apply for student finance](/apply-for-student-finance)
-[end_next_steps]
+  <%= render partial: 'where_to_send_your_forms_uk.govspeak.erb' %>
+<% end %>
+
+<% content_for :next_steps do %>
+  [How to apply for student finance](/apply-for-student-finance)
+<% end %>
