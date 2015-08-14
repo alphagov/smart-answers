@@ -143,11 +143,14 @@ module SmartAnswer
         option 'course-start-before-01092012'
         option 'course-start-after-01092012'
 
-        # * what_year is 'year-1415'
-        #   * pt_course_start is 'course-start-before-01092012' => outcome_uk_pt_1415_grant
-        #   * pt_course_start is 'course-start-after-01092012'
-        #     * continuing_student is 'continuing-student' => outcome_uk_pt_1415_continuing
-        #     * continuing_student is 'new-student' => outcome_uk_pt_1415_new
+        on_condition(variable_matches(:what_year, 'year-1415')) do
+          next_node_if(:outcome_uk_pt_1415_grant, responded_with('course-start-before-01092012'))
+          on_condition(responded_with('course-start-after-01092012')) do
+            next_node_if(:outcome_uk_pt_1415_continuing, variable_matches(:continuing_student, 'continuing-student'))
+            next_node_if(:outcome_uk_pt_1415_new, variable_matches(:continuing_student, 'new-student'))
+          end
+        end
+
         # * what_year is 'year-1516'
         #   * pt_course_start is 'course-start-before-01092012'
         #     * continuing_student is 'continuing-student' => outcome_uk_ptgc_1516_grant
