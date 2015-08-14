@@ -15,8 +15,8 @@ You may need to include additional information on the following forms.
 
 Form | When to use the form
 - | -
-[EUTFLR - form (PDF, 200KB)](http://media.slc.co.uk/sfe/1415/eu/eu_tlrf_1415_d.pdf) | To change the amount of loan you want to apply for 
-[Evidence factsheet (PDF, 100KB)](http://media.slc.co.uk/sfe/nysf/eu_evidence_factsheet_d.pdf) | List of evidence to send with your application - eg proof of identity or income 
+[EUTFLR - form (PDF, 200KB)](http://media.slc.co.uk/sfe/1415/eu/eu_tlrf_1415_d.pdf) | To change the amount of loan you want to apply for
+[Evidence factsheet (PDF, 100KB)](http://media.slc.co.uk/sfe/nysf/eu_evidence_factsheet_d.pdf) | List of evidence to send with your application - eg proof of identity or income
 [Certifier checklist (PDF, 75KB)](http://media.slc.co.uk/sfe/nysf/eu_certifier_checklist_d.pdf) | Get the person who verifies your evidence to sign this form
 [EUCO1 - form (PDF, 100KB)](http://media.slc.co.uk/sfe/1415/eu/eu_co1_1415_d.pdf) | To update your course, name and other details
 
