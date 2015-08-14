@@ -166,6 +166,39 @@ module SmartAnswer
 
 
       use_outcome_templates
+
+      outcome :outcome_ccg_1415
+      outcome :outcome_ccg_1516
+      outcome :outcome_ccg_expenses
+      outcome :outcome_dsa_1415
+      outcome :outcome_dsa_1415_pt
+      outcome :outcome_dsa_1516
+      outcome :outcome_dsa_1516_pt
+      outcome :outcome_dsa_expenses
+      outcome :outcome_eu_ft_1415_continuing
+      outcome :outcome_eu_ft_1415_new
+      outcome :outcome_eu_ft_1516_continuing
+      outcome :outcome_eu_ft_1516_new
+      outcome :outcome_eu_pt_1415_continuing
+      outcome :outcome_eu_pt_1415_new
+      outcome :outcome_eu_pt_1516_continuing
+      outcome :outcome_eu_pt_1516_new
+      outcome :outcome_parent_partner_1415
+      outcome :outcome_parent_partner_1516
+      outcome :outcome_proof_identity_1415
+      outcome :outcome_proof_identity_1516
+      outcome :outcome_travel
+      outcome :outcome_uk_ft_1415_continuing
+      outcome :outcome_uk_ft_1415_new
+      outcome :outcome_uk_ft_1516_continuing
+      outcome :outcome_uk_ft_1516_new
+      outcome :outcome_uk_pt_1415_continuing
+      outcome :outcome_uk_pt_1415_grant
+      outcome :outcome_uk_pt_1415_new
+      outcome :outcome_uk_pt_1516_continuing
+      outcome :outcome_uk_pt_1516_new
+      outcome :outcome_uk_ptgc_1516_grant
+      outcome :outcome_uk_ptgn_1516_grant
     end
   end
 end
