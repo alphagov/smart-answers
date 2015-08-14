@@ -110,13 +110,17 @@ module SmartAnswer
           end
         end
 
-        # * type_of_student is 'eu-part-time'
-        #   * what_year is 'year-1415'
-        #     * continuing_student is 'continuing-student' => outcome_eu_pt_1415_continuing
-        #     * continuing_student is 'new-student' => outcome_eu_pt_1415_new
-        #   * what_year is 'year-1516'
-        #     * continuing_student is 'continuing-student' => outcome_eu_pt_1516_continuing
-        #     * continuing_student is 'new-student' => outcome_eu_pt_1516_new
+        on_condition(variable_matches(:type_of_student, 'eu-part-time')) do
+          on_condition(variable_matches(:what_year, 'year-1415')) do
+            next_node_if(:outcome_eu_pt_1415_continuing, responded_with('continuing-student'))
+            next_node_if(:outcome_eu_pt_1415_new, responded_with('new-student'))
+          end
+
+          on_condition(variable_matches(:what_year, 'year-1516')) do
+            next_node_if(:outcome_eu_pt_1516_continuing, responded_with('continuing-student'))
+            next_node_if(:outcome_eu_pt_1516_new, responded_with('new-student'))
+          end
+        end
         # * type_of_student is 'uk-full-time'
         #   * what_year is 'year-1415'
         #     * form_needed_for_1 is 'apply-loans-grants'
