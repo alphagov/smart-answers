@@ -14,6 +14,36 @@ module SmartAnswer
         save_input_as :type_of_student
       end
 
+      multiple_choice :form_needed_for_1? do
+        option 'apply-loans-grants'
+        option 'proof-identity'
+        option 'income-details'
+        option 'apply-dsa'
+        option 'dsa-expenses'
+        option 'apply-ccg'
+        option 'ccg-expenses'
+        option 'travel-grant'
+
+        save_input_as :form_needed_for_1
+
+        next_node_if(:outcome_dsa_expenses, responded_with('dsa-expenses'))
+        next_node_if(:outcome_ccg_expenses, responded_with('ccg-expenses'))
+        next_node_if(:outcome_travel, responded_with('travel-grant'))
+        next_node(:what_year?)
+      end
+
+      multiple_choice :form_needed_for_2? do
+        option 'apply-loans-grants'
+        option 'proof-identity'
+        option 'apply-dsa'
+        option 'dsa-expenses'
+
+        save_input_as :form_needed_for_2
+
+        next_node_if(:outcome_dsa_expenses, responded_with('dsa-expenses'))
+        next_node(:what_year?)
+      end
+
       multiple_choice :what_year? do
         option 'year-1516'
         option 'year-1415'
@@ -61,36 +91,6 @@ module SmartAnswer
 
           next_node_if(:continuing_student?, variable_matches(:form_needed_for_2, 'apply-loans-grants'))
         end
-      end
-
-      multiple_choice :form_needed_for_1? do
-        option 'apply-loans-grants'
-        option 'proof-identity'
-        option 'income-details'
-        option 'apply-dsa'
-        option 'dsa-expenses'
-        option 'apply-ccg'
-        option 'ccg-expenses'
-        option 'travel-grant'
-
-        save_input_as :form_needed_for_1
-
-        next_node_if(:outcome_dsa_expenses, responded_with('dsa-expenses'))
-        next_node_if(:outcome_ccg_expenses, responded_with('ccg-expenses'))
-        next_node_if(:outcome_travel, responded_with('travel-grant'))
-        next_node(:what_year?)
-      end
-
-      multiple_choice :form_needed_for_2? do
-        option 'apply-loans-grants'
-        option 'proof-identity'
-        option 'apply-dsa'
-        option 'dsa-expenses'
-
-        save_input_as :form_needed_for_2
-
-        next_node_if(:outcome_dsa_expenses, responded_with('dsa-expenses'))
-        next_node(:what_year?)
       end
 
       multiple_choice :continuing_student? do
