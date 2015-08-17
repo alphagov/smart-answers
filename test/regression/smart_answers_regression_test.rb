@@ -76,7 +76,11 @@ class SmartAnswersRegressionTest < ActionController::TestCase
       end
 
       should "ensure all nodes are being exercised" do
-        flow = SmartAnswer::FlowRegistry.instance.find(flow_name)
+        flow = begin
+          SmartAnswer::FlowRegistry.instance.find(flow_name)
+        rescue SmartAnswer::FlowRegistry::NotFound
+          SmartdownAdapter::Registry.instance.find(flow_name)
+        end
 
         nodes_exercised_in_test = responses_and_expected_results.inject([]) do |array, responses_and_expected_results|
           current_node = responses_and_expected_results[:current_node]
@@ -96,7 +100,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
         if outcome_node
           should "render and save output for responses: #{responses.join(', ')}" do
-            get :show, id: flow_name, started: 'y', responses: responses, format: 'txt'
+            get :show, id: flow_name, started: 'y', responses: responses.join('/'), format: 'txt'
 
             path_to_output = smart_answer_helper.save_output(responses, response)
 

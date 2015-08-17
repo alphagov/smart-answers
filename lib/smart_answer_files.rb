@@ -10,10 +10,18 @@ class SmartAnswerFiles
     relative_paths.map(&:to_s).uniq
   end
 
+  def existing_paths
+    @existing_paths ||= paths.select { |path| File.exist?(path) }
+  end
+
+  def empty?
+    existing_paths.empty?
+  end
+
   private
 
   def relative_paths
-    all_paths.collect do |path|
+    @relative_paths ||= all_paths.collect do |path|
       path.relative_path_from(Rails.root)
     end
   end
@@ -24,16 +32,28 @@ class SmartAnswerFiles
       locale_path,
       questions_and_responses_test_data_path,
       responses_and_expected_results_test_data_path
-    ] + erb_template_paths + additional_files_absolute_paths
+    ] + erb_template_paths + smartdown_file_paths + additional_files_absolute_paths
   end
 
   def erb_template_directory
     Rails.root.join('lib', 'smart_answer_flows', @flow_name)
   end
 
+  def smartdown_flows_directory
+    Rails.root.join('lib', 'smartdown_flows', @flow_name)
+  end
+
   def erb_template_paths
     Dir[erb_template_directory.join('*.erb')].collect do |path|
       Pathname.new(path)
+    end
+  end
+
+  def smartdown_file_paths
+    ['outcomes/*.txt', 'questions/*.txt', 'snippets/*.txt', '*.txt'].flat_map do |pattern|
+      Dir[smartdown_flows_directory.join(pattern)].collect do |path|
+        Pathname.new(path)
+      end
     end
   end
 
