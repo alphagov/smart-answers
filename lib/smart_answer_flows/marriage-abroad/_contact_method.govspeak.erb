@@ -162,6 +162,10 @@
   <% when 'norway' %>
     [Make an appointment at the embassy in Oslo](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-oslo/oaths-affirmations-and-affidavits/slot_picker).
   <% else %>
+    <% if defined?(contact_message) %>
+      <%= contact_message %>
+
+    <% end %>
     <%= render partial: '../data_partials/overseas_passports_embassies.erb',
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies

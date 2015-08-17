@@ -39,16 +39,13 @@
                } %>
 
   <% else %>
-    <% if contact_method_key == :embassies_data %>
-      Contact the embassy or consulate to make an appointment.
-
-    <% end %>
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
                  sex_of_your_partner: sex_of_your_partner,
                  ceremony_country: ceremony_country,
                  overseas_passports_embassies: overseas_passports_embassies,
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 contact_message: "Contact the embassy or consulate to make an appointment."
                } %>
 
   <% end %>
