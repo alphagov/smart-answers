@@ -104,7 +104,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
             path_to_output = smart_answer_helper.save_output(responses, response)
 
-            diff_output = `git diff #{path_to_output}`
+            diff_output = `git diff -- "#{path_to_output}"`
             assert diff_output.blank?, diff_output
           end
         end
