@@ -55,9 +55,9 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
 
   context 'with smartdown flows' do
     should 'return relative paths to questions, outcomes and snippets' do
-      amsrtanswer_name = 'smartdown-answer'
-      temporary_smartdown_answer(amsrtanswer_name) do |smartdown_txt_files|
-        smart_answer_files = SmartAnswerFiles.new(amsrtanswer_name)
+      flow_name = 'smartdown-flow-name'
+      temporary_smartdown_answer(flow_name) do |smartdown_txt_files|
+        smart_answer_files = SmartAnswerFiles.new(flow_name)
         smartdown_txt_files.each do |file|
           expected_path = file.path.relative_path_from(Rails.root)
           assert smart_answer_files.paths.include?(expected_path), "Expected #{expected_path} to be detected"
