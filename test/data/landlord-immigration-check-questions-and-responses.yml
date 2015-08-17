@@ -12,7 +12,8 @@ immigration_application:
 - 'yes'
 - 'no'
 property:
-- 'TODO: Enter the postcode of the property you want to let:'
+- 'WC2B 6SE' # valid postcode outside valid areas
+- 'B1 1PW' # valid postcode within the valid areas
 property_type:
 - holiday_accommodation
 - social_housing
