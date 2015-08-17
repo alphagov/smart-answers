@@ -118,11 +118,3 @@ en-GB:
       ## Q11
       lived_or_worked_outside_uk?:
         title: Have you lived or worked outside the UK?
-
-      ## Outcomes:
-      ## Result 5
-      amount_result:
-        body: |
-          %{result_text}
-
-          %{automatic_credits}
