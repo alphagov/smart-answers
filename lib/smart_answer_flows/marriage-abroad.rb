@@ -149,11 +149,6 @@ module SmartAnswer
           end
         end
 
-        calculate :contact_method_key do |response|
-          appointment_link_key = data_query.appointment_link_key_for(ceremony_country, response)
-          appointment_link_key || :embassies_data
-        end
-
         define_predicate(:ceremony_in_laos_partners_not_local) {
           (ceremony_country == "laos") && (partner_nationality != "partner_local")
         }
