@@ -117,7 +117,7 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
 
       yield files
     ensure
-      FileUtils.rm_f(erb_template_directory)
+      FileUtils.remove_dir(erb_template_directory, force = true)
       files.each do |file|
         file.unlink
         file.close
@@ -137,7 +137,7 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
 
       yield files
     ensure
-      FileUtils.rm_f(smartdown_files_directory)
+      FileUtils.remove_dir(smartdown_files_directory, force = true)
       files.each do |file|
         file.unlink
         file.close
