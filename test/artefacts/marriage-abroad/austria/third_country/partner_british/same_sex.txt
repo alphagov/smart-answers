@@ -17,7 +17,6 @@ Contact the local British embassy or consulate where you’re planning the cerem
 
 
 
-
 $A
 British Embassy
 Jauresgasse 12
@@ -36,13 +35,11 @@ Email: <press@britishembassy.at>
 $C
 
 
-
 ##Fees
 
 Service | Fee
 -|-
 Issuing a CNI or equivalent | £65
-
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Austria](/government/publications/austria-consular-fees).
 

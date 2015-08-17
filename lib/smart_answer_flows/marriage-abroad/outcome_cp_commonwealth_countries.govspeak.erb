@@ -1,0 +1,45 @@
+<% content_for :title do %>
+  Civil Partnership in <%= country_name_lowercase_prefix %>
+<% end %>
+
+<% content_for :body do %>
+  <%= render partial: 'synonyms_of_cp.govspeak.erb',
+             locals: {
+               ceremony_country: ceremony_country
+             } %>
+
+  <% if resident_of == 'uk' %>
+    Contact the [High Commission of <%= country_name_lowercase_prefix %>](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
+
+  <% else %>
+    <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+  <% end %>
+
+  <% if resident_of == 'ceremony_country' %>
+    <%= render partial: 'get_legal_advice.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+  <% end %>
+
+  <%= render partial: 'contact_method.govspeak.erb',
+             locals: {
+               sex_of_your_partner: sex_of_your_partner,
+               ceremony_country: ceremony_country,
+               overseas_passports_embassies: overseas_passports_embassies,
+               country_name_lowercase_prefix: country_name_lowercase_prefix
+             } %>
+
+  <% if partner_nationality != 'partner_british' %>
+    <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+  <% end %>
+
+  *[GRO]:General Register Office
+  *[FCO]:Foreign &amp; Commonwealth Office
+<% end %>

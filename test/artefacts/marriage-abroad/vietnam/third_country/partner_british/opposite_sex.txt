@@ -1,9 +1,11 @@
 Marriage in Vietnam
 
+
 Contact the relevant local authorities in Vietnam to find out about local marriage laws, including what documents you’ll need.
 
 
 ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for Vietnam](/foreign-travel-advice/vietnam) before making any plans.
+
 
 
 ##What you need to do
@@ -41,10 +43,13 @@ $C
 
 
 
+
+
 ###Legalisation and translation
 
-
 You might need to get your affirmation [translated](/government/collections/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
+
+
 
 
 If you’ve been divorced or widowed, you’ll also need:
@@ -54,11 +59,12 @@ If you’ve been divorced or widowed, you’ll also need:
 
 - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.
 
-
 You’ll also need to provide evidence if you’ve changed your name by deed poll.
 
 
+
 ^Your partner will probably need to get an affirmation as well.^
+
 
 
 ##Fees
@@ -66,7 +72,6 @@ You’ll also need to provide evidence if you’ve changed your name by deed pol
 Service | Fee
 -|-
 Affidavit for marriage | £55
-
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Vietnam](/government/publications/vietnam-consular-fees).
 

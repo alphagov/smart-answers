@@ -1,0 +1,103 @@
+<% content_for :title do %>
+  Marriage in <%= country_name_lowercase_prefix %>
+<% end %>
+
+<% content_for :body do %>
+  <% if resident_of == 'uk' %>
+    <% if ceremony_country == 'zimbabwe' %>
+
+      Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us) to find out about local marriage laws, including what documents you’ll need.
+
+    <% else %>
+
+      Contact the [High Commission of <%= country_name_lowercase_prefix %>](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
+
+    <% end %>
+  <% else %>
+
+    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 } %>
+  <% end %>
+
+  <% if resident_of == 'ceremony_country' %>
+    <%= render partial: 'get_legal_advice.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+  <% end %>
+
+  <% if ceremony_country == 'zimbabwe' %>
+    The UK doesn’t issue certificates of no impediment (CNI) for marriages in Zimbabwe. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
+  <% else %>
+    The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
+  <% end %>
+
+  <% case ceremony_country %>
+  <% when 'south-africa' %>
+    <% if partner_nationality == 'partner_local' %>
+
+      %You’ll probably be asked for a CNI if you want to marry a South African citizen in South Africa. You’ll need to ask if there are any other documents the authorities will accept instead.%
+
+    <% end %>
+  <% when 'india' %>
+
+    The British High Commission in India can provide you with a letter explaining this position for a charge - see [consular fees for India](/government/publications/india-consular-fees).
+
+
+    <%= render partial: 'contact_method.govspeak.erb',
+               locals: {
+                 sex_of_your_partner: sex_of_your_partner,
+                 ceremony_country: ceremony_country,
+                 overseas_passports_embassies: overseas_passports_embassies,
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+  <% when 'malaysia' %>
+
+    The British High Commission in Malaysia can provide you with a letter explaining this position for a charge - see [consular fees for Malaysia](/government/publications/malaysia-consular-fees).
+    <%= render partial: 'contact_method.govspeak.erb',
+               locals: {
+                 sex_of_your_partner: sex_of_your_partner,
+                 ceremony_country: ceremony_country,
+                 overseas_passports_embassies: overseas_passports_embassies,
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } -%>
+    You’ll need to provide the following documents:
+
+    - a statutory declaration made at the local High Court or at the office of a notary public in the UK or Malaysia
+    - your original passport and your partner’s passport
+    - a divorce certificate (if you have been previously married)
+
+    ^You must get married through an Islamic ceremony in Malaysia if you or your partner is a Muslim. Otherwise, you’ll need to have a civil marriage.^
+
+  <% when 'singapore' %>
+
+    However, you can swear an affidavit (written statement of facts) that you’re free to marry in front of a local [notary public or commissioner of oaths](http://www.conp.sg/co-np-directory-listing).
+
+  <% when 'brunei' %>
+
+    ^You must get married through an Islamic ceremony in Brunei if you or your partner is a Muslim. Otherwise, you’ll need to have a civil marriage.^
+
+  <% when 'cyprus' %>
+    <% if resident_of == 'ceremony_country' %>
+
+      ###Other requirements for Cyprus
+
+      You must provide evidence that you’re allowed to marry if you’re resident in Cyprus but you’ve been there for less than 3 years. However, the [General Register Office](http://www.gro.gov.uk/gro/content/) (GRO) in the UK can only provide letters covering a specified 3-year period, not including the most recent 18 months.
+
+      You should [contact the municipality](http://www.ucm.org.cy/Account_List.aspx) in the area of Cyprus where you’d like to marry to check if they’ll accept this.
+
+    <% end %>
+  <% end %>
+  <% unless partner_nationality == 'partner_british' %>
+
+    <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+  <% end %>
+
+  *[CNI]:certificate of no impediment
+  *[GRO]:General Register Office
+<% end %>

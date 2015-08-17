@@ -1,0 +1,13 @@
+<% content_for :title do %>
+  <% if sex_of_your_partner == 'opposite_sex' %>
+    Marriage in <%= country_name_lowercase_prefix %>
+  <% else %>
+    Same-sex in <%= country_name_lowercase_prefix %>
+  <% end %>
+<% end %>
+
+<% content_for :body do %>
+  Contact your nearest [Civil Register Office](http://www.irn.mj.pt/IRN/sections/irn/a_registral/servicos-externos-docs/contactos/contactos-dos-servicos-civil/) in Portugal to find out about local marriage laws, including what documents you’ll need.
+
+  You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
+<% end %>
