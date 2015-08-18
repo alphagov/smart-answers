@@ -39,8 +39,6 @@ module SmartAnswer
         next_node :contact_the_embassy
       end
 
-      use_outcome_templates
-
       outcome :contact_the_embassy
       outcome :contact_the_embassy_canada
       outcome :complete_LS01_form
