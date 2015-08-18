@@ -314,12 +314,19 @@
     <% end %>
   <% end %>
 
-  <% if %w(south-korea thailand turkey vietnam).include?(ceremony_country) %>
+  <% if %w(thailand turkey vietnam).include?(ceremony_country) %>
     ##Fees
 
     Service | Fee
     -|-
     Affidavit for marriage | £55
+
+  <% elsif %w(south-korea).include?(ceremony_country) %>
+    ##Fees
+
+    Service | Fee
+    -|-
+    Affidavit for marriage | £65
 
   <% elsif %w(belgium cambodia ecuador macao morocco norway).include?(ceremony_country) %>
     <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
