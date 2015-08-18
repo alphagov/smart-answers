@@ -1,5 +1,5 @@
---- 
-lib/smart_answer_flows/additional-commodity-code.rb: 017c1faf3343f33c59cd24626823dcc8
+---
+lib/smart_answer_flows/additional-commodity-code.rb: 862223763eb34d7342d789ba2fa8cc27
 lib/smart_answer_flows/locales/en/additional-commodity-code.yml: 1bd6a7da656f81f10992dcbae147f9b5
 test/data/additional-commodity-code-questions-and-responses.yml: f2149cbfa6ec8c5ead572f0a89542a79
 test/data/additional-commodity-code-responses-and-expected-results.yml: 6ca51c22f472dbe159ac81f31006a7b1
