@@ -384,8 +384,6 @@ module SmartAnswer
         option is_more_than_a_year: :is_more_than_a_year_outcome # A41 going_abroad
       end
 
-      use_outcome_templates
-
       outcome :pension_going_abroad_outcome # A2 going_abroad
       outcome :jsa_less_than_a_year_medical_outcome # A3 going_abroad
       outcome :jsa_less_than_a_year_other_outcome # A4 going_abroad
