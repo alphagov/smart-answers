@@ -181,8 +181,6 @@ module SmartAnswer
         next_node :shift_worker_done
       end
 
-      use_outcome_templates
-
       outcome :shift_worker_done do
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(
