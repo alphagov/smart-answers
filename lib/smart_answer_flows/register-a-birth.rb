@@ -119,8 +119,6 @@ module SmartAnswer
 
       # Outcomes
 
-      use_outcome_templates
-
       outcome :north_korea_result do
         precalculate :reg_data_query do
           reg_data_query
