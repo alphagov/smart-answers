@@ -92,7 +92,7 @@ lib/smart_answer_flows/marriage-abroad/outcome_os_local_japan.govspeak.erb: d4d0
 lib/smart_answer_flows/marriage-abroad/outcome_os_marriage_impossible_no_laos_locals.govspeak.erb: 3be3a33c8eba1ac4017c13ecd9ed284a
 lib/smart_answer_flows/marriage-abroad/outcome_os_no_cni.govspeak.erb: 93f799595f19edd27af28a75dd9c82b0
 lib/smart_answer_flows/marriage-abroad/outcome_os_other_countries.govspeak.erb: 45dc269b772f13149373b647942dca87
-lib/smart_answer_flows/marriage-abroad/outcome_portugal.govspeak.erb: c5dfaf401b8d91e1349dbdac9c979a27
+lib/smart_answer_flows/marriage-abroad/outcome_portugal.govspeak.erb: 695750a9cc381603f800f1c2c6c5e200
 lib/smart_answer_flows/marriage-abroad/outcome_spain.govspeak.erb: 1592ae011e5f9fa0528fc0dc00b1d671
 lib/smart_answer_flows/marriage-abroad/outcome_ss_affirmation.govspeak.erb: 0784e5066e751503bf9bc2a61aaf4f35
 lib/smart_answer_flows/marriage-abroad/outcome_ss_marriage.govspeak.erb: 9beb7638488ff6c1f355ee494880e838
