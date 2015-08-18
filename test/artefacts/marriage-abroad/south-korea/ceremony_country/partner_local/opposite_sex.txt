@@ -13,31 +13,18 @@ Contact the relevant local authorities in South Korea to find out about local ma
 You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
 
 
-Make an appointment at the British embassy or consulate in South Korea to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+Make an appointment at the British embassy in South Korea to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s passport and pay a fee.
 
 
+[Make an appointment at the embassy in Seoul](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-seoul/oaths-affirmations-and-affidavits/slot_picker).
 
+You’ll need to fill in an [‘Affidavit for Marriage’](/government/publications/south-korea-affidavit-of-eligibility-for-marriage-form) form stating that you’re free to marry. You can download and fill in (but not sign) the form in advance. You’ll need to take the form with you to your appointment.
 
-$A
-British Embassy Seoul
-British Embassy Seoul
-Sejong-daero 19-gil 24
-Jung-gu, Seoul
-100-120
+You’ll need to provide supporting documents, including:
 
-South Korea
-$A
-
-$C
-Telephone: (+82) (2) 3210 5500 
-Facsimile: (+82) (2) 725 1738 
-
-Email: <Enquiry.Seoul@fco.gov.uk>
-
-[British Embassy Seoul - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-seoul/office/british-embassy-seoul)
-$C
-
-
+- you partner’s Family Relationship Certificate and Marriage Status Certificate - these can be obtained from a local district office anywhere in South Korea and must be translated into English and notarised by a lawyer in Korea
+- your partner’s valid Korean ID card
+- your partner’s proof of termination of any prior marriage(s)
 
 
 
@@ -50,8 +37,7 @@ You might need to get your affirmation [translated](/government/collections/list
 
 If you’ve been divorced or widowed, you’ll also need:
 
-- a [decree absolute or final order](/copy-decree-absolute-final-order) or the [death certificate](/order-copy-birth-death-marriage-certificate/)
-
+- a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) - a [decree nisi](/divorce/apply-for-decree-nisi) won’t be accepted
 
 - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.
 
@@ -71,12 +57,12 @@ Your partner can apply to [become a British citizen](/becoming-a-british-citizen
 
 Service | Fee
 -|-
-Affidavit for marriage | £55
+Affidavit for marriage | £65
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for South Korea](/government/publications/south-korea-consular-fees).
 
 
-You can pay by cash or credit card, but not by personal cheque.
+You can pay by cash in the local currency or by credit card, but not by personal cheque.
 
 
 *[GRO]:General Register Office

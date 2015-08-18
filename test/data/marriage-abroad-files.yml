@@ -20,7 +20,7 @@ lib/smart_answer_flows/marriage-abroad/_contact_laadoul.govspeak.erb: 1dd713bf62
 lib/smart_answer_flows/marriage-abroad/_contact_local_authorities.govspeak.erb: f8d276a3b65ce8160406b5c341c7d783
 lib/smart_answer_flows/marriage-abroad/_contact_local_authorities_in_country_cp.govspeak.erb: 1a5916b89288b05d2a50542f0c1ac857
 lib/smart_answer_flows/marriage-abroad/_contact_local_authorities_in_country_marriage.govspeak.erb: 5e081167b2f93585e1b781eece504742
-lib/smart_answer_flows/marriage-abroad/_contact_method.govspeak.erb: 613c672be6754a761241fc72159d3a46
+lib/smart_answer_flows/marriage-abroad/_contact_method.govspeak.erb: 43a32404994c3721679c7ed40aca5add
 lib/smart_answer_flows/marriage-abroad/_contact_to_make_appointment.govspeak.erb: a7e4a184e974b3989a697578277b3b7a
 lib/smart_answer_flows/marriage-abroad/_convert_cc_to_ss_marriage.govspeak.erb: 38e1be8bb7bdd80ef0c4c6c3af8f7f04
 lib/smart_answer_flows/marriage-abroad/_country_is_dutch_caribbean_island.govspeak.erb: 79a6a69e395d2130cd87aa0d6b0f133b
@@ -78,7 +78,7 @@ lib/smart_answer_flows/marriage-abroad/outcome_cp_or_equivalent.govspeak.erb: 55
 lib/smart_answer_flows/marriage-abroad/outcome_ireland.govspeak.erb: d1cd076fbc8c1c5304e35be6b8041d95
 lib/smart_answer_flows/marriage-abroad/outcome_monaco.govspeak.erb: 8c0f70005eee341c37f7966886c68c8c
 lib/smart_answer_flows/marriage-abroad/outcome_netherlands.govspeak.erb: 0fcd0dfbe7834ead8d31dcdbdb3e4d36
-lib/smart_answer_flows/marriage-abroad/outcome_os_affirmation.govspeak.erb: 7a40c859689b51e6ba900b3d7120d7b0
+lib/smart_answer_flows/marriage-abroad/outcome_os_affirmation.govspeak.erb: ceeedcd9cec06dcc8774b62f16ad1b38
 lib/smart_answer_flows/marriage-abroad/outcome_os_bot.govspeak.erb: 6265728604b85e2fd51b59b3823fe1aa
 lib/smart_answer_flows/marriage-abroad/outcome_os_colombia.govspeak.erb: 0278771b1619672cf187445c6cef00f4
 lib/smart_answer_flows/marriage-abroad/outcome_os_commonwealth.govspeak.erb: 34601719747aa693e793816036730450
@@ -100,6 +100,6 @@ lib/smart_answer_flows/marriage-abroad/outcome_ss_marriage_malta.govspeak.erb: a
 lib/smart_answer_flows/marriage-abroad/outcome_ss_marriage_not_possible.govspeak.erb: 800f400fb97200d114f5e8b80531a4d5
 lib/smart_answer_flows/marriage-abroad/outcome_switzerland.govspeak.erb: 97c1cfdd18b7611c25698df8d93091df
 lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: 125ce6e83d25d02bde1ac9f2db6eeb14
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: d64ea42121cdaeaa50b08177bb6df28c
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
 lib/smart_answer/calculators/registrations_data_query.rb: cbb0fad828d74606eb708d3442cf4ca5
