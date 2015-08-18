@@ -56,8 +56,6 @@ module SmartAnswer
         next_node :outcome_topup_calculations
       end
 
-      use_outcome_templates
-
       #A1
       outcome :outcome_topup_calculations do
         precalculate :amounts_vs_ages do
