@@ -1,6 +1,6 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: ee1707059845546108e958988b375f18
-lib/smart_answer_flows/locales/en/marriage-abroad.yml: cb5f133056b7d999951ba46a0fb2a1e6
+lib/smart_answer_flows/marriage-abroad.rb: afc71eb8f329977cddd5d8595f1a48a1
+lib/smart_answer_flows/locales/en/marriage-abroad.yml: 5839da4f9692ad08dae81297f3dbf197
 test/data/marriage-abroad-questions-and-responses.yml: eabbd09ca91fab72a9a520d1087fb35e
 test/data/marriage-abroad-responses-and-expected-results.yml: 74f923c5f929e369f4c9a9f0b47ffcc7
 lib/smart_answer_flows/marriage-abroad/_affirmation_os_translation_in_local_language_text.govspeak.erb: 2e6645f9114db57b0f081070d0473771
