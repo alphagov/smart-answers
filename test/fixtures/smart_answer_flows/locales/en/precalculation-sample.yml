@@ -5,7 +5,3 @@ en-GB:
         label: "Amount:"
       how_many_woodchucks_do_you_have?:
         label: "Amount:"
-      done:
-        title: "%{formatted_amount_of_wood} would be chucked."
-        body: |
-          ^ %{formatted_number_of_woodchucks}, each chucking %{formatted_capacity_of_woodchucks} = %{formatted_amount_of_wood} being chucked.
