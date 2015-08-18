@@ -136,6 +136,17 @@
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
+    <% if ceremony_country == 'south-korea' %>
+      You’ll need to fill in an [‘Affidavit for Marriage’](/government/publications/south-korea-affidavit-of-eligibility-for-marriage-form) form stating that you’re free to marry. You can download and fill in (but not sign) the form in advance. You’ll need to take the form with you to your appointment.
+
+      <% if partner_nationality == 'partner_local' %>
+        You’ll need to provide supporting documents, including:
+
+        - you partner’s Family Relationship Certificate and Marriage Status Certificate - these can be obtained from a local district office anywhere in South Korea and must be translated into English and notarised by a lawyer in Korea
+        - your partner’s valid Korean ID card
+        - your partner’s proof of termination of any prior marriage(s)
+      <% end %>
+    <% end %>
     <% if ceremony_country == 'belgium' %>
       <%= render partial: 'complete_affirmation_or_affidavit_forms.govspeak.erb' %>
       <%= render partial: 'download_and_fill_but_not_sign.govspeak.erb' %>
