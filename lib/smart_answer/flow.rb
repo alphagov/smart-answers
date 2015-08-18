@@ -5,8 +5,8 @@ module SmartAnswer
     attr_reader :nodes, :outcomes
     attr_accessor :state, :status, :need_id
 
-    def self.build
-      new.tap do |flow|
+    def self.build(*args)
+      new(*args).tap do |flow|
         flow.define
       end
     end

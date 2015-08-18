@@ -1,0 +1,24 @@
+en-GB:
+  flow:
+    calculate-your-part-year-profit:
+      title: Calculate your part-year profits
+      body: |
+        You need to report your part-year profits to end your tax credits claim if you’ve applied for Universal Credit and you’re self-employed.
+
+        You’ll need to know the following to use this calculator:
+
+        - your tax credits award end date (you can find this on your award review)
+        - your accounting dates for your business
+        - your profit for the current tax year
+
+        You can use this calculator to complete box 2.4 of your award review.
+      meta:
+        description: Calculate your part-year profits to end your tax credits award and claim Universal Credit if you’re self-employed
+      when_did_your_tax_credits_award_end?:
+        title: When did your tax credits award end?
+        hint: You can find this on your award review.
+      when_do_your_business_accounts_start?:
+        title: When do your business accounts start?
+        hint: This is the start of your tax year for your business. For most people it will be 6 April.
+      what_is_your_taxable_profit?:
+        title: "What is your actual or estimated taxable profit between %{from_date} and %{to_date}?"
