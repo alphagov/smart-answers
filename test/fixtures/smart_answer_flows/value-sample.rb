@@ -10,7 +10,9 @@ module SmartAnswer
         next_node :outcome_with_template
       end
 
-      outcome :outcome_with_template, use_outcome_templates: true
+      use_outcome_templates
+
+      outcome :outcome_with_template
     end
   end
 end
