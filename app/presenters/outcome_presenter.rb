@@ -14,8 +14,6 @@ class OutcomePresenter < NodePresenter
       render_erb_template
       title = @view.content_for(:title) || ''
       strip_leading_spaces(title.chomp)
-    else
-      translate!('title')
     end
   end
 

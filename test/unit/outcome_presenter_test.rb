@@ -256,14 +256,6 @@ Hello world
       end
     end
 
-    test '#title calls translate! to return the title when not using outcome templates' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: false)
-      presenter = OutcomePresenter.new('i18n-prefix', outcome)
-
-      presenter.stubs(:translate!).with('title').returns('outcome-presenter-title')
-      assert_equal 'outcome-presenter-title', presenter.title
-    end
-
     test '#title returns the same content when called multiple times' do
       outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 
