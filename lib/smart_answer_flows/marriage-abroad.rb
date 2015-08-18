@@ -212,7 +212,7 @@ module SmartAnswer
 
         on_condition(responded_with('same_sex')) do
           define_predicate(:ss_marriage_germany_partner_local?) {
-            (ceremony_country == "germany") && (partner_nationality == "partner_local") && (ceremony_type != 'opposite_sex')
+            (ceremony_country == "germany") && (partner_nationality == "partner_local")
           }
           define_predicate(:ss_marriage_countries?) {
             data_query.ss_marriage_countries?(ceremony_country)
