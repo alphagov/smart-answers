@@ -181,13 +181,6 @@ module SmartAnswer
       assert presenter.has_title?
     end
 
-    test "Outcome has no title if using the OutcomePresenter" do
-      outcome = Outcome.new(:outcome_with_no_title)
-      presenter = OutcomePresenter.new("flow.test", outcome)
-
-      refute presenter.has_title?
-    end
-
     test "Node next_steps looked up from translation file, rendered as HTML using govspeak by default" do
       question = Question::Date.new(:example_question?)
       presenter = NodePresenter.new("flow.test", question)
