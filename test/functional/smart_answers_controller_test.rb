@@ -17,7 +17,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
       multiple_choice :do_you_like_chocolate? do
         option yes: :you_have_a_sweet_tooth
         option no: :do_you_like_jam?
-        option maybe: :outcome_with_erb_template
       end
 
       multiple_choice :do_you_like_jam? do
@@ -29,7 +28,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       outcome :you_have_a_savoury_tooth
       outcome :you_have_a_sweet_tooth
-      outcome :outcome_with_erb_template
     end
     load_path = fixture_file('smart_answers_controller_test')
     SmartAnswer::FlowRegistry.stubs(:instance).returns(stub("Flow registry", find: @flow, load_path: load_path))
@@ -467,7 +465,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
 
     context "format=txt" do
-      should "render govspeak text for outcome node without ERB template" do
+      should "render govspeak text for outcome node" do
         document = stub('Govspeak::Document', to_html: 'html-output')
         Govspeak::Document.stubs(:new).returns(document)
 
@@ -476,17 +474,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_match /sweet-tooth-outcome-title/, response.body
         assert_match /sweet-tooth-outcome-govspeak-body/, response.body
         assert_match /sweet-tooth-outcome-govspeak-next-steps/, response.body
-      end
-
-      should "render govspeak text for outcome node with ERB template" do
-        document = stub('Govspeak::Document', to_html: 'html-output')
-        Govspeak::Document.stubs(:new).returns(document)
-
-        get :show, id: 'sample', started: 'y', responses: "maybe", format: "txt"
-
-        assert_match /outcome-with-erb-template-title/, response.body
-        assert_match /outcome-with-erb-template-govspeak-body/, response.body
-        assert_match /outcome-with-erb-template-govspeak-next-steps/, response.body
       end
 
       should "render not found for non-outcome node" do
@@ -504,7 +491,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
 
         should "render not found" do
-          get :show, id: 'sample', started: 'y', responses: "maybe", format: "txt"
+          get :show, id: 'sample', started: 'y', responses: "yes", format: "txt"
 
           assert_response :missing
         end
