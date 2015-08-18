@@ -541,14 +541,6 @@ module SmartAnswer
           sprintf("%.2f", calculator.what_you_would_get_if_not_full)
         end
 
-        precalculate :pension_summary do
-          if calculator.pension_loss > 0
-            PhraseList.new(:this_is_n_below_the_full_state_pension)
-          else
-            PhraseList.new(:this_is_the_full_state_pension)
-          end
-        end
-
         precalculate :enough_qualifying_years do
           qualifying_years_total >= 30
         end

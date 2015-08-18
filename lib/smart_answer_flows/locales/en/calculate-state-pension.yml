@@ -26,8 +26,6 @@ en-GB:
         "no": "No"
         none: "None of the above"
       phrases:
-        this_is_the_full_state_pension: This is the full State Pension.
-        this_is_n_below_the_full_state_pension: This is £%{pension_loss} per week below the full State Pension.
         married_woman_text: If you are a married woman paying reduced National Insurance, don’t count any years before 2010.
         carers_allowance_women_hint: Don’t count years when you opted for the reduced National Insurance rate for married women and widows.
         carers_allowance_women_ni_reduced_years_before_2010: Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows.
