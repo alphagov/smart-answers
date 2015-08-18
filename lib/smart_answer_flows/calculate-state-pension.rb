@@ -457,8 +457,6 @@ module SmartAnswer
         next_node :amount_result
       end
 
-      use_outcome_templates
-
       outcome :near_state_pension_age
 
       outcome :reached_state_pension_age
