@@ -1,5 +1,5 @@
---- 
-lib/smart_answer_flows/simplified-expenses-checker.rb: 6d5b95f38d2a001c6bf186acd3b49556
+---
+lib/smart_answer_flows/simplified-expenses-checker.rb: 4c48ace98519ddb46b2dd8c58bb5337a
 lib/smart_answer_flows/locales/en/simplified-expenses-checker.yml: d76eb23e44e50155626002c4242d43f7
 test/data/simplified-expenses-checker-questions-and-responses.yml: 6b1c358b3730897b6cbefa9477ada15b
 test/data/simplified-expenses-checker-responses-and-expected-results.yml: 983e72657f76697beafb2dcbe4018bee
