@@ -80,8 +80,6 @@ module SmartAnswer
 
       end
 
-      use_outcome_templates
-
       outcome :outcome_results do
         precalculate :data_query do
           SmartAnswer::Calculators::LegalisationDocumentsDataQuery.new
