@@ -149,14 +149,6 @@ Hello world
       end
     end
 
-    test '#body delegates to NodePresenter when not using outcome templates' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: false)
-      presenter = OutcomePresenter.new('i18n-prefix', outcome)
-
-      presenter.stubs(:translate_and_render).with('body', optionally(anything)).returns('node-presenter-body')
-      assert_equal 'node-presenter-body', presenter.body
-    end
-
     test '#body returns the same content when called multiple times' do
       outcome = Outcome.new('outcome-name', use_outcome_templates: true)
 

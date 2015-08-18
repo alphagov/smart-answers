@@ -34,8 +34,6 @@ class OutcomePresenter < NodePresenter
       govspeak = @view.content_for(:body) || ''
       govspeak = strip_leading_spaces(govspeak.to_str)
       html ? GovspeakPresenter.new(govspeak).html : govspeak
-    else
-      super
     end
   end
 
