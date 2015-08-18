@@ -1,0 +1,36 @@
+module SmartAnswer
+  class <%= flow_class %> < Flow
+    def define
+      name <%= flow_name.inspect %>
+      status <%= flow.status.to_sym.inspect %>
+      satisfies_need <%= flow.need_id.inspect %>
+
+      <% questions.each do |question| %>
+      <%= question[:type] %> <%= question[:name].inspect %> do
+        <% question[:options].each do |option| %>
+        option <%= option.inspect %>
+        <% end %>
+
+        next_node do |response|
+        <% if case_statement = question[:next_node_rules][:case_statement] %>
+          case response
+          <% case_statement.each do |value, outcome| %>
+          when <%= value.inspect %>
+            <%= outcome.to_sym.inspect %>
+          <% end %>
+          end
+        <% elsif comments = question[:next_node_rules][:comments] %>
+          <% comments.each do |comment| %>
+          # TODO: <%= comment %>
+          <% end %>
+        <% end %>
+        end
+      end
+
+      <% end %>
+      <% outcomes.each do |outcome| %>
+      outcome :<%= outcome[:name] %>
+      <% end %>
+    end
+  end
+end
