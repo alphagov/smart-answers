@@ -65,13 +65,13 @@ en-GB:
         title: Are you a continuing student?
         hint: You’re usually a continuing student if you got student finance last year.
         options:
-          continuing-student: Yes
-          new-student: No
+          continuing-student: 'Yes'
+          new-student: 'No'
 
       pt_course_start?:
         title: Did your part-time course start before 1 September 2012?
         options:
-          course-start-before-01092012: Yes
-          course-start-after-01092012: No
+          course-start-before-01092012: 'Yes'
+          course-start-after-01092012: 'No'
 
 
