@@ -1,0 +1,572 @@
+---
+- :current_node: property
+  :responses:
+  - WC2B 6SE
+  :next_node: outcome_check_not_needed
+  :outcome_node: true
+- :current_node: property
+  :responses:
+  - B1 1PW
+  :next_node: renting_as_main_home
+  :outcome_node: false
+- :current_node: main_home
+  :responses:
+  - B1 1PW
+  - 'yes'
+  :next_node: tenant_over_18
+  :outcome_node: false
+- :current_node: tenant_over_18
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  :next_node: uk_passport
+  :outcome_node: false
+- :current_node: has_uk_passport
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  :next_node: outcome_can_rent
+  :outcome_node: true
+- :current_node: has_uk_passport
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  :next_node: uk_citizen_with_right_to_abode
+  :outcome_node: false
+- :current_node: right_to_abode
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent
+  :outcome_node: true
+- :current_node: right_to_abode
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  :next_node: registration_or_naturalisation_certificate
+  :outcome_node: false
+- :current_node: has_certificate
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent
+  :outcome_node: true
+- :current_node: has_certificate
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  :next_node: tenant_nationality
+  :outcome_node: false
+- :current_node: tenant_country
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  :next_node: documents_exempting_from_immigration_control
+  :outcome_node: false
+- :current_node: has_documents
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'yes'
+  :next_node: outcome_can_rent
+  :outcome_node: true
+- :current_node: has_documents
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'no'
+  :next_node: other_documents_for_indefinite_leave_to_remain
+  :outcome_node: false
+- :current_node: has_other_documents
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent
+  :outcome_node: true
+- :current_node: has_other_documents
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'no'
+  - 'no'
+  :next_node: time_limited_leave_to_remain
+  :outcome_node: false
+- :current_node: time_limited_to_remain
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'no'
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent_but_check_will_be_needed_again
+  :outcome_node: true
+- :current_node: time_limited_to_remain
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'no'
+  - 'no'
+  - 'no'
+  :next_node: residence_card_or_eu_eea_swiss_family_member
+  :outcome_node: false
+- :current_node: has_residence_card_or_eu_eea_swiss_family_member
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent
+  :outcome_node: true
+- :current_node: has_residence_card_or_eu_eea_swiss_family_member
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  :next_node: asylum_registration_card
+  :outcome_node: false
+- :current_node: has_asylum_card
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent_for_12_months
+  :outcome_node: true
+- :current_node: has_asylum_card
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  :next_node: outstanding_immigration_application
+  :outcome_node: false
+- :current_node: immigration_application
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent_for_12_months
+  :outcome_node: true
+- :current_node: immigration_application
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - eu_eea_switzerland
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  :next_node: outcome_can_not_rent
+  :outcome_node: true
+- :current_node: tenant_country
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - non_eea_but_with_eu_eea_switzerland_family_member
+  :next_node: residence_card_or_eu_eea_swiss_family_member
+  :outcome_node: false
+- :current_node: has_residence_card_or_eu_eea_swiss_family_member
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - non_eea_but_with_eu_eea_switzerland_family_member
+  - 'yes'
+  :next_node: outcome_can_rent
+  :outcome_node: true
+- :current_node: has_residence_card_or_eu_eea_swiss_family_member
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - non_eea_but_with_eu_eea_switzerland_family_member
+  - 'no'
+  :next_node: asylum_registration_card
+  :outcome_node: false
+- :current_node: has_asylum_card
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - non_eea_but_with_eu_eea_switzerland_family_member
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent_for_12_months
+  :outcome_node: true
+- :current_node: has_asylum_card
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - non_eea_but_with_eu_eea_switzerland_family_member
+  - 'no'
+  - 'no'
+  :next_node: outstanding_immigration_application
+  :outcome_node: false
+- :current_node: immigration_application
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - non_eea_but_with_eu_eea_switzerland_family_member
+  - 'no'
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent_for_12_months
+  :outcome_node: true
+- :current_node: immigration_application
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - non_eea_but_with_eu_eea_switzerland_family_member
+  - 'no'
+  - 'no'
+  - 'no'
+  :next_node: outcome_can_not_rent
+  :outcome_node: true
+- :current_node: tenant_country
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - somewhere_else
+  :next_node: other_documents_for_indefinite_leave_to_remain
+  :outcome_node: false
+- :current_node: has_other_documents
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - somewhere_else
+  - 'yes'
+  :next_node: outcome_can_rent
+  :outcome_node: true
+- :current_node: has_other_documents
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - somewhere_else
+  - 'no'
+  :next_node: time_limited_leave_to_remain
+  :outcome_node: false
+- :current_node: time_limited_to_remain
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - somewhere_else
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent_but_check_will_be_needed_again
+  :outcome_node: true
+- :current_node: time_limited_to_remain
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - somewhere_else
+  - 'no'
+  - 'no'
+  :next_node: residence_card_or_eu_eea_swiss_family_member
+  :outcome_node: false
+- :current_node: has_residence_card_or_eu_eea_swiss_family_member
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - somewhere_else
+  - 'no'
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent
+  :outcome_node: true
+- :current_node: has_residence_card_or_eu_eea_swiss_family_member
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - somewhere_else
+  - 'no'
+  - 'no'
+  - 'no'
+  :next_node: asylum_registration_card
+  :outcome_node: false
+- :current_node: has_asylum_card
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - somewhere_else
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent_for_12_months
+  :outcome_node: true
+- :current_node: has_asylum_card
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - somewhere_else
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  :next_node: outstanding_immigration_application
+  :outcome_node: false
+- :current_node: immigration_application
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - somewhere_else
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
+  :next_node: outcome_can_rent_for_12_months
+  :outcome_node: true
+- :current_node: immigration_application
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
+  - somewhere_else
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  :next_node: outcome_can_not_rent
+  :outcome_node: true
+- :current_node: tenant_over_18
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'no'
+  :next_node: outcome_check_not_needed_when_under_18
+  :outcome_node: true
+- :current_node: main_home
+  :responses:
+  - B1 1PW
+  - 'no'
+  :next_node: property_type
+  :outcome_node: false
+- :current_node: property_type
+  :responses:
+  - B1 1PW
+  - 'no'
+  - holiday_accommodation
+  :next_node: outcome_check_not_needed_if_holiday_or_under_3_months
+  :outcome_node: true
+- :current_node: property_type
+  :responses:
+  - B1 1PW
+  - 'no'
+  - social_housing
+  :next_node: outcome_check_not_needed
+  :outcome_node: true
+- :current_node: property_type
+  :responses:
+  - B1 1PW
+  - 'no'
+  - care_home
+  :next_node: outcome_check_not_needed_when_care_home
+  :outcome_node: true
+- :current_node: property_type
+  :responses:
+  - B1 1PW
+  - 'no'
+  - hostel_or_refuge
+  :next_node: outcome_check_not_needed_when_hostel_refuge
+  :outcome_node: true
+- :current_node: property_type
+  :responses:
+  - B1 1PW
+  - 'no'
+  - mobile_home
+  :next_node: outcome_check_not_needed_when_mobile_home
+  :outcome_node: true
+- :current_node: property_type
+  :responses:
+  - B1 1PW
+  - 'no'
+  - employee_accommodation
+  :next_node: outcome_check_not_needed_when_employee_home
+  :outcome_node: true
+- :current_node: property_type
+  :responses:
+  - B1 1PW
+  - 'no'
+  - student_accommodation
+  :next_node: outcome_check_may_be_needed_when_student
+  :outcome_node: true
+- :current_node: property_type
+  :responses:
+  - B1 1PW
+  - 'no'
+  - 7_year_lease_property
+  :next_node: outcome_check_needed_if_break_clause
+  :outcome_node: true

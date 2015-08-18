@@ -12,6 +12,7 @@ require_relative '../support/fixture_methods'
 
 require 'gds_api/test_helpers/content_api'
 require 'gds_api/test_helpers/worldwide'
+require 'gds_api/test_helpers/imminence'
 
 class SmartAnswersRegressionTest < ActionController::TestCase
   i_suck_and_my_tests_are_order_dependent!
@@ -41,6 +42,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
   include GdsApi::TestHelpers::ContentApi
   include GdsApi::TestHelpers::Worldwide
+  include GdsApi::TestHelpers::Imminence
   include WebMock::API
   include FixtureMethods
 
@@ -65,6 +67,10 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
 
         setup_worldwide_locations
+
+        imminence_has_areas_for_postcode("WC2B%206SE", [])
+        imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council" }])
+
         self.class.setup_has_run!
       end
 
