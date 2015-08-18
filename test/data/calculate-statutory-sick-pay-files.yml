@@ -1,5 +1,5 @@
---- 
-lib/smart_answer_flows/calculate-statutory-sick-pay.rb: 9c1e703af03a20302cd8d5b626c97081
+---
+lib/smart_answer_flows/calculate-statutory-sick-pay.rb: 35b53e3c0307caa15921bb2b079a42cf
 lib/smart_answer_flows/locales/en/calculate-statutory-sick-pay.yml: 99127d932672eba7aef80e5aa6945e94
 test/data/calculate-statutory-sick-pay-questions-and-responses.yml: 225bf0303e9d1c7fa1a929c24b543db3
 test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: 171dcf9d94ad17c5c64d6e776c73c69b
