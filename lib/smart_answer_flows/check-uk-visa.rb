@@ -128,8 +128,6 @@ module SmartAnswer
         end
       end
 
-      use_outcome_templates
-
       outcome :outcome_no_visa_needed do
         precalculate :purpose_of_visit_answer do
           purpose_of_visit_answer
