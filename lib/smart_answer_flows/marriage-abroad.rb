@@ -254,8 +254,6 @@ module SmartAnswer
         end
       end
 
-      use_outcome_templates
-
       outcome :outcome_ireland
 
       outcome :outcome_switzerland
