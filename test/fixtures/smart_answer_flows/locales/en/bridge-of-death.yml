@@ -39,13 +39,3 @@ en-GB:
       what_is_the_capital_of_assyria?:
         title: "What...is the capital of Assyria?"
         label: "Answer:"
-
-      done:
-        title: "Right, off you go."
-        body: |
-          Oh! Well, thank you. Thank you very much.
-
-      auuuuuuuugh:
-        title: "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!"
-        body: |
-          ^ %{your_name} is thrown into the Gorge of Eternal Peril
