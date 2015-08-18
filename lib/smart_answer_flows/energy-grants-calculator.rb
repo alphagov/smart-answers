@@ -314,8 +314,6 @@ module SmartAnswer
         next_node(:outcome_bills_and_measures_on_benefits_not_eco_eligible)
       end
 
-      use_outcome_templates
-
       outcome :outcome_help_with_bills do
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1

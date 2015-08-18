@@ -1,5 +1,5 @@
---- 
-lib/smart_answer_flows/energy-grants-calculator.rb: c6272116ab0e682e9fcd28f0e22038bd
+---
+lib/smart_answer_flows/energy-grants-calculator.rb: 75aa3d3502ec972766cdc9c87dee2542
 lib/smart_answer_flows/locales/en/energy-grants-calculator.yml: 59762be041aa30702b4539c24246e41c
 test/data/energy-grants-calculator-questions-and-responses.yml: 9db51ef9a0c467a588f0416ef5cefff1
 test/data/energy-grants-calculator-responses-and-expected-results.yml: a74075e2ccb5343d91f87a15924e0f65
