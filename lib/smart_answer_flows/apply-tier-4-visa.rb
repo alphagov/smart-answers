@@ -49,8 +49,6 @@ module SmartAnswer
         next_node(:outcome)
       end
 
-      use_outcome_templates
-
       outcome :outcome
     end
   end
