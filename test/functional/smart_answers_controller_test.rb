@@ -25,9 +25,11 @@ class SmartAnswersControllerTest < ActionController::TestCase
         option no: :you_have_a_savoury_tooth
       end
 
+      use_outcome_templates
+
       outcome :you_have_a_savoury_tooth
       outcome :you_have_a_sweet_tooth
-      outcome :outcome_with_erb_template, use_outcome_templates: true
+      outcome :outcome_with_erb_template
     end
     load_path = fixture_file('smart_answers_controller_test')
     SmartAnswer::FlowRegistry.stubs(:instance).returns(stub("Flow registry", find: @flow, load_path: load_path))
@@ -469,9 +471,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         document = stub('Govspeak::Document', to_html: 'html-output')
         Govspeak::Document.stubs(:new).returns(document)
 
-        using_translation_file(fixture_file('smart_answers_controller_test/outcomes.yml')) do
-          get :show, id: 'sample', started: 'y', responses: "yes", format: "txt"
-        end
+        get :show, id: 'sample', started: 'y', responses: "yes", format: "txt"
 
         assert_match /sweet-tooth-outcome-title/, response.body
         assert_match /sweet-tooth-outcome-govspeak-body/, response.body
