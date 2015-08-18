@@ -24,7 +24,6 @@ class FlowTest < ActiveSupport::TestCase
   test "Can build outcomes where the whole flow uses ERB templates" do
     flow = SmartAnswer::Flow.new do
       name 'flow-name'
-      use_outcome_templates
       outcome :outcome_name
     end
 

@@ -34,8 +34,6 @@ module SmartAnswer
         option red: :done
       end
 
-      use_outcome_templates
-
       outcome :done
       outcome :auuuuuuuugh
     end

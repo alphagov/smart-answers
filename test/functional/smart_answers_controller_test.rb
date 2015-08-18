@@ -24,8 +24,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
         option no: :you_have_a_savoury_tooth
       end
 
-      use_outcome_templates
-
       outcome :you_have_a_savoury_tooth
       outcome :you_have_a_sweet_tooth
     end
