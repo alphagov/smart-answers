@@ -27,15 +27,6 @@ module SmartAnswer
         option :male
         option :female
 
-        # optional text to include in a hint for a later question
-        calculate :if_married_woman do |response|
-          if response.eql? 'female'
-            PhraseList.new(:married_woman_text)
-          else
-            ''
-          end
-        end
-
         next_node_if(:dob_age?, variable_matches(:calculate_age_or_amount, "age"))
         next_node :dob_amount?
       end
