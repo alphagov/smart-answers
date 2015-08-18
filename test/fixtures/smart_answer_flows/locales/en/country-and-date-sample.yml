@@ -1,5 +1,4 @@
 en-GB:
   flow:
     country-and-date-sample:
-      ok:
-        title: "Great - you've lived in %{country} for %{years_there} years, and were born in %{birth_country}!"
+
