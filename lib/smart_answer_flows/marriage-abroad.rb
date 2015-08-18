@@ -141,14 +141,6 @@ module SmartAnswer
           end
         end
 
-        calculate :ceremony_type_lowercase do |response|
-          if response == 'opposite_sex'
-            "marriage"
-          else
-            "civil partnership"
-          end
-        end
-
         define_predicate(:ceremony_in_laos_partners_not_local) {
           (ceremony_country == "laos") && (partner_nationality != "partner_local")
         }
