@@ -48,8 +48,6 @@ module SmartAnswer
         end
       end
 
-      use_outcome_templates
-
       outcome :result_1
       outcome :result_2
       outcome :result_3
