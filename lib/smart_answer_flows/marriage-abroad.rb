@@ -133,14 +133,6 @@ module SmartAnswer
 
         save_input_as :sex_of_your_partner
 
-        calculate :ceremony_type do |response|
-          if response == 'opposite_sex'
-            PhraseList.new(:ceremony_type_marriage)
-          else
-            PhraseList.new(:ceremony_type_civil_partnership)
-          end
-        end
-
         define_predicate(:ceremony_in_laos_partners_not_local) {
           (ceremony_country == "laos") && (partner_nationality != "partner_local")
         }
