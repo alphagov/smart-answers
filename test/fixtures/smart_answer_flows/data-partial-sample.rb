@@ -9,6 +9,8 @@ module SmartAnswer
         option data_partial_with_array: :done_array
       end
 
+      use_outcome_templates
+
       outcome :done_scalar do
         precalculate :sample_data do
           {
