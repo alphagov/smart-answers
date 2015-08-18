@@ -4,8 +4,3 @@ en-GB:
 
       what_size_bonus_do_you_want?:
         error_message: "%{error}"
-
-      ok:
-        title: "OK, here you go."
-        body: |
-          ^ This is allowed because %{requested_bonus} is more than your annual salary of %{annual_salary}

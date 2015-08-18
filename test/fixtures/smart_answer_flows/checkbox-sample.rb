@@ -26,6 +26,8 @@ module SmartAnswer
         end
       end
 
+      use_outcome_templates
+
       outcome :margherita
       outcome :on_its_way
       outcome :no_way
