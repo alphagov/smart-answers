@@ -23,6 +23,8 @@ module SmartAnswer
         next_node :ok
       end
 
+      use_outcome_templates
+
       outcome :ok
     end
   end

@@ -1,0 +1,7 @@
+<% content_for :title do %>
+  OK, here you go.
+<% end %>
+
+<% content_for :body do %>
+  ^ This is allowed because <%= format_money(requested_bonus) %> is more than your annual salary of <%= format_money(annual_salary) %>
+<% end %>
