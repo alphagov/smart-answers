@@ -124,6 +124,15 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal "SmartAnswer::Question::Checkbox", s.questions.first.class.name
   end
 
+  test "Can build postcode question nodes" do
+    flow = SmartAnswer::Flow.new { postcode_question :postcode? }
+
+    assert_equal 1, flow.questions.size
+    question = flow.questions.first
+    assert_equal :postcode?, question.name
+    assert_instance_of SmartAnswer::Question::Postcode, question
+  end
+
   test "should have a need ID" do
     s = SmartAnswer::Flow.new do
       satisfies_need 1337

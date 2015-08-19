@@ -49,6 +49,7 @@ else
 end
 
 gem 'lrucache', '0.1.4'
+gem 'uk_postcode', '~> 1.0.1'
 
 group :test do
   gem 'minitest', '~> 5.1'
