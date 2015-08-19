@@ -1,8 +1,0 @@
-# Does the person have a certificate of right of abode in their passport?
-
-[choice: right_to_abode]
-* yes: Yes
-* no: No
-
-* right_to_abode is 'yes' => outcome_can_rent
-* right_to_abode is 'no' => registration_or_naturalisation_certificate

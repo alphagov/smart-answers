@@ -1,8 +1,0 @@
-# Does the person have an application for a Registration Card issued by the Home Office showing that they can stay in the UK?
-
-[choice: has_asylum_card]
-* yes: Yes
-* no: No
-
-* has_asylum_card is 'yes' => outcome_can_rent_for_12_months
-* has_asylum_card is 'no' => outstanding_immigration_application

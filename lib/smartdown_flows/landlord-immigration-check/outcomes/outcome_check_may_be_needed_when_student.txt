@@ -1,9 +1,0 @@
-You don’t have to make a check if the student is in:
-
-- a halls of residence
-- any accommodation provided by their educational institution
-- any private accommodation agreed between the educational institution and the landlord
-
-You’ll have to carry out a check in all other cases.
-
-{{snippet: landlord-code-of-practice}}

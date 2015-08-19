@@ -1,7 +1,0 @@
-This person can rent the property.
-
-You need to make a copy of the [relevant parts of the documents](/check-tenant-right-to-rent-documents) and keep the copies for 12 months after the tenancy has ended.
-
-You don’t have to make this check again.
-
-{{snippet: landlord-code-of-practice}}
