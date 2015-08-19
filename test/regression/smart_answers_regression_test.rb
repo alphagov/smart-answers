@@ -97,11 +97,11 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         end
 
         if flow.respond_to?(:question_pages)
-          nodes = flow.question_pages.flat_map(&:questions) + flow.outcomes
+          nodes = (flow.question_pages.flat_map(&:questions) + flow.outcomes)
         else
           nodes = flow.nodes
         end
-        unexercised_nodes = nodes.map(&:name) - nodes_exercised_in_test
+        unexercised_nodes = nodes.map(&:name).map(&:to_sym) - nodes_exercised_in_test
         assert_equal true, unexercised_nodes.empty?, "Not all nodes are being exercised: #{unexercised_nodes.sort}"
       end
 

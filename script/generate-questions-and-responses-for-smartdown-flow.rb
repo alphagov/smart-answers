@@ -11,12 +11,13 @@ unknown_questions = []
 
 flow.question_pages.each do |question|
   question.questions.each do |question|
+    key = question.name.to_sym
     if question.is_a?(Smartdown::Api::MultipleChoice)
-      questions_and_responses[question.name] = question.options.map(&:value)
+      questions_and_responses[key] = question.options.map(&:value)
     else
       warn "Don't know how to handle questions of type: #{question.class} (Question: #{question.name})"
 
-      questions_and_responses[question.name] = [
+      questions_and_responses[key] = [
         "TODO: #{question.title}"
       ]
       unknown_questions << [question.name, question.title]

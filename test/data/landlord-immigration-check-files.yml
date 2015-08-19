@@ -1,6 +1,6 @@
 ---
-test/data/landlord-immigration-check-questions-and-responses.yml: ea5c73ee5587c3102f462df17e186778
-test/data/landlord-immigration-check-responses-and-expected-results.yml: 326a1dbf9fbc73cd8eccb574ad7659d6
+test/data/landlord-immigration-check-questions-and-responses.yml: 975036129b6241c6524f995c8d2e0f3c
+test/data/landlord-immigration-check-responses-and-expected-results.yml: 24c0e421dcfc88ab57ecd4c8becb3b9e
 lib/smartdown_flows/landlord-immigration-check/outcomes/outcome_can_not_rent.txt: 323bf121f4aa880be8b56fc39d590336
 lib/smartdown_flows/landlord-immigration-check/outcomes/outcome_can_rent.txt: 3cd75bbc32949fe2d2eb66fc7e7c0189
 lib/smartdown_flows/landlord-immigration-check/outcomes/outcome_can_rent_but_check_will_be_needed_again.txt: c23671985d0171e176090d7b6bca0c06

@@ -23,7 +23,7 @@ flow = SmartdownAdapter::Registry.instance.find(flow_name)
 RESPONSES_AND_EXPECTED_RESULTS = []
 
 def answer_question(flow, state)
-  question_name      = state.current_node.questions.first.name # This will break when there are multiple questions per page
+  question_name      = state.current_node.questions.first.name.to_sym # This will break when there are multiple questions per page
   existing_responses = state.accepted_responses
 
   QUESTIONS_AND_RESPONSES[question_name].each do |response|
@@ -31,10 +31,11 @@ def answer_question(flow, state)
     state     = flow.state(started = true, responses)
     next_node = state.current_node
 
+    next_node_name = next_node.is_a?(Smartdown::Api::Outcome) ? next_node.name : next_node.questions.first.name # This will break when there are multiple questions per page
     RESPONSES_AND_EXPECTED_RESULTS << {
       current_node: question_name,
       responses: responses.map(&:to_s),
-      next_node: next_node.is_a?(Smartdown::Api::Outcome) ? next_node.name : next_node.questions.first.name, # This will break when there are multiple questions per page
+      next_node: next_node_name.to_sym,
       outcome_node: next_node.is_a?(Smartdown::Api::Outcome)
     }
 
