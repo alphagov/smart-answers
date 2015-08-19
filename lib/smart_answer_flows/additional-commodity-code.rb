@@ -164,8 +164,6 @@ module SmartAnswer
         next_node :commodity_code_result
       end
 
-      use_outcome_templates
-
       outcome :commodity_code_result do
         precalculate :calculator do
           Calculators::CommodityCodeCalculator.new(

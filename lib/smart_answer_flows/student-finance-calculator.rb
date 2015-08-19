@@ -171,8 +171,6 @@ module SmartAnswer
 
       end
 
-      use_outcome_templates
-
       outcome :outcome_uk_full_time_students
 
       outcome :outcome_uk_all_students

@@ -265,8 +265,6 @@ module SmartAnswer
         next_node_if(:outcome_62, responded_with('no'))
       end
 
-      use_outcome_templates
-
       outcome :outcome_1
       outcome :outcome_2
       outcome :outcome_3

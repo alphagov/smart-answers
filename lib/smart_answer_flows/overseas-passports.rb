@@ -148,8 +148,6 @@ module SmartAnswer
         end
       end
 
-      use_outcome_templates
-
       ## Online IPS Application Result
       outcome :ips_application_result_online do
         precalculate :birth_location do

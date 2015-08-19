@@ -301,8 +301,6 @@ module SmartAnswer
         next_node(:not_entitled_3_days_not_paid)
       end
 
-      use_outcome_templates
-
       # Answer 1
       outcome :already_getting_maternity
 

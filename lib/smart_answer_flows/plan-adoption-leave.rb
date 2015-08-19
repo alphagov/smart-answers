@@ -37,8 +37,6 @@ module SmartAnswer
         next_node :adoption_leave_details
       end
 
-      use_outcome_templates
-
       outcome :adoption_leave_details do
         precalculate :match_date_formatted do
           calculator.formatted_match_date

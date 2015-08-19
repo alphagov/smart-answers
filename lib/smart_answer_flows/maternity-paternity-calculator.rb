@@ -13,8 +13,6 @@ module SmartAnswer
         option adoption: :taking_paternity_leave_for_adoption?
       end
 
-      use_outcome_templates
-
       use_shared_logic ("adoption-calculator")
       use_shared_logic ("paternity-calculator")
       use_shared_logic ("maternity-calculator")

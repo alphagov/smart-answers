@@ -24,28 +24,11 @@ class FlowTest < ActiveSupport::TestCase
   test "Can build outcomes where the whole flow uses ERB templates" do
     flow = SmartAnswer::Flow.new do
       name 'flow-name'
-      use_outcome_templates
       outcome :outcome_name
     end
 
     assert_equal 1, flow.outcomes.size
-    assert_equal true, flow.outcomes.first.use_template?
     assert flow.outcomes.first.template_directory.to_s.end_with?('flow-name')
-  end
-
-  test "Can build single outcomes that use ERB templates" do
-    flow = SmartAnswer::Flow.new do
-      name 'flow-name'
-      outcome :outcome_with_erb_template, use_outcome_templates: true
-      outcome :outcome_without_erb_template, use_outcome_templates: false
-    end
-
-    assert_equal 2, flow.outcomes.size
-
-    assert_equal true, flow.outcomes.first.use_template?
-    assert flow.outcomes.first.template_directory.to_s.end_with?('flow-name')
-
-    assert_equal false, flow.outcomes.last.use_template?
   end
 
   test "Can build multiple choice question nodes" do

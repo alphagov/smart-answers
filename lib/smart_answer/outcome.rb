@@ -13,10 +13,6 @@ module SmartAnswer
       raise InvalidNode
     end
 
-    def use_template?
-      @options[:use_outcome_templates]
-    end
-
     def template_directory
       return unless @options[:flow_name]
       load_path = FlowRegistry.instance.load_path

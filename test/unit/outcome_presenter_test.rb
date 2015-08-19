@@ -21,7 +21,7 @@ module SmartAnswer
     end
 
     test "#body returns nil when the erb template doesn't exist" do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       options = { erb_template_directory: Pathname.new('/path/to/non-existent') }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
@@ -30,7 +30,7 @@ module SmartAnswer
     end
 
     test '#body returns nil when content_for(:body) is missing' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = ''
 
@@ -42,7 +42,7 @@ module SmartAnswer
     end
 
     test '#body returns a single newline when the template is empty' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_body('')
 
@@ -54,7 +54,7 @@ module SmartAnswer
     end
 
     test "#body trims newlines by default" do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_body('<% if true %>
 Hello world
@@ -68,7 +68,7 @@ Hello world
     end
 
     test '#body strips spaces from the beginning of lines so that we can indent content in our content_for blocks' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_body('  <% if true %>
     line 1
@@ -84,7 +84,7 @@ Hello world
     end
 
     test '#body makes the state variables available to the ERB template' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_body('<%= state_variable %>')
 
@@ -97,7 +97,7 @@ Hello world
     end
 
     test "#body raises an exception if the ERB template references a non-existent state variable" do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_body('<%= non_existent_state_variable %>')
 
@@ -113,7 +113,7 @@ Hello world
     end
 
     test '#body makes the ActionView::Helpers::NumberHelper methods available to the ERB template' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_body('<%= number_with_delimiter(123456789) %>')
 
@@ -125,7 +125,7 @@ Hello world
     end
 
     test '#body passes output of ERB template through Govspeak' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_body('^information^')
 
@@ -138,7 +138,7 @@ Hello world
     end
 
     test '#body does not pass output of ERB template through Govspeak when HTML disabled' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_body('^information^')
 
@@ -149,16 +149,8 @@ Hello world
       end
     end
 
-    test '#body delegates to NodePresenter when not using outcome templates' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: false)
-      presenter = OutcomePresenter.new('i18n-prefix', outcome)
-
-      presenter.stubs(:translate_and_render).with('body', optionally(anything)).returns('node-presenter-body')
-      assert_equal 'node-presenter-body', presenter.body
-    end
-
     test '#body returns the same content when called multiple times' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_body('body-content')
 
@@ -171,7 +163,7 @@ Hello world
     end
 
     test "#title returns nil when the erb template doesn't exist" do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       options = { erb_template_directory: Pathname.new('/path/to/non-existent') }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
@@ -180,7 +172,7 @@ Hello world
     end
 
     test '#title returns nil when content_for(:title) is missing' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = ''
 
@@ -192,7 +184,7 @@ Hello world
     end
 
     test '#title returns an empty string when the template is empty' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_title('')
 
@@ -204,7 +196,7 @@ Hello world
     end
 
     test '#title trims a single newline from the end of the string' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_title("title-text\n")
 
@@ -216,7 +208,7 @@ Hello world
     end
 
     test '#title strips spaces from the beginning of the line so that we can indent text within content_for blocks' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_title('  indented-title-text')
 
@@ -228,7 +220,7 @@ Hello world
     end
 
     test '#title makes the state variables available to the ERB template' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_title('<%= state_variable %>')
 
@@ -241,7 +233,7 @@ Hello world
     end
 
     test "#title raises an exception if the ERB template references a non-existent state variable" do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_title('<%= non_existent_state_variable %>')
 
@@ -256,16 +248,8 @@ Hello world
       end
     end
 
-    test '#title calls translate! to return the title when not using outcome templates' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: false)
-      presenter = OutcomePresenter.new('i18n-prefix', outcome)
-
-      presenter.stubs(:translate!).with('title').returns('outcome-presenter-title')
-      assert_equal 'outcome-presenter-title', presenter.title
-    end
-
     test '#title returns the same content when called multiple times' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_title('title-content')
 
@@ -278,7 +262,7 @@ Hello world
     end
 
     test "#next_steps returns nil when the erb template doesn't exist" do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       options = { erb_template_directory: Pathname.new('/path/to/non-existent') }
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
@@ -287,7 +271,7 @@ Hello world
     end
 
     test '#body returns nil when content_for(:next_steps) is missing' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = ''
 
@@ -299,7 +283,7 @@ Hello world
     end
 
     test '#next_steps returns a single newline when the template is empty' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_next_steps('')
 
@@ -311,7 +295,7 @@ Hello world
     end
 
     test "#next_steps trims newlines by default" do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_next_steps('<% if true %>
 Hello world
@@ -325,7 +309,7 @@ Hello world
     end
 
     test '#next_steps strips spaces from the beginning of the line so that we can indent text within content_for blocks' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_next_steps('  indented-next-steps-text')
 
@@ -337,7 +321,7 @@ Hello world
     end
 
     test '#next_steps makes the state variables available to the ERB template' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_next_steps('<%= state_variable %>')
 
@@ -350,7 +334,7 @@ Hello world
     end
 
     test "#next_steps raises an exception if the ERB template references a non-existent state variable" do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_next_steps('<%= non_existent_state_variable %>')
 
@@ -366,7 +350,7 @@ Hello world
     end
 
     test '#next_steps makes the ActionView::Helpers::NumberHelper methods available to the ERB template' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_next_steps('<%= number_with_delimiter(123456789) %>')
 
@@ -378,7 +362,7 @@ Hello world
     end
 
     test '#next_steps passes output of ERB template through Govspeak' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_next_steps('^information^')
 
@@ -391,7 +375,7 @@ Hello world
     end
 
     test '#next_steps does not pass output of ERB template through Govspeak when HTML disabled' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_next_steps('^information^')
 
@@ -402,16 +386,8 @@ Hello world
       end
     end
 
-    test '#next_steps delegates to NodePresenter when not using outcome templates' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: false)
-      presenter = OutcomePresenter.new('i18n-prefix', outcome)
-
-      presenter.stubs(:translate_and_render).with('next_steps', optionally(anything)).returns('node-presenter-body')
-      assert_equal 'node-presenter-body', presenter.next_steps
-    end
-
     test '#next_steps returns the same content when called multiple times' do
-      outcome = Outcome.new('outcome-name', use_outcome_templates: true)
+      outcome = Outcome.new('outcome-name')
 
       erb_template = content_for_next_steps('next-steps-content')
 

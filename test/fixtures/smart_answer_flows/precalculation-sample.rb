@@ -16,8 +16,6 @@ module SmartAnswer
         next_node :done
       end
 
-      use_outcome_templates
-
       outcome :done do
         precalculate :amount_of_wood do
           woodchuck_capacity.to_i * number_of_woodchucks.to_i

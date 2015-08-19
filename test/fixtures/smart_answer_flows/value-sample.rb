@@ -10,8 +10,6 @@ module SmartAnswer
         next_node :outcome_with_template
       end
 
-      use_outcome_templates
-
       outcome :outcome_with_template
     end
   end

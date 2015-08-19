@@ -107,8 +107,6 @@ module SmartAnswer
         next_node(:oru_result)
       end
 
-      use_outcome_templates
-
       outcome :commonwealth_result
       outcome :no_embassy_result
 

@@ -10,45 +10,28 @@ class OutcomePresenter < NodePresenter
   end
 
   def title
-    if use_template? && title_erb_template_exists?
+    if title_erb_template_exists?
       render_erb_template
       title = @view.content_for(:title) || ''
       strip_leading_spaces(title.chomp)
-    else
-      translate!('title')
     end
-  end
-
-  def translate!(subkey)
-    output = super(subkey)
-    if output
-      output.gsub!(/\+\[data_partial:(\w+):(\w+)\]/) do |match|
-        render_data_partial($1, $2)
-      end
-    end
-
-    output
   end
 
   def body(html: true)
-    if use_template? && body_erb_template_exists?
+    if body_erb_template_exists?
       render_erb_template
       govspeak = @view.content_for(:body) || ''
       govspeak = strip_leading_spaces(govspeak.to_str)
       html ? GovspeakPresenter.new(govspeak).html : govspeak
-    else
-      super
     end
   end
 
   def next_steps(html: true)
-    if use_template? && next_steps_erb_template_exists?
+    if next_steps_erb_template_exists?
       render_erb_template
       govspeak = @view.content_for(:next_steps) || ''
       govspeak = strip_leading_spaces(govspeak.to_str)
       html ? GovspeakPresenter.new(govspeak).html : govspeak
-    else
-      super
     end
   end
 
@@ -80,17 +63,6 @@ class OutcomePresenter < NodePresenter
 
   def erb_template_exists?
     File.exists?(erb_template_path)
-  end
-
-  def use_template?
-    @node.use_template?
-  end
-
-  def render_data_partial(partial, variable_name)
-    data = @state.send(variable_name.to_sym)
-
-    partial_path = ::SmartAnswer::FlowRegistry.instance.load_path.join("data_partials", "_#{partial}")
-    ApplicationController.new.render_to_string(file: partial_path.to_s, layout: false, locals: {variable_name.to_sym => data})
   end
 
   def render_erb_template

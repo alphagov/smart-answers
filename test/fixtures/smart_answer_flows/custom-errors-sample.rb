@@ -11,8 +11,6 @@ module SmartAnswer
         end
       end
 
-      use_outcome_templates
-
       outcome :done
     end
   end

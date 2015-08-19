@@ -1,5 +1,5 @@
---- 
-lib/smart_answer_flows/apply-tier-4-visa.rb: 44ce7b4a25bb0877d3972fbe9ed94a16
+---
+lib/smart_answer_flows/apply-tier-4-visa.rb: b9905c4436e3599fcf87870f9144f1a3
 lib/smart_answer_flows/locales/en/apply-tier-4-visa.yml: 52618ea258e1dcddb758adc934a524aa
 test/data/apply-tier-4-visa-questions-and-responses.yml: fe87a99e4337e45586806181742f0b8f
 test/data/apply-tier-4-visa-responses-and-expected-results.yml: 339690f2a3125ef29d63f29a79ae1cba

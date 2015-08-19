@@ -282,8 +282,6 @@ module SmartAnswer
         next_node :you_can_use_result
       end
 
-      use_outcome_templates
-
       outcome :you_cant_use_result
       outcome :you_can_use_result do
         precalculate :capital_allowance_claimed do

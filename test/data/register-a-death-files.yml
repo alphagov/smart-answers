@@ -1,5 +1,5 @@
---- 
-lib/smart_answer_flows/register-a-death.rb: 30b2a753ddfe6e22d0fc19841331b6da
+---
+lib/smart_answer_flows/register-a-death.rb: d18144dfb97bcbd600ef0433a56e512f
 lib/smart_answer_flows/locales/en/register-a-death.yml: 117a44ad76a2b05ed2a638e76b378640
 test/data/register-a-death-questions-and-responses.yml: 18aba16b4f569a17fbb81374dceaf265
 test/data/register-a-death-responses-and-expected-results.yml: 1d818139ced9c5e20262d144489bf090

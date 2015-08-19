@@ -113,8 +113,6 @@ module SmartAnswer
         next_node :late
       end
 
-      use_outcome_templates
-
       outcome :late do
         precalculate :calculator do
           Calculators::SelfAssessmentPenalties.new(

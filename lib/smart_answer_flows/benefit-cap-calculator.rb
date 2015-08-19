@@ -319,8 +319,6 @@ module SmartAnswer
 
       ##OUTCOMES
 
-      use_outcome_templates
-
       ## Outcome 1
       outcome :outcome_not_affected_exemptions
 

@@ -116,8 +116,6 @@ module SmartAnswer
         end
       end
 
-      use_outcome_templates
-
       outcome :widow_and_old_pension_outcome
 
       outcome :current_rules_no_additional_pension_outcome

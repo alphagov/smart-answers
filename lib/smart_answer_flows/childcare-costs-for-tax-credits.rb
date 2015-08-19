@@ -219,7 +219,6 @@ module SmartAnswer
       end
 
       ### Outcomes
-      use_outcome_templates
 
       #O1
       outcome :call_helpline_detailed

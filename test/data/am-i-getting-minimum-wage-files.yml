@@ -1,5 +1,5 @@
---- 
-lib/smart_answer_flows/am-i-getting-minimum-wage.rb: 840e98c92ccddb4145878d66c72f5568
+---
+lib/smart_answer_flows/am-i-getting-minimum-wage.rb: a5f9ccf8dfe0c6835ef605aa1c5cbacc
 lib/smart_answer_flows/locales/en/am-i-getting-minimum-wage.yml: 33712eff4fda6c7b7c44306f2f9491ec
 test/data/am-i-getting-minimum-wage-questions-and-responses.yml: 8d05a23bb72740b2d9c9f1196f212e0e
 test/data/am-i-getting-minimum-wage-responses-and-expected-results.yml: 4f24160d38e41983f72ce1352fad9702

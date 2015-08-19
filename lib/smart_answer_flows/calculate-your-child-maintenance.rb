@@ -113,8 +113,6 @@ module SmartAnswer
         next_node :reduced_and_basic_rates_result
       end
 
-      use_outcome_templates
-
       outcome :nil_rate_result
 
       outcome :flat_rate_result do

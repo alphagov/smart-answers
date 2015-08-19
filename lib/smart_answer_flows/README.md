@@ -169,23 +169,9 @@ next_node_if(:something, can_has_cheesburger?)
 
 ### Outcome templates
 
-#### YAML
-
-The outcome templates live in the Smart Answer YAML file ("lib/smart_answer_flows/locales/en/<flow-name>.yml"). The template will often be fairly simple, relying on interpolating `PhraseList` strings that have been built up during the flow itself.
-
-YAML templates are used by default.
-
 #### ERB
 
-The ERB outcome templates live in `lib/smart_answer_flows/<flow-name>/<outcome-name>.txt.erb`.
-
-You can enable ERB templates per outcome, or for an entire flow.
-
-To enable per outcome, pass the `use_outcome_templates: true` option to the outcome node in the flow.
-
-To enable for the entire flow, call the `use_outcome_templates` method on the flow itself.
-
-You will have to remove the relevant parts of the flow's integration test, because the phrase list keys will no longer exist, so the `assert_phrase_list` method cannot be used. You may also want to remove the tests which assert against outcome nodes, because these are well covered in the regression tests.
+The ERB outcome templates live in `lib/smart_answer_flows/<flow-name>/<outcome-name>.govspeak.erb`.
 
 ##### Indentation
 
