@@ -1,4 +1,4 @@
 <% identifier = number ? "response_#{number}" : "response" %>
 <label for="<%= identifier %>"><% if question.has_hint? %><%= question.hint %><% end -%>
-  <%= text_field_tag(identifier, prefill_value_for(question, number || 1)) %>
+  <%= text_field_tag(identifier, prefill_value_for(question, number)) %>
 </label>

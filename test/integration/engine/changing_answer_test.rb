@@ -179,5 +179,20 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       assert_current_url "/checkbox-sample/y/ham,pepperoni,peppers"
     end
+
+    should "be able to change postcode answer" do
+      visit "/postcode-sample/y"
+
+      fill_in "response", with: "B1 1PW"
+      click_on "Next step"
+
+      assert_current_url "/postcode-sample/y/#{URI.escape('B1 1PW')}"
+
+      within('tr.section:nth-child(1)') { click_on "Change" }
+
+      within '.current-question .question-body' do
+        assert page.has_field? "response", with: "B1 1PW"
+      end
+    end
   end
 end
