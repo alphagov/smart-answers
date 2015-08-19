@@ -8,10 +8,10 @@ Contact your [nearest embassy or consulate](http://www.mofa.go.jp/about/emb_cons
 ##What you need to do
 
 
-You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
+You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
 
 
-If you need a CNI, you must give notice of your intended marriage in Japan. You must do this at the British embassy or in front of a notary public in that country.
+To get a CNI, you must post notice of your intended marriage in Japan. You can do this at the British embassy or in front of a notary public.
 
 
 
@@ -52,7 +52,7 @@ If you or your partner have been divorced, widowed or previously in a civil part
 - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
 
-^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.^
+^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
 
 You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
@@ -65,6 +65,8 @@ $D
 
 [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
 $D
+
+
 
 
 ###What happens next
@@ -80,6 +82,7 @@ The consulate will display your notice of marriage publicly for 7 days.
 They’ll then send all of your documentation to the British embassy or consulate nearest to where you’re getting married in Japan, who will issue your CNI (as long as nobody has registered an objection).
 
 There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
+
 
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%

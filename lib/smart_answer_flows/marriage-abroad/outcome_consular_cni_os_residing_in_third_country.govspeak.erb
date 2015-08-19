@@ -29,7 +29,7 @@
     - [go to the UK and post notice with a UK registrar](<%= uk_residence_outcome_path %>)
     - [go to <%= country_name_lowercase_prefix %> and swear an affidavit (written statement of facts) that you’re free to marry](<%= ceremony_country_residence_outcome_path %>)
   <% else %>
-    <%= render partial: 'you_may_be_asked_for_cni.govspeak.erb' %>
+    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
     <% if ceremony_country == 'nicaragua' %>
       There are 2 ways you can get a CNI:

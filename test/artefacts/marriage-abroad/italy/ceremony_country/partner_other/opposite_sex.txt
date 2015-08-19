@@ -48,6 +48,8 @@ $D
 $D
 
 
+
+
 ###What happens next
 
 They’ll display your notice of marriage publicly for 7 days.
@@ -55,6 +57,7 @@ They’ll display your notice of marriage publicly for 7 days.
 The British embassy will issue your CNI within 5 working days (as long as nobody has registered an objection). You can collect your CNI in person or have it delivered by post.
 
 ^The embassy or consulate may charge a fee to return your documents to you.^
+
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
