@@ -29,7 +29,6 @@ class FlowTest < ActiveSupport::TestCase
     end
 
     assert_equal 1, flow.outcomes.size
-    assert_equal true, flow.outcomes.first.use_template?
     assert flow.outcomes.first.template_directory.to_s.end_with?('flow-name')
   end
 
