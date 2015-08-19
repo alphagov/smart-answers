@@ -22,16 +22,14 @@
 </div>
 
 <script type="text/javascript">
-  var flowName = '<%= @name %>';
-  event = {
-    hitType: 'event',
-    eventCategory: 'Smart Answer',
-    eventAction: 'Completed',
-    eventLabel: flowName,
-    nonInteraction: 1,
-    page: document.location.pathname
-  };
-  if (typeof window.ga === "function") {
-    window.ga('send', event);
-  };
+  $(function() {
+    var flowName = '<%= @name %>';
+    var page = document.location.pathname;
+    var options = {
+      label: flowName,
+      nonInteraction: true,
+      page: page
+    };
+    GOVUK.analytics.trackEvent('Smart Answer', 'Completed', options);
+  });
 </script>
