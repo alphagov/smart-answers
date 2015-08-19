@@ -1,0 +1,131 @@
+---
+en-GB:
+  flow:
+    landlord-immigration-check:
+      title: Check if someone can rent your residential property
+      body: |-
+        Find out if someone can rent private residential property in the UK.
+
+        This includes private residential properties for all people aged 18 or over (including house guests, lodgers and sub-tenants) who will use the property as their main home.
+
+        You only have to do this check for new tenancies which started on or after 1 December 2014.
+
+        If you’ve bought a property that is already occupied by tenants you should see if a check has been carried out. You’ll be responsible for carrying out [further checks on your tenants](/government/publications/right-to-rent-landlords-code-of-practice).
+
+        ^You can read more about the [right to rent documents](/government/publications/rules-and-acceptable-documents-right-to-rent-checks) if you can’t tell what kind of document your tenant is using to rent your property.^
+      meta:
+        description: You need to check if a tenant is allowed to rent private residential
+          property in the UK
+      has_asylum_card:
+        title: Does the person have an application for a Registration Card issued
+          by the Home Office showing that they can stay in the UK?
+        options:
+          'yes': 'Yes'
+          'no': 'No'
+      has_documents:
+        title: 'Does the person have any of the following:'
+        body: |-
+          - a Registration Certificate or Document Certifying Permanent Residence issued by the Home Office to a national of the EU, EEA or Switzerland
+          - a valid Biometric Residence Permit issued by the Home Office endorsed to show they’re allowed to stay indefinitely in the UK
+          - a Permanent Residence Card, indefinite leave to remain, indefinite leave to enter or no time limit card issued by the Home Office
+          - a valid passport showing that the person is exempt from immigration control, can stay indefinitely in the UK, has the right of abode in the UK or has no time limit on their stay in the UK
+          - a current Immigration Status Document showing that the person has indefinite leave to stay in the UK or has no time limit to their stay
+          - other documents exempting the person from immigration control (eg diplomatic passports, NATO ID card)
+        options:
+          'yes': 'Yes'
+          'no': 'No'
+      has_other_documents:
+        title: 'Does the person have 2 of the following:'
+        body: |-
+          - a full birth or adoption certificate (that shows details of at least one of the birth
+          or adoptive parents) from the UK, the Channel Islands, the Isle of Man or Ireland
+          - an official letter or document (dated within the last 3 months) from a government agency or department (with their name and work address), an employer (with their name and company address) or UK passport holder (with their name, address and passport number) that confirms the person’s name and that they’re an employee
+          - a letter from a UK police force issued within the last 3 months confirming the person is a victim of crime and their documents have been stolen
+          - evidence that the person is currently serving in the UK armed forces or has previously served
+          - HM prison discharge papers or probation service letter (or the same from the Scottish or Northern Ireland Prison Service)
+          - a letter from a UK further or higher education institution confirming the person has been accepted for studies
+          - a current UK driving licence (either full or provisional)
+          - a current UK firearms or shot gun certificate
+          - a Disclosure or Barring Service certificate issued in the last 6 months
+          - benefits paperwork from HMRC, a local authority, the Department for Work and Pensions (DWP) or Jobcentre Plus within the last 12 months
+        options:
+          'yes': 'Yes'
+          'no': 'No'
+      immigration_application:
+        title: Does the person have an outstanding immigration application, immigration
+          appeal or administrative review?
+        body: They must also provide their Home Office reference number.
+        options:
+          'yes': 'Yes'
+          'no': 'No'
+      property:
+        title: 'Enter the postcode of the property you want to let:'
+      property_type:
+        title: What kind of property are you letting?
+        options:
+          holiday_accommodation: holiday accommodation
+          social_housing: social housing
+          care_home: a care home or hospice
+          hostel_or_refuge: a hostel or refuge
+          mobile_home: a mobile home
+          employee_accommodation: accommodation to an employee or as part of training,
+            eg tied accommodation
+          student_accommodation: student accommodation
+          7_year_lease_property: a residential property with a lease for 7 years or
+            more
+      has_certificate:
+        title: Does the person have a Certificate of Registration or Naturalisation
+          as a British citizen?
+        options:
+          'yes': 'Yes'
+          'no': 'No'
+      main_home:
+        title: Is the person renting the property as their main and only home?
+        body: "This includes:\n\n- tenancy agreement\n- a lease\n- a licence\n- sub-lease
+          or sub-tenancy\n- lodgers\n- paying house guests \n- a family member living
+          with the tenant as their main or only home"
+        options:
+          'yes': 'Yes'
+          'no': 'No'
+      has_residence_card_or_eu_eea_swiss_family_member:
+        title: Does the person have a current Residence Card that is issued by the
+          Home Office to a non-EEA national who is the family member of an EU, EEA
+          or Swiss national?
+        body: This includes a current Accession Card or Derivative Card.
+        options:
+          'yes': 'Yes'
+          'no': 'No'
+      tenant_country:
+        title: 'Is the person:'
+        options:
+          eu_eea_switzerland: from the EU, EEA or Switzerland
+          non_eea_but_with_eu_eea_switzerland_family_member: a non-EEA family member
+            of someone from the EU, EEA or Switzerland
+          somewhere_else: from somewhere else
+      tenant_over_18:
+        title: Is the person at least 18 years of age?
+        options:
+          'yes': 'Yes'
+          'no': 'No'
+      time_limited_to_remain:
+        title: 'Does the person have any of the following:'
+        body: |-
+          - a current passport endorsed to show that the person can stay in the UK
+          - a current Biometric Residence Permit issued by the Home Office to the person showing that they can currently stay in the UK
+          - an Immigration Status Document issued by the Home Office with an endorsement showing the person can currently stay in the UK
+        options:
+          'yes': 'Yes'
+          'no': 'No'
+      right_to_abode:
+        title: Does the person have a certificate of right of abode in their passport?
+        options:
+          'yes': 'Yes'
+          'no': 'No'
+      has_uk_passport:
+        title: Does the person have a current or expired UK or Republic of Ireland
+          passport or are they a named person in their parent’s UK or Republic of
+          Ireland passport?
+        body: A named person is someone who appears on someone else’s passport.
+        options:
+          'yes': 'Yes'
+          'no': 'No'
