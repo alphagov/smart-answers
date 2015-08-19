@@ -86,10 +86,6 @@ module SmartAnswer
       add_node Question::Checkbox.new(name, &block)
     end
 
-    def use_outcome_templates
-      # no-op
-    end
-
     def outcome(name, options = {}, &block)
       modified_options = options.merge(
         flow_name: self.name
