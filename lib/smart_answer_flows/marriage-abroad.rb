@@ -133,22 +133,6 @@ module SmartAnswer
 
         save_input_as :sex_of_your_partner
 
-        calculate :ceremony_type do |response|
-          if response == 'opposite_sex'
-            PhraseList.new(:ceremony_type_marriage)
-          else
-            PhraseList.new(:ceremony_type_civil_partnership)
-          end
-        end
-
-        calculate :ceremony_type_lowercase do |response|
-          if response == 'opposite_sex'
-            "marriage"
-          else
-            "civil partnership"
-          end
-        end
-
         define_predicate(:ceremony_in_laos_partners_not_local) {
           (ceremony_country == "laos") && (partner_nationality != "partner_local")
         }
@@ -212,7 +196,7 @@ module SmartAnswer
 
         on_condition(responded_with('same_sex')) do
           define_predicate(:ss_marriage_germany_partner_local?) {
-            (ceremony_country == "germany") && (partner_nationality == "partner_local") && (ceremony_type != 'opposite_sex')
+            (ceremony_country == "germany") && (partner_nationality == "partner_local")
           }
           define_predicate(:ss_marriage_countries?) {
             data_query.ss_marriage_countries?(ceremony_country)

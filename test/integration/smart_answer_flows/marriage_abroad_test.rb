@@ -1482,7 +1482,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
-      assert_state_variable :ceremony_type_lowercase, 'marriage'
     end
   end
 
@@ -1493,7 +1492,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'opposite_sex'
       assert_current_node :outcome_switzerland
-      assert_state_variable :ceremony_type_lowercase, 'marriage'
     end
   end
 
@@ -1504,7 +1502,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
       add_response 'same_sex'
       assert_current_node :outcome_switzerland
-      assert_state_variable :ceremony_type_lowercase, 'civil partnership'
     end
   end
 
@@ -1515,7 +1512,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'same_sex'
       assert_current_node :outcome_switzerland
-      assert_state_variable :ceremony_type_lowercase, 'civil partnership'
     end
   end
 
@@ -1526,7 +1522,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'third_country'
       add_response 'opposite_sex'
       assert_current_node :outcome_switzerland
-      assert_state_variable :ceremony_type_lowercase, 'marriage'
     end
   end
 

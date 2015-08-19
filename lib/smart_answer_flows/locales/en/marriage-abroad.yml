@@ -20,10 +20,6 @@ en-GB:
 
         *[GRO]:General Register Office
 
-      phrases:
-        ceremony_type_marriage: Marriage
-        ceremony_type_civil_partnership: Civil partnership
-
 # Q1
       country_of_ceremony?:
         title: Where do you want to get married?
