@@ -17,17 +17,6 @@ class OutcomePresenter < NodePresenter
     end
   end
 
-  def translate!(subkey)
-    output = super(subkey)
-    if output
-      output.gsub!(/\+\[data_partial:(\w+):(\w+)\]/) do |match|
-        render_data_partial($1, $2)
-      end
-    end
-
-    output
-  end
-
   def body(html: true)
     if body_erb_template_exists?
       render_erb_template
@@ -74,13 +63,6 @@ class OutcomePresenter < NodePresenter
 
   def erb_template_exists?
     File.exists?(erb_template_path)
-  end
-
-  def render_data_partial(partial, variable_name)
-    data = @state.send(variable_name.to_sym)
-
-    partial_path = ::SmartAnswer::FlowRegistry.instance.load_path.join("data_partials", "_#{partial}")
-    ApplicationController.new.render_to_string(file: partial_path.to_s, layout: false, locals: {variable_name.to_sym => data})
   end
 
   def render_erb_template
