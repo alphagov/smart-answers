@@ -197,11 +197,11 @@ files relating to the regression tests e.g. file checksums, HTML artefacts, etc.
 
 2. Review the changes in the commit(s)
 3. Remove any trailing whitespace
-4. Run the following command to re-generate the HTML artefacts for the regression tests:
+4. Run the following command to re-generate the Govspeak artefacts (in `test/artefacts/<smart-answer-flow-name>`) for the regression tests:
 
         $ RUN_REGRESSION_TESTS=<smart-answer-flow-name> ruby test/regression/smart_answers_regression_test.rb
 
-5. Review the changes to the HTML artefacts to check they are as expected
+5. Review the changes to the Govspeak artefacts to check they are as expected
 6. Run the following command to update the checksums for the smart answer:
 
         $ rails r script/generate-checksums-for-smart-answer.rb <smart-answer-flow-name>
@@ -215,7 +215,7 @@ files relating to the regression tests e.g. file checksums, HTML artefacts, etc.
         $ git add .
         $ git commit # ok to amend commit if only one commit in PR
 
-9. Run the regression test for the smart answer (now that HTML artefacts & file checksums have been updated)
+9. Run the regression test for the smart answer (now that Govspeak artefacts & file checksums have been updated)
 
         $ RUN_REGRESSION_TESTS=<smart-answer-flow-name> ruby test/regression/smart_answers_regression_test.rb
 
