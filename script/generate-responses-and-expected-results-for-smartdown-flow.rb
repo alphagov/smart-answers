@@ -34,7 +34,7 @@ def answer_question(flow, state)
     RESPONSES_AND_EXPECTED_RESULTS << {
       current_node: question_name,
       responses: responses.map(&:to_s),
-      next_node: next_node.name,
+      next_node: next_node.is_a?(Smartdown::Api::Outcome) ? next_node.name : next_node.questions.first.name, # This will break when there are multiple questions per page
       outcome_node: next_node.is_a?(Smartdown::Api::Outcome)
     }
 

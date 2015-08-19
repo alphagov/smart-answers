@@ -7,7 +7,7 @@
 - :current_node: property
   :responses:
   - B1 1PW
-  :next_node: renting_as_main_home
+  :next_node: main_home
   :outcome_node: false
 - :current_node: main_home
   :responses:
@@ -20,7 +20,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
-  :next_node: uk_passport
+  :next_node: has_uk_passport
   :outcome_node: false
 - :current_node: has_uk_passport
   :responses:
@@ -36,7 +36,7 @@
   - 'yes'
   - 'yes'
   - 'no'
-  :next_node: uk_citizen_with_right_to_abode
+  :next_node: right_to_abode
   :outcome_node: false
 - :current_node: right_to_abode
   :responses:
@@ -54,7 +54,7 @@
   - 'yes'
   - 'no'
   - 'no'
-  :next_node: registration_or_naturalisation_certificate
+  :next_node: has_certificate
   :outcome_node: false
 - :current_node: has_certificate
   :responses:
@@ -74,7 +74,7 @@
   - 'no'
   - 'no'
   - 'no'
-  :next_node: tenant_nationality
+  :next_node: tenant_country
   :outcome_node: false
 - :current_node: tenant_country
   :responses:
@@ -85,7 +85,7 @@
   - 'no'
   - 'no'
   - eu_eea_switzerland
-  :next_node: documents_exempting_from_immigration_control
+  :next_node: has_documents
   :outcome_node: false
 - :current_node: has_documents
   :responses:
@@ -109,7 +109,7 @@
   - 'no'
   - eu_eea_switzerland
   - 'no'
-  :next_node: other_documents_for_indefinite_leave_to_remain
+  :next_node: has_other_documents
   :outcome_node: false
 - :current_node: has_other_documents
   :responses:
@@ -135,7 +135,7 @@
   - eu_eea_switzerland
   - 'no'
   - 'no'
-  :next_node: time_limited_leave_to_remain
+  :next_node: time_limited_to_remain
   :outcome_node: false
 - :current_node: time_limited_to_remain
   :responses:
@@ -163,7 +163,7 @@
   - 'no'
   - 'no'
   - 'no'
-  :next_node: residence_card_or_eu_eea_swiss_family_member
+  :next_node: has_residence_card_or_eu_eea_swiss_family_member
   :outcome_node: false
 - :current_node: has_residence_card_or_eu_eea_swiss_family_member
   :responses:
@@ -193,7 +193,7 @@
   - 'no'
   - 'no'
   - 'no'
-  :next_node: asylum_registration_card
+  :next_node: has_asylum_card
   :outcome_node: false
 - :current_node: has_asylum_card
   :responses:
@@ -225,7 +225,7 @@
   - 'no'
   - 'no'
   - 'no'
-  :next_node: outstanding_immigration_application
+  :next_node: immigration_application
   :outcome_node: false
 - :current_node: immigration_application
   :responses:
@@ -270,7 +270,7 @@
   - 'no'
   - 'no'
   - non_eea_but_with_eu_eea_switzerland_family_member
-  :next_node: residence_card_or_eu_eea_swiss_family_member
+  :next_node: has_residence_card_or_eu_eea_swiss_family_member
   :outcome_node: false
 - :current_node: has_residence_card_or_eu_eea_swiss_family_member
   :responses:
@@ -294,7 +294,7 @@
   - 'no'
   - non_eea_but_with_eu_eea_switzerland_family_member
   - 'no'
-  :next_node: asylum_registration_card
+  :next_node: has_asylum_card
   :outcome_node: false
 - :current_node: has_asylum_card
   :responses:
@@ -320,7 +320,7 @@
   - non_eea_but_with_eu_eea_switzerland_family_member
   - 'no'
   - 'no'
-  :next_node: outstanding_immigration_application
+  :next_node: immigration_application
   :outcome_node: false
 - :current_node: immigration_application
   :responses:
@@ -359,7 +359,7 @@
   - 'no'
   - 'no'
   - somewhere_else
-  :next_node: other_documents_for_indefinite_leave_to_remain
+  :next_node: has_other_documents
   :outcome_node: false
 - :current_node: has_other_documents
   :responses:
@@ -383,7 +383,7 @@
   - 'no'
   - somewhere_else
   - 'no'
-  :next_node: time_limited_leave_to_remain
+  :next_node: time_limited_to_remain
   :outcome_node: false
 - :current_node: time_limited_to_remain
   :responses:
@@ -409,7 +409,7 @@
   - somewhere_else
   - 'no'
   - 'no'
-  :next_node: residence_card_or_eu_eea_swiss_family_member
+  :next_node: has_residence_card_or_eu_eea_swiss_family_member
   :outcome_node: false
 - :current_node: has_residence_card_or_eu_eea_swiss_family_member
   :responses:
@@ -437,7 +437,7 @@
   - 'no'
   - 'no'
   - 'no'
-  :next_node: asylum_registration_card
+  :next_node: has_asylum_card
   :outcome_node: false
 - :current_node: has_asylum_card
   :responses:
@@ -467,7 +467,7 @@
   - 'no'
   - 'no'
   - 'no'
-  :next_node: outstanding_immigration_application
+  :next_node: immigration_application
   :outcome_node: false
 - :current_node: immigration_application
   :responses:
