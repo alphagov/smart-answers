@@ -22,14 +22,14 @@ Make an appointment at the British embassy or consulate in China nearest to the 
 [Make an appointment at the embassy in Guangzhou](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-guangzhou/oaths-affirmations-and-affidavits/slot_picker).
 
 
-You’ll need to complete an ‘Affirmation for marriage’ (non-religious) form or an ‘Affidavit for marriage’ form‘.
+You’ll need to complete an ‘Affirmation of marital status’ form (non-religious) or an ‘Affidavit of marital status’ form (religious).
 
 You can download and fill in (but not sign) the forms in advance.
 
 $D
-[Download ‘Affirmation for marriage’](/government/publications/affirmation-form-china)
+[Download ‘Affirmation of marital status’](/government/publications/affirmation-form-china)
 
-[Download ‘Affidavit for marriage’](/government/publications/affidavit-form-china)
+[Download ‘Affidavit of marital status’](/government/publications/affidavit-form-china)
 $D
 
 
@@ -57,9 +57,7 @@ Your partner can apply to [become a British citizen](/becoming-a-british-citizen
 
 Service | Fee
 -|-
-Affirmation for freedom to marry in English | £45
-Affirmation for freedom to marry in any other language | £70
-
+Affirmation or affidavit for freedom to marry in English & Chinese | £55
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for China](/government/publications/china-consular-fees).
 

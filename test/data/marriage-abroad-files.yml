@@ -20,7 +20,7 @@ lib/smart_answer_flows/marriage-abroad/_contact_laadoul.govspeak.erb: 1dd713bf62
 lib/smart_answer_flows/marriage-abroad/_contact_local_authorities.govspeak.erb: f8d276a3b65ce8160406b5c341c7d783
 lib/smart_answer_flows/marriage-abroad/_contact_local_authorities_in_country_cp.govspeak.erb: 1a5916b89288b05d2a50542f0c1ac857
 lib/smart_answer_flows/marriage-abroad/_contact_local_authorities_in_country_marriage.govspeak.erb: 5e081167b2f93585e1b781eece504742
-lib/smart_answer_flows/marriage-abroad/_contact_method.govspeak.erb: 43a32404994c3721679c7ed40aca5add
+lib/smart_answer_flows/marriage-abroad/_contact_method.govspeak.erb: eb45b2a237e4643d078f0e9cba857e47
 lib/smart_answer_flows/marriage-abroad/_contact_to_make_appointment.govspeak.erb: a7e4a184e974b3989a697578277b3b7a
 lib/smart_answer_flows/marriage-abroad/_convert_cc_to_ss_marriage.govspeak.erb: 38e1be8bb7bdd80ef0c4c6c3af8f7f04
 lib/smart_answer_flows/marriage-abroad/_country_is_dutch_caribbean_island.govspeak.erb: 79a6a69e395d2130cd87aa0d6b0f133b
@@ -78,7 +78,7 @@ lib/smart_answer_flows/marriage-abroad/outcome_cp_or_equivalent.govspeak.erb: 55
 lib/smart_answer_flows/marriage-abroad/outcome_ireland.govspeak.erb: d1cd076fbc8c1c5304e35be6b8041d95
 lib/smart_answer_flows/marriage-abroad/outcome_monaco.govspeak.erb: 8c0f70005eee341c37f7966886c68c8c
 lib/smart_answer_flows/marriage-abroad/outcome_netherlands.govspeak.erb: 0fcd0dfbe7834ead8d31dcdbdb3e4d36
-lib/smart_answer_flows/marriage-abroad/outcome_os_affirmation.govspeak.erb: ceeedcd9cec06dcc8774b62f16ad1b38
+lib/smart_answer_flows/marriage-abroad/outcome_os_affirmation.govspeak.erb: 6b332181f01cea4604198fd33bc2b99d
 lib/smart_answer_flows/marriage-abroad/outcome_os_bot.govspeak.erb: 6265728604b85e2fd51b59b3823fe1aa
 lib/smart_answer_flows/marriage-abroad/outcome_os_colombia.govspeak.erb: 0278771b1619672cf187445c6cef00f4
 lib/smart_answer_flows/marriage-abroad/outcome_os_commonwealth.govspeak.erb: 34601719747aa693e793816036730450
