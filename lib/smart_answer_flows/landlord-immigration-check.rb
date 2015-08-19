@@ -6,10 +6,12 @@ module SmartAnswer
       satisfies_need "102373"
 
       postcode_question :property do
-
         next_node do |response|
-          # TODO: valid_postcode(property) -> main_home
-          # TODO: otherwise -> outcome_check_not_needed
+          if Calculators::LandlordImmigrationCheckCalculator.valid_postcode(response)
+            :main_home
+          else
+            :outcome_check_not_needed
+          end
         end
       end
 
