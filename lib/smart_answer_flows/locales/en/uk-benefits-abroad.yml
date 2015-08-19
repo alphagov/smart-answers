@@ -28,11 +28,6 @@ en-GB:
         why_going_abroad_title: Why are you going abroad?
         why_already_abroad_title: Why have you gone abroad?
         disability_benefits_how_long_question_title: How long will you be abroad for?
-        ci_going_abroad_question_title: Where are you moving?
-        ci_already_abroad_question_title: Where are you living?
-        ci_country_name: Guernsey or Jersey
-        ci_going_abroad_prefix: "to "
-        ci_already_abroad_prefix: "in "
         already_abroad_text_two: " or permanently"
 
 # Shared Country question
