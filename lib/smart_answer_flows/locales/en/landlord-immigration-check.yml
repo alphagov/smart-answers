@@ -109,7 +109,7 @@ en-GB:
         options:
           'yes': 'Yes'
           'no': 'No'
-      time_limited_to_remain:
+      time_limited_to_remain?:
         title: 'Does the person have any of the following:'
         body: |-
           - a current passport endorsed to show that the person can stay in the UK

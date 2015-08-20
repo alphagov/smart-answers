@@ -52,7 +52,7 @@ module SmartAnswer
           when "yes"
             :outcome_can_rent
           when "no"
-            :time_limited_to_remain
+            :time_limited_to_remain?
           end
         end
       end
@@ -176,7 +176,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :time_limited_to_remain do
+      multiple_choice :time_limited_to_remain? do
         option "yes"
         option "no"
 
