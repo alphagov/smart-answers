@@ -104,7 +104,7 @@ en-GB:
           non_eea_but_with_eu_eea_switzerland_family_member: a non-EEA family member
             of someone from the EU, EEA or Switzerland
           somewhere_else: from somewhere else
-      tenant_over_18:
+      tenant_over_18?:
         title: Is the person at least 18 years of age?
         options:
           'yes': 'Yes'

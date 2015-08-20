@@ -124,7 +124,7 @@ module SmartAnswer
         next_node do |response|
           case response
           when "yes"
-            :tenant_over_18
+            :tenant_over_18?
           when "no"
             :property_type?
           end
@@ -162,7 +162,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :tenant_over_18 do
+      multiple_choice :tenant_over_18? do
         option "yes"
         option "no"
 
