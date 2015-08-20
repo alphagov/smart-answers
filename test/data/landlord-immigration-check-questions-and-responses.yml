@@ -29,7 +29,7 @@
 :main_home?:
 - 'yes'
 - 'no'
-:has_residence_card_or_eu_eea_swiss_family_member:
+:has_residence_card_or_eu_eea_swiss_family_member?:
 - 'yes'
 - 'no'
 :tenant_country?:

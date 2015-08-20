@@ -89,7 +89,7 @@ en-GB:
         options:
           'yes': 'Yes'
           'no': 'No'
-      has_residence_card_or_eu_eea_swiss_family_member:
+      has_residence_card_or_eu_eea_swiss_family_member?:
         title: Does the person have a current Residence Card that is issued by the
           Home Office to a non-EEA national who is the family member of an EU, EEA
           or Swiss national?

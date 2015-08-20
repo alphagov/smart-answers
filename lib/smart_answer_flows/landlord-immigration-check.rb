@@ -131,7 +131,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :has_residence_card_or_eu_eea_swiss_family_member do
+      multiple_choice :has_residence_card_or_eu_eea_swiss_family_member? do
         option "yes"
         option "no"
 
@@ -155,7 +155,7 @@ module SmartAnswer
           when "eu_eea_switzerland"
             :has_documents?
           when "non_eea_but_with_eu_eea_switzerland_family_member"
-            :has_residence_card_or_eu_eea_swiss_family_member
+            :has_residence_card_or_eu_eea_swiss_family_member?
           when "somewhere_else"
             :has_other_documents?
           end
@@ -185,7 +185,7 @@ module SmartAnswer
           when "yes"
             :outcome_can_rent_but_check_will_be_needed_again
           when "no"
-            :has_residence_card_or_eu_eea_swiss_family_member
+            :has_residence_card_or_eu_eea_swiss_family_member?
           end
         end
       end
