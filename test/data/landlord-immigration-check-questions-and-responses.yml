@@ -1,5 +1,5 @@
 ---
-:has_asylum_card:
+:has_asylum_card?:
 - 'yes'
 - 'no'
 :has_documents:

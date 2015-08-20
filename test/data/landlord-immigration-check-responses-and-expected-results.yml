@@ -193,9 +193,9 @@
   - 'no'
   - 'no'
   - 'no'
-  :next_node: :has_asylum_card
+  :next_node: :has_asylum_card?
   :outcome_node: false
-- :current_node: :has_asylum_card
+- :current_node: :has_asylum_card?
   :responses:
   - B1 1PW
   - 'yes'
@@ -211,7 +211,7 @@
   - 'yes'
   :next_node: :outcome_can_rent_for_12_months
   :outcome_node: true
-- :current_node: :has_asylum_card
+- :current_node: :has_asylum_card?
   :responses:
   - B1 1PW
   - 'yes'
@@ -294,9 +294,9 @@
   - 'no'
   - non_eea_but_with_eu_eea_switzerland_family_member
   - 'no'
-  :next_node: :has_asylum_card
+  :next_node: :has_asylum_card?
   :outcome_node: false
-- :current_node: :has_asylum_card
+- :current_node: :has_asylum_card?
   :responses:
   - B1 1PW
   - 'yes'
@@ -309,7 +309,7 @@
   - 'yes'
   :next_node: :outcome_can_rent_for_12_months
   :outcome_node: true
-- :current_node: :has_asylum_card
+- :current_node: :has_asylum_card?
   :responses:
   - B1 1PW
   - 'yes'
@@ -437,9 +437,9 @@
   - 'no'
   - 'no'
   - 'no'
-  :next_node: :has_asylum_card
+  :next_node: :has_asylum_card?
   :outcome_node: false
-- :current_node: :has_asylum_card
+- :current_node: :has_asylum_card?
   :responses:
   - B1 1PW
   - 'yes'
@@ -454,7 +454,7 @@
   - 'yes'
   :next_node: :outcome_can_rent_for_12_months
   :outcome_node: true
-- :current_node: :has_asylum_card
+- :current_node: :has_asylum_card?
   :responses:
   - B1 1PW
   - 'yes'

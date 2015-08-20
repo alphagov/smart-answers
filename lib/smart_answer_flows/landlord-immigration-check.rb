@@ -15,7 +15,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :has_asylum_card do
+      multiple_choice :has_asylum_card? do
         option "yes"
         option "no"
 
@@ -140,7 +140,7 @@ module SmartAnswer
           when "yes"
             :outcome_can_rent
           when "no"
-            :has_asylum_card
+            :has_asylum_card?
           end
         end
       end
