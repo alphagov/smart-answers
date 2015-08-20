@@ -38,12 +38,12 @@ module SmartAnswer
           when "yes"
             :outcome_can_rent
           when "no"
-            :has_other_documents
+            :has_other_documents?
           end
         end
       end
 
-      multiple_choice :has_other_documents do
+      multiple_choice :has_other_documents? do
         option "yes"
         option "no"
 
@@ -157,7 +157,7 @@ module SmartAnswer
           when "non_eea_but_with_eu_eea_switzerland_family_member"
             :has_residence_card_or_eu_eea_swiss_family_member
           when "somewhere_else"
-            :has_other_documents
+            :has_other_documents?
           end
         end
       end

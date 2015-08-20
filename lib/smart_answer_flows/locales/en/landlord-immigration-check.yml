@@ -34,7 +34,7 @@ en-GB:
         options:
           'yes': 'Yes'
           'no': 'No'
-      has_other_documents:
+      has_other_documents?:
         title: 'Does the person have 2 of the following:'
         body: |-
           - a full birth or adoption certificate (that shows details of at least one of the birth

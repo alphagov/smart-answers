@@ -5,7 +5,7 @@
 :has_documents?:
 - 'yes'
 - 'no'
-:has_other_documents:
+:has_other_documents?:
 - 'yes'
 - 'no'
 :immigration_application?:

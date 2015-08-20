@@ -109,9 +109,9 @@
   - 'no'
   - eu_eea_switzerland
   - 'no'
-  :next_node: :has_other_documents
+  :next_node: :has_other_documents?
   :outcome_node: false
-- :current_node: :has_other_documents
+- :current_node: :has_other_documents?
   :responses:
   - B1 1PW
   - 'yes'
@@ -124,7 +124,7 @@
   - 'yes'
   :next_node: :outcome_can_rent
   :outcome_node: true
-- :current_node: :has_other_documents
+- :current_node: :has_other_documents?
   :responses:
   - B1 1PW
   - 'yes'
@@ -359,9 +359,9 @@
   - 'no'
   - 'no'
   - somewhere_else
-  :next_node: :has_other_documents
+  :next_node: :has_other_documents?
   :outcome_node: false
-- :current_node: :has_other_documents
+- :current_node: :has_other_documents?
   :responses:
   - B1 1PW
   - 'yes'
@@ -373,7 +373,7 @@
   - 'yes'
   :next_node: :outcome_can_rent
   :outcome_node: true
-- :current_node: :has_other_documents
+- :current_node: :has_other_documents?
   :responses:
   - B1 1PW
   - 'yes'
