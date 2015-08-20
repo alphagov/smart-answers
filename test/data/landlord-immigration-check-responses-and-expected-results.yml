@@ -1,10 +1,10 @@
 ---
-- :current_node: :property
+- :current_node: :property?
   :responses:
   - WC2B 6SE
   :next_node: :outcome_check_not_needed
   :outcome_node: true
-- :current_node: :property
+- :current_node: :property?
   :responses:
   - B1 1PW
   :next_node: :main_home

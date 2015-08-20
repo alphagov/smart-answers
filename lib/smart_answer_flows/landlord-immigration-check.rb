@@ -5,7 +5,7 @@ module SmartAnswer
       status :draft
       satisfies_need "102373"
 
-      postcode_question :property do
+      postcode_question :property? do
         next_node do |response|
           if Calculators::LandlordImmigrationCheckCalculator.valid_postcode(response)
             :main_home

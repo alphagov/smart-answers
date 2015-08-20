@@ -15,7 +15,7 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
   end
 
   should "start by asking first question" do
-    assert_current_node :property
+    assert_current_node :property?
   end
 
   should "lead to outcome_check_not_needed" do

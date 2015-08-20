@@ -58,7 +58,7 @@ en-GB:
         options:
           'yes': 'Yes'
           'no': 'No'
-      property:
+      property?:
         title: 'Enter the postcode of the property you want to let:'
         error_postcode_invalid: 'Invalid postcode'
         error_postcode_incomplete: 'Please enter a full postcode'
