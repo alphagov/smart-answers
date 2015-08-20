@@ -22,7 +22,7 @@ en-GB:
         options:
           'yes': 'Yes'
           'no': 'No'
-      has_documents:
+      has_documents?:
         title: 'Does the person have any of the following:'
         body: |-
           - a Registration Certificate or Document Certifying Permanent Residence issued by the Home Office to a national of the EU, EEA or Switzerland

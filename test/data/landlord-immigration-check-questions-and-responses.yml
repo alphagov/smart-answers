@@ -2,7 +2,7 @@
 :has_asylum_card?:
 - 'yes'
 - 'no'
-:has_documents:
+:has_documents?:
 - 'yes'
 - 'no'
 :has_other_documents:

@@ -29,7 +29,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :has_documents do
+      multiple_choice :has_documents? do
         option "yes"
         option "no"
 
@@ -153,7 +153,7 @@ module SmartAnswer
         next_node do |response|
           case response
           when "eu_eea_switzerland"
-            :has_documents
+            :has_documents?
           when "non_eea_but_with_eu_eea_switzerland_family_member"
             :has_residence_card_or_eu_eea_swiss_family_member
           when "somewhere_else"
