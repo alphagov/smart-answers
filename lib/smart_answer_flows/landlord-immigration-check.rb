@@ -8,7 +8,7 @@ module SmartAnswer
       postcode_question :property? do
         next_node do |response|
           if Calculators::LandlordImmigrationCheckCalculator.valid_postcode(response)
-            :main_home
+            :main_home?
           else
             :outcome_check_not_needed
           end
@@ -117,7 +117,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :main_home do
+      multiple_choice :main_home? do
         option "yes"
         option "no"
 
