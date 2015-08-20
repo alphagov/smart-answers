@@ -97,7 +97,7 @@ en-GB:
         options:
           'yes': 'Yes'
           'no': 'No'
-      tenant_country:
+      tenant_country?:
         title: 'Is the person:'
         options:
           eu_eea_switzerland: from the EU, EEA or Switzerland

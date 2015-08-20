@@ -112,7 +112,7 @@ module SmartAnswer
           when "yes"
             :outcome_can_rent
           when "no"
-            :tenant_country
+            :tenant_country?
           end
         end
       end
@@ -145,7 +145,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :tenant_country do
+      multiple_choice :tenant_country? do
         option "eu_eea_switzerland"
         option "non_eea_but_with_eu_eea_switzerland_family_member"
         option "somewhere_else"

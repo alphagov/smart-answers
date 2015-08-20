@@ -32,7 +32,7 @@
 :has_residence_card_or_eu_eea_swiss_family_member:
 - 'yes'
 - 'no'
-:tenant_country:
+:tenant_country?:
 - eu_eea_switzerland
 - non_eea_but_with_eu_eea_switzerland_family_member
 - somewhere_else
