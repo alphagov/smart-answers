@@ -14,7 +14,7 @@
 :property:
 - 'WC2B 6SE' # valid postcode outside valid areas
 - 'B1 1PW' # valid postcode within the valid areas
-:property_type:
+:property_type?:
 - holiday_accommodation
 - social_housing
 - care_home

@@ -71,7 +71,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :property_type do
+      multiple_choice :property_type? do
         option "holiday_accommodation"
         option "social_housing"
         option "care_home"
@@ -126,7 +126,7 @@ module SmartAnswer
           when "yes"
             :tenant_over_18
           when "no"
-            :property_type
+            :property_type?
           end
         end
       end

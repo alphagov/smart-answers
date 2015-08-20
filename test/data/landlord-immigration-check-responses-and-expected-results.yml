@@ -512,58 +512,58 @@
   :responses:
   - B1 1PW
   - 'no'
-  :next_node: :property_type
+  :next_node: :property_type?
   :outcome_node: false
-- :current_node: :property_type
+- :current_node: :property_type?
   :responses:
   - B1 1PW
   - 'no'
   - holiday_accommodation
   :next_node: :outcome_check_not_needed_if_holiday_or_under_3_months
   :outcome_node: true
-- :current_node: :property_type
+- :current_node: :property_type?
   :responses:
   - B1 1PW
   - 'no'
   - social_housing
   :next_node: :outcome_check_not_needed
   :outcome_node: true
-- :current_node: :property_type
+- :current_node: :property_type?
   :responses:
   - B1 1PW
   - 'no'
   - care_home
   :next_node: :outcome_check_not_needed_when_care_home
   :outcome_node: true
-- :current_node: :property_type
+- :current_node: :property_type?
   :responses:
   - B1 1PW
   - 'no'
   - hostel_or_refuge
   :next_node: :outcome_check_not_needed_when_hostel_refuge
   :outcome_node: true
-- :current_node: :property_type
+- :current_node: :property_type?
   :responses:
   - B1 1PW
   - 'no'
   - mobile_home
   :next_node: :outcome_check_not_needed_when_mobile_home
   :outcome_node: true
-- :current_node: :property_type
+- :current_node: :property_type?
   :responses:
   - B1 1PW
   - 'no'
   - employee_accommodation
   :next_node: :outcome_check_not_needed_when_employee_home
   :outcome_node: true
-- :current_node: :property_type
+- :current_node: :property_type?
   :responses:
   - B1 1PW
   - 'no'
   - student_accommodation
   :next_node: :outcome_check_may_be_needed_when_student
   :outcome_node: true
-- :current_node: :property_type
+- :current_node: :property_type?
   :responses:
   - B1 1PW
   - 'no'
