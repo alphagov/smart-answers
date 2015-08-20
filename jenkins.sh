@@ -15,6 +15,10 @@ export GOVUK_ASSET_HOST=http://static.dev.gov.uk
 export DISPLAY=:99
 
 if [ -z "$RUN_REGRESSION_TESTS" ]; then
+  bundle exec govuk-lint-ruby \
+    --diff --cached \
+    --format clang
+
   RAILS_ENV=test TEST_COVERAGE=true bundle exec rake test
 
   bundle exec rake assets:precompile
