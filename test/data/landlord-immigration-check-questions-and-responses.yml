@@ -8,7 +8,7 @@
 :has_other_documents:
 - 'yes'
 - 'no'
-:immigration_application:
+:immigration_application?:
 - 'yes'
 - 'no'
 :property:

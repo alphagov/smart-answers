@@ -24,7 +24,7 @@ module SmartAnswer
           when "yes"
             :outcome_can_rent_for_12_months
           when "no"
-            :immigration_application
+            :immigration_application?
           end
         end
       end
@@ -57,7 +57,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :immigration_application do
+      multiple_choice :immigration_application? do
         option "yes"
         option "no"
 

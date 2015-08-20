@@ -51,7 +51,7 @@ en-GB:
         options:
           'yes': 'Yes'
           'no': 'No'
-      immigration_application:
+      immigration_application?:
         title: Does the person have an outstanding immigration application, immigration
           appeal or administrative review?
         body: They must also provide their Home Office reference number.
