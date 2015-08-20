@@ -15,58 +15,30 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :has_asylum_card? do
+      multiple_choice :main_home? do
         option "yes"
         option "no"
 
         next_node do |response|
           case response
           when "yes"
-            :outcome_can_rent_for_12_months
+            :tenant_over_18?
           when "no"
-            :immigration_application?
+            :property_type?
           end
         end
       end
 
-      multiple_choice :has_documents? do
+      multiple_choice :tenant_over_18? do
         option "yes"
         option "no"
 
         next_node do |response|
           case response
           when "yes"
-            :outcome_can_rent
+            :has_uk_passport?
           when "no"
-            :has_other_documents?
-          end
-        end
-      end
-
-      multiple_choice :has_other_documents? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            :outcome_can_rent
-          when "no"
-            :time_limited_to_remain?
-          end
-        end
-      end
-
-      multiple_choice :immigration_application? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            :outcome_can_rent_for_12_months
-          when "no"
-            :outcome_can_not_rent
+            :outcome_check_not_needed_when_under_18
           end
         end
       end
@@ -103,6 +75,34 @@ module SmartAnswer
         end
       end
 
+      multiple_choice :has_uk_passport? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            :outcome_can_rent
+          when "no"
+            :right_to_abode?
+          end
+        end
+      end
+
+      multiple_choice :right_to_abode? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            :outcome_can_rent
+          when "no"
+            :has_certificate?
+          end
+        end
+      end
+
       multiple_choice :has_certificate? do
         option "yes"
         option "no"
@@ -113,34 +113,6 @@ module SmartAnswer
             :outcome_can_rent
           when "no"
             :tenant_country?
-          end
-        end
-      end
-
-      multiple_choice :main_home? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            :tenant_over_18?
-          when "no"
-            :property_type?
-          end
-        end
-      end
-
-      multiple_choice :has_residence_card_or_eu_eea_swiss_family_member? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            :outcome_can_rent
-          when "no"
-            :has_asylum_card?
           end
         end
       end
@@ -162,16 +134,44 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :tenant_over_18? do
+      multiple_choice :has_documents? do
         option "yes"
         option "no"
 
         next_node do |response|
           case response
           when "yes"
-            :has_uk_passport?
+            :outcome_can_rent
           when "no"
-            :outcome_check_not_needed_when_under_18
+            :has_other_documents?
+          end
+        end
+      end
+
+      multiple_choice :has_other_documents? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            :outcome_can_rent
+          when "no"
+            :time_limited_to_remain?
+          end
+        end
+      end
+
+      multiple_choice :has_asylum_card? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            :outcome_can_rent_for_12_months
+          when "no"
+            :immigration_application?
           end
         end
       end
@@ -190,21 +190,21 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :right_to_abode? do
+      multiple_choice :immigration_application? do
         option "yes"
         option "no"
 
         next_node do |response|
           case response
           when "yes"
-            :outcome_can_rent
+            :outcome_can_rent_for_12_months
           when "no"
-            :has_certificate?
+            :outcome_can_not_rent
           end
         end
       end
 
-      multiple_choice :has_uk_passport? do
+      multiple_choice :has_residence_card_or_eu_eea_swiss_family_member? do
         option "yes"
         option "no"
 
@@ -213,7 +213,7 @@ module SmartAnswer
           when "yes"
             :outcome_can_rent
           when "no"
-            :right_to_abode?
+            :has_asylum_card?
           end
         end
       end
