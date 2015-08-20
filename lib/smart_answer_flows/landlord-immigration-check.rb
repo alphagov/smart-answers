@@ -169,7 +169,7 @@ module SmartAnswer
         next_node do |response|
           case response
           when "yes"
-            :has_uk_passport
+            :has_uk_passport?
           when "no"
             :outcome_check_not_needed_when_under_18
           end
@@ -204,7 +204,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :has_uk_passport do
+      multiple_choice :has_uk_passport? do
         option "yes"
         option "no"
 

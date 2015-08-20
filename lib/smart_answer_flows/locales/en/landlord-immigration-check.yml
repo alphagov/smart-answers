@@ -123,7 +123,7 @@ en-GB:
         options:
           'yes': 'Yes'
           'no': 'No'
-      has_uk_passport:
+      has_uk_passport?:
         title: Does the person have a current or expired UK or Republic of Ireland
           passport or are they a named person in their parent’s UK or Republic of
           Ireland passport?

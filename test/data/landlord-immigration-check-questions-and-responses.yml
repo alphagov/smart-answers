@@ -45,6 +45,6 @@
 :right_to_abode:
 - 'yes'
 - 'no'
-:has_uk_passport:
+:has_uk_passport?:
 - 'yes'
 - 'no'
