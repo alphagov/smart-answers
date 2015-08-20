@@ -118,7 +118,7 @@ en-GB:
         options:
           'yes': 'Yes'
           'no': 'No'
-      right_to_abode:
+      right_to_abode?:
         title: Does the person have a certificate of right of abode in their passport?
         options:
           'yes': 'Yes'

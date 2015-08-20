@@ -190,7 +190,7 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :right_to_abode do
+      multiple_choice :right_to_abode? do
         option "yes"
         option "no"
 
@@ -213,7 +213,7 @@ module SmartAnswer
           when "yes"
             :outcome_can_rent
           when "no"
-            :right_to_abode
+            :right_to_abode?
           end
         end
       end
