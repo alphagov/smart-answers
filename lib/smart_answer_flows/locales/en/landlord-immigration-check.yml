@@ -60,6 +60,8 @@ en-GB:
           'no': 'No'
       property:
         title: 'Enter the postcode of the property you want to let:'
+        error_postcode_invalid: 'Invalid postcode'
+        error_postcode_incomplete: 'Please enter a full postcode'
       property_type:
         title: What kind of property are you letting?
         options:

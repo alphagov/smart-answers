@@ -1,6 +1,6 @@
 ---
 lib/smart_answer_flows/landlord-immigration-check.rb: 683c490c14fdee9a7287ef7b91c88cd7
-lib/smart_answer_flows/locales/en/landlord-immigration-check.yml: 9f38898c8fcf0271a95ba81eb6fe6835
+lib/smart_answer_flows/locales/en/landlord-immigration-check.yml: 234de112d0f68c03ae914cf2353d3c31
 test/data/landlord-immigration-check-questions-and-responses.yml: 975036129b6241c6524f995c8d2e0f3c
 test/data/landlord-immigration-check-responses-and-expected-results.yml: 24c0e421dcfc88ab57ecd4c8becb3b9e
 lib/smart_answer_flows/landlord-immigration-check/_landlord_code_of_practice.govspeak.erb: cfb1261ac17c7aa40445173406459290
