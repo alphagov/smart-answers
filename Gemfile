@@ -67,7 +67,7 @@ end
 group :development do
   gem 'parser'
   gem 'pry'
-  gem 'rubocop'
+  gem 'govuk-lint'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'nokogiri'
