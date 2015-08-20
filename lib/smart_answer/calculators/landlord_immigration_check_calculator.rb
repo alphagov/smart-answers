@@ -1,6 +1,5 @@
-module SmartdownPlugins
-  module LandlordImmigrationCheck
-
+module SmartAnswer::Calculators
+  class LandlordImmigrationCheckCalculator
     # These MTD areas are currently different on mapit.mysociety.org
     # to preview/production data. They are *-city-council in all cases
     # on Mapit but a mixture of *-borough-council and *-city-council
@@ -19,7 +18,7 @@ module SmartdownPlugins
     )
 
     def self.valid_postcode(postcode)
-      response = $imminence.areas_for_postcode(postcode.value)
+      response = $imminence.areas_for_postcode(postcode)
       return false unless response and response.code == 200
       areas = response.to_hash["results"]
       ! areas.find { |a| VALID_BOROUGHS.include?(a["slug"]) }.nil?

@@ -1,8 +1,0 @@
-# Is the person at least 18 years of age?
-
-[choice: tenant_over_18]
-* yes: Yes
-* no: No
-
-* tenant_over_18 is 'yes' => uk_passport
-* tenant_over_18 is 'no' => outcome_check_not_needed_when_under_18

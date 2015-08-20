@@ -86,6 +86,10 @@ module SmartAnswer
       add_node Question::Checkbox.new(name, &block)
     end
 
+    def postcode_question(name, &block)
+      add_node Question::Postcode.new(name, &block)
+    end
+
     def outcome(name, options = {}, &block)
       modified_options = options.merge(
         flow_name: self.name

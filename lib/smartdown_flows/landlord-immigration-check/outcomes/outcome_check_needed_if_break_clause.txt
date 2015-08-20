@@ -1,6 +1,0 @@
-You’ll have to carry out a right to rent check if:
-
-- there’s a break clause within the lease
-- there’s a clause for right of re-entry for the landlord
-
-{{snippet: landlord-code-of-practice}}

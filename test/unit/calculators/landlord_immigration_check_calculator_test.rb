@@ -1,14 +1,9 @@
-require 'test_helper'
-require 'smartdown_plugins/landlord-immigration-check/render_time'
+require_relative '../../test_helper'
 require 'gds_api/test_helpers/imminence'
 
-module SmartdownPlugins
-  class LandlordImmigrationCheckTest < ActiveSupport::TestCase
+module SmartAnswer::Calculators
+  class LandlordImmigrationCheckCalculatorTest < ActiveSupport::TestCase
     include GdsApi::TestHelpers::Imminence
-
-    def stub_answer(value)
-      OpenStruct.new(value: value)
-    end
 
     setup do
       imminence_has_areas_for_postcode("WC2B%206SE", [])
@@ -31,15 +26,15 @@ module SmartdownPlugins
     end
 
     test "with a valid postcode outside valid areas" do
-      refute SmartdownPlugins::LandlordImmigrationCheck.valid_postcode(stub_answer("WC2B 6SE"))
+      refute LandlordImmigrationCheckCalculator.valid_postcode("WC2B 6SE")
     end
 
     test "with a valid postcode within the valid areas" do
-      assert SmartdownPlugins::LandlordImmigrationCheck.valid_postcode(stub_answer("B1 1EQ"))
-      assert SmartdownPlugins::LandlordImmigrationCheck.valid_postcode(stub_answer("B62 0BG"))
-      assert SmartdownPlugins::LandlordImmigrationCheck.valid_postcode(stub_answer("B43 5AB"))
-      assert SmartdownPlugins::LandlordImmigrationCheck.valid_postcode(stub_answer("WV1 1ES"))
-      assert SmartdownPlugins::LandlordImmigrationCheck.valid_postcode(stub_answer("B43 7DG"))
+      assert LandlordImmigrationCheckCalculator.valid_postcode("B1 1EQ")
+      assert LandlordImmigrationCheckCalculator.valid_postcode("B62 0BG")
+      assert LandlordImmigrationCheckCalculator.valid_postcode("B43 5AB")
+      assert LandlordImmigrationCheckCalculator.valid_postcode("WV1 1ES")
+      assert LandlordImmigrationCheckCalculator.valid_postcode("B43 7DG")
     end
   end
 end

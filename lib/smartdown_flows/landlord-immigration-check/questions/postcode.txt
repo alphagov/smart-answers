@@ -1,6 +1,0 @@
-# Enter the postcode of the property you want to let:
-
-[postcode: property]
-
-* valid_postcode(property) => renting_as_main_home
-* otherwise => outcome_check_not_needed

@@ -325,5 +325,6 @@ DEPENDENCIES
   tilt (= 1.4.1)
   timecop
   uglifier
+  uk_postcode (~> 1.0.1)
   unicorn (= 4.8.3)
   webmock (= 1.20.4)

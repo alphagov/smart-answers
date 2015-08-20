@@ -1,8 +1,0 @@
-# Does the person have a Certificate of Registration or Naturalisation as a British citizen?
-
-[choice: has_certificate]
-* yes: Yes
-* no: No
-
-* has_certificate is 'yes' => outcome_can_rent
-* has_certificate is 'no' => tenant_nationality
