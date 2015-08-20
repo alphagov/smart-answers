@@ -15,6 +15,11 @@ module SmartAnswer
       assert_equal "W1A 2AB", new_state.my_postcode
     end
 
+    test "abnormal postcode" do
+      new_state = @question.transition(@initial_state, "w1A2ab")
+      assert_equal "W1A 2AB", new_state.my_postcode
+    end
+
     test "incomplete postcode" do
       e = assert_raises InvalidResponse do
         @question.transition(@initial_state, "W1A")

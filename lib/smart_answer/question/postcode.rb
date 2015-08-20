@@ -5,7 +5,7 @@ module SmartAnswer
         postcode = UKPostcode.new(raw_input)
         raise InvalidResponse, :error_postcode_invalid unless postcode.valid?
         raise InvalidResponse, :error_postcode_incomplete unless postcode.full?
-        postcode.to_s
+        postcode.normalize
       end
     end
   end
