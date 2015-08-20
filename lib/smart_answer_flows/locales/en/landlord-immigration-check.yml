@@ -83,9 +83,16 @@ en-GB:
           'no': 'No'
       main_home?:
         title: Is the person renting the property as their main and only home?
-        body: "This includes:\n\n- tenancy agreement\n- a lease\n- a licence\n- sub-lease
-          or sub-tenancy\n- lodgers\n- paying house guests \n- a family member living
-          with the tenant as their main or only home"
+        body: |-
+            This includes:
+
+            - tenancy agreement
+            - a lease
+            - a licence
+            - sub-lease or sub-tenancy
+            - lodgers
+            - paying house guests
+            - a family member living with the tenant as their main or only home
         options:
           'yes': 'Yes'
           'no': 'No'
