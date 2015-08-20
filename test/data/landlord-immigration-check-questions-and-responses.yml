@@ -23,7 +23,7 @@
 - employee_accommodation
 - student_accommodation
 - 7_year_lease_property
-:has_certificate:
+:has_certificate?:
 - 'yes'
 - 'no'
 :main_home?:

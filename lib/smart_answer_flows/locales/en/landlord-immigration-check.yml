@@ -75,7 +75,7 @@ en-GB:
           student_accommodation: student accommodation
           7_year_lease_property: a residential property with a lease for 7 years or
             more
-      has_certificate:
+      has_certificate?:
         title: Does the person have a Certificate of Registration or Naturalisation
           as a British citizen?
         options:

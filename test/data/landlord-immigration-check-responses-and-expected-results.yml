@@ -54,9 +54,9 @@
   - 'yes'
   - 'no'
   - 'no'
-  :next_node: :has_certificate
+  :next_node: :has_certificate?
   :outcome_node: false
-- :current_node: :has_certificate
+- :current_node: :has_certificate?
   :responses:
   - B1 1PW
   - 'yes'
@@ -66,7 +66,7 @@
   - 'yes'
   :next_node: :outcome_can_rent
   :outcome_node: true
-- :current_node: :has_certificate
+- :current_node: :has_certificate?
   :responses:
   - B1 1PW
   - 'yes'
