@@ -26,8 +26,10 @@
                  } %>
 
     <% elsif resident_of == 'uk' %>
-      Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing <%= country_name_lowercase_prefix %> before making any plans to find out about local marriage laws, including what documents you’ll need.
-
+      <%= render partial: 'contact_nearest_embassy_of_country.govspeak.erb',
+                 locals: {
+                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                 } %>
     <% end %>
   <% end %>
 

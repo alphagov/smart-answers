@@ -1658,14 +1658,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "netherlands outcome" do
-    should "bring you to netherlands outcome" do
+  context "Netherlands" do
+    should "bring you to outcome_marriage_via_local_authorities" do
       worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
       add_response 'netherlands'
       add_response 'uk'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_netherlands
+      assert_current_node :outcome_marriage_via_local_authorities
     end
   end
 

@@ -162,7 +162,7 @@ module SmartAnswer
         }
 
         next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
-        next_node_if(:outcome_netherlands, variable_matches(:ceremony_country, "netherlands"))
+        next_node_if(:outcome_marriage_via_local_authorities, variable_matches(:ceremony_country, "netherlands"))
         next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
         next_node_if(:outcome_ireland, variable_matches(:ceremony_country, "ireland"))
         next_node_if(:outcome_switzerland, variable_matches(:ceremony_country, "switzerland"))
@@ -258,7 +258,7 @@ module SmartAnswer
 
       outcome :outcome_switzerland
 
-      outcome :outcome_netherlands
+      outcome :outcome_marriage_via_local_authorities
 
       outcome :outcome_portugal
 
