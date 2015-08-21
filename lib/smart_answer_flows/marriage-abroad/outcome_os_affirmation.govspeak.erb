@@ -401,6 +401,9 @@
       <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>
     <% elsif ceremony_country == 'norway' %>
       <%= render partial: 'pay_by_visas_or_mastercard.govspeak.erb' %>
+    <% elsif ceremony_country == 'south-korea' %>
+      You can pay by cash in the local currency or by credit card, but not by personal cheque.
+
     <% else %>
       <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
     <% end %>
