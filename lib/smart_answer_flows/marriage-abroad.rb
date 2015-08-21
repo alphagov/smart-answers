@@ -161,6 +161,10 @@ module SmartAnswer
           ceremony_country == 'norway' && resident_of == 'third_country'
         }
 
+        define_predicate(:marriage_via_local_authorities) {
+          data_query.os_marriage_via_local_authorities?(ceremony_country)
+        }
+
         next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
         next_node_if(:outcome_marriage_via_local_authorities, variable_matches(:ceremony_country, "netherlands"))
         next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
@@ -189,6 +193,7 @@ module SmartAnswer
           next_node_if(:outcome_os_no_cni, -> {
             data_query.os_no_consular_cni_countries?(ceremony_country) || (resident_of != 'uk' && data_query.os_no_marriage_related_consular_services?(ceremony_country))
           })
+          next_node_if(:outcome_marriage_via_local_authorities, marriage_via_local_authorities)
           next_node_if(:outcome_os_other_countries, -> {
             data_query.os_other_countries?(ceremony_country)
           })

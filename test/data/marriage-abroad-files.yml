@@ -1,8 +1,8 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: 98e7585381d5fbfce5faa5e5ba91933a
+lib/smart_answer_flows/marriage-abroad.rb: c509df582129a4bbba4f2f850d69c06c
 lib/smart_answer_flows/locales/en/marriage-abroad.yml: 164d2e20ece110c5f60744b483766e36
 test/data/marriage-abroad-questions-and-responses.yml: eabbd09ca91fab72a9a520d1087fb35e
-test/data/marriage-abroad-responses-and-expected-results.yml: bd9f173fffa0ffe371e1dd0ee9e3cb51
+test/data/marriage-abroad-responses-and-expected-results.yml: a9d3589247d2cc58b5318cc9e7011f20
 lib/smart_answer_flows/marriage-abroad/_affirmation_os_translation_in_local_language_text.govspeak.erb: 2e6645f9114db57b0f081070d0473771
 lib/smart_answer_flows/marriage-abroad/_appointment_for_affidavit.govspeak.erb: c9714322b3c62e0a0ded981da6025b9d
 lib/smart_answer_flows/marriage-abroad/_appointment_for_affidavit_norway.govspeak.erb: de478bc6121e2e4c7f748a4e1831befb
@@ -102,6 +102,6 @@ lib/smart_answer_flows/marriage-abroad/outcome_ss_marriage_malta.govspeak.erb: a
 lib/smart_answer_flows/marriage-abroad/outcome_ss_marriage_not_possible.govspeak.erb: 800f400fb97200d114f5e8b80531a4d5
 lib/smart_answer_flows/marriage-abroad/outcome_switzerland.govspeak.erb: 704cb6844a995ed4c0f10fae08f2042d
 lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: d64ea42121cdaeaa50b08177bb6df28c
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: d8c872a52053ac0439252e8096e1026f
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
 lib/smart_answer/calculators/registrations_data_query.rb: cbb0fad828d74606eb708d3442cf4ca5

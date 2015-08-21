@@ -13,7 +13,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   setup do
-    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic democratic-republic-of-congo denmark ecuador egypt estonia finland france germany greece hong-kong indonesia iran ireland italy japan jordan kazakhstan kosovo kyrgyzstan laos latvia lebanon lithuania macao macedonia malta mayotte mexico monaco montenegro morocco netherlands nicaragua north-korea norway oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe).uniq
+    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic democratic-republic-of-congo denmark ecuador egypt estonia finland france germany greece hong-kong indonesia iran ireland italy japan jordan kazakhstan kosovo kyrgyzstan laos latvia lebanon lithuania macao macedonia malta mayotte mexico monaco montenegro morocco netherlands nicaragua north-korea norway oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan ukraine united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe).uniq
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::MarriageAbroadFlow
   end
@@ -843,14 +843,12 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   context "ceremony in Ecuador, resident in Ecuador, partner other" do
-    setup do
+    should "go to outcome os affirmation" do
       worldwide_api_has_organisations_for_location('ecuador', read_fixture_file('worldwide/ecuador_organisations.json'))
       add_response 'ecuador'
       add_response 'ceremony_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
-    end
-    should "go to os affirmation outcome" do
       assert_current_node :outcome_os_affirmation
     end
   end
@@ -924,30 +922,24 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in cote-d-ivoire, uk resident, partner british" do
+  context "ceremony in cote-d-ivoire" do
     setup do
       worldwide_api_has_organisations_for_location('cote-d-ivoire', read_fixture_file('worldwide/cote-d-ivoire_organisations.json'))
       add_response 'cote-d-ivoire'
+    end
+
+    should "lead to outcome_marriage_via_local_authorities when in the UK" do
       add_response 'uk'
       add_response 'partner_british'
       add_response 'opposite_sex'
+      assert_current_node :outcome_marriage_via_local_authorities
     end
-    should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_consular_cni
-      assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
-    end
-  end
 
-  context "ceremony in cote-d-ivoire, lives elsewhere, partner british" do
-    setup do
-      worldwide_api_has_organisations_for_location('cote-d-ivoire', read_fixture_file('worldwide/cote-d-ivoire_organisations.json'))
-      add_response 'cote-d-ivoire'
+    should "lead to outcome_marriage_via_local_authorities when in a third country" do
       add_response 'third_country'
       add_response 'partner_british'
       add_response 'opposite_sex'
-    end
-    should "go os no cni outcome" do
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_marriage_via_local_authorities
     end
   end
 
@@ -1002,28 +994,24 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   context "ceremony in usa, lives elsewhere, partner other" do
-    setup do
+    should "go to outcome_marriage_via_local_authorities" do
       worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
       add_response 'usa'
       add_response 'third_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
-    end
-    should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_marriage_via_local_authorities
     end
   end
 
   context "ceremony in argentina, lives elsewhere, partner other" do
-    setup do
+    should "go to outcome_marriage_via_local_authorities" do
       worldwide_api_has_organisations_for_location('argentina', read_fixture_file('worldwide/argentina_organisations.json'))
       add_response 'argentina'
       add_response 'third_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
-    end
-    should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_marriage_via_local_authorities
     end
   end
 
@@ -1647,14 +1635,25 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "slovakia, no money phraselists" do
-    should "" do
+  context "Slovakia" do
+    should "lead to outcome_marriage_via_local_authorities" do
       worldwide_api_has_organisations_for_location('slovakia', read_fixture_file('worldwide/slovakia_organisations.json'))
       add_response 'slovakia'
       add_response 'uk'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_marriage_via_local_authorities
+    end
+  end
+
+  context "Ukraine" do
+    should "lead to outcome_marriage_via_local_authorities" do
+      worldwide_api_has_organisations_for_location('ukraine', read_fixture_file('worldwide/ukraine_organisations.json'))
+      add_response 'ukraine'
+      add_response 'uk'
+      add_response 'partner_british'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_marriage_via_local_authorities
     end
   end
 
