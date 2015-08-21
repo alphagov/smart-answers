@@ -337,7 +337,6 @@ module SmartAnswer
           %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
         end
         precalculate :ceremony_not_germany_or_not_resident_other do
-          # TODO verify this is ok
           (ceremony_country != 'germany' || resident_of == 'uk')
         end
         precalculate :ceremony_and_residency_in_croatia do
