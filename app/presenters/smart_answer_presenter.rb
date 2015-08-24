@@ -32,21 +32,22 @@ class SmartAnswerPresenter
     nil
   end
 
-  def markdown_for(key)
+  def markdown_for(key, html: true)
     markdown = lookup_translation(key)
-    markdown && GovspeakPresenter.new(markdown).html
+    return unless markdown
+    html ? GovspeakPresenter.new(markdown).html : markdown
   end
 
   def title
     lookup_translation(:title) || @flow.name.to_s.humanize
   end
 
-  def body
-    markdown_for('body')
+  def body(html: true)
+    markdown_for('body', html: html)
   end
 
-  def post_body
-    markdown_for('post_body')
+  def post_body(html: true)
+    markdown_for('post_body', html: html)
   end
 
   def has_body?
@@ -71,6 +72,10 @@ class SmartAnswerPresenter
 
   def finished?
     current_node.outcome?
+  end
+
+  def render_txt?
+    finished? || !started?
   end
 
   def current_state
