@@ -225,5 +225,43 @@ module SmartAnswer
         assert @date_range.empty?
       end
     end
+
+    context 'intersection of' do
+      context 'two overlapping DateRanges' do
+        setup do
+          @date_range = DateRange.new(begins_on: Date.parse('2000-01-01'), ends_on: Date.parse('2000-12-31'))
+          @overlapping = DateRange.new(begins_on: Date.parse('2000-06-01'), ends_on: Date.parse('2001-05-31'))
+        end
+
+        should 'be the intersection of the two periods' do
+          intersection = @date_range & @overlapping
+          assert_equal DateRange.new(begins_on: @overlapping.begins_on, ends_on: @date_range.ends_on), intersection
+        end
+      end
+
+      context 'two non-overlapping DateRanges' do
+        setup do
+          @date_range = DateRange.new(begins_on: Date.parse('2000-01-01'), ends_on: Date.parse('2000-12-31'))
+          @non_overlapping = DateRange.new(begins_on: Date.parse('2002-01-01'), ends_on: Date.parse('2002-12-31'))
+        end
+
+        should 'be an empty DateRange' do
+          intersection = @date_range & @non_overlapping
+          assert intersection.empty?
+        end
+      end
+
+      context 'two infinite overlapping DateRanges' do
+        setup do
+          @date_range = DateRange.new(ends_on: Date.parse('2000-12-31'))
+          @overlapping = DateRange.new(begins_on: Date.parse('2000-06-01'))
+        end
+
+        should 'be the intersection of the two periods' do
+          intersection = @date_range & @overlapping
+          assert_equal DateRange.new(begins_on: @overlapping.begins_on, ends_on: @date_range.ends_on), intersection
+        end
+      end
+    end
   end
 end

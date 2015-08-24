@@ -29,6 +29,14 @@ module SmartAnswer
       (ComparableDate.new(date.to_date) >= ComparableDate.new(@begins_on)) && (ComparableDate.new(date.to_date) <= ComparableDate.new(@ends_on))
     end
 
+    def intersection(other)
+      latest_begins_on = [ComparableDate.new(begins_on), ComparableDate.new(other.begins_on)].max.date
+      earliest_ends_on = [ComparableDate.new(ends_on), ComparableDate.new(other.ends_on)].min.date
+      self.class.new(begins_on: latest_begins_on, ends_on: earliest_ends_on)
+    end
+
+    alias_method :&, :intersection
+
     def number_of_days
       infinite? ? Float::INFINITY : (@ends_on - @begins_on).to_i + 1
     end
