@@ -19,9 +19,9 @@ module SmartAnswer
 
     attr_reader :begins_on, :ends_on
 
-    def initialize(begins_on: EARLIEST_DATE, ends_on: LATEST_DATE)
-      @begins_on = begins_on.to_date
-      @ends_on = ends_on.to_date
+    def initialize(begins_on: nil, ends_on: nil)
+      @begins_on = (begins_on || EARLIEST_DATE).to_date
+      @ends_on = (ends_on || LATEST_DATE).to_date
       @ends_on = [@begins_on - 1, @ends_on].max unless infinite?
     end
 

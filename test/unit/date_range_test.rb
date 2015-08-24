@@ -122,6 +122,16 @@ module SmartAnswer
       end
     end
 
+    context 'when range is built with nil ends_on' do
+      setup do
+        @date_range = DateRange.new(ends_on: nil)
+      end
+
+      should 'have infinite ends_on' do
+        assert @date_range.ends_on.infinite?
+      end
+    end
+
     context 'when range is built with no begins_on' do
       setup do
         @date_range = DateRange.new(ends_on: Date.parse('2000-01-01'))
@@ -145,6 +155,16 @@ module SmartAnswer
 
       should 'be infinite' do
         assert @date_range.infinite?
+      end
+    end
+
+    context 'when range is built with nil begins_on' do
+      setup do
+        @date_range = DateRange.new(begins_on: nil)
+      end
+
+      should 'have infinite begins_on' do
+        assert @date_range.begins_on.infinite?
       end
     end
 
