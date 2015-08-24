@@ -116,6 +116,10 @@ module SmartAnswer
       should 'have infinite number of days' do
         assert @date_range.number_of_days.infinite?
       end
+
+      should 'be infinite' do
+        assert @date_range.infinite?
+      end
     end
 
     context 'when range is built with no begins_on' do
@@ -138,6 +142,10 @@ module SmartAnswer
       should 'have infinite number of days' do
         assert @date_range.number_of_days.infinite?
       end
+
+      should 'be infinite' do
+        assert @date_range.infinite?
+      end
     end
 
     context 'when range includes leap day' do
@@ -151,6 +159,50 @@ module SmartAnswer
 
       should 'count leap day in number of days' do
         assert_equal 366, @date_range.number_of_days
+      end
+    end
+
+    context 'when range ends on the same day it begins' do
+      setup do
+        @date_range = DateRange.new(begins_on: Date.parse('2000-01-01'), ends_on: Date.parse('2000-01-01'))
+      end
+
+      should 'include begins_on date' do
+        assert @date_range.include?(@date_range.begins_on)
+      end
+
+      should 'contain one day' do
+        assert_equal 1, @date_range.number_of_days
+      end
+
+      should 'not be empty' do
+        refute @date_range.empty?
+      end
+
+      should 'not be infinite' do
+        refute @date_range.infinite?
+      end
+    end
+
+    context 'when range ends before it begins' do
+      setup do
+        @date_range = DateRange.new(begins_on: Date.parse('2000-12-31'), ends_on: Date.parse('2000-01-01'))
+      end
+
+      should 'not include begins_on date' do
+        refute @date_range.include?(@date_range.begins_on)
+      end
+
+      should 'not include ends_on date' do
+        refute @date_range.include?(@date_range.ends_on)
+      end
+
+      should 'contain zero days' do
+        assert_equal 0, @date_range.number_of_days
+      end
+
+      should 'be empty' do
+        assert @date_range.empty?
       end
     end
   end
