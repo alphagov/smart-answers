@@ -105,6 +105,12 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         assert_equal true, unexercised_nodes.empty?, "Not all nodes are being exercised: #{unexercised_nodes.sort}"
       end
 
+      should "render and save the landing page" do
+        get :show, id: flow_name, format: 'txt'
+
+        assert_no_output_diff smart_answer_helper.save_output([flow_name], response)
+      end
+
       responses_and_expected_results.each do |responses_and_expected_node|
         responses    = responses_and_expected_node[:responses]
         outcome_node = responses_and_expected_node[:outcome_node]
@@ -113,10 +119,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
           should "render and save output for responses: #{responses.join(', ')}" do
             get :show, id: flow_name, started: 'y', responses: responses.join('/'), format: 'txt'
 
-            path_to_output = smart_answer_helper.save_output(responses, response)
-
-            diff_output = `git diff -- "#{path_to_output}"`
-            assert diff_output.blank?, diff_output
+            assert_no_output_diff smart_answer_helper.save_output(responses, response)
           end
         end
       end
@@ -129,6 +132,11 @@ class SmartAnswersRegressionTest < ActionController::TestCase
   end
 
   private
+
+  def assert_no_output_diff(path_to_output)
+    diff_output = `git diff -- "#{path_to_output}"`
+    assert diff_output.blank?, diff_output
+  end
 
   def setup_worldwide_locations
     location_slugs = YAML.load(read_fixture_file("worldwide_locations.yml"))
