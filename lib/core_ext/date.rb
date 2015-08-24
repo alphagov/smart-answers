@@ -1,8 +1,12 @@
 require 'date'
 
 class Date
+  def finite?
+    true
+  end
+
   def infinite?
-    false
+    !finite?
   end
 end
 

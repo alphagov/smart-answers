@@ -3,6 +3,20 @@ module SmartAnswer
     EARLIEST_DATE = -Date::Infinity.new
     LATEST_DATE = Date::Infinity.new
 
+    ComparableDate = Struct.new(:date)
+    class ComparableDate
+      include Comparable
+
+      def <=>(other)
+        if date.infinite? && other.date.finite?
+          result = other.date <=> date
+          result && -result
+        else
+          date <=> other.date
+        end
+      end
+    end
+
     attr_reader :begins_on, :ends_on
 
     def initialize(begins_on: EARLIEST_DATE, ends_on: LATEST_DATE)
@@ -11,7 +25,7 @@ module SmartAnswer
     end
 
     def include?(date)
-      (date >= @begins_on) && (date <= @ends_on)
+      (ComparableDate.new(date.to_date) >= ComparableDate.new(@begins_on)) && (ComparableDate.new(date.to_date) <= ComparableDate.new(@ends_on))
     end
 
     def number_of_days

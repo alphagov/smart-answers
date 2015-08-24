@@ -35,6 +35,14 @@ module SmartAnswer
         refute @date_range.include?(Date.parse('1999-12-31'))
       end
 
+      should 'not include date infinitely before begins_on' do
+        refute @date_range.include?(-Date::Infinity.new)
+      end
+
+      should 'not include date infinitely after ends_on' do
+        refute @date_range.include?(Date::Infinity.new)
+      end
+
       should 'not include date after ends_on' do
         refute @date_range.include?(Date.parse('2000-01-08'))
       end
@@ -101,6 +109,10 @@ module SmartAnswer
         assert @date_range.include?(Date.parse('9999-01-01'))
       end
 
+      should 'include date infinitely far in the future' do
+        assert @date_range.include?(Date::Infinity.new)
+      end
+
       should 'have infinite number of days' do
         assert @date_range.number_of_days.infinite?
       end
@@ -117,6 +129,10 @@ module SmartAnswer
 
       should 'include date far in the past' do
         assert @date_range.include?(Date.parse('0000-01-01'))
+      end
+
+      should 'include date infinitely far in the past' do
+        assert @date_range.include?(-Date::Infinity.new)
       end
 
       should 'have infinite number of days' do
