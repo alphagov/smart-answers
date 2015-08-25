@@ -44,7 +44,7 @@ class SmartAnswerFiles
   end
 
   def erb_template_paths
-    Dir[erb_template_directory.join('*.erb')].collect do |path|
+    Dir[erb_template_directory.join('**/*.erb')].collect do |path|
       Pathname.new(path)
     end
   end
