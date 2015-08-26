@@ -330,3 +330,6 @@ DEPENDENCIES
   uk_postcode (~> 1.0.1)
   unicorn (= 4.8.3)
   webmock (= 1.20.4)
+
+BUNDLED WITH
+   1.10.6
