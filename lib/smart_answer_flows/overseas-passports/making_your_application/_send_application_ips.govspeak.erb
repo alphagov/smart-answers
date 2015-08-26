@@ -16,10 +16,8 @@
   $A
 <% when '2', '3' %>
   ## Making your application
-  You must apply in person.
 
-  You must bring photo ID with you.
+  <%= render partial: "making_your_application/apply_in_person.govspeak.erb" %>
+  <%= render partial: "making_your_application/bring_originals_and_copy.govspeak.erb" %>
 
-  Bring original supporting documents and a photocopy of each one.
-  The original documents will be returned to you.
 <% end %>
