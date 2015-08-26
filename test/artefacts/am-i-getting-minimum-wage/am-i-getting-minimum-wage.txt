@@ -1,0 +1,4 @@
+National Minimum Wage calculator for workers
+
+Check if your pay matches the National Minimum Wage or if your employer owes you payments from past years.
+
