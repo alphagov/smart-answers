@@ -1,0 +1,8 @@
+Calculate your employee's statutory redundancy pay
+
+Calculate an employee’s statutory redundancy pay.
+
+Redundancy payments are based on age, weekly pay and number of years in the job.
+
+Employees only qualify if they’ve worked at least 2 full years for you.
+
