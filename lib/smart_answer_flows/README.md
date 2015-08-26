@@ -10,11 +10,13 @@ The code responsible for executing the flow of those questions is in the `lib` f
 
 ### Storing data for later use
 
-You can use the `precalculate`, `next_node_calculation` and `calculate` methods to store data for later use.
+You can use the `precalculate`, `next_node_calculation`, `save_input_as` and `calculate` methods to store data for later use.
 
 Use `precalculate` or `next_node_calculation` to store data for use within the same node.
 
-Use `calculate` to store data for use with subsequent nodes.
+Use `save_input_as` to store the answer to the question for use within subsequent nodes.
+
+Use `calculate` to store data for use within subsequent nodes.
 
 The flow below illustrates the data available to the different Question node methods.
 
@@ -31,12 +33,9 @@ The flow below illustrates the data available to the different Question node met
     multiple_choice :question_2 do
       option :q2_option
 
-      save_input_as :q2_answer
-
       precalculate :q2_precalculated_answer do
         # responses            => ['q1_option']
         # q1_calculated_answer => 'q1-calculated-answer'
-        # q2_answer            => nil
 
         'q2-precalculated-answer'
       end
@@ -45,7 +44,6 @@ The flow below illustrates the data available to the different Question node met
         # response                => 'q2_option'
         # responses               => ['q1_option']
         # q1_calculated_answer    => 'q1-calculated-answer'
-        # q2_answer               => nil
         # q2_precalculated_answer => 'q2-precalculated-answer'
 
         'q2-next-node-calculated-answer'
@@ -55,7 +53,6 @@ The flow below illustrates the data available to the different Question node met
         # response                       => 'q2_option'
         # responses                      => ['q1_option']
         # q1_calculated_answer           => 'q1-calculated-answer'
-        # q2_answer                      => nil
         # q2_precalculated_answer        => 'q2-precalculated-answer'
         # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
       end
@@ -64,7 +61,6 @@ The flow below illustrates the data available to the different Question node met
         # response                       => 'q2_option'
         # responses                      => ['q1_option']
         # q1_calculated_answer           => 'q1-calculated-answer'
-        # q2_answer                      => nil
         # q2_precalculated_answer        => 'q2-precalculated-answer'
         # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
       end
@@ -73,10 +69,11 @@ The flow below illustrates the data available to the different Question node met
         # response                       => 'q2_option'
         # responses                      => ['q1_option']
         # q1_calculated_answer           => 'q1-calculated-answer'
-        # q2_answer                      => nil
         # q2_precalculated_answer        => 'q2-precalculated-answer'
         # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
       end
+
+      save_input_as :q2_answer
 
       calculate :q2_calculated_answer do |response|
         # response                       => 'q2_option'
