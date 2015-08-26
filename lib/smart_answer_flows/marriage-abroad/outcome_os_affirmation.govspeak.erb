@@ -103,18 +103,21 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
 
-    You’ll need to complete an ‘Affirmation for marriage’ (non-religious) form or an ‘Affidavit for marriage’ form‘.
+    You’ll need to complete an ‘Affirmation of marital status’ form (non-religious) or an ‘Affidavit of marital status’ form (religious).
 
     You can download and fill in (but not sign) the forms in advance.
 
     $D
-    [Download ‘Affirmation for marriage’](/government/publications/affirmation-form-china)
+    [Download ‘Affirmation of marital status’](/government/publications/affirmation-form-china)
 
-    [Download ‘Affidavit for marriage’](/government/publications/affidavit-form-china)
+    [Download ‘Affidavit of marital status’](/government/publications/affidavit-form-china)
     $D
 
   <% elsif ceremony_country == 'norway' %>
     <%= render partial: 'appointment_for_affidavit_norway.govspeak.erb' %>
+  <% elsif ceremony_country == 'south-korea' %>
+    Make an appointment at the British embassy in South Korea to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s passport and pay a fee.
+
   <% elsif ceremony_country == 'macao' %>
     Make an appointment at the British Consulate General Hong Kong to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
@@ -133,6 +136,17 @@
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
+    <% if ceremony_country == 'south-korea' %>
+      You’ll need to fill in an [‘Affidavit for Marriage’](/government/publications/south-korea-affidavit-of-eligibility-for-marriage-form) form stating that you’re free to marry. You can download and fill in (but not sign) the form in advance. You’ll need to take the form with you to your appointment.
+
+      <% if partner_nationality == 'partner_local' %>
+        You’ll need to provide supporting documents, including:
+
+        - you partner’s Family Relationship Certificate and Marriage Status Certificate - these can be obtained from a local district office anywhere in South Korea and must be translated into English and notarised by a lawyer in Korea
+        - your partner’s valid Korean ID card
+        - your partner’s proof of termination of any prior marriage(s)
+      <% end %>
+    <% end %>
     <% if ceremony_country == 'belgium' %>
       <%= render partial: 'complete_affirmation_or_affidavit_forms.govspeak.erb' %>
       <%= render partial: 'download_and_fill_but_not_sign.govspeak.erb' %>
@@ -226,6 +240,10 @@
 
   <% if ceremony_country == 'morocco' %>
     <%= render partial: 'documents_for_divorced_or_widowed.govspeak.erb' %>
+  <% elsif ceremony_country == 'south-korea' %>
+    If you’ve been divorced or widowed, you’ll also need:
+
+    - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) - a [decree nisi](/divorce/apply-for-decree-nisi) won’t be accepted
   <% elsif ceremony_country == 'ecuador' %>
     If you’ve been divorced or widowed, you’ll need to provide:
 
@@ -311,12 +329,19 @@
     <% end %>
   <% end %>
 
-  <% if %w(south-korea thailand turkey vietnam).include?(ceremony_country) %>
+  <% if %w(thailand turkey vietnam).include?(ceremony_country) %>
     ##Fees
 
     Service | Fee
     -|-
     Affidavit for marriage | £55
+
+  <% elsif %w(south-korea).include?(ceremony_country) %>
+    ##Fees
+
+    Service | Fee
+    -|-
+    Affidavit for marriage | £65
 
   <% elsif %w(belgium cambodia ecuador macao morocco norway).include?(ceremony_country) %>
     <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
@@ -348,6 +373,13 @@
     Making an oath | £55
 
 
+  <% elsif ceremony_country == 'china' %>
+    ##Fees
+
+    Service | Fee
+    -|-
+    Affirmation or affidavit for freedom to marry in English & Chinese | £55
+
   <% else %>
     ##Fees
 
@@ -376,6 +408,9 @@
       <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>
     <% elsif ceremony_country == 'norway' %>
       <%= render partial: 'pay_by_visas_or_mastercard.govspeak.erb' %>
+    <% elsif ceremony_country == 'south-korea' %>
+      You can pay by cash in the local currency or by credit card, but not by personal cheque.
+
     <% else %>
       <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
     <% end %>

@@ -9,7 +9,8 @@ Contact the relevant local authorities in Russia to find out about local marriag
 ##What you need to do
 
 
-You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
+You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
+
 
 
 If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British consulate.
@@ -21,9 +22,9 @@ You’ll need to have been living in the Russian Federation for 3 full days befo
 You can then book an appointment at the consulate in the district you’re living in, to give notice of your marriage.
 
 
-[Make an appointment at the embassy in Moscow](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-moscow/notice-of-marriage-or-civil-partnership/slot_picker).
+[Make an appointment at the embassy in Moscow.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-moscow/notice-of-marriage-or-civil-partnership/slot_picker)
 
-[Make an appointment at the embassy in St Petersburg](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-st-petersburg/notice-of-marriage-or-civil-partnership/slot_picker).
+[Make an appointment at the embassy in St Petersburg.](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-st-petersburg/notice-of-marriage-or-civil-partnership/slot_picker)
 
 You’ll need to provide supporting documents, including:
 
@@ -39,7 +40,7 @@ If you or your partner have been divorced, widowed or previously in a civil part
 - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
 
-^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.^
+^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
 
 You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
@@ -53,6 +54,9 @@ $D
 [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
 $D
 
+
+
+^Your partner will need to follow the same process and pay the fees to get their own CNI.^
 
 ###What happens next
 
@@ -69,7 +73,6 @@ They’ll then send all of your documentation to the British embassy or consulat
 There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
 
 
-^Your partner will need to follow the same process and pay the fees to get their own CNI.^
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 

@@ -9,14 +9,14 @@ Contact the relevant local authorities in Kuwait to find out about local marriag
 ##What you need to do
 
 
-You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry. Contact the local notary public to check if you need a CNI.
+You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry. Contact the local notary public to check if you need a CNI.
 
-If you need a CNI, you must give notice of your intended marriage in Kuwait. You must do this at the British embassy or in front of a notary public in that country.
+To get a CNI, you must post notice of your intended marriage in Kuwait. You can do this at the British embassy or in front of a notary public.
 
 
 You need to have been living in Kuwait for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
 
-[Make an appointment at the embassy in Kuwait City](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-kuwait-city/notice-of-marriage-or-civil-partnership/slot_picker).
+[Make an appointment at the embassy in Kuwait City.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-kuwait-city/notice-of-marriage-or-civil-partnership/slot_picker)
 
 You’ll need to provide supporting documents, including:
 
@@ -32,7 +32,7 @@ If you or your partner have been divorced, widowed or previously in a civil part
 - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
 
-^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.^
+^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
 
 You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
@@ -46,6 +46,9 @@ $D
 [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
 $D
 
+
+
+^Your partner will need to follow the same process and pay the fees to get their own CNI.^
 
 ###What happens next
 
@@ -62,7 +65,6 @@ They’ll then send all of your documentation to the British embassy or consulat
 There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
 
 
-^Your partner will need to follow the same process and pay the fees to get their own CNI.^
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 

@@ -1,6 +1,6 @@
 Marriage in Greece
 
-Contact the relevant local authorities in Greece to find out about local marriage laws, including what documents you’ll need.
+Contact the relevant local authorities in Greece (the town hall or the local priest) to find out about local marriage laws, including what documents you’ll need.
 
 
 ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
@@ -9,15 +9,22 @@ Contact the relevant local authorities in Greece to find out about local marriag
 ##What you need to do
 
 
-You may be asked to provide a certificate of no impediment (CNI) or a similar document to prove you’re allowed to marry.
+You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
 
 
-If you need a CNI, you must give notice of your intended marriage in Greece. You must do this at the British embassy or in front of a notary public in that country.
+To get a CNI, you must post notice of your intended marriage in Greece. You can do this at the British embassy or in front of a notary public.
 
 
 You need to have been living in Greece for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
 
-[Make an appointment at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/notice-of-marriage-or-civil-partnership/slot_picker).
+### Posting notice in front of a notary public
+If you choose to post notice before a local notary public, you must email the embassy in advance to get the forms you need.
+
+<consular.athens@fco.gov.uk>
+
+### Posting notice at the embassy
+
+[Make an appointment at the embassy in Athens.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/notice-of-marriage-or-civil-partnership/slot_picker)
 
 You’ll need to provide supporting documents, including:
 
@@ -34,28 +41,31 @@ If you or your partner have been divorced, widowed or previously in a civil part
 - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
 
-^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.^
+^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
 
-You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
+You’ll need to fill in forms for your notice of marriage, and complete an affirmation (non-religious) or affidavit (religious) stating that you’re free to marry.
 
-You can download and fill in (but not sign) the forms in advance.
+You can download and fill in (but not sign) the forms in advance. You’ll need to take the forms with you to your appointment.
 
 
 $D
 [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
 
-[Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
+[Download ‘Affidavit and affirmation for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
 $D
 
 
+
+^Your partner will need to follow the same process and pay the fees to get their own CNI.^
+
 ###What happens next
 
-An embassy or notary public can take your oath and post notice of your marriage. The notary public may charge 2 separate fees for this.
+The embassy or notary public can take your oath or affirmation and witness your notice of marriage. The notary public may charge 2 separate fees for this.
 
 If you give notice at a notary public, you must post the signed forms and any supporting documents to the British Embassy in Athens afterwards.
 
-Your local embassy will display your notice of marriage publicly for 7 days. They’ll then issue the CNI (as long as nobody has registered an objection).
+The embassy will display your notice of marriage publicly for 7 days (from the day after they receive your payment). They’ll then issue the CNI on the 8th day (as long as nobody has registered an objection).
 
 There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
 
@@ -64,7 +74,6 @@ You can then collect your CNI at the British embassy in Athens or ask for it to 
 [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
 
 
-^Your partner will need to follow the same process and pay the fees to get their own CNI.^
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
