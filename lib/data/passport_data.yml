@@ -1660,6 +1660,16 @@ rwanda:
   applying: 10 weeks
   replacing: 8 weeks
   optimistic_processing_time?: false
+saint-barthelemy:
+  type: ips_application_1
+  group: ips_documents_group_1
+  app_form: hmpo_2_application_form
+  online_application: true
+  renewing_new: 4 weeks
+  renewing_old: 6 weeks
+  applying: 6 weeks
+  replacing: 6 weeks
+  optimistic_processing_time?: true
 samoa:
   type: ips_application_1
   group: ips_documents_group_1
