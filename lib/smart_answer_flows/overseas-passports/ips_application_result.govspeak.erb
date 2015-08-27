@@ -15,94 +15,16 @@
 
   Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
-  ## Cost
-
-  <% if %w(st-helena-ascension-and-tristan-da-cunha).include?(current_location) %>
-    You’ll have to pay a fee for your passport.
-
-    <% case child_or_adult %>
-    <% when 'adult' %>
-      | Passport type | Passport fee |
-      |---------------|--------------|
-      | Adult standard 32-page passport | £83.00 |
-      | Adult jumbo 48-page passport | £91.00 |
-    <% when 'child' %>
-      | Passport type | Passport fee |
-      |---------------|--------------|
-      | Child passport | £53.00 |
-    <% end %>
-
-    You must pay in cash. In addition to the passport fee you’ll need to pay any local administration fees which apply from the office where you make your application.
-  <% elsif application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1' %>
-    You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
-
-    <% case child_or_adult %>
-    <% when 'adult' %>
-      | Passport type | Passport fee | Total to pay (including courier fee) |
-      |---------------|--------------|--------------------------------------|
-      | Adult standard 32-page passport | £83.00 | £92.70 |
-      | Adult jumbo 48-page passport | £91.00 | £100.70 |
-    <% when 'child' %>
-      | Passport type | Passport fee | Total to pay (including courier fee) |
-      |---------------|--------------|--------------------------------------|
-      | Child passport | £53.00 | £62.70 |
-    <% end %>
-
-    <%= render partial: 'passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number } %>
-
-  <% elsif %w(tajikistan turkmenistan uzbekistan).include?(current_location) %>
-    <% case current_location %>
-    <% when 'tajikistan' %>
-      You’ll have to pay a fee for your passport and a courier fee of £24.72.
-
-      The courier fee pays for your passport to be sent securely to the British Embassy in Dushanbe for you to collect.
-    <% when 'turkmenistan' %>
-      You’ll have to pay a fee for your passport and a courier fee of £24.72.
-
-      The courier fee pays for your passport to be sent securely to the British Embassy in Ashgabat for you to collect.
-    <% when 'uzbekistan' %>
-      You’ll have to pay a fee for your passport and a courier fee of £23.01.
-
-      The courier fee pays for your passport to be sent securely to the British Embassy in Tashkent for you to collect.
-    <% end %>
-
-    <%= render partial: 'child_or_adult_passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number, child_or_adult: child_or_adult } %>
-
-    <%= render partial: 'passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number } %>
-  <% else %>
-    <% uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela vietnam western-sahara) %>
-    <% pay_at_appointment_countries = %w(venezuela) %>
-
-    <% if uk_visa_application_centre_countries.include?(current_location) %>
-      <% case ips_number %>
-      <% when '2' %>
-        You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
-      <% when '3' %>
-        You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
-      <% end %>
-    <% elsif %w(pitcairn-island).include?(current_location) %>
-      You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
-    <% else %>
-      <% case ips_number %>
-      <% when '1' %>
-        You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
-      <% when '2' %>
-        You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
-      <% when '3' %>
-        You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
-      <% end %>
-    <% end %>
-
-    <%= render partial: 'child_or_adult_passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number, child_or_adult: child_or_adult } %>
-
-    <% if data_query.cash_only_countries?(current_location) %>
-      You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
-    <% elsif pay_at_appointment_countries.include?(current_location) %>
-      You must pay at your scheduled appointment using a debit or credit card. American Express, Diner’s Club and Discovery cards aren’t accepted.
-    <% else %>
-      <%= render partial: 'passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number } %>
-    <% end %>
-  <% end %>
+  <%= render partial: 'cost.govspeak.erb',
+             locals: {
+               data_query: data_query,
+               child_or_adult: child_or_adult,
+               ips_number: ips_number,
+               ips_docs_number: ips_docs_number,
+               current_location: current_location,
+               application_action: application_action
+             }
+  -%>
 
   <%= render partial: 'how_to_apply.govspeak.erb',
              locals: {
