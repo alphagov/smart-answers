@@ -1,44 +1,44 @@
---- 
+---
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - france
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - france
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - france
   - renewing_new
   - adult
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - france
   - renewing_new
   - child
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - france
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - france
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - france
   - renewing_old
   - adult
@@ -46,7 +46,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - france
   - renewing_old
   - adult
@@ -54,14 +54,14 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - france
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - france
   - renewing_old
   - child
@@ -69,7 +69,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - france
   - renewing_old
   - child
@@ -77,20 +77,20 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - france
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - france
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - france
   - applying
   - adult
@@ -98,7 +98,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - france
   - applying
   - adult
@@ -106,14 +106,14 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - france
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - france
   - applying
   - child
@@ -121,7 +121,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - france
   - applying
   - child
@@ -129,65 +129,65 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - france
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - france
   - replacing
   - adult
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - france
   - replacing
   - child
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - st-martin
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - st-martin
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-martin
   - renewing_new
   - adult
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-martin
   - renewing_new
   - child
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - st-martin
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-martin
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-martin
   - renewing_old
   - adult
@@ -195,7 +195,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-martin
   - renewing_old
   - adult
@@ -203,14 +203,14 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-martin
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-martin
   - renewing_old
   - child
@@ -218,7 +218,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-martin
   - renewing_old
   - child
@@ -226,20 +226,20 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - st-martin
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-martin
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-martin
   - applying
   - adult
@@ -247,7 +247,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-martin
   - applying
   - adult
@@ -255,14 +255,14 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-martin
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-martin
   - applying
   - child
@@ -270,7 +270,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-martin
   - applying
   - child
@@ -278,65 +278,65 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - st-martin
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-martin
   - replacing
   - adult
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-martin
   - replacing
   - child
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - nigeria
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - nigeria
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - nigeria
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - nigeria
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - nigeria
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - nigeria
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - nigeria
   - renewing_old
   - adult
@@ -344,7 +344,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - nigeria
   - renewing_old
   - adult
@@ -352,14 +352,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - nigeria
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - nigeria
   - renewing_old
   - child
@@ -367,7 +367,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - nigeria
   - renewing_old
   - child
@@ -375,20 +375,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - nigeria
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - nigeria
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - nigeria
   - applying
   - adult
@@ -396,7 +396,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - nigeria
   - applying
   - adult
@@ -404,14 +404,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - nigeria
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - nigeria
   - applying
   - child
@@ -419,7 +419,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - nigeria
   - applying
   - child
@@ -427,65 +427,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - nigeria
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - nigeria
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - nigeria
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - renewing_old
   - adult
@@ -493,7 +493,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - renewing_old
   - adult
@@ -501,14 +501,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - renewing_old
   - child
@@ -516,7 +516,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - renewing_old
   - child
@@ -524,20 +524,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - applying
   - adult
@@ -545,7 +545,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - applying
   - adult
@@ -553,14 +553,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - applying
   - child
@@ -568,7 +568,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - applying
   - child
@@ -576,65 +576,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - st-helena-ascension-and-tristan-da-cunha
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - american-samoa
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - american-samoa
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - american-samoa
   - renewing_new
   - adult
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - american-samoa
   - renewing_new
   - child
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - american-samoa
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - american-samoa
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - american-samoa
   - renewing_old
   - adult
@@ -642,7 +642,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - american-samoa
   - renewing_old
   - adult
@@ -650,14 +650,14 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - american-samoa
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - american-samoa
   - renewing_old
   - child
@@ -665,7 +665,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - american-samoa
   - renewing_old
   - child
@@ -673,20 +673,20 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - american-samoa
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - american-samoa
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - american-samoa
   - applying
   - adult
@@ -694,7 +694,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - american-samoa
   - applying
   - adult
@@ -702,14 +702,14 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - american-samoa
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - american-samoa
   - applying
   - child
@@ -717,7 +717,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - american-samoa
   - applying
   - child
@@ -725,75 +725,75 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - american-samoa
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - american-samoa
   - replacing
   - adult
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - american-samoa
   - replacing
   - child
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - south-georgia-and-south-sandwich-islands
   :next_node: :apply_in_neighbouring_country
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - yemen
   :next_node: :cannot_apply
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - tajikistan
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - tajikistan
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - tajikistan
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - tajikistan
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - tajikistan
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - tajikistan
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - tajikistan
   - renewing_old
   - adult
@@ -801,7 +801,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - tajikistan
   - renewing_old
   - adult
@@ -809,14 +809,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - tajikistan
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - tajikistan
   - renewing_old
   - child
@@ -824,7 +824,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - tajikistan
   - renewing_old
   - child
@@ -832,20 +832,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - tajikistan
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - tajikistan
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - tajikistan
   - applying
   - adult
@@ -853,7 +853,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - tajikistan
   - applying
   - adult
@@ -861,14 +861,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - tajikistan
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - tajikistan
   - applying
   - child
@@ -876,7 +876,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - tajikistan
   - applying
   - child
@@ -884,65 +884,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - tajikistan
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - tajikistan
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - tajikistan
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - algeria
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - algeria
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - algeria
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - algeria
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - algeria
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - algeria
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - algeria
   - renewing_old
   - adult
@@ -950,7 +950,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - algeria
   - renewing_old
   - adult
@@ -958,14 +958,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - algeria
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - algeria
   - renewing_old
   - child
@@ -973,7 +973,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - algeria
   - renewing_old
   - child
@@ -981,20 +981,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - algeria
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - algeria
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - algeria
   - applying
   - adult
@@ -1002,7 +1002,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - algeria
   - applying
   - adult
@@ -1010,14 +1010,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - algeria
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - algeria
   - applying
   - child
@@ -1025,7 +1025,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - algeria
   - applying
   - child
@@ -1033,65 +1033,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - algeria
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - algeria
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - algeria
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - pitcairn-island
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - pitcairn-island
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pitcairn-island
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pitcairn-island
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - pitcairn-island
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pitcairn-island
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pitcairn-island
   - renewing_old
   - adult
@@ -1099,7 +1099,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pitcairn-island
   - renewing_old
   - adult
@@ -1107,14 +1107,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pitcairn-island
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pitcairn-island
   - renewing_old
   - child
@@ -1122,7 +1122,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pitcairn-island
   - renewing_old
   - child
@@ -1130,20 +1130,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - pitcairn-island
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pitcairn-island
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pitcairn-island
   - applying
   - adult
@@ -1151,7 +1151,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pitcairn-island
   - applying
   - adult
@@ -1159,14 +1159,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pitcairn-island
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pitcairn-island
   - applying
   - child
@@ -1174,7 +1174,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pitcairn-island
   - applying
   - child
@@ -1182,65 +1182,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - pitcairn-island
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pitcairn-island
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pitcairn-island
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - cuba
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - cuba
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cuba
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cuba
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - cuba
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cuba
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cuba
   - renewing_old
   - adult
@@ -1248,7 +1248,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cuba
   - renewing_old
   - adult
@@ -1256,14 +1256,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cuba
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cuba
   - renewing_old
   - child
@@ -1271,7 +1271,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cuba
   - renewing_old
   - child
@@ -1279,20 +1279,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - cuba
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cuba
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cuba
   - applying
   - adult
@@ -1300,7 +1300,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cuba
   - applying
   - adult
@@ -1308,14 +1308,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cuba
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cuba
   - applying
   - child
@@ -1323,7 +1323,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cuba
   - applying
   - child
@@ -1331,65 +1331,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - cuba
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cuba
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cuba
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - venezuela
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - venezuela
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - venezuela
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - venezuela
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - venezuela
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - venezuela
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - venezuela
   - renewing_old
   - adult
@@ -1397,7 +1397,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - venezuela
   - renewing_old
   - adult
@@ -1405,14 +1405,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - venezuela
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - venezuela
   - renewing_old
   - child
@@ -1420,7 +1420,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - venezuela
   - renewing_old
   - child
@@ -1428,20 +1428,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - venezuela
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - venezuela
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - venezuela
   - applying
   - adult
@@ -1449,7 +1449,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - venezuela
   - applying
   - adult
@@ -1457,14 +1457,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - venezuela
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - venezuela
   - applying
   - child
@@ -1472,7 +1472,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - venezuela
   - applying
   - child
@@ -1480,65 +1480,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - venezuela
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - venezuela
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - venezuela
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - pakistan
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - pakistan
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pakistan
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pakistan
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - pakistan
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pakistan
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pakistan
   - renewing_old
   - adult
@@ -1546,7 +1546,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pakistan
   - renewing_old
   - adult
@@ -1554,14 +1554,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pakistan
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pakistan
   - renewing_old
   - child
@@ -1569,7 +1569,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pakistan
   - renewing_old
   - child
@@ -1577,20 +1577,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - pakistan
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pakistan
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pakistan
   - applying
   - adult
@@ -1598,7 +1598,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pakistan
   - applying
   - adult
@@ -1606,14 +1606,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pakistan
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pakistan
   - applying
   - child
@@ -1621,7 +1621,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - pakistan
   - applying
   - child
@@ -1629,65 +1629,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - pakistan
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pakistan
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - pakistan
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - western-sahara
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - western-sahara
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - western-sahara
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - western-sahara
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - western-sahara
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - western-sahara
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - western-sahara
   - renewing_old
   - adult
@@ -1695,7 +1695,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - western-sahara
   - renewing_old
   - adult
@@ -1703,14 +1703,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - western-sahara
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - western-sahara
   - renewing_old
   - child
@@ -1718,7 +1718,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - western-sahara
   - renewing_old
   - child
@@ -1726,20 +1726,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - western-sahara
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - western-sahara
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - western-sahara
   - applying
   - adult
@@ -1747,7 +1747,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - western-sahara
   - applying
   - adult
@@ -1755,14 +1755,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - western-sahara
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - western-sahara
   - applying
   - child
@@ -1770,7 +1770,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - western-sahara
   - applying
   - child
@@ -1778,65 +1778,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - western-sahara
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - western-sahara
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - western-sahara
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - laos
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - laos
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - laos
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - laos
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - laos
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - laos
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - laos
   - renewing_old
   - adult
@@ -1844,7 +1844,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - laos
   - renewing_old
   - adult
@@ -1852,14 +1852,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - laos
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - laos
   - renewing_old
   - child
@@ -1867,7 +1867,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - laos
   - renewing_old
   - child
@@ -1875,20 +1875,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - laos
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - laos
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - laos
   - applying
   - adult
@@ -1896,7 +1896,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - laos
   - applying
   - adult
@@ -1904,14 +1904,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - laos
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - laos
   - applying
   - child
@@ -1919,7 +1919,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - laos
   - applying
   - child
@@ -1927,65 +1927,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - laos
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - laos
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - laos
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - burundi
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - burundi
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - burundi
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - burundi
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - burundi
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - burundi
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - burundi
   - renewing_old
   - adult
@@ -1993,7 +1993,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - burundi
   - renewing_old
   - adult
@@ -2001,14 +2001,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - burundi
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - burundi
   - renewing_old
   - child
@@ -2016,7 +2016,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - burundi
   - renewing_old
   - child
@@ -2024,20 +2024,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - burundi
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - burundi
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - burundi
   - applying
   - adult
@@ -2045,7 +2045,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - burundi
   - applying
   - adult
@@ -2053,14 +2053,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - burundi
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - burundi
   - applying
   - child
@@ -2068,7 +2068,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - burundi
   - applying
   - child
@@ -2076,65 +2076,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - burundi
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - burundi
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - burundi
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - timor-leste
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - timor-leste
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - timor-leste
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - timor-leste
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - timor-leste
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - timor-leste
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - timor-leste
   - renewing_old
   - adult
@@ -2142,7 +2142,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - timor-leste
   - renewing_old
   - adult
@@ -2150,14 +2150,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - timor-leste
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - timor-leste
   - renewing_old
   - child
@@ -2165,7 +2165,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - timor-leste
   - renewing_old
   - child
@@ -2173,20 +2173,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - timor-leste
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - timor-leste
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - timor-leste
   - applying
   - adult
@@ -2194,7 +2194,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - timor-leste
   - applying
   - adult
@@ -2202,14 +2202,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - timor-leste
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - timor-leste
   - applying
   - child
@@ -2217,7 +2217,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - timor-leste
   - applying
   - child
@@ -2225,65 +2225,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - timor-leste
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - timor-leste
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - timor-leste
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - falkland-islands
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - falkland-islands
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - falkland-islands
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - falkland-islands
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - falkland-islands
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - falkland-islands
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - falkland-islands
   - renewing_old
   - adult
@@ -2291,7 +2291,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - falkland-islands
   - renewing_old
   - adult
@@ -2299,14 +2299,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - falkland-islands
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - falkland-islands
   - renewing_old
   - child
@@ -2314,7 +2314,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - falkland-islands
   - renewing_old
   - child
@@ -2322,20 +2322,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - falkland-islands
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - falkland-islands
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - falkland-islands
   - applying
   - adult
@@ -2343,7 +2343,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - falkland-islands
   - applying
   - adult
@@ -2351,14 +2351,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - falkland-islands
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - falkland-islands
   - applying
   - child
@@ -2366,7 +2366,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - falkland-islands
   - applying
   - child
@@ -2374,65 +2374,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - falkland-islands
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - falkland-islands
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - falkland-islands
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - cambodia
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - cambodia
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cambodia
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cambodia
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - cambodia
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cambodia
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cambodia
   - renewing_old
   - adult
@@ -2440,7 +2440,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cambodia
   - renewing_old
   - adult
@@ -2448,14 +2448,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cambodia
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cambodia
   - renewing_old
   - child
@@ -2463,7 +2463,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cambodia
   - renewing_old
   - child
@@ -2471,20 +2471,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - cambodia
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cambodia
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cambodia
   - applying
   - adult
@@ -2492,7 +2492,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cambodia
   - applying
   - adult
@@ -2500,14 +2500,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cambodia
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cambodia
   - applying
   - child
@@ -2515,7 +2515,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - cambodia
   - applying
   - child
@@ -2523,65 +2523,65 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - cambodia
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cambodia
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - cambodia
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - benin
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - benin
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - benin
   - renewing_new
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - benin
   - renewing_new
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - benin
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - benin
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - benin
   - renewing_old
   - adult
@@ -2589,7 +2589,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - benin
   - renewing_old
   - adult
@@ -2597,14 +2597,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - benin
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - benin
   - renewing_old
   - child
@@ -2612,7 +2612,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - benin
   - renewing_old
   - child
@@ -2620,20 +2620,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - benin
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - benin
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - benin
   - applying
   - adult
@@ -2641,7 +2641,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - benin
   - applying
   - adult
@@ -2649,14 +2649,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - benin
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - benin
   - applying
   - child
@@ -2664,7 +2664,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - benin
   - applying
   - child
@@ -2672,50 +2672,50 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - benin
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - benin
   - replacing
   - adult
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - benin
   - replacing
   - child
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - north-korea
   :next_node: :apply_in_neighbouring_country
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   :next_node: :which_opt?
   :outcome_node: false
 - :current_node: :which_opt?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - renewing_new
@@ -2723,7 +2723,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - renewing_new
@@ -2731,14 +2731,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - renewing_old
@@ -2746,7 +2746,7 @@
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - renewing_old
@@ -2755,7 +2755,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - renewing_old
@@ -2764,7 +2764,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - renewing_old
@@ -2772,7 +2772,7 @@
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - renewing_old
@@ -2781,7 +2781,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - renewing_old
@@ -2790,14 +2790,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - applying
@@ -2805,7 +2805,7 @@
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - applying
@@ -2814,7 +2814,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - applying
@@ -2823,7 +2823,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - applying
@@ -2831,7 +2831,7 @@
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - applying
@@ -2840,7 +2840,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - applying
@@ -2849,14 +2849,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - replacing
@@ -2864,7 +2864,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - gaza
   - replacing
@@ -2872,20 +2872,20 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_opt?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - renewing_new
@@ -2893,7 +2893,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - renewing_new
@@ -2901,14 +2901,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - renewing_old
@@ -2916,7 +2916,7 @@
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - renewing_old
@@ -2925,7 +2925,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - renewing_old
@@ -2934,7 +2934,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - renewing_old
@@ -2942,7 +2942,7 @@
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - renewing_old
@@ -2951,7 +2951,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - renewing_old
@@ -2960,14 +2960,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - applying
@@ -2975,7 +2975,7 @@
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - applying
@@ -2984,7 +2984,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - applying
@@ -2993,7 +2993,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - applying
@@ -3001,7 +3001,7 @@
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - applying
@@ -3010,7 +3010,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - applying
@@ -3019,14 +3019,14 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - replacing
@@ -3034,7 +3034,7 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - the-occupied-palestinian-territories
   - jerusalem-or-westbank
   - replacing
@@ -3042,45 +3042,45 @@
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in?
-  :responses: 
+  :responses:
   - hong-kong
   :next_node: :renewing_replacing_applying?
   :outcome_node: false
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - hong-kong
   - renewing_new
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - hong-kong
   - renewing_new
   - adult
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - hong-kong
   - renewing_new
   - child
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - hong-kong
   - renewing_old
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - hong-kong
   - renewing_old
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - hong-kong
   - renewing_old
   - adult
@@ -3088,7 +3088,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - hong-kong
   - renewing_old
   - adult
@@ -3096,14 +3096,14 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - hong-kong
   - renewing_old
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - hong-kong
   - renewing_old
   - child
@@ -3111,7 +3111,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - hong-kong
   - renewing_old
   - child
@@ -3119,20 +3119,20 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - hong-kong
   - applying
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - hong-kong
   - applying
   - adult
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - hong-kong
   - applying
   - adult
@@ -3140,7 +3140,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - hong-kong
   - applying
   - adult
@@ -3148,14 +3148,14 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - hong-kong
   - applying
   - child
   :next_node: :country_of_birth?
   :outcome_node: false
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - hong-kong
   - applying
   - child
@@ -3163,7 +3163,7 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :country_of_birth?
-  :responses: 
+  :responses:
   - hong-kong
   - applying
   - child
@@ -3171,22 +3171,171 @@
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
-  :responses: 
+  :responses:
   - hong-kong
   - replacing
   :next_node: :child_or_adult_passport?
   :outcome_node: false
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - hong-kong
   - replacing
   - adult
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :child_or_adult_passport?
-  :responses: 
+  :responses:
   - hong-kong
   - replacing
   - child
   :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :which_country_are_you_in?
+  :responses:
+  - afghanistan
+  :next_node: :renewing_replacing_applying?
+  :outcome_node: false
+- :current_node: :renewing_replacing_applying?
+  :responses:
+  - afghanistan
+  - renewing_new
+  :next_node: :child_or_adult_passport?
+  :outcome_node: false
+- :current_node: :child_or_adult_passport?
+  :responses:
+  - afghanistan
+  - renewing_new
+  - adult
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :child_or_adult_passport?
+  :responses:
+  - afghanistan
+  - renewing_new
+  - child
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :renewing_replacing_applying?
+  :responses:
+  - afghanistan
+  - renewing_old
+  :next_node: :child_or_adult_passport?
+  :outcome_node: false
+- :current_node: :child_or_adult_passport?
+  :responses:
+  - afghanistan
+  - renewing_old
+  - adult
+  :next_node: :country_of_birth?
+  :outcome_node: false
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - renewing_old
+  - adult
+  - afghanistan
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - renewing_old
+  - adult
+  - south-africa
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :child_or_adult_passport?
+  :responses:
+  - afghanistan
+  - renewing_old
+  - child
+  :next_node: :country_of_birth?
+  :outcome_node: false
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - renewing_old
+  - child
+  - afghanistan
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - renewing_old
+  - child
+  - south-africa
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :renewing_replacing_applying?
+  :responses:
+  - afghanistan
+  - applying
+  :next_node: :child_or_adult_passport?
+  :outcome_node: false
+- :current_node: :child_or_adult_passport?
+  :responses:
+  - afghanistan
+  - applying
+  - adult
+  :next_node: :country_of_birth?
+  :outcome_node: false
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - applying
+  - adult
+  - afghanistan
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - applying
+  - adult
+  - south-africa
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :child_or_adult_passport?
+  :responses:
+  - afghanistan
+  - applying
+  - child
+  :next_node: :country_of_birth?
+  :outcome_node: false
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - applying
+  - child
+  - afghanistan
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - applying
+  - child
+  - south-africa
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :renewing_replacing_applying?
+  :responses:
+  - afghanistan
+  - replacing
+  :next_node: :child_or_adult_passport?
+  :outcome_node: false
+- :current_node: :child_or_adult_passport?
+  :responses:
+  - afghanistan
+  - replacing
+  - adult
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :child_or_adult_passport?
+  :responses:
+  - afghanistan
+  - replacing
+  - child
+  :next_node: :ips_application_result
   :outcome_node: true
