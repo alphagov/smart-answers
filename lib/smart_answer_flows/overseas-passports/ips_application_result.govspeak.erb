@@ -10,7 +10,7 @@
 
   Applications will take longer if:
 
-  - Her Majesty's Passport Office needs to ask you for more information or documents
+  - Her Majesty’s Passport Office needs to ask you for more information or documents
   - the photographs you send are rejected
 
   Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
@@ -150,197 +150,18 @@
 
   %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
 
-  <% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burundi burma china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia tajikistan thailand turkmenistan ukraine uzbekistan western-sahara vietnam venezuela) %>
-  <% uk_visa_application_with_colour_pictures = %w(azerbaijan algeria bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia vietnam venezuela western-sahara) %>
-  <% non_uk_visa_application_with_colour_pictures = %w(burma cuba sudan tajikistan turkmenistan uzbekistan) %>
-
-  <% if application_address %>
-    <% case application_address %>
-    <% when 'durham' %>
-      ## Send your application
-
-      Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
-
-
-      $A
-      Her Majesty's Passport Office
-      OVS-D
-      Millburngate House
-      Millburngate
-      Durham
-      DH97 1PA
-      $A
-    <% when 'belfast' %>
-      ## Send your application
-
-      Her Majesty's Passport Office recommends you send your application using a secure delivery service or courier.
-
-
-      $A
-      Her Majesty's Passport Office
-      OVS-B
-      Ground Floor
-      Law Society House
-      90-106 Victoria Street
-      Belfast
-      BT1 3GN
-      United Kingdom
-      $A
-    <% end %>
-  <% elsif uk_visa_application_centre_countries.include?(current_location) %>
-    <% if %w(renewing_new).include?(application_action) %>
-      <% if passport_data['application_office'] %>
-        <% if %w(laos vietnam).include?(current_location) %>
-          ## Making your application
-
-          You must apply in person. If you’re unable to, someone else can go on your behalf. You must bring photo ID with you.
-
-          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
-
-          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
-
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
-          You’ll need to book an appointment by email. Include your first name and last name. You will receive an email confirming your appointment.
-        <% elsif uk_visa_application_with_colour_pictures.include?(current_location) %>
-          ## Making your application
-
-          You must apply in person. If you’re unable to, someone else can go on your behalf. You must bring photo ID with you.
-
-          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
-
-          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
-
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
-          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
-        <% else %>
-          ## Making your application
-
-          You must apply in person. You must bring photo ID with you.
-
-          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
-          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
-
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
-          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
-        <% end %>
-        <%= render partial: 'send_application_address.govspeak.erb', locals: { current_location: current_location } %>
-      <% else %>
-        <% if %w(afghanistan burundi gaza).include?(current_location) %>
-          <%= render partial: 'send_application_non_uk_visa_renew_new_colour.govspeak.erb' %>
-        <% else %>
-          ## Making your application
-
-          You must apply in person. You must bring photo ID with you.
-
-          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
-          You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
-
-          You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-        <% end %>
-        <%= render partial: '../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
-      <% end %>
-    <% else %>
-      <% if passport_data['application_office'] %>
-        <% if %w(laos vietnam).include?(current_location) %>
-          ## Making your application
-          You must apply in person. If you’re unable to, someone else can go on your behalf.
-          You must bring photo ID with you.
-
-          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
-
-          You’ll need to book an appointment by email. Include your first name and last name. You will receive an email confirming your appointment.
-        <% elsif uk_visa_application_with_colour_pictures.include?(current_location) %>
-          ## Making your application
-          You must apply in person. If you’re unable to, someone else can go on your behalf.
-          You must bring photo ID with you.
-
-          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
-
-          You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
-        <% else %>
-          ## Making your application
-          You must apply in person. You must bring photo ID with you.
-
-          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-
-          You’ll need to book an appointment by email. Include your name and surname and 3 alternative dates and times. You will receive an email confirming your appointment.
-        <% end %>
-        <%= render partial: 'send_application_address.govspeak.erb', locals: { current_location: current_location } %>
-      <% else %>
-        <% if %w(afghanistan burundi gaza).include?(current_location) %>
-          ## Making your application
-
-          You must apply in person. If you’re unable to, someone else can go on your behalf.
-          You must bring photo ID with you.
-
-          Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
-
-          You'll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You'll get an email confirming your appointment.
-        <% else %>
-          ## Making your application
-
-          You must apply in person.
-          You must bring photo ID with you.
-
-          Bring original supporting documents and a photocopy of each one. The original documents will be returned to you.
-        <% end %>
-        <%= render partial: '../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
-      <% end %>
-    <% end %>
-  <% elsif %w(timor-leste).include?(current_location) %>
-    ## Making your application
-    You must submit your passport application through the New Zealand Embassy in Dili.
-
-    You must apply in person. If you’re unable to, someone else can go on your behalf. You must bring photo ID with you.
-
-    Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
-
-    You must also bring your current passport with you when you apply, and a full colour photocopy of the entire passport (every page including blank pages).
-
-    You can’t travel with it after you’ve applied for a new one - but you will be able to keep your existing passport for ID purposes.
-
-    You need to book an appointment - contact the embassy to arrange one.
-
-    <%= render partial: 'send_application_address.govspeak.erb', locals: { current_location: current_location } %>
-  <% elsif general_action == 'renewing' and data_query.renewing_countries?(current_location) %>
-    <% if passport_data['application_office'] %>
-      <%= render partial: 'send_application_address.govspeak.erb', locals: { current_location: current_location } %>
-    <% else %>
-      <% if non_uk_visa_application_with_colour_pictures.include?(current_location) %>
-        <%= render partial: 'send_application_non_uk_visa_renew_new_colour.govspeak.erb' %>
-      <% else %>
-        <%= render partial: 'send_application_ips.govspeak.erb', locals: { ips_number: ips_number } %>
-        <%= render partial: 'renewing_new_renewing_old.govspeak.erb' %>
-      <% end %>
-      <%= render partial: '../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
-    <% end %>
-  <% else %>
-    <% if passport_data['application_office'] %>
-      <%= render partial: 'send_application_address.govspeak.erb', locals: { current_location: current_location } %>
-    <% else %>
-      <% if non_uk_visa_application_with_colour_pictures.include?(current_location) %>
-        <%= render partial: 'send_application_non_uk_visa_apply_renew_old_replace_colour.govspeak.erb' %>
-      <% else %>
-        <%= render partial: 'send_application_ips.govspeak.erb', locals: { ips_number: ips_number } %>
-      <% end %>
-      <% if %w(st-helena-ascension-and-tristan-da-cunha).include?(current_location) %>
-        <% if %w(renewing_new).include?(application_action) %>
-          <%= render partial: 'renewing_new_renewing_old.govspeak.erb' %>
-        <% end %>
-        <%= render partial: 'send_application_address_st_helena_ascension_and_tristan_da_cunha.govspeak.erb' %>
-      <% else %>
-        <% if ips_number.to_i > 1 %>
-          <%= render partial: '../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
-        <% end %>
-      <% end %>
-    <% end %>
-  <% end %>
-
+  <%= render partial: 'making_your_application.govspeak.erb',
+             locals: {
+               application_address: application_address,
+               application_action: application_action,
+               current_location: current_location,
+               passport_data: passport_data,
+               general_action: general_action,
+               ips_number: ips_number,
+               data_query: data_query,
+               overseas_passports_embassies: overseas_passports_embassies
+             }
+  %>
   ## Getting your passport
 
   <% collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe) %>

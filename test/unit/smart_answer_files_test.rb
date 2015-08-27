@@ -115,6 +115,9 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
         Tempfile.new(["flow_name-#{count}", '.erb'], erb_template_directory)
       end
 
+      partial_dir = FileUtils.mkdir_p(erb_template_directory.join('partials'))
+      files << Tempfile.new(["partial", '.erb'], partial_dir.first)
+
       yield files
     ensure
       FileUtils.remove_dir(erb_template_directory, force = true)

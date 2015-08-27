@@ -1,0 +1,23 @@
+
+<% case ips_number %>
+<% when '1' %>
+  ## Send your application
+
+  Her Majesty’s Passport Office recommends you send your application using a secure delivery service or courier.
+
+
+  $A
+  Her Majesty’s Passport Office
+  OVS-L
+  101 Old Hall Street
+  Liverpool
+  L3 9BP
+  United Kingdom
+  $A
+<% when '2', '3' %>
+  ## Making your application
+
+  <%= render partial: "making_your_application/apply_in_person.govspeak.erb" %>
+  <%= render partial: "making_your_application/bring_originals_and_copy.govspeak.erb" %>
+
+<% end %>
