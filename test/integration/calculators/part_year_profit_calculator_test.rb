@@ -89,5 +89,44 @@ module SmartAnswer
         assert_equal expected_taxable_profit, @calculator.part_year_taxable_profit
       end
     end
+
+    context 'tax credits finish in 2015/16 tax year, business ceases trading before the award date, business accounts align to tax year' do
+      setup do
+        @calculator = Calculators::PartYearProfitCalculator.new
+
+        @calculator.tax_credits_award_ends_on  = Date.parse('2015-08-01')
+        @calculator.stopped_trading_on         = Date.parse('2015-07-01')
+        @calculator.accounts_end_month_and_day = Date.parse('0000-04-05')
+        @calculator.taxable_profit             = Money.new(10_000)
+      end
+
+      should "use the 2015/16 tax year" do
+        expected_tax_year = TaxYear.new(begins_in: 2015)
+        assert_equal expected_tax_year, @calculator.tax_year
+      end
+
+      should "use the basis period from start of tax year to stopped trading date" do
+        expected_basis_period = DateRange.new(
+          begins_on: Date.parse('2015-04-06'),
+          ends_on:   Date.parse('2015-07-01')
+        )
+        assert_equal expected_basis_period, @calculator.basis_period
+        assert_equal 87, @calculator.basis_period.number_of_days
+      end
+
+      should "have an award period from the start of the tax year to the stopped trading date" do
+        expected_award_period = DateRange.new(
+          begins_on: Date.parse('2015-04-06'),
+          ends_on:   Date.parse('2015-07-01')
+        )
+        assert_equal expected_award_period, @calculator.tax_credits_part_year
+        assert_equal 87, @calculator.tax_credits_part_year.number_of_days
+      end
+
+      should "return the taxable profit figure entered" do
+        expected_taxable_profit = 10_000
+        assert_equal expected_taxable_profit, @calculator.part_year_taxable_profit
+      end
+    end
   end
 end

@@ -17,11 +17,22 @@ en-GB:
       when_did_your_tax_credits_award_end?:
         title: When did your tax credits award end?
         hint: You can find this on your award review.
+      have_you_stopped_trading?:
+        title: Have you stopped trading?
+        hint: This means you’re no longer running your business
+      did_you_start_trading_before_the_relevant_accounting_period?:
+        title: Did you start trading before %{accounting_period_begins_on}
+      when_did_you_stop_trading?:
+        title: When did you stop trading?
+        hint:
+          This date must be between %{tax_year_begins_on} and %{tax_year_ends_on},
+          which is the start and end dates of the tax year that your tax credit award ends in.
+        not_in_tax_year_error: The date must be within the dates displayed above
       what_date_do_your_accounts_go_up_to?:
         title: What date do your accounts go up to?
         hint: This is the last date of the accounting period for your business. For most people, this will be 5 April.
       do_your_accounts_cover_a_12_month_period?:
         title: Do your accounts cover a 12 month period?
       what_is_your_taxable_profit?:
-        title: What is your actual or estimated taxable profit between %{accounts_begin_on} and %{accounts_end_on}?
+        title: What is your actual or estimated taxable profit between %{basis_period_begins_on} and %{basis_period_ends_on}?
         hint: The amount left when you take all your earnings from self-employment and deduct any allowable expenses and losses

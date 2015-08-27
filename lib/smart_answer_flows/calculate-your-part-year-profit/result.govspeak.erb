@@ -13,7 +13,11 @@
 
   Your tax credits award ended on: <%= format_date(calculator.tax_credits_award_ends_on) %>
 
-  Your business accounts end on: <%= format_date(calculator.accounting_period.ends_on) %>
+  <% if calculator.stopped_trading_on %>
+    Your business stopped trading on: <%= format_date(calculator.basis_period.ends_on) %>
+  <% else %>
+    Your business accounts end on: <%= format_date(calculator.basis_period.ends_on) %>
+  <% end %>
 
-  Your estimated taxable profit between <%= format_date(calculator.accounting_period.begins_on) %> and <%= format_date(calculator.accounting_period.ends_on) %> was: <%= format_money(calculator.taxable_profit) %>
+  Your estimated taxable profit between <%= format_date(calculator.basis_period.begins_on) %> and <%= format_date(calculator.basis_period.ends_on) %> was: <%= format_money(calculator.taxable_profit) %>
 <% end %>

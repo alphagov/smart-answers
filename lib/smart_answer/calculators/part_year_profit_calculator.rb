@@ -4,9 +4,27 @@ module SmartAnswer
       include ActiveModel::Model
 
       attr_accessor :tax_credits_award_ends_on, :accounts_end_month_and_day, :taxable_profit
+      attr_accessor :stopped_trading_on
+
+      def valid_stopped_trading_date?(date)
+        tax_year.include?(date)
+      end
+
+      def accounting_period_aligns_with_the_tax_year?
+        accounting_period.begins_on == tax_year.begins_on &&
+          accounting_period.ends_on == tax_year.ends_on
+      end
 
       def tax_year
         TaxYear.on(tax_credits_award_ends_on)
+      end
+
+      def basis_period
+        if stopped_trading_on
+          DateRange.new(begins_on: accounting_period.begins_on, ends_on: stopped_trading_on)
+        else
+          accounting_period
+        end
       end
 
       def accounting_period
@@ -14,14 +32,22 @@ module SmartAnswer
       end
 
       def tax_credits_part_year
-        DateRange.new(begins_on: tax_year.begins_on, ends_on: tax_credits_award_ends_on)
+        DateRange.new(begins_on: tax_year.begins_on, ends_on: [tax_credits_award_ends_on, stopped_trading_on].compact.min)
       end
 
       def profit_per_day
-        (taxable_profit / accounting_period.number_of_days).floor(2)
+        (taxable_profit / basis_period.number_of_days).floor(2)
       end
 
       def part_year_taxable_profit
+        if basis_period == tax_credits_part_year
+          taxable_profit
+        else
+          pro_rata_taxable_profit
+        end
+      end
+
+      def pro_rata_taxable_profit
         (profit_per_day * tax_credits_part_year.number_of_days).floor
       end
 
