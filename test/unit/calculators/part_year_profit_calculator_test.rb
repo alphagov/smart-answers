@@ -27,7 +27,7 @@ module SmartAnswer
           end
 
           should 'be date within 2015-16 tax year with specified month and day' do
-            assert_equal Date.parse('2015-06-30'), @calculator.accounts_end_on
+            assert_equal Date.parse('2015-06-30'), @calculator.accounting_period.ends_on
           end
         end
 
@@ -37,7 +37,7 @@ module SmartAnswer
           end
 
           should 'be date within 2016-17 tax year with specified month and day' do
-            assert_equal Date.parse('2016-06-30'), @calculator.accounts_end_on
+            assert_equal Date.parse('2016-06-30'), @calculator.accounting_period.ends_on
           end
         end
       end

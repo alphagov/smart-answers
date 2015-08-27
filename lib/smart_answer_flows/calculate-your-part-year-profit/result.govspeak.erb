@@ -3,7 +3,7 @@
 
   Your tax credits award ended on: <%= format_date(calculator.tax_credits_award_ends_on) %>
 
-  Your business accounts cover 12 months to: <%= format_date(calculator.accounts_end_on) %>
+  Your business accounts cover 12 months to: <%= format_date(calculator.accounting_period.ends_on) %>
 
   Your actual or estimated taxable profit for this 12 month period is: <%= format_money(calculator.taxable_profit) %>
 

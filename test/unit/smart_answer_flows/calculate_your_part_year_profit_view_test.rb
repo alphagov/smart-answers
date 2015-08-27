@@ -28,7 +28,7 @@ module SmartAnswer
         outcome = @flow.node(:result)
         calculator_options = {
           tax_credits_award_ends_on: Date.parse('2016-02-20'),
-          accounts_end_on: Date.parse('2016-04-05'),
+          accounting_period: YearRange.new(begins_on: Date.parse('2015-04-06')),
           taxable_profit: Money.new(15000),
           part_year_taxable_profit: Money.new(13154)
         }

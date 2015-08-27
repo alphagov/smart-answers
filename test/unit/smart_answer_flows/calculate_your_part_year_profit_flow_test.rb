@@ -74,7 +74,8 @@ module SmartAnswer
 
     context 'when answering what_is_your_taxable_profit? question' do
       setup do
-        @calculator.stubs(accounts_end_on: Date.parse('2016-04-05'))
+        accounting_period = YearRange.new(begins_on: Date.parse('2015-04-06'))
+        @calculator.stubs(accounting_period: accounting_period)
         setup_states_for_question(:what_is_your_taxable_profit?, responding_with: '15000', calculator: @calculator)
       end
 
