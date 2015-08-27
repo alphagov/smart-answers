@@ -2,11 +2,14 @@ require "slimmer/headers"
 
 class ApplicationController < ActionController::Base
   include Slimmer::Headers
+  include Slimmer::Template
   include Slimmer::SharedTemplates
   before_action :set_analytics_headers
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from ActionController::UnknownFormat, with: :error_404
+
+  slimmer_template 'wrapper'
 
 protected
 
