@@ -16,7 +16,7 @@ Don’t book travel until you have a valid passport. If you need to travel more 
 ## Cost
 
 
-You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
+You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
 
 | Passport type | Passport fee | Total to pay (including courier fee) |
 |---------------|--------------|--------------------------------------|
@@ -53,34 +53,28 @@ You must bring photo ID with you.
 
 Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
 
-
 You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
 
 
-
 $A
-British Embassy Kabul
-15th Street, Roundabout Wazir Akbar Khan
-PO Box 334
-Kabul
-Afghanistan
+UK Visa Application Centre
+14-B, Sadiq Plaza G-9 Markaz
+Islamabad
+Pakistan
 $A
-
 $C
-General telephone: +93 (0) 700 102 000
-Management fax: +93 (0) 700 102 250
-Political section fax: +93 (0) 700 102 274
-
-
+Email: <islamabad.hmpo@gerrys.com.pk>
 $C
 
 
 ## Getting your passport
 
 
-Your passport will be delivered to the British Embassy, high commission or consulate where you applied - you must collect it in person.
+Your passport will be delivered to the UK Visa Application Centre where you applied - you must collect it in person.
 
-They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
+They will contact you - using the details on your application form - when your passport is ready to collect.
+
+You must bring photo ID with you.
 
 
 ##Contact the Passport Adviceline
