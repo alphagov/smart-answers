@@ -40,7 +40,8 @@ module SmartAnswer
       end
 
       money_question :what_is_your_taxable_profit? do
-        precalculate(:accounts_end_on) { calculator.accounting_period.ends_on }
+        precalculate(:accounts_begin_on) { calculator.accounting_period.begins_on }
+        precalculate(:accounts_end_on)   { calculator.accounting_period.ends_on }
 
         next_node do |response|
           calculator.taxable_profit = response

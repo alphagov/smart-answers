@@ -1,25 +1,27 @@
 en-GB:
   flow:
     calculate-your-part-year-profit:
-      title: "Tax credits: work out self-employment income for award period"
+      title: Calculate your part-year profits for Universal Credit
+      body: |
+        You need to report your part-year profits to end your tax credits claim if you’ve applied for Universal Credit and you’re self-employed.
+
+        You’ll need to know the following to use this calculator:
+
+        - your tax credits award end date (you can find this on your award review)
+        - your accounting dates for your business
+        - your profit for your accounting year in which your tax credit award ends
+
+        You can use this calculator to complete box 2.4 of your award review.
       meta:
-        description: "Tax credits: work out self-employment income for award period"
+        description: Calculate your part-year profits to end your tax credits award and claim Universal Credit if you’re self-employed
       when_did_your_tax_credits_award_end?:
         title: When did your tax credits award end?
-        hint: |
-          You can find this information on page 1 of your award review form.
-
-          Contact the Tax Credit Helpline if this date is more than 30 days ago and any of the details on your award review form are wrong.
+        hint: You can find this on your award review.
       what_date_do_your_accounts_go_up_to?:
         title: What date do your accounts go up to?
-        hint: It's normal to make your accounts (or books) up to the same date each year. For example, you might make your accounts up to 31 December, to cover the calendar year. Just give the day and the month your accounts go up to - for example 31/12.
+        hint: This is the last date of the accounting period for your business. For most people, this will be 5 April.
       do_your_accounts_cover_a_12_month_period?:
         title: Do your accounts cover a 12 month period?
       what_is_your_taxable_profit?:
-        title: "Enter your taxable profit for the 12 months up to: %{accounts_end_on}?"
-        hint: |
-          Estimate this figure if your accounts are not yet complete.
-
-          Your estimate should be realistic and reasonable. Base it on your profit for the year so far and previous years, your business plan and any seasonal variation or future work you expect.
-
-          Keep notes to show how you made your estimate. We may need to check this with you.
+        title: What is your actual or estimated taxable profit between %{accounts_begin_on} and %{accounts_end_on}?
+        hint: The amount left when you take all your earnings from self-employment and deduct any allowable expenses and losses

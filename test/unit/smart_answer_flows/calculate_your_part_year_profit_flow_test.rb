@@ -79,6 +79,10 @@ module SmartAnswer
         setup_states_for_question(:what_is_your_taxable_profit?, responding_with: '15000', calculator: @calculator)
       end
 
+      should 'make accounts_begin_on available for interpolation in question title' do
+        assert_equal Date.parse('2015-04-06'), @precalculated_state.accounts_begin_on
+      end
+
       should 'make accounts_end_on available for interpolation in question title' do
         assert_equal Date.parse('2016-04-05'), @precalculated_state.accounts_end_on
       end

@@ -13,13 +13,15 @@ module SmartAnswer
       setup do
         question = @flow.node(:what_is_your_taxable_profit?)
         state = SmartAnswer::State.new(question)
+        state.accounts_begin_on = Date.parse('2015-04-06')
         state.accounts_end_on = Date.parse('2016-04-05')
         presenter = QuestionPresenter.new(@i18n_prefix, question, state)
         @title = presenter.title
       end
 
-      should 'display title with interpolated accounts_end_on' do
-        assert_equal "Enter your taxable profit for the 12 months up to:  5 April 2016?", @title
+      should 'display title with interpolated accounts_begin_on and accounts_end_on' do
+        expected = "What is your actual or estimated taxable profit between  6 April 2015 and  5 April 2016?"
+        assert_equal expected, @title
       end
     end
 
@@ -41,7 +43,7 @@ module SmartAnswer
       end
 
       should 'display part_year_taxable_profit' do
-        assert_match 'Your part-year taxable profit is: £13,154', @body
+        assert_match 'Your part-year taxable profit is £13,154', @body
       end
 
       should 'display tax_credits_award_ends_on' do
@@ -49,11 +51,11 @@ module SmartAnswer
       end
 
       should 'display accounts_end_on' do
-        assert_match 'Your business accounts cover 12 months to:  5 April 2016', @body
+        assert_match 'Your business accounts end on:  5 April 2016', @body
       end
 
       should 'display taxable_profit' do
-        assert_match 'Your actual or estimated taxable profit for this 12 month period is: £15,000', @body
+        assert_match 'Your estimated taxable profit between  6 April 2015 and  5 April 2016 was: £15,000', @body
       end
     end
   end
