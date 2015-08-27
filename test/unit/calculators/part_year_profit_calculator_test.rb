@@ -46,7 +46,7 @@ module SmartAnswer
         setup do
           @accounts_end_on = Date.parse('2015-12-31')
           @calculator = PartYearProfitCalculator.new
-          @calculator.stubs(:accounts_end_on).returns(@accounts_end_on)
+          @calculator.stubs(:accounting_year_end_date).returns(@accounts_end_on)
         end
 
         should 'begin a year before the accounts end' do
