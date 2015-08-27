@@ -10,7 +10,7 @@ module SmartAnswer
       end
 
       def accounting_period
-        YearRange.new(begins_on: accounting_year_end_date - 1.year + 1)
+        YearRange.new(begins_on: accounting_year_start_date)
       end
 
       def tax_credits_part_year
@@ -34,6 +34,10 @@ module SmartAnswer
       end
 
       alias accounting_year_end_date accounting_period_end_date_in_the_tax_year_that_tax_credits_award_ends
+
+      def accounting_year_start_date
+        accounting_year_end_date - 1.year + 1
+      end
     end
   end
 end
