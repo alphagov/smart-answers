@@ -4,14 +4,7 @@
 <% end %>
 
 <% content_for :body do %>
-  Make an appointment at the British Embassy in Jakarta to swear an affidavit (written statement of facts) that you’re free to marry.
-
-  Before the appointment you’ll need to pay a fee to the British Embassy in Jakarta. You can do this by credit card or in cash in the local currency. You also need to complete 2 copies of the [‘Affidavit for marriage’ form](/government/publications/marriage-in-indonesia).
-
-  Send one copy to the British Embassy in Jakarta by email or post. Take the other one with you when you go to your local appointment, along with your passport.
-
-  ^Allow the embassy at least 2 days to process your paperwork before turning up for your appointment.^
-
+  Make an appointment at the British embassy or consulate in Indonesia to swear an affirmation or affidavit (written statement of facts) that you’re free to marry.
 
   <%= render partial: 'contact_method.govspeak.erb',
              locals: {
@@ -21,10 +14,31 @@
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } %>
 
-  <%= render partial: 'documents_for_divorced_or_widowed.govspeak.erb' %>
+  ^Contact the local civil registry office in Indonesia to find out when you need to swear your affirmation or affidavit.^
 
-  ^Your partner will need to get an affidavit as well.^
+  You need to complete 2 copies of the [affirmation (non religious) or affidavit (religious) of marriage form](/government/publications/marriage-in-indonesia).
+  Email one copy to the British embassy in Jakarta at least 2 days before your appointment. Take the other copy to your appointment.
 
+  $C
+  <consulate.jakarta@fco.gov.uk>
+  $C
+
+  You must pay a fee to the British embassy in Jakarta - email them to find out how to pay.
+
+  ^Your partner must get an affirmation or affidavit as well.^
+
+  ##What you need to take
+
+  You must take all of the following to your appointment:
+
+  - a copy of your affirmation or affidavit
+  <% if partner_nationality == 'partner_local' %>
+  - your passport and your partner’s passport or KTP (Indonesian identity card)
+  <% else %>
+  - your passport and your partner’s passport
+  <% end %>
+  - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) (if you’ve been divorced or widowed)
+  - evidence if you’ve changed your name by deed poll
 
   <%= render partial: 'fee_table_45_70_55.govspeak.erb' %>
 <% end %>
