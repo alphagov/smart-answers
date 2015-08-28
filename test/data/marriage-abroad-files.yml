@@ -1,8 +1,8 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: c509df582129a4bbba4f2f850d69c06c
+lib/smart_answer_flows/marriage-abroad.rb: 3d3c3dce01cb44ec4fb2f46808266bfe
 lib/smart_answer_flows/locales/en/marriage-abroad.yml: 164d2e20ece110c5f60744b483766e36
 test/data/marriage-abroad-questions-and-responses.yml: eabbd09ca91fab72a9a520d1087fb35e
-test/data/marriage-abroad-responses-and-expected-results.yml: 4744dcb2be7083fc17334bc2d8c9ae2a
+test/data/marriage-abroad-responses-and-expected-results.yml: 364c07a077f707fff8c408a888b67a7f
 lib/smart_answer_flows/marriage-abroad/_affirmation_os_translation_in_local_language_text.govspeak.erb: 2e6645f9114db57b0f081070d0473771
 lib/smart_answer_flows/marriage-abroad/_appointment_for_affidavit.govspeak.erb: c9714322b3c62e0a0ded981da6025b9d
 lib/smart_answer_flows/marriage-abroad/_appointment_for_affidavit_norway.govspeak.erb: de478bc6121e2e4c7f748a4e1831befb
@@ -84,10 +84,11 @@ lib/smart_answer_flows/marriage-abroad/outcome_os_affirmation.govspeak.erb: 6b33
 lib/smart_answer_flows/marriage-abroad/outcome_os_bot.govspeak.erb: 6265728604b85e2fd51b59b3823fe1aa
 lib/smart_answer_flows/marriage-abroad/outcome_os_colombia.govspeak.erb: 0278771b1619672cf187445c6cef00f4
 lib/smart_answer_flows/marriage-abroad/outcome_os_commonwealth.govspeak.erb: 34601719747aa693e793816036730450
-lib/smart_answer_flows/marriage-abroad/outcome_os_consular_cni.govspeak.erb: f04ea67d39d0b256d07f0e749a34bb90
+lib/smart_answer_flows/marriage-abroad/outcome_os_consular_cni.govspeak.erb: acfcd866e7e930c3c13795528712b86b
 lib/smart_answer_flows/marriage-abroad/outcome_os_france_or_fot.govspeak.erb: 7a5cb5ac119b7891858e415872d3e20e
 lib/smart_answer_flows/marriage-abroad/outcome_os_hong_kong.govspeak.erb: 9fad3bd3a55309f5a345b378b1bb8dd4
 lib/smart_answer_flows/marriage-abroad/outcome_os_indonesia.govspeak.erb: 36b4facf927967b5a52aae809e154f4b
+lib/smart_answer_flows/marriage-abroad/outcome_os_italy.govspeak.erb: 47789cf3e35e975a09a4db085376b211
 lib/smart_answer_flows/marriage-abroad/outcome_os_kosovo.govspeak.erb: 0f95fb2f76855f9394fe5ff6f539874c
 lib/smart_answer_flows/marriage-abroad/outcome_os_laos.govspeak.erb: 3df2462e6af37249dac29544a85c1a2f
 lib/smart_answer_flows/marriage-abroad/outcome_os_local_japan.govspeak.erb: d4d0357da97be8aff5d2e9826000e581

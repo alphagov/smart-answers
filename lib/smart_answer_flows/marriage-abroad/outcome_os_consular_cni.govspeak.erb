@@ -9,7 +9,7 @@
     ^You should [get legal advice](/government/publications/japan-list-of-lawyers) and check the [travel advice for Japan](/foreign-travel-advice/japan) before making any plans.^
 
   <% end %>
-  <% if %(japan italy).exclude?(ceremony_country) %>
+  <% if %(japan).exclude?(ceremony_country) %>
     <% if resident_of == 'uk' %>
       <% if data_query.dutch_caribbean_islands?(ceremony_country) %>
         <%= country_name_uppercase_prefix %> is one of the Dutch Caribbean islands.
@@ -47,7 +47,7 @@
 
     <% end %>
   <% end %>
-  <% if %(japan italy).exclude?(ceremony_country) %>
+  <% if %(japan).exclude?(ceremony_country) %>
 
     <% if resident_of == 'ceremony_country' %>
       <%= render partial: 'get_legal_advice.govspeak.erb' %>
@@ -58,10 +58,6 @@
                    ceremony_country: ceremony_country
                  } %>
     <% end %>
-  <% end %>
-  <% if ceremony_country == 'italy' %>
-    Contact the local comune (town hall) before making any plans to find out about local marriage laws, including what documents you’ll need.
-
   <% end %>
 
   <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
@@ -91,30 +87,9 @@
 
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
-  <% elsif ceremony_country != 'italy' && ceremony_not_germany_or_not_resident_other %>
+  <% elsif ceremony_not_germany_or_not_resident_other %>
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
-  <% end %>
-  <% if ceremony_country == 'italy' %>
-    <% if resident_of == 'uk' %>
-      You’ll need to get a certificate of no impediment (CNI) from the authorities in the UK to prove you’re allowed to marry.
-
-    <% end %>
-    <% if resident_of == 'uk' && partner_nationality == 'partner_british' %>
-      ^Your partner will need to follow the same process to get their own CNI.^
-
-    <% end %>
-    <% if resident_of != 'uk' %>
-      You’ll be asked to provide a ‘Nulla Osta’ by the authorities in Italy. This is a certificate that proves you’re allowed to marry.
-
-      <%= render partial: 'contact_method.govspeak.erb',
-                 locals: {
-                   sex_of_your_partner: sex_of_your_partner,
-                   ceremony_country: ceremony_country,
-                   overseas_passports_embassies: overseas_passports_embassies,
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
-                 } %>
-    <% end %>
   <% end %>
   <% if ceremony_country == 'denmark' %>
     ^You don’t need a CNI if you’re getting married in the main town hall in Copenhagen.^
@@ -139,37 +114,6 @@
                } %>
     <% if cni_posted_after_14_days_countries.include?(ceremony_country) %>
       They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
-
-    <% end %>
-    <% if ceremony_country == 'italy' %>
-      <% if partner_nationality == 'partner_british' %>
-        ###Getting a statutory declaration
-
-        While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
-
-      <% else %>
-        ###Getting a statutory declaration
-
-        While you’re waiting for your CNI, you will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
-
-
-      <% end %>
-      $D
-      [Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 90KB)](/government/uploads/system/uploads/attachment_data/file/153753/bilingual-statutory-declaration.pdf)
-      $D
-
-
-      <% if partner_nationality != 'partner_british' %>
-
-        ^Your partner should check what they need to do with their own consulate.^
-
-      <% end %>
-
-      ###Legalisation and translation
-
-      You’ll need to get your statutory declaration and CNI ’[legalised](/get-document-legalised)’ (certified as genuine) by the Foreign & Commonwealth Office (FCO).
-
-      You’ll also need to get your CNI [translated](/government/publications/italy-list-of-translators-and-interpreters) and sworn before the Italian courts or an Italian Justice of the Peace.
 
     <% end %>
   <% end %>
@@ -207,14 +151,14 @@
 
       You should also check if it needs to be:
 
-    <% elsif %w(italy).exclude?(ceremony_country) %>
+    <% else %>
       <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
                  locals: {
                    country_name_lowercase_prefix: country_name_lowercase_prefix
                  } %>
 
     <% end %>
-    <% if %w(germany italy tunisia).exclude?(ceremony_country) %>
+    <% if %w(germany tunisia).exclude?(ceremony_country) %>
       <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
                  locals: {
                    country_name_lowercase_prefix: country_name_lowercase_prefix
@@ -234,7 +178,7 @@
       If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
 
 
-    <% elsif %w(germany italy kazakhstan macedonia russia).exclude?(ceremony_country) %>
+    <% elsif %w(germany kazakhstan macedonia russia).exclude?(ceremony_country) %>
       To get a CNI, you must post notice of your intended marriage in <%= country_name_lowercase_prefix %>. You can do this at the British embassy or in front of a notary public.
 
 
@@ -270,7 +214,7 @@
 
 
     <% end %>
-    <% unless %w(germany italy japan).include?(ceremony_country) %>
+    <% unless %w(germany japan).include?(ceremony_country) %>
       <% if ceremony_country == 'macedonia' %>
         Contact a notary public or British Embassy in Macedonia to get advice:
 
@@ -292,15 +236,6 @@
                    } %>
       <% end %>
     <% end %>
-    <% if ceremony_country == 'italy' %>
-      To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
-
-      ###Applying for a Nulla Osta from the embassy
-
-      You’ll need to have been living in <%= country_name_lowercase_prefix %> for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday. You can then book an appointment at the British Embassy in Rome.
-
-
-    <% end %>
   <% end %>
   <% if resident_of != 'uk' && ceremony_country == 'egypt' %>
     <%= render partial: 'required_supporting_documents_egypt.govspeak.erb' %>
@@ -317,7 +252,7 @@
     <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
   <% elsif resident_of != 'uk' && ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
-  <% elsif resident_of == 'ceremony_country' && %w(germany italy japan).exclude?(ceremony_country) %>
+  <% elsif resident_of == 'ceremony_country' && %w(germany japan).exclude?(ceremony_country) %>
     <% if birth_cert_inclusion && notary_public_inclusion %>
       You’ll need to provide supporting documents, including:
 
@@ -376,20 +311,6 @@
       - equivalent documents for your partner
 
     <% end %>
-    <% if ceremony_country == 'italy' %>
-      <% if partner_nationality == 'partner_british' %>
-        You and your partner will need to provide your passports and [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate).
-
-      <% else %>
-        You’ll need to provide supporting documents, including:
-
-        - your passport
-        - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
-        - proof of residence, such as a residence certificate - check with the <%= embassy_or_consulate_ceremony_country %> to find out what you need
-        - a copy of your partner’s identity document
-
-      <% end %>
-    <% end %>
   <% end %>
   <% if resident_of != 'uk' %>
     <% if ceremony_country == 'jordan' %>
@@ -407,19 +328,11 @@
     <% end %>
   <% end %>
   <% if resident_of != 'uk' %>
-    <% if ceremony_country == 'italy' && resident_of != 'uk' %>
-      You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/publications/italy-list-of-translators-and-interpreters) if it’s not in English.
-
-
-    <% elsif %(germany).exclude?(ceremony_country) %>
+    <% if %(germany).exclude?(ceremony_country) %>
       ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
 
     <% end %>
-  <% end %>
-  <% if ceremony_country == 'italy' && resident_of != 'uk' %>
-    ^If you’re a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
-
   <% end %>
   <% if resident_of == 'ceremony_country' %>
     <% if ceremony_country == 'greece' %>
@@ -440,14 +353,14 @@
 
     <% end %>
   <% else %>
-    <% if sex_of_your_partner == 'same_sex' || no_document_download_link_if_os_resident_of_uk_countries.exclude?(ceremony_country) && (cni_notary_public_countries + %w(italy japan macedonia) - %w(greece tunisia)).include?(ceremony_country) %>
+    <% if sex_of_your_partner == 'same_sex' || no_document_download_link_if_os_resident_of_uk_countries.exclude?(ceremony_country) && (cni_notary_public_countries + %w(japan macedonia) - %w(greece tunisia)).include?(ceremony_country) %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
     <% end %>
   <% end %>
   <% if resident_of == 'ceremony_country' %>
 
-    <% if partner_nationality == 'partner_british' && %w(italy germany finland).exclude?(ceremony_country) %>
+    <% if partner_nationality == 'partner_british' && %w(germany finland).exclude?(ceremony_country) %>
       ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
     <% end %>
 
@@ -456,15 +369,6 @@
                  locals: {
                    embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
                  } %>
-
-    <% elsif ceremony_country == 'italy' %>
-      ###What happens next
-
-      They’ll display your notice of marriage publicly for 7 days.
-
-      The British embassy will issue your CNI within 5 working days (as long as nobody has registered an objection). You can collect your CNI in person or have it delivered by post.
-
-      ^The embassy or consulate may charge a fee to return your documents to you.^
 
     <% elsif ceremony_country == 'greece' %>
       ###What happens next
@@ -512,7 +416,7 @@
                } %>
 
   <% end %>
-  <% if ceremony_country != 'italy' && resident_of == 'uk' && "partner_other" == partner_nationality && "finland" == ceremony_country %>
+  <% if resident_of == 'uk' && "partner_other" == partner_nationality && "finland" == ceremony_country %>
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
 
   <% end %>
@@ -520,7 +424,7 @@
   <% if ceremony_country != 'germany'  || (ceremony_country == 'germany' && resident_of == 'uk') %>
     <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
   <% end %>
-  <% if resident_of != 'uk' && %w(italy germany).exclude?(ceremony_country) %>
+  <% if resident_of != 'uk' && %w(germany).exclude?(ceremony_country) %>
     You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in <%= country_name_lowercase_prefix %>.
 
 
@@ -534,44 +438,33 @@
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
   <% end %>
-  <% unless ceremony_country == 'italy' && resident_of == 'uk' %>
-    <% if ceremony_country == 'croatia' && resident_of == 'ceremony_country' %>
-      ##Fees
+  <% if ceremony_country == 'croatia' && resident_of == 'ceremony_country' %>
+    ##Fees
 
-      Service | Fee
-      -|-
-      Receiving a notice of marriage | £65
-      Issuing a CNI, Nulla Osta or equivalent | £65
-      Issuing any other consular letter or certificate in English | £45
-      Issuing any other consular letter or certificate in any other language | £70
-      Administering an oath or making a declaration | £55
-      Issuing a certificate of custom and law | £65
+    Service | Fee
+    -|-
+    Receiving a notice of marriage | £65
+    Issuing a CNI, Nulla Osta or equivalent | £65
+    Issuing any other consular letter or certificate in English | £45
+    Issuing any other consular letter or certificate in any other language | £70
+    Administering an oath or making a declaration | £55
+    Issuing a certificate of custom and law | £65
 
 
-    <% elsif ceremony_country == 'italy' %>
-      ##Fees
+  <% else %>
+    <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
 
-      Service | Fee
-      -|-
-      Receiving a notice of marriage | £65
-      Issuing a CNI, Nulla Osta or equivalent | £65
-
+  <% end %>
+  <% unless data_query.countries_without_consular_facilities?(ceremony_country) || ceremony_country == 'cote-d-ivoire' %>
+    <% if %w(kazakhstan kyrgyzstan).include?(ceremony_country) %>
+      You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
 
     <% else %>
-      <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
-
-    <% end %>
-    <% unless data_query.countries_without_consular_facilities?(ceremony_country) || ceremony_country == 'cote-d-ivoire' %>
-      <% if %w(kazakhstan kyrgyzstan).include?(ceremony_country) %>
-        You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
-
-      <% else %>
-        <%= render partial: 'link_to_consular_fees.govspeak.erb',
-                   locals: {
-                     country_name_lowercase_prefix: country_name_lowercase_prefix,
-                     ceremony_country: ceremony_country
-                   } %>
-      <% end %>
+      <%= render partial: 'link_to_consular_fees.govspeak.erb',
+                 locals: {
+                   country_name_lowercase_prefix: country_name_lowercase_prefix,
+                   ceremony_country: ceremony_country
+                 } %>
     <% end %>
   <% end %>
   <% unless data_query.countries_without_consular_facilities?(ceremony_country) %>
@@ -597,7 +490,7 @@
     <% elsif ceremony_country == 'kuwait' %>
       You can pay by cash or credit card (except American Express), but not by personal cheque.
 
-    <% elsif %w(cote-d-ivoire burundi).exclude?(ceremony_country) && !(ceremony_country == 'italy' && resident_of == 'uk') %>
+    <% elsif %w(cote-d-ivoire burundi).exclude?(ceremony_country) %>
       <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
     <% end %>
   <% end %>
