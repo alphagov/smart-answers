@@ -70,6 +70,9 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_synonyms_of_cp.govspeak.erb: f9
 lib/smart_answer_flows/marriage-abroad/outcomes/_what_you_need_to_do.govspeak.erb: 178402e03cc04f21a8553e916911c6fa
 lib/smart_answer_flows/marriage-abroad/outcomes/_what_you_need_to_do_affirmation.govspeak.erb: a588258f8a458a7690e073ea416502fb
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
+lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_contact.govspeak.erb: 5884dcaf49be2c7d6627bcf8f9884ce8
+lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_fees.govspeak.erb: 5fdbae56b1c554b21707db3777c89972
+lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_what_you_need_to_do.govspeak.erb: 40b402c91b8285e167563299eea5a305
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_brazil_not_living_in_the_uk.govspeak.erb: f11437ad61993a98b97f1dd177192032
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_consular_cni_os_residing_in_third_country.govspeak.erb: 7274e2af0fb1b8dd23441f522fcfe996
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_cp_all_other_countries.govspeak.erb: 6d53eb5058be31e35605eec95ed846ca
@@ -81,7 +84,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_cp_or_equivalent.govspea
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ireland.govspeak.erb: d1cd076fbc8c1c5304e35be6b8041d95
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_marriage_via_local_authorities.govspeak.erb: 3ef0624ac9afea1c540761666edab71d
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_monaco.govspeak.erb: 8c0f70005eee341c37f7966886c68c8c
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_affirmation.govspeak.erb: 7b3331d26808e7d9ee8bfac3efcd4c1f
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_affirmation.govspeak.erb: c6b824d84a492b4162c1d70757f5d7a2
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_bot.govspeak.erb: 6265728604b85e2fd51b59b3823fe1aa
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_colombia.govspeak.erb: 0278771b1619672cf187445c6cef00f4
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_commonwealth.govspeak.erb: b406a771b10d6eb35a7dd72540d2cce2
