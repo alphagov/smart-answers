@@ -16,6 +16,7 @@ en-GB:
         title: "Which year would you like to check past payments for?"
         hint: You can go back up to 6 years
         options:
+          "2014-10-01": "Oct 2014 - Sep 2015"
           "2013-10-01": "Oct 2013 - Sep 2014"
           "2012-10-01": "Oct 2012 - Sep 2013"
           "2011-10-01": "Oct 2011 - Sep 2012"
