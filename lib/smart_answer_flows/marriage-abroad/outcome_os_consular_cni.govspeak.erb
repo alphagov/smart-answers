@@ -106,6 +106,12 @@
 
   <% end %>
   <% if resident_of == 'uk' %>
+    <% if ceremony_country == 'poland' %>
+      Contact the local registry office in <%= country_name_lowercase_prefix %> to find out if they accept UK-issued CNIs. If they don’t, you’ll need to get a locally-issued one.
+
+      ### Get a UK-issued CNI
+
+    <% end %>
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
@@ -115,6 +121,14 @@
     <% if cni_posted_after_14_days_countries.include?(ceremony_country) %>
       They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
 
+    <% end -%>
+
+    <% if ceremony_country == 'poland' %>
+      ###Get a locally-issued CNI
+
+      If the local registry office in Poland doesn’t accept UK-issued CNIs, you must make an appointment at the British embassy in Warsaw to get a locally-issued CNI.
+
+      [Make an appointment at the embassy in Warsaw.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-warsaw/certificate-of-no-impediment/slot_picker)
     <% end %>
   <% end %>
   <% if resident_of == 'uk' %>
@@ -139,10 +153,16 @@
 
       Contact the embassy to make an appointment. You’ll need to pay the fee for issuing a CNI or equivalent - see below. Check with the local authorities to make sure they’ll accept your UK-issued CNI, and whether it needs to be:
 
-    <% elsif %w(finland kazakhstan kyrgyzstan poland).include?(ceremony_country) %>
+    <% elsif %w(finland kazakhstan kyrgyzstan).include?(ceremony_country) %>
       ###Legalisation and translation
 
       You should check with the local authorities in <%= country_name_lowercase_prefix %> to see if your CNI needs to be:
+
+
+    <% elsif ceremony_country == 'poland' %>
+      ###Legalisation and translation
+
+      You must check with the local authorities in <%= country_name_lowercase_prefix %> to see if your UK-issued CNI needs to be:
 
 
     <% elsif ceremony_country == 'greece' %>
@@ -437,7 +457,16 @@
 
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
-  <% end %>
+  <% end -%>
+
+  <% if ceremony_country == 'poland' && resident_of == 'uk' %>
+    ##What happens next
+
+    If you’re getting married in a registry office, you must give them your CNI at least 2 months before your wedding. If you’re getting married in a church, you can do this 2 days before the wedding.
+
+    You may be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
+  <% end -%>
+
   <% if ceremony_country == 'croatia' && resident_of == 'ceremony_country' %>
     ##Fees
 
