@@ -8,13 +8,17 @@ set -e
 git merge --no-commit origin/master || git merge --abort
 
 git clean -fdx
-bundle install --path "/home/jenkins/bundles/${JOB_NAME}" --deployment --without=development
+bundle install --path "/home/jenkins/bundles/${JOB_NAME}" --deployment
 export GOVUK_APP_DOMAIN=dev.gov.uk
 export GOVUK_ASSET_HOST=http://static.dev.gov.uk
 
 export DISPLAY=:99
 
 if [ -z "$RUN_REGRESSION_TESTS" ]; then
+  bundle exec govuk-lint-ruby \
+    --diff --cached \
+    --format clang
+
   RAILS_ENV=test TEST_COVERAGE=true bundle exec rake test
 
   bundle exec rake assets:precompile
