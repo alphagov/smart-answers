@@ -165,6 +165,10 @@ module SmartAnswer
           data_query.os_marriage_via_local_authorities?(ceremony_country)
         }
 
+        define_predicate(:marriage_in_italy) {
+          ceremony_country == 'italy'
+        }
+
         next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
         next_node_if(:outcome_marriage_via_local_authorities, variable_matches(:ceremony_country, "netherlands"))
         next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
@@ -176,6 +180,7 @@ module SmartAnswer
           next_node_if(:outcome_os_hong_kong, variable_matches(:ceremony_country, 'hong-kong'))
           next_node_if(:outcome_consular_cni_os_residing_in_third_country, consular_cni_residing_in_third_country)
           next_node_if(:outcome_consular_cni_os_residing_in_third_country, marriage_in_norway_third_country)
+          next_node_if(:outcome_os_italy, marriage_in_italy)
           next_node_if(:outcome_os_local_japan, os_marriage_with_local_in_japan)
           next_node_if(:outcome_os_colombia, variable_matches(:ceremony_country, "colombia"))
           next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, "kosovo"))
@@ -300,6 +305,8 @@ module SmartAnswer
       outcome :outcome_os_commonwealth
 
       outcome :outcome_os_bot
+
+      outcome :outcome_os_italy
 
       outcome :outcome_consular_cni_os_residing_in_third_country do
         precalculate :data_query do
