@@ -107,6 +107,7 @@ module SmartAnswer
         option :esa
         option :child_tax_credit
         option :working_tax_credit
+        option :universal_credit
 
         calculate :benefits_claimed do |response|
           response.split(",")
@@ -121,12 +122,13 @@ module SmartAnswer
 
         define_predicate(:disabled_or_have_children_question?) do |response|
           response == 'income_support' ||
-          response == 'jsa' ||
-          response == 'esa' ||
-          response == 'working_tax_credit' ||
-          %w{child_tax_credit esa income_support jsa pension_credit}.all? {|key| response.include? key} ||
-          %w{child_tax_credit esa income_support pension_credit}.all? {|key| response.include? key} ||
-          %w{child_tax_credit esa jsa pension_credit}.all? {|key| response.include? key}
+            response == 'jsa' ||
+            response == 'esa' ||
+            response == 'working_tax_credit' ||
+            response.include?('universal_credit') ||
+            %w{child_tax_credit esa income_support jsa pension_credit}.all? {|key| response.include? key} ||
+            %w{child_tax_credit esa income_support pension_credit}.all? {|key| response.include? key} ||
+            %w{child_tax_credit esa jsa pension_credit}.all? {|key| response.include? key}
         end
 
         on_condition(responded_with('pension_credit') || responded_with('child_tax_credit')) do
@@ -162,6 +164,10 @@ module SmartAnswer
               :incomesupp_jobseekers_2
             end
           end
+        end
+
+        calculate :may_qualify_for_affordable_warmth_obligation do |response|
+          response != 'none' && benefits_claimed.include?('universal_credit')
         end
 
         next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
@@ -315,6 +321,9 @@ module SmartAnswer
       end
 
       outcome :outcome_help_with_bills do
+        precalculate :may_qualify_for_affordable_warmth_obligation do
+          may_qualify_for_affordable_warmth_obligation
+        end
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
         end
@@ -333,6 +342,9 @@ module SmartAnswer
       end
 
       outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
+        precalculate :may_qualify_for_affordable_warmth_obligation do
+          may_qualify_for_affordable_warmth_obligation
+        end
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
         end
@@ -342,6 +354,9 @@ module SmartAnswer
       end
 
       outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
+        precalculate :may_qualify_for_affordable_warmth_obligation do
+          may_qualify_for_affordable_warmth_obligation
+        end
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
         end

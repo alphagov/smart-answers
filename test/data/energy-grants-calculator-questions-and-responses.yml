@@ -20,6 +20,7 @@
 - pension_credit,income_support,jsa,esa,child_tax_credit,working_tax_credit
 - working_tax_credit
 - pension_credit
+- universal_credit
 :disabled_or_have_children?:
 - disabled,disabled_child,child_under_5,child_under_16,pensioner_premium,work_support_esa
 - disabled
