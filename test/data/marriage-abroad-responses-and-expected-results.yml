@@ -5313,7 +5313,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5336,7 +5336,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5359,7 +5359,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5388,7 +5388,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5411,7 +5411,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5434,7 +5434,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5463,7 +5463,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5486,7 +5486,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5509,7 +5509,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5543,7 +5543,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5566,7 +5566,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5589,7 +5589,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5618,7 +5618,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5641,7 +5641,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5664,7 +5664,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5693,7 +5693,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5716,7 +5716,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5739,7 +5739,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_no_cni
+  :next_node: :outcome_marriage_via_local_authorities
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:

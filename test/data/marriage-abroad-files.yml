@@ -2,7 +2,7 @@
 lib/smart_answer_flows/marriage-abroad.rb: c509df582129a4bbba4f2f850d69c06c
 lib/smart_answer_flows/locales/en/marriage-abroad.yml: 164d2e20ece110c5f60744b483766e36
 test/data/marriage-abroad-questions-and-responses.yml: eabbd09ca91fab72a9a520d1087fb35e
-test/data/marriage-abroad-responses-and-expected-results.yml: a9d3589247d2cc58b5318cc9e7011f20
+test/data/marriage-abroad-responses-and-expected-results.yml: 4744dcb2be7083fc17334bc2d8c9ae2a
 lib/smart_answer_flows/marriage-abroad/_affirmation_os_translation_in_local_language_text.govspeak.erb: 2e6645f9114db57b0f081070d0473771
 lib/smart_answer_flows/marriage-abroad/_appointment_for_affidavit.govspeak.erb: c9714322b3c62e0a0ded981da6025b9d
 lib/smart_answer_flows/marriage-abroad/_appointment_for_affidavit_norway.govspeak.erb: de478bc6121e2e4c7f748a4e1831befb
