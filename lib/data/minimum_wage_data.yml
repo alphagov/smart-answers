@@ -113,7 +113,7 @@
   :apprentice_rate: 2.68
   :accommodation_rate: 4.91
 - :start_date: 2014-10-01
-  :end_date: 2999-09-30
+  :end_date: 2015-09-30
   :minimum_rates:
   - :min_age: 0
     :max_age: 18
@@ -125,4 +125,18 @@
     :max_age: 1000
     :rate: 6.50
   :apprentice_rate: 2.73
+  :accommodation_rate: 5.08
+- :start_date: 2015-10-01
+  :end_date: 2999-09-30
+  :minimum_rates:
+  - :min_age: 0
+    :max_age: 18
+    :rate: 3.87
+  - :min_age: 18
+    :max_age: 21
+    :rate: 5.30
+  - :min_age: 21
+    :max_age: 1000
+    :rate: 6.70
+  :apprentice_rate: 3.30
   :accommodation_rate: 5.08
