@@ -15,140 +15,27 @@
 
   Don’t book travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document.](/emergency-travel-document)
 
-  ## Cost
+  <%= render partial: 'cost.govspeak.erb',
+             locals: {
+               data_query: data_query,
+               child_or_adult: child_or_adult,
+               ips_number: ips_number,
+               ips_docs_number: ips_docs_number,
+               current_location: current_location,
+               application_action: application_action
+             }
+  -%>
 
-  <% if %w(st-helena-ascension-and-tristan-da-cunha).include?(current_location) %>
-    You’ll have to pay a fee for your passport.
-
-    <% case child_or_adult %>
-    <% when 'adult' %>
-      | Passport type | Passport fee |
-      |---------------|--------------|
-      | Adult standard 32-page passport | £83.00 |
-      | Adult jumbo 48-page passport | £91.00 |
-    <% when 'child' %>
-      | Passport type | Passport fee |
-      |---------------|--------------|
-      | Child passport | £53.00 |
-    <% end %>
-
-    You must pay in cash. In addition to the passport fee you’ll need to pay any local administration fees which apply from the office where you make your application.
-  <% elsif application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1' %>
-    You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
-
-    <% case child_or_adult %>
-    <% when 'adult' %>
-      | Passport type | Passport fee | Total to pay (including courier fee) |
-      |---------------|--------------|--------------------------------------|
-      | Adult standard 32-page passport | £83.00 | £92.70 |
-      | Adult jumbo 48-page passport | £91.00 | £100.70 |
-    <% when 'child' %>
-      | Passport type | Passport fee | Total to pay (including courier fee) |
-      |---------------|--------------|--------------------------------------|
-      | Child passport | £53.00 | £62.70 |
-    <% end %>
-
-    <%= render partial: 'passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number } %>
-
-  <% elsif %w(tajikistan turkmenistan uzbekistan).include?(current_location) %>
-    <% case current_location %>
-    <% when 'tajikistan' %>
-      You’ll have to pay a fee for your passport and a courier fee of £24.72.
-
-      The courier fee pays for your passport to be sent securely to the British Embassy in Dushanbe for you to collect.
-    <% when 'turkmenistan' %>
-      You’ll have to pay a fee for your passport and a courier fee of £24.72.
-
-      The courier fee pays for your passport to be sent securely to the British Embassy in Ashgabat for you to collect.
-    <% when 'uzbekistan' %>
-      You’ll have to pay a fee for your passport and a courier fee of £23.01.
-
-      The courier fee pays for your passport to be sent securely to the British Embassy in Tashkent for you to collect.
-    <% end %>
-
-    <%= render partial: 'child_or_adult_passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number, child_or_adult: child_or_adult } %>
-
-    <%= render partial: 'passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number } %>
-  <% else %>
-    <% uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela vietnam western-sahara) %>
-    <% pay_at_appointment_countries = %w(venezuela) %>
-
-    <% if uk_visa_application_centre_countries.include?(current_location) %>
-      <% case ips_number %>
-      <% when '2' %>
-        You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
-      <% when '3' %>
-        You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
-      <% end %>
-    <% elsif %w(pitcairn-island).include?(current_location) %>
-      You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
-    <% else %>
-      <% case ips_number %>
-      <% when '1' %>
-        You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
-      <% when '2' %>
-        You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
-      <% when '3' %>
-        You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
-      <% end %>
-    <% end %>
-
-    <%= render partial: 'child_or_adult_passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number, child_or_adult: child_or_adult } %>
-
-    <% if data_query.cash_only_countries?(current_location) %>
-      You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
-    <% elsif pay_at_appointment_countries.include?(current_location) %>
-      You must pay at your scheduled appointment using a debit or credit card. American Express, Diner’s Club and Discovery cards aren’t accepted.
-    <% else %>
-      <%= render partial: 'passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number } %>
-    <% end %>
-  <% end %>
-
-  ## How to apply
-
-  <% if passport_data['online_application'].blank? %>
-    1. Download the application form.
-    2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
-    3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
-    <% case ips_number %>
-    <% when '1' %>
-      4. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
-    <% when '2' %>
-      4. Check which supporting documents you must include with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
-    <% when '3' %>
-      4. Check which supporting documents you must submit with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
-    <% end %>
-
-    <% if %w(pakistan).include?(current_location) %>
-      5. You should fill in the [Applying for a passport from Pakistan form](https://www.gov.uk/government/publications/applying-for-a-passport-from-pakistan) if you are submitting supporting documents from the UK.
-    <% end %>
-    <% case application_form %>
-    <% when 'hmpo_1_application_form' %>
-      ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
-    <% when 'hmpo_2_application_form' %>
-      ^[Application form - applying for a British passport overseas](/government/publications/overseas-passport-application-form)^
-    <% end %>
-    <% case supporting_documents %>
-    <% when 'ips_documents_group_1' %>
-      ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
-      ^[Supporting documents you must send with your application](/government/publications/overseas-passport-applications-supporting-documents-guidance)^
-    <% when 'ips_documents_group_2' %>
-      ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
-      ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-2)^
-    <% when 'ips_documents_group_3' %>
-      ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
-      ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-3)^
-    <% end %>
-
-    <% case birth_location %>
-    <% when 'south-africa' %>
-      ^You must include your Vault birth certificate with your application – a photocopy won’t be accepted.^
-    <% when 'spain' %>
-      ^You must include your full birth certificate (‘certificación literal’) with your application - a photocopy won’t be accepted.^
-    <% end %>
-  <% end %>
-
-  %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
+  <%= render partial: 'how_to_apply.govspeak.erb',
+             locals: {
+               current_location: current_location,
+               passport_data: passport_data,
+               ips_number: ips_number,
+               application_form: application_form,
+               supporting_documents: supporting_documents,
+               birth_location: birth_location
+             }
+  -%>
 
   <%= render partial: 'making_your_application.govspeak.erb',
              locals: {
@@ -161,72 +48,15 @@
                data_query: data_query,
                overseas_passports_embassies: overseas_passports_embassies
              }
-  %>
-  ## Getting your passport
+  -%>
 
-  <% collect_in_person_countries = %w(angola benin cameroon chad congo eritrea ethiopia gambia ghana guinea jamaica kenya nigeria somalia south-sudan zambia zimbabwe) %>
-  <% collect_in_person_variant_countries = %w(burundi india jordan pitcairn-island) %>
-  <% collect_in_person_renewing_new_variant_countries = %w(burma nepal north-korea st-helena-ascension-and-tristan-da-cunha) %>
-  <% uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan lebanon mauritania morocco pakistan russia thailand ukraine venezuela vietnam western-sahara) %>
-  <% uk_visa_application_centre_variant_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda) %>
-  <% collect_with_photo_id_countries = %w(cambodia egypt iraq libya rwanda sierra-leone tunisia uganda) %>
-  <% passport_delivered_by_courier_countries = %w(laos) %>
-  <% named_embassy_countries = %w(tajikistan turkmenistan uzbekistan) %>
-
-  <% if passport_delivered_by_courier_countries.include?(current_location) %>
-    Your passport will be delivered to you by courier.
-  <% elsif uk_visa_application_centre_countries.include?(current_location) %>
-    Your passport will be delivered to the UK Visa Application Centre where you applied - you must collect it in person.
-    <% if %w(renewing_new).include?(application_action) %>
-      <%= render partial: 'getting_your_passport_contact.govspeak.erb' %>
-      <%= render partial: 'getting_your_passport_id_renew_new.govspeak.erb' %>
-    <% else %>
-      <%= render partial: 'getting_your_passport_contact_and_id.govspeak.erb' %>
-    <% end %>
-  <% elsif uk_visa_application_centre_variant_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
-    They will contact you with details of where to collect your passport when it arrives, using the contact details you provided on your form.
-    <% if %w(renewing_new).include?(application_action) %>
-      <% if collect_with_photo_id_countries.include?(current_location) %>
-
-        You must bring photo ID with you.
-      <% else %>
-        <%= render partial: 'getting_your_passport_id_renew_new.govspeak.erb' %>
-      <% end %>
-    <% else %>
-      <%= render partial: 'getting_your_passport_id_apply_renew_old_replace.govspeak.erb' %>
-    <% end %>
-  <% elsif named_embassy_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
-  <% elsif collect_in_person_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
-    <%= render partial: 'getting_your_passport_contact_and_id.govspeak.erb' %>
-  <% elsif collect_in_person_variant_countries.include?(current_location) %>
-    <% if %w(burundi).include?(current_location) %>
-      <% if %w(renewing_new).include?(application_action) %>
-        Your passport will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect it in person.
-
-        They will contact you - using the details on your application form - when your passport is ready to collect.
-
-        You must bring your existing passport as photo ID.
-      <% else %>
-        <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
-        <%= render partial: 'getting_your_passport_contact_and_id.govspeak.erb' %>
-      <% end %>
-    <% else %>
-      <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
-    <% end %>
-  <% elsif collect_in_person_renewing_new_variant_countries.include?(current_location) %>
-    <%= render partial: 'getting_your_passport_by_current_location.govspeak.erb', locals: { current_location: current_location } %>
-    <%= render partial: 'getting_your_passport_contact.govspeak.erb' %>
-    <% if %w(renewing_new).include?(application_action) %>
-      <%= render partial: 'getting_your_passport_id_renew_new.govspeak.erb' %>
-    <% else %>
-      <%= render partial: 'getting_your_passport_id_apply_renew_old_replace.govspeak.erb' %>
-    <% end %>
-  <% else %>
-    <%= render partial: 'getting_your_passport_by_ips_number.govspeak.erb', locals: { ips_number: ips_number } %>
-  <% end %>
+  <%= render partial: 'getting_your_passport.govspeak.erb',
+             locals: {
+               application_action: application_action,
+               current_location: current_location,
+               ips_number: ips_number
+             }
+  -%>
 
   <%= render partial: 'passport_adviceline_contacts.govspeak.erb' %>
 <% end %>

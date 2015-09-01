@@ -41,7 +41,7 @@
       You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
     <% end %>
 
-    <%= render partial: 'child_or_adult_passport_costs_ips.govspeak.erb', locals: { ips_number: ips_number, child_or_adult: child_or_adult } %>
+    <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { ips_number: ips_number, child_or_adult: child_or_adult } %>
   <% end %>
 
 
@@ -98,7 +98,7 @@
 
   ## Getting your passport
 
-  <%= render partial: 'getting_your_passport_by_ips_number.govspeak.erb', locals: { ips_number: ips_number } %>
+  <%= render partial: 'getting_your_passport/by_ips_number.govspeak.erb', locals: { ips_number: ips_number } %>
 
   <%= render partial: 'passport_adviceline_contacts.govspeak.erb' %>
 <% end %>
