@@ -19,5 +19,13 @@ module SmartAnswer
     test '#ceremony_type_lowercase returns "civil partnership" for same sex ceremonies' do
       assert_equal 'civil partnership', ceremony_type_lowercase('same_sex')
     end
+
+    test '#specific_local_authorities returns a name of local authorities in parenthesis leaded by a space' do
+      assert_equal ' (the town hall or the local priest)', specific_local_authorities('greece')
+    end
+
+    test '#specific_local_authorities returns an empty string if local authorities in country are not specified' do
+      assert_equal '', specific_local_authorities('narnia')
+    end
   end
 end
