@@ -38,6 +38,19 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
 
+  <% elsif ceremony_country == 'vietnam' %>
+    You’ll need to download and complete the following documents:
+
+    - a [service request form](/government/publications/service-request-form)
+    - a [notice of marriage form](/government/publications/notice-of-same-sex-marriage-vietnam)
+    - an [affirmation](/government/publications/affirmation-of-marital-status) or [affidavit](/government/publications/affidavit-of-marital-status) of marital status
+
+    Email these documents with a copy of both your passport and your partner’s passport to the British embassy in Hanoi.
+
+    <notarialservices.hanoi@fco.gov.uk>
+
+    The embassy will confirm if your marriage can be registered and give you a link to book a ‘notice of marriage’ appointment online and a reference number. You must quote the reference number when booking your appointment.
+
   <% else %>
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
@@ -51,7 +64,11 @@
   <% end %>
 
   <% unless ceremony_country == 'japan' %>
-    <%= render partial: 'documents_needed_21_days_residency.govspeak.erb' %>
+    <% if ceremony_country == 'vietnam' %>
+      You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.
+    <% else %>
+      <%= render partial: 'documents_needed_21_days_residency.govspeak.erb' %>
+    <% end %>
 
     <% if partner_nationality == 'partner_british' %>
       <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
@@ -82,7 +99,11 @@
   <% when 'ss_marriage_and_partnership' %>
     ##What you need to do
 
-    Once you’ve made your appointment, the embassy or consulate will give you:
+    <% if ceremony_country == 'vietnam' %>
+      You’ll need to be in Vietnam for 7 clear days (not including the date of arrival) before your appointment. At your appointment, the embassy or consulate will give you:
+    <% else %>
+      Once you’ve made your appointment, the embassy or consulate will give you:
+    <% end %>
 
     -  a notice of registration
     -  a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry or enter into a civil partnership
@@ -90,6 +111,10 @@
   <% end %>
 
   Once you’ve submitted these and paid the registration fee, the embassy or consulate will display your notice publicly for 14 days.
+
+  <% if ceremony_country == 'vietnam' %>
+    ^You must stay in <%= country_name_lowercase_prefix %> while your notice is posted.^
+  <% end %>
 
   <% case marriage_and_partnership_phrases %>
   <% when 'ss_marriage' %>
@@ -149,6 +174,8 @@
 
   <% if ceremony_country == 'cambodia' %>
     <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>
+  <% elsif ceremony_country == 'vietnam' %>
+    You can pay fees for consular services in cash (in the local currency or pounds sterling) or by Visa or MasterCard - these are shown in the list of [consular fees for <%= country_name_lowercase_prefix %>](/government/publications/<%= ceremony_country %>-consular-fees).
   <% else %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
