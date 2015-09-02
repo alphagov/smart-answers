@@ -60,7 +60,13 @@
 
 <% end %>
 <% unless data_query.countries_without_consular_facilities?(ceremony_country) %>
-  <% if ceremony_country != 'cambodia' %>
+  <% if ceremony_country == 'vietnam' %>
+    <%= render partial: 'consular_fees_in_cash_visa_master.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } -%>
+  <% elsif ceremony_country != 'cambodia' %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
