@@ -53,7 +53,7 @@
 
   <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { ips_number: ips_number } %>
 <% else %>
-  <% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela vietnam western-sahara) %>
+  <% uk_visa_application_centre_countries = %w(algeria azerbaijan bangladesh belarus burma china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela vietnam western-sahara) %>
   <% pay_at_appointment_countries = %w(venezuela) %>
 
   <% if uk_visa_application_centre_countries.include?(current_location) %>
