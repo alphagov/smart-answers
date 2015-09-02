@@ -88,7 +88,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_affirmation.govspeak.
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_bot.govspeak.erb: 6265728604b85e2fd51b59b3823fe1aa
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_colombia.govspeak.erb: 0278771b1619672cf187445c6cef00f4
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_commonwealth.govspeak.erb: e786f6ff0927f8e1fb729be638bea136
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_consular_cni.govspeak.erb: 9457723a523e71ddbab10868c556066a
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_consular_cni.govspeak.erb: 7e7e83adf680db7d8c5d5361256b5eed
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_france_or_fot.govspeak.erb: 7a5cb5ac119b7891858e415872d3e20e
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_hong_kong.govspeak.erb: 9fad3bd3a55309f5a345b378b1bb8dd4
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_indonesia.govspeak.erb: abca5f7bf4a59d2dd97d57aee8c9adaf
