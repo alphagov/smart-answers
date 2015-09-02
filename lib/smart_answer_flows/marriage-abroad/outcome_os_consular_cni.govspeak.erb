@@ -273,7 +273,7 @@
     <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
   <% elsif resident_of != 'uk' && ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
-  <% elsif resident_of == 'ceremony_country' && %w(germany japan).exclude?(ceremony_country) %>
+  <% elsif resident_of == 'ceremony_country' && %w(germany japan poland).exclude?(ceremony_country) %>
     <% if birth_cert_inclusion && notary_public_inclusion %>
       You’ll need to provide supporting documents, including:
 
@@ -349,7 +349,7 @@
     <% end %>
   <% end %>
   <% if resident_of != 'uk' %>
-    <% if %(germany).exclude?(ceremony_country) %>
+    <% if %(germany poland).exclude?(ceremony_country) %>
       ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
 
@@ -445,7 +445,7 @@
   <% if ceremony_country != 'germany'  || (ceremony_country == 'germany' && resident_of == 'uk') %>
     <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
   <% end %>
-  <% if resident_of != 'uk' && %w(germany).exclude?(ceremony_country) %>
+  <% if resident_of != 'uk' && %w(germany poland).exclude?(ceremony_country) %>
     You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in <%= country_name_lowercase_prefix %>.
 
 
