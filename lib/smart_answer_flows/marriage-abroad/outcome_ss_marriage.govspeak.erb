@@ -41,16 +41,7 @@
   <% elsif ceremony_country == 'vietnam' %>
     You’ll need to download and complete the following documents:
 
-    - a [service request form](/government/publications/service-request-form)
-    - a [notice of marriage form](/government/publications/notice-of-same-sex-marriage-vietnam)
-    - an [affirmation](/government/publications/affirmation-of-marital-status) or [affidavit](/government/publications/affidavit-of-marital-status) of marital status
-
-    Email these documents with a copy of both your passport and your partner’s passport to the British embassy in Hanoi.
-
-    <notarialservices.hanoi@fco.gov.uk>
-
-    The embassy will confirm if your marriage can be registered and give you a link to book a ‘notice of marriage’ appointment online and a reference number. You must quote the reference number when booking your appointment.
-
+    <%= render partial: "appointment_documents_in_vietnam.govspeak.erb" %>
   <% else %>
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
@@ -175,7 +166,11 @@
   <% if ceremony_country == 'cambodia' %>
     <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>
   <% elsif ceremony_country == 'vietnam' %>
-    You can pay fees for consular services in cash (in the local currency or pounds sterling) or by Visa or MasterCard - these are shown in the list of [consular fees for <%= country_name_lowercase_prefix %>](/government/publications/<%= ceremony_country %>-consular-fees).
+    <%= render partial: 'consular_fees_in_cash_visa_master.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } -%>
   <% else %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
