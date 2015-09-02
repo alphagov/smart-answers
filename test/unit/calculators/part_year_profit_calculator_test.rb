@@ -23,23 +23,6 @@ module SmartAnswer
         end
       end
 
-      context 'accounting period aligns with the tax year' do
-        setup do
-          @calculator = PartYearProfitCalculator.new
-          @calculator.tax_credits_award_ends_on = Date.parse('2015-08-01')
-        end
-
-        should 'return true when accounting period ends on 5th Apr' do
-          @calculator.accounts_end_month_and_day = Date.parse('0000-04-05')
-          assert @calculator.accounting_period_aligns_with_the_tax_year?
-        end
-
-        should "return false when accounting period doesn't end on 5th Apr" do
-          @calculator.accounts_end_month_and_day = Date.parse('0000-12-31')
-          refute @calculator.accounting_period_aligns_with_the_tax_year?
-        end
-      end
-
       context 'tax year' do
         setup do
           @tax_credits_award_ends_on = Date.parse('2016-02-20')
@@ -128,7 +111,7 @@ module SmartAnswer
           assert_equal @tax_credits_award_ends_on, @calculator.tax_credits_part_year.ends_on
         end
 
-        should 'end on the date the business ceases trading if that date is before the date the tax credits award ends' do
+        should 'end on the date the business stops trading if that date is before the date the tax credits award ends' do
           stopped_trading_on = Date.parse('2016-02-19')
           @calculator.stopped_trading_on = stopped_trading_on
           assert_equal stopped_trading_on, @calculator.tax_credits_part_year.ends_on

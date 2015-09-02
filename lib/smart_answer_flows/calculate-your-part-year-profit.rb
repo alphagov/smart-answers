@@ -22,11 +22,7 @@ module SmartAnswer
 
         next_node do |response|
           calculator.accounts_end_month_and_day = response
-          if calculator.accounting_period_aligns_with_the_tax_year?
-            :have_you_stopped_trading?
-          else
-            :do_your_accounts_cover_a_12_month_period?
-          end
+          :have_you_stopped_trading?
         end
       end
 

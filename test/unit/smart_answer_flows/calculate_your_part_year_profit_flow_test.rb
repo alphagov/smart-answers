@@ -34,36 +34,17 @@ module SmartAnswer
     end
 
     context 'when answering what_date_do_your_accounts_go_up_to? question' do
-      context 'when accounting period aligns with tax year' do
-        setup do
-          @calculator.stubs(:accounting_period_aligns_with_the_tax_year?).returns(true)
-          setup_states_for_question(:what_date_do_your_accounts_go_up_to?, responding_with: '0000-04-06', calculator: @calculator)
-        end
-
-        should 'store parsed response on calculator as accounts_end_month_and_day' do
-          assert_equal Date.parse('0000-04-06'), @calculator.accounts_end_month_and_day
-        end
-
-        should 'go to have_you_stopped_trading? question' do
-          assert_equal :have_you_stopped_trading?, @new_state.current_node
-          assert_node_exists :have_you_stopped_trading?
-        end
+      setup do
+        setup_states_for_question(:what_date_do_your_accounts_go_up_to?, responding_with: '0000-04-06', calculator: @calculator)
       end
 
-      context "when accounting period doesn't align with tax year" do
-        setup do
-          @calculator.stubs(:accounting_period_aligns_with_the_tax_year?).returns(false)
-          setup_states_for_question(:what_date_do_your_accounts_go_up_to?, responding_with: '0000-12-31', calculator: @calculator)
-        end
+      should 'store parsed response on calculator as accounts_end_month_and_day' do
+        assert_equal Date.parse('0000-04-06'), @calculator.accounts_end_month_and_day
+      end
 
-        should 'store parsed response on calculator as accounts_end_month_and_day' do
-          assert_equal Date.parse('0000-12-31'), @calculator.accounts_end_month_and_day
-        end
-
-        should 'go to do_your_accounts_cover_a_12_month_period? question' do
-          assert_equal :do_your_accounts_cover_a_12_month_period?, @new_state.current_node
-          assert_node_exists :do_your_accounts_cover_a_12_month_period?
-        end
+      should 'go to have_you_stopped_trading? question' do
+        assert_equal :have_you_stopped_trading?, @new_state.current_node
+        assert_node_exists :have_you_stopped_trading?
       end
     end
 

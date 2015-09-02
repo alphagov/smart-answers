@@ -10,11 +10,6 @@ module SmartAnswer
         tax_year.include?(date)
       end
 
-      def accounting_period_aligns_with_the_tax_year?
-        accounting_period.begins_on == tax_year.begins_on &&
-          accounting_period.ends_on == tax_year.ends_on
-      end
-
       def tax_year
         TaxYear.on(tax_credits_award_ends_on)
       end
