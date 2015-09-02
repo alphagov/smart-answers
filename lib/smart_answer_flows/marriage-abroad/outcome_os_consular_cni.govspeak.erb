@@ -406,7 +406,16 @@
 
       [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
 
+    <% elsif ceremony_country == 'poland' %>
+      ## What happens next
 
+      The embassy will display your notice of marriage publicly for 7 days. They’ll then send all of your documentation to the British embassy or consulate, who will issue your CNI (as long as nobody has registered an objection).
+
+      You can collect the CNI from the embassy or ask for it it to be sent by post to an address in Poland.
+
+      ^The embassy may charge a fee to return your documents to you.^
+
+      You should check with the local registry office in Poland if your CNI needs to be legalised (certified as genuine).
     <% elsif cni_notary_public_countries.include?(ceremony_country) || ceremony_country == 'japan' %>
       ###What happens next
 
@@ -460,8 +469,10 @@
 
   <% end -%>
 
-  <% if ceremony_country == 'poland' && resident_of == 'uk' %>
-    ##What happens next
+  <% if ceremony_country == 'poland' %>
+    <% if resident_of == 'uk' %>
+      ## What happens next
+    <% end %>
 
     If you’re getting married in a registry office, you must give them your CNI at least 2 months before your wedding. If you’re getting married in a church, you can do this 2 days before the wedding.
 
