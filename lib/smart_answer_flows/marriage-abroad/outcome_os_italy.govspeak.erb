@@ -67,7 +67,10 @@
 
     ###Applying for a Nulla Osta from the embassy
 
-    You’ll need to have been living in <%= country_name_lowercase_prefix %> for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday. You can then book an appointment at the British Embassy in Rome.
+    <%= render partial: "three_day_residency_requirement.govspeak.erb",
+                     locals: {
+                       country_name_lowercase_prefix: country_name_lowercase_prefix
+                     } -%> You can then book an appointment at the British Embassy in Rome.
 
 
     <% if partner_nationality == 'partner_british' %>
