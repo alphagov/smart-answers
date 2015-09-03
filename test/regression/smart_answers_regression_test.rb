@@ -56,7 +56,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
     next unless smart_answer_helper.run_regression_tests?
 
-    smart_answer_helper.delete_saved_output_files
+    # smart_answer_helper.delete_saved_output_files
     responses_and_expected_results = smart_answer_helper.read_responses_and_expected_results
 
     context "Smart Answer: #{flow_name}" do
@@ -109,7 +109,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         responses    = responses_and_expected_node[:responses]
         outcome_node = responses_and_expected_node[:outcome_node]
 
-        if outcome_node
+        if outcome_node && %(poland rwanda).include?(responses.first.to_s )
           should "render and save output for responses: #{responses.join(', ')}" do
             get :show, id: flow_name, started: 'y', responses: responses.join('/'), format: 'txt'
 
