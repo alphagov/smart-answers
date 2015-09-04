@@ -38,6 +38,9 @@
       You can only get married in the United Arab Emirates if you or your partner are resident there.
     <% end %>
   <% end %>
+  <% if ceremony_country == 'cambodia' && partner_nationality != 'partner_local' %>
+    %There are certain restrictions on getting married in Cambodia if neither of you is Cambodian. If neither of you is Cambodian, you must check with both the Ministry of Foreign Affairs and the local Sangkat to find out if if you can get married.%
+  <% end -%>
 
   <%= render partial: 'os_affirmation/what_you_need_to_do.govspeak.erb',
              locals: {
