@@ -292,9 +292,29 @@
         <% if %w(belgium cambodia ecuador).include?(ceremony_country) %>
           <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
         <% end %>
-        <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
-
       <% end %>
     <% end %>
+
+    <% if ceremony_country == 'cambodia' %>
+      ## What happens next
+
+      You’ll need to take the following to the Ministry of Foreign Affairs:
+
+      - your affirmation
+      - a certified copy of your passport
+      - your birth certificate or naturalisation certificate
+      - proof of residence, eg a residence certificate - check with the embassy or consulate for advice
+
+      You’ll be asked to provide a criminal record check – check with the embassy how to do this.
+
+      The Ministry of Foreign Affairs will issue an approval letter which you’ll need to take to the Ministry of Interior. The Ministry of Interior may ask you to complete additional forms and will give you an approval letter.
+
+      You’ll need to take the approval letters to your local Sangkat for the marriage registration.
+    <% end %>
+
+    <% if partner_nationality != 'partner_british' %>
+      <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+    <% end %>
+
   <% end %>
 <% end %>
