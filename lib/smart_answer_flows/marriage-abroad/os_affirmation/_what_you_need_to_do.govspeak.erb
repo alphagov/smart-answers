@@ -156,13 +156,7 @@
     ^A marriage affirmation or affidavit is valid for 3 months.^
   <% end -%>
 
-  <% if ceremony_country == 'cambodia' %>
-    <%= render partial: 'fee_and_required_supporting_documents_for_appointment.govspeak.erb' %>
-
-    <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
-    <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
-
-  <% elsif ceremony_country == 'egypt' %>
+  <% if ceremony_country == 'egypt' %>
     <%= render partial: 'required_supporting_documents_egypt.govspeak.erb' %>
 
     <% if partner_nationality == 'partner_local' %>
@@ -170,7 +164,7 @@
 
 
     <% end %>
-  <% else %>
+  <% elsif ceremony_country != 'cambodia' %>
     <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
     <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
 
