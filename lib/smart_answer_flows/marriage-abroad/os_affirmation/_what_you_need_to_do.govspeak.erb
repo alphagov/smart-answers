@@ -247,7 +247,7 @@
   <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
 <% end %>
 
-<% if %w(cambodia china ecuador egypt morocco philippines turkey).exclude?(ceremony_country) %>
+<% if %w(cambodia china ecuador egypt morocco philippines turkey united-arab-emirates).exclude?(ceremony_country) %>
   <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
 <% end %>
 <% if %w(cambodia ecuador morocco philippines turkey).exclude?(ceremony_country) %>
