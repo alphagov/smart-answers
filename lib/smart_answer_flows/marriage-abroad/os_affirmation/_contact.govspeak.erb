@@ -9,7 +9,8 @@
 <% elsif resident_of == 'ceremony_country' || ceremony_country == 'qatar' %>
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
              locals: {
-               country_name_lowercase_prefix: country_name_lowercase_prefix
+               country_name_lowercase_prefix: country_name_lowercase_prefix,
+               ceremony_country: ceremony_country
              } %>
   <% if ceremony_country == 'qatar' %>
     <%= render partial: 'gulf_states_os_consular_cni.govspeak.erb',
@@ -25,7 +26,8 @@
 <% elsif resident_of == 'third_country' %>
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
              locals: {
-               country_name_lowercase_prefix: country_name_lowercase_prefix
+               country_name_lowercase_prefix: country_name_lowercase_prefix,
+               ceremony_country: ceremony_country
              } %>
   <% if ceremony_country == 'morocco' %>
     <%= render partial: 'contact_laadoul.govspeak.erb' %>

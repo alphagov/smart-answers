@@ -1,6 +1,6 @@
 Marriage in Poland
 
-Contact the relevant local authorities in Poland to find out about local marriage laws, including what documents you’ll need.
+Contact the relevant local authorities in Poland (the local registry office or church) to find out about local marriage laws, including what documents you’ll need.
 
 
 ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
@@ -12,28 +12,19 @@ Contact the relevant local authorities in Poland to find out about local marriag
 You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
 
 
-To get a CNI, you must post notice of your intended marriage in Poland. You can do this at the British embassy or in front of a notary public.
+To get a CNI, you must post notice of your intended marriage in Poland. You can do this at the British embassy in Poland.
 
+CNIs issued in Poland are valid for 6 months.
 
 You need to have been living in Poland for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
 
 [Make an appointment at the embassy in Warsaw.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-warsaw/notice-of-marriage-or-civil-partnership/slot_picker)
-
-You’ll need to provide supporting documents, including:
-
-- your passport
-- proof of residence, such as a residence certificate - check with the embassy or notary public to find out what you need
-- equivalent documents for your partner
-
 
 If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
 - a [decree absolute or final order](/copy-decree-absolute-final-order)
 - a civil partnership dissolution or annulment certificate
 - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
-
-
-^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
 
 You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
@@ -51,28 +42,25 @@ $D
 
 ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
 
-###What happens next
+## What happens next
 
-The embassy or notary public will charge a fee for taking the oath.
+The embassy will display your notice of marriage publicly for 7 days. They’ll then send all of your documentation to the British embassy or consulate, who will issue your CNI (as long as nobody has registered an objection).
 
-If you give notice at a notary public, you must post the signed forms and any supporting documents to your nearest British embassy or consulate afterwards.
+You can collect the CNI from the embassy or ask for it it to be sent by post to an address in Poland.
 
-^The embassy or consulate may charge a fee to return your documents to you.^
+^The embassy may charge a fee to return your documents to you.^
 
-The consulate will display your notice of marriage publicly for 7 days.
-
-They’ll then send all of your documentation to the British embassy or consulate nearest to where you’re getting married in Poland, who will issue your CNI (as long as nobody has registered an objection).
-
-There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
-
-
+You should check with the local registry office in Poland if your CNI needs to be legalised (certified as genuine).
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
-You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in Poland.
-
-
 ^You don't need to stay in the country while your notice is posted.^
+
+
+
+If you’re getting married in a registry office, you must give them your CNI at least 2 months before your wedding. If you’re getting married in a church, you can do this 2 days before the wedding.
+
+You may be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
 
 ##Fees
 
