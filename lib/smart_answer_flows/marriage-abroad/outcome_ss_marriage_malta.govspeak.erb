@@ -15,7 +15,10 @@
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } %>
 
-  <%= render partial: 'documents_needed_21_days_residency.govspeak.erb' %>
+  <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
+             locals: {
+               country_name_lowercase_prefix: country_name_lowercase_prefix
+             } %>
 
   <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
 
