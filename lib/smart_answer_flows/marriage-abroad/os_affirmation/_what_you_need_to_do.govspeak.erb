@@ -57,6 +57,10 @@
 
 <% elsif ceremony_country == 'vietnam' %>
   Make an appointment at the British embassy in <%= country_name_lowercase_prefix %> to swear an affidavit (written statement of facts) that you’re free to marry.
+<% elsif ceremony_country == 'cambodia' %>
+  Make an appointment at the British embassy or consulate in Cambodia to swear an affidavit (written statement of facts) that you’re free to marry.
+
+  You’ll need to bring your passport, your partner’s passport (or Cambodian ID card) and pay a fee.
 <% else %>
   <%= render partial: 'appointment_for_affidavit.govspeak.erb',
              locals: {
