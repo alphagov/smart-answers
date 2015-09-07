@@ -31,9 +31,13 @@
 
   Once you’ve submitted these and paid the registration fee, the high commission will display your notice publicly for 14 days.
 
-  <%= render partial: 'no_objection_in_14_days_ss_marriage_and_partnership.govspeak.erb' %>
+  <%= render partial: 'no_objection_ss_marriage_and_partnership.govspeak.erb' %>
 
   <%= render partial: 'provide_two_witnesses_ss_marriage_and_partnership.govspeak.erb' %>
+  <%= render partial: 'pay_for_ss_registration_and_certificate.govspeak.erb',
+             locals: {
+               marriage_and_partnership_phrases: marriage_and_partnership_phrases
+             } %>
 
   ^All same-sex marriages must take place under English and Welsh or Scottish law even if you live in or are from Northern Ireland. Tell the high commission which law you want to get married under at your appointment.^
 
