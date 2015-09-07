@@ -51,7 +51,11 @@
   <% end %>
 
   <% unless ceremony_country == 'japan' %>
-    <%= render partial: 'documents_needed_21_days_residency.govspeak.erb' %>
+    <% if ceremony_country == 'cambodia' %>
+      You’ll both need to bring proof that you’ve been resident in Cambodia for the last 7 days.
+    <% else %>
+      <%= render partial: 'documents_needed_21_days_residency.govspeak.erb' %>
+    <% end %>
 
     <% if partner_nationality == 'partner_british' %>
       <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
