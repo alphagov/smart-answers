@@ -60,6 +60,10 @@
   <% unless ceremony_country == 'japan' %>
     <% if ceremony_country == 'vietnam' %>
       You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.
+    <% elsif ceremony_country == 'cambodia' %>
+      ##What documents you’ll need
+
+      You’ll both need to bring proof that you’ve been resident in Cambodia for the last 7 days.
     <% else %>
       <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
            locals: {
