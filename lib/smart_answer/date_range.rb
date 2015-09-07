@@ -42,7 +42,7 @@ module SmartAnswer
     end
 
     def ==(other)
-      eql?(other)
+      other.is_a?(DateRange) && ([begins_on, ends_on] == [other.begins_on, other.ends_on])
     end
 
     def eql?(other)

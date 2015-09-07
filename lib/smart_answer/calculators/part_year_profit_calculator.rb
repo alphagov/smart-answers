@@ -18,11 +18,7 @@ module SmartAnswer
       def basis_period
         begins_on = [accounting_period.begins_on, started_trading_on].compact.max
         ends_on   = stopped_trading_on || accounting_period.ends_on
-        if begins_on == accounting_period.begins_on && ends_on == accounting_period.ends_on
-          accounting_period
-        else
-          DateRange.new(begins_on: begins_on, ends_on: ends_on)
-        end
+        DateRange.new(begins_on: begins_on, ends_on: ends_on)
       end
 
       def accounting_period

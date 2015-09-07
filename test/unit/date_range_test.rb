@@ -63,13 +63,18 @@ module SmartAnswer
         refute @date_range == DateRange.new(begins_on: @date_range.begins_on, ends_on: @date_range.ends_on + 1)
       end
 
-      should 'not equal an object which is not a DateRange' do
+      should 'equal an object which is a subclass of DateRange' do
         sub_class_instance = Class.new(DateRange).new(begins_on: @date_range.begins_on, ends_on: @date_range.ends_on)
-        refute @date_range == sub_class_instance
+        assert @date_range == sub_class_instance
       end
 
       should 'be equivalent to another DateRange with the same begins_on & ends_on' do
         assert @date_range.eql?(@date_range.dup)
+      end
+
+      should 'not be equivalent to an object which is a subclass of DateRange' do
+        sub_class_instance = Class.new(DateRange).new(begins_on: @date_range.begins_on, ends_on: @date_range.ends_on)
+        refute @date_range.eql?(sub_class_instance)
       end
 
       should 'have same hash as another DateRange with the same begins_on & ends_on' do
