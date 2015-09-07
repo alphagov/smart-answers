@@ -164,6 +164,14 @@
 
 
     <% end %>
+  <% elsif ceremony_country == 'thailand' %>
+    You can prepare the affirmation in advance using a [template](/government/publications/information-for-british-nationals-intending-to-marry-in-thailand). You must type this out and take it with you to your appointment.
+
+    <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
+    <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
+
+    You’ll need to get your affirmation [translated](/government/collections/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the [Ministry of Foreign Affairs](http://www.mfa.go.th/main/en/services/16265-Naturalization-Legalization.html) in Thailand.
+
   <% elsif ceremony_country != 'cambodia' %>
     <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
     <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
@@ -240,11 +248,15 @@
   You must bring photocopies of all your supporting documents.
 
 
+<% elsif ceremony_country == 'thailand' %>
+  If you’ve been divorced or widowed, you’ll need the original [decree absolute or final order](/copy-decree-absolute-final-order) or the [death certificate](/order-copy-birth-death-marriage-certificate/).
+  Documents issued outside the UK or <%= country_name_lowercase_prefix %> must be certified by the country’s embassy in <%= country_name_lowercase_prefix %>, and [translated](/government/collections/list-of-lawyers) if they’re not in English.
+
 <% elsif ceremony_country != 'turkey' %>
   <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
 <% end %>
 
-<% if %w(cambodia china ecuador egypt morocco philippines turkey united-arab-emirates).exclude?(ceremony_country) %>
+<% if %w(cambodia china ecuador egypt morocco philippines thailand turkey united-arab-emirates).exclude?(ceremony_country) %>
   <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
 <% end %>
 <% if %w(cambodia ecuador morocco philippines turkey).exclude?(ceremony_country) %>
@@ -308,6 +320,12 @@
       The Ministry of Foreign Affairs will issue an approval letter which you’ll need to take to the Ministry of Interior. The Ministry of Interior may ask you to complete additional forms and will give you an approval letter.
 
       You’ll need to take the approval letters to your local Sangkat for the marriage registration.
+    <% end %>
+
+    <% if ceremony_country == 'thailand' && resident_of == 'uk' %>
+      ## What happens next
+
+      You must present your approved affirmation for marriage to a local registrar in <%= country_name_lowercase_prefix %>. They will register the marriage and provide you with 2 marriage certificates.
     <% end %>
 
     <% if partner_nationality != 'partner_british' %>
