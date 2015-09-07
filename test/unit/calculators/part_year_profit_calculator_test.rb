@@ -23,6 +23,43 @@ module SmartAnswer
         end
       end
 
+      context 'validation of start trading date' do
+        setup do
+          @calculator = PartYearProfitCalculator.new
+        end
+
+        context 'when the business is still trading' do
+          setup do
+            @calculator.tax_credits_award_ends_on = Date.parse('2015-08-01')
+          end
+
+          should 'be valid if the date is before the date the tax credits award ends' do
+            assert @calculator.valid_start_trading_date?(Date.parse('2015-07-31'))
+          end
+
+          should 'be invalid if the date is on or after the date the tax credits award ends' do
+            refute @calculator.valid_start_trading_date?(Date.parse('2015-08-01'))
+            refute @calculator.valid_start_trading_date?(Date.parse('2016-01-01'))
+          end
+        end
+
+        context 'when the business stops trading before the tax credits award ends' do
+          setup do
+            @calculator.tax_credits_award_ends_on = Date.parse('2015-08-01')
+            @calculator.stopped_trading_on        = Date.parse('2015-07-01')
+          end
+
+          should 'be valid if the date is before the date the business stopped trading' do
+            assert @calculator.valid_start_trading_date?(Date.parse('2015-06-30'))
+          end
+
+          should 'be invalid if the date is on or after the date the business stopped trading' do
+            refute @calculator.valid_start_trading_date?(Date.parse('2015-07-01'))
+            refute @calculator.valid_start_trading_date?(Date.parse('2016-01-01'))
+          end
+        end
+      end
+
       context 'tax year' do
         setup do
           @tax_credits_award_ends_on = Date.parse('2016-02-20')

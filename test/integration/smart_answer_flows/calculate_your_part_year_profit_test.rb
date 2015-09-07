@@ -31,10 +31,14 @@ class CalculateYourPartYearProfitTest < ActiveSupport::TestCase
     end
 
     context "but their accounts don't cover a 12 month period" do
-      should 'reach the unsupported outcome' do
+      should 'ask for their start trading date and display the result outcome' do
         assert_current_node :do_your_accounts_cover_a_12_month_period?
         add_response 'no'
-        assert_current_node :unsupported
+        assert_current_node :when_did_you_start_trading?
+        add_response '2015-08-01'
+        assert_current_node :what_is_your_taxable_profit?
+        add_response '15000'
+        assert_current_node :result
       end
     end
   end
@@ -62,10 +66,16 @@ class CalculateYourPartYearProfitTest < ActiveSupport::TestCase
     end
 
     context "and they started trading after the relevant accounting period started" do
-      should "reach the unsupported outcome" do
+      should "ask for their start trading date, stop trading date and taxable profit before displaying the result" do
         assert_current_node :did_you_start_trading_before_the_relevant_accounting_period?
         add_response 'no'
-        assert_current_node :unsupported
+        assert_current_node :when_did_you_start_trading?
+        add_response '2015-08-01'
+        assert_current_node :when_did_you_stop_trading?
+        add_response '2016-02-20'
+        assert_current_node :what_is_your_taxable_profit?
+        add_response '15000'
+        assert_current_node :result
       end
     end
   end

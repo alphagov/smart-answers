@@ -4,11 +4,16 @@ module SmartAnswer
       include ActiveModel::Model
 
       attr_accessor :tax_credits_award_ends_on, :accounts_end_month_and_day, :taxable_profit
+      attr_accessor :stopped_trading
       attr_accessor :started_trading_on
       attr_accessor :stopped_trading_on
 
       def valid_stopped_trading_date?(date)
         tax_year.include?(date)
+      end
+
+      def valid_start_trading_date?(date)
+        date < tax_credits_part_year.ends_on
       end
 
       def tax_year

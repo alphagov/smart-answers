@@ -32,8 +32,10 @@ module SmartAnswer
 
         next_node do |response|
           if response == 'yes'
+            calculator.stopped_trading = true
             :did_you_start_trading_before_the_relevant_accounting_period?
           elsif response == 'no'
+            calculator.stopped_trading = false
             :do_your_accounts_cover_a_12_month_period?
           end
         end
@@ -49,7 +51,7 @@ module SmartAnswer
           if response == "yes"
             :when_did_you_stop_trading?
           elsif response == "no"
-            :unsupported
+            :when_did_you_start_trading?
           end
         end
       end
@@ -79,7 +81,27 @@ module SmartAnswer
           if response == "yes"
             :what_is_your_taxable_profit?
           else
-            :unsupported
+            :when_did_you_start_trading?
+          end
+        end
+      end
+
+      date_question :when_did_you_start_trading? do
+        from { 2.years.ago }
+        to   { 4.years.from_now }
+
+        precalculate(:tax_credits_part_year_ends_on) { calculator.tax_credits_part_year.ends_on }
+
+        validate(:invalid_start_trading_date) do |response|
+          calculator.valid_start_trading_date?(response)
+        end
+
+        next_node do |response|
+          calculator.started_trading_on = response
+          if calculator.stopped_trading
+            :when_did_you_stop_trading?
+          else
+            :what_is_your_taxable_profit?
           end
         end
       end

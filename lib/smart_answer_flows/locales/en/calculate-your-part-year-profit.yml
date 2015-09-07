@@ -33,6 +33,13 @@ en-GB:
         hint: This is the last date of the accounting period for your business. For most people, this will be 5 April.
       do_your_accounts_cover_a_12_month_period?:
         title: Do your accounts cover a 12 month period?
+      when_did_you_start_trading?:
+        title: "When did you start trading?"
+        hint:
+          This date must be before %{tax_credits_part_year_ends_on},
+          which is the earlier of either the date your Tax Credits Award ends or the date your business stopped trading.
+        invalid_start_trading_date:
+          The start trading date must be before the date your Tax Credits Award ends.
       what_is_your_taxable_profit?:
         title: What is your actual or estimated taxable profit between %{basis_period_begins_on} and %{basis_period_ends_on}?
         hint:

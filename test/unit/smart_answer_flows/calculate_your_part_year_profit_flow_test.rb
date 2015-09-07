@@ -54,6 +54,10 @@ module SmartAnswer
           setup_states_for_question(:have_you_stopped_trading?, responding_with: 'yes', calculator: @calculator)
         end
 
+        should 'set stopped_trading to true on the calculator' do
+          assert_equal true, @calculator.stopped_trading
+        end
+
         should 'go to did_you_start_trading_before_the_relevant_accounting_period? question' do
           assert_equal :did_you_start_trading_before_the_relevant_accounting_period?, @new_state.current_node
           assert_node_exists :did_you_start_trading_before_the_relevant_accounting_period?
@@ -63,6 +67,10 @@ module SmartAnswer
       context 'responding with no' do
         setup do
           setup_states_for_question(:have_you_stopped_trading?, responding_with: 'no', calculator: @calculator)
+        end
+
+        should 'set stopped_trading to false on the calculator' do
+          assert_equal false, @calculator.stopped_trading
         end
 
         should 'go to do_your_accounts_cover_a_12_month_period? question' do
@@ -99,9 +107,73 @@ module SmartAnswer
           setup_states_for_question(:did_you_start_trading_before_the_relevant_accounting_period?, responding_with: 'no', calculator: @calculator)
         end
 
-        should 'go to unsupported outcome' do
-          assert_equal :unsupported, @new_state.current_node
-          assert_node_exists :unsupported
+        should 'go to when_did_you_start_trading question' do
+          assert_equal :when_did_you_start_trading?, @new_state.current_node
+          assert_node_exists :when_did_you_start_trading?
+        end
+      end
+    end
+
+    context 'when answering when_did_you_start_trading? question' do
+      setup do
+        tax_credits_part_year = DateRange.new(
+          begins_on: Date.parse('2015-04-06'),
+          ends_on:   Date.parse('2015-08-01')
+        )
+        @calculator.stubs(:tax_credits_part_year).returns(tax_credits_part_year)
+        setup_states_for_question(:when_did_you_start_trading?, responding_with: '2015-02-01', calculator: @calculator)
+      end
+
+      should 'set the from date of the date select to 2 years ago from now' do
+        assert_equal Date.today.year - 2, @question.range.begin.year
+      end
+
+      should 'set the to date of the date select to 4 years from now' do
+        assert_equal Date.today.year + 4, @question.range.end.year
+      end
+
+      should 'make tax_credits_part_year_ends_on available' do
+        assert_equal Date.parse('2015-08-01'), @new_state.tax_credits_part_year_ends_on
+      end
+
+      should 'store parsed response on calculator as started_trading_on' do
+        assert_equal Date.parse('2015-02-01'), @calculator.started_trading_on
+      end
+
+      context 'responding with an invalid start trading date' do
+        setup do
+          @calculator.stubs(:valid_start_trading_date?).returns(false)
+        end
+
+        should 'raise an exception' do
+          exception = assert_raise(SmartAnswer::InvalidResponse) do
+            setup_states_for_question(:when_did_you_start_trading?, responding_with: '0000-01-01', calculator: @calculator)
+          end
+          assert_equal 'invalid_start_trading_date', exception.message
+        end
+      end
+
+      context 'and the business has stopped trading' do
+        setup do
+          @calculator.stopped_trading = true
+          setup_states_for_question(:when_did_you_start_trading?, responding_with: '0000-01-01', calculator: @calculator)
+        end
+
+        should 'go to when_did_you_stop_trading? question' do
+          assert_equal :when_did_you_stop_trading?, @new_state.current_node
+          assert_node_exists :when_did_you_stop_trading?
+        end
+      end
+
+      context 'and the business is still trading' do
+        setup do
+          @calculator.stopped_trading = false
+          setup_states_for_question(:when_did_you_start_trading?, responding_with: '0000-01-01', calculator: @calculator)
+        end
+
+        should 'go to when_did_you_stop_trading? question' do
+          assert_equal :what_is_your_taxable_profit?, @new_state.current_node
+          assert_node_exists :what_is_your_taxable_profit?
         end
       end
     end
@@ -169,9 +241,9 @@ module SmartAnswer
           setup_states_for_question(:do_your_accounts_cover_a_12_month_period?, responding_with: 'no', calculator: @calculator)
         end
 
-        should 'go to unsupported outcome' do
-          assert_equal :unsupported, @new_state.current_node
-          assert_node_exists :unsupported
+        should 'go to when_did_you_start_trading question' do
+          assert_equal :when_did_you_start_trading?, @new_state.current_node
+          assert_node_exists :when_did_you_start_trading?
         end
       end
     end
