@@ -79,6 +79,41 @@ module SmartAnswer
           expected_range = DateRange.new(begins_on: Date.parse('2015-01-01'), ends_on: Date.parse('2015-02-01'))
           assert_equal expected_range, @calculator.basis_period
         end
+
+        context 'when the business commenced trading in the accounting year that ends in the tax year within which tax credits award ends' do
+          setup do
+            @calculator = PartYearProfitCalculator.new
+            @calculator.tax_credits_award_ends_on  = Date.parse('2016-02-01')
+            @calculator.accounts_end_month_and_day = Date.parse('0000-04-05')
+            @calculator.started_trading_on         = Date.parse('2015-05-01')
+          end
+
+          context 'and the business is still trading' do
+            should 'return the period between the commenced trading date and the accounting date that falls in the tax year within which tax credits award ends' do
+              expected_basis_period = DateRange.new(
+                begins_on: Date.parse('2015-05-01'),
+                ends_on:   Date.parse('2016-04-05')
+              )
+
+              assert_equal expected_basis_period, @calculator.basis_period
+            end
+          end
+
+          context 'and the business stops trading' do
+            setup do
+              @calculator.stopped_trading_on = Date.parse('2016-03-01')
+            end
+
+            should 'return the period between the commenced trading date and the stopped trading date' do
+              expected_basis_period = DateRange.new(
+                begins_on: Date.parse('2015-05-01'),
+                ends_on:   Date.parse('2016-03-01')
+              )
+
+              assert_equal expected_basis_period, @calculator.basis_period
+            end
+          end
+        end
       end
 
       context 'accounting period' do
