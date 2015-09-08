@@ -124,6 +124,33 @@
     <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
 
   <% end %>
+  <% if ceremony_country == 'united-arab-emirates' %>
+    ^If you have dual nationality and you entered the United Arab Emirates on a non-British passport, you must contact the embassy of that country to get your affirmation or affidavit.^
+
+    <%= render partial: 'os_affirmation/partner_probably_needs_affirmation_affidavit_callout.govspeak.erb' %>
+
+    ### What you need to take
+
+    You’ll need to take all of the following to your appointment:
+
+    - your completed and typed affirmation or affidavit – you’ll be sent the form by email after booking your appointment
+    - your passport and UAE residency or entry visa
+    - the residency visa/UAE entry stamp in your partner’s passport if they’re resident in the United Arab Emirates
+    - a copy of your partner’s passport or ID if they aren’t resident in the United Arab Emirates
+    - proof of full residential address such as a utility bill, eg DEWA bill, rental contract, title deed
+
+    If your rental contract is in your company’s name, you need to take both of the following:
+
+    - a letter from your company stating your home address and confirming that they’re providing you with accommodation
+    - a copy of the tenancy contract
+
+    If you’re living with your parents or a friend, you need to take both of the following:
+
+    - a letter from the holder of the tenancy contract stating that you’re living in that property
+    - a copy of the tenancy holder’s passport and a copy of the tenancy contract
+
+    ^A marriage affirmation or affidavit is valid for 3 months.^
+  <% end -%>
 
   <% if ceremony_country == 'cambodia' %>
     <%= render partial: 'fee_and_required_supporting_documents_for_appointment.govspeak.erb' %>
@@ -219,7 +246,7 @@
   <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
 <% end %>
 
-<% if %w(cambodia china ecuador egypt morocco philippines turkey).exclude?(ceremony_country) %>
+<% if %w(cambodia china ecuador egypt morocco philippines turkey united-arab-emirates).exclude?(ceremony_country) %>
   <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
 <% end %>
 <% if %w(cambodia ecuador morocco philippines turkey).exclude?(ceremony_country) %>
@@ -257,7 +284,7 @@
 
     <% else %>
       <% if ceremony_country == 'china' && partner_nationality != 'partner_local' %>
-        ^Your partner will probably need to get an affirmation or affidavit as well.^
+        <%= render partial: 'os_affirmation/partner_probably_needs_affirmation_affidavit_callout.govspeak.erb' %>
 
 
       <% else %>
