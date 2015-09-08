@@ -238,10 +238,10 @@ class WorldLocationTest < ActiveSupport::TestCase
 
     context "accessing the FCO organisation" do
       setup do
-        @org1 = stub(:fco_sponsored? => false)
-        @org2 = stub(:fco_sponsored? => true)
-        @org3 = stub(:fco_sponsored? => false)
-        @org4 = stub(:fco_sponsored? => true)
+        @org1 = stub(fco_sponsored?: false)
+        @org2 = stub(fco_sponsored?: true)
+        @org3 = stub(fco_sponsored?: false)
+        @org4 = stub(fco_sponsored?: true)
       end
 
       should "return the fco sponsored org" do

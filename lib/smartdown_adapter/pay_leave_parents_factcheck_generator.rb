@@ -34,7 +34,7 @@ module SmartdownAdapter
           combination.each do |answer_hash|
             combination_hash[answer_hash.keys.first] = answer_hash.values.first
           end
-          combination_hash.merge(:outcome => key)
+          combination_hash.merge(outcome: key)
         end
       end
       birth_hashes = combination_hashes

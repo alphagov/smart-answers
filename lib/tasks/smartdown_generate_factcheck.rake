@@ -40,31 +40,31 @@ namespace :smartdown_generate_factcheck do
 
   def pay_leave_for_parents_combinations(date)
     {
-        :circumstance => ["adoption", "birth"],
-        :two_carers => ["yes", "no"],
-        :due_date => [date],
-        :match_date => [date],
-        :placement_date => ["2014-4-5"],
-        :employment_status_1 => ["employee", "worker", "self-employed", "unemployed"],
-        :employment_status_2 => ["employee", "worker", "self-employed", "unemployed"],
-        :job_before_x_1 => ["yes", "no"],
-        :job_after_y_1 => ["yes", "no"],
-        :salary_1 => ["400-week"],
-        :lel_1 => ["yes", "no"],
-        :work_employment_1 => ["yes", "no"],
-        :earnings_employment_1 => ["yes", "no"],
-        :salary_1_66_weeks => ["400-week"],
-        :job_before_x_2 => ["yes", "no"],
-        :job_after_y_2 => ["yes", "no"],
-        :salary_2 => ["400-week"],
-        :lel_2 => ["yes", "no"],
-        :work_employment_2 => ["yes", "no"],
-        :earnings_employment_2 => ["yes", "no"],
+        circumstance: ["adoption", "birth"],
+        two_carers: ["yes", "no"],
+        due_date: [date],
+        match_date: [date],
+        placement_date: ["2014-4-5"],
+        employment_status_1: ["employee", "worker", "self-employed", "unemployed"],
+        employment_status_2: ["employee", "worker", "self-employed", "unemployed"],
+        job_before_x_1: ["yes", "no"],
+        job_after_y_1: ["yes", "no"],
+        salary_1: ["400-week"],
+        lel_1: ["yes", "no"],
+        work_employment_1: ["yes", "no"],
+        earnings_employment_1: ["yes", "no"],
+        salary_1_66_weeks: ["400-week"],
+        job_before_x_2: ["yes", "no"],
+        job_after_y_2: ["yes", "no"],
+        salary_2: ["400-week"],
+        lel_2: ["yes", "no"],
+        work_employment_2: ["yes", "no"],
+        earnings_employment_2: ["yes", "no"],
     }
   end
 
   desc "Generate factcheck files for pay and leave for parents"
-  task :pay_leave_for_parents => :environment do
+  task pay_leave_for_parents: :environment do
     dates = ["2015-4-5", "2014-4-5"]
     dates.each do |date|
       generator = SmartdownAdapter::PayLeaveParentsFactcheckGenerator.new(
@@ -78,7 +78,7 @@ namespace :smartdown_generate_factcheck do
   end
 
   desc "Generate diff of factcheck files for pay and leave for parents"
-  task :diff_pay_leave_for_parents => :environment do
+  task diff_pay_leave_for_parents: :environment do
     dates = ["2015-4-5", "2014-4-5"]
     dates.each do |date|
       generator = SmartdownAdapter::PayLeaveParentsFactcheckGenerator.new(
@@ -90,7 +90,7 @@ namespace :smartdown_generate_factcheck do
       new_factcheck_content = generator.perform
       old_factcheck_content = File.read(generator.factcheck_file_path)
       p "Diff for #{date}"
-      p Diffy::Diff.new(old_factcheck_content, new_factcheck_content, :context => 0)
+      p Diffy::Diff.new(old_factcheck_content, new_factcheck_content, context: 0)
     end
   end
 end

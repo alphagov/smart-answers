@@ -16,7 +16,7 @@ def check_links(links_to_check, broken, file)
 
       puts "Checking link: #{link}"
       unless response.class == Net::HTTPOK
-        new_hash = { :link => link, :resp => response.code, :file => file }
+        new_hash = { link: link, resp: response.code, file: file }
         if response.code[0] == "3"
           new_hash[:redirect] = response.header['location']
         end

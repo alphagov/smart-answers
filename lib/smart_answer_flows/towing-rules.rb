@@ -24,14 +24,14 @@ module SmartAnswer
 
       ## Q2A
       multiple_choice :how_long_entitlements? do
-        option :"before-19-Jan-2013" => :car_light_vehicle_entitlement #A3
-        option :"after-19-Jan-2013" => :full_entitlement #A4
+        option "before-19-Jan-2013": :car_light_vehicle_entitlement #A3
+        option "after-19-Jan-2013": :full_entitlement #A4
       end
 
       ## Q5
       multiple_choice :date_licence_was_issued? do
-        option :"licence-issued-before-19-Jan-2013" => :limited_trailer_entitlement #A6
-        option :"licence-issued-after-19-Jan-2013" => :limited_trailer_entitlement_2013 #A7
+        option "licence-issued-before-19-Jan-2013": :limited_trailer_entitlement #A6
+        option "licence-issued-after-19-Jan-2013": :limited_trailer_entitlement_2013 #A7
       end
 
       ## Medium sized vehicles

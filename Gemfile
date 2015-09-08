@@ -22,13 +22,13 @@ gem 'therubyracer', '~> 0.12.1'
 gem 'uglifier'
 
 if ENV['SMARTDOWN_DEV']
-  gem 'smartdown', :path => '../smartdown'
+  gem 'smartdown', path: '../smartdown'
 else
   gem 'smartdown', '~> 0.15.1'
 end
 
 if ENV['API_DEV']
-  gem 'gds-api-adapters', :path => '../gds-api-adapters'
+  gem 'gds-api-adapters', path: '../gds-api-adapters'
 else
   gem 'gds-api-adapters', '20.1.1'
 end
@@ -37,13 +37,13 @@ gem 'htmlentities', '~> 4'
 gem 'extlib', '0.9.16'
 
 if ENV['SLIMMER_DEV']
-  gem 'slimmer', :path => '../slimmer'
+  gem 'slimmer', path: '../slimmer'
 else
   gem 'slimmer', '9.0.0'
 end
 
 if ENV['GOVSPEAK_DEV']
-  gem 'govspeak', :path => '../govspeak'
+  gem 'govspeak', path: '../govspeak'
 else
   gem 'govspeak', '~> 3.3.0'
 end
@@ -55,11 +55,11 @@ group :test do
   gem 'minitest', '~> 5.1'
   gem 'capybara', '2.1.0'
   gem 'ci_reporter'
-  gem 'mocha', '1.1.0', :require => false
+  gem 'mocha', '1.1.0', require: false
   gem 'shoulda', '~> 3.5.0'
-  gem 'webmock', '1.20.4', :require => false
-  gem 'simplecov', '~> 0.10.0', :require => false
-  gem 'simplecov-rcov', '~> 0.2.3', :require => false
+  gem 'webmock', '1.20.4', require: false
+  gem 'simplecov', '~> 0.10.0', require: false
+  gem 'simplecov-rcov', '~> 0.2.3', require: false
   gem 'poltergeist', '1.6.0'
   gem 'timecop'
 end
@@ -74,9 +74,9 @@ group :development do
 end
 
 if ENV['RUBY_DEBUG']
-  gem 'debugger', :require => "ruby-debug"
+  gem 'debugger', require: "ruby-debug"
 end
 
 group :analytics do
-  gem 'google-api-client', :require => 'google/api_client'
+  gem 'google-api-client', require: 'google/api_client'
 end
