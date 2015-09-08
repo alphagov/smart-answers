@@ -488,9 +488,9 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_response :missing
       end
 
-      context "when in production environment" do
+      context "when Rails.application.config.expose_govspeak is not set" do
         setup do
-          Rails.env.stubs(:production?).returns(true)
+          Rails.application.config.stubs(:expose_govspeak).returns(false)
         end
 
         should "render not found" do
