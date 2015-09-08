@@ -20,7 +20,7 @@ class SmartAnswersController < ApplicationController
           title: @presenter.current_node.title
         }
       }
-      if !Rails.env.production? && @presenter.render_txt?
+      if render_text?(@presenter)
         format.text {
           render
         }
@@ -51,7 +51,6 @@ class SmartAnswersController < ApplicationController
     end
   end
 
-
 private
 
   def debug?
@@ -61,6 +60,10 @@ private
 
   def json_request?
     request.format == Mime::JSON
+  end
+
+  def render_text?(presenter)
+    (!Rails.env.production? || ENV['EXPOSE_GOVSPEAK'].present?) && presenter.render_txt?
   end
 
   def with_format(format, &block)
