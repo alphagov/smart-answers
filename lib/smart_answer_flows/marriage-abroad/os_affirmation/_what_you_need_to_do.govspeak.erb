@@ -3,9 +3,9 @@
 <% elsif data_query.os_21_days_residency_required_countries?(ceremony_country) %>
   ##What you need to do
 
-  You need to have been living in the country where you intend to marry for 21 days.
+  You need to have been living in <%= country_name_lowercase_prefix %> for 21 days.
 
-  You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
+  You’ll be asked to provide an affirmation or affidavit to prove you’re allowed to marry.
 
 <% else %>
   <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
@@ -23,10 +23,10 @@
 
 <% elsif ceremony_country == 'china' %>
   <% if partner_nationality != 'partner_local' %>
-    Make an appointment at your local British embassy or consulate in China to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+    Make an appointment at your local British embassy or consulate in China to swear an affirmation or affidavit that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
   <% else %>
-    Make an appointment at the British embassy or consulate in China nearest to the address in your partner’s Hukou (family registration) book, to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s Hukou and pay a fee.
+    Make an appointment at the British embassy or consulate in China nearest to the address in your partner’s Hukou (family registration) book,  to swear an affirmation or affidavit that you’re free to marry. You’ll need to bring your passport, your partner’s Hukou and pay a fee.
 
   <% end %>
   <%= render partial: 'contact_method.govspeak.erb',
