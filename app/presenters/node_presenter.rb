@@ -7,8 +7,12 @@ class NodePresenter
     @state = state || SmartAnswer::State.new(nil)
   end
 
+  def i18n_node_prefix
+    "#{@i18n_prefix}.#{@node.name}"
+  end
+
   def translate!(subkey)
-    I18n.translate!("#{@i18n_prefix}.#{@node.name}.#{subkey}", state_for_interpolation)
+    I18n.translate!("#{i18n_node_prefix}.#{subkey}", state_for_interpolation)
   rescue I18n::MissingTranslationData
     nil
   end
