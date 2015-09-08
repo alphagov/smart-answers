@@ -57,6 +57,10 @@
 
 <% elsif ceremony_country == 'vietnam' %>
   Make an appointment at the British embassy in <%= country_name_lowercase_prefix %> to swear an affidavit (written statement of facts) that you’re free to marry.
+<% elsif ceremony_country == 'cambodia' %>
+  Make an appointment at the British embassy or consulate in Cambodia to swear an affidavit (written statement of facts) that you’re free to marry.
+
+  You’ll need to bring your passport, your partner’s passport (or Cambodian ID card) and pay a fee.
 <% else %>
   <%= render partial: 'appointment_for_affidavit.govspeak.erb',
              locals: {
@@ -152,13 +156,7 @@
     ^A marriage affirmation or affidavit is valid for 3 months.^
   <% end -%>
 
-  <% if ceremony_country == 'cambodia' %>
-    <%= render partial: 'fee_and_required_supporting_documents_for_appointment.govspeak.erb' %>
-
-    <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
-    <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
-
-  <% elsif ceremony_country == 'egypt' %>
+  <% if ceremony_country == 'egypt' %>
     <%= render partial: 'required_supporting_documents_egypt.govspeak.erb' %>
 
     <% if partner_nationality == 'partner_local' %>
@@ -166,7 +164,7 @@
 
 
     <% end %>
-  <% else %>
+  <% elsif ceremony_country != 'cambodia' %>
     <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
     <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
 
@@ -292,9 +290,29 @@
         <% if %w(belgium cambodia ecuador).include?(ceremony_country) %>
           <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
         <% end %>
-        <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
-
       <% end %>
     <% end %>
+
+    <% if ceremony_country == 'cambodia' %>
+      ## What happens next
+
+      You’ll need to take the following to the Ministry of Foreign Affairs:
+
+      - your affirmation
+      - a certified copy of your passport
+      - your birth certificate or naturalisation certificate
+      - proof of residence, eg a residence certificate - check with the embassy or consulate for advice
+
+      You’ll be asked to provide a criminal record check – check with the embassy how to do this.
+
+      The Ministry of Foreign Affairs will issue an approval letter which you’ll need to take to the Ministry of Interior. The Ministry of Interior may ask you to complete additional forms and will give you an approval letter.
+
+      You’ll need to take the approval letters to your local Sangkat for the marriage registration.
+    <% end %>
+
+    <% if partner_nationality != 'partner_british' %>
+      <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+    <% end %>
+
   <% end %>
 <% end %>

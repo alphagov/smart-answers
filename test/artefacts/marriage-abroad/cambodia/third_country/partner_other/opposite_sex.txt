@@ -1,52 +1,24 @@
 Marriage in Cambodia
 
 
-Contact the relevant local authorities in Cambodia to find out about local marriage laws, including what documents you’ll need.
+Contact the relevant local authorities in Cambodia (the local district office, ‘Sangkat’, and the Ministry of Foreign Affairs) to find out about local marriage laws, including what documents you’ll need.
 
 
 
+%There are certain restrictions on getting married in Cambodia if neither of you is Cambodian. If neither of you is Cambodian, you must check with both the Ministry of Foreign Affairs and the local Sangkat to find out if if you can get married.%
 
 ##What you need to do
 
 You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
 
 
-Make an appointment at the British embassy or consulate in Cambodia to swear an affirmation or affidavit that you’re free to marry. You’ll need to bring your passport and pay a fee.
+Make an appointment at the British embassy or consulate in Cambodia to swear an affidavit (written statement of facts) that you’re free to marry.
+
+You’ll need to bring your passport, your partner’s passport (or Cambodian ID card) and pay a fee.
+
+[Make an appointment at the embassy in Phnom Penh.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-phnom-penh/oaths-affirmations-and-affidavits/slot_picker)
 
 
-
-
-$A
-British Embassy Phnom Penh
-27-29 Street 75, Sangkat Srah Chak, Khan Daun Penh
-Phnom Penh
-12201
-Cambodia
-$A
-
-$C
-Telephone: +855 (0) 23 427124
-Fax: +855 (0) 23 427125
-
-Email: <britemb@online.com.kh>
-
-[British Embassy Phnom Penh - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-phnom-penh/office/british-embassy-phnom-penh)
-$C
-
-
-
-
-
-You’ll need to pay a fee and bring the following to your appointment:
-
-- your passport
-- your [birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-- proof of residence, eg a residence certificate - check with the embassy or consulate for advice
-
-
-###Legalisation and translation
-
-You’ll need to get your affirmation or affidavit [translated](/government/collections/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
 
 
 
@@ -64,6 +36,22 @@ You’ll also need to provide evidence if you’ve changed your name by deed pol
 ^Your partner will probably need to get an equivalent document from their national authorities.^
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+
+
+## What happens next
+
+You’ll need to take the following to the Ministry of Foreign Affairs:
+
+- your affirmation
+- a certified copy of your passport
+- your birth certificate or naturalisation certificate
+- proof of residence, eg a residence certificate - check with the embassy or consulate for advice
+
+You’ll be asked to provide a criminal record check – check with the embassy how to do this.
+
+The Ministry of Foreign Affairs will issue an approval letter which you’ll need to take to the Ministry of Interior. The Ministry of Interior may ask you to complete additional forms and will give you an approval letter.
+
+You’ll need to take the approval letters to your local Sangkat for the marriage registration.
 
 ##Naturalisation of your partner if they move to the UK
 
