@@ -131,6 +131,10 @@ class SmartAnswerPresenter
     presenter_for(@flow.node(current_state.current_node))
   end
 
+  def start_node
+    self
+  end
+
   def change_collapsed_question_link(question_number)
     smart_answer_path(
       id: @params[:id],
