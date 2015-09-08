@@ -1,0 +1,4 @@
+Calculate holiday entitlement
+
+Calculate statutory holiday entitlement in days or hours for a full leave year or work out holiday someone is entitled to when they start or leave a job part way through a leave year.
+

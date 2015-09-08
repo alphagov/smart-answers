@@ -1,0 +1,8 @@
+Towing: licence and age requirements
+
+Use this tool to find out if you’re old enough or have the right kind of licence to tow a trailer from different kinds of vehicle.
+
+This tool assumes that you already have the minimum of a full car driving licence (category B). You need a full car licence before being able to tow with any larger vehicle.
+
+^A full car licence already lets you tow trailers weighing no more than 750 kg. You can also tow heavier trailers with a car as long as the total weight of vehicle and trailer isn’t more than 3,500 kg.^
+

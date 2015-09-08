@@ -103,6 +103,10 @@ module SmartdownAdapter
       smart_answer_path(url_hash)
     end
 
+    def render_txt?
+      false
+    end
+
     private
 
     def responses_from_request(request)

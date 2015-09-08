@@ -61,7 +61,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_response :missing
     end
 
-    should "display landing page if no questions answered yet" do
+    should "display landing page in html if no questions answered yet" do
       get :show, id: 'sample'
       assert_select "h1", /#{@flow.name.to_s.humanize}/
     end
@@ -474,7 +474,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_match /sweet-tooth-outcome-govspeak-next-steps/, response.body
       end
 
-      should "render not found for non-outcome node" do
+      should "render govspeak text for the landing page" do
+        get :show, id: 'sample', format: 'txt'
+        assert response.body.start_with?("Sample")
+      end
+
+      should "render not found for a question node" do
         document = stub('Govspeak::Document', to_html: 'html-output')
         Govspeak::Document.stubs(:new).returns(document)
 
