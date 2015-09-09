@@ -1,6 +1,5 @@
 PACS in Monaco
 
-
 Contact the relevant local authorities to find out about local PACS laws, including what documents you’ll need.
 
 There isn’t a British Embassy in Monaco. Contact the [British Embassy in Paris](/government/world/organisations/british-embassy-paris) for help entering into a PACS in Monaco.
@@ -17,7 +16,6 @@ You should check with the relevant local authorities in the town where you’re 
 
 Some local authorities only issue a certificate of custom law less than 6 months before the date of your PACS. You should check with them before you apply. If your certificate is refused because you applied too early, you will need to apply and pay again.
 
-
 ###Applying for a certificate of custom law from the British Embassy
 
 s1. Download the [certificate of custom law application form](/government/publications/application-form-for-certificate-of-custom-law-for-pacs-france)
@@ -25,7 +23,6 @@ s2. Make sure you’ve got all of the supporting documents you need - there’s 
 s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
 s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See fee 11 on [consular fees for France](/government/publications/france-consular-fees) for the current cost.
 s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
-
 
 ###The certificate of celibacy
 
@@ -38,5 +35,4 @@ $D
 ##Naturalisation of your foreign partner if they move to the UK
 
 If your partner isn’t British, they can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
-
 
