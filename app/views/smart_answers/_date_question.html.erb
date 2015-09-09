@@ -10,7 +10,7 @@
       <%= select_month default_for_date(prefill_value_for(question, number, :month)), prefix: response_prefix, prompt: '' %>
     </label>
   <% end %>
-  <% unless question.defaulted_year? %>
+  <% unless question.default_year %>
     <label for="<%=response_prefix%>_year">Year
       <%= select_year default_for_date(prefill_value_for(question, number, :year)), prefix: response_prefix, prompt: '', :start_year => question.start_date.year, :end_year => question.end_date.year %>
     </label>

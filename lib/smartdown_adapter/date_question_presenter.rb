@@ -11,7 +11,7 @@ module SmartdownAdapter
       false
     end
 
-    def defaulted_year?
+    def default_year
       false
     end
 

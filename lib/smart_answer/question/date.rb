@@ -47,10 +47,6 @@ module SmartAnswer
         end
       end
 
-      def defaulted_year?
-        instance_variable_defined?(:@default_year_func)
-      end
-
       def range
         @range ||= @from_func.present? and @to_func.present? ? @from_func.call..@to_func.call : false
       end
@@ -62,7 +58,7 @@ module SmartAnswer
            expected_keys = []
            expected_keys << :day unless default_day
            expected_keys << :month unless default_month
-           expected_keys << :year unless defaulted_year?
+           expected_keys << :year unless default_year
            expected_keys.each do |k|
              raise InvalidResponse, "Please enter a complete date", caller unless input[k].present?
            end
