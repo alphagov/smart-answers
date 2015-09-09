@@ -74,13 +74,6 @@ module SmartAnswer
       q.transition(@initial_state, '2011-01-02')
     end
 
-    test "define default date" do
-      q = Question::Date.new(nil, :example) do
-        default { Date.today }
-      end
-      assert_equal Date.today, q.default
-    end
-
     test "define default day" do
       q = Question::Date.new(nil, :example) do
         default_day 11

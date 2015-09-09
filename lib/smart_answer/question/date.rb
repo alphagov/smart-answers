@@ -27,16 +27,6 @@ module SmartAnswer
         end
       end
 
-      def default(default = nil, &block)
-        if block_given?
-          @default_func = block
-        elsif default
-          @default_func = lambda { default }
-        else
-          @default_func && @default_func.call
-        end
-      end
-
       def default_day(default_day = nil, &block)
         if block_given?
           @default_day_func = block
