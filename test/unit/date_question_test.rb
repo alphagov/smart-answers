@@ -30,6 +30,25 @@ module SmartAnswer
       end
     end
 
+    test 'range returns false when neither from nor to are set' do
+      q = Question::Date.new(nil, :question_name)
+      assert_equal false, q.range
+    end
+
+    test 'range returns false when only the from date is set' do
+      q = Question::Date.new(nil, :question_name) do
+        from { Date.today }
+      end
+      assert_equal false, q.range
+    end
+
+    test 'range returns false when only the to date is set' do
+      q = Question::Date.new(nil, :question_name) do
+        to { Date.today }
+      end
+      assert_equal false, q.range
+    end
+
     test "define allowable range of dates" do
       q = Question::Date.new(nil, :example) do
         save_input_as :date
