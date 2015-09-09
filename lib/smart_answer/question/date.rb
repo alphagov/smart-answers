@@ -15,11 +15,9 @@ module SmartAnswer
         end
       end
 
-      def to(to = nil, &block)
+      def to(&block)
         if block_given?
           @to_func = block
-        elsif to
-          @to_func = lambda { to }
         else
           @to_func && @to_func.call
         end
