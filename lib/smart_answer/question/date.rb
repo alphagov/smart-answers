@@ -35,11 +35,9 @@ module SmartAnswer
         instance_variable_defined?(:@default_day_func)
       end
 
-      def default_month(default_month = nil, &block)
+      def default_month(&block)
         if block_given?
           @default_month_func = block
-        elsif default_month
-          @default_month_func = lambda { default_month }
         else
           @default_month_func && @default_month_func.call
         end
