@@ -9,26 +9,16 @@ class OutcomePresenter < NodePresenter
   end
 
   def title
-    if erb_template_exists_for?(:title)
-      title = rendered_view.content_for(:title) || ''
-      strip_leading_spaces(title.to_str).chomp
-    end
+    title = content_for(:title, govspeak: false)
+    title && title.chomp
   end
 
   def body(html: true)
-    if erb_template_exists_for?(:body)
-      govspeak = rendered_view.content_for(:body) || ''
-      govspeak = strip_leading_spaces(govspeak.to_str)
-      html ? GovspeakPresenter.new(govspeak).html : govspeak
-    end
+    content_for(:body, html: html)
   end
 
   def next_steps(html: true)
-    if erb_template_exists_for?(:next_steps)
-      govspeak = rendered_view.content_for(:next_steps) || ''
-      govspeak = strip_leading_spaces(govspeak.to_str)
-      html ? GovspeakPresenter.new(govspeak).html : govspeak
-    end
+    content_for(:next_steps, html: html)
   end
 
   def erb_template_path
@@ -40,6 +30,14 @@ class OutcomePresenter < NodePresenter
   end
 
   private
+
+  def content_for(key, html: true, govspeak: true)
+    if erb_template_exists_for?(key)
+      content = rendered_view.content_for(key) || ''
+      content = strip_leading_spaces(content.to_str)
+      (html && govspeak) ? GovspeakPresenter.new(content).html : content
+    end
+  end
 
   def template_directory
     @options[:erb_template_directory] || @node.template_directory
