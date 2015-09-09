@@ -9,14 +9,14 @@ class OutcomePresenter < NodePresenter
   end
 
   def title
-    if title_erb_template_exists?
+    if erb_template_exists_for?(:title)
       title = rendered_view.content_for(:title) || ''
       strip_leading_spaces(title.chomp)
     end
   end
 
   def body(html: true)
-    if body_erb_template_exists?
+    if erb_template_exists_for?(:body)
       govspeak = rendered_view.content_for(:body) || ''
       govspeak = strip_leading_spaces(govspeak.to_str)
       html ? GovspeakPresenter.new(govspeak).html : govspeak
@@ -24,7 +24,7 @@ class OutcomePresenter < NodePresenter
   end
 
   def next_steps(html: true)
-    if next_steps_erb_template_exists?
+    if erb_template_exists_for?(:next_steps)
       govspeak = rendered_view.content_for(:next_steps) || ''
       govspeak = strip_leading_spaces(govspeak.to_str)
       html ? GovspeakPresenter.new(govspeak).html : govspeak
@@ -45,20 +45,8 @@ class OutcomePresenter < NodePresenter
     @options[:erb_template_directory] || @node.template_directory
   end
 
-  def title_erb_template_exists?
-    erb_template_exists? && has_content_for?(:title)
-  end
-
-  def body_erb_template_exists?
-    erb_template_exists? && has_content_for?(:body)
-  end
-
-  def next_steps_erb_template_exists?
-    erb_template_exists? && has_content_for?(:next_steps)
-  end
-
-  def erb_template_exists?
-    File.exists?(erb_template_path)
+  def erb_template_exists_for?(key)
+    File.exists?(erb_template_path) && has_content_for?(key)
   end
 
   def rendered_view
