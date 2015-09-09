@@ -1,8 +1,8 @@
 class OutcomePresenter < NodePresenter
   def initialize(i18n_prefix, node, state = nil, options = {})
-    @options = options
     super(i18n_prefix, node, state)
-    @view = ActionView::Base.new([template_directory])
+    @template_directory = options[:erb_template_directory] || @node.template_directory
+    @view = ActionView::Base.new([@template_directory])
     @view.extend(SmartAnswer::OutcomeHelper)
     @view.extend(SmartAnswer::OverseasPassportsHelper)
     @view.extend(SmartAnswer::MarriageAbroadHelper)
@@ -22,7 +22,7 @@ class OutcomePresenter < NodePresenter
   end
 
   def erb_template_path
-    template_directory.join(erb_template_name)
+    @template_directory.join(erb_template_name)
   end
 
   def erb_template_name
@@ -37,10 +37,6 @@ class OutcomePresenter < NodePresenter
       content = strip_leading_spaces(content.to_str)
       (html && govspeak) ? GovspeakPresenter.new(content).html : content
     end
-  end
-
-  def template_directory
-    @options[:erb_template_directory] || @node.template_directory
   end
 
   def erb_template_exists_for?(key)
