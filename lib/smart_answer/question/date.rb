@@ -55,17 +55,13 @@ module SmartAnswer
         date = case input
           when Hash, ActiveSupport::HashWithIndifferentAccess
            input = input.symbolize_keys
-           expected_keys = []
-           expected_keys << :day unless default_day
-           expected_keys << :month unless default_month
-           expected_keys << :year unless default_year
-           expected_keys.each do |k|
-             raise InvalidResponse, "Please enter a complete date", caller unless input[k].present?
-           end
-           day = (default_day || input[:day]).to_i
-           month = (default_month || input[:month]).to_i
-           year = (default_year || input[:year]).to_i
-           ::Date.new(year, month, day)
+           year_month_and_day = [
+             default_year || input[:year],
+             default_month || input[:month],
+             default_day || input[:day],
+           ]
+           raise InvalidResponse unless year_month_and_day.all?(&:present?)
+           ::Date.new(*year_month_and_day.map(&:to_i))
           when String
            ::Date.parse(input)
           when ::Date
