@@ -6,7 +6,7 @@ module SmartAnswer
         @include_uk = options.delete(:include_uk)
         @additional_countries = options.delete(:additional_countries)
         @use_legacy_data = options.delete(:use_legacy_data)
-        super(name, options, &block)
+        super
       end
 
       def options
