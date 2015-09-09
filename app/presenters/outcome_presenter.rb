@@ -6,21 +6,18 @@ class OutcomePresenter < NodePresenter
     @view.extend(SmartAnswer::OutcomeHelper)
     @view.extend(SmartAnswer::OverseasPassportsHelper)
     @view.extend(SmartAnswer::MarriageAbroadHelper)
-    @rendered_erb_template = false
   end
 
   def title
     if title_erb_template_exists?
-      render_erb_template
-      title = @view.content_for(:title) || ''
+      title = rendered_view.content_for(:title) || ''
       strip_leading_spaces(title.chomp)
     end
   end
 
   def body(html: true)
     if body_erb_template_exists?
-      render_erb_template
-      govspeak = @view.content_for(:body) || ''
+      govspeak = rendered_view.content_for(:body) || ''
       govspeak = strip_leading_spaces(govspeak.to_str)
       html ? GovspeakPresenter.new(govspeak).html : govspeak
     end
@@ -28,8 +25,7 @@ class OutcomePresenter < NodePresenter
 
   def next_steps(html: true)
     if next_steps_erb_template_exists?
-      render_erb_template
-      govspeak = @view.content_for(:next_steps) || ''
+      govspeak = rendered_view.content_for(:next_steps) || ''
       govspeak = strip_leading_spaces(govspeak.to_str)
       html ? GovspeakPresenter.new(govspeak).html : govspeak
     end
@@ -65,10 +61,9 @@ class OutcomePresenter < NodePresenter
     File.exists?(erb_template_path)
   end
 
-  def render_erb_template
-    unless @rendered_erb_template
-      @view.render(template: erb_template_name, locals: @state.to_hash)
-      @rendered_erb_template = true
+  def rendered_view
+    @rendered_view ||= @view.tap do |view|
+      view.render(template: erb_template_name, locals: @state.to_hash)
     end
   end
 
