@@ -10,7 +10,7 @@ module SmartAnswer
     end
 
     test "Value saved as a Money instance" do
-      q = Question::Money.new(:example) do
+      q = Question::Money.new(nil, :example) do
         save_input_as :my_cash
         next_node :done
       end
@@ -21,7 +21,7 @@ module SmartAnswer
     end
 
     test "Invalid input raises InvalidResponse" do
-      q = Question::Money.new(:example) do
+      q = Question::Money.new(nil, :example) do
         next_node :done
       end
 

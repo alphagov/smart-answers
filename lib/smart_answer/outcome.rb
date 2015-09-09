@@ -1,6 +1,6 @@
 module SmartAnswer
   class Outcome < Node
-    def initialize(name, options = {}, &block)
+    def initialize(flow, name, options = {}, &block)
       @options = options
       super
     end

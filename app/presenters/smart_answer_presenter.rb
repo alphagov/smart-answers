@@ -96,7 +96,7 @@ class SmartAnswerPresenter
   end
 
   def start_node
-    node = SmartAnswer::Node.new(@flow.name)
+    node = SmartAnswer::Node.new(@flow, @flow.name)
     StartNodePresenter.new(i18n_prefix, node, current_state)
   end
 

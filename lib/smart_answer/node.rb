@@ -4,8 +4,8 @@ module SmartAnswer
   class Node
     attr_reader :name, :calculations, :next_node_calculations, :precalculations
 
-    def initialize(name, options = {}, &block)
-      @name = name
+    def initialize(flow, name, options = {}, &block)
+      @flow, @name = flow, name
       @calculations = []
       @next_node_calculations = []
       @precalculations = []

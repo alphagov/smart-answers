@@ -16,12 +16,12 @@ module SmartAnswer
       end
 
       should "be able to list options" do
-        @question = Question::CountrySelect.new(:example)
+        @question = Question::CountrySelect.new(nil, :example)
         assert_equal %w(afghanistan denmark vietnam holy-see british-antarctic-territory), @question.options.map(&:slug)
       end
 
       should "validate a provided option" do
-        @question = Question::CountrySelect.new(:example)
+        @question = Question::CountrySelect.new(nil, :example)
         assert @question.valid_option?("afghanistan")
         assert @question.valid_option?("vietnam")
         assert ! @question.valid_option?("fooey")
@@ -29,20 +29,20 @@ module SmartAnswer
       end
 
       should "include UK when requested" do
-        @question = Question::CountrySelect.new(:example, include_uk: true)
+        @question = Question::CountrySelect.new(nil, :example, include_uk: true)
         assert_equal %w(afghanistan denmark united-kingdom vietnam holy-see british-antarctic-territory), @question.options.map(&:slug)
         assert @question.valid_option?('united-kingdom')
       end
 
       should "exclude Holy See and British Antartic Territory when requested" do
-        @question = Question::CountrySelect.new(:example, exclude_countries: %w(holy-see british-antarctic-territory))
+        @question = Question::CountrySelect.new(nil, :example, exclude_countries: %w(holy-see british-antarctic-territory))
         assert_equal %w(afghanistan denmark vietnam), @question.options.map(&:slug)
         assert ! @question.valid_option?('holy-see')
         assert ! @question.valid_option?('british-antarctic-territory')
       end
 
       should "include additional countries" do
-        @question = Question::CountrySelect.new(:example, exclude_countries: %w(afghanistan british-antarctic-territory denmark holy-see vietnam), additional_countries: UkbaCountry.all)
+        @question = Question::CountrySelect.new(nil, :example, exclude_countries: %w(afghanistan british-antarctic-territory denmark holy-see vietnam), additional_countries: UkbaCountry.all)
         assert_equal %w(greenland), @question.options.map(&:slug)
         assert ! @question.valid_option?("fooey")
         assert ! @question.valid_option?("united-kingdom")
@@ -51,7 +51,7 @@ module SmartAnswer
 
     context "using the legacy data" do
       setup do
-        @question = Question::CountrySelect.new(:example, use_legacy_data: true)
+        @question = Question::CountrySelect.new(nil, :example, use_legacy_data: true)
       end
 
       should "be able to list options" do
