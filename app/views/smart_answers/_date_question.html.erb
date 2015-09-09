@@ -5,7 +5,7 @@
       <%= select_day default_for_date(prefill_value_for(question, number, :day)), prefix: response_prefix, :prompt => '' %>
     </label>
   <% end %>
-  <% unless question.defaulted_month? %>
+  <% unless question.default_month %>
     <label for="<%=response_prefix%>_month">Month
       <%= select_month default_for_date(prefill_value_for(question, number, :month)), prefix: response_prefix, prompt: '' %>
     </label>

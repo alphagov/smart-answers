@@ -7,7 +7,7 @@ module SmartdownAdapter
       false
     end
 
-    def defaulted_month?
+    def default_month
       false
     end
 

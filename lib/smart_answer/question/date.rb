@@ -39,10 +39,6 @@ module SmartAnswer
         end
       end
 
-      def defaulted_month?
-        instance_variable_defined?(:@default_month_func)
-      end
-
       def default_year(&block)
         if block_given?
           @default_year_func = block
@@ -65,7 +61,7 @@ module SmartAnswer
            input = input.symbolize_keys
            expected_keys = []
            expected_keys << :day unless default_day
-           expected_keys << :month unless defaulted_month?
+           expected_keys << :month unless default_month
            expected_keys << :year unless defaulted_year?
            expected_keys.each do |k|
              raise InvalidResponse, "Please enter a complete date", caller unless input[k].present?
