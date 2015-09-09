@@ -2,12 +2,15 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class OutcomePresenterTest < ActiveSupport::TestCase
-    test '#erb_template_path returns the default erb template path built using both the flow and outcome node name' do
-      outcome = Outcome.new('outcome-name', flow_name: 'flow-name')
-      presenter = OutcomePresenter.new('i18n-prefix', outcome)
+    test 'renderer is constructed using template name and directory obtained from outcome node' do
+      outcome = stub('outcome', name: 'outcome-name', template_directory: 'outcome-template-directory')
 
-      expected_path = Rails.root.join('lib', 'smart_answer_flows', 'flow-name', 'outcome-name.govspeak.erb')
-      assert_equal expected_path, presenter.erb_template_path
+      SmartAnswer::ErbRenderer.expects(:new).with(has_entries(
+        template_directory: 'outcome-template-directory',
+        template_name: 'outcome-name'
+      ))
+
+      OutcomePresenter.new('i18n-prefix', outcome)
     end
 
     test '#title returns content rendered for title block with govspeak processing disabled' do
