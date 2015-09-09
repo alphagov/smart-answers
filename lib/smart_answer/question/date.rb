@@ -31,10 +31,6 @@ module SmartAnswer
         end
       end
 
-      def defaulted_day?
-        instance_variable_defined?(:@default_day_func)
-      end
-
       def default_month(&block)
         if block_given?
           @default_month_func = block
@@ -68,7 +64,7 @@ module SmartAnswer
           when Hash, ActiveSupport::HashWithIndifferentAccess
            input = input.symbolize_keys
            expected_keys = []
-           expected_keys << :day unless defaulted_day?
+           expected_keys << :day unless default_day
            expected_keys << :month unless defaulted_month?
            expected_keys << :year unless defaulted_year?
            expected_keys.each do |k|

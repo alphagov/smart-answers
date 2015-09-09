@@ -1,6 +1,6 @@
 <fieldset>
   <% response_prefix = number ? "response_#{number}" : "response" %>
-  <% unless question.defaulted_day? %>
+  <% unless question.default_day %>
     <label for="<%=response_prefix%>_day">Day
       <%= select_day default_for_date(prefill_value_for(question, number, :day)), prefix: response_prefix, :prompt => '' %>
     </label>
