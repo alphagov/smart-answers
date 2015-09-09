@@ -107,10 +107,18 @@ module SmartAnswer
       assert_equal expected_hash, q.to_response('valid-date')
     end
 
-    test 'to_response returns nil if parse_input raises an exception' do
+    test 'to_response returns nil if parse_input raises an InvalidResponse exception' do
       q = Question::Date.new(nil, :example)
-      q.stubs(:parse_input).with('invalid-date').raises(StandardError)
+      q.stubs(:parse_input).with('invalid-date').raises(InvalidResponse)
       assert_equal nil, q.to_response('invalid-date')
+    end
+
+    test 'to_response raises the exception if parse_input raises anything other than an InvalidResponse exception' do
+      q = Question::Date.new(nil, :example)
+      q.stubs(:parse_input).with('anything').raises(StandardError)
+      assert_raises(StandardError) do
+        q.to_response('anything')
+      end
     end
 
     test "dates are parsed from Hash into Date before being saved" do
