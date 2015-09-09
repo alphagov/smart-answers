@@ -46,15 +46,15 @@ class OutcomePresenter < NodePresenter
   end
 
   def title_erb_template_exists?
-    erb_template_exists? && has_content_for_title?
+    erb_template_exists? && has_content_for?(:title)
   end
 
   def body_erb_template_exists?
-    erb_template_exists? && has_content_for_body?
+    erb_template_exists? && has_content_for?(:body)
   end
 
   def next_steps_erb_template_exists?
-    erb_template_exists? && has_content_for_next_steps?
+    erb_template_exists? && has_content_for?(:next_steps)
   end
 
   def erb_template_exists?
@@ -67,16 +67,8 @@ class OutcomePresenter < NodePresenter
     end
   end
 
-  def has_content_for_body?
-    File.read(erb_template_path) =~ /content_for :body/
-  end
-
-  def has_content_for_title?
-    File.read(erb_template_path) =~ /content_for :title/
-  end
-
-  def has_content_for_next_steps?
-    File.read(erb_template_path) =~ /content_for :next_steps/
+  def has_content_for?(key)
+    File.read(erb_template_path) =~ /content_for #{key.inspect}/
   end
 
   def strip_leading_spaces(string)
