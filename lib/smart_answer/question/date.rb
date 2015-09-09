@@ -75,8 +75,12 @@ module SmartAnswer
           end
         validate_input(date) if @validate_in_range
         date
-      rescue
-        raise InvalidResponse, "Bad date: #{input.inspect}", caller
+      rescue ArgumentError => e
+        if e.message =~ /invalid date/
+          raise InvalidResponse, "Bad date: #{input.inspect}", caller
+        else
+          raise
+        end
       end
 
       def to_response(input)
