@@ -11,7 +11,7 @@ class OutcomePresenter < NodePresenter
   def title
     if erb_template_exists_for?(:title)
       title = rendered_view.content_for(:title) || ''
-      strip_leading_spaces(title.chomp)
+      strip_leading_spaces(title.to_str).chomp
     end
   end
 
