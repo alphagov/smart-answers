@@ -7,11 +7,9 @@ module SmartAnswer
         @validate_in_range = true
       end
 
-      def from(from = nil, &block)
+      def from(&block)
         if block_given?
           @from_func = block
-        elsif from
-          @from_func = lambda { from }
         else
           @from_func && @from_func.call
         end
