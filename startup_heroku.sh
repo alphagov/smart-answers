@@ -13,6 +13,7 @@ GOVUK_APP_DOMAIN=preview.alphagov.co.uk \
 PLEK_SERVICE_CONTENTAPI_URI=https://www.gov.uk/api \
 PLEK_SERVICE_STATIC_URI=https://assets-origin.preview.alphagov.co.uk \
 RUNNING_ON_HEROKU=true \
+EXPOSE_GOVSPEAK=true \
 ERRBIT_ENV=preview
 
 echo
