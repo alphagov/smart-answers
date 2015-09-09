@@ -10,16 +10,6 @@ module SmartAnswer
       assert_equal expected_path, presenter.erb_template_path
     end
 
-    test '#erb_template_path returns the erb template path supplied in the options' do
-      outcome = Outcome.new('outcome-name')
-
-      options = { erb_template_directory: Pathname.new('/erb-template-directory') }
-      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, options)
-
-      expected_path = Pathname.new('/erb-template-directory').join('outcome-name.govspeak.erb')
-      assert_equal expected_path, presenter.erb_template_path
-    end
-
     test '#title returns content rendered for title block with govspeak processing disabled' do
       outcome = Outcome.new('outcome-name')
       renderer = stub('renderer')
