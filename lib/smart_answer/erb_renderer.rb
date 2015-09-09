@@ -12,7 +12,7 @@ module SmartAnswer
       if erb_template_exists_for?(key)
         content = rendered_view.content_for(key) || ''
         content = strip_leading_spaces(content.to_str)
-        html ? GovspeakPresenter.new(content).html : content
+        html ? GovspeakPresenter.new(content).html : normalize_blank_lines(content)
       end
     end
 
@@ -42,6 +42,10 @@ module SmartAnswer
 
     def strip_leading_spaces(string)
       string.gsub(/^ +/, '')
+    end
+
+    def normalize_blank_lines(string)
+      string.gsub(/(\n$){2,}/m, "\n")
     end
   end
 end
