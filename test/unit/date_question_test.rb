@@ -9,6 +9,95 @@ module SmartAnswer
       @initial_state = State.new(:example)
     end
 
+    context '#parse_input' do
+      setup do
+        @question = Question::Date.new(nil, :example)
+      end
+
+      context 'when supplied with a hash' do
+        should 'return a date representing the hash' do
+          date = @question.parse_input(day: 1, month: 2, year: 2015)
+          assert_equal Date.parse('2015-02-01'), date
+        end
+
+        should 'raise an InvalidResponse exception when the hash represents an invalid date' do
+          assert_raises(InvalidResponse) do
+            @question.parse_input(day: 32, month: 2, year: 2015)
+          end
+        end
+
+        context 'and the day is missing' do
+          should 'raise an InvalidResponse exception' do
+            assert_raises(InvalidResponse) do
+              @question.parse_input(day: nil, month: 2, year: 2015)
+            end
+          end
+
+          should 'return the date using the default day when specified' do
+            @question.default_day { 1 }
+            date = @question.parse_input(day: nil, month: 2, year: 2015)
+            assert_equal Date.parse('2015-02-01'), date
+          end
+        end
+
+        context 'and the month is missing' do
+          should 'raise an InvalidResponse exception' do
+            assert_raises(InvalidResponse) do
+              @question.parse_input(day: 1, month: nil, year: 2015)
+            end
+          end
+
+          should 'return the date using the default month when specified' do
+            @question.default_month { 2 }
+            date = @question.parse_input(day: 1, month: nil, year: 2015)
+            assert_equal Date.parse('2015-02-01'), date
+          end
+        end
+
+        context 'and the year is missing' do
+          should 'raise an InvalidResponse exception' do
+            assert_raises(InvalidResponse) do
+              @question.parse_input(day: 1, month: 2, year: nil)
+            end
+          end
+
+          should 'return the date using the default year when specified' do
+            @question.default_year { 2015 }
+            date = @question.parse_input(day: 1, month: 2, year: nil)
+            assert_equal Date.parse('2015-02-01'), date
+          end
+        end
+      end
+
+      context 'when supplied with a string' do
+        should 'return a date representing the string' do
+          date = @question.parse_input('2015-02-01')
+          assert_equal Date.parse('2015-02-01'), date
+        end
+
+        should 'raise an InvalidResponse exception when the string represents an invalid date' do
+          assert_raises(InvalidResponse) do
+            @question.parse_input('2015-02-32')
+          end
+        end
+      end
+
+      context 'when supplied with a date' do
+        should 'return the date' do
+          date = @question.parse_input(Date.parse('2015-02-01'))
+          assert_equal Date.parse('2015-02-01'), date
+        end
+      end
+
+      context 'when supplied with another object' do
+        should 'raise an InvalidResponse exception' do
+          assert_raises(InvalidResponse) do
+            @question.parse_input(Object.new)
+          end
+        end
+      end
+    end
+
     test "dates are parsed from Hash into Date before being saved" do
       q = Question::Date.new(nil, :example) do
         save_input_as :date
