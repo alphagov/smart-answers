@@ -83,7 +83,7 @@ module SmartAnswer
 
     test "define default month" do
       q = Question::Date.new(nil, :example) do
-        default_month 2
+        default_month { 2 }
       end
       assert_equal 2, q.default_month
     end
@@ -98,7 +98,7 @@ module SmartAnswer
     test "incomplete dates are accepted if appropriate defaults are defined" do
       q = Question::Date.new(nil, :example) do
         default_day { 11 }
-        default_month 2
+        default_month { 2 }
         default_year 2013
         save_input_as :date
         next_node :done
