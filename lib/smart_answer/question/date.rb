@@ -47,11 +47,9 @@ module SmartAnswer
         instance_variable_defined?(:@default_month_func)
       end
 
-      def default_year(default_year = nil, &block)
+      def default_year(&block)
         if block_given?
           @default_year_func = block
-        elsif default_year
-          @default_year_func = lambda { default_year }
         else
           @default_year_func && @default_year_func.call
         end
