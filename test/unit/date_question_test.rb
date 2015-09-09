@@ -90,7 +90,7 @@ module SmartAnswer
 
     test "define default year" do
       q = Question::Date.new(nil, :example) do
-        default_year 2013
+        default_year { 2013 }
       end
       assert_equal 2013, q.default_year
     end
@@ -99,7 +99,7 @@ module SmartAnswer
       q = Question::Date.new(nil, :example) do
         default_day { 11 }
         default_month { 2 }
-        default_year 2013
+        default_year { 2013 }
         save_input_as :date
         next_node :done
       end
