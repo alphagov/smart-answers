@@ -6,11 +6,11 @@ module SmartAnswer
       helpers.each { |helper| @view.extend(helper) }
     end
 
-    def content_for(key, html: true, govspeak: true)
+    def content_for(key, html: true)
       if erb_template_exists_for?(key)
         content = rendered_view.content_for(key) || ''
         content = strip_leading_spaces(content.to_str)
-        (html && govspeak) ? GovspeakPresenter.new(content).html : content
+        html ? GovspeakPresenter.new(content).html : content
       end
     end
 

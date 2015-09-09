@@ -16,7 +16,7 @@ module SmartAnswer
     test '#title returns content rendered for title block with govspeak processing disabled' do
       outcome = Outcome.new('outcome-name')
       renderer = stub('renderer')
-      renderer.stubs(:content_for).with(:title, govspeak: false).returns('title-text')
+      renderer.stubs(:content_for).with(:title, html: false).returns('title-text')
 
       presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, renderer: renderer)
 

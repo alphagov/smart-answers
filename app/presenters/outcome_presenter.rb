@@ -14,7 +14,7 @@ class OutcomePresenter < NodePresenter
   end
 
   def title
-    title = @renderer.content_for(:title, govspeak: false)
+    title = @renderer.content_for(:title, html: false)
     title && title.chomp
   end
 
