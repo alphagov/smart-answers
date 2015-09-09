@@ -48,7 +48,7 @@ module SmartAnswer
       end
 
       def range
-        @range ||= @from_func.present? and @to_func.present? ? @from_func.call..@to_func.call : false
+        @range ||= from && to ? from..to : false
       end
 
       def parse_input(input)
