@@ -23,6 +23,14 @@ module SmartAnswer
         assert_same @calculator, @new_state.calculator
       end
 
+      should 'set the from date of the date select to 1 Jan 2015' do
+        assert_equal Date.parse('2015-01-01'), @question.range.begin
+      end
+
+      should 'set the to date of the date select to 31 Dec 2018' do
+        assert_equal Date.parse('2018-12-31'), @question.range.end
+      end
+
       should 'store parsed response on calculator as tax_credits_award_ends_on' do
         assert_equal Date.parse('2016-02-20'), @calculator.tax_credits_award_ends_on
       end

@@ -7,6 +7,9 @@ module SmartAnswer
       satisfies_need "103438"
 
       date_question :when_did_your_tax_credits_award_end? do
+        from { Date.parse('2015-01-01') }
+        to   { Date.parse('2018-12-31') }
+
         next_node_calculation :calculator do
           Calculators::PartYearProfitCalculator.new
         end
