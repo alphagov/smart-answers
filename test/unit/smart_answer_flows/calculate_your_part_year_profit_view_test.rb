@@ -9,6 +9,21 @@ module SmartAnswer
       @i18n_prefix = "flow.#{@flow.name}"
     end
 
+    context 'when rendering do_your_accounts_cover_a_12_month_period? question' do
+      setup do
+        question = @flow.node(:do_your_accounts_cover_a_12_month_period?)
+        state = SmartAnswer::State.new(question)
+        state.accounting_period_ends_on = Date.parse('2016-04-05')
+        presenter = QuestionPresenter.new(@i18n_prefix, question, state)
+        @title = presenter.title
+      end
+
+      should 'display title with interpolated basis_period_ends_on' do
+        expected = "Do your accounts cover the 12 month period up to  5 April 2016?"
+        assert_equal expected, @title
+      end
+    end
+
     context 'when rendering what_is_your_taxable_profit? question' do
       setup do
         question = @flow.node(:what_is_your_taxable_profit?)

@@ -235,6 +235,8 @@ module SmartAnswer
     context 'when answering do_your_accounts_cover_a_12_month_period? question' do
       context 'responding with yes' do
         setup do
+          accounting_period = YearRange.new(begins_on: Date.parse('2015-01-01'))
+          @calculator.stubs(:accounting_period).returns(accounting_period)
           setup_states_for_question(:do_your_accounts_cover_a_12_month_period?, responding_with: 'yes', calculator: @calculator)
         end
 
@@ -246,6 +248,8 @@ module SmartAnswer
 
       context 'responding with no' do
         setup do
+          accounting_period = YearRange.new(begins_on: Date.parse('2015-01-01'))
+          @calculator.stubs(:accounting_period).returns(accounting_period)
           setup_states_for_question(:do_your_accounts_cover_a_12_month_period?, responding_with: 'no', calculator: @calculator)
         end
 

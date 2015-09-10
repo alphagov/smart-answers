@@ -80,6 +80,8 @@ module SmartAnswer
         option "yes"
         option "no"
 
+        precalculate(:accounting_period_ends_on) { calculator.accounting_period.ends_on }
+
         next_node do |response|
           if response == "yes"
             :what_is_your_taxable_profit?

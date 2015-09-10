@@ -32,7 +32,7 @@ en-GB:
         title: What date do your accounts go up to?
         hint: This is the last date of the accounting period for your business. For most people, this will be 5 April.
       do_your_accounts_cover_a_12_month_period?:
-        title: Do your accounts cover a 12 month period?
+        title: Do your accounts cover the 12 month period up to %{accounting_period_ends_on}?
       when_did_you_start_trading?:
         title: "When did you start trading?"
         hint:
