@@ -3,19 +3,19 @@ en-GB:
     calculate-your-part-year-profit:
       title: Calculate your part-year profits for Universal Credit
       body: |
-        You need to report your part-year profits to end your tax credits claim if you’ve applied for Universal Credit and you’re self-employed.
+        You need to report your part-year profits to end your Tax Credits claim if you’ve applied for Universal Credit and you’re self-employed.
 
         You’ll need to know the following to use this calculator:
 
-        - your tax credits award end date (you can find this on your award review)
+        - your Tax Credits award end date (you can find this on your award review)
         - your accounting dates for your business
         - your profit for your accounting year in which your tax credit award ends
 
         You can use this calculator to complete box 2.4 of your award review.
       meta:
-        description: Calculate your part-year profits to end your tax credits award and claim Universal Credit if you’re self-employed
+        description: Calculate your part-year profits to end your Tax Credits award and claim Universal Credit if you’re self-employed
       when_did_your_tax_credits_award_end?:
-        title: When did your tax credits award end?
+        title: When did your Tax Credits award end?
         hint: You can find this on your award review.
         error_message: You need to enter a date to continue.
       have_you_stopped_trading?:
@@ -46,7 +46,7 @@ en-GB:
           which is the earlier of either the date your Tax Credits Award ends or the date your business stopped trading.
         error_message: You need to enter a date to continue.
         invalid_start_trading_date:
-          The start trading date must be before the date your Tax Credits Award ends.
+          The start trading date must be before the date your Tax Credits award ends.
       what_is_your_taxable_profit?:
         title: What is your actual or estimated taxable profit between %{basis_period_begins_on} and %{basis_period_ends_on}?
         hint:
