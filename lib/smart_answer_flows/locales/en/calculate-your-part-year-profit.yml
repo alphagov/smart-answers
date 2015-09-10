@@ -20,7 +20,7 @@ en-GB:
         error_message: You need to enter a date to continue.
       have_you_stopped_trading?:
         title: Have you stopped trading?
-        hint: This means you’re no longer running your business
+        hint: This means you’re no longer running your business.
         error_message: You need to select yes or no to continue.
       did_you_start_trading_before_the_relevant_accounting_period?:
         title: Did you start trading before %{accounting_period_begins_on}
