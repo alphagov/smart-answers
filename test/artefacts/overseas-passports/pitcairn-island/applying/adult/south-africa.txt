@@ -15,7 +15,6 @@ Don’t book travel until you have a valid passport. If you need to travel more 
 
 ## Cost
 
-
 You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
 
 | Passport type | Passport fee | Total to pay (including courier fee) |
@@ -23,12 +22,9 @@ You’ll have to pay a fee for your passport and a courier fee of £23.01. The c
 | Adult standard 32-page passport | £83.00 | £106.01  |
 | Adult jumbo 48-page passport | £91.00 | £114.01 |
 
-
-
 Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
 You can use Mastercard, Visa, Electron, Diners Club and JCB.
-
 
 ## How to apply
 
@@ -45,11 +41,8 @@ You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
 %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
 
-
-
 ## Making your application
 Send your completed forms and supporting documents to the Pitcairn Islands Office.
-
 
 $A
 Pitcairn Islands Office
@@ -64,13 +57,9 @@ Telephone: +64 9 366 0186
 Fax: +64 9 366 0187
 $C
 
-
 ## Getting your passport
 
-
-
 Your passport and supporting documents will be delivered to you via the Pitcairn Island Office in Auckland, New Zealand.
-
 
 ##Contact the Passport Adviceline
 
@@ -81,5 +70,4 @@ Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
 $C
 
 [Find out about call charges](/call-charges)
-
 
