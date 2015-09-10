@@ -20,6 +20,3 @@ The embassy will charge a fee for taking the oath, and then display your notice 
 
 
 
-*[GRO]:General Register Office
-*[FCO]:Foreign &amp; Commonwealth Office
-
