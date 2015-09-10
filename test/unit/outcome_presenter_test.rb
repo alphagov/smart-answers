@@ -3,18 +3,18 @@ require_relative '../test_helper'
 module SmartAnswer
   class OutcomePresenterTest < ActiveSupport::TestCase
     test 'renderer is constructed using template name and directory obtained from outcome node' do
-      outcome = stub('outcome', name: 'outcome-name', template_directory: 'outcome-template-directory')
+      outcome = stub('outcome', name: :outcome_name, template_directory: 'outcome-template-directory')
 
       SmartAnswer::ErbRenderer.expects(:new).with(has_entries(
         template_directory: 'outcome-template-directory',
-        template_name: 'outcome-name'
+        template_name: 'outcome_name'
       ))
 
       OutcomePresenter.new('i18n-prefix', outcome)
     end
 
     test '#title returns content rendered for title block with govspeak processing disabled' do
-      outcome = Outcome.new(nil, 'outcome-name')
+      outcome = Outcome.new(nil, :outcome_name)
       renderer = stub('renderer')
       renderer.stubs(:content_for).with(:title, html: false).returns('title-text')
 
@@ -24,7 +24,7 @@ module SmartAnswer
     end
 
     test '#title removes trailing newline from rendered content' do
-      outcome = Outcome.new(nil, 'outcome-name')
+      outcome = Outcome.new(nil, :outcome_name)
       renderer = stub('renderer')
       renderer.stubs(:content_for).returns("title-text\n")
 
@@ -34,7 +34,7 @@ module SmartAnswer
     end
 
     test '#body returns content rendered for body block with govspeak processing enabled by default' do
-      outcome = Outcome.new(nil, 'outcome-name')
+      outcome = Outcome.new(nil, :outcome_name)
       renderer = stub('renderer')
       renderer.stubs(:content_for).with(:body, html: true).returns('body-html')
 
@@ -44,7 +44,7 @@ module SmartAnswer
     end
 
     test '#body returns content rendered for body block with govspeak processing disabled' do
-      outcome = Outcome.new(nil, 'outcome-name')
+      outcome = Outcome.new(nil, :outcome_name)
       renderer = stub('renderer')
       renderer.stubs(:content_for).with(:body, html: false).returns('body-govspeak')
 
@@ -54,7 +54,7 @@ module SmartAnswer
     end
 
     test '#next_steps returns content rendered for next_steps block with govspeak processing enabled by default' do
-      outcome = Outcome.new(nil, 'outcome-name')
+      outcome = Outcome.new(nil, :outcome_name)
       renderer = stub('renderer')
       renderer.stubs(:content_for).with(:next_steps, html: true).returns('next-steps-html')
 
@@ -64,7 +64,7 @@ module SmartAnswer
     end
 
     test '#next_steps returns content rendered for next_steps block with govspeak processing disabled' do
-      outcome = Outcome.new(nil, 'outcome-name')
+      outcome = Outcome.new(nil, :outcome_name)
       renderer = stub('renderer')
       renderer.stubs(:content_for).with(:next_steps, html: false).returns('next-steps-govspeak')
 
