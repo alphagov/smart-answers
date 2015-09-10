@@ -4,7 +4,6 @@ $C
 You weren't paying the National Minimum Wage.
 $C
 
-
 The National Minimum Wage per hour at the time | The worker’s actual pay | For each pay period you owe the worker
 - | -
 £6.19 | -£31.69 * | £954.60
@@ -14,7 +13,6 @@ The National Minimum Wage per hour at the time | The worker’s actual pay | For
 This calculation includes an additional amount the worker is entitled to by law for past payments. If the worker worked overtime or you provided [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 
 This result is an estimate. If you have any questions, call the confidential helpline:
-
 
 $C
 Acas helpline
