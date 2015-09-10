@@ -12,19 +12,14 @@ The employee is entitled to Statutory Paternity Leave.
 
 ^Leave must finish within 56 days of the birth (or due date if the baby is early).^
 
-
 ##Statutory Paternity Pay
 
 The employee is not entitled to Statutory Paternity Pay. To qualify:
 
-
 + their average weekly earnings (£12.50) between Sunday, 02 November 2014 and Thursday, 01 January 2015 must be at least £111.00
-
 
 Send them form OSPP1 confirming this within 28 days of their pay request.
 
-
 $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
-
 
 Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)

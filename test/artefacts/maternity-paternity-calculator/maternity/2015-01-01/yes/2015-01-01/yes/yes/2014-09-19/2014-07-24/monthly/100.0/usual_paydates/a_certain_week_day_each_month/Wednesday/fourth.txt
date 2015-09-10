@@ -11,12 +11,10 @@ The employee is entitled to up to 52 weeks Statutory Maternity Leave.
 |Latest date to [claim leave](/maternity-leave-pay-employees/notice-period "Notice period")    | 20 September 2014  |
 |Earliest date leave can start | 12 October 2014 |
 
-
 ##Statutory maternity pay
 
 The employee is not entitled to statutory maternity pay.
 Their average weekly earnings are £11.53846 (you can’t round this figure up or down). To qualify:
-
 
 + their average weekly earnings (£11.53846) between Friday, 25 July 2014 and Friday, 19 September 2014 must be at least £111.00
 
@@ -24,9 +22,7 @@ You must write confirming this within 28 days of their maternity pay request.
 
 Send them form SMP1 within 7 days of your decision. They must get this form within 28 days of their pay request or the birth (whichever is earlier).
 
-
 $D [Download Form SMP1, Non-payment of Statutory Maternity Pay (PDF, 59KB)](http://www.dwp.gov.uk/advisers/claimforms/smp1_print.pdf) $D
-
 
 *[SMP]: Statutory Maternity Pay
 
