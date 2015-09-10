@@ -110,7 +110,7 @@ module SmartAnswer
       end
 
       should 'display title with interpolated accounting_period_begins_on' do
-        expected = "Did you start trading before  6 April 2015"
+        expected = "Did you start trading before  6 April 2015?"
         assert_equal expected, @title
       end
     end

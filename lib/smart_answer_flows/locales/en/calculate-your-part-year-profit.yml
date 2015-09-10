@@ -23,7 +23,7 @@ en-GB:
         hint: This means you’re no longer running your business.
         error_message: You need to select yes or no to continue.
       did_you_start_trading_before_the_relevant_accounting_period?:
-        title: Did you start trading before %{accounting_period_begins_on}
+        title: Did you start trading before %{accounting_period_begins_on}?
         error_message: You need to select yes or no to continue.
       when_did_you_stop_trading?:
         title: When did you stop trading?
