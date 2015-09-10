@@ -1,14 +1,6 @@
 en-GB:
   flow:
     legalisation-document-checker:
-      meta:
-        description: Find out which documents the Legalisation Office can legalise - confirming the signature, seal or stamp on a document is genuine
-      title: Check if documents can be legalised
-      body: |
-        You can get a UK public document ‘legalised’ - this means a signature, seal or stamp made by a UK public official on the document is confirmed as genuine by the UK government.
-
-        Use this tool to check if your document can be legalised.
-
       #Q1
       which_documents_do_you_want_legalised?:
         title: Which documents do you want legalised?

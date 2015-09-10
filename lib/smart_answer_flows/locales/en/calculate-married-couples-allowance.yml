@@ -1,13 +1,7 @@
 en-GB:
   flow:
     calculate-married-couples-allowance:
-      meta:
-        description: "Work out whether you can claim Married Couple's Allowance (MCA) and find out how much you could get taken off your tax bill"
-      title: |
-        Calculate your Married Couple's Allowance
       section_name: Money and tax
-      body: |
-        You can use this calculator to work out if you qualify for Married Couple’s Allowance, and how much you might get. You need to be married or in a civil partnership to claim.
       options:
         "no": "No"
         "yes": "Yes"
