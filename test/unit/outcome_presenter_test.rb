@@ -2,6 +2,12 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class OutcomePresenterTest < ActiveSupport::TestCase
+    setup do
+      outcome = Outcome.new(nil, :outcome_name)
+      @renderer = stub('renderer')
+      @presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, renderer: @renderer)
+    end
+
     test 'renderer is constructed using template name and directory obtained from outcome node' do
       outcome = stub('outcome', name: :outcome_name, template_directory: 'outcome-template-directory')
 
@@ -14,63 +20,39 @@ module SmartAnswer
     end
 
     test '#title returns content rendered for title block with govspeak processing disabled' do
-      outcome = Outcome.new(nil, :outcome_name)
-      renderer = stub('renderer')
-      renderer.stubs(:content_for).with(:title, html: false).returns('title-text')
+      @renderer.stubs(:content_for).with(:title, html: false).returns('title-text')
 
-      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, renderer: renderer)
-
-      assert_equal 'title-text', presenter.title
+      assert_equal 'title-text', @presenter.title
     end
 
     test '#title removes trailing newline from rendered content' do
-      outcome = Outcome.new(nil, :outcome_name)
-      renderer = stub('renderer')
-      renderer.stubs(:content_for).returns("title-text\n")
+      @renderer.stubs(:content_for).returns("title-text\n")
 
-      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, renderer: renderer)
-
-      assert_equal 'title-text', presenter.title
+      assert_equal 'title-text', @presenter.title
     end
 
     test '#body returns content rendered for body block with govspeak processing enabled by default' do
-      outcome = Outcome.new(nil, :outcome_name)
-      renderer = stub('renderer')
-      renderer.stubs(:content_for).with(:body, html: true).returns('body-html')
+      @renderer.stubs(:content_for).with(:body, html: true).returns('body-html')
 
-      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, renderer: renderer)
-
-      assert_equal 'body-html', presenter.body
+      assert_equal 'body-html', @presenter.body
     end
 
     test '#body returns content rendered for body block with govspeak processing disabled' do
-      outcome = Outcome.new(nil, :outcome_name)
-      renderer = stub('renderer')
-      renderer.stubs(:content_for).with(:body, html: false).returns('body-govspeak')
+      @renderer.stubs(:content_for).with(:body, html: false).returns('body-govspeak')
 
-      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, renderer: renderer)
-
-      assert_equal 'body-govspeak', presenter.body(html: false)
+      assert_equal 'body-govspeak', @presenter.body(html: false)
     end
 
     test '#next_steps returns content rendered for next_steps block with govspeak processing enabled by default' do
-      outcome = Outcome.new(nil, :outcome_name)
-      renderer = stub('renderer')
-      renderer.stubs(:content_for).with(:next_steps, html: true).returns('next-steps-html')
+      @renderer.stubs(:content_for).with(:next_steps, html: true).returns('next-steps-html')
 
-      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, renderer: renderer)
-
-      assert_equal 'next-steps-html', presenter.next_steps
+      assert_equal 'next-steps-html', @presenter.next_steps
     end
 
     test '#next_steps returns content rendered for next_steps block with govspeak processing disabled' do
-      outcome = Outcome.new(nil, :outcome_name)
-      renderer = stub('renderer')
-      renderer.stubs(:content_for).with(:next_steps, html: false).returns('next-steps-govspeak')
+      @renderer.stubs(:content_for).with(:next_steps, html: false).returns('next-steps-govspeak')
 
-      presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, renderer: renderer)
-
-      assert_equal 'next-steps-govspeak', presenter.next_steps(html: false)
+      assert_equal 'next-steps-govspeak', @presenter.next_steps(html: false)
     end
   end
 end
