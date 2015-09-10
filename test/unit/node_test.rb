@@ -1,22 +1,22 @@
 require_relative '../test_helper'
 
 module SmartAnswer
-  class OutcomeTest < ActiveSupport::TestCase
+  class NodeTest < ActiveSupport::TestCase
     setup do
       @flow = Flow.new
-      @outcome = Outcome.new(@flow, 'outcome-name')
+      @node = Outcome.new(@flow, 'node-name')
       @load_path = FlowRegistry.instance.load_path
     end
 
     test '#template_directory returns flows load path if flow has no name' do
-      assert_equal Pathname.new(@load_path), @outcome.template_directory
+      assert_equal Pathname.new(@load_path), @node.template_directory
     end
 
     test '#template_directory returns the path to the templates belonging to the flow' do
       @flow.name('flow-name')
 
       expected_directory = Pathname.new(@load_path).join('flow-name')
-      assert_equal expected_directory, @outcome.template_directory
+      assert_equal expected_directory, @node.template_directory
     end
   end
 end
