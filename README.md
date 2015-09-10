@@ -155,12 +155,12 @@ Test a single Smartdown flow by running:
 
 10. Commit the generated yaml file to git.
 
-11. Run the regression test to generate the HTML of each outcome reached by the set of input responses.
+11. Run the regression test to generate the Govspeak of each landing page and outcome reached by the set of input responses.
 
         $ RUN_REGRESSION_TESTS=<name-of-smart-answer> \
           ruby test/regression/smart_answers_regression_test.rb
 
-12. Commit the generated outcome HTML files (in test/artefacts) to git.
+12. Commit the generated Govspeak files (in test/artefacts) to git.
 
 ## Making bigger changes
 
@@ -185,7 +185,7 @@ If you can not deploy on Heroku, it is possible to use the now deprecated [V2 wo
 ### Introduction
 
 Members of the Content Team do not have permission to contribute directly to the canonical repository, so when they want to make a change, they create a pull request using a fork of the repository. Also since they don't usually have a Ruby environment setup on their local machine, they will not be able to update
-files relating to the regression tests e.g. file checksums, HTML artefacts, etc. See documentation about [adding regression tests](#adding-regression-tests-to-smart-answers) for more information.
+files relating to the regression tests e.g. file checksums, Govspeak artefacts, etc. See documentation about [adding regression tests](#adding-regression-tests-to-smart-answers) for more information.
 
 ## Instructions
 
