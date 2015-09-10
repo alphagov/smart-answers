@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       name 'part-year-profit-tax-credits'
 
-      status :draft
+      status :published
       satisfies_need "103438"
 
       date_question :when_did_your_tax_credits_award_end? do
