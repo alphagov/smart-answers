@@ -15,19 +15,15 @@ Don’t book travel until you have a valid passport. If you need to travel more 
 
 ## Cost
 
-
 You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
 
 | Passport type | Passport fee | Total to pay (including courier fee) |
 |---------------|--------------|--------------------------------------|
 | Child passport | £53.00 | £72.86 |
 
-
-
 Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
 You can use Mastercard, Visa, Electron, Diners Club and JCB.
-
 
 ## How to apply
 
@@ -40,14 +36,11 @@ You can use Mastercard, Visa, Electron, Diners Club and JCB.
 ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
 ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-3)^
 
-
 %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
-
 
 ## Send your application
 
 Her Majesty’s Passport Office recommends you send your application using a secure delivery service or courier.
-
 
 $A
 Her Majesty’s Passport Office
@@ -60,15 +53,11 @@ $A
 
 ## Getting your passport
 
-
-
 Your passport and supporting documents will be delivered to the British Deputy High Commission in Lagos, Nigeria - you must collect them in person.
-
 
 They will contact you - using the details on your application form - when your passport is ready to collect.
 
 You must bring photo ID with you.
-
 
 ##Contact the Passport Adviceline
 
@@ -79,5 +68,4 @@ Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
 $C
 
 [Find out about call charges](/call-charges)
-
 

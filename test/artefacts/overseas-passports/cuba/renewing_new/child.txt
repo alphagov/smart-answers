@@ -15,13 +15,11 @@ Don’t book travel until you have a valid passport. If you need to travel more 
 
 ## Cost
 
-
 You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
 
 | Passport type | Passport fee | Total to pay (including courier fee) |
 |---------------|--------------|--------------------------------------|
 | Child passport | £53.00 | £76.01 |
-
 
 You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
 
@@ -36,10 +34,7 @@ You must pay in cash using local currency - the prices above will be converted a
 ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
 ^[Supporting documents you must send with your application](/government/publications/overseas-passport-supporting-documents-group-2)^
 
-
 %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
-
-
 
 ## Making your application
 
@@ -54,9 +49,6 @@ You can’t travel with it after you’ve applied for a new one - but you will b
 
 You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
 
-
-
-
 $A
 British Embassy Havana
 Calle 34 no. 702 esq 7ma
@@ -69,18 +61,14 @@ $A
 $C
 Telephone: +537 214 2200
 
-
 [British Embassy Havana - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-havana/office/british-embassy-havana)
 $C
 
-
 ## Getting your passport
-
 
 Your passport will be delivered to the British Embassy, high commission or consulate where you applied - you must collect it in person.
 
 They will contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-
 
 ##Contact the Passport Adviceline
 
@@ -91,5 +79,4 @@ Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
 $C
 
 [Find out about call charges](/call-charges)
-
 

@@ -24,12 +24,9 @@ You’ll have to pay a fee for your passport and a courier fee of £9.70. The co
 | Adult standard 32-page passport | £83.00 | £92.70 |
 | Adult jumbo 48-page passport | £91.00 | £100.70 |
 
-
 Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
 You can use Mastercard, Visa, Electron, Diners Club and JCB.
-
-
 
 ## How to apply
 
@@ -42,15 +39,11 @@ You can use Mastercard, Visa, Electron, Diners Club and JCB.
 ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
 ^[Supporting documents you must send with your application](/government/publications/overseas-passport-applications-supporting-documents-guidance)^
 
-
 %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
-
-
 
 ## Send your application
 
 Her Majesty’s Passport Office recommends you send your application using a secure delivery service or courier.
-
 
 $A
 Her Majesty’s Passport Office
@@ -61,12 +54,9 @@ L3 9BP
 United Kingdom
 $A
 
-
 ## Getting your passport
 
-
 Your passport and supporting documents will be delivered separately by courier.
-
 
 ##Contact the Passport Adviceline
 
@@ -77,5 +67,4 @@ Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
 $C
 
 [Find out about call charges](/call-charges)
-
 
