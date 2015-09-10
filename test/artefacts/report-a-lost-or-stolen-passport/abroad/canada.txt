@@ -6,8 +6,6 @@ Fill in form LS01 and post it to your nearest British embassy, high commission o
 
 You can use the [online enquiry form](https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml) to contact Her Majesty’s Passport Office for general advice.
 
-
-
 $A
 British Consulate-General Toronto
 777 Bay Street, Suite 2800
@@ -24,7 +22,6 @@ Email: <britcon.toronto@fco.gov.uk>
 [British Consulate-General Toronto - opening hours](https://www.gov.uk/government/world/organisations/british-high-commission-ottawa/office/british-consulate-general-toronto)
 $C
 
-
 $A
 British Consulate-General Vancouver
 1111 Melville Street, Suite 800
@@ -40,7 +37,6 @@ Email: <britishconsulate.vancouver@fco.gov.uk>
 
 [British Consulate-General Vancouver - opening hours](https://www.gov.uk/government/world/organisations/british-high-commission-ottawa/office/british-consulate-general-vancouver)
 $C
-
 
 ##Get a replacement passport
 
