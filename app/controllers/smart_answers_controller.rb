@@ -63,7 +63,7 @@ private
   end
 
   def render_text?(presenter)
-    (!Rails.env.production? || ENV['EXPOSE_GOVSPEAK'].present?) && presenter.render_txt?
+    Rails.application.config.expose_govspeak && presenter.render_txt?
   end
 
   def with_format(format, &block)
