@@ -1,7 +1,9 @@
 module SmartAnswer
   class ErbRenderer
     def initialize(template_directory:, template_name:, locals: {}, helpers: [])
-      @template_directory, @template_name, @locals = template_directory, template_name, locals
+      @template_directory = template_directory
+      @template_name = template_name
+      @locals = locals
       @view = ActionView::Base.new([@template_directory])
       helpers.each { |helper| @view.extend(helper) }
     end

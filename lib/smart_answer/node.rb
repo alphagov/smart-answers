@@ -5,7 +5,8 @@ module SmartAnswer
     attr_reader :name, :calculations, :next_node_calculations, :precalculations
 
     def initialize(flow, name, options = {}, &block)
-      @flow, @name = flow, name
+      @flow = flow
+      @name = name
       @calculations = []
       @next_node_calculations = []
       @precalculations = []

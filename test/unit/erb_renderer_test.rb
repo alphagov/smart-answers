@@ -129,9 +129,7 @@ Hello world
     private
 
     def content_for(key, template)
-"<% content_for #{key.inspect} do %>
-#{template}
-<% end %>"
+      "<% content_for #{key.inspect} do %>\n#{template}\n<% end %>"
     end
 
     def with_erb_template_file(outcome_name, erb_template)

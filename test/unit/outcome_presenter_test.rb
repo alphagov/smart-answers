@@ -11,10 +11,12 @@ module SmartAnswer
     test 'renderer is constructed using template name and directory obtained from outcome node' do
       outcome = stub('outcome', name: :outcome_name, template_directory: 'outcome-template-directory')
 
-      SmartAnswer::ErbRenderer.expects(:new).with(has_entries(
-        template_directory: 'outcome-template-directory',
-        template_name: 'outcome_name'
-      ))
+      SmartAnswer::ErbRenderer.expects(:new).with(
+        has_entries(
+          template_directory: 'outcome-template-directory',
+          template_name: 'outcome_name'
+        )
+      )
 
       OutcomePresenter.new('i18n-prefix', outcome)
     end

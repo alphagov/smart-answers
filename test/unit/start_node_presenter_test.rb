@@ -11,10 +11,12 @@ module SmartAnswer
     test 'renderer is constructed using template name and directory obtained from start node' do
       start_node = stub('start-node', name: :start_node_name, template_directory: 'start-node-template-directory')
 
-      SmartAnswer::ErbRenderer.expects(:new).with(has_entries(
-        template_directory: 'start-node-template-directory',
-        template_name: 'start_node_name'
-      ))
+      SmartAnswer::ErbRenderer.expects(:new).with(
+        has_entries(
+          template_directory: 'start-node-template-directory',
+          template_name: 'start_node_name'
+        )
+      )
 
       StartNodePresenter.new('i18n-prefix', start_node)
     end
