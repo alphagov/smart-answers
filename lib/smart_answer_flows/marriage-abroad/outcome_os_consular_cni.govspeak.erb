@@ -103,8 +103,10 @@
   <% end %>
   <% if resident_of == 'uk' %>
     <% if ceremony_country == 'poland' %>
-      Contact the local registry office in <%= country_name_lowercase_prefix %> to find out if they accept UK-issued CNIs. If they don’t, you’ll need to get a locally-issued one.
-
+      <%= render partial: 'check_if_uk_issued_cnis_accepted.govspeak.erb',
+                 locals: {
+                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                 } %>
       ### Get a UK-issued CNI
 
     <% end %>
