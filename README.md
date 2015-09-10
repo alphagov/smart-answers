@@ -160,6 +160,9 @@ Test a single Smartdown flow by running:
         $ RUN_REGRESSION_TESTS=<name-of-smart-answer> \
           ruby test/regression/smart_answers_regression_test.rb
 
+If you want individual tests to fail early when differences are detected, set `ASSERT_EACH_ARTEFACT=true`.
+Note that this more than doubles the time it takes to run regression tests.
+
 12. Commit the generated Govspeak files (in test/artefacts) to git.
 
 ## Making bigger changes

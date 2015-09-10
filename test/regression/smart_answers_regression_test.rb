@@ -108,7 +108,8 @@ class SmartAnswersRegressionTest < ActionController::TestCase
       should "render and save the landing page" do
         get :show, id: flow_name, format: 'txt'
 
-        assert_no_output_diff smart_answer_helper.save_output([flow_name], response)
+        artefact_path = smart_answer_helper.save_output([flow_name], response)
+        assert_no_output_diff artefact_path if ENV['ASSERT_EACH_ARTEFACT'].present?
       end
 
       responses_and_expected_results.each do |responses_and_expected_node|
@@ -119,7 +120,10 @@ class SmartAnswersRegressionTest < ActionController::TestCase
           should "render and save output for responses: #{responses.join(', ')}" do
             get :show, id: flow_name, started: 'y', responses: responses.join('/'), format: 'txt'
 
-            assert_no_output_diff smart_answer_helper.save_output(responses, response)
+            artefact_path = smart_answer_helper.save_output(responses, response)
+
+            # Enabling this more than doubles the time it takes to run regression tests
+            assert_no_output_diff artefact_path if ENV['ASSERT_EACH_ARTEFACT'].present?
           end
         end
       end
