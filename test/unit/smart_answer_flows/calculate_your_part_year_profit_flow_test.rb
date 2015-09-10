@@ -23,12 +23,14 @@ module SmartAnswer
         assert_same @calculator, @new_state.calculator
       end
 
-      should 'set the from date of the date select to 1 Jan 2015' do
-        assert_equal Date.parse('2015-01-01'), @question.range.begin
+      should 'set the from date of the date select to the constant defined in the calculator' do
+        expected = Calculators::PartYearProfitCalculator::TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE
+        assert_equal expected, @question.range.begin
       end
 
-      should 'set the to date of the date select to 31 Dec 2018' do
-        assert_equal Date.parse('2018-12-31'), @question.range.end
+      should 'set the to date of the date select to the constant defined in the calculator' do
+        expected = Calculators::PartYearProfitCalculator::TAX_CREDITS_AWARD_ENDS_LATEST_DATE
+        assert_equal expected, @question.range.end
       end
 
       should 'store parsed response on calculator as tax_credits_award_ends_on' do
@@ -132,12 +134,14 @@ module SmartAnswer
         setup_states_for_question(:when_did_you_start_trading?, responding_with: '2015-02-01', calculator: @calculator)
       end
 
-      should 'set the from date of the date select to 2 years ago from now' do
-        assert_equal Date.today.year - 2, @question.range.begin.year
+      should 'set the from date of the date select to constant defined in the calculator' do
+        expected = Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_EARLIEST_DATE
+        assert_equal expected, @question.range.begin
       end
 
-      should 'set the to date of the date select to 4 years from now' do
-        assert_equal Date.today.year + 4, @question.range.end.year
+      should 'set the to date of the date select to the constant defined in the calculator' do
+        expected = Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_LATEST_DATE
+        assert_equal expected, @question.range.end
       end
 
       should 'make tax_credits_part_year_ends_on available' do
@@ -193,12 +197,14 @@ module SmartAnswer
         setup_states_for_question(:when_did_you_stop_trading?, responding_with: '2015-06-01', calculator: @calculator)
       end
 
-      should 'set the from date of the date select to 2 years ago from now' do
-        assert_equal Date.today.year - 2, @question.range.begin.year
+      should 'set the from date of the date select to the constant defined in the calculator' do
+        expected = Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_EARLIEST_DATE
+        assert_equal expected, @question.range.begin
       end
 
-      should 'set the to date of the date select to 4 years from now' do
-        assert_equal Date.today.year + 4, @question.range.end.year
+      should 'set the to date of the date select to the constant defined in the calculator' do
+        expected = Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_LATEST_DATE
+        assert_equal expected, @question.range.end
       end
 
       should 'make tax_year_begins_on available for interpolation in question title' do
