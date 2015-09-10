@@ -1,6 +1,6 @@
 ---
 lib/smart_answer_flows/vat-payment-deadlines.rb: 759c32f1010e945789253197f21a359c
-lib/smart_answer_flows/locales/en/vat-payment-deadlines.yml: 96a0aaa62f2db7169db4ed5f1caeff06
+lib/smart_answer_flows/locales/en/vat-payment-deadlines.yml: d961b540b085e5d42ad9b4d624d58be4
 test/data/vat-payment-deadlines-questions-and-responses.yml: a9c89cff2686881257fe52b750032268
 test/data/vat-payment-deadlines-responses-and-expected-results.yml: 88f5a54e78f8b5006265a8005cdd15fe
 lib/smart_answer_flows/vat-payment-deadlines/result_bacs_direct_credit.govspeak.erb: 063a6e204352bdbb75a0e1edd7d2e7b3
@@ -10,5 +10,6 @@ lib/smart_answer_flows/vat-payment-deadlines/result_cheque.govspeak.erb: 77f1fc9
 lib/smart_answer_flows/vat-payment-deadlines/result_direct_debit.govspeak.erb: 508a58ee620eb64250c34233e7578785
 lib/smart_answer_flows/vat-payment-deadlines/result_online_debit_credit_card.govspeak.erb: 01fe86e83be18b5c7e26b80ae7760356
 lib/smart_answer_flows/vat-payment-deadlines/result_online_telephone_banking.govspeak.erb: 0188746f037df1949c6ab49b77a94987
+lib/smart_answer_flows/vat-payment-deadlines/vat_payment_deadlines.govspeak.erb: 3f4ae8b59119f2eb094f1ece2cb4329b
 lib/smart_answer/calculators/vat_payment_deadlines.rb: e1e95cce94754c307eb521a439f49e3a
 lib/working_days.rb: cb61b2a6ae8644542cd7574f5b7383c8

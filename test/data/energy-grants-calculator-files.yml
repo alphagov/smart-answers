@@ -1,6 +1,6 @@
 ---
 lib/smart_answer_flows/energy-grants-calculator.rb: c73cd0d00f106de2d06e2f00fbeedc12
-lib/smart_answer_flows/locales/en/energy-grants-calculator.yml: cc6a979895ba10bdab30911c815267dd
+lib/smart_answer_flows/locales/en/energy-grants-calculator.yml: cd46192351d40f256538061d41689a04
 test/data/energy-grants-calculator-questions-and-responses.yml: e725aa49320518369f4fdc601cd217b2
 test/data/energy-grants-calculator-responses-and-expected-results.yml: 7700bd72da2da267ae960e5d7eac91c2
 lib/smart_answer_flows/energy-grants-calculator/_cold_weather_payment.govspeak.erb: 9976373a42df06bdb65e902166fb1d49
@@ -32,6 +32,7 @@ lib/smart_answer_flows/energy-grants-calculator/_title_no_help_with_bills_outcom
 lib/smart_answer_flows/energy-grants-calculator/_title_under_green_deal.govspeak.erb: 4ec0c66042314b10a30eb9fac199e01e
 lib/smart_answer_flows/energy-grants-calculator/_warm_home_discount.govspeak.erb: b5499b918f9d7121b809f5d546ed1b85
 lib/smart_answer_flows/energy-grants-calculator/_winter_fuel_payments.govspeak.erb: 59b7b5700ec3b52b2fac425b19e9f7b0
+lib/smart_answer_flows/energy-grants-calculator/energy_grants_calculator.govspeak.erb: 7df3ca7bdc65c932d84c51b4bd742bc2
 lib/smart_answer_flows/energy-grants-calculator/outcome_bills_and_measures_no_benefits.govspeak.erb: fb6c72e5a327d3f52fe616fad3b3c00d
 lib/smart_answer_flows/energy-grants-calculator/outcome_bills_and_measures_on_benefits_eco_eligible.govspeak.erb: e967871719e467cb29ed88be8a59d448
 lib/smart_answer_flows/energy-grants-calculator/outcome_bills_and_measures_on_benefits_not_eco_eligible.govspeak.erb: e0467a5ecef5ce2070f3835ffbcd562e

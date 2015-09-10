@@ -1,8 +1,9 @@
 ---
 lib/smart_answer_flows/additional-commodity-code.rb: 862223763eb34d7342d789ba2fa8cc27
-lib/smart_answer_flows/locales/en/additional-commodity-code.yml: 1bd6a7da656f81f10992dcbae147f9b5
+lib/smart_answer_flows/locales/en/additional-commodity-code.yml: 417fd0ca1fc4cfb449d334e8c03c0622
 test/data/additional-commodity-code-questions-and-responses.yml: f2149cbfa6ec8c5ead572f0a89542a79
 test/data/additional-commodity-code-responses-and-expected-results.yml: 6ca51c22f472dbe159ac81f31006a7b1
+lib/smart_answer_flows/additional-commodity-code/additional_commodity_code.govspeak.erb: 4d11f8bf0bcd29764893c4a12349de17
 lib/smart_answer_flows/additional-commodity-code/commodity_code_result.govspeak.erb: ddfba77b9c3ff122c93a924d06e86659
 lib/smart_answer/calculators/commodity_code_calculator.rb: b5ac25b42276e8f2b74a1549282da752
 lib/data/commodity_codes_data.yml: e18434a8a7b02f644e69ebe45f518772
