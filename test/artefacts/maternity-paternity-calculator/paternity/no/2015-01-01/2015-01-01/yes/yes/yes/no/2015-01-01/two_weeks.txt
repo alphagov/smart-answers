@@ -12,19 +12,14 @@ The employee is entitled to Statutory Paternity Leave.
 
 ^Leave must finish within 56 days of the birth (or due date if the baby is early).^
 
-
 ##Statutory Paternity Pay
 
 The employee is not entitled to Statutory Paternity Pay. To qualify:
 
-
 + you must be liable for their secondary Class 1 National Insurance contributions - ie you will be if they’re on your payroll
-
 
 Send them form OSPP1 confirming this within 28 days of their pay request.
 
-
 $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
-
 
 Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)

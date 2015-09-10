@@ -12,7 +12,6 @@ The employee is entitled to Statutory Paternity Leave.
 
 ^Leave must finish within 56 days of the birth (or due date if the baby is early).^
 
-
 ##Statutory Paternity Pay (SPP)
 
 The employee is entitled to SPP.
@@ -40,7 +39,5 @@ Date | SPP amount
 | **Total SPP: £5041.01**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
-
-
 
 Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
