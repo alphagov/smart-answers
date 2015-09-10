@@ -4,7 +4,6 @@ $C
 You weren't getting the National Minimum Wage.
 $C
 
-
 The National Minimum Wage per hour at the time | Your actual pay | For each pay period your employer owes you
 - | -
 £2.60 | -£31.77 * | £866.15
@@ -14,7 +13,6 @@ The National Minimum Wage per hour at the time | Your actual pay | For each pay 
 This calculation includes an additional amount you’re entitled to by law for past payments. If you worked overtime or your employer provided you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 
 This result is an estimate. If you have any questions, call the confidential helpline:
-
 
 $C
 Acas helpline
