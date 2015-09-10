@@ -30,7 +30,7 @@ en-GB:
         hint:
           This date must be between %{tax_year_begins_on} and %{tax_year_ends_on},
           which is the start and end dates of the tax year that your tax credit award ends in.
-        not_in_tax_year_error: The date must be within the dates displayed above
+        not_in_tax_year_error: The date must be between %{tax_year_begins_on} and %{tax_year_ends_on}.
         error_message: You need to enter a date to continue.
       what_date_do_your_accounts_go_up_to?:
         title: What date do your accounts go up to?
