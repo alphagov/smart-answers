@@ -117,7 +117,6 @@ module SmartAnswer
       end
 
       outcome :result
-      outcome :unsupported
     end
   end
 end
