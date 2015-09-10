@@ -90,11 +90,8 @@ module SmartAnswer
       add_node Question::Postcode.new(self, name, &block)
     end
 
-    def outcome(name, options = {}, &block)
-      modified_options = options.merge(
-        flow_name: self.name
-      )
-      add_node Outcome.new(nil, name, modified_options, &block)
+    def outcome(name, &block)
+      add_node Outcome.new(self, name, &block)
     end
 
     def outcomes
