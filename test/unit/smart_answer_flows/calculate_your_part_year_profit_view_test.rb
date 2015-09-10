@@ -150,7 +150,7 @@ module SmartAnswer
       end
 
       should 'display hint with interpolated tax_credits_part_year_ends_on' do
-        expected = "This date must be before  1 August 2015, which is the earlier of either the date your Tax Credits Award ends or the date your business stopped trading."
+        expected = "This date must be before  1 August 2015."
         assert_equal expected, @presenter.hint
       end
 

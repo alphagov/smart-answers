@@ -42,8 +42,7 @@ en-GB:
       when_did_you_start_trading?:
         title: "When did you start trading?"
         hint:
-          This date must be before %{tax_credits_part_year_ends_on},
-          which is the earlier of either the date your Tax Credits Award ends or the date your business stopped trading.
+          This date must be before %{tax_credits_part_year_ends_on}.
         error_message: You need to enter a date to continue.
         invalid_start_trading_date:
           The start trading date must be before the date your Tax Credits award ends.
