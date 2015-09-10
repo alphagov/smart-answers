@@ -9,34 +9,94 @@ module SmartAnswer
       @i18n_prefix = "flow.#{@flow.name}"
     end
 
+    context 'when rendering when_did_your_tax_credits_award_end? question' do
+      setup do
+        question = @flow.node(:when_did_your_tax_credits_award_end?)
+        @state = SmartAnswer::State.new(question)
+        @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
+      end
+
+      should 'have a default error message' do
+        @state.error = 'error-message'
+        assert_equal 'You need to enter a date to continue.', @presenter.error
+      end
+    end
+
+    context 'when rendering what_date_do_your_accounts_go_up_to? question' do
+      setup do
+        question = @flow.node(:what_date_do_your_accounts_go_up_to?)
+        @state = SmartAnswer::State.new(question)
+        @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
+      end
+
+      should 'have a default error message' do
+        @state.error = 'error-message'
+        assert_equal 'You need to enter a date to continue.', @presenter.error
+      end
+    end
+
+    context 'when rendering have_you_stopped_trading? question' do
+      setup do
+        question = @flow.node(:have_you_stopped_trading?)
+        @state = SmartAnswer::State.new(question)
+        @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
+      end
+
+      should 'have a default error message' do
+        @state.error = 'error-message'
+        assert_equal 'You need to select yes or no to continue.', @presenter.error
+      end
+    end
+
+    context 'when rendering did_you_start_trading_before_the_relevant_accounting_period? question' do
+      setup do
+        question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_period?)
+        @state = SmartAnswer::State.new(question)
+        @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
+      end
+
+      should 'have a default error message' do
+        @state.error = 'error-message'
+        assert_equal 'You need to select yes or no to continue.', @presenter.error
+      end
+    end
+
     context 'when rendering do_your_accounts_cover_a_12_month_period? question' do
       setup do
         question = @flow.node(:do_your_accounts_cover_a_12_month_period?)
-        state = SmartAnswer::State.new(question)
-        state.accounting_period_ends_on = Date.parse('2016-04-05')
-        presenter = QuestionPresenter.new(@i18n_prefix, question, state)
-        @title = presenter.title
+        @state = SmartAnswer::State.new(question)
+        @state.accounting_period_ends_on = Date.parse('2016-04-05')
+        @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
       end
 
       should 'display title with interpolated basis_period_ends_on' do
         expected = "Do your accounts cover the 12 month period up to  5 April 2016?"
-        assert_equal expected, @title
+        assert_equal expected, @presenter.title
+      end
+
+      should 'have a default error message' do
+        @state.error = 'error-message'
+        assert_equal 'You need to select yes or no to continue.', @presenter.error
       end
     end
 
     context 'when rendering what_is_your_taxable_profit? question' do
       setup do
         question = @flow.node(:what_is_your_taxable_profit?)
-        state = SmartAnswer::State.new(question)
-        state.basis_period_begins_on = Date.parse('2015-04-06')
-        state.basis_period_ends_on = Date.parse('2016-04-05')
-        presenter = QuestionPresenter.new(@i18n_prefix, question, state)
-        @title = presenter.title
+        @state = SmartAnswer::State.new(question)
+        @state.basis_period_begins_on = Date.parse('2015-04-06')
+        @state.basis_period_ends_on = Date.parse('2016-04-05')
+        @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
       end
 
       should 'display title with interpolated basis_period_begins_on and basis_period_ends_on' do
         expected = "What is your actual or estimated taxable profit between  6 April 2015 and  5 April 2016?"
-        assert_equal expected, @title
+        assert_equal expected, @presenter.title
+      end
+
+      should 'have a default error message' do
+        @state.error = 'error-message'
+        assert_equal 'Enter your taxable profit.', @presenter.error
       end
     end
 
@@ -62,12 +122,16 @@ module SmartAnswer
         @state.tax_year_begins_on = Date.parse('2015-04-06')
         @state.tax_year_ends_on = Date.parse('2016-04-05')
         @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
-        @hint = @presenter.hint
       end
 
       should 'display hint with interpolated tax_year_begins_on and tax_year_ends_on' do
         expected = "This date must be between  6 April 2015 and  5 April 2016"
-        assert_match expected, @hint
+        assert_match expected, @presenter.hint
+      end
+
+      should 'have a default error message' do
+        @state.error = 'error-message'
+        assert_equal 'You need to enter a date to continue.', @presenter.error
       end
 
       should 'display a useful error message when an invalid date is entered' do
@@ -80,15 +144,19 @@ module SmartAnswer
     context 'when rendering when_did_you_start_trading? question' do
       setup do
         question = @flow.node(:when_did_you_start_trading?)
-        state = SmartAnswer::State.new(question)
-        state.tax_credits_part_year_ends_on = Date.parse('2015-08-01')
-        presenter = QuestionPresenter.new(@i18n_prefix, question, state)
-        @hint = presenter.hint
+        @state = SmartAnswer::State.new(question)
+        @state.tax_credits_part_year_ends_on = Date.parse('2015-08-01')
+        @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
       end
 
       should 'display hint with interpolated tax_credits_part_year_ends_on' do
         expected = "This date must be before  1 August 2015, which is the earlier of either the date your Tax Credits Award ends or the date your business stopped trading."
-        assert_equal expected, @hint
+        assert_equal expected, @presenter.hint
+      end
+
+      should 'have a default error message' do
+        @state.error = 'error-message'
+        assert_equal 'You need to enter a date to continue.', @presenter.error
       end
     end
 

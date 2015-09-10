@@ -17,27 +17,34 @@ en-GB:
       when_did_your_tax_credits_award_end?:
         title: When did your tax credits award end?
         hint: You can find this on your award review.
+        error_message: You need to enter a date to continue.
       have_you_stopped_trading?:
         title: Have you stopped trading?
         hint: This means you’re no longer running your business
+        error_message: You need to select yes or no to continue.
       did_you_start_trading_before_the_relevant_accounting_period?:
         title: Did you start trading before %{accounting_period_begins_on}
+        error_message: You need to select yes or no to continue.
       when_did_you_stop_trading?:
         title: When did you stop trading?
         hint:
           This date must be between %{tax_year_begins_on} and %{tax_year_ends_on},
           which is the start and end dates of the tax year that your tax credit award ends in.
         not_in_tax_year_error: The date must be within the dates displayed above
+        error_message: You need to enter a date to continue.
       what_date_do_your_accounts_go_up_to?:
         title: What date do your accounts go up to?
         hint: This is the last date of the accounting period for your business. For most people, this will be 5 April.
+        error_message: You need to enter a date to continue.
       do_your_accounts_cover_a_12_month_period?:
         title: Do your accounts cover the 12 month period up to %{accounting_period_ends_on}?
+        error_message: You need to select yes or no to continue.
       when_did_you_start_trading?:
         title: "When did you start trading?"
         hint:
           This date must be before %{tax_credits_part_year_ends_on},
           which is the earlier of either the date your Tax Credits Award ends or the date your business stopped trading.
+        error_message: You need to enter a date to continue.
         invalid_start_trading_date:
           The start trading date must be before the date your Tax Credits Award ends.
       what_is_your_taxable_profit?:
@@ -45,3 +52,4 @@ en-GB:
         hint:
           This is the amount left over after you take all your earnings from self-employment and deduct any allowable expenses and losses.
           If this is over 2 years of accounts you need to add them together.
+        error_message: Enter your taxable profit.
