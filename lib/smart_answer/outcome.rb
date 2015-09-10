@@ -9,9 +9,8 @@ module SmartAnswer
     end
 
     def template_directory
-      return unless @flow.name
       load_path = FlowRegistry.instance.load_path
-      Pathname.new(load_path).join(@flow.name)
+      Pathname.new(load_path).join(String(@flow.name))
     end
   end
 end
