@@ -50,6 +50,8 @@ module SmartAnswer
         end
 
         calculate :pension_credit_date do
+          # pension credit date calculation for all genders is equivalent
+          # to the state pension date age calculation for women
           calculator.state_pension_date(:female).strftime("%-d %B %Y")
         end
 
