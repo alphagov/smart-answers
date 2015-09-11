@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+require "data/state_pension_query"
+
 module SmartAnswer
   class CalculateStatePensionFlow < Flow
     def define
@@ -12,12 +13,19 @@ module SmartAnswer
 
         option :age
         option :amount
+        option :bus_pass
 
         calculate :weekly_state_pension_rate do
           SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.weekly_rate
         end
 
-        next_node :gender?
+        next_node do |response|
+          if response == 'bus_pass'
+            :dob_bus_pass?
+          else
+            :gender?
+          end
+        end
       end
 
       # Q2
@@ -82,6 +90,19 @@ module SmartAnswer
         next_node_if(:too_young, under_20_years_old?)
         next_node_if(:near_state_pension_age, near_pension_date?)
         next_node(:age_result)
+      end
+
+      date_question :dob_bus_pass? do
+        date_of_birth_defaults
+        validate { |response| response <= Date.today }
+
+        calculate :qualifies_for_bus_pass_on do |response|
+          # Bus pass age calculation for all genders is equivalent
+          # to the state pension date calculation for women
+          StatePensionQuery.find(response, :female).strftime("%-d %B %Y")
+        end
+
+        next_node(:bus_pass_age_result)
       end
 
       # Q3:Amount
@@ -465,6 +486,7 @@ module SmartAnswer
       outcome :too_young
 
       outcome :age_result
+      outcome :bus_pass_age_result
       outcome :over55_result
 
       outcome :amount_result do

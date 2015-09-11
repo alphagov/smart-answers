@@ -13,8 +13,9 @@ en-GB:
       which_calculation?:
         title: What would you like to calculate?
         options:
-          age: State Pension age - including pension credit age and when you’ll get free bus travel
+          age: State Pension age - including pension credit age
           amount: Amount - estimate of your basic State Pension amount
+          bus_pass: Bus pass age - find out when you’ll get free bus travel
       ## Q2
       gender?:
         title: Are you a man or a woman?
@@ -27,6 +28,10 @@ en-GB:
         error_message: Enter your date of birth
       ## Q3:Amount
       dob_amount?:
+        title: What is your date of birth?
+        error_message: Enter your date of birth
+      ## Q3:Age
+      dob_bus_pass?:
         title: What is your date of birth?
         error_message: Enter your date of birth
       ## Q3a Amount

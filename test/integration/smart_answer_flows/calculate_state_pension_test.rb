@@ -730,6 +730,18 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
         assert_current_node :over55_result
       end
     end
+  end
 
-  end #amount calculation
-end #ask which calculation
+  context "bus pass age" do
+    setup do
+      add_response :bus_pass
+    end
+
+    should "lead to bus_pass_age_result" do
+      assert_current_node :dob_bus_pass?
+      add_response '1956-05-31'
+      assert_current_node :bus_pass_age_result
+      assert_state_variable :qualifies_for_bus_pass_on, "31 May 2022"
+    end
+  end
+end
