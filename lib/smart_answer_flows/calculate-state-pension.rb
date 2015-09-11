@@ -8,7 +8,7 @@ module SmartAnswer
 
       # Q1
       multiple_choice :which_calculation? do
-        save_input_as :calculate_age_or_amount
+        save_input_as :relevant_calculation
 
         option :age
         option :amount
@@ -27,7 +27,7 @@ module SmartAnswer
         option :male
         option :female
 
-        next_node_if(:dob_age?, variable_matches(:calculate_age_or_amount, "age"))
+        next_node_if(:dob_age?, variable_matches(:relevant_calculation, "age"))
         next_node :dob_amount?
       end
 
