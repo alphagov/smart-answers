@@ -20,21 +20,21 @@ module SmartAnswer
     end
 
     test "Node title looked up from translation file" do
-      question = Question::Date.new(:example_question?)
+      question = Question::Date.new(nil, :example_question?)
       presenter = NodePresenter.new("flow.test", question)
 
       assert_equal 'Foo', presenter.title
     end
 
     test "Node title existence check" do
-      question = Question::Date.new(:example_question?)
+      question = Question::Date.new(nil, :example_question?)
       presenter = NodePresenter.new("flow.test", question)
 
       assert presenter.has_title?
     end
 
     test "Node title can be interpolated with state" do
-      question = Question::Date.new(:interpolated_question)
+      question = Question::Date.new(nil, :interpolated_question)
       state = State.new(question.name)
       state.day = 'Monday'
       presenter = NodePresenter.new("flow.test", question, state)
@@ -44,7 +44,7 @@ module SmartAnswer
     end
 
     test "Interpolated dates are localized" do
-      question = Question::Date.new(:interpolated_question)
+      question = Question::Date.new(nil, :interpolated_question)
       state = State.new(question.name)
       state.day = Date.parse('2011-04-05')
       presenter = NodePresenter.new("flow.test", question, state)
@@ -53,7 +53,7 @@ module SmartAnswer
     end
 
     test "Interpolated phrase lists are localized and interpreted as govspeak" do
-      outcome = Outcome.new(:outcome_with_interpolated_phrase_list)
+      outcome = Outcome.new(nil, :outcome_with_interpolated_phrase_list)
       state = State.new(outcome.name)
       state.phrases = PhraseList.new(:one, :two, :three)
       presenter = NodePresenter.new("flow.test", outcome, state)
@@ -69,7 +69,7 @@ module SmartAnswer
     end
 
     test "Phrase lists notify developers and fallback gracefully when no translation can be found" do
-      outcome = Outcome.new(:outcome_with_interpolated_phrase_list)
+      outcome = Outcome.new(nil, :outcome_with_interpolated_phrase_list)
       state = State.new(outcome.name)
       state.phrases = PhraseList.new(:four, :one, :two, :three)
       presenter = NodePresenter.new("flow.test", outcome, state)
@@ -89,38 +89,38 @@ module SmartAnswer
     end
 
     test "Node body looked up from translation file, rendered as HTML using govspeak by default" do
-      question = Question::Date.new(:example_question?)
+      question = Question::Date.new(nil, :example_question?)
       presenter = NodePresenter.new("flow.test", question)
 
       assert_equal "<p>The body copy</p>\n", presenter.body
     end
 
     test "Node body looked up from translation file, rendered as raw text when HTML disabled" do
-      question = Question::Date.new(:example_question?)
+      question = Question::Date.new(nil, :example_question?)
       presenter = NodePresenter.new("flow.test", question)
 
       assert_equal "The body copy", presenter.body(html: false)
     end
 
     test "Can check if a node has body" do
-      assert NodePresenter.new("flow.test", Question::Date.new(:example_question?)).has_body?, "example_question? has body"
-      assert !NodePresenter.new("flow.test", Question::Date.new(:missing)).has_body?, "missing has no body"
+      assert NodePresenter.new("flow.test", Question::Date.new(nil, :example_question?)).has_body?, "example_question? has body"
+      assert !NodePresenter.new("flow.test", Question::Date.new(nil, :missing)).has_body?, "missing has no body"
     end
 
     test "Node hint looked up from translation file" do
-      question = Question::Date.new(:example_question?)
+      question = Question::Date.new(nil, :example_question?)
       presenter = NodePresenter.new("flow.test", question)
 
       assert_equal 'Hint for foo', presenter.hint
     end
 
     test "Can check if node has hint" do
-      assert NodePresenter.new("flow.test", Question::Date.new(:example_question?)).has_hint?
-      assert !NodePresenter.new("flow.test", Question::Date.new(:missing)).has_hint?
+      assert NodePresenter.new("flow.test", Question::Date.new(nil, :example_question?)).has_hint?
+      assert !NodePresenter.new("flow.test", Question::Date.new(nil, :missing)).has_hint?
     end
 
     test "Options can be looked up from translation file" do
-      question = Question::MultipleChoice.new(:example_question?)
+      question = Question::MultipleChoice.new(nil, :example_question?)
       question.option yes: :yay
       question.option no: :nay
       presenter = NodePresenter.new("flow.test", question)
@@ -132,7 +132,7 @@ module SmartAnswer
     end
 
     test "Options can be looked up from default values in translation file" do
-      question = Question::MultipleChoice.new(:example_question?)
+      question = Question::MultipleChoice.new(nil, :example_question?)
       question.option maybe: :mumble
       presenter = NodePresenter.new("flow.test", question)
 
@@ -140,7 +140,7 @@ module SmartAnswer
     end
 
     test "Options label falls back to option value" do
-      question = Question::MultipleChoice.new(:example_question?)
+      question = Question::MultipleChoice.new(nil, :example_question?)
       question.option something: :mumble
       presenter = NodePresenter.new("flow.test", question)
 
@@ -148,7 +148,7 @@ module SmartAnswer
     end
 
     test "Can lookup a response label for a multiple choice question" do
-      question = Question::MultipleChoice.new(:example_question?)
+      question = Question::MultipleChoice.new(nil, :example_question?)
       question.option yes: :yay
       question.option no: :nay
       presenter = MultipleChoiceQuestionPresenter.new("flow.test", question)
@@ -157,39 +157,39 @@ module SmartAnswer
     end
 
     test "Can lookup a response label for a date question" do
-      question = Question::Date.new(:example_question?)
+      question = Question::Date.new(nil, :example_question?)
       presenter = DateQuestionPresenter.new("flow.test", question)
 
       assert_equal " 1 March 2011", presenter.response_label(Date.parse("2011-03-01"))
     end
 
     test "Identifies the relevant partial template for the class of the node" do
-      presenter = QuestionPresenter.new(nil, Question::Date.new(nil))
+      presenter = QuestionPresenter.new(nil, Question::Date.new(nil, nil))
       assert_equal "date_question", presenter.partial_template_name
 
-      presenter = QuestionPresenter.new(nil, Question::CountrySelect.new(nil))
+      presenter = QuestionPresenter.new(nil, Question::CountrySelect.new(nil, nil))
       assert_equal "country_select_question", presenter.partial_template_name
 
-      presenter = QuestionPresenter.new(nil, Question::MultipleChoice.new(nil))
+      presenter = QuestionPresenter.new(nil, Question::MultipleChoice.new(nil, nil))
       assert_equal "multiple_choice_question", presenter.partial_template_name
     end
 
     test "Outcome has a title if using the NodePresenter" do
-      outcome = Outcome.new(:outcome_with_no_title)
+      outcome = Outcome.new(nil, :outcome_with_no_title)
       presenter = NodePresenter.new("flow.test", outcome)
 
       assert presenter.has_title?
     end
 
     test "Node next_steps looked up from translation file, rendered as HTML using govspeak by default" do
-      question = Question::Date.new(:example_question?)
+      question = Question::Date.new(nil, :example_question?)
       presenter = NodePresenter.new("flow.test", question)
 
       assert_equal "<p>The next steps copy</p>\n", presenter.next_steps
     end
 
     test "Node next_steps looked up from translation file, rendered as raw text when HTML disabled" do
-      question = Question::Date.new(:example_question?)
+      question = Question::Date.new(nil, :example_question?)
       presenter = NodePresenter.new("flow.test", question)
 
       assert_equal "The next steps copy", presenter.next_steps(html: false)

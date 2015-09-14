@@ -1,9 +1,6 @@
 en-GB:
   flow:
     calculate-statutory-sick-pay:
-      meta:
-        description: Statutory Sick Pay (SSP) calculator -  calculate SSP for an employee
-      title: Calculate your employee's statutory sick pay
       phrases:
         ssp_link: |
 
@@ -11,21 +8,6 @@ en-GB:
           $D
             [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf)
           $D
-
-      body: |
-        Calculate Statutory Sick Pay (SSP) for your employee.
-
-        ##What you need to know
-
-        You’re only responsible for paying SSP if:
-
-        - you pay Class 1 National Insurance contributions for your employee (or would do if not for their age or their level of earnings)
-        - your employee was sick for 4 or more days in a row (including non-working days)
-        - your employee has told you they’re sick within your own time limit (or 7 days if you don’t have one)
-
-        ^ You can’t use the calculator for periods of sickness before 6 April 2011.^
-
-        *[SSP]: Statutory Sick Pay
 
       options:
         "yes": "Yes"

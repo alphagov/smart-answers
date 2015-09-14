@@ -1,19 +1,6 @@
 en-GB:
   flow:
     bridge-of-death:
-      meta:
-        description: "The Gorge of Eternal Peril!!!"
-      title:
-        The Bridge of Death
-      body: |
-        STOP!
-        -----
-
-        He who would cross the Bridge of Death
-        Must answer me
-        These questions three
-        Ere the other side he see.
-
       options:
         "no": "No"
         "yes": "Yes"

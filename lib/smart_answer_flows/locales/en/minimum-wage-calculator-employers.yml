@@ -1,11 +1,6 @@
 en-GB:
   flow:
     minimum-wage-calculator-employers:
-      title: National Minimum Wage calculator for employers
-      body: |
-        Check if you're paying a worker the National Minimum Wage or if you owe them payments from past years.
-      meta:
-        description: "Check if you're paying a worker the National Minimum Wage or if you owe them payments from past years."
       options:
         "yes": "Yes"
         "no": "No"

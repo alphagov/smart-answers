@@ -26,44 +26,8 @@ class SmartAnswerPresenter
     "flow.#{@flow.name}"
   end
 
-  def lookup_translation(key)
-    I18n.translate!("#{i18n_prefix}.#{key}")
-  rescue I18n::MissingTranslationData
-    nil
-  end
-
-  def markdown_for(key, html: true)
-    markdown = lookup_translation(key)
-    return unless markdown
-    html ? GovspeakPresenter.new(markdown).html : markdown
-  end
-
   def title
-    lookup_translation(:title) || @flow.name.to_s.humanize
-  end
-
-  def body(html: true)
-    markdown_for('body', html: html)
-  end
-
-  def post_body(html: true)
-    markdown_for('post_body', html: html)
-  end
-
-  def has_body?
-    !!body
-  end
-
-  def has_post_body?
-    !!post_body
-  end
-
-  def has_meta_description?
-    !!lookup_translation('meta.description')
-  end
-
-  def meta_description
-    lookup_translation('meta.description')
+    start_node.title
   end
 
   def started?
@@ -129,6 +93,11 @@ class SmartAnswerPresenter
 
   def current_node
     presenter_for(@flow.node(current_state.current_node))
+  end
+
+  def start_node
+    node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
+    StartNodePresenter.new(i18n_prefix, node)
   end
 
   def change_collapsed_question_link(question_number)

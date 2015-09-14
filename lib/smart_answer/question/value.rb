@@ -1,7 +1,7 @@
 module SmartAnswer
   module Question
     class Value < Base
-      def initialize(name, options = {}, &block)
+      def initialize(flow, name, options = {}, &block)
         @parse = options[:parse]
         super
       end

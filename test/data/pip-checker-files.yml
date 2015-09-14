@@ -1,9 +1,10 @@
 ---
 lib/smart_answer_flows/pip-checker.rb: 78c8062ff5b168f59fc4118a131907e0
-lib/smart_answer_flows/locales/en/pip-checker.yml: dbc19b1bdbf62c84bef9c4d48e98f213
+lib/smart_answer_flows/locales/en/pip-checker.yml: 985bc50d508bf8922e9de6e0703087b6
 test/data/pip-checker-questions-and-responses.yml: b1d68ebfb76a9e2793705c55b82294f5
 test/data/pip-checker-responses-and-expected-results.yml: f0c8c243623cad06b9c65dbb504d5b4d
 lib/smart_answer_flows/pip-checker/_scheme_postcodes.govspeak.erb: c8c884fbd4111d7cc3b015cb2be57b5a
+lib/smart_answer_flows/pip-checker/pip_checker.govspeak.erb: a8d0f09aca643eff7e143a7c34fc5fd4
 lib/smart_answer_flows/pip-checker/result_1.govspeak.erb: 568421449aaa526bea0f3e7fe8ecce75
 lib/smart_answer_flows/pip-checker/result_2.govspeak.erb: 5d4e0e90e793c76e8f3c595096e84361
 lib/smart_answer_flows/pip-checker/result_3.govspeak.erb: 19846eb641a3c4c629fde6ff9d21d35e

@@ -43,6 +43,10 @@ module SmartdownAdapter
       @current_node ||= presenter_for_current_node
     end
 
+    def start_node
+      self
+    end
+
     def accepted_responses
       smartdown_state.accepted_responses
     end

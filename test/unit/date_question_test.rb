@@ -10,7 +10,7 @@ module SmartAnswer
     end
 
     test "dates are parsed from Hash into Date before being saved" do
-      q = Question::Date.new(:example) do
+      q = Question::Date.new(nil, :example) do
         save_input_as :date
         next_node :done
       end
@@ -20,7 +20,7 @@ module SmartAnswer
     end
 
     test "incomplete dates raise an error" do
-      q = Question::Date.new(:example) do
+      q = Question::Date.new(nil, :example) do
         save_input_as :date
         next_node :done
       end
@@ -31,7 +31,7 @@ module SmartAnswer
     end
 
     test "define allowable range of dates" do
-      q = Question::Date.new(:example) do
+      q = Question::Date.new(nil, :example) do
         save_input_as :date
         next_node :done
         from { Date.parse('2011-01-01') }
@@ -63,7 +63,7 @@ module SmartAnswer
     end
 
     test "do not complain when the input is within the allowed range when the dates are in descending order" do
-      q = Question::Date.new(:example) do
+      q = Question::Date.new(nil, :example) do
         save_input_as :date
         next_node :done
         from { Date.parse('2011-01-03') }
@@ -75,35 +75,35 @@ module SmartAnswer
     end
 
     test "define default date" do
-      q = Question::Date.new(:example) do
+      q = Question::Date.new(nil, :example) do
         default { Date.today }
       end
       assert_equal Date.today, q.default
     end
 
     test "define default day" do
-      q = Question::Date.new(:example) do
+      q = Question::Date.new(nil, :example) do
         default_day 11
       end
       assert_equal 11, q.default_day
     end
 
     test "define default month" do
-      q = Question::Date.new(:example) do
+      q = Question::Date.new(nil, :example) do
         default_month 2
       end
       assert_equal 2, q.default_month
     end
 
     test "define default year" do
-      q = Question::Date.new(:example) do
+      q = Question::Date.new(nil, :example) do
         default_year 2013
       end
       assert_equal 2013, q.default_year
     end
 
     test "incomplete dates are accepted if appropriate defaults are defined" do
-      q = Question::Date.new(:example) do
+      q = Question::Date.new(nil, :example) do
         default_day 11
         default_month 2
         default_year 2013
@@ -116,7 +116,7 @@ module SmartAnswer
     end
 
     test "default the day to the last in the month of an incomplete date" do
-      q = Question::Date.new(:example) do
+      q = Question::Date.new(nil, :example) do
         default_day -1
         save_input_as :date
         next_node :done
@@ -147,7 +147,7 @@ module SmartAnswer
   private
 
     def date_question_2011
-      Question::Date.new(:example) do
+      Question::Date.new(nil, :example) do
         save_input_as :date
         next_node :done
         from { Date.parse('2011-01-01') }
@@ -157,7 +157,7 @@ module SmartAnswer
     end
 
     def dob_question
-      Question::Date.new(:example) do
+      Question::Date.new(nil, :example) do
         date_of_birth_defaults
         save_input_as :date
         next_node :done

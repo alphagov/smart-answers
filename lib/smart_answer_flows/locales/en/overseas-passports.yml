@@ -1,12 +1,6 @@
 en-GB:
   flow:
     overseas-passports:
-      title: Overseas British passport applications
-      meta:
-        description: Renew, replace or apply for an adult or child British passport if you’re living abroad or working overseas - forms, prices, how long it takes
-      body: |
-        Get the forms, prices and application details you need if you're a British national and you want to renew or apply for a British passport from overseas.
-
       which_country_are_you_in?:
         title: Which country or territory are you in?
       which_opt?:

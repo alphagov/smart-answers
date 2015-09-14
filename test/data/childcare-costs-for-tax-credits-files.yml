@@ -1,10 +1,11 @@
 ---
 lib/smart_answer_flows/childcare-costs-for-tax-credits.rb: b29eb75294314e894fb4476ce6d80fee
-lib/smart_answer_flows/locales/en/childcare-costs-for-tax-credits.yml: 7199a8c4f6e40c21c5ff299f29937f62
+lib/smart_answer_flows/locales/en/childcare-costs-for-tax-credits.yml: d55246739a411a6e0142b32c47e905b5
 test/data/childcare-costs-for-tax-credits-questions-and-responses.yml: 136aea3591662aa753c3c630546e68ad
 test/data/childcare-costs-for-tax-credits-responses-and-expected-results.yml: 7d90f3446d1e2c9551d7d363fbc4d639
 lib/smart_answer_flows/childcare-costs-for-tax-credits/call_helpline_detailed.govspeak.erb: f0026510aee646518b8f0a0ea1fffb99
 lib/smart_answer_flows/childcare-costs-for-tax-credits/call_helpline_plain.govspeak.erb: ef183765ce7a7843ccfce901319569da
+lib/smart_answer_flows/childcare-costs-for-tax-credits/childcare_costs_for_tax_credits.govspeak.erb: b9067a0397fac45150cfc4b5a3174b25
 lib/smart_answer_flows/childcare-costs-for-tax-credits/cost_changed.govspeak.erb: 68cbb48b19bdacb30e684b3d55d5c389
 lib/smart_answer_flows/childcare-costs-for-tax-credits/no_change.govspeak.erb: 229bd94a79a2576e79b94f214fea410c
 lib/smart_answer_flows/childcare-costs-for-tax-credits/no_longer_paying.govspeak.erb: 4e79f424125d07a011078d27c757a62d

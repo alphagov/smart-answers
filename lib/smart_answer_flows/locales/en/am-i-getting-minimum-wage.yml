@@ -1,11 +1,6 @@
 en-GB:
   flow:
     am-i-getting-minimum-wage:
-      title: National Minimum Wage calculator for workers
-      body: |
-        Check if your pay matches the National Minimum Wage or if your employer owes you payments from past years.
-      meta:
-        description: "Check if your pay matches the National Minimum Wage or if your employer owes you payments from past years."
       options:
         "yes": "Yes"
         "no": "No"

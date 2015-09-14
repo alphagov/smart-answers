@@ -4,7 +4,7 @@ module SmartAnswer
       attr_reader :next_node_function_chain
       class NextNodeUndefined < StandardError; end
 
-      def initialize(name, options = {}, &block)
+      def initialize(flow, name, options = {}, &block)
         @save_input_as = nil
         @validations ||= []
         @next_node_function_chain ||= []

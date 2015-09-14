@@ -1,21 +1,6 @@
 en-GB:
   flow:
     uk-benefits-abroad:
-      meta:
-        description: Find out what benefits you might be able to receive while you're abroad and how to export them from the UK or claim them while abroad
-      title: UK benefits if you're going or living abroad
-      body: |
-        Find out which UK benefits you might be able to get while you're abroad and how to claim them.
-
-        The UK has social security agreements with some countries that:
-
-        - allow you to claim UK contribution-based benefits while you're there
-        - mean that your National Insurance contributions can count towards your eligibility for that country's benefits
-
-        It's easier to organise benefits before you leave.
-
-        ^You must meet the benefit's eligibility criteria to get it.^
-
       options:
         "yes": "Yes"
         "no": "No"

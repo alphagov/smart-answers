@@ -1,6 +1,6 @@
 ---
 lib/smart_answer_flows/marriage-abroad.rb: 3d3c3dce01cb44ec4fb2f46808266bfe
-lib/smart_answer_flows/locales/en/marriage-abroad.yml: 164d2e20ece110c5f60744b483766e36
+lib/smart_answer_flows/locales/en/marriage-abroad.yml: e8225cc9c281e31a884d41cb7c4482bf
 test/data/marriage-abroad-questions-and-responses.yml: eabbd09ca91fab72a9a520d1087fb35e
 test/data/marriage-abroad-responses-and-expected-results.yml: 364c07a077f707fff8c408a888b67a7f
 lib/smart_answer_flows/marriage-abroad/_affirmation_os_translation_in_local_language_text.govspeak.erb: 2e6645f9114db57b0f081070d0473771
@@ -69,6 +69,7 @@ lib/smart_answer_flows/marriage-abroad/_synonyms_of_cp.govspeak.erb: f93ceded4eb
 lib/smart_answer_flows/marriage-abroad/_what_you_need_to_do.govspeak.erb: 178402e03cc04f21a8553e916911c6fa
 lib/smart_answer_flows/marriage-abroad/_what_you_need_to_do_affirmation.govspeak.erb: a588258f8a458a7690e073ea416502fb
 lib/smart_answer_flows/marriage-abroad/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
+lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcome_brazil_not_living_in_the_uk.govspeak.erb: f11437ad61993a98b97f1dd177192032
 lib/smart_answer_flows/marriage-abroad/outcome_consular_cni_os_residing_in_third_country.govspeak.erb: 7274e2af0fb1b8dd23441f522fcfe996
 lib/smart_answer_flows/marriage-abroad/outcome_cp_all_other_countries.govspeak.erb: 6d53eb5058be31e35605eec95ed846ca

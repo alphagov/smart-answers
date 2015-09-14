@@ -10,7 +10,7 @@ module SmartAnswer
     end
 
     should "save value as a String by default" do
-      q = Question::Value.new(:example) do
+      q = Question::Value.new(nil, :example) do
         save_input_as :myval
         next_node :done
       end
@@ -21,7 +21,7 @@ module SmartAnswer
 
     context "when parse option is Integer" do
       setup do
-        @q = Question::Value.new(:example, parse: Integer) do
+        @q = Question::Value.new(nil, :example, parse: Integer) do
           save_input_as :myval
           next_node :done
         end
@@ -47,7 +47,7 @@ module SmartAnswer
 
     context "when parse option is :to_i" do
       setup do
-        @q = Question::Value.new(:example, parse: :to_i) do
+        @q = Question::Value.new(nil, :example, parse: :to_i) do
           save_input_as :myval
           next_node :done
         end
@@ -71,7 +71,7 @@ module SmartAnswer
     
     context "when parse option is Float" do
       setup do
-        @q = Question::Value.new(:example, parse: Float) do
+        @q = Question::Value.new(nil, :example, parse: Float) do
           save_input_as :myval
           next_node :done
         end
@@ -97,7 +97,7 @@ module SmartAnswer
     
     context "when parse option is :to_f" do
       setup do
-        @q = Question::Value.new(:example, parse: :to_f) do
+        @q = Question::Value.new(nil, :example, parse: :to_f) do
           save_input_as :myval
           next_node :done
         end
@@ -120,7 +120,7 @@ module SmartAnswer
     end
 
     test "Value is saved as a String if parse option specifies unknown type" do
-      q = Question::Value.new(:example, parse: BigDecimal) do
+      q = Question::Value.new(nil, :example, parse: BigDecimal) do
         save_input_as :myval
         next_node :done
       end

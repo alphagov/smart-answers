@@ -1,6 +1,6 @@
 ---
 lib/smart_answer_flows/uk-benefits-abroad.rb: 6712aa83839cfa1d94b69dbb03d78506
-lib/smart_answer_flows/locales/en/uk-benefits-abroad.yml: e9505d99568d8e4c79f30ba1a5fb8d12
+lib/smart_answer_flows/locales/en/uk-benefits-abroad.yml: 440f9eeaf47a6ea75ae1c0cc578078ed
 test/data/uk-benefits-abroad-questions-and-responses.yml: 17973c7c16f38d7988ff1a5b76d3261a
 test/data/uk-benefits-abroad-responses-and-expected-results.yml: 37bfb8e7982e15f0f907881bf1130ce3
 lib/smart_answer_flows/uk-benefits-abroad/_tax_credits_already_abroad_helpline.govspeak.erb: d79b1b09c2fe01c66cdda028a7679b8b
@@ -69,6 +69,7 @@ lib/smart_answer_flows/uk-benefits-abroad/tax_credits_eea_entitled_outcome.govsp
 lib/smart_answer_flows/uk-benefits-abroad/tax_credits_holiday_outcome.govspeak.erb: cc5492edfaa6a01466e30eafe683e68d
 lib/smart_answer_flows/uk-benefits-abroad/tax_credits_medical_death_outcome.govspeak.erb: d093dd2e8c9cd1c2a2ef5e1942e3c42c
 lib/smart_answer_flows/uk-benefits-abroad/tax_credits_unlikely_outcome.govspeak.erb: 8c655001ccc3a4ed319607e6a97f04f0
+lib/smart_answer_flows/uk-benefits-abroad/uk_benefits_abroad.govspeak.erb: 289ed7bd184696294095c760f24ffb0d
 lib/smart_answer_flows/uk-benefits-abroad/wfp_eea_eligible_outcome.govspeak.erb: 1a5e3a180f7952388fd4e0ee20cb38f1
 lib/smart_answer_flows/uk-benefits-abroad/wfp_going_abroad_outcome.govspeak.erb: f1d113905a298592ccb21fadb3a6570a
 lib/smart_answer_flows/uk-benefits-abroad/wfp_not_eligible_outcome.govspeak.erb: 155aa980f3d8c23f6afacf1eea45adcb

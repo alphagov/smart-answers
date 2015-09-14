@@ -4,10 +4,9 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class CheckboxQuestionTest < ActiveSupport::TestCase
-
     context "specifying options" do
       should "be able to specify options, and retreive them in the order specified" do
-        q = Question::Checkbox.new(:something) do
+        q = Question::Checkbox.new(nil, :something) do
           option :red
           option 'blue'
           option :green
@@ -20,23 +19,23 @@ module SmartAnswer
 
       should "not be able to use reserved 'none' option" do
         assert_raise InvalidNode do
-          q = Question::Checkbox.new(:something) { option :none }
+          q = Question::Checkbox.new(nil, :something) { option :none }
         end
       end
 
       should "not be able to use options with non URL safe characters" do
         assert_raise InvalidNode do
-          q = Question::Checkbox.new(:something) { option 'a space' }
+          q = Question::Checkbox.new(nil, :something) { option 'a space' }
         end
         assert_raise InvalidNode do
-          q = Question::Checkbox.new(:something) { option 'a,comma' }
+          q = Question::Checkbox.new(nil, :something) { option 'a,comma' }
         end
       end
     end
 
     context "parsing response" do
       setup do
-        @question = Question::Checkbox.new(:something) do
+        @question = Question::Checkbox.new(nil, :something) do
           option :red
           option :blue
           option :green
@@ -80,7 +79,7 @@ module SmartAnswer
 
     context "converting to a response" do
       setup do
-        @question = Question::Checkbox.new(:something) do
+        @question = Question::Checkbox.new(nil, :something) do
           option :red
           option :blue
           option :green
@@ -98,7 +97,7 @@ module SmartAnswer
 
     context "predicate helper functions" do
       setup do
-        @question = Question::Checkbox.new(:something)
+        @question = Question::Checkbox.new(nil, :something)
       end
 
       should "define response_has_all_of" do
