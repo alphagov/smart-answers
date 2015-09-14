@@ -4,8 +4,6 @@ You may be able to register a civil partnership at the High Commission in Cyprus
 
 Contact them to make an appointment:
 
-
-
 $A
 British High Commission Nicosia
 Alexander Pallis Street
@@ -25,12 +23,9 @@ Email: <brithc.2@cytanet.com.cy>
 [British High Commission Nicosia - opening hours](https://www.gov.uk/government/world/organisations/british-high-commission-nicosia/office/british-high-commission)
 $C
 
-
-
 ##What documents you’ll need
 
 You’ll need proof that you’ve been resident in the area covered by the High Commission for at least 7 days, like an employer’s letter or a bank statement.
-
 
 You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:
 
@@ -43,7 +38,6 @@ Your partner will also need either:
 - an official letter from the local authorities in the country where they’re resident confirming that they’re single
 
 ^Any foreign documents may need to be ’[legalised](/get-document-legalised)’ (certified as genuine) in the country they were issued (or that country’s embassy in Cyprus), and [translated into English](/government/collections/list-of-lawyers).^
-
 
 ###What you need to do
 
@@ -58,11 +52,9 @@ As long as nobody has registered an objection after this time, the registration 
 
 You’ll need to provide two witnesses and pay a fee to register your civil partnership. You’ll need to pay an additional fee for your civil partnership certificate (see below).
 
-
 ##Naturalisation of your partner if they move to the UK
 
 Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
-
 
 ##Fees
 
@@ -75,7 +67,6 @@ Issuing a civil partnership certificate | £65
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Cyprus](/government/publications/cyprus-consular-fees).
 
 You can pay by cash or credit card, but not by personal cheque.
-
 
 *[CNI]:certificate of no impediment
 

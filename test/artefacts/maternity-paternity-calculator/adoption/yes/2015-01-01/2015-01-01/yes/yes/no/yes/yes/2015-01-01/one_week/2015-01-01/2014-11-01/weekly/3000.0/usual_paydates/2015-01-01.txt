@@ -6,7 +6,6 @@ The employee is not entitled to Statutory Paternity Leave because they don’t h
 
 Write to them within 28 days of their leave request confirming this.
 
-
 ##Statutory Paternity Pay (SPP)
 
 The employee is entitled to SPP.
@@ -24,8 +23,6 @@ Date | SPP amount
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
-
 The latest date for them to [claim SPP](/employers-paternity-pay-leave/adoption) is usually 28 days before they want it to start.
-
 
 Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)

@@ -23,12 +23,9 @@ The courier fee pays for your passport to be sent securely to the British Embass
 |---------------|--------------|--------------------------------------|
 | Child passport | £53.00 | £77.72 |
 
-
-
 Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
 You can use Mastercard, Visa, Electron, Diners Club and JCB.
-
 
 ## How to apply
 
@@ -45,7 +42,6 @@ You can use Mastercard, Visa, Electron, Diners Club and JCB.
 
 %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
 
-
 ## Making your application
 
 You must apply in person. If you’re unable to, someone else can go on your behalf.
@@ -54,7 +50,6 @@ You must bring photo ID with you.
 Bring original supporting documents and a colour photocopy of each one. The original documents will be returned to you.
 
 You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
-
 
 $A
 UK Visa Application Centre
@@ -67,15 +62,11 @@ $C
 Email: <hmpo.tajikistan@tlscontact.com>
 $C
 
-
 ## Getting your passport
-
-
 
 Your passport will be delivered to the British Embassy in Dushanbe - you must collect it in person.
 
 They’ll contact you - using the details on your application form - when your passport is ready to collect. You must bring photo ID with you. If you’re renewing or replacing a passport, you must bring your existing passport as photo ID.
-
 
 ##Contact the Passport Adviceline
 
@@ -86,5 +77,4 @@ Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
 $C
 
 [Find out about call charges](/call-charges)
-
 

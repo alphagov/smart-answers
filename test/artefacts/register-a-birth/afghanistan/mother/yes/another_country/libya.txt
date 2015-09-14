@@ -2,7 +2,6 @@
 
 $!You must register the birth in the country where the child was born. You'll be given a local birth certificate.$!
 
-
 You can also register the birth with the UK authorities.
 
 ^It’s usually quicker to register the birth with the UK authorities if you [get a British passport](/overseas-passports) for the child first. You can’t apply for a passport in Libya but you can apply in a neighbouring country.^
@@ -14,11 +13,9 @@ s2. Print out and fill in the birth registration form.
 s3. Pay.
 s4. Post your documents and the form.
 
-
 ##1. Check your documents
 
 ^Send English translations of all foreign documents. Use an [approved translator](/government/publications/afghanistan-list-of-lawyers) and include their name and address with your application. Don't send laminated documents.^
-
 
 You must send the original copies of:
 
@@ -38,14 +35,11 @@ You must also send photocopies of:
 - the photo page of the parent’s current passport (for British parents)
 - the birth certificate or the photo page of the parent’s current passport (for parents who aren’t British)
 
-
 %Your application will be rejected if the documents aren’t authentic, don’t confirm the child’s identity or don’t prove that the child has a claim to British nationality. The registration fee won’t be refunded.%
-
 
 ##2. Fill in the application form
 
 Print out and fill in the [application form](/government/publications/application-to-register-an-overseas-birth).
-
 
 ##3. Pay
 
@@ -70,11 +64,9 @@ Rest of world | £22
 
 <a rel="nofollow" href= "https://pay-register-birth-abroad.service.gov.uk/start" class="big button">Pay now</a>
 
-
 ##4. Send your registration
 
 Post the registration form and documents by secure post to:
-
 
 $A
 Overseas Registration Unit

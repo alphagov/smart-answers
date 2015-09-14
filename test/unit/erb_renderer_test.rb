@@ -61,6 +61,16 @@ Hello world
       end
     end
 
+    test '#content_for ensures there is only one *blank* line between paragraphs' do
+      erb_template = content_for(:key, "line1\n\n\n\nline2")
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert_equal "line1\n\nline2\n", renderer.content_for(:key, html: false)
+      end
+    end
+
     test '#content_for makes local variables available to the ERB template' do
       erb_template = content_for(:key, '<%= state_variable %>')
 

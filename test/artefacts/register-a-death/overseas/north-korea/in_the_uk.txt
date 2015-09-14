@@ -18,7 +18,6 @@ s2. Print out and fill in the forms.
 s3. Pay.
 s4. Post your documents and the forms.
 
-
 ###1. Documents
 
 ^Send English translations of all foreign documents. Use a professional translator and include their name and address with your application. Don't send laminated documents.^
@@ -58,13 +57,11 @@ Rest of world | £22
 
 <a rel="nofollow" href= "https://pay-register-death-abroad.service.gov.uk/start" class="big button">Pay now</a>
 
-
 ###4. Send your registration
 
 Once you've paid you will be given a reference number to use on your death registration form.
 
 Post your registration form and documents by secure post to:
-
 
 $A
 Overseas Registration Unit

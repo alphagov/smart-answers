@@ -6,7 +6,6 @@ Your employee is entitled to SSP for 7 days out of 7 working days taken off sick
 
 You don’t have to pay until your employee tells you that they’re ill. You’ll have to pay any withheld amounts by the end of your employee's entitlement to sick pay if your employee is sick for more than 28 weeks.
 
-
 Week ending | SSP amount
 -|-
 6 April 2013|£68.68
@@ -16,7 +15,6 @@ Week ending | SSP amount
 ##What you need to know
 
 ^ Your employee will not be able to collect Ordinary Statutory Paternity Pay or Statutory Adoption Pay while collecting Statutory Sick Pay. ^
-
 
 SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of 140 days. After that you must give them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of SSP ending. 
 

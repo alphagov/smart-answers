@@ -2,16 +2,11 @@ Marriage in Spain
 
 Contact the relevant local authorities in Spain to find out about local marriage laws, including what documents you’ll need.
 
-
 Civil weddings in Spain take place at a town hall, register office or district court. You must register with the local civil authorities afterwards to get an official marriage certificate if you have a religious wedding.
-
-
 
 ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
 
-
 ##What you need to do
-
 
 You'll be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you’re allowed to marry.
 
@@ -28,7 +23,6 @@ $D
 Your partner must also provide their own certificates.
 
 You must apply for all certificates at least 3 months before you get married.
-
 
 ## Getting a certificate of no impediment
 
@@ -47,7 +41,6 @@ Send all the documents by registered post to the address in the application pack
 The consulate will check your forms and documents. Once everything is approved, they’ll take your payment and display your notice of marriage for 7 days. If nobody raises an objection, they’ll then issue your CNI and send it to you with your original documents by registered post.
 
 It takes 10 working days after payment for the consulate to process your application.
-
 
 ##Getting a marital status certificate
 
@@ -88,8 +81,6 @@ If you’re asked to provide a document from the British consulate, print out a 
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
-
-
 ##Fees
 
 Service | Fee
@@ -103,7 +94,6 @@ Administering an oath or making a declaration | £55
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Spain](/government/publications/spain-consular-fees).
 
 You can pay by credit card (Visa, Visa Electron or MasterCard), but not by personal cheque.
-
 
 *[CNI]:certificate of no impediment
 
