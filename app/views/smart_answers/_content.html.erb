@@ -1,5 +1,5 @@
 <% if ! @presenter.started? %>
-  <%= render partial: "landing" %>
+  <%= render partial: "landing", locals: { start_node: @presenter.start_node } %>
 <% else %>
   <% content_for :head do %>
     <meta name="robots" content="noindex">

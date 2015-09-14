@@ -1,6 +1,6 @@
 ---
 lib/smart_answer_flows/towing-rules.rb: 4fcc7ee211ff791f0101dc4aa81f4a8a
-lib/smart_answer_flows/locales/en/towing-rules.yml: 328d0b63a2a823181fa313815a40ee13
+lib/smart_answer_flows/locales/en/towing-rules.yml: 5d8f677a11eeffe99c2a7fe3b2e54f9c
 test/data/towing-rules-questions-and-responses.yml: 09c8f43d5353fa6248658a27982ea5a2
 test/data/towing-rules-responses-and-expected-results.yml: ab907e6d438f7f2f6fc76bb1b219e6d7
 lib/smart_answer_flows/towing-rules/apply_for_provisional_bus.govspeak.erb: 7e9f6d62486894f8537e09ea07b07a43
@@ -25,3 +25,4 @@ lib/smart_answer_flows/towing-rules/not_old_enough_bus.govspeak.erb: f70124df38f
 lib/smart_answer_flows/towing-rules/not_old_enough_lv.govspeak.erb: 5a94374e913caa7597ebc530c32ad421
 lib/smart_answer_flows/towing-rules/not_old_enough_minibus.govspeak.erb: d85ab81444e874f4549adeba688f73e6
 lib/smart_answer_flows/towing-rules/too_young_msv.govspeak.erb: cea2cd5ded9e75435518dcd67cda65b0
+lib/smart_answer_flows/towing-rules/towing_rules.govspeak.erb: 53a2f897e49f589999a7684b5c6f24f0

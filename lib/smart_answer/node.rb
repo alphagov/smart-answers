@@ -4,7 +4,8 @@ module SmartAnswer
   class Node
     attr_reader :name, :calculations, :next_node_calculations, :precalculations
 
-    def initialize(name, options = {}, &block)
+    def initialize(flow, name, options = {}, &block)
+      @flow = flow
       @name = name
       @calculations = []
       @next_node_calculations = []
@@ -46,6 +47,11 @@ module SmartAnswer
 
     def question?
       false
+    end
+
+    def template_directory
+      load_path = FlowRegistry.instance.load_path
+      Pathname.new(load_path).join(String(@flow.name))
     end
   end
 end

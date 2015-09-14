@@ -1,13 +1,13 @@
-<% if @presenter.has_meta_description? %>
+<% if start_node.has_meta_description? %>
   <% content_for :head do %>
-    <meta name="description" content="<%= @presenter.meta_description %>">
+    <meta name="description" content="<%= start_node.meta_description %>">
   <% end %>
 <% end %>
 
 <header class="page-header group">
   <div>
     <h1>
-      <%= @presenter.title %>
+      <%= start_node.title %>
     </h1>
   </div>
 </header>
@@ -16,14 +16,14 @@
   <article role="article" class="group">
     <div class="inner">
       <div class="intro">
-        <% if @presenter.has_body? %>
-          <%= @presenter.body %>
+        <% if start_node.has_body? %>
+          <%= start_node.body %>
         <% end %>
         <p class="get-started">
           <a rel="nofollow" href="<%= smart_answer_path(@name, started: 'y') %>" class="big button">Start now</a>
         </p>
       </div>
-      <%= @presenter.post_body if @presenter.has_post_body? %>
+      <%= start_node.post_body if start_node.has_post_body? %>
     </div>
   </article>
 </div>

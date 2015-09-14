@@ -1,8 +1,9 @@
 ---
 lib/smart_answer_flows/am-i-getting-minimum-wage.rb: a5f9ccf8dfe0c6835ef605aa1c5cbacc
-lib/smart_answer_flows/locales/en/am-i-getting-minimum-wage.yml: 33712eff4fda6c7b7c44306f2f9491ec
+lib/smart_answer_flows/locales/en/am-i-getting-minimum-wage.yml: b2fb53ff9f63b04b180737e620137db9
 test/data/am-i-getting-minimum-wage-questions-and-responses.yml: 8d05a23bb72740b2d9c9f1196f212e0e
 test/data/am-i-getting-minimum-wage-responses-and-expected-results.yml: 4f24160d38e41983f72ce1352fad9702
+lib/smart_answer_flows/am-i-getting-minimum-wage/am_i_getting_minimum_wage.govspeak.erb: 28fb978cb4744e739d38bc1927f31d9e
 lib/smart_answer_flows/am-i-getting-minimum-wage/current_payment_above.govspeak.erb: f2f8d1e62398cfc21c758d2761dd01f8
 lib/smart_answer_flows/am-i-getting-minimum-wage/current_payment_below.govspeak.erb: cd39c895ff58077c20f5cf1ce625bdd3
 lib/smart_answer_flows/am-i-getting-minimum-wage/does_not_apply_to_historical_apprentices.govspeak.erb: bd846fa5585f32e995c74bb714f6d600

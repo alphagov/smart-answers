@@ -4,13 +4,6 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
-      meta:
-        description: Find out who is entitled to a share of someone’s property, possessions and money if they die without making a will
-      title: Intestacy - who inherits if someone dies without a will?
-
-      body: |
-        Find out who is entitled to a share of someone’s money, property and possessions if they die without making a will.
-
       # Q1
       region?:
         title: Where did the deceased live?

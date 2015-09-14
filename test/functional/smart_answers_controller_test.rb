@@ -96,11 +96,9 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
     end
 
-    context "meta description in translation file" do
+    context "meta description in erb template" do
       should "be shown" do
-        using_translation_file(fixture_file('smart_answers_controller_test/meta_description.yml')) do
-          get :show, id: 'sample'
-        end
+        get :show, id: 'sample'
         assert_select "head meta[name=description]" do |meta_tags|
           assert_equal 'This is a test description', meta_tags.first['content']
         end

@@ -1,13 +1,6 @@
 en-GB:
   flow:
     calculate-your-redundancy-pay:
-      title: Calculate your statutory redundancy pay
-      meta:
-        description: Calculate how much statutory redundancy you can get based on age, weekly pay and number of years in the job
-      body: |
-        Calculate how much statutory redundancy you can get. It’s based on age, weekly pay and number of years in the job.
-
-        You only qualify for statutory redundancy pay if you’ve worked for your employer for at least 2 years.
       date_of_redundancy?:
         title: What date were you made redundant?
         hint: Use the original redundancy date even if your notice is brought forward, you’re paid in lieu of notice or made redundant after trialing a new job.
