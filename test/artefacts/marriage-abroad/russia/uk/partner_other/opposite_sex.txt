@@ -57,6 +57,4 @@ You can only pay by MasterCard and Visa credit cards.
 
 
 *[CNI]:certificate of no impediment
-*[GRO]:General Register Office
-*[FCO]:Foreign &amp; Commonwealth Office
 
