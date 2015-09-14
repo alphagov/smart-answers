@@ -51,6 +51,3 @@ You normally have to pay fees for consular services in the local currency - thes
 ^You can only pay by cash in Iceland. This must be in the local currency.^
 
 
-*[GRO]:General Register Office
-*[FCO]:Foreign &amp; Commonwealth Office
-

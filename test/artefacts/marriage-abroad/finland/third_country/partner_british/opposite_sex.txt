@@ -74,6 +74,3 @@ You normally have to pay fees for consular services in the local currency - thes
 You can pay by cash (euros only) or credit card (but not Visa Electron).
 
 
-*[GRO]:General Register Office
-*[FCO]:Foreign &amp; Commonwealth Office
-
