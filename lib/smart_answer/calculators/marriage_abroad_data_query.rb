@@ -48,7 +48,7 @@ module SmartAnswer::Calculators
 
     SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B = %w(azerbaijan chile dominican-republic kosovo latvia)
 
-    OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %(jordan oman qatar united-arab-emirates yemen)
+    OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %(jordan oman qatar yemen)
 
     SS_UNKNOWN_NO_EMBASSIES = %w(st-martin saint-barthelemy)
 
