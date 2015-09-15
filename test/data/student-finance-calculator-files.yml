@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/student-finance-calculator.rb: 50373e5766e6469df7110fde0fbcfc35
+lib/smart_answer_flows/student-finance-calculator.rb: d4e72184f9c0e4817e806068f53460c6
 lib/smart_answer_flows/locales/en/student-finance-calculator.yml: df63642e80cd83574b64c2034279cafd
 test/data/student-finance-calculator-questions-and-responses.yml: 7f7a6293dd5c37756c89ea6b075ffd45
 test/data/student-finance-calculator-responses-and-expected-results.yml: f4588ab6828397faa8f1fc4dce005398
@@ -7,3 +7,4 @@ lib/smart_answer_flows/student-finance-calculator/outcome_eu_students.govspeak.e
 lib/smart_answer_flows/student-finance-calculator/outcome_uk_all_students.govspeak.erb: 35b17208f9d86875c4d6a165ab0afe50
 lib/smart_answer_flows/student-finance-calculator/outcome_uk_full_time_students.govspeak.erb: 8e0d1a2867adfa4ee84e339890b83462
 lib/smart_answer_flows/student-finance-calculator/student_finance_calculator.govspeak.erb: d93ba30a145822486075e2efc8178959
+lib/smart_answer/calculators/student_finance_calculator.rb: d4ea00715b05ab630b4735c7b80f20ae
