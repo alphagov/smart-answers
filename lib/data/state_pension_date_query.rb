@@ -1,18 +1,18 @@
-class StatePensionDate < Struct.new(:gender, :start_date, :end_date, :pension_date)
+StatePensionDate = Struct.new(:gender, :start_date, :end_date, :pension_date) do
   def match?(dob, sex)
-    same_gender?(sex) and born_in_range?(dob)
+    same_gender?(sex) && born_in_range?(dob)
   end
 
   def same_gender?(sex)
-    gender == sex or :both == gender
+    gender == sex || :both == gender
   end
 
   def born_in_range?(dob)
-    dob >= start_date and dob <= end_date
+    dob >= start_date && dob <= end_date
   end
 end
 
-class StatePensionDateQuery < Struct.new(:dob, :gender)
+StatePensionDateQuery = Struct.new(:dob, :gender) do
   def self.find(dob, gender)
     state_pension_query = new(dob, gender)
     state_pension_query.find_date
@@ -48,14 +48,12 @@ class StatePensionDateQuery < Struct.new(:dob, :gender)
   # ActiveSupport will adjust the date, but the calculation
   # should adjust to the 1st March according to DWP rules.
   def adjust_when_dob_is_29february(date)
-    if leap_year_date?(dob) and !leap_year_date?(date)
-      date += 1
-    end
+    date += 1 if leap_year_date?(dob) && !leap_year_date?(date)
     date
   end
 
   def leap_year_date?(date)
-    date.month == 2 and date.day == 29
+    date.month == 2 && date.day == 29
   end
 
   def pension_dates_dynamic
