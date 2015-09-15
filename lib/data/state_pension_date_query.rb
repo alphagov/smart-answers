@@ -18,6 +18,16 @@ class StatePensionDateQuery < Struct.new(:dob, :gender)
     state_pension_query.find_date
   end
 
+  def self.pension_credit_date(dob)
+    # Pension credit age calculation for all genders is equivalent
+    # to the state pension date calculation for women
+    new(dob, :female).find_date
+  end
+
+  def self.bus_pass_qualification_date(dob)
+    pension_credit_date(dob)
+  end
+
   def find_date
     static_result = run(pension_dates_static)
     if static_result

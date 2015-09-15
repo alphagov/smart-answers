@@ -57,10 +57,8 @@ module SmartAnswer
           calculator.state_pension_date < Date.parse('6 April 2016')
         end
 
-        calculate :pension_credit_date do
-          # pension credit date calculation for all genders is equivalent
-          # to the state pension date age calculation for women
-          calculator.state_pension_date(:female).strftime("%-d %B %Y")
+        calculate :pension_credit_date do |response|
+          StatePensionDateQuery.bus_pass_qualification_date(response).strftime("%-d %B %Y")
         end
 
         calculate :formatted_state_pension_date do
@@ -97,9 +95,7 @@ module SmartAnswer
         validate { |response| response <= Date.today }
 
         calculate :qualifies_for_bus_pass_on do |response|
-          # Bus pass age calculation for all genders is equivalent
-          # to the state pension date calculation for women
-          StatePensionDateQuery.find(response, :female).strftime("%-d %B %Y")
+          StatePensionDateQuery.bus_pass_qualification_date(response).strftime("%-d %B %Y")
         end
 
         next_node(:bus_pass_age_result)
