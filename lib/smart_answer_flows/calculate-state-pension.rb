@@ -1,4 +1,4 @@
-require "data/state_pension_query"
+require "data/state_pension_date_query"
 
 module SmartAnswer
   class CalculateStatePensionFlow < Flow
@@ -99,7 +99,7 @@ module SmartAnswer
         calculate :qualifies_for_bus_pass_on do |response|
           # Bus pass age calculation for all genders is equivalent
           # to the state pension date calculation for women
-          StatePensionQuery.find(response, :female).strftime("%-d %B %Y")
+          StatePensionDateQuery.find(response, :female).strftime("%-d %B %Y")
         end
 
         next_node(:bus_pass_age_result)

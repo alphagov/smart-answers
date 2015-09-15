@@ -12,7 +12,7 @@ class StatePensionDate < Struct.new(:gender, :start_date, :end_date, :pension_da
   end
 end
 
-class StatePensionQuery < Struct.new(:dob, :gender)
+class StatePensionDateQuery < Struct.new(:dob, :gender)
   def self.find(dob, gender)
     state_pension_query = new(dob, gender)
     state_pension_query.find_date
