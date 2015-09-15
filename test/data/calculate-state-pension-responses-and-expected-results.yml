@@ -3788,3 +3788,14 @@
   - '30'
   :next_node: :years_paid_ni?
   :outcome_node: false
+- :current_node: :which_calculation?
+  :responses:
+  - bus_pass
+  :next_node: :dob_bus_pass?
+  :outcome_node: false
+- :current_node: :dob_bus_pass?
+  :responses:
+  - bus_pass
+  - '1956-05-31'
+  :next_node: :bus_pass_age_result
+  :outcome_node: true
