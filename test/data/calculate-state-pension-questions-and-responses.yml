@@ -2,6 +2,7 @@
 :which_calculation?:
 - age
 - amount
+- bus_pass
 :gender?:
 - male
 - female
@@ -22,6 +23,8 @@
 - 1991-08-12
 - 1992-04-06
 - 1993-04-06
+:dob_bus_pass?:
+- 1956-05-31
 :pay_reduced_ni_rate?:
 - "yes"
 - "no"

@@ -1,3790 +1,3801 @@
---- 
+---
 - :current_node: :which_calculation?
-  :responses: 
+  :responses:
   - age
   :next_node: :gender?
   :outcome_node: false
 - :current_node: :gender?
-  :responses: 
+  :responses:
   - age
   - male
   :next_node: :dob_age?
   :outcome_node: false
 - :current_node: :dob_age?
-  :responses: 
+  :responses:
   - age
   - male
-  - "1950-02-01"
+  - '1950-02-01'
   :next_node: :near_state_pension_age
   :outcome_node: true
 - :current_node: :dob_age?
-  :responses: 
+  :responses:
   - age
   - male
-  - "1951-04-06"
+  - '1951-04-06'
   :next_node: :age_result
   :outcome_node: true
 - :current_node: :dob_age?
-  :responses: 
+  :responses:
   - age
   - male
-  - "1953-02-06"
+  - '1953-02-06'
   :next_node: :age_result
   :outcome_node: true
 - :current_node: :dob_age?
-  :responses: 
+  :responses:
   - age
   - male
-  - "1980-01-01"
+  - '1980-01-01'
   :next_node: :age_result
   :outcome_node: true
 - :current_node: :dob_age?
-  :responses: 
+  :responses:
   - age
   - male
-  - "2000-01-01"
+  - '2000-01-01'
   :next_node: :too_young
   :outcome_node: true
 - :current_node: :gender?
-  :responses: 
+  :responses:
   - age
   - female
   :next_node: :dob_age?
   :outcome_node: false
 - :current_node: :dob_age?
-  :responses: 
+  :responses:
   - age
   - female
-  - "1950-02-01"
+  - '1950-02-01'
   :next_node: :age_result
   :outcome_node: true
 - :current_node: :dob_age?
-  :responses: 
+  :responses:
   - age
   - female
-  - "1951-04-06"
+  - '1951-04-06'
   :next_node: :age_result
   :outcome_node: true
 - :current_node: :dob_age?
-  :responses: 
+  :responses:
   - age
   - female
-  - "1953-02-06"
+  - '1953-02-06'
   :next_node: :age_result
   :outcome_node: true
 - :current_node: :dob_age?
-  :responses: 
+  :responses:
   - age
   - female
-  - "1980-01-01"
+  - '1980-01-01'
   :next_node: :age_result
   :outcome_node: true
 - :current_node: :dob_age?
-  :responses: 
+  :responses:
   - age
   - female
-  - "2000-01-01"
+  - '2000-01-01'
   :next_node: :too_young
   :outcome_node: true
 - :current_node: :which_calculation?
-  :responses: 
+  :responses:
   - amount
   :next_node: :gender?
   :outcome_node: false
 - :current_node: :gender?
-  :responses: 
+  :responses:
   - amount
   - male
   :next_node: :dob_amount?
   :outcome_node: false
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-01-01"
+  - '1950-01-01'
   :next_node: :reached_state_pension_age
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
+  - '1950-02-01'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
+  - '1950-02-01'
+  - '1'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
+  - '1950-02-01'
+  - '1'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
-  - "yes"
+  - '1950-02-01'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
+  - '1950-02-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1950-02-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1950-02-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "0"
+  - '1950-02-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "1"
+  - '1950-02-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "2"
+  - '1950-02-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
-  - "no"
+  - '1950-02-01'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
-  - "no"
-  - "0"
+  - '1950-02-01'
+  - '1'
+  - '1'
+  - 'no'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
-  - "no"
-  - "1"
+  - '1950-02-01'
+  - '1'
+  - '1'
+  - 'no'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "1"
-  - "1"
-  - "no"
-  - "2"
+  - '1950-02-01'
+  - '1'
+  - '1'
+  - 'no'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
+  - '1950-02-01'
+  - '11'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
+  - '1950-02-01'
+  - '11'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
-  - "yes"
+  - '1950-02-01'
+  - '11'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
+  - '1950-02-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1950-02-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1950-02-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "0"
+  - '1950-02-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "1"
+  - '1950-02-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "2"
+  - '1950-02-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
-  - "no"
+  - '1950-02-01'
+  - '11'
+  - '1'
+  - 'no'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
-  - "no"
-  - "0"
+  - '1950-02-01'
+  - '11'
+  - '1'
+  - 'no'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
-  - "no"
-  - "1"
+  - '1950-02-01'
+  - '11'
+  - '1'
+  - 'no'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "11"
-  - "1"
-  - "no"
-  - "2"
+  - '1950-02-01'
+  - '11'
+  - '1'
+  - 'no'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
+  - '1950-02-01'
+  - '23'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
+  - '1950-02-01'
+  - '23'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
-  - "yes"
+  - '1950-02-01'
+  - '23'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
+  - '1950-02-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1950-02-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1950-02-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "0"
+  - '1950-02-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "1"
+  - '1950-02-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "2"
+  - '1950-02-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
-  - "no"
+  - '1950-02-01'
+  - '23'
+  - '1'
+  - 'no'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
-  - "no"
-  - "0"
+  - '1950-02-01'
+  - '23'
+  - '1'
+  - 'no'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
-  - "no"
-  - "1"
+  - '1950-02-01'
+  - '23'
+  - '1'
+  - 'no'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "23"
-  - "1"
-  - "no"
-  - "2"
+  - '1950-02-01'
+  - '23'
+  - '1'
+  - 'no'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "27"
+  - '1950-02-01'
+  - '27'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "27"
-  - "1"
+  - '1950-02-01'
+  - '27'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "27"
-  - "1"
-  - "yes"
+  - '1950-02-01'
+  - '27'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
+  - '1950-02-01'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1950-02-01'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "27"
-  - "1"
-  - "no"
+  - '1950-02-01'
+  - '27'
+  - '1'
+  - 'no'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "27"
-  - "1"
-  - "no"
-  - "0"
+  - '1950-02-01'
+  - '27'
+  - '1'
+  - 'no'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "27"
-  - "1"
-  - "no"
-  - "1"
+  - '1950-02-01'
+  - '27'
+  - '1'
+  - 'no'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "27"
-  - "1"
-  - "no"
-  - "2"
+  - '1950-02-01'
+  - '27'
+  - '1'
+  - 'no'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1950-02-01"
-  - "30"
+  - '1950-02-01'
+  - '30'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
+  - '1951-01-01'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
+  - '1951-01-01'
+  - '1'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
+  - '1951-01-01'
+  - '1'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
-  - "yes"
+  - '1951-01-01'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
+  - '1951-01-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1951-01-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1951-01-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "0"
+  - '1951-01-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "1"
+  - '1951-01-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "2"
+  - '1951-01-01'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
-  - "no"
+  - '1951-01-01'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
-  - "no"
-  - "0"
+  - '1951-01-01'
+  - '1'
+  - '1'
+  - 'no'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
-  - "no"
-  - "1"
+  - '1951-01-01'
+  - '1'
+  - '1'
+  - 'no'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "1"
-  - "1"
-  - "no"
-  - "2"
+  - '1951-01-01'
+  - '1'
+  - '1'
+  - 'no'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
+  - '1951-01-01'
+  - '11'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
+  - '1951-01-01'
+  - '11'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
-  - "yes"
+  - '1951-01-01'
+  - '11'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
+  - '1951-01-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1951-01-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1951-01-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "0"
+  - '1951-01-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "1"
+  - '1951-01-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "2"
+  - '1951-01-01'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
-  - "no"
+  - '1951-01-01'
+  - '11'
+  - '1'
+  - 'no'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
-  - "no"
-  - "0"
+  - '1951-01-01'
+  - '11'
+  - '1'
+  - 'no'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
-  - "no"
-  - "1"
+  - '1951-01-01'
+  - '11'
+  - '1'
+  - 'no'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "11"
-  - "1"
-  - "no"
-  - "2"
+  - '1951-01-01'
+  - '11'
+  - '1'
+  - 'no'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
+  - '1951-01-01'
+  - '23'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
+  - '1951-01-01'
+  - '23'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
-  - "yes"
+  - '1951-01-01'
+  - '23'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
+  - '1951-01-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1951-01-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1951-01-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "0"
+  - '1951-01-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "1"
+  - '1951-01-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "2"
+  - '1951-01-01'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
-  - "no"
+  - '1951-01-01'
+  - '23'
+  - '1'
+  - 'no'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
-  - "no"
-  - "0"
+  - '1951-01-01'
+  - '23'
+  - '1'
+  - 'no'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
-  - "no"
-  - "1"
+  - '1951-01-01'
+  - '23'
+  - '1'
+  - 'no'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "23"
-  - "1"
-  - "no"
-  - "2"
+  - '1951-01-01'
+  - '23'
+  - '1'
+  - 'no'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "27"
+  - '1951-01-01'
+  - '27'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "27"
-  - "1"
+  - '1951-01-01'
+  - '27'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "27"
-  - "1"
-  - "yes"
+  - '1951-01-01'
+  - '27'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
+  - '1951-01-01'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1951-01-01'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "27"
-  - "1"
-  - "no"
+  - '1951-01-01'
+  - '27'
+  - '1'
+  - 'no'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "27"
-  - "1"
-  - "no"
-  - "0"
+  - '1951-01-01'
+  - '27'
+  - '1'
+  - 'no'
+  - '0'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "27"
-  - "1"
-  - "no"
-  - "1"
+  - '1951-01-01'
+  - '27'
+  - '1'
+  - 'no'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "27"
-  - "1"
-  - "no"
-  - "2"
+  - '1951-01-01'
+  - '27'
+  - '1'
+  - 'no'
+  - '2'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-01-01"
-  - "30"
+  - '1951-01-01'
+  - '30'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1951-06-01"
+  - '1951-06-01'
   :next_node: :over55_result
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1952-02-29"
+  - '1952-02-29'
   :next_node: :over55_result
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1954-01-01"
+  - '1954-01-01'
   :next_node: :over55_result
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
+  - '1961-04-04'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "1"
+  - '1961-04-04'
+  - '1'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - '1'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "1"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "1"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "1"
-  - "1"
-  - "no"
-  - "yes"
+  - '1961-04-04'
+  - '1'
+  - '1'
+  - 'no'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "1"
-  - "1"
-  - "no"
-  - "no"
+  - '1961-04-04'
+  - '1'
+  - '1'
+  - 'no'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "11"
+  - '1961-04-04'
+  - '11'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "11"
-  - "1"
+  - '1961-04-04'
+  - '11'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "11"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - '11'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "11"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - '11'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "23"
+  - '1961-04-04'
+  - '23'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "23"
-  - "1"
+  - '1961-04-04'
+  - '23'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "23"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - '23'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "23"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - '23'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "27"
+  - '1961-04-04'
+  - '27'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "27"
-  - "1"
+  - '1961-04-04'
+  - '27'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "27"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - '27'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "27"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - '27'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "30"
+  - '1961-04-04'
+  - '30'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "30"
-  - "1"
+  - '1961-04-04'
+  - '30'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "30"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - '30'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "30"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - '30'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "30"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - '30'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "30"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - '30'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1961-04-04"
-  - "30"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - '30'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
+  - '1991-08-12'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "1"
+  - '1991-08-12'
+  - '1'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "1"
-  - "1"
+  - '1991-08-12'
+  - '1'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "yes"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "no"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "no"
-  - "yes"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'no'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "no"
-  - "no"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'no'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "11"
+  - '1991-08-12'
+  - '11'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "23"
+  - '1991-08-12'
+  - '23'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "27"
+  - '1991-08-12'
+  - '27'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1991-08-12"
-  - "30"
+  - '1991-08-12'
+  - '30'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
+  - '1992-04-06'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
+  - '1992-04-06'
+  - '1'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
+  - '1992-04-06'
+  - '1'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "0"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '0'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "0"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '0'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "0"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '0'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "2"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '2'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "2"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '2'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "2"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '2'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "0"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '0'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "0"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '0'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "0"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '0'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "1"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '1'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "1"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '1'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "1"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "2"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '2'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "2"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '2'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "2"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '2'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "11"
+  - '1992-04-06'
+  - '11'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "23"
+  - '1992-04-06'
+  - '23'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "27"
+  - '1992-04-06'
+  - '27'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1992-04-06"
-  - "30"
+  - '1992-04-06'
+  - '30'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
+  - '1993-04-06'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "1"
+  - '1993-04-06'
+  - '1'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "1"
-  - "1"
+  - '1993-04-06'
+  - '1'
+  - '1'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "0"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '0'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "0"
-  - "yes"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '0'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "0"
-  - "no"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '0'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "1"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "1"
-  - "yes"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "1"
-  - "no"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "2"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '2'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "2"
-  - "yes"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '2'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "2"
-  - "no"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '2'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "11"
+  - '1993-04-06'
+  - '11'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "23"
+  - '1993-04-06'
+  - '23'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "27"
+  - '1993-04-06'
+  - '27'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - male
-  - "1993-04-06"
-  - "30"
+  - '1993-04-06'
+  - '30'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :gender?
-  :responses: 
+  :responses:
   - amount
   - female
   :next_node: :dob_amount?
   :outcome_node: false
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1950-01-01"
+  - '1950-01-01'
   :next_node: :reached_state_pension_age
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1950-02-01"
+  - '1950-02-01'
   :next_node: :reached_state_pension_age
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1951-01-01"
+  - '1951-01-01'
   :next_node: :reached_state_pension_age
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1951-06-01"
+  - '1951-06-01'
   :next_node: :reached_state_pension_age
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1952-02-29"
+  - '1952-02-29'
   :next_node: :reached_state_pension_age
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1954-01-01"
+  - '1954-01-01'
   :next_node: :over55_result
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
+  - '1961-04-04'
   :next_node: :pay_reduced_ni_rate?
   :outcome_node: false
 - :current_node: :pay_reduced_ni_rate?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
+  - '1961-04-04'
+  - 'yes'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '1'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "1"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "1"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "1"
-  - "1"
-  - "no"
-  - "yes"
+  - '1961-04-04'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'no'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "1"
-  - "1"
-  - "no"
-  - "no"
+  - '1961-04-04'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'no'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "11"
+  - '1961-04-04'
+  - 'yes'
+  - '11'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "11"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '11'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "11"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'yes'
+  - '11'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "11"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'yes'
+  - '11'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "23"
+  - '1961-04-04'
+  - 'yes'
+  - '23'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "23"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '23'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "23"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'yes'
+  - '23'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "23"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'yes'
+  - '23'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "27"
+  - '1961-04-04'
+  - 'yes'
+  - '27'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "27"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '27'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "27"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'yes'
+  - '27'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "27"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'yes'
+  - '27'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "30"
+  - '1961-04-04'
+  - 'yes'
+  - '30'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "30"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '30'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "30"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'yes'
+  - '30'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "30"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '30'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "30"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '30'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "30"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'yes'
+  - '30'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "yes"
-  - "30"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'yes'
+  - '30'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :pay_reduced_ni_rate?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
+  - '1961-04-04'
+  - 'no'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '1'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '1'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "1"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'no'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'no'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'no'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "1"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'no'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "1"
-  - "1"
-  - "no"
-  - "yes"
+  - '1961-04-04'
+  - 'no'
+  - '1'
+  - '1'
+  - 'no'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "1"
-  - "1"
-  - "no"
-  - "no"
+  - '1961-04-04'
+  - 'no'
+  - '1'
+  - '1'
+  - 'no'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "11"
+  - '1961-04-04'
+  - 'no'
+  - '11'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "11"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '11'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "11"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'no'
+  - '11'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "11"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '11'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "11"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'no'
+  - '11'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "23"
+  - '1961-04-04'
+  - 'no'
+  - '23'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "23"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '23'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "23"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'no'
+  - '23'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "23"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '23'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "23"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'no'
+  - '23'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "27"
+  - '1961-04-04'
+  - 'no'
+  - '27'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "27"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '27'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "27"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'no'
+  - '27'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "27"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '27'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "27"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'no'
+  - '27'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "30"
+  - '1961-04-04'
+  - 'no'
+  - '30'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "30"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '30'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "30"
-  - "1"
-  - "yes"
+  - '1961-04-04'
+  - 'no'
+  - '30'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "30"
-  - "1"
-  - "yes"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '30'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "30"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '30'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :years_of_carers_allowance?
   :outcome_node: false
 - :current_node: :years_of_carers_allowance?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "30"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "1"
+  - '1961-04-04'
+  - 'no'
+  - '30'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1961-04-04"
-  - "no"
-  - "30"
-  - "1"
-  - "no"
+  - '1961-04-04'
+  - 'no'
+  - '30'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
+  - '1991-08-12'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "1"
+  - '1991-08-12'
+  - '1'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "1"
-  - "1"
+  - '1991-08-12'
+  - '1'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "yes"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_caring?
   :outcome_node: false
 - :current_node: :years_of_caring?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "no"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "no"
-  - "yes"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'no'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "1"
-  - "1"
-  - "no"
-  - "no"
+  - '1991-08-12'
+  - '1'
+  - '1'
+  - 'no'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "11"
+  - '1991-08-12'
+  - '11'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "23"
+  - '1991-08-12'
+  - '23'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "27"
+  - '1991-08-12'
+  - '27'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1991-08-12"
-  - "30"
+  - '1991-08-12'
+  - '30'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
+  - '1992-04-06'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
+  - '1992-04-06'
+  - '1'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
+  - '1992-04-06'
+  - '1'
+  - '1'
   :next_node: :received_child_benefit?
   :outcome_node: false
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :years_of_benefit?
   :outcome_node: false
 - :current_node: :years_of_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "0"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '0'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "0"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '0'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "0"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '0'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "1"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "2"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '2'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "2"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '2'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "yes"
-  - "1"
-  - "2"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'yes'
+  - '1'
+  - '2'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :received_child_benefit?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "0"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '0'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "0"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '0'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "0"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '0'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "1"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '1'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "1"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '1'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "1"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "2"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '2'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "2"
-  - "yes"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '2'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "1"
-  - "1"
-  - "no"
-  - "2"
-  - "no"
+  - '1992-04-06'
+  - '1'
+  - '1'
+  - 'no'
+  - '2'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "11"
+  - '1992-04-06'
+  - '11'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "23"
+  - '1992-04-06'
+  - '23'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "27"
+  - '1992-04-06'
+  - '27'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1992-04-06"
-  - "30"
+  - '1992-04-06'
+  - '30'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :dob_amount?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
+  - '1993-04-06'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "1"
+  - '1993-04-06'
+  - '1'
   :next_node: :years_of_jsa?
   :outcome_node: false
 - :current_node: :years_of_jsa?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "1"
-  - "1"
+  - '1993-04-06'
+  - '1'
+  - '1'
   :next_node: :years_of_work?
   :outcome_node: false
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "0"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '0'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "0"
-  - "yes"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '0'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "0"
-  - "no"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '0'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "1"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '1'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "1"
-  - "yes"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '1'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "1"
-  - "no"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '1'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_of_work?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "2"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '2'
   :next_node: :lived_or_worked_outside_uk?
   :outcome_node: false
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "2"
-  - "yes"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '2'
+  - 'yes'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :lived_or_worked_outside_uk?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "1"
-  - "1"
-  - "2"
-  - "no"
+  - '1993-04-06'
+  - '1'
+  - '1'
+  - '2'
+  - 'no'
   :next_node: :amount_result
   :outcome_node: true
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "11"
+  - '1993-04-06'
+  - '11'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "23"
+  - '1993-04-06'
+  - '23'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "27"
+  - '1993-04-06'
+  - '27'
   :next_node: :years_paid_ni?
   :outcome_node: false
 - :current_node: :years_paid_ni?
-  :responses: 
+  :responses:
   - amount
   - female
-  - "1993-04-06"
-  - "30"
+  - '1993-04-06'
+  - '30'
   :next_node: :years_paid_ni?
   :outcome_node: false
+- :current_node: :which_calculation?
+  :responses:
+  - bus_pass
+  :next_node: :dob_bus_pass?
+  :outcome_node: false
+- :current_node: :dob_bus_pass?
+  :responses:
+  - bus_pass
+  - '1956-05-31'
+  :next_node: :bus_pass_age_result
+  :outcome_node: true
