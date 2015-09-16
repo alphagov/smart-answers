@@ -21,6 +21,8 @@ module SmartAnswer
       end
 
       def maintenance_grant_amount
+        return Money.new('0') unless %w(2014-2015 2015-2016).include?(@course_start)
+
         # 2015-16 rates are the same as 2014-15:
         # max of £3,387 for income up to £25,000 then,
         # £1 less than max for each whole £5.28 above £25000 up to £42,611
