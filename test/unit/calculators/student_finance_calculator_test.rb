@@ -35,6 +35,20 @@ module SmartAnswer
             assert_equal Money.new(1494), calculator.maintenance_grant_amount
           end
         end
+
+        context "for students who started 2016-2017 or later" do
+          setup do
+            @course_start = '2016-2017'
+          end
+          should "return 0 for any student" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: 15_000,
+              residence: :unused_variable
+            )
+            assert_equal Money.new(0), calculator.maintenance_grant_amount
+          end
+        end
       end
 
       context "#maintenance_loan_amount" do
