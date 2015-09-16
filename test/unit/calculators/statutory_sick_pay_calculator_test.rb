@@ -44,7 +44,7 @@ module SmartAnswer::Calculators
       end
 
       should "return daily rate of 0.0" do
-        @weekly_rate = @calculator.weekly_rate_on(@start_date)
+        @weekly_rate = @calculator.send(:weekly_rate_on, @start_date)
         assert_equal @calculator.daily_rate_from_weekly(@weekly_rate, @days_worked.length), 0.0
       end
     end
@@ -60,7 +60,7 @@ module SmartAnswer::Calculators
       end
 
       should "return daily rate of 17.1700" do
-        @weekly_rate = @calculator.weekly_rate_on(@start_date)
+        @weekly_rate = @calculator.send(:weekly_rate_on, @start_date)
         assert_equal @weekly_rate, 85.8500
         assert_equal @calculator.daily_rate_from_weekly(@weekly_rate, 5), 17.1700
       end
@@ -81,7 +81,7 @@ module SmartAnswer::Calculators
       end
 
       should "return daily rate of 28.6166" do
-        assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 3), 28.6166 # should be 28.6166 according to HMRC table
+        assert_equal @calculator.daily_rate_from_weekly(@calculator.send(:weekly_rate_on, @start_date), 3), 28.6166 # should be 28.6166 according to HMRC table
       end
     end
 
@@ -92,7 +92,7 @@ module SmartAnswer::Calculators
       end
 
       should "return daily rate of 12.2642" do
-        assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 7), 12.2642 # unrounded, matches the HMRC SSP daily rate table
+        assert_equal @calculator.daily_rate_from_weekly(@calculator.send(:weekly_rate_on, @start_date), 7), 12.2642 # unrounded, matches the HMRC SSP daily rate table
       end
     end
 
@@ -103,7 +103,7 @@ module SmartAnswer::Calculators
       end
 
       should "return daily rate of 14.3083" do
-        assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 6), 14.3083
+        assert_equal @calculator.daily_rate_from_weekly(@calculator.send(:weekly_rate_on, @start_date), 6), 14.3083
       end
     end
 
@@ -114,7 +114,7 @@ module SmartAnswer::Calculators
       end
 
       should "return daily rate of 42.9250" do
-        assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 2), 42.9250
+        assert_equal @calculator.daily_rate_from_weekly(@calculator.send(:weekly_rate_on, @start_date), 2), 42.9250
       end
     end
 
@@ -136,7 +136,7 @@ module SmartAnswer::Calculators
       should "return waiting_days of 2" do
         assert_equal @calculator.waiting_days, 2
         assert_equal @calculator.normal_workdays, 5
-        assert_equal @calculator.days_to_pay, 3
+        assert_equal @calculator.send(:days_to_pay), 3
 
       end
     end
@@ -148,7 +148,7 @@ module SmartAnswer::Calculators
 
       should "return waiting_days of 3, ssp payment of 0" do
         assert_equal @calculator.waiting_days, 3
-        assert_equal @calculator.days_to_pay, 0
+        assert_equal @calculator.send(:days_to_pay), 0
         assert_equal @calculator.normal_workdays, 3
         assert_equal @calculator.ssp_payment, 0.00
       end
@@ -160,7 +160,7 @@ module SmartAnswer::Calculators
       end
 
       should "have a max of 140 days payable" do
-        assert_equal @calculator.days_to_pay, 140
+        assert_equal @calculator.send(:days_to_pay), 140
         assert_equal @calculator.normal_workdays, 175
         assert_equal @calculator.ssp_payment, 2403.80 #140 * 17.1700 or 28 * 85.85
       end
@@ -172,7 +172,7 @@ module SmartAnswer::Calculators
       end
 
       should "have a max of 84 days payable" do
-        assert_equal @calculator.days_to_pay, 84
+        assert_equal @calculator.send(:days_to_pay), 84
         assert_equal @calculator.normal_workdays, 105
         assert_equal @calculator.ssp_payment, 2403.80 #28 weeks at 85.85 a week
       end
@@ -186,7 +186,7 @@ module SmartAnswer::Calculators
 
       should "use ssp rate and lel for 2011-12" do
         assert_equal StatutorySickPayCalculator.lower_earning_limit_on(@start_date), 102
-        assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 5), 16.3200
+        assert_equal @calculator.daily_rate_from_weekly(@calculator.send(:weekly_rate_on, @start_date), 5), 16.3200
       end
     end
 
@@ -199,7 +199,7 @@ module SmartAnswer::Calculators
 
       should "give correct ssp calculation" do  # 15 days with 3 waiting days, so 6 days at lower weekly rate, 6 days at higher rate
         assert_equal @calculator.waiting_days, 3
-        assert_equal @calculator.days_to_pay, 12
+        assert_equal @calculator.send(:days_to_pay), 12
         assert_equal @calculator.normal_workdays, 15
         assert_equal @calculator.ssp_payment, 200.94
       end
@@ -213,7 +213,7 @@ module SmartAnswer::Calculators
 
       should "use ssp rate and lel for 2014-15" do
         assert_equal StatutorySickPayCalculator.lower_earning_limit_on(@start_date), 111
-        assert_equal @calculator.daily_rate_from_weekly(@calculator.weekly_rate_on(@start_date), 5), 17.51
+        assert_equal @calculator.daily_rate_from_weekly(@calculator.send(:weekly_rate_on, @start_date), 5), 17.51
       end
     end
 
@@ -224,7 +224,7 @@ module SmartAnswer::Calculators
       end
 
       should "not break and use ssp rate for the latest know fiscal year" do
-        assert @calculator.weekly_rate_on(@start_date).is_a?(Numeric)
+        assert @calculator.send(:weekly_rate_on, @start_date).is_a?(Numeric)
       end
     end
 
@@ -236,7 +236,7 @@ module SmartAnswer::Calculators
 
       should "give correct ssp calculation" do # 24 days with no waiting days, so 22 days at lower weekly rate, 2 days at higher rate
         assert_equal @calculator.normal_workdays, 24
-        assert_equal @calculator.days_to_pay, 24
+        assert_equal @calculator.send(:days_to_pay), 24
         assert_equal @calculator.ssp_payment, 490.67
       end
     end
@@ -248,7 +248,7 @@ module SmartAnswer::Calculators
       end
 
       should "give correct ssp calculation" do
-        assert_equal @calculator.days_to_pay, 18
+        assert_equal @calculator.send(:days_to_pay), 18
         assert_equal @calculator.ssp_payment, 515.11
       end
     end
@@ -261,7 +261,7 @@ module SmartAnswer::Calculators
 
       should "give correct ssp calculation" do # 12 days with 3 waiting days, all at 2012-13 daily rate
         assert_equal @calculator.waiting_days, 3
-        assert_equal @calculator.days_to_pay, 9
+        assert_equal @calculator.send(:days_to_pay), 9
         assert_equal @calculator.normal_workdays, 12
         assert_equal @calculator.ssp_payment, 386.33
       end
@@ -274,7 +274,7 @@ module SmartAnswer::Calculators
       end
 
       should "give correct ssp calculation" do # max of 16 days that can still be paid with no waiting days, first four days at 2011-12,  2012-13 daily rate
-        assert_equal @calculator.days_to_pay, 16
+        assert_equal @calculator.send(:days_to_pay), 16
         assert_equal @calculator.ssp_payment, 338.09
       end
     end
@@ -297,7 +297,7 @@ module SmartAnswer::Calculators
       end
 
       should "give correct ssp calculation" do # there should be 3 normal workdays to pay
-        assert_equal @calculator.days_to_pay, 3
+        assert_equal @calculator.send(:days_to_pay), 3
         assert_equal @calculator.waiting_days, 3
         assert_equal @calculator.ssp_payment, 257.55
       end
@@ -310,7 +310,7 @@ module SmartAnswer::Calculators
       end
 
       should "give correct ssp calculation" do # there should be max 1 day for which employee can receive pay
-        assert_equal @calculator.days_to_pay, 1
+        assert_equal @calculator.send(:days_to_pay), 1
         assert_equal @calculator.ssp_payment, 20.40
       end
     end
@@ -322,7 +322,7 @@ module SmartAnswer::Calculators
       end
 
       should "give correct SSP calculation" do
-        assert_equal @calculator.days_to_pay, 6 # first 3 days are waiting days, so no pay
+        assert_equal @calculator.send(:days_to_pay), 6 # first 3 days are waiting days, so no pay
         assert_equal @calculator.ssp_payment, 172.55 # one week at 85.85 plus one week at 86.70
       end
     end
@@ -334,7 +334,7 @@ module SmartAnswer::Calculators
       end
 
       should "give correct SSP calculation" do
-        assert_equal @calculator.days_to_pay, 65 # 1 day + 16 weeks (4 days/week)
+        assert_equal @calculator.send(:days_to_pay), 65 # 1 day + 16 weeks (4 days/week)
         assert_equal @calculator.ssp_payment, 1398.47 # see spreadsheet
       end
     end
@@ -346,7 +346,7 @@ module SmartAnswer::Calculators
       end
 
       should "give correct SSP calculation" do
-        assert_equal @calculator.days_to_pay, 33 # 1 day + 16 weeks (2 days/week)
+        assert_equal @calculator.send(:days_to_pay), 33 # 1 day + 16 weeks (2 days/week)
         assert_equal @calculator.ssp_payment, 1419.93 # see spreadsheet
       end
     end
@@ -358,7 +358,7 @@ module SmartAnswer::Calculators
       end
 
       should "give correct SSP calculation" do
-        assert_equal @calculator.days_to_pay, 45 # 15 weeks (3 days/week)
+        assert_equal @calculator.send(:days_to_pay), 45 # 15 weeks (3 days/week)
         assert_equal @calculator.ssp_payment, 1289.45 # see spreadsheet
       end
     end
@@ -370,7 +370,7 @@ module SmartAnswer::Calculators
       end
 
       should "give correct SSP calculation" do
-        assert_equal @calculator.days_to_pay, 7
+        assert_equal @calculator.send(:days_to_pay), 7
         assert_equal @calculator.ssp_payment, 122.57
       end
     end
@@ -461,7 +461,7 @@ module SmartAnswer::Calculators
                       Date.parse("20 Apr 2013"),
                       Date.parse("27 Apr 2013"),
                       Date.parse("04 May 2013")],
-                     calculator.sick_pay_weekly_dates
+                     calculator.send(:sick_pay_weekly_dates)
       end
     end
 
@@ -485,7 +485,7 @@ module SmartAnswer::Calculators
                       [Date.parse("06 Apr 2013"), 85.85],
                       [Date.parse("13 Apr 2013"), 86.7],
                       [Date.parse("20 Apr 2013"), 86.7]],
-                    calculator.weekly_payments
+                    calculator.send(:weekly_payments)
       end
 
       should "have the same reduced value as the ssp_payment value" do
@@ -493,7 +493,7 @@ module SmartAnswer::Calculators
                       42, Date.parse("7 January 2013"), Date.parse("3 May 2013"), ['2', '3', '4'])
 
         assert_equal calculator.ssp_payment,
-                     calculator.weekly_payments.map(&:second).sum
+                     calculator.send(:weekly_payments).map(&:second).sum
       end
     end
 
