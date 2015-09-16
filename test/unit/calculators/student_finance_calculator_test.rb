@@ -14,7 +14,7 @@ module SmartAnswer
               household_income: 42_621,
               residence: :unused_variable
             )
-            assert_equal Money.new(0), calculator.maintenance_grant_amount
+            assert_equal Money.new(0).to_s, calculator.maintenance_grant_amount.to_s
           end
 
           should "return the maximum amount, 3_387, for a household with £25k income or less" do
@@ -23,7 +23,7 @@ module SmartAnswer
               household_income: 25_000,
               residence: :unused_variable
             )
-            assert_equal Money.new(3387), calculator.maintenance_grant_amount
+            assert_equal Money.new(3387).to_s, calculator.maintenance_grant_amount.to_s
           end
 
           should "return 1494 for a household with £35k income (£1 less than max for each whole £5.28 above £25000 up to £42,611)" do
@@ -32,7 +32,7 @@ module SmartAnswer
               household_income: 35_000,
               residence: :unused_variable
             )
-            assert_equal Money.new(1494), calculator.maintenance_grant_amount
+            assert_equal Money.new(1494).to_s, calculator.maintenance_grant_amount.to_s
           end
         end
 
@@ -46,7 +46,7 @@ module SmartAnswer
               household_income: 15_000,
               residence: :unused_variable
             )
-            assert_equal Money.new(0), calculator.maintenance_grant_amount
+            assert_equal Money.new(0).to_s, calculator.maintenance_grant_amount.to_s
           end
         end
       end
@@ -64,7 +64,7 @@ module SmartAnswer
               household_income: 25_000,
               residence: @residence
             )
-            assert_equal Money.new(6_904), calculator.maintenance_loan_amount
+            assert_equal Money.new(6_904).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the maximum amount (£6,904) by £1 for every complete £8.59 of income above £25k" do
@@ -84,7 +84,7 @@ module SmartAnswer
                 household_income: household_income,
                 residence: @residence
               )
-              assert_equal Money.new(loan_amount), calculator.maintenance_loan_amount
+              assert_equal Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
             end
           end
 
@@ -94,7 +94,7 @@ module SmartAnswer
               household_income: 500_000,
               residence: @residence
             )
-            assert_equal Money.new(3_039), calculator.maintenance_loan_amount
+            assert_equal Money.new(3_039).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -110,7 +110,7 @@ module SmartAnswer
               household_income: 25_000,
               residence: @residence
             )
-            assert_equal Money.new(8_200), calculator.maintenance_loan_amount
+            assert_equal Money.new(8_200).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the maximum amount (£8,200) by £1 for every complete £8.49 of income above £25k" do
@@ -131,7 +131,7 @@ module SmartAnswer
                 household_income: household_income,
                 residence: @residence
               )
-              assert_equal Money.new(loan_amount), calculator.maintenance_loan_amount
+              assert_equal Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
             end
           end
 
@@ -141,7 +141,7 @@ module SmartAnswer
               household_income: 500_000,
               residence: @residence
             )
-            assert_equal Money.new(3_821), calculator.maintenance_loan_amount
+            assert_equal Money.new(3_821).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -157,7 +157,7 @@ module SmartAnswer
               household_income: 25_000,
               residence: @residence
             )
-            assert_equal Money.new(10_702), calculator.maintenance_loan_amount
+            assert_equal Money.new(10_702).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the maximum amount (£10,702) by £1 for every complete £8.34 of income above £25k" do
@@ -179,7 +179,7 @@ module SmartAnswer
                 household_income: household_income,
                 residence: @residence
               )
-              assert_equal Money.new(loan_amount), calculator.maintenance_loan_amount
+              assert_equal Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
             end
           end
 
@@ -189,7 +189,7 @@ module SmartAnswer
               household_income: 500_000,
               residence: @residence
             )
-            assert_equal Money.new(5_330), calculator.maintenance_loan_amount
+            assert_equal Money.new(5_330).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -205,7 +205,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'at-home'
             )
-            assert_equal Money.new(2872), calculator.maintenance_loan_amount
+            assert_equal Money.new(2872).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the max amount (£5740) by £0.5 for each £1 of maintenance grant for students living away" do
@@ -214,7 +214,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'away-outside-london'
             )
-            assert_equal Money.new(4047), calculator.maintenance_loan_amount
+            assert_equal Money.new(4047).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the max amount (£8009) by £0.5 for each £1 of maintenance grant for students living away in London" do
@@ -223,7 +223,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'away-in-london'
             )
-            assert_equal Money.new(6316), calculator.maintenance_loan_amount
+            assert_equal Money.new(6316).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -239,7 +239,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'at-home'
             )
-            assert_equal Money.new(4565), calculator.maintenance_loan_amount
+            assert_equal Money.new(4565).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "give maximum loan £5740 for students living away" do
@@ -248,7 +248,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'away-outside-london'
             )
-            assert_equal Money.new(5740), calculator.maintenance_loan_amount
+            assert_equal Money.new(5740).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "give maximum loan £8009 for students living away in London" do
@@ -257,7 +257,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'away-in-london'
             )
-            assert_equal Money.new(8009), calculator.maintenance_loan_amount
+            assert_equal Money.new(8009).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -273,7 +273,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'at-home'
             )
-            assert_equal Money.new(3823), calculator.maintenance_loan_amount
+            assert_equal Money.new(3823).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the max amount (£5740) by £1 for each full £9.90 of income above £42875 for students living away" do
@@ -282,7 +282,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'away-outside-london'
             )
-            assert_equal Money.new(4998), calculator.maintenance_loan_amount
+            assert_equal Money.new(4998).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the max amount (£8009) by £1 for each full £9.90 of income above £42875 for students living away in London" do
@@ -291,7 +291,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'away-in-london'
             )
-            assert_equal Money.new(7267), calculator.maintenance_loan_amount
+            assert_equal Money.new(7267).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -307,7 +307,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'at-home'
             )
-            assert_equal Money.new(2967), calculator.maintenance_loan_amount
+            assert_equal Money.new(2967).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "apply the 65% of max load amount minimum and give 0.65 * £5740 for students living away" do
@@ -316,7 +316,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'away-outside-london'
             )
-            assert_equal Money.new(3731), calculator.maintenance_loan_amount
+            assert_equal Money.new(3731).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "apply the 65% of max load amount minimum and give 0.65 * £8009 for students living away in London" do
@@ -325,7 +325,7 @@ module SmartAnswer
               household_income: @household_income,
               residence: 'away-in-london'
             )
-            assert_equal Money.new(5205), calculator.maintenance_loan_amount
+            assert_equal Money.new(5205).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
       end
