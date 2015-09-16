@@ -10,6 +10,7 @@ module SmartAnswer
       multiple_choice :when_does_your_course_start? do
         option :"2014-2015"
         option :"2015-2016"
+        option :"2016-2017"
 
         save_input_as :start_date
         next_node :what_type_of_student_are_you?
