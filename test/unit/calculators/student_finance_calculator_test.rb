@@ -52,6 +52,147 @@ module SmartAnswer
       end
 
       context "#maintenance_loan_amount" do
+        context "for students who started 2016-2017 living at home with parents" do
+          setup do
+            @course_start = '2016-2017'
+            @residence = 'at-home'
+          end
+
+          should "give the maximum amount of £6,904 if household income is £25k or below" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: 25_000,
+              residence: @residence
+            )
+            assert_equal Money.new(6_904), calculator.maintenance_loan_amount
+          end
+
+          should "reduce the maximum amount (£6,904) by £1 for every complete £8.59 of income above £25k" do
+            # Samples taken from the document provided
+            {
+              30_000 => 6_322,
+              35_000 => 5_740,
+              40_000 => 5_158,
+              42_875 => 4_824,
+              45_000 => 4_576,
+              50_000 => 3_994,
+              55_000 => 3_412,
+              58_201 => 3_039
+            }.each do |household_income, loan_amount|
+              calculator = StudentFinanceCalculator.new(
+                course_start: @course_start,
+                household_income: household_income,
+                residence: @residence
+              )
+              assert_equal Money.new(loan_amount), calculator.maintenance_loan_amount
+            end
+          end
+
+          should "cap the reductions and give the minimum loan of £3,039 for high household income students" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: 500_000,
+              residence: @residence
+            )
+            assert_equal Money.new(3_039), calculator.maintenance_loan_amount
+          end
+        end
+
+        context "for students who started 2016-2017 living away not in london" do
+          setup do
+            @course_start = '2016-2017'
+            @residence = 'away-outside-london'
+          end
+
+          should "give the maximum amount of £8,200 if household income is £25k or below" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: 25_000,
+              residence: @residence
+            )
+            assert_equal Money.new(8_200), calculator.maintenance_loan_amount
+          end
+
+          should "reduce the maximum amount (£8,200) by £1 for every complete £8.49 of income above £25k" do
+            # Samples taken from the document provided
+            {
+              30_000 => 7_612,
+              35_000 => 7_023,
+              40_000 => 6_434,
+              42_875 => 6_095,
+              45_000 => 5_845,
+              50_000 => 5_256,
+              55_000 => 4_667,
+              60_000 => 4_078,
+              62_180 => 3_821
+            }.each do |household_income, loan_amount|
+              calculator = StudentFinanceCalculator.new(
+                course_start: @course_start,
+                household_income: household_income,
+                residence: @residence
+              )
+              assert_equal Money.new(loan_amount), calculator.maintenance_loan_amount
+            end
+          end
+
+          should "cap the reductions and give the minimum loan of £3,821 for high household income students" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: 500_000,
+              residence: @residence
+            )
+            assert_equal Money.new(3_821), calculator.maintenance_loan_amount
+          end
+        end
+
+        context "for students who started 2016-2017 living away in london" do
+          setup do
+            @course_start = '2016-2017'
+            @residence = 'away-in-london'
+          end
+
+          should "give the maximum amount of £10,702 if household income is £25k or below" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: 25_000,
+              residence: @residence
+            )
+            assert_equal Money.new(10_702), calculator.maintenance_loan_amount
+          end
+
+          should "reduce the maximum amount (£10,702) by £1 for every complete £8.34 of income above £25k" do
+            # Samples taken from the document provided
+            {
+              30_000 => 10_103,
+              35_000 => 9_503,
+              40_000 => 8_904,
+              42_875 => 8_559,
+              45_000 => 8_304,
+              50_000 => 7_705,
+              55_000 => 7_105,
+              60_000 => 6_506,
+              65_000 => 5_906,
+              69_803 => 5_330
+            }.each do |household_income, loan_amount|
+              calculator = StudentFinanceCalculator.new(
+                course_start: @course_start,
+                household_income: household_income,
+                residence: @residence
+              )
+              assert_equal Money.new(loan_amount), calculator.maintenance_loan_amount
+            end
+          end
+
+          should "cap the reductions and give the minimum loan of £5,330 for high household income students" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: 500_000,
+              residence: @residence
+            )
+            assert_equal Money.new(5_330), calculator.maintenance_loan_amount
+          end
+        end
+
         context "for students who started 2015-2016 with lower income" do
           setup do
             @course_start = '2015-2016'
