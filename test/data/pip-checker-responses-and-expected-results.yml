@@ -26,7 +26,7 @@
   :responses:
   - 'yes'
   - '1997-05-08'
-  :next_node: :result_4
+  :next_node: :result_7
   :outcome_node: true
 - :current_node: :what_is_your_dob?
   :responses:
