@@ -67,9 +67,9 @@ class PIPCheckerTest < ActiveSupport::TestCase
       assert_current_node :result_6
     end
 
-    should "be result 4 if born between 08-06-1997 and 06-10-1997 (03/03/14)" do
+    should "be result 7 if born between 08-06-1997 and 06-10-1997 (03/03/14)" do
       add_response '1997-06-08'
-      assert_current_node :result_4
+      assert_current_node :result_7
     end
 
     should "be result 5 if born on or after 07-10-1997 (03/03/14)" do
