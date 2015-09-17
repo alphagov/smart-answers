@@ -30,7 +30,7 @@ module SmartAnswer
             if calculator.in_group_65?
               :result_6
             elsif calculator.turning_16_before_oct_2013?
-              :result_4
+              :result_7
             elsif calculator.in_middle_group?
               :result_7
             else
