@@ -14,6 +14,12 @@ en-GB:
         title: What passport or travel document do you have?
         hint: If you're a refugee or don't have a passport or travel document, select stateless or refugee.
 
+      israeli_document_type?:
+        title: What sort of passport do you have?
+        options:
+          full-passport: "Full passport"
+          provisional-passport: "Provisional passport ('travel document in lieu of a national passport')"
+
       purpose_of_visit?:
         title: What are you coming to the UK to do?
         options:
