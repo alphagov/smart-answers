@@ -8,15 +8,15 @@ module SmartAnswer::Calculators
       end
 
       should "be 8010 for age of 69" do
-        assert_equal 8010, @calculator.lump_sum_amount(69, 10)
+        assert_equal 8010, @calculator.send(:lump_sum_amount, 69, 10)
       end
 
       should "be nil for age of 101" do
-        assert_equal 0, @calculator.lump_sum_amount(101, 20)
+        assert_equal 0, @calculator.send(:lump_sum_amount, 101, 20)
       end
 
       should "be 2,720 for age of 80" do
-        assert_equal 2720, @calculator.lump_sum_amount(80, 5)
+        assert_equal 2720, @calculator.send(:lump_sum_amount, 80, 5)
       end
     end
 
@@ -26,11 +26,11 @@ module SmartAnswer::Calculators
       end
 
       should "Show age of 64" do
-        assert_equal 64, @calculator.age_at_date(Date.parse('1951-04-06'), Date.parse('2015-10-12'))
+        assert_equal 64, @calculator.send(:age_at_date, Date.parse('1951-04-06'), Date.parse('2015-10-12'))
       end
 
       should "Show age of 85" do
-        assert_equal 85, @calculator.age_at_date(Date.parse('1930-04-06'), Date.parse('2015-10-12'))
+        assert_equal 85, @calculator.send(:age_at_date, Date.parse('1930-04-06'), Date.parse('2015-10-12'))
       end
     end
 
