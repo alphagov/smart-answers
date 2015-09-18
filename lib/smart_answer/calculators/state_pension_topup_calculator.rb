@@ -2,8 +2,6 @@ module SmartAnswer::Calculators
   class StatePensionTopupCalculator
 
     UPPER_AGE = 100
-    LOWER_AGE = 62
-    MALE_LOWER_AGE = 64
     OLDEST_DOB = Date.parse('1914-10-13')
     FEMALE_YOUNGEST_DOB = Date.parse('1953-04-05')
     MALE_YOUNGEST_DOB = Date.parse('1951-04-05')
