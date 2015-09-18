@@ -388,23 +388,32 @@
 - :current_node: :what_passport_do_you_have?
   :responses:
   - israel
+  :next_node: :israeli_document_type?
+  :outcome_node: false
+- :current_node: :israeli_document_type?
+  :responses:
+  - israel
+  - full-passport
   :next_node: :purpose_of_visit?
   :outcome_node: false
 - :current_node: :purpose_of_visit?
   :responses:
   - israel
+  - full-passport
   - tourism
   :next_node: :outcome_school_n
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
   - israel
+  - full-passport
   - work
   :next_node: :staying_for_how_long?
   :outcome_node: false
 - :current_node: :staying_for_how_long?
   :responses:
   - israel
+  - full-passport
   - work
   - six_months_or_less
   :next_node: :outcome_work_n
@@ -412,6 +421,7 @@
 - :current_node: :staying_for_how_long?
   :responses:
   - israel
+  - full-passport
   - work
   - longer_than_six_months
   :next_node: :outcome_work_y
@@ -419,12 +429,14 @@
 - :current_node: :purpose_of_visit?
   :responses:
   - israel
+  - full-passport
   - study
   :next_node: :staying_for_how_long?
   :outcome_node: false
 - :current_node: :staying_for_how_long?
   :responses:
   - israel
+  - full-passport
   - study
   - six_months_or_less
   :next_node: :outcome_no_visa_needed
@@ -432,6 +444,7 @@
 - :current_node: :staying_for_how_long?
   :responses:
   - israel
+  - full-passport
   - study
   - longer_than_six_months
   :next_node: :outcome_study_y
@@ -439,36 +452,159 @@
 - :current_node: :purpose_of_visit?
   :responses:
   - israel
+  - full-passport
   - transit
   :next_node: :outcome_no_visa_needed
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
   - israel
+  - full-passport
   - family
   :next_node: :outcome_joining_family_nvn
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
   - israel
+  - full-passport
   - marriage
   :next_node: :outcome_marriage
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
   - israel
+  - full-passport
   - school
   :next_node: :outcome_school_n
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
   - israel
+  - full-passport
   - medical
   :next_node: :outcome_medical_n
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
   - israel
+  - full-passport
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :israeli_document_type?
+  :responses:
+  - israel
+  - provisional-passport
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses:
+  - israel
+  - provisional-passport
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - israel
+  - provisional-passport
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - provisional-passport
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - provisional-passport
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - israel
+  - provisional-passport
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - provisional-passport
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - provisional-passport
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  :next_node: :planning_to_leave_airport?
+  :outcome_node: false
+- :current_node: :planning_to_leave_airport?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_leaving_airport_datv
+  :outcome_node: true
+- :current_node: :planning_to_leave_airport?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - 'no'
+  :next_node: :outcome_transit_not_leaving_airport
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - israel
+  - provisional-passport
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - israel
+  - provisional-passport
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - israel
+  - provisional-passport
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - israel
+  - provisional-passport
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - israel
+  - provisional-passport
   - diplomatic
   :next_node: :outcome_diplomatic_business
   :outcome_node: true
