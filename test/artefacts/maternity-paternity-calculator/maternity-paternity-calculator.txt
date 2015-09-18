@@ -16,7 +16,6 @@ You need:
 + your employee’s salary details, eg weekly rates of pay
 + the dates for adoption, eg match date and date of placement
 
-
 You can’t use the calculator for:
 
 + births 15 weeks before the due date

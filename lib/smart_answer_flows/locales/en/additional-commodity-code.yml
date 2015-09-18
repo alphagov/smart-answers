@@ -1,11 +1,6 @@
 en-GB:
   flow:
     additional-commodity-code:
-      title: Look up Meursing code
-      body: |
-        Use this tool to look up the additional code (Meursing code) for import or export of goods containing certain types of milk and sugars covered Regulation (EC) No. 1216/09.
-      meta:
-        description: Look up the additional code (Meursing code) required for import or export of goods containing certain types of milk and sugars
       how_much_starch_glucose?:
         title: How much starch or glucose does the product contain?
         hint: The values represent % by weight

@@ -1,26 +1,6 @@
 en-GB:
   flow:
     calculate-state-pension:
-      title: State Pension calculator
-      meta:
-        description: Work out your State Pension age and Pension Credit qualifying age or estimate how much basic State Pension you may get
-      body: |
-        Calculate when you’ll reach State Pension age or Pension Credit qualifying age and how much you may get in today’s money for your basic State Pension.
-
-        %Get a [State Pension Statement](/state-pension-statement) instead of using this calculator if you're 55 or over and making a financial decision based on [the new pension options](https://www.pensionwise.gov.uk/).%
-
-      post_body: |
-        ##What you need to know:
-
-        This calculator gives an estimate of your basic State pension and information about the [new State Pension](/new-state-pension) if you reach State Pension age on or after 6 April 2016.
-
-        It doesn’t estimate any [Additional State Pension.](/additional-state-pension)
-
-        You’ll be asked for the number of years you worked and paid National Insurance or got certain benefits. These are the years of your [National Insurance contributions](/national-insurance) that count towards your State Pension.
-
-        Count tax years from 6 April to 5 April and don’t count any years twice (eg when you were working and getting benefits). Don’t count the current tax year.
-
-        This calculator uses a simplified calculation based on the current law. It can’t take into account every circumstance that might affect you. Don't make future financial decisions based on its results.
       options:
         "yes": "Yes"
         "no": "No"
@@ -33,8 +13,9 @@ en-GB:
       which_calculation?:
         title: What would you like to calculate?
         options:
-          age: State Pension age - including pension credit age and when you’ll get free bus travel
+          age: State Pension age - including pension credit age
           amount: Amount - estimate of your basic State Pension amount
+          bus_pass: Bus pass age - find out when you’ll get free bus travel
       ## Q2
       gender?:
         title: Are you a man or a woman?
@@ -47,6 +28,10 @@ en-GB:
         error_message: Enter your date of birth
       ## Q3:Amount
       dob_amount?:
+        title: What is your date of birth?
+        error_message: Enter your date of birth
+      ## Q3:Age
+      dob_bus_pass?:
         title: What is your date of birth?
         error_message: Enter your date of birth
       ## Q3a Amount

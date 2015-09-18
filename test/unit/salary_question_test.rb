@@ -10,7 +10,7 @@ module SmartAnswer
     end
 
     test "Treats input as weekly Salary by default" do
-      q = Question::Salary.new(:example) do
+      q = Question::Salary.new(nil, :example) do
         save_input_as :my_cash
         next_node :done
       end
@@ -21,7 +21,7 @@ module SmartAnswer
     end
 
     test "Records period if specified" do
-      q = Question::Salary.new(:example) do
+      q = Question::Salary.new(nil, :example) do
         save_input_as :my_cash
         next_node :done
       end
@@ -31,7 +31,7 @@ module SmartAnswer
     end
 
     test "Invalid input raises InvalidResponse" do
-      q = Question::Salary.new(:example) do
+      q = Question::Salary.new(nil, :example) do
         next_node :done
       end
 

@@ -5,7 +5,6 @@ Your doctor’s letter must be signed by a [doctor registered with the General M
 
 ^Your document can’t be legalised if it has been signed on behalf of your doctor by another doctor or member of staff.^
 
-
 ##Get your documents legalised
 
 You can [get your documents legalised](/get-document-legalised) by the Legalisation Office if they meet the standards above.

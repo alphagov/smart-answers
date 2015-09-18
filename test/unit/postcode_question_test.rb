@@ -4,7 +4,7 @@ module SmartAnswer
   class PostcodeQuestionTest < ActiveSupport::TestCase
     def setup
       @initial_state = State.new(:example)
-      @question = Question::Postcode.new(:example) do
+      @question = Question::Postcode.new(nil, :example) do
         save_input_as :my_postcode
         next_node :done
       end

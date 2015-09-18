@@ -1,9 +1,9 @@
 <% if !@presenter.started? %>
-<%= @presenter.title %>
+<%= @presenter.start_node.title %>
 
-<%= @presenter.body(html: false) -%>
+<%= @presenter.start_node.body(html: false) -%>
 
-<%= @presenter.post_body(html: false) -%>
+<%= @presenter.start_node.post_body(html: false) -%>
 <% elsif @presenter.finished? %>
 <%= @presenter.current_node.title %>
 

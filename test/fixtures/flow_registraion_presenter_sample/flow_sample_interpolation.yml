@@ -1,12 +1,6 @@
 en-GB:
   flow:
     flow-sample:
-      meta:
-        description: FLOW_DESCRIPTION
-      title:
-        FLOW_TITLE
-      body: |
-        FLOW_BODY
       hotter_or_colder?:
         title: NODE_1_TITLE
         body: NODE_1_BODY

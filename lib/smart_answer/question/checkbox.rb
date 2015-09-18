@@ -4,7 +4,7 @@ module SmartAnswer
       NONE_OPTION = 'none'
       attr_reader :options
 
-      def initialize(name, options = {}, &block)
+      def initialize(flow, name, options = {}, &block)
         @options = []
         super
       end

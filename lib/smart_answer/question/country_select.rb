@@ -1,12 +1,12 @@
 module SmartAnswer
   module Question
     class CountrySelect < Base
-      def initialize(name, options = {}, &block)
+      def initialize(flow, name, options = {}, &block)
         @exclude_countries = options.delete(:exclude_countries)
         @include_uk = options.delete(:include_uk)
         @additional_countries = options.delete(:additional_countries)
         @use_legacy_data = options.delete(:use_legacy_data)
-        super(name, options, &block)
+        super
       end
 
       def options

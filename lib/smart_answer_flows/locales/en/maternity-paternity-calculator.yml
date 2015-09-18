@@ -1,10 +1,6 @@
 en-GB:
   flow:
     maternity-paternity-calculator:
-      meta:
-        description: Calculate an employee’s maternity pay (SMP), paternity or adoption pay, qualifying week, relevant period and average weekly earnings
-      title:
-        Maternity and paternity calculator for employers
       options:
         "no": "No"
         "yes": "Yes"
@@ -14,32 +10,6 @@ en-GB:
         "one_week": "One Week"
         "two_weeks": "Two Weeks"
         "weekly": "Weekly"
-      body: |
-        Calculate your employee’s:
-
-        + statutory maternity pay (SMP), paternity pay, adoption pay
-        + qualifying week
-        + relevant employment period and average weekly earnings
-        + leave period
-
-      post_body: |
-        ##What you need
-
-        You need:
-
-        + the baby’s due date
-        + date of birth - for paternity
-        + your employee’s salary details, eg weekly rates of pay
-        + the dates for adoption, eg match date and date of placement
-
-
-        You can’t use the calculator for:
-
-        + births 15 weeks before the due date
-        + [Additional paternity Leave or Pay](/additional-paternity-leave-pay-employees)
-        + paternity leave or pay for [overseas adoptions](/paternity-leave-pay-employees)
-        + [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide)
-
       ## Q1
       what_type_of_leave?:
         title: What do you want to check?

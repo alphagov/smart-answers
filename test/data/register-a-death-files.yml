@@ -1,6 +1,6 @@
 ---
 lib/smart_answer_flows/register-a-death.rb: d18144dfb97bcbd600ef0433a56e512f
-lib/smart_answer_flows/locales/en/register-a-death.yml: 117a44ad76a2b05ed2a638e76b378640
+lib/smart_answer_flows/locales/en/register-a-death.yml: 5f5da5068c2f0cdf1dbc80985fda3511
 test/data/register-a-death-questions-and-responses.yml: 18aba16b4f569a17fbb81374dceaf265
 test/data/register-a-death-responses-and-expected-results.yml: 1d818139ced9c5e20262d144489bf090
 lib/smart_answer_flows/register-a-death/_footnote_oru_variants.govspeak.erb: 30e012cdde5aa7f4de5856a5db47a54c
@@ -8,6 +8,7 @@ lib/smart_answer_flows/register-a-death/commonwealth_result.govspeak.erb: f343aa
 lib/smart_answer_flows/register-a-death/no_embassy_result.govspeak.erb: fabd0de7b88ffeb54783f87cfd4a3582
 lib/smart_answer_flows/register-a-death/north_korea_result.govspeak.erb: 01bcb9d001976fdcf474b93cd52aeff5
 lib/smart_answer_flows/register-a-death/oru_result.govspeak.erb: fa0cd3faf1fe001e8a13486ad8a3ace6
+lib/smart_answer_flows/register-a-death/register_a_death.govspeak.erb: 1820ba3a5f3ed47816c7f151217be439
 lib/smart_answer_flows/register-a-death/uk_result.govspeak.erb: 662da9367c5992191471f8722b3c2636
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
 lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387

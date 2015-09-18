@@ -6,7 +6,7 @@ module SmartAnswer
   class MultipleChoiceQuestionTest < ActiveSupport::TestCase
 
     test "Can list options" do
-      q = Question::MultipleChoice.new(:example) do
+      q = Question::MultipleChoice.new(nil, :example) do
         option yes: :fred
  option no: :bob
       end
@@ -15,7 +15,7 @@ module SmartAnswer
     end
 
     test "Can list options without transitions" do
-      q = Question::MultipleChoice.new(:example) do
+      q = Question::MultipleChoice.new(nil, :example) do
         option :yes
         option :no
       end
@@ -24,7 +24,7 @@ module SmartAnswer
     end
 
     test "Can determine next state on provision of an input" do
-      q = Question::MultipleChoice.new(:example) do
+      q = Question::MultipleChoice.new(nil, :example) do
         option yes: :fred
  option no: :bob
       end
@@ -36,7 +36,7 @@ module SmartAnswer
     end
 
     test "Next node default can be given by block" do
-      q = Question::MultipleChoice.new(:example) do
+      q = Question::MultipleChoice.new(nil, :example) do
         option yes: :fred
         option :no
         next_node { :baz }
@@ -48,7 +48,7 @@ module SmartAnswer
     end
 
     test "Error raised on illegal input" do
-      q = Question::MultipleChoice.new(:example) do
+      q = Question::MultipleChoice.new(nil, :example) do
         option yes: :fred
       end
 

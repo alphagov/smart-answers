@@ -1,15 +1,6 @@
 en-GB:
   flow:
     vat-payment-deadlines:
-      meta:
-        description: "Work out the VAT payment deadline for your accounting period."
-      title: "VAT payment deadline calculator"
-      body: |
-        Work out the VAT payment deadline for your accounting period.
-
-        You can't use this calculator if you make payments on account or use the annual
-        accounting scheme.
-
       when_does_your_vat_accounting_period_end?:
         title: "When does your VAT accounting period end?"
         error_message: "Your accounting period must end at the last day of the month."

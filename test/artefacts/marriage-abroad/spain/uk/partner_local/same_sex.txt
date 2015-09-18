@@ -4,15 +4,11 @@ Same-sex Marriage in Spain
 
 The process for same-sex marriages in Spain is the same as for opposite-sex civil marriages.
 
-
 ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for Spain](/foreign-travel-advice/spain) before making any plans.
-
 
 %There are certain legal restrictions on getting married in Spain if neither of you lives there. If you both live outside Spain, you must check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
 
-
 ##What you need to do
-
 
 You'll be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you’re allowed to marry.
 
@@ -30,11 +26,9 @@ Your partner must also provide their own certificates.
 
 You must apply for all certificates at least 3 months before you get married.
 
-
 ## Getting a certificate of no impediment
 
 You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
-
 
 ^Your CNI will be valid for 3 months in Spain.^
 
@@ -47,7 +41,6 @@ $D
 $D
 
 Send the documents by registered post to the address in the application pack.
-
 
 ##Getting a marital status certificate
 
@@ -88,11 +81,9 @@ If you’re asked to provide a document from the British consulate, print out a 
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
-
 ##Naturalisation of your partner if they move to the UK
 
 Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
-
 
 ##Fees
 
@@ -107,7 +98,6 @@ Administering an oath or making a declaration | £55
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Spain](/government/publications/spain-consular-fees).
 
 You can pay by credit card (Visa, Visa Electron or MasterCard), but not by personal cheque.
-
 
 *[CNI]:certificate of no impediment
 

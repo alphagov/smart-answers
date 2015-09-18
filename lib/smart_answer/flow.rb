@@ -59,42 +59,39 @@ module SmartAnswer
     end
 
     def multiple_choice(name, options = {}, &block)
-      add_node Question::MultipleChoice.new(name, options, &block)
+      add_node Question::MultipleChoice.new(self, name, options, &block)
     end
 
     def country_select(name, options = {}, &block)
-      add_node Question::CountrySelect.new(name, options, &block)
+      add_node Question::CountrySelect.new(self, name, options, &block)
     end
 
     def date_question(name, &block)
-      add_node Question::Date.new(name, &block)
+      add_node Question::Date.new(self, name, &block)
     end
 
     def value_question(name, options = {}, &block)
-      add_node Question::Value.new(name, options, &block)
+      add_node Question::Value.new(self, name, options, &block)
     end
 
     def money_question(name, &block)
-      add_node Question::Money.new(name, &block)
+      add_node Question::Money.new(self, name, &block)
     end
 
     def salary_question(name, &block)
-      add_node Question::Salary.new(name, &block)
+      add_node Question::Salary.new(self, name, &block)
     end
 
     def checkbox_question(name, &block)
-      add_node Question::Checkbox.new(name, &block)
+      add_node Question::Checkbox.new(self, name, &block)
     end
 
     def postcode_question(name, &block)
-      add_node Question::Postcode.new(name, &block)
+      add_node Question::Postcode.new(self, name, &block)
     end
 
-    def outcome(name, options = {}, &block)
-      modified_options = options.merge(
-        flow_name: self.name
-      )
-      add_node Outcome.new(name, modified_options, &block)
+    def outcome(name, &block)
+      add_node Outcome.new(self, name, &block)
     end
 
     def outcomes

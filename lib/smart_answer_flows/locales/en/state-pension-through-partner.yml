@@ -1,18 +1,6 @@
 en-GB:
   flow:
     state-pension-through-partner:
-      title: Your partner’s National Insurance record and your State Pension
-      meta:
-        description: You may be able to increase your State Pension based on the National Insurance record
-
-      body: |
-        The new State Pension will replace the current State Pension system (which includes [basic State Pension](/state-pension) and [Additional State Pension](/additional-state-pension)).
-
-        The rules for how you can increase your State Pension and what you can inherit will be different depending on when you and your spouse or civil partner reach [State Pension age](/calculate-state-pension).
-
-
-        You’ll need to know when both you and your spouse or civil partner reach State Pension age to use this tool.
-
 #Q1
       what_is_your_marital_status?:
         title:  What is your marital status?

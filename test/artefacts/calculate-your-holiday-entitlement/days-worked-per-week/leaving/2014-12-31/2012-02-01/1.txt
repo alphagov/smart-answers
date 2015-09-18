@@ -2,7 +2,6 @@
 
 $!The statutory holiday entitlement is 5.1 days holiday.$!
 
-
 The employer:
 
 * can include bank and public holidays as part of the statutory entitlement

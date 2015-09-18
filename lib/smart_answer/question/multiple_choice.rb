@@ -3,7 +3,7 @@ module SmartAnswer
     class MultipleChoice < Base
       attr_reader :permitted_options
 
-      def initialize(name, options = {}, &block)
+      def initialize(flow, name, options = {}, &block)
         @permitted_options = []
         super
       end

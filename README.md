@@ -24,11 +24,34 @@ For more information, please go to the [Smartdown SmartAnswer README](lib/smartd
 Smart answers are by default expected to be in Ruby/YAML style.
 To transition a smart answer from Ruby/YML to Smartdown style, register it in the smartdown registry (`lib/smartdown/registry.rb`).
 
-## Debugging current state
+## Developing
+
+### Installing and running
+
+NB: this assumes you are running on the GOV.UK virtual machine, not your host.
+
+```bash
+  ./install # git fetch from each dependency dir and bundle install
+```
+
+Run using bowler on VM from cd /var/govuk/development:
+```
+bowl smartanswers
+```
+
+### Viewing a Smart Answer
+
+To view a smart answer locally if running using bowler http://smartanswers.dev.gov.uk/register-a-birth
+
+### Debugging current state
 
 If you have a URL of a Smart answer and want to debug the state of it i.e. to see PhraseList keys, saved inputs, the outcome name, append `debug=1` query parameter to the URL in development mode. This will render debug information on the Smart answer page.
 
-## Visualising a flow
+### Viewing a Smart Answer as Govspeak
+
+Seeing [Govspeak](https://github.com/alphagov/govspeak) markup of Smart Answer pages can be useful to content designers when preparing content change requests or developers inspecting generated Govspeak that later gets translated to HTML. This feature can be enabled by setting `EXPOSE_GOVSPEAK` to a non-empty value. It can be accessed by appending `.txt` to URLs (currently govspeak is available for landing and outcome pages, but not question pages).
+
+### Visualising a flow
 
 To see an interactive visualisation of a smart answer flow, append `/visualise` to the root of a smartanswer URL e.g. `http://smartanswers.dev.gov.uk/<my-flow>/visualise/`
 
@@ -44,23 +67,6 @@ To see a static visualisation of a smart answer flow, using Graphviz:
     $ open /tmp/marriage-abroad.png
 
 __NOTE.__ This assumes you already have Graphviz installed. You can install it using Homebrew on a Mac (`brew install graphviz`).
-
-## Installing and running
-
-NB: this assumes you are running on the GOV.UK virtual machine, not your host.
-
-```bash
-  ./install # git fetch from each dependency dir and bundle install
-```
-
-Run using bowler on VM from cd /var/govuk/development:
-```
-bowl smartanswers
-```
-
-## Viewing a Smart Answer
-
-To view a smart answer locally if running using bowler http://smartanswers.dev.gov.uk/register-a-birth
 
 ## Testing
 
@@ -159,6 +165,9 @@ Test a single Smartdown flow by running:
 
         $ RUN_REGRESSION_TESTS=<name-of-smart-answer> \
           ruby test/regression/smart_answers_regression_test.rb
+
+If you want individual tests to fail early when differences are detected, set `ASSERT_EACH_ARTEFACT=true`.
+Note that this more than doubles the time it takes to run regression tests.
 
 12. Commit the generated Govspeak files (in test/artefacts) to git.
 

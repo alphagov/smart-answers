@@ -10,6 +10,10 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
       File.expand_path('../../fixtures/flow_registraion_presenter_sample/flow_sample.yml', __FILE__)
     I18n.config.load_path.unshift example_translation_file
     I18n.reload!
+
+    load_path = fixture_file('smart_answer_flows')
+    SmartAnswer::FlowRegistry.instance.stubs(:load_path).returns(load_path)
+
     @flow = SmartAnswer::FlowSampleFlow.build
     @presenter = FlowRegistrationPresenter.new(@flow)
   end
@@ -28,11 +32,6 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   context "title" do
     should "should use the title translation" do
       assert_equal "FLOW_TITLE", @presenter.title
-    end
-
-    should "use the humanized flow name if no translation is available" do
-      I18n.stubs(:translate!).raises(I18n::MissingTranslationData.new(:en, "anything", {}))
-      assert_equal "Flow-sample", @presenter.title
     end
   end
 

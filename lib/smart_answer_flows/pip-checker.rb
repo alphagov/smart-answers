@@ -29,9 +29,7 @@ module SmartAnswer
           if getting_dla
             if calculator.in_group_65?
               :result_6
-            elsif calculator.turning_16_before_oct_2013?
-              :result_4
-            elsif calculator.in_middle_group?
+            elsif calculator.turning_16_before_oct_2013? || calculator.in_middle_group?
               :result_7
             else
               :result_5
@@ -51,7 +49,6 @@ module SmartAnswer
       outcome :result_1
       outcome :result_2
       outcome :result_3
-      outcome :result_4
       outcome :result_5
       outcome :result_6
       outcome :result_7

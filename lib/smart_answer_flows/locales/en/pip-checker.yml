@@ -1,22 +1,6 @@
 en-GB:
   flow:
     pip-checker:
-      title:
-        Check how Personal Independence Payment (PIP) affects you
-      body: |
-        Personal Independence Payment (PIP) is replacing Disability Living Allowance (DLA) for people with a long-term health condition or disability aged 16 to 64.
-
-        Use this tool to check:
-
-        * if PIP affects you
-        * when your Disability Living Allowance may be affected
-        * when you can make a new claim for PIP
-
-        *[PIP]: Personal Independence Payment
-        *[DLA]: Disability Living Allowance
-      meta:
-        description:
-          Personal Independence Payment (PIP) - if you get Disability Living Allowance (DLA) or want to make a new claim for PIP
       options:
         "no": "No"
         "yes": "Yes"
