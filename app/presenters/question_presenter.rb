@@ -25,6 +25,26 @@ class QuestionPresenter < NodePresenter
     !!hint
   end
 
+  def label
+    translate!('label')
+  end
+
+  def has_label?
+    !!label
+  end
+
+  def suffix_label
+    translate!('suffix_label')
+  end
+
+  def has_suffix_label?
+    !!suffix_label
+  end
+
+  def has_labels?
+    !!label or !!suffix_label
+  end
+
   def response_label(value)
     value
   end

@@ -72,26 +72,6 @@ class NodePresenter
     false
   end
 
-  def label
-    translate!('label')
-  end
-
-  def has_label?
-    !!label
-  end
-
-  def suffix_label
-    translate!('suffix_label')
-  end
-
-  def has_suffix_label?
-    !!suffix_label
-  end
-
-  def has_labels?
-    !!label or !!suffix_label
-  end
-
   def options
     @node.options.map do |option|
       OpenStruct.new(label: translate_option(option), value: option)
