@@ -150,5 +150,33 @@ module SmartAnswer
 
       assert_equal 'response' , presenter.to_response('answer-text')
     end
+
+    test "Options can be looked up from translation file" do
+      question = Question::MultipleChoice.new(nil, :example_question?)
+      question.option yes: :yay
+      question.option no: :nay
+      presenter = QuestionPresenter.new("flow.test", question)
+
+      assert_equal "Oui", presenter.options[0].label
+      assert_equal "Non", presenter.options[1].label
+      assert_equal "yes", presenter.options[0].value
+      assert_equal "no", presenter.options[1].value
+    end
+
+    test "Options can be looked up from default values in translation file" do
+      question = Question::MultipleChoice.new(nil, :example_question?)
+      question.option maybe: :mumble
+      presenter = QuestionPresenter.new("flow.test", question)
+
+      assert_equal "Mebbe", presenter.options[0].label
+    end
+
+    test "Options label falls back to option value" do
+      question = Question::MultipleChoice.new(nil, :example_question?)
+      question.option something: :mumble
+      presenter = QuestionPresenter.new("flow.test", question)
+
+      assert_equal "something", presenter.options[0].label
+    end
   end
 end

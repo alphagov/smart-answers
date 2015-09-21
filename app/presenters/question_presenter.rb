@@ -49,6 +49,12 @@ class QuestionPresenter < NodePresenter
     translate_and_render('body', html: html)
   end
 
+  def options
+    @node.options.map do |option|
+      OpenStruct.new(label: translate_option(option), value: option)
+    end
+  end
+
   def to_response(input)
     @node.to_response(input)
   end
