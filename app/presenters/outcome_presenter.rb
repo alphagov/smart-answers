@@ -15,7 +15,7 @@ class OutcomePresenter < NodePresenter
 
   def title
     title = @renderer.content_for(:title, html: false)
-    title && title.chomp
+    title.present? ? title.chomp : @node.name.to_s.humanize
   end
 
   def body(html: true)
