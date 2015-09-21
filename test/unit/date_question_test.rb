@@ -9,6 +9,118 @@ module SmartAnswer
       @initial_state = State.new(:example)
     end
 
+    context '#parse_input' do
+      setup do
+        @question = Question::Date.new(nil, :example)
+      end
+
+      context 'when supplied with a hash' do
+        should 'return a date representing the hash' do
+          date = @question.parse_input(day: 1, month: 2, year: 2015)
+          assert_equal Date.parse('2015-02-01'), date
+        end
+
+        should 'raise an InvalidResponse exception when the hash represents an invalid date' do
+          assert_raises(InvalidResponse) do
+            @question.parse_input(day: 32, month: 2, year: 2015)
+          end
+        end
+
+        context 'and the day is missing' do
+          should 'raise an InvalidResponse exception' do
+            assert_raises(InvalidResponse) do
+              @question.parse_input(day: nil, month: 2, year: 2015)
+            end
+          end
+
+          should 'return the date using the default day when specified' do
+            @question.default_day { 1 }
+            date = @question.parse_input(day: nil, month: 2, year: 2015)
+            assert_equal Date.parse('2015-02-01'), date
+          end
+        end
+
+        context 'and the month is missing' do
+          should 'raise an InvalidResponse exception' do
+            assert_raises(InvalidResponse) do
+              @question.parse_input(day: 1, month: nil, year: 2015)
+            end
+          end
+
+          should 'return the date using the default month when specified' do
+            @question.default_month { 2 }
+            date = @question.parse_input(day: 1, month: nil, year: 2015)
+            assert_equal Date.parse('2015-02-01'), date
+          end
+        end
+
+        context 'and the year is missing' do
+          should 'raise an InvalidResponse exception' do
+            assert_raises(InvalidResponse) do
+              @question.parse_input(day: 1, month: 2, year: nil)
+            end
+          end
+
+          should 'return the date using the default year when specified' do
+            @question.default_year { 2015 }
+            date = @question.parse_input(day: 1, month: 2, year: nil)
+            assert_equal Date.parse('2015-02-01'), date
+          end
+        end
+      end
+
+      context 'when supplied with a string' do
+        should 'return a date representing the string' do
+          date = @question.parse_input('2015-02-01')
+          assert_equal Date.parse('2015-02-01'), date
+        end
+
+        should 'raise an InvalidResponse exception when the string represents an invalid date' do
+          assert_raises(InvalidResponse) do
+            @question.parse_input('2015-02-32')
+          end
+        end
+      end
+
+      context 'when supplied with a date' do
+        should 'return the date' do
+          date = @question.parse_input(Date.parse('2015-02-01'))
+          assert_equal Date.parse('2015-02-01'), date
+        end
+      end
+
+      context 'when supplied with another object' do
+        should 'raise an InvalidResponse exception' do
+          assert_raises(InvalidResponse) do
+            @question.parse_input(Object.new)
+          end
+        end
+      end
+    end
+
+    test 'to_response returns a hash of day, month and year representing the date returned from parse_input' do
+      valid_date = Date.parse('2015-02-01')
+      q = Question::Date.new(nil, :example)
+      q.stubs(:parse_input).with('valid-date').returns(valid_date)
+
+      expected_hash = {day: 1, month: 2, year: 2015}
+      assert_equal expected_hash, q.to_response('valid-date')
+    end
+
+    test 'to_response returns nil if parse_input raises an InvalidResponse exception' do
+      q = Question::Date.new(nil, :example)
+      q.stubs(:parse_input).with('invalid-date').raises(InvalidResponse)
+      assert_equal nil, q.to_response('invalid-date')
+    end
+
+    test 'to_response raises the exception if parse_input raises anything other than an InvalidResponse exception' do
+      q = Question::Date.new(nil, :example)
+      q.stubs(:parse_input).with('anything').raises(StandardError)
+      assert_raises(StandardError) do
+        q.to_response('anything')
+      end
+    end
+
     test "dates are parsed from Hash into Date before being saved" do
       q = Question::Date.new(nil, :example) do
         save_input_as :date
@@ -28,6 +140,25 @@ module SmartAnswer
       assert_raise SmartAnswer::InvalidResponse do
         q.transition(@initial_state, {year: "", month: '2', day: '1'})
       end
+    end
+
+    test 'range returns false when neither from nor to are set' do
+      q = Question::Date.new(nil, :question_name)
+      assert_equal false, q.range
+    end
+
+    test 'range returns false when only the from date is set' do
+      q = Question::Date.new(nil, :question_name) do
+        from { Date.today }
+      end
+      assert_equal false, q.range
+    end
+
+    test 'range returns false when only the to date is set' do
+      q = Question::Date.new(nil, :question_name) do
+        to { Date.today }
+      end
+      assert_equal false, q.range
     end
 
     test "define allowable range of dates" do
@@ -74,39 +205,32 @@ module SmartAnswer
       q.transition(@initial_state, '2011-01-02')
     end
 
-    test "define default date" do
-      q = Question::Date.new(nil, :example) do
-        default { Date.today }
-      end
-      assert_equal Date.today, q.default
-    end
-
     test "define default day" do
       q = Question::Date.new(nil, :example) do
-        default_day 11
+        default_day { 11 }
       end
       assert_equal 11, q.default_day
     end
 
     test "define default month" do
       q = Question::Date.new(nil, :example) do
-        default_month 2
+        default_month { 2 }
       end
       assert_equal 2, q.default_month
     end
 
     test "define default year" do
       q = Question::Date.new(nil, :example) do
-        default_year 2013
+        default_year { 2013 }
       end
       assert_equal 2013, q.default_year
     end
 
     test "incomplete dates are accepted if appropriate defaults are defined" do
       q = Question::Date.new(nil, :example) do
-        default_day 11
-        default_month 2
-        default_year 2013
+        default_day { 11 }
+        default_month { 2 }
+        default_year { 2013 }
         save_input_as :date
         next_node :done
       end
@@ -117,7 +241,7 @@ module SmartAnswer
 
     test "default the day to the last in the month of an incomplete date" do
       q = Question::Date.new(nil, :example) do
-        default_day -1
+        default_day { -1 }
         save_input_as :date
         next_node :done
       end

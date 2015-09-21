@@ -7,97 +7,61 @@ module SmartAnswer
         @validate_in_range = true
       end
 
-      def from(from = nil, &block)
+      def from(&block)
         if block_given?
           @from_func = block
-        elsif from
-          @from_func = lambda { from }
         else
           @from_func && @from_func.call
         end
       end
 
-      def to(to = nil, &block)
+      def to(&block)
         if block_given?
           @to_func = block
-        elsif to
-          @to_func = lambda { to }
         else
           @to_func && @to_func.call
         end
       end
 
-      def default(default = nil, &block)
-        if block_given?
-          @default_func = block
-        elsif default
-          @default_func = lambda { default }
-        else
-          @default_func && @default_func.call
-        end
-      end
-
-      def default_day(default_day = nil, &block)
+      def default_day(&block)
         if block_given?
           @default_day_func = block
-        elsif default_day
-          @default_day_func = lambda { default_day }
         else
           @default_day_func && @default_day_func.call
         end
       end
 
-      def defaulted_day?
-        instance_variable_defined?(:@default_day_func)
-      end
-
-      def default_month(default_month = nil, &block)
+      def default_month(&block)
         if block_given?
           @default_month_func = block
-        elsif default_month
-          @default_month_func = lambda { default_month }
         else
           @default_month_func && @default_month_func.call
         end
       end
 
-      def defaulted_month?
-        instance_variable_defined?(:@default_month_func)
-      end
-
-      def default_year(default_year = nil, &block)
+      def default_year(&block)
         if block_given?
           @default_year_func = block
-        elsif default_year
-          @default_year_func = lambda { default_year }
         else
           @default_year_func && @default_year_func.call
         end
       end
 
-      def defaulted_year?
-        instance_variable_defined?(:@default_year_func)
-      end
-
       def range
-        @range ||= @from_func.present? and @to_func.present? ? @from_func.call..@to_func.call : false
+        @range ||= from && to ? from..to : false
       end
 
       def parse_input(input)
         date = case input
           when Hash, ActiveSupport::HashWithIndifferentAccess
            input = input.symbolize_keys
-           expected_keys = []
-           expected_keys << :day unless defaulted_day?
-           expected_keys << :month unless defaulted_month?
-           expected_keys << :year unless defaulted_year?
-           expected_keys.each do |k|
-             raise InvalidResponse, "Please enter a complete date", caller unless input[k].present?
-           end
-           day = (default_day || input[:day]).to_i
-           month = (default_month || input[:month]).to_i
-           year = (default_year || input[:year]).to_i
-           ::Date.new(year, month, day)
+           year_month_and_day = [
+             default_year || input[:year],
+             default_month || input[:month],
+             default_day || input[:day],
+           ]
+           raise InvalidResponse unless year_month_and_day.all?(&:present?)
+           ::Date.new(*year_month_and_day.map(&:to_i))
           when String
            ::Date.parse(input)
           when ::Date
@@ -107,8 +71,12 @@ module SmartAnswer
           end
         validate_input(date) if @validate_in_range
         date
-      rescue
-        raise InvalidResponse, "Bad date: #{input.inspect}", caller
+      rescue ArgumentError => e
+        if e.message =~ /invalid date/
+          raise InvalidResponse, "Bad date: #{input.inspect}", caller
+        else
+          raise
+        end
       end
 
       def to_response(input)
@@ -118,7 +86,7 @@ module SmartAnswer
           month: date.month,
           year: date.year
         }
-      rescue
+      rescue InvalidResponse
         nil
       end
 
