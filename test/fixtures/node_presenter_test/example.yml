@@ -18,6 +18,11 @@ en-GB:
       interpolated_question:
         title: "Is today a %{day}?"
         body: "Today is %{day}"
+      question_with_custom_error_message:
+        custom_error_message: custom error message
+      question_with_default_error_message:
+        error_message: default error message
+      question_with_no_custom_or_default_error_message:
       outcome_with_interpolated_phrase_list:
         title: "All done"
         body: |
