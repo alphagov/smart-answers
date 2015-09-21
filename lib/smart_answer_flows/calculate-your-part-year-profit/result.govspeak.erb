@@ -1,7 +1,7 @@
 <% content_for :body do %>
   %Your part-year taxable profit is <%= format_money(calculator.award_period_taxable_profit) %>.%
 
-  Use this figure to complete box 2.4 on your award review. Enter £0 if your profit you’ve made a loss (your part-year profit is less than £0).
+  Use this figure to complete box 2.4 on your award review. Enter £0 if you’ve made or expect to make a loss (your part-year profit is less than £0).
 
   ^If you have more than one business, you need to calculate the part-year profits from all your businesses and add them together to complete box 2.4.^
 
@@ -11,7 +11,7 @@
 
   ^You must [keep the records](/self-employed-records/how-long-to-keep-your-records) of your calculation for at least 5 years.^
 
-  ## Details you’ve entered
+  ## Your part-year taxable profit has been worked out from:
 
   Your tax credits award ended on: <%= format_date(calculator.tax_credits_award_ends_on) %>
 
