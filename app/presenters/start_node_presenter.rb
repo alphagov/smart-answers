@@ -9,7 +9,7 @@ class StartNodePresenter < NodePresenter
 
   def title
     title = @renderer.content_for(:title, html: false)
-    title.present? ? title.chomp : super
+    title.present? ? title.chomp : @node.name.to_s.humanize
   end
 
   def has_meta_description?
