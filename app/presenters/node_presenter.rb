@@ -59,20 +59,6 @@ class NodePresenter
     !!title
   end
 
-  def error
-    if @state.error.present?
-      translate!(@state.error.to_sym) || error_message || I18n.translate('flow.defaults.error_message')
-    end
-  end
-
-  def error_message
-    translate!('error_message')
-  end
-
-  def has_error_message?
-    !!error_message
-  end
-
   def body(html: true)
     translate_and_render('body', html: html)
   end

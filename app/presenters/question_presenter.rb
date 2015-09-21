@@ -3,6 +3,20 @@ class QuestionPresenter < NodePresenter
     translate!('title') || @node.name.to_s.humanize
   end
 
+  def error
+    if @state.error.present?
+      translate!(@state.error.to_sym) || error_message || I18n.translate('flow.defaults.error_message')
+    end
+  end
+
+  def error_message
+    translate!('error_message')
+  end
+
+  def has_error_message?
+    !!error_message
+  end
+
   def response_label(value)
     value
   end
