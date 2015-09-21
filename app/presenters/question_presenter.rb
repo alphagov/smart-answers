@@ -17,6 +17,14 @@ class QuestionPresenter < NodePresenter
     !!error_message
   end
 
+  def hint
+    translate!('hint')
+  end
+
+  def has_hint?
+    !!hint
+  end
+
   def response_label(value)
     value
   end

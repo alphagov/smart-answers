@@ -72,14 +72,6 @@ class NodePresenter
     false
   end
 
-  def hint
-    translate!('hint')
-  end
-
-  def has_hint?
-    !!hint
-  end
-
   def label
     translate!('label')
   end

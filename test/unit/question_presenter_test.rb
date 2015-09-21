@@ -78,5 +78,17 @@ module SmartAnswer
 
       assert_equal 'Please answer this question', presenter.error
     end
+
+    test "Node hint looked up from translation file" do
+      question = Question::Date.new(nil, :example_question?)
+      presenter = QuestionPresenter.new("flow.test", question)
+
+      assert_equal 'Hint for foo', presenter.hint
+    end
+
+    test "Can check if node has hint" do
+      assert QuestionPresenter.new("flow.test", Question::Date.new(nil, :example_question?)).has_hint?
+      assert !QuestionPresenter.new("flow.test", Question::Date.new(nil, :missing)).has_hint?
+    end
   end
 end

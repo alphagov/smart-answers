@@ -82,18 +82,6 @@ module SmartAnswer
       assert !NodePresenter.new("flow.test", Question::Date.new(nil, :missing)).has_body?, "missing has no body"
     end
 
-    test "Node hint looked up from translation file" do
-      question = Question::Date.new(nil, :example_question?)
-      presenter = NodePresenter.new("flow.test", question)
-
-      assert_equal 'Hint for foo', presenter.hint
-    end
-
-    test "Can check if node has hint" do
-      assert NodePresenter.new("flow.test", Question::Date.new(nil, :example_question?)).has_hint?
-      assert !NodePresenter.new("flow.test", Question::Date.new(nil, :missing)).has_hint?
-    end
-
     test "Options can be looked up from translation file" do
       question = Question::MultipleChoice.new(nil, :example_question?)
       question.option yes: :yay
