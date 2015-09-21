@@ -1,4 +1,8 @@
 class QuestionPresenter < NodePresenter
+  def title
+    translate!('title') || @node.name.to_s.humanize
+  end
+
   def response_label(value)
     value
   end

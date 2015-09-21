@@ -18,30 +18,6 @@ module SmartAnswer
       I18n.reload!
     end
 
-    test "Node title looked up from translation file" do
-      question = Question::Date.new(nil, :example_question?)
-      presenter = NodePresenter.new("flow.test", question)
-
-      assert_equal 'Foo', presenter.title
-    end
-
-    test "Node title existence check" do
-      question = Question::Date.new(nil, :example_question?)
-      presenter = NodePresenter.new("flow.test", question)
-
-      assert presenter.has_title?
-    end
-
-    test "Node title can be interpolated with state" do
-      question = Question::Date.new(nil, :interpolated_question)
-      state = State.new(question.name)
-      state.day = 'Monday'
-      presenter = NodePresenter.new("flow.test", question, state)
-
-      assert_equal 'Is today a Monday?', presenter.title
-      assert_match /Today is Monday/, presenter.body
-    end
-
     test "Interpolated dates are localized" do
       question = Question::Date.new(nil, :interpolated_question)
       state = State.new(question.name)

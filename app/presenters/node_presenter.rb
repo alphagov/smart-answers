@@ -55,10 +55,6 @@ class NodePresenter
     @node.to_response(input)
   end
 
-  def title
-    translate!('title') || @node.name.to_s.humanize
-  end
-
   def has_title?
     !!title
   end
