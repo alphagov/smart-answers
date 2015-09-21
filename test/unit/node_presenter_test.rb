@@ -33,16 +33,5 @@ module SmartAnswer
 
       assert_equal " 1 March 2011", presenter.response_label(Date.parse("2011-03-01"))
     end
-
-    test "Identifies the relevant partial template for the class of the node" do
-      presenter = QuestionPresenter.new(nil, Question::Date.new(nil, nil))
-      assert_equal "date_question", presenter.partial_template_name
-
-      presenter = QuestionPresenter.new(nil, Question::CountrySelect.new(nil, nil))
-      assert_equal "country_select_question", presenter.partial_template_name
-
-      presenter = QuestionPresenter.new(nil, Question::MultipleChoice.new(nil, nil))
-      assert_equal "multiple_choice_question", presenter.partial_template_name
-    end
   end
 end
