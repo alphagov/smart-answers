@@ -68,9 +68,9 @@ module SmartAnswer
           assert_equal true, @calculator.stopped_trading
         end
 
-        should 'go to did_you_start_trading_before_the_relevant_accounting_period? question' do
-          assert_equal :did_you_start_trading_before_the_relevant_accounting_period?, @new_state.current_node
-          assert_node_exists :did_you_start_trading_before_the_relevant_accounting_period?
+        should 'go to did_you_start_trading_before_the_relevant_accounting_year? question' do
+          assert_equal :did_you_start_trading_before_the_relevant_accounting_year?, @new_state.current_node
+          assert_node_exists :did_you_start_trading_before_the_relevant_accounting_year?
         end
       end
 
@@ -90,20 +90,20 @@ module SmartAnswer
       end
     end
 
-    context 'when answering did_you_start_trading_before_the_relevant_accounting_period? question' do
+    context 'when answering did_you_start_trading_before_the_relevant_accounting_year? question' do
       setup do
-        accounting_period = YearRange.new(begins_on: Date.parse('2015-04-06'))
-        @calculator.stubs(accounting_period: accounting_period)
-        setup_states_for_question(:did_you_start_trading_before_the_relevant_accounting_period?, responding_with: 'yes', calculator: @calculator)
+        accounting_year = YearRange.new(begins_on: Date.parse('2015-04-06'))
+        @calculator.stubs(accounting_year: accounting_year)
+        setup_states_for_question(:did_you_start_trading_before_the_relevant_accounting_year?, responding_with: 'yes', calculator: @calculator)
       end
 
-      should 'make accounting_period_begins_on available for interpolation in question title' do
-        assert_equal Date.parse('2015-04-06'), @precalculated_state.accounting_period_begins_on
+      should 'make accounting_year_begins_on available for interpolation in question title' do
+        assert_equal Date.parse('2015-04-06'), @precalculated_state.accounting_year_begins_on
       end
 
       context 'responding with yes' do
         setup do
-          setup_states_for_question(:did_you_start_trading_before_the_relevant_accounting_period?, responding_with: 'yes', calculator: @calculator)
+          setup_states_for_question(:did_you_start_trading_before_the_relevant_accounting_year?, responding_with: 'yes', calculator: @calculator)
         end
 
         should 'go to when_did_you_stop_trading? question' do
@@ -114,7 +114,7 @@ module SmartAnswer
 
       context 'responding with no' do
         setup do
-          setup_states_for_question(:did_you_start_trading_before_the_relevant_accounting_period?, responding_with: 'no', calculator: @calculator)
+          setup_states_for_question(:did_you_start_trading_before_the_relevant_accounting_year?, responding_with: 'no', calculator: @calculator)
         end
 
         should 'go to when_did_you_start_trading question' do
@@ -241,8 +241,8 @@ module SmartAnswer
     context 'when answering do_your_accounts_cover_a_12_month_period? question' do
       context 'responding with yes' do
         setup do
-          accounting_period = YearRange.new(begins_on: Date.parse('2015-01-01'))
-          @calculator.stubs(:accounting_period).returns(accounting_period)
+          accounting_year = YearRange.new(begins_on: Date.parse('2015-01-01'))
+          @calculator.stubs(:accounting_year).returns(accounting_year)
           setup_states_for_question(:do_your_accounts_cover_a_12_month_period?, responding_with: 'yes', calculator: @calculator)
         end
 
@@ -254,8 +254,8 @@ module SmartAnswer
 
       context 'responding with no' do
         setup do
-          accounting_period = YearRange.new(begins_on: Date.parse('2015-01-01'))
-          @calculator.stubs(:accounting_period).returns(accounting_period)
+          accounting_year = YearRange.new(begins_on: Date.parse('2015-01-01'))
+          @calculator.stubs(:accounting_year).returns(accounting_year)
           setup_states_for_question(:do_your_accounts_cover_a_12_month_period?, responding_with: 'no', calculator: @calculator)
         end
 

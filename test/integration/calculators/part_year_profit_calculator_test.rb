@@ -17,11 +17,11 @@ module SmartAnswer
       end
 
       should "use the accounting period from 6th Apr 2015 to 5th Apr 2016" do
-        expected_accounting_period = YearRange.new(
+        expected_accounting_year = YearRange.new(
           begins_on: Date.parse('2015-04-06')
         )
-        assert_equal expected_accounting_period, @calculator.accounting_period
-        assert_equal 366, @calculator.accounting_period.number_of_days
+        assert_equal expected_accounting_year, @calculator.accounting_year
+        assert_equal 366, @calculator.accounting_year.number_of_days
       end
 
       should "have an award period from the start of the tax year to the date the tax credits award end" do
@@ -61,11 +61,11 @@ module SmartAnswer
       end
 
       should "use the accounting period from 1st Jan to 31st Dec 2015" do
-        expected_accounting_period = YearRange.new(
+        expected_accounting_year = YearRange.new(
           begins_on: Date.parse('2015-01-01')
         )
-        assert_equal expected_accounting_period, @calculator.accounting_period
-        assert_equal 365, @calculator.accounting_period.number_of_days
+        assert_equal expected_accounting_year, @calculator.accounting_year
+        assert_equal 365, @calculator.accounting_year.number_of_days
       end
 
       should "have an award period from the start of the tax year to the date the tax credits award end" do
@@ -145,10 +145,10 @@ module SmartAnswer
       end
 
       should "use the accounting period that ends in the 2015/16 tax year" do
-        expected_accounting_period = YearRange.new(
+        expected_accounting_year = YearRange.new(
           begins_on: Date.parse('2014-06-01')
         )
-        assert_equal expected_accounting_period, @calculator.accounting_period
+        assert_equal expected_accounting_year, @calculator.accounting_year
       end
 
       should "use a combination of the current accounting period and the next accounting period truncated by stopped trading date as the basis period" do
@@ -198,10 +198,10 @@ module SmartAnswer
       end
 
       should "use the accounting period that ends in the 2015/16 tax year" do
-        expected_accounting_period = YearRange.new(
+        expected_accounting_year = YearRange.new(
           begins_on: Date.parse('2014-10-01')
         )
-        assert_equal expected_accounting_period, @calculator.accounting_period
+        assert_equal expected_accounting_year, @calculator.accounting_year
       end
 
       should "use the accounting period to the stopped trading date as the basis period" do

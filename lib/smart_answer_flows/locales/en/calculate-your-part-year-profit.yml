@@ -22,8 +22,8 @@ en-GB:
         title: Have you stopped trading?
         hint: This means you’re no longer running your business.
         error_message: You need to select yes or no to continue.
-      did_you_start_trading_before_the_relevant_accounting_period?:
-        title: Did you start trading before %{accounting_period_begins_on}?
+      did_you_start_trading_before_the_relevant_accounting_year?:
+        title: Did you start trading before %{accounting_year_begins_on}?
         error_message: You need to select yes or no to continue.
       when_did_you_stop_trading?:
         title: When did you stop trading?
@@ -37,7 +37,7 @@ en-GB:
         hint: This is the last date of the accounting period for your business. For most people, this will be 5 April.
         error_message: You need to enter a date to continue.
       do_your_accounts_cover_a_12_month_period?:
-        title: Do your accounts cover the 12 month period up to %{accounting_period_ends_on}?
+        title: Do your accounts cover the 12 month period up to %{accounting_year_ends_on}?
         error_message: You need to select yes or no to continue.
       when_did_you_start_trading?:
         title: "When did you start trading?"

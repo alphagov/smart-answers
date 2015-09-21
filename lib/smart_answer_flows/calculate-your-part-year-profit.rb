@@ -36,7 +36,7 @@ module SmartAnswer
         next_node do |response|
           if response == 'yes'
             calculator.stopped_trading = true
-            :did_you_start_trading_before_the_relevant_accounting_period?
+            :did_you_start_trading_before_the_relevant_accounting_year?
           elsif response == 'no'
             calculator.stopped_trading = false
             :do_your_accounts_cover_a_12_month_period?
@@ -44,11 +44,11 @@ module SmartAnswer
         end
       end
 
-      multiple_choice :did_you_start_trading_before_the_relevant_accounting_period? do
+      multiple_choice :did_you_start_trading_before_the_relevant_accounting_year? do
         option "yes"
         option "no"
 
-        precalculate(:accounting_period_begins_on) { calculator.accounting_period.begins_on }
+        precalculate(:accounting_year_begins_on) { calculator.accounting_year.begins_on }
 
         next_node do |response|
           if response == "yes"
@@ -80,7 +80,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        precalculate(:accounting_period_ends_on) { calculator.accounting_period.ends_on }
+        precalculate(:accounting_year_ends_on) { calculator.accounting_year.ends_on }
 
         next_node do |response|
           if response == "yes"

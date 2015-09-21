@@ -27,12 +27,12 @@ module SmartAnswer
       end
 
       def basis_period
-        begins_on = [accounting_period.begins_on, started_trading_on].compact.max
-        ends_on   = stopped_trading_on || accounting_period.ends_on
+        begins_on = [accounting_year.begins_on, started_trading_on].compact.max
+        ends_on   = stopped_trading_on || accounting_year.ends_on
         DateRange.new(begins_on: begins_on, ends_on: ends_on)
       end
 
-      def accounting_period
+      def accounting_year
         YearRange.new(begins_on: accounting_year_start_date)
       end
 
@@ -58,13 +58,13 @@ module SmartAnswer
 
       private
 
-      def accounting_period_end_date_in_the_tax_year_that_tax_credits_award_ends
+      def accounting_year_end_date_in_the_tax_year_that_tax_credits_award_ends
         accounting_date = accounts_end_month_and_day.change(year: tax_year.begins_on.year)
         accounting_date += 1.year unless tax_year.include?(accounting_date)
         accounting_date
       end
 
-      alias accounting_year_end_date accounting_period_end_date_in_the_tax_year_that_tax_credits_award_ends
+      alias accounting_year_end_date accounting_year_end_date_in_the_tax_year_that_tax_credits_award_ends
 
       def accounting_year_start_date
         accounting_year_end_date - 1.year + 1

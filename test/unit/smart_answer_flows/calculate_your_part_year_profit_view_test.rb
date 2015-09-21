@@ -48,9 +48,9 @@ module SmartAnswer
       end
     end
 
-    context 'when rendering did_you_start_trading_before_the_relevant_accounting_period? question' do
+    context 'when rendering did_you_start_trading_before_the_relevant_accounting_year? question' do
       setup do
-        question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_period?)
+        question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_year?)
         @state = SmartAnswer::State.new(question)
         @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
       end
@@ -65,7 +65,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:do_your_accounts_cover_a_12_month_period?)
         @state = SmartAnswer::State.new(question)
-        @state.accounting_period_ends_on = Date.parse('2016-04-05')
+        @state.accounting_year_ends_on = Date.parse('2016-04-05')
         @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
       end
 
@@ -100,16 +100,16 @@ module SmartAnswer
       end
     end
 
-    context 'when rendering did_you_start_trading_before_the_relevant_accounting_period? question' do
+    context 'when rendering did_you_start_trading_before_the_relevant_accounting_year? question' do
       setup do
-        question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_period?)
+        question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_year?)
         state = SmartAnswer::State.new(question)
-        state.accounting_period_begins_on = Date.parse('2015-04-06')
+        state.accounting_year_begins_on = Date.parse('2015-04-06')
         presenter = QuestionPresenter.new(@i18n_prefix, question, state)
         @title = presenter.title
       end
 
-      should 'display title with interpolated accounting_period_begins_on' do
+      should 'display title with interpolated accounting_year_begins_on' do
         expected = "Did you start trading before  6 April 2015?"
         assert_equal expected, @title
       end

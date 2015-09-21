@@ -84,7 +84,7 @@ module SmartAnswer
           end
 
           should 'be date within 2015-16 tax year with specified month and day' do
-            assert_equal Date.parse('2015-06-30'), @calculator.accounting_period.ends_on
+            assert_equal Date.parse('2015-06-30'), @calculator.accounting_year.ends_on
           end
         end
 
@@ -94,24 +94,24 @@ module SmartAnswer
           end
 
           should 'be date within 2016-17 tax year with specified month and day' do
-            assert_equal Date.parse('2016-06-30'), @calculator.accounting_period.ends_on
+            assert_equal Date.parse('2016-06-30'), @calculator.accounting_year.ends_on
           end
         end
       end
 
       context 'basis period' do
         setup do
-          @accounting_period = YearRange.new(begins_on: Date.parse('2015-01-01'))
+          @accounting_year = YearRange.new(begins_on: Date.parse('2015-01-01'))
           @calculator = PartYearProfitCalculator.new
-          @calculator.stubs(accounting_period: @accounting_period)
+          @calculator.stubs(accounting_year: @accounting_year)
         end
 
-        should 'return the accounting period when the business is still trading' do
+        should 'return the accounting year when the business is still trading' do
           @calculator.stopped_trading_on = nil
-          assert_equal @accounting_period, @calculator.basis_period
+          assert_equal @accounting_year, @calculator.basis_period
         end
 
-        should 'return the period between the start of the accounting period and the stopped trading date' do
+        should 'return the period between the start of the accounting year and the stopped trading date' do
           @calculator.stopped_trading_on = Date.parse('2015-02-01')
           expected_range = DateRange.new(begins_on: Date.parse('2015-01-01'), ends_on: Date.parse('2015-02-01'))
           assert_equal expected_range, @calculator.basis_period
@@ -153,7 +153,7 @@ module SmartAnswer
         end
       end
 
-      context 'accounting period' do
+      context 'accounting year' do
         setup do
           @accounts_end_on = Date.parse('2015-12-31')
           @calculator = PartYearProfitCalculator.new
@@ -161,11 +161,11 @@ module SmartAnswer
         end
 
         should 'begin a year before the accounts end' do
-          assert_equal Date.parse('2015-01-01'), @calculator.accounting_period.begins_on
+          assert_equal Date.parse('2015-01-01'), @calculator.accounting_year.begins_on
         end
 
         should 'end on the date the accounts end' do
-          assert_equal @accounts_end_on, @calculator.accounting_period.ends_on
+          assert_equal @accounts_end_on, @calculator.accounting_year.ends_on
         end
       end
 

@@ -55,7 +55,7 @@ class CalculateYourPartYearProfitTest < ActiveSupport::TestCase
 
     context "and they started trading before the relevant accounting period started" do
       should 'reach the result outcome' do
-        assert_current_node :did_you_start_trading_before_the_relevant_accounting_period?
+        assert_current_node :did_you_start_trading_before_the_relevant_accounting_year?
         add_response 'yes'
         assert_current_node :when_did_you_stop_trading?
         add_response '2016-02-20'
@@ -67,7 +67,7 @@ class CalculateYourPartYearProfitTest < ActiveSupport::TestCase
 
     context "and they started trading after the relevant accounting period started" do
       should "ask for their start trading date, stop trading date and taxable profit before displaying the result" do
-        assert_current_node :did_you_start_trading_before_the_relevant_accounting_period?
+        assert_current_node :did_you_start_trading_before_the_relevant_accounting_year?
         add_response 'no'
         assert_current_node :when_did_you_start_trading?
         add_response '2015-08-01'
