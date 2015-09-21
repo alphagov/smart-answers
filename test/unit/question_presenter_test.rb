@@ -189,5 +189,21 @@ module SmartAnswer
       presenter = QuestionPresenter.new(nil, Question::MultipleChoice.new(nil, nil))
       assert_equal "multiple_choice_question", presenter.partial_template_name
     end
+
+    test "Can lookup a response label for a multiple choice question" do
+      question = Question::MultipleChoice.new(nil, :example_question?)
+      question.option yes: :yay
+      question.option no: :nay
+      presenter = MultipleChoiceQuestionPresenter.new("flow.test", question)
+
+      assert_equal "Oui", presenter.response_label("yes")
+    end
+
+    test "Can lookup a response label for a date question" do
+      question = Question::Date.new(nil, :example_question?)
+      presenter = DateQuestionPresenter.new("flow.test", question)
+
+      assert_equal " 1 March 2011", presenter.response_label(Date.parse("2011-03-01"))
+    end
   end
 end
