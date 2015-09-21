@@ -5,9 +5,7 @@
         <% if outcome.title.present? %>
         <div class="summary"><h2 class="result-title"><%= outcome.title %></h2></div>
         <% end %>
-        <% if outcome.has_body? %>
-          <%= outcome.body %>
-        <% end %>
+        <%= outcome.body %>
       </div>
     </div>
     <% if outcome.has_next_steps? %>

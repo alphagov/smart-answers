@@ -6,9 +6,7 @@
     <%= question.title %>
   </h2>
   <div class="question-body">
-    <% if question.has_body? %>
-      <%= question.body %>
-    <% end %>
+    <%= question.body %>
 
     <% if question.has_hint? %>
       <p class="hint"><%= question.hint %></p>

@@ -16,9 +16,7 @@
   <article role="article" class="group">
     <div class="inner">
       <div class="intro">
-        <% if start_node.has_body? %>
-          <%= start_node.body %>
-        <% end %>
+        <%= start_node.body %>
         <p class="get-started">
           <a rel="nofollow" href="<%= smart_answer_path(@name, started: 'y') %>" class="big button">Start now</a>
         </p>

@@ -20,10 +20,6 @@ module SmartdownAdapter
       render(@smartdown_node.next_steps, html: html)
     end
 
-    def has_body?
-      !!body
-    end
-
     def has_post_body?
       !!post_body
     end

@@ -142,10 +142,5 @@ module SmartAnswer
 
       assert_equal "The body copy", presenter.body(html: false)
     end
-
-    test "Can check if a node has body" do
-      assert QuestionPresenter.new("flow.test", Question::Date.new(nil, :example_question?)).has_body?, "example_question? has body"
-      assert !QuestionPresenter.new("flow.test", Question::Date.new(nil, :missing)).has_body?, "missing has no body"
-    end
   end
 end

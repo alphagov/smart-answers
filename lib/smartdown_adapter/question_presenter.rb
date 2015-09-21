@@ -17,10 +17,6 @@ module SmartdownAdapter
       @smartdown_question.post_body && markdown_to_html(smartdown_question.post_body)
     end
 
-    def has_body?
-      !!body
-    end
-
     def has_hint?
       !!hint
     end
