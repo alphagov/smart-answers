@@ -167,7 +167,7 @@ module SmartAnswer
           tax_credits_award_ends_on: Date.parse('2016-02-20'),
           basis_period: YearRange.new(begins_on: Date.parse('2015-04-06')),
           taxable_profit: Money.new(15000),
-          part_year_taxable_profit: Money.new(13154),
+          award_period_taxable_profit: Money.new(13154),
           stopped_trading_on: nil
         }
         @calculator = stub('calculator', calculator_options)
@@ -182,7 +182,7 @@ module SmartAnswer
           @body = presenter.body(html: false)
         end
 
-        should 'display part_year_taxable_profit' do
+        should 'display award_period_taxable_profit' do
           assert_match 'Your part-year taxable profit is £13,154', @body
         end
 

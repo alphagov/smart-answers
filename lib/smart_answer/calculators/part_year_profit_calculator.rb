@@ -44,7 +44,7 @@ module SmartAnswer
         (taxable_profit / basis_period.number_of_days).floor(2)
       end
 
-      def part_year_taxable_profit
+      def award_period_taxable_profit
         if basis_period == award_period
           taxable_profit
         else

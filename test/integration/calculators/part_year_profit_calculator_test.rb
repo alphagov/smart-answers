@@ -42,7 +42,7 @@ module SmartAnswer
       should "calculate taxable profit for the award period" do
         expected_taxable_profit = (27.32 * 118).floor
         assert_equal 3223, expected_taxable_profit
-        assert_equal expected_taxable_profit, @calculator.part_year_taxable_profit
+        assert_equal expected_taxable_profit, @calculator.award_period_taxable_profit
       end
     end
 
@@ -86,7 +86,7 @@ module SmartAnswer
       should "calculate taxable profit for the award period" do
         expected_taxable_profit = (27.39 * 118).floor
         assert_equal 3232, expected_taxable_profit
-        assert_equal expected_taxable_profit, @calculator.part_year_taxable_profit
+        assert_equal expected_taxable_profit, @calculator.award_period_taxable_profit
       end
     end
 
@@ -125,7 +125,7 @@ module SmartAnswer
 
       should "return the taxable profit figure entered" do
         expected_taxable_profit = 10_000
-        assert_equal expected_taxable_profit, @calculator.part_year_taxable_profit
+        assert_equal expected_taxable_profit, @calculator.award_period_taxable_profit
       end
     end
 
@@ -178,7 +178,7 @@ module SmartAnswer
       should "calculate taxable profit for the award period" do
         expected_taxable_profit = (25.25 * 87).floor
         assert_equal 2196, expected_taxable_profit
-        assert_equal expected_taxable_profit, @calculator.part_year_taxable_profit
+        assert_equal expected_taxable_profit, @calculator.award_period_taxable_profit
       end
     end
 
@@ -231,7 +231,7 @@ module SmartAnswer
       should "calculate taxable profit for the award period" do
         expected_taxable_profit = (36.49 * 87).floor
         assert_equal 3174, expected_taxable_profit
-        assert_equal expected_taxable_profit, @calculator.part_year_taxable_profit
+        assert_equal expected_taxable_profit, @calculator.award_period_taxable_profit
       end
     end
   end

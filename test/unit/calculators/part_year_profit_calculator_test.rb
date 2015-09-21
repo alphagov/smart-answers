@@ -216,13 +216,13 @@ module SmartAnswer
         end
 
         should 'multiply profit per day by number of days in award period and round down to nearest pound' do
-          expected_part_year_taxable_profit = @profit_per_day * @number_of_days_in_award_period
-          assert_not_equal expected_part_year_taxable_profit, @calculator.pro_rata_taxable_profit, 'Not rounded down to nearest pound'
-          assert_equal expected_part_year_taxable_profit.floor, @calculator.pro_rata_taxable_profit
+          expected_award_period_taxable_profit = @profit_per_day * @number_of_days_in_award_period
+          assert_not_equal expected_award_period_taxable_profit, @calculator.pro_rata_taxable_profit, 'Not rounded down to nearest pound'
+          assert_equal expected_award_period_taxable_profit.floor, @calculator.pro_rata_taxable_profit
         end
       end
 
-      context 'part year taxable profit' do
+      context 'award period taxable profit' do
         setup do
           @tax_year_begins_on = Date.parse('2015-04-06')
           @tax_credit_award_ends_on = Date.parse('2015-08-01')
@@ -236,7 +236,7 @@ module SmartAnswer
           @calculator.stubs(basis_period: basis_period)
           @calculator.stubs(taxable_profit: 10_000)
 
-          assert_equal 10_000, @calculator.part_year_taxable_profit
+          assert_equal 10_000, @calculator.award_period_taxable_profit
         end
 
         should 'return pro rata taxable profit when the award period and basis period are different' do
@@ -244,7 +244,7 @@ module SmartAnswer
           @calculator.stubs(basis_period: basis_period)
           @calculator.stubs(pro_rata_taxable_profit: 10_000)
 
-          assert_equal 10_000, @calculator.part_year_taxable_profit
+          assert_equal 10_000, @calculator.award_period_taxable_profit
         end
       end
     end
