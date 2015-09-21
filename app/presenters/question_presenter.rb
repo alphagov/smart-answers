@@ -49,6 +49,10 @@ class QuestionPresenter < NodePresenter
     translate_and_render('body', html: html)
   end
 
+  def to_response(input)
+    @node.to_response(input)
+  end
+
   def response_label(value)
     value
   end

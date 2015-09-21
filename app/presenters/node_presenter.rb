@@ -51,10 +51,6 @@ class NodePresenter
     end
   end
 
-  def to_response(input)
-    @node.to_response(input)
-  end
-
   def options
     @node.options.map do |option|
       OpenStruct.new(label: translate_option(option), value: option)

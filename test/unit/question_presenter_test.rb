@@ -142,5 +142,13 @@ module SmartAnswer
 
       assert_equal "The body copy", presenter.body(html: false)
     end
+
+    test 'delegates #to_response to node' do
+      question = stub('question')
+      question.stubs(:to_response).returns('response')
+      presenter = QuestionPresenter.new("flow.test", question)
+
+      assert_equal 'response' , presenter.to_response('answer-text')
+    end
   end
 end
