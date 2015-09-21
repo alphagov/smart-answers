@@ -19,7 +19,7 @@ module SmartAnswer
       end
 
       def valid_start_trading_date?(date)
-        date < tax_credits_part_year.ends_on
+        date < award_period.ends_on
       end
 
       def tax_year
@@ -36,7 +36,7 @@ module SmartAnswer
         YearRange.new(begins_on: accounting_year_start_date)
       end
 
-      def tax_credits_part_year
+      def award_period
         DateRange.new(begins_on: tax_year.begins_on, ends_on: [tax_credits_award_ends_on, stopped_trading_on].compact.min)
       end
 
@@ -45,7 +45,7 @@ module SmartAnswer
       end
 
       def part_year_taxable_profit
-        if basis_period == tax_credits_part_year
+        if basis_period == award_period
           taxable_profit
         else
           pro_rata_taxable_profit
@@ -53,7 +53,7 @@ module SmartAnswer
       end
 
       def pro_rata_taxable_profit
-        (profit_per_day * tax_credits_part_year.number_of_days).floor
+        (profit_per_day * award_period.number_of_days).floor
       end
 
       private

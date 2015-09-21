@@ -95,7 +95,7 @@ module SmartAnswer
         from { Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_EARLIEST_DATE }
         to   { Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_LATEST_DATE }
 
-        precalculate(:tax_credits_part_year_ends_on) { calculator.tax_credits_part_year.ends_on }
+        precalculate(:award_period_ends_on) { calculator.award_period.ends_on }
 
         validate(:invalid_start_trading_date) do |response|
           calculator.valid_start_trading_date?(response)

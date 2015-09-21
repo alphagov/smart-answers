@@ -29,8 +29,8 @@ module SmartAnswer
           begins_on: Date.parse('2015-04-06'),
           ends_on:   Date.parse('2015-08-01')
         )
-        assert_equal expected_award_period, @calculator.tax_credits_part_year
-        assert_equal 118, @calculator.tax_credits_part_year.number_of_days
+        assert_equal expected_award_period, @calculator.award_period
+        assert_equal 118, @calculator.award_period.number_of_days
       end
 
       should "calculate the profit per day" do
@@ -73,8 +73,8 @@ module SmartAnswer
           begins_on: Date.parse('2015-04-06'),
           ends_on:   Date.parse('2015-08-01')
         )
-        assert_equal expected_award_period, @calculator.tax_credits_part_year
-        assert_equal 118, @calculator.tax_credits_part_year.number_of_days
+        assert_equal expected_award_period, @calculator.award_period
+        assert_equal 118, @calculator.award_period.number_of_days
       end
 
       should "calculate the profit per day" do
@@ -119,8 +119,8 @@ module SmartAnswer
           begins_on: Date.parse('2015-04-06'),
           ends_on:   Date.parse('2015-07-01')
         )
-        assert_equal expected_award_period, @calculator.tax_credits_part_year
-        assert_equal 87, @calculator.tax_credits_part_year.number_of_days
+        assert_equal expected_award_period, @calculator.award_period
+        assert_equal 87, @calculator.award_period.number_of_days
       end
 
       should "return the taxable profit figure entered" do
@@ -165,8 +165,8 @@ module SmartAnswer
           begins_on: Date.parse('2015-04-06'),
           ends_on:   Date.parse('2015-07-01')
         )
-        assert_equal expected_award_period, @calculator.tax_credits_part_year
-        assert_equal 87, @calculator.tax_credits_part_year.number_of_days
+        assert_equal expected_award_period, @calculator.award_period
+        assert_equal 87, @calculator.award_period.number_of_days
       end
 
       should "calculate the profit per day" do
@@ -218,8 +218,8 @@ module SmartAnswer
           begins_on: Date.parse('2015-04-06'),
           ends_on:   Date.parse('2015-07-01')
         )
-        assert_equal expected_award_period, @calculator.tax_credits_part_year
-        assert_equal 87, @calculator.tax_credits_part_year.number_of_days
+        assert_equal expected_award_period, @calculator.award_period
+        assert_equal 87, @calculator.award_period.number_of_days
       end
 
       should "calculate the profit per day" do

@@ -169,24 +169,24 @@ module SmartAnswer
         end
       end
 
-      context 'tax credits part year' do
+      context 'award period' do
         setup do
           @tax_credits_award_ends_on = Date.parse('2016-02-20')
           @calculator = PartYearProfitCalculator.new(tax_credits_award_ends_on: @tax_credits_award_ends_on)
         end
 
         should 'begin at the beginning of the tax year in which the tax credits award ends' do
-          assert_equal Date.parse('2015-04-06'), @calculator.tax_credits_part_year.begins_on
+          assert_equal Date.parse('2015-04-06'), @calculator.award_period.begins_on
         end
 
         should 'end on the date the tax credits award ends' do
-          assert_equal @tax_credits_award_ends_on, @calculator.tax_credits_part_year.ends_on
+          assert_equal @tax_credits_award_ends_on, @calculator.award_period.ends_on
         end
 
         should 'end on the date the business stops trading if that date is before the date the tax credits award ends' do
           stopped_trading_on = Date.parse('2016-02-19')
           @calculator.stopped_trading_on = stopped_trading_on
-          assert_equal stopped_trading_on, @calculator.tax_credits_part_year.ends_on
+          assert_equal stopped_trading_on, @calculator.award_period.ends_on
         end
       end
 
@@ -208,15 +208,15 @@ module SmartAnswer
 
       context 'pro rata taxable profit' do
         setup do
-          @number_of_days_in_tax_credits_part_year = 321
+          @number_of_days_in_award_period = 321
           @profit_per_day = 40.98
-          tax_credits_part_year = stub('tax_credits_part_year', number_of_days: @number_of_days_in_tax_credits_part_year)
+          award_period = stub('award_period', number_of_days: @number_of_days_in_award_period)
           @calculator = PartYearProfitCalculator.new
-          @calculator.stubs(tax_credits_part_year: tax_credits_part_year, profit_per_day: @profit_per_day)
+          @calculator.stubs(award_period: award_period, profit_per_day: @profit_per_day)
         end
 
-        should 'multiply profit per day by number of days in tax credits part year and round down to nearest pound' do
-          expected_part_year_taxable_profit = @profit_per_day * @number_of_days_in_tax_credits_part_year
+        should 'multiply profit per day by number of days in award period and round down to nearest pound' do
+          expected_part_year_taxable_profit = @profit_per_day * @number_of_days_in_award_period
           assert_not_equal expected_part_year_taxable_profit, @calculator.pro_rata_taxable_profit, 'Not rounded down to nearest pound'
           assert_equal expected_part_year_taxable_profit.floor, @calculator.pro_rata_taxable_profit
         end
@@ -226,9 +226,9 @@ module SmartAnswer
         setup do
           @tax_year_begins_on = Date.parse('2015-04-06')
           @tax_credit_award_ends_on = Date.parse('2015-08-01')
-          @tax_credits_part_year = DateRange.new(begins_on: @tax_year_begins_on, ends_on: @tax_credit_award_ends_on)
+          @award_period = DateRange.new(begins_on: @tax_year_begins_on, ends_on: @tax_credit_award_ends_on)
           @calculator = PartYearProfitCalculator.new
-          @calculator.stubs(tax_credits_part_year: @tax_credits_part_year)
+          @calculator.stubs(award_period: @award_period)
         end
 
         should 'return taxable profit figure when the award period matches the basis period' do

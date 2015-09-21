@@ -145,11 +145,11 @@ module SmartAnswer
       setup do
         question = @flow.node(:when_did_you_start_trading?)
         @state = SmartAnswer::State.new(question)
-        @state.tax_credits_part_year_ends_on = Date.parse('2015-08-01')
+        @state.award_period_ends_on = Date.parse('2015-08-01')
         @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
       end
 
-      should 'display hint with interpolated tax_credits_part_year_ends_on' do
+      should 'display hint with interpolated award_period_ends_on' do
         expected = "This date must be before  1 August 2015."
         assert_equal expected, @presenter.hint
       end

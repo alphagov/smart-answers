@@ -126,11 +126,11 @@ module SmartAnswer
 
     context 'when answering when_did_you_start_trading? question' do
       setup do
-        tax_credits_part_year = DateRange.new(
+        award_period = DateRange.new(
           begins_on: Date.parse('2015-04-06'),
           ends_on:   Date.parse('2015-08-01')
         )
-        @calculator.stubs(:tax_credits_part_year).returns(tax_credits_part_year)
+        @calculator.stubs(:award_period).returns(award_period)
         setup_states_for_question(:when_did_you_start_trading?, responding_with: '2015-02-01', calculator: @calculator)
       end
 
@@ -144,8 +144,8 @@ module SmartAnswer
         assert_equal expected, @question.range.end
       end
 
-      should 'make tax_credits_part_year_ends_on available' do
-        assert_equal Date.parse('2015-08-01'), @new_state.tax_credits_part_year_ends_on
+      should 'make award_period_ends_on available' do
+        assert_equal Date.parse('2015-08-01'), @new_state.award_period_ends_on
       end
 
       should 'store parsed response on calculator as started_trading_on' do
