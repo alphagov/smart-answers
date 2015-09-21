@@ -22,13 +22,6 @@ module SmartAnswer
       assert_equal 'Foo', presenter.title
     end
 
-    test "Node title existence check" do
-      question = Question::Date.new(nil, :example_question?)
-      presenter = QuestionPresenter.new("flow.test", question)
-
-      assert presenter.has_title?
-    end
-
     test "Node title can be interpolated with state" do
       question = Question::Date.new(nil, :interpolated_question)
       state = State.new(question.name)

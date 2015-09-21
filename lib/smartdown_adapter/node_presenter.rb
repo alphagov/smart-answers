@@ -28,10 +28,6 @@ module SmartdownAdapter
       !!post_body
     end
 
-    def has_title?
-      !!title
-    end
-
     def has_next_steps?
       !!next_steps
     end

@@ -55,10 +55,6 @@ class NodePresenter
     @node.to_response(input)
   end
 
-  def has_title?
-    !!title
-  end
-
   def has_body?
     !!body
   end

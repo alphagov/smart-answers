@@ -2,7 +2,7 @@
   <article class="outcome group">
     <div class="result-info">
       <div class="inner group">
-        <% if outcome.has_title? %>
+        <% if outcome.title.present? %>
         <div class="summary"><h2 class="result-title"><%= outcome.title %></h2></div>
         <% end %>
         <% if outcome.has_body? %>
