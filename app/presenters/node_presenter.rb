@@ -59,10 +59,6 @@ class NodePresenter
     !!title
   end
 
-  def body(html: true)
-    translate_and_render('body', html: html)
-  end
-
   def has_body?
     !!body
   end

@@ -90,5 +90,69 @@ module SmartAnswer
       assert QuestionPresenter.new("flow.test", Question::Date.new(nil, :example_question?)).has_hint?
       assert !QuestionPresenter.new("flow.test", Question::Date.new(nil, :missing)).has_hint?
     end
+
+    test "Interpolated dates are localized" do
+      question = Question::Date.new(nil, :interpolated_question)
+      state = State.new(question.name)
+      state.day = Date.parse('2011-04-05')
+      presenter = QuestionPresenter.new("flow.test", question, state)
+
+      assert_match /Today is  5 April 2011/, presenter.body
+    end
+
+    test "Interpolated phrase lists are localized and interpreted as govspeak" do
+      outcome = Outcome.new(nil, :outcome_with_interpolated_phrase_list)
+      state = State.new(outcome.name)
+      state.phrases = PhraseList.new(:one, :two, :three)
+      presenter = QuestionPresenter.new("flow.test", outcome, state)
+
+      assert_match Regexp.new("<p>Here are the phrases:</p>
+
+      <p>This is the first one</p>
+
+      <p>This is <strong>the</strong> second</p>
+
+      <p>The last!</p>
+      ".gsub /^      /, ''), presenter.body
+    end
+
+    test "Phrase lists notify developers and fallback gracefully when no translation can be found" do
+      outcome = Outcome.new(nil, :outcome_with_interpolated_phrase_list)
+      state = State.new(outcome.name)
+      state.phrases = PhraseList.new(:four, :one, :two, :three)
+      presenter = QuestionPresenter.new("flow.test", outcome, state)
+
+      Rails.logger.expects(:warn).with("[Missing phrase] The phrase being rendered is not present: flow.test.phrases.four\tResponses: ").once
+
+      assert_match Regexp.new("<p>Here are the phrases:</p>
+
+      <p>four</p>
+
+      <p>This is the first one</p>
+
+      <p>This is <strong>the</strong> second</p>
+
+      <p>The last!</p>
+      ".gsub /^      /, ''), presenter.body
+    end
+
+    test "Node body looked up from translation file, rendered as HTML using govspeak by default" do
+      question = Question::Date.new(nil, :example_question?)
+      presenter = QuestionPresenter.new("flow.test", question)
+
+      assert_equal "<p>The body copy</p>\n", presenter.body
+    end
+
+    test "Node body looked up from translation file, rendered as raw text when HTML disabled" do
+      question = Question::Date.new(nil, :example_question?)
+      presenter = QuestionPresenter.new("flow.test", question)
+
+      assert_equal "The body copy", presenter.body(html: false)
+    end
+
+    test "Can check if a node has body" do
+      assert QuestionPresenter.new("flow.test", Question::Date.new(nil, :example_question?)).has_body?, "example_question? has body"
+      assert !QuestionPresenter.new("flow.test", Question::Date.new(nil, :missing)).has_body?, "missing has no body"
+    end
   end
 end

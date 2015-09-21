@@ -45,6 +45,10 @@ class QuestionPresenter < NodePresenter
     !!label or !!suffix_label
   end
 
+  def body(html: true)
+    translate_and_render('body', html: html)
+  end
+
   def response_label(value)
     value
   end
