@@ -173,13 +173,6 @@ module SmartAnswer
       assert_equal "multiple_choice_question", presenter.partial_template_name
     end
 
-    test "Outcome has a title if using the NodePresenter" do
-      outcome = Outcome.new(nil, :outcome_with_no_title)
-      presenter = NodePresenter.new("flow.test", outcome)
-
-      assert presenter.has_title?
-    end
-
     test '#error returns nil if there is no error set on the state' do
       flow = nil
       question = Question::Date.new(flow, :example_question?)
