@@ -10,8 +10,8 @@ module SmartAnswer
       end
 
       date_question :what_date_did_you_move_there? do
-        from Date.parse('1900-01-01')
-        to Date.today
+        from { Date.parse('1900-01-01') }
+        to { Date.today }
 
         save_input_as :date_moved
         calculate :years_there do
