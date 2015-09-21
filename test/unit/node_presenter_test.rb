@@ -180,20 +180,6 @@ module SmartAnswer
       assert presenter.has_title?
     end
 
-    test "Node next_steps looked up from translation file, rendered as HTML using govspeak by default" do
-      question = Question::Date.new(nil, :example_question?)
-      presenter = NodePresenter.new("flow.test", question)
-
-      assert_equal "<p>The next steps copy</p>\n", presenter.next_steps
-    end
-
-    test "Node next_steps looked up from translation file, rendered as raw text when HTML disabled" do
-      question = Question::Date.new(nil, :example_question?)
-      presenter = NodePresenter.new("flow.test", question)
-
-      assert_equal "The next steps copy", presenter.next_steps(html: false)
-    end
-
     test '#error returns nil if there is no error set on the state' do
       flow = nil
       question = Question::Date.new(flow, :example_question?)

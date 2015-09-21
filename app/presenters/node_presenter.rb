@@ -118,14 +118,6 @@ class NodePresenter
     !!label or !!suffix_label
   end
 
-  def next_steps(html: true)
-    translate_and_render('next_steps', html: html)
-  end
-
-  def has_next_steps?
-    !!next_steps
-  end
-
   def options
     @node.options.map do |option|
       OpenStruct.new(label: translate_option(option), value: option)
