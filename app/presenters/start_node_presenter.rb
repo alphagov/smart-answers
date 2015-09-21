@@ -25,10 +25,6 @@ class StartNodePresenter < NodePresenter
     @renderer.content_for(:body, html: html)
   end
 
-  def has_post_body?
-    !!post_body
-  end
-
   def post_body(html: true)
     @renderer.content_for(:post_body, html: html)
   end

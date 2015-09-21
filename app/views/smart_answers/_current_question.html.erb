@@ -21,7 +21,7 @@
 
       <%= render partial: question.partial_template_name, locals: { question: question, number: number } %>
 
-      <% if question.has_post_body? %>
+      <% if question.respond_to?(:post_body) %>
         <%= question.post_body %>
       <% end %>
     </div>

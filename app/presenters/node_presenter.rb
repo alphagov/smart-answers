@@ -55,11 +55,6 @@ class NodePresenter
     @node.to_response(input)
   end
 
-  #Post-body on questions is only supported on Smartdown questions
-  def has_post_body?
-    false
-  end
-
   def options
     @node.options.map do |option|
       OpenStruct.new(label: translate_option(option), value: option)

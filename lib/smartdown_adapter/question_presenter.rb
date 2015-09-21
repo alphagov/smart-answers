@@ -21,10 +21,6 @@ module SmartdownAdapter
       !!hint
     end
 
-    def has_post_body?
-      !!post_body
-    end
-
     def error
       @smartdown_answer.error if @smartdown_answer
     end

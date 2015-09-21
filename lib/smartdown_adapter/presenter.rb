@@ -16,7 +16,7 @@ module SmartdownAdapter
     def_delegators :@smartdown_state, :current_question_number, :started?, :finished?
 
     # The current node in the flow
-    def_delegators :current_node, :body, :post_body, :has_post_body?
+    def_delegators :current_node, :body, :post_body
 
     def initialize(smartdown_flow, request)
       @smartdown_flow = smartdown_flow
