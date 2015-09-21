@@ -179,6 +179,12 @@ module SmartAnswer
           assert_equal Date.parse('2015-04-06'), @calculator.award_period.begins_on
         end
 
+        should 'begin on the start trading date if that is later than the start of the tax year in which the tax credits award ends' do
+          started_trading_on = Date.parse('2015-05-01')
+          @calculator.started_trading_on = started_trading_on
+          assert_equal started_trading_on, @calculator.award_period.begins_on
+        end
+
         should 'end on the date the tax credits award ends' do
           assert_equal @tax_credits_award_ends_on, @calculator.award_period.ends_on
         end
