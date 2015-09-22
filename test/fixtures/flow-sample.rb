@@ -6,11 +6,17 @@ module SmartAnswer
 
       multiple_choice :hotter_or_colder? do
         option hotter: :hot
-        option colder: :cold
+        option colder: :frozen?
+      end
+
+      multiple_choice :frozen? do
+        option yes: :frozen
+        option no: :cold
       end
 
       outcome :hot
       outcome :cold
+      outcome :frozen
     end
   end
 end

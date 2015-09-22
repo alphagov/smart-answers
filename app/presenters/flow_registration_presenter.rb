@@ -33,7 +33,7 @@ class FlowRegistrationPresenter
 
   def indexable_content
     HTMLEntities.new.decode(
-      text = @flow.nodes.inject([start_node.body]) { |acc, node|
+      text = @flow.questions.inject([start_node.body]) { |acc, node|
         pres = presenter_for(node)
         acc.concat(NODE_PRESENTER_METHODS.map { |method|
           begin

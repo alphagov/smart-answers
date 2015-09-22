@@ -2,6 +2,10 @@ en-GB:
   flow:
     flow-sample:
       hotter_or_colder?:
-        title: NODE_1_TITLE
-        body: NODE_1_BODY %{i_dont_exist}
-        hint: NODE_1_HINT
+        title: QUESTION_1_TITLE
+        body: QUESTION_1_BODY %{i_dont_exist}
+        hint: QUESTION_1_HINT
+      frozen?:
+        title: QUESTION_2_TITLE
+        body: QUESTION_2_BODY
+        hint: QUESTION_2_HINT
