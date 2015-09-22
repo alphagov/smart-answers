@@ -11,6 +11,7 @@ module SmartAnswer::Calculators
     MALE_RETIREMENT_AGE = 65
 
     def lump_sum_and_age(dob, weekly_amount, gender)
+      return [] if too_young?(dob, gender)
       rows = []
       dob = leap_year_birthday?(dob) ? dob + 1.day : dob
       age = age_at_date(dob, TOPUP_START_DATE)
@@ -20,6 +21,17 @@ module SmartAnswer::Calculators
         age += 1
       end
       rows
+    end
+
+    def too_young?(date_of_birth, gender = 'female')
+      case gender
+      when 'female'
+        date_of_birth > FEMALE_YOUNGEST_DOB
+      when 'male'
+        date_of_birth > MALE_YOUNGEST_DOB
+      else
+        raise SmartAnswer::InvalidResponse
+      end
     end
 
   private
