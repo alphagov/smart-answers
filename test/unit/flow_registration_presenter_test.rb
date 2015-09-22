@@ -7,7 +7,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   def setup
     @old_load_path = I18n.config.load_path.dup
     example_translation_file =
-      File.expand_path('../../fixtures/flow_registraion_presenter_sample/flow_sample.yml', __FILE__)
+      File.expand_path('../../fixtures/flow_registration_presenter_sample/flow_sample.yml', __FILE__)
     I18n.config.load_path.unshift example_translation_file
     I18n.reload!
 
@@ -94,7 +94,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
 
     should "ignore any interpolation errors" do
       interpolation_example_translation_file =
-        File.expand_path('../../fixtures/flow_registraion_presenter_sample/flow_sample_interpolation.yml', __FILE__)
+        File.expand_path('../../fixtures/flow_registration_presenter_sample/flow_sample_interpolation.yml', __FILE__)
       I18n.config.load_path = @old_load_path.dup
       I18n.config.load_path.unshift interpolation_example_translation_file
       I18n.reload!
