@@ -75,11 +75,9 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
       assert_match %r{NODE_3_BODY}, @content
     end
 
-    should "include all node hints" do
+    should "include all question hints" do
       @content = @presenter.indexable_content
       assert_match %r{NODE_1_HINT}, @content
-      assert_match %r{NODE_2_HINT}, @content
-      assert_match %r{NODE_3_HINT}, @content
     end
 
     should "omit HTML" do
@@ -102,7 +100,8 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
       I18n.reload!
       @content = @presenter.indexable_content
       assert_match %r{FLOW_BODY}, @content
-      assert_match %r{NODE_1_BODY}, @content
+      assert_no_match %r{NODE_1_BODY}, @content
+      assert_match %r{NODE_2_BODY}, @content
       assert_match %r{NODE_3_BODY}, @content
     end
   end
