@@ -1,6 +1,7 @@
 module SmartAnswer
   class PipCheckerFlow < Flow
     def define
+      content_id "fcd0d669-2dfd-4c43-9892-d7e942f60912"
       name 'pip-checker'
       status :published
       satisfies_need "100389"

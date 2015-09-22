@@ -1,6 +1,7 @@
 module SmartAnswer
   class RegisterABirthFlow < Flow
     def define
+      content_id "bb68ca88-b56b-4df2-a33d-3aaec66a5098"
       name 'register-a-birth'
       status :published
       satisfies_need "101003"

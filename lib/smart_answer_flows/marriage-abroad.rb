@@ -10,6 +10,7 @@
 module SmartAnswer
   class MarriageAbroadFlow < Flow
     def define
+      content_id "d0a95767-f6ab-432a-aebc-096e37fb3039"
       name 'marriage-abroad'
       status :published
       satisfies_need "101000"
