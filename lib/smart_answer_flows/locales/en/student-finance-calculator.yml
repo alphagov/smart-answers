@@ -5,7 +5,6 @@ en-GB:
       when_does_your_course_start?:
         title: When does your course start?
         options:
-          "2014-2015": "Between September 2014 and August 2015"
           "2015-2016": "Between September 2015 and August 2016"
           "2016-2017": "Between September 2016 and August 2017"
 

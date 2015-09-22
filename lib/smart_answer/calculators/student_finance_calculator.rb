@@ -2,11 +2,6 @@ module SmartAnswer
   module Calculators
     class StudentFinanceCalculator
       LOAN_MAXIMUMS = {
-        "2014-2015" => {
-          "at-home" => 4_418,
-          "away-outside-london" => 5_555,
-          "away-in-london" => 7_751
-        },
         "2015-2016" => {
           "at-home" => 4_565,
           "away-outside-london" => 5_740,
@@ -30,7 +25,7 @@ module SmartAnswer
     private
 
       def legacy_scheme?
-        %w(2014-2015 2015-2016).include?(@course_start)
+        %w(2015-2016).include?(@course_start)
       end
 
       def strategy

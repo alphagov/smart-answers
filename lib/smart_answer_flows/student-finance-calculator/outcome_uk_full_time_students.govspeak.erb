@@ -23,11 +23,7 @@
     You could get:
 
     <% if uk_ft_circumstances.include?('children-under-17') %>
-      <% if start_date == '2014-2015' %>
-        - up to £150.23 a week (1 child) or up to £257.55 a week (2 or more children) [Childcare Grant](/childcare-grant)
-        - up to £1,523 per year [Parents’ Learning Allowance](/parents-learning-allowance)
-        - [Child Tax Credit](/child-tax-credit)
-      <% elsif start_date == '2015-2016' %>
+      <% if start_date == '2015-2016' %>
         - up to £155.24 a week (1 child) or up to £266.15 a week (2 or more children) [Childcare Grant](/childcare-grant)
         - up to £1,573 per year [Parents’ Learning Allowance](/parents-learning-allowance)
         - [Child Tax Credit](/child-tax-credit)
@@ -35,9 +31,7 @@
     <% end %>
 
     <% if uk_ft_circumstances.include?('dependant-adult') %>
-      <% if start_date == '2014-2015' %>
-        - up to £2,668 per year [Adult Dependant’s Grant](/adult-dependants-grant)
-      <% elsif start_date == '2015-2016' %>
+      <% if start_date == '2015-2016' %>
         - up to £2,757 per year [Adult Dependant’s Grant](/adult-dependants-grant)
       <% end %>
     <% end %>
