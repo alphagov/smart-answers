@@ -34,7 +34,7 @@ class FlowRegistrationPresenter
   def indexable_content
     HTMLEntities.new.decode(
       text = @flow.nodes.inject([start_node.body]) { |acc, node|
-        pres = NodePresenter.new(@i18n_prefix, node)
+        pres = presenter_for(node)
         acc.concat(NODE_PRESENTER_METHODS.map { |method|
           begin
             pres.send(method)
@@ -52,6 +52,15 @@ class FlowRegistrationPresenter
   end
 
 private
+
+  def presenter_for(node)
+    case node
+    when SmartAnswer::Question::Base
+      QuestionPresenter.new(@i18n_prefix, node)
+    when SmartAnswer::Outcome
+      OutcomePresenter.new(@i18n_prefix, node)
+    end
+  end
 
   def start_node
     node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
