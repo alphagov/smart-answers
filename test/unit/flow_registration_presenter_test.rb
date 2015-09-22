@@ -7,7 +7,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   def setup
     @old_load_path = I18n.config.load_path.dup
     example_translation_file =
-      File.expand_path('../../fixtures/flow_registraion_presenter_sample/flow_sample.yml', __FILE__)
+      File.expand_path('../../fixtures/flow_registration_presenter_sample/flow_sample.yml', __FILE__)
     I18n.config.load_path.unshift example_translation_file
     I18n.reload!
 
@@ -75,11 +75,9 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
       assert_match %r{NODE_3_BODY}, @content
     end
 
-    should "include all node hints" do
+    should "include all question hints" do
       @content = @presenter.indexable_content
       assert_match %r{NODE_1_HINT}, @content
-      assert_match %r{NODE_2_HINT}, @content
-      assert_match %r{NODE_3_HINT}, @content
     end
 
     should "omit HTML" do
@@ -96,13 +94,14 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
 
     should "ignore any interpolation errors" do
       interpolation_example_translation_file =
-        File.expand_path('../../fixtures/flow_registraion_presenter_sample/flow_sample_interpolation.yml', __FILE__)
+        File.expand_path('../../fixtures/flow_registration_presenter_sample/flow_sample_interpolation.yml', __FILE__)
       I18n.config.load_path = @old_load_path.dup
       I18n.config.load_path.unshift interpolation_example_translation_file
       I18n.reload!
       @content = @presenter.indexable_content
       assert_match %r{FLOW_BODY}, @content
-      assert_match %r{NODE_1_BODY}, @content
+      assert_no_match %r{NODE_1_BODY}, @content
+      assert_match %r{NODE_2_BODY}, @content
       assert_match %r{NODE_3_BODY}, @content
     end
   end

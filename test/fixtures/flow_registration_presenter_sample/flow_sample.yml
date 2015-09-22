@@ -1,0 +1,7 @@
+en-GB:
+  flow:
+    flow-sample:
+      hotter_or_colder?:
+        title: NODE_1_TITLE
+        body: NODE_1_BODY
+        hint: NODE_1_HINT
