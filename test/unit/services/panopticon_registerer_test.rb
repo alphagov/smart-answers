@@ -16,6 +16,7 @@ class PanopticonRegistererTest < ActiveSupport::TestCase
     stub_request(:put, "http://panopticon.dev.gov.uk/artefacts/a-smart-answer.json").
       with(body: {
         slug: "a-smart-answer",
+        content_id: 'be9adf07-ce73-468e-be81-31716b4492f2',
         owning_app: "smartanswers",
         kind: "smart-answer",
         name: "The Smart Answer.",
@@ -26,6 +27,7 @@ class PanopticonRegistererTest < ActiveSupport::TestCase
     registerable = OpenStruct.new(
       slug: 'a-smart-answer',
       title: 'The Smart Answer.',
+      content_id: 'be9adf07-ce73-468e-be81-31716b4492f2',
     )
 
     silence_logging do
