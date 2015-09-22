@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/calculate-employee-redundancy-pay.rb: f82afbba5721b039e19a4d8c5e253c3f
+lib/smart_answer_flows/calculate-employee-redundancy-pay.rb: 82aaee0fe06df0a92bc17027ff5f8b92
 lib/smart_answer_flows/locales/en/calculate-employee-redundancy-pay.yml: ded96e8059d2e4fd4c544571015ac880
 test/data/calculate-employee-redundancy-pay-questions-and-responses.yml: dca676f9f9cd34571e4338b66d18bd89
 test/data/calculate-employee-redundancy-pay-responses-and-expected-results.yml: c2a4b09c482a4c3afdbedad7ce8089e0

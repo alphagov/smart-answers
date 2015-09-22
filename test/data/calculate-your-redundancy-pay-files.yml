@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/calculate-your-redundancy-pay.rb: 74b0bb1ff133a4691bd1b3cde434b6f7
+lib/smart_answer_flows/calculate-your-redundancy-pay.rb: 92c2c6eb3cfc3933af23be35abcdc81d
 lib/smart_answer_flows/locales/en/calculate-your-redundancy-pay.yml: 5905d20a16d0d8b95220532a37aa6864
 test/data/calculate-your-redundancy-pay-questions-and-responses.yml: dca676f9f9cd34571e4338b66d18bd89
 test/data/calculate-your-redundancy-pay-responses-and-expected-results.yml: c2a4b09c482a4c3afdbedad7ce8089e0

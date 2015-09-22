@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/student-finance-calculator.rb: 50373e5766e6469df7110fde0fbcfc35
+lib/smart_answer_flows/student-finance-calculator.rb: dcee811c9e0415909e23d3b15f6223d3
 lib/smart_answer_flows/locales/en/student-finance-calculator.yml: df63642e80cd83574b64c2034279cafd
 test/data/student-finance-calculator-questions-and-responses.yml: 7f7a6293dd5c37756c89ea6b075ffd45
 test/data/student-finance-calculator-responses-and-expected-results.yml: f4588ab6828397faa8f1fc4dce005398
