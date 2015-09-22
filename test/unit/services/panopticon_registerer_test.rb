@@ -13,16 +13,7 @@ class PanopticonRegistererTest < ActiveSupport::TestCase
   end
 
   def test_sending_correct_data_to_panopticon
-    stub_request(:put, "http://panopticon.dev.gov.uk/artefacts/a-smart-answer.json").
-      with(body: {
-        slug: "a-smart-answer",
-        content_id: 'be9adf07-ce73-468e-be81-31716b4492f2',
-        owning_app: "smartanswers",
-        kind: "smart-answer",
-        name: "The Smart Answer.",
-        description: nil,
-        state: nil,
-    })
+    stub_request(:put, "http://panopticon.dev.gov.uk/artefacts/a-smart-answer.json")
 
     registerable = OpenStruct.new(
       slug: 'a-smart-answer',
@@ -33,6 +24,20 @@ class PanopticonRegistererTest < ActiveSupport::TestCase
     silence_logging do
       PanopticonRegisterer.new([registerable]).register
     end
+
+    assert_requested(
+      :put,
+      "http://panopticon.dev.gov.uk/artefacts/a-smart-answer.json",
+      body: {
+        slug: "a-smart-answer",
+        content_id: 'be9adf07-ce73-468e-be81-31716b4492f2',
+        owning_app: "smartanswers",
+        kind: "smart-answer",
+        name: "The Smart Answer.",
+        description: nil,
+        state: nil,
+      }
+    )
   end
 
 private
