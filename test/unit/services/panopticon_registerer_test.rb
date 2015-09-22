@@ -12,6 +12,27 @@ class PanopticonRegistererTest < ActiveSupport::TestCase
     assert_requested(request, times: 2)
   end
 
+  def test_sending_correct_data_to_panopticon
+    stub_request(:put, "http://panopticon.dev.gov.uk/artefacts/a-smart-answer.json").
+      with(body: {
+        slug: "a-smart-answer",
+        owning_app: "smartanswers",
+        kind: "smart-answer",
+        name: "The Smart Answer.",
+        description: nil,
+        state: nil,
+    })
+
+    registerable = OpenStruct.new(
+      slug: 'a-smart-answer',
+      title: 'The Smart Answer.',
+    )
+
+    silence_logging do
+      PanopticonRegisterer.new([registerable]).register
+    end
+  end
+
 private
 
   # The registerer is quite noisy.
