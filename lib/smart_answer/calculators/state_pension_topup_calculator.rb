@@ -6,7 +6,7 @@ module SmartAnswer::Calculators
     FEMALE_YOUNGEST_DOB = Date.parse('1953-04-05')
     MALE_YOUNGEST_DOB = Date.parse('1951-04-05')
     TOPUP_START_DATE = Date.parse('2015-10-12')
-    TOPUP_END_DATE = Date.parse('2017-04-01')
+    TOPUP_END_DATE = Date.parse('2017-04-05')
     FEMALE_RETIREMENT_AGE = 62
     MALE_RETIREMENT_AGE = 65
 
