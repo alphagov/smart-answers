@@ -19,11 +19,6 @@ For more information, please go to the [Ruby/YAML SmartAnswer README](doc/smart-
 
 For more information, please go to the [Smartdown SmartAnswer README](doc/smartdown-flows.md)
 
-### Switching from one style to another
-
-Smart answers are by default expected to be in Ruby/YAML style.
-To transition a smart answer from Ruby/YML to Smartdown style, register it in the smartdown registry (`lib/smartdown/registry.rb`).
-
 ## Developing
 
 ### Installing and running
