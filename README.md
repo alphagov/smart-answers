@@ -46,22 +46,9 @@ If you have a URL of a Smart answer and want to debug the state of it i.e. to se
 
 Seeing [Govspeak](https://github.com/alphagov/govspeak) markup of Smart Answer pages can be useful to content designers when preparing content change requests or developers inspecting generated Govspeak that later gets translated to HTML. This feature can be enabled by setting `EXPOSE_GOVSPEAK` to a non-empty value. It can be accessed by appending `.txt` to URLs (currently govspeak is available for landing and outcome pages, but not question pages).
 
-### Visualising a flow
+### Visualising flows
 
-To see an interactive visualisation of a smart answer flow, append `/visualise` to the root of a smartanswer URL e.g. `http://smartanswers.dev.gov.uk/<my-flow>/visualise/`
-
-To see a static visualisation of a smart answer flow, using Graphviz:
-
-    # Download graphviz representation
-    $ curl https://www.gov.uk/marriage-abroad/visualise.gv --silent > /tmp/marriage-abroad.gv
-
-    # Use Graphviz to generate a PNG
-    $ dot /tmp/marriage-abroad.gv -Tpng > /tmp/marriage-abroad.png
-
-    # Open the PNG
-    $ open /tmp/marriage-abroad.png
-
-__NOTE.__ This assumes you already have Graphviz installed. You can install it using Homebrew on a Mac (`brew install graphviz`).
+See [visualising flows](doc/visualising-flows.md).
 
 ## Testing
 
