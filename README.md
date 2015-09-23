@@ -46,19 +46,11 @@ If you have a URL of a Smart answer and want to debug the state of it i.e. to se
 
 Seeing [Govspeak](https://github.com/alphagov/govspeak) markup of Smart Answer pages can be useful to content designers when preparing content change requests or developers inspecting generated Govspeak that later gets translated to HTML. This feature can be enabled by setting `EXPOSE_GOVSPEAK` to a non-empty value. It can be accessed by appending `.txt` to URLs (currently govspeak is available for landing and outcome pages, but not question pages).
 
-### Visualising flows
-
-See [visualising flows](doc/visualising-flows.md).
-
 ## Testing
 
 Run all tests by executing the following:
 
     bundle exec rake
-
-### Updating Worldwide fixture data
-
-See [updating worldwide fixture data](doc/updating-worldwide-fixture-data.md).
 
 ## Making bigger changes
 
@@ -74,22 +66,14 @@ Once deployed you'll need to use the standard `git push` mechanism to deploy you
 
     ./startup_heroku.sh
 
-## Merging a pull request from the Content Team
+## Table of Contents
 
-See [merging a pull request from the content team](doc/merging-content-prs.md).
-
-## Archiving a Smart Answer
-
-- [How to archive a Smart Answer](doc/archiving.md)
-
-## Content IDs
-
-See [content-ids](doc/content-ids.md).
-
-## Issues/todos
-
-Please see the [github issues](https://github.com/alphagov/smart-answers/issues) page.
-
-## Rubocop
-
-See [rubocop](doc/rubocop.md).
+* Process
+  * [Archiving a Smart Answer](doc/archiving.md)
+  * [Merging pull requests from the content team](doc/merging-content-prs.md)
+* Development
+  * Adding [content-ids](doc/content-ids.md) to Smart Answers.
+  * [Issues and Todo](https://github.com/alphagov/smart-answers/issues)
+  * [Rubocop](doc/rubocop.md)
+  * [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
+  * [Visualising flows](doc/visualising-flows.md)
