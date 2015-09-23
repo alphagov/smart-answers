@@ -5,6 +5,12 @@ class QuestionPresenter < NodePresenter
     html ? GovspeakPresenter.new(markup.strip).html : markup
   end
 
+  def translate!(subkey)
+    I18n.translate!("#{i18n_node_prefix}.#{subkey}", state_for_interpolation)
+  rescue I18n::MissingTranslationData
+    nil
+  end
+
   def title
     translate!('title') || @node.name.to_s.humanize
   end

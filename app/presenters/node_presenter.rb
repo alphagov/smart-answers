@@ -11,12 +11,6 @@ class NodePresenter
     "#{@i18n_prefix}.#{@node.name}"
   end
 
-  def translate!(subkey)
-    I18n.translate!("#{i18n_node_prefix}.#{subkey}", state_for_interpolation)
-  rescue I18n::MissingTranslationData
-    nil
-  end
-
   def state_for_interpolation(nested = false)
     Hash[@state.to_hash.map { |k, v| [k, value_for_interpolation(v, nested)] }]
   end
