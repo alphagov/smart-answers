@@ -6,9 +6,6 @@
 
 Read more in [a blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
-Have a look at
-[`test/unit/flow_test.rb`](test/unit/flow_test.rb) for example usage.
-
 ## Developing
 
 ### Installing and running
