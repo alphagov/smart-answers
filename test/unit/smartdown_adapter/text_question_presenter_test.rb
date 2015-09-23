@@ -1,4 +1,3 @@
-# coding:utf-8
 
 require_relative '../../test_helper'
 #require_relative '../../helpers/test_fixtures_helper'
