@@ -20,7 +20,8 @@ NB: this assumes you are running on the GOV.UK virtual machine, not your host.
 ```
 
 Run using bowler on VM from cd /var/govuk/development:
-```
+
+```bash
 bowl smartanswers
 ```
 
