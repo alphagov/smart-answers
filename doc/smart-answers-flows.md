@@ -211,9 +211,11 @@ The ERB outcome templates live in `lib/smart_answer_flows/<flow-name>/<outcome-n
 
 ## Testing Smart Answers
 
-You used to need to use nested contexts/tests in order to test Ruby/YAML Smart Answers. This is no longer needed, feel free to flatten tests that are too deeply nested.
+### Try to avoid deeply nested contexts
 
-### Example Smart Answer Flow
+We previously had to use nested contexts to write integration tests around Smart Answers. This lead to deeply nested, hard to follow tests. We've removed the code that required this style and should no longer be writing these deeply nested tests.
+
+#### Example Smart Answer Flow
 
     status :published
 
@@ -241,9 +243,26 @@ You used to need to use nested contexts/tests in order to test Ruby/YAML Smart A
     outcome :outcome_1 do
     end
 
-### A test using nested contexts
+#### Good: Flattened test
 
-This test passes using the example flow above.
+This is how we should be writing integration tests for Smart Answer flows.
+
+    should "exercise the example flow" do
+      setup_for_testing_flow SmartAnswer::ExampleFlow
+
+      assert_current_node :question_1
+      add_response :A
+      assert_current_node :question_2
+      add_response :C
+      assert_current_node :question_3
+      add_response :E
+      assert_current_node :outcome_1
+    end
+
+
+#### Bad: A test using nested contexts
+
+This is how we were previously writing integration tests for Smart Answer flows.
 
     setup do
       setup_for_testing_flow SmartAnswer::ExampleFlow
@@ -281,20 +300,4 @@ This test passes using the example flow above.
           end
         end
       end
-    end
-
-### Flattened test
-
-The same test as above in a flattened form. It passes using the example flow above.
-
-    should "exercise the example flow" do
-      setup_for_testing_flow SmartAnswer::ExampleFlow
-
-      assert_current_node :question_1
-      add_response :A
-      assert_current_node :question_2
-      add_response :C
-      assert_current_node :question_3
-      add_response :E
-      assert_current_node :outcome_1
     end
