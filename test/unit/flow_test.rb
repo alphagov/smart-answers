@@ -11,6 +11,14 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal "sweet-or-savoury", s.name
   end
 
+  test "Can set the content_id" do
+    s = SmartAnswer::Flow.new do
+      content_id "587920ff-b854-4adb-9334-451b45652467"
+    end
+
+    assert_equal "587920ff-b854-4adb-9334-451b45652467", s.content_id
+  end
+
   test "Can build outcome nodes" do
     s = SmartAnswer::Flow.new do
       outcome :you_dont_have_a_sweet_tooth

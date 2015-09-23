@@ -1,6 +1,7 @@
 module SmartAnswer
   class EstimateSelfAssessmentPenaltiesFlow < Flow
     def define
+      content_id "32b54f44-fca1-4480-b13b-ddeb0b0238e1"
       name 'estimate-self-assessment-penalties'
       status :published
       satisfies_need "100615"

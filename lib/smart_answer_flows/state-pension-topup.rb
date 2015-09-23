@@ -1,6 +1,7 @@
 module SmartAnswer
   class StatePensionTopupFlow < Flow
     def define
+      content_id "8721750f-f0dc-4756-81be-1716c7d47844"
       name 'state-pension-topup'
       status :published
       satisfies_need "100865"

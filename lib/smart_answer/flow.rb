@@ -17,6 +17,11 @@ module SmartAnswer
       instance_eval(&block) if block_given?
     end
 
+    def content_id(cid = nil)
+      @content_id = cid unless cid.nil?
+      @content_id
+    end
+
     def use_shared_logic(filename)
       eval File.read(Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "#{filename}.rb")), binding
     end

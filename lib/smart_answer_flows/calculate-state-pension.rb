@@ -3,6 +3,7 @@ require "data/state_pension_date_query"
 module SmartAnswer
   class CalculateStatePensionFlow < Flow
     def define
+      content_id "5491c439-1c83-4044-80d3-32cc3613b739"
       name 'calculate-state-pension'
       status :published
       satisfies_need "100245"

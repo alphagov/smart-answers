@@ -2,6 +2,7 @@
 meta_description: Pay and leave for parents
 status: published
 satisfies_need: 101018
+content_id: 1f6b4ecc-ce2c-488a-b9c7-b78b3bba5598
 ---
 
 # Calculate your leave and pay when you have a child

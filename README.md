@@ -236,6 +236,12 @@ files relating to the regression tests e.g. file checksums, Govspeak artefacts, 
 
 - [How to archive a Smart Answer](doc/archiving.md)
 
+## Content IDs
+
+Smart answers need content-ids. You can generate one by running:
+
+    $ be rails r "puts SecureRandom.uuid"
+
 ## Issues/todos
 
 Please see the [github issues](https://github.com/alphagov/smart-answers/issues) page.

@@ -1,6 +1,7 @@
 module SmartAnswer
   class ApplyTier4VisaFlow < Flow
     def define
+      content_id "af23458d-3437-4545-adae-3bd776ceb8f9"
       name 'apply-tier-4-visa'
       status :published
       satisfies_need "101059"
@@ -53,4 +54,3 @@ module SmartAnswer
     end
   end
 end
-

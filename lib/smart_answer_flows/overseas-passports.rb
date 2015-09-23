@@ -1,6 +1,7 @@
 module SmartAnswer
   class OverseasPassportsFlow < Flow
     def define
+      content_id "dd113259-fcaf-4e9b-83d5-d1148f33cf34"
       name 'overseas-passports'
       status :published
       satisfies_need "100131"

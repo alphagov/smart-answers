@@ -1,6 +1,7 @@
 module SmartAnswer
   class RegisterADeathFlow < Flow
     def define
+      content_id "9e3af3d4-f044-4ac5-830e-d604d701695b"
       name 'register-a-death'
       status :published
       satisfies_need "101006"

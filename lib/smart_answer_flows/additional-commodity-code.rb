@@ -1,6 +1,7 @@
 module SmartAnswer
   class AdditionalCommodityCodeFlow < Flow
     def define
+      content_id "bfda3b4f-166b-48e7-9aaf-21bfbd606207"
       name 'additional-commodity-code'
 
       status :published

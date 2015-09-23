@@ -1,6 +1,7 @@
 module SmartAnswer
   class HelpIfYouAreArrestedAbroadFlow < Flow
     def define
+      content_id "cb62c931-a0fa-4363-b33d-12ac06d6232a"
       name 'help-if-you-are-arrested-abroad'
       status :published
       satisfies_need "100220"

@@ -1,6 +1,7 @@
 module SmartAnswer
   class StudentFinanceFormsFlow < Flow
     def define
+      content_id "67764435-e8ed-4700-a657-2e0432cb1f5b"
       name 'student-finance-forms'
       status :published
       satisfies_need "100982"

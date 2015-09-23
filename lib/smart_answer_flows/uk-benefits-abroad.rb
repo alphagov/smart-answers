@@ -1,6 +1,7 @@
 module SmartAnswer
   class UkBenefitsAbroadFlow < Flow
     def define
+      content_id "e1eaf183-1211-4fd7-b439-5c94498814ef"
       name 'uk-benefits-abroad'
       status :published
       satisfies_need "100490"
