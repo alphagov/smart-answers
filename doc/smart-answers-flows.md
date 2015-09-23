@@ -25,6 +25,61 @@ This is an overview of the components that make up a single Smart Answer.
 
 ## Smart answer syntax
 
+### Question types
+
+* `checkbox_question` - choose multiple values from a list of values. Response is a list.
+* `country_select` - choose a single country.
+* `date_question` - choose a single date
+* `money_question` - enter a money amount. The response is converted to a `Money` object.
+* `multiple_choice` - choose a single value from a list of values. Response is a string.
+* `postcode_question` - enter a postcode. Response is checked for validity and returned as a normalised string.
+* `salary_question` - enter a salary as either a weekly or monthly money amount. Coverted to a `Salary` object.
+* `value_question` - enter a single string value (free text)
+
+### Defining next node rules
+
+There are three syntaxes for defining next node rules.
+
+#### Using `next_node` with a block
+
+This is the preferred syntax. A current disadvantage is that these flows can't be visualised, although we're planning to fix that.
+
+```ruby
+next_node do |response|
+  if response == 'green'
+    :green # Go to the :green node
+  else
+    :red   # Go to the :red node
+  end
+end
+```
+
+#### DEPRECATED: Using predicates
+
+This is the same example from above expressed using predicates:
+
+```ruby
+next_node_if(:green, responded_with('green')) )
+next_node(:red)
+```
+
+The `responded_with` function actually returns a [predicate](http://en.wikipedia.org/wiki/Predicate_%28mathematical_logic%29) which will be invoked during processing. If the predicate returns `true` then the `:green` node will be next, otherwise the next rule will be evaluated. In this case the next rule says `:red` is the next node with no condition.
+
+See [Smart Answer predicates](./smart-answers-predicates.md) for more detailed information about this style.
+
+#### DEPRECATED: Using Multiple Choice shortcut
+
+Again using the original example:
+
+```ruby
+multiple_choice :question do
+  option green: :green
+  option red: :red
+end
+```
+
+This is essentially some syntactic sugar on top of the predicate logic.
+
 ### Storing data for later use
 
 You can use the `precalculate`, `next_node_calculation`, `save_input_as` and `calculate` methods to store data for later use.
@@ -101,61 +156,6 @@ The flow below illustrates the data available to the different Question node met
         # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
       end
     end
-
-### Question types
-
-* `checkbox_question` - choose multiple values from a list of values. Response is a list.
-* `country_select` - choose a single country.
-* `date_question` - choose a single date
-* `money_question` - enter a money amount. The response is converted to a `Money` object.
-* `multiple_choice` - choose a single value from a list of values. Response is a string.
-* `postcode_question` - enter a postcode. Response is checked for validity and returned as a normalised string.
-* `salary_question` - enter a salary as either a weekly or monthly money amount. Coverted to a `Salary` object.
-* `value_question` - enter a single string value (free text)
-
-### Defining next node rules
-
-There are three syntaxes for defining next node rules.
-
-#### Using `next_node` with a block
-
-This is the preferred syntax. A current disadvantage is that these flows can't be visualised, although we're planning to fix that.
-
-```ruby
-next_node do |response|
-  if response == 'green'
-    :green # Go to the :green node
-  else
-    :red   # Go to the :red node
-  end
-end
-```
-
-#### DEPRECATED: Using predicates
-
-This is the same example from above expressed using predicates:
-
-```ruby
-next_node_if(:green, responded_with('green')) )
-next_node(:red)
-```
-
-The `responded_with` function actually returns a [predicate](http://en.wikipedia.org/wiki/Predicate_%28mathematical_logic%29) which will be invoked during processing. If the predicate returns `true` then the `:green` node will be next, otherwise the next rule will be evaluated. In this case the next rule says `:red` is the next node with no condition.
-
-See [Smart Answer predicates](./smart-answers-predicates.md) for more detailed information about this style.
-
-#### DEPRECATED: Using Multiple Choice shortcut
-
-Again using the original example:
-
-```ruby
-multiple_choice :question do
-  option green: :green
-  option red: :red
-end
-```
-
-This is essentially some syntactic sugar on top of the predicate logic.
 
 ### Outcome templates
 
