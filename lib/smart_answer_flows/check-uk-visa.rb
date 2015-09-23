@@ -102,12 +102,13 @@ module SmartAnswer
         option :no
         save_input_as :leaving_airport_answer
 
-        next_node_if(:outcome_visit_waiver) { %w(venezuela taiwan).include?(passport_country) }
+        next_node_if(:outcome_visit_waiver) { %w(taiwan).include?(passport_country) }
         on_condition(responded_with('yes')) do
           next_node_if(:outcome_transit_leaving_airport) { country_group_visa_national.include?(passport_country) }
           next_node_if(:outcome_transit_leaving_airport_datv) { country_group_datv.include?(passport_country) }
         end
         on_condition(responded_with('no')) do
+          next_node_if(:outcome_visit_waiver) { %w(venezuela).include?(passport_country) }
           next_node_if(:outcome_transit_refugee_not_leaving_airport) { passport_country == 'stateless-or-refugee' }
           next_node_if(:outcome_transit_not_leaving_airport) { country_group_datv.include?(passport_country) }
           next_node_if(:outcome_no_visa_needed) { country_group_visa_national.include?(passport_country) }

@@ -1175,7 +1175,7 @@
   - venezuela
   - transit
   - 'yes'
-  :next_node: :outcome_visit_waiver
+  :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
 - :current_node: :planning_to_leave_airport?
   :responses:
