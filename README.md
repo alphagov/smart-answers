@@ -42,10 +42,6 @@ To view a smart answer locally if running using bowler http://smartanswers.dev.g
 
 If you have a URL of a Smart answer and want to debug the state of it i.e. to see PhraseList keys, saved inputs, the outcome name, append `debug=1` query parameter to the URL in development mode. This will render debug information on the Smart answer page.
 
-### Viewing a Smart Answer as Govspeak
-
-Seeing [Govspeak](https://github.com/alphagov/govspeak) markup of Smart Answer pages can be useful to content designers when preparing content change requests or developers inspecting generated Govspeak that later gets translated to HTML. This feature can be enabled by setting `EXPOSE_GOVSPEAK` to a non-empty value. It can be accessed by appending `.txt` to URLs (currently govspeak is available for landing and outcome pages, but not question pages).
-
 ## Testing
 
 Run all tests by executing the following:
@@ -63,4 +59,6 @@ Run all tests by executing the following:
   * [Issues and Todo](https://github.com/alphagov/smart-answers/issues)
   * [Rubocop](doc/rubocop.md)
   * [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
+* Debugging
+  * [Viewing landing pages and outcomes as Govspeak](doc/viewing-templates-as-govspeak.md)
   * [Visualising flows](doc/visualising-flows.md)
