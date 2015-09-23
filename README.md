@@ -65,7 +65,7 @@ __NOTE.__ This assumes you already have Graphviz installed. You can install it u
 
 ## Testing
 
-Run unit tests by executing the following:
+Run all tests by executing the following:
 
     bundle exec rake
 
