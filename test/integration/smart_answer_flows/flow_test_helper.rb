@@ -64,14 +64,4 @@ module FlowTestHelper
     message += "Unexpected keys: #{unexpected_keys}" if unexpected_keys.present?
     assert_equal expected_keys, phrase_list.phrase_keys, message
   end
-
-  def assert_phrase_lists_include(expected_key)
-    phrase_lits = current_state.to_h.select { |key, value| value.is_a?(::SmartAnswer::PhraseList) }
-    all_keys = phrase_lits.values.flat_map(&:phrase_keys).map(&:to_sym)
-    message = "Expected any phrase list to include '#{expected_key}', but it's not\n"
-    phrase_lits.each do |name, list|
-      message += "#{name}: #{list.phrase_keys}\n"
-    end
-    assert all_keys.include?(expected_key.to_sym), message
-  end
 end
