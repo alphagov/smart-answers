@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 include ActionView::Helpers::NumberHelper
 
 module SmartAnswer::Calculators
