@@ -19,7 +19,7 @@ lib/smart_answer_flows/maternity-paternity-calculator/paternity_leave_and_pay.go
 lib/smart_answer_flows/maternity-paternity-calculator/paternity_not_entitled_to_leave_or_pay.govspeak.erb: 6909d514cd992d94400407ded6f4a024
 lib/smart_answer_flows/shared_logic/adoption-calculator.rb: 31fea84aa6bd02faab067fc71b51d3f8
 lib/smart_answer_flows/shared_logic/maternity-calculator.rb: ba8f0933b8c424f489661a083071fd47
-lib/smart_answer_flows/shared_logic/paternity-calculator.rb: b417fbe2fca752d75838fa64c2651591
+lib/smart_answer_flows/shared_logic/paternity-calculator.rb: d4872f2b383a9d8ea42fe7b338a62539
 lib/smart_answer/calculators/maternity_paternity_calculator.rb: 24de99189c23e9a7cc048871a817bb3c
 lib/data/rates/maternity_paternity_birth.yml: 3eef956f1020576a9343647fec34dd01
 lib/data/rates/maternity_paternity_adoption.yml: 453c4d90b6fd9ffe1556782665f313fc

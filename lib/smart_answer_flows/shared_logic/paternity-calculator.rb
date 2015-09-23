@@ -203,7 +203,7 @@ multiple_choice :employee_paternity_length? do
 
   calculate :leave_end_date do |response|
     calculator.paternity_leave_duration = response
-    calculator.pay_end_date + 1
+    calculator.pay_end_date
   end
 
   next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'yes') &

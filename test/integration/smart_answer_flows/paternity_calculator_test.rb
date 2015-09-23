@@ -117,7 +117,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                           #QP10
                           should "ask last normal pay day" do
                             assert_current_node :last_normal_payday_paternity?
-                            assert_state_variable :leave_end_date, Date.parse("19 June 2013")
+                            assert_state_variable :leave_end_date, Date.parse("18 June 2013")
                           end
 
                           context "answer 2 March 2013" do
