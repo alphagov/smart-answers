@@ -15,6 +15,12 @@ class GraphPresenter
         node.next_node_function_chain.each do |(nextnode, predicates)|
           adjacency_list[node.name] << [nextnode, predicates.map(&:label).compact.join(" AND\n")]
         end
+        node.permitted_next_nodes.each do |permitted_next_node|
+          existing_next_nodes = adjacency_list[node.name].map(&:first)
+          unless existing_next_nodes.include?(permitted_next_node)
+            adjacency_list[node.name] << [permitted_next_node, '']
+          end
+        end
       end
       @flow.outcomes.each do |node|
         adjacency_list[node.name] = []

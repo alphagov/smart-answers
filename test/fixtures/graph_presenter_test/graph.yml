@@ -8,5 +8,10 @@ en-GB:
       q1?:
         title: "What is the answer to q1?"
 
-      done:
-        title: "Done"
+      q2?:
+        title: "What is the answer to q2?"
+
+      done_a:
+        title: "Done A"
+      done_b:
+        title: "Done B"
