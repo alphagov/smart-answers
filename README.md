@@ -15,7 +15,7 @@ This application supports two styles of writing and executing smart answers:
 
 For more information, please go to the [Ruby SmartAnswer README](doc/smart-answer-flows.md)
 
-### Smartdown-based smart answer flows
+### DEPRECATED: Smartdown-based smart answer flows
 
 For more information, please go to the [Smartdown SmartAnswer README](doc/smartdown-flows.md)
 
