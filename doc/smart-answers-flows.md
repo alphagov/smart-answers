@@ -209,34 +209,6 @@ This is essentially some syntactic sugar on top of the predicate logic.
 
 The ERB outcome templates live in `lib/smart_answer_flows/<flow-name>/<outcome-name>.govspeak.erb`.
 
-##### Indentation
-
-Since all the content in the ERB templates is within one or other `content_for` blocks, we've chosen not to indent the outer level of ERB tags within the blocks.
-
-Content within ERB tags should be indented at the appropriate level - leading spaces are stripped before the content is processed by Govspeak.
-
-###### Correct indentation example
-
-    <% content_for :body do %>
-    <% if foo %>
-      Foo text
-      <% if bar %>
-        Bar text
-      <% end %>
-    <% end %>
-    <% end %>
-
-###### Incorrect indentation example
-
-    <% content_for :body do %>
-      <% if foo %>
-    Foo text
-        <% if bar %>
-    Bar text
-        <% end %>
-      <% end %>
-    <% end %>
-
 ## Testing Smart Answers
 
 You used to need to use nested contexts/tests in order to test Ruby/YAML Smart Answers. This is no longer needed, feel free to flatten tests that are too deeply nested.
