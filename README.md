@@ -13,7 +13,7 @@ This application supports two styles of writing and executing smart answers:
 
 ### Ruby and YAML-based smart answer flows
 
-For more information, please go to the [Ruby/YAML SmartAnswer README](lib/smart_answer_flows/README.md)
+For more information, please go to the [Ruby/YAML SmartAnswer README](doc/smart-answer-flows.md)
 
 ### Smartdown-based smart answer flows
 
