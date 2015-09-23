@@ -1,10 +1,27 @@
-# Ruby/YAML Smart Answers
+# Ruby Smart Answers
 
-README for Ruby and YAML-based smart answer flows
+## File structure
 
-Smart answer flows are stored in `lib/smart_answer_flows/*.rb`. Corresponding text is in
-`lib/smart_answer_flows/locales/*.yml`.
-The code responsible for executing the flow of those questions is in the `lib` folder of this project.
+This is an overview of the components that make up a single Smart Answer.
+
+* lib/
+  * smart_answer/
+    * calculators/
+      * _calculator-name_.rb (__Optional: Object encapsulating business logic for the flow__)
+  * smart_answer_flows/
+    * locales/
+      * en/
+        * _flow-name_.yml (__Optional: Data used to build questions e.g. question and option text__)
+    * _flow-name_.rb (__Required: Flow and question logic__)
+    * _flow-name_/
+      * _flow-name_.govspeak.erb (__Optional: Content for the landing page__)
+      * _outcome-name_.govspeak.erb (__Optional: Content for each outcome page__)
+      * __partial-name_.govspeak.erb (__Optional: Useful when you need to share content between outcome templates__)
+    * shared/
+      * _shared-directory-name_/
+        * __partial-name_.govspeak.erb (__Optional: Useful when you need to share content between Smart Answers__)
+    * shared_logic/
+      * _shared-logic-name_.rb (__Optional: Useful when you need to share flow and question logic between Smart Answers__)
 
 ## Smart answer syntax
 
