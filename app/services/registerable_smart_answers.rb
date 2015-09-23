@@ -1,22 +1,20 @@
 class RegisterableSmartAnswers
   def unique_registerables
-    # Picks smartdown of smart_answer for any dupe keys, same as routing behaviour
-    smart_answer_registrables.merge(smartdown_registrables).values
+    smart_answer_registrables + smartdown_registrables
   end
 
 private
 
   def smart_answer_registrables
     flow_registry = SmartAnswer::FlowRegistry.new(FLOW_REGISTRY_OPTIONS)
-
-    Hash[flow_registry.flows.collect { |flow|
-      [flow.name, FlowRegistrationPresenter.new(flow)]
-    }]
+    flow_registry.flows.map do |flow|
+      FlowRegistrationPresenter.new(flow)
+    end
   end
 
   def smartdown_registrables
-    Hash[SmartdownAdapter::Registry.instance.flows.collect { |flow|
-      [flow.name, SmartdownAdapter::FlowRegistrationPresenter.new(flow)]
-    }]
+    SmartdownAdapter::Registry.instance.flows.map do |flow|
+      SmartdownAdapter::FlowRegistrationPresenter.new(flow)
+    end
   end
 end
