@@ -1,4 +1,6 @@
 class DateQuestionPresenter < QuestionPresenter
+  delegate [:default_day, :default_month, :default_year] => :@node
+
   def response_label(value)
     I18n.localize(value, format: :long)
   end
