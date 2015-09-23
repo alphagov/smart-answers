@@ -1,6 +1,7 @@
 module SmartAnswer
   class CalculateYourHolidayEntitlementFlow < Flow
     def define
+      content_id "deedf6f8-389b-4b34-a5b1-faa9ef909a70"
       name 'calculate-your-holiday-entitlement'
       status :published
       satisfies_need "100143"

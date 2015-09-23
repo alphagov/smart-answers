@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/inherits-someone-dies-without-will.rb: 007d7e9809cdc82048e9b752a06464fe
+lib/smart_answer_flows/inherits-someone-dies-without-will.rb: 9aa3d7ab45969c37401bf1cb5e341d6d
 lib/smart_answer_flows/locales/en/inherits-someone-dies-without-will.yml: 2de30f10cf713318638ef7cb8e7067b8
 test/data/inherits-someone-dies-without-will-questions-and-responses.yml: e2e1ed6d7bb7c839f6ae34db9697dbbd
 test/data/inherits-someone-dies-without-will-responses-and-expected-results.yml: df21c3f65db333e619238f3baa3e9859

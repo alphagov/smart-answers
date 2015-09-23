@@ -1,6 +1,7 @@
 module SmartAnswer
   class CalculateYourChildMaintenanceFlow < Flow
     def define
+      content_id "42c2e944-7977-4297-b142-aa9406756dd2"
       name 'calculate-your-child-maintenance'
       status :published
       satisfies_need "100147"
