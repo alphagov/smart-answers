@@ -7,6 +7,7 @@ en-GB:
         options:
           "2014-2015": "Between September 2014 and August 2015"
           "2015-2016": "Between September 2015 and August 2016"
+          "2016-2017": "Between September 2016 and August 2017"
 
 
 #Q2
@@ -35,7 +36,7 @@ en-GB:
 #Q5
       whats_your_household_income?:
         title: What's your annual household income?
-        hint: This is your parents’ or partner’s gross (pre-tax) income plus your own. It affects how much Maintenance Loan and Maintenance Grant (help with living costs) you get.
+        hint: This is your parents’ or partner’s gross (pre-tax) income plus your own. It affects how much help with living costs you'll get.
         error_message: Enter a number - don’t use the £ sign.
 
 #Q6a

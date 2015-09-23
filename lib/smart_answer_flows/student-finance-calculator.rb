@@ -5,23 +5,11 @@ module SmartAnswer
       status :published
       satisfies_need "100133"
 
-      max_maintainence_loan_amounts = {
-        "2014-2015" => {
-          "at-home" => 4418,
-          "away-outside-london" => 5555,
-          "away-in-london" => 7751
-        },
-        "2015-2016" => {
-          "at-home" => 4565,
-          "away-outside-london" => 5740,
-          "away-in-london" => 8009
-        }
-      }
-
       #Q1
       multiple_choice :when_does_your_course_start? do
         option :"2014-2015"
         option :"2015-2016"
+        option :"2016-2017"
 
         save_input_as :start_date
         next_node :what_type_of_student_are_you?
@@ -68,54 +56,27 @@ module SmartAnswer
         option :'away-outside-london'
         option :'away-in-london'
 
-        calculate :max_maintenance_loan_amount do |response|
-          begin
-            Money.new(max_maintainence_loan_amounts[start_date][response].to_s)
-          rescue
-            raise SmartAnswer::InvalidResponse
-          end
-        end
-
         save_input_as :where_living
         next_node :whats_your_household_income?
       end
 
       #Q5
       money_question :whats_your_household_income? do
+        calculate :calculator do |response|
+          SmartAnswer::Calculators::StudentFinanceCalculator.new(
+            course_start: start_date,
+            household_income: response,
+            residence: where_living
+          )
+        end
 
-        calculate :maintenance_grant_amount do |response|
-          household_income = response
-          # 2015-16 rates are the same as 2014-15:
-          # max of £3,387 for income up to £25,000 then,
-          # £1 less than max for each whole £5.28 above £25000 up to £42,611
-          # min grant is £50 for income = £42,620
-          # no grant for  income above £42,620
-          if household_income <= 25000
-            Money.new('3387')
-          else
-            if household_income > 42620
-              Money.new('0')
-            else
-              Money.new(3387 - ((household_income - 25000) / 5.28).floor)
-            end
-          end
+        calculate :maintenance_grant_amount do
+          calculator.maintenance_grant_amount
         end
 
         # loan amount depends on maintenance grant amount and household income
-        calculate :maintenance_loan_amount do |response|
-          if response <= 42875
-            # reduce maintenance loan by £0.5 for each £1 of maintenance grant
-            Money.new ( max_maintenance_loan_amount - (maintenance_grant_amount.value / 2.0).floor)
-          else
-            # reduce maintenance loan by £1 for each full £9.90 of income above £42875 until loan reaches 65% of max, when no further reduction applies
-            min_loan_amount = (0.65 * max_maintenance_loan_amount.value).floor # to match the reference table
-            reduced_loan_amount = max_maintenance_loan_amount - ((response - 42875) / 9.59).floor
-            if reduced_loan_amount > min_loan_amount
-              Money.new (reduced_loan_amount)
-            else
-              Money.new (min_loan_amount)
-            end
-          end
+        calculate :maintenance_loan_amount do
+          calculator.maintenance_loan_amount
         end
 
         next_node :do_any_of_the_following_apply_uk_full_time_students_only?
