@@ -109,6 +109,7 @@ The flow below illustrates the data available to the different Question node met
 * `date_question` - choose a single date
 * `money_question` - enter a money amount. The response is converted to a `Money` object.
 * `multiple_choice` - choose a single value from a list of values. Response is a string.
+* `postcode_question` - enter a postcode. Response is checked for validity and returned as a normalised string.
 * `salary_question` - enter a salary as either a weekly or monthly money amount. Coverted to a `Salary` object.
 * `value_question` - enter a single string value (free text)
 
