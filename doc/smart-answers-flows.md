@@ -104,13 +104,13 @@ The flow below illustrates the data available to the different Question node met
 
 ### Question types
 
-* `multiple_choice` - choose a single value from a list of values. Response is a string.
 * `checkbox_question` - choose multiple values from a list of values. Response is a list.
 * `country_select` - choose a single country.
 * `date_question` - choose a single date
-* `value_question` - enter a single string value (free text)
 * `money_question` - enter a money amount. The response is converted to a `Money` object.
+* `multiple_choice` - choose a single value from a list of values. Response is a string.
 * `salary_question` - enter a salary as either a weekly or monthly money amount. Coverted to a `Salary` object.
+* `value_question` - enter a single string value (free text)
 
 ### Defining next node rules
 
