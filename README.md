@@ -6,12 +6,6 @@
 
 Read more in [a blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
-## Testing
-
-Run all tests by executing the following:
-
-    bundle exec rake
-
 ## Table of Contents
 
 * Types of Smart Answer
@@ -26,6 +20,7 @@ Run all tests by executing the following:
   * [Developing using the VM](doc/developing-using-vm.md)
   * [Issues and Todo](https://github.com/alphagov/smart-answers/issues)
   * [Rubocop](doc/rubocop.md)
+  * [Testing](doc/testing.md)
   * [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
 * Debugging
   * [Viewing landing pages and outcomes as Govspeak](doc/viewing-templates-as-govspeak.md)
