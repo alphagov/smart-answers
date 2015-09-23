@@ -180,10 +180,6 @@ Once deployed you'll need to use the standard `git push` mechanism to deploy you
 
     ./startup_heroku.sh
 
-### Alternatives
-
-If you can not deploy on Heroku, it is possible to use the now deprecated [V2 workflow](https://github.com/alphagov/smart-answers/blob/38f48bdd77f3a9f1c6319c6ab76149fa8dc8e909/README.md#making-bigger-changes).
-
 ## Merging a pull request from the Content Team
 
 ### Introduction
