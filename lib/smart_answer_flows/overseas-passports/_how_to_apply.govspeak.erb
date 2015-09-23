@@ -13,6 +13,10 @@
     4. Check which supporting documents you must submit with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
   <% end %>
 
+  <% if %w(bangladesh india pakistan).include?(current_location) && child_or_adult == 'child' && application_action == 'applying' %>
+    5. Fill in the [parent contact details form](/government/publications/parents-contact-details-for-a-childs-first-british-passport) if either of the child's parents live in a different country to the child.
+  <% end %>
+
   <% if %w(pakistan).include?(current_location) %>
     5. You should fill in the [Applying for a passport from Pakistan form](https://www.gov.uk/government/publications/applying-for-a-passport-from-pakistan) if you are submitting supporting documents from the UK.
   <% end %>
