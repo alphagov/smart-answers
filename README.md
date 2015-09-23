@@ -6,26 +6,6 @@
 
 Read more in [a blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
-## Developing
-
-### Installing and running
-
-NB: this assumes you are running on the GOV.UK virtual machine, not your host.
-
-```bash
-./install # git fetch from each dependency dir and bundle install
-```
-
-Run using bowler on VM from cd /var/govuk/development:
-
-```bash
-bowl smartanswers
-```
-
-### Viewing a Smart Answer
-
-To view a smart answer locally if running using bowler http://smartanswers.dev.gov.uk/register-a-birth
-
 ## Testing
 
 Run all tests by executing the following:
@@ -43,6 +23,7 @@ Run all tests by executing the following:
   * [Merging pull requests from the content team](doc/merging-content-prs.md)
 * Development
   * Adding [content-ids](doc/content-ids.md) to Smart Answers.
+  * [Developing using the VM](doc/developing-using-vm.md)
   * [Issues and Todo](https://github.com/alphagov/smart-answers/issues)
   * [Rubocop](doc/rubocop.md)
   * [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
