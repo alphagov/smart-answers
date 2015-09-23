@@ -11,9 +11,9 @@ Have a look at
 
 This application supports two styles of writing and executing smart answers:
 
-### Ruby and YAML-based smart answer flows
+### Ruby smart answer flows
 
-For more information, please go to the [Ruby/YAML SmartAnswer README](doc/smart-answer-flows.md)
+For more information, please go to the [Ruby SmartAnswer README](doc/smart-answer-flows.md)
 
 ### Smartdown-based smart answer flows
 
