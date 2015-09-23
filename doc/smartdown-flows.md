@@ -1,4 +1,6 @@
-# Smartdown Smart Answers
+# DEPRECATED: Smartdown Smart Answers
+
+**Smartdown flows have been deprecated. This is here for reference until we get rid of them completely.**
 
 Smartdown flows are stored in `lib/smartdown_flows`.
 
