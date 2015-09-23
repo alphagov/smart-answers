@@ -9,16 +9,6 @@ Read more in [a blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-
 Have a look at
 [`test/unit/flow_test.rb`](test/unit/flow_test.rb) for example usage.
 
-This application supports two styles of writing and executing smart answers:
-
-### Ruby smart answer flows
-
-For more information, please go to the [Ruby SmartAnswer README](doc/smart-answer-flows.md)
-
-### DEPRECATED: Smartdown-based smart answer flows
-
-For more information, please go to the [Smartdown SmartAnswer README](doc/smartdown-flows.md)
-
 ## Developing
 
 ### Installing and running
@@ -46,6 +36,9 @@ Run all tests by executing the following:
 
 ## Table of Contents
 
+* Types of Smart Answer
+  * [Ruby](doc/smart-answer-flows.md)
+  * [Smartdown](doc/smartdown-flows.md) (__DEPRECATED__)
 * Process
   * [Archiving a Smart Answer](doc/archiving.md)
   * [Deploying changes for Factcheck](doc/factcheck.md)
