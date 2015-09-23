@@ -1,4 +1,10 @@
 class QuestionPresenter < NodePresenter
+  def translate_and_render(subkey, html: true)
+    markup = translate!(subkey)
+    return unless markup
+    html ? GovspeakPresenter.new(markup.strip).html : markup
+  end
+
   def title
     translate!('title') || @node.name.to_s.humanize
   end

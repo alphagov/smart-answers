@@ -17,12 +17,6 @@ class NodePresenter
     nil
   end
 
-  def translate_and_render(subkey, html: true)
-    markup = translate!(subkey)
-    return unless markup
-    html ? GovspeakPresenter.new(markup.strip).html : markup
-  end
-
   def state_for_interpolation(nested = false)
     Hash[@state.to_hash.map { |k, v| [k, value_for_interpolation(v, nested)] }]
   end
