@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
@@ -49,7 +48,7 @@ module SmartAnswer::Calculators
         assert_equal @calculator.daily_rate_from_weekly(@weekly_rate, @days_worked.length), 0.0
       end
     end
-    
+
     context "prev_sick_days is 5, M-F, 7 days out" do
       setup do
         @start_date = Date.parse("1 October 2012")

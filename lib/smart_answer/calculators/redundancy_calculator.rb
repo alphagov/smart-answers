@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-include ActionView::Helpers::NumberHelper
-
 module SmartAnswer::Calculators
   class RedundancyCalculator
+    extend ActionView::Helpers::NumberHelper
+
     attr_reader :pay, :number_of_weeks_entitlement
 
     def initialize(rate, age, years, weekly_pay)
