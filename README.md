@@ -79,21 +79,6 @@ If you need to add/update a worldwide organisations fixture, run the following c
 
     $ rails r script/update-worldwide-location-organisations.rb <location-slug>
 
-### Testing Smartdown flows
-
-Smartdown flows are tested using [scenarios][smartdown-scenarios] in the flow directories.
-
-Test all Smartdown flows by running:
-
-    bundle exec ruby -Itest test/unit/smartdown_content/smartdown_scenarios_test.rb
-
-Test a single Smartdown flow by running:
-
-     SMARTDOWN_FLOW_TO_TEST=<name-of-smartdown-flow> \
-     bundle exec ruby -Itest test/unit/smartdown_content/smartdown_scenarios_test.rb
-
-[smartdown-scenarios]: https://github.com/alphagov/smartdown/blob/master/doc/scenarios.md
-
 ### Adding regression tests to Smart Answers
 
 1. Update the flow to replace any single line conditionals around `Phraselist`s with multiple line conditionals. This is so that we get useful information from the running the coverage utility. Single line conditionals will show up as having been exercised irrespective of whether they caused something to be added to the `Phraselist`.
