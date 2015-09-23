@@ -16,7 +16,7 @@ Have a look at
 NB: this assumes you are running on the GOV.UK virtual machine, not your host.
 
 ```bash
-  ./install # git fetch from each dependency dir and bundle install
+./install # git fetch from each dependency dir and bundle install
 ```
 
 Run using bowler on VM from cd /var/govuk/development:
