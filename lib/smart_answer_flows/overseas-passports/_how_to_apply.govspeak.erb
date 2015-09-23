@@ -4,14 +4,7 @@
   1. Download the application form.
   2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
   3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
-  <% case ips_number %>
-  <% when '1' %>
-    4. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
-  <% when '2' %>
-    4. Check which supporting documents you must include with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
-  <% when '3' %>
-    4. Check which supporting documents you must submit with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
-  <% end %>
+  4. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
   <% if %w(bangladesh india pakistan).include?(current_location) && child_or_adult == 'child' && application_action == 'applying' %>
     5. Fill in the [parent contact details form](/government/publications/parents-contact-details-for-a-childs-first-british-passport) if either of the child's parents live in a different country to the child.
