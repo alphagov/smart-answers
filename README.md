@@ -38,10 +38,6 @@ bowl smartanswers
 
 To view a smart answer locally if running using bowler http://smartanswers.dev.gov.uk/register-a-birth
 
-### Debugging current state
-
-If you have a URL of a Smart answer and want to debug the state of it i.e. to see PhraseList keys, saved inputs, the outcome name, append `debug=1` query parameter to the URL in development mode. This will render debug information on the Smart answer page.
-
 ## Testing
 
 Run all tests by executing the following:
@@ -61,4 +57,5 @@ Run all tests by executing the following:
   * [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
 * Debugging
   * [Viewing landing pages and outcomes as Govspeak](doc/viewing-templates-as-govspeak.md)
+  * [Viewing state of a Smart Answer](doc/viewing-state.md)
   * [Visualising flows](doc/visualising-flows.md)
