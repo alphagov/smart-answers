@@ -3,7 +3,7 @@ lib/smart_answer_flows/report-a-lost-or-stolen-passport.rb: 8313ba13aa54c9403dcc
 lib/smart_answer_flows/locales/en/report-a-lost-or-stolen-passport.yml: 8bb218f43294aa0267418047f18038a6
 test/data/report-a-lost-or-stolen-passport-questions-and-responses.yml: cb7d64407b737eeb4924389f3bd335c6
 test/data/report-a-lost-or-stolen-passport-responses-and-expected-results.yml: 2ef8837f76907e72aadb198636a62078
-lib/smart_answer_flows/report-a-lost-or-stolen-passport/complete_LS01_form.govspeak.erb: 225db51aaf197cf33716eef922e77a1d
+lib/smart_answer_flows/report-a-lost-or-stolen-passport/complete_LS01_form.govspeak.erb: 558860c7ddf7b7612af2bf793767f7dc
 lib/smart_answer_flows/report-a-lost-or-stolen-passport/contact_the_embassy.govspeak.erb: a069cd49c208407a70a322e7d7f6bfb5
 lib/smart_answer_flows/report-a-lost-or-stolen-passport/contact_the_embassy_canada.govspeak.erb: edd49b8ac49001f81675874441498014
 lib/smart_answer_flows/report-a-lost-or-stolen-passport/report_a_lost_or_stolen_passport.govspeak.erb: 8b6ee3c09cf7e1a48ed562bedf2af14f
