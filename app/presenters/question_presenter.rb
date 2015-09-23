@@ -55,6 +55,15 @@ class QuestionPresenter < NodePresenter
     end
   end
 
+  def translate_option(option)
+    translate!("options.#{option}") ||
+    begin
+      I18n.translate!("#{@i18n_prefix}.options.#{option}", @state.to_hash)
+    rescue I18n::MissingTranslationData
+      option
+    end
+  end
+
   def to_response(input)
     @node.to_response(input)
   end

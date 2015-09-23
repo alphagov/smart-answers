@@ -51,15 +51,6 @@ class NodePresenter
     end
   end
 
-  def translate_option(option)
-    translate!("options.#{option}") ||
-    begin
-      I18n.translate!("#{@i18n_prefix}.options.#{option}", @state.to_hash)
-    rescue I18n::MissingTranslationData
-      option
-    end
-  end
-
   def method_missing(method, *args)
     if @node.respond_to?(method)
       @node.send(method, *args)
