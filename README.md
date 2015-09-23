@@ -17,7 +17,7 @@ For more information, please go to the [Ruby/YAML SmartAnswer README](doc/smart-
 
 ### Smartdown-based smart answer flows
 
-For more information, please go to the [Smartdown SmartAnswer README](lib/smartdown_flows/README.md)
+For more information, please go to the [Smartdown SmartAnswer README](doc/smartdown-flows.md)
 
 ### Switching from one style to another
 
