@@ -1,19 +1,30 @@
-# Smartdown Smart Answers
+# DEPRECATED: Smartdown Smart Answers
+
+**Smartdown flows have been deprecated. This is here for reference until we get rid of them completely.**
 
 Smartdown flows are stored in `lib/smartdown_flows`.
 
 The code responsible for executing the flow of those questions is in the [smartdown gem](https://github.com/alphagov/smartdown).
 
-## Smartdown scenarios check
+### Testing Smartdown flows
 
-A smartdown content test has been created to run through the test scenarios on all Smartdown questions and ensure they still pass.
-To run only that test, use the command:
+Smartdown flows are tested using [scenarios][smartdown-scenarios] in the flow directories.
 
-```rake test TEST=test/unit/smartdown_content/smartdown_scenarios_test.rb```
+These tests go through all the scenarios defined for the Smartdown Smart Answer and:
 
-For every smartdown flow, this goes through all the scenarios defined for them and:
 - checks each set of questions has been asked in the right order
 - checks the right outcome has been reached given the answers
+
+Test all Smartdown flows by running:
+
+    bundle exec ruby -Itest test/unit/smartdown_content/smartdown_scenarios_test.rb
+
+Test a single Smartdown flow by running:
+
+     SMARTDOWN_FLOW_TO_TEST=<name-of-smartdown-flow> \
+     bundle exec ruby -Itest test/unit/smartdown_content/smartdown_scenarios_test.rb
+
+[smartdown-scenarios]: https://github.com/alphagov/smartdown/blob/master/doc/scenarios.md
 
 ## Pay and leave for parents
 
