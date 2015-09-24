@@ -216,7 +216,7 @@ This is how we should be writing integration tests for Smart Answer flows.
     end
 
 
-#### Bad: A test using nested contexts
+#### DEPRECATED: A test using nested contexts
 
 This is how we were previously writing integration tests for Smart Answer flows.
 
