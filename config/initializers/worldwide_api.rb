@@ -5,5 +5,5 @@ require 'gds_api/worldwide'
 if Rails.env.development?
   $worldwide_api = GdsApi::Worldwide.new("https://www.gov.uk")
 else
-  $worldwide_api = GdsApi::Worldwide.new(Plek.current.find('whitehall-admin'))
+  $worldwide_api = GdsApi::Worldwide.new(Plek.new.find('whitehall-admin'))
 end
