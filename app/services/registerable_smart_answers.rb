@@ -1,5 +1,5 @@
 class RegisterableSmartAnswers
-  def unique_registerables
+  def flow_presenters
     smart_answer_registrables + smartdown_registrables
   end
 

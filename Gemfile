@@ -33,6 +33,8 @@ else
   gem 'gds-api-adapters', '~> 24.4.0'
 end
 
+gem 'govuk-content-schema-test-helpers', '~> 1.3.0'
+
 gem 'htmlentities', '~> 4'
 
 gem 'extlib', '0.9.16'
