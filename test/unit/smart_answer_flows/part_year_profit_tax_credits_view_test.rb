@@ -171,7 +171,7 @@ module SmartAnswer
           stopped_trading_on: nil
         }
         @calculator = stub('calculator', calculator_options)
-        @calculator.responds_like_instance_of(Calculators::PartYearProfitCalculator)
+        @calculator.responds_like_instance_of(Calculators::PartYearProfitTaxCreditsCalculator)
         @state = SmartAnswer::State.new(@outcome)
         @state.calculator = @calculator
       end

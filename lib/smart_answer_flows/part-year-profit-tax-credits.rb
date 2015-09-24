@@ -7,11 +7,11 @@ module SmartAnswer
       satisfies_need "103438"
 
       date_question :when_did_your_tax_credits_award_end? do
-        from { Calculators::PartYearProfitCalculator::TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE }
-        to   { Calculators::PartYearProfitCalculator::TAX_CREDITS_AWARD_ENDS_LATEST_DATE }
+        from { Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE }
+        to   { Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_LATEST_DATE }
 
         next_node_calculation :calculator do
-          Calculators::PartYearProfitCalculator.new
+          Calculators::PartYearProfitTaxCreditsCalculator.new
         end
 
         next_node do |response|
@@ -60,8 +60,8 @@ module SmartAnswer
       end
 
       date_question :when_did_you_stop_trading? do
-        from { Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_EARLIEST_DATE }
-        to   { Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_LATEST_DATE }
+        from { Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_EARLIEST_DATE }
+        to   { Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_LATEST_DATE }
 
         precalculate(:tax_year_begins_on) { calculator.tax_year.begins_on }
         precalculate(:tax_year_ends_on)   { calculator.tax_year.ends_on }
@@ -92,8 +92,8 @@ module SmartAnswer
       end
 
       date_question :when_did_you_start_trading? do
-        from { Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_EARLIEST_DATE }
-        to   { Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_LATEST_DATE }
+        from { Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_EARLIEST_DATE }
+        to   { Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_LATEST_DATE }
 
         precalculate(:award_period_ends_on) { calculator.award_period.ends_on }
 

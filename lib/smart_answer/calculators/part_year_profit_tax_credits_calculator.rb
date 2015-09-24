@@ -1,6 +1,6 @@
 module SmartAnswer
   module Calculators
-    class PartYearProfitCalculator
+    class PartYearProfitTaxCreditsCalculator
       include ActiveModel::Model
 
       TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE = Date.parse('2015-01-01')

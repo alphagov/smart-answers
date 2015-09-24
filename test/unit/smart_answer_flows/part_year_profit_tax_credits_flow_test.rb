@@ -5,7 +5,7 @@ require 'smart_answer_flows/part-year-profit-tax-credits'
 module SmartAnswer
   class PartYearProfitTaxCreditsFlowTest < ActiveSupport::TestCase
     setup do
-      @calculator = Calculators::PartYearProfitCalculator.new
+      @calculator = Calculators::PartYearProfitTaxCreditsCalculator.new
       @flow = PartYearProfitTaxCreditsFlow.build
     end
 
@@ -15,7 +15,7 @@ module SmartAnswer
 
     context 'when answering when_did_your_tax_credits_award_end? question' do
       setup do
-        Calculators::PartYearProfitCalculator.stubs(:new).returns(@calculator)
+        Calculators::PartYearProfitTaxCreditsCalculator.stubs(:new).returns(@calculator)
         setup_states_for_question(:when_did_your_tax_credits_award_end?, responding_with: '2016-02-20')
       end
 
@@ -24,12 +24,12 @@ module SmartAnswer
       end
 
       should 'set the from date of the date select to the constant defined in the calculator' do
-        expected = Calculators::PartYearProfitCalculator::TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE
+        expected = Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE
         assert_equal expected, @question.range.begin
       end
 
       should 'set the to date of the date select to the constant defined in the calculator' do
-        expected = Calculators::PartYearProfitCalculator::TAX_CREDITS_AWARD_ENDS_LATEST_DATE
+        expected = Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_LATEST_DATE
         assert_equal expected, @question.range.end
       end
 
@@ -135,12 +135,12 @@ module SmartAnswer
       end
 
       should 'set the from date of the date select to constant defined in the calculator' do
-        expected = Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_EARLIEST_DATE
+        expected = Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_EARLIEST_DATE
         assert_equal expected, @question.range.begin
       end
 
       should 'set the to date of the date select to the constant defined in the calculator' do
-        expected = Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_LATEST_DATE
+        expected = Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_LATEST_DATE
         assert_equal expected, @question.range.end
       end
 
@@ -198,12 +198,12 @@ module SmartAnswer
       end
 
       should 'set the from date of the date select to the constant defined in the calculator' do
-        expected = Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_EARLIEST_DATE
+        expected = Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_EARLIEST_DATE
         assert_equal expected, @question.range.begin
       end
 
       should 'set the to date of the date select to the constant defined in the calculator' do
-        expected = Calculators::PartYearProfitCalculator::START_OR_STOP_TRADING_LATEST_DATE
+        expected = Calculators::PartYearProfitTaxCreditsCalculator::START_OR_STOP_TRADING_LATEST_DATE
         assert_equal expected, @question.range.end
       end
 

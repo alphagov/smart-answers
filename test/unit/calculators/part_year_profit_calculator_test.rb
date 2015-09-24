@@ -2,10 +2,10 @@ require_relative "../../test_helper"
 
 module SmartAnswer
   module Calculators
-    class PartYearProfitCalculatorTest < ActiveSupport::TestCase
+    class PartYearProfitTaxCreditsCalculatorTest < ActiveSupport::TestCase
       context 'validation of stopped trading date' do
         setup do
-          @calculator = PartYearProfitCalculator.new
+          @calculator = PartYearProfitTaxCreditsCalculator.new
           @calculator.tax_credits_award_ends_on = Date.parse('2015-08-01')
         end
 
@@ -25,7 +25,7 @@ module SmartAnswer
 
       context 'validation of start trading date' do
         setup do
-          @calculator = PartYearProfitCalculator.new
+          @calculator = PartYearProfitTaxCreditsCalculator.new
         end
 
         context 'when the business is still trading' do
@@ -63,7 +63,7 @@ module SmartAnswer
       context 'tax year' do
         setup do
           @tax_credits_award_ends_on = Date.parse('2016-02-20')
-          @calculator = PartYearProfitCalculator.new(tax_credits_award_ends_on: @tax_credits_award_ends_on)
+          @calculator = PartYearProfitTaxCreditsCalculator.new(tax_credits_award_ends_on: @tax_credits_award_ends_on)
         end
 
         should 'calculate tax year in which tax credits award ends' do
@@ -75,7 +75,7 @@ module SmartAnswer
 
       context 'accounts end on' do
         setup do
-          @calculator = PartYearProfitCalculator.new(accounts_end_month_and_day: Date.parse('0000-06-30'))
+          @calculator = PartYearProfitTaxCreditsCalculator.new(accounts_end_month_and_day: Date.parse('0000-06-30'))
         end
 
         context 'when tax credits award ends in 2015-16 tax year' do
@@ -102,7 +102,7 @@ module SmartAnswer
       context 'basis period' do
         setup do
           @accounting_year = YearRange.new(begins_on: Date.parse('2015-01-01'))
-          @calculator = PartYearProfitCalculator.new
+          @calculator = PartYearProfitTaxCreditsCalculator.new
           @calculator.stubs(accounting_year: @accounting_year)
         end
 
@@ -119,7 +119,7 @@ module SmartAnswer
 
         context 'when the business commenced trading in the accounting year that ends in the tax year within which tax credits award ends' do
           setup do
-            @calculator = PartYearProfitCalculator.new
+            @calculator = PartYearProfitTaxCreditsCalculator.new
             @calculator.tax_credits_award_ends_on  = Date.parse('2016-02-01')
             @calculator.accounts_end_month_and_day = Date.parse('0000-04-05')
             @calculator.started_trading_on         = Date.parse('2015-05-01')
@@ -156,7 +156,7 @@ module SmartAnswer
       context 'accounting year' do
         setup do
           @accounts_end_on = Date.parse('2015-12-31')
-          @calculator = PartYearProfitCalculator.new
+          @calculator = PartYearProfitTaxCreditsCalculator.new
           @calculator.stubs(:accounting_year_end_date).returns(@accounts_end_on)
         end
 
@@ -172,7 +172,7 @@ module SmartAnswer
       context 'award period' do
         setup do
           @tax_credits_award_ends_on = Date.parse('2016-02-20')
-          @calculator = PartYearProfitCalculator.new(tax_credits_award_ends_on: @tax_credits_award_ends_on)
+          @calculator = PartYearProfitTaxCreditsCalculator.new(tax_credits_award_ends_on: @tax_credits_award_ends_on)
         end
 
         should 'begin at the beginning of the tax year in which the tax credits award ends' do
@@ -201,7 +201,7 @@ module SmartAnswer
           @number_of_days_in_basis_period = 366
           @taxable_profit = Money.new(15000)
           basis_period = stub('basis_period', number_of_days: @number_of_days_in_basis_period)
-          @calculator = PartYearProfitCalculator.new(taxable_profit: @taxable_profit)
+          @calculator = PartYearProfitTaxCreditsCalculator.new(taxable_profit: @taxable_profit)
           @calculator.stubs(:basis_period).returns(basis_period)
         end
 
@@ -217,7 +217,7 @@ module SmartAnswer
           @number_of_days_in_award_period = 321
           @profit_per_day = 40.98
           award_period = stub('award_period', number_of_days: @number_of_days_in_award_period)
-          @calculator = PartYearProfitCalculator.new
+          @calculator = PartYearProfitTaxCreditsCalculator.new
           @calculator.stubs(award_period: award_period, profit_per_day: @profit_per_day)
         end
 
@@ -233,7 +233,7 @@ module SmartAnswer
           @tax_year_begins_on = Date.parse('2015-04-06')
           @tax_credit_award_ends_on = Date.parse('2015-08-01')
           @award_period = DateRange.new(begins_on: @tax_year_begins_on, ends_on: @tax_credit_award_ends_on)
-          @calculator = PartYearProfitCalculator.new
+          @calculator = PartYearProfitTaxCreditsCalculator.new
           @calculator.stubs(award_period: @award_period)
         end
 

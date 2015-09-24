@@ -1,10 +1,10 @@
 require_relative "../../test_helper"
 
 module SmartAnswer
-  class PartYearProfitCalculatorTest < ActiveSupport::TestCase
+  class PartYearProfitTaxCreditsCalculatorTest < ActiveSupport::TestCase
     context 'tax credits finish in 2015/16 tax year for an ongoing business with accounting period aligned to the tax year' do
       setup do
-        @calculator = Calculators::PartYearProfitCalculator.new
+        @calculator = Calculators::PartYearProfitTaxCreditsCalculator.new
 
         @calculator.tax_credits_award_ends_on  = Date.parse('2015-08-01')
         @calculator.accounts_end_month_and_day = Date.parse('0000-04-05')
@@ -48,7 +48,7 @@ module SmartAnswer
 
     context 'tax credits finish in 2015/16 tax year for an ongoing business with accounting period aligned to the calendar year' do
       setup do
-        @calculator = Calculators::PartYearProfitCalculator.new
+        @calculator = Calculators::PartYearProfitTaxCreditsCalculator.new
 
         @calculator.tax_credits_award_ends_on  = Date.parse('2015-08-01')
         @calculator.accounts_end_month_and_day = Date.parse('0000-12-31')
@@ -92,7 +92,7 @@ module SmartAnswer
 
     context 'tax credits finish in 2015/16 tax year, business stops trading before the award date, business accounts align to tax year' do
       setup do
-        @calculator = Calculators::PartYearProfitCalculator.new
+        @calculator = Calculators::PartYearProfitTaxCreditsCalculator.new
 
         @calculator.tax_credits_award_ends_on  = Date.parse('2015-08-01')
         @calculator.stopped_trading_on         = Date.parse('2015-07-01')
@@ -131,7 +131,7 @@ module SmartAnswer
 
     context 'tax credits finish in 2015/16 tax year, business stops trading before the award date, business accounting date falls between start of tax year and stopped trading date' do
       setup do
-        @calculator = Calculators::PartYearProfitCalculator.new
+        @calculator = Calculators::PartYearProfitTaxCreditsCalculator.new
 
         @calculator.tax_credits_award_ends_on  = Date.parse('2015-08-01')
         @calculator.stopped_trading_on         = Date.parse('2015-07-01')
@@ -184,7 +184,7 @@ module SmartAnswer
 
     context 'tax credits finish in 2015/16 tax year, business stops trading before the award date, business accounting date falls between the stopped trading date and end of the tax year' do
       setup do
-        @calculator = Calculators::PartYearProfitCalculator.new
+        @calculator = Calculators::PartYearProfitTaxCreditsCalculator.new
 
         @calculator.tax_credits_award_ends_on  = Date.parse('2015-08-01')
         @calculator.stopped_trading_on         = Date.parse('2015-07-01')
