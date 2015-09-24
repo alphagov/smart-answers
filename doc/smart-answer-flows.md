@@ -167,7 +167,7 @@ The ERB outcome templates live in `lib/smart_answer_flows/<flow-name>/<outcome-n
 
 ## Testing Smart Answers
 
-### Try to avoid deeply nested contexts
+### Avoid deeply nested contexts
 
 We previously had to use nested contexts to write integration tests around Smart Answers. This lead to deeply nested, hard to follow tests. We've removed the code that required this style and should no longer be writing these deeply nested tests.
 
