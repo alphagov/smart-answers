@@ -45,9 +45,7 @@ private
   # The registerer is quite noisy.
   def silence_logging
     silence_stream $stdout do
-      silence_stream $stderr do
-        yield
-      end
+      yield
     end
   end
 end
