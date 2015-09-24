@@ -61,12 +61,7 @@ private
     when SmartAnswer::Question::Base
       text << word_wrap(node_title(node))
     when SmartAnswer::Outcome
-      candidate_texts = [
-        node_title(node),
-        first_line_of_body(node),
-        node.name.to_s
-      ]
-      text << word_wrap(candidate_texts.find(&:present?))
+      text << word_wrap(node.name.to_s)
     else
       text << "Unknown node type"
     end
@@ -97,18 +92,6 @@ private
     end
   rescue I18n::MissingTranslationData
     ""
-  end
-
-  def node_body(node)
-    allow_missing_interpolations do
-      I18n.translate!("#{i18n_prefix(node)}.body", {})
-    end
-  rescue I18n::MissingTranslationData
-    ""
-  end
-
-  def first_line_of_body(node)
-    node_body(node).split("\n\n").first || ""
   end
 
   def translate_option(node, option)
