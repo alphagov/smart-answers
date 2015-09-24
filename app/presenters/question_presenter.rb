@@ -43,10 +43,6 @@ class QuestionPresenter < NodePresenter
     translate!('suffix_label')
   end
 
-  def has_suffix_label?
-    !!suffix_label
-  end
-
   def has_labels?
     !!label or !!suffix_label
   end
