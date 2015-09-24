@@ -44,7 +44,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def has_labels?
-    !!label or !!suffix_label
+    label.present? || suffix_label.present?
   end
 
   def body(html: true)
