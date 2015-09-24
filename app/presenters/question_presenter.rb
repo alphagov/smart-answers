@@ -35,10 +35,6 @@ class QuestionPresenter < NodePresenter
     translate!('hint')
   end
 
-  def has_hint?
-    !!hint
-  end
-
   def label
     translate!('label')
   end

@@ -8,7 +8,7 @@
   <div class="question-body">
     <%= question.body %>
 
-    <% if question.has_hint? %>
+    <% if question.hint.present? %>
       <p class="hint"><%= question.hint %></p>
     <% end %>
 
