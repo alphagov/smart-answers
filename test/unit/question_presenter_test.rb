@@ -143,7 +143,7 @@ module SmartAnswer
       question.stubs(:to_response).returns('response')
       presenter = QuestionPresenter.new("flow.test", question)
 
-      assert_equal 'response' , presenter.to_response('answer-text')
+      assert_equal 'response', presenter.to_response('answer-text')
     end
 
     test "Options can be looked up from translation file" do

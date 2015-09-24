@@ -15,8 +15,7 @@ module SmartAnswer
     end
 
     def translate_option(option)
-      translate!("options.#{option}") ||
-      begin
+      translate!("options.#{option}") || begin
         I18n.translate!("#{@i18n_prefix}.options.#{option}", @state.to_hash)
       rescue I18n::MissingTranslationData
         option
@@ -38,14 +37,15 @@ module SmartAnswer
         number_to_currency(value.amount, precision: 0) + " per " + value.period
       when ::SmartAnswer::PhraseList then
         if nested == false
-          value.phrase_keys.map do |phrase_key|
+          phrases = value.phrase_keys.map do |phrase_key|
             begin
               I18n.translate!("#{@i18n_prefix}.phrases.#{phrase_key}", state_for_interpolation(true))
             rescue => e
               Rails.logger.warn("[Missing phrase] The phrase being rendered is not present: #{e.key}\tResponses: #{@state.responses.join('/')}") if @node.outcome?
               phrase_key
             end
-          end.join("\n\n")
+          end
+          phrases.join("\n\n")
         else
           false
         end
