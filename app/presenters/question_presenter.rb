@@ -67,6 +67,10 @@ class QuestionPresenter < NodePresenter
     translate_and_render('body', html: html)
   end
 
+  def post_body
+    nil
+  end
+
   def options
     @node.options.map do |option|
       OpenStruct.new(label: translate_option(option), value: option)
