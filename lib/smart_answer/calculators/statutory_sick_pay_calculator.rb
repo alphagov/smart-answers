@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 module SmartAnswer::Calculators
   class StatutorySickPayCalculator
     attr_reader :waiting_days, :normal_workdays, :pattern_days

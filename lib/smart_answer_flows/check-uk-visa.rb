@@ -1,6 +1,7 @@
 module SmartAnswer
   class CheckUkVisaFlow < Flow
     def define
+      content_id "dc1a1744-4089-43b3-b2e3-4e397b6b15b1"
       name 'check-uk-visa'
       status :published
       satisfies_need "100982"

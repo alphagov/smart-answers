@@ -24,14 +24,15 @@ gem 'uglifier'
 if ENV['SMARTDOWN_DEV']
   gem 'smartdown', path: '../smartdown'
 else
-  gem 'smartdown', '~> 0.15.1'
+  gem 'smartdown', '~> 0.16.0'
 end
 
 if ENV['API_DEV']
   gem 'gds-api-adapters', path: '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '20.1.1'
+  gem 'gds-api-adapters', '~> 24.4.0'
 end
+
 gem 'htmlentities', '~> 4'
 
 gem 'extlib', '0.9.16'

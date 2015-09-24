@@ -1,13 +1,6 @@
 en-GB:
   flow:
     graph:
-      meta:
-        description: "Graph example"
-      title:
-        Graph example
-      body:
-        Graph example
-
       options:
         "no": "No"
         "yes": "Yes"

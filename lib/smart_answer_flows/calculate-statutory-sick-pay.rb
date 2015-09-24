@@ -1,6 +1,7 @@
 module SmartAnswer
   class CalculateStatutorySickPayFlow < Flow
     def define
+      content_id "1c676a9e-0424-4ebb-bab8-d8cb8d2fc6f8"
       name 'calculate-statutory-sick-pay'
 
       status :published

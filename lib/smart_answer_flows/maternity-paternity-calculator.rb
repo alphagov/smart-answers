@@ -1,6 +1,7 @@
 module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow
     def define
+      content_id "05d5412d-455b-485e-a570-020c9176a46e"
       name 'maternity-paternity-calculator'
       status :published
       satisfies_need "100990"

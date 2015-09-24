@@ -1,6 +1,7 @@
 module SmartAnswer
   class InheritsSomeoneDiesWithoutWillFlow < Flow
     def define
+      content_id "1f75de31-1f07-4c68-b1ab-8330b1ee8670"
       name 'inherits-someone-dies-without-will'
       status :published
       satisfies_need "100988"

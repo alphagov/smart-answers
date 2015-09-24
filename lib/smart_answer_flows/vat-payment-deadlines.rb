@@ -1,12 +1,13 @@
 module SmartAnswer
   class VatPaymentDeadlinesFlow < Flow
     def define
+      content_id "dfa9a5c3-d52e-479c-8505-855f475dc338"
       name 'vat-payment-deadlines'
       status :published
       satisfies_need "100624"
 
       date_question :when_does_your_vat_accounting_period_end? do
-        default_day -1
+        default_day { -1 }
         next_node :how_do_you_want_to_pay?
 
         calculate :period_end_date do |response|

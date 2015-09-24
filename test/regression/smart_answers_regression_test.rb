@@ -112,15 +112,26 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         assert_no_output_diff artefact_path if ENV['ASSERT_EACH_ARTEFACT'].present?
       end
 
+      should "render and save the first question page" do
+        get :show, id: flow_name, started: 'y', format: 'html'
+
+        artefact_path = smart_answer_helper.save_output(['y'], response, extension: 'html')
+        assert_no_output_diff artefact_path if ENV['ASSERT_EACH_ARTEFACT'].present?
+      end
+
+      visited_nodes = Set.new
       responses_and_expected_results.each do |responses_and_expected_node|
+        next_node    = responses_and_expected_node[:next_node]
         responses    = responses_and_expected_node[:responses]
         outcome_node = responses_and_expected_node[:outcome_node]
 
-        if outcome_node
+        if !visited_nodes.include?(next_node) || outcome_node
+          visited_nodes << next_node
           should "render and save output for responses: #{responses.join(', ')}" do
-            get :show, id: flow_name, started: 'y', responses: responses.join('/'), format: 'txt'
+            format = outcome_node ? 'txt' : 'html'
+            get :show, id: flow_name, started: 'y', responses: responses.join('/'), format: format
 
-            artefact_path = smart_answer_helper.save_output(responses, response)
+            artefact_path = smart_answer_helper.save_output(responses, response, extension: format)
 
             # Enabling this more than doubles the time it takes to run regression tests
             assert_no_output_diff artefact_path if ENV['ASSERT_EACH_ARTEFACT'].present?

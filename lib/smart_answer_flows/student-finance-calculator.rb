@@ -1,6 +1,7 @@
 module SmartAnswer
   class StudentFinanceCalculatorFlow < Flow
     def define
+      content_id "434b6eb5-33c8-4300-aba3-f5ead58600b8"
       name 'student-finance-calculator'
       status :published
       satisfies_need "100133"

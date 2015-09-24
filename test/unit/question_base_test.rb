@@ -1,4 +1,3 @@
-# coding:utf-8
 
 require 'ostruct'
 require_relative '../test_helper'
