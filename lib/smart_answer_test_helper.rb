@@ -76,8 +76,8 @@ class SmartAnswerTestHelper
     artefacts_path.join(@flow_name)
   end
 
-  def save_output(responses, response)
-    filename = responses.pop + '.txt'
+  def save_output(responses, response, extension: 'txt')
+    filename = "#{responses.pop}.#{extension}"
     path_to_output_directory = path_to_outputs_for_flow.join(*responses)
     FileUtils.mkdir_p(path_to_output_directory)
     path_to_output_file = path_to_output_directory.join(filename)
