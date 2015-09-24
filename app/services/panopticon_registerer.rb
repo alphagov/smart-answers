@@ -7,8 +7,8 @@ class PanopticonRegisterer
 
   def register
     require 'gds_api/panopticon'
-    logger = GdsApi::Base.logger = Logger.new(STDERR).tap { |l| l.level = Logger::INFO }
-    logger.info "Registering with panopticon..."
+
+    puts "Registering with panopticon..."
     registerer = GdsApi::Panopticon::Registerer.new(owning_app: "smartanswers", kind: "smart-answer")
 
     puts "Looking up flows, with options: #{FLOW_REGISTRY_OPTIONS}"
