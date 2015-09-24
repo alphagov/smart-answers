@@ -4,24 +4,26 @@
 
 This is an overview of the components that make up a single Smart Answer.
 
-* lib/
-  * smart_answer/
-    * calculators/
-      * _calculator-name_.rb (__Optional: Object encapsulating business logic for the flow__)
-  * smart_answer_flows/
-    * locales/
-      * en/
-        * _flow-name_.yml (__Optional: Data used to build questions e.g. question and option text__)
-    * _flow-name_.rb (__Required: Flow and question logic__)
-    * _flow-name_/
-      * _flow-name_.govspeak.erb (__Optional: Content for the landing page__)
-      * _outcome-name_.govspeak.erb (__Optional: Content for each outcome page__)
-      * __partial-name_.govspeak.erb (__Optional: Useful when you need to share content between outcome templates__)
-    * shared/
-      * _shared-directory-name_/
-        * __partial-name_.govspeak.erb (__Optional: Useful when you need to share content between Smart Answers__)
-    * shared_logic/
-      * _shared-logic-name_.rb (__Optional: Useful when you need to share flow and question logic between Smart Answers__)
+```
+lib
+|__ smart_answer
+|   |__ calculators
+|       |__ <calculator-name>.rb (Optional: Object encapsulating business logic for the flow)
+|__ smart_answer_flows
+    |__ locales
+    |   |__ en
+    |       |__ <flow-name>.yml (Optional: Data used to build questions e.g. question and option text)
+    |__ <flow-name>.rb (Required: Flow and question logic)
+    |__ <flow-name>
+    |   |__ <flow-name>.govspeak.erb (Optional: Content for the landing page)
+    |   |__ <outcome-name>.govspeak.erb (Optional: Content for each outcome page)
+    |   |__ _<partial-name>.govspeak.erb (Optional: Useful when you need to share content between outcome templates)
+    |__ shared
+    |    |__ <shared-directory-name>
+    |        |__ _<partial-name>.govspeak.erb (Optional: Useful when you need to share content between Smart Answers)
+    |__ shared_logic
+        |__ <shared-logic-name>.rb (Optional: Useful when you need to share flow and question logic between Smart Answers)
+```
 
 ## Smart answer syntax
 
