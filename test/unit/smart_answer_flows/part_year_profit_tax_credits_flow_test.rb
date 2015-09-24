@@ -1,12 +1,12 @@
 require_relative '../../test_helper'
 
-require 'smart_answer_flows/calculate-your-part-year-profit'
+require 'smart_answer_flows/part-year-profit-tax-credits'
 
 module SmartAnswer
-  class CalculateYourPartYearProfitFlowTest < ActiveSupport::TestCase
+  class PartYearProfitTaxCreditsFlowTest < ActiveSupport::TestCase
     setup do
       @calculator = Calculators::PartYearProfitCalculator.new
-      @flow = CalculateYourPartYearProfitFlow.build
+      @flow = PartYearProfitTaxCreditsFlow.build
     end
 
     should 'start when_did_your_tax_credits_award_end? question' do

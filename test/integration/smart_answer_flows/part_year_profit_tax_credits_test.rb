@@ -1,13 +1,13 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
-require "smart_answer_flows/calculate-your-part-year-profit"
+require "smart_answer_flows/part-year-profit-tax-credits"
 
-class CalculateYourPartYearProfitTest < ActiveSupport::TestCase
+class PartYearProfitTaxCreditsTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    setup_for_testing_flow SmartAnswer::CalculateYourPartYearProfitFlow
+    setup_for_testing_flow SmartAnswer::PartYearProfitTaxCreditsFlow
   end
 
   context 'when the business is still trading' do

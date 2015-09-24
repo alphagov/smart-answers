@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    calculate-your-part-year-profit:
+    part-year-profit-tax-credits:
       when_did_your_tax_credits_award_end?:
         title: When did your Tax Credits award end?
         hint: You can find this on your award review.

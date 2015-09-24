@@ -1,7 +1,7 @@
 module SmartAnswer
-  class CalculateYourPartYearProfitFlow < Flow
+  class PartYearProfitTaxCreditsFlow < Flow
     def define
-      name 'calculate-your-part-year-profit'
+      name 'part-year-profit-tax-credits'
 
       status :draft
       satisfies_need "103438"

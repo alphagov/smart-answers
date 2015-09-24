@@ -1,11 +1,11 @@
 require_relative '../../test_helper'
 
-require 'smart_answer_flows/calculate-your-part-year-profit'
+require 'smart_answer_flows/part-year-profit-tax-credits'
 
 module SmartAnswer
-  class CalculateYourPartYearProfitViewTest < ActiveSupport::TestCase
+  class PartYearProfitTaxCreditsViewTest < ActiveSupport::TestCase
     setup do
-      @flow = CalculateYourPartYearProfitFlow.build
+      @flow = PartYearProfitTaxCreditsFlow.build
       @i18n_prefix = "flow.#{@flow.name}"
     end
 
