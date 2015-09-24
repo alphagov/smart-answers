@@ -35,3 +35,10 @@ require_relative 'support/fixture_methods'
 class ActiveSupport::TestCase
   include FixtureMethods
 end
+
+require 'govuk-content-schema-test-helpers/test_unit'
+
+GovukContentSchemaTestHelpers.configure do |config|
+  config.schema_type = 'publisher'
+  config.project_root = Rails.root
+end
