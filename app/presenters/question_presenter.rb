@@ -31,10 +31,6 @@ class QuestionPresenter < NodePresenter
     translate!('error_message')
   end
 
-  def has_error_message?
-    !!error_message
-  end
-
   def hint
     translate!('hint')
   end
