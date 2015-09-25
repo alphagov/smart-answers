@@ -1,7 +1,6 @@
 ---
 :dob_age?:
-- 1914-10-12 # < OLDEST_DOB
-- 1914-10-13 # = OLDEST_DOB
+- 1912-10-12 # Old enough to see repeated top up rates
 - 1951-04-05 # = MALE_YOUNGEST_DOB
 - 1951-04-06 # > MALE_YOUNGEST_DOB
 - 1953-04-05 # = FEMALE_YOUNGEST_DOB

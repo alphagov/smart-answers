@@ -1,50 +1,45 @@
 ---
 - :current_node: :dob_age?
   :responses:
-  - '1914-10-12'
-  :next_node: :outcome_age_limit_reached_birth
-  :outcome_node: true
-- :current_node: :dob_age?
-  :responses:
-  - '1914-10-13'
+  - '1912-10-12'
   :next_node: :gender?
   :outcome_node: false
 - :current_node: :gender?
   :responses:
-  - '1914-10-13'
+  - '1912-10-12'
   - male
   :next_node: :how_much_extra_per_week?
   :outcome_node: false
 - :current_node: :how_much_extra_per_week?
   :responses:
-  - '1914-10-13'
+  - '1912-10-12'
   - male
   - '7'
   :next_node: :outcome_topup_calculations
   :outcome_node: true
 - :current_node: :how_much_extra_per_week?
   :responses:
-  - '1914-10-13'
+  - '1912-10-12'
   - male
   - '20'
   :next_node: :outcome_topup_calculations
   :outcome_node: true
 - :current_node: :gender?
   :responses:
-  - '1914-10-13'
+  - '1912-10-12'
   - female
   :next_node: :how_much_extra_per_week?
   :outcome_node: false
 - :current_node: :how_much_extra_per_week?
   :responses:
-  - '1914-10-13'
+  - '1912-10-12'
   - female
   - '7'
   :next_node: :outcome_topup_calculations
   :outcome_node: true
 - :current_node: :how_much_extra_per_week?
   :responses:
-  - '1914-10-13'
+  - '1912-10-12'
   - female
   - '20'
   :next_node: :outcome_topup_calculations
