@@ -264,10 +264,6 @@ module SmartAnswer
       checkbox_question :usual_work_days? do
         %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
 
-        next_node_if(:not_earned_enough) do
-          employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
-        end
-
         calculate :ssp_payment do
           Money.new(calculator.ssp_payment)
         end
@@ -282,24 +278,19 @@ module SmartAnswer
           end
         end
 
+        next_node_calculation(:usual_work_days) do |response|
+          response
+        end
+
         next_node_calculation(:calculator) do |response|
           Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, response.split(","))
         end
 
-        # Answer 8
-        next_node_if(:maximum_entitlement_reached) do |response|
-          days_worked = response.split(',').size
-          prior_sick_days and prior_sick_days.to_i >= (days_worked * 28 + 3)
+        permitted_next_nodes = OutcomeDecision.possible_outcomes
+
+        next_node(permitted: permitted_next_nodes) do
+          OutcomeDecision.new(self).outcome_name
         end
-
-        # Answer 6
-        next_node_if(:entitled_to_sick_pay) { calculator.ssp_payment > 0 }
-
-        # Answer 8
-        next_node_if(:maximum_entitlement_reached) { calculator.days_that_can_be_paid_for_this_period == 0 }
-
-        # Answer 7
-        next_node(:not_entitled_3_days_not_paid)
       end
 
       # Answer 1
@@ -333,6 +324,35 @@ module SmartAnswer
 
       # Answer 8
       outcome :maximum_entitlement_reached
+    end
+
+  private
+
+    class OutcomeDecision
+      delegate :employee_average_weekly_earnings, :prior_sick_days, :usual_work_days, :calculator, :sick_start_date,
+               to: :@flow
+
+      def self.possible_outcomes
+        [:not_earned_enough, :maximum_entitlement_reached, :entitled_to_sick_pay, :not_entitled_3_days_not_paid]
+      end
+
+      def initialize(flow)
+        @flow = flow
+      end
+
+      def outcome_name
+        if employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
+          :not_earned_enough
+        elsif prior_sick_days && prior_sick_days.to_i >= (usual_work_days.split(",").size * 28 + 3)
+          :maximum_entitlement_reached
+        elsif calculator.ssp_payment > 0
+          :entitled_to_sick_pay
+        elsif calculator.days_that_can_be_paid_for_this_period == 0
+          :maximum_entitlement_reached
+        else
+          :not_entitled_3_days_not_paid
+        end
+      end
     end
   end
 end
