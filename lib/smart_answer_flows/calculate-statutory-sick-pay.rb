@@ -42,10 +42,17 @@ module SmartAnswer
       # Question 3
       multiple_choice :employee_work_different_days? do
         option yes: :not_regular_schedule # Answer 4
-        option no: :first_sick_day? # Question 4
+        option no: :usual_work_days? # Question 4
       end
 
       # Question 4
+      checkbox_question :usual_work_days? do
+        %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
+        save_input_as :usual_work_days
+        next_node(:first_sick_day?)
+      end
+
+      # Question 5
       date_question :first_sick_day? do
         from { Date.new(2011, 1, 1) }
         to { Date.today.end_of_year }
@@ -63,7 +70,7 @@ module SmartAnswer
 
       end
 
-      # Question 5
+      # Question 6
       date_question :last_sick_day? do
         from { Date.new(2011, 1, 1) }
         to { Date.today.end_of_year }
@@ -88,13 +95,13 @@ module SmartAnswer
         next_node(:must_be_sick_for_4_days)
       end
 
-      # Question 6
+      # Question 7
       multiple_choice :has_linked_sickness? do
         option yes: :linked_sickness_start_date?
         option no: :paid_at_least_8_weeks?
       end
 
-      # Question 6.1
+      # Question 7.1
       date_question :linked_sickness_start_date? do
         from { Date.new(2010, 1, 1) }
         to { Date.today.end_of_year }
@@ -111,7 +118,7 @@ module SmartAnswer
         next_node(:linked_sickness_end_date?)
       end
 
-      # Question 6.2
+      # Question 7.2
       date_question :linked_sickness_end_date? do
         from { Date.new(2010, 1, 1) }
         to { Date.today.end_of_year }
@@ -139,16 +146,20 @@ module SmartAnswer
         next_node(:paid_at_least_8_weeks?)
       end
 
-      # Question 7.1
+      # Question 8.1
       multiple_choice :paid_at_least_8_weeks? do
-        option eight_weeks_more: :how_often_pay_employee_pay_patterns? # Question 7.2
-        option eight_weeks_less: :total_earnings_before_sick_period? # Question 10
-        option before_payday: :how_often_pay_employee_pay_patterns? # Question 7.2
+        option eight_weeks_more: :how_often_pay_employee_pay_patterns? # Question 8.2
+        option eight_weeks_less: :total_earnings_before_sick_period? # Question 11
+        option before_payday: :how_often_pay_employee_pay_patterns? # Question 8.2
+
+        calculate :calculator do
+          Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, usual_work_days.split(","))
+        end
 
         save_input_as :eight_weeks_earnings
       end
 
-      # Question 7.2
+      # Question 8.2
       multiple_choice :how_often_pay_employee_pay_patterns? do
         option :weekly
         option :fortnightly
@@ -158,11 +169,11 @@ module SmartAnswer
 
         save_input_as :pay_pattern
 
-        next_node_if(:last_payday_before_sickness?, variable_matches(:eight_weeks_earnings, 'eight_weeks_more'))  # Question 8
-        next_node(:pay_amount_if_not_sick?) # Question 9
+        next_node_if(:last_payday_before_sickness?, variable_matches(:eight_weeks_earnings, 'eight_weeks_more'))  # Question 9
+        next_node(:pay_amount_if_not_sick?) # Question 10
       end
 
-      # Question 8
+      # Question 9
       date_question :last_payday_before_sickness? do
         from { Date.new(2010, 1, 1) }
         to { Date.today.end_of_year }
@@ -186,7 +197,7 @@ module SmartAnswer
         next_node(:last_payday_before_offset?)
       end
 
-      # Question 8.1
+      # Question 9.1
       date_question :last_payday_before_offset? do
         from { Date.new(2010, 1, 1) }
         to { Date.today.end_of_year }
@@ -209,7 +220,7 @@ module SmartAnswer
         next_node(:total_employee_earnings?)
       end
 
-      # Question 8.2
+      # Question 9.2
       money_question :total_employee_earnings? do
         next_node_calculation :employee_average_weekly_earnings do |response|
           Calculators::StatutorySickPayCalculator.average_weekly_earnings(
@@ -217,55 +228,48 @@ module SmartAnswer
             relevant_period_to: relevant_period_to, relevant_period_from: relevant_period_from)
         end
 
-        next_node :usual_work_days?
+        permitted_next_nodes = OutcomeDecision.possible_outcomes
+
+        next_node(permitted: permitted_next_nodes) do
+          OutcomeDecision.new(self).outcome_name
+        end
       end
 
-      # Question 9
+      # Question 10
       money_question :pay_amount_if_not_sick? do
         save_input_as :relevant_contractual_pay
 
         next_node :contractual_days_covered_by_earnings?
       end
 
-      # Question 9.1
+      # Question 10.1
       value_question :contractual_days_covered_by_earnings? do
         next_node_calculation :employee_average_weekly_earnings do |response|
           pay = relevant_contractual_pay
           days_worked = response
           Calculators::StatutorySickPayCalculator.contractual_earnings_awe(pay, days_worked)
         end
-        next_node :usual_work_days?
+
+        permitted_next_nodes = OutcomeDecision.possible_outcomes
+
+        next_node(permitted: permitted_next_nodes) do
+          OutcomeDecision.new(self).outcome_name
+        end
       end
 
-      # Question 10
+      # Question 11
       money_question :total_earnings_before_sick_period? do
         save_input_as :earnings
 
         next_node :days_covered_by_earnings?
       end
 
-      # Question 10.1
+      # Question 11.1
       value_question :days_covered_by_earnings? do
-
         next_node_calculation :employee_average_weekly_earnings do |response|
           pay = earnings
           days_worked = response.to_i
           Calculators::StatutorySickPayCalculator.total_earnings_awe(pay, days_worked)
-        end
-
-        next_node :usual_work_days?
-      end
-
-      # Question 11
-      checkbox_question :usual_work_days? do
-        %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
-
-        next_node_calculation(:usual_work_days) do |response|
-          response
-        end
-
-        next_node_calculation(:calculator) do |response|
-          Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, response.split(","))
         end
 
         permitted_next_nodes = OutcomeDecision.possible_outcomes
