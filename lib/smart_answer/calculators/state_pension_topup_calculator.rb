@@ -13,7 +13,7 @@ module SmartAnswer::Calculators
       rows = []
       dob = leap_year_birthday?(dob) ? dob + 1.day : dob
       age = age_at_date(dob, TOPUP_START_DATE)
-      (TOPUP_START_DATE.year..TOPUP_END_DATE.year).each do |year|
+      (TOPUP_START_DATE.year..TOPUP_END_DATE.year).each do |_|
         break if birthday_after_topup_end?(dob, age)
         rows << {amount: lump_sum_amount(age, weekly_amount), age: age} if age >= retirement_age(gender)
         age += 1
