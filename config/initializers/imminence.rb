@@ -1,3 +1,3 @@
 require 'gds_api/imminence'
 
-$imminence = GdsApi::Imminence.new(Plek.current.find('imminence'))
+$imminence = GdsApi::Imminence.new(Plek.new.find('imminence'))
