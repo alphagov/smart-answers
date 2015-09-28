@@ -1,14 +1,14 @@
---- 
-:dob_age?: 
+---
+:dob_age?:
 - 1914-10-12 # < OLDEST_DOB
 - 1914-10-13 # = OLDEST_DOB
 - 1951-04-05 # = MALE_YOUNGEST_DOB
 - 1951-04-06 # > MALE_YOUNGEST_DOB
 - 1953-04-05 # = FEMALE_YOUNGEST_DOB
 - 1953-04-06 # > FEMALE_YOUNGEST_DOB
-:gender?: 
+:gender?:
 - male
 - female
-:how_much_extra_per_week?: 
+:how_much_extra_per_week?:
 - 7
 - 20
