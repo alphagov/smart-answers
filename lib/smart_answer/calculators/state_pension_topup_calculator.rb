@@ -1,16 +1,38 @@
 module SmartAnswer::Calculators
   class StatePensionTopupCalculator
 
-    UPPER_AGE = 100
-    LOWER_AGE = 62
-    MALE_LOWER_AGE = 64
-    OLDEST_DOB = Date.parse('1914-10-13')
     FEMALE_YOUNGEST_DOB = Date.parse('1953-04-05')
     MALE_YOUNGEST_DOB = Date.parse('1951-04-05')
     TOPUP_START_DATE = Date.parse('2015-10-12')
-    TOPUP_END_DATE = Date.parse('2017-04-01')
-    FEMALE_RETIREMENT_AGE = 63
+    TOPUP_END_DATE = Date.parse('2017-04-05')
+    FEMALE_RETIREMENT_AGE = 62
     MALE_RETIREMENT_AGE = 65
+
+    def lump_sum_and_age(dob, weekly_amount, gender)
+      return [] if too_young?(dob, gender)
+      rows = []
+      dob = leap_year_birthday?(dob) ? dob + 1.day : dob
+      age = age_at_date(dob, TOPUP_START_DATE)
+      (TOPUP_START_DATE.year..TOPUP_END_DATE.year).each do |_|
+        break if birthday_after_topup_end?(dob, age)
+        rows << {amount: lump_sum_amount(age, weekly_amount), age: age} if age >= retirement_age(gender)
+        age += 1
+      end
+      rows
+    end
+
+    def too_young?(date_of_birth, gender = 'female')
+      case gender
+      when 'female'
+        date_of_birth > FEMALE_YOUNGEST_DOB
+      when 'male'
+        date_of_birth > MALE_YOUNGEST_DOB
+      else
+        raise SmartAnswer::InvalidResponse
+      end
+    end
+
+  private
 
     def retirement_age(gender)
       if gender == 'female'
@@ -28,18 +50,6 @@ module SmartAnswer::Calculators
         total = 0
       end
       SmartAnswer::Money.new(total)
-    end
-
-    def lump_sum_and_age(dob, weekly_amount, gender)
-      rows = []
-      dob = leap_year_birthday?(dob) ? dob + 1.day : dob
-      age = age_at_date(dob, TOPUP_START_DATE)
-      (TOPUP_START_DATE.year..TOPUP_END_DATE.year).each do |year|
-        break if age > UPPER_AGE || birthday_after_topup_end?(dob, age)
-        rows << {amount: lump_sum_amount(age, weekly_amount), age: age} if age >= retirement_age(gender)
-        age += 1
-      end
-      rows
     end
 
     def birthday_after_topup_end?(dob, age)
