@@ -3,6 +3,7 @@
 - current_payment
 - past_payment
 :past_payment_date?:
+- '2014-10-01'
 - '2013-10-01'
 - '2012-10-01'
 - '2011-10-01'
