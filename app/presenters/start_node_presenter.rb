@@ -9,7 +9,7 @@ class StartNodePresenter < NodePresenter
 
   def title
     title = @renderer.content_for(:title, html: false)
-    title.present? ? title.chomp : super
+    title.present? ? title.chomp : @node.name.to_s.humanize
   end
 
   def has_meta_description?
@@ -23,10 +23,6 @@ class StartNodePresenter < NodePresenter
 
   def body(html: true)
     @renderer.content_for(:body, html: html)
-  end
-
-  def has_post_body?
-    !!post_body
   end
 
   def post_body(html: true)
