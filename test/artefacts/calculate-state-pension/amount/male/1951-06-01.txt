@@ -1,10 +1,7 @@
-You’ll reach State Pension age on  1 June 2016.
+Your State Pension estimate
 
-Your State Pension age is 65 years.
 
-^The State Pension will change on 6 April 2016. You will claim the [new State Pension](/new-state-pension) when you reach your State Pension age.^
-
-You’ll have to contact the Future Pension Centre to get an estimate of your pension calculated under the new State Pension rules.
+You’ll have to contact the Future Pension Centre to get an estimate of your pension. This is because the State Pension will change on 6 April 2016.
 
 ##Contact the Future Pension Centre
 
@@ -28,4 +25,10 @@ Telephone: +44 (0)191 218 3600 <br />
 Textphone: +44 (0)191 218 2051 <br />
 Monday to Friday, 8am to 6pm <br />
 $C
+
+##Your State Pension age
+
+You’ll reach State Pension age on  1 June 2016.
+
+Your State Pension age is 65 years. You can claim the [new State Pension](/new-state-pension) when you reach your State Pension age.
 
