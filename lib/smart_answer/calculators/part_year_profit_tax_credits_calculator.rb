@@ -40,7 +40,8 @@ module SmartAnswer
 
       def award_period
         begins_on = [tax_year.begins_on, started_trading_on].compact.max
-        DateRange.new(begins_on: begins_on, ends_on: [tax_credits_award_ends_on, stopped_trading_on].compact.min)
+        ends_on   = [tax_credits_award_ends_on, stopped_trading_on].compact.min
+        DateRange.new(begins_on: begins_on, ends_on: ends_on)
       end
 
       def profit_per_day
