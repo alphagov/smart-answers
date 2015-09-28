@@ -9,7 +9,9 @@ module SmartAnswer
       START_OR_STOP_TRADING_EARLIEST_DATE = TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE - 2.year
       START_OR_STOP_TRADING_LATEST_DATE   = TAX_CREDITS_AWARD_ENDS_LATEST_DATE + 1.years
 
-      attr_accessor :tax_credits_award_ends_on, :accounts_end_month_and_day, :taxable_profit
+      attr_accessor :tax_credits_award_ends_on
+      attr_accessor :accounts_end_month_and_day
+      attr_accessor :taxable_profit
       attr_accessor :stopped_trading
       attr_accessor :started_trading_on
       attr_accessor :stopped_trading_on
