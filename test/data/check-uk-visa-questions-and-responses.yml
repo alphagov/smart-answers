@@ -6,12 +6,16 @@
 - austria
 - china
 - croatia
+- israel
 - oman
 - stateless-or-refugee
 - syria
 - taiwan
 - turkey
 - venezuela
+:israeli_document_type?:
+- full-passport
+- provisional-passport
 :purpose_of_visit?:
 - tourism
 - work

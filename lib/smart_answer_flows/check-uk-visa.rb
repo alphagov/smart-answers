@@ -16,7 +16,7 @@ module SmartAnswer
 
       country_group_visa_national = %w(stateless-or-refugee armenia azerbaijan bahrain benin bhutan bolivia bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad colombia comoros cuba djibouti dominican-republic ecuador equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan north-korea kuwait kyrgyzstan laos madagascar mali  montenegro mauritania morocco mozambique niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia)
 
-      country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus burma burundi cameroon china congo cyprus-north democratic-republic-of-congo egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq cote-d-ivoire jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia nepal nigeria palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe)
+      country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus burma burundi cameroon china congo cyprus-north democratic-republic-of-congo egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq israel-provisional-passport cote-d-ivoire jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia nepal nigeria palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe)
 
       country_group_eea = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 
@@ -24,8 +24,26 @@ module SmartAnswer
       country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: exclude_countries do
         save_input_as :passport_country
 
-        next_node_if(:outcome_no_visa_needed, country_in(country_group_eea))
-        next_node(:purpose_of_visit?)
+        next_node do |response|
+          if response == 'israel'
+            :israeli_document_type?
+          elsif country_group_eea.include?(response)
+            :outcome_no_visa_needed
+          else
+            :purpose_of_visit?
+          end
+        end
+      end
+
+      # Q1b
+      multiple_choice :israeli_document_type? do
+        option :"full-passport"
+        option :"provisional-passport"
+
+        next_node do |response|
+          self.passport_country = 'israel-provisional-passport' if response == 'provisional-passport'
+          :purpose_of_visit?
+        end
       end
 
       # Q2
@@ -84,12 +102,13 @@ module SmartAnswer
         option :no
         save_input_as :leaving_airport_answer
 
-        next_node_if(:outcome_visit_waiver) { %w(venezuela taiwan).include?(passport_country) }
+        next_node_if(:outcome_visit_waiver) { %w(taiwan).include?(passport_country) }
         on_condition(responded_with('yes')) do
           next_node_if(:outcome_transit_leaving_airport) { country_group_visa_national.include?(passport_country) }
           next_node_if(:outcome_transit_leaving_airport_datv) { country_group_datv.include?(passport_country) }
         end
         on_condition(responded_with('no')) do
+          next_node_if(:outcome_visit_waiver) { %w(venezuela).include?(passport_country) }
           next_node_if(:outcome_transit_refugee_not_leaving_airport) { passport_country == 'stateless-or-refugee' }
           next_node_if(:outcome_transit_not_leaving_airport) { country_group_datv.include?(passport_country) }
           next_node_if(:outcome_no_visa_needed) { country_group_visa_national.include?(passport_country) }
