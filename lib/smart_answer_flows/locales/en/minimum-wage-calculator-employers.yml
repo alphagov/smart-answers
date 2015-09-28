@@ -9,8 +9,8 @@ en-GB:
       what_would_you_like_to_check?:
         title: "What would you like to check?"
         options:
-          current_payment: "If you’re paying a worker the National Wage (from October 2014)"
-          past_payment: "If you owe a worker past payments (before October 2014)"
+          current_payment: "If you’re paying a worker the National Wage (from October 2015)"
+          past_payment: "If you owe a worker past payments (before October 2015)"
       # Q1A
       past_payment_date?:
         title: "Which year would you like to check past payments for?"
