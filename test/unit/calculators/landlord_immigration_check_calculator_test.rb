@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
     end
 
     test "with an invalid postcode" do
-      stub_request(:get, %r{\A#{Plek.current.find('imminence')}/areas/E15\.json}).
+      stub_request(:get, %r{\A#{Plek.new.find('imminence')}/areas/E15\.json}).
         to_return(body: { _response_info: { status: 404 }, total: 0, results: [] }.to_json)
 
       response = $imminence.areas_for_postcode("E15")
