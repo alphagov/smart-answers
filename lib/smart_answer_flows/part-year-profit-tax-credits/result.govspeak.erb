@@ -7,9 +7,10 @@
 
   You may be able to [make deductions from this amount](/end-tax-credits-claim/self-employed).
 
-  If you changed your accounting period part way through the year, you’ll have to work out your part-year taxable profit [using the helpsheet](/government/publications/tax-credits-ending-your-award-when-you-claim-universal-credit) that came with your Award Review.
+  You’ll have to work out your part-year taxable profit [using the helpsheet](/government/publications/tax-credits-ending-your-award-when-you-claim-universal-credit) that came with your Award Review if:
 
-  ^You must [keep the records](/self-employed-records/how-long-to-keep-your-records) of your calculation for at least 5 years.^
+  - you changed your accounting period part way through the year
+  - your profits are based on a longer period or for example, you're a farmer, a foster carer or have foreign income
 
   ## Your part-year taxable profit has been worked out from:
 
@@ -22,4 +23,6 @@
   <% end %>
 
   Your estimated taxable profit between <%= format_date(calculator.basis_period.begins_on) %> and <%= format_date(calculator.basis_period.ends_on) %> was: <%= format_money(calculator.taxable_profit) %>
+
+  ^You must [keep the records](/self-employed-records/how-long-to-keep-your-records) of your calculation for at least 5 years.^
 <% end %>
