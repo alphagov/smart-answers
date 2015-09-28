@@ -1,7 +1,6 @@
 module SmartAnswer::Calculators
   class StatePensionTopupCalculator
 
-    UPPER_AGE = 100
     OLDEST_DOB = Date.parse('1914-10-13')
     FEMALE_YOUNGEST_DOB = Date.parse('1953-04-05')
     MALE_YOUNGEST_DOB = Date.parse('1951-04-05')
@@ -16,7 +15,7 @@ module SmartAnswer::Calculators
       dob = leap_year_birthday?(dob) ? dob + 1.day : dob
       age = age_at_date(dob, TOPUP_START_DATE)
       (TOPUP_START_DATE.year..TOPUP_END_DATE.year).each do |year|
-        break if age > UPPER_AGE || birthday_after_topup_end?(dob, age)
+        break if birthday_after_topup_end?(dob, age)
         rows << {amount: lump_sum_amount(age, weekly_amount), age: age} if age >= retirement_age(gender)
         age += 1
       end

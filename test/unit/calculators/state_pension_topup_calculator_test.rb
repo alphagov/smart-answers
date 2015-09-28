@@ -11,8 +11,9 @@ module SmartAnswer::Calculators
         assert_equal 8010, @calculator.send(:lump_sum_amount, 69, 10)
       end
 
-      should "be nil for age of 101" do
-        assert_equal 0, @calculator.send(:lump_sum_amount, 101, 20)
+      should "be rate for 100 year olds for age of over 100" do
+        rate_for_100_year_olds = @calculator.send(:lump_sum_amount, 100, 1)
+        assert_equal rate_for_100_year_olds, @calculator.send(:lump_sum_amount, 150, 1)
       end
 
       should "be 2,720 for age of 80" do
