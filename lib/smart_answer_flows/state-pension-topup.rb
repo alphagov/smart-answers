@@ -14,15 +14,10 @@ module SmartAnswer
 
         save_input_as :date_of_birth
 
-        define_predicate(:age_limit_reached?) do |response|
-          response < calculator.class::OLDEST_DOB
-        end
-
         define_predicate(:too_young?) do |response|
           calculator.too_young?(response)
         end
 
-        next_node_if(:outcome_age_limit_reached_birth, age_limit_reached?)
         next_node_if(:outcome_pension_age_not_reached, too_young?)
         next_node :gender?
       end
@@ -64,8 +59,6 @@ module SmartAnswer
       end
       #A2
       outcome :outcome_pension_age_not_reached
-      #A3
-      outcome :outcome_age_limit_reached_birth
     end
   end
 end

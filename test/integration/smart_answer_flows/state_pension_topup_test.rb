@@ -14,15 +14,6 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     assert_current_node :dob_age?
   end
 
-  context "older than limit" do
-    setup do
-      add_response Date.parse('1914-10-12')
-    end
-    should "bring you to age limit reached outcome" do
-      assert_current_node :outcome_age_limit_reached_birth
-    end
-  end
-
   context "younger than age limit" do
     setup do
       add_response Date.parse('1980-02-02')
@@ -104,31 +95,18 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       assert_current_node :outcome_pension_age_not_reached
     end
   end
-  context "Anyone turns 101 on 2 April 2017 = DOB 2/4/1916 = Old limit for 2 - show rates for 99 & 100" do
+  context "Anyone turns 101 on 2 April 2017 = DOB 2/4/1916" do
     setup do
       add_response Date.parse('1916-04-02')
       add_response "male"
       add_response 1
     end
-    should "show two rates" do
+    should "show three rates, two of them being the max age rate (100 => 127)" do
       assert_current_node :outcome_topup_calculations
       assert_state_variable :amounts_vs_ages, [
         { amount: SmartAnswer::Money.new(137), age: 99 },
-        { amount: SmartAnswer::Money.new(127), age: 100 }
-      ]
-      assert_state_variable :gender, "male"
-    end
-  end
-  context "Anyone who is 100y11m21d on 12 Oct 2015 = DOB 13/10/1914 = just young enough for 100 rate" do
-    setup do
-      add_response Date.parse('1914-10-13')
-      add_response "male"
-      add_response 1
-    end
-    should "show one rate" do
-      assert_current_node :outcome_topup_calculations
-      assert_state_variable :amounts_vs_ages, [
-        { amount: SmartAnswer::Money.new(127), age: 100 }
+        { amount: SmartAnswer::Money.new(127), age: 100 },
+        { amount: SmartAnswer::Money.new(127), age: 101 }
       ]
       assert_state_variable :gender, "male"
     end
