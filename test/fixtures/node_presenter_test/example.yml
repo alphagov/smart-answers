@@ -29,6 +29,3 @@ en-GB:
           Here are the phrases:
 
           %{phrases}
-      outcome_with_no_title:
-        body: |
-          This is the outcome

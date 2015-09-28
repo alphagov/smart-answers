@@ -86,17 +86,5 @@ module SmartAnswer
 
       assert_equal 'post-body-govspeak', @presenter.post_body(html: false)
     end
-
-    test '#has_post_body? returns true if post_body for node exists' do
-      @renderer.stubs(:content_for).returns('post-body-html')
-
-      assert @presenter.has_post_body?
-    end
-
-    test '#has_post_body? returns false if post_body for node does not exist' do
-      @renderer.stubs(:content_for).returns(nil)
-
-      refute @presenter.has_post_body?
-    end
   end
 end

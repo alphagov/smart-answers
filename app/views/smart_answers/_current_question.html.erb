@@ -6,11 +6,9 @@
     <%= question.title %>
   </h2>
   <div class="question-body">
-    <% if question.has_body? %>
-      <%= question.body %>
-    <% end %>
+    <%= question.body %>
 
-    <% if question.has_hint? %>
+    <% if question.hint.present? %>
       <p class="hint"><%= question.hint %></p>
     <% end %>
 
@@ -23,9 +21,7 @@
 
       <%= render partial: question.partial_template_name, locals: { question: question, number: number } %>
 
-      <% if question.has_post_body? %>
-        <%= question.post_body %>
-      <% end %>
+      <%= question.post_body %>
     </div>
   </div>
 </div>

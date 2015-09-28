@@ -33,6 +33,12 @@ module SmartAnswer
       assert_equal 'title-text', @presenter.title
     end
 
+    test '#title falls back to humanized node name if not title available in ERB template' do
+      @renderer.stubs(:content_for).returns(nil)
+
+      assert_equal 'Outcome name', @presenter.title
+    end
+
     test '#body returns content rendered for body block with govspeak processing enabled by default' do
       @renderer.stubs(:content_for).with(:body, html: true).returns('body-html')
 
