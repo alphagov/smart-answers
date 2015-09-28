@@ -3,19 +3,19 @@
 - current_payment
 - past_payment
 :past_payment_date?:
-- "2013-10-01"
-- "2012-10-01"
-- "2011-10-01"
-- "2010-10-01"
-- "2009-10-01"
-- "2008-10-01"
+- '2013-10-01'
+- '2012-10-01'
+- '2011-10-01'
+- '2010-10-01'
+- '2009-10-01'
+- '2008-10-01'
 :are_you_an_apprentice?:
 - not_an_apprentice
 - apprentice_under_19
 - apprentice_over_19_first_year
 - apprentice_over_19_second_year_onwards
 :were_you_an_apprentice?:
-- "no"
+- 'no'
 - apprentice_under_19
 - apprentice_over_19
 :how_old_are_you?:
@@ -51,11 +51,11 @@
 :what_was_overtime_pay_per_hour?:
 - 10
 :is_provided_with_accommodation?:
-- "no"
+- 'no'
 - yes_free
 - yes_charged
 :was_provided_with_accommodation?:
-- "no"
+- 'no'
 - yes_free
 - yes_charged
 :current_accommodation_charge?:
