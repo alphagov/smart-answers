@@ -26,13 +26,13 @@ This is her total take-home pay before any deductions, eg tax.
 
 * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
   * two_carers is 'no'
-    * employment_status_1 is 'employee' => outcome_mat-leave_mat-pay
-    * employment_status_1 is 'worker' => outcome_mat-pay
+    * employment_status_of_mother is 'employee' => outcome_mat-leave_mat-pay
+    * employment_status_of_mother is 'worker' => outcome_mat-pay
   * two_carers is 'yes'
     * employment_status_2 in {employee worker} => employment_2
     * employment_status_2 in {self-employed unemployed}
       * due_date >= '2015-4-5' => employment_2_more
       * due_date < '2015-4-5'
-        * employment_status_1 is 'employee' => outcome_mat-leave_mat-pay
-        * employment_status_1 is 'worker' => outcome_mat-pay
+        * employment_status_of_mother is 'employee' => outcome_mat-leave_mat-pay
+        * employment_status_of_mother is 'worker' => outcome_mat-pay
 * NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1) => employment_1_more

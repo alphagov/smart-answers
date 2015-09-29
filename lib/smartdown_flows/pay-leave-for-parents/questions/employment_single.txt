@@ -2,7 +2,7 @@
 
 # What’s the employment status of the mother?
 
-[choice: employment_status_1]
+[choice: employment_status_of_mother]
 * employee: Employee
 * worker: Worker or agency worker
 * self-employed: Self-employed
@@ -10,5 +10,5 @@
 
 Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
 
-* employment_status_1 in {employee worker} => employment_1
-* employment_status_1 in {self-employed unemployed} => employment_1_more
+* employment_status_of_mother in {employee worker} => employment_1
+* employment_status_of_mother in {self-employed unemployed} => employment_1_more

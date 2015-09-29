@@ -2,7 +2,7 @@
 #Partner self-employed
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: self-employed
+- employment_status_of_mother: self-employed
   employment_status_2: self-employed
 - work_employment_1: no
   earnings_employment_1: no
@@ -12,7 +12,7 @@ outcome_birth-nothing
 #Partner worker, does not pass continuity test, does not pass lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: worker
+- employment_status_of_mother: worker
   employment_status_2: worker
 - job_before_x_1: yes
   job_after_y_1: no
@@ -31,7 +31,7 @@ outcome_mat-allowance
 #Partner self-employed
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: self-employed
+- employment_status_of_mother: self-employed
   employment_status_2: self-employed
 - work_employment_1: yes
   earnings_employment_1: yes
@@ -42,7 +42,7 @@ outcome_mat-allowance
 #Partner employee, does not pass continuity test, does not pass lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: employee
 - job_before_x_1: no
   job_after_y_1: no
@@ -61,7 +61,7 @@ outcome_mat-allowance
 #Partner self-employed
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: unemployed
+- employment_status_of_mother: unemployed
   employment_status_2: self-employed
 - work_employment_1: no
   earnings_employment_1: no
@@ -71,7 +71,7 @@ outcome_mat-allowance-14-weeks
 #Partner self-employed
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -86,7 +86,7 @@ outcome_mat-allowance_mat-leave
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: employee
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -105,7 +105,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additiona
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: worker
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -124,7 +124,7 @@ outcome_mat-allowance_mat-leave_pat-pay_additional-pat-pay
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: self-employed
+- employment_status_of_mother: self-employed
   employment_status_2: employee
 - work_employment_1: yes
   earnings_employment_1: yes
@@ -139,7 +139,7 @@ outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: worker
+- employment_status_of_mother: worker
   employment_status_2: employee
 - job_before_x_1: no
   job_after_y_1: no
@@ -158,7 +158,7 @@ outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: self-employed
+- employment_status_of_mother: self-employed
   employment_status_2: worker
 - work_employment_1: yes
   earnings_employment_1: yes
@@ -173,7 +173,7 @@ outcome_mat-allowance_pat-pay_additional-pat-pay
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: worker
+- employment_status_of_mother: worker
   employment_status_2: worker
 - job_before_x_1: no
   job_after_y_1: no
@@ -192,7 +192,7 @@ outcome_mat-allowance_pat-pay_additional-pat-pay
 #Partner self-employed
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -206,7 +206,7 @@ outcome_mat-leave
 #Partner employee, does not pass continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: employee
 - job_before_x_1: no
   job_after_y_1: yes
@@ -225,7 +225,7 @@ outcome_mat-allowance_mat-leave
 #Partner self-employed
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -237,7 +237,7 @@ outcome_mat-leave_mat-pay
 #Partner employee, passes continuity test, does not pass lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: employee
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -253,7 +253,7 @@ outcome_mat-leave_mat-pay_pat-leave_additional-pat-leave
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: employee
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -269,7 +269,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: worker
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -285,7 +285,7 @@ outcome_mat-leave_mat-pay_pat-pay_additional-pat-pay
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: employee
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -303,7 +303,7 @@ outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: worker
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -321,7 +321,7 @@ outcome_mat-leave_pat-pay
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: worker
 - job_before_x_1: no
   job_after_y_1: yes
@@ -339,7 +339,7 @@ outcome_mat-leave_pat-pay
 #Partner self-employed
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: worker
+- employment_status_of_mother: worker
   employment_status_2: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -351,7 +351,7 @@ outcome_mat-pay
 #Partner worker, does not pass continuity test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: worker
+- employment_status_of_mother: worker
   employment_status_2: worker
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -367,7 +367,7 @@ outcome_mat-pay
 #Partner employee, passes continuity test, does not pass lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: worker
+- employment_status_of_mother: worker
   employment_status_2: employee
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -383,7 +383,7 @@ outcome_mat-pay_pat-leave_additional-pat-leave
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: worker
+- employment_status_of_mother: worker
   employment_status_2: employee
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -399,7 +399,7 @@ outcome_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: worker
+- employment_status_of_mother: worker
   employment_status_2: worker
 - job_before_x_1: yes
   job_after_y_1: yes
@@ -415,7 +415,7 @@ outcome_mat-pay_pat-pay_additional-pat-pay
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: self-employed
+- employment_status_of_mother: self-employed
   employment_status_2: employee
 - work_employment_1: no
   earnings_employment_1: no
@@ -429,7 +429,7 @@ outcome_pat-leave_pat-pay
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: worker
+- employment_status_of_mother: worker
   employment_status_2: employee
 - job_before_x_1: no
   job_after_y_1: no
@@ -447,7 +447,7 @@ outcome_pat-leave_pat-pay
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: self-employed
+- employment_status_of_mother: self-employed
   employment_status_2: worker
 - work_employment_1: no
   earnings_employment_1: no
@@ -461,7 +461,7 @@ outcome_pat-pay
 #Partner worker, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: worker
+- employment_status_of_mother: worker
   employment_status_2: worker
 - job_before_x_1: no
   job_after_y_1: no
@@ -479,7 +479,7 @@ outcome_pat-pay
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: employee
 - job_before_x_1: no
   job_after_y_1: yes
@@ -498,7 +498,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additiona
 #Partner employee, passes continuity test, passes lower earnings test
 - two_carers: yes
 - due_date: 2014-1-1
-- employment_status_1: employee
+- employment_status_of_mother: employee
   employment_status_2: employee
 - job_before_x_1: no
   job_after_y_1: yes

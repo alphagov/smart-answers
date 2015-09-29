@@ -26,7 +26,7 @@ This is their total take-home pay before any deductions, eg tax.
 
 * employment_status_2 is 'employee'
   * continuity(job_before_x_2 job_after_y_2) AND lower_earnings(lel_2)
-    * employment_status_1 is 'employee'
+    * employment_status_of_mother is 'employee'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
         * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
         * due_date < '2015-4-5' => outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
@@ -51,7 +51,7 @@ This is their total take-home pay before any deductions, eg tax.
         * due_date < '2015-4-5'
           * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-leave_pat-pay
-    * employment_status_1 is 'worker'
+    * employment_status_of_mother is 'worker'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
         * due_date >= '2015-4-5' => outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
         * due_date < '2015-4-5' => outcome_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
@@ -62,13 +62,13 @@ This is their total take-home pay before any deductions, eg tax.
         * due_date < '2015-4-5'
           * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-leave_pat-pay
-    * employment_status_1 in {unemployed self-employed}
+    * employment_status_of_mother in {unemployed self-employed}
       * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-leave_pat-pay
       * earnings_employment(earnings_employment_1 work_employment_1)
         * due_date >= '2015-4-5' => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
         * due_date < '2015-4-5' => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
   * continuity(job_before_x_2 job_after_y_2)
-    * employment_status_1 is 'employee'
+    * employment_status_of_mother is 'employee'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
         * due_date >= '2015-4-5' => employment_2_more
         * due_date < '2015-4-5' => outcome_mat-leave_mat-pay_pat-leave_additional-pat-leave
@@ -89,7 +89,7 @@ This is their total take-home pay before any deductions, eg tax.
           * due_date >= '2015-4-5' => outcome_mat-allowance_pat-leave_pat-shared-leave
           * due_date < '2015-4-5' => outcome_mat-allowance_pat-leave_additional-pat-leave
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-leave
-    * employment_status_1 is 'worker'
+    * employment_status_of_mother is 'worker'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
         * due_date >= '2015-4-5' => employment_2_more
         * due_date < '2015-4-5' => outcome_mat-pay_pat-leave_additional-pat-leave
@@ -98,13 +98,13 @@ This is their total take-home pay before any deductions, eg tax.
           * due_date >= '2015-4-5' => outcome_mat-allowance_pat-leave_pat-shared-leave
           * due_date < '2015-4-5' => outcome_mat-allowance_pat-leave_additional-pat-leave
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-leave
-    * employment_status_1 in {unemployed self-employed}
+    * employment_status_of_mother in {unemployed self-employed}
       * earnings_employment(earnings_employment_1 work_employment_1)
         * due_date >= '2015-4-5' => outcome_mat-allowance_pat-leave_pat-shared-leave
         * due_date < '2015-4-5' => outcome_mat-allowance_pat-leave_additional-pat-leave
       * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-leave
   * NOT continuity(job_before_x_2 job_after_y_2)
-    * employment_status_1 is 'employee'
+    * employment_status_of_mother is 'employee'
       * job_after_y_1 is 'yes'
         * due_date >= '2015-4-5'
           * continuity(job_before_x_1 job_after_y_1) => employment_2_more
@@ -119,19 +119,19 @@ This is their total take-home pay before any deductions, eg tax.
       * job_after_y_1 is 'no'
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
-    * employment_status_1 is 'worker'
+    * employment_status_of_mother is 'worker'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
         * due_date >= '2015-4-5' => employment_2_more
         * due_date < '2015-4-5' => outcome_mat-pay
       * NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1)
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
-    * employment_status_1 in {unemployed self-employed}
+    * employment_status_of_mother in {unemployed self-employed}
       * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
       * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
 * employment_status_2 is 'worker'
   * continuity(job_before_x_2 job_after_y_2) AND lower_earnings(lel_2)
-    * employment_status_1 is 'employee'
+    * employment_status_of_mother is 'employee'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
         * due_date >= '2015-4-5' => outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
         * due_date < '2015-4-5' => outcome_mat-leave_mat-pay_pat-pay_additional-pat-pay
@@ -150,7 +150,7 @@ This is their total take-home pay before any deductions, eg tax.
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-pay
         * due_date >= '2015-4-5' => outcome_mat-allowance_pat-pay_pat-shared-pay
         * due_date < '2015-4-5' => outcome_mat-allowance_pat-pay_additional-pat-pay
-    * employment_status_1 is 'worker'
+    * employment_status_of_mother is 'worker'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
         * due_date >= '2015-4-5' => outcome_mat-pay_pat-pay_both-shared-pay
         * due_date < '2015-4-5' => outcome_mat-pay_pat-pay_additional-pat-pay
@@ -161,7 +161,7 @@ This is their total take-home pay before any deductions, eg tax.
         * due_date < '2015-4-5'
           * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_pat-pay_additional-pat-pay
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-pay
-    * employment_status_1 in {unemployed self-employed}
+    * employment_status_of_mother in {unemployed self-employed}
       * due_date >= '2015-4-5'
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_pat-pay_pat-shared-pay
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-pay
@@ -169,7 +169,7 @@ This is their total take-home pay before any deductions, eg tax.
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_pat-pay_additional-pat-pay
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-pay
   * continuity(job_before_x_2 job_after_y_2)
-    * employment_status_1 is 'employee'
+    * employment_status_of_mother is 'employee'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
         * due_date >= '2015-4-5' => employment_2_more
         * due_date < '2015-4-5' => outcome_mat-leave_mat-pay
@@ -184,18 +184,18 @@ This is their total take-home pay before any deductions, eg tax.
         * job_after_y_1 is 'no'
           * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
-    * employment_status_1 is 'worker'
+    * employment_status_of_mother is 'worker'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
         * due_date >= '2015-4-5' => employment_2_more
         * due_date < '2015-4-5' => outcome_mat-pay_pat-pay_additional-pat-pay
       * NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1)
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
-    * employment_status_1 in {unemployed self-employed}
+    * employment_status_of_mother in {unemployed self-employed}
       * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
       * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
   * NOT continuity(job_before_x_2 job_after_y_2)
-    * employment_status_1 is 'employee'
+    * employment_status_of_mother is 'employee'
       * job_after_y_1 is 'yes'
         * due_date >= '2015-4-5'
           * continuity(job_before_x_1 job_after_y_1) => employment_2_more
@@ -210,13 +210,13 @@ This is their total take-home pay before any deductions, eg tax.
       * job_after_y_1 is 'no'
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
-    * employment_status_1 is 'worker'
+    * employment_status_of_mother is 'worker'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
         * due_date >= '2015-4-5' => employment_2_more
         * due_date < '2015-4-5' => outcome_mat-pay
       * NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1)
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
-    * employment_status_1 in {unemployed self-employed}
+    * employment_status_of_mother in {unemployed self-employed}
       * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
       * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
