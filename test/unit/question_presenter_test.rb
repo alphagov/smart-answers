@@ -174,6 +174,13 @@ module SmartAnswer
       assert_equal "something", presenter.options[0].label
     end
 
+    test "Avoids displaying the year for a date question when the year is 0" do
+      question = Question::Date.new(nil, :example_question?)
+      presenter = DateQuestionPresenter.new("flow.test", question)
+
+      assert_equal " 5 April", presenter.response_label(Date.parse("0000-04-05"))
+    end
+
     test "Identifies the relevant partial template for the class of the node" do
       presenter = QuestionPresenter.new(nil, Question::Date.new(nil, nil))
       assert_equal "date_question", presenter.partial_template_name

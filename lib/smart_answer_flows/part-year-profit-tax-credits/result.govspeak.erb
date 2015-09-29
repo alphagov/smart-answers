@@ -1,0 +1,28 @@
+<% content_for :body do %>
+  %Your part-year taxable profit is <%= format_money(calculator.award_period_taxable_profit) %>.%
+
+  Use this figure to complete box 2.4 on your award review. Enter £0 if you’ve made or expect to make a loss (your part-year profit is less than £0).
+
+  ^If you have more than one business, you need to calculate the part-year profits from all your businesses and add them together to complete box 2.4.^
+
+  You may be able to [make deductions from this amount](/end-tax-credits-claim/self-employed).
+
+  You’ll have to work out your part-year taxable profit [using the helpsheet](/government/publications/tax-credits-ending-your-award-when-you-claim-universal-credit) that came with your Award Review if:
+
+  - you changed your accounting period part way through the year
+  - your profits are based on a longer period or for example, you're a farmer, a foster carer or have foreign income
+
+  ## Your part-year taxable profit has been worked out from:
+
+  Your tax credits award ended on: <%= format_date(calculator.tax_credits_award_ends_on) %>
+
+  <% if calculator.stopped_trading_on %>
+    Your business stopped trading on: <%= format_date(calculator.basis_period.ends_on) %>
+  <% else %>
+    Your business accounts end on: <%= format_date(calculator.basis_period.ends_on) %>
+  <% end %>
+
+  Your estimated taxable profit between <%= format_date(calculator.basis_period.begins_on) %> and <%= format_date(calculator.basis_period.ends_on) %> was: <%= format_money(calculator.taxable_profit) %>
+
+  ^You must [keep the records](/self-employed-records/how-long-to-keep-your-records) of your calculation for at least 5 years.^
+<% end %>

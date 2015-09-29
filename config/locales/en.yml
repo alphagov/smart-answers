@@ -4,6 +4,7 @@
 en-GB:
   date:
     formats:
+      day_and_month: "%e %B"
       long: "%e %B %Y"
   flow:
     defaults:
