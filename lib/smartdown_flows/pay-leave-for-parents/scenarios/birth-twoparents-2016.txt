@@ -36,7 +36,7 @@ outcome_mat-allowance
 - work_employment_1: no
   earnings_employment_1: no
 - partner_started_working_before_continuity_start_date: no
-  job_after_y_2: no
+  partner_still_working_on_continuity_end_date: no
   salary_2: 400-week
   lel_2: no
 outcome_birth-nothing
@@ -92,7 +92,7 @@ outcome_mat-allowance
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: no
+  partner_still_working_on_continuity_end_date: no
   salary_2: 400-week
   lel_2: no
 outcome_mat-allowance
@@ -187,7 +187,7 @@ outcome_mat-leave
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: no
-  job_after_y_2: no
+  partner_still_working_on_continuity_end_date: no
   salary_2: 400-week
   lel_2: no
 outcome_mat-allowance_mat-leave
@@ -206,7 +206,7 @@ outcome_mat-allowance_mat-leave
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-pay
@@ -225,7 +225,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-p
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
@@ -240,7 +240,7 @@ outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
@@ -255,7 +255,7 @@ outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_mat-allowance_pat-pay_pat-shared-pay
@@ -274,7 +274,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_mat-allowance_pat-pay_pat-shared-pay
@@ -293,7 +293,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: no
 outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
@@ -337,7 +337,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: no
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 - work_employment_2: yes
@@ -355,7 +355,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
@@ -371,7 +371,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
@@ -389,7 +389,7 @@ outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
 - work_employment_1: no
   earnings_employment_1: no
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
@@ -407,7 +407,7 @@ outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
 - work_employment_1: no
   earnings_employment_1: no
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_mat-leave_pat-pay_mat-shared-leave
@@ -451,7 +451,7 @@ outcome_mat-pay_mat-shared-pay
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: no
-  job_after_y_2: no
+  partner_still_working_on_continuity_end_date: no
   salary_2: 400-week
   lel_2: no
 - work_employment_2: yes
@@ -469,7 +469,7 @@ outcome_mat-pay_mat-shared-pay
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
@@ -485,7 +485,7 @@ outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_mat-pay_pat-pay_both-shared-pay
@@ -499,7 +499,7 @@ outcome_mat-pay_pat-pay_both-shared-pay
 - work_employment_1: no
   earnings_employment_1: no
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_pat-leave_pat-pay
@@ -513,7 +513,7 @@ outcome_pat-leave_pat-pay
 - work_employment_1: no
   earnings_employment_1: no
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: yes
 outcome_pat-pay
@@ -529,7 +529,7 @@ outcome_pat-pay
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: no
 - work_employment_2: no
@@ -549,7 +549,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-shared-leave
 - work_employment_1: no
   earnings_employment_1: no
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: no
 - work_employment_2: yes
@@ -569,7 +569,7 @@ outcome_mat-leave_mat-shared-leave
 - work_employment_1: no
   earnings_employment_1: no
 - partner_started_working_before_continuity_start_date: no
-  job_after_y_2: no
+  partner_still_working_on_continuity_end_date: no
   salary_2: 400-week
   lel_2: no
 - work_employment_2: yes
@@ -589,7 +589,7 @@ outcome_mat-leave_mat-shared-leave
 - work_employment_1: no
   earnings_employment_1: no
 - partner_started_working_before_continuity_start_date: yes
-  job_after_y_2: yes
+  partner_still_working_on_continuity_end_date: yes
   salary_2: 400-week
   lel_2: no
 outcome_birth-nothing
