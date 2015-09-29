@@ -38,7 +38,7 @@ outcome_mat-allowance
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: no
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 outcome_birth-nothing
 
 #Mother self-employed, passes earnings and employment test
@@ -94,7 +94,7 @@ outcome_mat-allowance
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: no
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-allowance
 
 #Mother unemployed, passes earnings and employment test
@@ -189,7 +189,7 @@ outcome_mat-leave
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: no
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-allowance_mat-leave
 
 #Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
@@ -208,7 +208,7 @@ outcome_mat-allowance_mat-leave
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-pay
 
 #Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
@@ -227,7 +227,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-p
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
 
 #Mother self-employed, passes earnings and employment test
@@ -242,7 +242,7 @@ outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
 
 #Mother self-employed, passes earnings and employment test
@@ -257,7 +257,7 @@ outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_pat-pay_pat-shared-pay
 
 #Mother worker, does not pass continuity test, passes earnings and employment test
@@ -276,7 +276,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_pat-pay_pat-shared-pay
 
 #Mother employee, does not pass continuity test, passes lower earnings test
@@ -295,7 +295,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
 
 #Mother employee, passes continuity test, passes lower earnings test
@@ -339,7 +339,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 - work_employment_2: yes
   earnings_employment_2: yes
 outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
@@ -357,7 +357,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
 
 #Mother employee, passes continuity test, passes lower earnings test
@@ -373,7 +373,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
 
 #Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
@@ -391,7 +391,7 @@ outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
 
 #Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
@@ -409,7 +409,7 @@ outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_pat-pay_mat-shared-leave
 
 #Mother worker, passes continuity test, passes lower earnings test
@@ -453,7 +453,7 @@ outcome_mat-pay_mat-shared-pay
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: no
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 - work_employment_2: yes
   earnings_employment_2: yes
 outcome_mat-pay_mat-shared-pay
@@ -471,7 +471,7 @@ outcome_mat-pay_mat-shared-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
 
 #Mother worker, passes continuity test, passes lower earnings test
@@ -487,7 +487,7 @@ outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-pay_pat-pay_both-shared-pay
 
 #Mother self-employed, does not pass earnings and employment test
@@ -501,7 +501,7 @@ outcome_mat-pay_pat-pay_both-shared-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_pat-leave_pat-pay
 
 #Mother self-employed, does not pass earnings and employment test
@@ -515,7 +515,7 @@ outcome_pat-leave_pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_pat-pay
 
 #Mother employee, passes continuity test, passes lower earnings test
@@ -531,7 +531,7 @@ outcome_pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 - work_employment_2: no
   earnings_employment_2: no
 outcome_mat-leave_mat-pay_pat-leave_pat-shared-leave
@@ -551,7 +551,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-shared-leave
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 - work_employment_2: yes
   earnings_employment_2: yes
 outcome_mat-leave_mat-shared-leave
@@ -571,7 +571,7 @@ outcome_mat-leave_mat-shared-leave
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: no
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 - work_employment_2: yes
   earnings_employment_2: yes
 outcome_mat-leave_mat-shared-leave
@@ -591,5 +591,5 @@ outcome_mat-leave_mat-shared-leave
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 outcome_birth-nothing

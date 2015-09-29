@@ -24,7 +24,7 @@ outcome_birth-nothing
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-allowance
 
 #Mother self-employed, passes earnings and employment test
@@ -54,7 +54,7 @@ outcome_mat-allowance
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-allowance
 
 #Mother unemployed, does not pass earnings and employment test
@@ -98,7 +98,7 @@ outcome_mat-allowance_mat-leave
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
 #Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
@@ -117,7 +117,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additiona
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_mat-leave_pat-pay_additional-pat-pay
 
 #Mother self-employed, passes earnings and employment test
@@ -132,7 +132,7 @@ outcome_mat-allowance_mat-leave_pat-pay_additional-pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
 #Mother worker, does not pass continuity test, does not pass lower earnings test, passes earnings and employment test
@@ -151,7 +151,7 @@ outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
 #Mother self-employed, passes earnings and employment test
@@ -166,7 +166,7 @@ outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_pat-pay_additional-pat-pay
 
 #Mother worker, does not pass continuity test, does not pass lower earnings test, passes earnings and employment test
@@ -185,7 +185,7 @@ outcome_mat-allowance_pat-pay_additional-pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_pat-pay_additional-pat-pay
 
 #Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
@@ -218,7 +218,7 @@ outcome_mat-leave
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: no
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_mat-leave
 
 #Mother employee, passes continuity test, passes lower earnings test
@@ -246,7 +246,7 @@ outcome_mat-leave_mat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-leave_mat-pay_pat-leave_additional-pat-leave
 
 #Mother employee, passes continuity test, passes lower earnings test
@@ -262,7 +262,7 @@ outcome_mat-leave_mat-pay_pat-leave_additional-pat-leave
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
 #Mother employee, passes continuity test, passes lower earnings test
@@ -278,7 +278,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_mat-pay_pat-pay_additional-pat-pay
 
 #Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
@@ -296,7 +296,7 @@ outcome_mat-leave_mat-pay_pat-pay_additional-pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave
 
 #Mother employee, passes continuity test, does not pass lower earnings test, does not pass earnings and employment test
@@ -314,7 +314,7 @@ outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_pat-pay
 
 #Mother employee, does not pass continuity test, does not pass lower earnings test, does not pass earnings and employment test
@@ -332,7 +332,7 @@ outcome_mat-leave_pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_pat-pay
 
 #Mother worker, passes continuity test, passes lower earnings test
@@ -360,7 +360,7 @@ outcome_mat-pay
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: no
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-pay
 
 #Mother worker, passes continuity test, passes lower earnings test
@@ -376,7 +376,7 @@ outcome_mat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: no
+  partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-pay_pat-leave_additional-pat-leave
 
 #Mother worker, passes continuity test, passes lower earnings test
@@ -392,7 +392,7 @@ outcome_mat-pay_pat-leave_additional-pat-leave
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
 #Mother worker, passes continuity test, passes lower earnings test
@@ -408,7 +408,7 @@ outcome_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-pay_pat-pay_additional-pat-pay
 
 #Mother self-employed, does not pass earnings and employment test
@@ -422,7 +422,7 @@ outcome_mat-pay_pat-pay_additional-pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_pat-leave_pat-pay
 
 #Mother worker, does not pass continuity test, does not pass lower earnings test, does not pass earnings and employment test
@@ -440,7 +440,7 @@ outcome_pat-leave_pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_pat-leave_pat-pay
 
 #Mother self-employed, does not pass earnings and employment test
@@ -454,7 +454,7 @@ outcome_pat-leave_pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_pat-pay
 
 #Mother worker, does not pass continuity test, does not pass lower earnings test, does not pass earnings and employment test
@@ -472,7 +472,7 @@ outcome_pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_pat-pay
 
 #Mother employee, does not pass continuity test, passes lower earnings test, still working
@@ -491,7 +491,7 @@ outcome_pat-pay
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
 #Mother employee, does not pass continuity test, does not pass lower earnings test, does not pass earnings and employment test, still working
@@ -509,5 +509,5 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additiona
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
   partner_salary: 400-week
-  lel_2: yes
+  partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave
