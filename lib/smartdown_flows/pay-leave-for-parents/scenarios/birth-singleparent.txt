@@ -11,7 +11,7 @@ outcome_single-birth-nothing
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
 - mother_started_working_before_continuity_start_date: yes
-  job_after_y_1: no
+  mother_still_working_on_continuity_end_date: no
   salary_1: 400-week
   lel_1: yes
 - work_employment_1: yes
@@ -24,7 +24,7 @@ outcome_mat-allowance
 - due_date: 2014-4-5
 - employment_status_of_mother: worker
 - mother_started_working_before_continuity_start_date: yes
-  job_after_y_1: yes
+  mother_still_working_on_continuity_end_date: yes
   salary_1: 400-week
   lel_1: no
 - work_employment_1: no
@@ -45,7 +45,7 @@ outcome_mat-allowance
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
 - mother_started_working_before_continuity_start_date: yes
-  job_after_y_1: no
+  mother_still_working_on_continuity_end_date: no
   salary_1: 400-week
   lel_1: no
 - work_employment_1: yes
@@ -58,7 +58,7 @@ outcome_mat-allowance
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
 - mother_started_working_before_continuity_start_date: yes
-  job_after_y_1: yes
+  mother_still_working_on_continuity_end_date: yes
   salary_1: 400-week
   lel_1: no
 - work_employment_1: yes
@@ -71,7 +71,7 @@ outcome_mat-allowance_mat-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
 - mother_started_working_before_continuity_start_date: yes
-  job_after_y_1: yes
+  mother_still_working_on_continuity_end_date: yes
   salary_1: 400-week
   lel_1: no
 - work_employment_1: no
@@ -83,7 +83,7 @@ outcome_mat-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
 - mother_started_working_before_continuity_start_date: yes
-  job_after_y_1: yes
+  mother_still_working_on_continuity_end_date: yes
   salary_1: 400-week
   lel_1: yes
 outcome_mat-leave_mat-pay
@@ -93,7 +93,7 @@ outcome_mat-leave_mat-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
 - mother_started_working_before_continuity_start_date: yes
-  job_after_y_1: yes
+  mother_still_working_on_continuity_end_date: yes
   salary_1: 400-week
   lel_1: yes
 outcome_mat-pay
