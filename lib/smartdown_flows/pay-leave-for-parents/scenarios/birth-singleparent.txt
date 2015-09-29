@@ -11,7 +11,7 @@ outcome_single-birth-nothing
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
 - mother_started_working_before_continuity_start_date: yes
-  mother_still_working_on_continuity_end_date: no
+- mother_still_working_on_continuity_end_date: no
 - mother_salary: 400-week
 - mother_earned_more_than_lower_earnings_amount: yes
 - mother_worked_at_least_26_weeks: yes
@@ -24,7 +24,7 @@ outcome_mat-allowance
 - due_date: 2014-4-5
 - employment_status_of_mother: worker
 - mother_started_working_before_continuity_start_date: yes
-  mother_still_working_on_continuity_end_date: yes
+- mother_still_working_on_continuity_end_date: yes
 - mother_salary: 400-week
 - mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
@@ -45,7 +45,7 @@ outcome_mat-allowance
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
 - mother_started_working_before_continuity_start_date: yes
-  mother_still_working_on_continuity_end_date: no
+- mother_still_working_on_continuity_end_date: no
 - mother_salary: 400-week
 - mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
@@ -58,7 +58,7 @@ outcome_mat-allowance
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
 - mother_started_working_before_continuity_start_date: yes
-  mother_still_working_on_continuity_end_date: yes
+- mother_still_working_on_continuity_end_date: yes
 - mother_salary: 400-week
 - mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
@@ -71,7 +71,7 @@ outcome_mat-allowance_mat-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
 - mother_started_working_before_continuity_start_date: yes
-  mother_still_working_on_continuity_end_date: yes
+- mother_still_working_on_continuity_end_date: yes
 - mother_salary: 400-week
 - mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
@@ -83,7 +83,7 @@ outcome_mat-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
 - mother_started_working_before_continuity_start_date: yes
-  mother_still_working_on_continuity_end_date: yes
+- mother_still_working_on_continuity_end_date: yes
 - mother_salary: 400-week
 - mother_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_mat-pay
@@ -93,7 +93,7 @@ outcome_mat-leave_mat-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
 - mother_started_working_before_continuity_start_date: yes
-  mother_still_working_on_continuity_end_date: yes
+- mother_still_working_on_continuity_end_date: yes
 - mother_salary: 400-week
 - mother_earned_more_than_lower_earnings_amount: yes
 outcome_mat-pay
