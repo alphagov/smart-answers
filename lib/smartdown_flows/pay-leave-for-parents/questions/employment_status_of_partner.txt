@@ -1,15 +1,5 @@
 # Employment statuses
 
-# What’s the employment status of the mother?
-
-[choice: employment_status_of_mother]
-* employee: Employee
-* worker: Worker or agency worker
-* self-employed: Self-employed
-* unemployed: Unemployed
-
-Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
-
 # What’s the employment status of the mother’s partner?
 
 [choice: employment_status_of_partner]

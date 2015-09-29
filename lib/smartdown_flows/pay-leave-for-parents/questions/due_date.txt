@@ -4,5 +4,4 @@
 
 [date: due_date]
 
-* two_carers is 'no' => employment_status_of_mother
-* two_carers is 'yes' => employment_status_of_mother_and_partner
+* otherwise => employment_status_of_mother
