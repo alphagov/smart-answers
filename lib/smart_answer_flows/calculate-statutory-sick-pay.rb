@@ -256,9 +256,9 @@ module SmartAnswer
       money_question :total_employee_earnings? do
         save_input_as :relevant_period_pay
 
-        calculate :employee_average_weekly_earnings do
+        next_node_calculation :employee_average_weekly_earnings do |response|
           Calculators::StatutorySickPayCalculator.average_weekly_earnings(
-            pay: relevant_period_pay, pay_pattern: pay_pattern, monthly_pattern_payments: monthly_pattern_payments,
+            pay: response, pay_pattern: pay_pattern, monthly_pattern_payments: monthly_pattern_payments,
             relevant_period_to: relevant_period_to, relevant_period_from: relevant_period_from)
         end
 
@@ -276,7 +276,7 @@ module SmartAnswer
       value_question :contractual_days_covered_by_earnings? do
         save_input_as :contractual_earnings_days
 
-        calculate :employee_average_weekly_earnings do |response|
+        next_node_calculation :employee_average_weekly_earnings do |response|
           pay = relevant_contractual_pay
           days_worked = response
           Calculators::StatutorySickPayCalculator.contractual_earnings_awe(pay, days_worked)
@@ -294,7 +294,7 @@ module SmartAnswer
       # Question 10.1
       value_question :days_covered_by_earnings? do
 
-        calculate :employee_average_weekly_earnings do |response|
+        next_node_calculation :employee_average_weekly_earnings do |response|
           pay = earnings
           days_worked = response.to_i
           Calculators::StatutorySickPayCalculator.total_earnings_awe(pay, days_worked)
