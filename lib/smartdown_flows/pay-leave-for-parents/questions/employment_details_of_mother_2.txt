@@ -2,7 +2,7 @@
 
 # Did the mother work (or will she have worked) for at least 26 weeks between %{earnings_employment_start_date(due_date)} and %{earnings_employment_end_date(due_date)}?
 
-[choice: work_employment_1]
+[choice: mother_worked_at_least_26_weeks]
 * yes: Yes
 * no: No
 
@@ -17,13 +17,13 @@ The 26 weeks don’t need to be in a row. They can be full or part weeks.
 The 13 weeks don’t need to be in a row.
 
 * two_carers is 'no'
-  * earnings_employment(earnings_employment_1 work_employment_1) => employment_details_of_mother_3
+  * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => employment_details_of_mother_3
   * employment_status_of_mother is 'employee'
     * mother_still_working_on_continuity_end_date is 'yes' => outcome_mat-leave
     * mother_still_working_on_continuity_end_date is 'no' => outcome_single-birth-nothing
   * employment_status_of_mother in {worker self-employed unemployed} => outcome_single-birth-nothing
 * two_carers is 'yes'
-  * earnings_employment(earnings_employment_1 work_employment_1) => employment_details_of_mother_3
+  * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => employment_details_of_mother_3
   * employment_status_of_partner in {employee worker} => employment_details_of_partner_1
   * employment_status_of_partner in {self-employed unemployed}
     * employment_status_of_mother is 'employee'

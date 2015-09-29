@@ -2,7 +2,7 @@
 - two_carers: no
 - due_date: 2016-1-1
 - employment_status_of_mother: self-employed
-- work_employment_1: no
+- mother_worked_at_least_26_weeks: no
   earnings_employment_1: no
 outcome_single-birth-nothing
 
@@ -14,7 +14,7 @@ outcome_single-birth-nothing
   mother_still_working_on_continuity_end_date: no
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
-- work_employment_1: yes
+- mother_worked_at_least_26_weeks: yes
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
@@ -27,7 +27,7 @@ outcome_mat-allowance
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
-- work_employment_1: no
+- mother_worked_at_least_26_weeks: no
   earnings_employment_1: no
 outcome_single-birth-nothing
 
@@ -35,7 +35,7 @@ outcome_single-birth-nothing
 - two_carers: no
 - due_date: 2016-1-1
 - employment_status_of_mother: self-employed
-- work_employment_1: yes
+- mother_worked_at_least_26_weeks: yes
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
@@ -48,7 +48,7 @@ outcome_mat-allowance
   mother_still_working_on_continuity_end_date: no
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
-- work_employment_1: yes
+- mother_worked_at_least_26_weeks: yes
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
@@ -61,7 +61,7 @@ outcome_mat-allowance
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
-- work_employment_1: yes
+- mother_worked_at_least_26_weeks: yes
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance_mat-leave
@@ -74,7 +74,7 @@ outcome_mat-allowance_mat-leave
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
-- work_employment_1: no
+- mother_worked_at_least_26_weeks: no
   earnings_employment_1: no
 outcome_mat-leave
 
