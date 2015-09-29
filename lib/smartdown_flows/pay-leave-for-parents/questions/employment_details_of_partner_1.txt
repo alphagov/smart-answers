@@ -32,39 +32,39 @@ This is their total take-home pay before any deductions, eg tax.
         * due_date < '2015-4-5' => outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
       * mother_started_working_before_continuity_start_date is 'yes' AND mother_still_working_on_continuity_end_date is 'yes'
         * due_date >= '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
         * due_date < '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave
       * mother_still_working_on_continuity_end_date is 'yes'
         * due_date >= '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_pat-pay
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_pat-pay
         * due_date < '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave
       * mother_still_working_on_continuity_end_date is 'no'
         * due_date >= '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-leave_pat-pay
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-leave_pat-pay
         * due_date < '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-leave_pat-pay
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-leave_pat-pay
     * employment_status_of_mother is 'worker'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * due_date >= '2015-4-5' => outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
         * due_date < '2015-4-5' => outcome_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * due_date >= '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-leave_pat-pay
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-leave_pat-pay
         * due_date < '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-leave_pat-pay
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-leave_pat-pay
     * employment_status_of_mother in {unemployed self-employed}
-      * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-leave_pat-pay
-      * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks)
+      * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-leave_pat-pay
+      * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks)
         * due_date >= '2015-4-5' => outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
         * due_date < '2015-4-5' => outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
   * continuity(partner_started_working_before_continuity_start_date partner_still_working_on_continuity_end_date)
@@ -75,60 +75,60 @@ This is their total take-home pay before any deductions, eg tax.
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date)
         * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_additional-pat-leave
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_additional-pat-leave
       * mother_still_working_on_continuity_end_date is 'yes'
         * due_date >= '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave
         * due_date < '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_additional-pat-leave
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-leave_additional-pat-leave
       * mother_still_working_on_continuity_end_date is 'no'
-        * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks)
+        * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks)
           * due_date >= '2015-4-5' => outcome_mat-allowance_pat-leave_pat-shared-leave
           * due_date < '2015-4-5' => outcome_mat-allowance_pat-leave_additional-pat-leave
-        * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-leave
+        * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-leave
     * employment_status_of_mother is 'worker'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5' => outcome_mat-pay_pat-leave_additional-pat-leave
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
-        * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks)
+        * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks)
           * due_date >= '2015-4-5' => outcome_mat-allowance_pat-leave_pat-shared-leave
           * due_date < '2015-4-5' => outcome_mat-allowance_pat-leave_additional-pat-leave
-        * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-leave
+        * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-leave
     * employment_status_of_mother in {unemployed self-employed}
-      * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks)
+      * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks)
         * due_date >= '2015-4-5' => outcome_mat-allowance_pat-leave_pat-shared-leave
         * due_date < '2015-4-5' => outcome_mat-allowance_pat-leave_additional-pat-leave
-      * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-leave
+      * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-leave
   * NOT continuity(partner_started_working_before_continuity_start_date partner_still_working_on_continuity_end_date)
     * employment_status_of_mother is 'employee'
       * mother_still_working_on_continuity_end_date is 'yes'
         * due_date >= '2015-4-5'
           * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) => employment_details_of_partner_2
           * otherwise
-            * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
-            * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave
+            * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
+            * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave
         * due_date < '2015-4-5'
           * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount) => outcome_mat-leave_mat-pay
           * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
-            * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
-            * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave
+            * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
+            * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave
       * mother_still_working_on_continuity_end_date is 'no'
-        * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance
-        * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_birth-nothing
+        * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance
+        * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_birth-nothing
     * employment_status_of_mother is 'worker'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5' => outcome_mat-pay
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
-        * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance
-        * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_birth-nothing
+        * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance
+        * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_birth-nothing
     * employment_status_of_mother in {unemployed self-employed}
-      * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance
-      * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_birth-nothing
+      * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance
+      * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_birth-nothing
 * employment_status_of_partner is 'worker'
   * continuity(partner_started_working_before_continuity_start_date partner_still_working_on_continuity_end_date) AND lower_earnings(partner_earned_more_than_lower_earnings_amount)
     * employment_status_of_mother is 'employee'
@@ -137,17 +137,17 @@ This is their total take-home pay before any deductions, eg tax.
         * due_date < '2015-4-5' => outcome_mat-leave_mat-pay_pat-pay_additional-pat-pay
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date)
         * due_date >= '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-pay_mat-shared-leave
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-pay_mat-shared-leave
         * due_date < '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-pay_additional-pat-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-pay
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave_pat-pay_additional-pat-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-pay
       * mother_still_working_on_continuity_end_date is 'yes'
-        * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-pay
+        * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave_pat-pay
         * due_date >= '2015-4-5' => outcome_mat-allowance_mat-leave_pat-pay_pat-shared-pay
         * due_date < '2015-4-5' => outcome_mat-allowance_mat-leave_pat-pay_additional-pat-pay
       * mother_still_working_on_continuity_end_date is 'no'
-        * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-pay
+        * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-pay
         * due_date >= '2015-4-5' => outcome_mat-allowance_pat-pay_pat-shared-pay
         * due_date < '2015-4-5' => outcome_mat-allowance_pat-pay_additional-pat-pay
     * employment_status_of_mother is 'worker'
@@ -156,18 +156,18 @@ This is their total take-home pay before any deductions, eg tax.
         * due_date < '2015-4-5' => outcome_mat-pay_pat-pay_additional-pat-pay
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * due_date >= '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-pay_pat-shared-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-pay
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-pay_pat-shared-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-pay
         * due_date < '2015-4-5'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-pay_additional-pat-pay
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-pay
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-pay_additional-pat-pay
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-pay
     * employment_status_of_mother in {unemployed self-employed}
       * due_date >= '2015-4-5'
-        * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-pay_pat-shared-pay
-        * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-pay
+        * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-pay_pat-shared-pay
+        * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-pay
       * due_date < '2015-4-5'
-        * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-pay_additional-pat-pay
-        * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_pat-pay
+        * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_pat-pay_additional-pat-pay
+        * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_pat-pay
   * continuity(partner_started_working_before_continuity_start_date partner_still_working_on_continuity_end_date)
     * employment_status_of_mother is 'employee'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
@@ -176,47 +176,47 @@ This is their total take-home pay before any deductions, eg tax.
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date)
           * due_date >= '2015-4-5' => employment_details_of_partner_2
-          * due_date < '2015-4-5' AND earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
-          * due_date < '2015-4-5' AND NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave
+          * due_date < '2015-4-5' AND earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
+          * due_date < '2015-4-5' AND NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave
         * mother_still_working_on_continuity_end_date is 'yes'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave
         * mother_still_working_on_continuity_end_date is 'no'
-          * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance
-          * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_birth-nothing
+          * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance
+          * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_birth-nothing
     * employment_status_of_mother is 'worker'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5' => outcome_mat-pay_pat-pay_additional-pat-pay
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
-        * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance
-        * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_birth-nothing
+        * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance
+        * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_birth-nothing
     * employment_status_of_mother in {unemployed self-employed}
-      * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance
-      * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_birth-nothing
+      * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance
+      * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_birth-nothing
   * NOT continuity(partner_started_working_before_continuity_start_date partner_still_working_on_continuity_end_date)
     * employment_status_of_mother is 'employee'
       * mother_still_working_on_continuity_end_date is 'yes'
         * due_date >= '2015-4-5'
           * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) => employment_details_of_partner_2
           * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date)
-            * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
-            * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave
+            * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
+            * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave
         * due_date < '2015-4-5'
           * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount) => outcome_mat-leave_mat-pay
           * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
-            * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
-            * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-leave
+            * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance_mat-leave
+            * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-leave
       * mother_still_working_on_continuity_end_date is 'no'
-        * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance
-        * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_birth-nothing
+        * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance
+        * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_birth-nothing
     * employment_status_of_mother is 'worker'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5' => outcome_mat-pay
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
-        * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance
-        * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_birth-nothing
+        * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance
+        * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_birth-nothing
     * employment_status_of_mother in {unemployed self-employed}
-      * earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_mat-allowance
-      * NOT earnings_employment(earnings_employment_1 mother_worked_at_least_26_weeks) => outcome_birth-nothing
+      * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_mat-allowance
+      * NOT earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => outcome_birth-nothing
