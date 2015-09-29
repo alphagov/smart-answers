@@ -1,0 +1,9 @@
+# Mother’s employment details
+
+# How much does the mother earn (or did she earn, if she’s left her job)?
+
+[salary: mother_salary]
+
+This is her total take-home pay before any deductions, eg tax.
+
+* otherwise => employment_details_of_mother_1d
