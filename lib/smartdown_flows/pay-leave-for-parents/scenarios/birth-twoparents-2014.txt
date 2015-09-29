@@ -23,7 +23,7 @@ outcome_birth-nothing
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-allowance
 
@@ -53,7 +53,7 @@ outcome_mat-allowance
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-allowance
 
@@ -97,7 +97,7 @@ outcome_mat-allowance_mat-leave
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
@@ -116,7 +116,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additiona
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_mat-leave_pat-pay_additional-pat-pay
 
@@ -131,7 +131,7 @@ outcome_mat-allowance_mat-leave_pat-pay_additional-pat-pay
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
@@ -150,7 +150,7 @@ outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
@@ -165,7 +165,7 @@ outcome_mat-allowance_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_pat-pay_additional-pat-pay
 
@@ -184,7 +184,7 @@ outcome_mat-allowance_pat-pay_additional-pat-pay
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_pat-pay_additional-pat-pay
 
@@ -217,7 +217,7 @@ outcome_mat-leave
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: no
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_mat-leave
 
@@ -245,7 +245,7 @@ outcome_mat-leave_mat-pay
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-leave_mat-pay_pat-leave_additional-pat-leave
 
@@ -261,7 +261,7 @@ outcome_mat-leave_mat-pay_pat-leave_additional-pat-leave
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
@@ -277,7 +277,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_mat-pay_pat-pay_additional-pat-pay
 
@@ -295,7 +295,7 @@ outcome_mat-leave_mat-pay_pat-pay_additional-pat-pay
   mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave
 
@@ -313,7 +313,7 @@ outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave
   mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_pat-pay
 
@@ -331,7 +331,7 @@ outcome_mat-leave_pat-pay
   mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_pat-pay
 
@@ -359,7 +359,7 @@ outcome_mat-pay
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: no
   partner_still_working_on_continuity_end_date: no
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-pay
 
@@ -375,7 +375,7 @@ outcome_mat-pay
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: no
 outcome_mat-pay_pat-leave_additional-pat-leave
 
@@ -391,7 +391,7 @@ outcome_mat-pay_pat-leave_additional-pat-leave
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
@@ -407,7 +407,7 @@ outcome_mat-pay_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
   mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-pay_pat-pay_additional-pat-pay
 
@@ -421,7 +421,7 @@ outcome_mat-pay_pat-pay_additional-pat-pay
   mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_pat-leave_pat-pay
 
@@ -439,7 +439,7 @@ outcome_pat-leave_pat-pay
   mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_pat-leave_pat-pay
 
@@ -453,7 +453,7 @@ outcome_pat-leave_pat-pay
   mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_pat-pay
 
@@ -471,7 +471,7 @@ outcome_pat-pay
   mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_pat-pay
 
@@ -490,7 +490,7 @@ outcome_pat-pay
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additional-pat-pay
 
@@ -508,6 +508,6 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_additional-pat-leave_additiona
   mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
   partner_still_working_on_continuity_end_date: yes
-  partner_salary: 400-week
+- partner_salary: 400-week
 - partner_earned_more_than_lower_earnings_amount: yes
 outcome_mat-leave_pat-leave_pat-pay_additional-pat-leave

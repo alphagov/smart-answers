@@ -12,10 +12,4 @@
 * yes: Yes
 * no: No
 
-# How much does the mother’s partner earn (or did they earn, if they’ve left their job)?
-
-[salary: partner_salary]
-
-This is their total take-home pay before any deductions, eg tax.
-
-* otherwise => employment_details_of_partner_1d
+* otherwise => employment_details_of_partner_1c
