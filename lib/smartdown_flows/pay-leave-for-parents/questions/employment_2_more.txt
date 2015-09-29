@@ -17,7 +17,7 @@ The 26 weeks don’t need to be in a row. They can be full or part weeks.
 The 13 weeks don’t need to be in a row.
 
 * employment_status_of_mother is 'employee'
-  * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(lel_1)
+  * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
     * employment_status_of_partner is 'employee'
       * continuity(job_before_x_2 job_after_y_2)
         * earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-leave_mat-pay_pat-leave_both-shared-leave_mat-shared-pay
@@ -28,7 +28,7 @@ The 13 weeks don’t need to be in a row.
     * employment_status_of_partner in {worker self-employed unemployed}
       * earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
       * NOT earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-leave_mat-pay
-  * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(lel_1)
+  * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
     * earnings_employment(earnings_employment_2 work_employment_2)
       * employment_status_of_partner is 'employee'
         * continuity(job_before_x_2 job_after_y_2)
