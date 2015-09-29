@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class StatutorySickPayCalculator
     attr_reader :waiting_days, :normal_workdays, :pattern_days
 
-    def initialize(prev_sick_days, sick_start_date, sick_end_date, days_of_the_week_worked)
+    def initialize(prev_sick_days:, sick_start_date:, sick_end_date:, days_of_the_week_worked:)
       @prev_sick_days = prev_sick_days
       @waiting_days = (@prev_sick_days >= 3 ? 0 : 3 - @prev_sick_days)
       @sick_start_date = sick_start_date
