@@ -24,7 +24,7 @@ This is their total take-home pay before any deductions, eg tax.
 * yes: Yes
 * no: No
 
-* employment_status_2 is 'employee'
+* employment_status_of_partner is 'employee'
   * continuity(job_before_x_2 job_after_y_2) AND lower_earnings(lel_2)
     * employment_status_of_mother is 'employee'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
@@ -129,7 +129,7 @@ This is their total take-home pay before any deductions, eg tax.
     * employment_status_of_mother in {unemployed self-employed}
       * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
       * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
-* employment_status_2 is 'worker'
+* employment_status_of_partner is 'worker'
   * continuity(job_before_x_2 job_after_y_2) AND lower_earnings(lel_2)
     * employment_status_of_mother is 'employee'
       * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)

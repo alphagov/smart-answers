@@ -18,47 +18,47 @@ The 13 weeks don’t need to be in a row.
 
 * employment_status_of_mother is 'employee'
   * continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
-    * employment_status_2 is 'employee'
+    * employment_status_of_partner is 'employee'
       * continuity(job_before_x_2 job_after_y_2)
         * earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-leave_mat-pay_pat-leave_both-shared-leave_mat-shared-pay
         * NOT earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-leave_mat-pay_pat-leave_pat-shared-leave
       * NOT continuity(job_before_x_2 job_after_y_2)
         * earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
         * NOT earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-leave_mat-pay
-    * employment_status_2 in {worker self-employed unemployed}
+    * employment_status_of_partner in {worker self-employed unemployed}
       * earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
       * NOT earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-leave_mat-pay
   * NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1)
     * earnings_employment(earnings_employment_2 work_employment_2)
-      * employment_status_2 is 'employee'
+      * employment_status_of_partner is 'employee'
         * continuity(job_before_x_2 job_after_y_2)
           * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave_pat-leave_both-shared-leave
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave_pat-leave_mat-shared-leave
         * NOT continuity(job_before_x_2 job_after_y_2)
           * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave_mat-shared-leave
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave_mat-shared-leave
-      * employment_status_2 in {worker self-employed unemployed}
+      * employment_status_of_partner in {worker self-employed unemployed}
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave_mat-shared-leave
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave_mat-shared-leave
     * NOT earnings_employment(earnings_employment_2 work_employment_2)
-      * employment_status_2 is 'employee'
+      * employment_status_of_partner is 'employee'
         * continuity(job_before_x_2 job_after_y_2)
           * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave_pat-leave
         * NOT continuity(job_before_x_2 job_after_y_2)
           * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave
-      * employment_status_2 in {worker self-employed unemployed}
+      * employment_status_of_partner in {worker self-employed unemployed}
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave
 * employment_status_of_mother is 'worker'
-  * employment_status_2 is 'employee'
+  * employment_status_of_partner is 'employee'
     * continuity(job_before_x_2 job_after_y_2)
       * earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-pay_pat-leave_pat-shared-leave_mat-shared-pay
       * NOT earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-pay_pat-leave
     * NOT continuity(job_before_x_2 job_after_y_2)
       * earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-pay_mat-shared-pay
       * NOT earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-pay
-  * employment_status_2 in {worker self-employed unemployed}
+  * employment_status_of_partner in {worker self-employed unemployed}
     * earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-pay_mat-shared-pay
     * NOT earnings_employment(earnings_employment_2 work_employment_2) => outcome_mat-pay

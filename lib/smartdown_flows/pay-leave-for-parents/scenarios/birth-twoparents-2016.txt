@@ -3,7 +3,7 @@
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: self-employed
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - work_employment_1: no
   earnings_employment_1: no
 outcome_birth-nothing
@@ -13,7 +13,7 @@ outcome_birth-nothing
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
@@ -28,7 +28,7 @@ outcome_mat-allowance
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -46,7 +46,7 @@ outcome_birth-nothing
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: self-employed
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - work_employment_1: yes
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
@@ -57,7 +57,7 @@ outcome_mat-allowance
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: unemployed
-  employment_status_2: unemployed
+  employment_status_of_partner: unemployed
 - work_employment_1: yes
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
@@ -68,7 +68,7 @@ outcome_mat-allowance
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
@@ -83,7 +83,7 @@ outcome_mat-allowance
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - job_before_x_1: yes
   job_after_y_1: no
   salary_1: 400-week
@@ -102,7 +102,7 @@ outcome_mat-allowance
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: unemployed
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - work_employment_1: no
   earnings_employment_1: no
 outcome_mat-allowance-14-weeks
@@ -112,7 +112,7 @@ outcome_mat-allowance-14-weeks
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -129,7 +129,7 @@ outcome_mat-allowance_mat-leave_mat-shared-leave
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -146,7 +146,7 @@ outcome_mat-allowance_mat-leave
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -162,7 +162,7 @@ outcome_mat-leave_mat-shared-leave
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -178,7 +178,7 @@ outcome_mat-leave
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - job_before_x_1: no
   job_after_y_1: yes
   salary_1: 400-week
@@ -197,7 +197,7 @@ outcome_mat-allowance_mat-leave
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: employee
+  employment_status_of_partner: employee
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -216,7 +216,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-p
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -235,7 +235,7 @@ outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: self-employed
-  employment_status_2: employee
+  employment_status_of_partner: employee
 - work_employment_1: yes
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
@@ -250,7 +250,7 @@ outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: self-employed
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - work_employment_1: yes
   earnings_employment_1: yes
 - salary_1_66_weeks: 400-week
@@ -265,7 +265,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - job_before_x_1: no
   job_after_y_1: no
   salary_1: 400-week
@@ -284,7 +284,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: employee
+  employment_status_of_partner: employee
 - job_before_x_1: no
   job_after_y_1: yes
   salary_1: 400-week
@@ -303,7 +303,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -317,7 +317,7 @@ outcome_mat-leave_mat-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -331,7 +331,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: employee
+  employment_status_of_partner: employee
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -349,7 +349,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: employee
+  employment_status_of_partner: employee
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -365,7 +365,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -381,7 +381,7 @@ outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: employee
+  employment_status_of_partner: employee
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -399,7 +399,7 @@ outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -417,7 +417,7 @@ outcome_mat-leave_pat-pay_mat-shared-leave
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -431,7 +431,7 @@ outcome_mat-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
-  employment_status_2: self-employed
+  employment_status_of_partner: self-employed
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -445,7 +445,7 @@ outcome_mat-pay_mat-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
-  employment_status_2: employee
+  employment_status_of_partner: employee
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -463,7 +463,7 @@ outcome_mat-pay_mat-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
-  employment_status_2: employee
+  employment_status_of_partner: employee
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -479,7 +479,7 @@ outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -495,7 +495,7 @@ outcome_mat-pay_pat-pay_both-shared-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: self-employed
-  employment_status_2: employee
+  employment_status_of_partner: employee
 - work_employment_1: no
   earnings_employment_1: no
 - job_before_x_2: yes
@@ -509,7 +509,7 @@ outcome_pat-leave_pat-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: self-employed
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - work_employment_1: no
   earnings_employment_1: no
 - job_before_x_2: yes
@@ -523,7 +523,7 @@ outcome_pat-pay
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: employee
+  employment_status_of_partner: employee
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -541,7 +541,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-shared-leave
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -561,7 +561,7 @@ outcome_mat-leave_mat-shared-leave
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - job_before_x_1: yes
   job_after_y_1: yes
   salary_1: 400-week
@@ -581,7 +581,7 @@ outcome_mat-leave_mat-shared-leave
 - two_carers: yes
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
-  employment_status_2: worker
+  employment_status_of_partner: worker
 - job_before_x_1: no
   job_after_y_1: no
   salary_1: 400-week
