@@ -260,20 +260,6 @@ module SmartAnswer
       checkbox_question :usual_work_days? do
         %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
 
-        calculate :ssp_payment do
-          Money.new(calculator.ssp_payment)
-        end
-
-        calculate :formatted_sick_pay_weekly_amounts do |response|
-          calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, response.split(","))
-
-          if calculator.ssp_payment > 0
-            calculator.formatted_sick_pay_weekly_amounts
-          else
-            ""
-          end
-        end
-
         next_node_calculation(:usual_work_days) do |response|
           response
         end
@@ -307,10 +293,22 @@ module SmartAnswer
 
       # Answer 6
       outcome :entitled_to_sick_pay do
+        precalculate :ssp_payment do
+          Money.new(calculator.ssp_payment)
+        end
+
         precalculate :days_paid do calculator.days_paid end
         precalculate :normal_workdays_out do calculator.normal_workdays end
         precalculate :pattern_days do calculator.pattern_days end
         precalculate :pattern_days_total do calculator.pattern_days * 28 end
+
+        precalculate :formatted_sick_pay_weekly_amounts do
+          if calculator.ssp_payment > 0
+            calculator.formatted_sick_pay_weekly_amounts
+          else
+            ""
+          end
+        end
       end
 
       # Answer 7
