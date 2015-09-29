@@ -3,7 +3,7 @@
 - due_date: 2016-1-1
 - employment_status_of_mother: self-employed
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 outcome_single-birth-nothing
 
 #Mother employee, soon to leave job, passes lower earnings test
@@ -15,7 +15,7 @@ outcome_single-birth-nothing
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
 
@@ -28,7 +28,7 @@ outcome_mat-allowance
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 outcome_single-birth-nothing
 
 #Mother self-employed, passes earnings and employment test
@@ -36,7 +36,7 @@ outcome_single-birth-nothing
 - due_date: 2016-1-1
 - employment_status_of_mother: self-employed
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
 
@@ -49,7 +49,7 @@ outcome_mat-allowance
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
 
@@ -62,7 +62,7 @@ outcome_mat-allowance
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance_mat-leave
 
@@ -75,7 +75,7 @@ outcome_mat-allowance_mat-leave
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 outcome_mat-leave
 
 #Mother employee, passes continuity test, passes lower earnings test

@@ -5,7 +5,7 @@
 - employment_status_of_mother: self-employed
   employment_status_of_partner: self-employed
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 outcome_birth-nothing
 
 #Mother employee, does not pass continuity test, passes lower earnings test
@@ -19,7 +19,7 @@ outcome_birth-nothing
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
 
@@ -34,7 +34,7 @@ outcome_mat-allowance
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: no
 - partner_still_working_on_continuity_end_date: no
 - partner_salary: 400-week
@@ -48,7 +48,7 @@ outcome_birth-nothing
 - employment_status_of_mother: self-employed
   employment_status_of_partner: self-employed
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
 
@@ -59,7 +59,7 @@ outcome_mat-allowance
 - employment_status_of_mother: unemployed
   employment_status_of_partner: unemployed
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
 
@@ -74,7 +74,7 @@ outcome_mat-allowance
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 outcome_mat-allowance
 
@@ -89,7 +89,7 @@ outcome_mat-allowance
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: no
@@ -104,7 +104,7 @@ outcome_mat-allowance
 - employment_status_of_mother: unemployed
   employment_status_of_partner: self-employed
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 outcome_mat-allowance-14-weeks
 
 #Mother employee, passes continuity test, does not pass lower earnings test, passes earnings and employment test
@@ -118,7 +118,7 @@ outcome_mat-allowance-14-weeks
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 - partner_worked_at_least_26_weeks: yes
 - partner_earned_at_least_390: yes
@@ -135,7 +135,7 @@ outcome_mat-allowance_mat-leave_mat-shared-leave
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 - partner_worked_at_least_26_weeks: no
 - partner_earned_at_least_390: no
@@ -152,7 +152,7 @@ outcome_mat-allowance_mat-leave
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 - partner_worked_at_least_26_weeks: yes
 - partner_earned_at_least_390: yes
 outcome_mat-leave_mat-shared-leave
@@ -168,7 +168,7 @@ outcome_mat-leave_mat-shared-leave
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 - partner_worked_at_least_26_weeks: no
 - partner_earned_at_least_390: no
 outcome_mat-leave
@@ -184,7 +184,7 @@ outcome_mat-leave
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: no
 - partner_still_working_on_continuity_end_date: no
@@ -203,7 +203,7 @@ outcome_mat-allowance_mat-leave
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
@@ -222,7 +222,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-p
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
@@ -237,7 +237,7 @@ outcome_mat-allowance_mat-leave_pat-pay_mat-shared-leave_pat-shared-pay
 - employment_status_of_mother: self-employed
   employment_status_of_partner: employee
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
@@ -252,7 +252,7 @@ outcome_mat-allowance_pat-leave_pat-pay_pat-shared-leave_pat-shared-pay
 - employment_status_of_mother: self-employed
   employment_status_of_partner: worker
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
@@ -271,7 +271,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
@@ -290,7 +290,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: yes
 - mother_worked_at_least_26_weeks: yes
-  mother_earned_at_least_390: yes
+- mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
@@ -387,7 +387,7 @@ outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
@@ -405,7 +405,7 @@ outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
@@ -497,7 +497,7 @@ outcome_mat-pay_pat-pay_both-shared-pay
 - employment_status_of_mother: self-employed
   employment_status_of_partner: employee
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
@@ -511,7 +511,7 @@ outcome_pat-leave_pat-pay
 - employment_status_of_mother: self-employed
   employment_status_of_partner: worker
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
@@ -547,7 +547,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-shared-leave
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
@@ -567,7 +567,7 @@ outcome_mat-leave_mat-shared-leave
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: no
 - partner_still_working_on_continuity_end_date: no
 - partner_salary: 400-week
@@ -587,7 +587,7 @@ outcome_mat-leave_mat-shared-leave
   mother_salary: 400-week
   mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
-  mother_earned_at_least_390: no
+- mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
