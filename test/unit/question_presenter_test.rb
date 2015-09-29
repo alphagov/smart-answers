@@ -138,6 +138,20 @@ module SmartAnswer
       assert_equal "The body copy", presenter.body(html: false)
     end
 
+    test "Node post_body looked up from translation file and parsed as govspeak" do
+      question = Question::Date.new(nil, :question_with_post_body)
+      presenter = QuestionPresenter.new("flow.test", question)
+
+      assert_equal "<p>post body for question</p>\n", presenter.post_body
+    end
+
+    test "Node post_body returns nil when key doesn't exist in translation file" do
+      question = Question::Date.new(nil, :question_with_no_post_body)
+      presenter = QuestionPresenter.new("flow.test", question)
+
+      assert_equal nil, presenter.post_body
+    end
+
     test 'delegates #to_response to node' do
       question = stub('question')
       question.stubs(:to_response).returns('response')
