@@ -17,7 +17,7 @@ outcome_birth-nothing
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: no
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - mother_worked_at_least_26_weeks: yes
 - mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
@@ -32,7 +32,7 @@ outcome_mat-allowance
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
 - mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: no
@@ -72,7 +72,7 @@ outcome_mat-allowance
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: no
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - mother_worked_at_least_26_weeks: yes
 - mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
@@ -87,7 +87,7 @@ outcome_mat-allowance
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: no
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - mother_worked_at_least_26_weeks: yes
 - mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
@@ -116,7 +116,7 @@ outcome_mat-allowance-14-weeks
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
 - mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
@@ -133,7 +133,7 @@ outcome_mat-allowance_mat-leave_mat-shared-leave
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
 - mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
@@ -150,7 +150,7 @@ outcome_mat-allowance_mat-leave
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
 - mother_earned_at_least_390: no
 - partner_worked_at_least_26_weeks: yes
@@ -166,7 +166,7 @@ outcome_mat-leave_mat-shared-leave
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
 - mother_earned_at_least_390: no
 - partner_worked_at_least_26_weeks: no
@@ -182,7 +182,7 @@ outcome_mat-leave
 - mother_started_working_before_continuity_start_date: no
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
 - mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
@@ -201,7 +201,7 @@ outcome_mat-allowance_mat-leave
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
 - mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
@@ -220,7 +220,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-p
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
 - mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
@@ -269,7 +269,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
 - mother_started_working_before_continuity_start_date: no
   mother_still_working_on_continuity_end_date: no
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: yes
 - mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
@@ -288,7 +288,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
 - mother_started_working_before_continuity_start_date: no
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - mother_worked_at_least_26_weeks: yes
 - mother_earned_at_least_390: yes
 - salary_1_66_weeks: 400-week
@@ -307,7 +307,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - partner_worked_at_least_26_weeks: no
 - partner_earned_at_least_390: no
 outcome_mat-leave_mat-pay
@@ -321,7 +321,7 @@ outcome_mat-leave_mat-pay
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - partner_worked_at_least_26_weeks: yes
 - partner_earned_at_least_390: yes
 outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
@@ -335,7 +335,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: no
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
@@ -353,7 +353,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
@@ -369,7 +369,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
@@ -385,7 +385,7 @@ outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
 - mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
@@ -403,7 +403,7 @@ outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
 - mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
@@ -421,7 +421,7 @@ outcome_mat-leave_pat-pay_mat-shared-leave
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - partner_worked_at_least_26_weeks: no
 - partner_earned_at_least_390: no
 outcome_mat-pay
@@ -435,7 +435,7 @@ outcome_mat-pay
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - partner_worked_at_least_26_weeks: yes
 - partner_earned_at_least_390: yes
 outcome_mat-pay_mat-shared-pay
@@ -449,7 +449,7 @@ outcome_mat-pay_mat-shared-pay
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: no
 - partner_still_working_on_continuity_end_date: no
 - partner_salary: 400-week
@@ -467,7 +467,7 @@ outcome_mat-pay_mat-shared-pay
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
@@ -483,7 +483,7 @@ outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
@@ -527,7 +527,7 @@ outcome_pat-pay
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: yes
+- mother_earned_more_than_lower_earnings_amount: yes
 - partner_started_working_before_continuity_start_date: yes
 - partner_still_working_on_continuity_end_date: yes
 - partner_salary: 400-week
@@ -545,7 +545,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-shared-leave
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
 - mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
@@ -565,7 +565,7 @@ outcome_mat-leave_mat-shared-leave
 - mother_started_working_before_continuity_start_date: yes
   mother_still_working_on_continuity_end_date: yes
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
 - mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: no
@@ -585,7 +585,7 @@ outcome_mat-leave_mat-shared-leave
 - mother_started_working_before_continuity_start_date: no
   mother_still_working_on_continuity_end_date: no
   mother_salary: 400-week
-  mother_earned_more_than_lower_earnings_amount: no
+- mother_earned_more_than_lower_earnings_amount: no
 - mother_worked_at_least_26_weeks: no
 - mother_earned_at_least_390: no
 - partner_started_working_before_continuity_start_date: yes
