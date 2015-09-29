@@ -70,10 +70,10 @@ This is their total take-home pay before any deductions, eg tax.
   * continuity(partner_started_working_before_continuity_start_date partner_still_working_on_continuity_end_date)
     * employment_status_of_mother is 'employee'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5' => outcome_mat-leave_mat-pay_pat-leave_additional-pat-leave
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5'
           * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave_pat-leave_additional-pat-leave
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave_pat-leave_additional-pat-leave
@@ -91,7 +91,7 @@ This is their total take-home pay before any deductions, eg tax.
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_pat-leave
     * employment_status_of_mother is 'worker'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5' => outcome_mat-pay_pat-leave_additional-pat-leave
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * earnings_employment(earnings_employment_1 work_employment_1)
@@ -107,7 +107,7 @@ This is their total take-home pay before any deductions, eg tax.
     * employment_status_of_mother is 'employee'
       * mother_still_working_on_continuity_end_date is 'yes'
         * due_date >= '2015-4-5'
-          * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) => employment_2_more
+          * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) => employment_details_of_partner_2
           * otherwise
             * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave
             * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave
@@ -121,7 +121,7 @@ This is their total take-home pay before any deductions, eg tax.
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
     * employment_status_of_mother is 'worker'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5' => outcome_mat-pay
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
@@ -171,11 +171,11 @@ This is their total take-home pay before any deductions, eg tax.
   * continuity(partner_started_working_before_continuity_start_date partner_still_working_on_continuity_end_date)
     * employment_status_of_mother is 'employee'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5' => outcome_mat-leave_mat-pay
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date)
-          * due_date >= '2015-4-5' => employment_2_more
+          * due_date >= '2015-4-5' => employment_details_of_partner_2
           * due_date < '2015-4-5' AND earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave
           * due_date < '2015-4-5' AND NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave
         * mother_still_working_on_continuity_end_date is 'yes'
@@ -186,7 +186,7 @@ This is their total take-home pay before any deductions, eg tax.
           * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
     * employment_status_of_mother is 'worker'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5' => outcome_mat-pay_pat-pay_additional-pat-pay
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
@@ -198,7 +198,7 @@ This is their total take-home pay before any deductions, eg tax.
     * employment_status_of_mother is 'employee'
       * mother_still_working_on_continuity_end_date is 'yes'
         * due_date >= '2015-4-5'
-          * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) => employment_2_more
+          * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) => employment_details_of_partner_2
           * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date)
             * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance_mat-leave
             * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-leave
@@ -212,7 +212,7 @@ This is their total take-home pay before any deductions, eg tax.
         * NOT earnings_employment(earnings_employment_1 work_employment_1) => outcome_birth-nothing
     * employment_status_of_mother is 'worker'
       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
-        * due_date >= '2015-4-5' => employment_2_more
+        * due_date >= '2015-4-5' => employment_details_of_partner_2
         * due_date < '2015-4-5' => outcome_mat-pay
       * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount)
         * earnings_employment(earnings_employment_1 work_employment_1) => outcome_mat-allowance
