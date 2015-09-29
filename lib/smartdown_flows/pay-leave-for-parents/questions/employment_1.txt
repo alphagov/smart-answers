@@ -14,7 +14,7 @@
 
 # How much does the mother earn (or did she earn, if she’s left her job)?
 
-[salary: salary_1]
+[salary: mother_salary]
 
 This is her total take-home pay before any deductions, eg tax.
 
