@@ -20,5 +20,5 @@ Read about [employment statuses](/employment-status) if you aren’t sure which 
 
 Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
 
-* employment_status_of_mother in {employee worker} => employment_details_of_mother_1
+* employment_status_of_mother in {employee worker} => employment_details_of_mother_1a
 * employment_status_of_mother in {self-employed unemployed} => employment_details_of_mother_2a
