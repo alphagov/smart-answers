@@ -2,7 +2,7 @@
 
 # Did the mother start her current or most recent job before %{continuity_start_date(due_date)}?
 
-[choice: job_before_x_1]
+[choice: mother_started_working_before_continuity_start_date]
 * yes: Yes
 * no: No
 
@@ -24,7 +24,7 @@ This is her total take-home pay before any deductions, eg tax.
 * yes: Yes
 * no: No
 
-* continuity(job_before_x_1 job_after_y_1) AND lower_earnings(lel_1)
+* continuity(mother_started_working_before_continuity_start_date job_after_y_1) AND lower_earnings(lel_1)
   * two_carers is 'no'
     * employment_status_of_mother is 'employee' => outcome_mat-leave_mat-pay
     * employment_status_of_mother is 'worker' => outcome_mat-pay
@@ -35,4 +35,4 @@ This is her total take-home pay before any deductions, eg tax.
       * due_date < '2015-4-5'
         * employment_status_of_mother is 'employee' => outcome_mat-leave_mat-pay
         * employment_status_of_mother is 'worker' => outcome_mat-pay
-* NOT continuity(job_before_x_1 job_after_y_1) OR NOT lower_earnings(lel_1) => employment_1_more
+* NOT continuity(mother_started_working_before_continuity_start_date job_after_y_1) OR NOT lower_earnings(lel_1) => employment_1_more

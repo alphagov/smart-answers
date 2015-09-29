@@ -14,7 +14,7 @@ outcome_birth-nothing
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: self-employed
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: no
   salary_1: 400-week
   lel_1: yes
@@ -29,7 +29,7 @@ outcome_mat-allowance
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
   employment_status_of_partner: worker
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -69,7 +69,7 @@ outcome_mat-allowance
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: self-employed
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: no
   salary_1: 400-week
   lel_1: yes
@@ -84,7 +84,7 @@ outcome_mat-allowance
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: worker
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: no
   salary_1: 400-week
   lel_1: yes
@@ -113,7 +113,7 @@ outcome_mat-allowance-14-weeks
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: self-employed
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -130,7 +130,7 @@ outcome_mat-allowance_mat-leave_mat-shared-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: self-employed
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -147,7 +147,7 @@ outcome_mat-allowance_mat-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: self-employed
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -163,7 +163,7 @@ outcome_mat-leave_mat-shared-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: self-employed
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -179,7 +179,7 @@ outcome_mat-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: worker
-- job_before_x_1: no
+- mother_started_working_before_continuity_start_date: no
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -198,7 +198,7 @@ outcome_mat-allowance_mat-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -217,7 +217,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-pay_both-shared-leave_pat-shared-p
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: worker
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -266,7 +266,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
   employment_status_of_partner: worker
-- job_before_x_1: no
+- mother_started_working_before_continuity_start_date: no
   job_after_y_1: no
   salary_1: 400-week
   lel_1: no
@@ -285,7 +285,7 @@ outcome_mat-allowance_pat-pay_pat-shared-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: employee
-- job_before_x_1: no
+- mother_started_working_before_continuity_start_date: no
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -304,7 +304,7 @@ outcome_mat-allowance_mat-leave_pat-leave_pat-shared-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: self-employed
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -318,7 +318,7 @@ outcome_mat-leave_mat-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: self-employed
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -332,7 +332,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -350,7 +350,7 @@ outcome_mat-leave_mat-pay_mat-shared-leave_mat-shared-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -366,7 +366,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-pay_both-shared-leave_both-shared-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: worker
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -382,7 +382,7 @@ outcome_mat-leave_mat-pay_pat-pay_mat-shared-leave_both-shared-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -400,7 +400,7 @@ outcome_mat-leave_pat-leave_pat-pay_mat-shared-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: worker
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -418,7 +418,7 @@ outcome_mat-leave_pat-pay_mat-shared-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
   employment_status_of_partner: self-employed
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -432,7 +432,7 @@ outcome_mat-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
   employment_status_of_partner: self-employed
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -446,7 +446,7 @@ outcome_mat-pay_mat-shared-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
   employment_status_of_partner: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -464,7 +464,7 @@ outcome_mat-pay_mat-shared-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
   employment_status_of_partner: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -480,7 +480,7 @@ outcome_mat-pay_pat-leave_pat-pay_pat-shared-leave_both-shared-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
   employment_status_of_partner: worker
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -524,7 +524,7 @@ outcome_pat-pay
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -542,7 +542,7 @@ outcome_mat-leave_mat-pay_pat-leave_pat-shared-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: worker
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -562,7 +562,7 @@ outcome_mat-leave_mat-shared-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
   employment_status_of_partner: worker
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -582,7 +582,7 @@ outcome_mat-leave_mat-shared-leave
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
   employment_status_of_partner: worker
-- job_before_x_1: no
+- mother_started_working_before_continuity_start_date: no
   job_after_y_1: no
   salary_1: 400-week
   lel_1: no

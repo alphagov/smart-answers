@@ -13,7 +13,7 @@
   * employment_status_of_partner in {employee worker} => employment_2
   * employment_status_of_partner in {self-employed unemployed}
     * employment_status_of_mother is 'employee'
-      * continuity(job_before_x_1 job_after_y_1) AND due_date >= '2015-4-5' => employment_2_more
+      * continuity(mother_started_working_before_continuity_start_date job_after_y_1) AND due_date >= '2015-4-5' => employment_2_more
       * job_after_y_1 is 'yes' => outcome_mat-allowance_mat-leave
       * job_after_y_1 is 'no' => outcome_mat-allowance
     * employment_status_of_mother in {worker self-employed unemployed} => outcome_mat-allowance

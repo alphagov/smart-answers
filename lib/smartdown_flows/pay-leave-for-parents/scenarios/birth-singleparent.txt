@@ -10,7 +10,7 @@ outcome_single-birth-nothing
 - two_carers: no
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: no
   salary_1: 400-week
   lel_1: yes
@@ -23,7 +23,7 @@ outcome_mat-allowance
 - two_carers: no
 - due_date: 2014-4-5
 - employment_status_of_mother: worker
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -44,7 +44,7 @@ outcome_mat-allowance
 - two_carers: no
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: no
   salary_1: 400-week
   lel_1: no
@@ -57,7 +57,7 @@ outcome_mat-allowance
 - two_carers: no
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -70,7 +70,7 @@ outcome_mat-allowance_mat-leave
 - two_carers: no
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: no
@@ -82,7 +82,7 @@ outcome_mat-leave
 - two_carers: no
 - due_date: 2016-1-1
 - employment_status_of_mother: employee
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
@@ -92,7 +92,7 @@ outcome_mat-leave_mat-pay
 - two_carers: no
 - due_date: 2016-1-1
 - employment_status_of_mother: worker
-- job_before_x_1: yes
+- mother_started_working_before_continuity_start_date: yes
   job_after_y_1: yes
   salary_1: 400-week
   lel_1: yes
