@@ -1,4 +1,0 @@
-#User has a cat
-- question_1: cat
-outcome_safe_pet
-has marker: pet-is-a-cat

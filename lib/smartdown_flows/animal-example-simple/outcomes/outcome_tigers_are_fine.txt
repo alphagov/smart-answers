@@ -1,9 +1,0 @@
-# Tigers are fine
-
-You haven't trained with tigers, but you'll be alright, probably.
-
-[next_steps]
-###You bought a tiger? Seriously?
-
-[Your nearest hospital](https://gov.uk/hospital)
-[end_next_steps]

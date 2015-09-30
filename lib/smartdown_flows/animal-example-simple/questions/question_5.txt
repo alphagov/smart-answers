@@ -1,7 +1,0 @@
-# What is the nationality of your Meowth?
-
-[country: meowth_nationality, countries: pokemon_regions]
-
-* meowth_nationality is 'sinnoh' => outcome_bad_meowth
-* NOT meowth_nationality is 'johto' AND NOT meowth_nationality is 'hoenn' => outcome_talking_meowth
-* otherwise => outcome_safe_pet
