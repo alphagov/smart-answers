@@ -1,7 +1,0 @@
-What is your %{type_of_feline}'s date of birth
-
-[date: animal_dob, from: -30, to: 0]
-
-* old_lion_considered_potential_threat?(animal_dob) => question_2
-* otherwise => question_3
-
