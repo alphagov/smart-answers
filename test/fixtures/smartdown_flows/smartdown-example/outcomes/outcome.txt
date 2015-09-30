@@ -1,0 +1,7 @@
+# Outcome title
+
+Outcome body
+
+[next_steps]
+Outcome next steps
+[end_next_steps]

@@ -108,7 +108,7 @@ module SmartdownAdapter
     end
 
     def render_txt?
-      false
+      finished? || !started?
     end
 
     private
