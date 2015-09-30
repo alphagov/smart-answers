@@ -1,0 +1,54 @@
+---
+:two_carers:
+- 'yes'
+- 'no'
+:due_date:
+- 'TODO: When is the baby due?'
+:mother_started_working_before_continuity_start_date:
+- 'yes'
+- 'no'
+:mother_still_working_on_continuity_end_date:
+- 'yes'
+- 'no'
+:mother_salary:
+- 'TODO: How much does the mother earn (or did she earn, if she’s left her job)?'
+:mother_earned_more_than_lower_earnings_limit:
+- 'yes'
+- 'no'
+:mother_worked_at_least_26_weeks:
+- 'yes'
+- 'no'
+:mother_earned_at_least_390:
+- 'yes'
+- 'no'
+:salary_1_66_weeks:
+- 'TODO: How much did the mother earn between %{earnings_employment_start_date(due_date)}
+  and %{earnings_employment_end_date(due_date)}?'
+:partner_started_working_before_continuity_start_date:
+- 'yes'
+- 'no'
+:partner_still_working_on_continuity_end_date:
+- 'yes'
+- 'no'
+:partner_salary:
+- 'TODO: How much does the mother’s partner earn (or did they earn, if they’ve left
+  their job)?'
+:partner_earned_more_than_lower_earnings_limit:
+- 'yes'
+- 'no'
+:partner_worked_at_least_26_weeks:
+- 'yes'
+- 'no'
+:partner_earned_at_least_390:
+- 'yes'
+- 'no'
+:employment_status_of_mother:
+- employee
+- worker
+- self-employed
+- unemployed
+:employment_status_of_partner:
+- employee
+- worker
+- self-employed
+- unemployed
