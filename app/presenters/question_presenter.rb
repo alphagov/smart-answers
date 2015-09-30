@@ -52,7 +52,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def post_body
-    nil
+    translate_and_render('post_body', html: true)
   end
 
   def options
