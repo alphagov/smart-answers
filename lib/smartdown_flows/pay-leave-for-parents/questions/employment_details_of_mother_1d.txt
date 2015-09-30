@@ -2,11 +2,11 @@
 
 # Has the mother earned (or will she have earned) more than %{lower_earnings_amount(due_date)} per week between %{lower_earnings_start_date(due_date)} and %{lower_earnings_end_date(due_date)}?
 
-[choice: mother_earned_more_than_lower_earnings_amount]
+[choice: mother_earned_more_than_lower_earnings_limit]
 * yes: Yes
 * no: No
 
-* continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_amount)
+* continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_limit)
   * two_carers is 'no'
     * employment_status_of_mother is 'employee' => outcome_mat-leave_mat-pay
     * employment_status_of_mother is 'worker' => outcome_mat-pay
@@ -17,4 +17,4 @@
       * due_date < '2015-4-5'
         * employment_status_of_mother is 'employee' => outcome_mat-leave_mat-pay
         * employment_status_of_mother is 'worker' => outcome_mat-pay
-* NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_amount) => employment_details_of_mother_2a
+* NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_limit) => employment_details_of_mother_2a
