@@ -33,7 +33,7 @@ flow.question_pages.each do |question_page|
   key = question.name
   content_for_questions[key]['title'] = question.title.strip
   content_for_questions[key]['body'] = question.body.strip if question.body.strip.present?
-  raise "Question '#{question.name}' has post-body '#{question.post_body}' which is not supported in SmartAnswers" if question.post_body.present?
+  content_for_questions[key]['post_body'] = question.post_body.strip if question.post_body.strip.present?
 
   next_node_rules = {}
   question_page.next_nodes.each do |next_node|
