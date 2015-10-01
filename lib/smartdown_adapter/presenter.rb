@@ -71,16 +71,6 @@ module SmartdownAdapter
       {}
     end
 
-    # Probably should be deprecated, just call the real method and see?
-    # Requires template updates
-    def has_subtitle?
-      !!subtitle
-    end
-
-    def subtitle
-    end
-    # -- end probably deprecated methods
-
     # Template helper that is aware of state, eg, name, responses
     def change_collapsed_question_link(question_number, number_questions_changed_page = 1)
       responses_up_to_changed_page = accepted_responses[0...question_number - 1]
