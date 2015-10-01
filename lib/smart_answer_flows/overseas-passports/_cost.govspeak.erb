@@ -36,7 +36,7 @@
 <% elsif %w(tajikistan turkmenistan uzbekistan).include?(current_location) %>
   <% case current_location %>
   <% when 'tajikistan' %>
-    You’ll have to pay a fee for your passport and a courier fee of £24.72.
+    You’ll have to pay a fee for your passport and a courier fee of £23.01.
 
     The courier fee pays for your passport to be sent securely to the British Embassy in Dushanbe for you to collect.
   <% when 'turkmenistan' %>
@@ -53,7 +53,7 @@
 
   <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { ips_number: ips_number } %>
 <% else %>
-  <% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burma cambodia china georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela vietnam western-sahara) %>
+  <% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burma cambodia china georgia india indonesia kazakhstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela vietnam western-sahara) %>
   <% pay_at_appointment_countries = %w(venezuela) %>
 
   <% if uk_visa_application_centre_countries.include?(current_location) %>
