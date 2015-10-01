@@ -8,7 +8,7 @@
         <%= outcome.body %>
       </div>
     </div>
-    <% if outcome.has_next_steps? %>
+    <% if outcome.next_steps.present? %>
       <div class="related-wrapper">
         <div class="related next-steps">
           <h2>Next steps</h2>

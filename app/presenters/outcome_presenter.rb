@@ -25,8 +25,4 @@ class OutcomePresenter < NodePresenter
   def next_steps(html: true)
     @renderer.content_for(:next_steps, html: html)
   end
-
-  def has_next_steps?
-    !!next_steps
-  end
 end

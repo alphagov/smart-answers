@@ -20,10 +20,6 @@ module SmartdownAdapter
       render(@smartdown_node.next_steps, html: html)
     end
 
-    def has_next_steps?
-      !!next_steps
-    end
-
   private
 
     def render(smartdown, html:)
