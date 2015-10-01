@@ -32,7 +32,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end
       should "be invalid if a fee over 9000 is entered" do
         add_response '9001'
- assert_current_node :how_much_are_your_tuition_fees_per_year?, error: true
+        assert_current_node :how_much_are_your_tuition_fees_per_year?, error: true
       end
 
       context "with valid fees entered" do
