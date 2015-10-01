@@ -1,0 +1,9 @@
+# Partner’s employment details
+
+# Did the mother’s partner start their current or most recent job before %{continuity_start_date(due_date)}?
+
+[choice: partner_started_working_before_continuity_start_date]
+* yes: Yes
+* no: No
+
+* otherwise => employment_details_of_partner_1b

@@ -1,0 +1,9 @@
+# Partner’s employment details
+
+# Was the mother’s partner (or will they be) still working in that job on %{continuity_end_date(due_date)}?
+
+[choice: partner_still_working_on_continuity_end_date]
+* yes: Yes
+* no: No
+
+* otherwise => employment_details_of_partner_1c
