@@ -1,3 +1,0 @@
-{{snippet: pat-pay}}
-
-{{snippet: extra-help}}
