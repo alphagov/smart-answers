@@ -1,0 +1,11 @@
+# Partner’s employment details
+
+# Did the mother’s partner work (or will they have worked) for at least 26 weeks between %{earnings_employment_start_date(due_date)} and %{earnings_employment_end_date(due_date)}?
+
+[choice: partner_worked_at_least_26_weeks]
+* yes: Yes
+* no: No
+
+The 26 weeks don’t need to be in a row. They can be full or part weeks.
+
+* otherwise => employment_details_of_partner_2b

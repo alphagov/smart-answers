@@ -1,0 +1,9 @@
+# Mother’s employment details
+
+# Did the mother start her current or most recent job before %{continuity_start_date(due_date)}?
+
+[choice: mother_started_working_before_continuity_start_date]
+* yes: Yes
+* no: No
+
+* otherwise => employment_details_of_mother_1b
