@@ -8,9 +8,9 @@ $!
 
 You could get per year:
 
-- £6,000 Tuition Fee Loan
+- £6,000 [Tuition Fee Loan](/studentfinance/continuing-fulltime-students) to pay for your course
 
-- £3,731 Maintenance Loan (for living costs)
+- £3,731 [Maintenance Loan](/studentfinance/continuing-fulltime-students) to pay living costs
 
 ###Extra student funding
 
@@ -18,7 +18,7 @@ You could get:
 
 - [NHS Bursary](/nhs-bursaries) (NHS funding towards your fees and living costs)
 
-^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - check if you [qualify](/student-finance/who-qualifies).^
+^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/who-qualifies).^
 
 ##Extra help
 
@@ -26,12 +26,12 @@ You could get a [bursary or scholarship](/extra-money-pay-university) from your 
 
 You might be able to get [help with the costs of travel for study or work placements](/travel-grants-medical-dental-students-england) as part of your course.
 
-Use the [Family Action grant search](http://www.family-action.org.uk/section.aspx?id=21211) to check whether you qualify for funding from a charitable trust.
+Use the [Turn2us grant search](http://grants-search.turn2us.org.uk/) to check whether you qualify for funding from a charitable trust.
 
-^Student loans have to be paid back - grants, bursaries and allowances don’t.^
+^Student loans have to be paid back - bursaries, allowances and grants don’t.^
 
 ##Your next steps
 
-s1. Find out how to [apply](/apply-for-student-finance) for student finance
-s2. Check if you [qualify](/student-finance/who-qualifies) for student finance
+s1. Find out how to [apply for student finance](/apply-for-student-finance)
+s2. Check if you [qualify for student finance](/student-finance/eligibilty)
 

@@ -7,12 +7,19 @@
 
   You could get per year:
 
-  - <%= number_to_currency(tuition_fee_amount, precision: 0) %> Tuition Fee Loan
+  <% if start_date == '2015-2016' %>
+    - <%= number_to_currency(tuition_fee_amount, precision: 0) %> [Tuition Fee Loan](/studentfinance/continuing-fulltime-students) to pay for your course
 
-  - <%= number_to_currency(maintenance_loan_amount, precision: 0) %> Maintenance Loan (for living costs)
-  <% if maintenance_grant_amount > 0 %>
+    - <%= number_to_currency(maintenance_loan_amount, precision: 0) %> [Maintenance Loan](/studentfinance/continuing-fulltime-students) to pay living costs
 
-    - <%= number_to_currency(maintenance_grant_amount, precision: 0) %> Maintenance Grant (for living costs)
+    <% if maintenance_grant_amount > 0 %>
+      - <%= number_to_currency(maintenance_grant_amount, precision: 0) %> [Maintenance Grant](/studentfinance/continuing-fulltime-students) (for living costs)
+    <% end %>
+
+  <% else %>
+    - <%= number_to_currency(tuition_fee_amount, precision: 0) %> [Tuition Fee Loan](/student-finance/new-fulltime-students) to pay for your course
+
+    - <%= number_to_currency(maintenance_loan_amount, precision: 0) %> [Maintenance Loan](/student-finance/new-fulltime-students) to pay living costs
   <% end %>
 
   ###Extra student funding
@@ -23,23 +30,13 @@
     You could get:
 
     <% if uk_ft_circumstances.include?('children-under-17') %>
-      <% if start_date == '2014-2015' %>
-        - up to £150.23 a week (1 child) or up to £257.55 a week (2 or more children) [Childcare Grant](/childcare-grant)
-        - up to £1,523 per year [Parents’ Learning Allowance](/parents-learning-allowance)
-        - [Child Tax Credit](/child-tax-credit)
-      <% elsif start_date == '2015-2016' %>
-        - up to £155.24 a week (1 child) or up to £266.15 a week (2 or more children) [Childcare Grant](/childcare-grant)
-        - up to £1,573 per year [Parents’ Learning Allowance](/parents-learning-allowance)
-        - [Child Tax Credit](/child-tax-credit)
-      <% end %>
+      - up to £155.24 a week (1 child) or up to £266.15 a week (2 or more children) [Childcare Grant](/childcare-grant)
+      - up to £1,573 per year [Parents’ Learning Allowance](/parents-learning-allowance)
+      - [Child Tax Credit](/child-tax-credit)
     <% end %>
 
     <% if uk_ft_circumstances.include?('dependant-adult') %>
-      <% if start_date == '2014-2015' %>
-        - up to £2,668 per year [Adult Dependant’s Grant](/adult-dependants-grant)
-      <% elsif start_date == '2015-2016' %>
-        - up to £2,757 per year [Adult Dependant’s Grant](/adult-dependants-grant)
-      <% end %>
+      - up to £2,757 per year [Adult Dependant’s Grant](/adult-dependants-grant)
     <% end %>
 
     <% if uk_ft_circumstances.include?('has-disability') %>
@@ -58,7 +55,7 @@
       - [Social Work Bursary](/social-work-bursaries) (NHS funding towards your fees and living costs)
     <% end %>
 
-    ^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - check if you [qualify](/student-finance/who-qualifies).^
+    ^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/who-qualifies).^
 
     ##Extra help
 
@@ -66,13 +63,13 @@
 
     You might be able to get [help with the costs of travel for study or work placements](/travel-grants-medical-dental-students-england) as part of your course.
 
-    Use the [Family Action grant search](http://www.family-action.org.uk/section.aspx?id=21211) to check whether you qualify for funding from a charitable trust.
+    Use the [Turn2us grant search](http://grants-search.turn2us.org.uk/) to check whether you qualify for funding from a charitable trust.
 
-    ^Student loans have to be paid back - grants, bursaries and allowances don’t.^
+    ^Student loans have to be paid back - bursaries, allowances and grants don’t.^
 
     ##Your next steps
 
-    s1. Find out how to [apply](/apply-for-student-finance) for student finance
-    s2. Check if you [qualify](/student-finance/who-qualifies) for student finance
+    s1. Find out how to [apply for student finance](/apply-for-student-finance)
+    s2. Check if you [qualify for student finance](/student-finance/eligibilty)
   <% end %>
 <% end %>

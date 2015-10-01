@@ -1,11 +1,13 @@
 Student finance calculator
 
-This calculator is for students from England or the European Union (EU) starting a new course in the 2014 to 2015 or 2015 to 2016 academic year.
+This calculator is for students from England or the European Union (EU) starting a new course in academic years:
+
++ 2015 to 2016
++ 2016 to 2017
 
 Use the student finance calculator to estimate:
 
 + student loans
-+ student grants
 + extra student funding, eg if you’re disabled or have children
 
 Your result will be more accurate if you know your annual household income (your parents’ or partner’s income plus your own).
