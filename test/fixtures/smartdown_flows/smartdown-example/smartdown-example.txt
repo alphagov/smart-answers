@@ -1,0 +1,11 @@
+---
+meta_description: Smartdown example
+satisfies_need: 100999
+status: draft
+---
+
+# Landing page title
+
+Landing page body
+
+[start: question]
