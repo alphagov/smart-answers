@@ -17,13 +17,13 @@ Don’t book travel until you have a valid passport. If you need to travel more 
 
 ## Cost
 
-You’ll have to pay a fee for your passport and a courier fee of £24.72.
+You’ll have to pay a fee for your passport and a courier fee of £23.01.
 
 The courier fee pays for your passport to be sent securely to the British Embassy in Dushanbe for you to collect.
 
 | Passport type | Passport fee | Total to pay (including courier fee) |
 |---------------|--------------|--------------------------------------|
-| Child passport | £53.00 | £77.72 |
+| Child passport | £53.00 | £76.01 |
 
 Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
@@ -34,7 +34,7 @@ You can use Mastercard, Visa, Electron, Diners Club and JCB.
 1. Download the application form.
 2. Use the ‘Applying for a passport if you’re outside the UK’ guidance notes to help you fill in the application form.
 3. Include 2 identical new photos of you (or your child, if it’s a child passport application). [Follow the rules about passport photos](/photos-for-passports) or your application may be delayed.
-4. Check the guidance notes to find out which supporting documents you must send with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
+4. Check which supporting documents you must submit with your application. You must get documents that aren’t in English - including documents showing an address - fully translated by a professional translator.
 
 ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
 ^[Guidance notes - applying for a passport if you’re outside the UK](/government/publications/overseas-passports-guidance)^
@@ -52,14 +52,14 @@ Bring original supporting documents and a colour photocopy of each one. The orig
 You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
 
 $A
-UK Visa Application Centre
-Hyatt Regency Dushanbe
-6/1 Ismoili Somoni Prospekt
-Dushanbe, 743026
+British Embassy Dushanbe
+65 Mirzo Tursunzoda Street
+Dushanbe
+734002
 Tajikistan
 $A
 $C
-Email: <hmpo.tajikistan@tlscontact.com>
+Email: <dushanbe.reception@fco.gov.uk >
 $C
 
 ## Getting your passport
