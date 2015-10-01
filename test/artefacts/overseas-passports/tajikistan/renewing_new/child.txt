@@ -15,13 +15,13 @@ Don’t book travel until you have a valid passport. If you need to travel more 
 
 ## Cost
 
-You’ll have to pay a fee for your passport and a courier fee of £24.72.
+You’ll have to pay a fee for your passport and a courier fee of £23.01.
 
 The courier fee pays for your passport to be sent securely to the British Embassy in Dushanbe for you to collect.
 
 | Passport type | Passport fee | Total to pay (including courier fee) |
 |---------------|--------------|--------------------------------------|
-| Child passport | £53.00 | £77.72 |
+| Child passport | £53.00 | £76.01 |
 
 Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.
 
@@ -54,14 +54,14 @@ You can’t travel with it after you’ve applied for a new one - but you will b
 You’ll need to book an appointment by email. Include your first name and last name and 3 alternative dates and times. You will receive an email confirming your appointment.
 
 $A
-UK Visa Application Centre
-Hyatt Regency Dushanbe
-6/1 Ismoili Somoni Prospekt
-Dushanbe, 743026
+British Embassy Dushanbe
+65 Mirzo Tursunzoda Street
+Dushanbe
+734002
 Tajikistan
 $A
 $C
-Email: <hmpo.tajikistan@tlscontact.com>
+Email: <dushanbe.reception@fco.gov.uk>
 $C
 
 ## Getting your passport
