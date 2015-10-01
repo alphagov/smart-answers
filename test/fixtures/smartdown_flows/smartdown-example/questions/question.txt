@@ -1,0 +1,13 @@
+# Question page title
+
+# Question title
+
+Question body
+
+[choice: question_1]
+* yes: Yes
+* no: No
+
+Question post body
+
+* otherwise => outcome
