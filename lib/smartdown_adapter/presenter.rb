@@ -73,10 +73,6 @@ module SmartdownAdapter
 
     # Probably should be deprecated, just call the real method and see?
     # Requires template updates
-    def has_meta_description?
-      !!meta_description
-    end
-
     def has_subtitle?
       !!subtitle
     end
