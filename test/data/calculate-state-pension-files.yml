@@ -7,7 +7,7 @@ lib/smart_answer_flows/calculate-state-pension/_bus_pass_age.govspeak.erb: 5f1f7
 lib/smart_answer_flows/calculate-state-pension/age_result.govspeak.erb: 8b5d360fd6ef72d4f53a2592d8d7671f
 lib/smart_answer_flows/calculate-state-pension/amount_result.govspeak.erb: b46187c00300132102d7e5c214385b0d
 lib/smart_answer_flows/calculate-state-pension/bus_pass_age_result.govspeak.erb: a7253ec4bc72d5ffec14e9b9b7ba2238
-lib/smart_answer_flows/calculate-state-pension/calculate_state_pension.govspeak.erb: bd56129956ea4963698db778f12267be
+lib/smart_answer_flows/calculate-state-pension/calculate_state_pension.govspeak.erb: 9caa37fc5e1d58c97741f0bb9905dce1
 lib/smart_answer_flows/calculate-state-pension/near_state_pension_age.govspeak.erb: 2cf95f1256106b0c55f9af59c8e9cce1
 lib/smart_answer_flows/calculate-state-pension/over55_result.govspeak.erb: 310ea5f0936406d0dba0f5c73dc46f30
 lib/smart_answer_flows/calculate-state-pension/reached_state_pension_age.govspeak.erb: 5aa766ef2e882eccd23bcc8a281dfb4e
