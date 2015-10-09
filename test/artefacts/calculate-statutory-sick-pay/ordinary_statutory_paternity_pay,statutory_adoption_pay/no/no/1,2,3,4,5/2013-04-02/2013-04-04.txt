@@ -1,0 +1,4 @@
+
+
+Your employee must be sick for at least 4 days in a row to get Statutory Sick Pay.
+

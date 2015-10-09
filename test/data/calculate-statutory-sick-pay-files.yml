@@ -1,8 +1,8 @@
 ---
-lib/smart_answer_flows/calculate-statutory-sick-pay.rb: 05819aff08d85a6a47bb78eaa3e0f008
+lib/smart_answer_flows/calculate-statutory-sick-pay.rb: 31160ccf1120fe55e1837c5021b09638
 lib/smart_answer_flows/locales/en/calculate-statutory-sick-pay.yml: b59d7198145ce14376e12cf34e4a3c2b
-test/data/calculate-statutory-sick-pay-questions-and-responses.yml: 225bf0303e9d1c7fa1a929c24b543db3
-test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: 171dcf9d94ad17c5c64d6e776c73c69b
+test/data/calculate-statutory-sick-pay-questions-and-responses.yml: ed4a44908ace4f036ee9f42a8831f043
+test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: ef8296f1b84f54d4165ad8714937088f
 lib/smart_answer_flows/calculate-statutory-sick-pay/_esa.govspeak.erb: 660031398fda690ed7b3e2186ba64060
 lib/smart_answer_flows/calculate-statutory-sick-pay/already_getting_maternity.govspeak.erb: 258fd4422c4ae665c83d5ee1e061bbff
 lib/smart_answer_flows/calculate-statutory-sick-pay/calculate_statutory_sick_pay.govspeak.erb: f91dc1d321c164a06271889100875600
@@ -12,6 +12,6 @@ lib/smart_answer_flows/calculate-statutory-sick-pay/must_be_sick_for_4_days.govs
 lib/smart_answer_flows/calculate-statutory-sick-pay/not_earned_enough.govspeak.erb: 1e5cd1c6d99b6bd3145578416d62e7c5
 lib/smart_answer_flows/calculate-statutory-sick-pay/not_entitled_3_days_not_paid.govspeak.erb: 98dc338280df70b2b6032a7a9dcba428
 lib/smart_answer_flows/calculate-statutory-sick-pay/not_regular_schedule.govspeak.erb: 98b6f0d902fabae8fda39c1859cd2a46
-lib/smart_answer/calculators/statutory_sick_pay_calculator.rb: 21f6f90dac027eacd80a58ba29e04cd1
+lib/smart_answer/calculators/statutory_sick_pay_calculator.rb: f942837b1211139ed35615b95379d7e2
 lib/smart_answer/calculators/rates_query.rb: c9568eac2742cad26f93458ed2276876
 lib/data/rates/statutory_sick_pay.yml: de2d34118e3016d1137c394745d33280
