@@ -13,7 +13,12 @@ module SmartAnswer
 
         save_input_as :housing_benefit
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :working_tax_credit?,
+          :outcome_not_affected_no_housing_benefit
+        ]
+
+        next_node(permitted: permitted_next_nodes) do |response|
           if response == 'yes'
             :working_tax_credit?
           else
@@ -27,7 +32,12 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :outcome_not_affected_exemptions,
+          :receiving_exemption_benefits?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do |response|
           if response == 'yes'
             :outcome_not_affected_exemptions
           else
@@ -41,7 +51,12 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :outcome_not_affected_exemptions,
+          :receiving_non_exemption_benefits?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do |response|
           if response == 'yes'
             :outcome_not_affected_exemptions
           else
@@ -84,7 +99,28 @@ module SmartAnswer
           0
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :outcome_not_affected,
+          :bereavement_amount?,
+          :carers_amount?,
+          :child_benefit_amount?,
+          :child_tax_amount?,
+          :esa_amount?,
+          :guardian_amount?,
+          :incapacity_amount?,
+          :income_support_amount?,
+          :jsa_amount?,
+          :maternity_amount?,
+          :sda_amount?,
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do |response|
           first_value = response.split(",").first
           if response == "none"
             :outcome_not_affected
@@ -101,7 +137,26 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :carers_amount?,
+          :child_benefit_amount?,
+          :child_tax_amount?,
+          :esa_amount?,
+          :guardian_amount?,
+          :incapacity_amount?,
+          :income_support_amount?,
+          :jsa_amount?,
+          :maternity_amount?,
+          :sda_amount?,
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -113,7 +168,25 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :child_benefit_amount?,
+          :child_tax_amount?,
+          :esa_amount?,
+          :guardian_amount?,
+          :incapacity_amount?,
+          :income_support_amount?,
+          :jsa_amount?,
+          :maternity_amount?,
+          :sda_amount?,
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -125,7 +198,24 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :child_tax_amount?,
+          :esa_amount?,
+          :guardian_amount?,
+          :incapacity_amount?,
+          :income_support_amount?,
+          :jsa_amount?,
+          :maternity_amount?,
+          :sda_amount?,
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -137,7 +227,23 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :esa_amount?,
+          :guardian_amount?,
+          :incapacity_amount?,
+          :income_support_amount?,
+          :jsa_amount?,
+          :maternity_amount?,
+          :sda_amount?,
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -149,7 +255,22 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :guardian_amount?,
+          :incapacity_amount?,
+          :income_support_amount?,
+          :jsa_amount?,
+          :maternity_amount?,
+          :sda_amount?,
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -161,7 +282,21 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :incapacity_amount?,
+          :income_support_amount?,
+          :jsa_amount?,
+          :maternity_amount?,
+          :sda_amount?,
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -173,7 +308,20 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :income_support_amount?,
+          :jsa_amount?,
+          :maternity_amount?,
+          :sda_amount?,
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -185,7 +333,19 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :jsa_amount?,
+          :maternity_amount?,
+          :sda_amount?,
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -197,7 +357,18 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :maternity_amount?,
+          :sda_amount?,
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -209,7 +380,17 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :sda_amount?,
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -221,7 +402,16 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :widow_pension_amount?,
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -233,7 +423,15 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :widowed_mother_amount?,
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -245,7 +443,14 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :widowed_parent_amount?,
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -257,7 +462,13 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :widows_aged_amount?,
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -269,7 +480,12 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [
+          :housing_benefit_amount?,
+          :single_couple_lone_parent?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -283,7 +499,9 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node do
+        permitted_next_nodes = [:single_couple_lone_parent?]
+
+        next_node(permitted: permitted_next_nodes) do
           benefit_related_questions.shift
         end
       end
@@ -303,7 +521,12 @@ module SmartAnswer
           sprintf("%.2f", benefit_cap)
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :outcome_affected_greater_than_cap,
+          :outcome_not_affected_less_than_cap
+        ]
+
+        next_node(permitted: permitted_next_nodes) do |response|
           if response == 'single'
             cap = 350
           else
