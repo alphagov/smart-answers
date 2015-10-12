@@ -23,7 +23,7 @@ lib/smart_answer_flows/energy-grants-calculator/_opt_renewal_heat.govspeak.erb: 
 lib/smart_answer_flows/energy-grants-calculator/_opt_replacement_glazing.govspeak.erb: 13d44716247ae0eb783ab5c562edb698
 lib/smart_answer_flows/energy-grants-calculator/_opt_room_roof_insulation.govspeak.erb: 00d83472ec34da0364ce117cf4aab222
 lib/smart_answer_flows/energy-grants-calculator/_opt_solar_water_heating.govspeak.erb: eccb3d37a65218addd0f52bb14e3b2d3
-lib/smart_answer_flows/energy-grants-calculator/_opt_solid_wall_insulation.govspeak.erb: 75a61520589f9df020dc54bc41ebb6d3
+lib/smart_answer_flows/energy-grants-calculator/_opt_solid_wall_insulation.govspeak.erb: b6924cf0e1f26de60f39a43c2516a7fa
 lib/smart_answer_flows/energy-grants-calculator/_opt_under_floor_insulation.govspeak.erb: 6b7be77c07dc9d402f8b34b2b4cdc6e7
 lib/smart_answer_flows/energy-grants-calculator/_smartmeters.govspeak.erb: ece378f76cd33027e7e26a8900d8ddf4
 lib/smart_answer_flows/energy-grants-calculator/_title_energy_supplier.govspeak.erb: 5749970f07beeb4d78aea03018fbdbe3
