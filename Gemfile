@@ -14,7 +14,6 @@ gem 'airbrake', '~> 3.1.17'
 gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.1'
 gem 'diffy', '3.0.6'
-gem 'filesize'
 gem 'tilt', '1.4.1'
 
 gem 'sass-rails', '~> 4.0.0'
