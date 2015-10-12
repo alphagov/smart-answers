@@ -66,4 +66,6 @@ Date | SPP amount
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
+The latest date for them to [claim SAP](/employers-adoption-pay-leave/entitlement) is usually 15 days before they want it to start.
+
 Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
