@@ -3,6 +3,20 @@ require 'ostruct'
 require_relative '../test_helper'
 
 class QuestionBaseTest < ActiveSupport::TestCase
+  test "#next_node_for raises an exception when the next node isn't in the list of permitted next nodes" do
+    q = SmartAnswer::Question::Base.new(flow = nil, :question_name) {
+      permitted_next_nodes = [:allowed_next_node_1, :allowed_next_node_2]
+      next_node(permitted: permitted_next_nodes) { :not_allowed_next_node }
+    }
+    state = SmartAnswer::State.new(q.name)
+
+    expected_message = "Next node (not_allowed_next_node) not in list of permitted next nodes (allowed_next_node_1 and allowed_next_node_2)"
+    exception = assert_raises do
+      q.next_node_for(state, 'response')
+    end
+    assert_equal expected_message, exception.message
+  end
+
   test 'permitted next nodes can be supplied to next_node' do
     q = SmartAnswer::Question::Base.new(nil, :example) {
       next_node(permitted: [:done]) do
