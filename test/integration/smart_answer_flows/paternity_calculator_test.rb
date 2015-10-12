@@ -117,7 +117,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                           #QP10
                           should "ask last normal pay day" do
                             assert_current_node :last_normal_payday_paternity?
-                            assert_state_variable :leave_end_date, Date.parse("19 June 2013")
+                            assert_state_variable :leave_end_date, Date.parse("18 June 2013")
                           end
 
                           context "answer 2 March 2013" do
@@ -233,7 +233,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                     should "go to outcome" do
                                       assert_current_node :paternity_leave_and_pay
                                       assert_state_variable "has_contract", "yes"
-                                      assert_state_variable :pay_dates_and_pay, "18 June 2013|£103.85\n25 June 2013|£103.85"
+                                      assert_state_variable :pay_dates_and_pay, "18 June 2013|£103.85"
                                     end
                                   end #QP14 end SPP calculated weekly
                                 end #QP13 end earings above 109 between relevant period
@@ -258,7 +258,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                   add_response "usual_paydates"
                                   add_response "2013-01-01"
                                   assert_state_variable :average_weekly_earnings, '625.00'
-                                  assert_state_variable :pay_dates_and_pay, "18 June 2013|£136.78\n25 June 2013|£136.78"
+                                  assert_state_variable :pay_dates_and_pay, "18 June 2013|£136.78"
                                   assert_current_node :paternity_leave_and_pay
                                 end
                               end

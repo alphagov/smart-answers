@@ -9,8 +9,8 @@ module SmartAnswer::Calculators
       :matched_week, :a_employment_start, :leave_type
 
     attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings,
-      :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date,
-        :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
+      :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date, :paternity_leave_duration,
+      :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
 
     DAYS_OF_THE_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
@@ -67,7 +67,7 @@ module SmartAnswer::Calculators
     def pay_duration
       case leave_type
       when 'paternity', 'paternity_adoption'
-        2
+        paternity_leave_duration == 'one_week' ? 1 : 2
       else
         39
       end
