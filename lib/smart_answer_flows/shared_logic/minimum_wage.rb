@@ -3,6 +3,9 @@ multiple_choice :what_would_you_like_to_check? do
   option "current_payment"
   option "past_payment"
 
+  permitted_next_nodes :are_you_an_apprentice?,
+    :past_payment_date?
+
   next_node do |response|
     case response
     when 'current_payment'
@@ -27,6 +30,8 @@ multiple_choice :past_payment_date? do
   option "2009-10-01"
   option "2008-10-01"
 
+  permitted_next_nodes :were_you_an_apprentice?
+
   next_node do |response|
     calculator.date = Date.parse(response)
     :were_you_an_apprentice?
@@ -39,6 +44,9 @@ multiple_choice :are_you_an_apprentice? do
   option "apprentice_under_19"
   option "apprentice_over_19_first_year"
   option "apprentice_over_19_second_year_onwards"
+
+  permitted_next_nodes :how_old_are_you?,
+    :how_often_do_you_get_paid?
 
   next_node do |response|
     case response
@@ -57,6 +65,10 @@ multiple_choice :were_you_an_apprentice? do
   option "no"
   option "apprentice_under_19"
   option "apprentice_over_19"
+
+  permitted_next_nodes :how_old_were_you?,
+    :how_often_did_you_get_paid?,
+    :does_not_apply_to_historical_apprentices
 
   next_node do |response|
     case response
@@ -80,6 +92,9 @@ value_question :how_old_are_you?, parse: Integer do
     calculator.valid_age?(response)
   end
 
+  permitted_next_nodes :under_school_leaving_age,
+    :how_often_do_you_get_paid?
+
   next_node do |response|
     calculator.age = response
     if calculator.under_school_leaving_age?
@@ -95,6 +110,9 @@ value_question :how_old_were_you?, parse: Integer do
   validate do |response|
     calculator.valid_age?(response)
   end
+
+  permitted_next_nodes :under_school_leaving_age_past,
+    :how_often_did_you_get_paid?
 
   next_node do |response|
     calculator.age = response
@@ -112,6 +130,8 @@ value_question :how_often_do_you_get_paid?, parse: :to_i do
     calculator.valid_pay_frequency?(response)
   end
 
+  permitted_next_nodes :how_many_hours_do_you_work?
+
   next_node do |response|
     calculator.pay_frequency = response
     :how_many_hours_do_you_work?
@@ -123,6 +143,8 @@ value_question :how_often_did_you_get_paid?, parse: :to_i do
   validate do |response|
     calculator.valid_pay_frequency?(response)
   end
+
+  permitted_next_nodes :how_many_hours_did_you_work?
 
   next_node do |response|
     calculator.pay_frequency = response
@@ -136,6 +158,8 @@ value_question :how_many_hours_do_you_work?, parse: Float do
     calculator.valid_hours_worked?(response)
   end
 
+  permitted_next_nodes :how_much_are_you_paid_during_pay_period?
+
   next_node do |response|
     calculator.basic_hours = response
     :how_much_are_you_paid_during_pay_period?
@@ -148,6 +172,8 @@ value_question :how_many_hours_did_you_work?, parse: Float do
     calculator.valid_hours_worked?(response)
   end
 
+  permitted_next_nodes :how_much_were_you_paid_during_pay_period?
+
   next_node do |response|
     calculator.basic_hours = response
     :how_much_were_you_paid_during_pay_period?
@@ -156,6 +182,8 @@ end
 
 # Q6
 money_question :how_much_are_you_paid_during_pay_period? do
+  permitted_next_nodes :how_many_hours_overtime_do_you_work?
+
   next_node do |response|
     calculator.basic_pay = Float(response)
     :how_many_hours_overtime_do_you_work?
@@ -164,6 +192,8 @@ end
 
 # Q6 Past
 money_question :how_much_were_you_paid_during_pay_period? do
+  permitted_next_nodes :how_many_hours_overtime_did_you_work?
+
   next_node do |response|
     calculator.basic_pay = Float(response)
     :how_many_hours_overtime_did_you_work?
@@ -175,6 +205,9 @@ value_question :how_many_hours_overtime_do_you_work?, parse: Float do
   validate do |response|
     calculator.valid_overtime_hours_worked?(response)
   end
+
+  permitted_next_nodes :what_is_overtime_pay_per_hour?,
+    :is_provided_with_accommodation?
 
   next_node do |response|
     calculator.overtime_hours = response
@@ -192,6 +225,9 @@ value_question :how_many_hours_overtime_did_you_work?, parse: Float do
     calculator.valid_overtime_hours_worked?(response)
   end
 
+  permitted_next_nodes :what_was_overtime_pay_per_hour?,
+    :was_provided_with_accommodation?
+
   next_node do |response|
     calculator.overtime_hours = response
     if calculator.any_overtime_hours_worked?
@@ -204,6 +240,8 @@ end
 
 # Q8
 money_question :what_is_overtime_pay_per_hour? do
+  permitted_next_nodes :is_provided_with_accommodation?
+
   next_node do |response|
     calculator.overtime_hourly_rate = Float(response)
     :is_provided_with_accommodation?
@@ -212,6 +250,8 @@ end
 
 # Q8 Past
 money_question :what_was_overtime_pay_per_hour? do
+  permitted_next_nodes :was_provided_with_accommodation?
+
   next_node do |response|
     calculator.overtime_hourly_rate = Float(response)
     :was_provided_with_accommodation?
@@ -223,6 +263,11 @@ multiple_choice :is_provided_with_accommodation? do
   option "no"
   option "yes_free"
   option "yes_charged"
+
+  permitted_next_nodes :current_accommodation_usage?,
+    :current_accommodation_charge?,
+    :current_payment_above,
+    :current_payment_below
 
   next_node do |response|
     case response
@@ -245,6 +290,11 @@ multiple_choice :was_provided_with_accommodation? do
   option "no"
   option "yes_free"
   option "yes_charged"
+
+  permitted_next_nodes :past_accommodation_usage?,
+    :past_accommodation_charge?,
+    :past_payment_above,
+    :past_payment_below
 
   next_node do |response|
     case response
@@ -290,6 +340,9 @@ value_question :current_accommodation_usage?, parse: Integer do
     calculator.valid_accommodation_usage?(response)
   end
 
+  permitted_next_nodes :current_payment_above,
+    :current_payment_below
+
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, response)
     if calculator.minimum_wage_or_above?
@@ -305,6 +358,9 @@ value_question :past_accommodation_usage?, parse: Integer do
   validate do |response|
     calculator.valid_accommodation_usage?(response)
   end
+
+  permitted_next_nodes :past_payment_above,
+    :past_payment_below
 
   next_node do |response|
     calculator.accommodation_adjustment(accommodation_charge, response)
