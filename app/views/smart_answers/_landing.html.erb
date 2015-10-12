@@ -1,4 +1,4 @@
-<% if start_node.has_meta_description? %>
+<% if start_node.meta_description.present? %>
   <% content_for :head do %>
     <meta name="description" content="<%= start_node.meta_description %>">
   <% end %>
