@@ -79,7 +79,3 @@ end
 if ENV['RUBY_DEBUG']
   gem 'debugger', require: "ruby-debug"
 end
-
-group :analytics do
-  gem 'google-api-client', require: 'google/api_client'
-end
