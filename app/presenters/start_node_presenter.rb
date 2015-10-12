@@ -12,10 +12,6 @@ class StartNodePresenter < NodePresenter
     title.present? ? title.chomp : @node.name.to_s.humanize
   end
 
-  def has_meta_description?
-    !!meta_description
-  end
-
   def meta_description
     meta_description = @renderer.content_for(:meta_description, html: false)
     meta_description && meta_description.chomp
