@@ -44,6 +44,9 @@ module SmartAnswer
         next_node = next_node_from_function_chain(current_state, input) || next_node_from_default_function(current_state, input)
         responses_and_input = current_state.responses + [input]
         raise NextNodeUndefined.new("Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}") unless next_node
+        unless @permitted_next_nodes.include?(next_node)
+          raise "Next node (#{next_node}) not in list of permitted next nodes (#{@permitted_next_nodes.join(', ')})"
+        end
         next_node
       end
 
