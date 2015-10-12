@@ -707,6 +707,28 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "paternity leave duration weekly payment dates" do
+        setup do
+          @due_date = Date.parse("1 October 2015")
+          @calculator = MaternityPaternityCalculator.new(@due_date, "paternity")
+          @calculator.leave_start_date = @due_date
+          @calculator.pay_method = "weekly_starting"
+          @calculator.average_weekly_earnings = '500.00'
+        end
+
+        should "suggest a single payment when requesting a one week leave" do
+          @calculator.paternity_leave_duration = 'one_week'
+          assert_equal Date.parse("7 October 2015"), @calculator.pay_end_date
+          assert_equal [Date.parse("7 October 2015")], @calculator.paydates_and_pay.map { |pay| pay[:date] }
+        end
+
+        should "suggest two payments when requesting a two week leave" do
+          @calculator.paternity_leave_duration = 'two_weeks'
+          assert_equal Date.parse("14 October 2015"), @calculator.pay_end_date
+          assert_equal [Date.parse("7 October 2015"), Date.parse("14 October 2015")], @calculator.paydates_and_pay.map { |pay| pay[:date] }
+        end
+      end
+
       context "test adoption table rate returned for weekly amounts in 2013/14" do
         setup do
           @match_date = Date.parse("2 January 2014")
