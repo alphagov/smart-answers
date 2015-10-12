@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class PanopticonRegistererTest < ActiveSupport::TestCase
-  def test_sending_item_to_panopticon
+  test 'sending item to panopticon' do
     request = stub_request(:put, %r[http://panopticon.dev.gov.uk/])
     flow_presenters = [OpenStruct.new, OpenStruct.new]
 
@@ -12,7 +12,7 @@ class PanopticonRegistererTest < ActiveSupport::TestCase
     assert_requested(request, times: 2)
   end
 
-  def test_sending_correct_data_to_panopticon
+  test 'sending correct data to panopticon' do
     stub_request(:put, "http://panopticon.dev.gov.uk/artefacts/a-smart-answer.json")
 
     registerable = OpenStruct.new(
