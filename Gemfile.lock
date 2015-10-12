@@ -73,7 +73,6 @@ GEM
     erubis (2.7.0)
     execjs (2.4.0)
     extlib (0.9.16)
-    filesize (0.0.4)
     gds-api-adapters (24.4.0)
       link_header
       lrucache (~> 0.1.1)
@@ -274,7 +273,6 @@ DEPENDENCIES
   ci_reporter
   diffy (= 3.0.6)
   extlib (= 0.9.16)
-  filesize
   gds-api-adapters (~> 24.4.0)
   govspeak (~> 3.3.0)
   govuk-content-schema-test-helpers (~> 1.3.0)
