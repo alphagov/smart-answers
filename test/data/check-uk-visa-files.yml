@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/check-uk-visa.rb: 65e37027d0c5c4541dc7d8d60f54b741
+lib/smart_answer_flows/check-uk-visa.rb: 31e8f3fd00c2c3dd84cfbedc62893d27
 lib/smart_answer_flows/locales/en/check-uk-visa.yml: a8c595b226b52e2c9b5d7b32723fbdb2
 test/data/check-uk-visa-questions-and-responses.yml: b77c21b505c201c2014e17e13d52b5a0
 test/data/check-uk-visa-responses-and-expected-results.yml: 603a0b14f2a49a20d01cc4b959fb90b7
