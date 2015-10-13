@@ -60,7 +60,11 @@ module SmartAnswer
 
         validate { |response| response > 0 }
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :paying_into_a_pension?,
+          :husband_done
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           limit = (is_before_april_changes ? 26100.0 : 27000.0)
           if response.to_f >= limit
             :paying_into_a_pension?
@@ -75,7 +79,11 @@ module SmartAnswer
 
         validate { |response| response > 0 }
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :paying_into_a_pension?,
+          :highest_earner_done
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           limit = (is_before_april_changes ? 26100.0 : 27000.0)
           if response.to_f >= limit
             :paying_into_a_pension?
@@ -107,7 +115,11 @@ module SmartAnswer
           calculator.calculate_adjusted_net_income(income.to_f, (gross_pension_contributions.to_f || 0), (net_pension_contributions.to_f || 0), response)
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :husband_done,
+          :highest_earner_done
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if income_measure == "husband"
             :husband_done
           else
