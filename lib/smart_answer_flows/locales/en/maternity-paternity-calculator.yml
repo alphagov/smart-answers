@@ -92,6 +92,14 @@ en-GB:
       ## QM12
       what_particular_day_of_the_month_is_the_employee_paid?:
         title: What particular day of the month is the employee paid?
+        options:
+          Sunday: "Sunday"
+          Monday: "Monday"
+          Tuesday: "Tuesday"
+          Wednesday: "Wednesday"
+          Thursday: "Thursday"
+          Friday: "Friday"
+          Saturday: "Saturday"
       ## QM13
       which_week_in_month_is_the_employee_paid?:
         title: Is the employee paid on the 1st, 2nd, 3rd, 4th or last %{pay_day_in_week}?
