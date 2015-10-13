@@ -1,10 +1,9 @@
 en-GB:
   flow:
     report-a-lost-or-stolen-passport:
-      options:
-        in_the_uk: "In the UK"
-        abroad: "Abroad"
-
       where_was_the_passport_lost_or_stolen?:
+        options:
+          in_the_uk: "In the UK"
+          abroad: "Abroad"
       which_country?:
         title: In which country?
