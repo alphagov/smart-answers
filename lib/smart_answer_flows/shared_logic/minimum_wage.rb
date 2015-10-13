@@ -3,7 +3,7 @@ multiple_choice :what_would_you_like_to_check? do
   option "current_payment"
   option "past_payment"
 
-  permitted_next_nodes =[
+  permitted_next_nodes = [
     :are_you_an_apprentice?,
     :past_payment_date?
   ]
@@ -216,7 +216,7 @@ value_question :how_many_hours_overtime_do_you_work?, parse: Float do
     calculator.valid_overtime_hours_worked?(response)
   end
 
-  permitted_next_nodes =[
+  permitted_next_nodes = [
     :what_is_overtime_pay_per_hour?,
     :is_provided_with_accommodation?
   ]
