@@ -160,7 +160,7 @@ module SmartAnswer
       assert_equal 'response', presenter.to_response('answer-text')
     end
 
-    test "Options can be looked up from translation file" do
+    test "Options are looked up from translation file" do
       question = Question::MultipleChoice.new(nil, :example_question?)
       question.option yes: :yay
       question.option no: :nay
@@ -172,20 +172,13 @@ module SmartAnswer
       assert_equal "no", presenter.options[1].value
     end
 
-    test "Options can be looked up from default values in translation file" do
+    test "Exception is raised if option translation is missing" do
       question = Question::MultipleChoice.new(nil, :example_question?)
-      question.option maybe: :mumble
+      question.option :missing
       presenter = QuestionPresenter.new("flow.test", question)
 
-      assert_equal "Mebbe", presenter.options[0].label
-    end
-
-    test "Options label falls back to option value" do
-      question = Question::MultipleChoice.new(nil, :example_question?)
-      question.option something: :mumble
-      presenter = QuestionPresenter.new("flow.test", question)
-
-      assert_equal "something", presenter.options[0].label
+      e = assert_raises(I18n::MissingTranslationData) { presenter.options[0].label }
+      assert_equal "translation missing: en-GB.flow.test.example_question?.options.missing", e.message
     end
 
     test "Avoids displaying the year for a date question when the year is 0" do
