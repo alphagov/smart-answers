@@ -87,7 +87,7 @@ money_question :weekly_pay_before_tax? do
     :done_no_statutory,
     :done
   ]
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: permitted_next_nodes) do
     if years_employed < 2
       :done_no_statutory
     else
