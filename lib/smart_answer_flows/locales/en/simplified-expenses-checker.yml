@@ -1,12 +1,12 @@
 en-GB:
   flow:
     simplified-expenses-checker:
-      options:
-        "yes": "Yes"
-        "no": "No"
 #Q1
       claimed_expenses_for_current_business?:
         title: Have you claimed expenses for your current business before?
+        options:
+          "no": "No"
+          "yes": "Yes"
         hint: If you’re a new business you won’t have claimed expenses before.
 #Q2
       type_of_expense?:
@@ -21,9 +21,15 @@ en-GB:
 #Q3
       buying_new_vehicle?:
         title: Are you buying a new car, van or motorcycle this tax year that you expect to use for your business?
+        options:
+          "yes": "Yes"
+          "no": "No"
 #Q4
       capital_allowances?:
         title: Have you claimed Capital Allowances for your existing car, van or motorcycle before?
+        options:
+          "yes": "Yes"
+          "no": "No"
 #Q5
       how_much_expect_to_claim?:
         title: |
@@ -32,6 +38,9 @@ en-GB:
 #Q6
       is_vehicle_green?:
         title: Is the vehicle you're buying green, ie a low emission vehicle?
+        options:
+          "yes": "Yes"
+          "no": "No"
 #Q7
       price_of_vehicle?:
         title: How much is the car, van or motorcycle you’re buying?
