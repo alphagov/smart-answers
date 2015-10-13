@@ -15,8 +15,12 @@ module SmartAnswer
         super
       end
 
-      def next_node(next_node = nil, &block)
+      def next_node(next_node = nil, permitted: [], &block)
         if block_given?
+          unless permitted.any?
+            raise "You must specify the permitted next nodes"
+          end
+          @permitted_next_nodes += permitted
           @default_next_node_function = block
         elsif next_node
           next_node_if(next_node)
