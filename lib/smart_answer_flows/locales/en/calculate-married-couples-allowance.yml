@@ -2,18 +2,21 @@ en-GB:
   flow:
     calculate-married-couples-allowance:
       section_name: Money and tax
-      options:
-        "no": "No"
-        "yes": "Yes"
 #Q1
       were_you_or_your_partner_born_on_or_before_6_april_1935?:
         title: Were you or your partner born before 6 April 1935?
         hint: You must be married or in a civil partnership to qualify.
+        options:
+          "no": "No"
+          "yes": "Yes"
         error_message: Please choose 'Yes' or 'No'
 #Q2
       did_you_marry_or_civil_partner_before_5_december_2005?:
         title: Did you marry before 5 December 2005?
         hint: Before this date the husband's income is used to work out your allowance, after this date it's the income of the highest earner.
+        options:
+          "no": "No"
+          "yes": "Yes"
         error_message: Please choose 'Yes' or 'No'
 #Q3
       whats_the_husbands_date_of_birth?:
@@ -39,6 +42,9 @@ en-GB:
 #Q7
       paying_into_a_pension?:
         title: Are you paying into a pension?
+        options:
+          "no": "No"
+          "yes": "Yes"
 #Q8
       how_much_expected_contributions_before_tax?:
         title: How much do you expect to pay into a pension where your contributions are made before tax is taken away?
