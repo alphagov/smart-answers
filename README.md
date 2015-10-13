@@ -14,6 +14,7 @@ Read more in [a blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-
 * Process
   * [Archiving a Smart Answer](doc/archiving.md)
   * [Deploying changes for Factcheck](doc/factcheck.md)
+  * [Deploying to production](doc/deploying.md)
   * [Merging pull requests from the content team](doc/merging-content-prs.md)
 * Development
   * Adding [content-ids](doc/content-ids.md) to Smart Answers.
