@@ -6,7 +6,7 @@ test/data/calculate-employee-redundancy-pay-responses-and-expected-results.yml: 
 lib/smart_answer_flows/calculate-employee-redundancy-pay/calculate_employee_redundancy_pay.govspeak.erb: 22dbc473918685ceb57b7a2a87b6fe47
 lib/smart_answer_flows/calculate-employee-redundancy-pay/done.govspeak.erb: 87c7dfc2a59723966e585ef0c2c66b47
 lib/smart_answer_flows/calculate-employee-redundancy-pay/done_no_statutory.govspeak.erb: 446e959e823c5e4631e86de58f9f0349
-lib/smart_answer_flows/shared_logic/redundancy_pay.rb: ec40180eb9c26b00736173986375d60c
+lib/smart_answer_flows/shared_logic/redundancy_pay.rb: 2e1a5aeacda3efca59b18efecb256e58
 lib/smart_answer/calculators/redundancy_calculator.rb: 6f97d315c840f829670f64e2fabce6dd
 lib/data/rates/redundancy_pay.yml: 270b43298e223b28ba7ad3f81f5e0a08
 lib/data/rates/redundancy_pay_northern_ireland.yml: 01a56e2760328e0213318050689f2556
