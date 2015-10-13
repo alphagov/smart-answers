@@ -2,7 +2,6 @@ en-GB:
   flow:
     am-i-getting-minimum-wage:
       options:
-        "yes": "Yes"
         "no": "No"
 
       # Q1
