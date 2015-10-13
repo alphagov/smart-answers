@@ -8,7 +8,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node do
+        next_node(permitted: [:done]) do
           :done
         end
       end
