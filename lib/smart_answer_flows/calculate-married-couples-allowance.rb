@@ -119,7 +119,7 @@ module SmartAnswer
           :husband_done,
           :highest_earner_done
         ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: permitted_next_nodes) do
           if income_measure == "husband"
             :husband_done
           else
