@@ -35,7 +35,13 @@ module SmartAnswer
           response == "none" ? [] : response.split(",")
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :you_cant_use_result,
+          :buying_new_vehicle?,
+          :hours_work_home?,
+          :deduct_from_premises?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           next_question = nil
           if response == "none"
             :you_cant_use_result
@@ -58,7 +64,12 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :is_vehicle_green?,
+          :capital_allowances?,
+          :how_much_expect_to_claim?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if response == "yes"
             :is_vehicle_green?
           else
@@ -86,7 +97,13 @@ module SmartAnswer
           response == "yes" and (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :hours_work_home?,
+          :deduct_from_premises?,
+          :capital_allowance_result,
+          :how_much_expect_to_claim?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if response == "yes"
             if (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
               if list_of_expenses.include?("using_home_for_business")
@@ -110,7 +127,11 @@ module SmartAnswer
       money_question :how_much_expect_to_claim? do
         save_input_as :vehicle_costs
 
-        next_node do
+        permitted_next_nodes = [
+          :drive_business_miles_car_van?,
+          :drive_business_miles_motorcycle?
+        ]
+        next_node(permitted: permitted_next_nodes) do
           if list_of_expenses.include?("car_or_van")
             :drive_business_miles_car_van?
           else
@@ -167,7 +188,11 @@ module SmartAnswer
           vehicle_is_green ? nil : Money.new(dirty_vehicle_price * ( business_use_percent / 100))
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :drive_business_miles_car_van?,
+          :drive_business_miles_motorcycle?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           raise InvalidResponse if response.to_i > 100
           list_of_expenses.include?("car_or_van") ?
             :drive_business_miles_car_van? : :drive_business_miles_motorcycle?
@@ -188,7 +213,14 @@ module SmartAnswer
             Money.new(4500.0 + answer_over_amount)
           end
         end
-        next_node do
+
+        permitted_next_nodes = [
+          :drive_business_miles_motorcycle?,
+          :hours_work_home?,
+          :deduct_from_premises?,
+          :you_can_use_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
           if list_of_expenses.include?("motorcycle")
             :drive_business_miles_motorcycle?
           elsif list_of_expenses.include?("using_home_for_business")
@@ -206,7 +238,13 @@ module SmartAnswer
         calculate :simple_motorcycle_costs do |response|
           Money.new(response.gsub(",", "").to_f * 0.24)
         end
-        next_node do
+
+        permitted_next_nodes = [
+          :hours_work_home?,
+          :deduct_from_premises?,
+          :you_can_use_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
           if list_of_expenses.include?("using_home_for_business")
             :hours_work_home?
           elsif list_of_expenses.include?("live_on_business_premises")
@@ -234,7 +272,11 @@ module SmartAnswer
           Money.new(amount)
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :you_cant_use_result,
+          :current_claim_amount_home?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           hours = response.to_i
           if hours < 1
             raise SmartAnswer::InvalidResponse
@@ -250,7 +292,11 @@ module SmartAnswer
       money_question :current_claim_amount_home? do
         save_input_as :home_costs
 
-        next_node do
+        permitted_next_nodes = [
+          :deduct_from_premises?,
+          :you_can_use_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
           list_of_expenses.include?("live_on_business_premises") ? :deduct_from_premises? : :you_can_use_result
         end
 
