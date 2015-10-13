@@ -2,7 +2,6 @@ en-GB:
   flow:
     minimum-wage-calculator-employers:
       options:
-        "yes": "Yes"
         "no": "No"
 
       # Q1
