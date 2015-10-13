@@ -7,9 +7,6 @@ en-GB:
 #Q1
       claimed_expenses_for_current_business?:
         title: Have you claimed expenses for your current business before?
-        options:
-          no: No
-          yes: Yes
         hint: If you’re a new business you won’t have claimed expenses before.
 #Q2
       type_of_expense?:
