@@ -17,12 +17,14 @@ module SmartAnswer
 
         save_input_as :starch_glucose_weight
 
-        permitted_next_nodes :how_much_sucrose_1?,
+        permitted_next_nodes = [
+          :how_much_sucrose_1?,
           :how_much_sucrose_2?,
           :how_much_sucrose_3?,
           :how_much_sucrose_4?
+        ]
 
-        next_node do |response|
+        next_node(permitted: permitted_next_nodes) do |response|
           case response.to_i
           when 25
             :how_much_sucrose_2?
@@ -95,14 +97,16 @@ module SmartAnswer
 
         save_input_as :milk_fat_weight
 
-        permitted_next_nodes :commodity_code_result,
+        permitted_next_nodes = [
+          :commodity_code_result,
           :how_much_milk_protein_ab?,
           :how_much_milk_protein_c?,
           :how_much_milk_protein_d?,
           :how_much_milk_protein_ef?,
           :how_much_milk_protein_gh?
+        ]
 
-        next_node do |response|
+        next_node(permitted: permitted_next_nodes) do |response|
           case response.to_i
           when 0, 1
             :how_much_milk_protein_ab?
