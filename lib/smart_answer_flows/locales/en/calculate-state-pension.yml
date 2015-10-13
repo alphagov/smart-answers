@@ -4,7 +4,6 @@ en-GB:
       options:
         "yes": "Yes"
         "no": "No"
-        none: "None of the above"
       phrases:
         carers_allowance_women_hint: Don’t count years when you opted for the reduced National Insurance rate for married women and widows.
         carers_allowance_women_ni_reduced_years_before_2010: Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows.
