@@ -16,6 +16,7 @@ module SmartAnswer
 
     def translate_option(option)
       translate!("options.#{option}") || begin
+        puts "\nMissing translation: #{i18n_node_prefix}.options.#{option}"
         I18n.translate!("#{@i18n_prefix}.options.#{option}", @state.to_hash)
       rescue I18n::MissingTranslationData
         option
