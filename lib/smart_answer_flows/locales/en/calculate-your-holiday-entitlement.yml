@@ -21,10 +21,6 @@ en-GB:
         "starting": "for someone starting part way through a leave year"
         "leaving": "for someone leaving part way through a leave year"
         "starting-and-leaving": "for someone starting and leaving part way through a leave year"
-        "5-days": "5 days per week"
-        "6-days": "6 days per week"
-        "6-or-7-days": "6 or 7 days per week"
-        "7-days": "7 days per week"
 
       # Q1
       basis_of_calculation?:
