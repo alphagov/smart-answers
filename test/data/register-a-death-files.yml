@@ -1,6 +1,6 @@
 ---
 lib/smart_answer_flows/register-a-death.rb: 7dfecc0c75610535c6eb5ac80c04ca56
-lib/smart_answer_flows/locales/en/register-a-death.yml: 5f5da5068c2f0cdf1dbc80985fda3511
+lib/smart_answer_flows/locales/en/register-a-death.yml: ffcc2f13d596b97a34affddec1e50d60
 test/data/register-a-death-questions-and-responses.yml: 18aba16b4f569a17fbb81374dceaf265
 test/data/register-a-death-responses-and-expected-results.yml: 1d818139ced9c5e20262d144489bf090
 lib/smart_answer_flows/register-a-death/_footnote_oru_variants.govspeak.erb: 30e012cdde5aa7f4de5856a5db47a54c

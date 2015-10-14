@@ -1,10 +1,6 @@
 en-GB:
   flow:
     uk-benefits-abroad:
-      options:
-        "yes": "Yes"
-        "no": "No"
-
       phrases:
         going_abroad_country_question_title: Which country are you moving to?
         already_abroad_country_question_title: Which country are you living in?
@@ -48,16 +44,25 @@ en-GB:
           Are you working for a UK employer and paying Class 1 National Insurance Contributions?
         body: |
           If you're unsure you can read our [National Insurance Guide](/national-insurance/how-much-national-insurance-you-pay).
+        options:
+          "yes": "Yes"
+          "no": "No"
 # Q9 going_abroad and Q8 already_abroad
       eligible_for_smp?:
         title: Are you eligible for Statutory Maternity Pay?
         body: |
           If you're unsure you can read our [Maternity pay and leave guide](/statutory-maternity-pay#eligibility)
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
       employer_paying_ni?:
         title: |
           Is your employer paying National Insurance contributions for you?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q13 going_abroad and Q12 already_abroad
       do_either_of_the_following_apply?:
@@ -71,11 +76,16 @@ en-GB:
           - Incapacity Benefit
           - Industrial Injuries Disablement Benefit
           - State Pension
-
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q15 going_abroad and Q14 already_abroad
       working_for_uk_employer_ssp?:
         title: Are you working for a UK employer?
+        options:
+          "yes": "Yes"
+          "no": "No"
 # Q17 going_abroad Q16 already_abroad
       eligible_for_tax_credits?:
         title: Are you or your partner one of the following?
@@ -91,6 +101,9 @@ en-GB:
 # Q19 going_abroad and Q18 already_abroad
       tax_credits_children?:
         title: Do you have any children?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q20 already_abroad
       tax_credits_currently_claiming?:
@@ -102,6 +115,9 @@ en-GB:
           - Industrial Injuries Disablement Benefit
           - contribution-based Employment and Support Allowance
           - Severe Disablement Allowance
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q23 going_abroad and Q22 already_abroad
       tax_credits_why_going_abroad?:
@@ -114,11 +130,17 @@ en-GB:
 # Q26 going_abroad Q25 already_abroad
       iidb_already_claiming?:
         title: Are you currently receiving Industrial Injuries Disablement Benefit?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q30 going_abroad and Q29 already_abroad
       db_claiming_benefits?:
         title: |
           Are you or a family member getting State Pension, Industrial Injuries Benefit, ESA (contributory) or bereavement benefits?
+        options:
+          "yes": "Yes"
+          "no": "No"
 # Q33 going_abroad
       is_claiming_benefits?:
         title: |
@@ -130,17 +152,26 @@ en-GB:
           - [Severe Disability premium](/disability-premiums-income-support/eligibility)
         hint: |
           Your partner must be getting the premium, not you.
+        options:
+          "yes": "Yes"
+          "no": "No"
 # Q34 going_abroad
       is_either_of_the_following?:
         title: "Are you getting Income Support while either:"
         body: |
           - getting [Statutory Sick Pay](/statutory-sick-pay/)
           - incapable of work, but being treated as capable of work because you are temporarily disqualified from receiving Income Support
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q35 going_abroad
       is_abroad_for_treatment?:
         title: |
           Are you going abroad to get medical treatment for the illness or disability that prevents you from working?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q36 going_abroad
       is_work_or_sick_pay?:
@@ -149,6 +180,9 @@ en-GB:
         body: |
           - 364 days
           - 196 days if you're terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q37 going_abroad
       is_any_of_the_following_apply?:
@@ -157,6 +191,9 @@ en-GB:
           - affected by a trades dispute (eg on strike)
           - age 16 to 19 and in full-time secondary education
           - appealing against a decision about your ability to work
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Going abroad questions
 # Going abroad Q3 going_abroad

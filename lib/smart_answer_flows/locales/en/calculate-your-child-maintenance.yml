@@ -16,10 +16,6 @@ en-GB:
         pay_how_many_nights: On average, how many nights a year do the children stay over with you?
         receive_how_many_nights: On average, how many nights a year do the children stay over with the parent paying child maintenance?
 
-      options:
-        "yes": "Yes"
-        "no": "No"
-
       ## Q1
       are_you_paying_or_receiving?:
         title: Will you be paying or receiving child maintenance payments?
@@ -61,6 +57,9 @@ en-GB:
           - Widow’s pension
           - Universal Credit with no earned income
         hint: "In Scotland, this also includes: Skillseekers training, War Widow’s, Widower’s or Surviving Civil Partner’s Pension"
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       ## Q4
       gross_income_of_payee?:

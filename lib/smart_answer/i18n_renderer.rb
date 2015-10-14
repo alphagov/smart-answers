@@ -15,16 +15,13 @@ module SmartAnswer
     end
 
     def translate_option(option)
-      translate!("options.#{option}") || begin
-        I18n.translate!("#{@i18n_prefix}.options.#{option}", @state.to_hash)
-      rescue I18n::MissingTranslationData
-        option
-      end
+      translate!("options.#{option}", rescue_exception: false)
     end
 
-    def translate!(subkey)
+    def translate!(subkey, rescue_exception: true)
       I18n.translate!("#{i18n_node_prefix}.#{subkey}", state_for_interpolation)
-    rescue I18n::MissingTranslationData
+    rescue I18n::MissingTranslationData => e
+      raise e unless rescue_exception
       nil
     end
 

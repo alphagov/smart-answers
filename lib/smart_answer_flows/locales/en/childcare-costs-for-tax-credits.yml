@@ -1,18 +1,13 @@
 en-GB:
   flow:
     childcare-costs-for-tax-credits:
-      options:
-        "yes": "Yes"
-        "no": "No"
-        weekly_same_amount: "Weekly, and I always pay the same amount"
-        weekly_diff_amount: "Weekly, and the amount I pay varies"
-        monthly_same_amount: "Monthly, and I always pay the same amount"
-        monthly_diff_amount: "Monthly, and the amount I pay varies"
-        other: "Other"
 
       #Q1
       currently_claiming?:
         title: "Are you currently claiming tax credits for childcare costs?"
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       #Q2
       how_often_use_childcare?:
@@ -25,14 +20,29 @@ en-GB:
       #Q3
       have_costs_changed?:
         title: "Have the costs of your childcare changed since you last made your claim?"
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       #Q4
       how_often_pay_1?:
         title: "How often do you pay your childcare provider(s)?"
+        options:
+          weekly_same_amount: "Weekly, and I always pay the same amount"
+          weekly_diff_amount: "Weekly, and the amount I pay varies"
+          monthly_same_amount: "Monthly, and I always pay the same amount"
+          monthly_diff_amount: "Monthly, and the amount I pay varies"
+          other: "Other"
 
       #Q5
       how_often_pay_2?:
         title: "How often do you pay your childcare provider(s)?"
+        options:
+          weekly_same_amount: "Weekly, and I always pay the same amount"
+          weekly_diff_amount: "Weekly, and the amount I pay varies"
+          monthly_same_amount: "Monthly, and I always pay the same amount"
+          monthly_diff_amount: "Monthly, and the amount I pay varies"
+          other: "Other"
 
       #Q6
       how_much_12_months_1?:
@@ -64,6 +74,9 @@ en-GB:
 
           - you regularly use childcare, but pay more during school holidays than you do at term time
           - the hours you use childcare change from week to week or month to month
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       #Q12
       how_often_pay_providers?:
@@ -75,6 +88,7 @@ en-GB:
           every_month: "Every calendar month"
           termly: "Termly"
           yearly: "Yearly"
+          other: "Other"
 
       #Q13
       how_much_fortnightly?:

@@ -1,9 +1,6 @@
 en-GB:
   flow:
     inherits-someone-dies-without-will:
-      options:
-        "yes": "Yes"
-        "no": "No"
       # Q1
       region?:
         title: Where did the deceased live?
@@ -16,45 +13,75 @@ en-GB:
       partner?:
         title: Is there a living husband, wife or civil partner?
         hint: A surviving partner who wasn't married or in a civil partnership with the deceased has no automatic right to inherit.
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Q3
       estate_over_250000?:
         title: Is the estate likely to be worth more than £250,000?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Q4
       children?:
         title: Are there any living children, grandchildren or other direct descendants (eg great-grandchildren)?
         hint: Children include legally-adopted sons or daughters (but not stepchildren) and any children where the deceased had a parental role.
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Q5
       parents?:
         title: Are there any living parents?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Q6
       siblings?:
         title: Did the deceased have any brothers or sisters?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Q61
       siblings_including_mixed_parents?:
         title: Did the deceased have any brothers or sisters?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Q7
       grandparents?:
         title: Are there any living grandparents?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Q8
       aunts_or_uncles?:
         title: Did the deceased have any aunts or uncles?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # England and wales questions ###
 
       # Q20
       half_siblings?:
         title: Did the deceased have any half-brothers or half-sisters?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Q21
       half_aunts_or_uncles?:
         title: Did the deceased have any half-aunts or half-uncles?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Scotland questions ###
 
@@ -62,9 +89,15 @@ en-GB:
       great_aunts_or_uncles?:
         title: Are there any living great aunts or great uncles?
         hint: Great aunts and great uncles are brothers or sisters of the grandparents of the deceased.
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Northern Ireland questions ###
 
       # Q60
       more_than_one_child?:
         title: Did they have more than one child?
+        options:
+          "yes": "Yes"
+          "no": "No"

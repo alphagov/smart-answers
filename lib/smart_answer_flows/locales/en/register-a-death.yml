@@ -1,9 +1,6 @@
 en-GB:
   flow:
     register-a-death:
-      options:
-        "yes": "Yes"
-        "no": "No"
       where_did_the_death_happen?:
         title: Where did the death happen?
         options:
@@ -18,6 +15,9 @@ en-GB:
           elsewhere: "Elsewhere"
       was_death_expected?:
         title: Was the death expected?
+        options:
+          "yes": "Yes"
+          "no": "No"
       which_country?:
         title: Which country did the death happen in?
       where_are_you_now?:
