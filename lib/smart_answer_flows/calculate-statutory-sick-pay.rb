@@ -141,9 +141,9 @@ module SmartAnswer
 
       # Question 7.1
       multiple_choice :paid_at_least_8_weeks? do
-        option eight_weeks_more: :how_often_pay_employee_pay_patterns? # Question 5.2
-        option eight_weeks_less: :total_earnings_before_sick_period? # Question 8
-        option before_payday: :how_often_pay_employee_pay_patterns? # Question 5.2
+        option eight_weeks_more: :how_often_pay_employee_pay_patterns? # Question 7.2
+        option eight_weeks_less: :total_earnings_before_sick_period? # Question 10
+        option before_payday: :how_often_pay_employee_pay_patterns? # Question 7.2
 
         save_input_as :eight_weeks_earnings
       end
@@ -158,8 +158,8 @@ module SmartAnswer
 
         save_input_as :pay_pattern
 
-        next_node_if(:last_payday_before_sickness?, variable_matches(:eight_weeks_earnings, 'eight_weeks_more'))  # Question 6
-        next_node(:pay_amount_if_not_sick?) # Question 7
+        next_node_if(:last_payday_before_sickness?, variable_matches(:eight_weeks_earnings, 'eight_weeks_more'))  # Question 8
+        next_node(:pay_amount_if_not_sick?) # Question 9
       end
 
       # Question 8
@@ -256,7 +256,7 @@ module SmartAnswer
         next_node :usual_work_days?
       end
 
-      # Q11
+      # Question 11
       checkbox_question :usual_work_days? do
         %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
 
