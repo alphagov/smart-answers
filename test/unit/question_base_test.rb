@@ -43,8 +43,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
   test "Can define next_node by giving a block, provided that next node is declared" do
     q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node { :done_done }
-      permitted_next_nodes(:done_done)
+      next_node(permitted: [:done_done]) { :done_done }
     }
     initial_state = SmartAnswer::State.new(q.name)
     new_state = q.transition(initial_state, :anything)
@@ -53,10 +52,10 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
   test "next_node block can refer to state" do
     q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node do
+      permitted_next_nodes = [:was_red, :wasnt_red]
+      next_node(permitted: permitted_next_nodes) do
         colour == 'red' ? :was_red : :wasnt_red
       end
-      permitted_next_nodes(:was_red, :wasnt_red)
     }
     initial_state = SmartAnswer::State.new(q.name)
     initial_state.colour = 'red'
@@ -67,11 +66,10 @@ class QuestionBaseTest < ActiveSupport::TestCase
   test "next_node block is passed input" do
     input_was = nil
     q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node(:done) do |input|
+      next_node(permitted: [:done]) do |input|
         input_was = input
         :done
       end
-      permitted_next_nodes(:done)
     }
     initial_state = SmartAnswer::State.new(q.name)
     new_state = q.transition(initial_state, 'something')
@@ -202,8 +200,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
   test "next_node block used as fallback" do
     q = SmartAnswer::Question::Base.new(nil, :example) {
       next_node_if(:skipped) { false }
-      next_node { :next }
-      permitted_next_nodes(:next)
+      next_node(permitted: [:next]) { :next }
     }
     initial_state = SmartAnswer::State.new(q.name)
     assert_equal :next, q.next_node_for(initial_state, :red)
@@ -212,7 +209,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
   test "conditional next_node used if triggered ignoring fallback" do
     q = SmartAnswer::Question::Base.new(nil, :example) {
       next_node_if(:next) { true }
-      next_node { :ignored }
+      next_node(permitted: [:ignored]) { :ignored }
     }
     initial_state = SmartAnswer::State.new(q.name)
     assert_equal :next, q.next_node_for(initial_state, :red)
