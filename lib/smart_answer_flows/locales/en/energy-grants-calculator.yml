@@ -23,6 +23,7 @@ en-GB:
           property: You own your property
           permission: You rent privately but have permission from the owner to make energy saving improvements (eg upgrade the boiler)
           social_housing: You’re a social housing tenant
+          none: none
 
 # Q2A
       what_are_your_circumstances_without_bills_help?:
@@ -33,6 +34,7 @@ en-GB:
           benefits: You’re getting benefits
           property: You own your property
           permission: You rent privately but have permission from the owner to install or upgrade the boiler
+          none: none
         body: |
           Social housing tenants should talk to their social housing provider if they want to improve their energy efficiency.
         foot: |
