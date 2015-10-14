@@ -3,6 +3,15 @@ require 'ostruct'
 require_relative '../test_helper'
 
 class QuestionBaseTest < ActiveSupport::TestCase
+  test 'permitted next nodes can be supplied to next_node' do
+    q = SmartAnswer::Question::Base.new(nil, :example) {
+      next_node(permitted: [:done]) do
+        :done
+      end
+    }
+    assert_equal [:done], q.permitted_next_nodes
+  end
+
   test "State is carried over on a state transition" do
     q = SmartAnswer::Question::Base.new(nil, :example) {
       next_node :done
