@@ -12,7 +12,12 @@ module SmartAnswer
 
         save_input_as :toppings
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :margherita,
+          :no_way,
+          :on_its_way
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if response == 'none'
             :margherita
           else

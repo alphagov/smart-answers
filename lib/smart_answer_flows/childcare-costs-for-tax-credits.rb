@@ -66,7 +66,11 @@ module SmartAnswer
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :no_longer_paying,
+          :old_weekly_amount_1?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           amount = Money.new(response)
           amount == 0 ? :no_longer_paying : :old_weekly_amount_1?
         end
@@ -77,7 +81,12 @@ module SmartAnswer
         calculate :weekly_cost do |response|
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
         end
-        next_node do |response|
+
+        permitted_next_nodes = [
+          :no_longer_paying,
+          :old_weekly_amount_1?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           amount = Money.new(response)
           amount == 0 ? :no_longer_paying : :old_weekly_amount_1?
         end
@@ -146,7 +155,12 @@ module SmartAnswer
         calculate :new_weekly_costs do |response|
           Float(response).ceil
         end
-        next_node do |response|
+
+        permitted_next_nodes = [
+          :no_longer_paying,
+          :old_weekly_amount_2?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           amount = Money.new(response)
           amount == 0 ? :no_longer_paying : :old_weekly_amount_2?
         end
@@ -177,7 +191,11 @@ module SmartAnswer
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(response)
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :no_longer_paying,
+          :old_weekly_amount_3?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           amount = Money.new(response)
           amount == 0 ? :no_longer_paying : :old_weekly_amount_3?
         end
