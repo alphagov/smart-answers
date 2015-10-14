@@ -226,6 +226,18 @@ module SmartAnswer
         end
       end
 
+      #Q5n
+      money_question :widow_pension_amount? do
+
+        calculate :total_benefits do |response|
+          total_benefits + response.to_f
+        end
+
+        next_node do
+          benefit_related_questions.shift
+        end
+      end
+
       #Q5l
       money_question :widowed_mother_amount? do
 
@@ -240,18 +252,6 @@ module SmartAnswer
 
       #Q5m
       money_question :widowed_parent_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          benefit_related_questions.shift
-        end
-      end
-
-      #Q5n
-      money_question :widow_pension_amount? do
 
         calculate :total_benefits do |response|
           total_benefits + response.to_f
