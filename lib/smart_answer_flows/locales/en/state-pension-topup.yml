@@ -1,9 +1,6 @@
 en-GB:
   flow:
     state-pension-topup:
-      options:
-        "yes": "Yes"
-        "no": "No"
 #Q1
       dob_age?:
         title: What is your date of birth?

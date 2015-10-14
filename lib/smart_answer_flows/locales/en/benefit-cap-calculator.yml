@@ -1,18 +1,21 @@
 en-GB:
   flow:
     benefit-cap-calculator:
-      options:
-        "yes": "Yes"
-        "no": "No"
 
 # Q1
       receive_housing_benefit?:
         title: Do you receive Housing Benefit?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q2
       working_tax_credit?:
         title: Do you qualify for Working Tax Credit?
         hint: You don't need to be getting Working Tax Credit, only qualify for it.
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q3
       receiving_exemption_benefits?:
@@ -26,6 +29,9 @@ en-GB:
           - War Widow’s or War Widower’s Pension
           - Armed Forces Compensation Scheme
           - Armed Forces Independence Payment
+        options:
+          "yes": "Yes"
+          "no": "No"
 
 # Q4
       receiving_non_exemption_benefits?:

@@ -59,7 +59,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
           within 'td.previous-question-title' do
             assert_page_has_content "What do you want on your pizza?"
           end
-          within('td.previous-question-body') { assert_page_has_content "none" }
+          within('td.previous-question-body') { assert_page_has_content "None" }
           within('.link-right') { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=none") }
         end
       end

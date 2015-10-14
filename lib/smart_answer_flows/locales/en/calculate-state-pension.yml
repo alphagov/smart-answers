@@ -1,10 +1,6 @@
 en-GB:
   flow:
     calculate-state-pension:
-      options:
-        "yes": "Yes"
-        "no": "No"
-        none: "None of the above"
       phrases:
         carers_allowance_women_hint: Don’t count years when you opted for the reduced National Insurance rate for married women and widows.
         carers_allowance_women_ni_reduced_years_before_2010: Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows.
@@ -39,6 +35,9 @@ en-GB:
         title: Have you ever opted to pay the reduced National Insurance rate for married women and widows (also known as the married woman’s stamp)?
         hint: |
           Opting to pay the reduced rate means you chose to pay a lower rate of National Insurance while you were employed or you chose not to pay Class 2 contributions while you were self-employed.
+        options:
+          "yes": "Yes"
+          "no": "No"
       ## Q4
       years_paid_ni?:
         title: How many years have you worked and paid National Insurance contributions from the age of 19?
@@ -58,6 +57,9 @@ en-GB:
       ## Q6
       received_child_benefit?:
         title: Have you ever claimed Child Benefit, cared for someone sick or disabled or worked as a registered foster carer?
+        options:
+          "yes": "Yes"
+          "no": "No"
       ## Q7
       years_of_benefit?:
         title: "Before 6 April 2010 how many years did any of the following apply:"
@@ -95,3 +97,6 @@ en-GB:
       ## Q11
       lived_or_worked_outside_uk?:
         title: Have you lived or worked outside the UK?
+        options:
+          "yes": "Yes"
+          "no": "No"

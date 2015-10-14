@@ -1,6 +1,6 @@
 ---
 lib/smart_answer_flows/benefit-cap-calculator.rb: acc7833e5ea23ff3349753991fb6bb1e
-lib/smart_answer_flows/locales/en/benefit-cap-calculator.yml: 841fddf2c76ca5f8856979716488f9b7
+lib/smart_answer_flows/locales/en/benefit-cap-calculator.yml: f529cf71d32a7e802454eb79244a0a36
 test/data/benefit-cap-calculator-questions-and-responses.yml: 460336f2cf1f2acc62729ef5d831f25e
 test/data/benefit-cap-calculator-responses-and-expected-results.yml: 19c0bc207cde0d94c76b769b0da5d0bd
 lib/smart_answer_flows/benefit-cap-calculator/_dwp_contact_details.govspeak.erb: e562518b1b0289ec3e21c3174e9dab9c
