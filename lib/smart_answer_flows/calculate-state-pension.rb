@@ -20,7 +20,11 @@ module SmartAnswer
           SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.weekly_rate
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :dob_bus_pass?,
+          :gender?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if response == 'bus_pass'
             :dob_bus_pass?
           else

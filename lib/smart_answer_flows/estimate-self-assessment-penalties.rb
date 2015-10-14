@@ -73,7 +73,8 @@ module SmartAnswer
           filing_date.strftime("%e %B %Y")
         end
 
-        next_node do |response|
+        permitted_next_nodes = [:when_paid?]
+        next_node(permitted: permitted_next_nodes) do |response|
           if response < start_of_next_tax_year
             raise SmartAnswer::InvalidResponse
           else
@@ -88,7 +89,11 @@ module SmartAnswer
 
         save_input_as :payment_date
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :filed_and_paid_on_time,
+          :how_much_tax?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if filing_date > response
             raise SmartAnswer::InvalidResponse
           else

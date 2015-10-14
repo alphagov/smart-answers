@@ -25,7 +25,13 @@ module SmartAnswer
         option "starting-and-leaving"
         save_input_as :holiday_period
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :what_is_your_starting_date?,
+          :what_is_your_leaving_date?,
+          :how_many_days_per_week?,
+          :how_many_hours_per_week?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           case response
           when "starting", "starting-and-leaving"
             :what_is_your_starting_date?
@@ -52,7 +58,12 @@ module SmartAnswer
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
         save_input_as :start_date
-        next_node do
+
+        permitted_next_nodes = [
+          :what_is_your_leaving_date?,
+          :when_does_your_leave_year_start?
+        ]
+        next_node(permitted: permitted_next_nodes) do
           if holiday_period == "starting-and-leaving"
             :what_is_your_leaving_date?
           else
@@ -67,7 +78,13 @@ module SmartAnswer
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
         save_input_as :leaving_date
 
-        next_node do
+        permitted_next_nodes = [
+          :how_many_days_per_week?,
+          :how_many_hours_per_week?,
+          :shift_worker_hours_per_shift?,
+          :when_does_your_leave_year_start?
+        ]
+        next_node(permitted: permitted_next_nodes) do
           if holiday_period == "starting-and-leaving"
             case calculation_basis
             when "days-worked-per-week"
@@ -88,7 +105,13 @@ module SmartAnswer
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
         save_input_as :leave_year_start_date
-        next_node do
+
+        permitted_next_nodes = [
+          :how_many_days_per_week?,
+          :how_many_hours_per_week?,
+          :shift_worker_hours_per_shift?
+        ]
+        next_node(permitted: permitted_next_nodes) do
           case calculation_basis
           when "days-worked-per-week"
             :how_many_days_per_week?

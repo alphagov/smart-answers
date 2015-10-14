@@ -14,7 +14,11 @@ module SmartAnswer
         option :to_rescue_the_princess
         option :dunno
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :what_is_the_capital_of_assyria?,
+          :what_is_your_favorite_colour?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if your_name =~ /robin/i and response == 'to_seek_the_holy_grail'
             :what_is_the_capital_of_assyria?
           else
