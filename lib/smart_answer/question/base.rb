@@ -15,8 +15,12 @@ module SmartAnswer
         super
       end
 
-      def next_node(next_node = nil, &block)
+      def next_node(next_node = nil, permitted: [], &block)
         if block_given?
+          unless permitted.any?
+            raise "You must specify the permitted next nodes"
+          end
+          @permitted_next_nodes += permitted
           @default_next_node_function = block
         elsif next_node
           next_node_if(next_node)
@@ -44,6 +48,9 @@ module SmartAnswer
         next_node = next_node_from_function_chain(current_state, input) || next_node_from_default_function(current_state, input)
         responses_and_input = current_state.responses + [input]
         raise NextNodeUndefined.new("Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}") unless next_node
+        unless @permitted_next_nodes.include?(next_node)
+          raise "Next node (#{next_node}) not in list of permitted next nodes (#{@permitted_next_nodes.to_sentence})"
+        end
         next_node
       end
 

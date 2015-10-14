@@ -13,9 +13,9 @@ module SmartAnswer
         option :a
         option :b
 
-        permitted_next_nodes :done_a, :done_b
+        permitted_next_nodes = [:done_a, :done_b]
 
-        next_node do |response|
+        next_node(permitted: permitted_next_nodes) do |response|
           if response == 'a'
             :done_a
           else

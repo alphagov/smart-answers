@@ -2,7 +2,6 @@ require_relative '../test_helper'
 require_relative '../helpers/i18n_test_helper'
 
 require 'fixtures/graph_presenter_test/graph'
-require 'fixtures/graph_presenter_test/missing_transition'
 
 module SmartAnswer
   class GraphPresenterTest < ActiveSupport::TestCase
@@ -43,9 +42,6 @@ module SmartAnswer
     test "indicates does not define transitions in a way which can be visualised" do
       p = GraphPresenter.new(SmartAnswer::GraphFlow.build)
       assert p.visualisable?, "'graph' should be visualisable"
-
-      p = GraphPresenter.new(SmartAnswer::MissingTransitionFlow.build)
-      refute p.visualisable?, "'missing_transition' should not be visualisable"
     end
   end
 end

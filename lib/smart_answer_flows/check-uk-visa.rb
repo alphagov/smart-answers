@@ -24,7 +24,12 @@ module SmartAnswer
       country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: exclude_countries do
         save_input_as :passport_country
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :israeli_document_type?,
+          :outcome_no_visa_needed,
+          :purpose_of_visit?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if response == 'israel'
             :israeli_document_type?
           elsif country_group_eea.include?(response)
@@ -40,7 +45,8 @@ module SmartAnswer
         option :"full-passport"
         option :"provisional-passport"
 
-        next_node do |response|
+        permitted_next_nodes = [:purpose_of_visit?]
+        next_node(permitted: permitted_next_nodes) do |response|
           self.passport_country = 'israel-provisional-passport' if response == 'provisional-passport'
           :purpose_of_visit?
         end
