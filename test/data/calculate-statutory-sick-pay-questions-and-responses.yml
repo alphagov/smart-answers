@@ -10,6 +10,10 @@
 :employee_work_different_days?:
 - 'yes'
 - 'no'
+:usual_work_days?:
+- '1,2,3'
+- '1,2,3,4,5'
+- '0,6'
 :first_sick_day?:
 - 2013-04-02
 - 2013-10-02
@@ -52,7 +56,3 @@
 :days_covered_by_earnings?:
 - '30'
 - '35'
-:usual_work_days?:
-- '1,2,3'
-- '1,2,3,4,5'
-- '0,6'
