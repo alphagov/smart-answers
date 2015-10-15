@@ -413,7 +413,8 @@ module SmartAnswer
         option "unemployed"
 
         next_node do |response|
-          # TODO: Manually copy the rules from Smartdown
+          # * employment_status_of_mother in {employee worker} => mother_started_working_before_continuity_start_date
+          # * employment_status_of_mother in {self-employed unemployed} => mother_worked_at_least_26_weeks
         end
       end
 
