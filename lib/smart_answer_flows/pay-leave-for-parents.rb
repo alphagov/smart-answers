@@ -92,7 +92,19 @@ module SmartAnswer
       salary_question :salary_1_66_weeks do
 
         next_node do |response|
-          # TODO: Manually copy the rules from Smartdown
+          # * two_carers is 'no'
+          #   * employment_status_of_mother is 'employee'
+          #     * mother_still_working_on_continuity_end_date is 'yes' => outcome_mat-allowance_mat-leave
+          #     * mother_still_working_on_continuity_end_date is 'no' => outcome_mat-allowance
+          #   * employment_status_of_mother in {worker self-employed unemployed} => outcome_mat-allowance
+          # * two_carers is 'yes'
+          #   * employment_status_of_partner in {employee worker} => partner_started_working_before_continuity_start_date
+          #   * employment_status_of_partner in {self-employed unemployed}
+          #     * employment_status_of_mother is 'employee'
+          #       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND due_date >= '2015-4-5' => partner_worked_at_least_26_weeks
+          #       * mother_still_working_on_continuity_end_date is 'yes' => outcome_mat-allowance_mat-leave
+          #       * mother_still_working_on_continuity_end_date is 'no' => outcome_mat-allowance
+          #     * employment_status_of_mother in {worker self-employed unemployed} => outcome_mat-allowance
         end
       end
 
