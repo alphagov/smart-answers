@@ -1,6 +1,6 @@
 ## Git workflow ##
 
-- Pull requests must contain a succint, clear summary of what the user need is driving this feature change.
+- Pull requests must contain a succinct, clear summary of what the user need is driving this feature change.
 - Follow our [Git styleguide](https://github.com/alphagov/styleguides/blob/master/git.md)
 - Make a feature branch
 - Ensure your branch contains logical atomic commits before sending a pull request - follow our [Git styleguide](https://github.com/alphagov/styleguides/blob/master/git.md)
