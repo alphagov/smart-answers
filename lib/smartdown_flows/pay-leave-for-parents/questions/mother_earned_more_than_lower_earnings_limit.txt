@@ -11,7 +11,7 @@
     * employment_status_of_mother is 'employee' => outcome_mat-leave_mat-pay
     * employment_status_of_mother is 'worker' => outcome_mat-pay
   * two_carers is 'yes'
-    * employment_status_of_partner in {employee worker} => employment_details_of_partner_1a
+    * employment_status_of_partner in {employee worker} => partner_started_working_before_continuity_start_date
     * employment_status_of_partner in {self-employed unemployed}
       * due_date >= '2015-4-5' => employment_details_of_partner_2a
       * due_date < '2015-4-5'
