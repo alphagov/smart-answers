@@ -3,6 +3,21 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class StatutorySickPayCalculatorTest < ActiveSupport::TestCase
 
+    context ".dates_matching_pattern" do
+      should "return dates maching working days pattern" do
+        working_days = %w(Sunday Tuesday Thursday).map { |d| Date::DAYNAMES.index(d).to_s }
+        dates = StatutorySickPayCalculator.dates_matching_pattern(
+          from: Date.parse("Sun, 04 Jan 2015"),
+          to:   Date.parse("Wed, 14 Jan 2015"),
+          pattern: working_days
+        )
+        assert_equal [
+          Date.parse("Sun, 04 Jan 2015"), Date.parse("Tue, 06 Jan 2015"), Date.parse("Thu, 08 Jan 2015"),
+          Date.parse("Sun, 11 Jan 2015"), Date.parse("Tue, 13 Jan 2015")
+        ], dates
+      end
+    end
+
     context ".months_between" do
       should "calculate number of months between dates" do
         months = StatutorySickPayCalculator.months_between(Date.parse("04/02/2012"), Date.parse("17/05/2012"))
