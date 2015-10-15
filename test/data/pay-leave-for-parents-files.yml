@@ -60,7 +60,6 @@ lib/smartdown_flows/pay-leave-for-parents/outcomes/outcome_pat-leave_pat-pay.txt
 lib/smartdown_flows/pay-leave-for-parents/outcomes/outcome_pat-pay.txt: 1e36ba5edb2125597bf4ef636ff4857d
 lib/smartdown_flows/pay-leave-for-parents/outcomes/outcome_single-birth-nothing.txt: a790c21af6f30c66abc10b6f19411826
 lib/smartdown_flows/pay-leave-for-parents/questions/due_date.txt: b4ec73a7cb9091d0de8258ce404f08fa
-lib/smartdown_flows/pay-leave-for-parents/questions/employment_details_of_partner_1d.txt: 82e386562af7a535ad59882527d9101d
 lib/smartdown_flows/pay-leave-for-parents/questions/employment_details_of_partner_2a.txt: 1f864a23d421c70258d5fbb6b05f88ba
 lib/smartdown_flows/pay-leave-for-parents/questions/employment_details_of_partner_2b.txt: 108d6f77c324095341d00e0d92706e1d
 lib/smartdown_flows/pay-leave-for-parents/questions/employment_status_of_mother.txt: 40569287d98d00cd0bb30219a7581292
@@ -71,7 +70,8 @@ lib/smartdown_flows/pay-leave-for-parents/questions/mother_salary.txt: 7ec904bac
 lib/smartdown_flows/pay-leave-for-parents/questions/mother_started_working_before_continuity_start_date.txt: db9119c2dcd89c53cc0e23d558223e15
 lib/smartdown_flows/pay-leave-for-parents/questions/mother_still_working_on_continuity_end_date.txt: a8f17a95b79f622ee82586b568bd1e81
 lib/smartdown_flows/pay-leave-for-parents/questions/mother_worked_at_least_26_weeks.txt: 0b29f5378c869042b8859df203c41ccd
-lib/smartdown_flows/pay-leave-for-parents/questions/partner_salary.txt: 0fc961f4a7d8ccdfa1ab5d74a39a6a22
+lib/smartdown_flows/pay-leave-for-parents/questions/partner_earned_more_than_lower_earnings_limit.txt: 82e386562af7a535ad59882527d9101d
+lib/smartdown_flows/pay-leave-for-parents/questions/partner_salary.txt: 94e336fcd4161d0a59fbcd1b53753287
 lib/smartdown_flows/pay-leave-for-parents/questions/partner_started_working_before_continuity_start_date.txt: b1fc4f3a3e6f2de90e5a2cc142cbb047
 lib/smartdown_flows/pay-leave-for-parents/questions/partner_still_working_on_continuity_end_date.txt: e2caf4cace0cba8310a23d7ae9af368d
 lib/smartdown_flows/pay-leave-for-parents/questions/salary_1_66_weeks.txt: f9e326240732f2209c7b3ac5088a5b64
