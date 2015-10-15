@@ -153,8 +153,14 @@ module SmartAnswer
         option before_payday: :how_often_pay_employee_pay_patterns? # Question 8.2
 
         calculate :calculator do
+          prev_sick_days = Calculators::StatutorySickPayCalculator.dates_matching_pattern(
+            from: sick_start_date_for_awe,
+            to: sick_end_date_for_awe,
+            pattern: usual_work_days.split(",")
+          )
+
           Calculators::StatutorySickPayCalculator.new(
-            prev_sick_days: prior_sick_days.to_i,
+            prev_sick_days: prev_sick_days.length,
             sick_start_date: sick_start_date,
             sick_end_date: sick_end_date,
             days_of_the_week_worked: usual_work_days.split(",")
