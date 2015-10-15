@@ -1,41 +1,41 @@
---- 
+---
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - albania
   :next_node: :answer_one_generic
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - andorra
   :next_node: :answer_one_generic
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - austria
   :next_node: :answer_one_generic
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - cyprus
   :next_node: :answer_one_generic
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - greece
   :next_node: :answer_one_generic
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - iran
   :next_node: :answer_two_iran
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - spain
   :next_node: :answer_one_generic
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - syria
   :next_node: :answer_three_syria
   :outcome_node: true

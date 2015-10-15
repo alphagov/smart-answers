@@ -1,8 +1,8 @@
 ---
 lib/smart_answer_flows/state-pension-through-partner.rb: 56b1c10c0fa72ec69689a3311ef2a814
 lib/smart_answer_flows/locales/en/state-pension-through-partner.yml: dfdbbb39e4d2582046a61a98e9c4ba1c
-test/data/state-pension-through-partner-questions-and-responses.yml: 34f2b5f7ac286bb3eea690564339051b
-test/data/state-pension-through-partner-responses-and-expected-results.yml: 7886f7591361df671b51ad857265cf6a
+test/data/state-pension-through-partner-questions-and-responses.yml: 256f0f1136d388a674a0732173da6c1a
+test/data/state-pension-through-partner-responses-and-expected-results.yml: fcf56e5687c592c8693f62f529bc939e
 lib/smart_answer_flows/state-pension-through-partner/_increase_retirement_income.govspeak.erb: 2391bf6e80d1aa4d0d4258030b4f4e00
 lib/smart_answer_flows/state-pension-through-partner/age_dependent_pension_outcome.govspeak.erb: 766571c924063eb6b8049d1da241493f
 lib/smart_answer_flows/state-pension-through-partner/current_rules_national_insurance_no_state_pension_outcome.govspeak.erb: 1f606b93521d3a8d462ccf60a07ba721

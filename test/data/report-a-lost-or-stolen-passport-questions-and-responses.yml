@@ -1,7 +1,7 @@
---- 
-:where_was_the_passport_lost_or_stolen?: 
+---
+:where_was_the_passport_lost_or_stolen?:
 - in_the_uk
 - abroad
-:which_country?: 
+:which_country?:
 - azerbaijan
 - canada

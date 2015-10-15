@@ -1,66 +1,66 @@
---- 
+---
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - acro-police-certificate
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - affidavit
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - articles-of-association
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - birth-certificate
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - certificate-of-no-impediment
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - county-court-document
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - degree-certificate-uk
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - diploma
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - doctor-letter-medical
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - marriage-certificate
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - passport-copy-only
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - pet-export-document
   :next_node: :outcome_results
   :outcome_node: true
 - :current_node: :which_documents_do_you_want_legalised?
-  :responses: 
+  :responses:
   - certificate-of-freesale
   :next_node: :outcome_results
   :outcome_node: true

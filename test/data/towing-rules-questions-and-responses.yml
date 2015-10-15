@@ -1,56 +1,56 @@
---- 
-:towing_vehicle_type?: 
+---
+:towing_vehicle_type?:
 - car-or-light-vehicle
 - medium-sized-vehicle
 - large-vehicle
 - minibus
 - bus
-:existing_towing_entitlements?: 
-- "yes"
-- "no"
-:how_long_entitlements?: 
+:existing_towing_entitlements?:
+- 'yes'
+- 'no'
+:how_long_entitlements?:
 - before-19-Jan-2013
 - after-19-Jan-2013
-:date_licence_was_issued?: 
+:date_licence_was_issued?:
 - licence-issued-before-19-Jan-2013
 - licence-issued-after-19-Jan-2013
-:medium_sized_vehicle_licenceholder?: 
-- "yes"
-- "no"
-:how_old_are_you_msv?: 
+:medium_sized_vehicle_licenceholder?:
+- 'yes'
+- 'no'
+:how_old_are_you_msv?:
 - under-21
 - 21-or-over
-:existing_large_vehicle_towing_entitlements?: 
-- "yes"
-- "no"
-:date_licence_was_issued_msv?: 
+:existing_large_vehicle_towing_entitlements?:
+- 'yes'
+- 'no'
+:date_licence_was_issued_msv?:
 - before-jan-1997
 - from-jan-1997
-:how_old_are_you_msv_2?: 
+:how_old_are_you_msv_2?:
 - under-18
 - under-21
 - 21-or-over
-:existing_large_vehicle_licence?: 
-- "yes"
-- "no"
-:how_old_are_you_lv?: 
+:existing_large_vehicle_licence?:
+- 'yes'
+- 'no'
+:how_old_are_you_lv?:
 - under-21
 - 21-or-over
-:car_licence_before_jan_1997?: 
-- "yes"
-- "no"
-:do_you_have_lv_or_bus_towing_entitlement?: 
-- "yes"
-- "no"
-:full_minibus_licence?: 
-- "yes"
-- "no"
-:how_old_are_you_minibus?: 
+:car_licence_before_jan_1997?:
+- 'yes'
+- 'no'
+:do_you_have_lv_or_bus_towing_entitlement?:
+- 'yes'
+- 'no'
+:full_minibus_licence?:
+- 'yes'
+- 'no'
+:how_old_are_you_minibus?:
 - under-21
 - 21-or-over
-:bus_licenceholder?: 
-- "yes"
-- "no"
-:how_old_are_you_bus?: 
+:bus_licenceholder?:
+- 'yes'
+- 'no'
+:how_old_are_you_bus?:
 - under-21
 - 21-or-over

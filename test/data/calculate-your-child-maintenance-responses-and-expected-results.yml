@@ -1,1673 +1,1673 @@
---- 
+---
 - :current_node: :are_you_paying_or_receiving?
-  :responses: 
+  :responses:
   - pay
   :next_node: :how_many_children_paid_for?
   :outcome_node: false
 - :current_node: :how_many_children_paid_for?
-  :responses: 
+  :responses:
   - pay
   - 1_child
   :next_node: :gets_benefits?
   :outcome_node: false
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "yes"
+  - 'yes'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "yes"
-  - "0"
+  - 'yes'
+  - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "yes"
-  - "1"
+  - 'yes'
+  - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "yes"
-  - "2"
+  - 'yes'
+  - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "yes"
-  - "3"
+  - 'yes'
+  - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "yes"
-  - "4"
+  - 'yes'
+  - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
+  - 'no'
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "5"
+  - 'no'
+  - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "90"
+  - 'no'
+  - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "150"
+  - 'no'
+  - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "200"
+  - 'no'
+  - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "1000"
+  - 'no'
+  - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_children_paid_for?
-  :responses: 
+  :responses:
   - pay
   - 2_children
   :next_node: :gets_benefits?
   :outcome_node: false
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "yes"
+  - 'yes'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "yes"
-  - "0"
+  - 'yes'
+  - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "yes"
-  - "1"
+  - 'yes'
+  - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "yes"
-  - "2"
+  - 'yes'
+  - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "yes"
-  - "3"
+  - 'yes'
+  - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "yes"
-  - "4"
+  - 'yes'
+  - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
+  - 'no'
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "5"
+  - 'no'
+  - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "90"
+  - 'no'
+  - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "150"
+  - 'no'
+  - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "200"
+  - 'no'
+  - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "1000"
+  - 'no'
+  - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_children_paid_for?
-  :responses: 
+  :responses:
   - pay
   - 3_children
   :next_node: :gets_benefits?
   :outcome_node: false
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "yes"
+  - 'yes'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "yes"
-  - "0"
+  - 'yes'
+  - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "yes"
-  - "1"
+  - 'yes'
+  - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "yes"
-  - "2"
+  - 'yes'
+  - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "yes"
-  - "3"
+  - 'yes'
+  - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "yes"
-  - "4"
+  - 'yes'
+  - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
+  - 'no'
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "5"
+  - 'no'
+  - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "90"
+  - 'no'
+  - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "150"
+  - 'no'
+  - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "200"
+  - 'no'
+  - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "1000"
+  - 'no'
+  - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - pay
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :are_you_paying_or_receiving?
-  :responses: 
+  :responses:
   - receive
   :next_node: :how_many_children_paid_for?
   :outcome_node: false
 - :current_node: :how_many_children_paid_for?
-  :responses: 
+  :responses:
   - receive
   - 1_child
   :next_node: :gets_benefits?
   :outcome_node: false
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "yes"
+  - 'yes'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "yes"
-  - "0"
+  - 'yes'
+  - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "yes"
-  - "1"
+  - 'yes'
+  - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "yes"
-  - "2"
+  - 'yes'
+  - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "yes"
-  - "3"
+  - 'yes'
+  - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "yes"
-  - "4"
+  - 'yes'
+  - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
+  - 'no'
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "5"
+  - 'no'
+  - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "90"
+  - 'no'
+  - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "150"
+  - 'no'
+  - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "150.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "200"
+  - 'no'
+  - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "200.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "1000"
+  - 'no'
+  - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 1_child
-  - "no"
-  - "1000.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_children_paid_for?
-  :responses: 
+  :responses:
   - receive
   - 2_children
   :next_node: :gets_benefits?
   :outcome_node: false
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "yes"
+  - 'yes'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "yes"
-  - "0"
+  - 'yes'
+  - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "yes"
-  - "1"
+  - 'yes'
+  - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "yes"
-  - "2"
+  - 'yes'
+  - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "yes"
-  - "3"
+  - 'yes'
+  - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "yes"
-  - "4"
+  - 'yes'
+  - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
+  - 'no'
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "5"
+  - 'no'
+  - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "90"
+  - 'no'
+  - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "150"
+  - 'no'
+  - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "200"
+  - 'no'
+  - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "1000"
+  - 'no'
+  - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 2_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_children_paid_for?
-  :responses: 
+  :responses:
   - receive
   - 3_children
   :next_node: :gets_benefits?
   :outcome_node: false
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "yes"
+  - 'yes'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "yes"
-  - "0"
+  - 'yes'
+  - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "yes"
-  - "1"
+  - 'yes'
+  - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "yes"
-  - "2"
+  - 'yes'
+  - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "yes"
-  - "3"
+  - 'yes'
+  - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "yes"
-  - "4"
+  - 'yes'
+  - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gets_benefits?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
+  - 'no'
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "5"
+  - 'no'
+  - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "90"
+  - 'no'
+  - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "150"
+  - 'no'
+  - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "150.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '150.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "200"
+  - 'no'
+  - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "200.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '200.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :gross_income_of_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "1000"
+  - 'no'
+  - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
 - :current_node: :how_many_other_children_in_payees_household?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "0"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '0'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "1"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '1'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "2"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '2'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "3"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '3'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true
 - :current_node: :how_many_nights_children_stay_with_payee?
-  :responses: 
+  :responses:
   - receive
   - 3_children
-  - "no"
-  - "1000.0"
-  - "3"
-  - "4"
+  - 'no'
+  - '1000.0'
+  - '3'
+  - '4'
   :next_node: :reduced_and_basic_rates_result
   :outcome_node: true

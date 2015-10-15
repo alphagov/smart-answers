@@ -1,8 +1,8 @@
---- 
-:are_you_getting_dla?: 
-- "yes"
-- "no"
-:what_is_your_dob?: 
+---
+:are_you_getting_dla?:
+- 'yes'
+- 'no'
+:what_is_your_dob?:
 - 1948-03-01
 - 1949-02-03
 - 1990-03-05

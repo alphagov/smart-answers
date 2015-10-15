@@ -1,178 +1,178 @@
---- 
+---
 - :current_node: :where_did_the_death_happen?
-  :responses: 
+  :responses:
   - england_wales
   :next_node: :did_the_person_die_at_home_hospital?
   :outcome_node: false
 - :current_node: :did_the_person_die_at_home_hospital?
-  :responses: 
+  :responses:
   - england_wales
   - at_home_hospital
   :next_node: :was_death_expected?
   :outcome_node: false
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - england_wales
   - at_home_hospital
-  - "yes"
+  - 'yes'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - england_wales
   - at_home_hospital
-  - "no"
+  - 'no'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :did_the_person_die_at_home_hospital?
-  :responses: 
+  :responses:
   - england_wales
   - elsewhere
   :next_node: :was_death_expected?
   :outcome_node: false
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - england_wales
   - elsewhere
-  - "yes"
+  - 'yes'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - england_wales
   - elsewhere
-  - "no"
+  - 'no'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :where_did_the_death_happen?
-  :responses: 
+  :responses:
   - scotland
   :next_node: :did_the_person_die_at_home_hospital?
   :outcome_node: false
 - :current_node: :did_the_person_die_at_home_hospital?
-  :responses: 
+  :responses:
   - scotland
   - at_home_hospital
   :next_node: :was_death_expected?
   :outcome_node: false
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - scotland
   - at_home_hospital
-  - "yes"
+  - 'yes'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - scotland
   - at_home_hospital
-  - "no"
+  - 'no'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :did_the_person_die_at_home_hospital?
-  :responses: 
+  :responses:
   - scotland
   - elsewhere
   :next_node: :was_death_expected?
   :outcome_node: false
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - scotland
   - elsewhere
-  - "yes"
+  - 'yes'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - scotland
   - elsewhere
-  - "no"
+  - 'no'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :where_did_the_death_happen?
-  :responses: 
+  :responses:
   - northern_ireland
   :next_node: :did_the_person_die_at_home_hospital?
   :outcome_node: false
 - :current_node: :did_the_person_die_at_home_hospital?
-  :responses: 
+  :responses:
   - northern_ireland
   - at_home_hospital
   :next_node: :was_death_expected?
   :outcome_node: false
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - northern_ireland
   - at_home_hospital
-  - "yes"
+  - 'yes'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - northern_ireland
   - at_home_hospital
-  - "no"
+  - 'no'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :did_the_person_die_at_home_hospital?
-  :responses: 
+  :responses:
   - northern_ireland
   - elsewhere
   :next_node: :was_death_expected?
   :outcome_node: false
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - northern_ireland
   - elsewhere
-  - "yes"
+  - 'yes'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :was_death_expected?
-  :responses: 
+  :responses:
   - northern_ireland
   - elsewhere
-  - "no"
+  - 'no'
   :next_node: :uk_result
   :outcome_node: true
 - :current_node: :where_did_the_death_happen?
-  :responses: 
+  :responses:
   - overseas
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - overseas
   - australia
   :next_node: :commonwealth_result
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - overseas
   - iran
   :next_node: :no_embassy_result
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - overseas
   - libya
   :next_node: :where_are_you_now?
   :outcome_node: false
 - :current_node: :where_are_you_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - same_country
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
   :next_node: :which_country_are_you_in_now?
   :outcome_node: false
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -180,7 +180,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -188,7 +188,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -196,7 +196,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -204,7 +204,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -212,7 +212,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -220,7 +220,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -228,7 +228,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -236,7 +236,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -244,7 +244,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -252,7 +252,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -260,7 +260,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - another_country
@@ -268,34 +268,34 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
-  :responses: 
+  :responses:
   - overseas
   - libya
   - in_the_uk
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   :next_node: :where_are_you_now?
   :outcome_node: false
 - :current_node: :where_are_you_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - same_country
   :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
   :next_node: :which_country_are_you_in_now?
   :outcome_node: false
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -303,7 +303,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -311,7 +311,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -319,7 +319,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -327,7 +327,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -335,7 +335,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -343,7 +343,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -351,7 +351,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -359,7 +359,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -367,7 +367,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -375,7 +375,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -383,7 +383,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - another_country
@@ -391,34 +391,34 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
-  :responses: 
+  :responses:
   - overseas
   - north-korea
   - in_the_uk
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   :next_node: :where_are_you_now?
   :outcome_node: false
 - :current_node: :where_are_you_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - same_country
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
   :next_node: :which_country_are_you_in_now?
   :outcome_node: false
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -426,7 +426,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -434,7 +434,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -442,7 +442,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -450,7 +450,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -458,7 +458,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -466,7 +466,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -474,7 +474,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -482,7 +482,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -490,7 +490,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -498,7 +498,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -506,7 +506,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - another_country
@@ -514,7 +514,7 @@
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :where_are_you_now?
-  :responses: 
+  :responses:
   - overseas
   - papua-new-guinea
   - in_the_uk
