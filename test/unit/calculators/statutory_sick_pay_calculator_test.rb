@@ -56,7 +56,7 @@ module SmartAnswer::Calculators
         @days_worked = []
         @start_date = Date.parse("1 October 2012")
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 5,
+          prev_sick_days: 0,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
           days_of_the_week_worked: @days_worked

@@ -318,11 +318,14 @@ module SmartAnswer
           end
         end
 
-        next_node_calculation(:prior_sick_days) do
+        next_node_calculation(:prior_sick_days) do |response|
           if has_linked_sickness == 'yes'
-            start_date = sick_start_date_for_awe
-            last_day_sick = sick_end_date_for_awe
-            (last_day_sick - start_date).to_i + 1
+            prev_sick_days = Calculators::StatutorySickPayCalculator.dates_matching_pattern(
+              from: sick_start_date_for_awe,
+              to: sick_end_date_for_awe,
+              pattern: response.split(",")
+            )
+            prev_sick_days.length
           else
             0
           end

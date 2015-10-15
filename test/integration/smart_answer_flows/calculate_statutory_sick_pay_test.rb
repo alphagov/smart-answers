@@ -295,6 +295,34 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
   end
 
+  context "when only working two days a week" do
+    setup do
+      add_response 'none'
+      add_response 'yes'
+      add_response 'no'
+      add_response '2015-03-12'
+      add_response '2015-03-19'
+      add_response 'yes'
+      add_response '2015-03-02'
+      add_response '2015-03-09'
+      add_response 'eight_weeks_more'
+      add_response 'weekly'
+      add_response '2015-02-27'
+      add_response '2015-01-02'
+      add_response '1000.0'
+      add_response '0,5'
+    end
+
+    # only 2 working days in linked sickness period of a week
+    # only 2 working days in current sickness period of a week
+    # => 2 + 2 = 4 total working days
+    # => 4 - 3 (waiting days) = 1 day entitled to SSP
+    should "take working pattern into account for linked sickness period" do
+      nodes = Capybara.string(outcome_body.to_s)
+      assert nodes.has_content?("Your employee is entitled to SSP for 1 days out of 2 working days taken off sick")
+    end
+  end
+
   context "no SSP payable as already had maximum" do
     should "take you to result A8 as already claimed > 28 weeks (max amount)" do
       add_response 'none'
@@ -311,7 +339,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       assert_current_node :linked_sickness_start_date?
       add_response '2014-05-01'
       assert_current_node :linked_sickness_end_date?
-      add_response '2014-09-20'
+      add_response '2014-11-17'
       assert_current_node :paid_at_least_8_weeks?
       add_response 'eight_weeks_more'
       assert_current_node :how_often_pay_employee_pay_patterns?
@@ -348,7 +376,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
       assert_current_node :entitled_to_sick_pay
       assert_state_variable :formatted_sick_pay_weekly_amounts,
-                            ["12 January 2013|£85.85",
+                            ["12 January 2013|£42.93",
                              "19 January 2013|£85.85",
                              "26 January 2013|£85.85",
                              " 2 February 2013|£85.85",
