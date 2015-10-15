@@ -6,4 +6,4 @@
 * yes: Yes
 * no: No
 
-* otherwise => employment_details_of_mother_1c
+* otherwise => mother_salary
