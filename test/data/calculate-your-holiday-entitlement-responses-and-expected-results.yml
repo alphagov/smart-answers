@@ -1,926 +1,926 @@
---- 
+---
 - :current_node: :basis_of_calculation?
-  :responses: 
+  :responses:
   - days-worked-per-week
   :next_node: :calculation_period?
   :outcome_node: false
 - :current_node: :calculation_period?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - full-year
   :next_node: :how_many_days_per_week?
   :outcome_node: false
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - full-year
-  - "1"
+  - '1'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - full-year
-  - "7"
+  - '7'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
   :next_node: :what_is_your_starting_date?
   :outcome_node: false
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2012-01-01"
+  - '2012-01-01'
   :next_node: :when_does_your_leave_year_start?
   :outcome_node: false
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2012-01-01"
-  - "2012-02-01"
+  - '2012-01-01'
+  - '2012-02-01'
   :next_node: :how_many_days_per_week?
   :outcome_node: false
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2012-01-01"
-  - "2012-02-01"
-  - "1"
+  - '2012-01-01'
+  - '2012-02-01'
+  - '1'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2012-01-01"
-  - "2012-02-01"
-  - "7"
+  - '2012-01-01'
+  - '2012-02-01'
+  - '7'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2012-01-01"
-  - "2014-01-01"
+  - '2012-01-01'
+  - '2014-01-01'
   :next_node: :how_many_days_per_week?
   :outcome_node: false
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2012-01-01"
-  - "2014-01-01"
-  - "1"
+  - '2012-01-01'
+  - '2014-01-01'
+  - '1'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2012-01-01"
-  - "2014-01-01"
-  - "7"
+  - '2012-01-01'
+  - '2014-01-01'
+  - '7'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2014-01-01"
+  - '2014-01-01'
   :next_node: :when_does_your_leave_year_start?
   :outcome_node: false
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2014-01-01"
-  - "2012-02-01"
+  - '2014-01-01'
+  - '2012-02-01'
   :next_node: :how_many_days_per_week?
   :outcome_node: false
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2014-01-01"
-  - "2012-02-01"
-  - "1"
+  - '2014-01-01'
+  - '2012-02-01'
+  - '1'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2014-01-01"
-  - "2012-02-01"
-  - "7"
+  - '2014-01-01'
+  - '2012-02-01'
+  - '7'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2014-01-01"
-  - "2014-01-01"
+  - '2014-01-01'
+  - '2014-01-01'
   :next_node: :how_many_days_per_week?
   :outcome_node: false
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2014-01-01"
-  - "2014-01-01"
-  - "1"
+  - '2014-01-01'
+  - '2014-01-01'
+  - '1'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting
-  - "2014-01-01"
-  - "2014-01-01"
-  - "7"
+  - '2014-01-01'
+  - '2014-01-01'
+  - '7'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - leaving
   :next_node: :what_is_your_leaving_date?
   :outcome_node: false
 - :current_node: :what_is_your_leaving_date?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - leaving
-  - "2014-12-31"
+  - '2014-12-31'
   :next_node: :when_does_your_leave_year_start?
   :outcome_node: false
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - leaving
-  - "2014-12-31"
-  - "2012-02-01"
+  - '2014-12-31'
+  - '2012-02-01'
   :next_node: :how_many_days_per_week?
   :outcome_node: false
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - leaving
-  - "2014-12-31"
-  - "2012-02-01"
-  - "1"
+  - '2014-12-31'
+  - '2012-02-01'
+  - '1'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - leaving
-  - "2014-12-31"
-  - "2012-02-01"
-  - "7"
+  - '2014-12-31'
+  - '2012-02-01'
+  - '7'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - leaving
-  - "2014-12-31"
-  - "2014-01-01"
+  - '2014-12-31'
+  - '2014-01-01'
   :next_node: :how_many_days_per_week?
   :outcome_node: false
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - leaving
-  - "2014-12-31"
-  - "2014-01-01"
-  - "1"
+  - '2014-12-31'
+  - '2014-01-01'
+  - '1'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - leaving
-  - "2014-12-31"
-  - "2014-01-01"
-  - "7"
+  - '2014-12-31'
+  - '2014-01-01'
+  - '7'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting-and-leaving
   :next_node: :what_is_your_starting_date?
   :outcome_node: false
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting-and-leaving
-  - "2012-01-01"
+  - '2012-01-01'
   :next_node: :what_is_your_leaving_date?
   :outcome_node: false
 - :current_node: :what_is_your_leaving_date?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting-and-leaving
-  - "2012-01-01"
-  - "2014-12-31"
+  - '2012-01-01'
+  - '2014-12-31'
   :next_node: :how_many_days_per_week?
   :outcome_node: false
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting-and-leaving
-  - "2012-01-01"
-  - "2014-12-31"
-  - "1"
+  - '2012-01-01'
+  - '2014-12-31'
+  - '1'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting-and-leaving
-  - "2012-01-01"
-  - "2014-12-31"
-  - "7"
+  - '2012-01-01'
+  - '2014-12-31'
+  - '7'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting-and-leaving
-  - "2014-01-01"
+  - '2014-01-01'
   :next_node: :what_is_your_leaving_date?
   :outcome_node: false
 - :current_node: :what_is_your_leaving_date?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting-and-leaving
-  - "2014-01-01"
-  - "2014-12-31"
+  - '2014-01-01'
+  - '2014-12-31'
   :next_node: :how_many_days_per_week?
   :outcome_node: false
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting-and-leaving
-  - "2014-01-01"
-  - "2014-12-31"
-  - "1"
+  - '2014-01-01'
+  - '2014-12-31'
+  - '1'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :how_many_days_per_week?
-  :responses: 
+  :responses:
   - days-worked-per-week
   - starting-and-leaving
-  - "2014-01-01"
-  - "2014-12-31"
-  - "7"
+  - '2014-01-01'
+  - '2014-12-31'
+  - '7'
   :next_node: :days_per_week_done
   :outcome_node: true
 - :current_node: :basis_of_calculation?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   :next_node: :calculation_period?
   :outcome_node: false
 - :current_node: :calculation_period?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - full-year
   :next_node: :how_many_hours_per_week?
   :outcome_node: false
 - :current_node: :how_many_hours_per_week?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - full-year
-  - "8"
+  - '8'
   :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting
   :next_node: :what_is_your_starting_date?
   :outcome_node: false
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting
-  - "2012-01-01"
+  - '2012-01-01'
   :next_node: :when_does_your_leave_year_start?
   :outcome_node: false
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting
-  - "2012-01-01"
-  - "2012-02-01"
+  - '2012-01-01'
+  - '2012-02-01'
   :next_node: :how_many_hours_per_week?
   :outcome_node: false
 - :current_node: :how_many_hours_per_week?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting
-  - "2012-01-01"
-  - "2012-02-01"
-  - "8"
+  - '2012-01-01'
+  - '2012-02-01'
+  - '8'
   :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting
-  - "2012-01-01"
-  - "2014-01-01"
+  - '2012-01-01'
+  - '2014-01-01'
   :next_node: :how_many_hours_per_week?
   :outcome_node: false
 - :current_node: :how_many_hours_per_week?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting
-  - "2012-01-01"
-  - "2014-01-01"
-  - "8"
+  - '2012-01-01'
+  - '2014-01-01'
+  - '8'
   :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting
-  - "2014-01-01"
+  - '2014-01-01'
   :next_node: :when_does_your_leave_year_start?
   :outcome_node: false
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting
-  - "2014-01-01"
-  - "2012-02-01"
+  - '2014-01-01'
+  - '2012-02-01'
   :next_node: :how_many_hours_per_week?
   :outcome_node: false
 - :current_node: :how_many_hours_per_week?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting
-  - "2014-01-01"
-  - "2012-02-01"
-  - "8"
+  - '2014-01-01'
+  - '2012-02-01'
+  - '8'
   :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting
-  - "2014-01-01"
-  - "2014-01-01"
+  - '2014-01-01'
+  - '2014-01-01'
   :next_node: :how_many_hours_per_week?
   :outcome_node: false
 - :current_node: :how_many_hours_per_week?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting
-  - "2014-01-01"
-  - "2014-01-01"
-  - "8"
+  - '2014-01-01'
+  - '2014-01-01'
+  - '8'
   :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - leaving
   :next_node: :what_is_your_leaving_date?
   :outcome_node: false
 - :current_node: :what_is_your_leaving_date?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - leaving
-  - "2014-12-31"
+  - '2014-12-31'
   :next_node: :when_does_your_leave_year_start?
   :outcome_node: false
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - leaving
-  - "2014-12-31"
-  - "2012-02-01"
+  - '2014-12-31'
+  - '2012-02-01'
   :next_node: :how_many_hours_per_week?
   :outcome_node: false
 - :current_node: :how_many_hours_per_week?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - leaving
-  - "2014-12-31"
-  - "2012-02-01"
-  - "8"
+  - '2014-12-31'
+  - '2012-02-01'
+  - '8'
   :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - leaving
-  - "2014-12-31"
-  - "2014-01-01"
+  - '2014-12-31'
+  - '2014-01-01'
   :next_node: :how_many_hours_per_week?
   :outcome_node: false
 - :current_node: :how_many_hours_per_week?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - leaving
-  - "2014-12-31"
-  - "2014-01-01"
-  - "8"
+  - '2014-12-31'
+  - '2014-01-01'
+  - '8'
   :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :calculation_period?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting-and-leaving
   :next_node: :what_is_your_starting_date?
   :outcome_node: false
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting-and-leaving
-  - "2012-01-01"
+  - '2012-01-01'
   :next_node: :what_is_your_leaving_date?
   :outcome_node: false
 - :current_node: :what_is_your_leaving_date?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting-and-leaving
-  - "2012-01-01"
-  - "2014-12-31"
+  - '2012-01-01'
+  - '2014-12-31'
   :next_node: :how_many_hours_per_week?
   :outcome_node: false
 - :current_node: :how_many_hours_per_week?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting-and-leaving
-  - "2012-01-01"
-  - "2014-12-31"
-  - "8"
+  - '2012-01-01'
+  - '2014-12-31'
+  - '8'
   :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting-and-leaving
-  - "2014-01-01"
+  - '2014-01-01'
   :next_node: :what_is_your_leaving_date?
   :outcome_node: false
 - :current_node: :what_is_your_leaving_date?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting-and-leaving
-  - "2014-01-01"
-  - "2014-12-31"
+  - '2014-01-01'
+  - '2014-12-31'
   :next_node: :how_many_hours_per_week?
   :outcome_node: false
 - :current_node: :how_many_hours_per_week?
-  :responses: 
+  :responses:
   - hours-worked-per-week
   - starting-and-leaving
-  - "2014-01-01"
-  - "2014-12-31"
-  - "8"
+  - '2014-01-01'
+  - '2014-12-31'
+  - '8'
   :next_node: :hours_per_week_done
   :outcome_node: true
 - :current_node: :basis_of_calculation?
-  :responses: 
+  :responses:
   - casual-or-irregular-hours
   :next_node: :casual_or_irregular_hours?
   :outcome_node: false
 - :current_node: :casual_or_irregular_hours?
-  :responses: 
+  :responses:
   - casual-or-irregular-hours
-  - "35"
+  - '35'
   :next_node: :casual_or_irregular_hours_done
   :outcome_node: true
 - :current_node: :basis_of_calculation?
-  :responses: 
+  :responses:
   - annualised-hours
   :next_node: :annualised_hours?
   :outcome_node: false
 - :current_node: :annualised_hours?
-  :responses: 
+  :responses:
   - annualised-hours
-  - "1680"
+  - '1680'
   :next_node: :annualised_hours_done
   :outcome_node: true
 - :current_node: :basis_of_calculation?
-  :responses: 
+  :responses:
   - compressed-hours
   :next_node: :compressed_hours_how_many_hours_per_week?
   :outcome_node: false
 - :current_node: :compressed_hours_how_many_hours_per_week?
-  :responses: 
+  :responses:
   - compressed-hours
-  - "8"
+  - '8'
   :next_node: :compressed_hours_how_many_days_per_week?
   :outcome_node: false
 - :current_node: :compressed_hours_how_many_days_per_week?
-  :responses: 
+  :responses:
   - compressed-hours
-  - "8.0"
-  - "1"
+  - '8.0'
+  - '1'
   :next_node: :compressed_hours_done
   :outcome_node: true
 - :current_node: :basis_of_calculation?
-  :responses: 
+  :responses:
   - shift-worker
   :next_node: :shift_worker_basis?
   :outcome_node: false
 - :current_node: :shift_worker_basis?
-  :responses: 
+  :responses:
   - shift-worker
   - full-year
   :next_node: :shift_worker_hours_per_shift?
   :outcome_node: false
 - :current_node: :shift_worker_hours_per_shift?
-  :responses: 
+  :responses:
   - shift-worker
   - full-year
-  - "8"
+  - '8'
   :next_node: :shift_worker_shifts_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_shifts_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - full-year
-  - "8.0"
-  - "3"
+  - '8.0'
+  - '3'
   :next_node: :shift_worker_days_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_days_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - full-year
-  - "8.0"
-  - "3"
-  - "3"
+  - '8.0'
+  - '3'
+  - '3'
   :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :shift_worker_basis?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
   :next_node: :what_is_your_starting_date?
   :outcome_node: false
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2012-01-01"
+  - '2012-01-01'
   :next_node: :when_does_your_leave_year_start?
   :outcome_node: false
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2012-01-01"
-  - "2012-02-01"
+  - '2012-01-01'
+  - '2012-02-01'
   :next_node: :shift_worker_hours_per_shift?
   :outcome_node: false
 - :current_node: :shift_worker_hours_per_shift?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2012-01-01"
-  - "2012-02-01"
-  - "8"
+  - '2012-01-01'
+  - '2012-02-01'
+  - '8'
   :next_node: :shift_worker_shifts_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_shifts_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2012-01-01"
-  - "2012-02-01"
-  - "8.0"
-  - "3"
+  - '2012-01-01'
+  - '2012-02-01'
+  - '8.0'
+  - '3'
   :next_node: :shift_worker_days_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_days_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2012-01-01"
-  - "2012-02-01"
-  - "8.0"
-  - "3"
-  - "3"
+  - '2012-01-01'
+  - '2012-02-01'
+  - '8.0'
+  - '3'
+  - '3'
   :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2012-01-01"
-  - "2014-01-01"
+  - '2012-01-01'
+  - '2014-01-01'
   :next_node: :shift_worker_hours_per_shift?
   :outcome_node: false
 - :current_node: :shift_worker_hours_per_shift?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2012-01-01"
-  - "2014-01-01"
-  - "8"
+  - '2012-01-01'
+  - '2014-01-01'
+  - '8'
   :next_node: :shift_worker_shifts_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_shifts_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2012-01-01"
-  - "2014-01-01"
-  - "8.0"
-  - "3"
+  - '2012-01-01'
+  - '2014-01-01'
+  - '8.0'
+  - '3'
   :next_node: :shift_worker_days_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_days_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2012-01-01"
-  - "2014-01-01"
-  - "8.0"
-  - "3"
-  - "3"
+  - '2012-01-01'
+  - '2014-01-01'
+  - '8.0'
+  - '3'
+  - '3'
   :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2014-01-01"
+  - '2014-01-01'
   :next_node: :when_does_your_leave_year_start?
   :outcome_node: false
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2014-01-01"
-  - "2012-02-01"
+  - '2014-01-01'
+  - '2012-02-01'
   :next_node: :shift_worker_hours_per_shift?
   :outcome_node: false
 - :current_node: :shift_worker_hours_per_shift?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2014-01-01"
-  - "2012-02-01"
-  - "8"
+  - '2014-01-01'
+  - '2012-02-01'
+  - '8'
   :next_node: :shift_worker_shifts_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_shifts_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2014-01-01"
-  - "2012-02-01"
-  - "8.0"
-  - "3"
+  - '2014-01-01'
+  - '2012-02-01'
+  - '8.0'
+  - '3'
   :next_node: :shift_worker_days_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_days_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2014-01-01"
-  - "2012-02-01"
-  - "8.0"
-  - "3"
-  - "3"
+  - '2014-01-01'
+  - '2012-02-01'
+  - '8.0'
+  - '3'
+  - '3'
   :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2014-01-01"
-  - "2014-01-01"
+  - '2014-01-01'
+  - '2014-01-01'
   :next_node: :shift_worker_hours_per_shift?
   :outcome_node: false
 - :current_node: :shift_worker_hours_per_shift?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2014-01-01"
-  - "2014-01-01"
-  - "8"
+  - '2014-01-01'
+  - '2014-01-01'
+  - '8'
   :next_node: :shift_worker_shifts_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_shifts_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2014-01-01"
-  - "2014-01-01"
-  - "8.0"
-  - "3"
+  - '2014-01-01'
+  - '2014-01-01'
+  - '8.0'
+  - '3'
   :next_node: :shift_worker_days_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_days_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting
-  - "2014-01-01"
-  - "2014-01-01"
-  - "8.0"
-  - "3"
-  - "3"
+  - '2014-01-01'
+  - '2014-01-01'
+  - '8.0'
+  - '3'
+  - '3'
   :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :shift_worker_basis?
-  :responses: 
+  :responses:
   - shift-worker
   - leaving
   :next_node: :what_is_your_leaving_date?
   :outcome_node: false
 - :current_node: :what_is_your_leaving_date?
-  :responses: 
+  :responses:
   - shift-worker
   - leaving
-  - "2014-12-31"
+  - '2014-12-31'
   :next_node: :when_does_your_leave_year_start?
   :outcome_node: false
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - shift-worker
   - leaving
-  - "2014-12-31"
-  - "2012-02-01"
+  - '2014-12-31'
+  - '2012-02-01'
   :next_node: :shift_worker_hours_per_shift?
   :outcome_node: false
 - :current_node: :shift_worker_hours_per_shift?
-  :responses: 
+  :responses:
   - shift-worker
   - leaving
-  - "2014-12-31"
-  - "2012-02-01"
-  - "8"
+  - '2014-12-31'
+  - '2012-02-01'
+  - '8'
   :next_node: :shift_worker_shifts_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_shifts_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - leaving
-  - "2014-12-31"
-  - "2012-02-01"
-  - "8.0"
-  - "3"
+  - '2014-12-31'
+  - '2012-02-01'
+  - '8.0'
+  - '3'
   :next_node: :shift_worker_days_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_days_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - leaving
-  - "2014-12-31"
-  - "2012-02-01"
-  - "8.0"
-  - "3"
-  - "3"
+  - '2014-12-31'
+  - '2012-02-01'
+  - '8.0'
+  - '3'
+  - '3'
   :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :when_does_your_leave_year_start?
-  :responses: 
+  :responses:
   - shift-worker
   - leaving
-  - "2014-12-31"
-  - "2014-01-01"
+  - '2014-12-31'
+  - '2014-01-01'
   :next_node: :shift_worker_hours_per_shift?
   :outcome_node: false
 - :current_node: :shift_worker_hours_per_shift?
-  :responses: 
+  :responses:
   - shift-worker
   - leaving
-  - "2014-12-31"
-  - "2014-01-01"
-  - "8"
+  - '2014-12-31'
+  - '2014-01-01'
+  - '8'
   :next_node: :shift_worker_shifts_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_shifts_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - leaving
-  - "2014-12-31"
-  - "2014-01-01"
-  - "8.0"
-  - "3"
+  - '2014-12-31'
+  - '2014-01-01'
+  - '8.0'
+  - '3'
   :next_node: :shift_worker_days_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_days_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - leaving
-  - "2014-12-31"
-  - "2014-01-01"
-  - "8.0"
-  - "3"
-  - "3"
+  - '2014-12-31'
+  - '2014-01-01'
+  - '8.0'
+  - '3'
+  - '3'
   :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :shift_worker_basis?
-  :responses: 
+  :responses:
   - shift-worker
   - starting-and-leaving
   :next_node: :what_is_your_starting_date?
   :outcome_node: false
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - shift-worker
   - starting-and-leaving
-  - "2012-01-01"
+  - '2012-01-01'
   :next_node: :what_is_your_leaving_date?
   :outcome_node: false
 - :current_node: :what_is_your_leaving_date?
-  :responses: 
+  :responses:
   - shift-worker
   - starting-and-leaving
-  - "2012-01-01"
-  - "2014-12-31"
+  - '2012-01-01'
+  - '2014-12-31'
   :next_node: :shift_worker_hours_per_shift?
   :outcome_node: false
 - :current_node: :shift_worker_hours_per_shift?
-  :responses: 
+  :responses:
   - shift-worker
   - starting-and-leaving
-  - "2012-01-01"
-  - "2014-12-31"
-  - "8"
+  - '2012-01-01'
+  - '2014-12-31'
+  - '8'
   :next_node: :shift_worker_shifts_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_shifts_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting-and-leaving
-  - "2012-01-01"
-  - "2014-12-31"
-  - "8.0"
-  - "3"
+  - '2012-01-01'
+  - '2014-12-31'
+  - '8.0'
+  - '3'
   :next_node: :shift_worker_days_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_days_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting-and-leaving
-  - "2012-01-01"
-  - "2014-12-31"
-  - "8.0"
-  - "3"
-  - "3"
+  - '2012-01-01'
+  - '2014-12-31'
+  - '8.0'
+  - '3'
+  - '3'
   :next_node: :shift_worker_done
   :outcome_node: true
 - :current_node: :what_is_your_starting_date?
-  :responses: 
+  :responses:
   - shift-worker
   - starting-and-leaving
-  - "2014-01-01"
+  - '2014-01-01'
   :next_node: :what_is_your_leaving_date?
   :outcome_node: false
 - :current_node: :what_is_your_leaving_date?
-  :responses: 
+  :responses:
   - shift-worker
   - starting-and-leaving
-  - "2014-01-01"
-  - "2014-12-31"
+  - '2014-01-01'
+  - '2014-12-31'
   :next_node: :shift_worker_hours_per_shift?
   :outcome_node: false
 - :current_node: :shift_worker_hours_per_shift?
-  :responses: 
+  :responses:
   - shift-worker
   - starting-and-leaving
-  - "2014-01-01"
-  - "2014-12-31"
-  - "8"
+  - '2014-01-01'
+  - '2014-12-31'
+  - '8'
   :next_node: :shift_worker_shifts_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_shifts_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting-and-leaving
-  - "2014-01-01"
-  - "2014-12-31"
-  - "8.0"
-  - "3"
+  - '2014-01-01'
+  - '2014-12-31'
+  - '8.0'
+  - '3'
   :next_node: :shift_worker_days_per_shift_pattern?
   :outcome_node: false
 - :current_node: :shift_worker_days_per_shift_pattern?
-  :responses: 
+  :responses:
   - shift-worker
   - starting-and-leaving
-  - "2014-01-01"
-  - "2014-12-31"
-  - "8.0"
-  - "3"
-  - "3"
+  - '2014-01-01'
+  - '2014-12-31'
+  - '8.0'
+  - '3'
+  - '3'
   :next_node: :shift_worker_done
   :outcome_node: true

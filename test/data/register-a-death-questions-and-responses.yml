@@ -8,8 +8,8 @@
 - at_home_hospital
 - elsewhere
 :was_death_expected?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :which_country?:
 - australia # :commonwealth_result
 - iran # country_has_no_embassy

@@ -1,22 +1,22 @@
---- 
+---
 - :current_node: :where_was_the_passport_lost_or_stolen?
-  :responses: 
+  :responses:
   - in_the_uk
   :next_node: :complete_LS01_form
   :outcome_node: true
 - :current_node: :where_was_the_passport_lost_or_stolen?
-  :responses: 
+  :responses:
   - abroad
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - abroad
   - azerbaijan
   :next_node: :contact_the_embassy
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - abroad
   - canada
   :next_node: :contact_the_embassy_canada

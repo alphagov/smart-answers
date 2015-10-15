@@ -7,8 +7,8 @@
 - 2_children
 - 3_children
 :gets_benefits?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :gross_income_of_payee?:
 - 5
 - 90
@@ -18,8 +18,8 @@
 :how_many_other_children_in_payees_household?:
 - 3
 :how_many_nights_children_stay_with_payee?:
-- "0"
-- "1"
-- "2"
-- "3"
-- "4"
+- '0'
+- '1'
+- '2'
+- '3'
+- '4'

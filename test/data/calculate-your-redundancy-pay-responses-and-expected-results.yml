@@ -1,90 +1,90 @@
---- 
+---
 - :current_node: :date_of_redundancy?
-  :responses: 
-  - "2012-01-01"
+  :responses:
+  - '2012-01-01'
   :next_node: :age_of_employee?
   :outcome_node: false
 - :current_node: :age_of_employee?
-  :responses: 
-  - "2012-01-01"
-  - "21"
+  :responses:
+  - '2012-01-01'
+  - '21'
   :next_node: :years_employed?
   :outcome_node: false
 - :current_node: :years_employed?
-  :responses: 
-  - "2012-01-01"
-  - "21"
-  - "1"
+  :responses:
+  - '2012-01-01'
+  - '21'
+  - '1'
   :next_node: :done_no_statutory
   :outcome_node: true
 - :current_node: :years_employed?
-  :responses: 
-  - "2012-01-01"
-  - "21"
-  - "3"
+  :responses:
+  - '2012-01-01'
+  - '21'
+  - '3'
   :next_node: :weekly_pay_before_tax?
   :outcome_node: false
 - :current_node: :weekly_pay_before_tax?
-  :responses: 
-  - "2012-01-01"
-  - "21"
-  - "3.0"
-  - "100"
+  :responses:
+  - '2012-01-01'
+  - '21'
+  - '3.0'
+  - '100'
   :next_node: :done
   :outcome_node: true
 - :current_node: :age_of_employee?
-  :responses: 
-  - "2012-01-01"
-  - "23"
+  :responses:
+  - '2012-01-01'
+  - '23'
   :next_node: :years_employed?
   :outcome_node: false
 - :current_node: :years_employed?
-  :responses: 
-  - "2012-01-01"
-  - "23"
-  - "1"
+  :responses:
+  - '2012-01-01'
+  - '23'
+  - '1'
   :next_node: :done_no_statutory
   :outcome_node: true
 - :current_node: :years_employed?
-  :responses: 
-  - "2012-01-01"
-  - "23"
-  - "3"
+  :responses:
+  - '2012-01-01'
+  - '23'
+  - '3'
   :next_node: :weekly_pay_before_tax?
   :outcome_node: false
 - :current_node: :weekly_pay_before_tax?
-  :responses: 
-  - "2012-01-01"
-  - "23"
-  - "3.0"
-  - "100"
+  :responses:
+  - '2012-01-01'
+  - '23'
+  - '3.0'
+  - '100'
   :next_node: :done
   :outcome_node: true
 - :current_node: :age_of_employee?
-  :responses: 
-  - "2012-01-01"
-  - "42"
+  :responses:
+  - '2012-01-01'
+  - '42'
   :next_node: :years_employed?
   :outcome_node: false
 - :current_node: :years_employed?
-  :responses: 
-  - "2012-01-01"
-  - "42"
-  - "1"
+  :responses:
+  - '2012-01-01'
+  - '42'
+  - '1'
   :next_node: :done_no_statutory
   :outcome_node: true
 - :current_node: :years_employed?
-  :responses: 
-  - "2012-01-01"
-  - "42"
-  - "3"
+  :responses:
+  - '2012-01-01'
+  - '42'
+  - '3'
   :next_node: :weekly_pay_before_tax?
   :outcome_node: false
 - :current_node: :weekly_pay_before_tax?
-  :responses: 
-  - "2012-01-01"
-  - "42"
-  - "3.0"
-  - "100"
+  :responses:
+  - '2012-01-01'
+  - '42'
+  - '3.0'
+  - '100'
   :next_node: :done
   :outcome_node: true

@@ -1,8 +1,8 @@
---- 
-:going_or_already_abroad?: 
+---
+:going_or_already_abroad?:
 - going_abroad
 - already_abroad
-:which_benefit?: 
+:which_benefit?:
 - jsa
 - pension
 - winter_fuel_payment
@@ -15,77 +15,77 @@
 - bereavement_benefits
 - tax_credits
 - income_support
-:which_country?: 
+:which_country?:
 - afghanistan # jsa_not_entitled_outcome
 - austria # jsa_eea_already_abroad_outcome
 - bosnia-and-herzegovina # child_benefit_fy_going_abroad_outcome
 - guernsey # jsa_social_security_already_abroad_outcome
 - jamaica # child_benefit_jtu_outcome
 :working_for_a_uk_employer?:
-- "yes"
-- "no"
-:eligible_for_smp?: 
-- "yes"
-- "no"
-:employer_paying_ni?: 
-- "yes"
-- "no"
-:do_either_of_the_following_apply?: 
-- "yes"
-- "no"
-:working_for_uk_employer_ssp?: 
-- "yes"
-- "no"
-:eligible_for_tax_credits?: 
+- 'yes'
+- 'no'
+:eligible_for_smp?:
+- 'yes'
+- 'no'
+:employer_paying_ni?:
+- 'yes'
+- 'no'
+:do_either_of_the_following_apply?:
+- 'yes'
+- 'no'
+:working_for_uk_employer_ssp?:
+- 'yes'
+- 'no'
+:eligible_for_tax_credits?:
 - crown_servant
 - cross_border_worker
 - none_of_the_above
-:tax_credits_children?: 
-- "yes"
-- "no"
-:tax_credits_currently_claiming?: 
-- "yes"
-- "no"
-:tax_credits_why_going_abroad?: 
+:tax_credits_children?:
+- 'yes'
+- 'no'
+:tax_credits_currently_claiming?:
+- 'yes'
+- 'no'
+:tax_credits_why_going_abroad?:
 - tax_credits_holiday
 - tax_credits_medical_treatment
 - tax_credits_death
-:iidb_already_claiming?: 
-- "yes"
-- "no"
-:db_claiming_benefits?: 
-- "yes"
-- "no"
-:is_claiming_benefits?: 
-- "yes"
-- "no"
-:is_either_of_the_following?: 
-- "yes"
-- "no"
-:is_abroad_for_treatment?: 
-- "yes"
-- "no"
-:is_work_or_sick_pay?: 
-- "yes"
-- "no"
-:is_any_of_the_following_apply?: 
-- "yes"
-- "no"
-:jsa_how_long_abroad?: 
+:iidb_already_claiming?:
+- 'yes'
+- 'no'
+:db_claiming_benefits?:
+- 'yes'
+- 'no'
+:is_claiming_benefits?:
+- 'yes'
+- 'no'
+:is_either_of_the_following?:
+- 'yes'
+- 'no'
+:is_abroad_for_treatment?:
+- 'yes'
+- 'no'
+:is_work_or_sick_pay?:
+- 'yes'
+- 'no'
+:is_any_of_the_following_apply?:
+- 'yes'
+- 'no'
+:jsa_how_long_abroad?:
 - less_than_a_year_medical
 - less_than_a_year_other
 - more_than_a_year
-:tax_credits_how_long_abroad?: 
+:tax_credits_how_long_abroad?:
 - tax_credits_up_to_a_year
 - tax_credits_more_than_a_year
-:esa_how_long_abroad?: 
+:esa_how_long_abroad?:
 - esa_under_a_year_medical
 - esa_under_a_year_other
 - esa_more_than_a_year
-:db_how_long_abroad?: 
+:db_how_long_abroad?:
 - temporary
 - permanent
-:is_how_long_abroad?: 
+:is_how_long_abroad?:
 - is_under_a_year_medical
 - is_under_a_year_other
 - is_more_than_a_year

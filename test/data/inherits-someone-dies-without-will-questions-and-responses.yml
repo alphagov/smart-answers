@@ -1,41 +1,41 @@
---- 
-:region?: 
+---
+:region?:
 - england-and-wales
 - scotland
 - northern-ireland
-:partner?: 
-- "yes"
-- "no"
-:estate_over_250000?: 
-- "yes"
-- "no"
-:children?: 
-- "yes"
-- "no"
-:parents?: 
-- "yes"
-- "no"
-:siblings?: 
-- "yes"
-- "no"
-:siblings_including_mixed_parents?: 
-- "yes"
-- "no"
-:grandparents?: 
-- "yes"
-- "no"
-:aunts_or_uncles?: 
-- "yes"
-- "no"
-:half_siblings?: 
-- "yes"
-- "no"
-:half_aunts_or_uncles?: 
-- "yes"
-- "no"
-:great_aunts_or_uncles?: 
-- "yes"
-- "no"
-:more_than_one_child?: 
-- "yes"
-- "no"
+:partner?:
+- 'yes'
+- 'no'
+:estate_over_250000?:
+- 'yes'
+- 'no'
+:children?:
+- 'yes'
+- 'no'
+:parents?:
+- 'yes'
+- 'no'
+:siblings?:
+- 'yes'
+- 'no'
+:siblings_including_mixed_parents?:
+- 'yes'
+- 'no'
+:grandparents?:
+- 'yes'
+- 'no'
+:aunts_or_uncles?:
+- 'yes'
+- 'no'
+:half_siblings?:
+- 'yes'
+- 'no'
+:half_aunts_or_uncles?:
+- 'yes'
+- 'no'
+:great_aunts_or_uncles?:
+- 'yes'
+- 'no'
+:more_than_one_child?:
+- 'yes'
+- 'no'

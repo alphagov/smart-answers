@@ -1,10 +1,10 @@
 ---
 :were_you_or_your_partner_born_on_or_before_6_april_1935?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :did_you_marry_or_civil_partner_before_5_december_2005?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :whats_the_husbands_date_of_birth?:
 - 1950-01-01
 :whats_the_highest_earners_date_of_birth?:
@@ -17,8 +17,8 @@
 - 20000
 - 55000
 :paying_into_a_pension?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :how_much_expected_contributions_before_tax?:
 - 10000
 :how_much_expected_contributions_with_tax_relief?:

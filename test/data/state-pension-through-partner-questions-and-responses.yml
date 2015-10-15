@@ -1,16 +1,16 @@
---- 
-:what_is_your_marital_status?: 
+---
+:what_is_your_marital_status?:
 - married
 - will_marry_before_specific_date
 - will_marry_on_or_after_specific_date
 - widowed
 - divorced
-:when_will_you_reach_pension_age?: 
+:when_will_you_reach_pension_age?:
 - your_pension_age_before_specific_date
 - your_pension_age_after_specific_date
-:when_will_your_partner_reach_pension_age?: 
+:when_will_your_partner_reach_pension_age?:
 - partner_pension_age_before_specific_date
 - partner_pension_age_after_specific_date
-:what_is_your_gender?: 
+:what_is_your_gender?:
 - male_gender
 - female_gender
