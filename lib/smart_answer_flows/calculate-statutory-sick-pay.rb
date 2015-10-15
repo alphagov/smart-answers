@@ -134,9 +134,12 @@ module SmartAnswer
         end
 
         next_node_calculation :prior_sick_days do |response|
-          start_date = sick_start_date_for_awe
-          last_day_sick = response
-          (last_day_sick - start_date).to_i + 1
+          prev_sick_days = Calculators::StatutorySickPayCalculator.dates_matching_pattern(
+            from: sick_start_date_for_awe,
+            to: sick_end_date_for_awe,
+            pattern: usual_work_days.split(",")
+          )
+          prev_sick_days.length
         end
 
         validate :start_before_end do
