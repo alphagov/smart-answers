@@ -399,7 +399,10 @@ module SmartAnswer
         option "unemployed"
 
         next_node do |response|
-          # TODO: Manually copy the rules from Smartdown
+          # * two_carers is 'no'
+          #   * employment_status_of_mother in {employee worker} => mother_started_working_before_continuity_start_date
+          #   * employment_status_of_mother in {self-employed unemployed} => mother_worked_at_least_26_weeks
+          # * two_carers is 'yes' => employment_status_of_partner
         end
       end
 
