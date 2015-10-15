@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/calculate-statutory-sick-pay.rb: 5d8145caecbacf164ebb332c74ea8ea9
+lib/smart_answer_flows/calculate-statutory-sick-pay.rb: 740b65ca724f630bce0d3f4158bef385
 lib/smart_answer_flows/locales/en/calculate-statutory-sick-pay.yml: 8ae46a0e5f093bfb0378fff757f06ff5
 test/data/calculate-statutory-sick-pay-questions-and-responses.yml: bc98a84247ed08c4cecf0e9018b074f1
 test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: ef8296f1b84f54d4165ad8714937088f
@@ -12,6 +12,6 @@ lib/smart_answer_flows/calculate-statutory-sick-pay/must_be_sick_for_4_days.govs
 lib/smart_answer_flows/calculate-statutory-sick-pay/not_earned_enough.govspeak.erb: 1e5cd1c6d99b6bd3145578416d62e7c5
 lib/smart_answer_flows/calculate-statutory-sick-pay/not_entitled_3_days_not_paid.govspeak.erb: 98dc338280df70b2b6032a7a9dcba428
 lib/smart_answer_flows/calculate-statutory-sick-pay/not_regular_schedule.govspeak.erb: 98b6f0d902fabae8fda39c1859cd2a46
-lib/smart_answer/calculators/statutory_sick_pay_calculator.rb: d8eda10b975edb3e4c065f082c80c42f
+lib/smart_answer/calculators/statutory_sick_pay_calculator.rb: 2e24de7d2a20d1a50ef2c03f27bfeb9c
 lib/smart_answer/calculators/rates_query.rb: c9568eac2742cad26f93458ed2276876
 lib/data/rates/statutory_sick_pay.yml: de2d34118e3016d1137c394745d33280
