@@ -41,7 +41,18 @@ module SmartAnswer
         option "no"
 
         next_node do |response|
-          # TODO: Manually copy the rules from Smartdown
+          # * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_limit)
+          #   * two_carers is 'no'
+          #     * employment_status_of_mother is 'employee' => outcome_mat-leave_mat-pay
+          #     * employment_status_of_mother is 'worker' => outcome_mat-pay
+          #   * two_carers is 'yes'
+          #     * employment_status_of_partner in {employee worker} => partner_started_working_before_continuity_start_date
+          #     * employment_status_of_partner in {self-employed unemployed}
+          #       * due_date >= '2015-4-5' => partner_worked_at_least_26_weeks
+          #       * due_date < '2015-4-5'
+          #         * employment_status_of_mother is 'employee' => outcome_mat-leave_mat-pay
+          #         * employment_status_of_mother is 'worker' => outcome_mat-pay
+          # * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_limit) => mother_worked_at_least_26_weeks
         end
       end
 
