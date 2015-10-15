@@ -62,6 +62,9 @@ flow.question_pages.each do |question_page|
   when Smartdown::Api::DateQuestion
     q[:type] = :date_question
     q[:options] = []
+  when Smartdown::Api::SalaryQuestion
+    q[:type] = :salary_question
+    q[:options] = []
   else
     raise "Question '#{question.name}' is of type '#{question.class}' which is not yet supported by this conversion tool"
   end
