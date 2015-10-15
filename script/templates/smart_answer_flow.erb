@@ -29,7 +29,7 @@ module SmartAnswer
 
       <% end %>
       <% outcomes.each do |outcome| %>
-      outcome :<%= outcome[:name] %>
+      outcome :<%= outcome[:name].underscore %>
       <% end %>
     end
   end
