@@ -1,8 +1,8 @@
 ---
-lib/smart_answer_flows/calculate-statutory-sick-pay.rb: 0f4c0651ac07ab0dc6a22db303786d9a
+lib/smart_answer_flows/calculate-statutory-sick-pay.rb: 5d8145caecbacf164ebb332c74ea8ea9
 lib/smart_answer_flows/locales/en/calculate-statutory-sick-pay.yml: 8ae46a0e5f093bfb0378fff757f06ff5
-test/data/calculate-statutory-sick-pay-questions-and-responses.yml: 58d48f67347598fa3bbaf44c0553ba8a
-test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: c06a3d75fe174d5a44778bf6a4530d06
+test/data/calculate-statutory-sick-pay-questions-and-responses.yml: bc98a84247ed08c4cecf0e9018b074f1
+test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: ef8296f1b84f54d4165ad8714937088f
 lib/smart_answer_flows/calculate-statutory-sick-pay/calculate_statutory_sick_pay.govspeak.erb: f91dc1d321c164a06271889100875600
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/_esa.govspeak.erb: 660031398fda690ed7b3e2186ba64060
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/already_getting_maternity.govspeak.erb: 258fd4422c4ae665c83d5ee1e061bbff
