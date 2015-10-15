@@ -60,7 +60,6 @@ lib/smartdown_flows/pay-leave-for-parents/outcomes/outcome_pat-leave_pat-pay.txt
 lib/smartdown_flows/pay-leave-for-parents/outcomes/outcome_pat-pay.txt: 1e36ba5edb2125597bf4ef636ff4857d
 lib/smartdown_flows/pay-leave-for-parents/outcomes/outcome_single-birth-nothing.txt: a790c21af6f30c66abc10b6f19411826
 lib/smartdown_flows/pay-leave-for-parents/questions/due_date.txt: b4ec73a7cb9091d0de8258ce404f08fa
-lib/smartdown_flows/pay-leave-for-parents/questions/employment_details_of_mother_1b.txt: 8a9aac043436042988b9363e73b8a84a
 lib/smartdown_flows/pay-leave-for-parents/questions/employment_details_of_mother_1c.txt: 9484f631c61aeff96b2f8ed2161dd79c
 lib/smartdown_flows/pay-leave-for-parents/questions/employment_details_of_mother_1d.txt: 6bf3d1c9d16f603f4fc9d0de268ea2db
 lib/smartdown_flows/pay-leave-for-parents/questions/employment_details_of_mother_2a.txt: eb6823c3808cbbecad214c7b6827fb11
@@ -74,7 +73,8 @@ lib/smartdown_flows/pay-leave-for-parents/questions/employment_details_of_partne
 lib/smartdown_flows/pay-leave-for-parents/questions/employment_details_of_partner_2b.txt: 108d6f77c324095341d00e0d92706e1d
 lib/smartdown_flows/pay-leave-for-parents/questions/employment_status_of_mother.txt: f7be551a5e6acbced76c908bd7197871
 lib/smartdown_flows/pay-leave-for-parents/questions/employment_status_of_partner.txt: 346286f1e13c0bb1384a576847a85c1f
-lib/smartdown_flows/pay-leave-for-parents/questions/mother_started_working_before_continuity_start_date.txt: 6b931cb48add2fa995af3754b43f41cf
+lib/smartdown_flows/pay-leave-for-parents/questions/mother_started_working_before_continuity_start_date.txt: db9119c2dcd89c53cc0e23d558223e15
+lib/smartdown_flows/pay-leave-for-parents/questions/mother_still_working_on_continuity_end_date.txt: 8a9aac043436042988b9363e73b8a84a
 lib/smartdown_flows/pay-leave-for-parents/questions/two_carers.txt: c4d3c47628027c658db685737bf597c8
 lib/smartdown_flows/pay-leave-for-parents/snippets/additional-pat-leave.txt: dcede84d936f876a3c91c1457c3afc01
 lib/smartdown_flows/pay-leave-for-parents/snippets/additional-pat-pay.txt: b615038e98f7a56db68a1b3b06fb6cf7
