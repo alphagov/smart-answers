@@ -68,7 +68,24 @@ module SmartAnswer
         option "no"
 
         next_node do |response|
-          # TODO: Manually copy the rules from Smartdown
+          # * two_carers is 'no'
+          #   * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => salary_1_66_weeks
+          #   * employment_status_of_mother is 'employee'
+          #     * mother_still_working_on_continuity_end_date is 'yes' => outcome_mat-leave
+          #     * mother_still_working_on_continuity_end_date is 'no' => outcome_single-birth-nothing
+          #   * employment_status_of_mother in {worker self-employed unemployed} => outcome_single-birth-nothing
+          # * two_carers is 'yes'
+          #   * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => salary_1_66_weeks
+          #   * employment_status_of_partner in {employee worker} => partner_started_working_before_continuity_start_date
+          #   * employment_status_of_partner in {self-employed unemployed}
+          #     * employment_status_of_mother is 'employee'
+          #       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND due_date >= '2015-4-5' => partner_worked_at_least_26_weeks
+          #       * mother_still_working_on_continuity_end_date is 'yes' => outcome_mat-leave
+          #       * mother_still_working_on_continuity_end_date is 'no' => outcome_birth-nothing
+          #     * employment_status_of_mother in {worker self-employed} => outcome_birth-nothing
+          #     * employment_status_of_mother is 'unemployed'
+          #       * employment_status_of_partner is 'self-employed' => outcome_mat-allowance-14-weeks
+          #       * employment_status_of_partner is 'unemployed' => outcome_birth-nothing
         end
       end
 
