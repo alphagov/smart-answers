@@ -12,10 +12,9 @@ smart_answer_root = SmartAnswer::FlowRegistry.instance.load_path
 flow_path = smart_answer_root.join("#{flow_name}.rb")
 locale_path = smart_answer_root.join('locales', 'en', "#{flow_name}.yml")
 
-coversheet = Hash.new { |h, k| h[k] = {} }
-coversheet['title'] = flow.title.strip
-coversheet['body'] = flow.coversheet.body.strip
-coversheet['meta']['description'] = flow.meta_description
+coversheet_title = flow.title.strip
+coversheet_body = flow.coversheet.body.strip
+coversheet_meta_description = flow.meta_description
 start_node = flow.coversheet.elements.detect { |e| Smartdown::Model::Element::StartButton === e }.start_node
 
 question_pages_vs_questions = flow.question_pages.inject({}) do |hash, question_page|
@@ -88,7 +87,7 @@ end
 i18n = {
   'en-GB' => {
     'flow' => {
-      flow_name => coversheet.merge(content_for_questions)
+      flow_name => content_for_questions
     }
   }
 }
@@ -100,6 +99,21 @@ end
 templates_root = smart_answer_root.join(flow_name)
 FileUtils.remove_dir(templates_root, force = true)
 FileUtils.makedirs(templates_root)
+
+new_coversheet_path = templates_root.join("#{flow_name.underscore}.govspeak.erb")
+File.open(new_coversheet_path, 'w') do |file|
+  file.puts '<% content_for :title do %>'
+  file.puts coversheet_title.indent(2)
+  file.puts '<% end %>'
+  file.puts ''
+  file.puts '<% content_for :meta_description do %>'
+  file.puts coversheet_meta_description.indent(2)
+  file.puts '<% end %>'
+  file.puts ''
+  file.puts '<% content_for :body do %>'
+  file.puts coversheet_body.indent(2)
+  file.puts '<% end %>'
+end
 
 input.outcomes.each do |outcome|
   template_path = templates_root.join("#{outcome.name.underscore}.govspeak.erb")
