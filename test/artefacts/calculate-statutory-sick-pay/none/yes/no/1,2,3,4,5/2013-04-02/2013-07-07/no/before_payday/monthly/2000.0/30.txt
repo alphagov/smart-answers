@@ -2,11 +2,11 @@
 
 ##Statutory Sick Pay (SSP)
 
-Your employee is entitled to SSP for 66 days out of 69 working days taken off sick between  2 April 2013 and  7 July 2013
+Your employee is entitled to SSP for 69 days out of 69 working days taken off sick between  2 April 2013 and  7 July 2013
 
 Week ending | SSP amount
 -|-
-6 April 2013|£17.17
+6 April 2013|£68.68
 13 April 2013|£86.70
 20 April 2013|£86.70
 27 April 2013|£86.70
@@ -20,7 +20,7 @@ Week ending | SSP amount
 22 June 2013|£86.70
 29 June 2013|£86.70
 6 July 2013|£86.70
-| **Total SSP: £1,144.27**
+| **Total SSP: £1,195.78**
 
 ##What you need to know
 
