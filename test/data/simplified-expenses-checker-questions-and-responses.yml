@@ -1,51 +1,51 @@
---- 
+---
 :claimed_expenses_for_current_business?:
-- "yes" # is_existing_business == true
-- "no" # is_new_business == true
+- 'yes' # is_existing_business == true
+- 'no' # is_new_business == true
 :type_of_expense?:
 - car_or_van # :capital_allowances? -> :capital_allowance_result
-- "car_or_van,using_home_for_business" # :capital_allowances? -> :hours_work_home?
-- "motorcycle,live_on_business_premises" # :capital_allowances? -> :deduct_from_premises?
+- car_or_van,using_home_for_business # :capital_allowances? -> :hours_work_home?
+- motorcycle,live_on_business_premises # :capital_allowances? -> :deduct_from_premises?
 - using_home_for_business # :type_of_expense? -> :hours_work_home?
 - live_on_business_premises # :type_of_expense? -> :deduct_from_premises?
 - none # :type_of_expense? -> :you_cant_use_result
-- "car_or_van,motorcycle" # :drive_business_miles_car_van? -> :drive_business_miles_motorcycle?
-- "car_or_van,live_on_business_premises" # :drive_business_miles_car_van? -> :deduct_from_premises?
-- "motorcycle,using_home_for_business" # :drive_business_miles_motorcycle? -> :hours_work_home?
-- "using_home_for_business,live_on_business_premises"
+- car_or_van,motorcycle # :drive_business_miles_car_van? -> :drive_business_miles_motorcycle?
+- car_or_van,live_on_business_premises # :drive_business_miles_car_van? -> :deduct_from_premises?
+- motorcycle,using_home_for_business # :drive_business_miles_motorcycle? -> :hours_work_home?
+- using_home_for_business,live_on_business_premises
 :buying_new_vehicle?:
-- "yes" # :buying_new_vehicle? -> :is_vehicle_green?
-- "no" # :buying_new_vehicle? -> :capital_allowances? / :how_much_expect_to_claim?
+- 'yes' # :buying_new_vehicle? -> :is_vehicle_green?
+- 'no' # :buying_new_vehicle? -> :capital_allowances? / :how_much_expect_to_claim?
 :capital_allowances?:
-- "yes" # :capital_allowances? -> :hours_work_home? / :deduct_from_premises? / :capital_allowance_result
-- "no" # :capital_allowances? -> :how_much_expect_to_claim?
+- 'yes' # :capital_allowances? -> :hours_work_home? / :deduct_from_premises? / :capital_allowance_result
+- 'no' # :capital_allowances? -> :how_much_expect_to_claim?
 :how_much_expect_to_claim?:
-- "2345" # :how_much_expect_to_claim? -> :drive_business_miles_car_van? / :drive_business_miles_motorcycle?
+- '2345' # :how_much_expect_to_claim? -> :drive_business_miles_car_van? / :drive_business_miles_motorcycle?
 :is_vehicle_green?:
- - "yes" # :vehicle_is_green == true
- - "no" # :vehicle_is_green == false (?)
+- 'yes' # :vehicle_is_green == true
+- 'no' # :vehicle_is_green == false (?)
 :price_of_vehicle?:
-- "35000" # :vehicle_price
-- "250001" # :is_over_limit == true
+- '35000' # :vehicle_price
+- '250001' # :is_over_limit == true
 :vehicle_business_use_time?:
-- "35"
-- "70"
+- '35'
+- '70'
 :drive_business_miles_car_van?:
-- "10000" # simple_vehicle_costs <= 10000
-- "10001" # simple_vehicle_costs > 10000
+- '10000' # simple_vehicle_costs <= 10000
+- '10001' # simple_vehicle_costs > 10000
 :drive_business_miles_motorcycle?:
-- "7500"
+- '7500'
 :hours_work_home?:
-- "1" # simple_home_costs == 0
-- "26" # simple_home_costs == 120
-- "52" # simple_home_costs == 216 
-- "101" # simple_home_costs == 312
+- '1' # simple_home_costs == 0
+- '26' # simple_home_costs == 120
+- '52' # simple_home_costs == 216
+- '101' # simple_home_costs == 312
 :current_claim_amount_home?:
-- "1234"
+- '1234'
 :deduct_from_premises?:
-- "789" # :deduct_from_premises? -> :people_live_on_premises?
+- '789' # :deduct_from_premises? -> :people_live_on_premises?
 :people_live_on_premises?:
-- "0" # simple_business_costs == 0
-- "1" # simple_business_costs == 4200
-- "2" # simple_business_costs == 6000
-- "5" # simple_business_costs == 7800
+-- '0' # simple_business_costs == 0
+-- '1' # simple_business_costs == 4200
+-- '2' # simple_business_costs == 6000
+-- '5' # simple_business_costs == 7800

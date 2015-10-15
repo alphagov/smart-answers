@@ -1,8 +1,8 @@
 ---
 lib/smart_answer_flows/uk-benefits-abroad.rb: 86c9d302a080b228a042abe87b059cbd
 lib/smart_answer_flows/locales/en/uk-benefits-abroad.yml: 3883941cbccbef17e1d93a456777bc08
-test/data/uk-benefits-abroad-questions-and-responses.yml: 17973c7c16f38d7988ff1a5b76d3261a
-test/data/uk-benefits-abroad-responses-and-expected-results.yml: 37bfb8e7982e15f0f907881bf1130ce3
+test/data/uk-benefits-abroad-questions-and-responses.yml: 279454ec0916c13ac09ed5a90ad58777
+test/data/uk-benefits-abroad-responses-and-expected-results.yml: dbf714c4de3ed03f81c868c354aa9c81
 lib/smart_answer_flows/uk-benefits-abroad/_tax_credits_already_abroad_helpline.govspeak.erb: d79b1b09c2fe01c66cdda028a7679b8b
 lib/smart_answer_flows/uk-benefits-abroad/_tax_credits_going_abroad_helpline.govspeak.erb: 1ceb38a208a4d7f9a9b813a33856fc78
 lib/smart_answer_flows/uk-benefits-abroad/bb_already_abroad_eea_outcome.govspeak.erb: 29a2e99d0c3d251af8ec60c20e204549

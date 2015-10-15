@@ -1,2316 +1,2316 @@
---- 
+---
 - :current_node: :which_year?
-  :responses: 
+  :responses:
   - 2011-12
   :next_node: :how_submitted?
   :outcome_node: false
 - :current_node: :how_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - online
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-05"
+  - '2012-04-05'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
+  - '2012-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2012-04-06"
+  - '2012-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2012-04-08"
+  - '2012-04-07'
+  - '2012-04-08'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2013-01-31"
+  - '2012-04-07'
+  - '2013-01-31'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2013-03-02"
+  - '2012-04-07'
+  - '2013-03-02'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2013-03-02"
-  - "500"
+  - '2012-04-07'
+  - '2013-03-02'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2013-03-02"
-  - "6003"
+  - '2012-04-07'
+  - '2013-03-02'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2014-01-31"
+  - '2012-04-07'
+  - '2014-01-31'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2014-01-31"
-  - "500"
+  - '2012-04-07'
+  - '2014-01-31'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2014-01-31"
-  - "6003"
+  - '2012-04-07'
+  - '2014-01-31'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2013-04-08"
+  - '2012-04-07'
+  - '2013-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2013-04-08"
-  - "500"
+  - '2012-04-07'
+  - '2013-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2013-04-08"
-  - "6003"
+  - '2012-04-07'
+  - '2013-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2014-04-08"
+  - '2012-04-07'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2014-04-08"
-  - "500"
+  - '2012-04-07'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2012-04-07"
-  - "2014-04-08"
-  - "6003"
+  - '2012-04-07'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2012-04-06"
+  - '2013-01-31'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2012-04-08"
+  - '2013-01-31'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2013-01-31"
+  - '2013-01-31'
+  - '2013-01-31'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2013-03-02"
+  - '2013-01-31'
+  - '2013-03-02'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2013-03-02"
-  - "500"
+  - '2013-01-31'
+  - '2013-03-02'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2013-03-02"
-  - "6003"
+  - '2013-01-31'
+  - '2013-03-02'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2014-01-31"
+  - '2013-01-31'
+  - '2014-01-31'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2014-01-31"
-  - "500"
+  - '2013-01-31'
+  - '2014-01-31'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2014-01-31"
-  - "6003"
+  - '2013-01-31'
+  - '2014-01-31'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2013-04-08"
+  - '2013-01-31'
+  - '2013-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2013-04-08"
-  - "500"
+  - '2013-01-31'
+  - '2013-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2013-04-08"
-  - "6003"
+  - '2013-01-31'
+  - '2013-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2014-04-08"
+  - '2013-01-31'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2014-04-08"
-  - "500"
+  - '2013-01-31'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-01-31"
-  - "2014-04-08"
-  - "6003"
+  - '2013-01-31'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
+  - '2013-04-30'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
-  - "2012-04-06"
+  - '2013-04-30'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
-  - "2012-04-08"
+  - '2013-04-30'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
-  - "2013-01-31"
+  - '2013-04-30'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
-  - "2013-03-02"
+  - '2013-04-30'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
-  - "2014-01-31"
+  - '2013-04-30'
+  - '2014-01-31'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
-  - "2014-01-31"
-  - "500"
+  - '2013-04-30'
+  - '2014-01-31'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
-  - "2014-01-31"
-  - "6003"
+  - '2013-04-30'
+  - '2014-01-31'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
-  - "2013-04-08"
+  - '2013-04-30'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
-  - "2014-04-08"
+  - '2013-04-30'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
-  - "2014-04-08"
-  - "500"
+  - '2013-04-30'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-30"
-  - "2014-04-08"
-  - "6003"
+  - '2013-04-30'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
+  - '2013-07-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
-  - "2012-04-06"
+  - '2013-07-31'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
-  - "2012-04-08"
+  - '2013-07-31'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
-  - "2013-01-31"
+  - '2013-07-31'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
-  - "2013-03-02"
+  - '2013-07-31'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
-  - "2014-01-31"
+  - '2013-07-31'
+  - '2014-01-31'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
-  - "2014-01-31"
-  - "500"
+  - '2013-07-31'
+  - '2014-01-31'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
-  - "2014-01-31"
-  - "6003"
+  - '2013-07-31'
+  - '2014-01-31'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
-  - "2013-04-08"
+  - '2013-07-31'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
-  - "2014-04-08"
+  - '2013-07-31'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
-  - "2014-04-08"
-  - "500"
+  - '2013-07-31'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-07-31"
-  - "2014-04-08"
-  - "6003"
+  - '2013-07-31'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-07"
+  - '2013-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-07"
-  - "2012-04-06"
+  - '2013-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-07"
-  - "2012-04-08"
+  - '2013-04-07'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-07"
-  - "2013-01-31"
+  - '2013-04-07'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-07"
-  - "2013-03-02"
+  - '2013-04-07'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-07"
-  - "2014-01-31"
+  - '2013-04-07'
+  - '2014-01-31'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-07"
-  - "2014-01-31"
-  - "500"
+  - '2013-04-07'
+  - '2014-01-31'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-07"
-  - "2014-01-31"
-  - "6003"
-  :next_node: :late
-  :outcome_node: true
-- :current_node: :when_paid?
-  :responses: 
-  - 2011-12
-  - online
-  - "2013-04-07"
-  - "2013-04-08"
-  :next_node: :how_much_tax?
-  :outcome_node: false
-- :current_node: :how_much_tax?
-  :responses: 
-  - 2011-12
-  - online
-  - "2013-04-07"
-  - "2013-04-08"
-  - "500"
-  :next_node: :late
-  :outcome_node: true
-- :current_node: :how_much_tax?
-  :responses: 
-  - 2011-12
-  - online
-  - "2013-04-07"
-  - "2013-04-08"
-  - "6003"
+  - '2013-04-07'
+  - '2014-01-31'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-07"
-  - "2014-04-08"
+  - '2013-04-07'
+  - '2013-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-07"
-  - "2014-04-08"
-  - "500"
+  - '2013-04-07'
+  - '2013-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2013-04-07"
-  - "2014-04-08"
-  - "6003"
+  - '2013-04-07'
+  - '2013-04-08'
+  - '6003'
+  :next_node: :late
+  :outcome_node: true
+- :current_node: :when_paid?
+  :responses:
+  - 2011-12
+  - online
+  - '2013-04-07'
+  - '2014-04-08'
+  :next_node: :how_much_tax?
+  :outcome_node: false
+- :current_node: :how_much_tax?
+  :responses:
+  - 2011-12
+  - online
+  - '2013-04-07'
+  - '2014-04-08'
+  - '500'
+  :next_node: :late
+  :outcome_node: true
+- :current_node: :how_much_tax?
+  :responses:
+  - 2011-12
+  - online
+  - '2013-04-07'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2014-04-07"
+  - '2014-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2014-04-07"
-  - "2012-04-06"
+  - '2014-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2014-04-07"
-  - "2012-04-08"
+  - '2014-04-07'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2014-04-07"
-  - "2013-01-31"
+  - '2014-04-07'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2014-04-07"
-  - "2013-03-02"
+  - '2014-04-07'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2014-04-07"
-  - "2014-01-31"
+  - '2014-04-07'
+  - '2014-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2014-04-07"
-  - "2013-04-08"
+  - '2014-04-07'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2014-04-07"
-  - "2014-04-08"
+  - '2014-04-07'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2014-04-07"
-  - "2014-04-08"
-  - "500"
+  - '2014-04-07'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - online
-  - "2014-04-07"
-  - "2014-04-08"
-  - "6003"
+  - '2014-04-07'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-05"
+  - '2012-04-05'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
+  - '2012-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2012-04-06"
+  - '2012-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2012-04-08"
+  - '2012-04-07'
+  - '2012-04-08'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2013-01-31"
+  - '2012-04-07'
+  - '2013-01-31'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2013-03-02"
+  - '2012-04-07'
+  - '2013-03-02'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2013-03-02"
-  - "500"
+  - '2012-04-07'
+  - '2013-03-02'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2013-03-02"
-  - "6003"
+  - '2012-04-07'
+  - '2013-03-02'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2014-01-31"
+  - '2012-04-07'
+  - '2014-01-31'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2014-01-31"
-  - "500"
+  - '2012-04-07'
+  - '2014-01-31'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2014-01-31"
-  - "6003"
+  - '2012-04-07'
+  - '2014-01-31'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2013-04-08"
+  - '2012-04-07'
+  - '2013-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2013-04-08"
-  - "500"
+  - '2012-04-07'
+  - '2013-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2013-04-08"
-  - "6003"
+  - '2012-04-07'
+  - '2013-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2014-04-08"
+  - '2012-04-07'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2014-04-08"
-  - "500"
+  - '2012-04-07'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2012-04-07"
-  - "2014-04-08"
-  - "6003"
+  - '2012-04-07'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2012-04-06"
+  - '2013-01-31'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2012-04-08"
+  - '2013-01-31'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2013-01-31"
+  - '2013-01-31'
+  - '2013-01-31'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2013-01-31"
-  - "500"
+  - '2013-01-31'
+  - '2013-01-31'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2013-01-31"
-  - "6003"
+  - '2013-01-31'
+  - '2013-01-31'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2013-03-02"
+  - '2013-01-31'
+  - '2013-03-02'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2013-03-02"
-  - "500"
+  - '2013-01-31'
+  - '2013-03-02'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2013-03-02"
-  - "6003"
+  - '2013-01-31'
+  - '2013-03-02'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2014-01-31"
+  - '2013-01-31'
+  - '2014-01-31'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2014-01-31"
-  - "500"
+  - '2013-01-31'
+  - '2014-01-31'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2014-01-31"
-  - "6003"
+  - '2013-01-31'
+  - '2014-01-31'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2013-04-08"
+  - '2013-01-31'
+  - '2013-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2013-04-08"
-  - "500"
+  - '2013-01-31'
+  - '2013-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2013-04-08"
-  - "6003"
+  - '2013-01-31'
+  - '2013-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2014-04-08"
+  - '2013-01-31'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2014-04-08"
-  - "500"
+  - '2013-01-31'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-01-31"
-  - "2014-04-08"
-  - "6003"
+  - '2013-01-31'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
+  - '2013-04-30'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
-  - "2012-04-06"
+  - '2013-04-30'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
-  - "2012-04-08"
+  - '2013-04-30'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
-  - "2013-01-31"
+  - '2013-04-30'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
-  - "2013-03-02"
+  - '2013-04-30'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
-  - "2014-01-31"
+  - '2013-04-30'
+  - '2014-01-31'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
-  - "2014-01-31"
-  - "500"
+  - '2013-04-30'
+  - '2014-01-31'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
-  - "2014-01-31"
-  - "6003"
+  - '2013-04-30'
+  - '2014-01-31'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
-  - "2013-04-08"
+  - '2013-04-30'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
-  - "2014-04-08"
+  - '2013-04-30'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
-  - "2014-04-08"
-  - "500"
+  - '2013-04-30'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-30"
-  - "2014-04-08"
-  - "6003"
+  - '2013-04-30'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
+  - '2013-07-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
-  - "2012-04-06"
+  - '2013-07-31'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
-  - "2012-04-08"
+  - '2013-07-31'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
-  - "2013-01-31"
+  - '2013-07-31'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
-  - "2013-03-02"
+  - '2013-07-31'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
-  - "2014-01-31"
+  - '2013-07-31'
+  - '2014-01-31'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
-  - "2014-01-31"
-  - "500"
+  - '2013-07-31'
+  - '2014-01-31'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
-  - "2014-01-31"
-  - "6003"
+  - '2013-07-31'
+  - '2014-01-31'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
-  - "2013-04-08"
+  - '2013-07-31'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
-  - "2014-04-08"
+  - '2013-07-31'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
-  - "2014-04-08"
-  - "500"
+  - '2013-07-31'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-07-31"
-  - "2014-04-08"
-  - "6003"
+  - '2013-07-31'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-07"
+  - '2013-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-07"
-  - "2012-04-06"
+  - '2013-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-07"
-  - "2012-04-08"
+  - '2013-04-07'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-07"
-  - "2013-01-31"
+  - '2013-04-07'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-07"
-  - "2013-03-02"
+  - '2013-04-07'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-07"
-  - "2014-01-31"
+  - '2013-04-07'
+  - '2014-01-31'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-07"
-  - "2014-01-31"
-  - "500"
+  - '2013-04-07'
+  - '2014-01-31'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-07"
-  - "2014-01-31"
-  - "6003"
-  :next_node: :late
-  :outcome_node: true
-- :current_node: :when_paid?
-  :responses: 
-  - 2011-12
-  - paper
-  - "2013-04-07"
-  - "2013-04-08"
-  :next_node: :how_much_tax?
-  :outcome_node: false
-- :current_node: :how_much_tax?
-  :responses: 
-  - 2011-12
-  - paper
-  - "2013-04-07"
-  - "2013-04-08"
-  - "500"
-  :next_node: :late
-  :outcome_node: true
-- :current_node: :how_much_tax?
-  :responses: 
-  - 2011-12
-  - paper
-  - "2013-04-07"
-  - "2013-04-08"
-  - "6003"
+  - '2013-04-07'
+  - '2014-01-31'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-07"
-  - "2014-04-08"
+  - '2013-04-07'
+  - '2013-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-07"
-  - "2014-04-08"
-  - "500"
+  - '2013-04-07'
+  - '2013-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2013-04-07"
-  - "2014-04-08"
-  - "6003"
+  - '2013-04-07'
+  - '2013-04-08'
+  - '6003'
+  :next_node: :late
+  :outcome_node: true
+- :current_node: :when_paid?
+  :responses:
+  - 2011-12
+  - paper
+  - '2013-04-07'
+  - '2014-04-08'
+  :next_node: :how_much_tax?
+  :outcome_node: false
+- :current_node: :how_much_tax?
+  :responses:
+  - 2011-12
+  - paper
+  - '2013-04-07'
+  - '2014-04-08'
+  - '500'
+  :next_node: :late
+  :outcome_node: true
+- :current_node: :how_much_tax?
+  :responses:
+  - 2011-12
+  - paper
+  - '2013-04-07'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2014-04-07"
+  - '2014-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2014-04-07"
-  - "2012-04-06"
+  - '2014-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2014-04-07"
-  - "2012-04-08"
+  - '2014-04-07'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2014-04-07"
-  - "2013-01-31"
+  - '2014-04-07'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2014-04-07"
-  - "2013-03-02"
+  - '2014-04-07'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2014-04-07"
-  - "2014-01-31"
+  - '2014-04-07'
+  - '2014-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2014-04-07"
-  - "2013-04-08"
+  - '2014-04-07'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2014-04-07"
-  - "2014-04-08"
+  - '2014-04-07'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2014-04-07"
-  - "2014-04-08"
-  - "500"
+  - '2014-04-07'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2011-12
   - paper
-  - "2014-04-07"
-  - "2014-04-08"
-  - "6003"
+  - '2014-04-07'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :which_year?
-  :responses: 
+  :responses:
   - 2012-13
   :next_node: :how_submitted?
   :outcome_node: false
 - :current_node: :how_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - online
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2012-04-05"
+  - '2012-04-05'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2012-04-07"
+  - '2012-04-07'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-01-31"
+  - '2013-01-31'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-30"
+  - '2013-04-30'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-30"
-  - "2012-04-06"
+  - '2013-04-30'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-30"
-  - "2012-04-08"
+  - '2013-04-30'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-30"
-  - "2013-01-31"
+  - '2013-04-30'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-30"
-  - "2013-03-02"
+  - '2013-04-30'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-30"
-  - "2014-01-31"
+  - '2013-04-30'
+  - '2014-01-31'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-30"
-  - "2013-04-08"
+  - '2013-04-30'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-30"
-  - "2014-04-08"
+  - '2013-04-30'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-30"
-  - "2014-04-08"
-  - "500"
+  - '2013-04-30'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-30"
-  - "2014-04-08"
-  - "6003"
+  - '2013-04-30'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-07-31"
+  - '2013-07-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-07-31"
-  - "2012-04-06"
+  - '2013-07-31'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-07-31"
-  - "2012-04-08"
+  - '2013-07-31'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-07-31"
-  - "2013-01-31"
+  - '2013-07-31'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-07-31"
-  - "2013-03-02"
+  - '2013-07-31'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-07-31"
-  - "2014-01-31"
+  - '2013-07-31'
+  - '2014-01-31'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-07-31"
-  - "2013-04-08"
+  - '2013-07-31'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-07-31"
-  - "2014-04-08"
+  - '2013-07-31'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-07-31"
-  - "2014-04-08"
-  - "500"
+  - '2013-07-31'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-07-31"
-  - "2014-04-08"
-  - "6003"
+  - '2013-07-31'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-07"
+  - '2013-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-07"
-  - "2012-04-06"
+  - '2013-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-07"
-  - "2012-04-08"
+  - '2013-04-07'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-07"
-  - "2013-01-31"
+  - '2013-04-07'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-07"
-  - "2013-03-02"
+  - '2013-04-07'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-07"
-  - "2014-01-31"
+  - '2013-04-07'
+  - '2014-01-31'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-07"
-  - "2013-04-08"
+  - '2013-04-07'
+  - '2013-04-08'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-07"
-  - "2014-04-08"
+  - '2013-04-07'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-07"
-  - "2014-04-08"
-  - "500"
+  - '2013-04-07'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2013-04-07"
-  - "2014-04-08"
-  - "6003"
+  - '2013-04-07'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2014-04-07"
+  - '2014-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2014-04-07"
-  - "2012-04-06"
+  - '2014-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2014-04-07"
-  - "2012-04-08"
+  - '2014-04-07'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2014-04-07"
-  - "2013-01-31"
+  - '2014-04-07'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2014-04-07"
-  - "2013-03-02"
+  - '2014-04-07'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2014-04-07"
-  - "2014-01-31"
+  - '2014-04-07'
+  - '2014-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2014-04-07"
-  - "2013-04-08"
+  - '2014-04-07'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2014-04-07"
-  - "2014-04-08"
+  - '2014-04-07'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2014-04-07"
-  - "2014-04-08"
-  - "500"
+  - '2014-04-07'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - online
-  - "2014-04-07"
-  - "2014-04-08"
-  - "6003"
+  - '2014-04-07'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2012-04-05"
+  - '2012-04-05'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2012-04-07"
+  - '2012-04-07'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-01-31"
+  - '2013-01-31'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-30"
+  - '2013-04-30'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-30"
-  - "2012-04-06"
+  - '2013-04-30'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-30"
-  - "2012-04-08"
+  - '2013-04-30'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-30"
-  - "2013-01-31"
+  - '2013-04-30'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-30"
-  - "2013-03-02"
+  - '2013-04-30'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-30"
-  - "2014-01-31"
+  - '2013-04-30'
+  - '2014-01-31'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-30"
-  - "2013-04-08"
+  - '2013-04-30'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-30"
-  - "2014-04-08"
+  - '2013-04-30'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-30"
-  - "2014-04-08"
-  - "500"
+  - '2013-04-30'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-30"
-  - "2014-04-08"
-  - "6003"
+  - '2013-04-30'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-07-31"
+  - '2013-07-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-07-31"
-  - "2012-04-06"
+  - '2013-07-31'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-07-31"
-  - "2012-04-08"
+  - '2013-07-31'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-07-31"
-  - "2013-01-31"
+  - '2013-07-31'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-07-31"
-  - "2013-03-02"
+  - '2013-07-31'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-07-31"
-  - "2014-01-31"
+  - '2013-07-31'
+  - '2014-01-31'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-07-31"
-  - "2013-04-08"
+  - '2013-07-31'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-07-31"
-  - "2014-04-08"
+  - '2013-07-31'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-07-31"
-  - "2014-04-08"
-  - "500"
+  - '2013-07-31'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-07-31"
-  - "2014-04-08"
-  - "6003"
+  - '2013-07-31'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-07"
+  - '2013-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-07"
-  - "2012-04-06"
+  - '2013-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-07"
-  - "2012-04-08"
+  - '2013-04-07'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-07"
-  - "2013-01-31"
+  - '2013-04-07'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-07"
-  - "2013-03-02"
+  - '2013-04-07'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-07"
-  - "2014-01-31"
+  - '2013-04-07'
+  - '2014-01-31'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-07"
-  - "2013-04-08"
+  - '2013-04-07'
+  - '2013-04-08'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-07"
-  - "2014-04-08"
+  - '2013-04-07'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-07"
-  - "2014-04-08"
-  - "500"
+  - '2013-04-07'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2013-04-07"
-  - "2014-04-08"
-  - "6003"
+  - '2013-04-07'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2014-04-07"
+  - '2014-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2014-04-07"
-  - "2012-04-06"
+  - '2014-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2014-04-07"
-  - "2012-04-08"
+  - '2014-04-07'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2014-04-07"
-  - "2013-01-31"
+  - '2014-04-07'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2014-04-07"
-  - "2013-03-02"
+  - '2014-04-07'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2014-04-07"
-  - "2014-01-31"
+  - '2014-04-07'
+  - '2014-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2014-04-07"
-  - "2013-04-08"
+  - '2014-04-07'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2014-04-07"
-  - "2014-04-08"
+  - '2014-04-07'
+  - '2014-04-08'
   :next_node: :how_much_tax?
   :outcome_node: false
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2014-04-07"
-  - "2014-04-08"
-  - "500"
+  - '2014-04-07'
+  - '2014-04-08'
+  - '500'
   :next_node: :late
   :outcome_node: true
 - :current_node: :how_much_tax?
-  :responses: 
+  :responses:
   - 2012-13
   - paper
-  - "2014-04-07"
-  - "2014-04-08"
-  - "6003"
+  - '2014-04-07'
+  - '2014-04-08'
+  - '6003'
   :next_node: :late
   :outcome_node: true
 - :current_node: :which_year?
-  :responses: 
+  :responses:
   - 2013-14
   :next_node: :how_submitted?
   :outcome_node: false
 - :current_node: :how_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - online
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2012-04-05"
+  - '2012-04-05'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2012-04-07"
+  - '2012-04-07'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2013-01-31"
+  - '2013-01-31'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2013-04-30"
+  - '2013-04-30'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2013-07-31"
+  - '2013-07-31'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2013-04-07"
+  - '2013-04-07'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2014-04-07"
+  - '2014-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2014-04-07"
-  - "2012-04-06"
+  - '2014-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2014-04-07"
-  - "2012-04-08"
+  - '2014-04-07'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2014-04-07"
-  - "2013-01-31"
+  - '2014-04-07'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2014-04-07"
-  - "2013-03-02"
+  - '2014-04-07'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2014-04-07"
-  - "2014-01-31"
+  - '2014-04-07'
+  - '2014-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2014-04-07"
-  - "2013-04-08"
+  - '2014-04-07'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - online
-  - "2014-04-07"
-  - "2014-04-08"
+  - '2014-04-07'
+  - '2014-04-08'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
 - :current_node: :how_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2012-04-05"
+  - '2012-04-05'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2012-04-07"
+  - '2012-04-07'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2013-01-31"
+  - '2013-01-31'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2013-04-30"
+  - '2013-04-30'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2013-07-31"
+  - '2013-07-31'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2013-04-07"
+  - '2013-04-07'
   :next_node: :when_submitted?
   :outcome_node: false
 - :current_node: :when_submitted?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2014-04-07"
+  - '2014-04-07'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2014-04-07"
-  - "2012-04-06"
+  - '2014-04-07'
+  - '2012-04-06'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2014-04-07"
-  - "2012-04-08"
+  - '2014-04-07'
+  - '2012-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2014-04-07"
-  - "2013-01-31"
+  - '2014-04-07'
+  - '2013-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2014-04-07"
-  - "2013-03-02"
+  - '2014-04-07'
+  - '2013-03-02'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2014-04-07"
-  - "2014-01-31"
+  - '2014-04-07'
+  - '2014-01-31'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2014-04-07"
-  - "2013-04-08"
+  - '2014-04-07'
+  - '2013-04-08'
   :next_node: :when_paid?
   :outcome_node: false
 - :current_node: :when_paid?
-  :responses: 
+  :responses:
   - 2013-14
   - paper
-  - "2014-04-07"
-  - "2014-04-08"
+  - '2014-04-07'
+  - '2014-04-08'
   :next_node: :filed_and_paid_on_time
   :outcome_node: true
