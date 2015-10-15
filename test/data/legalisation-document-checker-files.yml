@@ -2,7 +2,7 @@
 lib/smart_answer_flows/legalisation-document-checker.rb: b160054be666a2317125e6646bd7cb4c
 lib/smart_answer_flows/locales/en/legalisation-document-checker.yml: a9ca977abcf14999469adc7f47d1f051
 test/data/legalisation-document-checker-questions-and-responses.yml: 37c99c68ba04e459447622b01938ce0b
-test/data/legalisation-document-checker-responses-and-expected-results.yml: a6de7673704ef7ff4348546128f52b75
+test/data/legalisation-document-checker-responses-and-expected-results.yml: d55ccccc64cc1f58b648e810e5fa07e5
 lib/smart_answer_flows/legalisation-document-checker/legalisation_document_checker.govspeak.erb: 4be67b8e3aeebe4f3b99a5153b92ccdf
 lib/smart_answer_flows/legalisation-document-checker/outcome_results.govspeak.erb: 00c464b05564abf1824e3da37bca1d24
 lib/smart_answer/calculators/legalisation_documents_data_query.rb: 31d5eec29a4cf4e27a4204e8f08132f9

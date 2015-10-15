@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/calculate-state-pension.rb: e8b8b7363972770943c39dd3bfeb2158
 lib/smart_answer_flows/locales/en/calculate-state-pension.yml: 59b2577b5bd537db695a998d82264e7e
-test/data/calculate-state-pension-questions-and-responses.yml: 8fe4d28d6b90ff1030ed15470d5b458f
+test/data/calculate-state-pension-questions-and-responses.yml: 7637baad3326dc8e39f445684e615da3
 test/data/calculate-state-pension-responses-and-expected-results.yml: 61e8ccba31841f6616cf8b26f3da6ff9
 lib/smart_answer_flows/calculate-state-pension/_bus_pass_age.govspeak.erb: 5f1f77ef0e25bd24b4b8c6b4e30d4e92
 lib/smart_answer_flows/calculate-state-pension/age_result.govspeak.erb: 8b5d360fd6ef72d4f53a2592d8d7671f
