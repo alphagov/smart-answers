@@ -1,6 +1,6 @@
 # How to archive a Smart Answer
 
-To prevent a Smart Answer being [registered with Panopticon](../blob/master/lib/tasks/panopticon.rake) you will need to change the status of the Smart Answer flow, or remove the Smart Answer flow entirely.
+To prevent a Smart Answer being [registered with Panopticon](../lib/tasks/panopticon.rake) you will need to change the status of the Smart Answer flow, or remove the Smart Answer flow entirely.
 
 As archiving tends not to be temporary, it's preferable to remove the flow entirely - and it can always be recovered from `git` history.
 
