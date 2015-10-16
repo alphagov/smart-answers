@@ -41,4 +41,4 @@ files relating to the regression tests e.g. file checksums, Govspeak artefacts, 
 
         $ git push origin <branch-on-local-repo>
 
-See documentation on [regression tests](doc/regression-tests.md) for further details.
+See documentation on [regression tests](regression-tests.md) for further details.
