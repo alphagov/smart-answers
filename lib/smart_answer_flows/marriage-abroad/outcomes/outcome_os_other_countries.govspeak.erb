@@ -6,7 +6,7 @@
   <% case ceremony_country %>
   <% when 'burma' %>
     The British Embassy in Rangoon doesn’t register marriages of British citizens in Burma. Contact the embassy if you need further advice.
-    <%= render partial: '../data_partials/overseas_passports_embassies.erb',
+    <%= render partial: '../../data_partials/overseas_passports_embassies.erb',
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
@@ -16,7 +16,7 @@
     <% end %>
   <% when 'north-korea' %>
     It’s very unlikely that foreign nationals would be allowed to marry in North Korea. Contact the British Embassy in Pyongyang if you need further advice.
-    <%= render partial: '../data_partials/overseas_passports_embassies.erb',
+    <%= render partial: '../../data_partials/overseas_passports_embassies.erb',
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
@@ -26,13 +26,13 @@
     <% end %>
   <% when *%w(iran somalia syria) %>
     There are currently no British consular services available in <%= country_name_lowercase_prefix %>. See below if you need further advice.
-    <%= render partial: '../data_partials/overseas_passports_embassies.erb',
+    <%= render partial: '../../data_partials/overseas_passports_embassies.erb',
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
   <% when 'yemen' %>
     There are only limited British consular services available in <%= country_name_lowercase_prefix %>. See below if you need further advice.
-    <%= render partial: '../data_partials/overseas_passports_embassies.erb',
+    <%= render partial: '../../data_partials/overseas_passports_embassies.erb',
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
@@ -57,7 +57,7 @@
       ##Getting married at the British Embassy
 
       You can only apply to get married at the British Embassy in Riyadh if you’re resident in Saudi Arabia and neither of you is a Muslim. Contact them to make an appointment.
-      <%= render partial: '../data_partials/overseas_passports_embassies.erb',
+      <%= render partial: '../../data_partials/overseas_passports_embassies.erb',
                  locals: {
                    overseas_passports_embassies: overseas_passports_embassies
                  } %>
