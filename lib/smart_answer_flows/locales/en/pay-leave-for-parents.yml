@@ -73,7 +73,7 @@ en-GB:
           and %{earnings_employment_end_date}?
       partner_started_working_before_continuity_start_date:
         title: Did the mother’s partner start their current or most recent job before
-          %{continuity_start_date(due_date)}?
+          %{continuity_start_date}?
         options:
           'yes': 'Yes'
           'no': 'No'
