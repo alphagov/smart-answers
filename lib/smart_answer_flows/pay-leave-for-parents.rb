@@ -175,6 +175,14 @@ module SmartAnswer
       salary_question :salary_1_66_weeks do
         save_input_as :salary_1_66_weeks
 
+        precalculate :earnings_employment_start_date do
+          calculator.earnings_employment_start_date(due_date)
+        end
+
+        precalculate :earnings_employment_end_date do
+          calculator.earnings_employment_end_date(due_date)
+        end
+
         next_node do |response|
           # * two_carers is 'no'
           #   * employment_status_of_mother is 'employee'

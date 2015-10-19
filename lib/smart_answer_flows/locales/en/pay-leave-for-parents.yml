@@ -69,8 +69,8 @@ en-GB:
           'yes': 'Yes'
           'no': 'No'
       salary_1_66_weeks:
-        title: How much did the mother earn between %{earnings_employment_start_date(due_date)}
-          and %{earnings_employment_end_date(due_date)}?
+        title: How much did the mother earn between %{earnings_employment_start_date}
+          and %{earnings_employment_end_date}?
       partner_started_working_before_continuity_start_date:
         title: Did the mother’s partner start their current or most recent job before
           %{continuity_start_date(due_date)}?
