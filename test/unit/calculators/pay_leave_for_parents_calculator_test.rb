@@ -53,6 +53,11 @@ module SmartAnswer
         assert_equal expected, @calculator.maternity_leave_notice_date(@due_date)
       end
 
+      test "paternity_leave_notice_date" do
+        expected = Date.parse("2014-9-20")
+        assert_equal expected, @calculator.paternity_leave_notice_date(@due_date)
+      end
+
       context "due date in 2013-2014 range" do
         setup do
           @date = Date.parse("2014-1-1")
