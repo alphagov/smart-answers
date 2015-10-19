@@ -15,6 +15,15 @@ en-GB:
           'no': 'No'
       due_date:
         title: When is the baby due?
+      employment_status_of_mother:
+        title: What’s the employment status of the mother?
+        post_body: Read about [employment statuses](/employment-status) if you aren’t
+          sure which one applies.
+        options:
+          employee: Employee
+          worker: Worker or agency worker
+          self-employed: Self-employed
+          unemployed: Unemployed
       mother_started_working_before_continuity_start_date:
         title: Did the mother start her current or most recent job before %{continuity_start_date(due_date)}?
         options:
@@ -92,15 +101,6 @@ en-GB:
         options:
           'yes': 'Yes'
           'no': 'No'
-      employment_status_of_mother:
-        title: What’s the employment status of the mother?
-        post_body: Read about [employment statuses](/employment-status) if you aren’t
-          sure which one applies.
-        options:
-          employee: Employee
-          worker: Worker or agency worker
-          self-employed: Self-employed
-          unemployed: Unemployed
       employment_status_of_partner:
         title: What’s the employment status of the mother’s partner?
         post_body: Read about [employment statuses](/employment-status) if you aren’t
