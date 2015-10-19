@@ -35,7 +35,7 @@ The regression test fails if any of the following is true:
 * not all nodes are exercised by the test data
 * the checksum data is out-of-date (see below)
 
-If you've added extra questions, responses or outcomes, then you should change the `test/data` files to exercise the new paths through the flow. See the instructions for [adding new regression tests](doc/adding-new-regression-tests.md)
+If you've added extra questions, responses or outcomes, then you should change the `test/data` files to exercise the new paths through the flow. See the instructions for [adding new regression tests](adding-new-regression-tests.md)
 
 If there's a difference in the artefacts, you need to carefully review the changes to the artefacts to make sure they all relate to the changes you have made before committing them.
 
