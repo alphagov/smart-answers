@@ -96,7 +96,7 @@ en-GB:
           'no': 'No'
       partner_worked_at_least_26_weeks:
         title: Did the mother’s partner work (or will they have worked) for at least
-          26 weeks between %{earnings_employment_start_date(due_date)} and %{earnings_employment_end_date(due_date)}?
+          26 weeks between %{earnings_employment_start_date} and %{earnings_employment_end_date}?
         post_body: The 26 weeks don’t need to be in a row. They can be full or part
           weeks.
         options:
