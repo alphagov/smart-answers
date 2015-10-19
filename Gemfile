@@ -4,7 +4,7 @@ ruby '2.2.3'
 
 gem 'unicorn', '4.8.3'
 
-gem 'rails', '4.2.2'
+gem 'rails', '4.2.3'
 
 gem 'rails-i18n'
 gem 'json'
