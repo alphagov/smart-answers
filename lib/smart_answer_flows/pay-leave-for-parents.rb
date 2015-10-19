@@ -114,18 +114,32 @@ module SmartAnswer
         end
 
         next_node do |response|
-          # * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_limit)
-          #   * two_carers is 'no'
-          #     * employment_status_of_mother is 'employee' => outcome_mat-leave_mat-pay
-          #     * employment_status_of_mother is 'worker' => outcome_mat-pay
-          #   * two_carers is 'yes'
-          #     * employment_status_of_partner in {employee worker} => partner_started_working_before_continuity_start_date
-          #     * employment_status_of_partner in {self-employed unemployed}
-          #       * due_date >= '2015-4-5' => partner_worked_at_least_26_weeks
-          #       * due_date < '2015-4-5'
-          #         * employment_status_of_mother is 'employee' => outcome_mat-leave_mat-pay
-          #         * employment_status_of_mother is 'worker' => outcome_mat-pay
-          # * NOT continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) OR NOT lower_earnings(mother_earned_more_than_lower_earnings_limit) => mother_worked_at_least_26_weeks
+          if calculator.continuity(mother_started_working_before_continuity_start_date, mother_still_working_on_continuity_end_date) && calculator.lower_earnings(response)
+            if two_carers == 'no'
+              if employment_status_of_mother == 'employee'
+                :outcome_mat_leave_mat_pay
+              elsif employment_status_of_mother == 'worker'
+                :outcome_mat_pay
+              end
+            elsif two_carers == 'yes'
+              case employment_status_of_partner
+              when 'employee', 'worker'
+                :partner_started_working_before_continuity_start_date
+              when 'self-employed', 'unemployed'
+                if due_date >= Date.parse('2015-04-05')
+                  :partner_worked_at_least_26_weeks
+                elsif due_date < Date.parse('2015-04-05')
+                  if employment_status_of_mother == 'employee'
+                    :outcome_mat_leave_mat_pay
+                  elsif employment_status_of_mother == 'worker'
+                    :outcome_mat_pay
+                  end
+                end
+              end
+            end
+          else
+            :mother_worked_at_least_26_weeks
+          end
         end
       end
 

@@ -37,6 +37,16 @@ module SmartAnswer::Calculators
       saturday_before(date)
     end
 
+    def continuity(job_before, job_after)
+      job_before == "yes" && job_after == "yes"
+    end
+
+    #Lower earnings test: person has earned more than
+    #the lower earnings limit
+    def lower_earnings(lel)
+      lel == "yes"
+    end
+
     def in_2013_2014_fin_year?(date)
       (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
     end
