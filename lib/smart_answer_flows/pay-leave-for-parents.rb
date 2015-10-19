@@ -9,10 +9,13 @@ module SmartAnswer
         option "yes"
         option "no"
 
+        save_input_as :two_carers
+
         next_node :due_date
       end
 
       date_question :due_date do
+        save_input_as :due_date
 
         next_node :employment_status_of_mother
       end
@@ -22,6 +25,8 @@ module SmartAnswer
         option "worker"
         option "self-employed"
         option "unemployed"
+
+        save_input_as :employment_status_of_mother
 
         next_node do |response|
           # * two_carers is 'no'
@@ -37,6 +42,8 @@ module SmartAnswer
         option "self-employed"
         option "unemployed"
 
+        save_input_as :employment_status_of_partner
+
         next_node do |response|
           # * employment_status_of_mother in {employee worker} => mother_started_working_before_continuity_start_date
           # * employment_status_of_mother in {self-employed unemployed} => mother_worked_at_least_26_weeks
@@ -47,12 +54,16 @@ module SmartAnswer
         option "yes"
         option "no"
 
+        save_input_as :mother_started_working_before_continuity_start_date
+
         next_node :mother_still_working_on_continuity_end_date
       end
 
       multiple_choice :mother_still_working_on_continuity_end_date do
         option "yes"
         option "no"
+
+        save_input_as :mother_still_working_on_continuity_end_date
 
         next_node :mother_salary
       end
@@ -65,6 +76,8 @@ module SmartAnswer
       multiple_choice :mother_earned_more_than_lower_earnings_limit do
         option "yes"
         option "no"
+
+        save_input_as :mother_earned_more_than_lower_earnings_limit
 
         next_node do |response|
           # * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_limit)
@@ -86,12 +99,16 @@ module SmartAnswer
         option "yes"
         option "no"
 
+        save_input_as :mother_worked_at_least_26_weeks
+
         next_node :mother_earned_at_least_390
       end
 
       multiple_choice :mother_earned_at_least_390 do
         option "yes"
         option "no"
+
+        save_input_as :mother_earned_at_least_390
 
         next_node do |response|
           # * two_carers is 'no'
@@ -116,6 +133,7 @@ module SmartAnswer
       end
 
       salary_question :salary_1_66_weeks do
+        save_input_as :salary_1_66_weeks
 
         next_node do |response|
           # * two_carers is 'no'
@@ -138,6 +156,8 @@ module SmartAnswer
         option "yes"
         option "no"
 
+        save_input_as :partner_started_working_before_continuity_start_date
+
         next_node :partner_still_working_on_continuity_end_date
       end
 
@@ -145,10 +165,13 @@ module SmartAnswer
         option "yes"
         option "no"
 
+        save_input_as :partner_still_working_on_continuity_end_date
+
         next_node :partner_salary
       end
 
       salary_question :partner_salary do
+        save_input_as :partner_salary
 
         next_node :partner_earned_more_than_lower_earnings_limit
       end
@@ -156,6 +179,8 @@ module SmartAnswer
       multiple_choice :partner_earned_more_than_lower_earnings_limit do
         option "yes"
         option "no"
+
+        save_input_as :partner_earned_more_than_lower_earnings_limit
 
         next_node do |response|
           # * employment_status_of_partner is 'employee'
@@ -361,12 +386,16 @@ module SmartAnswer
         option "yes"
         option "no"
 
+        save_input_as :partner_worked_at_least_26_weeks
+
         next_node :partner_earned_at_least_390
       end
 
       multiple_choice :partner_earned_at_least_390 do
         option "yes"
         option "no"
+
+        save_input_as :partner_earned_at_least_390
 
         next_node do |response|
           # * employment_status_of_mother is 'employee'
