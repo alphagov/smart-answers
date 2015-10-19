@@ -33,10 +33,16 @@ module SmartAnswer
         save_input_as :employment_status_of_mother
 
         next_node do |response|
-          # * two_carers is 'no'
-          #   * employment_status_of_mother in {employee worker} => mother_started_working_before_continuity_start_date
-          #   * employment_status_of_mother in {self-employed unemployed} => mother_worked_at_least_26_weeks
-          # * two_carers is 'yes' => employment_status_of_partner
+          if two_carers == 'no'
+            case response
+            when 'employee', 'worker'
+              :mother_started_working_before_continuity_start_date
+            when 'self-employed', 'unemployed'
+              :mother_worked_at_least_26_weeks
+            end
+          elsif two_carers == 'yes'
+            :employment_status_of_partner
+          end
         end
       end
 
