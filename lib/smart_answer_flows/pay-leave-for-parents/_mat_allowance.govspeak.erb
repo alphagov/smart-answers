@@ -4,7 +4,7 @@ The mother can get [maternity allowance](/maternity-allowance) from the governme
 
 ###Dates and amounts
 
-Maternity allowance can start on | %{start_of_maternity_allowance(due_date)}
+Maternity allowance can start on | <%= format_date(calculator.start_of_maternity_allowance(due_date)) %>
 
 <% if calculator.range_in_2013_2014_fin_year?(due_date) %>
 

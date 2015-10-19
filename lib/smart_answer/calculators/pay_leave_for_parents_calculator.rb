@@ -64,6 +64,10 @@ module SmartAnswer::Calculators
       date_in_39_week_range?(2015, 2016, date)
     end
 
+    def start_of_maternity_allowance(date)
+      sunday_before(date - 11.weeks)
+    end
+
     def in_2013_2014_fin_year?(date)
       (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
     end

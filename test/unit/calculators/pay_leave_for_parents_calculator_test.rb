@@ -38,6 +38,11 @@ module SmartAnswer
         assert_equal expected, @calculator.earnings_employment_end_date(@due_date)
       end
 
+      test "start_of_maternity_allowance" do
+        expected = Date.parse("2014-10-12")
+        assert_equal expected, @calculator.start_of_maternity_allowance(@due_date)
+      end
+
       context "due date in 2013-2014 range" do
         setup do
           @date = Date.parse("2014-1-1")
