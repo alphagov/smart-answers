@@ -1,5 +1,5 @@
 module SmartAnswer
-  class PayLeaveForParentFlow < Flow
+  class PayLeaveForParentsFlow < Flow
     def define
       name "pay-leave-for-parents"
       status :published
