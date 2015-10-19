@@ -8,4 +8,4 @@
 
 The 26 weeks don’t need to be in a row. They can be full or part weeks.
 
-* otherwise => employment_details_of_partner_2b
+* otherwise => partner_earned_at_least_390

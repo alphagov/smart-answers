@@ -8,4 +8,4 @@
 
 The 26 weeks don’t need to be in a row. They can be full or part weeks.
 
-* otherwise => employment_details_of_mother_2b
+* otherwise => mother_earned_at_least_390

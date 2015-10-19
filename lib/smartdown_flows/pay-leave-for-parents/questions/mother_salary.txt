@@ -6,4 +6,4 @@
 
 This is her total take-home pay before any deductions, eg tax.
 
-* otherwise => employment_details_of_mother_1d
+* otherwise => mother_earned_more_than_lower_earnings_limit

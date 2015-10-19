@@ -6,4 +6,4 @@
 
 This is their total take-home pay before any deductions, eg tax.
 
-* otherwise => employment_details_of_partner_1d
+* otherwise => partner_earned_more_than_lower_earnings_limit

@@ -6,4 +6,4 @@
 * yes: Yes
 * no: No
 
-* otherwise => employment_details_of_partner_1b
+* otherwise => partner_still_working_on_continuity_end_date
