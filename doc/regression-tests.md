@@ -53,6 +53,6 @@ If you've added new classes, modules or data which is used by a flow, you should
 
 ## Continuous integration
 
-The [main CI instance](https://ci-new.alphagov.co.uk/job/govuk_smart_answers/) and the [corresponding branches one](https://ci-new.alphagov.co.uk/job/govuk_smartanswers_branches/) run the rake `test` task and so work in the same way as above.
+The [main CI instance](doc/continuous-integration.md#main) and the [corresponding branches one](doc/continuous-integration.md#branches) run the rake `test` task and so work in the same way as above.
 
-We also have a [separate CI instance](https://ci-new.alphagov.co.uk/job/govuk_smart_answers_regressions/) which runs **all** the regression tests every so often. This should catch any scenarios missed by the automatic trigger.
+We also have a [separate CI instance](doc/continuous-integration.md#regression) which runs **all** the regression tests every so often. This should catch any scenarios missed by the automatic trigger.
