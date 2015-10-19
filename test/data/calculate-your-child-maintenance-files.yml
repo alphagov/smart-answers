@@ -4,8 +4,8 @@ lib/smart_answer_flows/locales/en/calculate-your-child-maintenance.yml: dec73c14
 test/data/calculate-your-child-maintenance-questions-and-responses.yml: 4534340cf82c2d7f24a865a8b70855fd
 test/data/calculate-your-child-maintenance-responses-and-expected-results.yml: e5f2d15987daf89c77c28fc4b4b82042
 lib/smart_answer_flows/calculate-your-child-maintenance/calculate_your_child_maintenance.govspeak.erb: db4b69fb1cc09b84be5cd2b9d274a306
-lib/smart_answer_flows/calculate-your-child-maintenance/flat_rate_result.govspeak.erb: c27b2a2ec4a8ebe045d0375776b53d65
-lib/smart_answer_flows/calculate-your-child-maintenance/nil_rate_result.govspeak.erb: a2f84eae46c14b8df94802f46fb31ba5
-lib/smart_answer_flows/calculate-your-child-maintenance/reduced_and_basic_rates_result.govspeak.erb: 30eb046dfea51fa4bb5e3a3bb55f7a7a
+lib/smart_answer_flows/calculate-your-child-maintenance/outcomes/flat_rate_result.govspeak.erb: c27b2a2ec4a8ebe045d0375776b53d65
+lib/smart_answer_flows/calculate-your-child-maintenance/outcomes/nil_rate_result.govspeak.erb: a2f84eae46c14b8df94802f46fb31ba5
+lib/smart_answer_flows/calculate-your-child-maintenance/outcomes/reduced_and_basic_rates_result.govspeak.erb: 30eb046dfea51fa4bb5e3a3bb55f7a7a
 lib/smart_answer/calculators/child_maintenance_calculator.rb: b25f3f30fa8a7e43eb5e006cdd9bdfd0
 lib/data/child_maintenance_data.yml: a8cd91247e67f9f6bafdb93fb4ff8166
