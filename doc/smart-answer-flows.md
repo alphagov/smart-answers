@@ -67,7 +67,7 @@ next_node(:red)
 
 The `responded_with` function actually returns a [predicate](http://en.wikipedia.org/wiki/Predicate_%28mathematical_logic%29) which will be invoked during processing. If the predicate returns `true` then the `:green` node will be next, otherwise the next rule will be evaluated. In this case the next rule says `:red` is the next node with no condition.
 
-See [Smart Answer predicates](./smart-answers-predicates.md) for more detailed information about this style.
+See [Smart Answer predicates](smart-answers-predicates.md) for more detailed information about this style.
 
 #### DEPRECATED: Using Multiple Choice shortcut
 
@@ -260,4 +260,4 @@ This is how we were previously writing integration tests for Smart Answer flows.
 
 ### Adding regression tests to Smart Answers
 
-We're not imagining introducing new regression tests but I think [these instructions](doc/adding-new-regression-tests.md) are still useful while we still have them in the project.
+We're not imagining introducing new regression tests but I think [these instructions](adding-new-regression-tests.md) are still useful while we still have them in the project.
