@@ -47,8 +47,8 @@ en-GB:
         title: How much does the mother earn (or did she earn, if she’s left her job)?
         post_body: This is her total take-home pay before any deductions, eg tax.
       mother_earned_more_than_lower_earnings_limit:
-        title: Has the mother earned (or will she have earned) more than %{lower_earnings_amount(due_date)}
-          per week between %{lower_earnings_start_date(due_date)} and %{lower_earnings_end_date(due_date)}?
+        title: Has the mother earned (or will she have earned) more than %{lower_earnings_amount}
+          per week between %{lower_earnings_start_date} and %{lower_earnings_end_date}?
         options:
           'yes': 'Yes'
           'no': 'No'
