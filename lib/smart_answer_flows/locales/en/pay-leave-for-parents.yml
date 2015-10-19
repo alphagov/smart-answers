@@ -34,7 +34,7 @@ en-GB:
           self-employed: Self-employed
           unemployed: Unemployed
       mother_started_working_before_continuity_start_date:
-        title: Did the mother start her current or most recent job before %{continuity_start_date(due_date)}?
+        title: Did the mother start her current or most recent job before %{continuity_start_date}?
         options:
           'yes': 'Yes'
           'no': 'No'
