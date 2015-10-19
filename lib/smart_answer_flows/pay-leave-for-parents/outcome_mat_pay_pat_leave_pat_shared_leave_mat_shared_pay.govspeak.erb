@@ -5,7 +5,7 @@
 
   <%= render partial: 'pat_shared_leave.govspeak.erb' -%>
 
-  <%= render partial: 'mat_shared_pay.govspeak.erb' -%>
+  <%= render partial: 'mat_shared_pay.govspeak.erb', locals: {calculator: calculator, due_date: due_date } -%>
 
   <%= render partial: 'extra_help.govspeak.erb' -%>
 <% end %>
