@@ -125,6 +125,14 @@ module SmartAnswer
 
         save_input_as :mother_worked_at_least_26_weeks
 
+        precalculate :earnings_employment_start_date do
+          calculator.earnings_employment_start_date(due_date)
+        end
+
+        precalculate :earnings_employment_end_date do
+          calculator.earnings_employment_end_date(due_date)
+        end
+
         next_node :mother_earned_at_least_390
       end
 

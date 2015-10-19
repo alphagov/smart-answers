@@ -28,6 +28,16 @@ module SmartAnswer
         assert_equal expected, @calculator.lower_earnings_end_date(@due_date)
       end
 
+      test "earnings_employment_start_date" do
+        expected = Date.parse("2013-9-22")
+        assert_equal expected, @calculator.earnings_employment_start_date(@due_date)
+      end
+
+      test "earnings_employment_end_date" do
+        expected = Date.parse("2014-12-27")
+        assert_equal expected, @calculator.earnings_employment_end_date(@due_date)
+      end
+
       context "due date in 2013-2014 range" do
         setup do
           @date = Date.parse("2014-1-1")

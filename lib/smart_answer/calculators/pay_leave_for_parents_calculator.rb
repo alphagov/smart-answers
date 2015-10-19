@@ -29,6 +29,14 @@ module SmartAnswer::Calculators
       saturday_before(date - 14.weeks)
     end
 
+    def earnings_employment_start_date(date)
+      sunday_before(date - 66.weeks)
+    end
+
+    def earnings_employment_end_date(date)
+      saturday_before(date)
+    end
+
     def in_2013_2014_fin_year?(date)
       (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
     end
