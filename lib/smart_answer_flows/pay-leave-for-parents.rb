@@ -11,6 +11,10 @@ module SmartAnswer
 
         save_input_as :two_carers
 
+        next_node_calculation :calculator do
+          Calculators::PayLeaveForParentsCalculator.new
+        end
+
         next_node :due_date
       end
 
