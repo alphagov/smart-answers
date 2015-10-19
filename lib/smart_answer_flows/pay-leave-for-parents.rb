@@ -31,6 +31,18 @@ module SmartAnswer
         end
       end
 
+      multiple_choice :employment_status_of_partner do
+        option "employee"
+        option "worker"
+        option "self-employed"
+        option "unemployed"
+
+        next_node do |response|
+          # * employment_status_of_mother in {employee worker} => mother_started_working_before_continuity_start_date
+          # * employment_status_of_mother in {self-employed unemployed} => mother_worked_at_least_26_weeks
+        end
+      end
+
       multiple_choice :mother_started_working_before_continuity_start_date do
         option "yes"
         option "no"
@@ -403,18 +415,6 @@ module SmartAnswer
           #   * employment_status_of_partner in {worker self-employed unemployed}
           #     * earnings_employment(partner_earned_at_least_390 partner_worked_at_least_26_weeks) => outcome_mat-pay_mat-shared-pay
           #     * NOT earnings_employment(partner_earned_at_least_390 partner_worked_at_least_26_weeks) => outcome_mat-pay
-        end
-      end
-
-      multiple_choice :employment_status_of_partner do
-        option "employee"
-        option "worker"
-        option "self-employed"
-        option "unemployed"
-
-        next_node do |response|
-          # * employment_status_of_mother in {employee worker} => mother_started_working_before_continuity_start_date
-          # * employment_status_of_mother in {self-employed unemployed} => mother_worked_at_least_26_weeks
         end
       end
 
