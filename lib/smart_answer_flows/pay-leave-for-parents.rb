@@ -227,19 +227,33 @@ module SmartAnswer
         end
 
         next_node do |response|
-          # * two_carers is 'no'
-          #   * employment_status_of_mother is 'employee'
-          #     * mother_still_working_on_continuity_end_date is 'yes' => outcome_mat-allowance_mat-leave
-          #     * mother_still_working_on_continuity_end_date is 'no' => outcome_mat-allowance
-          #   * employment_status_of_mother in {worker self-employed unemployed} => outcome_mat-allowance
-          # * two_carers is 'yes'
-          #   * employment_status_of_partner in {employee worker} => partner_started_working_before_continuity_start_date
-          #   * employment_status_of_partner in {self-employed unemployed}
-          #     * employment_status_of_mother is 'employee'
-          #       * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND due_date >= '2015-4-5' => partner_worked_at_least_26_weeks
-          #       * mother_still_working_on_continuity_end_date is 'yes' => outcome_mat-allowance_mat-leave
-          #       * mother_still_working_on_continuity_end_date is 'no' => outcome_mat-allowance
-          #     * employment_status_of_mother in {worker self-employed unemployed} => outcome_mat-allowance
+          if two_carers == 'no'
+            if employment_status_of_mother == 'employee'
+              if mother_still_working_on_continuity_end_date == 'yes'
+                :outcome_mat_allowance_mat_leave
+              elsif mother_still_working_on_continuity_end_date == 'no'
+                :outcome_mat_allowance
+              end
+            elsif %w(worker self-employed unemployed).include?(employment_status_of_mother)
+              :outcome_mat_allowance
+            end
+          elsif two_carers == 'yes'
+            if %w(employee worker).include?(employment_status_of_partner)
+              :partner_started_working_before_continuity_start_date
+            elsif %w(self-employed unemployed).include?(employment_status_of_partner)
+              if employment_status_of_mother == 'employee'
+                if calculator.continuity(mother_started_working_before_continuity_start_date, mother_still_working_on_continuity_end_date) && due_date >= Date.parse('2015-04-05')
+                  :partner_worked_at_least_26_weeks
+                elsif mother_still_working_on_continuity_end_date == 'yes'
+                  :outcome_mat_allowance_mat_leave
+                elsif mother_still_working_on_continuity_end_date == 'no'
+                  :outcome_mat_allowance
+                end
+              elsif %w(worker self-employed unemployed).include?(employment_status_of_mother)
+                :outcome_mat_allowance
+              end
+            end
+          end
         end
       end
 
