@@ -47,6 +47,11 @@ module SmartAnswer::Calculators
       lel == "yes"
     end
 
+    #Earnings and employment test
+    def earnings_employment(earnings_employment, work_employment)
+      earnings_employment == "yes" && work_employment == "yes"
+    end
+
     def in_2013_2014_fin_year?(date)
       (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
     end
