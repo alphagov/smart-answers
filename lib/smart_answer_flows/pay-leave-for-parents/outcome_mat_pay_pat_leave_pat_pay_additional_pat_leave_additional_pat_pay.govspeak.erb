@@ -7,7 +7,7 @@
 
   <%= render partial: 'additional_pat_leave.govspeak.erb' -%>
 
-  <%= render partial: 'additional_pat_pay.govspeak.erb' -%>
+  <%= render partial: 'additional_pat_pay.govspeak.erb', locals: {calculator: calculator, due_date: due_date } -%>
 
   <%= render partial: 'extra_help.govspeak.erb' -%>
 <% end %>

@@ -4,26 +4,26 @@ The mother’s partner can get [additional paternity pay](/paternity-pay-leave/p
 
 ###Dates and amounts
 
-$IF range_in_2013_2014_fin_year?(due_date)
+<% if calculator.range_in_2013_2014_fin_year?(due_date) %>
 
 Weekly rate (between 6 April 2013 and 5 April 2014) | £136.78, or 90% of their average weekly earnings (whichever is lower).
 
-$ENDIF
+<% end %>
 
-$IF range_in_2014_2015_fin_year?(due_date)
+<% if calculator.range_in_2014_2015_fin_year?(due_date) %>
 
 Weekly rate (between 6 April 2014 and 5 April 2015) | £138.18, or 90% of their average weekly earnings (whichever is lower).
 
-$ENDIF
+<% end %>
 
-$IF range_in_2015_2016_fin_year?(due_date)
-
-Weekly rate (between 6 April 2015 and 5 April 2016) | £139.58, or 90% of their average weekly earnings (whichever is lower).
-
-$ENDIF
-
-$IF NOT range_in_2013_2014_fin_year?(due_date) AND NOT range_in_2014_2015_fin_year?(due_date) AND NOT range_in_2015_2016_fin_year?(due_date)
+<% if calculator.range_in_2015_2016_fin_year?(due_date) %>
 
 Weekly rate (between 6 April 2015 and 5 April 2016) | £139.58, or 90% of their average weekly earnings (whichever is lower).
 
-$ENDIF
+<% end %>
+
+<% if !calculator.range_in_2013_2014_fin_year?(due_date) && !calculator.range_in_2014_2015_fin_year?(due_date) && !calculator.range_in_2015_2016_fin_year?(due_date) %>
+
+Weekly rate (between 6 April 2015 and 5 April 2016) | £139.58, or 90% of their average weekly earnings (whichever is lower).
+
+<% end %>

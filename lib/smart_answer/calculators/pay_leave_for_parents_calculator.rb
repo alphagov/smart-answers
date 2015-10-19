@@ -52,6 +52,18 @@ module SmartAnswer::Calculators
       earnings_employment == "yes" && work_employment == "yes"
     end
 
+    def range_in_2013_2014_fin_year?(date)
+      date_in_39_week_range?(2013, 2014, date)
+    end
+
+    def range_in_2014_2015_fin_year?(date)
+      date_in_39_week_range?(2014, 2015, date)
+    end
+
+    def range_in_2015_2016_fin_year?(date)
+      date_in_39_week_range?(2015, 2016, date)
+    end
+
     def in_2013_2014_fin_year?(date)
       (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
     end
@@ -72,6 +84,13 @@ module SmartAnswer::Calculators
 
     def sunday_before(date)
       date - date.wday
+    end
+
+    def date_in_39_week_range?(range_start, range_end, date)
+      start_date = date
+      end_date = start_date + 39.weeks
+      (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(start_date) ||
+      (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(end_date)
     end
   end
 end
