@@ -473,6 +473,14 @@ module SmartAnswer
 
         save_input_as :partner_earned_at_least_390
 
+        precalculate :earnings_employment_start_date do
+          calculator.earnings_employment_start_date(due_date)
+        end
+
+        precalculate :earnings_employment_end_date do
+          calculator.earnings_employment_end_date(due_date)
+        end
+
         next_node do |response|
           # * employment_status_of_mother is 'employee'
           #   * continuity(mother_started_working_before_continuity_start_date mother_still_working_on_continuity_end_date) AND lower_earnings(mother_earned_more_than_lower_earnings_limit)
