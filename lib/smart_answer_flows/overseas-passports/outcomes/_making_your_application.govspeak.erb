@@ -72,7 +72,7 @@
         <%= render partial: 'making_your_application/bring_originals_and_copy.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_passport_and_full_photocopy.govspeak.erb' %>
       <% end %>
-      <%= render partial: '../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+      <%= render partial: '../../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
     <% end %>
   <% else %>
     <% if passport_data['application_office'] %>
@@ -110,7 +110,7 @@
         <%= render partial: 'making_your_application/apply_in_person.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_originals_and_copy.govspeak.erb' %>
       <% end %>
-      <%= render partial: '../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+      <%= render partial: '../../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
     <% end %>
   <% end %>
 <% elsif %w(timor-leste).include?(current_location) %>
@@ -134,7 +134,7 @@
       <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { ips_number: ips_number } %>
       <%= render partial: 'making_your_application/renewing_new_renewing_old.govspeak.erb' %>
     <% end %>
-    <%= render partial: '../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+    <%= render partial: '../../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
   <% end %>
 <% else %>
   <% if passport_data['application_office'] %>
@@ -156,7 +156,7 @@
       <%= render partial: 'making_your_application/send_application_address_st_helena_ascension_and_tristan_da_cunha.govspeak.erb' %>
     <% else %>
       <% if ips_number.to_i > 1 %>
-        <%= render partial: '../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+        <%= render partial: '../../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
       <% end %>
     <% end %>
   <% end %>
