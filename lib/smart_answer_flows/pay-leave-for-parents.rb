@@ -238,6 +238,18 @@ module SmartAnswer
 
         save_input_as :partner_earned_more_than_lower_earnings_limit
 
+        precalculate :lower_earnings_amount do
+          calculator.lower_earnings_amount(due_date)
+        end
+
+        precalculate :lower_earnings_start_date do
+          calculator.lower_earnings_start_date(due_date)
+        end
+
+        precalculate :lower_earnings_end_date do
+          calculator.lower_earnings_end_date(due_date)
+        end
+
         next_node do |response|
           # * employment_status_of_partner is 'employee'
           #   * continuity(partner_started_working_before_continuity_start_date partner_still_working_on_continuity_end_date) AND lower_earnings(partner_earned_more_than_lower_earnings_limit)

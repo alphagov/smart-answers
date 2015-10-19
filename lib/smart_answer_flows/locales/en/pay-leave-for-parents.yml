@@ -89,8 +89,8 @@ en-GB:
         post_body: This is their total take-home pay before any deductions, eg tax.
       partner_earned_more_than_lower_earnings_limit:
         title: Has the mother’s partner earned (or will they have earned) more than
-          %{lower_earnings_amount(due_date)} per week between %{lower_earnings_start_date(due_date)}
-          and %{lower_earnings_end_date(due_date)}?
+          %{lower_earnings_amount} per week between %{lower_earnings_start_date}
+          and %{lower_earnings_end_date}?
         options:
           'yes': 'Yes'
           'no': 'No'
