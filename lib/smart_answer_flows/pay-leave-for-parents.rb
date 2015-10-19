@@ -142,6 +142,14 @@ module SmartAnswer
 
         save_input_as :mother_earned_at_least_390
 
+        precalculate :earnings_employment_start_date do
+          calculator.earnings_employment_start_date(due_date)
+        end
+
+        precalculate :earnings_employment_end_date do
+          calculator.earnings_employment_end_date(due_date)
+        end
+
         next_node do |response|
           # * two_carers is 'no'
           #   * earnings_employment(mother_earned_at_least_390 mother_worked_at_least_26_weeks) => salary_1_66_weeks

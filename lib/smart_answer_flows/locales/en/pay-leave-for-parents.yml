@@ -62,8 +62,8 @@ en-GB:
           'no': 'No'
       mother_earned_at_least_390:
         title: Did the mother earn (or will she have earned) a total of £390 or more
-          in any 13 weeks between %{earnings_employment_start_date(due_date)} and
-          %{earnings_employment_end_date(due_date)}?
+          in any 13 weeks between %{earnings_employment_start_date} and
+          %{earnings_employment_end_date}?
         post_body: The 13 weeks don’t need to be in a row.
         options:
           'yes': 'Yes'
