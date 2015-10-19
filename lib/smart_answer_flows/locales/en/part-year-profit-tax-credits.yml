@@ -9,9 +9,15 @@ en-GB:
         title: Have you stopped trading?
         hint: This means you’re no longer running your business.
         error_message: You need to select yes or no to continue.
+        options:
+          "yes": "Yes"
+          "no": "No"
       did_you_start_trading_before_the_relevant_accounting_year?:
         title: Did you start trading before %{accounting_year_begins_on}?
         error_message: You need to select yes or no to continue.
+        options:
+          "yes": "Yes"
+          "no": "No"
       when_did_you_stop_trading?:
         title: When did you stop trading?
         hint:
@@ -26,6 +32,9 @@ en-GB:
       do_your_accounts_cover_a_12_month_period?:
         title: Do your accounts cover the 12 month period up to %{accounting_year_ends_on}?
         error_message: You need to select yes or no to continue.
+        options:
+          "yes": "Yes"
+          "no": "No"
       when_did_you_start_trading?:
         title: "When did you start trading?"
         hint:

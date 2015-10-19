@@ -42,6 +42,10 @@ module SmartAnswer
         @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
       end
 
+      should 'have options with labels' do
+        assert_equal({ 'yes' => 'Yes', 'no' => 'No' }, values_vs_labels(@presenter.options))
+      end
+
       should 'have a default error message' do
         @state.error = 'error-message'
         assert_equal 'You need to select yes or no to continue.', @presenter.error
@@ -53,6 +57,10 @@ module SmartAnswer
         question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_year?)
         @state = SmartAnswer::State.new(question)
         @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
+      end
+
+      should 'have options with labels' do
+        assert_equal({ 'yes' => 'Yes', 'no' => 'No' }, values_vs_labels(@presenter.options))
       end
 
       should 'have a default error message' do
@@ -72,6 +80,10 @@ module SmartAnswer
       should 'display title with interpolated basis_period_ends_on' do
         expected = "Do your accounts cover the 12 month period up to  5 April 2016?"
         assert_equal expected, @presenter.title
+      end
+
+      should 'have options with labels' do
+        assert_equal({ 'yes' => 'Yes', 'no' => 'No' }, values_vs_labels(@presenter.options))
       end
 
       should 'have a default error message' do
@@ -218,6 +230,12 @@ module SmartAnswer
           assert_match 'Your business stopped trading on:  5 April 2016', @body
         end
       end
+    end
+
+    private
+
+    def values_vs_labels(options)
+      options.inject({}) { |h, o| h[o.value] = o.label; h }
     end
   end
 end
