@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/landlord-immigration-check.rb: 2eaabee434804a3f31b17a275a84f368
+lib/smart_answer_flows/landlord-immigration-check.rb: 87dac21e11e809d059e577cd987c8fda
 lib/smart_answer_flows/locales/en/landlord-immigration-check.yml: 590064bf90819fb8cc0484d7c46d0261
 test/data/landlord-immigration-check-questions-and-responses.yml: 6d59147e57d28d1c398bc7e178d1f2ac
 test/data/landlord-immigration-check-responses-and-expected-results.yml: 329e7752e670f0ee92bc1c671ba478a7
@@ -8,10 +8,10 @@ lib/smart_answer_flows/landlord-immigration-check/landlord_immigration_check.gov
 lib/smart_answer_flows/landlord-immigration-check/outcome_can_not_rent.govspeak.erb: b83670d3f12e65c9f343dfef98293f00
 lib/smart_answer_flows/landlord-immigration-check/outcome_can_rent.govspeak.erb: f94250541ec614c4e22e2eda9a322237
 lib/smart_answer_flows/landlord-immigration-check/outcome_can_rent_but_check_will_be_needed_again.govspeak.erb: 14f0e46e60d65a768a666992cb779c10
-lib/smart_answer_flows/landlord-immigration-check/outcome_can_rent_for_12_months.govspeak.erb: ba2e546f70464d3627cd9d1e466827f7
+lib/smart_answer_flows/landlord-immigration-check/outcome_can_rent_for_12_months.govspeak.erb: 14924695e00c912f48069cc6d5c0d679
 lib/smart_answer_flows/landlord-immigration-check/outcome_check_may_be_needed_when_student.govspeak.erb: 1d8b1c713957bd01361c93082d7aafd3
 lib/smart_answer_flows/landlord-immigration-check/outcome_check_needed_if_break_clause.govspeak.erb: aeff25884d3b4dd91f34b935b3966cb3
-lib/smart_answer_flows/landlord-immigration-check/outcome_check_not_needed.govspeak.erb: 478d69e71f6555da0efedc4ab4ec66eb
+lib/smart_answer_flows/landlord-immigration-check/outcome_check_not_needed.govspeak.erb: 37b2bc1be0194c0c3a48ea9d2dbf00bd
 lib/smart_answer_flows/landlord-immigration-check/outcome_check_not_needed_if_holiday_or_under_3_months.govspeak.erb: 1d44f604eac2fe890c62f2a23b5827e6
 lib/smart_answer_flows/landlord-immigration-check/outcome_check_not_needed_when_care_home.govspeak.erb: 40479227e2cfba52522312ffc73ab901
 lib/smart_answer_flows/landlord-immigration-check/outcome_check_not_needed_when_employee_home.govspeak.erb: 92e2b70073e6a00697b540907fab9fd0

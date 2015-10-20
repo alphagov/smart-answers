@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       content_id "a6c2dbbb-a26e-4cc5-a244-48ef45523269"
       name "landlord-immigration-check"
-      status :draft
+      status :published
       satisfies_need "102373"
 
       postcode_question :property? do
