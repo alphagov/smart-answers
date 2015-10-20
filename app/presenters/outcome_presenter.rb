@@ -2,7 +2,7 @@ class OutcomePresenter < NodePresenter
   def initialize(i18n_prefix, node, state = nil, options = {})
     super(i18n_prefix, node, state)
     @renderer = options[:renderer] || SmartAnswer::ErbRenderer.new(
-      template_directory: @node.template_directory,
+      template_directory: @node.template_directory.join('outcomes'),
       template_name: @node.name.to_s,
       locals: @state.to_hash,
       helpers: [

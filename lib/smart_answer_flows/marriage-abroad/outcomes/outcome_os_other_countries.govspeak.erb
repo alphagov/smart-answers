@@ -1,0 +1,104 @@
+<% content_for :title do %>
+  Marriage in <%= country_name_lowercase_prefix %>
+<% end %>
+
+<% content_for :body do %>
+  <% case ceremony_country %>
+  <% when 'burma' %>
+    The British Embassy in Rangoon doesn’t register marriages of British citizens in Burma. Contact the embassy if you need further advice.
+    <%= render partial: '../../data_partials/overseas_passports_embassies.erb',
+               locals: {
+                 overseas_passports_embassies: overseas_passports_embassies
+               } %>
+    <% if partner_nationality == 'partner_local' %>
+      %Marriage between a Burmese citizen and a foreign national is not allowed under local law.%
+
+    <% end %>
+  <% when 'north-korea' %>
+    It’s very unlikely that foreign nationals would be allowed to marry in North Korea. Contact the British Embassy in Pyongyang if you need further advice.
+    <%= render partial: '../../data_partials/overseas_passports_embassies.erb',
+               locals: {
+                 overseas_passports_embassies: overseas_passports_embassies
+               } %>
+    <% if partner_nationality == 'partner_local' %>
+      %Marriage between a citizen of North Korea and a foreign national is not allowed under local law.%
+
+    <% end %>
+  <% when *%w(iran somalia syria) %>
+    There are currently no British consular services available in <%= country_name_lowercase_prefix %>. See below if you need further advice.
+    <%= render partial: '../../data_partials/overseas_passports_embassies.erb',
+               locals: {
+                 overseas_passports_embassies: overseas_passports_embassies
+               } %>
+  <% when 'yemen' %>
+    There are only limited British consular services available in <%= country_name_lowercase_prefix %>. See below if you need further advice.
+    <%= render partial: '../../data_partials/overseas_passports_embassies.erb',
+               locals: {
+                 overseas_passports_embassies: overseas_passports_embassies
+               } %>
+  <% when 'saudi-arabia' %>
+    <% if resident_of != 'ceremony_country' %>
+      ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can only get married at the British Embassy if you’re resident in the country.^
+
+      Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
+
+      The British Embassy in Saudi Arabia may also be able to give you advice.
+
+      <%= render partial: 'contact_method.govspeak.erb',
+                 locals: {
+                   sex_of_your_partner: sex_of_your_partner,
+                   ceremony_country: ceremony_country,
+                   overseas_passports_embassies: overseas_passports_embassies,
+                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                 } %>
+    <% else %>
+      One of you must be a Muslim to get married under local laws in Saudi Arabia. Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
+
+      ##Getting married at the British Embassy
+
+      You can only apply to get married at the British Embassy in Riyadh if you’re resident in Saudi Arabia and neither of you is a Muslim. Contact them to make an appointment.
+      <%= render partial: '../../data_partials/overseas_passports_embassies.erb',
+                 locals: {
+                   overseas_passports_embassies: overseas_passports_embassies
+                 } %>
+      You’ll need to provide:
+
+      - proof that you’ve been living in the country where you intend to get married for at least 21 days, e.g. an employer’s letter or a bank statement (you’ll also need to sign a declaration to confirm this)
+      - your original passport and [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+      - proof that you’re both over the age of 16, not within prohibited degrees of relationship to each other, and there’s no other impediment to your proposed marriage
+      - equivalent document for your partner
+
+      If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:
+
+      - a [decree absolute or final order](/copy-decree-absolute-final-order), or
+      - the [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+      ###What happens next
+
+      Once you’ve submitted these and paid the registration fee (see below), the embassy or consulate will post your marriage notice publicly for 14 days.
+
+      As long as nobody has registered an objection after this time, the consular officer can then perform the marriage ceremony any time until 3 months after the date you gave notice.
+
+      You’ll need to pay additional fees for the marriage ceremony and to get your marriage certificate (see below).
+
+      <% if partner_nationality != 'partner_british' %>
+        <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+
+      <% end %>
+      ##Fees
+
+      Service | Fee
+      -|-
+      Posting a marriage notice | £65
+      Performing a marriage ceremony| £140
+      Issuing a marriage certificate | £65
+
+      You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= ceremony_country_name %>](/government/publications/<%= ceremony_country %>-consular-fees).
+
+      You can pay by cash or credit card, but not by personal cheque.
+
+    <% end %>
+  <% else %>
+    <% raise "The outcome for #{ceremony_country} is not handled" %>
+  <% end %>
+<% end %>

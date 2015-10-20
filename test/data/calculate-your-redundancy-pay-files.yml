@@ -4,8 +4,8 @@ lib/smart_answer_flows/locales/en/calculate-your-redundancy-pay.yml: 5905d20a16d
 test/data/calculate-your-redundancy-pay-questions-and-responses.yml: dca676f9f9cd34571e4338b66d18bd89
 test/data/calculate-your-redundancy-pay-responses-and-expected-results.yml: 3f786846b4b2f45189f1a5856dddc3d7
 lib/smart_answer_flows/calculate-your-redundancy-pay/calculate_your_redundancy_pay.govspeak.erb: 063d747da3117bc0e06d271bd78bbe88
-lib/smart_answer_flows/calculate-your-redundancy-pay/done.govspeak.erb: 627ae9150dfcf72d8294f9f68019ba91
-lib/smart_answer_flows/calculate-your-redundancy-pay/done_no_statutory.govspeak.erb: e4f6b40f10295e4757075ff698b39707
+lib/smart_answer_flows/calculate-your-redundancy-pay/outcomes/done.govspeak.erb: 627ae9150dfcf72d8294f9f68019ba91
+lib/smart_answer_flows/calculate-your-redundancy-pay/outcomes/done_no_statutory.govspeak.erb: e4f6b40f10295e4757075ff698b39707
 lib/smart_answer_flows/shared_logic/redundancy_pay.rb: 2e1a5aeacda3efca59b18efecb256e58
 lib/smart_answer/calculators/redundancy_calculator.rb: 6f97d315c840f829670f64e2fabce6dd
 lib/data/rates/redundancy_pay.yml: 270b43298e223b28ba7ad3f81f5e0a08
