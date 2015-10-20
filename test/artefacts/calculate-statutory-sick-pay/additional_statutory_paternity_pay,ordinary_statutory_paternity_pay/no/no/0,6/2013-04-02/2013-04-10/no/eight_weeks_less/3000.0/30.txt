@@ -1,0 +1,26 @@
+
+
+##Statutory Sick Pay (SSP)
+
+Your employee is entitled to SSP for 1 days out of 2 working days taken off sick between  2 April 2013 and 10 April 2013
+
+You don’t have to pay until your employee tells you that they’re ill. You’ll have to pay any withheld amounts by the end of your employee's entitlement to sick pay if your employee is sick for more than 28 weeks.
+
+Week ending | SSP amount
+-|-
+6 April 2013|£0.00
+13 April 2013|£43.35
+| **Total SSP: £43.35**
+
+##What you need to know
+
+^ Your employee will not be able to collect Ordinary Statutory Paternity Pay or Statutory Adoption Pay while collecting Statutory Sick Pay. ^
+
+SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of 56 days. After that you must give them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of SSP ending. 
+
+There are also [records you must keep](/sick-leave-pay-employees/entitlement) and rules on [proof of illness](/sick-leave-pay-employees/notice-and-fit-notes) you can ask for.
+
+You can [claim back sick pay](http://www.hmrc.gov.uk/payerti/employee/statutory-pay/ssp-calc.htm) paid before 5 April 2014. You must do this by 6 April 2016.
+
+*[SSP]: Statutory Sick Pay
+

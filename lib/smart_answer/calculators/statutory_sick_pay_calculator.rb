@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class StatutorySickPayCalculator
     attr_reader :waiting_days, :normal_workdays, :pattern_days
 
-    def initialize(prev_sick_days, sick_start_date, sick_end_date, days_of_the_week_worked)
+    def initialize(prev_sick_days:, sick_start_date:, sick_end_date:, days_of_the_week_worked:)
       @prev_sick_days = prev_sick_days
       @waiting_days = (@prev_sick_days >= 3 ? 0 : 3 - @prev_sick_days)
       @sick_start_date = sick_start_date
@@ -16,10 +16,6 @@ module SmartAnswer::Calculators
     # define as static so we don't have to instantiate the calculator too early in the flow
     def self.lower_earning_limit_on(date)
       SmartAnswer::Calculators::RatesQuery.new('statutory_sick_pay').rates(date).lower_earning_limit_rate
-    end
-
-    def weekly_rate_on(date)
-      SmartAnswer::Calculators::RatesQuery.new('statutory_sick_pay').rates(date).ssp_weekly_rate
     end
 
     def self.months_between(start_date, end_date)
@@ -55,24 +51,56 @@ module SmartAnswer::Calculators
       pattern_days > 0 ? ((((weekly_rate / pattern_days) * 10000).round(6).floor) / 10000.0) : 0.0000
     end
 
-    def max_days_that_can_be_paid
-      (28 * @pattern_days).round(10)
-    end
-
-    def days_paid_in_linked_period
-      if @prev_sick_days > 3
-        @prev_sick_days - 3
-      else
-        0
-      end
-    end
-
     def days_paid
       [days_to_pay, days_that_can_be_paid_for_this_period].min
     end
 
     def days_that_can_be_paid_for_this_period
       [max_days_that_can_be_paid - days_paid_in_linked_period, 0].max
+    end
+
+    def formatted_sick_pay_weekly_amounts
+      weekly_payments.map { |week|
+        [week.first.strftime("%e %B %Y"), sprintf("£%.2f", week.second)].join("|")
+      }.join("\n")
+    end
+
+    def ssp_payment
+      BigDecimal.new(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
+    end
+
+    def self.contractual_earnings_awe(pay, days_worked)
+      (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
+    end
+
+    def self.total_earnings_awe(pay, days_worked)
+      if days_worked % 7 == 0
+        (pay / (days_worked / 7)).round(2)
+      else
+        (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
+      end
+    end
+
+    def self.dates_matching_pattern(from:, to:, pattern:)
+      dates = from..to
+      # create an array of all dates that would have been normal workdays
+      matching_dates = []
+      dates.each do |d|
+        if pattern.include?(d.wday.to_s)
+          matching_dates << d
+        end
+      end
+      matching_dates
+    end
+
+  private
+
+    def weekly_rate_on(date)
+      SmartAnswer::Calculators::RatesQuery.new('statutory_sick_pay').rates(date).ssp_weekly_rate
+    end
+
+    def max_days_that_can_be_paid
+      (28 * @pattern_days).round(10)
     end
 
     def days_to_pay
@@ -86,16 +114,6 @@ module SmartAnswer::Calculators
         ssp_week_end = @sick_end_date.end_of_week - 1
       end
       (@sick_start_date..ssp_week_end).select { |day| day.wday == 6 }
-    end
-
-    def formatted_sick_pay_weekly_amounts
-      weekly_payments.map { |week|
-        [week.first.strftime("%e %B %Y"), sprintf("£%.2f", week.second)].join("|")
-      }.join("\n")
-    end
-
-    def ssp_payment
-      BigDecimal.new(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
     end
 
     def weekly_payments
@@ -112,29 +130,20 @@ module SmartAnswer::Calculators
       BigDecimal.new(pay.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
     end
 
-    def self.contractual_earnings_awe(pay, days_worked)
-      (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
-    end
-
-    def self.total_earnings_awe(pay, days_worked)
-      if days_worked % 7 == 0
-        (pay / (days_worked / 7)).round(2)
+    def days_paid_in_linked_period
+      if @prev_sick_days > 3
+        @prev_sick_days - 3
       else
-        (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
+        0
       end
     end
 
-    private
     def init_normal_workdays_missed(days_of_the_week_worked)
-      dates = @sick_start_date..@sick_end_date
-      # create an array of all dates that would have been normal workdays
-      normal_workdays_missed = []
-      dates.each do |d|
-        if days_of_the_week_worked.include?(d.wday.to_s)
-          normal_workdays_missed << d
-        end
-      end
-      normal_workdays_missed
+      self.class.dates_matching_pattern(
+        from: @sick_start_date,
+        to: @sick_end_date,
+        pattern: days_of_the_week_worked
+      )
     end
 
     def init_payable_days
