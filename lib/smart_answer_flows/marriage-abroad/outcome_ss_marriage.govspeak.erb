@@ -25,7 +25,10 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
 
-    <%= render partial: 'documents_needed_21_days_residency.govspeak.erb' %>
+    <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
     <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
   <% elsif ceremony_country == 'germany' %>
     Contact the British Embassy in Berlin to make an appointment.
@@ -38,6 +41,10 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
 
+  <% elsif ceremony_country == 'vietnam' %>
+    You’ll need to download and complete the following documents:
+
+    <%= render partial: "appointment_documents_in_vietnam.govspeak.erb" %>
   <% else %>
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
@@ -51,18 +58,29 @@
   <% end %>
 
   <% unless ceremony_country == 'japan' %>
-    <%= render partial: 'documents_needed_21_days_residency.govspeak.erb' %>
+    <% if ceremony_country == 'vietnam' %>
+      You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.
+    <% elsif ceremony_country == 'cambodia' %>
+      ##What documents you’ll need
+
+      You’ll both need to bring proof that you’ve been resident in Cambodia for the last 7 days.
+    <% else %>
+      <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
+           locals: {
+             country_name_lowercase_prefix: country_name_lowercase_prefix
+           } %>
+    <% end %>
 
     <% if partner_nationality == 'partner_british' %>
       <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
     <% elsif ceremony_country == 'germany' %>
-      You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
+      You’ll both need to bring your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
 
       - a [decree absolute or final order](/copy-decree-absolute-final-order)
       - the [death certificate](/order-copy-birth-death-marriage-certificate/)
 
     <% else %>
-      You’ll both need your original passports. You’ll also need evidence that your partner is free to marry - a document from their government or their passport that says they are unmarried. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
+      You’ll both need to bring your original passports. You’ll also need evidence that your partner is free to marry - a document from their government or their passport that says they are unmarried. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
 
       - a [decree absolute or final order](/copy-decree-absolute-final-order)
       - the [death certificate](/order-copy-birth-death-marriage-certificate/)
@@ -74,7 +92,7 @@
   <% when 'ss_marriage' %>
     ##What you need to do
 
-    Once you’ve made your appointment, the embassy or consulate will give you:
+    At your appointment the embassy or consulate will give you:
 
     - a notice of registration
     - a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry
@@ -82,28 +100,35 @@
   <% when 'ss_marriage_and_partnership' %>
     ##What you need to do
 
-    Once you’ve made your appointment, the embassy or consulate will give you:
+    <% if ceremony_country == 'vietnam' %>
+      You’ll need to be in Vietnam for 7 clear days (not including the date of arrival) before your appointment. At your appointment, the embassy or consulate will give you:
+    <% else %>
+      At your appointment the embassy or consulate will give you:
+    <% end %>
 
     -  a notice of registration
     -  a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry or enter into a civil partnership
 
   <% end %>
 
-  Once you’ve submitted these and paid the registration fee (read the fees table on this page), the embassy or consulate will display your notice publicly for 14 days.
+  Once you’ve completed these and paid the registration fee, the embassy or consulate will display your notice publicly for 14 days.
 
-  <% case marriage_and_partnership_phrases %>
-  <% when 'ss_marriage' %>
-    As long as nobody registers an objection during the 14 days, the registration officer can then register your marriage any time until 3 months after you gave notice.
-  <% when 'ss_marriage_and_partnership' %>
-    <%= render partial: 'no_objection_in_14_days_ss_marriage_and_partnership.govspeak.erb' %>
+  <% if ceremony_country == 'vietnam' %>
+    ^You must stay in <%= country_name_lowercase_prefix %> while your notice is posted.^
   <% end %>
 
   <% case marriage_and_partnership_phrases %>
   <% when 'ss_marriage' %>
-    You’ll need to provide two witnesses and pay a fee to register your marriage. You’ll need to pay an additional fee for your marriage certificate (read the fees table on this page).
+    As long as nobody registers an objection you can get married up to 3 months after you gave notice.
   <% when 'ss_marriage_and_partnership' %>
-    <%= render partial: 'provide_two_witnesses_ss_marriage_and_partnership.govspeak.erb' %>
+    <%= render partial: 'no_objection_ss_marriage_and_partnership.govspeak.erb' %>
   <% end %>
+
+  <%= render partial: 'provide_two_witnesses_ss_marriage_and_partnership.govspeak.erb' %>
+  <%= render partial: 'pay_for_ss_registration_and_certificate.govspeak.erb',
+             locals: {
+               marriage_and_partnership_phrases: marriage_and_partnership_phrases
+             } %>
 
   <% if ceremony_country == 'australia' %>
     You can’t have a same-sex marriage in a British embassy or consulate if you’re already in one of these relationships:
@@ -149,6 +174,12 @@
 
   <% if ceremony_country == 'cambodia' %>
     <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>
+  <% elsif ceremony_country == 'vietnam' %>
+    <%= render partial: 'consular_fees_in_cash_visa_master.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } -%>
   <% else %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {

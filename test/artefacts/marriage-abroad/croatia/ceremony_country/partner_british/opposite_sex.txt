@@ -12,7 +12,7 @@ The local registrar may also need a certificate of custom and law, which confirm
 
 ###Applying for a CNI from the embassy
 
-You’ll need to have been living in Croatia for 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
+You’ll need to have been living in Croatia for at least 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
 
 You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
 
@@ -32,15 +32,13 @@ If you or your partner have been divorced, widowed or previously in a civil part
 
 ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
-You’ll need to fill in forms for your notice of marriage, and an oath or affidavit (written statement of facts) stating that you’re free to marry.
+You’ll need to complete a [‘Notice of marriage’](/government/publications/notice-of-marriage-form--2) form and an [‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form) form.
 
 You can download and fill in (but not sign) the forms in advance.
 
-$D
-[Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
+You must take the forms with you to your appointment.
 
-[Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
-$D
+%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
 ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
 
@@ -57,8 +55,6 @@ The consulate will display your notice of marriage publicly for 7 days.
 They’ll then send all of your documentation to the British embassy or consulate nearest to where you’re getting married in Croatia, who will issue your CNI (as long as nobody has registered an objection).
 
 There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
-
-%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
 You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in Croatia.
 
