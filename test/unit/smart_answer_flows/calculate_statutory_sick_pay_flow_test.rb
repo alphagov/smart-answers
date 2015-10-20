@@ -28,6 +28,22 @@ module SmartAnswer
         end
       end
 
+      context 'and linked sickness ends on or after sickness starts' do
+        should 'raise an exception' do
+          exception = assert_raise(SmartAnswer::InvalidResponse) do
+            setup_states_for_question(:linked_sickness_end_date?,
+              responding_with: '2015-04-01',
+              initial_state: {
+                sick_start_date: Date.parse('2015-02-01'),
+                sick_start_date_for_awe: Date.parse('2015-01-01'),
+                usual_work_days: '1,2,3,4,5'
+              }
+            )
+          end
+          assert_equal 'must_be_before_first_sick_day', exception.message
+        end
+      end
+
       context 'and linked sickness ends before linked sickness starts' do
         should 'raise an exception' do
           exception = assert_raise(SmartAnswer::InvalidResponse) do

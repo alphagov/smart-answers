@@ -133,6 +133,10 @@ module SmartAnswer
           sick_end_date_for_awe > furthest_allowed_date
         end
 
+        validate :must_be_before_first_sick_day do
+          sick_end_date_for_awe < sick_start_date
+        end
+
         next_node_calculation :prior_sick_days do |response|
           prev_sick_days = Calculators::StatutorySickPayCalculator.dates_matching_pattern(
             from: sick_start_date_for_awe,
