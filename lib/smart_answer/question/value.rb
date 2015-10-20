@@ -18,7 +18,7 @@ module SmartAnswer
         elsif Float == @parse
           begin
             Float(raw_input)
-          rescue TypeError
+          rescue TypeError, ArgumentError
             raise InvalidResponse
           end
         elsif :to_f == @parse
