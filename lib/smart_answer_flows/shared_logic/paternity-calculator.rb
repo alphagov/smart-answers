@@ -107,6 +107,10 @@ multiple_choice :padoption_employee_responsible_for_upbringing? do
   calculate :employment_end do
     matched_date
   end
+
+  calculate :qualifying_week_start do
+    calculator.qualifying_week.first
+  end
 end
 
 ## QP4 - Shared flow onwards

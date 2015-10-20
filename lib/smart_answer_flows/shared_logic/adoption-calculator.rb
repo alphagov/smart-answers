@@ -36,6 +36,11 @@ date_question :date_of_adoption_placement? do
   calculate :employment_start do
     calculator.a_employment_start
   end
+
+  calculate :qualifying_week_start do
+    calculator.qualifying_week.first
+  end
+
   next_node :adoption_did_the_employee_work_for_you?
 end
 

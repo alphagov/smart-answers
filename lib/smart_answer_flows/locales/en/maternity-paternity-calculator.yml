@@ -30,7 +30,7 @@ en-GB:
           "yes": "Yes"
       ## QM5
       is_the_employee_on_your_payroll?:
-        title: Is the employee on your payroll?
+        title: Was the employee (or will they be) on your payroll on %{qualifying_week_start}?
         options:
           "no": "No"
           "yes": "Yes"
@@ -143,7 +143,7 @@ en-GB:
           "yes": "Yes"
       ## QP6
       employee_on_payroll_paternity?:
-        title: Is the employee on your payroll?
+        title: Was the employee (or will they be) on your payroll on %{qualifying_week_start}?
         options:
           "no": "No"
           "yes": "Yes"
@@ -285,7 +285,7 @@ en-GB:
           "yes": "Yes"
       ## QA5
       adoption_is_the_employee_on_your_payroll?:
-        title: Is the employee on your payroll?
+        title: Was the employee (or will they be) on your payroll on %{qualifying_week_start}?
         options:
           "no": "No"
           "yes": "Yes"
