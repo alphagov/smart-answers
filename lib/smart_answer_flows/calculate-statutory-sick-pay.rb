@@ -154,6 +154,10 @@ module SmartAnswer
           sick_end_date_for_awe > furthest_allowed_date
         end
 
+        validate :must_be_at_least_1_day_before_first_sick_day do
+          sick_end_date_for_awe < sick_start_date - 1
+        end
+
         validate :start_before_end do |response|
           start_date = sick_start_date_for_awe
           last_day_sick = response
