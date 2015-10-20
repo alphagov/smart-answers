@@ -14,3 +14,7 @@ directory, or a directory referenced using GOVUK_CONTENT_SCHEMAS_PATH.
 Run all tests by executing the following:
 
     bundle exec rake
+
+## Regression tests
+
+See [regression tests documentation](regression-tests.md).
