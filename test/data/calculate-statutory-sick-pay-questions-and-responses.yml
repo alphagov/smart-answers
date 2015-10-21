@@ -25,7 +25,7 @@
 :linked_sickness_end_date?:
 - 2013-02-15
 - 2013-03-15
-- 2013-09-01
+- 2013-03-30
 :paid_at_least_8_weeks?:
 - eight_weeks_more
 - eight_weeks_less
