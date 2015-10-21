@@ -76,7 +76,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 5,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
-          days_of_the_week_worked: ['1', '2', '3', '4', '5']
+          days_of_the_week_worked: %w(1 2 3 4 5)
         )
       end
 
@@ -106,7 +106,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 5,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
-          days_of_the_week_worked: ['1', '3', '5']
+          days_of_the_week_worked: %w(1 3 5)
         )
       end
 
@@ -122,7 +122,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 5,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
-          days_of_the_week_worked: ['0', '1', '2', '3', '4', '5', '6']
+          days_of_the_week_worked: %w(0 1 2 3 4 5 6)
         )
       end
 
@@ -138,7 +138,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 5,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
-          days_of_the_week_worked: ['1', '2', '3', '4', '5', '6']
+          days_of_the_week_worked: %w(1 2 3 4 5 6)
         )
       end
 
@@ -154,7 +154,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 5,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
-          days_of_the_week_worked: ['4', '5']
+          days_of_the_week_worked: %w(4 5)
         )
       end
 
@@ -169,7 +169,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 2,
           sick_start_date: Date.parse("6 April 2012"),
           sick_end_date: Date.parse("6 May 2012"),
-          days_of_the_week_worked: ['1', '2', '3']
+          days_of_the_week_worked: %w(1 2 3)
         )
       end
 
@@ -184,7 +184,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 1,
           sick_start_date: Date.parse("6 April 2012"),
           sick_end_date: Date.parse("17 April 2012"),
-          days_of_the_week_worked: ['1', '2', '3']
+          days_of_the_week_worked: %w(1 2 3)
         )
       end
 
@@ -202,7 +202,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 0,
           sick_start_date: Date.parse("6 April 2012"),
           sick_end_date: Date.parse("12 April 2012"),
-          days_of_the_week_worked: ['1', '2', '3']
+          days_of_the_week_worked: %w(1 2 3)
         )
       end
 
@@ -220,7 +220,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 0,
           sick_start_date: Date.parse("6 April 2012"),
           sick_end_date: Date.parse("6 December 2012"),
-          days_of_the_week_worked: ['1', '2', '3', '4', '5']
+          days_of_the_week_worked: %w(1 2 3 4 5)
         )
       end
 
@@ -237,7 +237,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 0,
           sick_start_date: Date.parse("6 April 2012"),
           sick_end_date: Date.parse("6 December 2012"),
-          days_of_the_week_worked: ['2', '3', '4']
+          days_of_the_week_worked: %w(2 3 4)
         )
       end
 
@@ -255,7 +255,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 3,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("10 April 2012"),
-          days_of_the_week_worked: ['1', '2', '3', '4', '5']
+          days_of_the_week_worked: %w(1 2 3 4 5)
         )
       end
 
@@ -273,7 +273,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 0,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("13 April 2012"),
-          days_of_the_week_worked: ['1', '2', '3', '4', '5']
+          days_of_the_week_worked: %w(1 2 3 4 5)
         )
       end
 
@@ -292,7 +292,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 3,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("3 August 2014"),
-          days_of_the_week_worked: ['1', '2', '3', '4', '5']
+          days_of_the_week_worked: %w(1 2 3 4 5)
         )
       end
 
@@ -309,7 +309,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 3,
           sick_start_date: @start_date,
           sick_end_date: @start_date + 1.month,
-          days_of_the_week_worked: ['1', '2', '3', '4', '5']
+          days_of_the_week_worked: %w(1 2 3 4 5)
         )
       end
 
@@ -325,7 +325,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 7,
           sick_start_date: Date.parse("28 February 2012"),
           sick_end_date: Date.parse("7 April 2012"),
-          days_of_the_week_worked: ['2', '3', '4', '5']
+          days_of_the_week_worked: %w(2 3 4 5)
         )
       end
 
@@ -343,7 +343,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 24,
           sick_start_date: Date.parse("25 July 2012"),
           sick_end_date: Date.parse("4 September 2012"),
-          days_of_the_week_worked: ['1', '3', '5']
+          days_of_the_week_worked: %w(1 3 5)
         )
       end
 
@@ -360,7 +360,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 0,
           sick_start_date: Date.parse("23 November 2012"),
           sick_end_date: Date.parse("31 December 2012"),
-          days_of_the_week_worked: ['0', '6']
+          days_of_the_week_worked: %w(0 6)
         )
       end
 
@@ -379,7 +379,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 99,
           sick_start_date: Date.parse("29 March 2012"),
           sick_end_date: Date.parse("6 May 2012"),
-          days_of_the_week_worked: ['1', '2', '3', '4']
+          days_of_the_week_worked: %w(1 2 3 4)
         )
       end
 
@@ -396,7 +396,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 115,
           sick_start_date: Date.parse("29 March 2012"),
           sick_end_date: Date.parse("6 May 2012"),
-          days_of_the_week_worked: ['1', '2', '3', '4']
+          days_of_the_week_worked: %w(1 2 3 4)
         )
       end
 
@@ -430,7 +430,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 114,
           sick_start_date: Date.parse("29 March 2012"),
           sick_end_date: Date.parse("10 April 2012"),
-          days_of_the_week_worked: ['1', '2', '3', '4']
+          days_of_the_week_worked: %w(1 2 3 4)
         )
       end
 
@@ -447,7 +447,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 0,
           sick_start_date: Date.parse("26 March 2013"),
           sick_end_date: Date.parse("12 April 2013"),
-          days_of_the_week_worked: ['2', '3', '4']
+          days_of_the_week_worked: %w(2 3 4)
         )
       end
 
@@ -464,7 +464,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 0,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: ['1', '2', '3', '4']
+          days_of_the_week_worked: %w(1 2 3 4)
         )
       end
 
@@ -481,7 +481,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 8,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: ['3', '6']
+          days_of_the_week_worked: %w(3 6)
         )
       end
 
@@ -498,7 +498,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 42,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: ['2', '3', '4']
+          days_of_the_week_worked: %w(2 3 4)
         )
       end
 
@@ -515,7 +515,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 10,
           sick_start_date: Date.parse("10 July 2014"),
           sick_end_date: Date.parse("20 July 2014"),
-          days_of_the_week_worked: ['1', '2', '3', '4', '5']
+          days_of_the_week_worked: %w(1 2 3 4 5)
         )
       end
 
@@ -595,7 +595,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 42,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: ['2', '3', '4']
+          days_of_the_week_worked: %w(2 3 4)
         )
         assert_equal [Date.parse("12 Jan 2013"),
                       Date.parse("19 Jan 2013"),
@@ -624,7 +624,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 42,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: ['2', '3', '4']
+          days_of_the_week_worked: %w(2 3 4)
         )
 
         assert_equal [[Date.parse("12 Jan 2013"), 85.85],
@@ -650,7 +650,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 42,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: ['2', '3', '4']
+          days_of_the_week_worked: %w(2 3 4)
         )
 
         assert_equal calculator.ssp_payment,
@@ -664,7 +664,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 42,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: ['2', '3', '4']
+          days_of_the_week_worked: %w(2 3 4)
         )
 
         assert_equal ["12 January 2013|£85.85",
@@ -728,7 +728,7 @@ module SmartAnswer::Calculators
           prev_sick_days: 0,
           sick_start_date: Date.parse("24 October 2013"),
           sick_end_date: Date.parse("27 October 2013"),
-          days_of_the_week_worked: ['0', '1', '3', '4', '5', '6']
+          days_of_the_week_worked: %w(0 1 3 4 5 6)
         )
 
         assert_equal 14.45, calc.ssp_payment

@@ -86,9 +86,7 @@ module SmartAnswer::Calculators
       # create an array of all dates that would have been normal workdays
       matching_dates = []
       dates.each do |d|
-        if pattern.include?(d.wday.to_s)
-          matching_dates << d
-        end
+        matching_dates << d if pattern.include?(d.wday.to_s)
       end
       matching_dates
     end
