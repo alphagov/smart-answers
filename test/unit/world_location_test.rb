@@ -40,7 +40,7 @@ class WorldLocationTest < ActiveSupport::TestCase
       details = {"results" => [loc1, loc2, loc3, loc4]}
       response = GdsApi::ListResponse.new(stub(body: details.to_json, headers: {}), nil)
 
-      $worldwide_api.stubs(:world_locations).returns(response)
+      Services.worldwide_api.stubs(:world_locations).returns(response)
 
       results = WorldLocation.all
       assert_equal %w(location-1 location-4), results.map(&:slug)
