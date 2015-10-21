@@ -23,7 +23,6 @@
 - north-korea # emergency_travel_help_#{current_location}
 - the-occupied-palestinian-territories # which_opt?
 - hong-kong # hong_kong_id_required
-- afghanistan # renewing_replacing_applying?
 :which_opt?:
 - gaza
 - jerusalem-or-westbank
