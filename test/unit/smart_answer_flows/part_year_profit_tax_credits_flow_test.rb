@@ -1,9 +1,12 @@
 require_relative '../../test_helper'
+require_relative 'flow_unit_test_helper'
 
 require 'smart_answer_flows/part-year-profit-tax-credits'
 
 module SmartAnswer
   class PartYearProfitTaxCreditsFlowTest < ActiveSupport::TestCase
+    include FlowUnitTestHelper
+
     setup do
       @calculator = Calculators::PartYearProfitTaxCreditsCalculator.new
       @flow = PartYearProfitTaxCreditsFlow.build
@@ -323,20 +326,6 @@ module SmartAnswer
         assert_equal :result, @new_state.current_node
         assert_node_exists :result
       end
-    end
-
-    def setup_states_for_question(key, responding_with:, initial_state: {})
-      @question = @flow.node(key)
-      @state = SmartAnswer::State.new(@question)
-      initial_state.each do |variable, value|
-        @state.send("#{variable}=", value)
-      end
-      @precalculated_state = @question.evaluate_precalculations(@state)
-      @new_state = @question.transition(@precalculated_state, responding_with)
-    end
-
-    def assert_node_exists(key)
-      assert @flow.node_exists?(key), "Node #{key} does not exist."
     end
   end
 end
