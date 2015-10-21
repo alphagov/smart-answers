@@ -18,6 +18,7 @@ Running the test re-generates a set of HTML/Govspeak files in `test/artefacts` b
 
 * `<smart-answer-flow-name>-questions-and-responses.yml` - defines a set of responses to the flow's questions
 * `<smart-answer-flow-name>-responses-and-expected-results.yml` - a record of the question & outcome nodes visited when the above responses are applied combinatorially
+* `<smart-answer-flow-name>-files.yml` - checksum data (see below)
 
 ## Artefacts
 
@@ -39,11 +40,19 @@ If you've added extra questions, responses or outcomes, then you should change t
 
 If there's a difference in the artefacts, you need to carefully review the changes to the artefacts to make sure they all relate to the changes you have made before committing them.
 
-Once you're happy that the changes to the files correspond to the changes to the test artefacts, you can update the checksums using the following command:
+## Checksums
+
+Checksums for all flow-specific files are stored in a YAML file:
+
+    test/data/<smart-answer-flow-name>-files.yml
+
+Once you're happy that the changes to the artefacts correspond to the changes you intended to make, you can update the checksums using the following command:
 
     $ rails r script/generate-checksums-for-smart-answer.rb <smart-answer-flow-name>
 
-When you've resolved all these issues, you should be able to run the regression tests for the flow as before and all the tests should pass.
+When you've resolved all these issues, you should be able to run the regression tests for the flow as before and all the tests should pass:
+
+    $ RUN_REGRESSION_TESTS=<smart-answer-flow-name> ruby test/regression/smart_answers_regression_test.rb
 
 ## Automatic trigger
 
