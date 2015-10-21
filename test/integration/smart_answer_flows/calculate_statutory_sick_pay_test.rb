@@ -337,9 +337,9 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       assert_current_node :has_linked_sickness?
       add_response 'yes'
       assert_current_node :linked_sickness_start_date?
-      add_response '2014-05-01'
+      add_response '2014-03-01'
       assert_current_node :linked_sickness_end_date?
-      add_response '2014-11-17'
+      add_response '2014-09-17'
       assert_current_node :paid_at_least_8_weeks?
       add_response 'eight_weeks_more'
       assert_current_node :how_often_pay_employee_pay_patterns?
@@ -365,8 +365,8 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response "2013-01-08"
       add_response "2013-05-03"
       add_response :yes
-      add_response "2013-01-07"
-      add_response "2013-01-15"
+      add_response "2012-12-06"
+      add_response "2012-12-14"
       add_response :eight_weeks_more
       add_response :monthly
       add_response "2012-12-28"
@@ -402,8 +402,8 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response "2013-01-08"
       add_response "2013-05-03"
       add_response :yes
-      add_response "2013-01-07"
-      add_response "2013-02-03"
+      add_response "2012-12-07"
+      add_response "2013-01-03"
       add_response :eight_weeks_more
       add_response :monthly
       add_response "2012-12-28"
