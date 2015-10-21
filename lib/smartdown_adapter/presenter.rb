@@ -36,7 +36,6 @@ module SmartdownAdapter
     end
 
     def page_title
-      current_node.title
     end
 
     def current_node
