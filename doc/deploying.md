@@ -46,15 +46,17 @@ Leave the "Release title" blank.
 Set the description to:
 
 ```
-## Changes to deploy
+## All included PRs
 
-https://github.com/alphagov/smart-answers/compare/deployed-to-production...$RELEASE-TAG
+TODO: List each of the Pull Requests included in the release, for example:
 
-## Main changes
+* PR https://github.com/alphagov/smart-answers/pull/nnn - <title-of-pull-request>
+
+## PRs to check post-deployment
 
 TODO: List each of the Pull Requests that contain user facing changes here, for example:
 
-* https://github.com/alphagov/smart-answers/pull/nnn - <title-of-pull-request>
+* PR https://github.com/alphagov/smart-answers/pull/nnn - <title-of-pull-request>
 ```
 
 ### Create the deployment calendar event
