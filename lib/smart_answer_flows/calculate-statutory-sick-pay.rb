@@ -11,7 +11,7 @@ module SmartAnswer
       checkbox_question :is_your_employee_getting? do
         option :statutory_maternity_pay
         option :maternity_allowance
-        option :ordinary_statutory_paternity_pay
+        option :statutory_paternity_pay
         option :statutory_adoption_pay
         option :additional_statutory_paternity_pay
 
@@ -20,10 +20,10 @@ module SmartAnswer
           PhraseList.new(:ssp_link)
         end
         calculate :paternity_maternity_warning do |response|
-          (response.split(",") & %w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
+          (response.split(",") & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
         end
         next_node_if(:employee_tell_within_limit?,
-          response_is_one_of(%w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}))
+          response_is_one_of(%w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}))
         next_node(:already_getting_maternity)
       end
 

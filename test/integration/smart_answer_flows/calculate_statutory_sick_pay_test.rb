@@ -26,7 +26,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "Not getting maternity allowance" do
     setup do
-      add_response "ordinary_statutory_paternity_pay,statutory_adoption_pay"
+      add_response "statutory_paternity_pay,statutory_adoption_pay"
     end
 
     should "set adoption warning state variable" do
@@ -362,7 +362,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "tabular output for final SSP calculation" do
     should "have the adjusted rates in place for the week crossing through 6th April" do
-      add_response :ordinary_statutory_paternity_pay
+      add_response :statutory_paternity_pay
       add_response :yes
       add_response :no
       add_response "3,6"
@@ -399,7 +399,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "have consistent rates for all weekly rates that are produced" do
-      add_response :ordinary_statutory_paternity_pay
+      add_response :statutory_paternity_pay
       add_response :yes
       add_response :no
       add_response "2,3,4"
@@ -436,7 +436,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "show formatted weekly payment amounts with adjusted 3 days start amount for ordinary SPP" do
-      add_response :ordinary_statutory_paternity_pay
+      add_response :statutory_paternity_pay
       add_response :yes
       add_response :no
       add_response "1,2,3,4"
