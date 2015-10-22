@@ -11,7 +11,6 @@ module SmartdownAdapter
     end
 
     def title
-      @smartdown_previous_question_page.title
     end
   end
 end
