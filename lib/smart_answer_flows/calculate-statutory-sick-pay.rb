@@ -254,7 +254,9 @@ module SmartAnswer
           payday < start
         end
 
-        next_node(:last_payday_before_offset?)
+        next_node(permitted: [:last_payday_before_offset?]) do
+          :last_payday_before_offset?
+        end
       end
 
       # Question 8.1
