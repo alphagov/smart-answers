@@ -21,6 +21,10 @@ module SmartAnswer
           (response.split(",") & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
         end
 
+        next_node_calculation :calculator do
+          Calculators::StatutorySickPayCalculator.new
+        end
+
         permitted_next_nodes = [:employee_tell_within_limit?, :already_getting_maternity]
         next_node(permitted: permitted_next_nodes) do |response|
           if (response.split(",") & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).any?
@@ -78,7 +82,8 @@ module SmartAnswer
           response
         end
 
-        next_node(permitted: [:last_sick_day?]) do
+        next_node(permitted: [:last_sick_day?]) do |response|
+          calculator.sick_start_date = response
           :last_sick_day?
         end
       end
@@ -106,6 +111,7 @@ module SmartAnswer
 
         permitted_next_nodes = [:has_linked_sickness?, :must_be_sick_for_4_days]
         next_node(permitted: permitted_next_nodes) do |response|
+          calculator.sick_end_date = response
           if days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
             :has_linked_sickness?
           else
@@ -347,15 +353,6 @@ module SmartAnswer
           end
         end
 
-        next_node_calculation(:calculator) do |response|
-          Calculators::StatutorySickPayCalculator.new(
-            prev_sick_days: prior_sick_days,
-            sick_start_date: sick_start_date,
-            sick_end_date: sick_end_date,
-            days_of_the_week_worked: response.split(",")
-          )
-        end
-
         permitted_next_nodes = [
           :not_earned_enough,
           :maximum_entitlement_reached,
@@ -364,6 +361,8 @@ module SmartAnswer
           :not_entitled_3_days_not_paid
         ]
         next_node(permitted: permitted_next_nodes) do |response|
+          calculator.prev_sick_days = prior_sick_days
+          calculator.days_of_the_week_worked = response.split(",")
           days_worked = response.split(',').size
           if employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
             :not_earned_enough
