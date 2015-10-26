@@ -125,7 +125,7 @@ module SmartAnswer
         begin
           state = node(state.current_node).transition(state, response)
           node(state.current_node).evaluate_precalculations(state)
-        rescue ArgumentError, InvalidResponse => e
+        rescue InvalidResponse => e
           state.dup.tap do |new_state|
             new_state.error = e.message
             new_state.freeze
