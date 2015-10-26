@@ -41,6 +41,9 @@ flow.question_pages.each do |question_page|
         next_node = question_pages_vs_questions[rule.outcome] || rule.outcome
         hash[rule.predicate.expected_value] = next_node.to_sym; hash
       end
+    elsif next_node.rules.count == 1 && next_node.rules.all? { |r| (Smartdown::Model::Predicate::Otherwise === r.predicate) }
+      outcome = next_node.rules.first.outcome
+      next_node_rules[:next_node] = question_pages_vs_questions[outcome] || outcome
     else
       if flow_name == 'pay-leave-for-parents'
         next_node_rules[:comments] = ["Manually copy the rules from Smartdown"]

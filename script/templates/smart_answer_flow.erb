@@ -11,20 +11,24 @@ module SmartAnswer
         option <%= option.inspect %>
         <% end %>
 
-        next_node do |response|
         <% if case_statement = question[:next_node_rules][:case_statement] %>
+        next_node do |response|
           case response
           <% case_statement.each do |value, outcome| %>
           when <%= value.inspect %>
             <%= outcome.to_sym.inspect %>
           <% end %>
           end
+        end
+        <% elsif next_node = question[:next_node_rules][:next_node] %>
+        next_node :<%= next_node %>
         <% elsif comments = question[:next_node_rules][:comments] %>
+        next_node do |response|
           <% comments.each do |comment| %>
           # TODO: <%= comment %>
           <% end %>
-        <% end %>
         end
+        <% end %>
       end
 
       <% end %>
