@@ -154,7 +154,9 @@ module SmartAnswer
           sick_start_date > sick_start_date_for_awe
         end
 
-        next_node(:linked_sickness_end_date?)
+        next_node(permitted: [:linked_sickness_end_date?]) do
+          :linked_sickness_end_date?
+        end
       end
 
       # Question 6.2
