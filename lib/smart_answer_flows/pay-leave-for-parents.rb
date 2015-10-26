@@ -810,7 +810,25 @@ module SmartAnswer
           calculator.earnings_employment_end_date(due_date)
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :outcome_mat_allowance_mat_leave,
+          :outcome_mat_allowance_mat_leave_mat_shared_leave,
+          :outcome_mat_allowance_mat_leave_pat_leave_both_shared_leave,
+          :outcome_mat_allowance_mat_leave_pat_leave_pat_shared_leave,
+          :outcome_mat_leave,
+          :outcome_mat_leave_mat_pay,
+          :outcome_mat_leave_mat_pay_mat_shared_leave_mat_shared_pay,
+          :outcome_mat_leave_mat_pay_pat_leave_both_shared_leave_mat_shared_pay,
+          :outcome_mat_leave_mat_pay_pat_leave_pat_shared_leave,
+          :outcome_mat_leave_mat_shared_leave,
+          :outcome_mat_leave_pat_leave,
+          :outcome_mat_leave_pat_leave_mat_shared_leave,
+          :outcome_mat_pay,
+          :outcome_mat_pay_mat_shared_pay,
+          :outcome_mat_pay_pat_leave,
+          :outcome_mat_pay_pat_leave_pat_shared_leave_mat_shared_pay
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if employment_status_of_mother == 'employee'
             if calculator.continuity(mother_started_working_before_continuity_start_date, mother_still_working_on_continuity_end_date) && calculator.lower_earnings(mother_earned_more_than_lower_earnings_limit)
               if employment_status_of_partner == 'employee'
