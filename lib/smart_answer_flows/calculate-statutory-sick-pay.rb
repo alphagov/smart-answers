@@ -92,17 +92,14 @@ module SmartAnswer
           response
         end
 
-        next_node_calculation(:days_sick) do |response|
-          period = DateRange.new(begins_on: calculator.sick_start_date, ends_on: response)
-          period.number_of_days
+        validate do |response|
+          calculator.valid_last_sick_day?(response)
         end
-
-        validate { days_sick >= 1 }
 
         permitted_next_nodes = [:has_linked_sickness?, :must_be_sick_for_4_days]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.sick_end_date = response
-          if days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+          if calculator.days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
             :has_linked_sickness?
           else
             :must_be_sick_for_4_days

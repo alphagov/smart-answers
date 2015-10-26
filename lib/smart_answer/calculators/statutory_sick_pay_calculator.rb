@@ -33,6 +33,16 @@ module SmartAnswer::Calculators
       (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).none?
     end
 
+    def days_sick
+      period = SmartAnswer::DateRange.new(begins_on: sick_start_date, ends_on: sick_end_date)
+      period.number_of_days
+    end
+
+    def valid_last_sick_day?(value)
+      period = SmartAnswer::DateRange.new(begins_on: sick_start_date, ends_on: value)
+      period.number_of_days >= 1
+    end
+
     # define as static so we don't have to instantiate the calculator too early in the flow
     def self.lower_earning_limit_on(date)
       SmartAnswer::Calculators::RatesQuery.new('statutory_sick_pay').rates(date).lower_earning_limit_rate
