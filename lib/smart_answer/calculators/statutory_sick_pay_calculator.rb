@@ -3,7 +3,7 @@ module SmartAnswer::Calculators
     include ActiveModel::Model
 
     attr_accessor :prev_sick_days, :sick_start_date, :sick_end_date, :days_of_the_week_worked
-    attr_accessor :other_pay_types_received
+    attr_accessor :other_pay_types_received, :enough_notice_of_absence
 
     def waiting_days
       @prev_sick_days >= 3 ? 0 : 3 - @prev_sick_days

@@ -37,11 +37,12 @@ module SmartAnswer
         option :yes
         option :no
 
-        calculate :enough_notice_of_absence do |response|
-          response == 'yes'
-        end
-
-        next_node(permitted: [:employee_work_different_days?]) do
+        next_node(permitted: [:employee_work_different_days?]) do |response|
+          if response == 'yes'
+            calculator.enough_notice_of_absence = true
+          else
+            calculator.enough_notice_of_absence = false
+          end
           :employee_work_different_days?
         end
       end

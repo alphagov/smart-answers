@@ -3,7 +3,7 @@
 
   Your employee is entitled to SSP for <%= days_paid %> days out of <%= normal_workdays_out %> working days taken off sick between <%= format_date(calculator.sick_start_date) %> and <%= format_date(calculator.sick_end_date) %>
 
-  <% unless enough_notice_of_absence %>
+  <% unless calculator.enough_notice_of_absence %>
     You don’t have to pay until your employee tells you that they’re ill. You’ll have to pay any withheld amounts by the end of your employee's entitlement to sick pay if your employee is sick for more than 28 weeks.
   <% end %>
 
@@ -20,7 +20,7 @@
 
   <% end %>
 
-  SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of <%= pattern_days_total %> days. After that you must give them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of SSP ending. <%= render partial: 'esa.govspeak.erb', locals: {enough_notice_of_absence: enough_notice_of_absence} -%>
+  SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of <%= pattern_days_total %> days. After that you must give them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of SSP ending. <%= render partial: 'esa.govspeak.erb', locals: {enough_notice_of_absence: calculator.enough_notice_of_absence} -%>
 
 
   There are also [records you must keep](/sick-leave-pay-employees/entitlement) and rules on [proof of illness](/sick-leave-pay-employees/notice-and-fit-notes) you can ask for.
