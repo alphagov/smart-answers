@@ -32,7 +32,12 @@ module SmartAnswer
 
         save_input_as :employment_status_of_mother
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :mother_started_working_before_continuity_start_date,
+          :mother_worked_at_least_26_weeks,
+          :employment_status_of_partner
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if two_carers == 'no'
             case response
             when 'employee', 'worker'
