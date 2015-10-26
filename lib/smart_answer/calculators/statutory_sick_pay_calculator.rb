@@ -1,16 +1,27 @@
 module SmartAnswer::Calculators
   class StatutorySickPayCalculator
-    attr_reader :waiting_days, :normal_workdays, :pattern_days
+    include ActiveModel::Model
 
-    def initialize(prev_sick_days:, sick_start_date:, sick_end_date:, days_of_the_week_worked:)
-      @prev_sick_days = prev_sick_days
-      @waiting_days = (@prev_sick_days >= 3 ? 0 : 3 - @prev_sick_days)
-      @sick_start_date = sick_start_date
-      @sick_end_date = sick_end_date
-      @pattern_days = days_of_the_week_worked.length
-      @normal_workdays_missed = init_normal_workdays_missed(days_of_the_week_worked)
-      @normal_workdays = @normal_workdays_missed.length
-      @payable_days = init_payable_days
+    attr_writer :prev_sick_days, :sick_start_date, :sick_end_date, :days_of_the_week_worked
+
+    def waiting_days
+      @prev_sick_days >= 3 ? 0 : 3 - @prev_sick_days
+    end
+
+    def pattern_days
+      @days_of_the_week_worked.length
+    end
+
+    def normal_workdays_missed
+      @normal_workdays_missed ||= init_normal_workdays_missed(@days_of_the_week_worked)
+    end
+
+    def normal_workdays
+      normal_workdays_missed.length
+    end
+
+    def payable_days
+      @payable_days ||= init_payable_days
     end
 
     # define as static so we don't have to instantiate the calculator too early in the flow
@@ -98,11 +109,11 @@ module SmartAnswer::Calculators
     end
 
     def max_days_that_can_be_paid
-      (28 * @pattern_days).round(10)
+      (28 * pattern_days).round(10)
     end
 
     def days_to_pay
-      @payable_days.length
+      payable_days.length
     end
 
     def sick_pay_weekly_dates
@@ -123,7 +134,7 @@ module SmartAnswer::Calculators
     def weekly_payment(week_start_date)
       pay = 0.0
       ((week_start_date - 6)..week_start_date).each do |date|
-        pay += daily_rate_from_weekly(weekly_rate_on(date), @pattern_days) if @payable_days.include?(date)
+        pay += daily_rate_from_weekly(weekly_rate_on(date), pattern_days) if payable_days.include?(date)
       end
       BigDecimal.new(pay.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
     end
@@ -146,9 +157,9 @@ module SmartAnswer::Calculators
 
     def init_payable_days
       # copy not to modify the instance variable we need to keep
-      payable_days_temp = @normal_workdays_missed.dup
+      payable_days_temp = normal_workdays_missed.dup
       ## 1. remove up to 3 first dates from the array if there are waiting days in this period
-      payable_days_temp.shift(@waiting_days)
+      payable_days_temp.shift(waiting_days)
       ## 2. return only the first days_that_can_be_paid_for_this_period
       payable_days_temp.shift(days_that_can_be_paid_for_this_period)
     end
