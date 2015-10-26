@@ -1,7 +1,0 @@
-{{snippet: mat-allowance}}
-
-{{snippet: pat-pay}}
-
-{{snippet: pat-shared-pay}}
-
-{{snippet: extra-help}}
