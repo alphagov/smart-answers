@@ -21,9 +21,11 @@ module SmartAnswer
           # this avoids lots of content duplication in the YML
           PhraseList.new(:ssp_link)
         end
+
         calculate :paternity_maternity_warning do |response|
           (response.split(",") & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
         end
+
         next_node_if(:employee_tell_within_limit?,
           response_is_one_of(%w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}))
         next_node(:already_getting_maternity)
@@ -75,7 +77,6 @@ module SmartAnswer
         end
 
         next_node :last_sick_day?
-
       end
 
       # Question 5
@@ -98,9 +99,11 @@ module SmartAnswer
         end
 
         validate { days_sick >= 1 }
+
         next_node_if(:has_linked_sickness?) do
           days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
         end
+
         next_node(:must_be_sick_for_4_days)
       end
 
