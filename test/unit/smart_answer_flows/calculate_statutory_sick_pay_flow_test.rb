@@ -18,9 +18,11 @@ module SmartAnswer
             setup_states_for_question(:linked_sickness_end_date?,
               responding_with: '2015-01-07',
               initial_state: {
-                calculator: stub('calculator', sick_start_date: Date.parse('2015-04-01')),
+                calculator: stub('calculator',
+                  sick_start_date: Date.parse('2015-04-01'),
+                  days_of_the_week_worked: %w(1 2 3 4 5)
+                ),
                 sick_start_date_for_awe: Date.parse('2015-01-01'),
-                usual_work_days: '1,2,3,4,5'
               })
           end
           assert_equal 'must_be_within_eight_weeks', exception.message
@@ -33,9 +35,11 @@ module SmartAnswer
             setup_states_for_question(:linked_sickness_end_date?,
               responding_with: '2015-01-31',
               initial_state: {
-                calculator: stub('calculator', sick_start_date: Date.parse('2015-02-01')),
+                calculator: stub('calculator',
+                  sick_start_date: Date.parse('2015-02-01'),
+                  days_of_the_week_worked: %w(1 2 3 4 5)
+                ),
                 sick_start_date_for_awe: Date.parse('2015-01-01'),
-                usual_work_days: '1,2,3,4,5'
               })
           end
           assert_equal 'must_be_at_least_1_day_before_first_sick_day', exception.message
@@ -48,9 +52,11 @@ module SmartAnswer
             setup_states_for_question(:linked_sickness_end_date?,
               responding_with: '2015-01-03',
               initial_state: {
-                calculator: stub('calculator', sick_start_date: Date.parse('2015-02-01')),
-                sick_start_date_for_awe: Date.parse('2015-01-01'),
-                usual_work_days: '1,2,3,4,5'
+                calculator: stub('calculator',
+                  sick_start_date: Date.parse('2015-02-01'),
+                  days_of_the_week_worked: %w(1 2 3 4 5)
+                ),
+                sick_start_date_for_awe: Date.parse('2015-01-01')
               })
           end
           assert_equal 'must_be_valid_period_of_incapacity_for_work', exception.message
