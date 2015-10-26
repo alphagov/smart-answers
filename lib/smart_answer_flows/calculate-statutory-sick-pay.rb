@@ -17,11 +17,6 @@ module SmartAnswer
         option :statutory_adoption_pay
         option :additional_statutory_paternity_pay
 
-        calculate :employee_not_entitled_pdf do
-          # this avoids lots of content duplication in the YML
-          PhraseList.new(:ssp_link)
-        end
-
         calculate :paternity_maternity_warning do |response|
           (response.split(",") & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
         end

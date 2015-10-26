@@ -1,14 +1,6 @@
 en-GB:
   flow:
     calculate-statutory-sick-pay:
-      phrases:
-        ssp_link: |
-
-
-          $D
-            [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf)
-          $D
-
       # Q1
       is_your_employee_getting?:
         title: Is your employee getting any of the following?
