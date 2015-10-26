@@ -72,10 +72,6 @@ module SmartAnswer
         to { Date.today.end_of_year }
         validate_in_range
 
-        calculate :sick_start_date_for_awe do |response|
-          response
-        end
-
         next_node(permitted: [:last_sick_day?]) do |response|
           calculator.sick_start_date = response
           :last_sick_day?
@@ -87,10 +83,6 @@ module SmartAnswer
         from { Date.new(2011, 1, 1) }
         to { Date.today.end_of_year }
         validate_in_range
-
-        calculate :sick_end_date_for_awe do |response|
-          response
-        end
 
         validate do |response|
           calculator.valid_last_sick_day?(response)
@@ -134,15 +126,12 @@ module SmartAnswer
         to { Date.today.end_of_year }
         validate_in_range
 
-        next_node_calculation :sick_start_date_for_awe do |response|
-          response
+        validate :linked_sickness_must_be_before do |response|
+          calculator.sick_start_date > response
         end
 
-        validate :linked_sickness_must_be_before do
-          calculator.sick_start_date > sick_start_date_for_awe
-        end
-
-        next_node(permitted: [:linked_sickness_end_date?]) do
+        next_node(permitted: [:linked_sickness_end_date?]) do |response|
+          calculator.linked_sickness_start_date = response
           :linked_sickness_end_date?
         end
       end
@@ -153,25 +142,23 @@ module SmartAnswer
         to { Date.today.end_of_year }
         validate_in_range
 
-        next_node_calculation :sick_end_date_for_awe do |response|
-          response
-        end
-
-        validate :must_be_within_eight_weeks do
+        validate :must_be_within_eight_weeks do |response|
           furthest_allowed_date = calculator.sick_start_date - 8.weeks
-          sick_end_date_for_awe > furthest_allowed_date
+          response > furthest_allowed_date
         end
 
-        validate :must_be_at_least_1_day_before_first_sick_day do
-          sick_end_date_for_awe < calculator.sick_start_date - 1
+        validate :must_be_at_least_1_day_before_first_sick_day do |response|
+          response < calculator.sick_start_date - 1
         end
 
         validate :must_be_valid_period_of_incapacity_for_work do |response|
-          period = DateRange.new(begins_on: sick_start_date_for_awe, ends_on: response)
+          period = DateRange.new(begins_on: calculator.linked_sickness_start_date, ends_on: response)
           period.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
         end
 
-        next_node(permitted: [:paid_at_least_8_weeks?]) do
+        next_node(permitted: [:paid_at_least_8_weeks?]) do |response|
+          calculator.prev_sick_days = prior_sick_days
+          calculator.linked_sickness_end_date = response
           :paid_at_least_8_weeks?
         end
       end
@@ -183,6 +170,10 @@ module SmartAnswer
         option :before_payday
 
         save_input_as :eight_weeks_earnings
+
+        precalculate :sick_start_date_for_awe do
+          calculator.sick_start_date_for_awe
+        end
 
         permitted_next_nodes = [
           :how_often_pay_employee_pay_patterns?,
@@ -226,6 +217,10 @@ module SmartAnswer
         from { Date.new(2010, 1, 1) }
         to { Date.today.end_of_year }
         validate_in_range
+
+        precalculate :sick_start_date_for_awe do
+          calculator.sick_start_date_for_awe
+        end
 
         calculate :relevant_period_to do |response|
           response
@@ -287,6 +282,10 @@ module SmartAnswer
       money_question :pay_amount_if_not_sick? do
         save_input_as :relevant_contractual_pay
 
+        precalculate :sick_start_date_for_awe do
+          calculator.sick_start_date_for_awe
+        end
+
         next_node(permitted: [:contractual_days_covered_by_earnings?]) do
           :contractual_days_covered_by_earnings?
         end
@@ -330,8 +329,8 @@ module SmartAnswer
         next_node_calculation(:prior_sick_days) do |response|
           if has_linked_sickness == 'yes'
             prev_sick_days = Calculators::StatutorySickPayCalculator.dates_matching_pattern(
-              from: sick_start_date_for_awe,
-              to: sick_end_date_for_awe,
+              from: calculator.linked_sickness_start_date,
+              to: calculator.linked_sickness_end_date,
               pattern: response.split(",")
             )
             prev_sick_days.length

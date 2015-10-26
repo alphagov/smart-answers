@@ -5,6 +5,7 @@ module SmartAnswer
 
       attr_accessor :prev_sick_days, :sick_start_date, :sick_end_date, :days_of_the_week_worked
       attr_accessor :other_pay_types_received, :enough_notice_of_absence
+      attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
 
       def waiting_days
         @prev_sick_days >= 3 ? 0 : 3 - @prev_sick_days
@@ -42,6 +43,14 @@ module SmartAnswer
       def valid_last_sick_day?(value)
         period = DateRange.new(begins_on: sick_start_date, ends_on: value)
         period.number_of_days >= 1
+      end
+
+      def sick_start_date_for_awe
+        linked_sickness_start_date || sick_start_date
+      end
+
+      def sick_end_date_for_awe
+        linked_sickness_end_date || sick_end_date
       end
 
       # define as static so we don't have to instantiate the calculator too early in the flow
