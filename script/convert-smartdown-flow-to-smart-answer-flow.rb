@@ -42,9 +42,13 @@ flow.question_pages.each do |question_page|
         hash[rule.predicate.expected_value] = next_node.to_sym; hash
       end
     else
-      next_node_rules[:comments] = next_node.rules.inject([]) do |array, rule|
-        next_node = question_pages_vs_questions[rule.outcome] || rule.outcome
-        array << "#{rule.predicate.humanize} -> #{next_node}"; array
+      if flow_name == 'pay-leave-for-parents'
+        next_node_rules[:comments] = ["Manually copy the rules from Smartdown"]
+      else
+        next_node_rules[:comments] = next_node.rules.inject([]) do |array, rule|
+          next_node = question_pages_vs_questions[rule.outcome] || rule.outcome
+          array << "#{rule.predicate.humanize} -> #{next_node}"; array
+        end
       end
     end
   end
