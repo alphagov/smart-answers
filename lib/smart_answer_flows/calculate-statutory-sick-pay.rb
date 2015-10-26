@@ -26,9 +26,14 @@ module SmartAnswer
           (response.split(",") & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
         end
 
-        next_node_if(:employee_tell_within_limit?,
-          response_is_one_of(%w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}))
-        next_node(:already_getting_maternity)
+        permitted_next_nodes = [:employee_tell_within_limit?, :already_getting_maternity]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if (response.split(",") & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).any?
+            :employee_tell_within_limit?
+          else
+            :already_getting_maternity
+          end
+        end
       end
 
       # Question 2
