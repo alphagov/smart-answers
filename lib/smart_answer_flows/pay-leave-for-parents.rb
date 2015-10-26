@@ -191,7 +191,16 @@ module SmartAnswer
           calculator.earnings_employment_end_date(due_date)
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :salary_1_66_weeks,
+          :outcome_mat_leave,
+          :outcome_single_birth_nothing,
+          :partner_started_working_before_continuity_start_date,
+          :partner_worked_at_least_26_weeks,
+          :outcome_mat_allowance_14_weeks,
+          :outcome_birth_nothing
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if two_carers == 'no'
             if calculator.earnings_employment(response, mother_worked_at_least_26_weeks)
               :salary_1_66_weeks
