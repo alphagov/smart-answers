@@ -109,11 +109,14 @@ module SmartAnswer
 
         validate { days_sick >= 1 }
 
-        next_node_if(:has_linked_sickness?) do
-          days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+        permitted_next_nodes = [:has_linked_sickness?, :must_be_sick_for_4_days]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+            :has_linked_sickness?
+          else
+            :must_be_sick_for_4_days
+          end
         end
-
-        next_node(:must_be_sick_for_4_days)
       end
 
       # Question 6
