@@ -87,10 +87,6 @@ module SmartAnswer
         to { Date.today.end_of_year }
         validate_in_range
 
-        calculate :sick_end_date do |response|
-          response
-        end
-
         calculate :sick_end_date_for_awe do |response|
           response
         end
