@@ -106,7 +106,7 @@ module SmartAnswer::Calculators
       start_date = date
       end_date = start_date + 39.weeks
       (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(start_date) ||
-      (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(end_date)
+        (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(end_date)
     end
   end
 end
