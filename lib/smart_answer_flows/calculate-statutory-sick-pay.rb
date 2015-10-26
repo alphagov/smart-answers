@@ -127,7 +127,7 @@ module SmartAnswer
         validate_in_range
 
         validate :linked_sickness_must_be_before do |response|
-          calculator.sick_start_date > response
+          calculator.valid_linked_sickness_start_date?(response)
         end
 
         next_node(permitted: [:linked_sickness_end_date?]) do |response|

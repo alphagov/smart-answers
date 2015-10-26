@@ -45,6 +45,10 @@ module SmartAnswer
         period.number_of_days >= 1
       end
 
+      def valid_linked_sickness_start_date?(value)
+        sick_start_date > value
+      end
+
       def sick_start_date_for_awe
         linked_sickness_start_date || sick_start_date
       end
