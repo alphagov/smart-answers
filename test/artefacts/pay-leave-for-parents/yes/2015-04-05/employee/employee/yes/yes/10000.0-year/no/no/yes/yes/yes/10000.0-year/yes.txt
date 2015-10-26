@@ -4,7 +4,7 @@
 
 The mother can take up to 52 weeks of [maternity leave](/maternity-pay-leave/leave). The leave will end if the mother goes back to work.
 
- | Dates
+| Dates
 - | -
 Earliest leave can start | 18 January 2015
 Tell the mother’s employer | 27 December 2014
@@ -13,7 +13,7 @@ Tell the mother’s employer | 27 December 2014
 
 The mother’s partner can take up to 2 weeks of [paternity leave](/paternity-pay-leave/leave).
 
- | Dates
+| Dates
 - | -
 Paternity leave must be used | within 56 days of the birth.
 Tell the partner’s employer by | 27 December 2014
@@ -24,16 +24,11 @@ The mother’s partner can get up to 2 weeks of [paternity pay](/paternity-pay-l
 
 ###Dates and amounts
 
-
 Weekly rate (between 6 April 2014 and 5 April 2015) | £138.18 per week or 90% of their average weekly earnings (before tax), whichever is lower
-
 
 Weekly rate (between 6 April 2015 and 5 April 2016) | £139.58 per week or 90% of their average weekly earnings (before tax), whichever is lower
 
-
-
 Tell the partner’s employer | 27 December 2014
-
 
 ##Shared parental leave (mother only)
 
@@ -43,7 +38,7 @@ She can take SPL in up to 3 blocks, going back to work between the blocks.
 
 ^The mother’s partner can’t take SPL.^
 
- | Dates
+| Dates
 - | -
 Shared parental leave must be used | Within a year of the birth
 Tell the mother’s employer | 8 weeks before the first block of SPL
