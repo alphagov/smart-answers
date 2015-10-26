@@ -299,7 +299,9 @@ module SmartAnswer
       money_question :pay_amount_if_not_sick? do
         save_input_as :relevant_contractual_pay
 
-        next_node :contractual_days_covered_by_earnings?
+        next_node(permitted: [:contractual_days_covered_by_earnings?]) do
+          :contractual_days_covered_by_earnings?
+        end
       end
 
       # Question 9.1
