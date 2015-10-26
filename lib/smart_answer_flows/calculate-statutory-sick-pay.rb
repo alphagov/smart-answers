@@ -183,7 +183,9 @@ module SmartAnswer
           period.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
         end
 
-        next_node(:paid_at_least_8_weeks?)
+        next_node(permitted: [:paid_at_least_8_weeks?]) do
+          :paid_at_least_8_weeks?
+        end
       end
 
       # Question 7.1
