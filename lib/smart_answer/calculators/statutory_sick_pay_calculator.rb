@@ -3,6 +3,7 @@ module SmartAnswer::Calculators
     include ActiveModel::Model
 
     attr_accessor :prev_sick_days, :sick_start_date, :sick_end_date, :days_of_the_week_worked
+    attr_accessor :other_pay_types_received
 
     def waiting_days
       @prev_sick_days >= 3 ? 0 : 3 - @prev_sick_days
@@ -22,6 +23,14 @@ module SmartAnswer::Calculators
 
     def payable_days
       @payable_days ||= init_payable_days
+    end
+
+    def paternity_maternity_warning?
+      (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
+    end
+
+    def not_getting_maternity_pay?
+      (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).any?
     end
 
     # define as static so we don't have to instantiate the calculator too early in the flow

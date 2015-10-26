@@ -17,17 +17,14 @@ module SmartAnswer
         option :statutory_adoption_pay
         option :additional_statutory_paternity_pay
 
-        calculate :paternity_maternity_warning do |response|
-          (response.split(",") & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
-        end
-
         next_node_calculation :calculator do
           Calculators::StatutorySickPayCalculator.new
         end
 
         permitted_next_nodes = [:employee_tell_within_limit?, :already_getting_maternity]
         next_node(permitted: permitted_next_nodes) do |response|
-          if (response.split(",") & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).any?
+          calculator.other_pay_types_received = response.split(",")
+          if calculator.not_getting_maternity_pay?
             :employee_tell_within_limit?
           else
             :already_getting_maternity

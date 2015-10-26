@@ -30,7 +30,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "set adoption warning state variable" do
-      assert_state_variable :paternity_maternity_warning, true
+      assert current_state.calculator.paternity_maternity_warning?
     end
     should "take you to Q2" do
       assert_current_node :employee_tell_within_limit? # Q2
@@ -43,7 +43,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "set adoption warning state variable" do
-      assert_state_variable :paternity_maternity_warning, true
+      assert current_state.calculator.paternity_maternity_warning?
     end
 
     should "take you to Q2" do
