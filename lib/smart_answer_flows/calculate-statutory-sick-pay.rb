@@ -318,7 +318,9 @@ module SmartAnswer
       money_question :total_earnings_before_sick_period? do
         save_input_as :earnings
 
-        next_node :days_covered_by_earnings?
+        next_node(permitted: [:days_covered_by_earnings?]) do
+          :days_covered_by_earnings?
+        end
       end
 
       # Question 10.1
