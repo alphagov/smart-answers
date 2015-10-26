@@ -339,7 +339,50 @@ module SmartAnswer
           calculator.lower_earnings_end_date(due_date)
         end
 
-        next_node do |response|
+        permitted_next_nodes = [
+          :outcome_birth_nothing,
+          :outcome_mat_allowance,
+          :outcome_mat_allowance_mat_leave,
+          :outcome_mat_allowance_mat_leave_pat_leave_additional_pat_leave,
+          :outcome_mat_allowance_mat_leave_pat_leave_pat_pay_additional_pat_leave_additional_pat_pay,
+          :outcome_mat_allowance_mat_leave_pat_leave_pat_pay_both_shared_leave_pat_shared_pay,
+          :outcome_mat_allowance_mat_leave_pat_leave_pat_pay_pat_shared_leave_pat_shared_pay,
+          :outcome_mat_allowance_mat_leave_pat_leave_pat_shared_leave,
+          :outcome_mat_allowance_mat_leave_pat_pay_additional_pat_pay,
+          :outcome_mat_allowance_mat_leave_pat_pay_mat_shared_leave_pat_shared_pay,
+          :outcome_mat_allowance_mat_leave_pat_pay_pat_shared_pay,
+          :outcome_mat_allowance_pat_leave_additional_pat_leave,
+          :outcome_mat_allowance_pat_leave_pat_pay_additional_pat_leave_additional_pat_pay,
+          :outcome_mat_allowance_pat_leave_pat_pay_pat_shared_leave_pat_shared_pay,
+          :outcome_mat_allowance_pat_leave_pat_shared_leave,
+          :outcome_mat_allowance_pat_pay_additional_pat_pay,
+          :outcome_mat_allowance_pat_pay_pat_shared_pay,
+          :outcome_mat_leave,
+          :outcome_mat_leave_mat_pay,
+          :outcome_mat_leave_mat_pay_pat_leave_additional_pat_leave,
+          :outcome_mat_leave_mat_pay_pat_leave_pat_pay_additional_pat_leave_additional_pat_pay,
+          :outcome_mat_leave_mat_pay_pat_leave_pat_pay_both_shared_leave_both_shared_pay,
+          :outcome_mat_leave_mat_pay_pat_pay_additional_pat_pay,
+          :outcome_mat_leave_mat_pay_pat_pay_mat_shared_leave_both_shared_pay,
+          :outcome_mat_leave_pat_leave,
+          :outcome_mat_leave_pat_leave_additional_pat_leave,
+          :outcome_mat_leave_pat_leave_pat_pay,
+          :outcome_mat_leave_pat_leave_pat_pay_additional_pat_leave,
+          :outcome_mat_leave_pat_leave_pat_pay_mat_shared_leave,
+          :outcome_mat_leave_pat_pay,
+          :outcome_mat_leave_pat_pay_mat_shared_leave,
+          :outcome_mat_pay,
+          :outcome_mat_pay_pat_leave_additional_pat_leave,
+          :outcome_mat_pay_pat_leave_pat_pay_additional_pat_leave_additional_pat_pay,
+          :outcome_mat_pay_pat_leave_pat_pay_pat_shared_leave_both_shared_pay,
+          :outcome_mat_pay_pat_pay_additional_pat_pay,
+          :outcome_mat_pay_pat_pay_both_shared_pay,
+          :outcome_pat_leave,
+          :outcome_pat_leave_pat_pay,
+          :outcome_pat_pay,
+          :partner_worked_at_least_26_weeks
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           if employment_status_of_partner == 'employee'
             if calculator.continuity(partner_started_working_before_continuity_start_date, partner_still_working_on_continuity_end_date) && calculator.lower_earnings(response)
               if employment_status_of_mother == 'employee'
