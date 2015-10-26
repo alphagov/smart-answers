@@ -31,12 +31,12 @@ module SmartAnswer
         assert_equal 123, new_state.myval
       end
 
-      should "raise ArgumentError for non-integer value" do
-        assert_raises(ArgumentError) { @q.transition(@initial_state, "1.5") }
+      should "raise InvalidResponse for non-integer value" do
+        assert_raises(InvalidResponse) { @q.transition(@initial_state, "1.5") }
       end
 
-      should "raise ArgumentError for blank value" do
-        assert_raises(ArgumentError) { @q.transition(@initial_state, "") }
+      should "raise InvalidResponse for blank value" do
+        assert_raises(InvalidResponse) { @q.transition(@initial_state, "") }
       end
 
       should "raise InvalidResponse for nil value" do
@@ -81,12 +81,12 @@ module SmartAnswer
         assert_equal 1.23, new_state.myval
       end
 
-      should "raise ArgumentError for non-float value" do
-        assert_raises(ArgumentError) { @q.transition(@initial_state, "not-a-float") }
+      should "raise InvalidResponse for non-float value" do
+        assert_raises(InvalidResponse) { @q.transition(@initial_state, "not-a-float") }
       end
 
-      should "raise ArgumentError for blank value" do
-        assert_raises(ArgumentError) { @q.transition(@initial_state, "") }
+      should "raise InvalidResponse for blank value" do
+        assert_raises(InvalidResponse) { @q.transition(@initial_state, "") }
       end
 
       should "raise InvalidResponse for nil value" do
