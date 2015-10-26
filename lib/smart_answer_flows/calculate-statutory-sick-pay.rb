@@ -45,7 +45,9 @@ module SmartAnswer
           response == 'yes'
         end
 
-        next_node(:employee_work_different_days?)
+        next_node(permitted: [:employee_work_different_days?]) do
+          :employee_work_different_days?
+        end
       end
 
       # Question 3
