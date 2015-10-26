@@ -24,10 +24,10 @@ module SmartAnswer
         permitted_next_nodes = [:employee_tell_within_limit?, :already_getting_maternity]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.other_pay_types_received = response.split(",")
-          if calculator.not_getting_maternity_pay?
-            :employee_tell_within_limit?
-          else
+          if calculator.already_getting_maternity_pay?
             :already_getting_maternity
+          else
+            :employee_tell_within_limit?
           end
         end
       end

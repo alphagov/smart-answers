@@ -29,8 +29,8 @@ module SmartAnswer::Calculators
       (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
     end
 
-    def not_getting_maternity_pay?
-      (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).any?
+    def already_getting_maternity_pay?
+      (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).none?
     end
 
     # define as static so we don't have to instantiate the calculator too early in the flow
