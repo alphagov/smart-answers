@@ -285,7 +285,6 @@ DEPENDENCIES
   minitest (~> 5.1)
   mocha (= 1.1.0)
   nokogiri
-  parser
   plek (= 1.7.0)
   poltergeist (= 1.6.0)
   pry
