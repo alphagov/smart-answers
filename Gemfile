@@ -67,7 +67,6 @@ group :test do
 end
 
 group :development do
-  gem 'parser'
   gem 'pry'
   gem 'govuk-lint'
   gem 'better_errors'
