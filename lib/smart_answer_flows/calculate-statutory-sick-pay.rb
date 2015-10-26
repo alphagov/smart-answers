@@ -279,7 +279,9 @@ module SmartAnswer
           Calculators::StatutorySickPayCalculator.months_between(start_date, end_date)
         end
 
-        next_node(:total_employee_earnings?)
+        next_node(permitted: [:total_employee_earnings?]) do
+          :total_employee_earnings?
+        end
       end
 
       # Question 8.2
