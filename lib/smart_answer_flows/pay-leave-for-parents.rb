@@ -100,7 +100,6 @@ module SmartAnswer
       end
 
       salary_question :mother_salary do
-
         next_node :mother_earned_more_than_lower_earnings_limit
       end
 

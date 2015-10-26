@@ -13,7 +13,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
   end
 
   context "birth-singleparent" do
-
     should "Mother self-employed, does not pass earnings and employment test" do
       add_response "no" # two_carers
       add_response "2016-1-1" # due_date
@@ -122,11 +121,9 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
       assert_current_node :outcome_mat_pay
     end
-
-
   end
-  context "birth-twoparents-2014" do
 
+  context "birth-twoparents-2014" do
     should "Mother self-employed, does not pass earnings and employment test;Partner self-employed" do
       add_response "yes" # two_carers
       add_response "2014-1-1" # due_date
@@ -640,11 +637,9 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
       assert_current_node :outcome_mat_leave_pat_leave_pat_pay_additional_pat_leave
     end
-
-
   end
-  context "birth-twoparents-2016" do
 
+  context "birth-twoparents-2016" do
     should "Mother self-employed, does not pass earnings and employment test;Partner self-employed" do
       add_response "yes" # two_carers
       add_response "2016-1-1" # due_date
@@ -1240,7 +1235,5 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # partner_earned_more_than_lower_earnings_limit
       assert_current_node :outcome_birth_nothing
     end
-
-
   end
 end
