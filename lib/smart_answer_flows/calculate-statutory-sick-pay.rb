@@ -220,8 +220,17 @@ module SmartAnswer
 
         save_input_as :pay_pattern
 
-        next_node_if(:last_payday_before_sickness?, variable_matches(:eight_weeks_earnings, 'eight_weeks_more')) # Question 8
-        next_node(:pay_amount_if_not_sick?) # Question 9
+        permitted_next_nodes = [
+          :last_payday_before_sickness?,
+          :pay_amount_if_not_sick?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if eight_weeks_earnings == 'eight_weeks_more'
+            :last_payday_before_sickness? # Question 8
+          else
+            :pay_amount_if_not_sick? # Question 9
+          end
+        end
       end
 
       # Question 8
