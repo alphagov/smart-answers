@@ -83,7 +83,9 @@ module SmartAnswer
           response
         end
 
-        next_node :last_sick_day?
+        next_node(permitted: [:last_sick_day?]) do
+          :last_sick_day?
+        end
       end
 
       # Question 5
