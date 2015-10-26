@@ -101,7 +101,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
 
           add_response '2013-04-04'
@@ -112,7 +112,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
           add_response '2013-04-10'
           assert_state_variable :sick_end_date, Date.parse('10 April 2013')
@@ -139,7 +139,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
 
           add_response '2013-04-10'
@@ -167,7 +167,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
           add_response '2013-04-10'
           assert_state_variable :sick_end_date, Date.parse('10 April 2013')
@@ -194,7 +194,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
           add_response '2013-04-10'
           assert_state_variable :sick_end_date, Date.parse('10 April 2013')
@@ -217,7 +217,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
           add_response '2013-04-10'
           assert_state_variable :sick_end_date, Date.parse('10 April 2013')
@@ -242,7 +242,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
           add_response '2013-04-10'
           assert_state_variable :sick_end_date, Date.parse('10 April 2013')

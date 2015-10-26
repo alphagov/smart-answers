@@ -71,10 +71,6 @@ module SmartAnswer
         to { Date.today.end_of_year }
         validate_in_range
 
-        calculate :sick_start_date do |response|
-          response
-        end
-
         calculate :sick_start_date_for_awe do |response|
           response
         end
@@ -100,7 +96,7 @@ module SmartAnswer
         end
 
         next_node_calculation(:days_sick) do |response|
-          period = DateRange.new(begins_on: sick_start_date, ends_on: response)
+          period = DateRange.new(begins_on: calculator.sick_start_date, ends_on: response)
           period.number_of_days
         end
 
@@ -149,7 +145,7 @@ module SmartAnswer
         end
 
         validate :linked_sickness_must_be_before do
-          sick_start_date > sick_start_date_for_awe
+          calculator.sick_start_date > sick_start_date_for_awe
         end
 
         next_node(permitted: [:linked_sickness_end_date?]) do
@@ -168,12 +164,12 @@ module SmartAnswer
         end
 
         validate :must_be_within_eight_weeks do
-          furthest_allowed_date = sick_start_date - 8.weeks
+          furthest_allowed_date = calculator.sick_start_date - 8.weeks
           sick_end_date_for_awe > furthest_allowed_date
         end
 
         validate :must_be_at_least_1_day_before_first_sick_day do
-          sick_end_date_for_awe < sick_start_date - 1
+          sick_end_date_for_awe < calculator.sick_start_date - 1
         end
 
         validate :must_be_valid_period_of_incapacity_for_work do |response|
@@ -247,7 +243,7 @@ module SmartAnswer
 
         validate do |response|
           payday = response
-          start = sick_start_date
+          start = calculator.sick_start_date
 
           payday < start
         end
@@ -361,7 +357,7 @@ module SmartAnswer
           calculator.prev_sick_days = prior_sick_days
           calculator.days_of_the_week_worked = response.split(",")
           days_worked = response.split(',').size
-          if employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
+          if employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(calculator.sick_start_date)
             :not_earned_enough
           elsif prior_sick_days >= (days_worked * 28 + 3)
             :maximum_entitlement_reached # Answer 8
@@ -387,7 +383,7 @@ module SmartAnswer
       # Answer 5
       outcome :not_earned_enough do
         precalculate :lower_earning_limit do
-          Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
+          Calculators::StatutorySickPayCalculator.lower_earning_limit_on(calculator.sick_start_date)
         end
       end
 

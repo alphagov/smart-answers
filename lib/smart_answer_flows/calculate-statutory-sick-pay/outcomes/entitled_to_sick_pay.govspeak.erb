@@ -1,7 +1,7 @@
 <% content_for :body do %>
   ##Statutory Sick Pay (SSP)
 
-  Your employee is entitled to SSP for <%= days_paid %> days out of <%= normal_workdays_out %> working days taken off sick between <%= format_date(sick_start_date) %> and <%= format_date(sick_end_date) %>
+  Your employee is entitled to SSP for <%= days_paid %> days out of <%= normal_workdays_out %> working days taken off sick between <%= format_date(calculator.sick_start_date) %> and <%= format_date(sick_end_date) %>
 
   <% unless enough_notice_of_absence %>
     You don’t have to pay until your employee tells you that they’re ill. You’ll have to pay any withheld amounts by the end of your employee's entitlement to sick pay if your employee is sick for more than 28 weeks.

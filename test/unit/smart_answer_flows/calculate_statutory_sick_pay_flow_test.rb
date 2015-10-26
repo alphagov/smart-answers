@@ -18,7 +18,7 @@ module SmartAnswer
             setup_states_for_question(:linked_sickness_end_date?,
               responding_with: '2015-01-07',
               initial_state: {
-                sick_start_date: Date.parse('2015-04-01'),
+                calculator: stub('calculator', sick_start_date: Date.parse('2015-04-01')),
                 sick_start_date_for_awe: Date.parse('2015-01-01'),
                 usual_work_days: '1,2,3,4,5'
               })
@@ -33,7 +33,7 @@ module SmartAnswer
             setup_states_for_question(:linked_sickness_end_date?,
               responding_with: '2015-01-31',
               initial_state: {
-                sick_start_date: Date.parse('2015-02-01'),
+                calculator: stub('calculator', sick_start_date: Date.parse('2015-02-01')),
                 sick_start_date_for_awe: Date.parse('2015-01-01'),
                 usual_work_days: '1,2,3,4,5'
               })
@@ -48,7 +48,7 @@ module SmartAnswer
             setup_states_for_question(:linked_sickness_end_date?,
               responding_with: '2015-01-03',
               initial_state: {
-                sick_start_date: Date.parse('2015-02-01'),
+                calculator: stub('calculator', sick_start_date: Date.parse('2015-02-01')),
                 sick_start_date_for_awe: Date.parse('2015-01-01'),
                 usual_work_days: '1,2,3,4,5'
               })
