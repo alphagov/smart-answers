@@ -63,7 +63,7 @@ module SmartAnswer
           :mother_started_working_before_continuity_start_date,
           :mother_worked_at_least_26_weeks
         ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: permitted_next_nodes) do
           case employment_status_of_mother
           when 'employee', 'worker'
             :mother_started_working_before_continuity_start_date
@@ -258,7 +258,7 @@ module SmartAnswer
           :partner_started_working_before_continuity_start_date,
           :partner_worked_at_least_26_weeks
         ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: permitted_next_nodes) do
           if two_carers == 'no'
             if employment_status_of_mother == 'employee'
               if mother_still_working_on_continuity_end_date == 'yes'
