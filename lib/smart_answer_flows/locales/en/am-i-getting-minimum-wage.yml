@@ -1,12 +1,17 @@
 en-GB:
   flow:
     am-i-getting-minimum-wage:
+      phrases:
+        how_old_are_you: "How old are you?"
+        how_old_are_you_april_2016: "How old will you be on 6 April 2016?"
+
       # Q1
       what_would_you_like_to_check?:
         title: "What would you like to check?"
         options:
           current_payment: "If you're getting the National Minimum Wage (from October 2015)"
           past_payment: "If an employer owes you past payments (before October 2015)"
+          current_payment_april_2016: "If you'll get the national living wage (from April 2016)"
       # Q1A
       past_payment_date?:
         title: "Which year would you like to check past payments for?"
@@ -37,7 +42,7 @@ en-GB:
           apprentice_over_19: "Apprentice aged 19 and over and in your first year"
       # Q3
       how_old_are_you?:
-        title: How old are you?
+        title: "%{age_title}"
         suffix_label: years old
         error_message: Please enter a whole number greater than 0
       # Q3 Past
