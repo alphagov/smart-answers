@@ -19,9 +19,11 @@ module SmartAnswer
               responding_with: '2015-01-07',
               initial_state: {
                 calculator: stub('calculator',
-                  sick_start_date: Date.parse('2015-04-01'),
                   linked_sickness_start_date: Date.parse('2015-01-01'),
-                  days_of_the_week_worked: %w(1 2 3 4 5)
+                  days_of_the_week_worked: %w(1 2 3 4 5),
+                  within_eight_weeks_of_current_sickness_period?: false,
+                  at_least_1_day_before_first_sick_day?: true,
+                  valid_period_of_incapacity_for_work?: true
                 ),
               })
           end
@@ -29,16 +31,18 @@ module SmartAnswer
         end
       end
 
-      context 'and linked sickness end 1 day before sickness starts' do
+      context 'and linked sickness ends the day before sickness starts' do
         should 'raise an exception' do
           exception = assert_raise(SmartAnswer::InvalidResponse) do
             setup_states_for_question(:linked_sickness_end_date?,
               responding_with: '2015-01-31',
               initial_state: {
                 calculator: stub('calculator',
-                  sick_start_date: Date.parse('2015-02-01'),
                   linked_sickness_start_date: Date.parse('2015-01-01'),
-                  days_of_the_week_worked: %w(1 2 3 4 5)
+                  days_of_the_week_worked: %w(1 2 3 4 5),
+                  within_eight_weeks_of_current_sickness_period?: true,
+                  at_least_1_day_before_first_sick_day?: false,
+                  valid_period_of_incapacity_for_work?: true
                 ),
               })
           end
@@ -55,7 +59,10 @@ module SmartAnswer
                 calculator: stub('calculator',
                   sick_start_date: Date.parse('2015-02-01'),
                   linked_sickness_start_date: Date.parse('2015-01-01'),
-                  days_of_the_week_worked: %w(1 2 3 4 5)
+                  days_of_the_week_worked: %w(1 2 3 4 5),
+                  within_eight_weeks_of_current_sickness_period?: true,
+                  at_least_1_day_before_first_sick_day?: true,
+                  valid_period_of_incapacity_for_work?: false
                 ),
               })
           end

@@ -1,7 +1,5 @@
 module SmartAnswer
   class CalculateStatutorySickPayFlow < Flow
-    MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK = 4
-
     def define
       content_id "1c676a9e-0424-4ebb-bab8-d8cb8d2fc6f8"
       name 'calculate-statutory-sick-pay'
@@ -91,7 +89,7 @@ module SmartAnswer
         permitted_next_nodes = [:has_linked_sickness?, :must_be_sick_for_4_days]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.sick_end_date = response
-          if calculator.days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+          if calculator.days_sick >= Calculators::StatutorySickPayCalculator::MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
             :has_linked_sickness?
           else
             :must_be_sick_for_4_days
@@ -143,17 +141,15 @@ module SmartAnswer
         validate_in_range
 
         validate :must_be_within_eight_weeks do |response|
-          furthest_allowed_date = calculator.sick_start_date - 8.weeks
-          response > furthest_allowed_date
+          calculator.within_eight_weeks_of_current_sickness_period?(response)
         end
 
         validate :must_be_at_least_1_day_before_first_sick_day do |response|
-          response < calculator.sick_start_date - 1
+          calculator.at_least_1_day_before_first_sick_day?(response)
         end
 
         validate :must_be_valid_period_of_incapacity_for_work do |response|
-          period = DateRange.new(begins_on: calculator.linked_sickness_start_date, ends_on: response)
-          period.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+          calculator.valid_period_of_incapacity_for_work?(response)
         end
 
         next_node(permitted: [:paid_at_least_8_weeks?]) do |response|

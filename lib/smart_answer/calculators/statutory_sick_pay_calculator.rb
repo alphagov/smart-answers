@@ -1,6 +1,8 @@
 module SmartAnswer
   module Calculators
     class StatutorySickPayCalculator
+      MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK = 4
+
       include ActiveModel::Model
 
       attr_accessor :prev_sick_days, :sick_start_date, :sick_end_date, :days_of_the_week_worked
@@ -47,6 +49,20 @@ module SmartAnswer
 
       def valid_linked_sickness_start_date?(value)
         sick_start_date > value
+      end
+
+      def within_eight_weeks_of_current_sickness_period?(value)
+        furthest_allowed_date = sick_start_date - 8.weeks
+        value > furthest_allowed_date
+      end
+
+      def at_least_1_day_before_first_sick_day?(value)
+        value < sick_start_date - 1
+      end
+
+      def valid_period_of_incapacity_for_work?(value)
+        period = DateRange.new(begins_on: linked_sickness_start_date, ends_on: value)
+        period.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
       end
 
       def sick_start_date_for_awe
