@@ -75,6 +75,10 @@ module SmartAnswer
         value < sick_start_date
       end
 
+      def valid_last_payday_before_offset?(value)
+        value <= pay_day_offset
+      end
+
       def sick_start_date_for_awe
         linked_sickness_start_date || sick_start_date
       end

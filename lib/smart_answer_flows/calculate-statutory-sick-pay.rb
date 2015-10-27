@@ -239,8 +239,9 @@ module SmartAnswer
           calculator.pay_day_offset
         end
 
-        # You must enter a date on or before [pay_day_offset]
-        validate { |payday| payday <= calculator.pay_day_offset }
+        validate do |response|
+          calculator.valid_last_payday_before_offset?(response)
+        end
 
         # input plus 1 day = relevant_period_from
         calculate :relevant_period_from do |response|
