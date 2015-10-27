@@ -71,6 +71,10 @@ module SmartAnswer
         period.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
       end
 
+      def valid_last_payday_before_sickness?(value)
+        value < sick_start_date
+      end
+
       def sick_start_date_for_awe
         linked_sickness_start_date || sick_start_date
       end

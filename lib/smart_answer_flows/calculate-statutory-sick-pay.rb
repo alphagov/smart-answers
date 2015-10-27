@@ -220,10 +220,7 @@ module SmartAnswer
         end
 
         validate do |response|
-          payday = response
-          start = calculator.sick_start_date
-
-          payday < start
+          calculator.valid_last_payday_before_sickness?(response)
         end
 
         next_node(permitted: [:last_payday_before_offset?]) do |response|
