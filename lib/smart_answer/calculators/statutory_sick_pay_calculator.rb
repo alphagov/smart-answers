@@ -7,6 +7,7 @@ module SmartAnswer
 
       attr_accessor :prev_sick_days, :sick_start_date, :sick_end_date, :days_of_the_week_worked
       attr_accessor :other_pay_types_received, :enough_notice_of_absence
+      attr_accessor :has_linked_sickness
       attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
 
       def waiting_days

@@ -111,8 +111,10 @@ module SmartAnswer
         next_node(permitted: permitted_next_nodes) do |response|
           case response
           when 'yes'
+            calculator.has_linked_sickness = true
             :linked_sickness_start_date?
           when 'no'
+            calculator.has_linked_sickness = false
             :paid_at_least_8_weeks?
           end
         end
