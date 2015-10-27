@@ -1,27 +1,3 @@
-# Q1
-multiple_choice :what_would_you_like_to_check? do
-  option "current_payment"
-  option "past_payment"
-
-  permitted_next_nodes = [
-    :are_you_an_apprentice?,
-    :past_payment_date?
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
-    case response
-    when 'current_payment'
-      :are_you_an_apprentice?
-    when 'past_payment'
-      :past_payment_date?
-    end
-  end
-
-  calculate :calculator do
-    Calculators::MinimumWageCalculator.new
-  end
-end
-
 # Q1A
 multiple_choice :past_payment_date? do
   option "2014-10-01"
@@ -94,6 +70,11 @@ end
 
 # Q3
 value_question :how_old_are_you?, parse: Integer do
+
+  precalculate :current_date do
+    calculator.check == 'current_payment_april_2016' ? Date.parse('2016-04-01') : calculator.date
+  end
+
   validate do |response|
     calculator.valid_age?(response)
   end

@@ -1,25 +1,27 @@
 module SmartAnswer::Calculators
   class MinimumWageCalculator
 
-    attr_accessor :overtime_hours, :overtime_hourly_rate, :accommodation_cost
+    attr_accessor :age, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice,
+      :overtime_hours, :overtime_hourly_rate, :accommodation_cost
 
-    attr_accessor :age, :date, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice
-
-    def date=(date)
-      @date = date
-      @minimum_wage_data = minimum_wage_data_for_date(@date)
-    end
+    attr_reader :check, :date
 
     def initialize(params = {})
       @age = params[:age]
       @date = (params[:date].nil? ? Date.today : params[:date])
       @basic_hours = params[:basic_hours].to_f
       @basic_pay = params[:basic_pay].to_f
+      @check = params[:check]
       @is_apprentice = params[:is_apprentice]
       @pay_frequency = params[:pay_frequency] || 7
       @overtime_hours = params[:overtime_hours].to_i || 0
       @overtime_hourly_rate = 0
       @accommodation_cost = 0
+      @minimum_wage_data = minimum_wage_data_for_date(@date)
+    end
+
+    def date=(date)
+      @date = date
       @minimum_wage_data = minimum_wage_data_for_date(@date)
     end
 

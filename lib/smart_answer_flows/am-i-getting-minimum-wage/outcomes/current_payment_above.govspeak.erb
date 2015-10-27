@@ -1,11 +1,25 @@
 <% content_for :body do %>
   $C
-  You are getting the National Minimum Wage.
+  <% if calculator.check == 'current_payment_april_2016' && calculator.age >= 25 %>
+    <% if calculator.total_hourly_rate >= 7.2 %>
+      You will be getting the national living wage
+    <% else %>
+      You are getting the National Minimum wage but your pay should be increased to at least the national living wage from 1 April 2016.
+    <% end %>
+  <% elsif %>
+    You are getting the National Minimum Wage.
+  <% end %>
   $C
 
-  The National Minimum Wage per hour for your age | Your actual pay
-  - | -
-  <%= format_money(calculator.minimum_hourly_rate) %> | <%= format_money(calculator.total_hourly_rate) %>
+  <% if calculator.check == 'current_payment_april_2016' && calculator.age >= 25 %>
+    The national living wage per hour for your age will be | Your actual pay
+    - | -
+    <%= format_money(7.2) %> | <%= format_money(calculator.total_hourly_rate) %>
+  <% else %>
+    The National Minimum Wage per hour for your age | Your actual pay
+    - | -
+    <%= format_money(calculator.minimum_hourly_rate) %> | <%= format_money(calculator.total_hourly_rate) %>
+  <% end %>
 
   If you work overtime or your employer provides you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 
