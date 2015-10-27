@@ -9,6 +9,7 @@ module SmartAnswer
       attr_accessor :other_pay_types_received, :enough_notice_of_absence
       attr_accessor :has_linked_sickness
       attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
+      attr_accessor :relevant_period_to
 
       def prev_sick_days
         prior_sick_days
@@ -86,6 +87,10 @@ module SmartAnswer
           pattern: days_of_the_week_worked
         )
         prev_sick_days.length
+      end
+
+      def pay_day_offset
+        relevant_period_to - 8.weeks
       end
 
       # define as static so we don't have to instantiate the calculator too early in the flow

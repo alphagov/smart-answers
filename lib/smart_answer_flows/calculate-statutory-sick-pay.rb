@@ -219,14 +219,6 @@ module SmartAnswer
           calculator.sick_start_date_for_awe
         end
 
-        calculate :relevant_period_to do |response|
-          response
-        end
-
-        calculate :pay_day_offset do
-          relevant_period_to - 8.weeks
-        end
-
         validate do |response|
           payday = response
           start = calculator.sick_start_date
@@ -234,7 +226,8 @@ module SmartAnswer
           payday < start
         end
 
-        next_node(permitted: [:last_payday_before_offset?]) do
+        next_node(permitted: [:last_payday_before_offset?]) do |response|
+          calculator.relevant_period_to = response
           :last_payday_before_offset?
         end
       end
@@ -245,8 +238,12 @@ module SmartAnswer
         to { Date.today.end_of_year }
         validate_in_range
 
+        precalculate :pay_day_offset do
+          calculator.pay_day_offset
+        end
+
         # You must enter a date on or before [pay_day_offset]
-        validate { |payday| payday <= pay_day_offset }
+        validate { |payday| payday <= calculator.pay_day_offset }
 
         # input plus 1 day = relevant_period_from
         calculate :relevant_period_from do |response|
@@ -255,7 +252,7 @@ module SmartAnswer
 
         calculate :monthly_pattern_payments do
           start_date = relevant_period_from
-          end_date = relevant_period_to
+          end_date = calculator.relevant_period_to
           Calculators::StatutorySickPayCalculator.months_between(start_date, end_date)
         end
 
@@ -269,7 +266,11 @@ module SmartAnswer
         next_node_calculation :employee_average_weekly_earnings do |response|
           Calculators::StatutorySickPayCalculator.average_weekly_earnings(
             pay: response, pay_pattern: pay_pattern, monthly_pattern_payments: monthly_pattern_payments,
-            relevant_period_to: relevant_period_to, relevant_period_from: relevant_period_from)
+            relevant_period_to: calculator.relevant_period_to, relevant_period_from: relevant_period_from)
+        end
+
+        precalculate :relevant_period_to do
+          calculator.relevant_period_to
         end
 
         next_node :usual_work_days?
