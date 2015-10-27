@@ -5,13 +5,17 @@ module SmartAnswer
 
       include ActiveModel::Model
 
-      attr_accessor :prev_sick_days, :sick_start_date, :sick_end_date, :days_of_the_week_worked
+      attr_accessor :sick_start_date, :sick_end_date, :days_of_the_week_worked
       attr_accessor :other_pay_types_received, :enough_notice_of_absence
       attr_accessor :has_linked_sickness
       attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
 
+      def prev_sick_days
+        prior_sick_days
+      end
+
       def waiting_days
-        @prev_sick_days >= 3 ? 0 : 3 - @prev_sick_days
+        prev_sick_days >= 3 ? 0 : 3 - prev_sick_days
       end
 
       def pattern_days
@@ -72,6 +76,16 @@ module SmartAnswer
 
       def sick_end_date_for_awe
         linked_sickness_end_date || sick_end_date
+      end
+
+      def prior_sick_days
+        return 0 unless has_linked_sickness
+        prev_sick_days = Calculators::StatutorySickPayCalculator.dates_matching_pattern(
+          from: linked_sickness_start_date,
+          to: linked_sickness_end_date,
+          pattern: days_of_the_week_worked
+        )
+        prev_sick_days.length
       end
 
       # define as static so we don't have to instantiate the calculator too early in the flow
@@ -190,8 +204,8 @@ module SmartAnswer
       end
 
       def days_paid_in_linked_period
-        if @prev_sick_days > 3
-          @prev_sick_days - 3
+        if prev_sick_days > 3
+          prev_sick_days - 3
         else
           0
         end

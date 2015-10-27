@@ -155,7 +155,6 @@ module SmartAnswer
         end
 
         next_node(permitted: [:paid_at_least_8_weeks?]) do |response|
-          calculator.prev_sick_days = prior_sick_days
           calculator.linked_sickness_end_date = response
           :paid_at_least_8_weeks?
         end
@@ -324,19 +323,6 @@ module SmartAnswer
       checkbox_question :usual_work_days? do
         %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
 
-        next_node_calculation(:prior_sick_days) do |response|
-          if has_linked_sickness == 'yes'
-            prev_sick_days = Calculators::StatutorySickPayCalculator.dates_matching_pattern(
-              from: calculator.linked_sickness_start_date,
-              to: calculator.linked_sickness_end_date,
-              pattern: response.split(",")
-            )
-            prev_sick_days.length
-          else
-            0
-          end
-        end
-
         permitted_next_nodes = [
           :not_earned_enough,
           :maximum_entitlement_reached,
@@ -345,11 +331,10 @@ module SmartAnswer
           :not_entitled_3_days_not_paid
         ]
         next_node(permitted: permitted_next_nodes) do |response|
-          calculator.prev_sick_days = prior_sick_days
           calculator.days_of_the_week_worked = response.split(",")
           if employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(calculator.sick_start_date)
             :not_earned_enough
-          elsif prior_sick_days >= (calculator.days_of_the_week_worked.size * 28 + 3)
+          elsif calculator.prior_sick_days >= (calculator.days_of_the_week_worked.size * 28 + 3)
             :maximum_entitlement_reached # Answer 8
           elsif calculator.ssp_payment > 0
             :entitled_to_sick_pay # Answer 6

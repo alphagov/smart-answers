@@ -56,11 +56,12 @@ module SmartAnswer::Calculators
         @days_worked = []
         @start_date = Date.parse("1 October 2012")
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 0,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
-          days_of_the_week_worked: @days_worked
+          days_of_the_week_worked: @days_worked,
+          has_linked_sickness: false
         )
+        assert_equal @calculator.prev_sick_days, 0
       end
 
       should "return daily rate of 0.0" do
@@ -73,11 +74,14 @@ module SmartAnswer::Calculators
       setup do
         @start_date = Date.parse("1 October 2012")
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 5,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
-          days_of_the_week_worked: %w(1 2 3 4 5)
+          days_of_the_week_worked: %w(1 2 3 4 5),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Sat, 1 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Fri, 7 Sep 2012")
         )
+        assert_equal @calculator.prev_sick_days, 5
       end
 
       should "return waiting_days of 0" do
@@ -103,11 +107,14 @@ module SmartAnswer::Calculators
       setup do
         @start_date = Date.parse("1 October 2012")
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 5,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
-          days_of_the_week_worked: %w(1 3 5)
+          days_of_the_week_worked: %w(1 3 5),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Sat, 1 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Wed, 12 Sep 2012")
         )
+        assert_equal @calculator.prev_sick_days, 5
       end
 
       should "return daily rate of 28.6166" do
@@ -119,11 +126,14 @@ module SmartAnswer::Calculators
       setup do
         @start_date = Date.parse("1 October 2012")
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 5,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
-          days_of_the_week_worked: %w(0 1 2 3 4 5 6)
+          days_of_the_week_worked: %w(0 1 2 3 4 5 6),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Sat, 1 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Wed, 5 Sep 2012")
         )
+        assert_equal @calculator.prev_sick_days, 5
       end
 
       should "return daily rate of 12.2642" do
@@ -135,11 +145,14 @@ module SmartAnswer::Calculators
       setup do
         @start_date = Date.parse("1 October 2012")
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 5,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
-          days_of_the_week_worked: %w(1 2 3 4 5 6)
+          days_of_the_week_worked: %w(1 2 3 4 5 6),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Sat, 1 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Thu, 6 Sep 2012")
         )
+        assert_equal @calculator.prev_sick_days, 5
       end
 
       should "return daily rate of 14.3083" do
@@ -147,15 +160,18 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "daily rate test for 2 days per week worked" do
+    context "daily rate test for 2 days per week worked (Thu-Fri)" do
       setup do
         @start_date = Date.parse("1 October 2012")
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 5,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("7 October 2012"),
-          days_of_the_week_worked: %w(4 5)
+          days_of_the_week_worked: %w(4 5),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Thu, 6 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Thu, 20 Sep 2012")
         )
+        assert_equal @calculator.prev_sick_days, 5
       end
 
       should "return daily rate of 42.9250" do
@@ -166,11 +182,14 @@ module SmartAnswer::Calculators
     context "waiting days if prev_sick_days is 2" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 2,
           sick_start_date: Date.parse("6 April 2012"),
           sick_end_date: Date.parse("6 May 2012"),
-          days_of_the_week_worked: %w(1 2 3)
+          days_of_the_week_worked: %w(1 2 3),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Mon, 3 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Tue, 4 Sep 2012")
         )
+        assert_equal @calculator.prev_sick_days, 2
       end
 
       should "return waiting_days of 1" do
@@ -181,11 +200,14 @@ module SmartAnswer::Calculators
     context "waiting days if prev_sick_days is 1" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 1,
           sick_start_date: Date.parse("6 April 2012"),
           sick_end_date: Date.parse("17 April 2012"),
-          days_of_the_week_worked: %w(1 2 3)
+          days_of_the_week_worked: %w(1 2 3),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Mon, 3 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Mon, 3 Sep 2012")
         )
+        assert_equal @calculator.prev_sick_days, 1
       end
 
       should "return waiting_days of 2" do
@@ -199,11 +221,12 @@ module SmartAnswer::Calculators
     context "waiting days if prev_sick_days is 0" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 0,
           sick_start_date: Date.parse("6 April 2012"),
           sick_end_date: Date.parse("12 April 2012"),
-          days_of_the_week_worked: %w(1 2 3)
+          days_of_the_week_worked: %w(1 2 3),
+          has_linked_sickness: false
         )
+        assert_equal @calculator.prev_sick_days, 0
       end
 
       should "return waiting_days of 3, ssp payment of 0" do
@@ -217,11 +240,12 @@ module SmartAnswer::Calculators
     context "maximum days payable for 5 days a week" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 0,
           sick_start_date: Date.parse("6 April 2012"),
           sick_end_date: Date.parse("6 December 2012"),
-          days_of_the_week_worked: %w(1 2 3 4 5)
+          days_of_the_week_worked: %w(1 2 3 4 5),
+          has_linked_sickness: false
         )
+        assert_equal @calculator.prev_sick_days, 0
       end
 
       should "have a max of 140 days payable" do
@@ -234,11 +258,12 @@ module SmartAnswer::Calculators
     context "maximum days payable for 3 days a week" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 0,
           sick_start_date: Date.parse("6 April 2012"),
           sick_end_date: Date.parse("6 December 2012"),
-          days_of_the_week_worked: %w(2 3 4)
+          days_of_the_week_worked: %w(2 3 4),
+          has_linked_sickness: false
         )
+        assert_equal @calculator.prev_sick_days, 0
       end
 
       should "have a max of 84 days payable" do
@@ -252,11 +277,14 @@ module SmartAnswer::Calculators
       setup do
         @start_date = Date.parse("5 April 2012")
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 3,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("10 April 2012"),
-          days_of_the_week_worked: %w(1 2 3 4 5)
+          days_of_the_week_worked: %w(1 2 3 4 5),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Mon, 3 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Wed, 5 Sep 2012")
         )
+        assert_equal @calculator.prev_sick_days, 3
       end
 
       should "use ssp rate and lel for 2011-12" do
@@ -270,11 +298,12 @@ module SmartAnswer::Calculators
       setup do
         @start_date = Date.parse("26 March 2012")
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 0,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("13 April 2012"),
-          days_of_the_week_worked: %w(1 2 3 4 5)
+          days_of_the_week_worked: %w(1 2 3 4 5),
+          has_linked_sickness: false
         )
+        assert_equal @calculator.prev_sick_days, 0
       end
 
       should "give correct ssp calculation" do  # 15 days with 3 waiting days, so 6 days at lower weekly rate, 6 days at higher rate
@@ -289,11 +318,14 @@ module SmartAnswer::Calculators
       setup do
         @start_date = Date.parse("4 May 2014")
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 3,
           sick_start_date: @start_date,
           sick_end_date: Date.parse("3 August 2014"),
-          days_of_the_week_worked: %w(1 2 3 4 5)
+          days_of_the_week_worked: %w(1 2 3 4 5),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Mon, 3 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Wed, 5 Sep 2012")
         )
+        assert_equal @calculator.prev_sick_days, 3
       end
 
       should "use ssp rate and lel for 2014-15" do
@@ -306,11 +338,12 @@ module SmartAnswer::Calculators
       setup do
         @start_date = Date.parse("4 May 2054")
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 0,
           sick_start_date: @start_date,
           sick_end_date: @start_date + 1.month,
-          days_of_the_week_worked: %w(1 2 3 4 5)
+          days_of_the_week_worked: %w(1 2 3 4 5),
+          has_linked_sickness: false
         )
+        assert_equal @calculator.prev_sick_days, 0
       end
 
       should "not break and use ssp rate for the latest know fiscal year" do
@@ -322,11 +355,14 @@ module SmartAnswer::Calculators
     context "test scenario 2 - T-F, 7 waiting days, cross tax years" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 7,
           sick_start_date: Date.parse("28 February 2012"),
           sick_end_date: Date.parse("7 April 2012"),
-          days_of_the_week_worked: %w(2 3 4 5)
+          days_of_the_week_worked: %w(2 3 4 5),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Tue, 3 Jan 2012"),
+          linked_sickness_end_date: Date.parse("Thu, 12 Jan 2012")
         )
+        assert_equal @calculator.prev_sick_days, 7
       end
 
       should "give correct ssp calculation" do # 24 days with no waiting days, so 22 days at lower weekly rate, 2 days at higher rate
@@ -340,14 +376,18 @@ module SmartAnswer::Calculators
     context "test scenario 3" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 24,
           sick_start_date: Date.parse("25 July 2012"),
           sick_end_date: Date.parse("4 September 2012"),
-          days_of_the_week_worked: %w(1 3 5)
+          days_of_the_week_worked: %w(1 3 5),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Mon, 7 May 2012"),
+          linked_sickness_end_date: Date.parse("Sun, 1 Jul 2012")
         )
+        assert_equal @calculator.prev_sick_days, 24
       end
 
       should "give correct ssp calculation" do
+        assert_equal @calculator.prev_sick_days, 24
         assert_equal @calculator.send(:days_to_pay), 18
         assert_equal @calculator.ssp_payment, 515.11
       end
@@ -357,11 +397,12 @@ module SmartAnswer::Calculators
     context "test scenario 4" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 0,
           sick_start_date: Date.parse("23 November 2012"),
           sick_end_date: Date.parse("31 December 2012"),
-          days_of_the_week_worked: %w(0 6)
+          days_of_the_week_worked: %w(0 6),
+          has_linked_sickness: false
         )
+        assert_equal @calculator.prev_sick_days, 0
       end
 
       should "give correct ssp calculation" do # 12 days with 3 waiting days, all at 2012-13 daily rate
@@ -376,11 +417,14 @@ module SmartAnswer::Calculators
     context "test scenario 5" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 99,
           sick_start_date: Date.parse("29 March 2012"),
           sick_end_date: Date.parse("6 May 2012"),
-          days_of_the_week_worked: %w(1 2 3 4)
+          days_of_the_week_worked: %w(1 2 3 4),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Wed, 28 Sep 2011"),
+          linked_sickness_end_date: Date.parse("Mon, 19 Mar 2012")
         )
+        assert_equal @calculator.prev_sick_days, 99
       end
 
       should "give correct ssp calculation" do # max of 16 days that can still be paid with no waiting days, first four days at 2011-12,  2012-13 daily rate
@@ -393,11 +437,14 @@ module SmartAnswer::Calculators
     context "test scenario 6" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 115,
           sick_start_date: Date.parse("29 March 2012"),
           sick_end_date: Date.parse("6 May 2012"),
-          days_of_the_week_worked: %w(1 2 3 4)
+          days_of_the_week_worked: %w(1 2 3 4),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Mon, 5 Sep 2011"),
+          linked_sickness_end_date: Date.parse("Wed, 21 Mar 2012")
         )
+        assert_equal @calculator.prev_sick_days, 115
       end
 
       should "give correct ssp calculation" do # there should be no more days for which employee can receive pay
@@ -409,11 +456,12 @@ module SmartAnswer::Calculators
     context "test scenario 7" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 0,
           sick_start_date: Date.parse("28 August 2012"),
           sick_end_date: Date.parse("6 October 2012"),
-          days_of_the_week_worked: ['3']
+          days_of_the_week_worked: ['3'],
+          has_linked_sickness: false
         )
+        assert_equal @calculator.prev_sick_days, 0
       end
 
       should "give correct ssp calculation" do # there should be 3 normal workdays to pay
@@ -427,11 +475,14 @@ module SmartAnswer::Calculators
     context "test scenario 6a - 1 day max to pay" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 114,
           sick_start_date: Date.parse("29 March 2012"),
           sick_end_date: Date.parse("10 April 2012"),
-          days_of_the_week_worked: %w(1 2 3 4)
+          days_of_the_week_worked: %w(1 2 3 4),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Mon, 5 Sep 2011"),
+          linked_sickness_end_date: Date.parse("Tue, 20 Mar 2012")
         )
+        assert_equal @calculator.prev_sick_days, 114
       end
 
       should "give correct ssp calculation" do # there should be max 1 day for which employee can receive pay
@@ -444,11 +495,12 @@ module SmartAnswer::Calculators
     context "2013/14 test scenario 1" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 0,
           sick_start_date: Date.parse("26 March 2013"),
           sick_end_date: Date.parse("12 April 2013"),
-          days_of_the_week_worked: %w(2 3 4)
+          days_of_the_week_worked: %w(2 3 4),
+          has_linked_sickness: false
         )
+        assert_equal @calculator.prev_sick_days, 0
       end
 
       should "give correct SSP calculation" do
@@ -461,11 +513,12 @@ module SmartAnswer::Calculators
     context "2013/14 test scenario 2" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 0,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: %w(1 2 3 4)
+          days_of_the_week_worked: %w(1 2 3 4),
+          has_linked_sickness: false
         )
+        assert_equal @calculator.prev_sick_days, 0
       end
 
       should "give correct SSP calculation" do
@@ -478,11 +531,14 @@ module SmartAnswer::Calculators
     context "2013/14 test scenario 3" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 8,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: %w(3 6)
+          days_of_the_week_worked: %w(3 6),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Sat, 1 Dec 2012"),
+          linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012")
         )
+        assert_equal @calculator.prev_sick_days, 8
       end
 
       should "give correct SSP calculation" do
@@ -495,11 +551,14 @@ module SmartAnswer::Calculators
     context "2013/14 test scenario 4" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 42,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: %w(2 3 4)
+          days_of_the_week_worked: %w(2 3 4),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Fri, 21 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012")
         )
+        assert_equal @calculator.prev_sick_days, 42
       end
 
       should "give correct SSP calculation" do
@@ -512,11 +571,14 @@ module SmartAnswer::Calculators
     context "2014/2015 scenario 5" do
       setup do
         @calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 10,
           sick_start_date: Date.parse("10 July 2014"),
           sick_end_date: Date.parse("20 July 2014"),
-          days_of_the_week_worked: %w(1 2 3 4 5)
+          days_of_the_week_worked: %w(1 2 3 4 5),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Sun, 1 Jun 2014"),
+          linked_sickness_end_date: Date.parse("Sat, 14 Jun 2014")
         )
+        assert_equal @calculator.prev_sick_days, 10
       end
 
       should "give correct SSP calculation" do
@@ -592,11 +654,14 @@ module SmartAnswer::Calculators
     context "sick_pay_weekly_dates" do
       should "produce a list of Saturdays for the provided sick period" do
         calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 42,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: %w(2 3 4)
+          days_of_the_week_worked: %w(2 3 4),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Fri, 21 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012")
         )
+        assert_equal 42, calculator.prev_sick_days
         assert_equal [Date.parse("12 Jan 2013"),
                       Date.parse("19 Jan 2013"),
                       Date.parse("26 Jan 2013"),
@@ -621,12 +686,15 @@ module SmartAnswer::Calculators
     context "sick_pay_weekly_amounts" do
       should "return the payable weeks by taking into account the final SSP payment" do
         calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 42,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: %w(2 3 4)
+          days_of_the_week_worked: %w(2 3 4),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Fri, 21 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012")
         )
 
+        assert_equal 42, calculator.prev_sick_days
         assert_equal [[Date.parse("12 Jan 2013"), 85.85],
                       [Date.parse("19 Jan 2013"), 85.85],
                       [Date.parse("26 Jan 2013"), 85.85],
@@ -647,12 +715,15 @@ module SmartAnswer::Calculators
 
       should "have the same reduced value as the ssp_payment value" do
         calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 42,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: %w(2 3 4)
+          days_of_the_week_worked: %w(2 3 4),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Fri, 21 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012")
         )
 
+        assert_equal 42, calculator.prev_sick_days
         assert_equal calculator.ssp_payment,
                      calculator.send(:weekly_payments).map(&:second).sum
       end
@@ -661,12 +732,15 @@ module SmartAnswer::Calculators
     context "formatted_sick_pay_weekly_amounts" do
       should "produce a markdown (value) formatted string of weekly SSP dates and pay rates" do
         calculator = StatutorySickPayCalculator.new(
-          prev_sick_days: 42,
           sick_start_date: Date.parse("7 January 2013"),
           sick_end_date: Date.parse("3 May 2013"),
-          days_of_the_week_worked: %w(2 3 4)
+          days_of_the_week_worked: %w(2 3 4),
+          has_linked_sickness: true,
+          linked_sickness_start_date: Date.parse("Fri, 21 Sep 2012"),
+          linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012")
         )
 
+        assert_equal 42, calculator.prev_sick_days
         assert_equal ["12 January 2013|£85.85",
                       "19 January 2013|£85.85",
                       "26 January 2013|£85.85",
@@ -725,12 +799,13 @@ module SmartAnswer::Calculators
     context "when the last working day of the sick period is a Sunday" do
       should "calculate the sick period including the Sunday" do
         calc = StatutorySickPayCalculator.new(
-          prev_sick_days: 0,
           sick_start_date: Date.parse("24 October 2013"),
           sick_end_date: Date.parse("27 October 2013"),
-          days_of_the_week_worked: %w(0 1 3 4 5 6)
+          days_of_the_week_worked: %w(0 1 3 4 5 6),
+          has_linked_sickness: false
         )
 
+        assert_equal 0, calc.prev_sick_days
         assert_equal 14.45, calc.ssp_payment
       end
     end
