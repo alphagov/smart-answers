@@ -150,6 +150,10 @@ module SmartAnswer
         self.class.lower_earning_limit_on(sick_start_date)
       end
 
+      def pattern_days_total
+        pattern_days * 28
+      end
+
       # define as static so we don't have to instantiate the calculator too early in the flow
       def self.lower_earning_limit_on(date)
         SmartAnswer::Calculators::RatesQuery.new('statutory_sick_pay').rates(date).lower_earning_limit_rate
