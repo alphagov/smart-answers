@@ -243,18 +243,8 @@ module SmartAnswer
           calculator.valid_last_payday_before_offset?(response)
         end
 
-        # input plus 1 day = relevant_period_from
-        calculate :relevant_period_from do |response|
-          response + 1.day
-        end
-
-        calculate :monthly_pattern_payments do
-          start_date = relevant_period_from
-          end_date = calculator.relevant_period_to
-          Calculators::StatutorySickPayCalculator.months_between(start_date, end_date)
-        end
-
-        next_node(permitted: [:total_employee_earnings?]) do
+        next_node(permitted: [:total_employee_earnings?]) do |response|
+          calculator.relevant_period_from = response + 1.day
           :total_employee_earnings?
         end
       end
@@ -263,8 +253,12 @@ module SmartAnswer
       money_question :total_employee_earnings? do
         next_node_calculation :employee_average_weekly_earnings do |response|
           Calculators::StatutorySickPayCalculator.average_weekly_earnings(
-            pay: response, pay_pattern: pay_pattern, monthly_pattern_payments: monthly_pattern_payments,
-            relevant_period_to: calculator.relevant_period_to, relevant_period_from: relevant_period_from)
+            pay: response, pay_pattern: pay_pattern, monthly_pattern_payments: calculator.monthly_pattern_payments,
+            relevant_period_to: calculator.relevant_period_to, relevant_period_from: calculator.relevant_period_from)
+        end
+
+        precalculate :relevant_period_from do
+          calculator.relevant_period_from
         end
 
         precalculate :relevant_period_to do
