@@ -315,7 +315,7 @@ module SmartAnswer
           calculator.days_of_the_week_worked = response.split(",")
           if calculator.not_earned_enough?
             :not_earned_enough
-          elsif calculator.prior_sick_days >= (calculator.days_of_the_week_worked.size * 28 + 3)
+          elsif calculator.maximum_entitlement_reached?
             :maximum_entitlement_reached # Answer 8
           elsif calculator.ssp_payment > 0
             :entitled_to_sick_pay # Answer 6

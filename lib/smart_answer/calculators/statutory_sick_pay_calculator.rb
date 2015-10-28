@@ -211,6 +211,10 @@ module SmartAnswer
         employee_average_weekly_earnings < self.class.lower_earning_limit_on(sick_start_date)
       end
 
+      def maximum_entitlement_reached?
+        prior_sick_days >= (days_of_the_week_worked.size * 28 + 3)
+      end
+
       def self.contractual_earnings_awe(pay, days_worked)
         (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
       end
