@@ -2,10 +2,6 @@ require_relative 'engine_test_helper'
 
 class DataPartialsTest < EngineIntegrationTest
 
-  setup do
-    SmartdownAdapter::Registry.reset_instance
-  end
-
   should "output data partials correctly" do
     visit "/data-partial-sample/y/data_partial_with_scalar"
 
