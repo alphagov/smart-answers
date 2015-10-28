@@ -313,7 +313,7 @@ module SmartAnswer
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.days_of_the_week_worked = response.split(",")
-          if calculator.employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(calculator.sick_start_date)
+          if calculator.not_earned_enough?
             :not_earned_enough
           elsif calculator.prior_sick_days >= (calculator.days_of_the_week_worked.size * 28 + 3)
             :maximum_entitlement_reached # Answer 8

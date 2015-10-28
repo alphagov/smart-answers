@@ -207,6 +207,10 @@ module SmartAnswer
         Money.new(amount)
       end
 
+      def not_earned_enough?
+        employee_average_weekly_earnings < self.class.lower_earning_limit_on(sick_start_date)
+      end
+
       def self.contractual_earnings_awe(pay, days_worked)
         (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
       end
