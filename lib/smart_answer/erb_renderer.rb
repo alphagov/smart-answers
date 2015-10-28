@@ -9,11 +9,9 @@ module SmartAnswer
     end
 
     def content_for(key, html: true)
-      if erb_template_exists_for?(key)
-        content = rendered_view.content_for(key) || ''
-        content = strip_leading_spaces(content.to_str)
-        html ? GovspeakPresenter.new(content).html : normalize_blank_lines(content)
-      end
+      content = rendered_view.content_for(key) || ''
+      content = strip_leading_spaces(content.to_str)
+      html ? GovspeakPresenter.new(content).html : normalize_blank_lines(content)
     end
 
     def erb_template_path
@@ -21,10 +19,6 @@ module SmartAnswer
     end
 
     private
-
-    def erb_template_exists_for?(key)
-      File.exists?(erb_template_path) && has_content_for?(key)
-    end
 
     def erb_template_name
       "#{@template_name}.govspeak.erb"
@@ -34,10 +28,6 @@ module SmartAnswer
       @rendered_view ||= @view.tap do |view|
         view.render(template: erb_template_name, locals: @locals)
       end
-    end
-
-    def has_content_for?(key)
-      File.read(erb_template_path) =~ /content_for #{key.inspect}/
     end
 
     def strip_leading_spaces(string)

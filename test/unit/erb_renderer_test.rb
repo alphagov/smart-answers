@@ -3,25 +3,30 @@ require_relative '../test_helper'
 module SmartAnswer
   class ErbRendererTest < ActiveSupport::TestCase
     test '#erb_template_path returns the combination of the template directory and name' do
-      renderer = ErbRenderer.new(template_directory: Pathname.new('template-directory'), template_name: 'template-name')
+      erb_template = ''
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
 
-      expected_path = Pathname.new('template-directory').join('template-name.govspeak.erb')
-      assert_equal expected_path, renderer.erb_template_path
+        expected_path = erb_template_directory.join('template-name.govspeak.erb')
+        assert_equal expected_path, renderer.erb_template_path
+      end
     end
 
-    test "#content_for returns nil when the erb template doesn't exist" do
+    test "#content_for raises an exception when the erb template doesn't exist" do
       renderer = ErbRenderer.new(template_directory: Pathname.new('/path/to/non-existent'), template_name: 'template-name')
 
-      assert_equal nil, renderer.content_for(:anything)
+      assert_raise(ActionView::MissingTemplate) do
+        renderer.content_for(:key)
+      end
     end
 
-    test '#content_for returns nil when content_for(key) block is not present in template' do
+    test '#content_for returns a single newline when content_for(key) block is not present in template' do
       erb_template = ''
 
       with_erb_template_file('template-name', erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
 
-        assert_equal nil, renderer.content_for(:does_not_exist)
+        assert_equal "\n", renderer.content_for(:does_not_exist)
       end
     end
 
