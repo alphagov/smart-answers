@@ -12,10 +12,9 @@ smart_answer_root = SmartAnswer::FlowRegistry.instance.load_path
 flow_path = smart_answer_root.join("#{flow_name}.rb")
 locale_path = smart_answer_root.join('locales', 'en', "#{flow_name}.yml")
 
-coversheet = Hash.new { |h, k| h[k] = {} }
-coversheet['title'] = flow.title.strip
-coversheet['body'] = flow.coversheet.body.strip
-coversheet['meta']['description'] = flow.meta_description
+coversheet_title = flow.title.strip
+coversheet_body = flow.coversheet.body.strip
+coversheet_meta_description = flow.meta_description
 start_node = flow.coversheet.elements.detect { |e| Smartdown::Model::Element::StartButton === e }.start_node
 
 question_pages_vs_questions = flow.question_pages.inject({}) do |hash, question_page|
@@ -33,7 +32,7 @@ flow.question_pages.each do |question_page|
   key = question.name
   content_for_questions[key]['title'] = question.title.strip
   content_for_questions[key]['body'] = question.body.strip if question.body.strip.present?
-  raise "Question '#{question.name}' has post-body '#{question.post_body}' which is not supported in SmartAnswers" if question.post_body.present?
+  content_for_questions[key]['post_body'] = question.post_body.strip if question.post_body.strip.present?
 
   next_node_rules = {}
   question_page.next_nodes.each do |next_node|
@@ -42,10 +41,17 @@ flow.question_pages.each do |question_page|
         next_node = question_pages_vs_questions[rule.outcome] || rule.outcome
         hash[rule.predicate.expected_value] = next_node.to_sym; hash
       end
+    elsif next_node.rules.count == 1 && next_node.rules.all? { |r| (Smartdown::Model::Predicate::Otherwise === r.predicate) }
+      outcome = next_node.rules.first.outcome
+      next_node_rules[:next_node] = question_pages_vs_questions[outcome] || outcome
     else
-      next_node_rules[:comments] = next_node.rules.inject([]) do |array, rule|
-        next_node = question_pages_vs_questions[rule.outcome] || rule.outcome
-        array << "#{rule.predicate.humanize} -> #{next_node}"; array
+      if flow_name == 'pay-leave-for-parents'
+        next_node_rules[:comments] = ["Manually copy the rules from Smartdown"]
+      else
+        next_node_rules[:comments] = next_node.rules.inject([]) do |array, rule|
+          next_node = question_pages_vs_questions[rule.outcome] || rule.outcome
+          array << "#{rule.predicate.humanize} -> #{next_node}"; array
+        end
       end
     end
   end
@@ -58,6 +64,12 @@ flow.question_pages.each do |question_page|
     q[:options] = question.options.map(&:value)
   when Smartdown::Api::PostcodeQuestion
     q[:type] = :postcode_question
+    q[:options] = []
+  when Smartdown::Api::DateQuestion
+    q[:type] = :date_question
+    q[:options] = []
+  when Smartdown::Api::SalaryQuestion
+    q[:type] = :salary_question
     q[:options] = []
   else
     raise "Question '#{question.name}' is of type '#{question.class}' which is not yet supported by this conversion tool"
@@ -82,7 +94,7 @@ end
 i18n = {
   'en-GB' => {
     'flow' => {
-      flow_name => coversheet.merge(content_for_questions)
+      flow_name => content_for_questions
     }
   }
 }
@@ -94,6 +106,21 @@ end
 templates_root = smart_answer_root.join(flow_name)
 FileUtils.remove_dir(templates_root, force = true)
 FileUtils.makedirs(templates_root)
+
+new_coversheet_path = templates_root.join("#{flow_name.underscore}.govspeak.erb")
+File.open(new_coversheet_path, 'w') do |file|
+  file.puts '<% content_for :title do %>'
+  file.puts coversheet_title.indent(2)
+  file.puts '<% end %>'
+  file.puts ''
+  file.puts '<% content_for :meta_description do %>'
+  file.puts coversheet_meta_description.indent(2)
+  file.puts '<% end %>'
+  file.puts ''
+  file.puts '<% content_for :body do %>'
+  file.puts coversheet_body.indent(2)
+  file.puts '<% end %>'
+end
 
 input.outcomes.each do |outcome|
   template_path = templates_root.join("#{outcome.name.underscore}.govspeak.erb")

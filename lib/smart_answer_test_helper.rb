@@ -124,7 +124,7 @@ class SmartAnswerTestHelper
     changed_files.any?
   end
 
-  public def explicitly_run_this_regression_test?
+  def explicitly_run_this_regression_test?
     ENV['RUN_REGRESSION_TESTS'] == @flow_name
   end
 

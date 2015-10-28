@@ -1,0 +1,13 @@
+<% content_for :body do %>
+  <%= render partial: 'mat_pay.govspeak.erb', locals: {calculator: calculator, due_date: due_date } -%>
+
+  <%= render partial: 'pat_leave.govspeak.erb', locals: {calculator: calculator, due_date: due_date } -%>
+
+  <%= render partial: 'pat_pay.govspeak.erb', locals: {calculator: calculator, due_date: due_date } -%>
+
+  <%= render partial: 'additional_pat_leave.govspeak.erb' -%>
+
+  <%= render partial: 'additional_pat_pay.govspeak.erb', locals: {calculator: calculator, due_date: due_date } -%>
+
+  <%= render partial: 'extra_help.govspeak.erb' -%>
+<% end %>

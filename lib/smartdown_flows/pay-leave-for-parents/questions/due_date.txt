@@ -1,7 +1,0 @@
-# Due date
-
-# When is the baby due?
-
-[date: due_date]
-
-* otherwise => employment_status_of_mother

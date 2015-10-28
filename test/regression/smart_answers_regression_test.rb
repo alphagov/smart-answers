@@ -56,16 +56,6 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
     next unless smart_answer_helper.run_regression_tests?
 
-    if flow_name == 'pay-leave-for-parents'
-      if smart_answer_helper.explicitly_run_this_regression_test?
-        puts 'Preloading flows to speed up testing of pay-leave-for-parents Smartdown answer'
-        FLOW_REGISTRY_OPTIONS[:preload_flows] = true
-      else
-        # Skip this Smartdown flow if we're running all regression tests or they're being run because checksums are out of date
-        next
-      end
-    end
-
     smart_answer_helper.delete_saved_output_files
     responses_and_expected_results = smart_answer_helper.read_responses_and_expected_results
 

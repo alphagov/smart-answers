@@ -1,9 +1,0 @@
-# Partner’s employment details
-
-# How much does the mother’s partner earn (or did they earn, if they’ve left their job)?
-
-[salary: partner_salary]
-
-This is their total take-home pay before any deductions, eg tax.
-
-* otherwise => partner_earned_more_than_lower_earnings_limit
