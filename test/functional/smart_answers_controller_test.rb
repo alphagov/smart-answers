@@ -1,6 +1,5 @@
 require_relative '../test_helper'
 require_relative '../helpers/i18n_test_helper'
-require_relative '../helpers/test_fixtures_helper'
 require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerTest < ActionController::TestCase
