@@ -339,7 +339,7 @@ module SmartAnswer
       # Answer 5
       outcome :not_earned_enough do
         precalculate :lower_earning_limit do
-          Calculators::StatutorySickPayCalculator.lower_earning_limit_on(calculator.sick_start_date)
+          calculator.lower_earning_limit
         end
 
         precalculate :employee_average_weekly_earnings do
