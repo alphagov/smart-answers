@@ -11,6 +11,7 @@ module SmartAnswer
       attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
       attr_accessor :relevant_period_to, :relevant_period_from
       attr_accessor :eight_weeks_earnings
+      attr_accessor :pay_pattern
 
       def prev_sick_days
         prior_sick_days

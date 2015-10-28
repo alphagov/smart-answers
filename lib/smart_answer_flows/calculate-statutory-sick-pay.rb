@@ -194,13 +194,12 @@ module SmartAnswer
         option :monthly
         option :irregularly
 
-        save_input_as :pay_pattern
-
         permitted_next_nodes = [
           :last_payday_before_sickness?,
           :pay_amount_if_not_sick?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
+          calculator.pay_pattern = response
           if calculator.paid_at_least_8_weeks_of_earnings?
             :last_payday_before_sickness? # Question 8
           else
@@ -253,7 +252,7 @@ module SmartAnswer
       money_question :total_employee_earnings? do
         next_node_calculation :employee_average_weekly_earnings do |response|
           Calculators::StatutorySickPayCalculator.average_weekly_earnings(
-            pay: response, pay_pattern: pay_pattern, monthly_pattern_payments: calculator.monthly_pattern_payments,
+            pay: response, pay_pattern: calculator.pay_pattern, monthly_pattern_payments: calculator.monthly_pattern_payments,
             relevant_period_to: calculator.relevant_period_to, relevant_period_from: calculator.relevant_period_from)
         end
 
