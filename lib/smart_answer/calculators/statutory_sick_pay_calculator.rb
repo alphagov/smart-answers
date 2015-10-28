@@ -203,7 +203,8 @@ module SmartAnswer
       end
 
       def ssp_payment
-        BigDecimal.new(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
+        amount = BigDecimal.new(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
+        Money.new(amount)
       end
 
       def self.contractual_earnings_awe(pay, days_worked)

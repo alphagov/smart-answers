@@ -350,7 +350,7 @@ module SmartAnswer
       # Answer 6
       outcome :entitled_to_sick_pay do
         precalculate :ssp_payment do
-          Money.new(calculator.ssp_payment)
+          calculator.ssp_payment
         end
 
         precalculate :days_paid do calculator.days_paid end
