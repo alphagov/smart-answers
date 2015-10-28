@@ -250,12 +250,6 @@ module SmartAnswer
 
       # Question 8.2
       money_question :total_employee_earnings? do
-        next_node_calculation :employee_average_weekly_earnings do |response|
-          Calculators::StatutorySickPayCalculator.average_weekly_earnings(
-            pay: response, pay_pattern: calculator.pay_pattern, monthly_pattern_payments: calculator.monthly_pattern_payments,
-            relevant_period_to: calculator.relevant_period_to, relevant_period_from: calculator.relevant_period_from)
-        end
-
         precalculate :relevant_period_from do
           calculator.relevant_period_from
         end
@@ -264,7 +258,14 @@ module SmartAnswer
           calculator.relevant_period_to
         end
 
-        next_node :usual_work_days?
+        next_node(permitted: [:usual_work_days?])  do |response|
+          calculator.employee_average_weekly_earnings =
+            Calculators::StatutorySickPayCalculator.average_weekly_earnings(
+              pay: response, pay_pattern: calculator.pay_pattern, monthly_pattern_payments: calculator.monthly_pattern_payments,
+              relevant_period_to: calculator.relevant_period_to, relevant_period_from: calculator.relevant_period_from
+            )
+          :usual_work_days?
+        end
       end
 
       # Question 9
@@ -281,12 +282,14 @@ module SmartAnswer
 
       # Question 9.1
       value_question :contractual_days_covered_by_earnings? do
-        next_node_calculation :employee_average_weekly_earnings do |response|
-          pay = calculator.relevant_contractual_pay
-          days_worked = response
-          Calculators::StatutorySickPayCalculator.contractual_earnings_awe(pay, days_worked)
+        next_node(permitted: [:usual_work_days?]) do |response|
+          calculator.employee_average_weekly_earnings =
+            Calculators::StatutorySickPayCalculator.contractual_earnings_awe(
+              calculator.relevant_contractual_pay,
+              response
+            )
+          :usual_work_days?
         end
-        next_node :usual_work_days?
       end
 
       # Question 10
@@ -299,14 +302,14 @@ module SmartAnswer
 
       # Question 10.1
       value_question :days_covered_by_earnings? do
-
-        next_node_calculation :employee_average_weekly_earnings do |response|
-          pay = calculator.total_earnings_before_sick_period
-          days_worked = response.to_i
-          Calculators::StatutorySickPayCalculator.total_earnings_awe(pay, days_worked)
+        next_node(permitted: [:usual_work_days?]) do |response|
+          calculator.employee_average_weekly_earnings =
+            Calculators::StatutorySickPayCalculator.total_earnings_awe(
+              calculator.total_earnings_before_sick_period,
+              response.to_i
+            )
+          :usual_work_days?
         end
-
-        next_node :usual_work_days?
       end
 
       # Question 11
@@ -322,7 +325,7 @@ module SmartAnswer
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.days_of_the_week_worked = response.split(",")
-          if employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(calculator.sick_start_date)
+          if calculator.employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(calculator.sick_start_date)
             :not_earned_enough
           elsif calculator.prior_sick_days >= (calculator.days_of_the_week_worked.size * 28 + 3)
             :maximum_entitlement_reached # Answer 8
