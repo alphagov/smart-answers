@@ -13,6 +13,7 @@ module SmartAnswer
       attr_accessor :eight_weeks_earnings
       attr_accessor :pay_pattern
       attr_accessor :relevant_contractual_pay
+      attr_accessor :total_earnings_before_sick_period
 
       def prev_sick_days
         prior_sick_days

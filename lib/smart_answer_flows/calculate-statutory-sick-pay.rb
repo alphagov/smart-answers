@@ -291,9 +291,8 @@ module SmartAnswer
 
       # Question 10
       money_question :total_earnings_before_sick_period? do
-        save_input_as :earnings
-
-        next_node(permitted: [:days_covered_by_earnings?]) do
+        next_node(permitted: [:days_covered_by_earnings?]) do |response|
+          calculator.total_earnings_before_sick_period = response
           :days_covered_by_earnings?
         end
       end
@@ -302,7 +301,7 @@ module SmartAnswer
       value_question :days_covered_by_earnings? do
 
         next_node_calculation :employee_average_weekly_earnings do |response|
-          pay = earnings
+          pay = calculator.total_earnings_before_sick_period
           days_worked = response.to_i
           Calculators::StatutorySickPayCalculator.total_earnings_awe(pay, days_worked)
         end
