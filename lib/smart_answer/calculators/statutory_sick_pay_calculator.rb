@@ -14,7 +14,9 @@ module SmartAnswer
       attr_accessor :pay_pattern
       attr_accessor :relevant_contractual_pay
       attr_accessor :total_earnings_before_sick_period
-      attr_accessor :employee_average_weekly_earnings
+      attr_accessor :total_employee_earnings
+      attr_accessor :contractual_days_covered_by_earnings
+      attr_accessor :days_covered_by_earnings
 
       def prev_sick_days
         prior_sick_days
@@ -120,6 +122,28 @@ module SmartAnswer
 
       def fell_sick_before_payday?
         eight_weeks_earnings == 'before_payday'
+      end
+
+      def employee_average_weekly_earnings
+        if paid_at_least_8_weeks_of_earnings?
+          self.class.average_weekly_earnings(
+            pay: total_employee_earnings,
+            pay_pattern: pay_pattern,
+            monthly_pattern_payments: monthly_pattern_payments,
+            relevant_period_to: relevant_period_to,
+            relevant_period_from: relevant_period_from
+          )
+        elsif paid_less_than_8_weeks_of_earnings?
+          self.class.total_earnings_awe(
+            total_earnings_before_sick_period,
+            days_covered_by_earnings
+          )
+        elsif fell_sick_before_payday?
+          self.class.contractual_earnings_awe(
+            relevant_contractual_pay,
+            contractual_days_covered_by_earnings
+          )
+        end
       end
 
       # define as static so we don't have to instantiate the calculator too early in the flow

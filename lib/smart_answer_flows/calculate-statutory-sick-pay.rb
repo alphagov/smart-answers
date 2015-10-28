@@ -259,11 +259,7 @@ module SmartAnswer
         end
 
         next_node(permitted: [:usual_work_days?])  do |response|
-          calculator.employee_average_weekly_earnings =
-            Calculators::StatutorySickPayCalculator.average_weekly_earnings(
-              pay: response, pay_pattern: calculator.pay_pattern, monthly_pattern_payments: calculator.monthly_pattern_payments,
-              relevant_period_to: calculator.relevant_period_to, relevant_period_from: calculator.relevant_period_from
-            )
+          calculator.total_employee_earnings = response
           :usual_work_days?
         end
       end
@@ -283,11 +279,7 @@ module SmartAnswer
       # Question 9.1
       value_question :contractual_days_covered_by_earnings? do
         next_node(permitted: [:usual_work_days?]) do |response|
-          calculator.employee_average_weekly_earnings =
-            Calculators::StatutorySickPayCalculator.contractual_earnings_awe(
-              calculator.relevant_contractual_pay,
-              response
-            )
+          calculator.contractual_days_covered_by_earnings = response
           :usual_work_days?
         end
       end
@@ -303,11 +295,7 @@ module SmartAnswer
       # Question 10.1
       value_question :days_covered_by_earnings? do
         next_node(permitted: [:usual_work_days?]) do |response|
-          calculator.employee_average_weekly_earnings =
-            Calculators::StatutorySickPayCalculator.total_earnings_awe(
-              calculator.total_earnings_before_sick_period,
-              response.to_i
-            )
+          calculator.days_covered_by_earnings = response.to_i
           :usual_work_days?
         end
       end
@@ -352,6 +340,10 @@ module SmartAnswer
       outcome :not_earned_enough do
         precalculate :lower_earning_limit do
           Calculators::StatutorySickPayCalculator.lower_earning_limit_on(calculator.sick_start_date)
+        end
+
+        precalculate :employee_average_weekly_earnings do
+          calculator.employee_average_weekly_earnings
         end
       end
 
