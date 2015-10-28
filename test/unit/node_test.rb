@@ -18,5 +18,11 @@ module SmartAnswer
       expected_directory = Pathname.new(@load_path).join('flow-name')
       assert_equal expected_directory, @node.template_directory
     end
+
+    test '#flow_name returns the name of the flow' do
+      @flow.name 'flow-name'
+
+      assert_equal @node.flow_name, @flow.name
+    end
   end
 end

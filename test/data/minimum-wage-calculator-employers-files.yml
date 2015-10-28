@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/minimum-wage-calculator-employers.rb: 3acdd42973737a9c09ffa017cce5066c
+lib/smart_answer_flows/minimum-wage-calculator-employers.rb: 419cca51965f33b7ef10ea5c81fe1908
 lib/smart_answer_flows/locales/en/minimum-wage-calculator-employers.yml: abcbe5ad62d6d13747de1426db6fe828
 test/data/minimum-wage-calculator-employers-questions-and-responses.yml: ddadb3fc5fc1d82d77f53fbc90752d89
 test/data/minimum-wage-calculator-employers-responses-and-expected-results.yml: 3f047b0007e3432a77ea4e896ea763ea
@@ -12,6 +12,6 @@ lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/past_payment_b
 lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/under_school_leaving_age.govspeak.erb: 13de5d10bbbb015df597f78c66da1b67
 lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/under_school_leaving_age_past.govspeak.erb: 9c56f76e04984f07627efbc1f42b2b63
 lib/smart_answer_flows/shared/minimum_wage/_acas_information.govspeak.erb: 0d2f7c4d01e3c928701e7d649663707e
-lib/smart_answer_flows/shared_logic/minimum_wage.rb: 434cb45cdd375590238a8097d34ce987
-lib/smart_answer/calculators/minimum_wage_calculator.rb: cab354bb2fc0f660d6c6aef70b9fabc5
+lib/smart_answer_flows/shared_logic/minimum_wage.rb: cbcf2d8f2b5a011152ed08eb5d02aa54
+lib/smart_answer/calculators/minimum_wage_calculator.rb: 73fb0899fb78f5dd447bd86cc4f8ec79
 lib/data/minimum_wage_data.yml: 3feed11191d68237289203a2c659ecf9
