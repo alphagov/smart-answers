@@ -5,7 +5,6 @@ ruby '2.2.3'
 gem 'rails', '4.2.4'
 
 gem 'airbrake', '~> 3.1.17'
-gem 'diffy', '3.0.6'
 gem 'extlib', '0.9.16'
 gem 'govuk-content-schema-test-helpers', '~> 1.3.0'
 gem 'govuk_frontend_toolkit', '3.1.0'
