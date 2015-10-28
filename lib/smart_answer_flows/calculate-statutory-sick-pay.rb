@@ -357,14 +357,6 @@ module SmartAnswer
         precalculate :normal_workdays_out do calculator.normal_workdays end
         precalculate :pattern_days do calculator.pattern_days end
         precalculate :pattern_days_total do calculator.pattern_days_total end
-
-        precalculate :formatted_sick_pay_weekly_amounts do
-          if calculator.ssp_payment > 0
-            calculator.formatted_sick_pay_weekly_amounts
-          else
-            ""
-          end
-        end
       end
 
       # Answer 7

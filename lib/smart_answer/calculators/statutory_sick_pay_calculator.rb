@@ -200,12 +200,6 @@ module SmartAnswer
         [max_days_that_can_be_paid - days_paid_in_linked_period, 0].max
       end
 
-      def formatted_sick_pay_weekly_amounts
-        weekly_payments.map { |week|
-          [week.first.strftime("%e %B %Y"), sprintf("£%.2f", week.second)].join("|")
-        }.join("\n")
-      end
-
       def ssp_payment
         amount = BigDecimal.new(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
         Money.new(amount)
@@ -249,6 +243,12 @@ module SmartAnswer
         matching_dates
       end
 
+      def weekly_payments
+        payments = sick_pay_weekly_dates.map { |date| [date, weekly_payment(date)] }
+        payments.pop while payments.any? and payments.last.last == 0
+        payments
+      end
+
     private
 
       def weekly_rate_on(date)
@@ -270,12 +270,6 @@ module SmartAnswer
           ssp_week_end = @sick_end_date.end_of_week - 1
         end
         (@sick_start_date..ssp_week_end).select { |day| day.wday == 6 }
-      end
-
-      def weekly_payments
-        payments = sick_pay_weekly_dates.map { |date| [date, weekly_payment(date)] }
-        payments.pop while payments.any? and payments.last.last == 0
-        payments
       end
 
       def weekly_payment(week_start_date)

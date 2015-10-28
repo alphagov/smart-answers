@@ -730,37 +730,6 @@ module SmartAnswer
         end
       end
 
-      context "formatted_sick_pay_weekly_amounts" do
-        should "produce a markdown (value) formatted string of weekly SSP dates and pay rates" do
-          calculator = StatutorySickPayCalculator.new(
-            sick_start_date: Date.parse("7 January 2013"),
-            sick_end_date: Date.parse("3 May 2013"),
-            days_of_the_week_worked: %w(2 3 4),
-            has_linked_sickness: true,
-            linked_sickness_start_date: Date.parse("Fri, 21 Sep 2012"),
-            linked_sickness_end_date: Date.parse("Fri, 28 Dec 2012")
-          )
-
-          assert_equal 42, calculator.prev_sick_days
-          assert_equal ["12 January 2013|£85.85",
-                        "19 January 2013|£85.85",
-                        "26 January 2013|£85.85",
-                        " 2 February 2013|£85.85",
-                        " 9 February 2013|£85.85",
-                        "16 February 2013|£85.85",
-                        "23 February 2013|£85.85",
-                        " 2 March 2013|£85.85",
-                        " 9 March 2013|£85.85",
-                        "16 March 2013|£85.85",
-                        "23 March 2013|£85.85",
-                        "30 March 2013|£85.85",
-                        " 6 April 2013|£85.85",
-                        "13 April 2013|£86.70",
-                        "20 April 2013|£86.70"].join("\n"),
-                       calculator.formatted_sick_pay_weekly_amounts
-        end
-      end
-
       context "average weekly earnings for new employees who fell sick before first payday" do
         should "give the average weekly earnings" do
           pay = SmartAnswer::Money.new(100)

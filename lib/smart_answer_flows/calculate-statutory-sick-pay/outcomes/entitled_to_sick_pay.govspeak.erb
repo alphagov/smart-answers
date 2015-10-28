@@ -10,7 +10,9 @@
 
   Week ending | SSP amount
   -|-
-  <%= formatted_sick_pay_weekly_amounts %>
+  <% calculator.weekly_payments.each do |week_ending, ssp_amount| %>
+    <%= format_date(week_ending) %>|<%= sprintf("£%.2f", ssp_amount) %>
+  <% end %>
    | **Total SSP: <%= format_money(ssp_payment) %>**
 
   ##What you need to know
