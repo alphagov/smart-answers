@@ -67,9 +67,3 @@ if ENV['SLIMMER_DEV']
 else
   gem 'slimmer', '9.0.0'
 end
-
-if ENV['SMARTDOWN_DEV']
-  gem 'smartdown', path: '../smartdown'
-else
-  gem 'smartdown', '~> 0.16.0'
-end
