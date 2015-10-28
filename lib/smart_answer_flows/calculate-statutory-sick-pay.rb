@@ -269,13 +269,12 @@ module SmartAnswer
 
       # Question 9
       money_question :pay_amount_if_not_sick? do
-        save_input_as :relevant_contractual_pay
-
         precalculate :sick_start_date_for_awe do
           calculator.sick_start_date_for_awe
         end
 
-        next_node(permitted: [:contractual_days_covered_by_earnings?]) do
+        next_node(permitted: [:contractual_days_covered_by_earnings?]) do |response|
+          calculator.relevant_contractual_pay = response
           :contractual_days_covered_by_earnings?
         end
       end
@@ -283,7 +282,7 @@ module SmartAnswer
       # Question 9.1
       value_question :contractual_days_covered_by_earnings? do
         next_node_calculation :employee_average_weekly_earnings do |response|
-          pay = relevant_contractual_pay
+          pay = calculator.relevant_contractual_pay
           days_worked = response
           Calculators::StatutorySickPayCalculator.contractual_earnings_awe(pay, days_worked)
         end
