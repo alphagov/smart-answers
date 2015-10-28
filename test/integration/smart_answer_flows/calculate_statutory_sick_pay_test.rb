@@ -121,7 +121,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           assert_current_node :paid_at_least_8_weeks?
           add_response 'eight_weeks_more'
           assert_current_node :how_often_pay_employee_pay_patterns?
-          assert_state_variable :eight_weeks_earnings, 'eight_weeks_more'
+          assert current_state.calculator.paid_at_least_8_weeks_of_earnings?
           add_response 'weekly'
           assert_current_node :last_payday_before_sickness?
           assert_state_variable :pay_pattern, 'weekly'
@@ -149,7 +149,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           assert_current_node :paid_at_least_8_weeks?
           add_response 'eight_weeks_more'
           assert_current_node :how_often_pay_employee_pay_patterns?
-          assert_state_variable :eight_weeks_earnings, 'eight_weeks_more'
+          assert current_state.calculator.paid_at_least_8_weeks_of_earnings?
           add_response 'weekly'
           assert_current_node :last_payday_before_sickness?
           assert_state_variable :pay_pattern, 'weekly'

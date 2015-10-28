@@ -10,6 +10,7 @@ module SmartAnswer
       attr_accessor :has_linked_sickness
       attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
       attr_accessor :relevant_period_to, :relevant_period_from
+      attr_accessor :eight_weeks_earnings
 
       def prev_sick_days
         prior_sick_days
@@ -103,6 +104,18 @@ module SmartAnswer
 
       def monthly_pattern_payments
         self.class.months_between(relevant_period_from, relevant_period_to)
+      end
+
+      def paid_at_least_8_weeks_of_earnings?
+        eight_weeks_earnings == 'eight_weeks_more'
+      end
+
+      def paid_less_than_8_weeks_of_earnings?
+        eight_weeks_earnings == 'eight_weeks_less'
+      end
+
+      def fell_sick_before_payday?
+        eight_weeks_earnings == 'before_payday'
       end
 
       # define as static so we don't have to instantiate the calculator too early in the flow

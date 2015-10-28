@@ -166,8 +166,6 @@ module SmartAnswer
         option :eight_weeks_less
         option :before_payday
 
-        save_input_as :eight_weeks_earnings
-
         precalculate :sick_start_date_for_awe do
           calculator.sick_start_date_for_awe
         end
@@ -177,11 +175,13 @@ module SmartAnswer
           :total_earnings_before_sick_period?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
-          case response
-          when 'eight_weeks_more', 'before_payday'
+          calculator.eight_weeks_earnings = response
+          if calculator.paid_at_least_8_weeks_of_earnings?
             :how_often_pay_employee_pay_patterns? # Question 7.2
-          when 'eight_weeks_less'
+          elsif calculator.paid_less_than_8_weeks_of_earnings?
             :total_earnings_before_sick_period? # Question 10
+          elsif calculator.fell_sick_before_payday?
+            :how_often_pay_employee_pay_patterns? # Question 7.2
           end
         end
       end
@@ -201,7 +201,7 @@ module SmartAnswer
           :pay_amount_if_not_sick?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
-          if eight_weeks_earnings == 'eight_weeks_more'
+          if calculator.paid_at_least_8_weeks_of_earnings?
             :last_payday_before_sickness? # Question 8
           else
             :pay_amount_if_not_sick? # Question 9
