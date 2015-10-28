@@ -317,7 +317,7 @@ module SmartAnswer
             :not_earned_enough
           elsif calculator.maximum_entitlement_reached?
             :maximum_entitlement_reached # Answer 8
-          elsif calculator.ssp_payment > 0
+          elsif calculator.entitled_to_sick_pay?
             :entitled_to_sick_pay # Answer 6
           elsif calculator.days_that_can_be_paid_for_this_period == 0
             :maximum_entitlement_reached # Answer 8

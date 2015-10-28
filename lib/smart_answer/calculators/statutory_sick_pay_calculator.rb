@@ -215,6 +215,10 @@ module SmartAnswer
         prior_sick_days >= (days_of_the_week_worked.size * 28 + 3)
       end
 
+      def entitled_to_sick_pay?
+        ssp_payment > 0
+      end
+
       def self.contractual_earnings_awe(pay, days_worked)
         (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
       end
