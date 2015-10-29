@@ -3,7 +3,6 @@ Maternity and paternity calculator for employers
 Calculate your employee’s:
 
 + statutory maternity pay (SMP), paternity pay, adoption pay
-+ qualifying week
 + relevant employment period and average weekly earnings
 + leave period
 

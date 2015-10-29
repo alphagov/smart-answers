@@ -1,9 +1,9 @@
 ---
 lib/smart_answer_flows/maternity-paternity-calculator.rb: 423c26577066ed7c7e70dcba85b60178
-lib/smart_answer_flows/locales/en/maternity-paternity-calculator.yml: 015accb15b39db02dc2763e63bb6071f
+lib/smart_answer_flows/locales/en/maternity-paternity-calculator.yml: cf2abf0778bb38ad017deba521830090
 test/data/maternity-paternity-calculator-questions-and-responses.yml: 1bf0c803cd8e8a091417b0e1e19d2bd2
 test/data/maternity-paternity-calculator-responses-and-expected-results.yml: a59f6821dd5b949861ab6261840e58e4
-lib/smart_answer_flows/maternity-paternity-calculator/maternity_paternity_calculator.govspeak.erb: 85c29330fa42b84a5eca78bf051a517c
+lib/smart_answer_flows/maternity-paternity-calculator/maternity_paternity_calculator.govspeak.erb: 912bfe601939f1391d5e54b11c146744
 lib/smart_answer_flows/maternity-paternity-calculator/outcomes/_must_be_on_payroll.govspeak.erb: e79accc3a0b6e9060fb3fbf9dd5848ad
 lib/smart_answer_flows/maternity-paternity-calculator/outcomes/_must_earn_over_threshold.govspeak.erb: d2367c7b156a37e88a81061ce890503a
 lib/smart_answer_flows/maternity-paternity-calculator/outcomes/_not_worked_long_enough.govspeak.erb: 08e6560e8927136f1f2899c4d0b1648f
@@ -17,9 +17,9 @@ lib/smart_answer_flows/maternity-paternity-calculator/outcomes/adoption_not_enti
 lib/smart_answer_flows/maternity-paternity-calculator/outcomes/maternity_leave_and_pay_result.govspeak.erb: 35066a095224d56af5153769db91d721
 lib/smart_answer_flows/maternity-paternity-calculator/outcomes/paternity_leave_and_pay.govspeak.erb: bf1bf8076a8eb171d380e62de057fef2
 lib/smart_answer_flows/maternity-paternity-calculator/outcomes/paternity_not_entitled_to_leave_or_pay.govspeak.erb: 6909d514cd992d94400407ded6f4a024
-lib/smart_answer_flows/shared_logic/adoption-calculator.rb: 31fea84aa6bd02faab067fc71b51d3f8
-lib/smart_answer_flows/shared_logic/maternity-calculator.rb: ba8f0933b8c424f489661a083071fd47
-lib/smart_answer_flows/shared_logic/paternity-calculator.rb: d4872f2b383a9d8ea42fe7b338a62539
+lib/smart_answer_flows/shared_logic/adoption-calculator.rb: 066a57dc1215f6a822f19b5f05f5615b
+lib/smart_answer_flows/shared_logic/maternity-calculator.rb: 0fd872c802e57790224b35289b7872ce
+lib/smart_answer_flows/shared_logic/paternity-calculator.rb: f3211e89f31182566180a39fa20a239a
 lib/smart_answer/calculators/maternity_paternity_calculator.rb: 24de99189c23e9a7cc048871a817bb3c
 lib/data/rates/maternity_paternity_birth.yml: 3eef956f1020576a9343647fec34dd01
 lib/data/rates/maternity_paternity_adoption.yml: 453c4d90b6fd9ffe1556782665f313fc
