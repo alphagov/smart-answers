@@ -153,7 +153,10 @@ module SmartAnswer::Calculators
     end
 
     def date_of_year(date, year)
-      Date.civil(year, date.month, date.day)
+      return date if date.year == year
+
+      years_offset = date.year - year
+      date - years_offset.years
     end
 
     def days_cap

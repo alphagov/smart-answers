@@ -99,6 +99,11 @@ module SmartAnswer::Calculators
               calc = HolidayEntitlement.new(start_date: Date.parse('2013-01-21'), leave_year_start_date: Date.parse('2013-02-01'))
               assert_equal '0.0301', sprintf('%.4f', calc.fraction_of_year)
             end
+
+            should 'return the fraction of a year when the leave year start falls on the 29th of Feb and the start date is a non-leap year' do
+              calc = HolidayEntitlement.new(start_date: Date.parse('2015-10-22'), leave_year_start_date: Date.parse('2016-02-29'))
+              assert_equal '0.3534', sprintf('%.4f', calc.fraction_of_year)
+            end
           end # context - start date before leave_year_start
 
           context "start date after leave_year_start" do
