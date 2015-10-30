@@ -1,5 +1,6 @@
 require_relative '../test_helper'
 require_relative '../helpers/i18n_test_helper'
+require_relative '../helpers/test_fixtures_helper'
 require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerTest < ActionController::TestCase
@@ -106,19 +107,25 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
 
     should "display first question after starting" do
-      get :show, id: 'sample', started: 'y'
+      using_translation_file(fixture_file('smart_answers_controller_test/sample.yml')) do
+        get :show, id: 'sample', started: 'y'
+      end
       assert_select ".step.current h2", /Do you like chocolate\?/
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
     end
 
     should "show outcome when smart answer is complete so that 'smartanswerOutcome' JS event is fired" do
-      get :show, id: 'sample', started: 'y', responses: 'yes'
+      using_translation_file(fixture_file('smart_answers_controller_test/sample.yml')) do
+        get :show, id: 'sample', started: 'y', responses: 'yes'
+      end
       assert_select ".outcome"
     end
 
     should "have meta robots noindex on question pages" do
-      get :show, id: 'sample', started: 'y'
+      using_translation_file(fixture_file('smart_answers_controller_test/sample.yml')) do
+        get :show, id: 'sample', started: 'y'
+      end
       assert_select "head meta[name=robots][content=noindex]"
     end
 
@@ -403,7 +410,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "multiple choice question" do
       setup do
         @flow = SmartAnswer::Flow.new do
-          name "sample"
+          name "cheese"
           multiple_choice :what? do
             option cheese: :done
           end
@@ -415,7 +422,9 @@ class SmartAnswersControllerTest < ActionController::TestCase
       context "format=json" do
         context "no response given" do
           should "show an error message" do
-            submit_json_response(nil)
+            using_translation_file(fixture_file('smart_answers_controller_test/cheese.yml')) do
+              submit_json_response(nil)
+            end
             data = JSON.parse(response.body)
             doc = Nokogiri::HTML(data['html_fragment'])
             assert doc.css('.error').size > 0, "#{data['html_fragment']} should contain .error"
@@ -430,10 +439,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
 
     context "a response has been accepted" do
-      setup { get :show, id: 'sample', started: 'y', responses: "no" }
+      setup do
+        using_translation_file(fixture_file('smart_answers_controller_test/sample.yml')) do
+          get :show, id: 'sample', started: 'y', responses: "no"
+        end
+      end
 
       should "show response summary" do
-        assert_select ".done-questions", /Do you like chocolate\?\s+no/
+        assert_select ".done-questions", /Do you like chocolate\?\s+No/
       end
 
       should "show the next question" do
@@ -449,7 +462,9 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     context "format=json" do
       should "render content without layout" do
-        get :show, id: 'sample', started: 'y', responses: "no", format: "json"
+        using_translation_file(fixture_file('smart_answers_controller_test/sample.yml')) do
+          get :show, id: 'sample', started: 'y', responses: "no", format: "json"
+        end
         data = JSON.parse(response.body)
         assert_equal '/sample/y/no', data['url']
         doc = Nokogiri::HTML(data['html_fragment'])
@@ -502,14 +517,18 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "debugging" do
       should "render debug information on the page when enabled" do
         @controller.stubs(:debug?).returns(true)
-        get :show, id: 'sample', started: 'y', responses: "no", debug: "1"
+        using_translation_file(fixture_file('smart_answers_controller_test/sample.yml')) do
+          get :show, id: 'sample', started: 'y', responses: "no", debug: "1"
+        end
 
         assert_select "pre.debug"
       end
 
       should "not render debug information on the page when not enabled" do
         @controller.stubs(:debug?).returns(false)
-        get :show, id: 'sample', started: 'y', responses: "no", debug: nil
+        using_translation_file(fixture_file('smart_answers_controller_test/sample.yml')) do
+          get :show, id: 'sample', started: 'y', responses: "no", debug: nil
+        end
 
         assert_select "pre.debug", false, "The page should not render debug information"
       end
@@ -523,5 +542,43 @@ class SmartAnswersControllerTest < ActionController::TestCase
     Rails.configuration.set_http_cache_control_expiry_time = true
     block.call
     Rails.configuration.set_http_cache_control_expiry_time = original_value
+  end
+end
+
+class SmartAnswersControllerForSmartdownFlowsTest < ActionController::TestCase
+  include TestFixturesHelper
+  include GdsApi::TestHelpers::ContentApi
+
+  tests SmartAnswersController
+
+  def setup
+    use_test_smartdown_flow_fixtures
+    stub_content_api_default_artefact
+  end
+
+  def teardown
+    stop_using_test_smartdown_flow_fixtures
+  end
+
+  context "format=txt" do
+    should "render outcome node as text" do
+      get :show, id: 'smartdown-example', started: 'y', responses: "yes", format: "txt"
+
+      assert_match /Outcome title/, response.body
+      assert_match /Outcome body/, response.body
+      assert_match /Outcome next steps/, response.body
+    end
+
+    should "render the landing page as text" do
+      get :show, id: 'smartdown-example', format: 'txt'
+
+      assert response.body.start_with?("Landing page title")
+    end
+
+    should "render not found for a question node" do
+      get :show, id: 'smartdown-example', started: 'y', format: "txt"
+
+      assert_response :missing
+    end
   end
 end

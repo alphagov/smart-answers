@@ -9,33 +9,30 @@ en-GB:
             [Download ‘Form SSP1, employee not entitled to SSP’ (PDF, 130KB)](http://www.dwp.gov.uk/advisers/claimforms/ssp1.pdf)
           $D
 
-      options:
-        "yes": "Yes"
-        "no": "No"
-        statutory_maternity_pay: Statutory Maternity Pay
-        maternity_allowance: Maternity Allowance
-        ordinary_statutory_paternity_pay: Ordinary Statutory Paternity Pay
-        statutory_adoption_pay: Statutory Adoption Pay
-        additional_statutory_paternity_pay: Additional Statutory Paternity Pay
-
-        weekly: Weekly
-        fortnightly: Every 2 weeks
-        every_4_weeks: Every 4 weeks
-        monthly: Monthly - eg last day or Friday of a month
-        irregularly: Irregularly
-
       # Q1
       is_your_employee_getting?:
         title: Is your employee getting any of the following?
         hint: If none apply just click ‘Next step’
+        options:
+          statutory_maternity_pay: Statutory Maternity Pay
+          maternity_allowance: Maternity Allowance
+          ordinary_statutory_paternity_pay: Ordinary Statutory Paternity Pay
+          statutory_adoption_pay: Statutory Adoption Pay
+          additional_statutory_paternity_pay: Additional Statutory Paternity Pay
 
       # Question 2
       employee_tell_within_limit?:
         title: Did your employee tell you they were sick and unable to come into work within 7 days of their first day of absence (or within your time limit)?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Question 3
       employee_work_different_days?:
         title: Does your employee routinely work different days of the week?
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Question 4
       first_sick_day?:
@@ -55,6 +52,9 @@ en-GB:
           These are called ‘linked Periods of Incapacity for Work (PIW)’. Check if an employee’s [PIW links to a previous one.](/government/publications/statutory-sick-pay-tables-for-linking-periods-of-incapacity-for-work)
 
           *[PIW]: Period of Incapacity for Work
+        options:
+          "yes": "Yes"
+          "no": "No"
 
       # Question 6.1
       linked_sickness_start_date?:
@@ -78,6 +78,12 @@ en-GB:
       # Q7.2
       how_often_pay_employee_pay_patterns?:
         title: How often do you pay the employee?
+        options:
+          weekly: Weekly
+          fortnightly: Every 2 weeks
+          every_4_weeks: Every 4 weeks
+          monthly: Monthly - eg last day or Friday of a month
+          irregularly: Irregularly
 
       # Question 8
       last_payday_before_sickness?:

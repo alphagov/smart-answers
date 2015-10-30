@@ -1,9 +1,6 @@
 en-GB:
   flow:
     state-pension-topup:
-      options:
-        "yes": "Yes"
-        "no": "No"
 #Q1
       dob_age?:
         title: What is your date of birth?
@@ -15,7 +12,7 @@ en-GB:
         error_message: Enter a date between 12 October 2015 and 5 April 2017.
 #Q3
       how_much_extra_per_week?:
-        title: How much would you like to get per week?
+        title: How much extra State Pension would you like to get per week?
         hint: Enter a number between 1 and 25.
         error_message: Enter an amount in whole pounds between 1 and 25.
 #Q4

@@ -20,8 +20,8 @@
 - mother_and_father
 - neither
 :married_couple_or_civil_partnership?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :childs_date_of_birth?:
 - 2006-06-30 # :homeoffice_result
 - 2015-02-02

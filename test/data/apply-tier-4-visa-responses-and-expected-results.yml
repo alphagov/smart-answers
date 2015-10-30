@@ -1,92 +1,92 @@
---- 
+---
 - :current_node: :extending_or_switching?
-  :responses: 
+  :responses:
   - extend_general
   :next_node: :sponsor_id?
   :outcome_node: false
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - extend_general
   - V6G1G9F62
   :next_node: :outcome
   :outcome_node: true
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - extend_general
   - QNCPTDW26
   :next_node: :outcome
   :outcome_node: true
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - extend_general
   - made-up-sponsor-id
   :next_node: :sponsor_id?
   :outcome_node: false
 - :current_node: :extending_or_switching?
-  :responses: 
+  :responses:
   - switch_general
   :next_node: :sponsor_id?
   :outcome_node: false
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - switch_general
   - V6G1G9F62
   :next_node: :outcome
   :outcome_node: true
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - switch_general
   - QNCPTDW26
   :next_node: :outcome
   :outcome_node: true
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - switch_general
   - made-up-sponsor-id
   :next_node: :sponsor_id?
   :outcome_node: false
 - :current_node: :extending_or_switching?
-  :responses: 
+  :responses:
   - extend_child
   :next_node: :sponsor_id?
   :outcome_node: false
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - extend_child
   - V6G1G9F62
   :next_node: :outcome
   :outcome_node: true
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - extend_child
   - QNCPTDW26
   :next_node: :outcome
   :outcome_node: true
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - extend_child
   - made-up-sponsor-id
   :next_node: :sponsor_id?
   :outcome_node: false
 - :current_node: :extending_or_switching?
-  :responses: 
+  :responses:
   - switch_child
   :next_node: :sponsor_id?
   :outcome_node: false
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - switch_child
   - V6G1G9F62
   :next_node: :outcome
   :outcome_node: true
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - switch_child
   - QNCPTDW26
   :next_node: :outcome
   :outcome_node: true
 - :current_node: :sponsor_id?
-  :responses: 
+  :responses:
   - switch_child
   - made-up-sponsor-id
   :next_node: :sponsor_id?

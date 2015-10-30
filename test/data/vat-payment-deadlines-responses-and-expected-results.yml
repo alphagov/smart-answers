@@ -1,48 +1,48 @@
---- 
+---
 - :current_node: :when_does_your_vat_accounting_period_end?
-  :responses: 
-  - "2015-01-31"
+  :responses:
+  - '2015-01-31'
   :next_node: :how_do_you_want_to_pay?
   :outcome_node: false
 - :current_node: :how_do_you_want_to_pay?
-  :responses: 
-  - "2015-01-31"
+  :responses:
+  - '2015-01-31'
   - direct-debit
   :next_node: :result_direct_debit
   :outcome_node: true
 - :current_node: :how_do_you_want_to_pay?
-  :responses: 
-  - "2015-01-31"
+  :responses:
+  - '2015-01-31'
   - online-telephone-banking
   :next_node: :result_online_telephone_banking
   :outcome_node: true
 - :current_node: :how_do_you_want_to_pay?
-  :responses: 
-  - "2015-01-31"
+  :responses:
+  - '2015-01-31'
   - online-debit-credit-card
   :next_node: :result_online_debit_credit_card
   :outcome_node: true
 - :current_node: :how_do_you_want_to_pay?
-  :responses: 
-  - "2015-01-31"
+  :responses:
+  - '2015-01-31'
   - bacs-direct-credit
   :next_node: :result_bacs_direct_credit
   :outcome_node: true
 - :current_node: :how_do_you_want_to_pay?
-  :responses: 
-  - "2015-01-31"
+  :responses:
+  - '2015-01-31'
   - bank-giro
   :next_node: :result_bank_giro
   :outcome_node: true
 - :current_node: :how_do_you_want_to_pay?
-  :responses: 
-  - "2015-01-31"
+  :responses:
+  - '2015-01-31'
   - chaps
   :next_node: :result_chaps
   :outcome_node: true
 - :current_node: :how_do_you_want_to_pay?
-  :responses: 
-  - "2015-01-31"
+  :responses:
+  - '2015-01-31'
   - cheque
   :next_node: :result_cheque
   :outcome_node: true

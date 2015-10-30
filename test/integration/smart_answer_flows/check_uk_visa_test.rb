@@ -379,28 +379,28 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           assert_current_node :outcome_transit_not_leaving_airport
         end
       end
-      context "Venezuelan passport" do
+      context "Venezuelan in transit" do
         setup do
           reset_responses
           add_response "venezuela"
           add_response "transit"
         end
-        should "" do
+        should "be asked if they are leaving the airport" do
           assert_current_node :planning_to_leave_airport?
         end
-        context "leaving airport" do
+        context "when leaving airport" do
           setup do
             add_response "yes"
           end
-          should "take you to the visit waiver outcome with leaving airport phraselist" do
-            assert_current_node :outcome_visit_waiver
+          should "lead to outcome_transit_leaving_airport_datv" do
+            assert_current_node :outcome_transit_leaving_airport_datv
           end
         end
-        context "leaving airport" do
+        context "not leaving airport" do
           setup do
             add_response "no"
           end
-          should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
+          should "lead to outcome_visit_waiver" do
             assert_current_node :outcome_visit_waiver
           end
         end

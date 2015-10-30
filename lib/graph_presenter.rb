@@ -15,6 +15,12 @@ class GraphPresenter
         node.next_node_function_chain.each do |(nextnode, predicates)|
           adjacency_list[node.name] << [nextnode, predicates.map(&:label).compact.join(" AND\n")]
         end
+        node.permitted_next_nodes.each do |permitted_next_node|
+          existing_next_nodes = adjacency_list[node.name].map(&:first)
+          unless existing_next_nodes.include?(permitted_next_node)
+            adjacency_list[node.name] << [permitted_next_node, '']
+          end
+        end
       end
       @flow.outcomes.each do |node|
         adjacency_list[node.name] = []
@@ -55,12 +61,7 @@ private
     when SmartAnswer::Question::Base
       text << word_wrap(node_title(node))
     when SmartAnswer::Outcome
-      candidate_texts = [
-        node_title(node),
-        first_line_of_body(node),
-        node.name.to_s
-      ]
-      text << word_wrap(candidate_texts.find(&:present?))
+      text << word_wrap(node.name.to_s)
     else
       text << "Unknown node type"
     end
@@ -91,18 +92,6 @@ private
     end
   rescue I18n::MissingTranslationData
     ""
-  end
-
-  def node_body(node)
-    allow_missing_interpolations do
-      I18n.translate!("#{i18n_prefix(node)}.body", {})
-    end
-  rescue I18n::MissingTranslationData
-    ""
-  end
-
-  def first_line_of_body(node)
-    node_body(node).split("\n\n").first || ""
   end
 
   def translate_option(node, option)

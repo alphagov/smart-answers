@@ -1,9 +1,10 @@
 ---
-lib/smart_answer_flows/student-finance-calculator.rb: dcee811c9e0415909e23d3b15f6223d3
-lib/smart_answer_flows/locales/en/student-finance-calculator.yml: df63642e80cd83574b64c2034279cafd
-test/data/student-finance-calculator-questions-and-responses.yml: 7f7a6293dd5c37756c89ea6b075ffd45
-test/data/student-finance-calculator-responses-and-expected-results.yml: f4588ab6828397faa8f1fc4dce005398
-lib/smart_answer_flows/student-finance-calculator/outcome_eu_students.govspeak.erb: 7871932a087502fd2d4dc4f2efa2af42
-lib/smart_answer_flows/student-finance-calculator/outcome_uk_all_students.govspeak.erb: 35b17208f9d86875c4d6a165ab0afe50
-lib/smart_answer_flows/student-finance-calculator/outcome_uk_full_time_students.govspeak.erb: 8e0d1a2867adfa4ee84e339890b83462
-lib/smart_answer_flows/student-finance-calculator/student_finance_calculator.govspeak.erb: d93ba30a145822486075e2efc8178959
+lib/smart_answer_flows/student-finance-calculator.rb: 7dad8190af5f892d12312b7f9ad30d32
+lib/smart_answer_flows/locales/en/student-finance-calculator.yml: c1c56f850e993f1b7dd48964ae268292
+test/data/student-finance-calculator-questions-and-responses.yml: 8f68ec47644191cd01864ba288acf7ec
+test/data/student-finance-calculator-responses-and-expected-results.yml: 4d17ae39630843d360460ef2131c5980
+lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_eu_students.govspeak.erb: b74eb38ff2a8534fb5fc8b0175fabf68
+lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_all_students.govspeak.erb: 4e5ff3f2736a7f6c34cd9db970bde9bf
+lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_full_time_students.govspeak.erb: bc1e8dea0986af6a5c2763248ce155d7
+lib/smart_answer_flows/student-finance-calculator/student_finance_calculator.govspeak.erb: 6f4e5b4ad5d05c446b914e4e647647ea
+lib/smart_answer/calculators/student_finance_calculator.rb: 6c9e635410c71888275d77267b7def4b

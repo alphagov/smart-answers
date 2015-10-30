@@ -1,24 +1,22 @@
 en-GB:
   flow:
     maternity-paternity-calculator:
-      options:
-        "no": "No"
-        "yes": "Yes"
-        "maternity": "Maternity"
-        "paternity": "Paternity"
-        "adoption": "Adoption"
-        "one_week": "One Week"
-        "two_weeks": "Two Weeks"
-        "weekly": "Weekly"
       ## Q1
       what_type_of_leave?:
         title: What do you want to check?
+        options:
+          "maternity": "Maternity"
+          "paternity": "Paternity"
+          "adoption": "Adoption"
       ## QM1
       baby_due_date_maternity?:
         title: What is the baby’s due date?
       ## QM2
       employment_contract?:
         title: Does the employee have an employment contract with you?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QM3
       date_leave_starts?:
         title: When does the employee want to start their leave?
@@ -27,9 +25,15 @@ en-GB:
       ## QM4
       did_the_employee_work_for_you?:
         title: Did the employee work for you on or before %{employment_start}?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QM5
       is_the_employee_on_your_payroll?:
-        title: Is the employee on your payroll?
+        title: Was the employee (or will they be) on your payroll on %{qualifying_week_start}?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QM5.2
       last_normal_payday?:
         title: What was the last normal payday on or before %{to_saturday_formatted}?
@@ -88,6 +92,14 @@ en-GB:
       ## QM12
       what_particular_day_of_the_month_is_the_employee_paid?:
         title: What particular day of the month is the employee paid?
+        options:
+          Sunday: "Sunday"
+          Monday: "Monday"
+          Tuesday: "Tuesday"
+          Wednesday: "Wednesday"
+          Thursday: "Thursday"
+          Friday: "Friday"
+          Saturday: "Saturday"
       ## QM13
       which_week_in_month_is_the_employee_paid?:
         title: Is the employee paid on the 1st, 2nd, 3rd, 4th or last %{pay_day_in_week}?
@@ -101,6 +113,9 @@ en-GB:
       ## QP0
       leave_or_pay_for_adoption?:
         title: Is the paternity leave or pay for an adoption?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QP1
       baby_due_date_paternity?:
         title: What is the baby’s due date?
@@ -111,18 +126,33 @@ en-GB:
       ## QP3
       employee_responsible_for_upbringing?:
         title: Is the employee responsible for the child’s upbringing and either the biological father or the mother’s husband or partner?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QP4
       employee_work_before_employment_start?:
         title: Did the employee work for you on or before %{employment_start}?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QP5
       employee_has_contract_paternity?:
         title: Does the employee have an employment contract with you?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QP6
       employee_on_payroll_paternity?:
-        title: Is the employee on your payroll?
+        title: Was the employee (or will they be) on your payroll on %{qualifying_week_start}?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QP7
       employee_still_employed_on_birth_date?:
         title: Will the employee still be employed by you on %{still_employed_date}?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QP8
       employee_start_paternity?:
         title: When does the employee want to start their paternity leave?
@@ -221,11 +251,17 @@ en-GB:
       ## QAP3
       padoption_employee_responsible_for_upbringing?:
         title: Is the employee responsible for the child's upbringing and the husband or partner of the adopter or the child's adopter?
+        options:
+          "no": "No"
+          "yes": "Yes"
 
       ## Adoption
       ## QA0
       taking_paternity_leave_for_adoption?:
         title: Is the employee taking paternity leave to adopt a child?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QA1
       date_of_adoption_match?:
         title: When was the child matched with the employee?
@@ -238,12 +274,21 @@ en-GB:
       ## QA3
       adoption_did_the_employee_work_for_you?:
         title: Did the employee work for you on or before %{employment_start}?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QA4
       adoption_employment_contract?:
         title: Does the employee have an employment contract with you?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QA5
       adoption_is_the_employee_on_your_payroll?:
-        title: Is the employee on your payroll?
+        title: Was the employee (or will they be) on your payroll on %{qualifying_week_start}?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## QA6
       adoption_date_leave_starts?:
         title: When does the employee want to start their leave?

@@ -3,7 +3,7 @@
 ### Introduction
 
 Members of the Content Team do not have permission to contribute directly to the canonical repository, so when they want to make a change, they create a pull request using a fork of the repository. Also since they don't usually have a Ruby environment setup on their local machine, they will not be able to update
-files relating to the regression tests e.g. file checksums, Govspeak artefacts, etc. See documentation about [adding regression tests](#adding-regression-tests-to-smart-answers) for more information.
+files relating to the regression tests e.g. file checksums, Govspeak artefacts, etc. See documentation about [adding regression tests](adding-new-regression-tests.md) for more information.
 
 ## Instructions
 
@@ -40,3 +40,5 @@ files relating to the regression tests e.g. file checksums, Govspeak artefacts, 
 10. Push the branch to GitHub and submit a new pull request so that people have a chance to review the changes and a Continuous Integration build is triggered. Close the original pull request.
 
         $ git push origin <branch-on-local-repo>
+
+See documentation on [regression tests](regression-tests.md) for further details.

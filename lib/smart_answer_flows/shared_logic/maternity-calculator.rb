@@ -57,6 +57,9 @@ date_question :date_leave_starts? do
   calculate :employment_start do
     calculator.employment_start
   end
+  calculate :qualifying_week_start do
+    calculator.qualifying_week.first
+  end
   calculate :ssp_stop do
     calculator.ssp_stop
   end

@@ -1,9 +1,6 @@
 en-GB:
   flow:
     register-a-birth:
-      options:
-        "yes": "Yes"
-        "no": "No"
       have_you_adopted_the_child?:
         title: Have you adopted the child?
       who_has_british_nationality?:
@@ -19,6 +16,9 @@ en-GB:
         title: Which country was the child born in?
       married_couple_or_civil_partnership?:
         title: Were you married to the other parent when your child was born?
+        options:
+          "yes": "Yes"
+          "no": "No"
       childs_date_of_birth?:
         title: What is your child’s date of birth?
       where_are_you_now?:

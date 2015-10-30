@@ -1,8 +1,8 @@
 class PanopticonRegisterer
-  attr_reader :unique_registerables
+  attr_reader :flow_presenters
 
-  def initialize(unique_registerables)
-    @unique_registerables = unique_registerables
+  def initialize(flow_presenters)
+    @flow_presenters = flow_presenters
   end
 
   def register
@@ -13,7 +13,7 @@ class PanopticonRegisterer
 
     puts "Looking up flows, with options: #{FLOW_REGISTRY_OPTIONS}"
 
-    unique_registerables.each { |registerable|
+    flow_presenters.each { |registerable|
       puts "Registering flow: #{registerable.slug} => #{registerable.title}"
       registerer.register(registerable)
     }

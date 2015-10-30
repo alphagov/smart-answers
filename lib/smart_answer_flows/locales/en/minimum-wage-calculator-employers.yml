@@ -1,21 +1,18 @@
 en-GB:
   flow:
     minimum-wage-calculator-employers:
-      options:
-        "yes": "Yes"
-        "no": "No"
-
       # Q1
       what_would_you_like_to_check?:
         title: "What would you like to check?"
         options:
-          current_payment: "If you’re paying a worker the National Wage (from October 2014)"
-          past_payment: "If you owe a worker past payments (before October 2014)"
+          current_payment: "If you’re paying a worker the National Wage (from October 2015)"
+          past_payment: "If you owe a worker past payments (before October 2015)"
       # Q1A
       past_payment_date?:
         title: "Which year would you like to check past payments for?"
         hint: You can go back up to 6 years
         options:
+          "2014-10-01": "Oct 2014 - Sep 2015"
           "2013-10-01": "Oct 2013 - Sep 2014"
           "2012-10-01": "Oct 2012 - Sep 2013"
           "2011-10-01": "Oct 2011 - Sep 2012"
@@ -38,6 +35,7 @@ en-GB:
       were_you_an_apprentice?:
         title: "Was the worker an apprentice at the time?"
         options:
+          "no": "No"
           apprentice_under_19: "Apprentice under 19"
           apprentice_over_19: "Apprentice aged 19 and over and in their first year"
       # Q3
@@ -122,12 +120,14 @@ en-GB:
       is_provided_with_accommodation?:
         title: "Do you provide accommodation?"
         options:
+          "no": "No"
           yes_free: "Yes, the accommodation is free"
           yes_charged: "Yes, the accommodation is charged for"
       # Q9 Past
       was_provided_with_accommodation?:
         title: "Did you provide accommodation?"
         options:
+          "no": "No"
           yes_free: "Yes, the accommodation was free"
           yes_charged: "Yes, the accommodation was charged for"
       # Q10

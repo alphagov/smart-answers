@@ -1,38 +1,38 @@
---- 
+---
 - :current_node: :going_or_already_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   :next_node: :which_benefit?
   :outcome_node: false
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - jsa
   :next_node: :jsa_how_long_abroad?
   :outcome_node: false
 - :current_node: :jsa_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - jsa
   - less_than_a_year_medical
   :next_node: :jsa_less_than_a_year_medical_outcome
   :outcome_node: true
 - :current_node: :jsa_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - jsa
   - less_than_a_year_other
   :next_node: :jsa_less_than_a_year_other_outcome
   :outcome_node: true
 - :current_node: :jsa_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - jsa
   - more_than_a_year
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - jsa
   - more_than_a_year
@@ -40,7 +40,7 @@
   :next_node: :jsa_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - jsa
   - more_than_a_year
@@ -48,7 +48,7 @@
   :next_node: :jsa_eea_going_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - jsa
   - more_than_a_year
@@ -56,7 +56,7 @@
   :next_node: :jsa_social_security_going_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - jsa
   - more_than_a_year
@@ -64,7 +64,7 @@
   :next_node: :jsa_social_security_going_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - jsa
   - more_than_a_year
@@ -72,530 +72,530 @@
   :next_node: :jsa_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - pension
   :next_node: :pension_going_abroad_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - winter_fuel_payment
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - winter_fuel_payment
   - afghanistan
   :next_node: :wfp_not_eligible_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - winter_fuel_payment
   - austria
   :next_node: :wfp_going_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - winter_fuel_payment
   - bosnia-and-herzegovina
   :next_node: :wfp_not_eligible_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - winter_fuel_payment
   - guernsey
   :next_node: :wfp_not_eligible_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - winter_fuel_payment
   - jamaica
   :next_node: :wfp_not_eligible_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - afghanistan
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - afghanistan
-  - "yes"
+  - 'yes'
   :next_node: :eligible_for_smp?
   :outcome_node: false
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - afghanistan
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :maternity_benefits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - afghanistan
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - afghanistan
-  - "no"
+  - 'no'
   :next_node: :maternity_benefits_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - austria
   :next_node: :working_for_a_uk_employer?
   :outcome_node: false
 - :current_node: :working_for_a_uk_employer?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - austria
-  - "yes"
+  - 'yes'
   :next_node: :eligible_for_smp?
   :outcome_node: false
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - austria
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :maternity_benefits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - austria
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :working_for_a_uk_employer?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - austria
-  - "no"
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - bosnia-and-herzegovina
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - bosnia-and-herzegovina
-  - "yes"
+  - 'yes'
   :next_node: :eligible_for_smp?
   :outcome_node: false
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - bosnia-and-herzegovina
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :maternity_benefits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - bosnia-and-herzegovina
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - bosnia-and-herzegovina
-  - "no"
+  - 'no'
   :next_node: :maternity_benefits_social_security_going_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - guernsey
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - guernsey
-  - "yes"
+  - 'yes'
   :next_node: :eligible_for_smp?
   :outcome_node: false
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - guernsey
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :maternity_benefits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - guernsey
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - guernsey
-  - "no"
+  - 'no'
   :next_node: :maternity_benefits_social_security_going_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - jamaica
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - jamaica
-  - "yes"
+  - 'yes'
   :next_node: :eligible_for_smp?
   :outcome_node: false
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - jamaica
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :maternity_benefits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - jamaica
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - maternity_benefits
   - jamaica
-  - "no"
+  - 'no'
   :next_node: :maternity_benefits_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - child_benefit
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - child_benefit
   - afghanistan
   :next_node: :child_benefit_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - child_benefit
   - austria
   :next_node: :do_either_of_the_following_apply?
   :outcome_node: false
 - :current_node: :do_either_of_the_following_apply?
-  :responses: 
+  :responses:
   - going_abroad
   - child_benefit
   - austria
-  - "yes"
+  - 'yes'
   :next_node: :child_benefit_entitled_outcome
   :outcome_node: true
 - :current_node: :do_either_of_the_following_apply?
-  :responses: 
+  :responses:
   - going_abroad
   - child_benefit
   - austria
-  - "no"
+  - 'no'
   :next_node: :child_benefit_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - child_benefit
   - bosnia-and-herzegovina
   :next_node: :child_benefit_fy_going_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - child_benefit
   - guernsey
   :next_node: :child_benefit_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - child_benefit
   - jamaica
   :next_node: :child_benefit_jtu_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - iidb
   :next_node: :iidb_already_claiming?
   :outcome_node: false
 - :current_node: :iidb_already_claiming?
-  :responses: 
+  :responses:
   - going_abroad
   - iidb
-  - "yes"
+  - 'yes'
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - iidb
-  - "yes"
+  - 'yes'
   - afghanistan
   :next_node: :iidb_going_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - iidb
-  - "yes"
+  - 'yes'
   - austria
   :next_node: :iidb_going_abroad_eea_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - iidb
-  - "yes"
+  - 'yes'
   - bosnia-and-herzegovina
   :next_node: :iidb_going_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - iidb
-  - "yes"
+  - 'yes'
   - guernsey
   :next_node: :iidb_going_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - iidb
-  - "yes"
+  - 'yes'
   - jamaica
   :next_node: :iidb_going_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :iidb_already_claiming?
-  :responses: 
+  :responses:
   - going_abroad
   - iidb
-  - "no"
+  - 'no'
   :next_node: :iidb_maybe_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - afghanistan
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - afghanistan
-  - "yes"
+  - 'yes'
   :next_node: :ssp_going_abroad_entitled_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - afghanistan
-  - "no"
+  - 'no'
   :next_node: :ssp_going_abroad_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - austria
   :next_node: :working_for_uk_employer_ssp?
   :outcome_node: false
 - :current_node: :working_for_uk_employer_ssp?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - austria
-  - "yes"
+  - 'yes'
   :next_node: :ssp_going_abroad_entitled_outcome
   :outcome_node: true
 - :current_node: :working_for_uk_employer_ssp?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - austria
-  - "no"
+  - 'no'
   :next_node: :ssp_going_abroad_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - bosnia-and-herzegovina
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - bosnia-and-herzegovina
-  - "yes"
+  - 'yes'
   :next_node: :ssp_going_abroad_entitled_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - bosnia-and-herzegovina
-  - "no"
+  - 'no'
   :next_node: :ssp_going_abroad_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - guernsey
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - guernsey
-  - "yes"
+  - 'yes'
   :next_node: :ssp_going_abroad_entitled_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - guernsey
-  - "no"
+  - 'no'
   :next_node: :ssp_going_abroad_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - jamaica
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - jamaica
-  - "yes"
+  - 'yes'
   :next_node: :ssp_going_abroad_entitled_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - going_abroad
   - ssp
   - jamaica
-  - "no"
+  - 'no'
   :next_node: :ssp_going_abroad_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - esa
   :next_node: :esa_how_long_abroad?
   :outcome_node: false
 - :current_node: :esa_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - esa
   - esa_under_a_year_medical
   :next_node: :esa_going_abroad_under_a_year_medical_outcome
   :outcome_node: true
 - :current_node: :esa_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - esa
   - esa_under_a_year_other
   :next_node: :esa_going_abroad_under_a_year_other_outcome
   :outcome_node: true
 - :current_node: :esa_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - esa
   - esa_more_than_a_year
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - esa
   - esa_more_than_a_year
@@ -603,7 +603,7 @@
   :next_node: :esa_going_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - esa
   - esa_more_than_a_year
@@ -611,7 +611,7 @@
   :next_node: :esa_going_abroad_eea_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - esa
   - esa_more_than_a_year
@@ -619,7 +619,7 @@
   :next_node: :esa_going_abroad_eea_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - esa
   - esa_more_than_a_year
@@ -627,7 +627,7 @@
   :next_node: :esa_going_abroad_eea_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - esa
   - esa_more_than_a_year
@@ -635,27 +635,27 @@
   :next_node: :esa_going_abroad_eea_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - disability_benefits
   :next_node: :db_how_long_abroad?
   :outcome_node: false
 - :current_node: :db_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - disability_benefits
   - temporary
   :next_node: :db_going_abroad_temporary_outcome
   :outcome_node: true
 - :current_node: :db_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - disability_benefits
   - permanent
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - disability_benefits
   - permanent
@@ -663,7 +663,7 @@
   :next_node: :db_going_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - disability_benefits
   - permanent
@@ -671,25 +671,25 @@
   :next_node: :db_claiming_benefits?
   :outcome_node: false
 - :current_node: :db_claiming_benefits?
-  :responses: 
+  :responses:
   - going_abroad
   - disability_benefits
   - permanent
   - austria
-  - "yes"
+  - 'yes'
   :next_node: :db_going_abroad_eea_outcome
   :outcome_node: true
 - :current_node: :db_claiming_benefits?
-  :responses: 
+  :responses:
   - going_abroad
   - disability_benefits
   - permanent
   - austria
-  - "no"
+  - 'no'
   :next_node: :db_going_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - disability_benefits
   - permanent
@@ -697,7 +697,7 @@
   :next_node: :db_going_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - disability_benefits
   - permanent
@@ -705,7 +705,7 @@
   :next_node: :db_going_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - disability_benefits
   - permanent
@@ -713,75 +713,75 @@
   :next_node: :db_going_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - bereavement_benefits
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - bereavement_benefits
   - afghanistan
   :next_node: :bb_going_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - bereavement_benefits
   - austria
   :next_node: :bb_going_abroad_eea_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - bereavement_benefits
   - bosnia-and-herzegovina
   :next_node: :bb_going_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - bereavement_benefits
   - guernsey
   :next_node: :bb_going_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - bereavement_benefits
   - jamaica
   :next_node: :bb_going_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   :next_node: :eligible_for_tax_credits?
   :outcome_node: false
 - :current_node: :eligible_for_tax_credits?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - crown_servant
   :next_node: :tax_credits_crown_servant_outcome
   :outcome_node: true
 - :current_node: :eligible_for_tax_credits?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - cross_border_worker
   :next_node: :tax_credits_cross_border_worker_outcome
   :outcome_node: true
 - :current_node: :eligible_for_tax_credits?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
   :next_node: :tax_credits_how_long_abroad?
   :outcome_node: false
 - :current_node: :tax_credits_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
@@ -789,7 +789,7 @@
   :next_node: :tax_credits_why_going_abroad?
   :outcome_node: false
 - :current_node: :tax_credits_why_going_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
@@ -798,7 +798,7 @@
   :next_node: :tax_credits_holiday_outcome
   :outcome_node: true
 - :current_node: :tax_credits_why_going_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
@@ -807,7 +807,7 @@
   :next_node: :tax_credits_medical_death_outcome
   :outcome_node: true
 - :current_node: :tax_credits_why_going_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
@@ -816,7 +816,7 @@
   :next_node: :tax_credits_medical_death_outcome
   :outcome_node: true
 - :current_node: :tax_credits_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
@@ -824,789 +824,789 @@
   :next_node: :tax_credits_children?
   :outcome_node: false
 - :current_node: :tax_credits_children?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - afghanistan
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - austria
   :next_node: :tax_credits_currently_claiming?
   :outcome_node: false
 - :current_node: :tax_credits_currently_claiming?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - austria
-  - "yes"
+  - 'yes'
   :next_node: :tax_credits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :tax_credits_currently_claiming?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - austria
-  - "no"
+  - 'no'
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - bosnia-and-herzegovina
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - guernsey
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - jamaica
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :tax_credits_children?
-  :responses: 
+  :responses:
   - going_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "no"
+  - 'no'
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   :next_node: :is_how_long_abroad?
   :outcome_node: false
 - :current_node: :is_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_medical
   :next_node: :is_under_a_year_medical_outcome
   :outcome_node: true
 - :current_node: :is_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_other
   :next_node: :is_claiming_benefits?
   :outcome_node: false
 - :current_node: :is_claiming_benefits?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_other
-  - "yes"
+  - 'yes'
   :next_node: :is_claiming_benefits_outcome
   :outcome_node: true
 - :current_node: :is_claiming_benefits?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_other
-  - "no"
+  - 'no'
   :next_node: :is_either_of_the_following?
   :outcome_node: false
 - :current_node: :is_either_of_the_following?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_other
-  - "no"
-  - "yes"
+  - 'no'
+  - 'yes'
   :next_node: :is_abroad_for_treatment?
   :outcome_node: false
 - :current_node: :is_abroad_for_treatment?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_other
-  - "no"
-  - "yes"
-  - "yes"
+  - 'no'
+  - 'yes'
+  - 'yes'
   :next_node: :is_abroad_for_treatment_outcome
   :outcome_node: true
 - :current_node: :is_abroad_for_treatment?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_other
-  - "no"
-  - "yes"
-  - "no"
+  - 'no'
+  - 'yes'
+  - 'no'
   :next_node: :is_work_or_sick_pay?
   :outcome_node: false
 - :current_node: :is_work_or_sick_pay?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_other
-  - "no"
-  - "yes"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'yes'
+  - 'no'
+  - 'yes'
   :next_node: :is_abroad_for_treatment_outcome
   :outcome_node: true
 - :current_node: :is_work_or_sick_pay?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_other
-  - "no"
-  - "yes"
-  - "no"
-  - "no"
+  - 'no'
+  - 'yes'
+  - 'no'
+  - 'no'
   :next_node: :is_not_eligible_outcome
   :outcome_node: true
 - :current_node: :is_either_of_the_following?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_other
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
   :next_node: :is_any_of_the_following_apply?
   :outcome_node: false
 - :current_node: :is_any_of_the_following_apply?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_other
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :is_not_eligible_outcome
   :outcome_node: true
 - :current_node: :is_any_of_the_following_apply?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_under_a_year_other
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :is_abroad_for_treatment_outcome
   :outcome_node: true
 - :current_node: :is_how_long_abroad?
-  :responses: 
+  :responses:
   - going_abroad
   - income_support
   - is_more_than_a_year
   :next_node: :is_more_than_a_year_outcome
   :outcome_node: true
 - :current_node: :going_or_already_abroad?
-  :responses: 
+  :responses:
   - already_abroad
   :next_node: :which_benefit?
   :outcome_node: false
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - jsa
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - jsa
   - afghanistan
   :next_node: :jsa_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - jsa
   - austria
   :next_node: :jsa_eea_already_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - jsa
   - bosnia-and-herzegovina
   :next_node: :jsa_social_security_already_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - jsa
   - guernsey
   :next_node: :jsa_social_security_already_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - jsa
   - jamaica
   :next_node: :jsa_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - pension
   :next_node: :pension_already_abroad_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - winter_fuel_payment
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - winter_fuel_payment
   - afghanistan
   :next_node: :wfp_not_eligible_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - winter_fuel_payment
   - austria
   :next_node: :wfp_eea_eligible_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - winter_fuel_payment
   - bosnia-and-herzegovina
   :next_node: :wfp_not_eligible_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - winter_fuel_payment
   - guernsey
   :next_node: :wfp_not_eligible_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - winter_fuel_payment
   - jamaica
   :next_node: :wfp_not_eligible_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - afghanistan
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - afghanistan
-  - "yes"
+  - 'yes'
   :next_node: :eligible_for_smp?
   :outcome_node: false
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - afghanistan
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :maternity_benefits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - afghanistan
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - afghanistan
-  - "no"
+  - 'no'
   :next_node: :maternity_benefits_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - austria
   :next_node: :working_for_a_uk_employer?
   :outcome_node: false
 - :current_node: :working_for_a_uk_employer?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - austria
-  - "yes"
+  - 'yes'
   :next_node: :eligible_for_smp?
   :outcome_node: false
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - austria
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :maternity_benefits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - austria
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :working_for_a_uk_employer?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - austria
-  - "no"
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - bosnia-and-herzegovina
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - bosnia-and-herzegovina
-  - "yes"
+  - 'yes'
   :next_node: :eligible_for_smp?
   :outcome_node: false
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - bosnia-and-herzegovina
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :maternity_benefits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - bosnia-and-herzegovina
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - bosnia-and-herzegovina
-  - "no"
+  - 'no'
   :next_node: :maternity_benefits_social_security_already_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - guernsey
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - guernsey
-  - "yes"
+  - 'yes'
   :next_node: :eligible_for_smp?
   :outcome_node: false
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - guernsey
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :maternity_benefits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - guernsey
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - guernsey
-  - "no"
+  - 'no'
   :next_node: :maternity_benefits_social_security_already_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - jamaica
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - jamaica
-  - "yes"
+  - 'yes'
   :next_node: :eligible_for_smp?
   :outcome_node: false
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - jamaica
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :maternity_benefits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :eligible_for_smp?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - jamaica
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :maternity_benefits_maternity_allowance_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - maternity_benefits
   - jamaica
-  - "no"
+  - 'no'
   :next_node: :maternity_benefits_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - child_benefit
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - child_benefit
   - afghanistan
   :next_node: :child_benefit_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - child_benefit
   - austria
   :next_node: :do_either_of_the_following_apply?
   :outcome_node: false
 - :current_node: :do_either_of_the_following_apply?
-  :responses: 
+  :responses:
   - already_abroad
   - child_benefit
   - austria
-  - "yes"
+  - 'yes'
   :next_node: :child_benefit_entitled_outcome
   :outcome_node: true
 - :current_node: :do_either_of_the_following_apply?
-  :responses: 
+  :responses:
   - already_abroad
   - child_benefit
   - austria
-  - "no"
+  - 'no'
   :next_node: :child_benefit_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - child_benefit
   - bosnia-and-herzegovina
   :next_node: :child_benefit_fy_already_abroad_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - child_benefit
   - guernsey
   :next_node: :child_benefit_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - child_benefit
   - jamaica
   :next_node: :child_benefit_jtu_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - iidb
   :next_node: :iidb_already_claiming?
   :outcome_node: false
 - :current_node: :iidb_already_claiming?
-  :responses: 
+  :responses:
   - already_abroad
   - iidb
-  - "yes"
+  - 'yes'
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - iidb
-  - "yes"
+  - 'yes'
   - afghanistan
   :next_node: :iidb_already_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - iidb
-  - "yes"
+  - 'yes'
   - austria
   :next_node: :iidb_already_abroad_eea_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - iidb
-  - "yes"
+  - 'yes'
   - bosnia-and-herzegovina
   :next_node: :iidb_already_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - iidb
-  - "yes"
+  - 'yes'
   - guernsey
   :next_node: :iidb_already_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - iidb
-  - "yes"
+  - 'yes'
   - jamaica
   :next_node: :iidb_already_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :iidb_already_claiming?
-  :responses: 
+  :responses:
   - already_abroad
   - iidb
-  - "no"
+  - 'no'
   :next_node: :iidb_maybe_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - afghanistan
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - afghanistan
-  - "yes"
+  - 'yes'
   :next_node: :ssp_already_abroad_entitled_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - afghanistan
-  - "no"
+  - 'no'
   :next_node: :ssp_already_abroad_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - austria
   :next_node: :working_for_uk_employer_ssp?
   :outcome_node: false
 - :current_node: :working_for_uk_employer_ssp?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - austria
-  - "yes"
+  - 'yes'
   :next_node: :ssp_already_abroad_entitled_outcome
   :outcome_node: true
 - :current_node: :working_for_uk_employer_ssp?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - austria
-  - "no"
+  - 'no'
   :next_node: :ssp_already_abroad_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - bosnia-and-herzegovina
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - bosnia-and-herzegovina
-  - "yes"
+  - 'yes'
   :next_node: :ssp_already_abroad_entitled_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - bosnia-and-herzegovina
-  - "no"
+  - 'no'
   :next_node: :ssp_already_abroad_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - guernsey
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - guernsey
-  - "yes"
+  - 'yes'
   :next_node: :ssp_already_abroad_entitled_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - guernsey
-  - "no"
+  - 'no'
   :next_node: :ssp_already_abroad_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - jamaica
   :next_node: :employer_paying_ni?
   :outcome_node: false
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - jamaica
-  - "yes"
+  - 'yes'
   :next_node: :ssp_already_abroad_entitled_outcome
   :outcome_node: true
 - :current_node: :employer_paying_ni?
-  :responses: 
+  :responses:
   - already_abroad
   - ssp
   - jamaica
-  - "no"
+  - 'no'
   :next_node: :ssp_already_abroad_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - esa
   :next_node: :esa_how_long_abroad?
   :outcome_node: false
 - :current_node: :esa_how_long_abroad?
-  :responses: 
+  :responses:
   - already_abroad
   - esa
   - esa_under_a_year_medical
   :next_node: :esa_already_abroad_under_a_year_medical_outcome
   :outcome_node: true
 - :current_node: :esa_how_long_abroad?
-  :responses: 
+  :responses:
   - already_abroad
   - esa
   - esa_under_a_year_other
   :next_node: :esa_already_abroad_under_a_year_other_outcome
   :outcome_node: true
 - :current_node: :esa_how_long_abroad?
-  :responses: 
+  :responses:
   - already_abroad
   - esa
   - esa_more_than_a_year
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - esa
   - esa_more_than_a_year
@@ -1614,7 +1614,7 @@
   :next_node: :esa_already_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - esa
   - esa_more_than_a_year
@@ -1622,7 +1622,7 @@
   :next_node: :esa_already_abroad_eea_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - esa
   - esa_more_than_a_year
@@ -1630,7 +1630,7 @@
   :next_node: :esa_already_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - esa
   - esa_more_than_a_year
@@ -1638,7 +1638,7 @@
   :next_node: :esa_already_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - esa
   - esa_more_than_a_year
@@ -1646,27 +1646,27 @@
   :next_node: :esa_already_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - disability_benefits
   :next_node: :db_how_long_abroad?
   :outcome_node: false
 - :current_node: :db_how_long_abroad?
-  :responses: 
+  :responses:
   - already_abroad
   - disability_benefits
   - temporary
   :next_node: :db_already_abroad_temporary_outcome
   :outcome_node: true
 - :current_node: :db_how_long_abroad?
-  :responses: 
+  :responses:
   - already_abroad
   - disability_benefits
   - permanent
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - disability_benefits
   - permanent
@@ -1674,7 +1674,7 @@
   :next_node: :db_already_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - disability_benefits
   - permanent
@@ -1682,25 +1682,25 @@
   :next_node: :db_claiming_benefits?
   :outcome_node: false
 - :current_node: :db_claiming_benefits?
-  :responses: 
+  :responses:
   - already_abroad
   - disability_benefits
   - permanent
   - austria
-  - "yes"
+  - 'yes'
   :next_node: :db_already_abroad_eea_outcome
   :outcome_node: true
 - :current_node: :db_claiming_benefits?
-  :responses: 
+  :responses:
   - already_abroad
   - disability_benefits
   - permanent
   - austria
-  - "no"
+  - 'no'
   :next_node: :db_already_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - disability_benefits
   - permanent
@@ -1708,7 +1708,7 @@
   :next_node: :db_already_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - disability_benefits
   - permanent
@@ -1716,7 +1716,7 @@
   :next_node: :db_already_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - disability_benefits
   - permanent
@@ -1724,75 +1724,75 @@
   :next_node: :db_already_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - bereavement_benefits
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - bereavement_benefits
   - afghanistan
   :next_node: :bb_already_abroad_other_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - bereavement_benefits
   - austria
   :next_node: :bb_already_abroad_eea_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - bereavement_benefits
   - bosnia-and-herzegovina
   :next_node: :bb_already_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - bereavement_benefits
   - guernsey
   :next_node: :bb_already_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - bereavement_benefits
   - jamaica
   :next_node: :bb_already_abroad_ss_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   :next_node: :eligible_for_tax_credits?
   :outcome_node: false
 - :current_node: :eligible_for_tax_credits?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - crown_servant
   :next_node: :tax_credits_crown_servant_outcome
   :outcome_node: true
 - :current_node: :eligible_for_tax_credits?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - cross_border_worker
   :next_node: :tax_credits_cross_border_worker_outcome
   :outcome_node: true
 - :current_node: :eligible_for_tax_credits?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
   :next_node: :tax_credits_how_long_abroad?
   :outcome_node: false
 - :current_node: :tax_credits_how_long_abroad?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
@@ -1800,7 +1800,7 @@
   :next_node: :tax_credits_why_going_abroad?
   :outcome_node: false
 - :current_node: :tax_credits_why_going_abroad?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
@@ -1809,7 +1809,7 @@
   :next_node: :tax_credits_holiday_outcome
   :outcome_node: true
 - :current_node: :tax_credits_why_going_abroad?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
@@ -1818,7 +1818,7 @@
   :next_node: :tax_credits_medical_death_outcome
   :outcome_node: true
 - :current_node: :tax_credits_why_going_abroad?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
@@ -1827,7 +1827,7 @@
   :next_node: :tax_credits_medical_death_outcome
   :outcome_node: true
 - :current_node: :tax_credits_how_long_abroad?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
@@ -1835,97 +1835,97 @@
   :next_node: :tax_credits_children?
   :outcome_node: false
 - :current_node: :tax_credits_children?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   :next_node: :which_country?
   :outcome_node: false
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - afghanistan
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - austria
   :next_node: :tax_credits_currently_claiming?
   :outcome_node: false
 - :current_node: :tax_credits_currently_claiming?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - austria
-  - "yes"
+  - 'yes'
   :next_node: :tax_credits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :tax_credits_currently_claiming?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - austria
-  - "no"
+  - 'no'
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - bosnia-and-herzegovina
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - guernsey
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_country?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "yes"
+  - 'yes'
   - jamaica
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :tax_credits_children?
-  :responses: 
+  :responses:
   - already_abroad
   - tax_credits
   - none_of_the_above
   - tax_credits_more_than_a_year
-  - "no"
+  - 'no'
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_benefit?
-  :responses: 
+  :responses:
   - already_abroad
   - income_support
   :next_node: :is_already_abroad_outcome

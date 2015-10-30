@@ -1,171 +1,171 @@
---- 
-:what_type_of_leave?: 
+---
+:what_type_of_leave?:
 - maternity
 - paternity
 - adoption
-:taking_paternity_leave_for_adoption?: 
-- "yes"
-- "no"
-:date_of_adoption_match?: 
-- "2015-04-05" # @match_date >= Date.parse('5 April 2015') # => true
-:date_of_adoption_placement?: 
-- "2015-04-06" # placement_date < match_date # => false
-:adoption_did_the_employee_work_for_you?: 
-- "yes"
-- "no"
-:adoption_employment_contract?: 
-- "yes"
-- "no"
-:adoption_is_the_employee_on_your_payroll?: 
-- "yes"
-- "no"
-:adoption_date_leave_starts?: 
-- "2015-04-06" # ald_start < a_leave_earliest_start # => false
-:last_normal_payday_adoption?: 
-- "2015-01-01"
-:payday_eight_weeks_adoption?: 
-- "2014-11-01" # payday > payday_offset # => false
-:pay_frequency_adoption?: 
+:taking_paternity_leave_for_adoption?:
+- 'yes'
+- 'no'
+:date_of_adoption_match?:
+- '2015-04-05' # @match_date >= Date.parse('5 April 2015') # => true
+:date_of_adoption_placement?:
+- '2015-04-06' # placement_date < match_date # => false
+:adoption_did_the_employee_work_for_you?:
+- 'yes'
+- 'no'
+:adoption_employment_contract?:
+- 'yes'
+- 'no'
+:adoption_is_the_employee_on_your_payroll?:
+- 'yes'
+- 'no'
+:adoption_date_leave_starts?:
+- '2015-04-06' # ald_start < a_leave_earliest_start # => false
+:last_normal_payday_adoption?:
+- '2015-01-01'
+:payday_eight_weeks_adoption?:
+- '2014-11-01' # payday > payday_offset # => false
+:pay_frequency_adoption?:
 - weekly
 - every_2_weeks
 - every_4_weeks
 - monthly
-:earnings_for_pay_period_adoption?: 
-- "100" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => true
-- "3000" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => false
-:how_do_you_want_the_sap_calculated?: 
+:earnings_for_pay_period_adoption?:
+- '100' # calculator.average_weekly_earnings < calculator.lower_earning_limit # => true
+- '3000' # calculator.average_weekly_earnings < calculator.lower_earning_limit # => false
+:how_do_you_want_the_sap_calculated?:
 - weekly_starting
 - usual_paydates
-:leave_or_pay_for_adoption?: 
-- "yes"
-- "no"
-:baby_due_date_paternity?: 
-- "2015-01-01"
-:employee_date_matched_paternity_adoption?: 
-- "2015-01-01"
-:baby_birth_date_paternity?: 
-- "2015-01-01"
-:padoption_date_of_adoption_placement?: 
-- "2015-01-01"
-:employee_responsible_for_upbringing?: 
-- "yes"
-- "no"
-:padoption_employee_responsible_for_upbringing?: 
-- "yes"
-- "no"
-:employee_work_before_employment_start?: 
-- "yes"
-- "no"
-:employee_has_contract_paternity?: 
-- "yes"
-- "no"
-:employee_on_payroll_paternity?: 
-- "yes"
-- "no"
-:employee_still_employed_on_birth_date?: 
-- "yes"
-- "no"
-:employee_start_paternity?: 
-- "2015-01-01"
-:employee_paternity_length?: 
+:leave_or_pay_for_adoption?:
+- 'yes'
+- 'no'
+:baby_due_date_paternity?:
+- '2015-01-01'
+:employee_date_matched_paternity_adoption?:
+- '2015-01-01'
+:baby_birth_date_paternity?:
+- '2015-01-01'
+:padoption_date_of_adoption_placement?:
+- '2015-01-01'
+:employee_responsible_for_upbringing?:
+- 'yes'
+- 'no'
+:padoption_employee_responsible_for_upbringing?:
+- 'yes'
+- 'no'
+:employee_work_before_employment_start?:
+- 'yes'
+- 'no'
+:employee_has_contract_paternity?:
+- 'yes'
+- 'no'
+:employee_on_payroll_paternity?:
+- 'yes'
+- 'no'
+:employee_still_employed_on_birth_date?:
+- 'yes'
+- 'no'
+:employee_start_paternity?:
+- '2015-01-01'
+:employee_paternity_length?:
 - one_week
 - two_weeks
-:last_normal_payday_paternity?: 
-- "2015-01-01"
-:payday_eight_weeks_paternity?: 
-- "2014-11-01" # payday > calculator.payday_offset # => false
-:pay_frequency_paternity?: 
+:last_normal_payday_paternity?:
+- '2015-01-01'
+:payday_eight_weeks_paternity?:
+- '2014-11-01' # payday > calculator.payday_offset # => false
+:pay_frequency_paternity?:
 - weekly
 - every_2_weeks
 - every_4_weeks
 - monthly
-:earnings_for_pay_period_paternity?: 
-- "100" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => true
-- "3000" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => false
-:how_do_you_want_the_spp_calculated?: 
+:earnings_for_pay_period_paternity?:
+- '100' # calculator.average_weekly_earnings < calculator.lower_earning_limit # => true
+- '3000' # calculator.average_weekly_earnings < calculator.lower_earning_limit # => false
+:how_do_you_want_the_spp_calculated?:
 - weekly_starting
 - usual_paydates
-:next_pay_day_paternity?: 
-- "2015-01-01"
-:monthly_pay_paternity?: 
+:next_pay_day_paternity?:
+- '2015-01-01'
+:monthly_pay_paternity?:
 - first_day_of_the_month
 - last_day_of_the_month
 - specific_date_each_month
 - last_working_day_of_the_month
 - a_certain_week_day_each_month
-:specific_date_each_month_paternity?: 
-- "14"
-- "29" # monthly_pay_method == 'specific_date_each_month' and pay_day_in_month > 28 # => true
-:days_of_the_week_paternity?: 
-- "0"
-- "1"
-- "2"
-- "3"
-- "4"
-- "5"
-- "6"
-:day_of_the_month_paternity?: 
-- "0"
-- "1"
-- "2"
-- "3"
-- "4"
-- "5"
-- "6"
-:pay_date_options_paternity?: 
+:specific_date_each_month_paternity?:
+- '14'
+- '29' # monthly_pay_method == 'specific_date_each_month' and pay_day_in_month > 28 # => true
+:days_of_the_week_paternity?:
+- '0'
+- '1'
+- '2'
+- '3'
+- '4'
+- '5'
+- '6'
+:day_of_the_month_paternity?:
+- '0'
+- '1'
+- '2'
+- '3'
+- '4'
+- '5'
+- '6'
+:pay_date_options_paternity?:
 - first
 - second
 - third
 - fourth
 - last
-:baby_due_date_maternity?: 
-- "2015-01-01"
-:employment_contract?: 
-- "yes"
-- "no"
-:date_leave_starts?: 
-- "2015-01-01"
-:did_the_employee_work_for_you?: 
-- "yes"
-- "no"
-:is_the_employee_on_your_payroll?: 
-- "yes"
-- "no"
-:last_normal_payday?: 
-- "2014-09-19" # calculator.last_payday > to_saturday # => false
-:payday_eight_weeks?: 
-- "2014-07-24" # payday > payday_offset # => false
-:pay_frequency?: 
+:baby_due_date_maternity?:
+- '2015-01-01'
+:employment_contract?:
+- 'yes'
+- 'no'
+:date_leave_starts?:
+- '2015-01-01'
+:did_the_employee_work_for_you?:
+- 'yes'
+- 'no'
+:is_the_employee_on_your_payroll?:
+- 'yes'
+- 'no'
+:last_normal_payday?:
+- '2014-09-19' # calculator.last_payday > to_saturday # => false
+:payday_eight_weeks?:
+- '2014-07-24' # payday > payday_offset # => false
+:pay_frequency?:
 - weekly
 - every_2_weeks
 - every_4_weeks
 - monthly
-:earnings_for_pay_period?: 
-- "100" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => true
-- "3000" # calculator.average_weekly_earnings < calculator.lower_earning_limit # => false
-:how_do_you_want_the_smp_calculated?: 
+:earnings_for_pay_period?:
+- '100' # calculator.average_weekly_earnings < calculator.lower_earning_limit # => true
+- '3000' # calculator.average_weekly_earnings < calculator.lower_earning_limit # => false
+:how_do_you_want_the_smp_calculated?:
 - weekly_starting
 - usual_paydates
-:when_is_your_employees_next_pay_day?: 
-- "2015-01-01"
-:when_in_the_month_is_the_employee_paid?: 
+:when_is_your_employees_next_pay_day?:
+- '2015-01-01'
+:when_in_the_month_is_the_employee_paid?:
 - first_day_of_the_month
 - last_day_of_the_month
 - specific_date_each_month
 - last_working_day_of_the_month
 - a_certain_week_day_each_month
-:what_specific_date_each_month_is_the_employee_paid?: 
-- "17"
-- "29" # monthly_pay_method == 'specific_date_each_month' and pay_day_in_month > 28 # => true
-:what_days_does_the_employee_work?: 
-- "0"
-- "1"
-- "2"
-- "3"
-- "4"
-- "5"
-- "6"
-:what_particular_day_of_the_month_is_the_employee_paid?: 
+:what_specific_date_each_month_is_the_employee_paid?:
+- '17'
+- '29' # monthly_pay_method == 'specific_date_each_month' and pay_day_in_month > 28 # => true
+:what_days_does_the_employee_work?:
+- '0'
+- '1'
+- '2'
+- '3'
+- '4'
+- '5'
+- '6'
+:what_particular_day_of_the_month_is_the_employee_paid?:
 - Sunday
 - Monday
 - Tuesday
@@ -173,7 +173,7 @@
 - Thursday
 - Friday
 - Saturday
-:which_week_in_month_is_the_employee_paid?: 
+:which_week_in_month_is_the_employee_paid?:
 - first
 - second
 - third

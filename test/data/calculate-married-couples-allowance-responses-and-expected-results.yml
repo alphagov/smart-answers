@@ -1,260 +1,260 @@
---- 
+---
 - :current_node: :were_you_or_your_partner_born_on_or_before_6_april_1935?
-  :responses: 
-  - "yes"
+  :responses:
+  - 'yes'
   :next_node: :did_you_marry_or_civil_partner_before_5_december_2005?
   :outcome_node: false
 - :current_node: :did_you_marry_or_civil_partner_before_5_december_2005?
-  :responses: 
-  - "yes"
-  - "yes"
+  :responses:
+  - 'yes'
+  - 'yes'
   :next_node: :whats_the_husbands_date_of_birth?
   :outcome_node: false
 - :current_node: :whats_the_husbands_date_of_birth?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
   :next_node: :whats_the_husbands_income?
   :outcome_node: false
 - :current_node: :whats_the_husbands_income?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "20000"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '20000'
   :next_node: :husband_done
   :outcome_node: true
 - :current_node: :whats_the_husbands_income?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "27001"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '27001'
   :next_node: :paying_into_a_pension?
   :outcome_node: false
 - :current_node: :paying_into_a_pension?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "27001.0"
-  - "yes"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '27001.0'
+  - 'yes'
   :next_node: :how_much_expected_contributions_before_tax?
   :outcome_node: false
 - :current_node: :how_much_expected_contributions_before_tax?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "27001.0"
-  - "yes"
-  - "10000"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '27001.0'
+  - 'yes'
+  - '10000'
   :next_node: :how_much_expected_contributions_with_tax_relief?
   :outcome_node: false
 - :current_node: :how_much_expected_contributions_with_tax_relief?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "27001.0"
-  - "yes"
-  - "10000.0"
-  - "5000"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '27001.0'
+  - 'yes'
+  - '10000.0'
+  - '5000'
   :next_node: :how_much_expected_gift_aided_donations?
   :outcome_node: false
 - :current_node: :how_much_expected_gift_aided_donations?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "27001.0"
-  - "yes"
-  - "10000.0"
-  - "5000.0"
-  - "0"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '27001.0'
+  - 'yes'
+  - '10000.0'
+  - '5000.0'
+  - '0'
   :next_node: :husband_done
   :outcome_node: true
 - :current_node: :paying_into_a_pension?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "27001.0"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '27001.0'
+  - 'no'
   :next_node: :how_much_expected_gift_aided_donations?
   :outcome_node: false
 - :current_node: :how_much_expected_gift_aided_donations?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "27001.0"
-  - "no"
-  - "0"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '27001.0'
+  - 'no'
+  - '0'
   :next_node: :husband_done
   :outcome_node: true
 - :current_node: :whats_the_husbands_income?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "50000"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '50000'
   :next_node: :paying_into_a_pension?
   :outcome_node: false
 - :current_node: :paying_into_a_pension?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "50000.0"
-  - "yes"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '50000.0'
+  - 'yes'
   :next_node: :how_much_expected_contributions_before_tax?
   :outcome_node: false
 - :current_node: :how_much_expected_contributions_before_tax?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "50000.0"
-  - "yes"
-  - "10000"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '50000.0'
+  - 'yes'
+  - '10000'
   :next_node: :how_much_expected_contributions_with_tax_relief?
   :outcome_node: false
 - :current_node: :how_much_expected_contributions_with_tax_relief?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "50000.0"
-  - "yes"
-  - "10000.0"
-  - "5000"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '50000.0'
+  - 'yes'
+  - '10000.0'
+  - '5000'
   :next_node: :how_much_expected_gift_aided_donations?
   :outcome_node: false
 - :current_node: :how_much_expected_gift_aided_donations?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "50000.0"
-  - "yes"
-  - "10000.0"
-  - "5000.0"
-  - "0"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '50000.0'
+  - 'yes'
+  - '10000.0'
+  - '5000.0'
+  - '0'
   :next_node: :husband_done
   :outcome_node: true
 - :current_node: :paying_into_a_pension?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "50000.0"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '50000.0'
+  - 'no'
   :next_node: :how_much_expected_gift_aided_donations?
   :outcome_node: false
 - :current_node: :how_much_expected_gift_aided_donations?
-  :responses: 
-  - "yes"
-  - "yes"
-  - "1950-01-01"
-  - "50000.0"
-  - "no"
-  - "0"
+  :responses:
+  - 'yes'
+  - 'yes'
+  - '1950-01-01'
+  - '50000.0'
+  - 'no'
+  - '0'
   :next_node: :husband_done
   :outcome_node: true
 - :current_node: :did_you_marry_or_civil_partner_before_5_december_2005?
-  :responses: 
-  - "yes"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
   :next_node: :whats_the_highest_earners_date_of_birth?
   :outcome_node: false
 - :current_node: :whats_the_highest_earners_date_of_birth?
-  :responses: 
-  - "yes"
-  - "no"
-  - "1955-01-01"
+  :responses:
+  - 'yes'
+  - 'no'
+  - '1955-01-01'
   :next_node: :whats_the_highest_earners_income?
   :outcome_node: false
 - :current_node: :whats_the_highest_earners_income?
-  :responses: 
-  - "yes"
-  - "no"
-  - "1955-01-01"
-  - "20000"
+  :responses:
+  - 'yes'
+  - 'no'
+  - '1955-01-01'
+  - '20000'
   :next_node: :highest_earner_done
   :outcome_node: true
 - :current_node: :whats_the_highest_earners_income?
-  :responses: 
-  - "yes"
-  - "no"
-  - "1955-01-01"
-  - "55000"
+  :responses:
+  - 'yes'
+  - 'no'
+  - '1955-01-01'
+  - '55000'
   :next_node: :paying_into_a_pension?
   :outcome_node: false
 - :current_node: :paying_into_a_pension?
-  :responses: 
-  - "yes"
-  - "no"
-  - "1955-01-01"
-  - "55000.0"
-  - "yes"
+  :responses:
+  - 'yes'
+  - 'no'
+  - '1955-01-01'
+  - '55000.0'
+  - 'yes'
   :next_node: :how_much_expected_contributions_before_tax?
   :outcome_node: false
 - :current_node: :how_much_expected_contributions_before_tax?
-  :responses: 
-  - "yes"
-  - "no"
-  - "1955-01-01"
-  - "55000.0"
-  - "yes"
-  - "10000"
+  :responses:
+  - 'yes'
+  - 'no'
+  - '1955-01-01'
+  - '55000.0'
+  - 'yes'
+  - '10000'
   :next_node: :how_much_expected_contributions_with_tax_relief?
   :outcome_node: false
 - :current_node: :how_much_expected_contributions_with_tax_relief?
-  :responses: 
-  - "yes"
-  - "no"
-  - "1955-01-01"
-  - "55000.0"
-  - "yes"
-  - "10000.0"
-  - "5000"
+  :responses:
+  - 'yes'
+  - 'no'
+  - '1955-01-01'
+  - '55000.0'
+  - 'yes'
+  - '10000.0'
+  - '5000'
   :next_node: :how_much_expected_gift_aided_donations?
   :outcome_node: false
 - :current_node: :how_much_expected_gift_aided_donations?
-  :responses: 
-  - "yes"
-  - "no"
-  - "1955-01-01"
-  - "55000.0"
-  - "yes"
-  - "10000.0"
-  - "5000.0"
-  - "0"
+  :responses:
+  - 'yes'
+  - 'no'
+  - '1955-01-01'
+  - '55000.0'
+  - 'yes'
+  - '10000.0'
+  - '5000.0'
+  - '0'
   :next_node: :highest_earner_done
   :outcome_node: true
 - :current_node: :paying_into_a_pension?
-  :responses: 
-  - "yes"
-  - "no"
-  - "1955-01-01"
-  - "55000.0"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - '1955-01-01'
+  - '55000.0'
+  - 'no'
   :next_node: :how_much_expected_gift_aided_donations?
   :outcome_node: false
 - :current_node: :how_much_expected_gift_aided_donations?
-  :responses: 
-  - "yes"
-  - "no"
-  - "1955-01-01"
-  - "55000.0"
-  - "no"
-  - "0"
+  :responses:
+  - 'yes'
+  - 'no'
+  - '1955-01-01'
+  - '55000.0'
+  - 'no'
+  - '0'
   :next_node: :highest_earner_done
   :outcome_node: true
 - :current_node: :were_you_or_your_partner_born_on_or_before_6_april_1935?
-  :responses: 
-  - "no"
+  :responses:
+  - 'no'
   :next_node: :sorry
   :outcome_node: true

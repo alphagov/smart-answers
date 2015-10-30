@@ -1,0 +1,34 @@
+<% content_for :body do %>
+  $!
+  This is an estimate of your student finance. You must apply to find out exactly what you'll get.
+  $!
+
+  ##Tuition costs
+
+  You could get a [Tuition Fee Loan](/student-finance/eu-students) - <%= number_to_currency(tuition_fee_amount, precision: 0) %> per year.
+
+  The loan pays for the cost of your course and must be paid back.
+
+  <% if course_type == 'eu-full-time' %>
+    ##Living costs
+
+    Most EU full-time students don't qualify for help with living costs (known as 'maintenance').
+  <% else %>
+    ##Living costs
+
+    EU part-time students don't qualify for help with living costs (known as 'maintenance').
+  <% end %>
+
+  ##Extra help
+
+  You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college. Usually, this doesn't have to be paid back.
+
+  Use the [Turn2us grant search](http://grants-search.turn2us.org.uk/) to check whether you qualify for funding from a charitable trust.
+
+  ##Your next steps
+
+  s1. Find out how to [apply for student finance](/apply-for-student-finance)
+  s2. Check if you [qualify for student finance](/student-finance/eligibility)
+
+  ^Usually, you’ll only get student finance if you’re doing your first higher education qualification.^
+<% end %>

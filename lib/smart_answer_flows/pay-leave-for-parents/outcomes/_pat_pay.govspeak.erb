@@ -1,0 +1,39 @@
+##Paternity pay
+
+The mother’s partner can get up to 2 weeks of [paternity pay](/paternity-pay-leave/pay).
+
+###Dates and amounts
+
+<% if calculator.range_in_2013_2014_fin_year?(due_date) %>
+
+Weekly rate (between 6 April 2013 and 5 April 2014) | £136.78 per week or 90% of their average weekly earnings (before tax), whichever is lower
+
+<% end %>
+
+<% if calculator.range_in_2014_2015_fin_year?(due_date) %>
+
+Weekly rate (between 6 April 2014 and 5 April 2015) | £138.18 per week or 90% of their average weekly earnings (before tax), whichever is lower
+
+<% end %>
+
+<% if calculator.range_in_2015_2016_fin_year?(due_date) %>
+
+Weekly rate (between 6 April 2015 and 5 April 2016) | £139.58 per week or 90% of their average weekly earnings (before tax), whichever is lower
+
+<% end %>
+
+<% if !calculator.range_in_2013_2014_fin_year?(due_date) && !calculator.range_in_2014_2015_fin_year?(due_date) && !calculator.range_in_2015_2016_fin_year?(due_date) %>
+
+Weekly rate (between 6 April 2015 and 5 April 2016) | £139.58 per week or 90% of their average weekly earnings (before tax), whichever is lower
+
+<% end %>
+
+<% if calculator.range_in_2013_2014_fin_year?(due_date) %>
+
+Tell the partner’s employer | 28 days before they want to start paternity pay
+
+<% else %>
+
+Tell the partner’s employer | <%= format_date(calculator.paternity_leave_notice_date(due_date)) %>
+
+<% end %>

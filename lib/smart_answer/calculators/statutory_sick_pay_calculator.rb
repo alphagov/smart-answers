@@ -139,7 +139,7 @@ module SmartAnswer::Calculators
 
     def init_payable_days
       # copy not to modify the instance variable we need to keep
-      payable_days_temp = @normal_workdays_missed
+      payable_days_temp = @normal_workdays_missed.dup
       ## 1. remove up to 3 first dates from the array if there are waiting days in this period
       payable_days_temp.shift(@waiting_days)
       ## 2. return only the first days_that_can_be_paid_for_this_period

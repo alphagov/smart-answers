@@ -18,7 +18,7 @@ module SmartAnswer::Calculators
     )
 
     def self.valid_postcode(postcode)
-      response = $imminence.areas_for_postcode(postcode)
+      response = Services.imminence_api.areas_for_postcode(postcode)
       return false unless response and response.code == 200
       areas = response.to_hash["results"]
       ! areas.find { |a| VALID_BOROUGHS.include?(a["slug"]) }.nil?

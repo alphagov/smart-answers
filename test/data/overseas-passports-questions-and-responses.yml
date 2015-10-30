@@ -1,4 +1,4 @@
---- 
+---
 :which_country_are_you_in?:
 - france # overseas_passports_embassies (organisation)
 - st-martin # overseas_passports_embassies (no organisation)
@@ -10,7 +10,7 @@
 - tajikistan # passport_courier_costs_#{current_location}
 - algeria # passport_courier_costs_ips#{ips_number}_uk_visa
 - pitcairn-island # passport_courier_costs_ips3_#{current_location}
-- cuba # passport_costs_ips_cash
+- cuba # passport_costs_ips_cash
 - venezuela # passport_costs_pay_at_appointment
 - pakistan # send_application_ips1_pakistan
 - western-sahara # send_application_uk_visa_renew_new_colour_western_sahara
@@ -23,15 +23,16 @@
 - north-korea # emergency_travel_help_#{current_location}
 - the-occupied-palestinian-territories # which_opt?
 - hong-kong # hong_kong_id_required
-:which_opt?: 
+- afghanistan # renewing_replacing_applying?
+:which_opt?:
 - gaza
 - jerusalem-or-westbank
-:renewing_replacing_applying?: 
+:renewing_replacing_applying?:
 - renewing_new
 - renewing_old
 - applying
 - replacing
-:child_or_adult_passport?: 
+:child_or_adult_passport?:
 - adult
 - child
 :country_of_birth?:

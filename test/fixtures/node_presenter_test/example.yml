@@ -23,12 +23,12 @@ en-GB:
       question_with_default_error_message:
         error_message: default error message
       question_with_no_custom_or_default_error_message:
+      question_with_post_body:
+        post_body: post body for question
+      question_with_no_post_body:
       outcome_with_interpolated_phrase_list:
         title: "All done"
         body: |
           Here are the phrases:
 
           %{phrases}
-      outcome_with_no_title:
-        body: |
-          This is the outcome

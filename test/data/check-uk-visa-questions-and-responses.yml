@@ -6,12 +6,16 @@
 - austria
 - china
 - croatia
+- israel
 - oman
 - stateless-or-refugee
 - syria
 - taiwan
 - turkey
 - venezuela
+:israeli_document_type?:
+- full-passport
+- provisional-passport
 :purpose_of_visit?:
 - tourism
 - work
@@ -23,8 +27,8 @@
 - medical
 - diplomatic
 :planning_to_leave_airport?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :staying_for_how_long?:
 - six_months_or_less
 - longer_than_six_months

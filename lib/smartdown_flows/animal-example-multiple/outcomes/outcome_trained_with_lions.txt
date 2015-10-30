@@ -1,3 +1,0 @@
-# You've trained with lions
-
-You'll be alright, you won't forget your training for another %{years_until_training_forgotten(training_date)} years.

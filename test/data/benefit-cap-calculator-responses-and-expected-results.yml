@@ -1,594 +1,594 @@
---- 
+---
 - :current_node: :receive_housing_benefit?
-  :responses: 
-  - "yes"
+  :responses:
+  - 'yes'
   :next_node: :working_tax_credit?
   :outcome_node: false
 - :current_node: :working_tax_credit?
-  :responses: 
-  - "yes"
-  - "yes"
+  :responses:
+  - 'yes'
+  - 'yes'
   :next_node: :outcome_not_affected_exemptions
   :outcome_node: true
 - :current_node: :working_tax_credit?
-  :responses: 
-  - "yes"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
   :next_node: :receiving_exemption_benefits?
   :outcome_node: false
 - :current_node: :receiving_exemption_benefits?
-  :responses: 
-  - "yes"
-  - "no"
-  - "yes"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_not_affected_exemptions
   :outcome_node: true
 - :current_node: :receiving_exemption_benefits?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   :next_node: :receiving_non_exemption_benefits?
   :outcome_node: false
 - :current_node: :receiving_non_exemption_benefits?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - none
   :next_node: :outcome_not_affected
   :outcome_node: true
 - :current_node: :receiving_non_exemption_benefits?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement
   :next_node: :bereavement_amount?
   :outcome_node: false
 - :current_node: :bereavement_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement
-  - "50"
+  - '50'
   :next_node: :housing_benefit_amount?
   :outcome_node: false
 - :current_node: :housing_benefit_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50'
   :next_node: :single_couple_lone_parent?
   :outcome_node: false
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement
-  - "50.0"
-  - "50.0"
+  - '50.0'
+  - '50.0'
   - single
   :next_node: :outcome_not_affected_less_than_cap
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement
-  - "50.0"
-  - "50.0"
+  - '50.0'
+  - '50.0'
   - couple
   :next_node: :outcome_not_affected_less_than_cap
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement
-  - "50.0"
-  - "50.0"
+  - '50.0'
+  - '50.0'
   - parent
   :next_node: :outcome_not_affected_less_than_cap
   :outcome_node: true
 - :current_node: :housing_benefit_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement
-  - "50.0"
-  - "350"
+  - '50.0'
+  - '350'
   :next_node: :single_couple_lone_parent?
   :outcome_node: false
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement
-  - "50.0"
-  - "350.0"
+  - '50.0'
+  - '350.0'
   - single
   :next_node: :outcome_affected_greater_than_cap
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement
-  - "50.0"
-  - "350.0"
+  - '50.0'
+  - '350.0'
   - couple
   :next_node: :outcome_not_affected_less_than_cap
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement
-  - "50.0"
-  - "350.0"
+  - '50.0'
+  - '350.0'
   - parent
   :next_node: :outcome_not_affected_less_than_cap
   :outcome_node: true
 - :current_node: :receiving_non_exemption_benefits?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
   :next_node: :bereavement_amount?
   :outcome_node: false
 - :current_node: :bereavement_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50"
+  - '50'
   :next_node: :carers_amount?
   :outcome_node: false
 - :current_node: :carers_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50'
   :next_node: :child_benefit_amount?
   :outcome_node: false
 - :current_node: :child_benefit_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :child_tax_amount?
   :outcome_node: false
 - :current_node: :child_tax_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :esa_amount?
   :outcome_node: false
 - :current_node: :esa_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :guardian_amount?
   :outcome_node: false
 - :current_node: :guardian_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :incapacity_amount?
   :outcome_node: false
 - :current_node: :incapacity_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :income_support_amount?
   :outcome_node: false
 - :current_node: :income_support_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :jsa_amount?
   :outcome_node: false
 - :current_node: :jsa_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :maternity_amount?
   :outcome_node: false
 - :current_node: :maternity_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :sda_amount?
   :outcome_node: false
 - :current_node: :sda_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :widow_pension_amount?
   :outcome_node: false
 - :current_node: :widow_pension_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :widowed_mother_amount?
   :outcome_node: false
 - :current_node: :widowed_mother_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :widowed_parent_amount?
   :outcome_node: false
 - :current_node: :widowed_parent_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :widows_aged_amount?
   :outcome_node: false
 - :current_node: :widows_aged_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :housing_benefit_amount?
   :outcome_node: false
 - :current_node: :housing_benefit_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
   :next_node: :single_couple_lone_parent?
   :outcome_node: false
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
   - single
   :next_node: :outcome_affected_greater_than_cap
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
   - couple
   :next_node: :outcome_affected_greater_than_cap
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
   - parent
   :next_node: :outcome_affected_greater_than_cap
   :outcome_node: true
 - :current_node: :housing_benefit_amount?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "350"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350'
   :next_node: :single_couple_lone_parent?
   :outcome_node: false
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "350.0"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
   - single
   :next_node: :outcome_affected_greater_than_cap
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "350.0"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
   - couple
   :next_node: :outcome_affected_greater_than_cap
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
-  :responses: 
-  - "yes"
-  - "no"
-  - "no"
+  :responses:
+  - 'yes'
+  - 'no'
+  - 'no'
   - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "50.0"
-  - "350.0"
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
   - parent
   :next_node: :outcome_affected_greater_than_cap
   :outcome_node: true
 - :current_node: :receive_housing_benefit?
-  :responses: 
-  - "no"
+  :responses:
+  - 'no'
   :next_node: :outcome_not_affected_no_housing_benefit
   :outcome_node: true

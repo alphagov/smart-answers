@@ -5,8 +5,8 @@ en-GB:
       when_does_your_course_start?:
         title: When does your course start?
         options:
-          "2014-2015": "Between September 2014 and August 2015"
           "2015-2016": "Between September 2015 and August 2016"
+          "2016-2017": "Between September 2016 and August 2017"
 
 
 #Q2
@@ -35,17 +35,17 @@ en-GB:
 #Q5
       whats_your_household_income?:
         title: What's your annual household income?
-        hint: This is your parents’ or partner’s gross (pre-tax) income plus your own. It affects how much Maintenance Loan and Maintenance Grant (help with living costs) you get.
+        hint: This is your parents’ or partner’s gross (pre-tax) income plus your own. It affects how much help you'll get with living costs.
         error_message: Enter a number - don’t use the £ sign.
 
 #Q6a
       do_any_of_the_following_apply_uk_full_time_students_only?:
-        title: Do any of the following apply (you might get extra funding)?
+        title: Do any of the following apply? (you might get extra funding.)
         options:
           "children-under-17": "You’ve got children under 17"
           "dependant-adult": "An adult depends on you financially"
-          "has-disability": "You’ve a disability, health condition or learning difficulty -  eg dyslexia"
-          "low-income": "You’re on low income - eg you find it hard to pay for basics like food and accommodation"
+          "has-disability": "You have a disability, health condition or learning difficulty, eg dyslexia"
+          "low-income": "You’re on low income, eg you find it hard to pay for basics like food and accommodation"
           "no": "None of these"
 
 #Q6b

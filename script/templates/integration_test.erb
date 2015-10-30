@@ -1,0 +1,32 @@
+require_relative "../../test_helper"
+require_relative "flow_test_helper"
+require 'gds_api/test_helpers/imminence'
+
+require "smart_answer_flows/pay-leave-for-parents"
+
+class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
+  include FlowTestHelper
+  include GdsApi::TestHelpers::Imminence
+
+  setup do
+    setup_for_testing_flow SmartAnswer::PayLeaveForParentsFlow
+  end
+
+  <% flow.scenario_sets.each do |scenario_set| %>
+  context "<%= scenario_set.name %>" do
+
+  <% scenario_set.scenarios.each do |scenario| %>
+    should "<%= scenario.description %>" do
+      <% scenario.question_groups.each do |question_group| %>
+        <% response = question_group.first.answer %>
+        <% question_name = question_group.first.name %>
+      add_response "<%= response %>" # <%= question_name %>
+      <% end %>
+      assert_current_node :<%= scenario.outcome.gsub(/-/, '_') %>
+    end
+
+  <% end %>
+
+  end
+  <% end %>
+end

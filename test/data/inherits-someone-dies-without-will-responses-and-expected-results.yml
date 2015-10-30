@@ -1,596 +1,596 @@
---- 
+---
 - :current_node: :region?
-  :responses: 
+  :responses:
   - england-and-wales
   :next_node: :partner?
   :outcome_node: false
 - :current_node: :partner?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "yes"
+  - 'yes'
   :next_node: :estate_over_250000?
   :outcome_node: false
 - :current_node: :estate_over_250000?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :children?
   :outcome_node: false
 - :current_node: :children?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "yes"
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
+  - 'yes'
   :next_node: :outcome_20
   :outcome_node: true
 - :current_node: :children?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "yes"
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'yes'
+  - 'no'
   :next_node: :outcome_1
   :outcome_node: true
 - :current_node: :estate_over_250000?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :outcome_1
   :outcome_node: true
 - :current_node: :partner?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
+  - 'no'
   :next_node: :children?
   :outcome_node: false
 - :current_node: :children?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "yes"
+  - 'no'
+  - 'yes'
   :next_node: :outcome_2
   :outcome_node: true
 - :current_node: :children?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
   :next_node: :parents?
   :outcome_node: false
 - :current_node: :parents?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_3
   :outcome_node: true
 - :current_node: :parents?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :siblings?
   :outcome_node: false
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_4
   :outcome_node: true
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :half_siblings?
   :outcome_node: false
 - :current_node: :half_siblings?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_23
   :outcome_node: true
 - :current_node: :half_siblings?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :grandparents?
   :outcome_node: false
 - :current_node: :grandparents?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_5
   :outcome_node: true
 - :current_node: :grandparents?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :aunts_or_uncles?
   :outcome_node: false
 - :current_node: :aunts_or_uncles?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_6
   :outcome_node: true
 - :current_node: :aunts_or_uncles?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :half_aunts_or_uncles?
   :outcome_node: false
 - :current_node: :half_aunts_or_uncles?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_24
   :outcome_node: true
 - :current_node: :half_aunts_or_uncles?
-  :responses: 
+  :responses:
   - england-and-wales
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :outcome_25
   :outcome_node: true
 - :current_node: :region?
-  :responses: 
+  :responses:
   - scotland
   :next_node: :partner?
   :outcome_node: false
 - :current_node: :partner?
-  :responses: 
+  :responses:
   - scotland
-  - "yes"
+  - 'yes'
   :next_node: :children?
   :outcome_node: false
 - :current_node: :children?
-  :responses: 
+  :responses:
   - scotland
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :outcome_40
   :outcome_node: true
 - :current_node: :children?
-  :responses: 
+  :responses:
   - scotland
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :parents?
   :outcome_node: false
 - :current_node: :parents?
-  :responses: 
+  :responses:
   - scotland
-  - "yes"
-  - "no"
-  - "yes"
+  - 'yes'
+  - 'no'
+  - 'yes'
   :next_node: :siblings?
   :outcome_node: false
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - scotland
-  - "yes"
-  - "no"
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
   :next_node: :outcome_43
   :outcome_node: true
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - scotland
-  - "yes"
-  - "no"
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'no'
   :next_node: :outcome_42
   :outcome_node: true
 - :current_node: :parents?
-  :responses: 
+  :responses:
   - scotland
-  - "yes"
-  - "no"
-  - "no"
+  - 'yes'
+  - 'no'
+  - 'no'
   :next_node: :siblings?
   :outcome_node: false
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - scotland
-  - "yes"
-  - "no"
-  - "no"
-  - "yes"
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_41
   :outcome_node: true
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - scotland
-  - "yes"
-  - "no"
-  - "no"
-  - "no"
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :outcome_1
   :outcome_node: true
 - :current_node: :partner?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
+  - 'no'
   :next_node: :children?
   :outcome_node: false
 - :current_node: :children?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "yes"
+  - 'no'
+  - 'yes'
   :next_node: :outcome_2
   :outcome_node: true
 - :current_node: :children?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
   :next_node: :parents?
   :outcome_node: false
 - :current_node: :parents?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :siblings?
   :outcome_node: false
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "yes"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'yes'
+  - 'yes'
   :next_node: :outcome_44
   :outcome_node: true
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "yes"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'yes'
+  - 'no'
   :next_node: :outcome_3
   :outcome_node: true
 - :current_node: :parents?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :siblings?
   :outcome_node: false
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_4
   :outcome_node: true
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :aunts_or_uncles?
   :outcome_node: false
 - :current_node: :aunts_or_uncles?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_6
   :outcome_node: true
 - :current_node: :aunts_or_uncles?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :grandparents?
   :outcome_node: false
 - :current_node: :grandparents?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_5
   :outcome_node: true
 - :current_node: :grandparents?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :great_aunts_or_uncles?
   :outcome_node: false
 - :current_node: :great_aunts_or_uncles?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_45
   :outcome_node: true
 - :current_node: :great_aunts_or_uncles?
-  :responses: 
+  :responses:
   - scotland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :outcome_46
   :outcome_node: true
 - :current_node: :region?
-  :responses: 
+  :responses:
   - northern-ireland
   :next_node: :partner?
   :outcome_node: false
 - :current_node: :partner?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "yes"
+  - 'yes'
   :next_node: :estate_over_250000?
   :outcome_node: false
 - :current_node: :estate_over_250000?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
   :next_node: :children?
   :outcome_node: false
 - :current_node: :children?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "yes"
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
+  - 'yes'
   :next_node: :more_than_one_child?
   :outcome_node: false
 - :current_node: :more_than_one_child?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "yes"
-  - "yes"
-  - "yes"
-  - "yes"
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
   :next_node: :outcome_61
   :outcome_node: true
 - :current_node: :more_than_one_child?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "yes"
-  - "yes"
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'no'
   :next_node: :outcome_62
   :outcome_node: true
 - :current_node: :children?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "yes"
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'yes'
+  - 'no'
   :next_node: :parents?
   :outcome_node: false
 - :current_node: :parents?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "yes"
-  - "yes"
-  - "no"
-  - "yes"
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_63
   :outcome_node: true
 - :current_node: :parents?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "yes"
-  - "yes"
-  - "no"
-  - "no"
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
   :next_node: :siblings_including_mixed_parents?
   :outcome_node: false
 - :current_node: :siblings_including_mixed_parents?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "yes"
-  - "yes"
-  - "no"
-  - "no"
-  - "yes"
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_64
   :outcome_node: true
 - :current_node: :siblings_including_mixed_parents?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "yes"
-  - "yes"
-  - "no"
-  - "no"
-  - "no"
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :outcome_65
   :outcome_node: true
 - :current_node: :estate_over_250000?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "yes"
-  - "no"
+  - 'yes'
+  - 'no'
   :next_node: :outcome_60
   :outcome_node: true
 - :current_node: :partner?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "no"
+  - 'no'
   :next_node: :children?
   :outcome_node: false
 - :current_node: :children?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "no"
-  - "yes"
+  - 'no'
+  - 'yes'
   :next_node: :outcome_66
   :outcome_node: true
 - :current_node: :children?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
   :next_node: :parents?
   :outcome_node: false
 - :current_node: :parents?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_3
   :outcome_node: true
 - :current_node: :parents?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :siblings?
   :outcome_node: false
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_4
   :outcome_node: true
 - :current_node: :siblings?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :grandparents?
   :outcome_node: false
 - :current_node: :grandparents?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_5
   :outcome_node: true
 - :current_node: :grandparents?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :aunts_or_uncles?
   :outcome_node: false
 - :current_node: :aunts_or_uncles?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "yes"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
   :next_node: :outcome_6
   :outcome_node: true
 - :current_node: :aunts_or_uncles?
-  :responses: 
+  :responses:
   - northern-ireland
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
-  - "no"
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
   :next_node: :outcome_67
   :outcome_node: true

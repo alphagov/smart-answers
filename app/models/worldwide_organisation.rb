@@ -2,7 +2,7 @@ class WorldwideOrganisation
   extend Forwardable
 
   def self.for_location(location_slug)
-    $worldwide_api.organisations_for_world_location(location_slug).map do |org|
+    Services.worldwide_api.organisations_for_world_location(location_slug).map do |org|
       new(org)
     end
   end

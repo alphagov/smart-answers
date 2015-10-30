@@ -1,14 +1,14 @@
 ---
 :currently_claiming?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :how_often_use_childcare?:
 - regularly_less_than_year
 - regularly_more_than_year
 - only_short_while
 :have_costs_changed?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :how_often_pay_1?:
 - weekly_same_amount
 - weekly_diff_amount
@@ -35,8 +35,8 @@
 :how_much_each_month?:
 - 43.3
 :pay_same_each_time?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :how_often_pay_providers?:
 - weekly
 - fortnightly

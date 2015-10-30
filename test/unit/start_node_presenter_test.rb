@@ -51,18 +51,6 @@ module SmartAnswer
       assert_equal 'meta-description-text', @presenter.meta_description
     end
 
-    test '#has_meta_description? returns true if meta_description for node exists' do
-      @renderer.stubs(:content_for).returns('meta-description-text')
-
-      assert @presenter.has_meta_description?
-    end
-
-    test '#has_meta_description? returns false if meta_description for node does not exist' do
-      @renderer.stubs(:content_for).returns(nil)
-
-      refute @presenter.has_meta_description?
-    end
-
     test '#body returns content rendered for body block with govspeak processing enabled by default' do
       @renderer.stubs(:content_for).with(:body, html: true).returns('body-html')
 
@@ -85,18 +73,6 @@ module SmartAnswer
       @renderer.stubs(:content_for).with(:post_body, html: false).returns('post-body-govspeak')
 
       assert_equal 'post-body-govspeak', @presenter.post_body(html: false)
-    end
-
-    test '#has_post_body? returns true if post_body for node exists' do
-      @renderer.stubs(:content_for).returns('post-body-html')
-
-      assert @presenter.has_post_body?
-    end
-
-    test '#has_post_body? returns false if post_body for node does not exist' do
-      @renderer.stubs(:content_for).returns(nil)
-
-      refute @presenter.has_post_body?
     end
   end
 end

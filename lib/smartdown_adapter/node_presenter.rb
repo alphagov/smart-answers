@@ -12,28 +12,12 @@ module SmartdownAdapter
       render(@smartdown_node.body, html: html)
     end
 
-    def post_body
-      @smartdown_node.post_body && markdown_to_html(@smartdown_node.post_body)
+    def post_body(html: true)
+      render(@smartdown_node.post_body, html: html)
     end
 
     def next_steps(html: true)
       render(@smartdown_node.next_steps, html: html)
-    end
-
-    def has_body?
-      !!body
-    end
-
-    def has_post_body?
-      !!post_body
-    end
-
-    def has_title?
-      !!title
-    end
-
-    def has_next_steps?
-      !!next_steps
     end
 
   private

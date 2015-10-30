@@ -1,7 +1,7 @@
 ---
 :when_does_your_course_start?:
-- 2014-2015
 - 2015-2016
+- 2016-2017
 :what_type_of_student_are_you?:
 - uk-full-time
 - uk-part-time
@@ -20,10 +20,10 @@
 - 24500
 :do_any_of_the_following_apply_uk_full_time_students_only?:
 - children-under-17,dependant-adult,has-disability,low-income
-- "no"
+- 'no'
 :do_any_of_the_following_apply_all_uk_students?:
 - has-disability,low-income
-- "no"
+- 'no'
 :what_course_are_you_studying?:
 - teacher-training
 - dental-medical-healthcare

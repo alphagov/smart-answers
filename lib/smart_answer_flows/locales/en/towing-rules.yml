@@ -1,10 +1,6 @@
 en-GB:
   flow:
     towing-rules:
-      options:
-        "no": "No"
-        "yes": "Yes"
-
       ## Q1
       towing_vehicle_type?:
         title: What kind of vehicle do you want to tow with?
@@ -22,6 +18,9 @@ en-GB:
           - C+E (towing with a large vehicle)
           - D1+E (towing with a minibus)
           - D+E (towing with a bus)
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## Q2A
       how_long_entitlements?:
         title: When did you get this entitlement on your licence?
@@ -38,6 +37,9 @@ en-GB:
       ## Q8
       medium_sized_vehicle_licenceholder?:
         title: Do you already have a C1 medium-sized vehicle licence?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## Q9
       how_old_are_you_msv?:
         title: How old are you?
@@ -47,6 +49,9 @@ en-GB:
       ## Q12
       existing_large_vehicle_towing_entitlements?:
         title: Do you already have a driving licence with the C+E towing with a large vehicle entitlement on it?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## Q14
       date_licence_was_issued_msv?:
         title: When was your driving licence issued?
@@ -63,6 +68,9 @@ en-GB:
       ## Q20
       existing_large_vehicle_licence?:
         title: Do you already have a category C large vehicle licence?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## Q22
       how_old_are_you_lv?:
         title: How old are you?
@@ -72,12 +80,21 @@ en-GB:
       ## Q25
       car_licence_before_jan_1997?:
         title: Did you pass your test before 1 January 1997?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## Q27
       do_you_have_lv_or_bus_towing_entitlement?:
         title: Do you have a full category D+E towing with a bus licence?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## Q29
       full_minibus_licence?:
         title: Do you have a full category D1 minibus licence?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## Q31
       how_old_are_you_minibus?:
         title: How old are you?
@@ -87,6 +104,9 @@ en-GB:
       ## Q36
       bus_licenceholder?:
         title: Do you already have a full category D bus licence?
+        options:
+          "no": "No"
+          "yes": "Yes"
       ## Q38
       how_old_are_you_bus?:
         title: How old are you?

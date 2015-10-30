@@ -38,8 +38,7 @@ module SmartAnswer
       q = Question::MultipleChoice.new(nil, :example) do
         option yes: :fred
         option :no
-        next_node { :baz }
-        permitted_next_nodes(:baz)
+        next_node(permitted: [:baz]) { :baz }
       end
 
       new_state = q.transition(State.new(:example), :no)

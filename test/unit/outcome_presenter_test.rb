@@ -9,11 +9,12 @@ module SmartAnswer
     end
 
     test 'renderer is constructed using template name and directory obtained from outcome node' do
-      outcome = stub('outcome', name: :outcome_name, template_directory: 'outcome-template-directory')
+      outcome_directory = Pathname.new('outcome-template-directory')
+      outcome = stub('outcome', name: :outcome_name, template_directory: outcome_directory)
 
       SmartAnswer::ErbRenderer.expects(:new).with(
         has_entries(
-          template_directory: 'outcome-template-directory',
+          template_directory: responds_with(:to_s, 'outcome-template-directory/outcomes'),
           template_name: 'outcome_name'
         )
       )

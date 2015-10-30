@@ -16,11 +16,11 @@ Their average weekly earnings are: £346.15
 
 Date | SPP amount
 -|-
-28 January 2015|£276.36
-| **Total SPP: £276.36**
+28 January 2015|£138.18
+| **Total SPP: £138.18**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
-The latest date for them to [claim SPP](/employers-paternity-pay-leave/adoption) is usually 28 days before they want it to start.
+The latest date for them to [claim SPP](/employers-paternity-pay-leave/adoption) is usually 15 days before they want it to start.
 
 Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)

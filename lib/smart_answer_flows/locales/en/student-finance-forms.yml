@@ -18,7 +18,7 @@ en-GB:
       form_needed_for_1?:
         title: What do you need the form for?
         options:
-          apply-loans_grants: Apply for student loans and grants
+          apply-loans-grants: Apply for student loans and grants
           proof-identity: Send proof of identity
           income-details: Send parent or partner’s income detail - eg PFF2 or CYI
           apply-dsa: Apply for Disabled Students’ Allowances
@@ -47,5 +47,3 @@ en-GB:
         options:
           course-start-before-01092012: 'Yes'
           course-start-after-01092012: 'No'
-
-

@@ -1,0 +1,5 @@
+---
+lib/smart_answer_flows/part-year-profit-tax-credits.rb: bb27647e0302d0f1d015360eaf8e1d5a
+lib/smart_answer_flows/locales/en/part-year-profit-tax-credits.yml: 1a61a8c833a9b544adf42e284c851b58
+lib/smart_answer_flows/part-year-profit-tax-credits/outcomes/result.govspeak.erb: 57b230201210ac7e2e9691f0784a61a7
+lib/smart_answer_flows/part-year-profit-tax-credits/part_year_profit_tax_credits.govspeak.erb: 0b299d5a9ff62ad31f9ad74e2d343d84

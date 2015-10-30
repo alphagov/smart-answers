@@ -16,7 +16,7 @@ module SmartdownAdapter
     def_delegators :@smartdown_state, :current_question_number, :started?, :finished?
 
     # The current node in the flow
-    def_delegators :current_node, :body, :has_body?, :post_body, :has_post_body?
+    def_delegators :current_node, :body, :post_body
 
     def initialize(smartdown_flow, request)
       @smartdown_flow = smartdown_flow
@@ -36,7 +36,6 @@ module SmartdownAdapter
     end
 
     def page_title
-      current_node.title
     end
 
     def current_node
@@ -71,20 +70,6 @@ module SmartdownAdapter
       {}
     end
 
-    # Probably should be deprecated, just call the real method and see?
-    # Requires template updates
-    def has_meta_description?
-      !!meta_description
-    end
-
-    def has_subtitle?
-      !!subtitle
-    end
-
-    def subtitle
-    end
-    # -- end probably deprecated methods
-
     # Template helper that is aware of state, eg, name, responses
     def change_collapsed_question_link(question_number, number_questions_changed_page = 1)
       responses_up_to_changed_page = accepted_responses[0...question_number - 1]
@@ -108,7 +93,7 @@ module SmartdownAdapter
     end
 
     def render_txt?
-      false
+      finished? || !started?
     end
 
     private

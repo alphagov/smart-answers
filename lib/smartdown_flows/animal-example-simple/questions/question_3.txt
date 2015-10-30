@@ -1,7 +1,0 @@
-# How fast can you run?
-
-[text: how_fast]
-
-* how_fast is 'fast' => outcome_can_outrun_a_lion
-* otherwise => outcome_untrained_with_lions
-

@@ -1,13 +1,13 @@
 ---
 :receive_housing_benefit?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :working_tax_credit?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :receiving_exemption_benefits?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :receiving_non_exemption_benefits?:
 - none
 - bereavement

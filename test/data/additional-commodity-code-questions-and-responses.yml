@@ -1,60 +1,60 @@
---- 
-:how_much_starch_glucose?: 
-- "0"
-- "5"
-- "25"
-- "50"
-- "75"
-:how_much_sucrose_1?: 
-- "0"
-- "5"
-- "30"
-- "50"
-- "70"
-:how_much_sucrose_2?: 
-- "0"
-- "5"
-- "30"
-- "50"
-:how_much_sucrose_3?: 
-- "0"
-- "5"
-- "30"
-:how_much_sucrose_4?: 
-- "0"
-- "5"
-:how_much_milk_fat?: 
-- "0"
-- "1"
-- "3"
-- "6"
-- "9"
-- "12"
-- "18"
-- "26"
-- "40"
-- "55"
-- "70"
-- "85"
-:how_much_milk_protein_ab?: 
-- "0"
-- "2"
-- "6"
-- "18"
-- "30"
-- "60"
-:how_much_milk_protein_c?: 
-- "0"
-- "2"
-- "12"
-:how_much_milk_protein_d?: 
-- "0"
-- "4"
-- "15"
-:how_much_milk_protein_ef?: 
-- "0"
-- "6"
-- "18"
-:how_much_milk_protein_gh?: 
-- "0"
-- "6"
+---
+:how_much_starch_glucose?:
+- '0'
+- '5'
+- '25'
+- '50'
+- '75'
+:how_much_sucrose_1?:
+- '0'
+- '5'
+- '30'
+- '50'
+- '70'
+:how_much_sucrose_2?:
+- '0'
+- '5'
+- '30'
+- '50'
+:how_much_sucrose_3?:
+- '0'
+- '5'
+- '30'
+:how_much_sucrose_4?:
+- '0'
+- '5'
+:how_much_milk_fat?:
+- '0'
+- '1'
+- '3'
+- '6'
+- '9'
+- '12'
+- '18'
+- '26'
+- '40'
+- '55'
+- '70'
+- '85'
+:how_much_milk_protein_ab?:
+- '0'
+- '2'
+- '6'
+- '18'
+- '30'
+- '60'
+:how_much_milk_protein_c?:
+- '0'
+- '2'
+- '12'
+:how_much_milk_protein_d?:
+- '0'
+- '4'
+- '15'
+:how_much_milk_protein_ef?:
+- '0'
+- '6'
+- '18'
+:how_much_milk_protein_gh?:
+- '0'
+- '6'

@@ -26,8 +26,8 @@
 :dob_bus_pass?:
 - 1956-05-31
 :pay_reduced_ni_rate?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :years_paid_ni?:
 - 1
 - 11
@@ -37,8 +37,8 @@
 :years_of_jsa?:
 - 1
 :received_child_benefit?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'
 :years_of_benefit?:
 - 1
 :years_of_caring?:
@@ -50,5 +50,5 @@
 - 1
 - 2
 :lived_or_worked_outside_uk?:
-- "yes"
-- "no"
+- 'yes'
+- 'no'

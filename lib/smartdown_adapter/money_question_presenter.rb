@@ -4,10 +4,9 @@ module SmartdownAdapter
       input
     end
 
-    def has_suffix_label?
-      false
+    def suffix_label
+      nil
     end
 
   end
 end
-

@@ -1,19 +1,19 @@
---- 
+---
 - :current_node: :child_match_date?
-  :responses: 
-  - "2015-01-01"
+  :responses:
+  - '2015-01-01'
   :next_node: :child_arrival_date?
   :outcome_node: false
 - :current_node: :child_arrival_date?
-  :responses: 
-  - "2015-01-01"
-  - "2015-02-08"
+  :responses:
+  - '2015-01-01'
+  - '2015-02-08'
   :next_node: :leave_start?
   :outcome_node: false
 - :current_node: :leave_start?
-  :responses: 
-  - "2015-01-01"
-  - "2015-02-08"
-  - "2015-02-01"
+  :responses:
+  - '2015-01-01'
+  - '2015-02-08'
+  - '2015-02-01'
   :next_node: :adoption_leave_details
   :outcome_node: true
