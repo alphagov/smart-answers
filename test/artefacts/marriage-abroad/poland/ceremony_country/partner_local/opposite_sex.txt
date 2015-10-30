@@ -14,13 +14,13 @@ CNIs issued in Poland are valid for 6 months.
 
 You’ll need to have been living in Poland for at least 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
 
+### Posting notice in front of a notary public
+
+Download an [‘Affidavit/Affirmation’](/government/publications/affidavitaffirmation-form-poland) form and a [‘Notice of Marriage’](/government/publications/notice-of-marriage-form-poland) form and take them with you to a notary public.
+
+###Posting notice at the embassy
+
 [Make an appointment at the embassy in Warsaw.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-warsaw/notice-of-marriage-or-civil-partnership/slot_picker)
-
-If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
-
-- a [decree absolute or final order](/copy-decree-absolute-final-order)
-- a civil partnership dissolution or annulment certificate
-- your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
 You’ll need to complete a [‘Notice of marriage’](/government/publications/notice-of-marriage-form--2) form and an [‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form) form.
 
@@ -28,13 +28,50 @@ You can download and fill in (but not sign) the forms in advance.
 
 You must take the forms with you to your appointment.
 
+You’ll need to provide supporting documents, including:
+
+- your passport
+- proof of residence, such as a residence certificate - check with the embassy or notary public to find out what you need
+- equivalent documents for your partner
+
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+
+If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
+
+- a [decree absolute or final order](/copy-decree-absolute-final-order)
+- a civil partnership dissolution or annulment certificate
+- your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
 ## What happens next
 
+The embassy or notary public can take your oath or affirmation and witness your notice of marriage. The notary public may charge 2 separate fees for this.
+
+If you give notice at a notary public, you must post the signed forms to the British embassy in Warsaw afterwards.
+
+$A
+Consular section
+British Embassy
+ul. Kawalerii 12
+00-468 Warsaw
+Mazowieckie
+Poland
+$A
+
 The embassy will display your notice of marriage publicly for 7 days. They’ll then send all of your documentation to the British embassy or consulate, who will issue your CNI (as long as nobody has registered an objection).
 
+There’s an additional fee for this - you must complete a [payment form](/government/publications/credit-card-payment-authorisation-form-poland) and email it to the embassy in Warsaw.
+
+$C
+<mailto:Warsaw_consularmail@fco.gov.uk>
+$C
+
+The embassy will contact you to confirm that the payment was accepted.
+
 You can collect the CNI from the embassy or ask for it it to be sent by post to an address in Poland.
+
+[Make an appointment to collect your CNI at the embassy in Warsaw.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-warsaw/certificate-of-no-impediment/slot_picker )
 
 ^The embassy may charge a fee to return your documents to you.^
 

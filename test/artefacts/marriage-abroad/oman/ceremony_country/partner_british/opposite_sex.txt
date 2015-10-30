@@ -48,14 +48,6 @@ You’ll need to provide supporting documents, including:
 - proof of residence, such as a residence certificate - check with the embassy to find out what you need
 - equivalent documents for your partner
 
-If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
-
-- a [decree absolute or final order](/copy-decree-absolute-final-order)
-- a civil partnership dissolution or annulment certificate
-- your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
-
-^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
-
 You’ll need to complete a [‘Notice of marriage’](/government/publications/notice-of-marriage-form--2) form and an [‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form) form.
 
 You can download and fill in (but not sign) the forms in advance.
@@ -65,6 +57,14 @@ You must take the forms with you to your appointment.
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
 ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
+
+If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
+
+- a [decree absolute or final order](/copy-decree-absolute-final-order)
+- a civil partnership dissolution or annulment certificate
+- your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
 ###What happens next
 
