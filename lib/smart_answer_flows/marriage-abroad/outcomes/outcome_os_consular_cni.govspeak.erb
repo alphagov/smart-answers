@@ -354,28 +354,6 @@
 
     <% end %>
   <% end %>
-  <% if resident_of != 'uk' %>
-    <% if ceremony_country == 'jordan' %>
-
-      If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
-
-      - a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re getting married at the Sharia Court
-      - a [decree absolute or final order](/copy-decree-absolute-final-order)
-      - a civil partnership dissolution or annulment certificate
-      - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
-
-    <% elsif ceremony_country != 'germany' %>
-      <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
-
-    <% end %>
-  <% end %>
-  <% if resident_of != 'uk' %>
-    <% if %(germany poland).exclude?(ceremony_country) %>
-      ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
-
-
-    <% end %>
-  <% end %>
   <% if resident_of == 'ceremony_country' %>
     <% if ceremony_country == 'greece' %>
       You’ll need to fill in forms for your notice of marriage, and complete an affirmation (non-religious) or affidavit (religious) stating that you’re free to marry.
@@ -417,7 +395,31 @@
                    embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
                  } %>
 
-    <% elsif ceremony_country == 'greece' %>
+    <% end %>
+
+    <% if resident_of != 'uk' %>
+      <% if ceremony_country == 'jordan' %>
+
+        If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
+
+        - a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re getting married at the Sharia Court
+        - a [decree absolute or final order](/copy-decree-absolute-final-order)
+        - a civil partnership dissolution or annulment certificate
+        - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+      <% elsif ceremony_country != 'germany' %>
+        <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
+
+      <% end %>
+
+      <% if %(germany).exclude?(ceremony_country) %>
+        ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
+
+
+      <% end %>
+    <% end %>
+
+    <% if ceremony_country == 'greece' %>
       ###What happens next
 
       The embassy or notary public can take your oath or affirmation and witness your notice of marriage. The notary public may charge 2 separate fees for this.
