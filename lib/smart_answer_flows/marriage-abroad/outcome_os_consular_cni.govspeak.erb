@@ -294,7 +294,7 @@
     <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
   <% elsif resident_of != 'uk' && ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
-  <% elsif resident_of == 'ceremony_country' && %w(germany japan poland).exclude?(ceremony_country) %>
+  <% elsif resident_of == 'ceremony_country' && %w(germany japan).exclude?(ceremony_country) %>
     <% if birth_cert_inclusion && notary_public_inclusion %>
       You’ll need to provide supporting documents, including:
 
