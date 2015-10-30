@@ -390,7 +390,7 @@
       $D
 
 
-    <% elsif %w(germany).exclude?(ceremony_country) %>
+    <% elsif %w(germany poland).exclude?(ceremony_country) %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
     <% end %>
