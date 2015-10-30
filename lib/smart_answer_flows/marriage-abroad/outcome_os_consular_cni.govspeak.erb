@@ -199,16 +199,16 @@
       If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
 
 
-    <% elsif ceremony_country == 'poland' %>
-      To get a CNI, you must post notice of your intended marriage in <%= country_name_lowercase_prefix %>. You can do this at the British embassy in <%= country_name_lowercase_prefix %>.
-
-      CNIs issued in <%= country_name_lowercase_prefix %> are valid for 6 months.
-
     <% elsif %w(germany kazakhstan macedonia russia).exclude?(ceremony_country) %>
       To get a CNI, you must post notice of your intended marriage in <%= country_name_lowercase_prefix %>. You can do this at the British embassy or in front of a notary public.
 
 
     <% end %>
+
+    <% if ceremony_country == 'poland' %>
+      CNIs issued in <%= country_name_lowercase_prefix %> are valid for 6 months.
+    <% end %>
+
     <% if three_day_residency_handled_by_exception.exclude?(ceremony_country) && three_day_residency_requirement_applies.include?(ceremony_country) %>
       <%= render partial: "three_day_residency_requirement.govspeak.erb",
                  locals: {
