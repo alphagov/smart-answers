@@ -359,7 +359,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       context "error message overridden in translation file" do
         setup do
-          using_additional_translation_file(fixture_file('smart_answers_controller_test/error_message_for_how_much.yml')) do
+          using_additional_translation_file(fixture_file('smart_answers_controller_test/smart-answers-controller-sample-with-error-message.yml')) do
             submit_response amount: "bad_number"
           end
         end
