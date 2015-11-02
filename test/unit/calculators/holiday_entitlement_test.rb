@@ -99,11 +99,6 @@ module SmartAnswer::Calculators
               calc = HolidayEntitlement.new(start_date: Date.parse('2013-01-21'), leave_year_start_date: Date.parse('2013-02-01'))
               assert_equal '0.0301', sprintf('%.4f', calc.fraction_of_year)
             end
-
-            should 'return the fraction of a year when the leave year start falls on the 29th of Feb and the start date is a non-leap year' do
-              calc = HolidayEntitlement.new(start_date: Date.parse('2015-10-22'), leave_year_start_date: Date.parse('2016-02-29'))
-              assert_equal '0.3534', sprintf('%.4f', calc.fraction_of_year)
-            end
           end # context - start date before leave_year_start
 
           context "start date after leave_year_start" do
@@ -361,6 +356,30 @@ module SmartAnswer::Calculators
 
         should "return the holiday entitlement in shifts" do
           assert_equal '14.673', sprintf('%.3f', @calc.shift_entitlement)
+        end
+      end
+    end
+
+    context 'date_of_year' do
+      setup do
+        @calc = HolidayEntitlement.new
+      end
+
+      context 'given a leap year date, and non-leap year' do
+        should 'return feb 28th for the non-leap year' do
+          date = Date.parse('2016-02-29')
+          year = Date.parse('2015-01-01').year
+
+          assert_equal @calc.date_of_year(date, year), Date.parse("#{year}-02-28")
+        end
+      end
+
+      context 'given a non-leap year date, and non-leap year' do
+        should 'return the same day and month for the non-leap year' do
+          date = Date.parse('2016-02-28')
+          year = Date.parse('2015-01-01').year
+
+          assert_equal @calc.date_of_year(date, year), Date.parse("#{year}-02-28")
         end
       end
     end

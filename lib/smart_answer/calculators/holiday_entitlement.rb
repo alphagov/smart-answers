@@ -81,6 +81,10 @@ module SmartAnswer::Calculators
       format_number(fraction_of_year, dp)
     end
 
+    def date_of_year(date, year)
+      date.advance(years: year - date.year)
+    end
+
     def strip_zeros(number)
       number.to_s.sub(/\.0+$/, '')
     end
@@ -148,10 +152,6 @@ module SmartAnswer::Calculators
     def format_number(number, dp = 1)
       str = sprintf("%.#{dp}f", number)
       strip_zeros(str)
-    end
-
-    def date_of_year(date, year)
-      date.advance(years: year - date.year)
     end
 
     def days_cap
