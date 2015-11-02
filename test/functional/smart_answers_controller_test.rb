@@ -277,7 +277,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       context "label in translation file" do
         setup do
-          using_additional_translation_file(fixture_file('smart_answers_controller_test/label_for_sample_question.yml')) do
+          using_additional_translation_file(fixture_file('smart_answers_controller_test/smart-answers-controller-sample-with-label.yml')) do
             get :show, id: 'sample', started: 'y'
           end
         end
