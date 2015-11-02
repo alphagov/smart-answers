@@ -340,7 +340,7 @@ module SmartAnswer
         # Answer 8
         next_node_if(:maximum_entitlement_reached) do |response|
           days_worked = response.split(',').size
-          prior_sick_days and prior_sick_days.to_i >= (days_worked * 28 + 3)
+          prior_sick_days.to_i >= (days_worked * 28 + 3)
         end
 
         # Answer 6
