@@ -289,7 +289,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       context "suffix_label in translation file" do
         setup do
-          using_additional_translation_file(fixture_file('smart_answers_controller_test/suffix_label_for_sample_question.yml')) do
+          using_additional_translation_file(fixture_file('smart_answers_controller_test/smart-answers-controller-sample-with-suffix-label.yml')) do
             get :show, id: 'sample', started: 'y'
           end
         end
@@ -327,7 +327,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       context "suffix_label in translation file" do
         setup do
-          using_additional_translation_file(fixture_file('smart_answers_controller_test/suffix_label_for_sample_question.yml')) do
+          using_additional_translation_file(fixture_file('smart_answers_controller_test/smart-answers-controller-sample-with-suffix-label.yml')) do
             get :show, id: 'sample', started: 'y'
           end
         end
