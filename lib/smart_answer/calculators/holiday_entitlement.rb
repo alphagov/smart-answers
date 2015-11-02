@@ -107,12 +107,10 @@ module SmartAnswer::Calculators
 
     def leave_year_start_end
       if self.leave_year_start_date
-        date_leave_year_start_date = leave_year_start_date
-
-        needs_offset = date_calc >= date_of_year(date_leave_year_start_date, date_calc.year)
+        needs_offset = date_calc >= date_of_year(leave_year_start_date, date_calc.year)
         number_years = date_calc.year - (needs_offset ? 0 : 1)
 
-        leave_year_start = date_of_year(date_leave_year_start_date, number_years)
+        leave_year_start = date_of_year(leave_year_start_date, number_years)
         leave_year_end = leave_year_start + 1.years - 1.days
       else
         leave_year_start = date_calc.beginning_of_year
@@ -153,10 +151,7 @@ module SmartAnswer::Calculators
     end
 
     def date_of_year(date, year)
-      return date if date.year == year
-
-      years_offset = date.year - year
-      date - years_offset.years
+      date.advance(years: year - date.year)
     end
 
     def days_cap
