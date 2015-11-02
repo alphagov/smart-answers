@@ -409,7 +409,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "multiple choice question" do
       setup do
         @flow = SmartAnswer::Flow.new do
-          name "cheese"
+          name "smart-answers-controller-cheese"
           multiple_choice :what? do
             option cheese: :done
           end
@@ -421,7 +421,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       context "format=json" do
         context "no response given" do
           should "show an error message" do
-            using_additional_translation_file(fixture_file('smart_answers_controller_test/cheese.yml')) do
+            using_additional_translation_file(fixture_file('smart_answers_controller_test/smart-answers-controller-cheese.yml')) do
               submit_json_response(nil)
             end
             data = JSON.parse(response.body)
