@@ -324,13 +324,13 @@ module SmartAnswer
             last_day_sick = sick_end_date_for_awe
             (last_day_sick - start_date).to_i + 1
           else
-            nil
+            0
           end
         end
 
         next_node_calculation(:calculator) do |response|
           Calculators::StatutorySickPayCalculator.new(
-            prev_sick_days: prior_sick_days.to_i,
+            prev_sick_days: prior_sick_days,
             sick_start_date: sick_start_date,
             sick_end_date: sick_end_date,
             days_of_the_week_worked: response.split(",")
@@ -340,7 +340,7 @@ module SmartAnswer
         # Answer 8
         next_node_if(:maximum_entitlement_reached) do |response|
           days_worked = response.split(',').size
-          prior_sick_days.to_i >= (days_worked * 28 + 3)
+          prior_sick_days >= (days_worked * 28 + 3)
         end
 
         # Answer 6
