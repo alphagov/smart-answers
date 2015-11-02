@@ -106,6 +106,8 @@ module SmartAnswer
         option :yes
         option :no
 
+        save_input_as :has_linked_sickness
+
         permitted_next_nodes = [
           :linked_sickness_start_date?,
           :paid_at_least_8_weeks?
@@ -152,13 +154,10 @@ module SmartAnswer
           sick_end_date_for_awe > furthest_allowed_date
         end
 
-        next_node_calculation :prior_sick_days do |response|
+        validate :start_before_end do |response|
           start_date = sick_start_date_for_awe
           last_day_sick = response
-          (last_day_sick - start_date).to_i + 1
-        end
-
-        validate :start_before_end do
+          prior_sick_days = (last_day_sick - start_date).to_i + 1
           prior_sick_days >= 1
         end
 
@@ -316,6 +315,16 @@ module SmartAnswer
             calculator.formatted_sick_pay_weekly_amounts
           else
             ""
+          end
+        end
+
+        next_node_calculation(:prior_sick_days) do
+          if has_linked_sickness == 'yes'
+            start_date = sick_start_date_for_awe
+            last_day_sick = sick_end_date_for_awe
+            (last_day_sick - start_date).to_i + 1
+          else
+            nil
           end
         end
 
