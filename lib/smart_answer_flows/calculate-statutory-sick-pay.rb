@@ -312,13 +312,6 @@ module SmartAnswer
         end
 
         calculate :formatted_sick_pay_weekly_amounts do |response|
-          calculator = Calculators::StatutorySickPayCalculator.new(
-            prev_sick_days: prior_sick_days.to_i,
-            sick_start_date: sick_start_date,
-            sick_end_date: sick_end_date,
-            days_of_the_week_worked: response.split(",")
-          )
-
           if calculator.ssp_payment > 0
             calculator.formatted_sick_pay_weekly_amounts
           else
