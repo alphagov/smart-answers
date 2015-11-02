@@ -5,8 +5,7 @@ module I18nTestHelper
     I18n.config.load_path.unshift(filename)
     I18n.reload!
     yield
-    I18n.config.load_path = @i18n_load_path_stack.pop
-    I18n.reload!
+    reset_translation_files!
   end
 
   def use_only_translation_file!(filename)
