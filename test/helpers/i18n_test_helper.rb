@@ -20,10 +20,4 @@ module I18nTestHelper
     I18n.config.load_path = @i18n_load_path_stack.pop
     I18n.reload!
   end
-
-  def using_only_translation_file(filename, &block)
-    use_only_translation_file!(filename)
-    yield
-    reset_translation_files!
-  end
 end
