@@ -8,7 +8,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
 
   def setup
     example_translation_file =
-      File.expand_path('../../fixtures/flow_registration_presenter_sample/flow_sample.yml', __FILE__)
+      File.expand_path('../../fixtures/smart_answer_flows/locales/en/flow_sample.yml', __FILE__)
     use_additional_translation_file(example_translation_file)
 
     load_path = fixture_file('smart_answer_flows')
@@ -112,10 +112,9 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
 
     should "ignore any interpolation errors" do
       interpolation_example_translation_file =
-        File.expand_path('../../fixtures/flow_registration_presenter_sample/flow_sample_interpolation.yml', __FILE__)
+        File.expand_path('../../fixtures/smart_answer_flows/locales/en/flow_sample_interpolation.yml', __FILE__)
       reset_translation_files
       use_additional_translation_file(interpolation_example_translation_file)
-
       @content = @presenter.indexable_content
       assert_match %r{FLOW_BODY}, @content
       assert_no_match %r{QUESTION_1_BODY}, @content
