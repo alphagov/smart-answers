@@ -51,7 +51,6 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blankslate (3.1.3)
     builder (3.2.2)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -66,7 +65,6 @@ GEM
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
-    diffy (3.0.6)
     docile (1.1.5)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
@@ -129,8 +127,6 @@ GEM
     null_logger (0.0.1)
     parser (2.2.2.6)
       ast (>= 1.1, < 3.0)
-    parslet (1.6.2)
-      blankslate (>= 2.0, <= 4.0)
     plek (1.7.0)
     poltergeist (1.6.0)
       capybara (~> 2.1)
@@ -221,9 +217,6 @@ GEM
       rack (>= 1.3.5)
       rest-client
     slop (3.6.0)
-    smartdown (0.16.0)
-      parslet (~> 1.6.2)
-      uk_postcode (~> 1.0.1)
     sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -271,7 +264,6 @@ DEPENDENCIES
   binding_of_caller
   capybara (= 2.1.0)
   ci_reporter
-  diffy (= 3.0.6)
   extlib (= 0.9.16)
   gds-api-adapters (~> 24.4.0)
   govspeak (~> 3.3.0)
@@ -296,7 +288,6 @@ DEPENDENCIES
   simplecov (~> 0.10.0)
   simplecov-rcov (~> 0.2.3)
   slimmer (= 9.0.0)
-  smartdown (~> 0.16.0)
   therubyracer (~> 0.12.1)
   tilt (= 1.4.1)
   timecop

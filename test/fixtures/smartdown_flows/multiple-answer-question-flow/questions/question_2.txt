@@ -1,9 +1,0 @@
-# Indentation
-
-# How do you indent?
-
-[choice: indentation]
-* tabs: Tabs
-* spaces: Spaces
-
-* otherwise => the_outcome

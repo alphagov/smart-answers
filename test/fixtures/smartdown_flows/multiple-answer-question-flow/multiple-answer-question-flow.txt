@@ -1,9 +1,0 @@
----
-meta_description: Has a node with mulitple questions
-satisfies_need: 100999
-status: draft
----
-
-# Multiple question nodes to follow
-
-[start: question_1]
