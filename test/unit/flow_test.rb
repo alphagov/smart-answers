@@ -162,20 +162,6 @@ class FlowTest < ActiveSupport::TestCase
     assert s.draft?
   end
 
-  test "should not be transition" do
-    s = SmartAnswer::Flow.new {}
-
-    refute s.transition?
-  end
-
-  test "should be transition if status is transition" do
-    s = SmartAnswer::Flow.new do
-      status :transition
-    end
-
-    assert s.transition?
-  end
-
   test "should have a status" do
     s = SmartAnswer::Flow.new do
       status :published

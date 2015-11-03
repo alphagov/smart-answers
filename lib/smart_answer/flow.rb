@@ -39,14 +39,9 @@ module SmartAnswer
       status == :draft
     end
 
-    #Status for a question being transitioned from smart-answer to smartdown: do not publish
-    def transition?
-      status == :transition
-    end
-
     def status(s = nil)
       if s
-        raise Flow::InvalidStatus unless [:published, :draft, :transition].include? s
+        raise Flow::InvalidStatus unless [:published, :draft].include? s
         @status = s
       end
 
