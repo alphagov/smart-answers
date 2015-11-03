@@ -5,7 +5,7 @@
 
   You need to have been living in <%= country_name_lowercase_prefix %> for 21 days.
 
-  You’ll be asked to provide an affirmation or affidavit to prove you’re allowed to marry.
+  You’ll be asked to provide an affirmation or affidavit document to prove you’re allowed to marry.
 
 <% else %>
   <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
@@ -130,6 +130,10 @@
   <% end %>
   <% if ceremony_country == 'united-arab-emirates' %>
     ^If you have dual nationality and you entered the United Arab Emirates on a non-British passport, you must contact the embassy of that country to get your affirmation or affidavit.^
+    
+    You’ll need to complete an  [‘Affirmation for marriage’ (non-religious) or an ‘Affidavit for marriage’ (religious) form](/government/publications/affidavitaffirmatin-of-marital-status-forms-uae) in English.
+
+    You can download and fill in (but not sign) the form in advance.
 
     <%= render partial: 'os_affirmation/partner_probably_needs_affirmation_affidavit_callout.govspeak.erb' %>
 
