@@ -360,6 +360,30 @@ module SmartAnswer::Calculators
       end
     end
 
+    context 'date_of_year' do
+      setup do
+        @calc = HolidayEntitlement.new
+      end
+
+      context 'given a leap year date, and non-leap year' do
+        should 'return feb 28th for the non-leap year' do
+          date = Date.parse('2016-02-29')
+          year = Date.parse('2015-01-01').year
+
+          assert_equal @calc.date_of_year(date, year), Date.parse("#{year}-02-28")
+        end
+      end
+
+      context 'given a non-leap year date, and non-leap year' do
+        should 'return the same day and month for the non-leap year' do
+          date = Date.parse('2016-02-28')
+          year = Date.parse('2015-01-01').year
+
+          assert_equal @calc.date_of_year(date, year), Date.parse("#{year}-02-28")
+        end
+      end
+    end
+
     context "strip_zeros" do
       setup do
         @calc = HolidayEntitlement.new
