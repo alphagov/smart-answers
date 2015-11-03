@@ -92,7 +92,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_cp_or_equivalent.govspea
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ireland.govspeak.erb: d1cd076fbc8c1c5304e35be6b8041d95
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_marriage_via_local_authorities.govspeak.erb: 6fbc4c0fa89a7bcb3f1a0b33ab8eec43
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_monaco.govspeak.erb: 8c0f70005eee341c37f7966886c68c8c
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_affirmation.govspeak.erb: 4bcacce283cd8bf4ba84b3ec87521f22
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_affirmation.govspeak.erb: 34ba07b127d8551a3b638befefc94b60
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_bot.govspeak.erb: 6265728604b85e2fd51b59b3823fe1aa
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_colombia.govspeak.erb: 0278771b1619672cf187445c6cef00f4
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_commonwealth.govspeak.erb: e786f6ff0927f8e1fb729be638bea136
