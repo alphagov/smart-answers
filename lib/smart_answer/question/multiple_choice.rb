@@ -10,6 +10,8 @@ module SmartAnswer
 
       def option(transitions, options = {})
         if transitions.is_a?(Hash)
+          flow_name = @flow ? @flow.name : ''
+          warn "Deprecation warning: Using MultipleChoice#option with a hash is going to be removed. Defined in #{flow_name}.#{name}."
           transitions.each_pair do |option, next_node|
             @permitted_options << option.to_s
             next_node_if(next_node, responded_with(option.to_s))
