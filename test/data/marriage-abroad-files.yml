@@ -74,7 +74,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_required_supporting_documents_p
 lib/smart_answer_flows/marriage-abroad/outcomes/_synonyms_of_cp.govspeak.erb: f93ceded4eb1190a3b570cb31923f440
 lib/smart_answer_flows/marriage-abroad/outcomes/_three_day_residency_requirement.govspeak.erb: 081151685a9ac07ab770cde06f5241c3
 lib/smart_answer_flows/marriage-abroad/outcomes/_what_you_need_to_do.govspeak.erb: 178402e03cc04f21a8553e916911c6fa
-lib/smart_answer_flows/marriage-abroad/outcomes/_what_you_need_to_do_affirmation.govspeak.erb: 2af444f29e9a4fe0df0ad676d0ac4681
+lib/smart_answer_flows/marriage-abroad/outcomes/_what_you_need_to_do_affirmation.govspeak.erb: a7b76bd877b2ae2076dfc5f13f0433d1
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
 lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_contact.govspeak.erb: 618bac9e31250ed7527ccfa7470436ca
 lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_fees.govspeak.erb: 0ac45bc504fc2ce9a0a09c2429d16659
