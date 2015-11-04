@@ -1,8 +1,8 @@
 ---
 :is_your_employee_getting?:
 - statutory_maternity_pay,maternity_allowance
-- ordinary_statutory_paternity_pay,statutory_adoption_pay
-- ordinary_statutory_paternity_pay,additional_statutory_paternity_pay
+- statutory_paternity_pay,statutory_adoption_pay
+- statutory_paternity_pay,additional_statutory_paternity_pay
 - none
 :employee_tell_within_limit?:
 - 'yes'
@@ -10,6 +10,10 @@
 :employee_work_different_days?:
 - 'yes'
 - 'no'
+:usual_work_days?:
+- '1,2,3'
+- '1,2,3,4,5'
+- '0,6'
 :first_sick_day?:
 - 2013-04-02
 - 2013-10-02
@@ -21,11 +25,12 @@
 - 'yes'
 - 'no'
 :linked_sickness_start_date?:
+- 2012-09-01
 - 2013-02-01
 :linked_sickness_end_date?:
 - 2013-02-15
 - 2013-03-15
-- 2013-09-01
+- 2013-04-01
 :paid_at_least_8_weeks?:
 - eight_weeks_more
 - eight_weeks_less
@@ -52,7 +57,3 @@
 :days_covered_by_earnings?:
 - '30'
 - '35'
-:usual_work_days?:
-- '1,2,3'
-- '1,2,3,4,5'
-- '0,6'

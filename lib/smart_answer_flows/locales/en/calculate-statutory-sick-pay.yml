@@ -16,7 +16,7 @@ en-GB:
         options:
           statutory_maternity_pay: Statutory Maternity Pay
           maternity_allowance: Maternity Allowance
-          ordinary_statutory_paternity_pay: Ordinary Statutory Paternity Pay
+          statutory_paternity_pay: Statutory Paternity Pay
           statutory_adoption_pay: Statutory Adoption Pay
           additional_statutory_paternity_pay: Additional Statutory Paternity Pay
 
@@ -66,6 +66,7 @@ en-GB:
         title: Enter the end date for this linked period of sickness.
         start_before_end:  End date should be on or after start date
         must_be_within_eight_weeks: You need to enter a date within 8 weeks of the current period of sickness or it isn't a linked period of sickness.
+        must_be_before_first_sick_day: You need to enter a date before the start of the current period of sickness or it isn't a separate linked period of sickness.
 
       # Q7.1
       paid_at_least_8_weeks?:
