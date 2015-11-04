@@ -8,8 +8,8 @@ module SmartAnswer
 
       ## Q1
       multiple_choice :are_you_getting_dla? do
-        option yes: :what_is_your_dob?
-        option no: :what_is_your_dob?
+        option :yes
+        option :no
 
         # Used in later questions
         calculate :calculator do
@@ -19,6 +19,8 @@ module SmartAnswer
         calculate :getting_dla do |response|
           response == 'yes'
         end
+
+        next_node :what_is_your_dob?
       end
 
       ## Q2
