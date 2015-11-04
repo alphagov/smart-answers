@@ -93,9 +93,8 @@ module SmartAnswer
         end
 
         next_node_calculation(:days_sick) do |response|
-          start_date = sick_start_date
-          last_day_sick = response
-          (last_day_sick - start_date).to_i + 1
+          period = DateRange.new(begins_on: sick_start_date, ends_on: response)
+          period.number_of_days
         end
 
         validate { days_sick >= 1 }
@@ -163,10 +162,8 @@ module SmartAnswer
         end
 
         validate :must_be_valid_period_of_incapacity_for_work do |response|
-          start_date = sick_start_date_for_awe
-          last_day_sick = response
-          prior_sick_days = (last_day_sick - start_date).to_i + 1
-          prior_sick_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+          period = DateRange.new(begins_on: sick_start_date_for_awe, ends_on: response)
+          period.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
         end
 
         next_node(:paid_at_least_8_weeks?)
