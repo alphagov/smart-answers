@@ -7,8 +7,8 @@ module SmartAnswer
       satisfies_need "101007"
 
       multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
-        option yes: :did_you_marry_or_civil_partner_before_5_december_2005?
-        option no: :sorry
+        option :yes
+        option :no
 
         calculate :age_related_allowance_chooser do
           rates = SmartAnswer::Calculators::RatesQuery.new('married_couples_allowance').rates
@@ -23,11 +23,23 @@ module SmartAnswer
           Calculators::MarriedCouplesAllowanceCalculator.new(validate_income: false)
         end
 
+        permitted_next_nodes = [
+          :did_you_marry_or_civil_partner_before_5_december_2005?,
+          :sorry
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :did_you_marry_or_civil_partner_before_5_december_2005?
+          when 'no'
+            :sorry
+          end
+        end
       end
 
       multiple_choice :did_you_marry_or_civil_partner_before_5_december_2005? do
-        option yes: :whats_the_husbands_date_of_birth?
-        option no: :whats_the_highest_earners_date_of_birth?
+        option :yes
+        option :no
 
         calculate :income_measure do |response|
           case response
@@ -35,6 +47,19 @@ module SmartAnswer
           when 'no' then "highest earner"
           else
             raise SmartAnswer::InvalidResponse
+          end
+        end
+
+        permitted_next_nodes = [
+          :whats_the_husbands_date_of_birth?,
+          :whats_the_highest_earners_date_of_birth?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :whats_the_husbands_date_of_birth?
+          when 'no'
+            :whats_the_highest_earners_date_of_birth?
           end
         end
       end
@@ -94,8 +119,21 @@ module SmartAnswer
       end
 
       multiple_choice :paying_into_a_pension? do
-        option yes: :how_much_expected_contributions_before_tax?
-        option no: :how_much_expected_gift_aided_donations?
+        option :yes
+        option :no
+
+        permitted_next_nodes = [
+          :how_much_expected_contributions_before_tax?,
+          :how_much_expected_gift_aided_donations?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :how_much_expected_contributions_before_tax?
+          when 'no'
+            :how_much_expected_gift_aided_donations?
+          end
+        end
       end
 
       money_question :how_much_expected_contributions_before_tax? do
