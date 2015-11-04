@@ -1,5 +1,7 @@
 module SmartAnswer
   class CalculateStatutorySickPayFlow < Flow
+    MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK = 4
+
     def define
       content_id "1c676a9e-0424-4ebb-bab8-d8cb8d2fc6f8"
       name 'calculate-statutory-sick-pay'
@@ -97,7 +99,9 @@ module SmartAnswer
         end
 
         validate { days_sick >= 1 }
-        next_node_if(:has_linked_sickness?) { days_sick > 3 }
+        next_node_if(:has_linked_sickness?) do
+          days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+        end
         next_node(:must_be_sick_for_4_days)
       end
 
@@ -162,7 +166,7 @@ module SmartAnswer
           start_date = sick_start_date_for_awe
           last_day_sick = response
           prior_sick_days = (last_day_sick - start_date).to_i + 1
-          prior_sick_days > 3
+          prior_sick_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
         end
 
         next_node(:paid_at_least_8_weeks?)
