@@ -33,9 +33,22 @@ module SmartAnswer
       end
 
       multiple_choice :what_is_your_favorite_colour? do
-        option blue: :done
-        option blue_no_yellow: :auuuuuuuugh
-        option red: :done
+        option :blue
+        option :blue_no_yellow
+        option :red
+
+        permitted_next_nodes = [
+          :auuuuuuuugh,
+          :done
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'blue', 'red'
+            :done
+          when 'blue_no_yellow'
+            :auuuuuuuugh
+          end
+        end
       end
 
       outcome :done
