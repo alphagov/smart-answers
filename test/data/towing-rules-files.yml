@@ -25,4 +25,4 @@ lib/smart_answer_flows/towing-rules/outcomes/not_old_enough_bus.govspeak.erb: f7
 lib/smart_answer_flows/towing-rules/outcomes/not_old_enough_lv.govspeak.erb: 5a94374e913caa7597ebc530c32ad421
 lib/smart_answer_flows/towing-rules/outcomes/not_old_enough_minibus.govspeak.erb: d85ab81444e874f4549adeba688f73e6
 lib/smart_answer_flows/towing-rules/outcomes/too_young_msv.govspeak.erb: cea2cd5ded9e75435518dcd67cda65b0
-lib/smart_answer_flows/towing-rules/towing_rules.govspeak.erb: 53a2f897e49f589999a7684b5c6f24f0
+lib/smart_answer_flows/towing-rules/towing_rules.govspeak.erb: d48bec315e82adf8e068fa2b20d748c2
