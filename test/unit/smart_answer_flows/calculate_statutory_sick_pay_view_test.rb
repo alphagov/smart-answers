@@ -27,8 +27,8 @@ module SmartAnswer
       end
 
       should 'have a start_before_end error message' do
-        @state.error = 'start_before_end'
-        assert_equal 'End date should be on or after start date', @presenter.error
+        @state.error = 'must_be_valid_period_of_incapacity_for_work'
+        assert_equal 'The linked period of sickness must be at least 4 calendar days long.', @presenter.error
       end
     end
   end

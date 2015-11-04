@@ -158,11 +158,11 @@ module SmartAnswer
           sick_end_date_for_awe < sick_start_date - 1
         end
 
-        validate :start_before_end do |response|
+        validate :must_be_valid_period_of_incapacity_for_work do |response|
           start_date = sick_start_date_for_awe
           last_day_sick = response
           prior_sick_days = (last_day_sick - start_date).to_i + 1
-          prior_sick_days >= 1
+          prior_sick_days > 3
         end
 
         next_node(:paid_at_least_8_weeks?)
