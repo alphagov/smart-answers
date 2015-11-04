@@ -8,7 +8,7 @@ module SmartAnswer
         super
       end
 
-      def option(option_key, options = {})
+      def option(option_key)
         @permitted_options << option_key.to_s
       end
 
