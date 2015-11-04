@@ -1,7 +1,20 @@
 ## QA0
 multiple_choice :taking_paternity_leave_for_adoption? do
-  option yes: :employee_date_matched_paternity_adoption? #QAP1
-  option no: :date_of_adoption_match? # QA1
+  option :yes
+  option :no
+
+  permitted_next_nodes = [
+    :employee_date_matched_paternity_adoption?,
+    :date_of_adoption_match?
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    case response
+    when 'yes'
+      :employee_date_matched_paternity_adoption? #QAP1
+    when 'no'
+      :date_of_adoption_match? # QA1
+    end
+  end
 end
 
 ## QA1
@@ -46,8 +59,21 @@ end
 
 ## QA3
 multiple_choice :adoption_did_the_employee_work_for_you? do
-  option yes: :adoption_employment_contract?
-  option no: :adoption_not_entitled_to_leave_or_pay
+  option :yes
+  option :no
+
+  permitted_next_nodes = [
+    :adoption_employment_contract?,
+    :adoption_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    case response
+    when 'yes'
+      :adoption_employment_contract?
+    when 'no'
+      :adoption_not_entitled_to_leave_or_pay
+    end
+  end
 end
 
 ## QA4
@@ -161,16 +187,18 @@ end
 
 # QA9
 multiple_choice :pay_frequency_adoption? do
-  option weekly: :earnings_for_pay_period_adoption?
-  option every_2_weeks: :earnings_for_pay_period_adoption?
-  option every_4_weeks: :earnings_for_pay_period_adoption?
-  option monthly: :earnings_for_pay_period_adoption?
+  option :weekly
+  option :every_2_weeks
+  option :every_4_weeks
+  option :monthly
   save_input_as :pay_pattern
 
   calculate :calculator do |response|
     calculator.pay_method = response
     calculator
   end
+
+  next_node :earnings_for_pay_period_adoption?
 end
 
 ## QA10
