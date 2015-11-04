@@ -81,8 +81,6 @@ class ActionDispatch::IntegrationTest
   end
 end
 
-I18n.load_path += Dir[Rails.root.join(*%w{test fixtures smart_answer_flows locales * *.{rb,yml}})]
-
 module Slimmer
   class Skin
     # Monkeypatch slimmer's mocked template so that we can test the behaviour of

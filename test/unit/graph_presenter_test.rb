@@ -8,13 +8,13 @@ module SmartAnswer
     include I18nTestHelper
 
     setup do
-      use_only_translation_file!(fixture_file('graph_presenter_test/graph.yml'))
+      use_additional_translation_file(fixture_file('graph_presenter_test/graph.yml'))
       @flow = SmartAnswer::GraphFlow.build
       @presenter = GraphPresenter.new(@flow)
     end
 
     teardown do
-      reset_translation_files!
+      reset_translation_files
     end
 
     test "presents labels of simple graph" do
