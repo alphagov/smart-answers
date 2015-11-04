@@ -68,17 +68,30 @@ end
 
 ## QM4
 multiple_choice :did_the_employee_work_for_you? do
-  option yes: :is_the_employee_on_your_payroll?
-  option no: :maternity_leave_and_pay_result
+  option :yes
+  option :no
   calculate :not_entitled_to_pay_reason do |response|
     response == 'no' ? :not_worked_long_enough : nil
+  end
+
+  permitted_next_nodes = [
+    :is_the_employee_on_your_payroll?,
+    :maternity_leave_and_pay_result
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    case response
+    when 'yes'
+      :is_the_employee_on_your_payroll?
+    when 'no'
+      :maternity_leave_and_pay_result
+    end
   end
 end
 
 ## QM5
 multiple_choice :is_the_employee_on_your_payroll? do
-  option yes: :last_normal_payday? # NOTE: goes to shared questions
-  option no: :maternity_leave_and_pay_result
+  option :yes
+  option :no
 
   calculate :not_entitled_to_pay_reason do |response|
     response == 'no' ? :must_be_on_payroll : nil
@@ -90,6 +103,19 @@ multiple_choice :is_the_employee_on_your_payroll? do
 
   calculate :to_saturday_formatted do
     calculator.format_date_day to_saturday
+  end
+
+  permitted_next_nodes = [
+    :last_normal_payday?,
+    :maternity_leave_and_pay_result
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    case response
+    when 'yes'
+      :last_normal_payday? # NOTE: goes to shared questions
+    when 'no'
+      :maternity_leave_and_pay_result
+    end
   end
 end
 
@@ -182,13 +208,32 @@ end
 
 ## QM12
 multiple_choice :when_in_the_month_is_the_employee_paid? do
-  option first_day_of_the_month: :maternity_leave_and_pay_result
-  option last_day_of_the_month: :maternity_leave_and_pay_result
-  option specific_date_each_month: :what_specific_date_each_month_is_the_employee_paid?
-  option last_working_day_of_the_month: :what_days_does_the_employee_work?
-  option a_certain_week_day_each_month: :what_particular_day_of_the_month_is_the_employee_paid?
+  option :first_day_of_the_month
+  option :last_day_of_the_month
+  option :specific_date_each_month
+  option :last_working_day_of_the_month
+  option :a_certain_week_day_each_month
 
   save_input_as :monthly_pay_method
+
+  permitted_next_nodes = [
+    :maternity_leave_and_pay_result,
+    :what_specific_date_each_month_is_the_employee_paid?,
+    :what_days_does_the_employee_work?,
+    :what_particular_day_of_the_month_is_the_employee_paid?
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    case response
+    when 'first_day_of_the_month', 'last_day_of_the_month'
+      :maternity_leave_and_pay_result
+    when 'specific_date_each_month'
+      :what_specific_date_each_month_is_the_employee_paid?
+    when 'last_working_day_of_the_month'
+      :what_days_does_the_employee_work?
+    when 'a_certain_week_day_each_month'
+      :what_particular_day_of_the_month_is_the_employee_paid?
+    end
+  end
 end
 
 ## QM13
