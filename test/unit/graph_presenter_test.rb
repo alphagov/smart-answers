@@ -14,7 +14,7 @@ module SmartAnswer
     end
 
     teardown do
-      reset_translation_files!
+      reset_translation_files
     end
 
     test "presents labels of simple graph" do

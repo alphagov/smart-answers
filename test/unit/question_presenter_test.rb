@@ -12,7 +12,7 @@ module SmartAnswer
     end
 
     def teardown
-      reset_translation_files!
+      reset_translation_files
     end
 
     test "Node title looked up from translation file" do

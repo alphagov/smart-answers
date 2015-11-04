@@ -19,7 +19,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   end
 
   def teardown
-    reset_translation_files!
+    reset_translation_files
   end
 
   context "slug" do
@@ -113,7 +113,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
     should "ignore any interpolation errors" do
       interpolation_example_translation_file =
         File.expand_path('../../fixtures/flow_registration_presenter_sample/flow_sample_interpolation.yml', __FILE__)
-      reset_translation_files!
+      reset_translation_files
       use_additional_translation_file(interpolation_example_translation_file)
 
       @content = @presenter.indexable_content

@@ -22,6 +22,6 @@ class EngineIntegrationTest < ActionDispatch::IntegrationTest
     FLOW_REGISTRY_OPTIONS[:preload_flows] = @preload_flows
     SmartAnswer::FlowRegistry.reset_instance
 
-    reset_translation_files!
+    reset_translation_files
   end
 end
