@@ -32,7 +32,5 @@ You must take all of the following to your appointment:
 
 Service | Fee
 -|-
-Issuing any other consular letter or certificate in English | £45
-Issuing any other consular letter or certificate in any other language | £70
-Affidavit for marriage | £55
+Affirmation for marriage | £55
 
