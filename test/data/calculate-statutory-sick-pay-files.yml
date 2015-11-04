@@ -1,17 +1,17 @@
 ---
-lib/smart_answer_flows/calculate-statutory-sick-pay.rb: 6baabf28aa4db410d4c0014c61131e86
-lib/smart_answer_flows/locales/en/calculate-statutory-sick-pay.yml: 8ae46a0e5f093bfb0378fff757f06ff5
-test/data/calculate-statutory-sick-pay-questions-and-responses.yml: b65edd1155a5d74bc721ade196e60c6e
-test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: 3064b80649868ae55908bb7f787826e9
+lib/smart_answer_flows/calculate-statutory-sick-pay.rb: e641dfc583d79d0897dd5960a845ea87
+lib/smart_answer_flows/locales/en/calculate-statutory-sick-pay.yml: 4eea84d779e65da86463fa66fb3fd45c
+test/data/calculate-statutory-sick-pay-questions-and-responses.yml: dfd8baf65a8c26430cf17958e8908202
+test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: b42519fbb030e7eaf0912d1de0b8ff47
 lib/smart_answer_flows/calculate-statutory-sick-pay/calculate_statutory_sick_pay.govspeak.erb: f91dc1d321c164a06271889100875600
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/_esa.govspeak.erb: 660031398fda690ed7b3e2186ba64060
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/already_getting_maternity.govspeak.erb: 258fd4422c4ae665c83d5ee1e061bbff
-lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/entitled_to_sick_pay.govspeak.erb: b8b73c19346e4a8e6143ea87ecc7f92a
+lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/entitled_to_sick_pay.govspeak.erb: 5aaeb3dfcda9285d28e2eb98e4c4cca1
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/maximum_entitlement_reached.govspeak.erb: eb12d5290c873df20fd23ff9eb06c273
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/must_be_sick_for_4_days.govspeak.erb: 17b34a7463bcbbf7e2a5c417ec5452f9
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/not_earned_enough.govspeak.erb: 1e5cd1c6d99b6bd3145578416d62e7c5
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/not_entitled_3_days_not_paid.govspeak.erb: 98dc338280df70b2b6032a7a9dcba428
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/not_regular_schedule.govspeak.erb: 98b6f0d902fabae8fda39c1859cd2a46
-lib/smart_answer/calculators/statutory_sick_pay_calculator.rb: 2e24de7d2a20d1a50ef2c03f27bfeb9c
+lib/smart_answer/calculators/statutory_sick_pay_calculator.rb: 829caa333843af877c30cefff97edc35
 lib/smart_answer/calculators/rates_query.rb: c9568eac2742cad26f93458ed2276876
 lib/data/rates/statutory_sick_pay.yml: de2d34118e3016d1137c394745d33280
