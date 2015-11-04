@@ -8,8 +8,8 @@ module SmartAnswer
         super
       end
 
-      def option(transitions, options = {})
-        [*transitions].each { |option| @permitted_options << option.to_s }
+      def option(option_key, options = {})
+        @permitted_options << option_key.to_s
       end
 
       def options
