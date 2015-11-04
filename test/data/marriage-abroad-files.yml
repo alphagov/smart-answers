@@ -5,7 +5,7 @@ test/data/marriage-abroad-questions-and-responses.yml: eabbd09ca91fab72a9a520d10
 test/data/marriage-abroad-responses-and-expected-results.yml: 364c07a077f707fff8c408a888b67a7f
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: 4ac964ce5e41e3efaf0f43d11c71b2b7
-lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_documents_in_vietnam.govspeak.erb: f94ab5aa95ecd791c13500cf62a4bb0f
+lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_documents_in_vietnam.govspeak.erb: 7deecc40f47a3b6d3d27d419a3535c87
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_for_affidavit.govspeak.erb: 21960e29e913a866bdc006a630b68202
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_for_affidavit_norway.govspeak.erb: de478bc6121e2e4c7f748a4e1831befb
 lib/smart_answer_flows/marriage-abroad/outcomes/_callout_partner_equivalent_document.govspeak.erb: 4f413ebac8b3001dc9f6ac356ac2b441
@@ -110,7 +110,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_other_countries.govsp
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_portugal.govspeak.erb: 695750a9cc381603f800f1c2c6c5e200
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_spain.govspeak.erb: 244d4562e19310d35a2e351b5d6d6415
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_affirmation.govspeak.erb: 0784e5066e751503bf9bc2a61aaf4f35
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage.govspeak.erb: b35fc8996845ffcf0c5e05061f5a25fe
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage.govspeak.erb: cf9209ce7229b87f6b3fd70e05ee73ed
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage_malta.govspeak.erb: 6d0e1f7c4739820fd626deb23910ab2b
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage_not_possible.govspeak.erb: 800f400fb97200d114f5e8b80531a4d5
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_switzerland.govspeak.erb: ae488f93abb99a8f79865d7eb76d1f72
