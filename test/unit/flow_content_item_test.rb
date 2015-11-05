@@ -4,8 +4,13 @@ module SmartAnswer
   class FlowContentItemTest < ActiveSupport::TestCase
     include GovukContentSchemaTestHelpers::TestUnit
 
+    setup do
+      load_path = fixture_file('smart_answer_flows')
+      SmartAnswer::FlowRegistry.stubs(:instance).returns(stub("Flow registry", find: @flow, load_path: load_path))
+    end
+
     test '#payload returns a valid content-item' do
-      presenter = FlowRegistrationPresenter.new(stub('flow', name: 'a-flow-name', content_id: '3e6f33b8-0723-4dd5-94a2-cab06f23a685'))
+      presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: '3e6f33b8-0723-4dd5-94a2-cab06f23a685'))
       content_item = FlowContentItem.new(presenter)
 
       payload = content_item.payload
@@ -14,12 +19,12 @@ module SmartAnswer
     end
 
     test '#base_path is the name of the flow' do
-      presenter = FlowRegistrationPresenter.new(stub('flow', name: 'a-flow-name'))
+      presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death'))
       content_item = FlowContentItem.new(presenter)
 
       base_path = content_item.base_path
 
-      assert_equal "/a-flow-name", base_path
+      assert_equal "/bridge-of-death", base_path
     end
   end
 end
