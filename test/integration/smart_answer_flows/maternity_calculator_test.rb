@@ -350,6 +350,10 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
               should "ask if the employee is on your payroll" do
                 assert_current_node :is_the_employee_on_your_payroll?
               end
+              should 'render the question title with an interpolated date' do
+                nodes = Capybara.string(current_question.to_s)
+                assert nodes.has_content?('Was the employee (or will they be) on your payroll on')
+              end
               context "answer yes" do
                 setup do
                   add_response :yes

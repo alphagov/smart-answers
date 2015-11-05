@@ -84,6 +84,10 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                     assert_current_node :employee_on_payroll_paternity?
                   end
 
+                  should 'render the question title with an interpolated date' do
+                    nodes = Capybara.string(current_question.to_s)
+                    assert nodes.has_content?('Was the employee (or will they be) on your payroll on')
+                  end
                   context "answer yes" do
                     setup { add_response :yes }
 
@@ -332,6 +336,10 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                     assert_current_node :employee_on_payroll_paternity?
                   end
 
+                  should 'render the question title with an interpolated date' do
+                    nodes = Capybara.string(current_question.to_s)
+                    assert nodes.has_content?('Was the employee (or will they be) on your payroll on')
+                  end
                   context "answer no" do
                     setup { add_response :no }
 
