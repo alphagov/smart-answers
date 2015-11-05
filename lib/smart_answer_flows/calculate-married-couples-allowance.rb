@@ -43,8 +43,10 @@ module SmartAnswer
 
         calculate :income_measure do |response|
           case response
-          when 'yes' then "husband"
-          when 'no' then "highest earner"
+          when 'yes'
+            "husband"
+          when 'no'
+            "highest earner"
           else
             raise SmartAnswer::InvalidResponse
           end
