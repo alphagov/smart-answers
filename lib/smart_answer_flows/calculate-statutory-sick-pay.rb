@@ -1,5 +1,7 @@
 module SmartAnswer
   class CalculateStatutorySickPayFlow < Flow
+    MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK = 4
+
     def define
       content_id "1c676a9e-0424-4ebb-bab8-d8cb8d2fc6f8"
       name 'calculate-statutory-sick-pay'
@@ -11,7 +13,7 @@ module SmartAnswer
       checkbox_question :is_your_employee_getting? do
         option :statutory_maternity_pay
         option :maternity_allowance
-        option :ordinary_statutory_paternity_pay
+        option :statutory_paternity_pay
         option :statutory_adoption_pay
         option :additional_statutory_paternity_pay
 
@@ -20,10 +22,10 @@ module SmartAnswer
           PhraseList.new(:ssp_link)
         end
         calculate :paternity_maternity_warning do |response|
-          (response.split(",") & %w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
+          (response.split(",") & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
         end
         next_node_if(:employee_tell_within_limit?,
-          response_is_one_of(%w{ordinary_statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}))
+          response_is_one_of(%w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}))
         next_node(:already_getting_maternity)
       end
 
@@ -91,13 +93,14 @@ module SmartAnswer
         end
 
         next_node_calculation(:days_sick) do |response|
-          start_date = sick_start_date
-          last_day_sick = response
-          (last_day_sick - start_date).to_i + 1
+          period = DateRange.new(begins_on: sick_start_date, ends_on: response)
+          period.number_of_days
         end
 
         validate { days_sick >= 1 }
-        next_node_if(:has_linked_sickness?) { days_sick > 3 }
+        next_node_if(:has_linked_sickness?) do
+          days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+        end
         next_node(:must_be_sick_for_4_days)
       end
 
@@ -105,6 +108,8 @@ module SmartAnswer
       multiple_choice :has_linked_sickness? do
         option :yes
         option :no
+
+        save_input_as :has_linked_sickness
 
         permitted_next_nodes = [
           :linked_sickness_start_date?,
@@ -152,14 +157,13 @@ module SmartAnswer
           sick_end_date_for_awe > furthest_allowed_date
         end
 
-        next_node_calculation :prior_sick_days do |response|
-          start_date = sick_start_date_for_awe
-          last_day_sick = response
-          (last_day_sick - start_date).to_i + 1
+        validate :must_be_at_least_1_day_before_first_sick_day do
+          sick_end_date_for_awe < sick_start_date - 1
         end
 
-        validate :start_before_end do
-          prior_sick_days >= 1
+        validate :must_be_valid_period_of_incapacity_for_work do |response|
+          period = DateRange.new(begins_on: sick_start_date_for_awe, ends_on: response)
+          period.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
         end
 
         next_node(:paid_at_least_8_weeks?)
@@ -180,9 +184,9 @@ module SmartAnswer
         next_node(permitted: permitted_next_nodes) do |response|
           case response
           when 'eight_weeks_more', 'before_payday'
-            :how_often_pay_employee_pay_patterns? # Question 5.2
+            :how_often_pay_employee_pay_patterns? # Question 7.2
           when 'eight_weeks_less'
-            :total_earnings_before_sick_period? # Question 8
+            :total_earnings_before_sick_period? # Question 10
           end
         end
       end
@@ -197,8 +201,8 @@ module SmartAnswer
 
         save_input_as :pay_pattern
 
-        next_node_if(:last_payday_before_sickness?, variable_matches(:eight_weeks_earnings, 'eight_weeks_more'))  # Question 6
-        next_node(:pay_amount_if_not_sick?) # Question 7
+        next_node_if(:last_payday_before_sickness?, variable_matches(:eight_weeks_earnings, 'eight_weeks_more')) # Question 8
+        next_node(:pay_amount_if_not_sick?) # Question 9
       end
 
       # Question 8
@@ -299,7 +303,7 @@ module SmartAnswer
         next_node :usual_work_days?
       end
 
-      # Q11
+      # Question 11
       checkbox_question :usual_work_days? do
         %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
 
@@ -312,8 +316,6 @@ module SmartAnswer
         end
 
         calculate :formatted_sick_pay_weekly_amounts do |response|
-          calculator = Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, response.split(","))
-
           if calculator.ssp_payment > 0
             calculator.formatted_sick_pay_weekly_amounts
           else
@@ -321,14 +323,32 @@ module SmartAnswer
           end
         end
 
+        next_node_calculation(:prior_sick_days) do |response|
+          if has_linked_sickness == 'yes'
+            prev_sick_days = Calculators::StatutorySickPayCalculator.dates_matching_pattern(
+              from: sick_start_date_for_awe,
+              to: sick_end_date_for_awe,
+              pattern: response.split(",")
+            )
+            prev_sick_days.length
+          else
+            0
+          end
+        end
+
         next_node_calculation(:calculator) do |response|
-          Calculators::StatutorySickPayCalculator.new(prior_sick_days.to_i, sick_start_date, sick_end_date, response.split(","))
+          Calculators::StatutorySickPayCalculator.new(
+            prev_sick_days: prior_sick_days,
+            sick_start_date: sick_start_date,
+            sick_end_date: sick_end_date,
+            days_of_the_week_worked: response.split(",")
+          )
         end
 
         # Answer 8
         next_node_if(:maximum_entitlement_reached) do |response|
           days_worked = response.split(',').size
-          prior_sick_days and prior_sick_days.to_i >= (days_worked * 28 + 3)
+          prior_sick_days >= (days_worked * 28 + 3)
         end
 
         # Answer 6
