@@ -20,8 +20,10 @@ module SmartAnswer
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           case response
-          when 'in_the_uk' then :complete_LS01_form
-          when 'abroad' then :which_country?
+          when 'in_the_uk'
+            :complete_LS01_form
+          when 'abroad'
+            :which_country?
           end
         end
       end
