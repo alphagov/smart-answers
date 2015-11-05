@@ -7,12 +7,28 @@ module SmartAnswer
       satisfies_need "100982"
 
       multiple_choice :type_of_student? do
-        option 'uk-full-time' => :form_needed_for_1?
-        option 'uk-part-time' => :form_needed_for_2?
-        option 'eu-full-time' => :what_year?
-        option 'eu-part-time' => :what_year?
+        option 'uk-full-time'
+        option 'uk-part-time'
+        option 'eu-full-time'
+        option 'eu-part-time'
 
         save_input_as :type_of_student
+
+        permitted_next_nodes = [
+          :form_needed_for_1?,
+          :form_needed_for_2?,
+          :what_year?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'uk-full-time'
+            :form_needed_for_1?
+          when 'uk-part-time'
+            :form_needed_for_2?
+          when 'eu-full-time', 'eu-part-time'
+            :what_year?
+          end
+        end
       end
 
       multiple_choice :form_needed_for_1? do

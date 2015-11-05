@@ -8,13 +8,35 @@ module SmartAnswer
 
       # Q1
       multiple_choice :basis_of_calculation? do
-        option "days-worked-per-week" => :calculation_period?
-        option "hours-worked-per-week" => :calculation_period?
-        option "casual-or-irregular-hours" => :casual_or_irregular_hours?
-        option "annualised-hours" => :annualised_hours?
-        option "compressed-hours" => :compressed_hours_how_many_hours_per_week?
-        option "shift-worker" => :shift_worker_basis?
+        option "days-worked-per-week"
+        option "hours-worked-per-week"
+        option "casual-or-irregular-hours"
+        option "annualised-hours"
+        option "compressed-hours"
+        option "shift-worker"
         save_input_as :calculation_basis
+
+        permitted_next_nodes = [
+          :calculation_period?,
+          :casual_or_irregular_hours?,
+          :annualised_hours?,
+          :compressed_hours_how_many_hours_per_week?,
+          :shift_worker_basis?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'days-worked-per-week', 'hours-worked-per-week'
+            :calculation_period?
+          when 'casual-or-irregular-hours'
+            :casual_or_irregular_hours?
+          when 'annualised-hours'
+            :annualised_hours?
+          when 'compressed-hours'
+            :compressed_hours_how_many_hours_per_week?
+          when 'shift-worker'
+            :shift_worker_basis?
+          end
+        end
       end
 
       # Q2
@@ -170,11 +192,27 @@ module SmartAnswer
       end
 
       multiple_choice :shift_worker_basis? do
-        option "full-year" => :shift_worker_hours_per_shift?
-        option "starting" => :what_is_your_starting_date?
-        option "leaving" => :what_is_your_leaving_date?
-        option "starting-and-leaving" => :what_is_your_starting_date?
+        option "full-year"
+        option "starting"
+        option "leaving"
+        option "starting-and-leaving"
         save_input_as :holiday_period
+
+        permitted_next_nodes = [
+          :shift_worker_hours_per_shift?,
+          :what_is_your_starting_date?,
+          :what_is_your_leaving_date?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'full-year'
+            :shift_worker_hours_per_shift?
+          when 'starting', 'starting-and-leaving'
+            :what_is_your_starting_date?
+          when 'leaving'
+            :what_is_your_leaving_date?
+          end
+        end
       end
 
       value_question :shift_worker_hours_per_shift?, parse: Float do

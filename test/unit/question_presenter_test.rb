@@ -162,8 +162,8 @@ module SmartAnswer
 
     test "Options are looked up from translation file" do
       question = Question::MultipleChoice.new(nil, :example_question?)
-      question.option yes: :yay
-      question.option no: :nay
+      question.option :yes
+      question.option :no
       presenter = QuestionPresenter.new("flow.test", question)
 
       assert_equal "Oui", presenter.options[0].label
@@ -201,8 +201,8 @@ module SmartAnswer
 
     test "Can lookup a response label for a multiple choice question" do
       question = Question::MultipleChoice.new(nil, :example_question?)
-      question.option yes: :yay
-      question.option no: :nay
+      question.option :yes
+      question.option :no
       presenter = MultipleChoiceQuestionPresenter.new("flow.test", question)
 
       assert_equal "Oui", presenter.response_label("yes")

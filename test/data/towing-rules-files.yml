@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/towing-rules.rb: 960a76bbcd812f8c20deecbc7779e1e1
+lib/smart_answer_flows/towing-rules.rb: e2fec908824ffbab77853aa57b9893e5
 lib/smart_answer_flows/locales/en/towing-rules.yml: 3c95f8e64ea39d727386928e8becc8f5
 test/data/towing-rules-questions-and-responses.yml: 17c522939af1e14522972c8281466143
 test/data/towing-rules-responses-and-expected-results.yml: 36f51dce9501d1ee9e960d7ce2139298

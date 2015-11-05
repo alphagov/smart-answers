@@ -15,10 +15,23 @@ module SmartAnswer
       # Q1
       multiple_choice :where_did_the_death_happen? do
         save_input_as :where_death_happened
-        option england_wales: :did_the_person_die_at_home_hospital?
-        option scotland: :did_the_person_die_at_home_hospital?
-        option northern_ireland: :did_the_person_die_at_home_hospital?
-        option overseas: :which_country?
+        option :england_wales
+        option :scotland
+        option :northern_ireland
+        option :overseas
+
+        permitted_next_nodes = [
+          :did_the_person_die_at_home_hospital?,
+          :which_country?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'england_wales', 'scotland', 'northern_ireland'
+            :did_the_person_die_at_home_hospital?
+          when 'overseas'
+            :which_country?
+          end
+        end
       end
 
       # Q2
@@ -67,7 +80,7 @@ module SmartAnswer
       # Q5
       multiple_choice :where_are_you_now? do
         option :same_country
-        option another_country: :which_country_are_you_in_now?
+        option :another_country
         option :in_the_uk
 
         calculate :another_country do |response|

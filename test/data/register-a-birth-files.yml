@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/register-a-birth.rb: f0ce6a625e63f48a45b9a0bae2a7e4e0
+lib/smart_answer_flows/register-a-birth.rb: 45ace230da98c9226036bbfc3c6251c7
 lib/smart_answer_flows/locales/en/register-a-birth.yml: 30bf7c48f1cd56a55142f3844b348633
 test/data/register-a-birth-questions-and-responses.yml: c59cb1d0c11f3ad29f905b632f7c58bb
 test/data/register-a-birth-responses-and-expected-results.yml: 3ac4372034c86d8cc87665db59ff11d5

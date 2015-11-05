@@ -57,10 +57,12 @@ module SmartAnswer
       end
 
       multiple_choice :how_submitted? do
-        option online: :when_submitted?
-        option paper: :when_submitted?
+        option :online
+        option :paper
 
         save_input_as :submission_method
+
+        next_node :when_submitted?
       end
 
       date_question :when_submitted? do

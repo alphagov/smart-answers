@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/pip-checker.rb: f6dcb2c011e67ec01133aa7d2f57f969
+lib/smart_answer_flows/pip-checker.rb: bcba0a60b1f8117feac575868214f7a0
 lib/smart_answer_flows/locales/en/pip-checker.yml: 726e0dd42e3505341c9bfc7e4888d4a5
 test/data/pip-checker-questions-and-responses.yml: a4ce5f8dc606f2676c56f10409e3685b
 test/data/pip-checker-responses-and-expected-results.yml: a2c772b69a493d1844cfa32681057796

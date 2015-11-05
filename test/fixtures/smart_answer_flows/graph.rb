@@ -5,8 +5,10 @@ module SmartAnswer
       status :draft
 
       multiple_choice :q1? do
-        option yes: :q2?
-        option no: :q2?
+        option :yes
+        option :no
+
+        next_node :q2?
       end
 
       multiple_choice :q2? do
