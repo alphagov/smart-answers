@@ -1,10 +1,10 @@
-require 'gds_api/publishing_api'
+require 'gds_api/publishing_api_v2'
 require 'gds_api/imminence'
 require 'gds_api/worldwide'
 
 module Services
   def self.publishing_api
-    @publishing_api ||= GdsApi::PublishingApi.new(Plek.new.find('publishing-api'))
+    @publishing_api ||= GdsApi::PublishingApiV2.new(Plek.new.find('publishing-api'))
   end
 
   def self.imminence_api

@@ -19,10 +19,10 @@ module SmartAnswer
     end
 
     test '#base_path is the name of the flow' do
-      presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death'))
+      presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: '25b98dfb-fabe-4b16-b587-072c8233f6bc'))
       content_item = FlowContentItem.new(presenter)
 
-      base_path = content_item.base_path
+      base_path = content_item.payload[:base_path]
 
       assert_equal "/bridge-of-death", base_path
     end
