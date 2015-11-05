@@ -8,15 +8,8 @@ module SmartAnswer
         super
       end
 
-      def option(transitions, options = {})
-        if transitions.is_a?(Hash)
-          transitions.each_pair do |option, next_node|
-            @permitted_options << option.to_s
-            next_node_if(next_node, responded_with(option.to_s))
-          end
-        else
-          [*transitions].each { |option| @permitted_options << option.to_s }
-        end
+      def option(option_key)
+        @permitted_options << option_key.to_s
       end
 
       def options

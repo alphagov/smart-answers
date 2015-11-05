@@ -6,13 +6,39 @@ module SmartAnswer
       content_id "f26e566e-2557-4921-b944-9373c32255f1"
 
       multiple_choice :hotter_or_colder? do
-        option hotter: :hot
-        option colder: :frozen?
+        option :hotter
+        option :colder
+
+        permitted_next_nodes = [
+          :hot,
+          :frozen?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'hotter'
+            :hot
+          when 'colder'
+            :frozen?
+          end
+        end
       end
 
       multiple_choice :frozen? do
-        option yes: :frozen
-        option no: :cold
+        option :yes
+        option :no
+
+        permitted_next_nodes = [
+          :frozen,
+          :cold
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :frozen
+          when 'no'
+            :cold
+          end
+        end
       end
 
       outcome :hot

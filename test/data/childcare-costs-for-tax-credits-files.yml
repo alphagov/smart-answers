@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/childcare-costs-for-tax-credits.rb: b51523114c809685a8b01e8daf0fa7e6
+lib/smart_answer_flows/childcare-costs-for-tax-credits.rb: 437769752a81fc7d7705183cbe9570aa
 lib/smart_answer_flows/locales/en/childcare-costs-for-tax-credits.yml: 1f9c5671b17aa97b6ea2472634481997
 test/data/childcare-costs-for-tax-credits-questions-and-responses.yml: 626012bfcc3d89170729eb2140fc1aa4
 test/data/childcare-costs-for-tax-credits-responses-and-expected-results.yml: 37aa1c49681770c252fd9ca273d1ba07

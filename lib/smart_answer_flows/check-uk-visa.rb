@@ -55,14 +55,14 @@ module SmartAnswer
       # Q2
       multiple_choice :purpose_of_visit? do
         option :tourism
-        option work: :staying_for_how_long?
-        option study: :staying_for_how_long?
+        option :work
+        option :study
         option :transit
         option :family
         option :marriage
         option :school
         option :medical
-        option diplomatic: :outcome_diplomatic_business
+        option :diplomatic
         save_input_as :purpose_of_visit_answer
 
         calculate :reason_of_staying do |response|
@@ -72,6 +72,10 @@ module SmartAnswer
             PhraseList.new(:work_reason)
           end
         end
+
+        next_node_if(:staying_for_how_long?, responded_with(%w{work study}))
+
+        next_node_if(:outcome_diplomatic_business, responded_with('diplomatic'))
 
         on_condition(responded_with(%w{tourism school medical})) do
           next_node_if(:outcome_visit_waiver) { %w(oman qatar united-arab-emirates).include?(passport_country) }

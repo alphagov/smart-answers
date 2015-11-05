@@ -41,8 +41,21 @@ module SmartAnswer
 
       # Question 3
       multiple_choice :employee_work_different_days? do
-        option yes: :not_regular_schedule # Answer 4
-        option no: :first_sick_day? # Question 4
+        option :yes
+        option :no
+
+        permitted_next_nodes = [
+          :not_regular_schedule,
+          :first_sick_day?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :not_regular_schedule # Answer 4
+          when 'no'
+            :first_sick_day? # Question 4
+          end
+        end
       end
 
       # Question 4
@@ -90,8 +103,21 @@ module SmartAnswer
 
       # Question 6
       multiple_choice :has_linked_sickness? do
-        option yes: :linked_sickness_start_date?
-        option no: :paid_at_least_8_weeks?
+        option :yes
+        option :no
+
+        permitted_next_nodes = [
+          :linked_sickness_start_date?,
+          :paid_at_least_8_weeks?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :linked_sickness_start_date?
+          when 'no'
+            :paid_at_least_8_weeks?
+          end
+        end
       end
 
       # Question 6.1
@@ -141,11 +167,24 @@ module SmartAnswer
 
       # Question 7.1
       multiple_choice :paid_at_least_8_weeks? do
-        option eight_weeks_more: :how_often_pay_employee_pay_patterns? # Question 5.2
-        option eight_weeks_less: :total_earnings_before_sick_period? # Question 8
-        option before_payday: :how_often_pay_employee_pay_patterns? # Question 5.2
+        option :eight_weeks_more
+        option :eight_weeks_less
+        option :before_payday
 
         save_input_as :eight_weeks_earnings
+
+        permitted_next_nodes = [
+          :how_often_pay_employee_pay_patterns?,
+          :total_earnings_before_sick_period?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'eight_weeks_more', 'before_payday'
+            :how_often_pay_employee_pay_patterns? # Question 5.2
+          when 'eight_weeks_less'
+            :total_earnings_before_sick_period? # Question 8
+          end
+        end
       end
 
       # Question 7.2

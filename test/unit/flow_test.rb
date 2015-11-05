@@ -41,8 +41,14 @@ class FlowTest < ActiveSupport::TestCase
   test "Can build multiple choice question nodes" do
     s = SmartAnswer::Flow.new do
       multiple_choice :do_you_like_chocolate? do
-        option yes: :sweet_tooth
- option no: :savoury_tooth
+        option :yes
+        option :no
+        next_node(permitted: [:sweet_tooth, :savoury_tooth]) do |response|
+          case response
+          when 'yes' then :sweet_tooth
+          when 'no' then :savoury_tooth
+          end
+        end
       end
 
       outcome :sweet_tooth
@@ -182,13 +188,25 @@ class FlowTest < ActiveSupport::TestCase
     setup do
       @flow = SmartAnswer::Flow.new do
         multiple_choice :do_you_like_chocolate? do
-          option yes: :sweet
-          option no: :do_you_like_jam?
+          option :yes
+          option :no
+          next_node(permitted: [:sweet, :do_you_like_jam?]) do |response|
+            case response
+            when 'yes' then :sweet
+            when 'no' then :do_you_like_jam?
+            end
+          end
         end
 
         multiple_choice :do_you_like_jam? do
-          option yes: :sweet
-          option no: :savoury
+          option :yes
+          option :no
+          next_node(permitted: [:sweet, :savoury]) do |response|
+            case response
+            when 'yes' then :sweet
+            when 'no' then :savoury
+            end
+          end
         end
         outcome :sweet
         outcome :savoury
@@ -242,8 +260,15 @@ class FlowTest < ActiveSupport::TestCase
   should "normalize responses" do
     flow = SmartAnswer::Flow.new do
       multiple_choice :colour? do
-        option red: :when?
-        option blue: :blue
+        option :red
+        option :blue
+
+        next_node(permitted: [:when?, :blue]) do |response|
+          case response
+          when 'red' then :when?
+          when 'blue' then :blue
+          end
+        end
       end
       date_question :when? do
         next_node :blue
@@ -304,8 +329,14 @@ class FlowTest < ActiveSupport::TestCase
   test "should allow using shared logic" do
     File.stubs(:read).with(Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "test_flow_logic.rb")).returns(<<-EOT)
 multiple_choice :do_you_like_chocolate? do
-  option :yes => :sweet_tooth
-  option :no => :savoury_tooth
+  option :yes
+  option :no
+  next_node(permitted: [:sweet_tooth, :savoury_tooth]) do |response|
+    case response
+    when 'yes' then :sweet_tooth
+    when 'no' then :savoury_tooth
+    end
+  end
 end
 
 outcome :sweet_tooth

@@ -18,13 +18,13 @@ module SmartAnswer
       end
 
       multiple_choice :how_do_you_want_to_pay? do
-        option 'direct-debit': :result_direct_debit
-        option 'online-telephone-banking': :result_online_telephone_banking
-        option 'online-debit-credit-card': :result_online_debit_credit_card
-        option 'bacs-direct-credit': :result_bacs_direct_credit
-        option 'bank-giro': :result_bank_giro
-        option 'chaps': :result_chaps
-        option 'cheque': :result_cheque
+        option 'direct-debit'
+        option 'online-telephone-banking'
+        option 'online-debit-credit-card'
+        option 'bacs-direct-credit'
+        option 'bank-giro'
+        option 'chaps'
+        option 'cheque'
 
         calculate :calculator do |response|
           Calculators::VatPaymentDeadlines.new(period_end_date, response)
@@ -35,6 +35,34 @@ module SmartAnswer
         end
         calculate :funds_received_by do
           calculator.funds_received_by.strftime("%e %B %Y").strip
+        end
+
+        permitted_next_nodes = [
+          :result_direct_debit,
+          :result_online_telephone_banking,
+          :result_online_debit_credit_card,
+          :result_bacs_direct_credit,
+          :result_bank_giro,
+          :result_chaps,
+          :result_cheque
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'direct-debit'
+            :result_direct_debit
+          when 'online-telephone-banking'
+            :result_online_telephone_banking
+          when 'online-debit-credit-card'
+            :result_online_debit_credit_card
+          when 'bacs-direct-credit'
+            :result_bacs_direct_credit
+          when 'bank-giro'
+            :result_bank_giro
+          when 'chaps'
+            :result_chaps
+          when 'cheque'
+            :result_cheque
+          end
         end
       end
 

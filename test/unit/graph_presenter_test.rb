@@ -30,7 +30,7 @@ module SmartAnswer
 
     test "presents adjacency_list of simple graph" do
       expected_adjacency_list = {
-        q1?: [[:q2?, "yes"], [:q2?, "no"]],
+        q1?: [[:q2?, ""]],
         q2?: [[:done_a, ''], [:done_b, '']],
         done_a: [],
         done_b: []
