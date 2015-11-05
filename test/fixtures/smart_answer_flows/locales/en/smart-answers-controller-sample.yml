@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    sample:
+    smart-answers-controller-sample:
       do_you_like_chocolate?:
         options:
           "yes": "Yes"

@@ -1,18 +1,18 @@
 require_relative '../test_helper'
+require_relative "../helpers/i18n_test_helper"
 
 module SmartAnswer
   class QuestionPresenterTest < ActiveSupport::TestCase
+    include I18nTestHelper
+
     def setup
-      @old_load_path = I18n.config.load_path.dup
       @example_translation_file =
-        File.expand_path('../../fixtures/node_presenter_test/example.yml', __FILE__)
-      I18n.config.load_path.unshift(@example_translation_file)
-      I18n.reload!
+        File.expand_path('../../fixtures/smart_answer_flows/locales/en/question-presenter-sample.yml', __FILE__)
+      use_additional_translation_file(@example_translation_file)
     end
 
     def teardown
-      I18n.config.load_path = @old_load_path
-      I18n.reload!
+      reset_translation_files
     end
 
     test "Node title looked up from translation file" do

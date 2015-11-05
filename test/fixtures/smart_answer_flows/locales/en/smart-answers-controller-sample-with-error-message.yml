@@ -1,0 +1,5 @@
+en-GB:
+  flow:
+    smart-answers-controller-sample:
+      how_much?:
+        error_message: "No, really, how much?"

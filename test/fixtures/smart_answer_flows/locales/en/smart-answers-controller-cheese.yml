@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    cheese:
+    smart-answers-controller-cheese:
       what?:
         options:
           "cheese": "Cheese"
