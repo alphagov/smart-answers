@@ -1,6 +1,6 @@
 en-GB:
   flow:
-    sample:
+    smart-answers-controller-sample:
       how_many_green_bottles?:
         suffix_label: "bottles."
       how_much?:

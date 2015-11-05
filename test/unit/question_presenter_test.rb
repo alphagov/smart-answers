@@ -7,7 +7,7 @@ module SmartAnswer
 
     def setup
       @example_translation_file =
-        File.expand_path('../../fixtures/node_presenter_test/example.yml', __FILE__)
+        File.expand_path('../../fixtures/smart_answer_flows/locales/en/question-presenter-sample.yml', __FILE__)
       use_additional_translation_file(@example_translation_file)
     end
 
