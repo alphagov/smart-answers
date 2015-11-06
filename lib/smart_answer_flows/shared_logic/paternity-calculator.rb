@@ -102,6 +102,10 @@ multiple_choice :employee_responsible_for_upbringing? do
     due_date
   end
 
+  calculate :qualifying_week_start do
+    calculator.qualifying_week.first
+  end
+
   calculate :p_notice_leave do
     calculator.notice_of_leave_deadline
   end
