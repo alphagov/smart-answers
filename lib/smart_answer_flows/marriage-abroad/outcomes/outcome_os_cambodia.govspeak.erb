@@ -21,7 +21,13 @@
 
   Make an appointment at the British embassy or consulate in Cambodia to swear an affidavit (written statement of facts) that you’re free to marry.
 
-  [Make an appointment at the embassy in Phnom Penh.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-phnom-penh/oaths-affirmations-and-affidavits/slot_picker)
+  <%= render partial: 'contact_method.govspeak.erb',
+             locals: {
+               sex_of_your_partner: sex_of_your_partner,
+               ceremony_country: ceremony_country,
+               overseas_passports_embassies: overseas_passports_embassies,
+               country_name_lowercase_prefix: country_name_lowercase_prefix
+             } %>
 
   You’ll need to bring your passport, your partner’s passport (or Cambodian ID card) and pay a fee.
 
