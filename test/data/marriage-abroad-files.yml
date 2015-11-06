@@ -77,7 +77,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_what_you_need_to_do.govspeak.er
 lib/smart_answer_flows/marriage-abroad/outcomes/_what_you_need_to_do_affirmation.govspeak.erb: a7b76bd877b2ae2076dfc5f13f0433d1
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_have_been_divorced_or_widowed.govspeak.erb: d9018c305acb41edb11f61f1d43c7f52
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
-lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_contact.govspeak.erb: 618bac9e31250ed7527ccfa7470436ca
+lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_contact.govspeak.erb: 966d8b456b2fa1e0a8ed95b1341898e4
 lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_fees.govspeak.erb: d496d86f5854d03f6569791289175864
 ? lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_partner_probably_needs_affirmation_affidavit_callout.govspeak.erb
 : 25cfb70cccbcac62e8dda8443409e7c3
