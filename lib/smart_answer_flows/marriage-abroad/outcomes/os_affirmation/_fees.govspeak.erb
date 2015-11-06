@@ -12,7 +12,7 @@
   -|-
   Affidavit for marriage | £65
 
-<% elsif %w(belgium cambodia ecuador macao morocco norway).include?(ceremony_country) %>
+<% elsif %w(belgium ecuador macao morocco norway).include?(ceremony_country) %>
   <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
 <% elsif ceremony_country == 'finland' %>
   ##Fees
@@ -66,7 +66,7 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
                  ceremony_country: ceremony_country
                } -%>
-  <% elsif ceremony_country != 'cambodia' %>
+  <% else %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
@@ -78,9 +78,6 @@
     <%= render partial: 'pay_in_euros_or_visa_electron.govspeak.erb' %>
   <% elsif ceremony_country == 'philippines' %>
     You can pay in cash only.
-
-  <% elsif ceremony_country == 'cambodia' %>
-    <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>
   <% elsif ceremony_country == 'norway' %>
     <%= render partial: 'pay_by_visas_or_mastercard.govspeak.erb' %>
   <% elsif ceremony_country == 'south-korea' %>

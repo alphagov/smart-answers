@@ -15,7 +15,7 @@
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } -%>
 
-  <% if %w(cambodia ecuador).exclude?(ceremony_country) %>
+  <% if %w(ecuador).exclude?(ceremony_country) %>
     <% if resident_of == 'ceremony_country' %>
       <%= render partial: 'get_legal_advice.govspeak.erb' %>
     <% else %>
@@ -42,9 +42,6 @@
       Contact the [British Embassy in Abu Dhabi](/government/world/organisations/british-embassy-abu-dhabi) or the [British Embassy in Dubai](/government/world/organisations/british-embassy-dubai) for more information.
     <% end %>
   <% end %>
-  <% if ceremony_country == 'cambodia' && partner_nationality != 'partner_local' %>
-    %There are certain restrictions on getting married in Cambodia if neither of you is Cambodian. If neither of you is Cambodian, you must check with both the Ministry of Foreign Affairs and the local Sangkat to find out if if you can get married.%
-  <% end -%>
 
   <%= render partial: 'os_affirmation/what_you_need_to_do.govspeak.erb',
              locals: {

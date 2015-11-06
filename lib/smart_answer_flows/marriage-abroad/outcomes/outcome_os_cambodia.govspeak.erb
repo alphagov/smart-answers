@@ -1,0 +1,59 @@
+<% content_for :title do %>
+  Marriage in Cambodia
+
+<% end %>
+
+<% content_for :body do %>
+  <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+             locals: {
+               country_name_lowercase_prefix: country_name_lowercase_prefix,
+               ceremony_country: ceremony_country
+             } %>
+
+
+  <% if partner_nationality != 'partner_local' %>
+    %There are certain restrictions on getting married in Cambodia if neither of you is Cambodian. If neither of you is Cambodian, you must check with both the Ministry of Foreign Affairs and the local Sangkat to find out if if you can get married.%
+  <% end -%>
+
+  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+
+  If the local authorities say you can get married, you’ll be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
+
+  Make an appointment at the British embassy or consulate in Cambodia to swear an affidavit (written statement of facts) that you’re free to marry.
+
+  [Make an appointment at the embassy in Phnom Penh.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-phnom-penh/oaths-affirmations-and-affidavits/slot_picker)
+
+  You’ll need to bring your passport, your partner’s passport (or Cambodian ID card) and pay a fee.
+
+  <%= render partial: 'you_have_been_divorced_or_widowed.govspeak.erb' %>
+
+  <%= render partial: 'change_of_name_evidence.govspeak.erb' %>
+
+  <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
+
+  <% if partner_nationality != 'partner_british' %>
+    <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+  <% end %>
+
+  <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+
+  ## What happens next
+
+  You’ll need to take the following to the Ministry of Foreign Affairs:
+
+  - your affirmation
+  - a [certified copy of your passport](/certifying-a-document)
+  - your [birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+  - proof of residence, eg a residence certificate - check with the embassy or consulate for advice
+
+  You’ll be asked to provide a criminal record check – check with the embassy how to do this.
+
+  The Ministry of Foreign Affairs will issue an approval letter which you’ll need to take to the Ministry of Interior. The Ministry of Interior may ask you to complete additional forms and will give you an approval letter.
+
+  You’ll need to take the approval letters to your local Sangkat for the marriage registration.
+
+  <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
+
+  <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>
+
+<% end %>
