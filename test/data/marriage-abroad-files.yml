@@ -110,7 +110,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_marriage_impossible_n
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_no_cni.govspeak.erb: 7f223da1e95e88ee963c6c340b1513bb
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_other_countries.govspeak.erb: c41da03b8c2aacbba11b011b12900bb0
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_portugal.govspeak.erb: 695750a9cc381603f800f1c2c6c5e200
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_spain.govspeak.erb: 244d4562e19310d35a2e351b5d6d6415
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_spain.govspeak.erb: ad2f16297be84a06a096637f209a445b
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_affirmation.govspeak.erb: 0784e5066e751503bf9bc2a61aaf4f35
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage.govspeak.erb: cf9209ce7229b87f6b3fd70e05ee73ed
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage_malta.govspeak.erb: 6d0e1f7c4739820fd626deb23910ab2b
