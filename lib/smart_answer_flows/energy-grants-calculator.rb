@@ -255,12 +255,26 @@ module SmartAnswer
         option :flat
         save_input_as :property_type
 
-        on_condition(responded_with('house')) do
-          next_node_if(:home_features_modern?) { modern }
-          next_node_if(:home_features_older?) { older }
-          next_node(:home_features_historic?)
+        permitted_next_nodes = [
+          :home_features_modern?,
+          :home_features_older?,
+          :home_features_historic?,
+          :type_of_flat?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'house'
+            if modern
+              :home_features_modern?
+            elsif older
+              :home_features_older?
+            else
+              :home_features_historic?
+            end
+          else
+            :type_of_flat?
+          end
         end
-        next_node(:type_of_flat?)
       end
 
       # Q7b
