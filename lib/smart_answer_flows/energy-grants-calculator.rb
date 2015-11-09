@@ -153,7 +153,7 @@ module SmartAnswer
           end
         end
 
-        define_predicate(:disabled_or_have_children_question?) do |response|
+        next_node_calculation(:disabled_or_have_children_question) do |response|
           response == 'income_support' ||
             response == 'jsa' ||
             response == 'esa' ||
@@ -164,13 +164,26 @@ module SmartAnswer
             %w{child_tax_credit esa jsa pension_credit}.all? {|key| response.include? key}
         end
 
-        on_condition(responded_with('pension_credit') || responded_with('child_tax_credit')) do
-          next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
-          next_node(:when_property_built?) # Q6
+        permitted_next_nodes = [
+          :outcome_help_with_bills,
+          :when_property_built?,
+          :disabled_or_have_children?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if %w{pension_credit child_tax_credit}.include?(response)
+            if bills_help
+              :outcome_help_with_bills # outcome 1
+            else
+              :when_property_built? # Q6
+            end
+          elsif disabled_or_have_children_question
+            :disabled_or_have_children? # Q5
+          elsif bills_help
+            :outcome_help_with_bills # outcome 1
+          else
+            :when_property_built? # Q6
+          end
         end
-        next_node_if(:disabled_or_have_children?, disabled_or_have_children_question?) # Q5
-        next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
-        next_node(:when_property_built?) # Q6
       end
 
       # Q5
