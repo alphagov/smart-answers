@@ -215,9 +215,9 @@ module SmartAnswer
                 :outcome_no_visa_needed #outcome 1 no visa needed
               end
             elsif purpose_of_visit_answer == 'work'
-              if ( (country_group_ukot +
+              if ((country_group_ukot +
                 country_group_non_visa_national) |
-                %w(taiwan) ).include?(passport_country)
+                %w(taiwan)).include?(passport_country)
                 #outcome 5.5 work N no visa needed
                 :outcome_work_n
               elsif (country_group_datv + country_group_visa_national).include?(passport_country)
