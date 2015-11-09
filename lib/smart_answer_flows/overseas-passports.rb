@@ -23,7 +23,11 @@ module SmartAnswer
           loc
         end
 
-        next_node_if(:cannot_apply, data_query.ineligible_country?)
+        define_predicate :ineligible_country? do |response|
+          %w{iran libya syria yemen}.include?(response)
+        end
+
+        next_node_if(:cannot_apply, ineligible_country?)
         next_node_if(:which_opt?, responded_with('the-occupied-palestinian-territories'))
         next_node_if(:apply_in_neighbouring_country, data_query.apply_in_neighbouring_countries?)
         next_node(:renewing_replacing_applying?)

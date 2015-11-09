@@ -1,9 +1,5 @@
 module SmartAnswer::Calculators
   class PassportAndEmbassyDataQuery
-    def ineligible_country?
-      SmartAnswer::Predicate::RespondedWith.new(%w{iran libya syria yemen})
-    end
-
     def apply_in_neighbouring_countries?
       SmartAnswer::Predicate::RespondedWith.new(
         %w(british-indian-ocean-territory north-korea south-georgia-and-south-sandwich-islands)
