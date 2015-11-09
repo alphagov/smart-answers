@@ -141,17 +141,13 @@ module SmartAnswer
 
         save_input_as :child_or_adult
 
-        next_node_calculation :ips_application do
-          is_ips_application == true
-        end
-
         permitted_next_nodes = [
           :country_of_birth?,
           :ips_application_result_online,
           :ips_application_result
         ]
         next_node(permitted: permitted_next_nodes) do
-          if ips_application?
+          if is_ips_application
             if %w(applying renewing_old).include?(application_action)
               :country_of_birth?
             elsif ips_result_type == :ips_application_result_online
@@ -179,16 +175,12 @@ module SmartAnswer
           supporting_documents.split("_")[3]
         end
 
-        next_node_calculation :ips_application do
-          is_ips_application == true
-        end
-
         permitted_next_nodes = [
           :ips_application_result_online,
           :ips_application_result
         ]
         next_node(permitted: permitted_next_nodes) do
-          if ips_application?
+          if is_ips_application
             if ips_result_type == :ips_application_result_online
               :ips_application_result_online
             else
