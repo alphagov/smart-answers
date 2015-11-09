@@ -65,13 +65,28 @@ module SmartAnswer
           end
         end
 
-        on_condition(variable_matches(:region, 'england-and-wales')) do
-          next_node_if(:children?, responded_with('yes'))
-          next_node_if(:outcome_1, responded_with('no'))
-        end
-        on_condition(variable_matches(:region, 'northern-ireland')) do
-          next_node_if(:children?, responded_with('yes'))
-          next_node_if(:outcome_60, responded_with('no'))
+        permitted_next_nodes = [
+          :outcome_1,
+          :outcome_60,
+          :children?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case region
+          when 'england-and-wales'
+            case response
+            when 'yes'
+              :children?
+            when 'no'
+              :outcome_1
+            end
+          when 'northern-ireland'
+            case response
+            when 'yes'
+              :children?
+            when 'no'
+              :outcome_60
+            end
+          end
         end
       end
 
