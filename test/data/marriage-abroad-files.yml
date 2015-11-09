@@ -5,7 +5,7 @@ test/data/marriage-abroad-questions-and-responses.yml: eabbd09ca91fab72a9a520d10
 test/data/marriage-abroad-responses-and-expected-results.yml: 839cce0363e0c51ba4ab9fb1722fc59f
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: 4ac964ce5e41e3efaf0f43d11c71b2b7
-lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_documents_in_vietnam.govspeak.erb: 7deecc40f47a3b6d3d27d419a3535c87
+lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_documents_in_vietnam.govspeak.erb: 6390e13560110a71b8a3c0dc018ff4cf
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_for_affidavit.govspeak.erb: 21960e29e913a866bdc006a630b68202
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_for_affidavit_norway.govspeak.erb: de478bc6121e2e4c7f748a4e1831befb
 lib/smart_answer_flows/marriage-abroad/outcomes/_callout_partner_equivalent_document.govspeak.erb: 4f413ebac8b3001dc9f6ac356ac2b441
