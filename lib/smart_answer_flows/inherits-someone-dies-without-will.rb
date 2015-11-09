@@ -433,8 +433,18 @@ module SmartAnswer
 
         save_input_as :great_aunts_or_uncles
 
-        next_node_if(:outcome_45, responded_with('yes'))
-        next_node_if(:outcome_46, responded_with('no'))
+        permitted_next_nodes = [
+          :outcome_45,
+          :outcome_46
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :outcome_45
+          when 'no'
+            :outcome_46
+          end
+        end
       end
 
       # Q60
