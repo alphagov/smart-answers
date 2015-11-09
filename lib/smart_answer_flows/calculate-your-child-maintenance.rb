@@ -52,8 +52,18 @@ module SmartAnswer
           Calculators::ChildMaintenanceCalculator.new(number_of_children, benefits, paying_or_receiving)
         end
 
-        next_node_if(:how_many_nights_children_stay_with_payee?, responded_with('yes'))
-        next_node :gross_income_of_payee?
+        permitted_next_nodes = [
+          :how_many_nights_children_stay_with_payee?,
+          :gross_income_of_payee?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :how_many_nights_children_stay_with_payee?
+          when 'no'
+            :gross_income_of_payee?
+          end
+        end
       end
 
       ## Q3
