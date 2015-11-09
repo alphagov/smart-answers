@@ -412,8 +412,18 @@ module SmartAnswer
 
         save_input_as :half_aunts_or_uncles
 
-        next_node_if(:outcome_24, responded_with('yes'))
-        next_node_if(:outcome_25, responded_with('no'))
+        permitted_next_nodes = [
+          :outcome_24,
+          :outcome_25
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :outcome_24
+          when 'no'
+            :outcome_25
+          end
+        end
       end
 
       # Q40
