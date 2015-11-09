@@ -31,12 +31,22 @@ module SmartAnswer
 
         save_input_as :partner
 
-        on_condition(variable_matches(:region, 'england-and-wales') | variable_matches(:region, 'northern-ireland')) do
-          next_node_if(:estate_over_250000?, responded_with('yes'))
-          next_node_if(:children?, responded_with('no'))
-        end
-        on_condition(variable_matches(:region, 'scotland')) do
-          next_node(:children?)
+        permitted_next_nodes = [
+          :children?,
+          :estate_over_250000?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case region
+          when 'england-and-wales', 'northern-ireland'
+            case response
+            when 'yes'
+              :estate_over_250000?
+            when 'no'
+              :children?
+            end
+          when 'scotland'
+            :children?
+          end
         end
       end
 
