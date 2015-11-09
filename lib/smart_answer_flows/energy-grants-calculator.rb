@@ -116,9 +116,20 @@ module SmartAnswer
           end
         end
 
-        next_node_if(:which_benefits?) { circumstances.include?('benefits') }
-        next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
-        next_node(:when_property_built?) # Q6
+        permitted_next_nodes = [
+          :which_benefits?,
+          :outcome_help_with_bills,
+          :when_property_built?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if circumstances.include?('benefits')
+            :which_benefits?
+          elsif bills_help
+            :outcome_help_with_bills # outcome 1
+          else
+            :when_property_built? # Q6
+          end
+        end
       end
 
       # Q4
