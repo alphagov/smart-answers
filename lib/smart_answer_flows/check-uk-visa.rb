@@ -123,7 +123,7 @@ module SmartAnswer
             :outcome_medical_y
           when 'transit'
             if country_group_datv.include?(passport_country) ||
-               country_group_visa_national.include?(passport_country) || %w(taiwan venezuela).include?(passport_country)
+                country_group_visa_national.include?(passport_country) || %w(taiwan venezuela).include?(passport_country)
               :planning_to_leave_airport?
             else
               :outcome_no_visa_needed
