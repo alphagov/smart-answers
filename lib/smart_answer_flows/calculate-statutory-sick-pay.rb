@@ -339,10 +339,6 @@ module SmartAnswer
       checkbox_question :usual_work_days? do
         %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
 
-        next_node_if(:not_earned_enough) do
-          employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
-        end
-
         next_node_calculation(:prior_sick_days) do |response|
           if has_linked_sickness == 'yes'
             prev_sick_days = Calculators::StatutorySickPayCalculator.dates_matching_pattern(
@@ -365,20 +361,27 @@ module SmartAnswer
           )
         end
 
-        # Answer 8
-        next_node_if(:maximum_entitlement_reached) do |response|
+        permitted_next_nodes = [
+          :not_earned_enough,
+          :maximum_entitlement_reached,
+          :entitled_to_sick_pay,
+          :maximum_entitlement_reached,
+          :not_entitled_3_days_not_paid
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
           days_worked = response.split(',').size
-          prior_sick_days >= (days_worked * 28 + 3)
+          if employee_average_weekly_earnings < Calculators::StatutorySickPayCalculator.lower_earning_limit_on(sick_start_date)
+            :not_earned_enough
+          elsif prior_sick_days >= (days_worked * 28 + 3)
+            :maximum_entitlement_reached # Answer 8
+          elsif calculator.ssp_payment > 0
+            :entitled_to_sick_pay # Answer 6
+          elsif calculator.days_that_can_be_paid_for_this_period == 0
+            :maximum_entitlement_reached # Answer 8
+          else
+            :not_entitled_3_days_not_paid # Answer 7
+          end
         end
-
-        # Answer 6
-        next_node_if(:entitled_to_sick_pay) { calculator.ssp_payment > 0 }
-
-        # Answer 8
-        next_node_if(:maximum_entitlement_reached) { calculator.days_that_can_be_paid_for_this_period == 0 }
-
-        # Answer 7
-        next_node(:not_entitled_3_days_not_paid)
       end
 
       # Answer 1
