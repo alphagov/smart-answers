@@ -97,34 +97,68 @@ module SmartAnswer
 
         save_input_as :children
 
-        on_condition(variable_matches(:region, 'england-and-wales')) do
-          on_condition(variable_matches(:partner, 'yes')) do
-            next_node_if(:outcome_20, responded_with('yes'))
-            next_node_if(:outcome_1, responded_with('no'))
-          end
-          on_condition(variable_matches(:partner, 'no')) do
-            next_node_if(:outcome_2, responded_with('yes'))
-            next_node_if(:parents?, responded_with('no'))
-          end
-        end
-        on_condition(variable_matches(:region, 'scotland')) do
-          on_condition(variable_matches(:partner, 'yes')) do
-            next_node_if(:outcome_40, responded_with('yes'))
-            next_node_if(:parents?, responded_with('no'))
-          end
-          on_condition(variable_matches(:partner, 'no')) do
-            next_node_if(:outcome_2, responded_with('yes'))
-            next_node_if(:parents?, responded_with('no'))
-          end
-        end
-        on_condition(variable_matches(:region, 'northern-ireland')) do
-          on_condition(variable_matches(:partner, 'yes')) do
-            next_node_if(:more_than_one_child?, responded_with('yes'))
-            next_node_if(:parents?, responded_with('no'))
-          end
-          on_condition(variable_matches(:partner, 'no')) do
-            next_node_if(:outcome_66, responded_with('yes'))
-            next_node_if(:parents?, responded_with('no'))
+        permitted_next_nodes = [
+          :outcome_1,
+          :outcome_2,
+          :outcome_20,
+          :outcome_40,
+          :outcome_66,
+          :more_than_one_child?,
+          :parents?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case region
+          when 'england-and-wales'
+            case partner
+            when 'yes'
+              case response
+              when 'yes'
+                :outcome_20
+              when 'no'
+                :outcome_1
+              end
+            when 'no'
+              case response
+              when 'yes'
+                :outcome_2
+              when 'no'
+                :parents?
+              end
+            end
+          when 'scotland'
+            case partner
+            when 'yes'
+              case response
+              when 'yes'
+                :outcome_40
+              when 'no'
+                :parents?
+              end
+            when 'no'
+              case response
+              when 'yes'
+                :outcome_2
+              when 'no'
+                :parents?
+              end
+            end
+          when 'northern-ireland'
+            case partner
+            when 'yes'
+              case response
+              when 'yes'
+                :more_than_one_child?
+              when 'no'
+                :parents?
+              end
+            when 'no'
+              case response
+              when 'yes'
+                :outcome_66
+              when 'no'
+                :parents?
+              end
+            end
           end
         end
       end
