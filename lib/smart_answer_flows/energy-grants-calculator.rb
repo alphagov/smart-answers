@@ -283,9 +283,20 @@ module SmartAnswer
         option :ground_floor
         save_input_as :flat_type
 
-        next_node_if(:home_features_modern?) { modern }
-        next_node_if(:home_features_older?) { older }
-        next_node(:home_features_historic?)
+        permitted_next_nodes = [
+          :home_features_modern?,
+          :home_features_older?,
+          :home_features_historic?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if modern
+            :home_features_modern?
+          elsif older
+            :home_features_older?
+          else
+            :home_features_historic?
+          end
+        end
       end
 
       # Q8a modern
