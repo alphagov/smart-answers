@@ -23,7 +23,7 @@ module SmartAnswer
                   days_of_the_week_worked: %w(1 2 3 4 5),
                   within_eight_weeks_of_current_sickness_period?: false,
                   at_least_1_day_before_first_sick_day?: true,
-                  valid_period_of_incapacity_for_work?: true
+                  valid_linked_period_of_incapacity_for_work?: true
                 ),
               })
           end
@@ -42,7 +42,7 @@ module SmartAnswer
                   days_of_the_week_worked: %w(1 2 3 4 5),
                   within_eight_weeks_of_current_sickness_period?: true,
                   at_least_1_day_before_first_sick_day?: false,
-                  valid_period_of_incapacity_for_work?: true
+                  valid_linked_period_of_incapacity_for_work?: true
                 ),
               })
           end
@@ -62,7 +62,7 @@ module SmartAnswer
                   days_of_the_week_worked: %w(1 2 3 4 5),
                   within_eight_weeks_of_current_sickness_period?: true,
                   at_least_1_day_before_first_sick_day?: true,
-                  valid_period_of_incapacity_for_work?: false
+                  valid_linked_period_of_incapacity_for_work?: false
                 ),
               })
           end

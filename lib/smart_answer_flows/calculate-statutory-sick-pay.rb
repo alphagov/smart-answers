@@ -151,7 +151,7 @@ module SmartAnswer
         end
 
         validate :must_be_valid_period_of_incapacity_for_work do |response|
-          calculator.valid_period_of_incapacity_for_work?(response)
+          calculator.valid_linked_period_of_incapacity_for_work?(response)
         end
 
         next_node(permitted: [:paid_at_least_8_weeks?]) do |response|
