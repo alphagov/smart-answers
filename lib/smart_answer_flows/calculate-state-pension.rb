@@ -164,28 +164,27 @@ module SmartAnswer
 
         validate { |response| response <= Date.today }
 
+        next_node_calculation :calc do |response|
+          Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+        end
+
         define_predicate(:before_state_pension_date?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           calc.before_state_pension_date?
         end
 
         define_predicate(:under_20_years_old?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           calc.under_20_years_old?
         end
 
         define_predicate(:woman_and_born_in_date_range?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           calc.woman_born_in_married_stamp_era?
         end
 
         define_predicate(:over_55?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           calc.over_55?
         end
 
         define_predicate(:new_state_pension?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           !(calc.state_pension_date < Date.parse('6 April 2016'))
         end
 
