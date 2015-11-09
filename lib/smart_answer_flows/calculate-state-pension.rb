@@ -277,18 +277,29 @@ module SmartAnswer
           ni_years_to_date_from_dob - response
         end
 
-        define_predicate(:enough_years_credits_or_no_more_years?) do |response|
+        next_node_calculation(:enough_years_credits_or_no_more_years) do |response|
           (calculator.enough_qualifying_years_and_credits?(response) && old_state_pension) ||
             (calculator.no_more_available_years?(response) && calculator.three_year_credit_age?)
         end
 
-        define_predicate(:no_more_available_years?) do |response|
+        next_node_calculation(:no_more_available_years) do |response|
           calculator.no_more_available_years?(response)
         end
 
-        next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
-        next_node_if(:years_of_work?, no_more_available_years?)
-        next_node :years_of_jsa?
+        permitted_next_nodes = [
+          :amount_result,
+          :years_of_work?,
+          :years_of_jsa?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if enough_years_credits_or_no_more_years
+            :amount_result
+          elsif no_more_available_years
+            :years_of_work?
+          else
+            :years_of_jsa?
+          end
+        end
       end
 
       # Q5
