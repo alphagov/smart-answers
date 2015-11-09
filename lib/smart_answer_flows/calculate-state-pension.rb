@@ -40,8 +40,17 @@ module SmartAnswer
         option :male
         option :female
 
-        next_node_if(:dob_age?, variable_matches(:relevant_calculation, "age"))
-        next_node :dob_amount?
+        permitted_next_nodes = [
+          :dob_age?,
+          :dob_amount?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if relevant_calculation == 'age'
+            :dob_age?
+          else
+            :dob_amount?
+          end
+        end
       end
 
       # Q3:Age
