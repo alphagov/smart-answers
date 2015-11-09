@@ -312,17 +312,35 @@ module SmartAnswer
 
         save_input_as :grandparents
 
-        on_condition(variable_matches(:region, 'england-and-wales')) do
-          next_node_if(:outcome_5, responded_with('yes'))
-          next_node_if(:aunts_or_uncles?, responded_with('no'))
-        end
-        on_condition(variable_matches(:region, 'scotland')) do
-          next_node_if(:outcome_5, responded_with('yes'))
-          next_node_if(:great_aunts_or_uncles?, responded_with('no'))
-        end
-        on_condition(variable_matches(:region, 'northern-ireland')) do
-          next_node_if(:outcome_5, responded_with('yes'))
-          next_node_if(:aunts_or_uncles?, responded_with('no'))
+        permitted_next_nodes = [
+          :outcome_5,
+          :aunts_or_uncles?,
+          :great_aunts_or_uncles?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case region
+          when 'england-and-wales'
+            case response
+            when 'yes'
+              :outcome_5
+            when 'no'
+              :aunts_or_uncles?
+            end
+          when 'scotland'
+            case response
+            when 'yes'
+              :outcome_5
+            when 'no'
+              :great_aunts_or_uncles?
+            end
+          when 'northern-ireland'
+            case response
+            when 'yes'
+              :outcome_5
+            when 'no'
+              :aunts_or_uncles?
+            end
+          end
         end
       end
 
