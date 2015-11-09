@@ -1,7 +1,7 @@
 en-GB:
   flow:
     calculate-statutory-sick-pay:
-      # Q1
+      # Question 1
       is_your_employee_getting?:
         title: Is your employee getting any of the following?
         hint: If none apply just click ‘Next step’
@@ -60,7 +60,7 @@ en-GB:
         must_be_within_eight_weeks: You need to enter a date within 8 weeks of the current period of sickness or it isn't a linked period of sickness.
         must_be_at_least_1_day_before_first_sick_day: You need to enter a date at least 1 day before the start of the current period of sickness or it isn't a separate linked period of sickness.
 
-      # Q7.1
+      # Question 7.1
       paid_at_least_8_weeks?:
         title: On %{sick_start_date_for_awe} had you paid your employee at least 8 weeks of earnings?
         options:
@@ -68,7 +68,7 @@ en-GB:
           eight_weeks_less: "No, paid less than 8 weeks earnings"
           before_payday: "No, employee is new and fell sick before their first payday"
 
-      # Q7.2
+      # Question 7.2
       how_often_pay_employee_pay_patterns?:
         title: How often do you pay the employee?
         options:
