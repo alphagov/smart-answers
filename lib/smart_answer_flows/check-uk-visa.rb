@@ -156,9 +156,7 @@ module SmartAnswer
           :outcome_no_visa_needed
         ]
         next_node(permitted: permitted_next_nodes) do |response|
-          if %w(taiwan).include?(passport_country)
-            next :outcome_visit_waiver
-          end
+          next :outcome_visit_waiver if %w(taiwan).include?(passport_country)
 
           case response
           when 'yes'
