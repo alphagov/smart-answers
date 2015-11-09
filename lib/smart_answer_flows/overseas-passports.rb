@@ -141,14 +141,25 @@ module SmartAnswer
 
         save_input_as :child_or_adult
 
-        define_predicate :ips_application? do
+        next_node_calculation :ips_application do
           is_ips_application == true
         end
 
-        on_condition(ips_application?) do
-          next_node_if(:country_of_birth?, variable_matches(:application_action, %w(applying renewing_old)))
-          next_node_if(:ips_application_result_online, variable_matches(:ips_result_type, :ips_application_result_online))
-          next_node(:ips_application_result)
+        permitted_next_nodes = [
+          :country_of_birth?,
+          :ips_application_result_online,
+          :ips_application_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if ips_application?
+            if %w(applying renewing_old).include?(application_action)
+              :country_of_birth?
+            elsif ips_result_type == :ips_application_result_online
+              :ips_application_result_online
+            else
+              :ips_application_result
+            end
+          end
         end
       end
 
