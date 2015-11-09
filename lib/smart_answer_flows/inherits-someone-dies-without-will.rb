@@ -291,8 +291,18 @@ module SmartAnswer
 
         save_input_as :siblings
 
-        next_node_if(:outcome_64, responded_with('yes'))
-        next_node_if(:outcome_65, responded_with('no'))
+        permitted_next_nodes = [
+          :outcome_64,
+          :outcome_65
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :outcome_64
+          when 'no'
+            :outcome_65
+          end
+        end
       end
 
       # Q7
