@@ -104,7 +104,7 @@ module SmartAnswer
             end
           end
 
-          if country_group_non_visa_national.include?(passport_country) or country_group_ukot.include?(passport_country)
+          if country_group_non_visa_national.include?(passport_country) || country_group_ukot.include?(passport_country)
             if %w{tourism school}.include?(response)
               next :outcome_school_n
             elsif response == 'medical'
@@ -122,8 +122,8 @@ module SmartAnswer
           when 'medical'
             :outcome_medical_y
           when 'transit'
-            if country_group_datv.include?(passport_country) or
-               country_group_visa_national.include?(passport_country) or %w(taiwan venezuela).include?(passport_country)
+            if country_group_datv.include?(passport_country) ||
+               country_group_visa_national.include?(passport_country) || %w(taiwan venezuela).include?(passport_country)
               :planning_to_leave_airport?
             else
               :outcome_no_visa_needed
