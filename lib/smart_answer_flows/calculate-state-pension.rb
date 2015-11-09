@@ -578,12 +578,21 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:new_rules_and_less_than_10_ni?) {
+        next_node_calculation(:new_rules_and_less_than_10_ni) {
           calculator.new_rules_and_less_than_10_ni? ni
         }
 
-        next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
-        next_node :amount_result
+        permitted_next_nodes = [
+          :lived_or_worked_outside_uk?,
+          :amount_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if new_rules_and_less_than_10_ni
+            :lived_or_worked_outside_uk?
+          else
+            :amount_result
+          end
+        end
       end
 
       ## Q11
