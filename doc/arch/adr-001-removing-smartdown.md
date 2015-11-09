@@ -8,7 +8,11 @@
 
 Smartdown made it easier for content designers to edit questions and outcome content, but was quite restrictive when it came to defining the rules of the Smart Answer (see the rules in [pay-leave-for-parents/partner_earned_more_than_lower_earnings_limit][spl-complicated-next-node-rules], for example).
 
-Smartdown didn't match Ruby Smart Answers in terms of features.
+Smartdown didn't match Ruby Smart Answers in terms of features. Adding support for these features to Smartdown would have required extensions to the grammar and hence the parser. The cost of this would've been relatively high, especially considering that Ruby Smart Answers already had all the functionality we needed (apart from multiple questions-per-page).
+
+The state of many of the Ruby Smart Answers would've made it hard to convert them to Smartdown without extensive refactoring.
+
+
 
 As at April 2015 there were:
 
