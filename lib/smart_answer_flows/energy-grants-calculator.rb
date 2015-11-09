@@ -81,14 +81,25 @@ module SmartAnswer
 
         validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
 
-        define_predicate(:measure?) {
+        next_node_calculation(:measure) {
           %w(help_energy_efficiency help_boiler_measure).include?(which_help)
         }
 
-        next_node_if(:date_of_birth?) { both_help }
-        on_condition(measure?) do
-          next_node_if(:which_benefits?, responded_with("benefits"))
-          next_node :when_property_built?
+        permitted_next_nodes = [
+          :date_of_birth?,
+          :which_benefits?,
+          :when_property_built?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if both_help
+            :date_of_birth?
+          elsif measure
+            if response == 'benefits'
+              :which_benefits?
+            else
+              :when_property_built?
+            end
+          end
         end
       end
 
