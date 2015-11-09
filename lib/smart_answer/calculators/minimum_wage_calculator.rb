@@ -49,6 +49,10 @@ module SmartAnswer::Calculators
       accommodation_usage >= 0 && accommodation_usage <= 7
     end
 
+    def valid_age_for_living_wage?(age)
+      age.to_i >= 25
+    end
+
     def basic_rate
       rate = @basic_pay / @basic_hours
       if overtime_hours > 0 and overtime_hourly_rate > 0 and rate > overtime_hourly_rate
@@ -171,7 +175,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_living_wage?
-      age.to_i >= 25
+      valid_age_for_living_wage?(age)
     end
 
     def under_school_leaving_age?
