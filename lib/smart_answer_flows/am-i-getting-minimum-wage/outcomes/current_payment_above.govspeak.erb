@@ -1,6 +1,6 @@
 <% content_for :body do %>
   $C
-  <% if calculator.check == 'current_payment_april_2016' && calculator.eligible_for_living_wage? %>
+  <% if calculator.what_to_check == 'current_payment_april_2016' && calculator.eligible_for_living_wage? %>
     <% if calculator.living_wage_or_above? %>
       You will be getting the national living wage
     <% else %>
@@ -11,13 +11,13 @@
   <% end %>
   $C
 
-  <% if calculator.check == 'current_payment_april_2016' && calculator.eligible_for_living_wage? %>
+  <% if calculator.what_to_check == 'current_payment_april_2016' && calculator.eligible_for_living_wage? %>
     The national living wage per hour for your age will be | Your actual pay
   <% else %>
     The National Minimum Wage per hour for your age | Your actual pay
   <% end %>
     - | -
-  <% if calculator.check == 'current_payment_april_2016' && calculator.eligible_for_living_wage? %>
+  <% if calculator.what_to_check == 'current_payment_april_2016' && calculator.eligible_for_living_wage? %>
     <%= format_money(calculator.national_living_wage_rate) %> | <%= format_money(calculator.total_hourly_rate) %>
   <% else %>
     <%= format_money(calculator.minimum_hourly_rate) %> | <%= format_money(calculator.total_hourly_rate) %>
