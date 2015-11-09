@@ -91,19 +91,30 @@ module SmartAnswer
           Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
         end
 
-        define_predicate(:near_pension_date?) do |response|
+        next_node_calculation(:near_pension_date) do
           calc.before_state_pension_date? and calc.within_four_months_one_day_from_state_pension?
         end
 
-        define_predicate(:under_20_years_old?) do |response|
+        next_node_calculation(:under_20_years_old) do
           calc.under_20_years_old?
         end
 
         validate { |response| response <= Date.today }
 
-        next_node_if(:too_young, under_20_years_old?)
-        next_node_if(:near_state_pension_age, near_pension_date?)
-        next_node(:age_result)
+        permitted_next_nodes = [
+          :too_young,
+          :near_state_pension_age,
+          :age_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if under_20_years_old
+            :too_young
+          elsif near_pension_date
+            :near_state_pension_age
+          else
+            :age_result
+          end
+        end
       end
 
       date_question :dob_bus_pass? do
