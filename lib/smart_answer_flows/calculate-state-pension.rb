@@ -168,36 +168,48 @@ module SmartAnswer
           Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
         end
 
-        define_predicate(:before_state_pension_date?) do |response|
+        next_node_calculation(:before_state_pension_date) do
           calc.before_state_pension_date?
         end
 
-        define_predicate(:under_20_years_old?) do |response|
+        next_node_calculation(:under_20_years_old) do
           calc.under_20_years_old?
         end
 
-        define_predicate(:woman_and_born_in_date_range?) do |response|
+        next_node_calculation(:woman_and_born_in_date_range) do
           calc.woman_born_in_married_stamp_era?
         end
 
-        define_predicate(:over_55?) do |response|
+        next_node_calculation(:over_55) do
           calc.over_55?
         end
 
-        define_predicate(:new_state_pension?) do |response|
+        next_node_calculation(:new_state_pension) do
           !(calc.state_pension_date < Date.parse('6 April 2016'))
         end
 
-        on_condition(new_state_pension?) do
-          next_node_if(:over55_result, over_55?)
+        permitted_next_nodes = [
+          :over55_result,
+          :pay_reduced_ni_rate?,
+          :too_young,
+          :years_paid_ni?,
+          :reached_state_pension_age
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if new_state_pension && over_55
+            :over55_result
+          elsif woman_and_born_in_date_range
+            :pay_reduced_ni_rate?
+          elsif before_state_pension_date
+            if under_20_years_old
+              :too_young
+            else
+              :years_paid_ni?
+            end
+          else
+            :reached_state_pension_age
+          end
         end
-
-        next_node_if(:pay_reduced_ni_rate?, woman_and_born_in_date_range?)
-        on_condition(before_state_pension_date?) do
-          next_node_if(:too_young, under_20_years_old?)
-          next_node :years_paid_ni?
-        end
-        next_node :reached_state_pension_age
       end
 
       # Q3a
