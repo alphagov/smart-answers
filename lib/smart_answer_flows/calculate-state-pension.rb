@@ -530,21 +530,33 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:enough_years_credits_or_three_year_credit?) {
+        next_node_calculation(:enough_years_credits_or_three_year_credit) {
           (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
             calculator.three_year_credit_age?
         }
 
-        define_predicate(:new_rules_and_less_than_10_ni?) {
+        next_node_calculation(:new_rules_and_less_than_10_ni) {
           calculator.new_rules_and_less_than_10_ni? ni
         }
 
-        define_predicate(:credit_age?) { calculator.credit_age? }
+        next_node_calculation(:credit_age) { calculator.credit_age? }
 
-        next_node_if(:years_of_work?, credit_age?)
-        next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
-        next_node_if(:amount_result, enough_years_credits_or_three_year_credit?)
-        next_node :years_of_work?
+        permitted_next_nodes = [
+          :years_of_work?,
+          :lived_or_worked_outside_uk?,
+          :amount_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if credit_age
+            :years_of_work?
+          elsif new_rules_and_less_than_10_ni
+            :lived_or_worked_outside_uk?
+          elsif enough_years_credits_or_three_year_credit
+            :amount_result
+          else
+            :years_of_work?
+          end
+        end
       end
 
       ## Q10
