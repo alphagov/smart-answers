@@ -368,22 +368,36 @@ module SmartAnswer
           ni_years_to_date_from_dob
         end
 
-        define_predicate(:automatic_ni?) {
+        next_node_calculation(:automatic_ni) {
           calculator.automatic_ni_age_group?
         }
 
-        define_predicate(:new_rules_and_less_than_10_ni?) {
+        next_node_calculation(:new_rules_and_less_than_10_ni) {
           ni_and_credits = ni + calculator.starting_credits
           calculator.new_rules_and_less_than_10_ni?(ni_and_credits) && !calculator.credit_band
         }
 
-        define_predicate(:credit_age?) { calculator.credit_age? }
+        next_node_calculation(:credit_age) { calculator.credit_age? }
 
-        next_node_if(:years_of_benefit?, responded_with("yes"))
-        next_node_if(:years_of_work?, credit_age?)
-        next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
-        next_node_if(:amount_result, automatic_ni?)
-        next_node :years_of_work?
+        permitted_next_nodes = [
+          :years_of_benefit?,
+          :years_of_work?,
+          :lived_or_worked_outside_uk?,
+          :amount_result
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'yes'
+            :years_of_benefit?
+          elsif credit_age
+            :years_of_work?
+          elsif new_rules_and_less_than_10_ni
+            :lived_or_worked_outside_uk?
+          elsif automatic_ni
+            :amount_result
+          else
+            :years_of_work?
+          end
+        end
       end
 
       ## Q7
