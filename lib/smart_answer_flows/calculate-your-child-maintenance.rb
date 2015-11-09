@@ -78,9 +78,21 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        next_node_if(:nil_rate_result) { rate_type == :nil }
-        next_node_if(:flat_rate_result) { rate_type == :flat }
-        next_node :how_many_other_children_in_payees_household?
+        permitted_next_nodes = [
+          :nil_rate_result,
+          :flat_rate_result,
+          :how_many_other_children_in_payees_household?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          case rate_type
+          when :nil
+            :nil_rate_result
+          when :flat
+            :flat_rate_result
+          else
+            :how_many_other_children_in_payees_household?
+          end
+        end
       end
 
       ## Q4
