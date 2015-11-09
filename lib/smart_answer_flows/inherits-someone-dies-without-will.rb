@@ -454,8 +454,18 @@ module SmartAnswer
 
         save_input_as :more_than_one_child
 
-        next_node_if(:outcome_61, responded_with('yes'))
-        next_node_if(:outcome_62, responded_with('no'))
+        permitted_next_nodes = [
+          :outcome_61,
+          :outcome_62
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :outcome_61
+          when 'no'
+            :outcome_62
+          end
+        end
       end
 
       outcome :outcome_1
