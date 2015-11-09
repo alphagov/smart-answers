@@ -334,18 +334,29 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:enough_years_credits_or_no_more_years?) {
+        next_node_calculation(:enough_years_credits_or_no_more_years) {
           (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
             (calculator.no_more_available_years?(ni) && calculator.three_year_credit_age?)
         }
 
-        define_predicate(:no_more_available_years?) {
+        next_node_calculation(:no_more_available_years) {
           calculator.no_more_available_years?(ni)
         }
 
-        next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
-        next_node_if(:years_of_work?, no_more_available_years?)
-        next_node :received_child_benefit?
+        permitted_next_nodes = [
+          :amount_result,
+          :years_of_work?,
+          :received_child_benefit?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if enough_years_credits_or_no_more_years
+            :amount_result
+          elsif no_more_available_years
+            :years_of_work?
+          else
+            :received_child_benefit?
+          end
+        end
       end
 
       ## Q6
