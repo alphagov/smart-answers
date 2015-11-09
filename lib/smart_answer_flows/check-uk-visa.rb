@@ -73,36 +73,70 @@ module SmartAnswer
           end
         end
 
-        next_node_if(:staying_for_how_long?, responded_with(%w{work study}))
-
-        next_node_if(:outcome_diplomatic_business, responded_with('diplomatic'))
-
-        on_condition(responded_with(%w{tourism school medical})) do
-          next_node_if(:outcome_visit_waiver) { %w(oman qatar united-arab-emirates).include?(passport_country) }
-          next_node_if(:outcome_taiwan_exception) { passport_country == 'taiwan' }
-        end
-
-        on_condition(->(_) { country_group_non_visa_national.include?(passport_country) or country_group_ukot.include?(passport_country) }) do
-          next_node_if(:outcome_school_n, responded_with(%w{tourism school}))
-          next_node_if(:outcome_medical_n, responded_with('medical'))
-        end
-        next_node_if(:outcome_school_y, responded_with('school'))
-        next_node_if(:outcome_standard_visit, responded_with('tourism'))
-        next_node_if(:outcome_marriage, responded_with('marriage'))
-        next_node_if(:outcome_medical_y, responded_with('medical'))
-
-        on_condition(responded_with('transit')) do
-          next_node_if(:planning_to_leave_airport?) do
-            country_group_datv.include?(passport_country) or
-               country_group_visa_national.include?(passport_country) or %w(taiwan venezuela).include?(passport_country)
+        permitted_next_nodes = [
+          :staying_for_how_long?,
+          :outcome_diplomatic_business,
+          :outcome_visit_waiver,
+          :outcome_taiwan_exception,
+          :outcome_school_n,
+          :outcome_medical_n,
+          :outcome_school_y,
+          :outcome_standard_visit,
+          :outcome_marriage,
+          :outcome_medical_y,
+          :planning_to_leave_airport?,
+          :outcome_no_visa_needed,
+          :outcome_joining_family_m,
+          :outcome_joining_family_nvn,
+          :outcome_joining_family_y
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'work', 'study'
+            next :staying_for_how_long?
+          when 'diplomatic'
+            next :outcome_diplomatic_business
+          when 'tourism', 'school', 'medical'
+            if %w(oman qatar united-arab-emirates).include?(passport_country)
+              next :outcome_visit_waiver
+            elsif passport_country == 'taiwan'
+              next :outcome_taiwan_exception
+            end
           end
-          next_node(:outcome_no_visa_needed)
-        end
 
-        on_condition(responded_with('family')) do
-          next_node_if(:outcome_joining_family_m) { country_group_ukot.include?(passport_country) }
-          next_node_if(:outcome_joining_family_nvn) { country_group_non_visa_national.include?(passport_country) }
-          next_node(:outcome_joining_family_y)
+          if country_group_non_visa_national.include?(passport_country) or country_group_ukot.include?(passport_country)
+            if %w{tourism school}.include?(response)
+              next :outcome_school_n
+            elsif response == 'medical'
+              next :outcome_medical_n
+            end
+          end
+
+          case response
+          when 'school'
+            :outcome_school_y
+          when 'tourism'
+            :outcome_standard_visit
+          when 'marriage'
+            :outcome_marriage
+          when 'medical'
+            :outcome_medical_y
+          when 'transit'
+            if country_group_datv.include?(passport_country) or
+               country_group_visa_national.include?(passport_country) or %w(taiwan venezuela).include?(passport_country)
+              :planning_to_leave_airport?
+            else
+              :outcome_no_visa_needed
+            end
+          when 'family'
+            if country_group_ukot.include?(passport_country)
+              :outcome_joining_family_m
+            elsif country_group_non_visa_national.include?(passport_country)
+              :outcome_joining_family_nvn
+            else
+              :outcome_joining_family_y
+            end
+          end
         end
       end
 
