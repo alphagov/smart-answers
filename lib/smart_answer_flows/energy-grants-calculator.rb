@@ -216,8 +216,17 @@ module SmartAnswer
           response != 'none' && benefits_claimed.include?('universal_credit')
         end
 
-        next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
-        next_node(:when_property_built?) # Q6
+        permitted_next_nodes = [
+          :outcome_help_with_bills,
+          :when_property_built?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if bills_help
+            :outcome_help_with_bills # outcome 1
+          else
+            :when_property_built? # Q6
+          end
+        end
       end
 
       # Q6
