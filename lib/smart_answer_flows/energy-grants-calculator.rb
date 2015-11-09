@@ -28,8 +28,18 @@ module SmartAnswer
           ''
         end
 
-        next_node_if(:what_are_your_circumstances?, responded_with("help_with_fuel_bill")) # Q2
-        next_node :what_are_your_circumstances_without_bills_help? # Q2A
+        permitted_next_nodes = [
+          :what_are_your_circumstances?,
+          :what_are_your_circumstances_without_bills_help?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'help_with_fuel_bill'
+            :what_are_your_circumstances? # Q2
+          else
+            :what_are_your_circumstances_without_bills_help? # Q2A
+          end
+        end
       end
 
       # Q2
