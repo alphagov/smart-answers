@@ -391,8 +391,18 @@ module SmartAnswer
 
         save_input_as :half_siblings
 
-        next_node_if(:outcome_23, responded_with('yes'))
-        next_node_if(:grandparents?, responded_with('no'))
+        permitted_next_nodes = [
+          :outcome_23,
+          :grandparents?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :outcome_23
+          when 'no'
+            :grandparents?
+          end
+        end
       end
 
       # Q21
