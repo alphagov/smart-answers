@@ -218,19 +218,30 @@ module SmartAnswer
         option :no
         save_input_as :pays_reduced_ni_rate
 
-        define_predicate(:before_state_pension_date?) {
+        next_node_calculation(:before_state_pension_date) {
           calculator.before_state_pension_date?
         }
 
-        define_predicate(:under_20_years_old?) {
+        next_node_calculation(:under_20_years_old) {
           calculator.under_20_years_old?
         }
 
-        on_condition(before_state_pension_date?) do
-          next_node_if(:too_young, under_20_years_old?)
-          next_node :years_paid_ni?
+        permitted_next_nodes = [
+          :too_young,
+          :years_paid_ni?,
+          :reached_state_pension_age
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if before_state_pension_date
+            if under_20_years_old
+              :too_young
+            else
+              :years_paid_ni?
+            end
+          else
+            :reached_state_pension_age
+          end
         end
-        next_node :reached_state_pension_age
       end
 
       # Q4
