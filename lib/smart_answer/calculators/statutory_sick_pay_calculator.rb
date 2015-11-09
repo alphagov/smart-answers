@@ -215,6 +215,10 @@ module SmartAnswer
         prior_sick_days >= (days_of_the_week_worked.size * 28 + 3)
       end
 
+      def maximum_entitlement_reached_v2?
+        days_that_can_be_paid_for_this_period == 0
+      end
+
       def entitled_to_sick_pay?
         ssp_payment > 0
       end

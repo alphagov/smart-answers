@@ -319,7 +319,7 @@ module SmartAnswer
             :maximum_entitlement_reached # Answer 8
           elsif calculator.entitled_to_sick_pay?
             :entitled_to_sick_pay # Answer 6
-          elsif calculator.days_that_can_be_paid_for_this_period == 0
+          elsif calculator.maximum_entitlement_reached_v2?
             :maximum_entitlement_reached # Answer 8
           else
             :not_entitled_3_days_not_paid # Answer 7
