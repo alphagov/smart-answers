@@ -310,27 +310,40 @@ module SmartAnswer
           response.split(",")
         end
 
-        define_predicate(:modern_and_gas_and_electric_heating?) do |response|
+        next_node_calculation(:modern_and_gas_and_electric_heating) do |response|
           modern && response.include?('mains_gas') && response.include?('electric_heating')
         end
 
-        define_predicate(:measure_help_and_property_permission_circumstance?) do
+        next_node_calculation(:measure_help_and_property_permission_circumstance) do
           measure_help && (circumstances & %w(property permission)).any?
         end
 
-        define_predicate(:no_benefits?) { circumstances.exclude?('benefits') }
+        next_node_calculation(:no_benefits) { circumstances.exclude?('benefits') }
 
-        define_predicate(:property_permission_circumstance_and_benefits?) do
+        next_node_calculation(:property_permission_circumstance_and_benefits) do
           (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
         end
 
-        next_node_if(:outcome_no_green_deal_no_energy_measures, modern_and_gas_and_electric_heating?)
-        on_condition(measure_help_and_property_permission_circumstance?) do
-          next_node(:outcome_measures_help_green_deal)
+        permitted_next_nodes = [
+          :outcome_no_green_deal_no_energy_measures,
+          :outcome_measures_help_green_deal,
+          :outcome_bills_and_measures_no_benefits,
+          :outcome_bills_and_measures_on_benefits_eco_eligible,
+          :outcome_bills_and_measures_on_benefits_not_eco_eligible
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if modern_and_gas_and_electric_heating
+            :outcome_no_green_deal_no_energy_measures
+          elsif measure_help_and_property_permission_circumstance
+            :outcome_measures_help_green_deal
+          elsif no_benefits
+            :outcome_bills_and_measures_no_benefits
+          elsif property_permission_circumstance_and_benefits
+            :outcome_bills_and_measures_on_benefits_eco_eligible
+          else
+            :outcome_bills_and_measures_on_benefits_not_eco_eligible
+          end
         end
-        next_node_if(:outcome_bills_and_measures_no_benefits, no_benefits?)
-        next_node_if(:outcome_bills_and_measures_on_benefits_eco_eligible, property_permission_circumstance_and_benefits?)
-        next_node(:outcome_bills_and_measures_on_benefits_not_eco_eligible)
       end
 
       # Q8b
