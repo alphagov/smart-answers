@@ -170,21 +170,40 @@ module SmartAnswer
 
         save_input_as :parents
 
-        on_condition(variable_matches(:region, 'england-and-wales')) do
-          next_node_if(:outcome_3, responded_with('yes'))
-          next_node_if(:siblings?, responded_with('no'))
-        end
-        on_condition(variable_matches(:region, 'scotland')) do
-          next_node :siblings?
-        end
-        on_condition(variable_matches(:region, 'northern-ireland')) do
-          on_condition(variable_matches(:partner, 'yes')) do
-            next_node_if(:outcome_63, responded_with('yes'))
-            next_node_if(:siblings_including_mixed_parents?, responded_with('no'))
-          end
-          on_condition(variable_matches(:partner, 'no')) do
-            next_node_if(:outcome_3, responded_with('yes'))
-            next_node_if(:siblings?, responded_with('no'))
+        permitted_next_nodes = [
+          :outcome_3,
+          :outcome_63,
+          :siblings?,
+          :siblings_including_mixed_parents?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case region
+          when 'england-and-wales'
+            case response
+            when 'yes'
+              :outcome_3
+            when 'no'
+              :siblings?
+            end
+          when 'scotland'
+            :siblings?
+          when 'northern-ireland'
+            case partner
+            when 'yes'
+              case response
+              when 'yes'
+                :outcome_63
+              when 'no'
+                :siblings_including_mixed_parents?
+              end
+            when 'no'
+              case response
+              when 'yes'
+                :outcome_3
+              when 'no'
+                :siblings?
+              end
+            end
           end
         end
       end
