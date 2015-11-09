@@ -1,11 +1,5 @@
 module SmartAnswer::Calculators
   class PassportAndEmbassyDataQuery
-    def apply_in_neighbouring_countries?
-      SmartAnswer::Predicate::RespondedWith.new(
-        %w(british-indian-ocean-territory north-korea south-georgia-and-south-sandwich-islands)
-      )
-    end
-
     def ips_application?
       SmartAnswer::Predicate::VariableMatches.new(:application_type,
         %w{ips_application_1 ips_application_2 ips_application_3},

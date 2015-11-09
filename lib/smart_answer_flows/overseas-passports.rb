@@ -27,9 +27,13 @@ module SmartAnswer
           %w{iran libya syria yemen}.include?(response)
         end
 
+        define_predicate :apply_in_neighbouring_countries? do |response|
+          %w(british-indian-ocean-territory north-korea south-georgia-and-south-sandwich-islands).include?(response)
+        end
+
         next_node_if(:cannot_apply, ineligible_country?)
         next_node_if(:which_opt?, responded_with('the-occupied-palestinian-territories'))
-        next_node_if(:apply_in_neighbouring_country, data_query.apply_in_neighbouring_countries?)
+        next_node_if(:apply_in_neighbouring_country, apply_in_neighbouring_countries?)
         next_node(:renewing_replacing_applying?)
       end
 
