@@ -73,6 +73,10 @@ module SmartAnswer
         value < sick_start_date - 1
       end
 
+      def valid_period_of_incapacity_for_work?
+        days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+      end
+
       def valid_linked_period_of_incapacity_for_work?(value)
         period = DateRange.new(begins_on: linked_sickness_start_date, ends_on: value)
         period.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK

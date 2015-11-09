@@ -89,7 +89,7 @@ module SmartAnswer
         permitted_next_nodes = [:has_linked_sickness?, :must_be_sick_for_4_days]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.sick_end_date = response
-          if calculator.days_sick >= Calculators::StatutorySickPayCalculator::MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+          if calculator.valid_period_of_incapacity_for_work?
             :has_linked_sickness?
           else
             :must_be_sick_for_4_days

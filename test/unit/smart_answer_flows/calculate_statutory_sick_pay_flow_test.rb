@@ -8,7 +8,40 @@ module SmartAnswer
     include FlowUnitTestHelper
 
     setup do
+      @calculator = Calculators::StatutorySickPayCalculator.new
       @flow = CalculateStatutorySickPayFlow.build
+    end
+
+    context 'when answering last_sick_day? question' do
+      context 'and sickness period is valid period of incapacity for work' do
+        setup do
+          @calculator.stubs(valid_period_of_incapacity_for_work?: true)
+          setup_states_for_question(:last_sick_day?,
+            responding_with: '2015-01-03',
+            initial_state: { calculator: @calculator }
+          )
+        end
+
+        should 'go to has_linked_sickness? question' do
+          assert_equal :has_linked_sickness?, @new_state.current_node
+          assert_node_exists :has_linked_sickness?
+        end
+      end
+
+      context 'and sickness period is not valid period of incapacity for work' do
+        setup do
+          @calculator.stubs(valid_period_of_incapacity_for_work?: false)
+          setup_states_for_question(:last_sick_day?,
+            responding_with: '2015-01-03',
+            initial_state: { calculator: @calculator }
+          )
+        end
+
+        should 'go to must_be_sick_for_4_days outcome' do
+          assert_equal :must_be_sick_for_4_days, @new_state.current_node
+          assert_node_exists :must_be_sick_for_4_days
+        end
+      end
     end
 
     context 'when answering linked_sickness_end_date? question' do
