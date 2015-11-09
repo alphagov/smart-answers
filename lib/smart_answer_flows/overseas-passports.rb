@@ -23,18 +23,31 @@ module SmartAnswer
           loc
         end
 
-        define_predicate :ineligible_country? do |response|
+        next_node_calculation :ineligible_country do |response|
           %w{iran libya syria yemen}.include?(response)
         end
 
-        define_predicate :apply_in_neighbouring_countries? do |response|
+        next_node_calculation :apply_in_neighbouring_countries do |response|
           %w(british-indian-ocean-territory north-korea south-georgia-and-south-sandwich-islands).include?(response)
         end
 
-        next_node_if(:cannot_apply, ineligible_country?)
-        next_node_if(:which_opt?, responded_with('the-occupied-palestinian-territories'))
-        next_node_if(:apply_in_neighbouring_country, apply_in_neighbouring_countries?)
-        next_node(:renewing_replacing_applying?)
+        permitted_next_nodes = [
+          :cannot_apply,
+          :which_opt?,
+          :apply_in_neighbouring_country,
+          :renewing_replacing_applying?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if ineligible_country
+            :cannot_apply
+          elsif response == 'the-occupied-palestinian-territories'
+            :which_opt?
+          elsif apply_in_neighbouring_countries
+            :apply_in_neighbouring_country
+          else
+            :renewing_replacing_applying?
+          end
+        end
       end
 
       # Q1a
