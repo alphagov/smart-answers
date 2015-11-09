@@ -179,13 +179,22 @@ module SmartAnswer
           supporting_documents.split("_")[3]
         end
 
-        define_predicate :ips_application? do
+        next_node_calculation :ips_application do
           is_ips_application == true
         end
 
-        on_condition(ips_application?) do
-          next_node_if(:ips_application_result_online, variable_matches(:ips_result_type, :ips_application_result_online))
-          next_node(:ips_application_result)
+        permitted_next_nodes = [
+          :ips_application_result_online,
+          :ips_application_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if ips_application?
+            if ips_result_type == :ips_application_result_online
+              :ips_application_result_online
+            else
+              :ips_application_result
+            end
+          end
         end
       end
 
