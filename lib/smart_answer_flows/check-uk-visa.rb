@@ -146,16 +146,38 @@ module SmartAnswer
         option :no
         save_input_as :leaving_airport_answer
 
-        next_node_if(:outcome_visit_waiver) { %w(taiwan).include?(passport_country) }
-        on_condition(responded_with('yes')) do
-          next_node_if(:outcome_transit_leaving_airport) { country_group_visa_national.include?(passport_country) }
-          next_node_if(:outcome_transit_leaving_airport_datv) { country_group_datv.include?(passport_country) }
-        end
-        on_condition(responded_with('no')) do
-          next_node_if(:outcome_visit_waiver) { %w(venezuela).include?(passport_country) }
-          next_node_if(:outcome_transit_refugee_not_leaving_airport) { passport_country == 'stateless-or-refugee' }
-          next_node_if(:outcome_transit_not_leaving_airport) { country_group_datv.include?(passport_country) }
-          next_node_if(:outcome_no_visa_needed) { country_group_visa_national.include?(passport_country) }
+        permitted_next_nodes = [
+          :outcome_visit_waiver,
+          :outcome_transit_leaving_airport,
+          :outcome_transit_leaving_airport_datv,
+          :outcome_visit_waiver,
+          :outcome_transit_refugee_not_leaving_airport,
+          :outcome_transit_not_leaving_airport,
+          :outcome_no_visa_needed
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if %w(taiwan).include?(passport_country)
+            next :outcome_visit_waiver
+          end
+
+          case response
+          when 'yes'
+            if country_group_visa_national.include?(passport_country)
+              :outcome_transit_leaving_airport
+            elsif country_group_datv.include?(passport_country)
+              :outcome_transit_leaving_airport_datv
+            end
+          when 'no'
+            if %w(venezuela).include?(passport_country)
+              :outcome_visit_waiver
+            elsif passport_country == 'stateless-or-refugee'
+              :outcome_transit_refugee_not_leaving_airport
+            elsif country_group_datv.include?(passport_country)
+              :outcome_transit_not_leaving_airport
+            elsif country_group_visa_national.include?(passport_country)
+              :outcome_no_visa_needed
+            end
+          end
         end
       end
 
