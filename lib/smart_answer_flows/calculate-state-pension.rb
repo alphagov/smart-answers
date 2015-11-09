@@ -87,13 +87,15 @@ module SmartAnswer
           calculator.ni_years_to_date_from_dob
         end
 
+        next_node_calculation :calc do |response|
+          Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+        end
+
         define_predicate(:near_pension_date?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           calc.before_state_pension_date? and calc.within_four_months_one_day_from_state_pension?
         end
 
         define_predicate(:under_20_years_old?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
           calc.under_20_years_old?
         end
 
