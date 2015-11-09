@@ -131,9 +131,21 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        next_node_if(:nil_rate_result) { rate_type == :nil }
-        next_node_if(:flat_rate_result) { rate_type == :flat }
-        next_node :reduced_and_basic_rates_result
+        permitted_next_nodes = [
+          :nil_rate_result,
+          :flat_rate_result,
+          :reduced_and_basic_rates_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          case rate_type
+          when :nil
+            :nil_rate_result
+          when :flat
+            :flat_rate_result
+          else
+            :reduced_and_basic_rates_result
+          end
+        end
       end
 
       outcome :nil_rate_result
