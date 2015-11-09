@@ -5,7 +5,7 @@ multiple_choice :what_would_you_like_to_check? do
   option "current_payment_april_2016" if self.flow_name == 'am-i-getting-minimum-wage'
 
   calculate :calculator do |response|
-    Calculators::MinimumWageCalculator.new(check: response)
+    Calculators::MinimumWageCalculator.new(what_to_check: response)
   end
 
   calculate :accommodation_charge do
@@ -100,7 +100,7 @@ end
 # Q3
 value_question :how_old_are_you?, parse: Integer do
   precalculate :age_title do
-    if calculator.check == 'current_payment_april_2016'
+    if calculator.what_to_check == 'current_payment_april_2016'
       PhraseList.new(:how_old_are_you_april_2016)
     else
       PhraseList.new(:how_old_are_you)

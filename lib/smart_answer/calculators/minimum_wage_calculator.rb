@@ -4,14 +4,14 @@ module SmartAnswer::Calculators
     attr_accessor :age, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice,
       :overtime_hours, :overtime_hourly_rate, :accommodation_cost
 
-    attr_reader :check, :date
+    attr_reader :date, :what_to_check
 
     def initialize(params = {})
       @age = params[:age]
       @date = (params[:date].nil? ? Date.today : params[:date])
       @basic_hours = params[:basic_hours].to_f
       @basic_pay = params[:basic_pay].to_f
-      @check = params[:check]
+      @what_to_check = params[:what_to_check]
       @is_apprentice = params[:is_apprentice]
       @pay_frequency = params[:pay_frequency] || 7
       @overtime_hours = params[:overtime_hours].to_i || 0

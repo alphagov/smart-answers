@@ -4,7 +4,7 @@ lib/smart_answer_flows/locales/en/am-i-getting-minimum-wage.yml: ae4dcf74d09e349
 test/data/am-i-getting-minimum-wage-questions-and-responses.yml: 9448744e58e3e268ba6911a58c3a1e6e
 test/data/am-i-getting-minimum-wage-responses-and-expected-results.yml: fc0c41b148a393cf887ba11754a361ec
 lib/smart_answer_flows/am-i-getting-minimum-wage/am_i_getting_minimum_wage.govspeak.erb: e3bad2e005bb806999594e9f87f5e5ae
-lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_above.govspeak.erb: 6974ca63f1a321313c1719c289049edf
+lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_above.govspeak.erb: 9b82c9fc163ecff3b9d55e6352afbddd
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_below.govspeak.erb: c5df501d4653304260fb0a95111ff111
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/does_not_apply_to_historical_apprentices.govspeak.erb: bd846fa5585f32e995c74bb714f6d600
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/past_payment_above.govspeak.erb: 83b499f49b224ef3faf022f3f5df0ac1
@@ -12,6 +12,6 @@ lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/past_payment_below.gov
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/under_school_leaving_age.govspeak.erb: 44bf68757d1ef90249d19f5d88ad4bc2
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/under_school_leaving_age_past.govspeak.erb: 2182c103915b753894722760c9a56cf3
 lib/smart_answer_flows/shared/minimum_wage/_acas_information.govspeak.erb: 0d2f7c4d01e3c928701e7d649663707e
-lib/smart_answer_flows/shared_logic/minimum_wage.rb: 03db060380a895c7b49da7d97eecc194
-lib/smart_answer/calculators/minimum_wage_calculator.rb: 5a10cc40f2abe6e303adfd47893d6ac0
+lib/smart_answer_flows/shared_logic/minimum_wage.rb: 8a3ad3d3e40568baaf09d0ffb4f0f258
+lib/smart_answer/calculators/minimum_wage_calculator.rb: f1091e755f1889d259dc511607cf59bc
 lib/data/minimum_wage_data.yml: 3feed11191d68237289203a2c659ecf9
