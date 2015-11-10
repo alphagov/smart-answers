@@ -24,6 +24,10 @@ module SmartAnswer
       country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: exclude_countries do
         save_input_as :passport_country
 
+        calculate :purpose_of_visit_answer do
+          nil
+        end
+
         permitted_next_nodes = [
           :israeli_document_type?,
           :outcome_no_visa_needed,
