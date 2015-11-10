@@ -11,6 +11,10 @@ module SmartAnswer
         option :yes
         option :no
 
+        calculate :cost_change_4_weeks do
+          nil
+        end
+
         permitted_next_nodes = [
           :have_costs_changed?,
           :how_often_use_childcare?
