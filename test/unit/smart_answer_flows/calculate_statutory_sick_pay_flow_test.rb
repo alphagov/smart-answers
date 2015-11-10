@@ -16,10 +16,10 @@ module SmartAnswer
       context 'and sickness period is valid period of incapacity for work' do
         setup do
           @calculator.stubs(valid_period_of_incapacity_for_work?: true)
-          setup_states_for_question(:last_sick_day?,
+          setup_states_for_question(:last_sick_day?, {
             responding_with: '2015-01-03',
             initial_state: { calculator: @calculator }
-          )
+          })
         end
 
         should 'go to has_linked_sickness? question' do
@@ -31,10 +31,10 @@ module SmartAnswer
       context 'and sickness period is not valid period of incapacity for work' do
         setup do
           @calculator.stubs(valid_period_of_incapacity_for_work?: false)
-          setup_states_for_question(:last_sick_day?,
+          setup_states_for_question(:last_sick_day?, {
             responding_with: '2015-01-03',
             initial_state: { calculator: @calculator }
-          )
+          })
         end
 
         should 'go to must_be_sick_for_4_days outcome' do
@@ -51,13 +51,13 @@ module SmartAnswer
             setup_states_for_question(:linked_sickness_end_date?,
               responding_with: '2015-01-07',
               initial_state: {
-                calculator: stub('calculator',
+                calculator: stub('calculator', {
                   linked_sickness_start_date: Date.parse('2015-01-01'),
                   days_of_the_week_worked: %w(1 2 3 4 5),
                   within_eight_weeks_of_current_sickness_period?: false,
                   at_least_1_day_before_first_sick_day?: true,
                   valid_linked_period_of_incapacity_for_work?: true
-                ),
+                }),
               })
           end
           assert_equal 'must_be_within_eight_weeks', exception.message
@@ -70,13 +70,13 @@ module SmartAnswer
             setup_states_for_question(:linked_sickness_end_date?,
               responding_with: '2015-01-31',
               initial_state: {
-                calculator: stub('calculator',
+                calculator: stub('calculator', {
                   linked_sickness_start_date: Date.parse('2015-01-01'),
                   days_of_the_week_worked: %w(1 2 3 4 5),
                   within_eight_weeks_of_current_sickness_period?: true,
                   at_least_1_day_before_first_sick_day?: false,
                   valid_linked_period_of_incapacity_for_work?: true
-                ),
+                }),
               })
           end
           assert_equal 'must_be_at_least_1_day_before_first_sick_day', exception.message
@@ -89,14 +89,14 @@ module SmartAnswer
             setup_states_for_question(:linked_sickness_end_date?,
               responding_with: '2015-01-03',
               initial_state: {
-                calculator: stub('calculator',
+                calculator: stub('calculator', {
                   sick_start_date: Date.parse('2015-02-01'),
                   linked_sickness_start_date: Date.parse('2015-01-01'),
                   days_of_the_week_worked: %w(1 2 3 4 5),
                   within_eight_weeks_of_current_sickness_period?: true,
                   at_least_1_day_before_first_sick_day?: true,
                   valid_linked_period_of_incapacity_for_work?: false
-                ),
+                }),
               })
           end
           assert_equal 'must_be_valid_period_of_incapacity_for_work', exception.message

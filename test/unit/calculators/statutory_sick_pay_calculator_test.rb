@@ -215,7 +215,6 @@ module SmartAnswer
           assert_equal @calculator.waiting_days, 2
           assert_equal @calculator.normal_workdays, 5
           assert_equal @calculator.send(:days_to_pay), 3
-
         end
       end
 
@@ -307,7 +306,7 @@ module SmartAnswer
           assert_equal @calculator.prev_sick_days, 0
         end
 
-        should "give correct ssp calculation" do  # 15 days with 3 waiting days, so 6 days at lower weekly rate, 6 days at higher rate
+        should "give correct ssp calculation" do # 15 days with 3 waiting days, so 6 days at lower weekly rate, 6 days at higher rate
           assert_equal @calculator.waiting_days, 3
           assert_equal @calculator.send(:days_to_pay), 12
           assert_equal @calculator.normal_workdays, 15

@@ -258,7 +258,7 @@ module SmartAnswer
           calculator.relevant_period_to
         end
 
-        next_node(permitted: [:usual_work_days?])  do |response|
+        next_node(permitted: [:usual_work_days?]) do |response|
           calculator.total_employee_earnings = response
           :usual_work_days?
         end
