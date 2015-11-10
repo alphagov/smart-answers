@@ -16,6 +16,16 @@ module SmartAnswer
         option :amount
         option :bus_pass
 
+        calculate :pays_reduced_ni_rate do
+          nil
+        end
+        calculate :lived_or_worked_abroad do
+          nil
+        end
+        calculate :years_of_work_entered do
+          nil
+        end
+
         calculate :weekly_state_pension_rate do
           SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.weekly_rate
         end
