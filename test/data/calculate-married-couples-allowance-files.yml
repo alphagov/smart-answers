@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/calculate-married-couples-allowance.rb: c2f1a8f4a451489c549957a181cccbfa
+lib/smart_answer_flows/calculate-married-couples-allowance.rb: d36fd014e01678f20d770c7d57975c8e
 lib/smart_answer_flows/locales/en/calculate-married-couples-allowance.yml: d3000af873a9c53b2f62719b3d72e91d
 test/data/calculate-married-couples-allowance-questions-and-responses.yml: 3cdcbf373de49fa6383b7dcb1967eb80
 test/data/calculate-married-couples-allowance-responses-and-expected-results.yml: 3a6d219be3fceda5e5e091520ab5227f
