@@ -6,6 +6,14 @@ module SmartAnswer
       super(current_node: start_node, path: [], responses: [], response: nil, error: nil)
     end
 
+    def method_missing(method_name, *args)
+      if method_name =~ /=$/
+        super
+      else
+        raise NoMethodError.new("undefined method '#{method_name}' for #{self.class}")
+      end
+    end
+
     def transition_to(new_node, input, &blk)
       dup.tap { |new_state|
         new_state.path << self.current_node
