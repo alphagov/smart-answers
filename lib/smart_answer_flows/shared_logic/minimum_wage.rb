@@ -3,6 +3,10 @@ multiple_choice :what_would_you_like_to_check? do
   option "current_payment"
   option "past_payment"
 
+  calculate :accommodation_charge do
+    nil
+  end
+
   permitted_next_nodes = [
     :are_you_an_apprentice?,
     :past_payment_date?
