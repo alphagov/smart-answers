@@ -7,46 +7,44 @@ Contact the relevant local authorities in the United Arab Emirates to find out a
 
 ^There are no civil marriages in the United Arab Emirates, but you can get married through a religious ceremony at a church or Sharia court.^
 
-You may be able to get married at the British Embassy if you’re both resident in the United Arab Emirates and can prove that there are no other suitable facilities.
-
-Contact the British Embassy in the United Arab Emirates for more information.
+You can only get married in the United Arab Emirates if you or your partner are resident there.
 
 ##What you need to do
 
-You need to have been living in the country where you intend to marry for 21 days.
+You’ll be asked to provide an affirmation or affidavit document to prove you’re allowed to marry.
 
-You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
+Make an appointment at the British embassy or consulate in the United Arab Emirates to swear an affirmation or affidavit that you’re free to marry. You’ll need to bring your passport and pay a fee.
 
-Make an appointment at the British embassy or consulate in the United Arab Emirates to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+[Make an appointment at the embassy in Dubai.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-dubai/oaths-affirmations-and-affidavits/slot_picker)
 
-$A
-British Embassy Abu Dhabi, main contact
-British Embassy
-Khalid bin Al Waleed St (Street 22)
-PO Box 248 
-United Arab Emirates
-$A
+[Make an appointment at the embassy in Abu Dhabi.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-abu-dhabi/oaths-affirmations-and-affidavits/slot_picker)
 
-$C
-Telephone: +971 2 610 1100
-Telephone visa centre: +971 4 205 5800                                                      
-Fax commercial: +971 2 610 1585
-Fax consular: +971 2 610 1609
-Fax corporate services: +971 2 610 1586  
+^If you have dual nationality and you entered the United Arab Emirates on a non-British passport, you must contact the embassy of that country to get your affirmation or affidavit.^
 
-Email: <consular.UAE@fco.gov.uk>
+You’ll need to complete an  [‘Affirmation for marriage’ (non-religious) or an ‘Affidavit for marriage’ (religious) form](/government/publications/affidavitaffirmatin-of-marital-status-forms-uae) in English.
 
-$C
+You can download and fill in (but not sign) the form in advance.
+
+^Your partner will probably need to get an affirmation or affidavit as well.^
+
+### What you need to take
+
+You’ll need to take all of the following to your appointment:
+
+- your completed and typed affirmation or affidavit – you’ll be sent the form by email after booking your appointment
+- your passport and UAE residency or entry visa
+- the residency visa/UAE entry stamp in your partner’s passport if they’re resident in the United Arab Emirates
+- a copy of your partner’s passport or ID if they aren’t resident in the United Arab Emirates
+
+^A marriage affirmation or affidavit is valid for 3 months.^
 
 ###Legalisation and translation
 
-You might need to get your affirmation [translated](/government/collections/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
+You’ll need to get your affirmation or affidavit [translated](/government/collections/list-of-lawyers) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the local authorities - the embassy or consulate should be able to give you advice.
 
 If you’ve been divorced or widowed, you’ll also need:
 
 - a [decree absolute or final order](/copy-decree-absolute-final-order) or the [death certificate](/order-copy-birth-death-marriage-certificate/)
-
-- evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English.
 
 You’ll also need to provide evidence if you’ve changed your name by deed poll.
 
@@ -60,7 +58,7 @@ Your partner can apply to [become a British citizen](/becoming-a-british-citizen
 
 Service | Fee
 -|-
-Affirmation for freedom to marry in English | £45
+Affirmation for freedom to marry in English | £55
 Affirmation for freedom to marry in any other language | £70
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for the United Arab Emirates](/government/publications/united-arab-emirates-consular-fees).

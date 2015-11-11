@@ -21,9 +21,9 @@ You should check with the local authorities in Finland to see if your CNI needs 
 
 You should also check with the local authorities in Finland to find out if you need to provide legalised and translated copies of any other documents.
 
-^Your partner will probably need to get an equivalent document from their national authorities.^
-
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+
+^Your partner will probably need to get an equivalent document from their national authorities.^
 
 ##Naturalisation of your partner if they move to the UK
 
