@@ -21,12 +21,12 @@ class QuestionPresenter < NodePresenter
 
   def error
     if @state.error.present?
-      translate!(@state.error.to_sym) || error_message || I18n.translate('flow.defaults.error_message')
+      error_message_for(@state.error.to_sym) || error_message_for('error_message') || I18n.translate('flow.defaults.error_message')
     end
   end
 
-  def error_message
-    translate!('error_message')
+  def error_message_for(key)
+    translate!(key)
   end
 
   def hint
