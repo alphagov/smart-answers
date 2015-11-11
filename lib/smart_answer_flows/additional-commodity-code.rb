@@ -17,6 +17,10 @@ module SmartAnswer
 
         save_input_as :starch_glucose_weight
 
+        calculate :milk_protein_weight do
+          nil
+        end
+
         permitted_next_nodes = [
           :how_much_sucrose_1?,
           :how_much_sucrose_2?,
