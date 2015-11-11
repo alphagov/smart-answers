@@ -1,18 +1,18 @@
 require_relative '../test_helper'
+require_relative "../helpers/i18n_test_helper"
 
 module SmartAnswer
   class QuestionPresenterTest < ActiveSupport::TestCase
+    include I18nTestHelper
+
     def setup
-      @old_load_path = I18n.config.load_path.dup
       @example_translation_file =
-        File.expand_path('../../fixtures/node_presenter_test/example.yml', __FILE__)
-      I18n.config.load_path.unshift(@example_translation_file)
-      I18n.reload!
+        File.expand_path('../../fixtures/smart_answer_flows/locales/en/question-presenter-sample.yml', __FILE__)
+      use_additional_translation_file(@example_translation_file)
     end
 
     def teardown
-      I18n.config.load_path = @old_load_path
-      I18n.reload!
+      reset_translation_files
     end
 
     test "Node title looked up from translation file" do
@@ -162,8 +162,8 @@ module SmartAnswer
 
     test "Options are looked up from translation file" do
       question = Question::MultipleChoice.new(nil, :example_question?)
-      question.option yes: :yay
-      question.option no: :nay
+      question.option :yes
+      question.option :no
       presenter = QuestionPresenter.new("flow.test", question)
 
       assert_equal "Oui", presenter.options[0].label
@@ -201,8 +201,8 @@ module SmartAnswer
 
     test "Can lookup a response label for a multiple choice question" do
       question = Question::MultipleChoice.new(nil, :example_question?)
-      question.option yes: :yay
-      question.option no: :nay
+      question.option :yes
+      question.option :no
       presenter = MultipleChoiceQuestionPresenter.new("flow.test", question)
 
       assert_equal "Oui", presenter.response_label("yes")

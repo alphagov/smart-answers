@@ -31,12 +31,25 @@ module SmartAnswer
 
       # Q2
       multiple_choice :who_has_british_nationality? do
-        option mother: :married_couple_or_civil_partnership?
-        option father: :married_couple_or_civil_partnership?
-        option mother_and_father: :married_couple_or_civil_partnership?
-        option neither: :no_registration_result
+        option :mother
+        option :father
+        option :mother_and_father
+        option :neither
 
         save_input_as :british_national_parent
+
+        permitted_next_nodes = [
+          :married_couple_or_civil_partnership?,
+          :no_registration_result
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'mother', 'father', 'mother_and_father'
+            :married_couple_or_civil_partnership?
+          when 'neither'
+            :no_registration_result
+          end
+        end
       end
 
       # Q3

@@ -33,20 +33,12 @@ class SmartAnswersController < ApplicationController
   def visualise
     respond_to do |format|
       format.html {
-        if smartdown_question(@name)
-          @graph_presenter = SmartdownAdapter::GraphPresenter.new(@name.to_s)
-        else
-          @graph_presenter = GraphPresenter.new(@smart_answer)
-        end
+        @graph_presenter = GraphPresenter.new(@smart_answer)
         @graph_data = @graph_presenter.to_hash
         render layout: true
       }
       format.gv {
-        if smartdown_question(@name)
-          render text: SmartdownAdapter::GraphvizPresenter.new(@name.to_s).to_gv
-        else
-          render text: GraphvizPresenter.new(@smart_answer).to_gv
-        end
+        render text: GraphvizPresenter.new(@smart_answer).to_gv
       }
     end
   end
@@ -76,12 +68,8 @@ private
 
   def find_smart_answer
     @name = params[:id].to_sym
-    if smartdown_question(@name)
-      @presenter = SmartdownAdapter::Presenter.new(smartdown_flow(@name), request)
-    else
-      @smart_answer = flow_registry.find(@name.to_s)
-      @presenter = SmartAnswerPresenter.new(request, @smart_answer)
-    end
+    @smart_answer = flow_registry.find(@name.to_s)
+    @presenter = SmartAnswerPresenter.new(request, @smart_answer)
   end
 
   def flow_registry
@@ -109,18 +97,6 @@ private
 
   def set_header_footer_only
     set_slimmer_headers(template: 'header_footer_only')
-  end
-
-  def smartdown_registry
-    @registry ||= SmartdownAdapter::Registry.instance
-  end
-
-  def smartdown_question(name)
-    smartdown_registry.check(name.to_s)
-  end
-
-  def smartdown_flow(name)
-    smartdown_registry.find(name.to_s)
   end
 
   def set_expiry(duration = 30.minutes)

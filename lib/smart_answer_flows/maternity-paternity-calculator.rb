@@ -9,9 +9,25 @@ module SmartAnswer
       ## Q1
       multiple_choice :what_type_of_leave? do
         save_input_as :leave_type
-        option maternity: :baby_due_date_maternity?
-        option paternity: :leave_or_pay_for_adoption?
-        option adoption: :taking_paternity_leave_for_adoption?
+        option :maternity
+        option :paternity
+        option :adoption
+
+        permitted_next_nodes = [
+          :baby_due_date_maternity?,
+          :leave_or_pay_for_adoption?,
+          :taking_paternity_leave_for_adoption?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'maternity'
+            :baby_due_date_maternity?
+          when 'paternity'
+            :leave_or_pay_for_adoption?
+          when 'adoption'
+            :taking_paternity_leave_for_adoption?
+          end
+        end
       end
 
       use_shared_logic ("adoption-calculator")

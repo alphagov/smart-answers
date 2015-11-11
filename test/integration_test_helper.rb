@@ -7,7 +7,6 @@ Capybara.default_driver = :rack_test
 require 'capybara/poltergeist'
 
 require 'gds_api/test_helpers/content_api'
-require_relative 'helpers/test_fixtures_helper'
 
 # This additional configuration is a protective measure while
 # we have invalid ssl certs in the preview environment, it
@@ -23,7 +22,6 @@ Capybara.javascript_driver = :poltergeist
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
   include GdsApi::TestHelpers::ContentApi
-  include TestFixturesHelper
 
   teardown do
     Capybara.use_default_driver
@@ -82,8 +80,6 @@ class ActionDispatch::IntegrationTest
     end
   end
 end
-
-I18n.load_path += Dir[Rails.root.join(*%w{test fixtures smart_answer_flows locales * *.{rb,yml}})]
 
 module Slimmer
   class Skin

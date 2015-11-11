@@ -5,8 +5,21 @@ module SmartAnswer
       status :draft
 
       multiple_choice :what_are_you_testing? do
-        option data_partial_with_scalar: :done_scalar
-        option data_partial_with_array: :done_array
+        option :data_partial_with_scalar
+        option :data_partial_with_array
+
+        permitted_next_nodes = [
+          :done_scalar,
+          :done_array
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'data_partial_with_scalar'
+            :done_scalar
+          when 'data_partial_with_array'
+            :done_array
+          end
+        end
       end
 
       outcome :done_scalar do

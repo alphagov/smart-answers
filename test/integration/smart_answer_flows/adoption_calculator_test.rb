@@ -53,6 +53,10 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                 assert_state_variable "employee_has_contract_adoption", 'yes'
                 assert_current_node :adoption_is_the_employee_on_your_payroll?
               end
+              should 'render the question title with an interpolated date' do
+                nodes = Capybara.string(current_question.to_s)
+                assert nodes.has_content?('Was the employee (or will they be) on your payroll on')
+              end
               context "answer yes" do
                 setup { add_response :yes }
                 ## QA6

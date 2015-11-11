@@ -81,6 +81,10 @@ module SmartAnswer::Calculators
       format_number(fraction_of_year, dp)
     end
 
+    def date_of_year(date, year)
+      date.advance(years: year - date.year)
+    end
+
     def strip_zeros(number)
       number.to_s.sub(/\.0+$/, '')
     end
@@ -107,12 +111,10 @@ module SmartAnswer::Calculators
 
     def leave_year_start_end
       if self.leave_year_start_date
-        date_leave_year_start_date = leave_year_start_date
-
-        needs_offset = date_calc >= date_of_year(date_leave_year_start_date, date_calc.year)
+        needs_offset = date_calc >= date_of_year(leave_year_start_date, date_calc.year)
         number_years = date_calc.year - (needs_offset ? 0 : 1)
 
-        leave_year_start = date_of_year(date_leave_year_start_date, number_years)
+        leave_year_start = date_of_year(leave_year_start_date, number_years)
         leave_year_end = leave_year_start + 1.years - 1.days
       else
         leave_year_start = date_calc.beginning_of_year
@@ -150,10 +152,6 @@ module SmartAnswer::Calculators
     def format_number(number, dp = 1)
       str = sprintf("%.#{dp}f", number)
       strip_zeros(str)
-    end
-
-    def date_of_year(date, year)
-      Date.civil(year, date.month, date.day)
     end
 
     def days_cap

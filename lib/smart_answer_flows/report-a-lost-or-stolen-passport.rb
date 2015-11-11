@@ -9,8 +9,8 @@ module SmartAnswer
       exclude_countries = %w(holy-see british-antarctic-territory)
 
       multiple_choice :where_was_the_passport_lost_or_stolen? do
-        option in_the_uk: :complete_LS01_form
-        option abroad: :which_country?
+        option :in_the_uk
+        option :abroad
 
         save_input_as :location
 
@@ -18,10 +18,12 @@ module SmartAnswer
           :complete_LS01_form,
           :which_country?
         ]
-        next_node(permitted: permitted_next_nodes) do
-          case location
-          when 'in_the_uk' then :complete_LS01_form
-          when 'abroad' then :which_country?
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'in_the_uk'
+            :complete_LS01_form
+          when 'abroad'
+            :which_country?
           end
         end
       end

@@ -8,40 +8,119 @@ module SmartAnswer
 
       #Q1
       multiple_choice :currently_claiming? do
-        option yes: :have_costs_changed? #Q3
-        option no: :how_often_use_childcare? #Q2
+        option :yes
+        option :no
+
+        permitted_next_nodes = [
+          :have_costs_changed?,
+          :how_often_use_childcare?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :have_costs_changed? #Q3
+          when 'no'
+            :how_often_use_childcare? #Q2
+          end
+        end
       end
 
       #Q2
       multiple_choice :how_often_use_childcare? do
-        option regularly_less_than_year: :how_often_pay_1? #Q4
-        option regularly_more_than_year: :pay_same_each_time? #Q11
-        option only_short_while: :call_helpline_detailed #O1
+        option :regularly_less_than_year
+        option :regularly_more_than_year
+        option :only_short_while
 
+        permitted_next_nodes = [
+          :how_often_pay_1?,
+          :pay_same_each_time?,
+          :call_helpline_detailed
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'regularly_less_than_year'
+            :how_often_pay_1? #Q4
+          when 'regularly_more_than_year'
+            :pay_same_each_time? #Q11
+          when 'only_short_while'
+            :call_helpline_detailed #O1
+          end
+        end
       end
 
       #Q3
       multiple_choice :have_costs_changed? do
-        option yes: :how_often_pay_2? #Q5
-        option no: :no_change #O2
+        option :yes
+        option :no
+
+        permitted_next_nodes = [
+          :how_often_pay_2?,
+          :no_change
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :how_often_pay_2? #Q5
+          when 'no'
+            :no_change #O2
+          end
+        end
       end
 
       #Q4
       multiple_choice :how_often_pay_1? do
-        option weekly_same_amount: :round_up_weekly #O3
-        option weekly_diff_amount: :how_much_52_weeks_1? #Q7
-        option monthly_same_amount: :how_much_each_month? #Q10
-        option monthly_diff_amount: :how_much_12_months_1? #Q6
-        option other: :how_much_12_months_1? #Q6
+        option :weekly_same_amount
+        option :weekly_diff_amount
+        option :monthly_same_amount
+        option :monthly_diff_amount
+        option :other
+
+        permitted_next_nodes = [
+          :round_up_weekly,
+          :how_much_52_weeks_1?,
+          :how_much_each_month?,
+          :how_much_12_months_1?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'weekly_same_amount'
+            :round_up_weekly #O3
+          when 'weekly_diff_amount'
+            :how_much_52_weeks_1? #Q7
+          when 'monthly_same_amount'
+            :how_much_each_month? #Q10
+          when 'monthly_diff_amount', 'other'
+            :how_much_12_months_1? #Q6
+          end
+        end
       end
 
       #Q5
       multiple_choice :how_often_pay_2? do
-        option weekly_same_amount: :new_weekly_costs? #Q17
-        option weekly_diff_amount: :how_much_52_weeks_2? #Q8
-        option monthly_same_amount: :new_monthly_cost? #Q19
-        option monthly_diff_amount: :how_much_12_months_2? #Q9
-        option other: :how_much_52_weeks_2? #Q9
+        option :weekly_same_amount
+        option :weekly_diff_amount
+        option :monthly_same_amount
+        option :monthly_diff_amount
+        option :other
+
+        permitted_next_nodes = [
+          :new_weekly_costs?,
+          :how_much_52_weeks_2?,
+          :new_monthly_cost?,
+          :how_much_12_months_2?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'weekly_same_amount'
+            :new_weekly_costs? #Q17
+          when 'weekly_diff_amount', 'other'
+            :how_much_52_weeks_2? #Q8
+          when 'monthly_same_amount'
+            :new_monthly_cost? #Q19
+          when 'monthly_diff_amount'
+            :how_much_12_months_2? #Q9
+          end
+        end
       end
 
       #Q6
@@ -102,19 +181,57 @@ module SmartAnswer
 
       #Q11
       multiple_choice :pay_same_each_time? do
-        option yes: :how_often_pay_providers? #Q12
-        option no: :how_much_spent_last_12_months? #Q16
+        option :yes
+        option :no
+
+        permitted_next_nodes = [
+          :how_often_pay_providers?,
+          :how_much_spent_last_12_months?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :how_often_pay_providers? #Q12
+          when 'no'
+            :how_much_spent_last_12_months? #Q16
+          end
+        end
       end
 
       #Q12
       multiple_choice :how_often_pay_providers? do
-        option weekly: :round_up_weekly #O3
-        option fortnightly: :how_much_fortnightly? #Q13
-        option every_4_weeks: :how_much_4_weeks? #Q14
-        option every_month: :how_much_each_month? #Q10
-        option termly: :call_helpline_plain #O5
-        option yearly: :how_much_yearly? #Q15
-        option other: :call_helpline_plain #O5
+        option :weekly
+        option :fortnightly
+        option :every_4_weeks
+        option :every_month
+        option :termly
+        option :yearly
+        option :other
+
+        permitted_next_nodes = [
+          :round_up_weekly,
+          :how_much_fortnightly?,
+          :how_much_4_weeks?,
+          :how_much_each_month?,
+          :call_helpline_plain,
+          :how_much_yearly?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'weekly'
+            :round_up_weekly #O3
+          when 'fortnightly'
+            :how_much_fortnightly? #Q13
+          when 'every_4_weeks'
+            :how_much_4_weeks? #Q14
+          when 'every_month'
+            :how_much_each_month? #Q10
+          when 'termly', 'other'
+            :call_helpline_plain #O5
+          when 'yearly'
+            :how_much_yearly? #Q15
+          end
+        end
       end
 
       #Q13

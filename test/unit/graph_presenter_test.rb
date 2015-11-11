@@ -1,20 +1,20 @@
 require_relative '../test_helper'
 require_relative '../helpers/i18n_test_helper'
 
-require 'fixtures/graph_presenter_test/graph'
+require 'fixtures/smart_answer_flows/graph'
 
 module SmartAnswer
   class GraphPresenterTest < ActiveSupport::TestCase
     include I18nTestHelper
 
     setup do
-      use_only_translation_file!(fixture_file('graph_presenter_test/graph.yml'))
+      use_additional_translation_file(fixture_file('smart_answer_flows/locales/en/graph.yml'))
       @flow = SmartAnswer::GraphFlow.build
       @presenter = GraphPresenter.new(@flow)
     end
 
     teardown do
-      reset_translation_files!
+      reset_translation_files
     end
 
     test "presents labels of simple graph" do
@@ -30,7 +30,7 @@ module SmartAnswer
 
     test "presents adjacency_list of simple graph" do
       expected_adjacency_list = {
-        q1?: [[:q2?, "yes"], [:q2?, "no"]],
+        q1?: [[:q2?, ""]],
         q2?: [[:done_a, ''], [:done_b, '']],
         done_a: [],
         done_b: []

@@ -7,12 +7,13 @@ class FlowContentItem
 
   def payload
     {
+      base_path: base_path,
       title: flow_presenter.title,
       content_id: flow_presenter.content_id,
       format: 'placeholder_smart_answer',
       publishing_app: 'smartanswers',
       rendering_app: 'smartanswers',
-      update_type: 'minor',
+      update_type: 'minor', # This is not used, but required by the schema.
       locale: 'en',
       public_updated_at: Time.now.iso8601,
       routes: [
@@ -20,6 +21,12 @@ class FlowContentItem
       ]
     }
   end
+
+  def content_id
+    flow_presenter.content_id
+  end
+
+private
 
   def base_path
     '/' + flow_presenter.slug

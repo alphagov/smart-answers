@@ -2,8 +2,21 @@ days_of_the_week = Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
 
 ## QP0
 multiple_choice :leave_or_pay_for_adoption? do
-  option yes: :employee_date_matched_paternity_adoption?
-  option no: :baby_due_date_paternity?
+  option :yes
+  option :no
+
+  permitted_next_nodes = [
+    :employee_date_matched_paternity_adoption?,
+    :baby_due_date_paternity?
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    case response
+    when 'yes'
+      :employee_date_matched_paternity_adoption?
+    when 'no'
+      :baby_due_date_paternity?
+    end
+  end
 end
 
 ## QP1
@@ -77,8 +90,8 @@ end
 
 ## QP3
 multiple_choice :employee_responsible_for_upbringing? do
-  option yes: :employee_work_before_employment_start?
-  option no: :paternity_not_entitled_to_leave_or_pay
+  option :yes
+  option :no
   save_input_as :paternity_responsible
 
   calculate :employment_start do
@@ -89,15 +102,32 @@ multiple_choice :employee_responsible_for_upbringing? do
     due_date
   end
 
+  calculate :qualifying_week_start do
+    calculator.qualifying_week.first
+  end
+
   calculate :p_notice_leave do
     calculator.notice_of_leave_deadline
+  end
+
+  permitted_next_nodes = [
+    :employee_work_before_employment_start?,
+    :paternity_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    case response
+    when 'yes'
+      :employee_work_before_employment_start?
+    when 'no'
+      :paternity_not_entitled_to_leave_or_pay
+    end
   end
 end
 
 ## QAP3 - Paternity Adoption
 multiple_choice :padoption_employee_responsible_for_upbringing? do
-  option yes: :employee_work_before_employment_start? # Combined flow
-  option no: :paternity_not_entitled_to_leave_or_pay
+  option :yes
+  option :no
   save_input_as :paternity_responsible
 
   calculate :employment_start do
@@ -111,13 +141,39 @@ multiple_choice :padoption_employee_responsible_for_upbringing? do
   calculate :qualifying_week_start do
     calculator.qualifying_week.first
   end
+
+  permitted_next_nodes = [
+    :employee_work_before_employment_start?,
+    :paternity_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    case response
+    when 'yes'
+      :employee_work_before_employment_start? # Combined flow
+    when 'no'
+      :paternity_not_entitled_to_leave_or_pay
+    end
+  end
 end
 
 ## QP4 - Shared flow onwards
 multiple_choice :employee_work_before_employment_start? do
-  option yes: :employee_has_contract_paternity?
-  option no: :paternity_not_entitled_to_leave_or_pay
+  option :yes
+  option :no
   save_input_as :paternity_employment_start ## Needed only in outcome
+
+  permitted_next_nodes = [
+    :employee_has_contract_paternity?,
+    :paternity_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    case response
+    when 'yes'
+      :employee_has_contract_paternity?
+    when 'no'
+      :paternity_not_entitled_to_leave_or_pay
+    end
+  end
 end
 
 ## QP5
@@ -131,7 +187,7 @@ end
 
 ## QP6
 multiple_choice :employee_on_payroll_paternity? do
-  option yes: :employee_still_employed_on_birth_date?
+  option :yes
   option :no
   save_input_as :on_payroll
 
@@ -161,6 +217,7 @@ multiple_choice :employee_on_payroll_paternity? do
     paternity_adoption ? ap_adoption_date_formatted : date_of_birth
   end
 
+  next_node_if(:employee_still_employed_on_birth_date?, responded_with('yes'))
   next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no'))
   next_node :employee_start_paternity?
 end
@@ -258,10 +315,10 @@ end
 
 ## QP12
 multiple_choice :pay_frequency_paternity? do
-  option weekly: :earnings_for_pay_period_paternity?
-  option every_2_weeks: :earnings_for_pay_period_paternity?
-  option every_4_weeks: :earnings_for_pay_period_paternity?
-  option monthly: :earnings_for_pay_period_paternity?
+  option :weekly
+  option :every_2_weeks
+  option :every_4_weeks
+  option :monthly
   save_input_as :pay_pattern
 
   calculate :calculator do |response|
@@ -269,6 +326,7 @@ multiple_choice :pay_frequency_paternity? do
     calculator
   end
 
+  next_node :earnings_for_pay_period_paternity?
 end
 
 ## QP13
@@ -317,12 +375,15 @@ end
 multiple_choice :monthly_pay_paternity? do
   option :first_day_of_the_month
   option :last_day_of_the_month
-  option specific_date_each_month: :specific_date_each_month_paternity?
-  option last_working_day_of_the_month: :days_of_the_week_paternity?
-  option a_certain_week_day_each_month: :day_of_the_month_paternity?
+  option :specific_date_each_month
+  option :last_working_day_of_the_month
+  option :a_certain_week_day_each_month
 
   save_input_as :monthly_pay_method
 
+  next_node_if(:specific_date_each_month_paternity?, responded_with('specific_date_each_month'))
+  next_node_if(:days_of_the_week_paternity?, responded_with('last_working_day_of_the_month'))
+  next_node_if(:day_of_the_month_paternity?, responded_with('a_certain_week_day_each_month'))
   next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
   next_node :paternity_leave_and_pay
 end

@@ -53,19 +53,6 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
     end
   end
 
-  context 'with smartdown flows' do
-    should 'return relative paths to questions, outcomes and snippets' do
-      flow_name = 'smartdown-flow-name'
-      temporary_smartdown_answer(flow_name) do |smartdown_txt_files|
-        smart_answer_files = SmartAnswerFiles.new(flow_name)
-        smartdown_txt_files.each do |file|
-          expected_path = file.path.relative_path_from(Rails.root)
-          assert smart_answer_files.paths.include?(expected_path), "Expected #{expected_path} to be detected"
-        end
-      end
-    end
-  end
-
   context 'with additional files' do
     should 'return relative paths to the additional files' do
       with_temporary_file_in_project do |file|
@@ -121,26 +108,6 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
       yield files
     ensure
       FileUtils.remove_dir(erb_template_directory, force = true)
-      files.each do |file|
-        file.unlink
-        file.close
-      end
-    end
-  end
-
-  def temporary_smartdown_answer(flow_name)
-    begin
-      smartdown_files_directory = Rails.root.join('lib', 'smartdown_flows', flow_name)
-      FileUtils.mkdir_p(smartdown_files_directory)
-
-      files = ['outcomes', 'questions', 'snippets', ''].collect do |dir|
-        FileUtils.mkdir_p(File.join(smartdown_files_directory, dir)) if dir.present?
-        Tempfile.new(["#{flow_name}#{dir.singularize}", '.txt'], File.join(smartdown_files_directory, dir))
-      end
-
-      yield files
-    ensure
-      FileUtils.remove_dir(smartdown_files_directory, force = true)
       files.each do |file|
         file.unlink
         file.close
