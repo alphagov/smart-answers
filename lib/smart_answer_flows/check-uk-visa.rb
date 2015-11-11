@@ -73,36 +73,70 @@ module SmartAnswer
           end
         end
 
-        next_node_if(:staying_for_how_long?, responded_with(%w{work study}))
-
-        next_node_if(:outcome_diplomatic_business, responded_with('diplomatic'))
-
-        on_condition(responded_with(%w{tourism school medical})) do
-          next_node_if(:outcome_visit_waiver) { %w(oman qatar united-arab-emirates).include?(passport_country) }
-          next_node_if(:outcome_taiwan_exception) { passport_country == 'taiwan' }
-        end
-
-        on_condition(->(_) { country_group_non_visa_national.include?(passport_country) or country_group_ukot.include?(passport_country) }) do
-          next_node_if(:outcome_school_n, responded_with(%w{tourism school}))
-          next_node_if(:outcome_medical_n, responded_with('medical'))
-        end
-        next_node_if(:outcome_school_y, responded_with('school'))
-        next_node_if(:outcome_standard_visit, responded_with('tourism'))
-        next_node_if(:outcome_marriage, responded_with('marriage'))
-        next_node_if(:outcome_medical_y, responded_with('medical'))
-
-        on_condition(responded_with('transit')) do
-          next_node_if(:planning_to_leave_airport?) do
-            country_group_datv.include?(passport_country) or
-               country_group_visa_national.include?(passport_country) or %w(taiwan venezuela).include?(passport_country)
+        permitted_next_nodes = [
+          :staying_for_how_long?,
+          :outcome_diplomatic_business,
+          :outcome_visit_waiver,
+          :outcome_taiwan_exception,
+          :outcome_school_n,
+          :outcome_medical_n,
+          :outcome_school_y,
+          :outcome_standard_visit,
+          :outcome_marriage,
+          :outcome_medical_y,
+          :planning_to_leave_airport?,
+          :outcome_no_visa_needed,
+          :outcome_joining_family_m,
+          :outcome_joining_family_nvn,
+          :outcome_joining_family_y
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'work', 'study'
+            next :staying_for_how_long?
+          when 'diplomatic'
+            next :outcome_diplomatic_business
+          when 'tourism', 'school', 'medical'
+            if %w(oman qatar united-arab-emirates).include?(passport_country)
+              next :outcome_visit_waiver
+            elsif passport_country == 'taiwan'
+              next :outcome_taiwan_exception
+            end
           end
-          next_node(:outcome_no_visa_needed)
-        end
 
-        on_condition(responded_with('family')) do
-          next_node_if(:outcome_joining_family_m) { country_group_ukot.include?(passport_country) }
-          next_node_if(:outcome_joining_family_nvn) { country_group_non_visa_national.include?(passport_country) }
-          next_node(:outcome_joining_family_y)
+          if country_group_non_visa_national.include?(passport_country) || country_group_ukot.include?(passport_country)
+            if %w{tourism school}.include?(response)
+              next :outcome_school_n
+            elsif response == 'medical'
+              next :outcome_medical_n
+            end
+          end
+
+          case response
+          when 'school'
+            :outcome_school_y
+          when 'tourism'
+            :outcome_standard_visit
+          when 'marriage'
+            :outcome_marriage
+          when 'medical'
+            :outcome_medical_y
+          when 'transit'
+            if country_group_datv.include?(passport_country) ||
+                country_group_visa_national.include?(passport_country) || %w(taiwan venezuela).include?(passport_country)
+              :planning_to_leave_airport?
+            else
+              :outcome_no_visa_needed
+            end
+          when 'family'
+            if country_group_ukot.include?(passport_country)
+              :outcome_joining_family_m
+            elsif country_group_non_visa_national.include?(passport_country)
+              :outcome_joining_family_nvn
+            else
+              :outcome_joining_family_y
+            end
+          end
         end
       end
 
@@ -112,16 +146,36 @@ module SmartAnswer
         option :no
         save_input_as :leaving_airport_answer
 
-        next_node_if(:outcome_visit_waiver) { %w(taiwan).include?(passport_country) }
-        on_condition(responded_with('yes')) do
-          next_node_if(:outcome_transit_leaving_airport) { country_group_visa_national.include?(passport_country) }
-          next_node_if(:outcome_transit_leaving_airport_datv) { country_group_datv.include?(passport_country) }
-        end
-        on_condition(responded_with('no')) do
-          next_node_if(:outcome_visit_waiver) { %w(venezuela).include?(passport_country) }
-          next_node_if(:outcome_transit_refugee_not_leaving_airport) { passport_country == 'stateless-or-refugee' }
-          next_node_if(:outcome_transit_not_leaving_airport) { country_group_datv.include?(passport_country) }
-          next_node_if(:outcome_no_visa_needed) { country_group_visa_national.include?(passport_country) }
+        permitted_next_nodes = [
+          :outcome_visit_waiver,
+          :outcome_transit_leaving_airport,
+          :outcome_transit_leaving_airport_datv,
+          :outcome_visit_waiver,
+          :outcome_transit_refugee_not_leaving_airport,
+          :outcome_transit_not_leaving_airport,
+          :outcome_no_visa_needed
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          next :outcome_visit_waiver if %w(taiwan).include?(passport_country)
+
+          case response
+          when 'yes'
+            if country_group_visa_national.include?(passport_country)
+              :outcome_transit_leaving_airport
+            elsif country_group_datv.include?(passport_country)
+              :outcome_transit_leaving_airport_datv
+            end
+          when 'no'
+            if %w(venezuela).include?(passport_country)
+              :outcome_visit_waiver
+            elsif passport_country == 'stateless-or-refugee'
+              :outcome_transit_refugee_not_leaving_airport
+            elsif country_group_datv.include?(passport_country)
+              :outcome_transit_not_leaving_airport
+            elsif country_group_visa_national.include?(passport_country)
+              :outcome_no_visa_needed
+            end
+          end
         end
       end
 
@@ -131,29 +185,46 @@ module SmartAnswer
         option :longer_than_six_months
         save_input_as :period_of_staying
 
-        on_condition(responded_with('longer_than_six_months')) do
-          next_node_if(:outcome_study_y) { purpose_of_visit_answer == 'study' } #outcome 2 study y
-          next_node_if(:outcome_work_y) { purpose_of_visit_answer == 'work' } #outcome 4 work y
-        end
-        on_condition(responded_with('six_months_or_less')) do
-          on_condition(->(_) { purpose_of_visit_answer == 'study' }) do
-            #outcome 12 visit outcome_visit_waiver
-            next_node_if(:outcome_visit_waiver) { %w(oman qatar united-arab-emirates).include?(passport_country) }
-            next_node_if(:outcome_taiwan_exception) { %w(taiwan).include?(passport_country) }
-            #outcome 3 study m visa needed short courses
-            next_node_if(:outcome_study_m) { (country_group_datv + country_group_visa_national).include?(passport_country) }
-            #outcome 1 no visa needed
-            next_node_if(:outcome_no_visa_needed) { (country_group_ukot + country_group_non_visa_national).include?(passport_country) }
-          end
-          on_condition(->(_) { purpose_of_visit_answer == 'work' }) do
-            #outcome 5.5 work N no visa needed
-            next_node_if(:outcome_work_n) {
-              ( (country_group_ukot +
+        permitted_next_nodes = [
+          :outcome_study_y,
+          :outcome_work_y,
+          :outcome_visit_waiver,
+          :outcome_taiwan_exception,
+          :outcome_study_m,
+          :outcome_no_visa_needed,
+          :outcome_work_n,
+          :outcome_work_m
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'longer_than_six_months'
+            if purpose_of_visit_answer == 'study'
+              :outcome_study_y #outcome 2 study y
+            elsif purpose_of_visit_answer == 'work'
+              :outcome_work_y #outcome 4 work y
+            end
+          when 'six_months_or_less'
+            if purpose_of_visit_answer == 'study'
+              if %w(oman qatar united-arab-emirates).include?(passport_country)
+                :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
+              elsif %w(taiwan).include?(passport_country)
+                :outcome_taiwan_exception
+              elsif (country_group_datv + country_group_visa_national).include?(passport_country)
+                :outcome_study_m #outcome 3 study m visa needed short courses
+              elsif (country_group_ukot + country_group_non_visa_national).include?(passport_country)
+                :outcome_no_visa_needed #outcome 1 no visa needed
+              end
+            elsif purpose_of_visit_answer == 'work'
+              if ((country_group_ukot +
                 country_group_non_visa_national) |
-                %w(taiwan) ).include?(passport_country)
-            }
-            # outcome 5 work m visa needed short courses
-            next_node_if(:outcome_work_m) { (country_group_datv + country_group_visa_national).include?(passport_country) }
+                %w(taiwan)).include?(passport_country)
+                #outcome 5.5 work N no visa needed
+                :outcome_work_n
+              elsif (country_group_datv + country_group_visa_national).include?(passport_country)
+                # outcome 5 work m visa needed short courses
+                :outcome_work_m
+              end
+            end
           end
         end
       end
