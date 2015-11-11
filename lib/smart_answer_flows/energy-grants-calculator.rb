@@ -28,8 +28,18 @@ module SmartAnswer
           ''
         end
 
-        next_node_if(:what_are_your_circumstances?, responded_with("help_with_fuel_bill")) # Q2
-        next_node :what_are_your_circumstances_without_bills_help? # Q2A
+        permitted_next_nodes = [
+          :what_are_your_circumstances?,
+          :what_are_your_circumstances_without_bills_help?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'help_with_fuel_bill'
+            :what_are_your_circumstances? # Q2
+          else
+            :what_are_your_circumstances_without_bills_help? # Q2A
+          end
+        end
       end
 
       # Q2
@@ -71,14 +81,25 @@ module SmartAnswer
 
         validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
 
-        define_predicate(:measure?) {
+        next_node_calculation(:measure) {
           %w(help_energy_efficiency help_boiler_measure).include?(which_help)
         }
 
-        next_node_if(:date_of_birth?) { both_help }
-        on_condition(measure?) do
-          next_node_if(:which_benefits?, responded_with("benefits"))
-          next_node :when_property_built?
+        permitted_next_nodes = [
+          :date_of_birth?,
+          :which_benefits?,
+          :when_property_built?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if both_help
+            :date_of_birth?
+          elsif measure
+            if response == 'benefits'
+              :which_benefits?
+            else
+              :when_property_built?
+            end
+          end
         end
       end
 
@@ -95,9 +116,20 @@ module SmartAnswer
           end
         end
 
-        next_node_if(:which_benefits?) { circumstances.include?('benefits') }
-        next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
-        next_node(:when_property_built?) # Q6
+        permitted_next_nodes = [
+          :which_benefits?,
+          :outcome_help_with_bills,
+          :when_property_built?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if circumstances.include?('benefits')
+            :which_benefits?
+          elsif bills_help
+            :outcome_help_with_bills # outcome 1
+          else
+            :when_property_built? # Q6
+          end
+        end
       end
 
       # Q4
@@ -121,7 +153,7 @@ module SmartAnswer
           end
         end
 
-        define_predicate(:disabled_or_have_children_question?) do |response|
+        next_node_calculation(:disabled_or_have_children_question) do |response|
           response == 'income_support' ||
             response == 'jsa' ||
             response == 'esa' ||
@@ -132,13 +164,26 @@ module SmartAnswer
             %w{child_tax_credit esa jsa pension_credit}.all? {|key| response.include? key}
         end
 
-        on_condition(responded_with('pension_credit') || responded_with('child_tax_credit')) do
-          next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
-          next_node(:when_property_built?) # Q6
+        permitted_next_nodes = [
+          :outcome_help_with_bills,
+          :when_property_built?,
+          :disabled_or_have_children?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if %w{pension_credit child_tax_credit}.include?(response)
+            if bills_help
+              :outcome_help_with_bills # outcome 1
+            else
+              :when_property_built? # Q6
+            end
+          elsif disabled_or_have_children_question
+            :disabled_or_have_children? # Q5
+          elsif bills_help
+            :outcome_help_with_bills # outcome 1
+          else
+            :when_property_built? # Q6
+          end
         end
-        next_node_if(:disabled_or_have_children?, disabled_or_have_children_question?) # Q5
-        next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
-        next_node(:when_property_built?) # Q6
       end
 
       # Q5
@@ -171,8 +216,17 @@ module SmartAnswer
           response != 'none' && benefits_claimed.include?('universal_credit')
         end
 
-        next_node_if(:outcome_help_with_bills) { bills_help } # outcome 1
-        next_node(:when_property_built?) # Q6
+        permitted_next_nodes = [
+          :outcome_help_with_bills,
+          :when_property_built?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if bills_help
+            :outcome_help_with_bills # outcome 1
+          else
+            :when_property_built? # Q6
+          end
+        end
       end
 
       # Q6
@@ -201,12 +255,26 @@ module SmartAnswer
         option :flat
         save_input_as :property_type
 
-        on_condition(responded_with('house')) do
-          next_node_if(:home_features_modern?) { modern }
-          next_node_if(:home_features_older?) { older }
-          next_node(:home_features_historic?)
+        permitted_next_nodes = [
+          :home_features_modern?,
+          :home_features_older?,
+          :home_features_historic?,
+          :type_of_flat?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'house'
+            if modern
+              :home_features_modern?
+            elsif older
+              :home_features_older?
+            else
+              :home_features_historic?
+            end
+          else
+            :type_of_flat?
+          end
         end
-        next_node(:type_of_flat?)
       end
 
       # Q7b
@@ -215,9 +283,20 @@ module SmartAnswer
         option :ground_floor
         save_input_as :flat_type
 
-        next_node_if(:home_features_modern?) { modern }
-        next_node_if(:home_features_older?) { older }
-        next_node(:home_features_historic?)
+        permitted_next_nodes = [
+          :home_features_modern?,
+          :home_features_older?,
+          :home_features_historic?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if modern
+            :home_features_modern?
+          elsif older
+            :home_features_older?
+          else
+            :home_features_historic?
+          end
+        end
       end
 
       # Q8a modern
@@ -231,27 +310,40 @@ module SmartAnswer
           response.split(",")
         end
 
-        define_predicate(:modern_and_gas_and_electric_heating?) do |response|
+        next_node_calculation(:modern_and_gas_and_electric_heating) do |response|
           modern && response.include?('mains_gas') && response.include?('electric_heating')
         end
 
-        define_predicate(:measure_help_and_property_permission_circumstance?) do
+        next_node_calculation(:measure_help_and_property_permission_circumstance) do
           measure_help && (circumstances & %w(property permission)).any?
         end
 
-        define_predicate(:no_benefits?) { circumstances.exclude?('benefits') }
+        next_node_calculation(:no_benefits) { circumstances.exclude?('benefits') }
 
-        define_predicate(:property_permission_circumstance_and_benefits?) do
+        next_node_calculation(:property_permission_circumstance_and_benefits) do
           (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
         end
 
-        next_node_if(:outcome_no_green_deal_no_energy_measures, modern_and_gas_and_electric_heating?)
-        on_condition(measure_help_and_property_permission_circumstance?) do
-          next_node(:outcome_measures_help_green_deal)
+        permitted_next_nodes = [
+          :outcome_no_green_deal_no_energy_measures,
+          :outcome_measures_help_green_deal,
+          :outcome_bills_and_measures_no_benefits,
+          :outcome_bills_and_measures_on_benefits_eco_eligible,
+          :outcome_bills_and_measures_on_benefits_not_eco_eligible
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if modern_and_gas_and_electric_heating
+            :outcome_no_green_deal_no_energy_measures
+          elsif measure_help_and_property_permission_circumstance
+            :outcome_measures_help_green_deal
+          elsif no_benefits
+            :outcome_bills_and_measures_no_benefits
+          elsif property_permission_circumstance_and_benefits
+            :outcome_bills_and_measures_on_benefits_eco_eligible
+          else
+            :outcome_bills_and_measures_on_benefits_not_eco_eligible
+          end
         end
-        next_node_if(:outcome_bills_and_measures_no_benefits, no_benefits?)
-        next_node_if(:outcome_bills_and_measures_on_benefits_eco_eligible, property_permission_circumstance_and_benefits?)
-        next_node(:outcome_bills_and_measures_on_benefits_not_eco_eligible)
       end
 
       # Q8b
@@ -269,22 +361,33 @@ module SmartAnswer
           response.split(",")
         end
 
-        define_predicate(:measure_help_and_property_permission_circumstance?) do
+        next_node_calculation(:measure_help_and_property_permission_circumstance) do
           measure_help && (circumstances & %w(property permission)).any?
         end
 
-        define_predicate(:no_benefits?) { circumstances.exclude?('benefits') }
+        next_node_calculation(:no_benefits) { circumstances.exclude?('benefits') }
 
-        define_predicate(:property_permission_circumstance_and_benefits?) do
+        next_node_calculation(:property_permission_circumstance_and_benefits) do
           (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
         end
 
-        on_condition(measure_help_and_property_permission_circumstance?) do
-          next_node(:outcome_measures_help_green_deal)
+        permitted_next_nodes = [
+          :outcome_measures_help_green_deal,
+          :outcome_bills_and_measures_no_benefits,
+          :outcome_bills_and_measures_on_benefits_eco_eligible,
+          :outcome_bills_and_measures_on_benefits_not_eco_eligible
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if measure_help_and_property_permission_circumstance
+            :outcome_measures_help_green_deal
+          elsif no_benefits
+            :outcome_bills_and_measures_no_benefits
+          elsif property_permission_circumstance_and_benefits
+            :outcome_bills_and_measures_on_benefits_eco_eligible
+          else
+            :outcome_bills_and_measures_on_benefits_not_eco_eligible
+          end
         end
-        next_node_if(:outcome_bills_and_measures_no_benefits, no_benefits?)
-        next_node_if(:outcome_bills_and_measures_on_benefits_eco_eligible, property_permission_circumstance_and_benefits?)
-        next_node(:outcome_bills_and_measures_on_benefits_not_eco_eligible)
       end
 
       # Q8c
@@ -303,22 +406,33 @@ module SmartAnswer
           response.split(",")
         end
 
-        define_predicate(:measure_help_and_property_permission_circumstance?) do
+        next_node_calculation(:measure_help_and_property_permission_circumstance) do
           measure_help && (circumstances & %w(property permission)).any?
         end
 
-        define_predicate(:no_benefits?) { circumstances.exclude?('benefits') }
+        next_node_calculation(:no_benefits) { circumstances.exclude?('benefits') }
 
-        define_predicate(:property_permission_circumstance_and_benefits?) do
+        next_node_calculation(:property_permission_circumstance_and_benefits) do
           (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
         end
 
-        on_condition(measure_help_and_property_permission_circumstance?) do
-          next_node(:outcome_measures_help_green_deal)
+        permitted_next_nodes = [
+          :outcome_measures_help_green_deal,
+          :outcome_bills_and_measures_no_benefits,
+          :outcome_bills_and_measures_on_benefits_eco_eligible,
+          :outcome_bills_and_measures_on_benefits_not_eco_eligible
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if measure_help_and_property_permission_circumstance
+            :outcome_measures_help_green_deal
+          elsif no_benefits
+            :outcome_bills_and_measures_no_benefits
+          elsif property_permission_circumstance_and_benefits
+            :outcome_bills_and_measures_on_benefits_eco_eligible
+          else
+            :outcome_bills_and_measures_on_benefits_not_eco_eligible
+          end
         end
-        next_node_if(:outcome_bills_and_measures_no_benefits, no_benefits?)
-        next_node_if(:outcome_bills_and_measures_on_benefits_eco_eligible, property_permission_circumstance_and_benefits?)
-        next_node(:outcome_bills_and_measures_on_benefits_not_eco_eligible)
       end
 
       outcome :outcome_help_with_bills do
