@@ -56,28 +56,28 @@ module SmartAnswer
       add_node Question::CountrySelect.new(self, name, options, &block)
     end
 
-    def date_question(name, &block)
-      add_node Question::Date.new(self, name, &block)
+    def date_question(name, options = {}, &block)
+      add_node Question::Date.new(self, name, options, &block)
     end
 
     def value_question(name, options = {}, &block)
       add_node Question::Value.new(self, name, options, &block)
     end
 
-    def money_question(name, &block)
-      add_node Question::Money.new(self, name, &block)
+    def money_question(name, options = {}, &block)
+      add_node Question::Money.new(self, name, options, &block)
     end
 
-    def salary_question(name, &block)
-      add_node Question::Salary.new(self, name, &block)
+    def salary_question(name, options = {}, &block)
+      add_node Question::Salary.new(self, name, options, &block)
     end
 
-    def checkbox_question(name, &block)
-      add_node Question::Checkbox.new(self, name, &block)
+    def checkbox_question(name, options = {}, &block)
+      add_node Question::Checkbox.new(self, name, options, &block)
     end
 
-    def postcode_question(name, &block)
-      add_node Question::Postcode.new(self, name, &block)
+    def postcode_question(name, options = {}, &block)
+      add_node Question::Postcode.new(self, name, options, &block)
     end
 
     def outcome(name, &block)
