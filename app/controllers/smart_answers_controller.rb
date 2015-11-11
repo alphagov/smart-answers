@@ -86,11 +86,6 @@ private
         responses: @presenter.current_state.responses,
         protocol:  (request.ssl? || Rails.env.production?) ? 'https' : 'http',
       }
-      if @presenter.current_state.unaccepted_responses
-        @presenter.current_state.unaccepted_responses.each_with_index do |unaccepted_response, index|
-          redirect_params["previous_response_#{index+1}".to_sym] = unaccepted_response.to_s
-        end
-      end
       redirect_to redirect_params
     end
   end
