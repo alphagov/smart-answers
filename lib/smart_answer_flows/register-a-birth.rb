@@ -23,17 +23,28 @@ module SmartAnswer
           country_name_query.definitive_article(registration_country)
         end
 
-        define_predicate :country_has_no_embassy do |response|
+        next_node_calculation :country_has_no_embassy do |response|
           %w(iran syria yemen).include?(response)
         end
 
-        define_predicate :responded_with_commonwealth_country? do |response|
+        next_node_calculation :responded_with_commonwealth_country do |response|
           Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(response)
         end
 
-        next_node_if(:no_embassy_result, country_has_no_embassy)
-        next_node_if(:commonwealth_result, responded_with_commonwealth_country?)
-        next_node(:who_has_british_nationality?)
+        permitted_next_nodes = [
+          :commonwealth_result,
+          :no_embassy_result,
+          :who_has_british_nationality?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if country_has_no_embassy
+            :no_embassy_result
+          elsif responded_with_commonwealth_country
+            :commonwealth_result
+          else
+            :who_has_british_nationality?
+          end
+        end
       end
 
       # Q2
