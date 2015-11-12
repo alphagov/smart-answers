@@ -156,30 +156,6 @@ module SmartAnswer
 
         validate { |response| response <= Date.today }
 
-        next_node_calculation :calc do |response|
-          Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
-        end
-
-        next_node_calculation(:before_state_pension_date) do
-          calc.before_state_pension_date?
-        end
-
-        next_node_calculation(:under_20_years_old) do
-          calc.under_20_years_old?
-        end
-
-        next_node_calculation(:woman_and_born_in_date_range) do
-          calc.woman_born_in_married_stamp_era?
-        end
-
-        next_node_calculation(:over_55) do
-          calc.over_55?
-        end
-
-        next_node_calculation(:new_state_pension) do
-          !(calc.state_pension_date < Date.parse('6 April 2016'))
-        end
-
         permitted_next_nodes = [
           :over55_result,
           :pay_reduced_ni_rate?,
@@ -187,7 +163,14 @@ module SmartAnswer
           :years_paid_ni?,
           :reached_state_pension_age
         ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+          before_state_pension_date = calc.before_state_pension_date?
+          under_20_years_old = calc.under_20_years_old?
+          woman_and_born_in_date_range = calc.woman_born_in_married_stamp_era?
+          over_55 = calc.over_55?
+          new_state_pension = !(calc.state_pension_date < Date.parse('6 April 2016'))
+
           if new_state_pension && over_55
             :over55_result
           elsif woman_and_born_in_date_range
