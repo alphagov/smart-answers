@@ -1,26 +1,28 @@
 <% content_for :body do %>
   ##Statutory Sick Pay (SSP)
 
-  Your employee is entitled to SSP for <%= days_paid %> days out of <%= normal_workdays_out %> working days taken off sick between <%= format_date(sick_start_date) %> and <%= format_date(sick_end_date) %>
+  Your employee is entitled to SSP for <%= days_paid %> days out of <%= normal_workdays_out %> working days taken off sick between <%= format_date(calculator.sick_start_date) %> and <%= format_date(calculator.sick_end_date) %>
 
-  <% unless enough_notice_of_absence %>
+  <% unless calculator.enough_notice_of_absence %>
     You don’t have to pay until your employee tells you that they’re ill. You’ll have to pay any withheld amounts by the end of your employee's entitlement to sick pay if your employee is sick for more than 28 weeks.
   <% end %>
 
 
   Week ending | SSP amount
   -|-
-  <%= formatted_sick_pay_weekly_amounts %>
+  <% calculator.weekly_payments.each do |week_ending, ssp_amount| %>
+    <%= format_date(week_ending) %>|<%= sprintf("£%.2f", ssp_amount) %>
+  <% end %>
    | **Total SSP: <%= format_money(ssp_payment) %>**
 
   ##What you need to know
 
-  <% if paternity_maternity_warning %>
+  <% if calculator.paternity_maternity_warning? %>
     ^ Your employee will not be able to collect Statutory Paternity Pay or Statutory Adoption Pay while collecting Statutory Sick Pay. ^
 
   <% end %>
 
-  SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of <%= pattern_days_total %> days. After that you must give them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of SSP ending. <%= render partial: 'esa.govspeak.erb', locals: {enough_notice_of_absence: enough_notice_of_absence} -%>
+  SSP can be paid for up to 28 weeks of an employee’s normal workdays. For this employee that equals a total of <%= pattern_days_total %> days. After that you must give them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) within 7 days of SSP ending. <%= render partial: 'esa.govspeak.erb', locals: {enough_notice_of_absence: calculator.enough_notice_of_absence} -%>
 
 
   There are also [records you must keep](/sick-leave-pay-employees/entitlement) and rules on [proof of illness](/sick-leave-pay-employees/notice-and-fit-notes) you can ask for.

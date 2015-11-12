@@ -30,7 +30,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "set adoption warning state variable" do
-      assert_state_variable :paternity_maternity_warning, true
+      assert current_state.calculator.paternity_maternity_warning?
     end
     should "take you to Q2" do
       assert_current_node :employee_tell_within_limit? # Q2
@@ -43,7 +43,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "set adoption warning state variable" do
-      assert_state_variable :paternity_maternity_warning, true
+      assert current_state.calculator.paternity_maternity_warning?
     end
 
     should "take you to Q2" do
@@ -101,7 +101,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
 
           add_response '2013-04-04'
@@ -112,19 +112,19 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
           add_response '2013-04-10'
-          assert_state_variable :sick_end_date, Date.parse('10 April 2013')
+          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
           assert_current_node :has_linked_sickness?
           add_response 'no'
           assert_current_node :paid_at_least_8_weeks?
           add_response 'eight_weeks_more'
           assert_current_node :how_often_pay_employee_pay_patterns?
-          assert_state_variable :eight_weeks_earnings, 'eight_weeks_more'
+          assert current_state.calculator.paid_at_least_8_weeks_of_earnings?
           add_response 'weekly'
           assert_current_node :last_payday_before_sickness?
-          assert_state_variable :pay_pattern, 'weekly'
+          assert_equal current_state.calculator.pay_pattern, 'weekly'
           add_response '2013-03-31'
           assert_current_node :last_payday_before_offset?
           add_response '2013-01-31'
@@ -139,20 +139,20 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
 
           add_response '2013-04-10'
-          assert_state_variable :sick_end_date, Date.parse('10 April 2013')
+          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
           assert_current_node :has_linked_sickness?
           add_response 'no'
           assert_current_node :paid_at_least_8_weeks?
           add_response 'eight_weeks_more'
           assert_current_node :how_often_pay_employee_pay_patterns?
-          assert_state_variable :eight_weeks_earnings, 'eight_weeks_more'
+          assert current_state.calculator.paid_at_least_8_weeks_of_earnings?
           add_response 'weekly'
           assert_current_node :last_payday_before_sickness?
-          assert_state_variable :pay_pattern, 'weekly'
+          assert_equal current_state.calculator.pay_pattern, 'weekly'
           add_response '2013-03-31'
           assert_current_node :last_payday_before_offset?
           add_response '2013-01-31'
@@ -167,10 +167,10 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
           add_response '2013-04-10'
-          assert_state_variable :sick_end_date, Date.parse('10 April 2013')
+          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
           assert_current_node :has_linked_sickness?
           add_response 'yes'
           assert_current_node :linked_sickness_start_date?
@@ -194,10 +194,10 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
           add_response '2013-04-10'
-          assert_state_variable :sick_end_date, Date.parse('10 April 2013')
+          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
           assert_current_node :has_linked_sickness?
           add_response 'no'
           assert_current_node :paid_at_least_8_weeks?
@@ -217,10 +217,10 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
           add_response '2013-04-10'
-          assert_state_variable :sick_end_date, Date.parse('10 April 2013')
+          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
           assert_current_node :has_linked_sickness?
           add_response 'yes'
           assert_current_node :linked_sickness_start_date?
@@ -242,10 +242,10 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
           add_response :no
           assert_current_node :first_sick_day? # Q4
           add_response '2013-04-02'
-          assert_state_variable :sick_start_date, Date.parse(' 2 April 2013')
+          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
           assert_current_node :last_sick_day? # Q5
           add_response '2013-04-10'
-          assert_state_variable :sick_end_date, Date.parse('10 April 2013')
+          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
           assert_current_node :has_linked_sickness?
           add_response 'no'
           assert_current_node :paid_at_least_8_weeks?
@@ -277,7 +277,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response '1,2,3,4,5' # Q13
     end
     should "take you to result A5 as awe < LEL (as of 2013-06-10)" do
-      assert_state_variable :employee_average_weekly_earnings, 100
+      assert_equal current_state.calculator.employee_average_weekly_earnings, 100
       assert_current_node :not_earned_enough
     end
   end
@@ -375,24 +375,24 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response "3,6"
 
       assert_current_node :entitled_to_sick_pay
-      assert_state_variable :formatted_sick_pay_weekly_amounts,
-                            ["12 January 2013|£42.93",
-                             "19 January 2013|£85.85",
-                             "26 January 2013|£85.85",
-                             " 2 February 2013|£85.85",
-                             " 9 February 2013|£85.85",
-                             "16 February 2013|£85.85",
-                             "23 February 2013|£85.85",
-                             " 2 March 2013|£85.85",
-                             " 9 March 2013|£85.85",
-                             "16 March 2013|£85.85",
-                             "23 March 2013|£85.85",
-                             "30 March 2013|£85.85",
-                             " 6 April 2013|£86.28",
-                             "13 April 2013|£86.70",
-                             "20 April 2013|£86.70",
-                             "27 April 2013|£86.70",
-                             " 4 May 2013|£43.35"].join("\n")
+      assert_equal current_state.calculator.weekly_payments,
+                            [[Date.parse("12 January 2013"), 42.93],
+                             [Date.parse("19 January 2013"), 85.85],
+                             [Date.parse("26 January 2013"), 85.85],
+                             [Date.parse(" 2 February 2013"), 85.85],
+                             [Date.parse(" 9 February 2013"), 85.85],
+                             [Date.parse("16 February 2013"), 85.85],
+                             [Date.parse("23 February 2013"), 85.85],
+                             [Date.parse(" 2 March 2013"), 85.85],
+                             [Date.parse(" 9 March 2013"), 85.85],
+                             [Date.parse("16 March 2013"), 85.85],
+                             [Date.parse("23 March 2013"), 85.85],
+                             [Date.parse("30 March 2013"), 85.85],
+                             [Date.parse(" 6 April 2013"), 86.28],
+                             [Date.parse("13 April 2013"), 86.70],
+                             [Date.parse("20 April 2013"), 86.70],
+                             [Date.parse("27 April 2013"), 86.70],
+                             [Date.parse(" 4 May 2013"), 43.35]]
     end
 
     should "have consistent rates for all weekly rates that are produced" do
@@ -412,24 +412,24 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response "2,3,4"
 
       assert_current_node :entitled_to_sick_pay
-      assert_state_variable :formatted_sick_pay_weekly_amounts,
-                            ["12 January 2013|£85.85",
-                             "19 January 2013|£85.85",
-                             "26 January 2013|£85.85",
-                             " 2 February 2013|£85.85",
-                             " 9 February 2013|£85.85",
-                             "16 February 2013|£85.85",
-                             "23 February 2013|£85.85",
-                             " 2 March 2013|£85.85",
-                             " 9 March 2013|£85.85",
-                             "16 March 2013|£85.85",
-                             "23 March 2013|£85.85",
-                             "30 March 2013|£85.85",
-                             " 6 April 2013|£85.85",
-                             "13 April 2013|£86.70",
-                             "20 April 2013|£86.70",
-                             "27 April 2013|£86.70",
-                             " 4 May 2013|£86.70"].join("\n")
+      assert_equal current_state.calculator.weekly_payments,
+                            [[Date.parse("12 January 2013"), 85.85],
+                             [Date.parse("19 January 2013"), 85.85],
+                             [Date.parse("26 January 2013"), 85.85],
+                             [Date.parse(" 2 February 2013"), 85.85],
+                             [Date.parse(" 9 February 2013"), 85.85],
+                             [Date.parse("16 February 2013"), 85.85],
+                             [Date.parse("23 February 2013"), 85.85],
+                             [Date.parse(" 2 March 2013"), 85.85],
+                             [Date.parse(" 9 March 2013"), 85.85],
+                             [Date.parse("16 March 2013"), 85.85],
+                             [Date.parse("23 March 2013"), 85.85],
+                             [Date.parse("30 March 2013"), 85.85],
+                             [Date.parse(" 6 April 2013"), 85.85],
+                             [Date.parse("13 April 2013"), 86.70],
+                             [Date.parse("20 April 2013"), 86.70],
+                             [Date.parse("27 April 2013"), 86.70],
+                             [Date.parse(" 4 May 2013"), 86.70]]
     end
 
     should "show formatted weekly payment amounts with adjusted 3 days start amount for ordinary SPP" do
@@ -447,24 +447,24 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response "1,2,3,4"
 
       assert_current_node :entitled_to_sick_pay
-      assert_state_variable :formatted_sick_pay_weekly_amounts,
-                            ["12 January 2013|£21.47",
-                             "19 January 2013|£85.85",
-                             "26 January 2013|£85.85",
-                             " 2 February 2013|£85.85",
-                             " 9 February 2013|£85.85",
-                             "16 February 2013|£85.85",
-                             "23 February 2013|£85.85",
-                             " 2 March 2013|£85.85",
-                             " 9 March 2013|£85.85",
-                             "16 March 2013|£85.85",
-                             "23 March 2013|£85.85",
-                             "30 March 2013|£85.85",
-                             " 6 April 2013|£85.85",
-                             "13 April 2013|£86.70",
-                             "20 April 2013|£86.70",
-                             "27 April 2013|£86.70",
-                             " 4 May 2013|£86.70"].join("\n")
+      assert_equal current_state.calculator.weekly_payments,
+                            [[Date.parse("12 January 2013"), 21.47],
+                             [Date.parse("19 January 2013"), 85.85],
+                             [Date.parse("26 January 2013"), 85.85],
+                             [Date.parse(" 2 February 2013"), 85.85],
+                             [Date.parse(" 9 February 2013"), 85.85],
+                             [Date.parse("16 February 2013"), 85.85],
+                             [Date.parse("23 February 2013"), 85.85],
+                             [Date.parse(" 2 March 2013"), 85.85],
+                             [Date.parse(" 9 March 2013"), 85.85],
+                             [Date.parse("16 March 2013"), 85.85],
+                             [Date.parse("23 March 2013"), 85.85],
+                             [Date.parse("30 March 2013"), 85.85],
+                             [Date.parse(" 6 April 2013"), 85.85],
+                             [Date.parse("13 April 2013"), 86.70],
+                             [Date.parse("20 April 2013"), 86.70],
+                             [Date.parse("27 April 2013"), 86.70],
+                             [Date.parse(" 4 May 2013"), 86.70]]
 
     end
 
@@ -483,24 +483,24 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response "1,2,3,4"
 
       assert_current_node :entitled_to_sick_pay
-      assert_state_variable :formatted_sick_pay_weekly_amounts,
-                            ["12 January 2013|£21.47",
-                             "19 January 2013|£85.85",
-                             "26 January 2013|£85.85",
-                             " 2 February 2013|£85.85",
-                             " 9 February 2013|£85.85",
-                             "16 February 2013|£85.85",
-                             "23 February 2013|£85.85",
-                             " 2 March 2013|£85.85",
-                             " 9 March 2013|£85.85",
-                             "16 March 2013|£85.85",
-                             "23 March 2013|£85.85",
-                             "30 March 2013|£85.85",
-                             " 6 April 2013|£85.85",
-                             "13 April 2013|£86.70",
-                             "20 April 2013|£86.70",
-                             "27 April 2013|£86.70",
-                             " 4 May 2013|£86.70"].join("\n")
+      assert_equal current_state.calculator.weekly_payments,
+                            [[Date.parse("12 January 2013"), 21.47],
+                             [Date.parse("19 January 2013"), 85.85],
+                             [Date.parse("26 January 2013"), 85.85],
+                             [Date.parse(" 2 February 2013"), 85.85],
+                             [Date.parse(" 9 February 2013"), 85.85],
+                             [Date.parse("16 February 2013"), 85.85],
+                             [Date.parse("23 February 2013"), 85.85],
+                             [Date.parse(" 2 March 2013"), 85.85],
+                             [Date.parse(" 9 March 2013"), 85.85],
+                             [Date.parse("16 March 2013"), 85.85],
+                             [Date.parse("23 March 2013"), 85.85],
+                             [Date.parse("30 March 2013"), 85.85],
+                             [Date.parse(" 6 April 2013"), 85.85],
+                             [Date.parse("13 April 2013"), 86.70],
+                             [Date.parse("20 April 2013"), 86.70],
+                             [Date.parse("27 April 2013"), 86.70],
+                             [Date.parse(" 4 May 2013"), 86.70]]
 
     end
   end
