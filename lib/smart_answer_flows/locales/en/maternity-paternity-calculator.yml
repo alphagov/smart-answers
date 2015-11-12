@@ -66,6 +66,7 @@ en-GB:
         title: When is your employee’s next pay day on or after %{pay_start_date}?
       ## QM9
       when_in_the_month_is_the_employee_paid?:
+        title: When in the month is the employee paid?
         hint: If the pay date is the 29th, 30th or 31st choose 'Last working day of the month'.
         options:
           "first_day_of_the_month": First day of the month
