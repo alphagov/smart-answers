@@ -139,12 +139,21 @@ module SmartAnswer
           country_name_query.definitive_article(current_location)
         end
 
-        define_predicate(:currently_in_north_korea) {
+        next_node_calculation(:currently_in_north_korea) {
           response == 'north-korea'
         }
 
-        next_node_if(:north_korea_result, currently_in_north_korea)
-        next_node(:oru_result)
+        permitted_next_nodes = [
+          :north_korea_result,
+          :oru_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if currently_in_north_korea
+            :north_korea_result
+          else
+            :oru_result
+          end
+        end
       end
 
       outcome :commonwealth_result
