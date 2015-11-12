@@ -89,10 +89,10 @@ module SmartAnswer
     end
 
     test "Interpolated phrase lists are localized and interpreted as govspeak" do
-      outcome = Outcome.new(nil, :outcome_with_interpolated_phrase_list)
-      state = State.new(outcome.name)
+      question = Question::Base.new(nil, :question_with_interpolated_phrase_list)
+      state = State.new(question.name)
       state.phrases = PhraseList.new(:one, :two, :three)
-      presenter = QuestionPresenter.new("flow.test", outcome, state)
+      presenter = QuestionPresenter.new("flow.test", question, state)
 
       assert_match Regexp.new("<p>Here are the phrases:</p>
 
@@ -105,10 +105,10 @@ module SmartAnswer
     end
 
     test "Phrase lists notify developers and fallback gracefully when no translation can be found" do
-      outcome = Outcome.new(nil, :outcome_with_interpolated_phrase_list)
-      state = State.new(outcome.name)
+      question = Question::Base.new(nil, :question_with_interpolated_phrase_list)
+      state = State.new(question.name)
       state.phrases = PhraseList.new(:four, :one, :two, :three)
-      presenter = QuestionPresenter.new("flow.test", outcome, state)
+      presenter = QuestionPresenter.new("flow.test", question, state)
 
       Rails.logger.expects(:warn).with("[Missing phrase] The phrase being rendered is not present: flow.test.phrases.four\tResponses: ").once
 
