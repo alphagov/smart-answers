@@ -71,17 +71,28 @@ module SmartAnswer
           current_location_name_lowercase_prefix
         end
 
-        define_predicate :country_has_no_embassy do |response|
+        next_node_calculation :country_has_no_embassy do |response|
           %w(iran syria yemen).include?(response)
         end
 
-        define_predicate :responded_with_commonwealth_country? do |response|
+        next_node_calculation :responded_with_commonwealth_country do |response|
           Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(response)
         end
 
-        next_node_if(:commonwealth_result, responded_with_commonwealth_country?)
-        next_node_if(:no_embassy_result, country_has_no_embassy)
-        next_node(:where_are_you_now?)
+        permitted_next_nodes = [
+          :commonwealth_result,
+          :no_embassy_result,
+          :where_are_you_now?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if responded_with_commonwealth_country
+            :commonwealth_result
+          elsif country_has_no_embassy
+            :no_embassy_result
+          else
+            :where_are_you_now?
+          end
+        end
       end
 
       # Q5
