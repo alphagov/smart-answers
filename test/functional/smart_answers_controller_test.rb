@@ -55,6 +55,11 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
     load_path = fixture_file('smart_answer_flows')
     SmartAnswer::FlowRegistry.stubs(:instance).returns(stub("Flow registry", find: @flow, load_path: load_path))
+    use_additional_translation_file(fixture_file('smart_answer_flows/locales/en/smart-answers-controller-sample.yml'))
+  end
+
+  def teardown
+    reset_translation_files
   end
 
   def submit_response(response = nil, other_params = {})
