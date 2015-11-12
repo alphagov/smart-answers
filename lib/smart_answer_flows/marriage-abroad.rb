@@ -134,9 +134,20 @@ module SmartAnswer
         option :pacs
         save_input_as :marriage_or_pacs
 
-        next_node_if(:outcome_monaco, variable_matches(:ceremony_country, "monaco"))
-        next_node_if(:outcome_os_france_or_fot, responded_with('marriage'))
-        next_node(:outcome_cp_france_pacs)
+        permitted_next_nodes = [
+          :outcome_cp_france_pacs,
+          :outcome_monaco,
+          :outcome_os_france_or_fot
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if ceremony_country == 'monaco'
+            :outcome_monaco
+          elsif response == 'marriage'
+            :outcome_os_france_or_fot
+          else
+            :outcome_cp_france_pacs
+          end
+        end
       end
 
       # Q4
