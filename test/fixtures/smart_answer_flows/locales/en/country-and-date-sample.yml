@@ -1,4 +1,9 @@
 en-GB:
   flow:
     country-and-date-sample:
-
+      which_country_do_you_live_in?:
+        title: "Which country do you live in?"
+      what_date_did_you_move_there?:
+        title: "What date did you move there?"
+      which_country_were_you_born_in?:
+        title: "Which country were you born in?"
