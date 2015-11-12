@@ -132,20 +132,31 @@ module SmartAnswer
           response == 'in_the_uk'
         end
 
-        define_predicate(:no_birth_certificate_exception) {
+        next_node_calculation(:no_birth_certificate_exception) {
           reg_data_query.has_birth_registration_exception?(country_of_birth) & paternity_declaration
         }
 
-        define_predicate(:born_in_north_korea) {
+        next_node_calculation(:born_in_north_korea) {
           country_of_birth == 'north-korea'
         }
 
-        next_node_if(:no_birth_certificate_result, no_birth_certificate_exception)
-        next_node_if(:which_country?, responded_with('another_country'))
-        on_condition(responded_with('same_country')) do
-          next_node_if(:north_korea_result, born_in_north_korea)
+        permitted_next_nodes = [
+          :no_birth_certificate_result,
+          :north_korea_result,
+          :oru_result,
+          :which_country?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if no_birth_certificate_exception
+            :no_birth_certificate_result
+          elsif response == 'another_country'
+            :which_country?
+          elsif response == 'same_country' && born_in_north_korea
+            :north_korea_result
+          else
+            :oru_result
+          end
         end
-        next_node(:oru_result)
       end
 
       # Q6
