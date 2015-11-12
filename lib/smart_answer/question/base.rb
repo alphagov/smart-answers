@@ -12,6 +12,7 @@ module SmartAnswer
         @permitted_next_nodes = []
         @predicate_stack = []
         @predicates = {}
+        @use_erb_template = options[:use_erb_template]
         super
       end
 
@@ -124,6 +125,10 @@ module SmartAnswer
 
       def question?
         true
+      end
+
+      def use_erb_template?
+        @use_erb_template
       end
 
     private

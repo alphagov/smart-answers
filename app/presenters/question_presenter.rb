@@ -6,17 +6,32 @@ class QuestionPresenter < NodePresenter
     :translate_option
   ] => :@renderer
 
+  delegate :use_erb_template? => :@node
+
   def initialize(i18n_prefix, node, state = nil, options = {})
     super(i18n_prefix, node, state)
-    @renderer = options[:renderer] || SmartAnswer::I18nRenderer.new(
-      i18n_prefix: @i18n_prefix,
-      node: @node,
-      state: @state
-    )
+    @renderer = options[:renderer]
+    if use_erb_template?
+      @renderer ||=  SmartAnswer::ErbRenderer.new(
+        template_directory: @node.template_directory.join('questions'),
+        template_name: @node.name.to_s,
+        locals: @state.to_hash
+      )
+    else
+      @renderer ||= SmartAnswer::I18nRenderer.new(
+        i18n_prefix: @i18n_prefix,
+        node: @node,
+        state: @state
+      )
+    end
   end
 
   def title
-    translate!('title', rescue_exception: false)
+    if use_erb_template?
+      @renderer.single_line_of_content_for(:title)
+    else
+      translate!('title', rescue_exception: false)
+    end
   end
 
   def error
@@ -26,19 +41,36 @@ class QuestionPresenter < NodePresenter
   end
 
   def error_message_for(key)
-    translate!(key)
+    if use_erb_template?
+      message = @renderer.single_line_of_content_for(key.to_sym)
+      message.blank? ? nil : message
+    else
+      translate!(key)
+    end
   end
 
   def hint
-    translate!('hint')
+    if use_erb_template?
+      @renderer.single_line_of_content_for(:hint)
+    else
+      translate!('hint')
+    end
   end
 
   def label
-    translate!('label')
+    if use_erb_template?
+      @renderer.single_line_of_content_for(:label)
+    else
+      translate!('label')
+    end
   end
 
   def suffix_label
-    translate!('suffix_label')
+    if use_erb_template?
+      @renderer.single_line_of_content_for(:suffix_label)
+    else
+      translate!('suffix_label')
+    end
   end
 
   def has_labels?
@@ -46,21 +78,33 @@ class QuestionPresenter < NodePresenter
   end
 
   def body(html: true)
-    translate_and_render('body', html: html)
+    if use_erb_template?
+      @renderer.content_for(:body, html: html)
+    else
+      translate_and_render('body', html: html)
+    end
   end
 
   def post_body
-    translate_and_render('post_body', html: true)
+    if use_erb_template?
+      @renderer.content_for(:post_body, html: true)
+    else
+      translate_and_render('post_body', html: true)
+    end
   end
 
   def options
     @node.options.map do |option|
-      OpenStruct.new(label: translate_option(option), value: option)
+      OpenStruct.new(label: render_option(option), value: option)
     end
   end
 
   def render_option(key)
-    translate_option(key)
+    if use_erb_template?
+      @renderer.option_text(key.to_sym)
+    else
+      translate_option(key)
+    end
   end
 
   def to_response(input)
