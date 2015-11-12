@@ -1,10 +1,6 @@
 en-GB:
   flow:
     graph:
-      options:
-        "no": "No"
-        "yes": "Yes"
-
       q1?:
         title: "What is the answer to q1?"
 
