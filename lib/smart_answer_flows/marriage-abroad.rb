@@ -88,10 +88,23 @@ module SmartAnswer
           end
         end
 
-        next_node_if(:partner_opposite_or_same_sex?, responded_with('ireland'))
-        next_node_if(:marriage_or_pacs?, responded_with(%w(france monaco new-caledonia wallis-and-futuna)))
-        next_node_if(:outcome_os_france_or_fot, ->(response) { data_query.french_overseas_territories?(response)})
-        next_node(:legal_residency?)
+        permitted_next_nodes = [
+          :legal_residency?,
+          :marriage_or_pacs?,
+          :outcome_os_france_or_fot,
+          :partner_opposite_or_same_sex?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'ireland'
+            :partner_opposite_or_same_sex?
+          elsif %w(france monaco new-caledonia wallis-and-futuna).include?(response)
+            :marriage_or_pacs?
+          elsif data_query.french_overseas_territories?(response)
+            :outcome_os_france_or_fot
+          else
+            :legal_residency?
+          end
+        end
       end
 
       # Q2
