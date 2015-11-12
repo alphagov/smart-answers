@@ -40,8 +40,17 @@ module SmartAnswer
         option :male
         option :female
 
-        next_node_if(:dob_age?, variable_matches(:relevant_calculation, "age"))
-        next_node :dob_amount?
+        permitted_next_nodes = [
+          :dob_age?,
+          :dob_amount?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if relevant_calculation == 'age'
+            :dob_age?
+          else
+            :dob_amount?
+          end
+        end
       end
 
       # Q3:Age
@@ -78,21 +87,34 @@ module SmartAnswer
           calculator.ni_years_to_date_from_dob
         end
 
-        define_predicate(:near_pension_date?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+        next_node_calculation :calc do |response|
+          Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+        end
+
+        next_node_calculation(:near_pension_date) do
           calc.before_state_pension_date? and calc.within_four_months_one_day_from_state_pension?
         end
 
-        define_predicate(:under_20_years_old?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+        next_node_calculation(:under_20_years_old) do
           calc.under_20_years_old?
         end
 
         validate { |response| response <= Date.today }
 
-        next_node_if(:too_young, under_20_years_old?)
-        next_node_if(:near_state_pension_age, near_pension_date?)
-        next_node(:age_result)
+        permitted_next_nodes = [
+          :too_young,
+          :near_state_pension_age,
+          :age_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if under_20_years_old
+            :too_young
+          elsif near_pension_date
+            :near_state_pension_age
+          else
+            :age_result
+          end
+        end
       end
 
       date_question :dob_bus_pass? do
@@ -142,41 +164,52 @@ module SmartAnswer
 
         validate { |response| response <= Date.today }
 
-        define_predicate(:before_state_pension_date?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+        next_node_calculation :calc do |response|
+          Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+        end
+
+        next_node_calculation(:before_state_pension_date) do
           calc.before_state_pension_date?
         end
 
-        define_predicate(:under_20_years_old?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+        next_node_calculation(:under_20_years_old) do
           calc.under_20_years_old?
         end
 
-        define_predicate(:woman_and_born_in_date_range?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+        next_node_calculation(:woman_and_born_in_date_range) do
           calc.woman_born_in_married_stamp_era?
         end
 
-        define_predicate(:over_55?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+        next_node_calculation(:over_55) do
           calc.over_55?
         end
 
-        define_predicate(:new_state_pension?) do |response|
-          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+        next_node_calculation(:new_state_pension) do
           !(calc.state_pension_date < Date.parse('6 April 2016'))
         end
 
-        on_condition(new_state_pension?) do
-          next_node_if(:over55_result, over_55?)
+        permitted_next_nodes = [
+          :over55_result,
+          :pay_reduced_ni_rate?,
+          :too_young,
+          :years_paid_ni?,
+          :reached_state_pension_age
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if new_state_pension && over_55
+            :over55_result
+          elsif woman_and_born_in_date_range
+            :pay_reduced_ni_rate?
+          elsif before_state_pension_date
+            if under_20_years_old
+              :too_young
+            else
+              :years_paid_ni?
+            end
+          else
+            :reached_state_pension_age
+          end
         end
-
-        next_node_if(:pay_reduced_ni_rate?, woman_and_born_in_date_range?)
-        on_condition(before_state_pension_date?) do
-          next_node_if(:too_young, under_20_years_old?)
-          next_node :years_paid_ni?
-        end
-        next_node :reached_state_pension_age
       end
 
       # Q3a
@@ -185,19 +218,30 @@ module SmartAnswer
         option :no
         save_input_as :pays_reduced_ni_rate
 
-        define_predicate(:before_state_pension_date?) {
+        next_node_calculation(:before_state_pension_date) {
           calculator.before_state_pension_date?
         }
 
-        define_predicate(:under_20_years_old?) {
+        next_node_calculation(:under_20_years_old) {
           calculator.under_20_years_old?
         }
 
-        on_condition(before_state_pension_date?) do
-          next_node_if(:too_young, under_20_years_old?)
-          next_node :years_paid_ni?
+        permitted_next_nodes = [
+          :too_young,
+          :years_paid_ni?,
+          :reached_state_pension_age
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if before_state_pension_date
+            if under_20_years_old
+              :too_young
+            else
+              :years_paid_ni?
+            end
+          else
+            :reached_state_pension_age
+          end
         end
-        next_node :reached_state_pension_age
       end
 
       # Q4
@@ -233,18 +277,29 @@ module SmartAnswer
           ni_years_to_date_from_dob - response
         end
 
-        define_predicate(:enough_years_credits_or_no_more_years?) do |response|
+        next_node_calculation(:enough_years_credits_or_no_more_years) do |response|
           (calculator.enough_qualifying_years_and_credits?(response) && old_state_pension) ||
             (calculator.no_more_available_years?(response) && calculator.three_year_credit_age?)
         end
 
-        define_predicate(:no_more_available_years?) do |response|
+        next_node_calculation(:no_more_available_years) do |response|
           calculator.no_more_available_years?(response)
         end
 
-        next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
-        next_node_if(:years_of_work?, no_more_available_years?)
-        next_node :years_of_jsa?
+        permitted_next_nodes = [
+          :amount_result,
+          :years_of_work?,
+          :years_of_jsa?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if enough_years_credits_or_no_more_years
+            :amount_result
+          elsif no_more_available_years
+            :years_of_work?
+          else
+            :years_of_jsa?
+          end
+        end
       end
 
       # Q5
@@ -279,18 +334,29 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:enough_years_credits_or_no_more_years?) {
+        next_node_calculation(:enough_years_credits_or_no_more_years) {
           (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
             (calculator.no_more_available_years?(ni) && calculator.three_year_credit_age?)
         }
 
-        define_predicate(:no_more_available_years?) {
+        next_node_calculation(:no_more_available_years) {
           calculator.no_more_available_years?(ni)
         }
 
-        next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
-        next_node_if(:years_of_work?, no_more_available_years?)
-        next_node :received_child_benefit?
+        permitted_next_nodes = [
+          :amount_result,
+          :years_of_work?,
+          :received_child_benefit?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if enough_years_credits_or_no_more_years
+            :amount_result
+          elsif no_more_available_years
+            :years_of_work?
+          else
+            :received_child_benefit?
+          end
+        end
       end
 
       ## Q6
@@ -302,22 +368,36 @@ module SmartAnswer
           ni_years_to_date_from_dob
         end
 
-        define_predicate(:automatic_ni?) {
+        next_node_calculation(:automatic_ni) {
           calculator.automatic_ni_age_group?
         }
 
-        define_predicate(:new_rules_and_less_than_10_ni?) {
+        next_node_calculation(:new_rules_and_less_than_10_ni) {
           ni_and_credits = ni + calculator.starting_credits
           calculator.new_rules_and_less_than_10_ni?(ni_and_credits) && !calculator.credit_band
         }
 
-        define_predicate(:credit_age?) { calculator.credit_age? }
+        next_node_calculation(:credit_age) { calculator.credit_age? }
 
-        next_node_if(:years_of_benefit?, responded_with("yes"))
-        next_node_if(:years_of_work?, credit_age?)
-        next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
-        next_node_if(:amount_result, automatic_ni?)
-        next_node :years_of_work?
+        permitted_next_nodes = [
+          :years_of_benefit?,
+          :years_of_work?,
+          :lived_or_worked_outside_uk?,
+          :amount_result
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'yes'
+            :years_of_benefit?
+          elsif credit_age
+            :years_of_work?
+          elsif new_rules_and_less_than_10_ni
+            :lived_or_worked_outside_uk?
+          elsif automatic_ni
+            :amount_result
+          else
+            :years_of_work?
+          end
+        end
       end
 
       ## Q7
@@ -350,18 +430,29 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:enough_years_credits_or_no_more_years?) {
+        next_node_calculation(:enough_years_credits_or_no_more_years) {
           (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
             (calculator.no_more_available_years?(ni) && calculator.three_year_credit_age?)
         }
 
-        define_predicate(:no_more_available_years?) {
+        next_node_calculation(:no_more_available_years) {
           calculator.no_more_available_years?(ni)
         }
 
-        next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
-        next_node_if(:years_of_work?, no_more_available_years?)
-        next_node :years_of_caring?
+        permitted_next_nodes = [
+          :amount_result,
+          :years_of_work?,
+          :years_of_caring?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if enough_years_credits_or_no_more_years
+            :amount_result
+          elsif no_more_available_years
+            :years_of_work?
+          else
+            :years_of_caring?
+          end
+        end
       end
 
       ## Q8
@@ -397,18 +488,29 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:enough_years_credits_or_no_more_years?) {
+        next_node_calculation(:enough_years_credits_or_no_more_years) {
           (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
             (calculator.no_more_available_years?(ni) && calculator.three_year_credit_age?)
         }
 
-        define_predicate(:no_more_available_years?) {
+        next_node_calculation(:no_more_available_years) {
           calculator.no_more_available_years?(ni)
         }
 
-        next_node_if(:amount_result, enough_years_credits_or_no_more_years?)
-        next_node_if(:years_of_work?, no_more_available_years?)
-        next_node :years_of_carers_allowance?
+        permitted_next_nodes = [
+          :amount_result,
+          :years_of_work?,
+          :years_of_carers_allowance?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if enough_years_credits_or_no_more_years
+            :amount_result
+          elsif no_more_available_years
+            :years_of_work?
+          else
+            :years_of_carers_allowance?
+          end
+        end
       end
 
       ## Q9
@@ -428,21 +530,33 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:enough_years_credits_or_three_year_credit?) {
+        next_node_calculation(:enough_years_credits_or_three_year_credit) {
           (calculator.enough_qualifying_years_and_credits?(ni) && old_state_pension) ||
             calculator.three_year_credit_age?
         }
 
-        define_predicate(:new_rules_and_less_than_10_ni?) {
+        next_node_calculation(:new_rules_and_less_than_10_ni) {
           calculator.new_rules_and_less_than_10_ni? ni
         }
 
-        define_predicate(:credit_age?) { calculator.credit_age? }
+        next_node_calculation(:credit_age) { calculator.credit_age? }
 
-        next_node_if(:years_of_work?, credit_age?)
-        next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
-        next_node_if(:amount_result, enough_years_credits_or_three_year_credit?)
-        next_node :years_of_work?
+        permitted_next_nodes = [
+          :years_of_work?,
+          :lived_or_worked_outside_uk?,
+          :amount_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if credit_age
+            :years_of_work?
+          elsif new_rules_and_less_than_10_ni
+            :lived_or_worked_outside_uk?
+          elsif enough_years_credits_or_three_year_credit
+            :amount_result
+          else
+            :years_of_work?
+          end
+        end
       end
 
       ## Q10
@@ -464,12 +578,21 @@ module SmartAnswer
           response + qualifying_years
         end
 
-        define_predicate(:new_rules_and_less_than_10_ni?) {
+        next_node_calculation(:new_rules_and_less_than_10_ni) {
           calculator.new_rules_and_less_than_10_ni? ni
         }
 
-        next_node_if(:lived_or_worked_outside_uk?, new_rules_and_less_than_10_ni?)
-        next_node :amount_result
+        permitted_next_nodes = [
+          :lived_or_worked_outside_uk?,
+          :amount_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if new_rules_and_less_than_10_ni
+            :lived_or_worked_outside_uk?
+          else
+            :amount_result
+          end
+        end
       end
 
       ## Q11

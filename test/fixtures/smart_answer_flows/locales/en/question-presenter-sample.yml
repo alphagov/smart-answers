@@ -26,8 +26,8 @@ en-GB:
       question_with_post_body:
         post_body: post body for question
       question_with_no_post_body:
-      outcome_with_interpolated_phrase_list:
-        title: "All done"
+      question_with_interpolated_phrase_list:
+        title: "Question with interpolated phrase list"
         body: |
           Here are the phrases:
 

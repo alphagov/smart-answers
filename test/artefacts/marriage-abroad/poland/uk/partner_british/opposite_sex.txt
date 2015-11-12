@@ -8,13 +8,23 @@ Contact the [Embassy of Poland](/government/publications/foreign-embassies-in-th
 
 You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
 
+Contact the local registry office in Poland to find out if they accept UK-issued CNIs. If they don’t, you’ll need to get a locally-issued one.
+
+### Get a UK-issued CNI
+
 You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
 
 ^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire. Check with your local register office to find out how long a CNI is valid if you live in the Channel Islands or the Isle of Man. You should also check with the local authorities in Poland to find out how long a CNI is valid under local law.^
 
+###Get a locally-issued CNI
+
+If the local registry office in Poland doesn’t accept UK-issued CNIs, you must make an appointment at the British embassy in Warsaw to get a locally-issued CNI.
+
+[Make an appointment at the embassy in Warsaw.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-warsaw/certificate-of-no-impediment/slot_picker)
+
 ###Legalisation and translation
 
-You should check with the local authorities in Poland to see if your CNI needs to be:
+You must check with the local authorities in Poland to see if your UK-issued CNI needs to be:
 
 - ‘[legalised](/get-document-legalised)’ (certified as genuine)
 - translated - [find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
@@ -22,6 +32,12 @@ You should check with the local authorities in Poland to see if your CNI needs t
 You should also check with the local authorities in Poland to find out if you need to provide legalised and translated copies of any other documents.
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+
+## What happens next
+
+If you’re getting married in a registry office, you must give them your CNI at least 2 months before your wedding. If you’re getting married in a church, you can do this 2 days before the wedding.
+
+You may be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
 
 ##Fees
 

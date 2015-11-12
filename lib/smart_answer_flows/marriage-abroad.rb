@@ -183,6 +183,7 @@ module SmartAnswer
           next_node_if(:outcome_consular_cni_os_residing_in_third_country, marriage_in_norway_third_country)
           next_node_if(:outcome_os_italy, marriage_in_italy)
           next_node_if(:outcome_os_local_japan, os_marriage_with_local_in_japan)
+          next_node_if(:outcome_os_cambodia, variable_matches(:ceremony_country, 'cambodia'))
           next_node_if(:outcome_os_colombia, variable_matches(:ceremony_country, "colombia"))
           next_node_if(:outcome_os_kosovo, variable_matches(:ceremony_country, "kosovo"))
           next_node_if(:outcome_os_indonesia, variable_matches(:ceremony_country, "indonesia"))
@@ -284,6 +285,8 @@ module SmartAnswer
       outcome :outcome_os_kosovo
 
       outcome :outcome_brazil_not_living_in_the_uk
+
+      outcome :outcome_os_cambodia
 
       outcome :outcome_os_colombia
 

@@ -52,8 +52,18 @@ module SmartAnswer
           Calculators::ChildMaintenanceCalculator.new(number_of_children, benefits, paying_or_receiving)
         end
 
-        next_node_if(:how_many_nights_children_stay_with_payee?, responded_with('yes'))
-        next_node :gross_income_of_payee?
+        permitted_next_nodes = [
+          :how_many_nights_children_stay_with_payee?,
+          :gross_income_of_payee?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :how_many_nights_children_stay_with_payee?
+          when 'no'
+            :gross_income_of_payee?
+          end
+        end
       end
 
       ## Q3
@@ -68,9 +78,21 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        next_node_if(:nil_rate_result) { rate_type == :nil }
-        next_node_if(:flat_rate_result) { rate_type == :flat }
-        next_node :how_many_other_children_in_payees_household?
+        permitted_next_nodes = [
+          :nil_rate_result,
+          :flat_rate_result,
+          :how_many_other_children_in_payees_household?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          case rate_type
+          when :nil
+            :nil_rate_result
+          when :flat
+            :flat_rate_result
+          else
+            :how_many_other_children_in_payees_household?
+          end
+        end
       end
 
       ## Q4
@@ -109,9 +131,21 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        next_node_if(:nil_rate_result) { rate_type == :nil }
-        next_node_if(:flat_rate_result) { rate_type == :flat }
-        next_node :reduced_and_basic_rates_result
+        permitted_next_nodes = [
+          :nil_rate_result,
+          :flat_rate_result,
+          :reduced_and_basic_rates_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          case rate_type
+          when :nil
+            :nil_rate_result
+          when :flat
+            :flat_rate_result
+          else
+            :reduced_and_basic_rates_result
+          end
+        end
       end
 
       outcome :nil_rate_result

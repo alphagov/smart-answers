@@ -2,6 +2,7 @@ en-GB:
   flow:
     value-sample:
       user_input?:
+        title: "User input?"
         label: "User input:"
       outcome_with_template:
         title: "Outcome with template"

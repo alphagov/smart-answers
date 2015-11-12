@@ -8,41 +8,14 @@
 
   <% end %>
 
-  <% if resident_of == 'uk' %>
-    <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
-    <% if ceremony_country == 'morocco' %>
-      <%= render partial: 'contact_laadoul.govspeak.erb' %>
-    <% end %>
-  <% elsif resident_of == 'ceremony_country' || ceremony_country == 'qatar' %>
-    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
-    <% if ceremony_country == 'qatar' %>
-      <%= render partial: 'gulf_states_os_consular_cni.govspeak.erb',
-                 locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
-                 } %>
-      <%= render partial: 'gulf_states_os_consular_cni_local_resident.govspeak.erb',
-                 locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
-                 } %>
+  <%= render partial: 'os_affirmation/contact.govspeak.erb',
+             locals: {
+               resident_of: resident_of,
+               ceremony_country: ceremony_country,
+               country_name_lowercase_prefix: country_name_lowercase_prefix
+             } -%>
 
-    <% end %>
-  <% elsif resident_of == 'third_country' %>
-    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
-    <% if ceremony_country == 'morocco' %>
-      <%= render partial: 'contact_laadoul.govspeak.erb' %>
-    <% end %>
-  <% end %>
-
-  <% if %w(cambodia ecuador).exclude?(ceremony_country) %>
+  <% if %w(ecuador).exclude?(ceremony_country) %>
     <% if resident_of == 'ceremony_country' %>
       <%= render partial: 'get_legal_advice.govspeak.erb' %>
     <% else %>
@@ -54,365 +27,39 @@
     <% end %>
   <% end %>
 
+  <% if ceremony_country == 'thailand' %>
+    %You must register your marriage at an amphur office (district office) in Thailand - a religious ceremony on its own won’t be valid.%
+  <% end %>
+
   <% if ceremony_country == 'united-arab-emirates' %>
     ^There are no civil marriages in the United Arab Emirates, but you can get married through a religious ceremony at a church or Sharia court.^
 
-    You may be able to get married at the British Embassy if you’re both resident in the United Arab Emirates and can prove that there are no other suitable facilities.
-
-    Contact the British Embassy in the United Arab Emirates for more information.
-
-
+    You can only get married in the United Arab Emirates if you or your partner are resident there.
   <% end %>
 
-  <% if %w(turkey egypt china).include?(ceremony_country) %>
-    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
-  <% elsif data_query.os_21_days_residency_required_countries?(ceremony_country) %>
-    ##What you need to do
+  <%= render partial: 'os_affirmation/what_you_need_to_do.govspeak.erb',
+             locals: {
+               data_query: data_query,
+               resident_of: resident_of,
+               ceremony_country: ceremony_country,
+               country_name_lowercase_prefix: country_name_lowercase_prefix,
+               sex_of_your_partner: sex_of_your_partner,
+               overseas_passports_embassies: overseas_passports_embassies,
+               partner_nationality: partner_nationality,
+               embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
+             } -%>
+
+   <% if ceremony_country == 'united-arab-emirates' && resident_of == 'ceremony_country' %>
+     You may be able to get married at the British Embassy if you’re both resident in the United Arab Emirates and can prove that there are no other suitable facilities to get married locally.
+
+     Contact the [British Embassy in Abu Dhabi](/government/world/organisations/british-embassy-abu-dhabi) or the [British Embassy in Dubai](/government/world/organisations/british-embassy-dubai) for more information.
+   <% end %>
+
+  <%= render partial: 'os_affirmation/fees.govspeak.erb',
+             locals: {
+               data_query: data_query,
+               ceremony_country: ceremony_country,
+               country_name_lowercase_prefix: country_name_lowercase_prefix
+              } -%>
 
-    You need to have been living in the country where you intend to marry for 21 days.
-
-    You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
-
-  <% else %>
-    <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
-  <% end %>
-
-  <% if ceremony_country == 'turkey' && resident_of == 'uk' %>
-    Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
-
-  <% elsif ceremony_country == 'philippines' %>
-    Contact the British embassy or consulate in <%= country_name_lowercase_prefix %> to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
-
-  <% elsif ceremony_country == 'egypt' %>
-    Make an appointment at the British embassy or consulate in <%= country_name_lowercase_prefix %> to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
-
-
-  <% elsif ceremony_country == 'china' %>
-    <% if partner_nationality != 'partner_local' %>
-      Make an appointment at your local British embassy or consulate in China to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
-
-    <% else %>
-      Make an appointment at the British embassy or consulate in China nearest to the address in your partner’s Hukou (family registration) book, to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s Hukou and pay a fee.
-
-    <% end %>
-    <%= render partial: 'contact_method.govspeak.erb',
-               locals: {
-                 sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
-                 overseas_passports_embassies: overseas_passports_embassies,
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
-
-    You’ll need to complete an ‘Affirmation of marital status’ form (non-religious) or an ‘Affidavit of marital status’ form (religious).
-
-    You can download and fill in (but not sign) the forms in advance.
-
-    $D
-    [Download ‘Affirmation of marital status’](/government/publications/affirmation-form-china)
-
-    [Download ‘Affidavit of marital status’](/government/publications/affidavit-form-china)
-    $D
-
-  <% elsif ceremony_country == 'norway' %>
-    <%= render partial: 'appointment_for_affidavit_norway.govspeak.erb' %>
-  <% elsif ceremony_country == 'south-korea' %>
-    Make an appointment at the British embassy in South Korea to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s passport and pay a fee.
-
-  <% elsif ceremony_country == 'macao' %>
-    Make an appointment at the British Consulate General Hong Kong to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
-
-  <% else %>
-    <%= render partial: 'appointment_for_affidavit.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
-  <% end %>
-
-  <% unless %w(china turkey).include?(ceremony_country) %>
-    <%= render partial: 'contact_method.govspeak.erb',
-               locals: {
-                 sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
-                 overseas_passports_embassies: overseas_passports_embassies,
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
-    <% if ceremony_country == 'south-korea' %>
-      You’ll need to fill in an [‘Affidavit for Marriage’](/government/publications/south-korea-affidavit-of-eligibility-for-marriage-form) form stating that you’re free to marry. You can download and fill in (but not sign) the form in advance. You’ll need to take the form with you to your appointment.
-
-      <% if partner_nationality == 'partner_local' %>
-        You’ll need to provide supporting documents, including:
-
-        - you partner’s Family Relationship Certificate and Marriage Status Certificate - these can be obtained from a local district office anywhere in South Korea and must be translated into English and notarised by a lawyer in Korea
-        - your partner’s valid Korean ID card
-        - your partner’s proof of termination of any prior marriage(s)
-      <% end %>
-    <% end %>
-    <% if ceremony_country == 'belgium' %>
-      <%= render partial: 'complete_affirmation_or_affidavit_forms.govspeak.erb' %>
-      <%= render partial: 'download_and_fill_but_not_sign.govspeak.erb' %>
-      <%= render partial: 'download_affidavit_and_affirmation_belgium.govspeak.erb' %>
-
-      <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
-
-      <%= render partial: 'required_supporting_documents.govspeak.erb',
-                 locals: {
-                   embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
-                 } %>
-
-      <%= render partial: 'documents_guidance_belgium.govspeak.erb' %>
-    <% end %>
-
-    <% if ceremony_country == 'philippines' %>
-      <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
-
-    <% end %>
-
-    <% if ceremony_country == 'macao' %>
-      <%= render partial: 'complete_affirmation_or_affidavit_forms.govspeak.erb' %>
-      <%= render partial: 'download_and_fill_but_not_sign.govspeak.erb' %>
-      $D
-      [Download ‘Affidavit for marriage’](/government/publications/affidavit-form-macao)
-      [Download ’Affirmation for marriage’](/government/publications/affirmation-form-macao)
-      $D
-
-
-      <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
-
-      <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
-
-    <% end %>
-
-    <% if ceremony_country == 'cambodia' %>
-      <%= render partial: 'fee_and_required_supporting_documents_for_appointment.govspeak.erb' %>
-
-      <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
-      <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
-
-    <% elsif ceremony_country == 'egypt' %>
-      <%= render partial: 'required_supporting_documents_egypt.govspeak.erb' %>
-
-      <% if partner_nationality == 'partner_local' %>
-        Your partner will need to provide their Egyptian ID card, if they’re an Egyptian national.
-
-
-      <% end %>
-    <% else %>
-      <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
-      <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
-
-    <% end %>
-  <% end %>
-  <% if ceremony_country == 'philippines' %>
-    The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can print and fill in (but not sign) the [affidavit/affirmation for marriage form](/government/publications/marriage-in-the-philippines) in advance - it must fit on one page.
-
-
-  <% end %>
-
-  <% if ceremony_country == 'turkey' && resident_of != 'uk' %>
-    <%= render partial: 'contact_method.govspeak.erb',
-               locals: {
-                 sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
-                 overseas_passports_embassies: overseas_passports_embassies,
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
-
-  <% end %>
-  <% if ceremony_country == 'turkey' %>
-    You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. Take the completed form with you to your appointment.
-
-
-    $D
-    [Download ’Affidavit for Marriage’ (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
-    $D
-
-
-    <% if resident_of == 'ceremony_country' %>
-      You’ll need to get your affidavit ‘legalised’ (certified as genuine) by the local authorities, this is usually done on the same day - the embassy or consulate should be able to give you advice.
-
-    <% else %>
-      You’ll need to get your affidavit ‘[legalised](https://www.gov.uk/get-document-legalised)’ (certified as genuine) before you travel to Turkey.
-
-
-    <% end %>
-    <%= render partial: 'documents_for_divorced_or_widowed.govspeak.erb' %>
-  <% end %>
-
-  <% if ceremony_country == 'morocco' %>
-    <%= render partial: 'documents_for_divorced_or_widowed.govspeak.erb' %>
-  <% elsif ceremony_country == 'south-korea' %>
-    If you’ve been divorced or widowed, you’ll also need:
-
-    - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) - a [decree nisi](/divorce/apply-for-decree-nisi) won’t be accepted
-  <% elsif ceremony_country == 'ecuador' %>
-    If you’ve been divorced or widowed, you’ll need to provide:
-
-    - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
-    - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
-
-    You’ll also need to provide evidence if you’ve changed your name by deed poll.
-
-  <% elsif ceremony_country == 'cambodia' %>
-    If you’ve been divorced or widowed, you’ll need to provide:
-
-    - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
-    - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/list-of-lawyers) if it’s not in English
-
-    <%= render partial: 'change_of_name_evidence.govspeak.erb' %>
-
-  <% elsif ceremony_country == 'china' %>
-    <%= render partial: 'documents_for_divorced_or_widowed_china_colombia.govspeak.erb' %>
-  <% elsif ceremony_country == 'philippines' %>
-    If you’ve been divorced or widowed, you’ll also need:
-
-    - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) - you’ll need to get the document [translated](/government/collections/list-of-lawyers) if it’s not in English (bring the original and English translation with you)
-    - the original marriage certificate, Advisory of Marriage and court documents (if the previous marriage was annulled in the Philippines)
-    - evidence if you’ve changed your name by deed poll
-
-    You must bring photocopies of all your supporting documents.
-
-
-  <% elsif ceremony_country != 'turkey' %>
-    <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
-  <% end %>
-
-  <% if %w(cambodia china ecuador egypt morocco philippines turkey).exclude?(ceremony_country) %>
-    <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
-  <% end %>
-  <% if %w(cambodia ecuador morocco philippines turkey).exclude?(ceremony_country) %>
-    <%= render partial: 'change_of_name_evidence.govspeak.erb' %>
-
-  <% end %>
-
-  <% if ceremony_country == 'egypt' %>
-    <% if partner_nationality == 'partner_british' %>
-      ^Your partner will need to make a declaration as well.^
-
-    <% else %>
-      <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
-    <% end %>
-  <% end %>
-  <% unless ceremony_country == 'egypt' %>
-    <% if ceremony_country == 'turkey' %>
-      <% if partner_nationality == 'partner_british' %>
-        <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
-
-      <% else %>
-        <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
-        Once the document is legalised you’ll need to have it checked at the local marriage office nearest to where your marriage will take place.
-
-
-      <% end %>
-    <% elsif ceremony_country == 'morocco' %>
-      ^An ’affirmation for marriage’ document issued in Morocco is valid for 3 months.^
-
-      Your partner will probably need to get an equivalent document from their national authorities.
-
-    <% else %>
-      <% if partner_nationality == 'partner_british' %>
-        <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
-
-      <% else %>
-        <% if ceremony_country == 'china' && partner_nationality != 'partner_local' %>
-          ^Your partner will probably need to get an affirmation or affidavit as well.^
-
-
-        <% else %>
-          <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
-          <% if %w(belgium cambodia ecuador).include?(ceremony_country) %>
-            <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
-          <% end %>
-          <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
-
-        <% end %>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <% if %w(thailand turkey vietnam).include?(ceremony_country) %>
-    ##Fees
-
-    Service | Fee
-    -|-
-    Affidavit for marriage | £55
-
-  <% elsif %w(south-korea).include?(ceremony_country) %>
-    ##Fees
-
-    Service | Fee
-    -|-
-    Affidavit for marriage | £65
-
-  <% elsif %w(belgium cambodia ecuador macao morocco norway).include?(ceremony_country) %>
-    <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
-  <% elsif ceremony_country == 'finland' %>
-    ##Fees
-
-    Service | Fee
-    -|-
-    Affirmation for marriage | £65
-
-  <% elsif ceremony_country == 'philippines' %>
-    ##Fees
-
-    Service | Fee
-    -|-
-    Affirmation for freedom to marry in English | £55
-    Affirmation for freedom to marry in any other language | £70
-
-
-  <% elsif ceremony_country == 'qatar' %>
-    <%= render partial: 'fee_table_45_70_55.govspeak.erb' %>
-
-  <% elsif ceremony_country == 'egypt' %>
-    ##Fees
-
-    Service | Fee
-    -|-
-    Marriage declaration | £55
-    Making an oath | £55
-
-
-  <% elsif ceremony_country == 'china' %>
-    ##Fees
-
-    Service | Fee
-    -|-
-    Affirmation or affidavit for freedom to marry in English & Chinese | £55
-
-  <% else %>
-    ##Fees
-
-    Service | Fee
-    -|-
-    Affirmation for freedom to marry in English | £45
-    Affirmation for freedom to marry in any other language | £70
-
-
-  <% end %>
-  <% unless data_query.countries_without_consular_facilities?(ceremony_country) %>
-    <% if ceremony_country != 'cambodia' %>
-      <%= render partial: 'link_to_consular_fees.govspeak.erb',
-                 locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix,
-                   ceremony_country: ceremony_country
-                 } %>
-    <% end %>
-
-    <% if ceremony_country == 'finland' %>
-      <%= render partial: 'pay_in_euros_or_visa_electron.govspeak.erb' %>
-    <% elsif ceremony_country == 'philippines' %>
-      You can pay in cash only.
-
-    <% elsif ceremony_country == 'cambodia' %>
-      <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>
-    <% elsif ceremony_country == 'norway' %>
-      <%= render partial: 'pay_by_visas_or_mastercard.govspeak.erb' %>
-    <% elsif ceremony_country == 'south-korea' %>
-      You can pay by cash in the local currency or by credit card, but not by personal cheque.
-
-    <% else %>
-      <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
-    <% end %>
-  <% end %>
 <% end %>
