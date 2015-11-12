@@ -177,7 +177,7 @@ module SmartAnswer
     end
 
     test 'delegates #to_response to node' do
-      question = stub('question')
+      question = Question::Base.new(nil, :question)
       question.stubs(:to_response).returns('response')
       presenter = QuestionPresenter.new("flow.test", question)
 
