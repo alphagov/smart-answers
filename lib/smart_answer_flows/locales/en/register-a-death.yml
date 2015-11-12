@@ -26,3 +26,5 @@ en-GB:
           same_country: "In the country where the death happened"
           another_country: "In another country"
           in_the_uk: "In the UK"
+      which_country_are_you_in_now?:
+        title: Which country are you in now?
