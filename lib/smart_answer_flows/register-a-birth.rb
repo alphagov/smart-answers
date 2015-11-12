@@ -79,8 +79,17 @@ module SmartAnswer
           response == 'no'
         end
 
-        next_node_if(:childs_date_of_birth?, responded_with('no'), variable_matches(:british_national_parent, 'father'))
-        next_node(:where_are_you_now?)
+        permitted_next_nodes = [
+          :childs_date_of_birth?,
+          :where_are_you_now?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'no' && british_national_parent == 'father'
+            :childs_date_of_birth?
+          else
+            :where_are_you_now?
+          end
+        end
       end
 
       # Q4
