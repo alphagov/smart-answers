@@ -1,8 +1,7 @@
 class SalaryQuestionPresenter < QuestionPresenter
-  include ActionView::Helpers::NumberHelper
+  include SmartAnswer::FormattingHelper
 
   def response_label(value)
-    salary = SmartAnswer::Salary.new(value)
-    number_to_currency(salary.amount, precision: 0) + " per " + salary.period
+    format_salary(SmartAnswer::Salary.new(value))
   end
 end
