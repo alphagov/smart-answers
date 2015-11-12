@@ -18,7 +18,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def title
-    translate!('title') || @node.name.to_s.humanize
+    translate!('title', rescue_exception: false)
   end
 
   def error

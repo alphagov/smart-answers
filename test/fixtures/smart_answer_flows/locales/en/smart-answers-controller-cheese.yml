@@ -2,5 +2,8 @@ en-GB:
   flow:
     smart-answers-controller-cheese:
       what?:
+        title: "What?"
         options:
           "cheese": "Cheese"
+      when?:
+        title: "When?"

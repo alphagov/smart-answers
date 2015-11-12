@@ -1,3 +1,7 @@
 en-GB:
   flow:
     country-legacy-sample:
+      which_country_do_you_live_in?:
+        title: "Which country do you live in?"
+      which_country_were_you_born_in?:
+        title: "Which country were you born in?"

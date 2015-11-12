@@ -1,0 +1,5 @@
+en-GB:
+  flow:
+    postcode-sample:
+      user_input?:
+        title: "User input?"
