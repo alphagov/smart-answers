@@ -102,8 +102,6 @@ module SmartAnswer
         option :yes
         option :no
 
-        save_input_as :has_linked_sickness
-
         permitted_next_nodes = [
           :linked_sickness_start_date?,
           :paid_at_least_8_weeks?
