@@ -97,7 +97,7 @@ module SmartAnswer
         from { Date.today.end_of_year }
         to { 50.years.ago(Date.today) }
 
-        before_july_2006 = SmartAnswer::Predicate::Callable.new("before 1 July 2006") do |response|
+        define_predicate :before_july_2006 do |response|
           Date.new(2006, 07, 01) > response
         end
 
