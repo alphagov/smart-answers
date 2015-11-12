@@ -4,7 +4,6 @@ class QuestionPresenter < NodePresenter
     :translate!,
     :translate_and_render,
     :translate_option,
-    :value_for_interpolation,
     :number_with_delimiter
   ] => :@renderer
 

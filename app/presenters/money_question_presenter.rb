@@ -1,5 +1,8 @@
 class MoneyQuestionPresenter < QuestionPresenter
+  include ActionView::Helpers::NumberHelper
+
   def response_label(value)
-    value_for_interpolation(SmartAnswer::Money.new(value))
+    money = SmartAnswer::Money.new(value)
+    number_to_currency(money, precision: ((money.to_f == money.to_f.round) ? 0 : 2))
   end
 end
