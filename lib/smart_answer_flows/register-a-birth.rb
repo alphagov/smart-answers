@@ -9,7 +9,6 @@ module SmartAnswer
       country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
       reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
       translator_query = SmartAnswer::Calculators::TranslatorLinks.new
-      country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
       exclude_countries = %w(holy-see british-antarctic-territory)
 
       # Q1
@@ -22,6 +21,10 @@ module SmartAnswer
 
         calculate :registration_country_name_lowercase_prefix do
           country_name_query.definitive_article(registration_country)
+        end
+
+        define_predicate :country_has_no_embassy do |response|
+          %w(iran syria yemen).include?(response)
         end
 
         next_node_if(:no_embassy_result, country_has_no_embassy)
