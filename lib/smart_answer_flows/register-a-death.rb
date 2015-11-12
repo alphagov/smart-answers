@@ -109,16 +109,24 @@ module SmartAnswer
           response == 'in_the_uk'
         end
 
-        define_predicate(:died_in_north_korea) {
+        next_node_calculation(:died_in_north_korea) {
           country_of_death == 'north-korea'
         }
 
-        on_condition(responded_with('same_country')) do
-          next_node_if(:north_korea_result, died_in_north_korea)
+        permitted_next_nodes = [
+          :north_korea_result,
+          :oru_result,
+          :which_country_are_you_in_now?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'same_country' && died_in_north_korea
+            :north_korea_result
+          elsif response == 'another_country'
+            :which_country_are_you_in_now?
+          else
+            :oru_result
+          end
         end
-
-        next_node_if(:which_country_are_you_in_now?, responded_with('another_country'))
-        next_node(:oru_result)
       end
 
       # Q6
