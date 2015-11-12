@@ -97,13 +97,21 @@ module SmartAnswer
         from { Date.today.end_of_year }
         to { 50.years.ago(Date.today) }
 
-        define_predicate :before_july_2006 do |response|
+        next_node_calculation :before_july_2006 do |response|
           Date.new(2006, 07, 01) > response
         end
 
-        next_node_if(:homeoffice_result, before_july_2006)
-
-        next_node(:where_are_you_now?)
+        permitted_next_nodes = [
+          :homeoffice_result,
+          :where_are_you_now?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if before_july_2006
+            :homeoffice_result
+          else
+            :where_are_you_now?
+          end
+        end
       end
 
       # Q5
