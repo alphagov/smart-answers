@@ -2,7 +2,6 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class FormattingHelperTest < ActiveSupport::TestCase
-    include ActionView::Helpers::NumberHelper
     include FormattingHelper
 
     test "#format_money doesn't add pence for amounts in whole pounds" do
