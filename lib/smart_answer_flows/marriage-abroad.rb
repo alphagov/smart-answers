@@ -203,6 +203,33 @@ module SmartAnswer
           ceremony_country == 'italy'
         }
 
+        on_condition(responded_with('same_sex')) do
+          define_predicate(:ss_marriage_germany_partner_local?) {
+            (ceremony_country == "germany") && (partner_nationality == "partner_local")
+          }
+          define_predicate(:ss_marriage_countries?) {
+            data_query.ss_marriage_countries?(ceremony_country)
+          }
+          define_predicate(:ss_marriage_countries_when_couple_british?) {
+            data_query.ss_marriage_countries_when_couple_british?(ceremony_country) && %w(partner_british).include?(partner_nationality)
+          }
+          define_predicate(:ss_marriage_and_partnership?) {
+            data_query.ss_marriage_and_partnership?(ceremony_country)
+          }
+
+          define_predicate(:ss_marriage_not_possible?) {
+            data_query.ss_marriage_not_possible?(ceremony_country, partner_nationality)
+          }
+
+          define_predicate(:ss_unknown_no_embassies) {
+            data_query.ss_unknown_no_embassies?(ceremony_country)
+          }
+
+          define_predicate(:ss_affirmation) {
+            %w(belgium norway).include?(ceremony_country)
+          }
+        end
+
         next_node_if(:outcome_brazil_not_living_in_the_uk, ceremony_in_brazil_not_resident_in_the_uk)
         next_node_if(:outcome_marriage_via_local_authorities, variable_matches(:ceremony_country, "netherlands"))
         next_node_if(:outcome_portugal, variable_matches(:ceremony_country, "portugal"))
@@ -240,31 +267,6 @@ module SmartAnswer
         end
 
         on_condition(responded_with('same_sex')) do
-          define_predicate(:ss_marriage_germany_partner_local?) {
-            (ceremony_country == "germany") && (partner_nationality == "partner_local")
-          }
-          define_predicate(:ss_marriage_countries?) {
-            data_query.ss_marriage_countries?(ceremony_country)
-          }
-          define_predicate(:ss_marriage_countries_when_couple_british?) {
-            data_query.ss_marriage_countries_when_couple_british?(ceremony_country) && %w(partner_british).include?(partner_nationality)
-          }
-          define_predicate(:ss_marriage_and_partnership?) {
-            data_query.ss_marriage_and_partnership?(ceremony_country)
-          }
-
-          define_predicate(:ss_marriage_not_possible?) {
-            data_query.ss_marriage_not_possible?(ceremony_country, partner_nationality)
-          }
-
-          define_predicate(:ss_unknown_no_embassies) {
-            data_query.ss_unknown_no_embassies?(ceremony_country)
-          }
-
-          define_predicate(:ss_affirmation) {
-            %w(belgium norway).include?(ceremony_country)
-          }
-
           next_node_if(:outcome_ss_affirmation, ss_affirmation)
 
           next_node_if(:outcome_os_no_cni, ss_unknown_no_embassies)
