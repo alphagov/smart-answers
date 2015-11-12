@@ -115,8 +115,17 @@ module SmartAnswer
 
         save_input_as :resident_of
 
-        next_node_if(:partner_opposite_or_same_sex?, variable_matches(:ceremony_country, 'switzerland'))
-        next_node(:what_is_your_partners_nationality?)
+        permitted_next_nodes = [
+          :partner_opposite_or_same_sex?,
+          :what_is_your_partners_nationality?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if ceremony_country == 'switzerland'
+            :partner_opposite_or_same_sex?
+          else
+            :what_is_your_partners_nationality?
+          end
+        end
       end
 
       # Q3a
