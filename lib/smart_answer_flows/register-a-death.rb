@@ -75,7 +75,11 @@ module SmartAnswer
           %w(iran syria yemen).include?(response)
         end
 
-        next_node_if(:commonwealth_result, reg_data_query.responded_with_commonwealth_country?)
+        define_predicate :responded_with_commonwealth_country? do |response|
+          Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(response)
+        end
+
+        next_node_if(:commonwealth_result, responded_with_commonwealth_country?)
         next_node_if(:no_embassy_result, country_has_no_embassy)
         next_node(:where_are_you_now?)
       end
