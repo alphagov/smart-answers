@@ -91,7 +91,7 @@ module SmartAnswer
             end
           end
 
-          if Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL.include?(calculator.passport_country) || Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT.include?(calculator.passport_country)
+          if calculator.passport_country_in_non_visa_national_list? || Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT.include?(calculator.passport_country)
             if %w{tourism school}.include?(calculator.purpose_of_visit_answer)
               next :outcome_school_n
             elsif calculator.purpose_of_visit_answer == 'medical'
@@ -118,7 +118,7 @@ module SmartAnswer
           when 'family'
             if Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT.include?(calculator.passport_country)
               :outcome_joining_family_m
-            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL.include?(calculator.passport_country)
+            elsif calculator.passport_country_in_non_visa_national_list?
               :outcome_joining_family_nvn
             else
               :outcome_joining_family_y
@@ -205,13 +205,12 @@ module SmartAnswer
                 :outcome_taiwan_exception
               elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV + Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(calculator.passport_country)
                 :outcome_study_m #outcome 3 study m visa needed short courses
-              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT + Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL).include?(calculator.passport_country)
+              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT).include?(calculator.passport_country) || calculator.passport_country_in_non_visa_national_list?
                 :outcome_no_visa_needed #outcome 1 no visa needed
               end
             elsif calculator.purpose_of_visit_answer == 'work'
-              if ((Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT +
-                Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL) |
-                %w(taiwan)).include?(calculator.passport_country)
+              if ((Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT) |
+                %w(taiwan)).include?(calculator.passport_country) || calculator.passport_country_in_non_visa_national_list?
                 #outcome 5.5 work N no visa needed
                 :outcome_work_n
               elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV + Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(calculator.passport_country)

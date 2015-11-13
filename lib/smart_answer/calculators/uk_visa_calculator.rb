@@ -10,6 +10,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_EEA.include?(passport_country)
     end
 
+    def passport_country_in_non_visa_national_list?
+      COUNTRY_GROUP_NON_VISA_NATIONAL.include?(passport_country)
+    end
+
     EXCLUDE_COUNTRIES = %w(american-samoa british-antarctic-territory british-indian-ocean-territory french-guiana french-polynesia gibraltar guadeloupe holy-see martinique mayotte new-caledonia reunion st-pierre-and-miquelon the-occupied-palestinian-territories wallis-and-futuna western-sahara)
 
     COUNTRY_GROUP_UKOT = %w(anguilla bermuda british-dependent-territories-citizen british-overseas-citizen british-protected-person british-virgin-islands cayman-islands falkland-islands montserrat st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
