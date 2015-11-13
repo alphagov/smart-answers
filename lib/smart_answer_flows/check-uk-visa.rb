@@ -109,7 +109,7 @@ module SmartAnswer
             :outcome_medical_y
           elsif calculator.transit_visit?
             if calculator.passport_country_in_datv_list? ||
-                calculator.passport_country_in_visa_national_list? || calculator.passport_country_is_taiwan? || %w(venezuela).include?(calculator.passport_country)
+                calculator.passport_country_in_visa_national_list? || calculator.passport_country_is_taiwan? || calculator.passport_country_is_venezuela?
               :passing_through_uk_border_control?
             else
               :outcome_no_visa_needed
@@ -151,7 +151,7 @@ module SmartAnswer
               :outcome_transit_leaving_airport_datv
             end
           else
-            if %w(venezuela).include?(calculator.passport_country)
+            if calculator.passport_country_is_venezuela?
               :outcome_visit_waiver
             elsif calculator.applicant_is_stateless_or_a_refugee?
               :outcome_transit_refugee_not_leaving_airport

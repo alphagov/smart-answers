@@ -42,6 +42,10 @@ module SmartAnswer::Calculators
       passport_country == 'taiwan'
     end
 
+    def passport_country_is_venezuela?
+      passport_country == 'venezuela'
+    end
+
     def applicant_is_stateless_or_a_refugee?
       passport_country == 'stateless-or-refugee'
     end
