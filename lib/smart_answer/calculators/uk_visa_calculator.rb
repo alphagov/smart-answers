@@ -34,6 +34,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER.include?(passport_country)
     end
 
+    def passport_country_is_taiwan?
+      passport_country == 'taiwan'
+    end
+
     def applicant_is_stateless_or_a_refugee?
       passport_country == 'stateless-or-refugee'
     end
