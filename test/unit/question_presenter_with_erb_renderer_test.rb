@@ -3,14 +3,14 @@ require_relative '../test_helper'
 module SmartAnswer
   class QuestionPresenterWithErbRendererTest < ActiveSupport::TestCase
     setup do
-      @question = Question::Base.new(nil, :question_name, use_erb_template: true)
+      @question = Question::Base.new(nil, :question_name?, use_erb_template: true)
       @renderer = stub('renderer')
       @presenter = QuestionPresenter.new('i18n-prefix', @question, state = nil, renderer: @renderer)
     end
 
     test 'renderer is constructed using template name and directory obtained from question node' do
       question_directory = Pathname.new('question-template-directory')
-      question = stub('question', name: :question_name, template_directory: question_directory, use_erb_template?: true)
+      question = stub('question', filesystem_friendly_name: 'question_name', template_directory: question_directory, use_erb_template?: true)
 
       SmartAnswer::ErbRenderer.expects(:new).with(
         has_entries(
@@ -65,7 +65,7 @@ module SmartAnswer
     end
 
     test '#options returns options with labels and values' do
-      question = Question::MultipleChoice.new(nil, :question_name, use_erb_template: true)
+      question = Question::MultipleChoice.new(nil, :question_name?, use_erb_template: true)
       question.option(:option_one)
       question.option(:option_two)
 
