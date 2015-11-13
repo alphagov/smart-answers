@@ -8,8 +8,6 @@ module SmartAnswer
 
       additional_countries = UkbaCountry.all
 
-      country_group_visa_national = %w(stateless-or-refugee armenia azerbaijan bahrain benin bhutan bolivia bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad colombia comoros cuba djibouti dominican-republic ecuador equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan north-korea kuwait kyrgyzstan laos madagascar mali  montenegro mauritania morocco mozambique niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia)
-
       country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus burma burundi cameroon china congo cyprus-north democratic-republic-of-congo egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq israel-provisional-passport cote-d-ivoire jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia nepal nigeria palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe)
 
       country_group_eea = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
@@ -113,7 +111,7 @@ module SmartAnswer
             :outcome_medical_y
           when 'transit'
             if country_group_datv.include?(passport_country) ||
-                country_group_visa_national.include?(passport_country) || %w(taiwan venezuela).include?(passport_country)
+                Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(passport_country) || %w(taiwan venezuela).include?(passport_country)
               :passing_through_uk_border_control?
             else
               :outcome_no_visa_needed
@@ -149,7 +147,7 @@ module SmartAnswer
 
           case response
           when 'yes'
-            if country_group_visa_national.include?(passport_country)
+            if Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(passport_country)
               :outcome_transit_leaving_airport
             elsif country_group_datv.include?(passport_country)
               :outcome_transit_leaving_airport_datv
@@ -161,7 +159,7 @@ module SmartAnswer
               :outcome_transit_refugee_not_leaving_airport
             elsif country_group_datv.include?(passport_country)
               :outcome_transit_not_leaving_airport
-            elsif country_group_visa_national.include?(passport_country)
+            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(passport_country)
               :outcome_no_visa_needed
             end
           end
@@ -205,7 +203,7 @@ module SmartAnswer
                 :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
               elsif %w(taiwan).include?(passport_country)
                 :outcome_taiwan_exception
-              elsif (country_group_datv + country_group_visa_national).include?(passport_country)
+              elsif (country_group_datv + Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(passport_country)
                 :outcome_study_m #outcome 3 study m visa needed short courses
               elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT + Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL).include?(passport_country)
                 :outcome_no_visa_needed #outcome 1 no visa needed
@@ -216,7 +214,7 @@ module SmartAnswer
                 %w(taiwan)).include?(passport_country)
                 #outcome 5.5 work N no visa needed
                 :outcome_work_n
-              elsif (country_group_datv + country_group_visa_national).include?(passport_country)
+              elsif (country_group_datv + Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(passport_country)
                 # outcome 5 work m visa needed short courses
                 :outcome_work_m
               end
