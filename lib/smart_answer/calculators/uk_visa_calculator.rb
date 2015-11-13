@@ -26,6 +26,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_DATV.include?(passport_country)
     end
 
+    def applicant_is_stateless_or_a_refugee?
+      passport_country == 'stateless-or-refugee'
+    end
+
     def tourism_visit?
       purpose_of_visit_answer == 'tourism'
     end
