@@ -178,7 +178,6 @@ module SmartAnswer
       multiple_choice :staying_for_how_long? do
         option :six_months_or_less
         option :longer_than_six_months
-        save_input_as :period_of_staying
 
         precalculate :study_or_work do
           if purpose_of_visit_answer == 'study'
