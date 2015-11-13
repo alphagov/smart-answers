@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {passport_country: calculator.passport_country} -%>
+  <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {calculator: calculator} -%>
 
   Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married or enter into a civil partnership in the UK.
 

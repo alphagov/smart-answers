@@ -5,7 +5,7 @@
 <% content_for :body do %>
   The visa you apply for depends on your circumstances.
 
-  <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {passport_country: calculator.passport_country} -%>
+  <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {calculator: calculator} -%>
 
   Apply for a [study visa](/tier-4-general-visa) if you’re coming to the UK to study a university or college course for more than 6 months, or more than 11 months if it’s an English language course.
 
