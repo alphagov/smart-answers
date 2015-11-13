@@ -257,7 +257,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response 'transit'
         end
         should "ask you if you're planning to leave the airport" do
-          assert_current_node :planning_to_leave_airport?
+          assert_current_node :passing_through_uk_border_control?
         end
         context "planning to leave airport" do
           setup do
@@ -361,7 +361,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'transit'
       end
       should " ask you if you're planning to leave the airport" do
-        assert_current_node :planning_to_leave_airport?
+        assert_current_node :passing_through_uk_border_control?
       end
       context "planning to leave airport" do
         setup do
@@ -386,7 +386,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response "transit"
         end
         should "be asked if they are leaving the airport" do
-          assert_current_node :planning_to_leave_airport?
+          assert_current_node :passing_through_uk_border_control?
         end
         context "when leaving airport" do
           setup do
@@ -616,7 +616,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'transit'
     end
     should "take you to outcome taiwan exception" do
-      assert_current_node :planning_to_leave_airport?
+      assert_current_node :passing_through_uk_border_control?
     end
     context "leaving airport" do
       setup do
