@@ -2,68 +2,68 @@ module SmartAnswer::Calculators
   class UkVisaCalculator
     include ActiveModel::Model
 
-    attr_accessor :passport_country
+    attr_writer :passport_country
     attr_accessor :purpose_of_visit_answer
     attr_accessor :passing_through_uk_border_control_answer
 
     def passport_country_in_eea?
-      COUNTRY_GROUP_EEA.include?(passport_country)
+      COUNTRY_GROUP_EEA.include?(@passport_country)
     end
 
     def passport_country_in_non_visa_national_list?
-      COUNTRY_GROUP_NON_VISA_NATIONAL.include?(passport_country)
+      COUNTRY_GROUP_NON_VISA_NATIONAL.include?(@passport_country)
     end
 
     def passport_country_in_visa_national_list?
-      COUNTRY_GROUP_VISA_NATIONAL.include?(passport_country)
+      COUNTRY_GROUP_VISA_NATIONAL.include?(@passport_country)
     end
 
     def passport_country_in_ukot_list?
-      COUNTRY_GROUP_UKOT.include?(passport_country)
+      COUNTRY_GROUP_UKOT.include?(@passport_country)
     end
 
     def passport_country_in_datv_list?
-      COUNTRY_GROUP_DATV.include?(passport_country)
+      COUNTRY_GROUP_DATV.include?(@passport_country)
     end
 
     def passport_country_in_youth_mobility_scheme_list?
-      COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME.include?(passport_country)
+      COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME.include?(@passport_country)
     end
 
     def passport_country_in_electronic_visa_waiver_list?
-      COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER.include?(passport_country)
+      COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER.include?(@passport_country)
     end
 
     def passport_country_in_b1_b2_visa_exception_list?
-      passport_country == 'syria'
+      @passport_country == 'syria'
     end
 
     def passport_country_is_israel?
-      passport_country == 'israel'
+      @passport_country == 'israel'
     end
 
     def passport_country_is_taiwan?
-      passport_country == 'taiwan'
+      @passport_country == 'taiwan'
     end
 
     def passport_country_is_venezuela?
-      passport_country == 'venezuela'
+      @passport_country == 'venezuela'
     end
 
     def passport_country_is_croatia?
-      passport_country == 'croatia'
+      @passport_country == 'croatia'
     end
 
     def passport_country_is_china?
-      passport_country == 'china'
+      @passport_country == 'china'
     end
 
     def passport_country_is_turkey?
-      passport_country == 'turkey'
+      @passport_country == 'turkey'
     end
 
     def applicant_is_stateless_or_a_refugee?
-      passport_country == 'stateless-or-refugee'
+      @passport_country == 'stateless-or-refugee'
     end
 
     def tourism_visit?
