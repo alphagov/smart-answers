@@ -5,11 +5,6 @@ en-GB:
         study_reason: study
         work_reason: work
 
-      #phrases
-        epassport_general_visit_reason: |
-          However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
-          ^If you don’t have an ePassport, you must [apply for a short visit visa](/browse/visas-immigration/short-visit-visas).^
-
       what_passport_do_you_have?:
         title: What passport or travel document do you have?
         hint: If you're a refugee or don't have a passport or travel document, select stateless or refugee.
