@@ -35,7 +35,7 @@ en-GB:
           "six_months_or_less": "6 months or less"
           "longer_than_six_months": "longer than 6 months"
 
-      planning_to_leave_airport?:
+      passing_through_uk_border_control?:
         title: Will you pass through UK Border Control?
         hint: You might pass through UK Border Control even if you don't leave the airport - eg your bags aren't checked through and you need to collect them before transferring to your outbound flight.
         options:

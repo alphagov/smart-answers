@@ -91,7 +91,7 @@ module SmartAnswer
           :outcome_standard_visit,
           :outcome_taiwan_exception,
           :outcome_visit_waiver,
-          :planning_to_leave_airport?,
+          :passing_through_uk_border_control?,
           :staying_for_how_long?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
@@ -128,7 +128,7 @@ module SmartAnswer
           when 'transit'
             if country_group_datv.include?(passport_country) ||
                 country_group_visa_national.include?(passport_country) || %w(taiwan venezuela).include?(passport_country)
-              :planning_to_leave_airport?
+              :passing_through_uk_border_control?
             else
               :outcome_no_visa_needed
             end
@@ -145,7 +145,7 @@ module SmartAnswer
       end
 
       #Q3
-      multiple_choice :planning_to_leave_airport? do
+      multiple_choice :passing_through_uk_border_control? do
         option :yes
         option :no
         save_input_as :leaving_airport_answer
