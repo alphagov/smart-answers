@@ -230,11 +230,7 @@ module SmartAnswer
       outcome :outcome_marriage
       outcome :outcome_medical_n
       outcome :outcome_medical_y
-      outcome :outcome_no_visa_needed do
-        precalculate :purpose_of_visit_answer do
-          calculator.purpose_of_visit_answer
-        end
-      end
+      outcome :outcome_no_visa_needed
       outcome :outcome_school_n
       outcome :outcome_school_y
       outcome :outcome_standard_visit
