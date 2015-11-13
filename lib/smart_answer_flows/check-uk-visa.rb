@@ -25,7 +25,7 @@ module SmartAnswer
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.passport_country = response
-          if calculator.passport_country == 'israel'
+          if calculator.passport_country_is_israel?
             :israeli_document_type?
           elsif calculator.passport_country_in_eea?
             :outcome_no_visa_needed
