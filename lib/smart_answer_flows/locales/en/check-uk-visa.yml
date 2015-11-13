@@ -41,9 +41,3 @@ en-GB:
         options:
           "yes": "Yes"
           "no": "No"
-
-        taiwan_passport_personal_id_number?:
-        title: Will you pass through UK Border Control?
-        options:
-          "yes": "Yes"
-          "no": "No"
