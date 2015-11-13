@@ -109,7 +109,7 @@ module SmartAnswer
           when 'medical'
             :outcome_medical_y
           when 'transit'
-            if Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV.include?(calculator.passport_country) ||
+            if calculator.passport_country_in_datv_list? ||
                 Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(calculator.passport_country) || %w(taiwan venezuela).include?(calculator.passport_country)
               :passing_through_uk_border_control?
             else
@@ -149,7 +149,7 @@ module SmartAnswer
           when 'yes'
             if Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(calculator.passport_country)
               :outcome_transit_leaving_airport
-            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV.include?(calculator.passport_country)
+            elsif calculator.passport_country_in_datv_list?
               :outcome_transit_leaving_airport_datv
             end
           when 'no'
@@ -157,7 +157,7 @@ module SmartAnswer
               :outcome_visit_waiver
             elsif calculator.passport_country == 'stateless-or-refugee'
               :outcome_transit_refugee_not_leaving_airport
-            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV.include?(calculator.passport_country)
+            elsif calculator.passport_country_in_datv_list?
               :outcome_transit_not_leaving_airport
             elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(calculator.passport_country)
               :outcome_no_visa_needed
@@ -203,7 +203,7 @@ module SmartAnswer
                 :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
               elsif %w(taiwan).include?(calculator.passport_country)
                 :outcome_taiwan_exception
-              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV + Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(calculator.passport_country)
+              elsif calculator.passport_country_in_datv_list? || (Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(calculator.passport_country)
                 :outcome_study_m #outcome 3 study m visa needed short courses
               elsif calculator.passport_country_in_ukot_list? || calculator.passport_country_in_non_visa_national_list?
                 :outcome_no_visa_needed #outcome 1 no visa needed
@@ -213,7 +213,7 @@ module SmartAnswer
                 %w(taiwan).include?(calculator.passport_country) || calculator.passport_country_in_non_visa_national_list?
                 #outcome 5.5 work N no visa needed
                 :outcome_work_n
-              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV + Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(calculator.passport_country)
+              elsif calculator.passport_country_in_datv_list? || (Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(calculator.passport_country)
                 # outcome 5 work m visa needed short courses
                 :outcome_work_m
               end
