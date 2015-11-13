@@ -1,0 +1,43 @@
+<% if attributes['title'].present? %>
+<%% content_for :title do %>
+  <%= attributes['title'] %>
+<%% end %>
+<% end %>
+
+<% if options_erb.present? %>
+<%= options_erb %>
+<% end %>
+
+<% if attributes['hint'].present? %>
+<%% content_for :hint do %>
+  <%= attributes['hint'] %>
+<%% end %>
+<% end %>
+
+<% if attributes['label'].present? %>
+<%% content_for :label do %>
+  <%= attributes['label'] %>
+<%% end %>
+<% end %>
+
+<% if attributes['suffix_label'].present? %>
+<%% content_for :suffix_label do %>
+  <%= attributes['suffix_label'] %>
+<%% end %>
+<% end %>
+
+<% if attributes['body'].present? %>
+<%% content_for :body do %>
+  <%= attributes['body'] %>
+<%% end %>
+<% end %>
+
+<% if attributes['post_body'].present? %>
+<%% content_for :post_body do %>
+  <%= attributes['post_body'] %>
+<%% end %>
+<% end %>
+
+<% if errors_erb.present? %>
+<%= errors_erb %>
+<% end %>
