@@ -213,6 +213,20 @@ module SmartAnswer
         end
       end
 
+      context '#passport_country_in_electronic_visa_waiver_list?' do
+        should 'return true if passport_country is in list of countries that can apply for an electronic visa waiver' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'oman'
+          assert calculator.passport_country_in_electronic_visa_waiver_list?
+        end
+
+        should 'return false if passport_country is not in list of countries that can apply for an electronic visa waiver' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'made-up-country'
+          refute calculator.passport_country_in_electronic_visa_waiver_list?
+        end
+      end
+
       context '#applicant_is_stateless_or_a_refugee?' do
         should 'return true if passport_country is "stateless-or-refugee"' do
           calculator = UkVisaCalculator.new

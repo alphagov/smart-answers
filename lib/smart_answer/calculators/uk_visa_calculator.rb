@@ -30,6 +30,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME.include?(passport_country)
     end
 
+    def passport_country_in_electronic_visa_waiver_list?
+      COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER.include?(passport_country)
+    end
+
     def applicant_is_stateless_or_a_refugee?
       passport_country == 'stateless-or-refugee'
     end
@@ -83,5 +87,7 @@ module SmartAnswer::Calculators
     COUNTRY_GROUP_EEA = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
 
     COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME = %w(australia canada japan monaco new-zealand hong-kong south-korea taiwan)
+
+    COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER = %w(oman qatar united-arab-emirates)
   end
 end
