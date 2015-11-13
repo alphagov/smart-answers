@@ -46,6 +46,10 @@ module SmartAnswer::Calculators
       passport_country == 'venezuela'
     end
 
+    def passport_country_is_croatia?
+      passport_country == 'croatia'
+    end
+
     def applicant_is_stateless_or_a_refugee?
       passport_country == 'stateless-or-refugee'
     end
