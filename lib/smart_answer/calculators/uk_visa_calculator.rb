@@ -14,6 +14,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_NON_VISA_NATIONAL.include?(passport_country)
     end
 
+    def passport_country_in_visa_national_list?
+      COUNTRY_GROUP_VISA_NATIONAL.include?(passport_country)
+    end
+
     def passport_country_in_ukot_list?
       COUNTRY_GROUP_UKOT.include?(passport_country)
     end
