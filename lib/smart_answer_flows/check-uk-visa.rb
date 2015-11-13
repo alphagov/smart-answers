@@ -151,13 +151,13 @@ module SmartAnswer
         save_input_as :leaving_airport_answer
 
         permitted_next_nodes = [
-          :outcome_visit_waiver,
+          :outcome_no_visa_needed,
           :outcome_transit_leaving_airport,
           :outcome_transit_leaving_airport_datv,
-          :outcome_visit_waiver,
-          :outcome_transit_refugee_not_leaving_airport,
           :outcome_transit_not_leaving_airport,
-          :outcome_no_visa_needed
+          :outcome_transit_refugee_not_leaving_airport,
+          :outcome_visit_waiver,
+          :outcome_visit_waiver
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           next :outcome_visit_waiver if %w(taiwan).include?(passport_country)
