@@ -15,9 +15,9 @@
 
   One of the following must also apply:
 
-  - you’re travelling to (or on part of a reasonable journey to) Australia, Canada, New Zealand or the USA and have a valid visa for that country <%= render partial: 'b1_b2_visa_exception.govspeak.erb', locals: {passport_country: passport_country} %>
-  - you’re travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and have a valid visa for that country <%= render partial: 'b1_b2_visa_exception.govspeak.erb', locals: {passport_country: passport_country} %>
-  - you’re travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa <%= render partial: 'b1_b2_visa_exception.govspeak.erb', locals: {passport_country: passport_country} %>
+  - you’re travelling to (or on part of a reasonable journey to) Australia, Canada, New Zealand or the USA and have a valid visa for that country <%= render partial: 'b1_b2_visa_exception.govspeak.erb', locals: {passport_country: calculator.passport_country} %>
+  - you’re travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and have a valid visa for that country <%= render partial: 'b1_b2_visa_exception.govspeak.erb', locals: {passport_country: calculator.passport_country} %>
+  - you’re travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa <%= render partial: 'b1_b2_visa_exception.govspeak.erb', locals: {passport_country: calculator.passport_country} %>
   - you have a residence permit issued by Australia or New Zealand
   - you have a common format residence permit issued by an European Economic Area (EEA) country or Switzerland
   - you have a residence permit issued by Canada issued after 28 June 2002

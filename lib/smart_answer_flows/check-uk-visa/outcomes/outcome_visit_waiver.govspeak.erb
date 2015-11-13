@@ -1,13 +1,13 @@
 <% content_for :title do %>
-  <% if %w(venezuela).include?(passport_country) %>
+  <% if %w(venezuela).include?(calculator.passport_country) %>
 
     You won’t need a visa if you have an ePassport
 
-  <% elsif %w(taiwan).include?(passport_country) %>
+  <% elsif %w(taiwan).include?(calculator.passport_country) %>
 
     You won't need a visa if your passport has a personal ID number on the bio data page.
 
-  <% elsif %w(oman qatar united-arab-emirates).include?(passport_country) %>
+  <% elsif %w(oman qatar united-arab-emirates).include?(calculator.passport_country) %>
 
     You’ll need an electronic visa waiver (EVW)  or a visitor visa
 
@@ -15,7 +15,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if %w(venezuela).include?(passport_country) %>
+  <% if %w(venezuela).include?(calculator.passport_country) %>
     <% if passing_through_uk_border_control_answer == "yes" %>
 
       However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border.
@@ -65,7 +65,7 @@
       - have a valid uniform format residence permit issued by an EEA state
 
     <% end %>
-  <% elsif %w(taiwan).include?(passport_country) %>
+  <% elsif %w(taiwan).include?(calculator.passport_country) %>
     <% if passing_through_uk_border_control_answer == "yes" %>
 
       However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border.
@@ -91,7 +91,7 @@
       ^If the bio data page in your passport doesn’t include a personal ID number, you must [apply for a transit visa](/transit-visa).^
 
     <% end %>
-  <% elsif %w(oman qatar united-arab-emirates).include?(passport_country) %>
+  <% elsif %w(oman qatar united-arab-emirates).include?(calculator.passport_country) %>
 
     You can enter the UK with either an electronic visa waiver (EVW) or a visitor visa
 
