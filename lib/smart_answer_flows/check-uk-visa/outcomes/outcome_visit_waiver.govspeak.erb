@@ -7,7 +7,7 @@
 
     You won't need a visa if your passport has a personal ID number on the bio data page.
 
-  <% elsif %w(oman qatar united-arab-emirates).include?(calculator.passport_country) %>
+  <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
 
     You’ll need an electronic visa waiver (EVW)  or a visitor visa
 
@@ -91,7 +91,7 @@
       ^If the bio data page in your passport doesn’t include a personal ID number, you must [apply for a transit visa](/transit-visa).^
 
     <% end %>
-  <% elsif %w(oman qatar united-arab-emirates).include?(calculator.passport_country) %>
+  <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
 
     You can enter the UK with either an electronic visa waiver (EVW) or a visitor visa
 

@@ -84,7 +84,7 @@ module SmartAnswer
           elsif calculator.diplomatic_visit?
             next :outcome_diplomatic_business
           elsif calculator.medical_visit? || calculator.tourism_visit? || calculator.school_visit?
-            if %w(oman qatar united-arab-emirates).include?(calculator.passport_country)
+            if calculator.passport_country_in_electronic_visa_waiver_list?
               next :outcome_visit_waiver
             elsif calculator.passport_country == 'taiwan'
               next :outcome_taiwan_exception
@@ -198,7 +198,7 @@ module SmartAnswer
             end
           when 'six_months_or_less'
             if calculator.study_visit?
-              if %w(oman qatar united-arab-emirates).include?(calculator.passport_country)
+              if calculator.passport_country_in_electronic_visa_waiver_list?
                 :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
               elsif %w(taiwan).include?(calculator.passport_country)
                 :outcome_taiwan_exception
