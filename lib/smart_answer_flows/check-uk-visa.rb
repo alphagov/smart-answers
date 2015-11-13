@@ -78,21 +78,21 @@ module SmartAnswer
         end
 
         permitted_next_nodes = [
-          :staying_for_how_long?,
           :outcome_diplomatic_business,
-          :outcome_visit_waiver,
-          :outcome_taiwan_exception,
-          :outcome_school_n,
-          :outcome_medical_n,
-          :outcome_school_y,
-          :outcome_standard_visit,
-          :outcome_marriage,
-          :outcome_medical_y,
-          :planning_to_leave_airport?,
-          :outcome_no_visa_needed,
           :outcome_joining_family_m,
           :outcome_joining_family_nvn,
-          :outcome_joining_family_y
+          :outcome_joining_family_y,
+          :outcome_marriage,
+          :outcome_medical_n,
+          :outcome_medical_y,
+          :outcome_no_visa_needed,
+          :outcome_school_n,
+          :outcome_school_y,
+          :outcome_standard_visit,
+          :outcome_taiwan_exception,
+          :outcome_visit_waiver,
+          :planning_to_leave_airport?,
+          :staying_for_how_long?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           case response
