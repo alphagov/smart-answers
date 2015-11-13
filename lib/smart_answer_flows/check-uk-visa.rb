@@ -8,8 +8,6 @@ module SmartAnswer
 
       additional_countries = UkbaCountry.all
 
-      country_group_non_visa_national = %w(andorra antigua-and-barbuda argentina aruba australia bahamas barbados belize bonaire-st-eustatius-saba botswana brazil british-national-overseas brunei canada chile costa-rica curacao dominica timor-leste el-salvador grenada guatemala honduras hong-kong hong-kong-(british-national-overseas) israel japan kiribati south-korea macao malaysia maldives marshall-islands mauritius mexico micronesia monaco namibia nauru new-zealand nicaragua palau panama papua-new-guinea paraguay pitcairn-island st-kitts-and-nevis st-lucia st-maarten st-vincent-and-the-grenadines samoa san-marino seychelles singapore solomon-islands tonga trinidad-and-tobago tuvalu usa uruguay vanuatu vatican-city)
-
       country_group_visa_national = %w(stateless-or-refugee armenia azerbaijan bahrain benin bhutan bolivia bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad colombia comoros cuba djibouti dominican-republic ecuador equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan north-korea kuwait kyrgyzstan laos madagascar mali  montenegro mauritania morocco mozambique niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia)
 
       country_group_datv = %w(afghanistan albania algeria angola bangladesh belarus burma burundi cameroon china congo cyprus-north democratic-republic-of-congo egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq israel-provisional-passport cote-d-ivoire jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia nepal nigeria palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe)
@@ -96,7 +94,7 @@ module SmartAnswer
             end
           end
 
-          if country_group_non_visa_national.include?(passport_country) || Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT.include?(passport_country)
+          if Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL.include?(passport_country) || Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT.include?(passport_country)
             if %w{tourism school}.include?(response)
               next :outcome_school_n
             elsif response == 'medical'
@@ -123,7 +121,7 @@ module SmartAnswer
           when 'family'
             if Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT.include?(passport_country)
               :outcome_joining_family_m
-            elsif country_group_non_visa_national.include?(passport_country)
+            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL.include?(passport_country)
               :outcome_joining_family_nvn
             else
               :outcome_joining_family_y
@@ -209,12 +207,12 @@ module SmartAnswer
                 :outcome_taiwan_exception
               elsif (country_group_datv + country_group_visa_national).include?(passport_country)
                 :outcome_study_m #outcome 3 study m visa needed short courses
-              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT + country_group_non_visa_national).include?(passport_country)
+              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT + Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL).include?(passport_country)
                 :outcome_no_visa_needed #outcome 1 no visa needed
               end
             elsif purpose_of_visit_answer == 'work'
               if ((Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT +
-                country_group_non_visa_national) |
+                Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL) |
                 %w(taiwan)).include?(passport_country)
                 #outcome 5.5 work N no visa needed
                 :outcome_work_n
