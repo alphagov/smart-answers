@@ -86,7 +86,7 @@ module SmartAnswer
           elsif calculator.medical_visit? || calculator.tourism_visit? || calculator.school_visit?
             if calculator.passport_country_in_electronic_visa_waiver_list?
               next :outcome_visit_waiver
-            elsif calculator.passport_country == 'taiwan'
+            elsif calculator.passport_country_is_taiwan?
               next :outcome_taiwan_exception
             end
           end
@@ -109,7 +109,7 @@ module SmartAnswer
             :outcome_medical_y
           elsif calculator.transit_visit?
             if calculator.passport_country_in_datv_list? ||
-                calculator.passport_country_in_visa_national_list? || %w(taiwan venezuela).include?(calculator.passport_country)
+                calculator.passport_country_in_visa_national_list? || calculator.passport_country_is_taiwan? || %w(venezuela).include?(calculator.passport_country)
               :passing_through_uk_border_control?
             else
               :outcome_no_visa_needed
@@ -142,7 +142,7 @@ module SmartAnswer
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.passing_through_uk_border_control_answer = response
 
-          next :outcome_visit_waiver if %w(taiwan).include?(calculator.passport_country)
+          next :outcome_visit_waiver if calculator.passport_country_is_taiwan?
 
           if calculator.passing_through_uk_border_control?
             if calculator.passport_country_in_visa_national_list?
@@ -199,7 +199,7 @@ module SmartAnswer
             if calculator.study_visit?
               if calculator.passport_country_in_electronic_visa_waiver_list?
                 :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
-              elsif %w(taiwan).include?(calculator.passport_country)
+              elsif calculator.passport_country_is_taiwan?
                 :outcome_taiwan_exception
               elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
                 :outcome_study_m #outcome 3 study m visa needed short courses
@@ -208,7 +208,7 @@ module SmartAnswer
               end
             elsif calculator.work_visit?
               if calculator.passport_country_in_ukot_list? ||
-                %w(taiwan).include?(calculator.passport_country) || calculator.passport_country_in_non_visa_national_list?
+                calculator.passport_country_is_taiwan? || calculator.passport_country_in_non_visa_national_list?
                 #outcome 5.5 work N no visa needed
                 :outcome_work_n
               elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?

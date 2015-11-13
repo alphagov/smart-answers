@@ -227,6 +227,20 @@ module SmartAnswer
         end
       end
 
+      context '#passport_country_is_taiwan?' do
+        should 'return true if passport_country is "taiwan"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'taiwan'
+          assert calculator.passport_country_is_taiwan?
+        end
+
+        should 'return false if passport_country is not "taiwan"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'made-up-country'
+          refute calculator.passport_country_is_taiwan?
+        end
+      end
+
       context '#applicant_is_stateless_or_a_refugee?' do
         should 'return true if passport_country is "stateless-or-refugee"' do
           calculator = UkVisaCalculator.new
