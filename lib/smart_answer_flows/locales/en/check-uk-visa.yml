@@ -1,10 +1,6 @@
 en-GB:
   flow:
     check-uk-visa:
-      phrases:
-        study_reason: study
-        work_reason: work
-
       what_passport_do_you_have?:
         title: What passport or travel document do you have?
         hint: If you're a refugee or don't have a passport or travel document, select stateless or refugee.

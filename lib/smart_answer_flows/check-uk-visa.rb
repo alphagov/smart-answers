@@ -71,9 +71,9 @@ module SmartAnswer
 
         calculate :reason_of_staying do |response|
           if response == 'study'
-            PhraseList.new(:study_reason)
+            'study'
           elsif response == 'work'
-            PhraseList.new(:work_reason)
+            'work'
           end
         end
 
