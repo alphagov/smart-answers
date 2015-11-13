@@ -5,7 +5,7 @@
 <% content_for :body do %>
   The visa you apply for depends on your circumstances.
 
-  <% if %w(turkey).include?(calculator.passport_country) %>
+  <% if calculator.passport_country_is_turkey? %>
     ###Turkish nationals
 
     You can apply for a [Turkish business person visa](/turkish-worker) if you want to come and set up a business in the UK.
