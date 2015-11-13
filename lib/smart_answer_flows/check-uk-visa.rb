@@ -154,7 +154,7 @@ module SmartAnswer
           when 'no'
             if %w(venezuela).include?(calculator.passport_country)
               :outcome_visit_waiver
-            elsif calculator.passport_country == 'stateless-or-refugee'
+            elsif calculator.applicant_is_stateless_or_a_refugee?
               :outcome_transit_refugee_not_leaving_airport
             elsif calculator.passport_country_in_datv_list?
               :outcome_transit_not_leaving_airport

@@ -198,6 +198,20 @@ module SmartAnswer
           refute calculator.diplomatic_visit?
         end
       end
+
+      context '#applicant_is_stateless_or_a_refugee?' do
+        should 'return true if passport_country is "stateless-or-refugee"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'stateless-or-refugee'
+          assert calculator.applicant_is_stateless_or_a_refugee?
+        end
+
+        should 'return false if passport_country is not "stateless-or-refugee"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'not-stateless-or-refugee'
+          refute calculator.applicant_is_stateless_or_a_refugee?
+        end
+      end
     end
   end
 end
