@@ -8,8 +8,6 @@ module SmartAnswer
 
       additional_countries = UkbaCountry.all
 
-      country_group_eea = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
-
       # Q1
       country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: Calculators::UkVisaCalculator::EXCLUDE_COUNTRIES do
         save_input_as :passport_country
@@ -26,7 +24,7 @@ module SmartAnswer
         next_node(permitted: permitted_next_nodes) do |response|
           if response == 'israel'
             :israeli_document_type?
-          elsif country_group_eea.include?(response)
+          elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_EEA.include?(response)
             :outcome_no_visa_needed
           else
             :purpose_of_visit?
