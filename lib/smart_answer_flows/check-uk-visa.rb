@@ -144,14 +144,13 @@ module SmartAnswer
 
           next :outcome_visit_waiver if %w(taiwan).include?(calculator.passport_country)
 
-          case calculator.passing_through_uk_border_control_answer
-          when 'yes'
+          if calculator.passing_through_uk_border_control?
             if calculator.passport_country_in_visa_national_list?
               :outcome_transit_leaving_airport
             elsif calculator.passport_country_in_datv_list?
               :outcome_transit_leaving_airport_datv
             end
-          when 'no'
+          else
             if %w(venezuela).include?(calculator.passport_country)
               :outcome_visit_waiver
             elsif calculator.applicant_is_stateless_or_a_refugee?

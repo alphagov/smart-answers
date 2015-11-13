@@ -240,6 +240,20 @@ module SmartAnswer
           refute calculator.applicant_is_stateless_or_a_refugee?
         end
       end
+
+      context '#passing_through_uk_border_control?' do
+        should 'return true if passing_through_uk_border_control_answer is "yes"' do
+          calculator = UkVisaCalculator.new
+          calculator.passing_through_uk_border_control_answer = 'yes'
+          assert calculator.passing_through_uk_border_control?
+        end
+
+        should 'return false if passing_through_uk_border_control_answer is "no"' do
+          calculator = UkVisaCalculator.new
+          calculator.passing_through_uk_border_control_answer = 'no'
+          refute calculator.passing_through_uk_border_control?
+        end
+      end
     end
   end
 end
