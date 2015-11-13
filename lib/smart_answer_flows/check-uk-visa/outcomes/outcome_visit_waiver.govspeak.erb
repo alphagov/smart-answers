@@ -16,7 +16,7 @@
 
 <% content_for :body do %>
   <% if %w(venezuela).include?(calculator.passport_country) %>
-    <% if passing_through_uk_border_control_answer == "yes" %>
+    <% if calculator.passing_through_uk_border_control_answer == "yes" %>
 
       However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border.
       ^If you don’t have an ePassport, you must [apply for a transit visa](/transit-visa).^
@@ -47,7 +47,7 @@
 
       %The ‘transit without visa concession’ is decided by the immigration officer at the border. You won’t be allowed to transit if they decide you need a visa, so you might want to apply for a transit visa before you travel.%
 
-    <% elsif passing_through_uk_border_control_answer == "no" %>
+    <% elsif calculator.passing_through_uk_border_control_answer == "no" %>
 
       However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border.
 
@@ -66,7 +66,7 @@
 
     <% end %>
   <% elsif %w(taiwan).include?(calculator.passport_country) %>
-    <% if passing_through_uk_border_control_answer == "yes" %>
+    <% if calculator.passing_through_uk_border_control_answer == "yes" %>
 
       However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you'd need to apply for a visa, to show to officers at the UK border.
 
