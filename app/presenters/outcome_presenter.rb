@@ -6,7 +6,7 @@ class OutcomePresenter < NodePresenter
       template_name: @node.name.to_s,
       locals: @state.to_hash,
       helpers: [
-        SmartAnswer::OutcomeHelper,
+        SmartAnswer::FormattingHelper,
         SmartAnswer::OverseasPassportsHelper,
         SmartAnswer::MarriageAbroadHelper
       ]

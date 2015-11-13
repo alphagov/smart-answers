@@ -1,5 +1,7 @@
 class SalaryQuestionPresenter < QuestionPresenter
+  include SmartAnswer::FormattingHelper
+
   def response_label(value)
-    value_for_interpolation(SmartAnswer::Salary.new(value))
+    format_salary(SmartAnswer::Salary.new(value))
   end
 end
