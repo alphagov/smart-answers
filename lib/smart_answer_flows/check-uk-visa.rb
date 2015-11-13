@@ -27,7 +27,7 @@ module SmartAnswer
           calculator.passport_country = response
           if calculator.passport_country == 'israel'
             :israeli_document_type?
-          elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_EEA.include?(calculator.passport_country)
+          elsif calculator.passport_country_in_eea?
             :outcome_no_visa_needed
           else
             :purpose_of_visit?
