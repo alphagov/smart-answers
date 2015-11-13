@@ -3,7 +3,7 @@ module SmartAnswer::Calculators
     include ActiveModel::Model
 
     attr_writer :passport_country
-    attr_accessor :purpose_of_visit_answer
+    attr_writer :purpose_of_visit_answer
     attr_writer :passing_through_uk_border_control_answer
 
     def passport_country_in_eea?
@@ -67,39 +67,39 @@ module SmartAnswer::Calculators
     end
 
     def tourism_visit?
-      purpose_of_visit_answer == 'tourism'
+      @purpose_of_visit_answer == 'tourism'
     end
 
     def work_visit?
-      purpose_of_visit_answer == 'work'
+      @purpose_of_visit_answer == 'work'
     end
 
     def study_visit?
-      purpose_of_visit_answer == 'study'
+      @purpose_of_visit_answer == 'study'
     end
 
     def transit_visit?
-      purpose_of_visit_answer == 'transit'
+      @purpose_of_visit_answer == 'transit'
     end
 
     def family_visit?
-      purpose_of_visit_answer == 'family'
+      @purpose_of_visit_answer == 'family'
     end
 
     def marriage_visit?
-      purpose_of_visit_answer == 'marriage'
+      @purpose_of_visit_answer == 'marriage'
     end
 
     def school_visit?
-      purpose_of_visit_answer == 'school'
+      @purpose_of_visit_answer == 'school'
     end
 
     def medical_visit?
-      purpose_of_visit_answer == 'medical'
+      @purpose_of_visit_answer == 'medical'
     end
 
     def diplomatic_visit?
-      purpose_of_visit_answer == 'diplomatic'
+      @purpose_of_visit_answer == 'diplomatic'
     end
 
     def passing_through_uk_border_control?
