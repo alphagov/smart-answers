@@ -26,6 +26,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_DATV.include?(passport_country)
     end
 
+    def passport_country_in_youth_mobility_scheme_list?
+      COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME.include?(passport_country)
+    end
+
     def applicant_is_stateless_or_a_refugee?
       passport_country == 'stateless-or-refugee'
     end
@@ -77,5 +81,7 @@ module SmartAnswer::Calculators
     COUNTRY_GROUP_DATV = %w(afghanistan albania algeria angola bangladesh belarus burma burundi cameroon china congo cyprus-north democratic-republic-of-congo egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq israel-provisional-passport cote-d-ivoire jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia nepal nigeria palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe)
 
     COUNTRY_GROUP_EEA = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania slovakia slovenia spain sweden switzerland)
+
+    COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME = %w(australia canada japan monaco new-zealand hong-kong south-korea taiwan)
   end
 end

@@ -24,7 +24,7 @@
 
   ###Temporary workers
 
-  <% if %w(australia canada japan monaco new-zealand hong-kong south-korea taiwan).include?(calculator.passport_country) %>
+  <% if calculator.passport_country_in_youth_mobility_scheme_list? %>
     You can apply for the [‘youth mobility scheme’ visa](/tier-5-youth-mobility) if you want to live and work in the UK for up to 2 years.
   <% end %>
 

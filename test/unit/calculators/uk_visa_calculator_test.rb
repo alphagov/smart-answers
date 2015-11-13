@@ -199,6 +199,20 @@ module SmartAnswer
         end
       end
 
+      context '#passport_country_in_youth_mobility_scheme_list?' do
+        should 'return true if passport_country is in list of youth mobility scheme countries' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'australia'
+          assert calculator.passport_country_in_youth_mobility_scheme_list?
+        end
+
+        should 'return false if passport_country is not in list of youth mobility scheme countries' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'made-up-country'
+          refute calculator.passport_country_in_youth_mobility_scheme_list?
+        end
+      end
+
       context '#applicant_is_stateless_or_a_refugee?' do
         should 'return true if passport_country is "stateless-or-refugee"' do
           calculator = UkVisaCalculator.new
