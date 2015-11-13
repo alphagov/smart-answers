@@ -227,6 +227,20 @@ module SmartAnswer
         end
       end
 
+      context '#passport_country_in_b1_b2_visa_exception_list?' do
+        should 'return true if passport_country is in list of countries to which the b1/b2 visa exception applies' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'syria'
+          assert calculator.passport_country_in_b1_b2_visa_exception_list?
+        end
+
+        should 'return false if passport_country is not in list of countries to which the b1/b2 visa exception applies' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'made-up-country'
+          refute calculator.passport_country_in_b1_b2_visa_exception_list?
+        end
+      end
+
       context '#passport_country_is_israel?' do
         should 'return true if passport_country is "israel"' do
           calculator = UkVisaCalculator.new
