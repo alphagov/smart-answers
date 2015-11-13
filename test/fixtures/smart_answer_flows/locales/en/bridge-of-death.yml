@@ -1,10 +1,6 @@
 en-GB:
   flow:
     bridge-of-death:
-      options:
-        "no": "No"
-        "yes": "Yes"
-
       what_is_your_name?:
         title: "What...is your name?"
         label: "Name:"
