@@ -131,7 +131,6 @@ module SmartAnswer
       multiple_choice :passing_through_uk_border_control? do
         option :yes
         option :no
-        save_input_as :passing_through_uk_border_control_answer
 
         permitted_next_nodes = [
           :outcome_no_visa_needed,
@@ -142,9 +141,11 @@ module SmartAnswer
           :outcome_visit_waiver
         ]
         next_node(permitted: permitted_next_nodes) do |response|
+          calculator.passing_through_uk_border_control_answer = response
+
           next :outcome_visit_waiver if %w(taiwan).include?(calculator.passport_country)
 
-          case response
+          case calculator.passing_through_uk_border_control_answer
           when 'yes'
             if Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(calculator.passport_country)
               :outcome_transit_leaving_airport
