@@ -148,7 +148,7 @@ module SmartAnswer
       multiple_choice :passing_through_uk_border_control? do
         option :yes
         option :no
-        save_input_as :leaving_airport_answer
+        save_input_as :passing_through_uk_border_control_answer
 
         permitted_next_nodes = [
           :outcome_no_visa_needed,
