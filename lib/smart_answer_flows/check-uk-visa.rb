@@ -69,14 +69,6 @@ module SmartAnswer
         option :diplomatic
         save_input_as :purpose_of_visit_answer
 
-        calculate :study_or_work do |response|
-          if response == 'study'
-            'study'
-          elsif response == 'work'
-            'work'
-          end
-        end
-
         permitted_next_nodes = [
           :outcome_diplomatic_business,
           :outcome_joining_family_m,
@@ -187,6 +179,14 @@ module SmartAnswer
         option :six_months_or_less
         option :longer_than_six_months
         save_input_as :period_of_staying
+
+        precalculate :study_or_work do
+          if purpose_of_visit_answer == 'study'
+            'study'
+          elsif purpose_of_visit_answer == 'work'
+            'work'
+          end
+        end
 
         permitted_next_nodes = [
           :outcome_no_visa_needed,
