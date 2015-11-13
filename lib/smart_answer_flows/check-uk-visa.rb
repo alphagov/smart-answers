@@ -58,7 +58,6 @@ module SmartAnswer
         option :school
         option :medical
         option :diplomatic
-        save_input_as :purpose_of_visit_answer
 
         permitted_next_nodes = [
           :outcome_diplomatic_business,
@@ -78,7 +77,8 @@ module SmartAnswer
           :staying_for_how_long?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
-          case response
+          calculator.purpose_of_visit_answer = response
+          case calculator.purpose_of_visit_answer
           when 'work', 'study'
             next :staying_for_how_long?
           when 'diplomatic'
@@ -92,14 +92,14 @@ module SmartAnswer
           end
 
           if Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL.include?(calculator.passport_country) || Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT.include?(calculator.passport_country)
-            if %w{tourism school}.include?(response)
+            if %w{tourism school}.include?(calculator.purpose_of_visit_answer)
               next :outcome_school_n
-            elsif response == 'medical'
+            elsif calculator.purpose_of_visit_answer == 'medical'
               next :outcome_medical_n
             end
           end
 
-          case response
+          case calculator.purpose_of_visit_answer
           when 'school'
             :outcome_school_y
           when 'tourism'
@@ -171,9 +171,9 @@ module SmartAnswer
         option :longer_than_six_months
 
         precalculate :study_or_work do
-          if purpose_of_visit_answer == 'study'
+          if calculator.purpose_of_visit_answer == 'study'
             'study'
-          elsif purpose_of_visit_answer == 'work'
+          elsif calculator.purpose_of_visit_answer == 'work'
             'work'
           end
         end
@@ -191,13 +191,13 @@ module SmartAnswer
         next_node(permitted: permitted_next_nodes) do |response|
           case response
           when 'longer_than_six_months'
-            if purpose_of_visit_answer == 'study'
+            if calculator.purpose_of_visit_answer == 'study'
               :outcome_study_y #outcome 2 study y
-            elsif purpose_of_visit_answer == 'work'
+            elsif calculator.purpose_of_visit_answer == 'work'
               :outcome_work_y #outcome 4 work y
             end
           when 'six_months_or_less'
-            if purpose_of_visit_answer == 'study'
+            if calculator.purpose_of_visit_answer == 'study'
               if %w(oman qatar united-arab-emirates).include?(calculator.passport_country)
                 :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
               elsif %w(taiwan).include?(calculator.passport_country)
@@ -207,7 +207,7 @@ module SmartAnswer
               elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT + Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL).include?(calculator.passport_country)
                 :outcome_no_visa_needed #outcome 1 no visa needed
               end
-            elsif purpose_of_visit_answer == 'work'
+            elsif calculator.purpose_of_visit_answer == 'work'
               if ((Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT +
                 Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL) |
                 %w(taiwan)).include?(calculator.passport_country)
@@ -231,7 +231,7 @@ module SmartAnswer
       outcome :outcome_medical_y
       outcome :outcome_no_visa_needed do
         precalculate :purpose_of_visit_answer do
-          purpose_of_visit_answer
+          calculator.purpose_of_visit_answer
         end
       end
       outcome :outcome_school_n
