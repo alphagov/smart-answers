@@ -5,7 +5,7 @@
 <% content_for :body do %>
   You should apply for a [Visitor in Transit visa](/transit-visa) if you arrive on a flight and will pass through immigration control before you leave the UK.
 
-  <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {passport_country: passport_country} -%>
+  <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {passport_country: calculator.passport_country} -%>
 
   ##Transiting without a visa
   You might be eligible for ‘transit without visa’ if:

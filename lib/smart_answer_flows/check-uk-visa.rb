@@ -10,7 +10,9 @@ module SmartAnswer
 
       # Q1
       country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: Calculators::UkVisaCalculator::EXCLUDE_COUNTRIES do
-        save_input_as :passport_country
+        next_node_calculation :calculator do
+          Calculators::UkVisaCalculator.new
+        end
 
         calculate :purpose_of_visit_answer do
           nil
@@ -22,9 +24,10 @@ module SmartAnswer
           :purpose_of_visit?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
-          if response == 'israel'
+          calculator.passport_country = response
+          if calculator.passport_country == 'israel'
             :israeli_document_type?
-          elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_EEA.include?(response)
+          elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_EEA.include?(calculator.passport_country)
             :outcome_no_visa_needed
           else
             :purpose_of_visit?
@@ -39,7 +42,7 @@ module SmartAnswer
 
         permitted_next_nodes = [:purpose_of_visit?]
         next_node(permitted: permitted_next_nodes) do |response|
-          self.passport_country = 'israel-provisional-passport' if response == 'provisional-passport'
+          calculator.passport_country = 'israel-provisional-passport' if response == 'provisional-passport'
           :purpose_of_visit?
         end
       end
@@ -81,14 +84,14 @@ module SmartAnswer
           when 'diplomatic'
             next :outcome_diplomatic_business
           when 'tourism', 'school', 'medical'
-            if %w(oman qatar united-arab-emirates).include?(passport_country)
+            if %w(oman qatar united-arab-emirates).include?(calculator.passport_country)
               next :outcome_visit_waiver
-            elsif passport_country == 'taiwan'
+            elsif calculator.passport_country == 'taiwan'
               next :outcome_taiwan_exception
             end
           end
 
-          if Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL.include?(passport_country) || Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT.include?(passport_country)
+          if Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL.include?(calculator.passport_country) || Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT.include?(calculator.passport_country)
             if %w{tourism school}.include?(response)
               next :outcome_school_n
             elsif response == 'medical'
@@ -106,16 +109,16 @@ module SmartAnswer
           when 'medical'
             :outcome_medical_y
           when 'transit'
-            if Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV.include?(passport_country) ||
-                Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(passport_country) || %w(taiwan venezuela).include?(passport_country)
+            if Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV.include?(calculator.passport_country) ||
+                Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(calculator.passport_country) || %w(taiwan venezuela).include?(calculator.passport_country)
               :passing_through_uk_border_control?
             else
               :outcome_no_visa_needed
             end
           when 'family'
-            if Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT.include?(passport_country)
+            if Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT.include?(calculator.passport_country)
               :outcome_joining_family_m
-            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL.include?(passport_country)
+            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL.include?(calculator.passport_country)
               :outcome_joining_family_nvn
             else
               :outcome_joining_family_y
@@ -139,23 +142,23 @@ module SmartAnswer
           :outcome_visit_waiver
         ]
         next_node(permitted: permitted_next_nodes) do |response|
-          next :outcome_visit_waiver if %w(taiwan).include?(passport_country)
+          next :outcome_visit_waiver if %w(taiwan).include?(calculator.passport_country)
 
           case response
           when 'yes'
-            if Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(passport_country)
+            if Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(calculator.passport_country)
               :outcome_transit_leaving_airport
-            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV.include?(passport_country)
+            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV.include?(calculator.passport_country)
               :outcome_transit_leaving_airport_datv
             end
           when 'no'
-            if %w(venezuela).include?(passport_country)
+            if %w(venezuela).include?(calculator.passport_country)
               :outcome_visit_waiver
-            elsif passport_country == 'stateless-or-refugee'
+            elsif calculator.passport_country == 'stateless-or-refugee'
               :outcome_transit_refugee_not_leaving_airport
-            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV.include?(passport_country)
+            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV.include?(calculator.passport_country)
               :outcome_transit_not_leaving_airport
-            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(passport_country)
+            elsif Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL.include?(calculator.passport_country)
               :outcome_no_visa_needed
             end
           end
@@ -195,22 +198,22 @@ module SmartAnswer
             end
           when 'six_months_or_less'
             if purpose_of_visit_answer == 'study'
-              if %w(oman qatar united-arab-emirates).include?(passport_country)
+              if %w(oman qatar united-arab-emirates).include?(calculator.passport_country)
                 :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
-              elsif %w(taiwan).include?(passport_country)
+              elsif %w(taiwan).include?(calculator.passport_country)
                 :outcome_taiwan_exception
-              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV + Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(passport_country)
+              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV + Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(calculator.passport_country)
                 :outcome_study_m #outcome 3 study m visa needed short courses
-              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT + Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL).include?(passport_country)
+              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT + Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL).include?(calculator.passport_country)
                 :outcome_no_visa_needed #outcome 1 no visa needed
               end
             elsif purpose_of_visit_answer == 'work'
               if ((Calculators::UkVisaCalculator::COUNTRY_GROUP_UKOT +
                 Calculators::UkVisaCalculator::COUNTRY_GROUP_NON_VISA_NATIONAL) |
-                %w(taiwan)).include?(passport_country)
+                %w(taiwan)).include?(calculator.passport_country)
                 #outcome 5.5 work N no visa needed
                 :outcome_work_n
-              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV + Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(passport_country)
+              elsif (Calculators::UkVisaCalculator::COUNTRY_GROUP_DATV + Calculators::UkVisaCalculator::COUNTRY_GROUP_VISA_NATIONAL).include?(calculator.passport_country)
                 # outcome 5 work m visa needed short courses
                 :outcome_work_m
               end
