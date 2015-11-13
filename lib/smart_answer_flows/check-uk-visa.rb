@@ -190,14 +190,14 @@ module SmartAnswer
         save_input_as :period_of_staying
 
         permitted_next_nodes = [
-          :outcome_study_y,
-          :outcome_work_y,
-          :outcome_visit_waiver,
-          :outcome_taiwan_exception,
-          :outcome_study_m,
           :outcome_no_visa_needed,
+          :outcome_study_m,
+          :outcome_study_y,
+          :outcome_taiwan_exception,
+          :outcome_visit_waiver,
+          :outcome_work_m,
           :outcome_work_n,
-          :outcome_work_m
+          :outcome_work_y
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           case response
