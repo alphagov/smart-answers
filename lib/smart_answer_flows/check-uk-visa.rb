@@ -69,7 +69,7 @@ module SmartAnswer
         option :diplomatic
         save_input_as :purpose_of_visit_answer
 
-        calculate :reason_of_staying do |response|
+        calculate :study_or_work do |response|
           if response == 'study'
             'study'
           elsif response == 'work'
