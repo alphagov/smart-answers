@@ -269,6 +269,20 @@ module SmartAnswer
         end
       end
 
+      context '#passport_country_is_croatia?' do
+        should 'return true if passport_country is "croatia"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'croatia'
+          assert calculator.passport_country_is_croatia?
+        end
+
+        should 'return false if passport_country is not "croatia"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'made-up-country'
+          refute calculator.passport_country_is_croatia?
+        end
+      end
+
       context '#applicant_is_stateless_or_a_refugee?' do
         should 'return true if passport_country is "stateless-or-refugee"' do
           calculator = UkVisaCalculator.new
