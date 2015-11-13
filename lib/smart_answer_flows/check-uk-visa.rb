@@ -78,12 +78,12 @@ module SmartAnswer
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.purpose_of_visit_answer = response
-          case calculator.purpose_of_visit_answer
-          when 'work', 'study'
+
+          if %w{work study}.include?(calculator.purpose_of_visit_answer)
             next :staying_for_how_long?
-          when 'diplomatic'
+          elsif calculator.purpose_of_visit_answer == 'diplomatic'
             next :outcome_diplomatic_business
-          when 'tourism', 'school', 'medical'
+          elsif %w{tourism school medical}.include?(calculator.purpose_of_visit_answer)
             if %w(oman qatar united-arab-emirates).include?(calculator.passport_country)
               next :outcome_visit_waiver
             elsif calculator.passport_country == 'taiwan'
@@ -99,23 +99,22 @@ module SmartAnswer
             end
           end
 
-          case calculator.purpose_of_visit_answer
-          when 'school'
+          if calculator.purpose_of_visit_answer == 'school'
             :outcome_school_y
-          when 'tourism'
+          elsif calculator.purpose_of_visit_answer == 'tourism'
             :outcome_standard_visit
-          when 'marriage'
+          elsif calculator.purpose_of_visit_answer == 'marriage'
             :outcome_marriage
-          when 'medical'
+          elsif calculator.purpose_of_visit_answer == 'medical'
             :outcome_medical_y
-          when 'transit'
+          elsif calculator.purpose_of_visit_answer == 'transit'
             if calculator.passport_country_in_datv_list? ||
                 calculator.passport_country_in_visa_national_list? || %w(taiwan venezuela).include?(calculator.passport_country)
               :passing_through_uk_border_control?
             else
               :outcome_no_visa_needed
             end
-          when 'family'
+          elsif calculator.purpose_of_visit_answer == 'family'
             if calculator.passport_country_in_ukot_list?
               :outcome_joining_family_m
             elsif calculator.passport_country_in_non_visa_national_list?
