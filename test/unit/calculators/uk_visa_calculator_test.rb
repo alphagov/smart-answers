@@ -297,6 +297,20 @@ module SmartAnswer
         end
       end
 
+      context '#passport_country_is_china?' do
+        should 'return true if passport_country is "china"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'china'
+          assert calculator.passport_country_is_china?
+        end
+
+        should 'return false if passport_country is not "china"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'made-up-country'
+          refute calculator.passport_country_is_china?
+        end
+      end
+
       context '#applicant_is_stateless_or_a_refugee?' do
         should 'return true if passport_country is "stateless-or-refugee"' do
           calculator = UkVisaCalculator.new
