@@ -3,9 +3,7 @@ class QuestionPresenter < NodePresenter
   delegate [
     :translate!,
     :translate_and_render,
-    :translate_option,
-    :value_for_interpolation,
-    :number_with_delimiter
+    :translate_option
   ] => :@renderer
 
   def initialize(i18n_prefix, node, state = nil, options = {})

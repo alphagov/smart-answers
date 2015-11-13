@@ -25,6 +25,8 @@ module SmartAnswer
       nil
     end
 
+    private
+
     def value_for_interpolation(value, nested = false)
       case value
       when Date then I18n.localize(value, format: :long)
@@ -49,8 +51,6 @@ module SmartAnswer
       else value
       end
     end
-
-    private
 
     def i18n_node_prefix
       "#{@i18n_prefix}.#{@node.name}"
