@@ -1,5 +1,6 @@
 require_relative '../test_helper'
 require_relative '../helpers/i18n_test_helper'
+require_relative '../fixtures/smart_answer_flows/smart-answers-controller-sample'
 require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerTest < ActionController::TestCase
@@ -9,50 +10,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
   def setup
     stub_content_api_default_artefact
 
-    @flow = SmartAnswer::Flow.new do
-      name "smart-answers-controller-sample"
-
-      satisfies_need 1337
-
-      multiple_choice :do_you_like_chocolate? do
-        option :yes
-        option :no
-
-        permitted_next_nodes = [
-          :you_have_a_sweet_tooth,
-          :do_you_like_jam?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
-          case response
-          when 'yes'
-            :you_have_a_sweet_tooth
-          when 'no'
-            :do_you_like_jam?
-          end
-        end
-      end
-
-      multiple_choice :do_you_like_jam? do
-        option :yes
-        option :no
-
-        permitted_next_nodes = [
-          :you_have_a_sweet_tooth,
-          :you_have_a_savoury_tooth
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
-          case response
-          when 'yes'
-            :you_have_a_sweet_tooth
-          when 'no'
-            :you_have_a_savoury_tooth
-          end
-        end
-      end
-
-      outcome :you_have_a_savoury_tooth
-      outcome :you_have_a_sweet_tooth
-    end
+    @flow = SmartAnswer::SmartAnswersControllerSampleFlow.build
     load_path = fixture_file('smart_answer_flows')
     SmartAnswer::FlowRegistry.stubs(:instance).returns(stub("Flow registry", find: @flow, load_path: load_path))
     use_additional_translation_file(fixture_file('smart_answer_flows/locales/en/smart-answers-controller-sample.yml'))
