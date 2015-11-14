@@ -1,8 +1,0 @@
-en-GB:
-  flow:
-    money-and-salary-sample:
-      how_much_do_you_earn?:
-        title: "How much do you earn?"
-      what_size_bonus_do_you_want?:
-        title: "What size bonus do you want?"
-        error_message: "%{error}"
