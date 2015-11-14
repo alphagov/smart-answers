@@ -95,25 +95,19 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
 
     should "display first question after starting" do
-      using_additional_translation_file(fixture_file('smart_answer_flows/locales/en/smart-answers-controller-sample.yml')) do
-        get :show, id: 'smart-answers-controller-sample', started: 'y'
-      end
+      get :show, id: 'smart-answers-controller-sample', started: 'y'
       assert_select ".step.current h2", /Do you like chocolate\?/
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
     end
 
     should "show outcome when smart answer is complete so that 'smartanswerOutcome' JS event is fired" do
-      using_additional_translation_file(fixture_file('smart_answer_flows/locales/en/smart-answers-controller-sample.yml')) do
-        get :show, id: 'smart-answers-controller-sample', started: 'y', responses: 'yes'
-      end
+      get :show, id: 'smart-answers-controller-sample', started: 'y', responses: 'yes'
       assert_select ".outcome"
     end
 
     should "have meta robots noindex on question pages" do
-      using_additional_translation_file(fixture_file('smart_answer_flows/locales/en/smart-answers-controller-sample.yml')) do
-        get :show, id: 'smart-answers-controller-sample', started: 'y'
-      end
+      get :show, id: 'smart-answers-controller-sample', started: 'y'
       assert_select "head meta[name=robots][content=noindex]"
     end
 
@@ -429,9 +423,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     context "a response has been accepted" do
       setup do
-        using_additional_translation_file(fixture_file('smart_answer_flows/locales/en/smart-answers-controller-sample.yml')) do
-          get :show, id: 'smart-answers-controller-sample', started: 'y', responses: "no"
-        end
+        get :show, id: 'smart-answers-controller-sample', started: 'y', responses: "no"
       end
 
       should "show response summary" do
@@ -451,9 +443,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     context "format=json" do
       should "render content without layout" do
-        using_additional_translation_file(fixture_file('smart_answer_flows/locales/en/smart-answers-controller-sample.yml')) do
-          get :show, id: 'smart-answers-controller-sample', started: 'y', responses: "no", format: "json"
-        end
+        get :show, id: 'smart-answers-controller-sample', started: 'y', responses: "no", format: "json"
         data = JSON.parse(response.body)
         assert_equal '/smart-answers-controller-sample/y/no', data['url']
         doc = Nokogiri::HTML(data['html_fragment'])
@@ -506,18 +496,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "debugging" do
       should "render debug information on the page when enabled" do
         @controller.stubs(:debug?).returns(true)
-        using_additional_translation_file(fixture_file('smart_answer_flows/locales/en/smart-answers-controller-sample.yml')) do
-          get :show, id: 'smart-answers-controller-sample', started: 'y', responses: "no", debug: "1"
-        end
+        get :show, id: 'smart-answers-controller-sample', started: 'y', responses: "no", debug: "1"
 
         assert_select "pre.debug"
       end
 
       should "not render debug information on the page when not enabled" do
         @controller.stubs(:debug?).returns(false)
-        using_additional_translation_file(fixture_file('smart_answer_flows/locales/en/smart-answers-controller-sample.yml')) do
-          get :show, id: 'smart-answers-controller-sample', started: 'y', responses: "no", debug: nil
-        end
+        get :show, id: 'smart-answers-controller-sample', started: 'y', responses: "no", debug: nil
 
         assert_select "pre.debug", false, "The page should not render debug information"
       end
