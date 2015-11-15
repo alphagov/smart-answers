@@ -1,10 +1,12 @@
 require_relative '../test_helper'
 require_relative '../helpers/i18n_test_helper'
 require_relative '../fixtures/smart_answer_flows/smart-answers-controller-sample'
+require_relative 'smart_answers_controller_test_helper'
 require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerTest < ActionController::TestCase
   include I18nTestHelper
+  include SmartAnswersControllerTestHelper
   include GdsApi::TestHelpers::ContentApi
 
   def setup
@@ -18,27 +20,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
   def teardown
     reset_translation_files
-  end
-
-  def submit_response(response = nil, other_params = {})
-    params = {
-      id: 'smart-answers-controller-sample',
-      started: 'y',
-      next: "Next Question"
-    }
-    params[:response] = response if response
-    get :show, params.merge(other_params)
-  end
-
-  def submit_json_response(response = nil, other_params = {})
-    params = {
-      id: 'smart-answers-controller-sample',
-      started: 'y',
-      format: "json",
-      next: "1"
-    }
-    params[:response] = response if response
-    get :show, params.merge(other_params)
   end
 
   context "GET /<slug>" do
@@ -508,14 +489,5 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_select "pre.debug", false, "The page should not render debug information"
       end
     end
-  end
-
-  private
-
-  def with_cache_control_expiry(&block)
-    original_value = Rails.configuration.set_http_cache_control_expiry_time
-    Rails.configuration.set_http_cache_control_expiry_time = true
-    block.call
-    Rails.configuration.set_http_cache_control_expiry_time = original_value
   end
 end
