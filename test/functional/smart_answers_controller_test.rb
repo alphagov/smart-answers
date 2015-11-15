@@ -125,44 +125,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert @response.success?
     end
 
-    context "money question" do
-      setup do
-        @flow = SmartAnswer::Flow.new do
-          name "smart-answers-controller-sample"
-          money_question :how_much? do
-            next_node :done
-          end
-          outcome :done
-        end
-        @controller.stubs(:flow_registry).returns(stub("Flow registry", find: @flow))
-      end
-
-      should "display question" do
-        get :show, id: 'smart-answers-controller-sample', started: 'y'
-        assert_select ".step.current h2", /How much\?/
-        assert_select "input[type=text][name=response]"
-      end
-
-      should "show a validation error if invalid input" do
-        submit_response "bad_number"
-        assert_select ".step.current h2", /How much\?/
-        assert_select "body", /Please answer this question/
-      end
-
-      context "suffix_label in translation file" do
-        setup do
-          using_additional_translation_file(fixture_file('smart_answer_flows/locales/en/smart-answers-controller-sample-with-suffix-label.yml')) do
-            get :show, id: 'smart-answers-controller-sample', started: 'y'
-          end
-        end
-
-        should "show the label after the question input" do
-          assert_select "label > input[type=text][name=response]"
-          assert_match /input.*?name="response".*?millions\./, response.body
-        end
-      end
-    end
-
     context "salary question" do
       setup do
         @flow = SmartAnswer::Flow.new do
