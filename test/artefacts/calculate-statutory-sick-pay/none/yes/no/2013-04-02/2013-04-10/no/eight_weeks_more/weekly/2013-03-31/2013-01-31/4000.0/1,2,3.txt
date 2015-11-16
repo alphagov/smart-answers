@@ -6,7 +6,7 @@ Your employee is entitled to SSP for 2 days out of 5 working days taken off sick
 
 Week ending | SSP amount
 -|-
-6 April 2013|£0.00
+6 April 2013|£0
 13 April 2013|£57.80
 | **Total SSP: £57.80**
 
