@@ -59,6 +59,10 @@ class QuestionPresenter < NodePresenter
     end
   end
 
+  def render_option(key)
+    translate_option(key)
+  end
+
   def to_response(input)
     @node.to_response(input)
   end
