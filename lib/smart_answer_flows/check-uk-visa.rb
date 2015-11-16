@@ -138,6 +138,7 @@ module SmartAnswer
           :outcome_transit_not_leaving_airport,
           :outcome_transit_refugee_not_leaving_airport,
           :outcome_transit_taiwan,
+          :outcome_transit_venezuala,
           :outcome_visit_waiver
         ]
         next_node(permitted: permitted_next_nodes) do |response|
@@ -153,7 +154,7 @@ module SmartAnswer
             end
           else
             if calculator.passport_country_is_venezuela?
-              :outcome_visit_waiver
+              :outcome_transit_venezuala
             elsif calculator.applicant_is_stateless_or_a_refugee?
               :outcome_transit_refugee_not_leaving_airport
             elsif calculator.passport_country_in_datv_list?
@@ -240,6 +241,7 @@ module SmartAnswer
       outcome :outcome_transit_not_leaving_airport
       outcome :outcome_transit_refugee_not_leaving_airport
       outcome :outcome_transit_taiwan
+      outcome :outcome_transit_venezuala
       outcome :outcome_visit_waiver
       outcome :outcome_work_m
       outcome :outcome_work_n
