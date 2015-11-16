@@ -1,11 +1,12 @@
 class MethodMissingObject
-  def initialize(method, parent_method = nil)
+  def initialize(method, parent_method = nil, blank_to_s = false)
     @method = method
     @parent_method = parent_method
+    @blank_to_s = blank_to_s
   end
 
   def method_missing(method, *args, &block)
-    MethodMissingObject.new(method, self)
+    MethodMissingObject.new(method, parent_method = self, blank_to_s = @blank_to_s)
   end
 
   def description
@@ -13,6 +14,6 @@ class MethodMissingObject
   end
 
   def to_s
-    "<%= #{description} %>".html_safe
+    @blank_to_s ? "" : "<%= #{description} %>".html_safe
   end
 end
