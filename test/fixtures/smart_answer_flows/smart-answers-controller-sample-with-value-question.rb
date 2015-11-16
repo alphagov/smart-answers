@@ -2,6 +2,7 @@ module SmartAnswer
   class SmartAnswersControllerSampleWithValueQuestionFlow < Flow
     def define
       name "smart-answers-controller-sample-with-value-question"
+      use_erb_templates_for_questions
       value_question :how_many_green_bottles? do
         next_node :value_question_with_label?
       end
