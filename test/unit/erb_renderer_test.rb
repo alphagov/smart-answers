@@ -130,6 +130,26 @@ Hello world
       end
     end
 
+    test '#content_for returns an HTML-safe string when passed through Govspeak' do
+      erb_template = content_for(:key, 'html-unsafe-string')
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert renderer.content_for(:key).html_safe?
+      end
+    end
+
+    test '#content_for returns an HTML-safe string when not passed through Govspeak' do
+      erb_template = content_for(:key, 'html-unsafe-string')
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert renderer.content_for(:key, html: false).html_safe?
+      end
+    end
+
     test '#content_for returns the same content when called multiple times' do
       erb_template = content_for(:key, 'body-content')
 

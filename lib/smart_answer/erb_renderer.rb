@@ -11,7 +11,7 @@ module SmartAnswer
     def content_for(key, html: true)
       content = rendered_view.content_for(key) || ''
       content = strip_leading_spaces(content.to_str)
-      html ? GovspeakPresenter.new(content).html : normalize_blank_lines(content)
+      html ? GovspeakPresenter.new(content).html : normalize_blank_lines(content).html_safe
     end
 
     def erb_template_path
