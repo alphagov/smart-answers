@@ -8,13 +8,11 @@ class StartNodePresenter < NodePresenter
   end
 
   def title
-    title = @renderer.content_for(:title, html: false)
-    title && title.chomp
+    @renderer.content_for(:title, html: false).chomp
   end
 
   def meta_description
-    meta_description = @renderer.content_for(:meta_description, html: false)
-    meta_description && meta_description.chomp
+    @renderer.content_for(:meta_description, html: false).chomp
   end
 
   def body(html: true)
