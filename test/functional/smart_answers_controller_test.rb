@@ -502,7 +502,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_match /Smart answers controller sample/, doc.css('h1').first.to_s
         assert_equal 0, doc.css('head').size, "Should not have layout"
         assert_equal '/smart-answers-controller-sample/y/no', doc.css('form').first.attributes['action'].to_s
-        assert_equal @flow.node(:do_you_like_jam?).name.to_s.humanize, data['title']
+        assert_equal 'Do you like jam?', data['title']
       end
     end
 
