@@ -233,32 +233,32 @@ module SmartAnswer
         end
       end
 
+      outcome :outcome_diplomatic_business
+      outcome :outcome_joining_family_m
+      outcome :outcome_joining_family_nvn
+      outcome :outcome_joining_family_y
+      outcome :outcome_marriage
+      outcome :outcome_medical_n
+      outcome :outcome_medical_y
       outcome :outcome_no_visa_needed do
         precalculate :purpose_of_visit_answer do
           purpose_of_visit_answer
         end
       end
-      outcome :outcome_study_y
-      outcome :outcome_study_m
-      outcome :outcome_work_y
-      outcome :outcome_work_m
-      outcome :outcome_work_n
-      outcome :outcome_transit_leaving_airport
-      outcome :outcome_transit_not_leaving_airport
-      outcome :outcome_joining_family_y
-      outcome :outcome_joining_family_m
-      outcome :outcome_joining_family_nvn
-      outcome :outcome_standard_visit
-      outcome :outcome_marriage
       outcome :outcome_school_n
       outcome :outcome_school_y
-      outcome :outcome_medical_y
-      outcome :outcome_medical_n
-      outcome :outcome_visit_waiver
-      outcome :outcome_transit_leaving_airport_datv
+      outcome :outcome_standard_visit
+      outcome :outcome_study_m
+      outcome :outcome_study_y
       outcome :outcome_taiwan_exception
-      outcome :outcome_diplomatic_business
+      outcome :outcome_transit_leaving_airport
+      outcome :outcome_transit_leaving_airport_datv
+      outcome :outcome_transit_not_leaving_airport
       outcome :outcome_transit_refugee_not_leaving_airport
+      outcome :outcome_visit_waiver
+      outcome :outcome_work_m
+      outcome :outcome_work_n
+      outcome :outcome_work_y
     end
   end
 end
