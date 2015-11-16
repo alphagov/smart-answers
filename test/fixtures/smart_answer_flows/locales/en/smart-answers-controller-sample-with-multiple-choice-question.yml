@@ -1,9 +1,7 @@
 en-GB:
   flow:
-    smart-answers-controller-cheese:
+    smart-answers-controller-sample-with-multiple-choice-question:
       what?:
         title: "What?"
         options:
           "cheese": "Cheese"
-      when?:
-        title: "When?"
