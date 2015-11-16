@@ -11,9 +11,3 @@ en-GB:
         options:
           "yes": "Yes"
           "no": "No"
-      when?:
-        title: "When?"
-      how_much?:
-        title: "How much?"
-      how_many_green_bottles?:
-        title: "How many green bottles?"

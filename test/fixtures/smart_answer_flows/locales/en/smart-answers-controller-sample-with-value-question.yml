@@ -1,0 +1,11 @@
+en-GB:
+  flow:
+    smart-answers-controller-sample-with-value-question:
+      how_many_green_bottles?:
+        title: "How many green bottles?"
+      value_question_with_label?:
+        title: "Value question with label?"
+        label: "value-question-label"
+      value_question_with_suffix_label?:
+        title: "Value question with suffix label"
+        suffix_label: "value-question-suffix-label"
