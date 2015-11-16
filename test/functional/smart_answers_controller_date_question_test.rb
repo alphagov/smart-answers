@@ -89,7 +89,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
             data = JSON.parse(response.body)
             doc = Nokogiri::HTML(data['html_fragment'])
             current_step = doc.css('.step.current')
-            assert current_step.css('.error').size > 0, "#{current_step.to_s} should contain .error"
+            assert current_step.css('.error').size > 0, "#{current_step} should contain .error"
           end
         end
       end
