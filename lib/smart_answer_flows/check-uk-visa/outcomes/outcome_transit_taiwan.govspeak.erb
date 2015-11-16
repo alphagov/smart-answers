@@ -1,5 +1,9 @@
 <% content_for :title do %>
-  You won't need a visa if your passport has a personal ID number on the bio data page.
+  <% if calculator.passing_through_uk_border_control? %>
+    You won't need a visa if your passport has a personal ID number on the bio data page.
+  <% else %>
+    You won't need a visa to come to the UK
+  <% end %>
 <% end %>
 
 <% content_for :body do %>
@@ -20,12 +24,6 @@
     - have the correct documents for your destination (eg a visa for that country)
 
     ^ The 'transit without visa concession' is decided by the immigration officer at the border. You won't be allowed to transit if they decide you need a visa, so you might want to apply for a transit visa before you travel.
-
-  <% else %>
-
-    However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
-
-    ^If the bio data page in your passport doesn’t include a personal ID number, you must [apply for a transit visa](/transit-visa).^
 
   <% end %>
 <% end %>
