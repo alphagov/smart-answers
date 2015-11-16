@@ -1,23 +1,15 @@
 <% content_for :title do %>
-  <% if calculator.passport_country_in_electronic_visa_waiver_list? %>
-
-    You’ll need an electronic visa waiver (EVW)  or a visitor visa
-
-  <% end %>
+  You’ll need an electronic visa waiver (EVW)  or a visitor visa
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.passport_country_in_electronic_visa_waiver_list? %>
+  You can enter the UK with either an electronic visa waiver (EVW) or a visitor visa
 
-    You can enter the UK with either an electronic visa waiver (EVW) or a visitor visa
+  ###EVW
 
-    ###EVW
+  You must [apply for an EVW](https://www.visa4uk.fco.gov.uk/) online at least 48 hours before you travel.
 
-    You must [apply for an EVW](https://www.visa4uk.fco.gov.uk/) online at least 48 hours before you travel.
+  ###Visitor visa
 
-    ###Visitor visa
-
-    Apply for a [Standard Visitor visa](/standard-visitor-visa).
-
-  <% end %>
+  Apply for a [Standard Visitor visa](/standard-visitor-visa).
 <% end %>
