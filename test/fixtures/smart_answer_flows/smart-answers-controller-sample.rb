@@ -2,8 +2,8 @@ module SmartAnswer
   class SmartAnswersControllerSampleFlow < Flow
     def define
       name "smart-answers-controller-sample"
-
       satisfies_need 1337
+      use_erb_templates_for_questions
 
       multiple_choice :do_you_like_chocolate? do
         option :yes
