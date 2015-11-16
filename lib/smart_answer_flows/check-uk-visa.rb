@@ -210,7 +210,7 @@ module SmartAnswer
               end
             elsif calculator.work_visit?
               if calculator.passport_country_in_ukot_list? ||
-                calculator.passport_country_is_taiwan? || calculator.passport_country_in_non_visa_national_list?
+                  calculator.passport_country_is_taiwan? || calculator.passport_country_in_non_visa_national_list?
                 #outcome 5.5 work N no visa needed
                 :outcome_work_n
               elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
