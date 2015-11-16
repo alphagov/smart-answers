@@ -33,12 +33,6 @@ module SmartAnswer
       assert_equal 'title-text', @presenter.title
     end
 
-    test '#title falls back to humanized node name if not title available in ERB template' do
-      @renderer.stubs(:content_for).returns(nil)
-
-      assert_equal 'Start node name', @presenter.title
-    end
-
     test '#meta_description returns content rendered for meta_description block with govspeak processing disabled' do
       @renderer.stubs(:content_for).with(:meta_description, html: false).returns('meta-description-text')
 
