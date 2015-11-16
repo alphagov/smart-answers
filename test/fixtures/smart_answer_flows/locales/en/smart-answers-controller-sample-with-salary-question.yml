@@ -1,8 +1,0 @@
-en-GB:
-  flow:
-    smart-answers-controller-sample-with-salary-question:
-      how_much?:
-        title: "How much?"
-      salary_question_with_error_message?:
-        title: "Salary question with error message"
-        error_message: "salary-question-error-message"
