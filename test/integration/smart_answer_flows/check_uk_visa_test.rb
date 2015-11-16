@@ -622,16 +622,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response "yes"
       end
-      should "take you to the visit waiver outcome with leaving airport phraselist" do
-        assert_current_node :outcome_visit_waiver
+      should "take you to the transit taiwan outcome" do
+        assert_current_node :outcome_transit_taiwan
       end
     end
     context "leaving airport" do
       setup do
         add_response "no"
       end
-      should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
-        assert_current_node :outcome_visit_waiver
+      should "take you to the transit taiwan outcome" do
+        assert_current_node :outcome_transit_taiwan
       end
     end
   end

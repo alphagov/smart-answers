@@ -137,12 +137,13 @@ module SmartAnswer
           :outcome_transit_leaving_airport_datv,
           :outcome_transit_not_leaving_airport,
           :outcome_transit_refugee_not_leaving_airport,
+          :outcome_transit_taiwan,
           :outcome_visit_waiver
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.passing_through_uk_border_control_answer = response
 
-          next :outcome_visit_waiver if calculator.passport_country_is_taiwan?
+          next :outcome_transit_taiwan if calculator.passport_country_is_taiwan?
 
           if calculator.passing_through_uk_border_control?
             if calculator.passport_country_in_visa_national_list?
@@ -238,6 +239,7 @@ module SmartAnswer
       outcome :outcome_transit_leaving_airport_datv
       outcome :outcome_transit_not_leaving_airport
       outcome :outcome_transit_refugee_not_leaving_airport
+      outcome :outcome_transit_taiwan
       outcome :outcome_visit_waiver
       outcome :outcome_work_m
       outcome :outcome_work_n
