@@ -8,6 +8,10 @@ module SmartAnswer
       helpers.each { |helper| @view.extend(helper) }
     end
 
+    def single_line_of_content_for(key)
+      content_for(key, html: false).chomp.html_safe
+    end
+
     def content_for(key, html: true)
       content = rendered_view.content_for(key) || ''
       content = strip_leading_spaces(content.to_str)

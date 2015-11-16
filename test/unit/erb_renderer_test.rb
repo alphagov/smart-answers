@@ -161,6 +161,33 @@ Hello world
       end
     end
 
+    test '#single_line_of_content_for removes trailing newline' do
+      erb_template = content_for(:key, "single-line-of-content-for-key\n")
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert_equal 'single-line-of-content-for-key', renderer.single_line_of_content_for(:key)
+      end
+    end
+
+    test '#single_line_of_content_for returns an HTML-safe string' do
+      erb_template = content_for(:key, 'html-unsafe-string')
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert renderer.single_line_of_content_for(:key).html_safe?
+      end
+    end
+
+    test '#single_line_of_content_for disables HTML rendering' do
+      erb_template = content_for(:key, 'single-line-of-content-for-key')
+      renderer = ErbRenderer.new(template_directory: nil, template_name: nil)
+      renderer.stubs(:content_for).with(:key, html: false).returns('single-line-of-content-for-key')
+      assert_equal 'single-line-of-content-for-key', renderer.single_line_of_content_for(:key)
+    end
+
     private
 
     def content_for(key, template)
