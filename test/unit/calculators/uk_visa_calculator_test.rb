@@ -184,6 +184,20 @@ module SmartAnswer
           refute calculator.medical_visit?
         end
       end
+
+      context '#diplomatic_visit?' do
+        should 'return true if purpose_of_visit_answer is "diplomatic"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'diplomatic'
+          assert calculator.diplomatic_visit?
+        end
+
+        should 'return false if purpose_of_visit_answer is not "diplomatic"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'not-diplomatic'
+          refute calculator.diplomatic_visit?
+        end
+      end
     end
   end
 end
