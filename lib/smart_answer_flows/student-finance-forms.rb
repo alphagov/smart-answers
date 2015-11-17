@@ -250,23 +250,46 @@ module SmartAnswer
         option 'course-start-before-01092012'
         option 'course-start-after-01092012'
 
-        on_condition(variable_matches(:what_year, 'year-1415')) do
-          next_node_if(:outcome_uk_pt_1415_grant, responded_with('course-start-before-01092012'))
-          on_condition(responded_with('course-start-after-01092012')) do
-            next_node_if(:outcome_uk_pt_1415_continuing, variable_matches(:continuing_student, 'continuing-student'))
-            next_node_if(:outcome_uk_pt_1415_new, variable_matches(:continuing_student, 'new-student'))
-          end
-        end
-
-        on_condition(variable_matches(:what_year, 'year-1516')) do
-          on_condition(responded_with('course-start-before-01092012')) do
-            next_node_if(:outcome_uk_ptgc_1516_grant, variable_matches(:continuing_student, 'continuing-student'))
-            next_node_if(:outcome_uk_ptgn_1516_grant, variable_matches(:continuing_student, 'new-student'))
-          end
-
-          on_condition(responded_with('course-start-after-01092012')) do
-            next_node_if(:outcome_uk_pt_1516_continuing, variable_matches(:continuing_student, 'continuing-student'))
-            next_node_if(:outcome_uk_pt_1516_new, variable_matches(:continuing_student, 'new-student'))
+        permitted_next_nodes = [
+          :outcome_uk_pt_1415_continuing,
+          :outcome_uk_pt_1415_grant,
+          :outcome_uk_pt_1415_new,
+          :outcome_uk_pt_1516_continuing,
+          :outcome_uk_pt_1516_new,
+          :outcome_uk_ptgc_1516_grant,
+          :outcome_uk_ptgn_1516_grant
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case what_year
+          when 'year-1415'
+            case response
+            when 'course-start-before-01092012'
+              :outcome_uk_pt_1415_grant
+            when 'course-start-after-01092012'
+              case continuing_student
+              when 'continuing-student'
+                :outcome_uk_pt_1415_continuing
+              when 'new-student'
+                :outcome_uk_pt_1415_new
+              end
+            end
+          when 'year-1516'
+            case response
+            when 'course-start-before-01092012'
+              case continuing_student
+              when 'continuing-student'
+                :outcome_uk_ptgc_1516_grant
+              when 'new-student'
+                :outcome_uk_ptgn_1516_grant
+              end
+            when 'course-start-after-01092012'
+              case continuing_student
+              when 'continuing-student'
+                :outcome_uk_pt_1516_continuing
+              when 'new-student'
+                :outcome_uk_pt_1516_new
+              end
+            end
           end
         end
       end
