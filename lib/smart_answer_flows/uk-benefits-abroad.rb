@@ -9,7 +9,6 @@ module SmartAnswer
       exclude_countries = %w(british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten)
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
-      going_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'going_abroad', nil, 'going abroad')
       already_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'already_abroad', nil, 'already abroad')
       responded_with_eea_country = SmartAnswer::Predicate::RespondedWith.new(
         %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
@@ -79,6 +78,10 @@ module SmartAnswer
           end
         end
 
+        define_predicate :going_abroad do
+          going_or_already_abroad == 'going_abroad'
+        end
+
         next_node_if(:which_country?, responded_with(%w{winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits}))
         next_node_if(:iidb_already_claiming?, responded_with('iidb'))
         next_node_if(:esa_how_long_abroad?, responded_with('esa'))
@@ -104,6 +107,10 @@ module SmartAnswer
 
         calculate :country_name do
           (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
+        end
+
+        define_predicate :going_abroad do
+          going_or_already_abroad == 'going_abroad'
         end
 
       #jsa
@@ -245,6 +252,10 @@ module SmartAnswer
         option :yes
         option :no
 
+        define_predicate :going_abroad do
+          going_or_already_abroad == 'going_abroad'
+        end
+
         #SSP benefits
         on_condition(variable_matches(:benefit, 'ssp')) do
           on_condition(going_abroad) do
@@ -290,6 +301,10 @@ module SmartAnswer
       multiple_choice :working_for_uk_employer_ssp? do
         option :yes
         option :no
+
+        define_predicate :going_abroad do
+          going_or_already_abroad == 'going_abroad'
+        end
 
         on_condition(going_abroad) do
           next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A19 going_abroad
@@ -405,6 +420,10 @@ module SmartAnswer
       multiple_choice :db_claiming_benefits? do
         option :yes
         option :no
+
+        define_predicate :going_abroad do
+          going_or_already_abroad == 'going_abroad'
+        end
 
         on_condition(going_abroad) do
           next_node_if(:db_going_abroad_eea_outcome, responded_with('yes')) # A37 going_abroad
@@ -549,6 +568,10 @@ module SmartAnswer
         option :esa_under_a_year_other
         option :esa_more_than_a_year
 
+        define_predicate :going_abroad do
+          going_or_already_abroad == 'going_abroad'
+        end
+
         on_condition(going_abroad) do
           next_node_if(:esa_going_abroad_under_a_year_medical_outcome, responded_with('esa_under_a_year_medical')) # A27 going_abroad
           next_node_if(:esa_going_abroad_under_a_year_other_outcome, responded_with('esa_under_a_year_other')) # A28 going_abroad
@@ -564,6 +587,10 @@ module SmartAnswer
       multiple_choice :db_how_long_abroad? do
         option :temporary
         option :permanent
+
+        define_predicate :going_abroad do
+          going_or_already_abroad == 'going_abroad'
+        end
 
         next_node_if(:which_country?, responded_with('permanent')) # Q25
         next_node_if(:db_going_abroad_temporary_outcome, going_abroad) # A35 going_abroad
