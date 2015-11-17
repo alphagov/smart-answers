@@ -42,8 +42,17 @@ module SmartAnswer
 
         end
 
-        next_node_if(:contact_the_embassy_canada, responded_with('canada'))
-        next_node :contact_the_embassy
+        permitted_next_nodes = [
+          :contact_the_embassy,
+          :contact_the_embassy_canada
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'canada'
+            :contact_the_embassy_canada
+          else
+            :contact_the_embassy
+          end
+        end
       end
 
       outcome :contact_the_embassy
