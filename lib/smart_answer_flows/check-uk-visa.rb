@@ -114,7 +114,7 @@ module SmartAnswer
             else
               :outcome_no_visa_needed
             end
-          elsif calculator.purpose_of_visit_answer == 'family'
+          elsif calculator.family_visit?
             if calculator.passport_country_in_ukot_list?
               :outcome_joining_family_m
             elsif calculator.passport_country_in_non_visa_national_list?

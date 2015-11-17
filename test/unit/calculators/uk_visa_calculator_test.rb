@@ -128,6 +128,20 @@ module SmartAnswer
           refute calculator.transit_visit?
         end
       end
+
+      context '#family_visit?' do
+        should 'return true if purpose_of_visit_answer is "family"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'family'
+          assert calculator.family_visit?
+        end
+
+        should 'return false if purpose_of_visit_answer is not "family"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'not-family'
+          refute calculator.family_visit?
+        end
+      end
     end
   end
 end
