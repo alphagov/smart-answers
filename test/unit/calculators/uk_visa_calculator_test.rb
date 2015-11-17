@@ -86,6 +86,20 @@ module SmartAnswer
           refute calculator.tourism_visit?
         end
       end
+
+      context '#work_visit?' do
+        should 'return true if purpose_of_visit_answer is "work"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'work'
+          assert calculator.work_visit?
+        end
+
+        should 'return false if purpose_of_visit_answer is not "work"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'not-work'
+          refute calculator.work_visit?
+        end
+      end
     end
   end
 end
