@@ -10,10 +10,6 @@ module SmartAnswer
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
       countries_of_former_yugoslavia = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
-      responded_with_former_yugoslavia = SmartAnswer::Predicate::RespondedWith.new(
-        countries_of_former_yugoslavia,
-        "former Yugoslavia"
-      )
 
       # Q1
       multiple_choice :going_or_already_abroad? do
@@ -115,6 +111,10 @@ module SmartAnswer
             finland france germany gibraltar greece hungary iceland ireland italy
             latvia liechtenstein lithuania luxembourg malta netherlands norway
             poland portugal romania slovakia slovenia spain sweden switzerland).include?(response)
+        end
+
+        define_predicate :responded_with_former_yugoslavia do |response|
+          countries_of_former_yugoslavia.include?(response)
         end
 
         define_predicate :social_security_countries_jsa do |response|
