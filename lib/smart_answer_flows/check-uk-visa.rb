@@ -107,7 +107,7 @@ module SmartAnswer
             :outcome_marriage
           elsif calculator.purpose_of_visit_answer == 'medical'
             :outcome_medical_y
-          elsif calculator.purpose_of_visit_answer == 'transit'
+          elsif calculator.transit_visit?
             if calculator.passport_country_in_datv_list? ||
                 calculator.passport_country_in_visa_national_list? || %w(taiwan venezuela).include?(calculator.passport_country)
               :passing_through_uk_border_control?
