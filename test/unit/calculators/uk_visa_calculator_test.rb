@@ -72,6 +72,20 @@ module SmartAnswer
           refute calculator.passport_country_in_datv_list?
         end
       end
+
+      context '#tourism_visit?' do
+        should 'return true if purpose_of_visit_answer is "tourism"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'tourism'
+          assert calculator.tourism_visit?
+        end
+
+        should 'return false if purpose_of_visit_answer is not "tourism"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'not-tourism'
+          refute calculator.tourism_visit?
+        end
+      end
     end
   end
 end
