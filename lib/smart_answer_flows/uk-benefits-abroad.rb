@@ -9,13 +9,6 @@ module SmartAnswer
       exclude_countries = %w(british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten)
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
-      responded_with_eea_country = SmartAnswer::Predicate::RespondedWith.new(
-        %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
-          finland france germany gibraltar greece hungary iceland ireland italy
-          latvia liechtenstein lithuania luxembourg malta netherlands norway
-          poland portugal romania slovakia slovenia spain sweden switzerland),
-        "EEA country"
-      )
       countries_of_former_yugoslavia = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
       responded_with_former_yugoslavia = SmartAnswer::Predicate::RespondedWith.new(
         countries_of_former_yugoslavia,
@@ -118,6 +111,13 @@ module SmartAnswer
 
         define_predicate :already_abroad do
           going_or_already_abroad == 'already_abroad'
+        end
+
+        define_predicate :responded_with_eea_country do |response|
+          %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
+            finland france germany gibraltar greece hungary iceland ireland italy
+            latvia liechtenstein lithuania luxembourg malta netherlands norway
+            poland portugal romania slovakia slovenia spain sweden switzerland).include?(response)
         end
 
       #jsa
