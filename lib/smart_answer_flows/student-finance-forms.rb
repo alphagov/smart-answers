@@ -170,44 +170,80 @@ module SmartAnswer
 
         save_input_as :continuing_student
 
-        on_condition(variable_matches(:type_of_student, 'eu-full-time')) do
-          on_condition(variable_matches(:what_year, 'year-1415')) do
-            next_node_if(:outcome_eu_ft_1415_continuing, responded_with('continuing-student'))
-            next_node_if(:outcome_eu_ft_1415_new, responded_with('new-student'))
-          end
-          on_condition(variable_matches(:what_year, 'year-1516')) do
-            next_node_if(:outcome_eu_ft_1516_continuing, responded_with('continuing-student'))
-            next_node_if(:outcome_eu_ft_1516_new, responded_with('new-student'))
-          end
-        end
-
-        on_condition(variable_matches(:type_of_student, 'eu-part-time')) do
-          on_condition(variable_matches(:what_year, 'year-1415')) do
-            next_node_if(:outcome_eu_pt_1415_continuing, responded_with('continuing-student'))
-            next_node_if(:outcome_eu_pt_1415_new, responded_with('new-student'))
-          end
-
-          on_condition(variable_matches(:what_year, 'year-1516')) do
-            next_node_if(:outcome_eu_pt_1516_continuing, responded_with('continuing-student'))
-            next_node_if(:outcome_eu_pt_1516_new, responded_with('new-student'))
-          end
-        end
-
-        on_condition(variable_matches(:type_of_student, 'uk-full-time')) do
-          on_condition(variable_matches(:form_needed_for_1, 'apply-loans-grants')) do
-            on_condition(variable_matches(:what_year, 'year-1415')) do
-              next_node_if(:outcome_uk_ft_1415_continuing, responded_with('continuing-student'))
-              next_node_if(:outcome_uk_ft_1415_new, responded_with('new-student'))
+        permitted_next_nodes = [
+          :outcome_eu_ft_1415_continuing,
+          :outcome_eu_ft_1415_new,
+          :outcome_eu_ft_1516_continuing,
+          :outcome_eu_ft_1516_new,
+          :outcome_eu_pt_1415_continuing,
+          :outcome_eu_pt_1415_new,
+          :outcome_eu_pt_1516_continuing,
+          :outcome_eu_pt_1516_new,
+          :outcome_uk_ft_1415_continuing,
+          :outcome_uk_ft_1415_new,
+          :outcome_uk_ft_1516_continuing,
+          :outcome_uk_ft_1516_new,
+          :pt_course_start?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case type_of_student
+          when 'eu-full-time'
+            case what_year
+            when 'year-1415'
+              case response
+              when 'continuing-student'
+                :outcome_eu_ft_1415_continuing
+              when 'new-student'
+                :outcome_eu_ft_1415_new
+              end
+            when 'year-1516'
+              case response
+              when 'continuing-student'
+                :outcome_eu_ft_1516_continuing
+              when 'new-student'
+                :outcome_eu_ft_1516_new
+              end
             end
-
-            on_condition(variable_matches(:what_year, 'year-1516')) do
-              next_node_if(:outcome_uk_ft_1516_continuing, responded_with('continuing-student'))
-              next_node_if(:outcome_uk_ft_1516_new, responded_with('new-student'))
+          when 'eu-part-time'
+            case what_year
+            when 'year-1415'
+              case response
+              when 'continuing-student'
+                :outcome_eu_pt_1415_continuing
+              when 'new-student'
+                :outcome_eu_pt_1415_new
+              end
+            when 'year-1516'
+              case response
+              when 'continuing-student'
+                :outcome_eu_pt_1516_continuing
+              when 'new-student'
+                :outcome_eu_pt_1516_new
+              end
             end
+          when 'uk-full-time'
+            if form_needed_for_1 == 'apply-loans-grants'
+              case what_year
+              when 'year-1415'
+                case response
+                when 'continuing-student'
+                  :outcome_uk_ft_1415_continuing
+                when 'new-student'
+                  :outcome_uk_ft_1415_new
+                end
+              when 'year-1516'
+                case response
+                when 'continuing-student'
+                  :outcome_uk_ft_1516_continuing
+                when 'new-student'
+                  :outcome_uk_ft_1516_new
+                end
+              end
+            end
+          when 'uk-part-time'
+            :pt_course_start?
           end
         end
-
-        next_node_if(:pt_course_start?, variable_matches(:type_of_student, 'uk-part-time'))
       end
 
       multiple_choice :pt_course_start? do
