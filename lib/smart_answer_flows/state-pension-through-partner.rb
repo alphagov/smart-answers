@@ -68,17 +68,28 @@ module SmartAnswer
           answers
         end
 
-        define_predicate(:widow_and_new_pension?) do |response|
+        next_node_calculation(:widow_and_new_pension) do |response|
           answers == [:widow] && response == "your_pension_age_after_specific_date"
         end
 
-        define_predicate(:widow_and_old_pension?) do |response|
+        next_node_calculation(:widow_and_old_pension) do |response|
           answers == [:widow] && response == "your_pension_age_before_specific_date"
         end
 
-        next_node_if(:what_is_your_gender?, widow_and_new_pension?)
-        next_node_if(:widow_and_old_pension_outcome, widow_and_old_pension?)
-        next_node :when_will_your_partner_reach_pension_age?
+        permitted_next_nodes = [
+          :what_is_your_gender?,
+          :when_will_your_partner_reach_pension_age?,
+          :widow_and_old_pension_outcome
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if widow_and_new_pension
+            :what_is_your_gender?
+          elsif widow_and_old_pension
+            :widow_and_old_pension_outcome
+          else
+            :when_will_your_partner_reach_pension_age?
+          end
+        end
       end
 
       #Q3
