@@ -91,46 +91,76 @@ module SmartAnswer
 
         save_input_as :what_year
 
-        next_node_if(:continuing_student?, variable_matches(:type_of_student, %w(eu-full-time eu-part-time)))
-
-        on_condition(variable_matches(:type_of_student, 'uk-full-time')) do
-
-          on_condition(variable_matches(:form_needed_for_1, 'proof-identity')) do
-            next_node_if(:outcome_proof_identity_1415, responded_with('year-1415'))
-            next_node_if(:outcome_proof_identity_1516, responded_with('year-1516'))
+        permitted_next_nodes = [
+          :continuing_student?,
+          :outcome_ccg_1415,
+          :outcome_ccg_1516,
+          :outcome_dsa_1415,
+          :outcome_dsa_1415_pt,
+          :outcome_dsa_1516,
+          :outcome_dsa_1516_pt,
+          :outcome_parent_partner_1415,
+          :outcome_parent_partner_1516,
+          :outcome_proof_identity_1415,
+          :outcome_proof_identity_1516
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case type_of_student
+          when 'eu-full-time', 'eu-part-time'
+            :continuing_student?
+          when 'uk-full-time'
+            case form_needed_for_1
+            when 'proof-identity'
+              case response
+              when 'year-1415'
+                :outcome_proof_identity_1415
+              when 'year-1516'
+                :outcome_proof_identity_1516
+              end
+            when 'income-details'
+              case response
+              when 'year-1415'
+                :outcome_parent_partner_1415
+              when 'year-1516'
+                :outcome_parent_partner_1516
+              end
+            when 'apply-dsa'
+              case response
+              when 'year-1415'
+                :outcome_dsa_1415
+              when 'year-1516'
+                :outcome_dsa_1516
+              end
+            when 'apply-ccg'
+              case response
+              when 'year-1415'
+                :outcome_ccg_1415
+              when 'year-1516'
+                :outcome_ccg_1516
+              end
+            when 'apply-loans-grants'
+              :continuing_student?
+            end
+          when 'uk-part-time'
+            case form_needed_for_2
+            when 'proof-identity'
+              case response
+              when 'year-1415'
+                :outcome_proof_identity_1415
+              when 'year-1516'
+                :outcome_proof_identity_1516
+              end
+            when 'apply-dsa'
+              case response
+              when 'year-1415'
+                :outcome_dsa_1415_pt
+              when 'year-1516'
+                :outcome_dsa_1516_pt
+              end
+            when 'apply-loans-grants'
+              :continuing_student?
+            end
           end
-
-          on_condition(variable_matches(:form_needed_for_1, 'income-details')) do
-            next_node_if(:outcome_parent_partner_1415, responded_with('year-1415'))
-            next_node_if(:outcome_parent_partner_1516, responded_with('year-1516'))
-          end
-
-          on_condition(variable_matches(:form_needed_for_1, 'apply-dsa')) do
-            next_node_if(:outcome_dsa_1415, responded_with('year-1415'))
-            next_node_if(:outcome_dsa_1516, responded_with('year-1516'))
-          end
-
-          on_condition(variable_matches(:form_needed_for_1, 'apply-ccg')) do
-            next_node_if(:outcome_ccg_1415, responded_with('year-1415'))
-            next_node_if(:outcome_ccg_1516, responded_with('year-1516'))
-          end
-
-          next_node_if(:continuing_student?, variable_matches(:form_needed_for_1, 'apply-loans-grants'))
-        end
-
-        on_condition(variable_matches(:type_of_student, 'uk-part-time')) do
-
-          on_condition(variable_matches(:form_needed_for_2, 'proof-identity')) do
-            next_node_if(:outcome_proof_identity_1415, responded_with('year-1415'))
-            next_node_if(:outcome_proof_identity_1516, responded_with('year-1516'))
-          end
-
-          on_condition(variable_matches(:form_needed_for_2, 'apply-dsa')) do
-            next_node_if(:outcome_dsa_1415_pt, responded_with('year-1415'))
-            next_node_if(:outcome_dsa_1516_pt, responded_with('year-1516'))
-          end
-
-          next_node_if(:continuing_student?, variable_matches(:form_needed_for_2, 'apply-loans-grants'))
         end
       end
 
