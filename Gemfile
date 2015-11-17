@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 
 gem 'airbrake', '~> 3.1.17'
 gem 'extlib', '0.9.16'
