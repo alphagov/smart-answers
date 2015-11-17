@@ -83,7 +83,7 @@ module SmartAnswer
             next :staying_for_how_long?
           elsif calculator.purpose_of_visit_answer == 'diplomatic'
             next :outcome_diplomatic_business
-          elsif %w{school medical}.include?(calculator.purpose_of_visit_answer) || calculator.tourism_visit?
+          elsif %w{medical}.include?(calculator.purpose_of_visit_answer) || calculator.tourism_visit? || calculator.school_visit?
             if %w(oman qatar united-arab-emirates).include?(calculator.passport_country)
               next :outcome_visit_waiver
             elsif calculator.passport_country == 'taiwan'
@@ -92,14 +92,14 @@ module SmartAnswer
           end
 
           if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
-            if %w{school}.include?(calculator.purpose_of_visit_answer) || calculator.tourism_visit?
+            if calculator.school_visit? || calculator.tourism_visit?
               next :outcome_school_n
             elsif calculator.purpose_of_visit_answer == 'medical'
               next :outcome_medical_n
             end
           end
 
-          if calculator.purpose_of_visit_answer == 'school'
+          if calculator.school_visit?
             :outcome_school_y
           elsif calculator.tourism_visit?
             :outcome_standard_visit
