@@ -714,9 +714,21 @@ module SmartAnswer
 
         save_input_as :how_long_abroad_jsa
 
-        next_node_if(:jsa_less_than_a_year_medical_outcome, responded_with("less_than_a_year_medical")) # A3 going_abroad
-        next_node_if(:jsa_less_than_a_year_other_outcome, responded_with("less_than_a_year_other")) # A4 going_abroad
-        next_node_if(:which_country?, responded_with("more_than_a_year"))
+        permitted_next_nodes = [
+          :jsa_less_than_a_year_medical_outcome,
+          :jsa_less_than_a_year_other_outcome,
+          :which_country?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'less_than_a_year_medical'
+            :jsa_less_than_a_year_medical_outcome # A3 going_abroad
+          when 'less_than_a_year_other'
+            :jsa_less_than_a_year_other_outcome # A4 going_abroad
+          when 'more_than_a_year'
+            :which_country?
+          end
+        end
       end
       # Going abroad Q18 (tax credits) and Q17 already_abroad
       multiple_choice :tax_credits_how_long_abroad? do
