@@ -74,14 +74,6 @@ private
     end * "\n"
   end
 
-  def allow_missing_interpolations(&block)
-    old = I18n.config.missing_interpolation_argument_handler
-    I18n.config.missing_interpolation_argument_handler = ->(key) { "((#{key}))" }
-    block.call
-  ensure
-    I18n.config.missing_interpolation_argument_handler = old
-  end
-
   class MethodMissingObject
     def initialize(method)
       @method = method
@@ -100,10 +92,6 @@ private
     def method_missing(method, *args, &block)
       MethodMissingObject.new(method)
     end
-  end
-
-  def i18n_prefix(node)
-    "flow.#{@flow.name}.#{node.name}"
   end
 
   def node_title(node)
