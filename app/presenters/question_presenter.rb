@@ -6,14 +6,14 @@ class QuestionPresenter < NodePresenter
     :translate_option
   ] => :@renderer
 
-  delegate :use_erb_template? => :@node
+  delegate use_erb_template?: :@node
 
   def initialize(i18n_prefix, node, state = nil, options = {})
     super(i18n_prefix, node, state)
     @renderer = options[:renderer]
     helpers = options[:helpers] || []
     if use_erb_template?
-      @renderer ||=  SmartAnswer::ErbRenderer.new(
+      @renderer ||= SmartAnswer::ErbRenderer.new(
         template_directory: @node.template_directory.join('questions'),
         template_name: @node.filesystem_friendly_name,
         locals: @state.to_hash,

@@ -73,8 +73,8 @@ module SmartAnswer
       @renderer.stubs(:option_text).with(:option_two).returns('option-two-text')
       presenter = QuestionPresenter.new('i18n-prefix', question, state = nil, renderer: @renderer)
 
-      assert_equal ['option_one', 'option_two'], presenter.options.map(&:value)
-      assert_equal ['option-one-text', 'option-two-text'], presenter.options.map(&:label)
+      assert_equal %w(option_one option_two), presenter.options.map(&:value)
+      assert_equal %w(option-one-text option-two-text), presenter.options.map(&:label)
     end
 
     test '#error returns nil if there is no error' do

@@ -26,16 +26,17 @@ questions.each do |question_key, attributes|
     rendered_options = options.inject([]) do |array, (key, value)|
       array << "#{key.to_s.inspect}: #{value.inspect}".indent(2)
       array
-    end.join(",\n")
-    options_erb = "<% options(\n#{rendered_options}\n) %>"
+    end
+    options_erb = "<% options(\n#{rendered_options.join(",\n")}\n) %>"
   end
   error_attributes = attributes.except(*%w(title options hint label suffix_label body post_body))
-  errors_erb = error_attributes.inject([]) do |array, (key, value)|
+  errors = error_attributes.inject([]) do |array, (key, value)|
     array << "<% content_for #{key.to_sym.inspect} do %>"
     array << value.indent(2)
     array << "<% end %>"
     array
-  end.join("\n")
+  end
+  errors_erb = errors.join("\n")
   erb = File.read(Rails.root.join('script', 'templates', 'question.erb'))
   template = Erubis::Eruby.new(erb)
   template_name = question_key.sub(/\?$/, '') + '.govspeak.erb'

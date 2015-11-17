@@ -134,14 +134,15 @@ module SmartAnswer
     class InvalidStatus < StandardError; end
 
     private
-      def add_question(klass, name, options = {}, &block)
-        options.reverse_merge!(use_erb_template: @use_erb_templates_for_questions)
-        add_node klass.new(self, name, options, &block)
-      end
 
-      def add_node(node)
-        raise "Node #{node.name} already defined" if node_exists?(node)
-        @nodes << node
-      end
+    def add_question(klass, name, options = {}, &block)
+      options.reverse_merge!(use_erb_template: @use_erb_templates_for_questions)
+      add_node klass.new(self, name, options, &block)
+    end
+
+    def add_node(node)
+      raise "Node #{node.name} already defined" if node_exists?(node)
+      @nodes << node
+    end
   end
 end
