@@ -443,21 +443,34 @@ module SmartAnswer
         option :yes
         option :no
 
-        define_predicate :going_abroad do
+        next_node_calculation :going_abroad do
           going_or_already_abroad == 'going_abroad'
         end
 
-        define_predicate :already_abroad do
+        next_node_calculation :already_abroad do
           going_or_already_abroad == 'already_abroad'
         end
 
-        on_condition(going_abroad) do
-          next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A19 going_abroad
-          next_node(:ssp_going_abroad_not_entitled_outcome) # A20 going_abroad
-        end
-        on_condition(already_abroad) do
-          next_node_if(:ssp_already_abroad_entitled_outcome, responded_with('yes')) # A17 already_abroad
-          next_node(:ssp_already_abroad_not_entitled_outcome) # A18 already_abroad
+        permitted_next_nodes = [
+          :ssp_already_abroad_entitled_outcome,
+          :ssp_already_abroad_not_entitled_outcome,
+          :ssp_going_abroad_entitled_outcome,
+          :ssp_going_abroad_not_entitled_outcome
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if going_abroad
+            if response == 'yes'
+              :ssp_going_abroad_entitled_outcome # A19 going_abroad
+            else
+              :ssp_going_abroad_not_entitled_outcome # A20 going_abroad
+            end
+          elsif already_abroad
+            if response == 'yes'
+              :ssp_already_abroad_entitled_outcome # A17 already_abroad
+            else
+              :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
+            end
+          end
         end
       end
 
