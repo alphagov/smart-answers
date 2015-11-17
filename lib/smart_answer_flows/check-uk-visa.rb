@@ -79,7 +79,7 @@ module SmartAnswer
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.purpose_of_visit_answer = response
 
-          if %w{study}.include?(calculator.purpose_of_visit_answer) || calculator.work_visit?
+          if calculator.study_visit? || calculator.work_visit?
             next :staying_for_how_long?
           elsif calculator.purpose_of_visit_answer == 'diplomatic'
             next :outcome_diplomatic_business
@@ -171,7 +171,7 @@ module SmartAnswer
         option :longer_than_six_months
 
         precalculate :study_or_work do
-          if calculator.purpose_of_visit_answer == 'study'
+          if calculator.study_visit?
             'study'
           elsif calculator.work_visit?
             'work'
@@ -191,13 +191,13 @@ module SmartAnswer
         next_node(permitted: permitted_next_nodes) do |response|
           case response
           when 'longer_than_six_months'
-            if calculator.purpose_of_visit_answer == 'study'
+            if calculator.study_visit?
               :outcome_study_y #outcome 2 study y
             elsif calculator.work_visit?
               :outcome_work_y #outcome 4 work y
             end
           when 'six_months_or_less'
-            if calculator.purpose_of_visit_answer == 'study'
+            if calculator.study_visit?
               if %w(oman qatar united-arab-emirates).include?(calculator.passport_country)
                 :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
               elsif %w(taiwan).include?(calculator.passport_country)
