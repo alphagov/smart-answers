@@ -16,7 +16,6 @@ module SmartAnswer
       )
       social_security_countries_jsa = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(guernsey jersey new-zealand))
       social_security_countries_iidb = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey))
-      social_security_countries_bereavement_benefits = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa))
 
       # Q1
       multiple_choice :going_or_already_abroad? do
@@ -118,6 +117,11 @@ module SmartAnswer
             finland france germany gibraltar greece hungary iceland ireland italy
             latvia liechtenstein lithuania luxembourg malta netherlands norway
             poland portugal romania slovakia slovenia spain sweden switzerland).include?(response)
+        end
+
+        define_predicate :social_security_countries_bereavement_benefits do |response|
+          (countries_of_former_yugoslavia +
+          %w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa)).include?(response)
         end
 
       #jsa
