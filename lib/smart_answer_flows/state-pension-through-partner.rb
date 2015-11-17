@@ -38,8 +38,17 @@ module SmartAnswer
           "£#{rate}"
         end
 
-        next_node_if(:what_is_your_gender?, responded_with("divorced"))
-        next_node :when_will_you_reach_pension_age?
+        permitted_next_nodes = [
+          :what_is_your_gender?,
+          :when_will_you_reach_pension_age?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'divorced'
+            :what_is_your_gender?
+          else
+            :when_will_you_reach_pension_age?
+          end
+        end
       end
 
       # Q2
