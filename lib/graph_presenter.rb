@@ -94,16 +94,6 @@ private
     ""
   end
 
-  def translate_option(node, option)
-    allow_missing_interpolations do
-      begin
-        I18n.translate!("flow.#{@flow.name}.options.#{option}")
-      rescue I18n::MissingTranslationData
-        I18n.translate("#{i18n_prefix(node)}.options.#{option}")
-      end
-    end
-  end
-
   def presenter
     @presenter ||= FlowRegistrationPresenter.new(@flow)
   end
