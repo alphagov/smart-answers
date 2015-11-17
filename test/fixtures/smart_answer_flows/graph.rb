@@ -4,6 +4,8 @@ module SmartAnswer
       name 'graph'
       status :draft
 
+      use_erb_templates_for_questions
+
       multiple_choice :q1? do
         option :yes
         option :no

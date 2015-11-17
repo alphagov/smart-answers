@@ -1,27 +1,26 @@
 require_relative '../test_helper'
-require_relative '../helpers/i18n_test_helper'
-
-require 'fixtures/smart_answer_flows/graph'
+require_relative '../helpers/fixture_flows_helper'
+require_relative '../fixtures/smart_answer_flows/graph'
 
 module SmartAnswer
   class GraphPresenterTest < ActiveSupport::TestCase
-    include I18nTestHelper
+    include FixtureFlowsHelper
 
     setup do
-      use_additional_translation_file(fixture_file('smart_answer_flows/locales/en/graph.yml'))
+      setup_fixture_flows
       @flow = SmartAnswer::GraphFlow.build
       @presenter = GraphPresenter.new(@flow)
     end
 
     teardown do
-      reset_translation_files
+      teardown_fixture_flows
     end
 
-    test "presents labels of simple graph" do
+    test "presents labels of graph flow" do
       expected_labels = {
         q1?: "MultipleChoice\n-\nWhat is the answer to q1?\n\n( ) yes\n( ) no",
         q2?: "MultipleChoice\n-\nWhat is the answer to q2?\n\n( ) a\n( ) b",
-        q_with_interpolation?: "MultipleChoice\n-\nQuestion with %{interpolation}?\n\n( ) x\n( ) y",
+        q_with_interpolation?: "MultipleChoice\n-\nQuestion with <%= interpolation %>?\n\n( ) x\n( ) y",
         done_a: "Outcome\n-\ndone_a",
         done_b: "Outcome\n-\ndone_b"
       }

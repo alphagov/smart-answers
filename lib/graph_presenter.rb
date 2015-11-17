@@ -82,16 +82,33 @@ private
     I18n.config.missing_interpolation_argument_handler = old
   end
 
+  class MethodMissingObject
+    def initialize(method)
+      @method = method
+    end
+
+    def method_missing(method, *args, &block)
+      MethodMissingObject.new(method)
+    end
+
+    def to_s
+      "<%= #{@method} %>".html_safe
+    end
+  end
+
+  module MethodMissingHelper
+    def method_missing(method, *args, &block)
+      MethodMissingObject.new(method)
+    end
+  end
+
   def i18n_prefix(node)
     "flow.#{@flow.name}.#{node.name}"
   end
 
   def node_title(node)
-    allow_missing_interpolations do
-      I18n.translate!("#{i18n_prefix(node)}.title", {})
-    end
-  rescue I18n::MissingTranslationData
-    ""
+    presenter = QuestionPresenter.new(nil, node, nil, helpers: [MethodMissingHelper])
+    presenter.title
   end
 
   def presenter

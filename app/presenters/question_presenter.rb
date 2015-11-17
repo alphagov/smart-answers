@@ -11,11 +11,13 @@ class QuestionPresenter < NodePresenter
   def initialize(i18n_prefix, node, state = nil, options = {})
     super(i18n_prefix, node, state)
     @renderer = options[:renderer]
+    helpers = options[:helpers] || []
     if use_erb_template?
       @renderer ||=  SmartAnswer::ErbRenderer.new(
         template_directory: @node.template_directory.join('questions'),
         template_name: @node.filesystem_friendly_name,
-        locals: @state.to_hash
+        locals: @state.to_hash,
+        helpers: helpers
       )
     else
       @renderer ||= SmartAnswer::I18nRenderer.new(
