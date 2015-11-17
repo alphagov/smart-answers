@@ -114,6 +114,20 @@ module SmartAnswer
           refute calculator.study_visit?
         end
       end
+
+      context '#transit_visit?' do
+        should 'return true if purpose_of_visit_answer is "transit"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'transit'
+          assert calculator.transit_visit?
+        end
+
+        should 'return false if purpose_of_visit_answer is not "transit"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'not-transit'
+          refute calculator.transit_visit?
+        end
+      end
     end
   end
 end
