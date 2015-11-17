@@ -71,8 +71,18 @@ module SmartAnswer
 
         save_input_as :form_needed_for_2
 
-        next_node_if(:outcome_dsa_expenses, responded_with('dsa-expenses'))
-        next_node(:what_year?)
+        permitted_next_nodes = [
+          :outcome_dsa_expenses,
+          :what_year?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'dsa-expenses'
+            :outcome_dsa_expenses
+          else
+            :what_year?
+          end
+        end
       end
 
       multiple_choice :what_year? do
