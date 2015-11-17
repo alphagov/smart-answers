@@ -146,12 +146,21 @@ date_question :adoption_date_leave_starts? do
     calculator.format_date calculator.a_notice_leave
   end
 
-  define_predicate(:has_contract_not_on_payroll?) do
+  next_node_calculation(:has_contract_not_on_payroll) do
     employee_has_contract_adoption == 'yes' && on_payroll == 'no'
   end
 
-  next_node_if(:adoption_leave_and_pay, has_contract_not_on_payroll?)
-  next_node :last_normal_payday_adoption?
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :last_normal_payday_adoption?
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if has_contract_not_on_payroll
+      :adoption_leave_and_pay
+    else
+      :last_normal_payday_adoption?
+    end
+  end
 end
 
 # QA7
