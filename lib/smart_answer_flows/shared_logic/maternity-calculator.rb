@@ -189,11 +189,22 @@ multiple_choice :how_do_you_want_the_smp_calculated? do
 
   save_input_as :smp_calculation_method
 
-  on_condition(responded_with("usual_paydates")) do
-    next_node_if(:when_in_the_month_is_the_employee_paid?, variable_matches(:pay_pattern, "monthly"))
-    next_node(:when_is_your_employees_next_pay_day?)
+  permitted_next_nodes = [
+    :maternity_leave_and_pay_result,
+    :when_in_the_month_is_the_employee_paid?,
+    :when_is_your_employees_next_pay_day?
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    if response == 'usual_paydates'
+      if pay_pattern == 'monthly'
+        :when_in_the_month_is_the_employee_paid?
+      else
+        :when_is_your_employees_next_pay_day?
+      end
+    else
+      :maternity_leave_and_pay_result
+    end
   end
-  next_node(:maternity_leave_and_pay_result)
 end
 
 ## QM11
