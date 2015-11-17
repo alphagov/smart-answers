@@ -239,12 +239,21 @@ money_question :earnings_for_pay_period_adoption? do
     calculator
   end
 
-  define_predicate(:average_weekly_earnings_under_lower_earning_limit?) do
+  next_node_calculation(:average_weekly_earnings_under_lower_earning_limit) do
     calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
 
-  next_node_if(:adoption_leave_and_pay, average_weekly_earnings_under_lower_earning_limit?)
-  next_node :how_do_you_want_the_sap_calculated?
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :how_do_you_want_the_sap_calculated?
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if average_weekly_earnings_under_lower_earning_limit
+      :adoption_leave_and_pay
+    else
+      :how_do_you_want_the_sap_calculated?
+    end
+  end
 end
 
 ## QA11
