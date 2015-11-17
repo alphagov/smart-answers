@@ -33,6 +33,10 @@ module SmartAnswer
           going_or_already_abroad == 'going_abroad'
         end
 
+        calculate :already_abroad do
+          going_or_already_abroad == 'already_abroad'
+        end
+
         calculate :already_abroad_text_two do |response|
           if is_already_abroad
             PhraseList.new(:already_abroad_text_two)
@@ -65,10 +69,6 @@ module SmartAnswer
           else
             PhraseList.new(:"#{going_or_already_abroad}_how_long_question_title")
           end
-        end
-
-        next_node_calculation :already_abroad do
-          going_or_already_abroad == 'already_abroad'
         end
 
         permitted_next_nodes = [
@@ -121,10 +121,6 @@ module SmartAnswer
 
         calculate :country_name do
           (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-        end
-
-        next_node_calculation :already_abroad do
-          going_or_already_abroad == 'already_abroad'
         end
 
         next_node_calculation :responded_with_eea_country do |response|
@@ -364,10 +360,6 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node_calculation :already_abroad do
-          going_or_already_abroad == 'already_abroad'
-        end
-
         permitted_next_nodes = [
           :eligible_for_smp?,
           :maternity_benefits_not_entitled_outcome,
@@ -434,10 +426,6 @@ module SmartAnswer
       multiple_choice :working_for_uk_employer_ssp? do
         option :yes
         option :no
-
-        next_node_calculation :already_abroad do
-          going_or_already_abroad == 'already_abroad'
-        end
 
         permitted_next_nodes = [
           :ssp_already_abroad_entitled_outcome,
@@ -566,10 +554,6 @@ module SmartAnswer
       multiple_choice :db_claiming_benefits? do
         option :yes
         option :no
-
-        next_node_calculation :already_abroad do
-          going_or_already_abroad == 'already_abroad'
-        end
 
         permitted_next_nodes = [
           :db_already_abroad_eea_outcome,
@@ -738,10 +722,6 @@ module SmartAnswer
         option :esa_under_a_year_medical
         option :esa_under_a_year_other
         option :esa_more_than_a_year
-
-        next_node_calculation :already_abroad do
-          going_or_already_abroad == 'already_abroad'
-        end
 
         permitted_next_nodes = [
           :esa_already_abroad_under_a_year_medical_outcome,
