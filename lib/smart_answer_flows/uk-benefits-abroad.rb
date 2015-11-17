@@ -63,29 +63,54 @@ module SmartAnswer
           end
         end
 
-        define_predicate :going_abroad do
+        next_node_calculation :going_abroad do
           going_or_already_abroad == 'going_abroad'
         end
 
-        define_predicate :already_abroad do
+        next_node_calculation :already_abroad do
           going_or_already_abroad == 'already_abroad'
         end
 
-        next_node_if(:which_country?, responded_with(%w{winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits}))
-        next_node_if(:iidb_already_claiming?, responded_with('iidb'))
-        next_node_if(:esa_how_long_abroad?, responded_with('esa'))
-        next_node_if(:db_how_long_abroad?, responded_with('disability_benefits'))
-        next_node_if(:eligible_for_tax_credits?, responded_with('tax_credits'))
-
-        on_condition(going_abroad) do
-          next_node_if(:jsa_how_long_abroad?, responded_with('jsa')) # Q3 going_abroad
-          next_node_if(:pension_going_abroad_outcome, responded_with('pension')) # A2 going_abroad
-          next_node_if(:is_how_long_abroad?, responded_with('income_support')) # Q32 going_abroad
-        end
-        on_condition(already_abroad) do
-          next_node_if(:which_country?, responded_with('jsa'))
-          next_node_if(:pension_already_abroad_outcome, responded_with('pension')) # A2 already_abroad
-          next_node_if(:is_already_abroad_outcome, responded_with('income_support')) #A40 already_abroad
+        permitted_next_nodes = [
+          :db_how_long_abroad?,
+          :eligible_for_tax_credits?,
+          :esa_how_long_abroad?,
+          :iidb_already_claiming?,
+          :is_already_abroad_outcome,
+          :is_how_long_abroad?,
+          :jsa_how_long_abroad?,
+          :pension_already_abroad_outcome,
+          :pension_going_abroad_outcome,
+          :which_country?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if %w{winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits}.include?(response)
+            :which_country?
+          elsif response == 'iidb'
+            :iidb_already_claiming?
+          elsif response == 'esa'
+            :esa_how_long_abroad?
+          elsif response == 'disability_benefits'
+            :db_how_long_abroad?
+          elsif response == 'tax_credits'
+            :eligible_for_tax_credits?
+          elsif going_abroad
+            if response == 'jsa'
+              :jsa_how_long_abroad? # Q3 going_abroad
+            elsif response == 'pension'
+              :pension_going_abroad_outcome # A2 going_abroad
+            elsif response == 'income_support'
+              :is_how_long_abroad? # Q32 going_abroad
+            end
+          elsif already_abroad
+            if response == 'jsa'
+              :which_country?
+            elsif response == 'pension'
+              :pension_already_abroad_outcome # A2 already_abroad
+            elsif response == 'income_support'
+              :is_already_abroad_outcome #A40 already_abroad
+            end
+          end
         end
       end
 
