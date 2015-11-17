@@ -7,11 +7,12 @@ then
 fi
 
 export APP_NAME="smart-answers-pr-$PR"
+export HEROKU_REMOTE="heroku-$APP_NAME"
 
 echo
 echo "# Creating a new Heroku App"
 echo
-heroku apps:create --region eu $APP_NAME
+heroku apps:create --region eu --remote $HEROKU_REMOTE $APP_NAME
 
 echo
 echo "# Configuring Heroku ready for Smart Answers"
@@ -29,7 +30,7 @@ echo
 echo "# Pushing the current branch to Heroku's master"
 echo
 export CURRENT_BRANCH_NAME=`git branch | grep "^\*" | cut -d" " -f2`
-git push heroku $CURRENT_BRANCH_NAME:master
+git push $HEROKU_REMOTE $CURRENT_BRANCH_NAME:master
 
 echo
 echo "# Opening Smart Answers"
