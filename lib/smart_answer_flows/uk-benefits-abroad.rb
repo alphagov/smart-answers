@@ -368,34 +368,55 @@ module SmartAnswer
         option :yes
         option :no
 
-        define_predicate :going_abroad do
+        next_node_calculation :going_abroad do
           going_or_already_abroad == 'going_abroad'
         end
 
-        define_predicate :already_abroad do
+        next_node_calculation :already_abroad do
           going_or_already_abroad == 'already_abroad'
         end
 
-        #SSP benefits
-        on_condition(variable_matches(:benefit, 'ssp')) do
-          on_condition(going_abroad) do
-            next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A19 going_abroad
-            next_node(:ssp_going_abroad_not_entitled_outcome) # A20 going_abroad
-          end
-          on_condition(already_abroad) do
-            next_node_if(:ssp_already_abroad_entitled_outcome, responded_with('yes')) # A17 already_abroad
-            next_node(:ssp_already_abroad_not_entitled_outcome) # A18 already_abroad
+        permitted_next_nodes = [
+          :eligible_for_smp?,
+          :maternity_benefits_not_entitled_outcome,
+          :maternity_benefits_social_security_already_abroad_outcome,
+          :maternity_benefits_social_security_going_abroad_outcome,
+          :ssp_already_abroad_entitled_outcome,
+          :ssp_already_abroad_not_entitled_outcome,
+          :ssp_going_abroad_entitled_outcome,
+          :ssp_going_abroad_not_entitled_outcome
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          # SSP benefits
+          if benefit == 'ssp'
+            if going_abroad
+              if response == 'yes'
+                :ssp_going_abroad_entitled_outcome # A19 going_abroad
+              else
+                :ssp_going_abroad_not_entitled_outcome # A20 going_abroad
+              end
+            elsif already_abroad
+              if response == 'yes'
+                :ssp_already_abroad_entitled_outcome # A17 already_abroad
+              else
+                :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
+              end
+            end
+          else
+            #not SSP benefits
+            if response == 'yes'
+              :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
+            elsif (countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey)).include?(country)
+              if already_abroad
+                :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
+              else
+                :maternity_benefits_social_security_going_abroad_outcome # A12 going_abroad
+              end
+            else
+              :maternity_benefits_not_entitled_outcome # A13 going_abroad and A11 already_abroad
+            end
           end
         end
-        #not SSP benefits
-        next_node_if(:eligible_for_smp?, responded_with('yes')) # Q9 going_abroad and Q8 already_abroad
-        on_condition(variable_matches(:country, countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey))) do
-          on_condition(already_abroad) do
-            next_node(:maternity_benefits_social_security_already_abroad_outcome) # A10 already_abroad
-          end
-          next_node_if(:maternity_benefits_social_security_going_abroad_outcome) # A12 going_abroad
-        end
-        next_node(:maternity_benefits_not_entitled_outcome) # A13 going_abroad and A11 already_abroad
       end
 
       # Q13 going_abroad and Q12 already_abroad
