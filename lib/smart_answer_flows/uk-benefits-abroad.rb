@@ -9,7 +9,6 @@ module SmartAnswer
       exclude_countries = %w(british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten)
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
-      already_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'already_abroad', nil, 'already abroad')
       responded_with_eea_country = SmartAnswer::Predicate::RespondedWith.new(
         %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
           finland france germany gibraltar greece hungary iceland ireland italy
@@ -82,6 +81,10 @@ module SmartAnswer
           going_or_already_abroad == 'going_abroad'
         end
 
+        define_predicate :already_abroad do
+          going_or_already_abroad == 'already_abroad'
+        end
+
         next_node_if(:which_country?, responded_with(%w{winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits}))
         next_node_if(:iidb_already_claiming?, responded_with('iidb'))
         next_node_if(:esa_how_long_abroad?, responded_with('esa'))
@@ -111,6 +114,10 @@ module SmartAnswer
 
         define_predicate :going_abroad do
           going_or_already_abroad == 'going_abroad'
+        end
+
+        define_predicate :already_abroad do
+          going_or_already_abroad == 'already_abroad'
         end
 
       #jsa
@@ -256,6 +263,10 @@ module SmartAnswer
           going_or_already_abroad == 'going_abroad'
         end
 
+        define_predicate :already_abroad do
+          going_or_already_abroad == 'already_abroad'
+        end
+
         #SSP benefits
         on_condition(variable_matches(:benefit, 'ssp')) do
           on_condition(going_abroad) do
@@ -304,6 +315,10 @@ module SmartAnswer
 
         define_predicate :going_abroad do
           going_or_already_abroad == 'going_abroad'
+        end
+
+        define_predicate :already_abroad do
+          going_or_already_abroad == 'already_abroad'
         end
 
         on_condition(going_abroad) do
@@ -423,6 +438,10 @@ module SmartAnswer
 
         define_predicate :going_abroad do
           going_or_already_abroad == 'going_abroad'
+        end
+
+        define_predicate :already_abroad do
+          going_or_already_abroad == 'already_abroad'
         end
 
         on_condition(going_abroad) do
@@ -570,6 +589,10 @@ module SmartAnswer
 
         define_predicate :going_abroad do
           going_or_already_abroad == 'going_abroad'
+        end
+
+        define_predicate :already_abroad do
+          going_or_already_abroad == 'already_abroad'
         end
 
         on_condition(going_abroad) do
