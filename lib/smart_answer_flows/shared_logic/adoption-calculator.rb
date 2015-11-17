@@ -101,12 +101,21 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
     calculator.format_date_day to_saturday
   end
 
-  define_predicate(:no_contract_not_on_payroll?) do |response|
+  next_node_calculation(:no_contract_not_on_payroll) do |response|
     employee_has_contract_adoption == 'no' && response == 'no'
   end
 
-  next_node_if(:adoption_not_entitled_to_leave_or_pay, no_contract_not_on_payroll?)
-  next_node :adoption_date_leave_starts?
+  permitted_next_nodes = [
+    :adoption_date_leave_starts?,
+    :adoption_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if no_contract_not_on_payroll
+      :adoption_not_entitled_to_leave_or_pay
+    else
+      :adoption_date_leave_starts?
+    end
+  end
 end
 
 ## QA6
