@@ -21,6 +21,7 @@ module SmartAnswer
       expected_labels = {
         q1?: "MultipleChoice\n-\nWhat is the answer to q1?\n\n( ) yes\n( ) no",
         q2?: "MultipleChoice\n-\nWhat is the answer to q2?\n\n( ) a\n( ) b",
+        q_with_interpolation?: "MultipleChoice\n-\nQuestion with %{interpolation}?\n\n( ) x\n( ) y",
         done_a: "Outcome\n-\ndone_a",
         done_b: "Outcome\n-\ndone_b"
       }
@@ -31,7 +32,8 @@ module SmartAnswer
     test "presents adjacency_list of simple graph" do
       expected_adjacency_list = {
         q1?: [[:q2?, ""]],
-        q2?: [[:done_a, ''], [:done_b, '']],
+        q2?: [[:done_a, ''], [:q_with_interpolation?, '']],
+        q_with_interpolation?: [[:done_b, ""]],
         done_a: [],
         done_b: []
       }

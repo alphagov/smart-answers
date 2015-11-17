@@ -6,3 +6,6 @@ en-GB:
 
       q2?:
         title: "What is the answer to q2?"
+
+      q_with_interpolation?:
+        title: "Question with %{interpolation}?"
