@@ -17,7 +17,7 @@ module SmartAnswer
 
     test "Node title looked up from translation file" do
       question = Question::Date.new(nil, :example_question?)
-      presenter = QuestionPresenter.new("flow.test", question)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question)
 
       assert_equal 'Foo', presenter.title
     end
@@ -26,7 +26,7 @@ module SmartAnswer
       question = Question::Date.new(nil, :interpolated_question)
       state = State.new(question.name)
       state.day = 'Monday'
-      presenter = QuestionPresenter.new("flow.test", question, state)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question, state)
 
       assert_equal 'Is today a Monday?', presenter.title
     end
@@ -39,7 +39,7 @@ module SmartAnswer
       end
 
       should 'return no error message' do
-        presenter = QuestionPresenter.new('flow.test', @question, @state)
+        presenter = QuestionPresenter.new('flow.question-presenter-sample', @question, @state)
         assert_nil presenter.error
       end
     end
@@ -52,7 +52,7 @@ module SmartAnswer
       end
 
       should 'return error message for key' do
-        presenter = QuestionPresenter.new('flow.test', @question, @state)
+        presenter = QuestionPresenter.new('flow.question-presenter-sample', @question, @state)
         assert_equal 'custom error message', presenter.error
       end
     end
@@ -65,7 +65,7 @@ module SmartAnswer
       end
 
       should 'return default error message for the question' do
-        presenter = QuestionPresenter.new('flow.test', @question, @state)
+        presenter = QuestionPresenter.new('flow.question-presenter-sample', @question, @state)
         assert_equal 'default error message for the question', presenter.error
       end
     end
@@ -78,7 +78,7 @@ module SmartAnswer
       end
 
       should 'return interpolated error message i.e. raw exception message' do
-        presenter = QuestionPresenter.new('flow.test', @question, @state)
+        presenter = QuestionPresenter.new('flow.question-presenter-sample', @question, @state)
         assert_equal 'Raw message from InvalidResponse exception', presenter.error
       end
     end
@@ -91,14 +91,14 @@ module SmartAnswer
       end
 
       should 'fallback to the system-wide default error message' do
-        presenter = QuestionPresenter.new('flow.test', @question, @state)
+        presenter = QuestionPresenter.new('flow.question-presenter-sample', @question, @state)
         assert_equal I18n.translate('flow.defaults.error_message'), presenter.error
       end
     end
 
     test "Node hint looked up from translation file" do
       question = Question::Date.new(nil, :example_question?)
-      presenter = QuestionPresenter.new("flow.test", question)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question)
 
       assert_equal 'Hint for foo', presenter.hint
     end
@@ -107,7 +107,7 @@ module SmartAnswer
       question = Question::Date.new(nil, :interpolated_question)
       state = State.new(question.name)
       state.day = Date.parse('2011-04-05')
-      presenter = QuestionPresenter.new("flow.test", question, state)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question, state)
 
       assert_match /Today is  5 April 2011/, presenter.body
     end
@@ -116,7 +116,7 @@ module SmartAnswer
       question = Question::Base.new(nil, :question_with_interpolated_phrase_list)
       state = State.new(question.name)
       state.phrases = PhraseList.new(:one, :two, :three)
-      presenter = QuestionPresenter.new("flow.test", question, state)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question, state)
 
       assert_match Regexp.new("<p>Here are the phrases:</p>
 
@@ -132,9 +132,9 @@ module SmartAnswer
       question = Question::Base.new(nil, :question_with_interpolated_phrase_list)
       state = State.new(question.name)
       state.phrases = PhraseList.new(:four, :one, :two, :three)
-      presenter = QuestionPresenter.new("flow.test", question, state)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question, state)
 
-      Rails.logger.expects(:warn).with("[Missing phrase] The phrase being rendered is not present: flow.test.phrases.four\tResponses: ").once
+      Rails.logger.expects(:warn).with("[Missing phrase] The phrase being rendered is not present: flow.question-presenter-sample.phrases.four\tResponses: ").once
 
       assert_match Regexp.new("<p>Here are the phrases:</p>
 
@@ -150,28 +150,28 @@ module SmartAnswer
 
     test "Node body looked up from translation file, rendered as HTML using govspeak by default" do
       question = Question::Date.new(nil, :example_question?)
-      presenter = QuestionPresenter.new("flow.test", question)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question)
 
       assert_equal "<p>The body copy</p>\n", presenter.body
     end
 
     test "Node body looked up from translation file, rendered as raw text when HTML disabled" do
       question = Question::Date.new(nil, :example_question?)
-      presenter = QuestionPresenter.new("flow.test", question)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question)
 
       assert_equal "The body copy", presenter.body(html: false)
     end
 
     test "Node post_body looked up from translation file and parsed as govspeak" do
       question = Question::Date.new(nil, :question_with_post_body)
-      presenter = QuestionPresenter.new("flow.test", question)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question)
 
       assert_equal "<p>post body for question</p>\n", presenter.post_body
     end
 
     test "Node post_body returns nil when key doesn't exist in translation file" do
       question = Question::Date.new(nil, :question_with_no_post_body)
-      presenter = QuestionPresenter.new("flow.test", question)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question)
 
       assert_equal nil, presenter.post_body
     end
@@ -179,7 +179,7 @@ module SmartAnswer
     test 'delegates #to_response to node' do
       question = Question::Base.new(nil, :question)
       question.stubs(:to_response).returns('response')
-      presenter = QuestionPresenter.new("flow.test", question)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question)
 
       assert_equal 'response', presenter.to_response('answer-text')
     end
@@ -188,7 +188,7 @@ module SmartAnswer
       question = Question::MultipleChoice.new(nil, :example_question?)
       question.option :yes
       question.option :no
-      presenter = QuestionPresenter.new("flow.test", question)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question)
 
       assert_equal "Oui", presenter.options[0].label
       assert_equal "Non", presenter.options[1].label
@@ -199,15 +199,15 @@ module SmartAnswer
     test "Exception is raised if option translation is missing" do
       question = Question::MultipleChoice.new(nil, :example_question?)
       question.option :missing
-      presenter = QuestionPresenter.new("flow.test", question)
+      presenter = QuestionPresenter.new("flow.question-presenter-sample", question)
 
       e = assert_raises(I18n::MissingTranslationData) { presenter.options[0].label }
-      assert_equal "translation missing: en-GB.flow.test.example_question?.options.missing", e.message
+      assert_equal "translation missing: en-GB.flow.question-presenter-sample.example_question?.options.missing", e.message
     end
 
     test "Avoids displaying the year for a date question when the year is 0" do
       question = Question::Date.new(nil, :example_question?)
-      presenter = DateQuestionPresenter.new("flow.test", question)
+      presenter = DateQuestionPresenter.new("flow.question-presenter-sample", question)
 
       assert_equal " 5 April", presenter.response_label(Date.parse("0000-04-05"))
     end
@@ -227,14 +227,14 @@ module SmartAnswer
       question = Question::MultipleChoice.new(nil, :example_question?)
       question.option :yes
       question.option :no
-      presenter = MultipleChoiceQuestionPresenter.new("flow.test", question)
+      presenter = MultipleChoiceQuestionPresenter.new("flow.question-presenter-sample", question)
 
       assert_equal "Oui", presenter.response_label("yes")
     end
 
     test "Can lookup a response label for a date question" do
       question = Question::Date.new(nil, :example_question?)
-      presenter = DateQuestionPresenter.new("flow.test", question)
+      presenter = DateQuestionPresenter.new("flow.question-presenter-sample", question)
 
       assert_equal " 1 March 2011", presenter.response_label(Date.parse("2011-03-01"))
     end
