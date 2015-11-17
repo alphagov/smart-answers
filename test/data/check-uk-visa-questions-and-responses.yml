@@ -26,7 +26,7 @@
 - school
 - medical
 - diplomatic
-:planning_to_leave_airport?:
+:passing_through_uk_border_control?:
 - 'yes'
 - 'no'
 :staying_for_how_long?:
