@@ -103,7 +103,7 @@ module SmartAnswer
             :outcome_school_y
           elsif calculator.tourism_visit?
             :outcome_standard_visit
-          elsif calculator.purpose_of_visit_answer == 'marriage'
+          elsif calculator.marriage_visit?
             :outcome_marriage
           elsif calculator.purpose_of_visit_answer == 'medical'
             :outcome_medical_y

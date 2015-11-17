@@ -142,6 +142,20 @@ module SmartAnswer
           refute calculator.family_visit?
         end
       end
+
+      context '#marriage_visit?' do
+        should 'return true if purpose_of_visit_answer is "marriage"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'marriage'
+          assert calculator.marriage_visit?
+        end
+
+        should 'return false if purpose_of_visit_answer is not "marriage"' do
+          calculator = UkVisaCalculator.new
+          calculator.purpose_of_visit_answer = 'not-marriage'
+          refute calculator.marriage_visit?
+        end
+      end
     end
   end
 end
