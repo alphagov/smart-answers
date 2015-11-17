@@ -755,23 +755,34 @@ module SmartAnswer
         option :esa_under_a_year_other
         option :esa_more_than_a_year
 
-        define_predicate :going_abroad do
+        next_node_calculation :going_abroad do
           going_or_already_abroad == 'going_abroad'
         end
 
-        define_predicate :already_abroad do
+        next_node_calculation :already_abroad do
           going_or_already_abroad == 'already_abroad'
         end
 
-        on_condition(going_abroad) do
-          next_node_if(:esa_going_abroad_under_a_year_medical_outcome, responded_with('esa_under_a_year_medical')) # A27 going_abroad
-          next_node_if(:esa_going_abroad_under_a_year_other_outcome, responded_with('esa_under_a_year_other')) # A28 going_abroad
+        permitted_next_nodes = [
+          :esa_already_abroad_under_a_year_medical_outcome,
+          :esa_already_abroad_under_a_year_other_outcome,
+          :esa_going_abroad_under_a_year_medical_outcome,
+          :esa_going_abroad_under_a_year_other_outcome,
+          :which_country?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if going_abroad && response == 'esa_under_a_year_medical'
+            :esa_going_abroad_under_a_year_medical_outcome # A27 going_abroad
+          elsif going_abroad && response == 'esa_under_a_year_other'
+            :esa_going_abroad_under_a_year_other_outcome # A28 going_abroad
+          elsif already_abroad && response == 'esa_under_a_year_medical'
+            :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
+          elsif already_abroad && response == 'esa_under_a_year_other'
+            :esa_already_abroad_under_a_year_other_outcome # A26 already_abroad
+          else
+            :which_country?
+          end
         end
-        on_condition(already_abroad) do
-          next_node_if(:esa_already_abroad_under_a_year_medical_outcome, responded_with('esa_under_a_year_medical')) # A25 already_abroad
-          next_node_if(:esa_already_abroad_under_a_year_other_outcome, responded_with('esa_under_a_year_other')) # A26 already_abroad
-        end
-        next_node(:which_country?)
       end
 
       # Going abroad Q28 going_abroad (Disability Benefits) and Q27 already_abroad
