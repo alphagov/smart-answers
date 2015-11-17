@@ -217,9 +217,20 @@ multiple_choice :employee_on_payroll_paternity? do
     paternity_adoption ? ap_adoption_date_formatted : date_of_birth
   end
 
-  next_node_if(:employee_still_employed_on_birth_date?, responded_with('yes'))
-  next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no'))
-  next_node :employee_start_paternity?
+  permitted_next_nodes = [
+    :employee_start_paternity?,
+    :employee_still_employed_on_birth_date?,
+    :paternity_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    if response == 'yes'
+      :employee_still_employed_on_birth_date?
+    elsif has_contract == 'no'
+      :paternity_not_entitled_to_leave_or_pay
+    else
+      :employee_start_paternity?
+    end
+  end
 end
 
 ## QP7
