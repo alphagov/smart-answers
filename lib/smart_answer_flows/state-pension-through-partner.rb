@@ -137,14 +137,30 @@ module SmartAnswer
 
         save_input_as :gender
 
-        on_condition(responded_with("male_gender")) do
-          next_node_if(:impossibility_due_to_divorce_outcome, variable_matches(:marital_status, "divorced"))
-          next_node(:impossibility_to_increase_pension_outcome)
-        end
-        on_condition(responded_with("female_gender")) do
-          next_node_if(:age_dependent_pension_outcome, variable_matches(:marital_status, "divorced"))
-          next_node_if(:married_woman_and_state_pension_outcome, variable_matches(:marital_status, "widowed"))
-          next_node(:married_woman_no_state_pension_outcome)
+        permitted_next_nodes = [
+          :age_dependent_pension_outcome,
+          :impossibility_due_to_divorce_outcome,
+          :impossibility_to_increase_pension_outcome,
+          :married_woman_and_state_pension_outcome,
+          :married_woman_no_state_pension_outcome
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'male_gender'
+            if marital_status == 'divorced'
+              :impossibility_due_to_divorce_outcome
+            else
+              :impossibility_to_increase_pension_outcome
+            end
+          when 'female_gender'
+            if marital_status == 'divorced'
+              :age_dependent_pension_outcome
+            elsif marital_status == 'widowed'
+              :married_woman_and_state_pension_outcome
+            else
+              :married_woman_no_state_pension_outcome
+            end
+          end
         end
       end
 
