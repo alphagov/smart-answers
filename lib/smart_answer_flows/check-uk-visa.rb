@@ -79,7 +79,7 @@ module SmartAnswer
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.purpose_of_visit_answer = response
 
-          if %w{work study}.include?(calculator.purpose_of_visit_answer)
+          if %w{study}.include?(calculator.purpose_of_visit_answer) || calculator.work_visit?
             next :staying_for_how_long?
           elsif calculator.purpose_of_visit_answer == 'diplomatic'
             next :outcome_diplomatic_business
@@ -173,7 +173,7 @@ module SmartAnswer
         precalculate :study_or_work do
           if calculator.purpose_of_visit_answer == 'study'
             'study'
-          elsif calculator.purpose_of_visit_answer == 'work'
+          elsif calculator.work_visit?
             'work'
           end
         end
@@ -193,7 +193,7 @@ module SmartAnswer
           when 'longer_than_six_months'
             if calculator.purpose_of_visit_answer == 'study'
               :outcome_study_y #outcome 2 study y
-            elsif calculator.purpose_of_visit_answer == 'work'
+            elsif calculator.work_visit?
               :outcome_work_y #outcome 4 work y
             end
           when 'six_months_or_less'
@@ -207,7 +207,7 @@ module SmartAnswer
               elsif calculator.passport_country_in_ukot_list? || calculator.passport_country_in_non_visa_national_list?
                 :outcome_no_visa_needed #outcome 1 no visa needed
               end
-            elsif calculator.purpose_of_visit_answer == 'work'
+            elsif calculator.work_visit?
               if calculator.passport_country_in_ukot_list? ||
                 %w(taiwan).include?(calculator.passport_country) || calculator.passport_country_in_non_visa_national_list?
                 #outcome 5.5 work N no visa needed
