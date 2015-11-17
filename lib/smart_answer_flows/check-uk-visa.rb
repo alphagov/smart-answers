@@ -81,7 +81,7 @@ module SmartAnswer
 
           if calculator.study_visit? || calculator.work_visit?
             next :staying_for_how_long?
-          elsif calculator.purpose_of_visit_answer == 'diplomatic'
+          elsif calculator.diplomatic_visit?
             next :outcome_diplomatic_business
           elsif calculator.medical_visit? || calculator.tourism_visit? || calculator.school_visit?
             if %w(oman qatar united-arab-emirates).include?(calculator.passport_country)
