@@ -790,13 +790,24 @@ module SmartAnswer
         option :temporary
         option :permanent
 
-        define_predicate :going_abroad do
+        next_node_calculation :going_abroad do
           going_or_already_abroad == 'going_abroad'
         end
 
-        next_node_if(:which_country?, responded_with('permanent')) # Q25
-        next_node_if(:db_going_abroad_temporary_outcome, going_abroad) # A35 going_abroad
-        next_node(:db_already_abroad_temporary_outcome) # A34 already_abroad
+        permitted_next_nodes = [
+          :db_already_abroad_temporary_outcome,
+          :db_going_abroad_temporary_outcome,
+          :which_country?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'permanent'
+            :which_country? # Q25
+          elsif going_abroad
+            :db_going_abroad_temporary_outcome # A35 going_abroad
+          else
+            :db_already_abroad_temporary_outcome # A34 already_abroad
+          end
+        end
       end
 
       # Going abroad Q32 going_abroad (Income Support)
