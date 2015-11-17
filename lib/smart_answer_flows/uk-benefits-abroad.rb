@@ -119,9 +119,9 @@ module SmartAnswer
 
         next_node_calculation :responded_with_eea_country do |response|
           %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
-            finland france germany gibraltar greece hungary iceland ireland italy
-            latvia liechtenstein lithuania luxembourg malta netherlands norway
-            poland portugal romania slovakia slovenia spain sweden switzerland).include?(response)
+             finland france germany gibraltar greece hungary iceland ireland italy
+             latvia liechtenstein lithuania luxembourg malta netherlands norway
+             poland portugal romania slovakia slovenia spain sweden switzerland).include?(response)
         end
 
         next_node_calculation :responded_with_former_yugoslavia do |response|
