@@ -14,12 +14,21 @@ module SmartAnswer
 
         save_input_as :date_of_birth
 
-        define_predicate(:too_young?) do |response|
+        next_node_calculation(:too_young) do |response|
           calculator.too_young?(response)
         end
 
-        next_node_if(:outcome_pension_age_not_reached, too_young?)
-        next_node :gender?
+        permitted_next_nodes = [
+          :gender?,
+          :outcome_pension_age_not_reached
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if too_young
+            :outcome_pension_age_not_reached
+          else
+            :gender?
+          end
+        end
       end
 
       #Q2
