@@ -390,9 +390,20 @@ multiple_choice :how_do_you_want_the_spp_calculated? do
 
   save_input_as :spp_calculation_method
 
-  next_node_if(:paternity_leave_and_pay, responded_with('weekly_starting'))
-  next_node_if(:monthly_pay_paternity?, variable_matches(:pay_pattern, 'monthly'))
-  next_node :next_pay_day_paternity?
+  permitted_next_nodes = [
+    :monthly_pay_paternity?,
+    :next_pay_day_paternity?,
+    :paternity_leave_and_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    if response == 'weekly_starting'
+      :paternity_leave_and_pay
+    elsif pay_pattern == 'monthly'
+      :monthly_pay_paternity?
+    else
+      :next_pay_day_paternity?
+    end
+  end
 end
 
 ## QP15 - Also shared with adoption calculator here onwards
