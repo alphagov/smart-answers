@@ -25,10 +25,6 @@ module SmartAnswer
           PhraseList.new(:"why_#{going_or_already_abroad}_title")
         end
 
-        calculate :is_already_abroad do |response|
-          response == 'already_abroad'
-        end
-
         calculate :going_abroad do
           going_or_already_abroad == 'going_abroad'
         end
@@ -38,7 +34,7 @@ module SmartAnswer
         end
 
         calculate :already_abroad_text_two do |response|
-          if is_already_abroad
+          if already_abroad
             PhraseList.new(:already_abroad_text_two)
           end
         end
