@@ -24,6 +24,10 @@ module SmartAnswer
       country_select :country_of_ceremony?, exclude_countries: exclude_countries do
         save_input_as :ceremony_country
 
+        calculate :pay_by_cash_or_credit_card_no_cheque do
+          nil
+        end
+
         calculate :location do
           loc = WorldLocation.find(ceremony_country)
           raise InvalidResponse unless loc

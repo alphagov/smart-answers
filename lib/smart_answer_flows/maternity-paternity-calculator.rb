@@ -13,6 +13,47 @@ module SmartAnswer
         option :paternity
         option :adoption
 
+        # For all? Caught by regression tests
+        calculate :leave_spp_claim_link do
+          nil
+        end
+        calculate :notice_of_leave_deadline do
+          nil
+        end
+
+        # For maternity-calculator
+        calculate :monthly_pay_method do
+          nil
+        end
+        calculate :smp_calculation_method do
+          nil
+        end
+        calculate :pay_pattern do
+          nil
+        end
+
+        # For adoption-calculator
+        calculate :sap_calculation_method do
+          nil
+        end
+        calculate :above_lower_earning_limit do
+          nil
+        end
+
+        # For parternity-calculator
+        calculate :paternity_adoption do
+          nil
+        end
+        calculate :spp_calculation_method do
+          nil
+        end
+        calculate :has_contract do
+          nil
+        end
+        calculate :paternity_employment_start do
+          nil
+        end
+
         permitted_next_nodes = [
           :baby_due_date_maternity?,
           :leave_or_pay_for_adoption?,
