@@ -43,10 +43,24 @@ module SmartAnswer
 
         save_input_as :form_needed_for_1
 
-        next_node_if(:outcome_dsa_expenses, responded_with('dsa-expenses'))
-        next_node_if(:outcome_ccg_expenses, responded_with('ccg-expenses'))
-        next_node_if(:outcome_travel, responded_with('travel-grant'))
-        next_node(:what_year?)
+        permitted_next_nodes = [
+          :outcome_ccg_expenses,
+          :outcome_dsa_expenses,
+          :outcome_travel,
+          :what_year?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'dsa-expenses'
+            :outcome_dsa_expenses
+          when 'ccg-expenses'
+            :outcome_ccg_expenses
+          when 'travel-grant'
+            :outcome_travel
+          else
+            :what_year?
+          end
+        end
       end
 
       multiple_choice :form_needed_for_2? do
