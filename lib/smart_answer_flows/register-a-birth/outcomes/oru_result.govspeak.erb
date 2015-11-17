@@ -37,7 +37,7 @@
     ^Only the mother will be named on the local birth certificate if you aren’t married. To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married.^
   <% end %>
 
-  You must send the original copies of:
+  You must send the original versions of:
 
   <% if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?(country_of_birth) %>
     <% if country_of_birth == 'united-arab-emirates' && paternity_declaration %>
@@ -137,8 +137,7 @@
   You must also send photocopies of:
 
   - the photo page of the child’s British passport if they have one
-  - the photo page of the parent’s current passport (for British parents)
-  - the birth certificate or the photo page of the parent’s current passport (for parents who aren’t British)
+  - the photo pages of both parents’ current passports regardless of nationality (if you don't have a passport, send a copy of another identity document that has a photo)
 
   <% if country_of_birth.in?(%w(philippines sierra-leone uganda)) %>
     If the child doesn't have a British passport you must also send the original copies of:
