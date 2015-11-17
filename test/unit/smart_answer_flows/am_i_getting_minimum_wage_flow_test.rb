@@ -191,6 +191,7 @@ module SmartAnswer
           setup do
             @question = @flow.node(accommodation_usage_question_name)
             @state = SmartAnswer::State.new(@question)
+            @state.accommodation_charge = nil
             @calculator = stub('calculator',
               accommodation_adjustment: nil,
               minimum_wage_or_above?: nil,

@@ -18,5 +18,18 @@ module SmartAnswer
         assert_equal [:state1], old_state.path
       end
     end
+
+    should "raise a NoMethodError exception when trying to read a value that hasn't previously been set" do
+      state = State.new(:start_node)
+      assert_raise(NoMethodError) do
+        state.undefined_attribute
+      end
+    end
+
+    should "return the value of an attribute that's previously been set" do
+      state = State.new(:start_node)
+      state.new_attribute = 'new-attribute-value'
+      assert_equal 'new-attribute-value', state.new_attribute
+    end
   end
 end

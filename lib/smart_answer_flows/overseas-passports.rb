@@ -23,6 +23,16 @@ module SmartAnswer
           loc
         end
 
+        calculate :birth_location do
+          nil
+        end
+        calculate :embassy_address do
+          nil
+        end
+        calculate :send_colour_photocopy_bulletpoint do
+          nil
+        end
+
         next_node_calculation :ineligible_country do |response|
           %w{iran libya syria yemen}.include?(response)
         end

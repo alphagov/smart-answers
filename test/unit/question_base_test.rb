@@ -272,6 +272,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
     assert q.color_red?.is_a?(SmartAnswer::Predicate::Callable)
 
     state = SmartAnswer::State.new(q.name)
+    state.color = nil
     assert q.response_red?.call(state, "red")
     refute q.response_red?.call(state, "green")
 
