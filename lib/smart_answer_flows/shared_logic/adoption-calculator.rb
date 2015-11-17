@@ -263,9 +263,20 @@ multiple_choice :how_do_you_want_the_sap_calculated? do
 
   save_input_as :sap_calculation_method
 
-  next_node_if(:adoption_leave_and_pay, responded_with('weekly_starting'))
-  next_node_if(:monthly_pay_paternity?, variable_matches(:pay_pattern, 'monthly')) ## Shared with paternity calculator
-  next_node :next_pay_day_paternity? ## Shared with paternity calculator
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :monthly_pay_paternity?,
+    :next_pay_day_paternity?
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    if response == 'weekly_starting'
+      :adoption_leave_and_pay
+    elsif pay_pattern == 'monthly'
+      :monthly_pay_paternity?
+    else
+      :next_pay_day_paternity?
+    end
+  end
 end
 
 outcome :adoption_leave_and_pay do
