@@ -460,8 +460,17 @@ value_question :specific_date_each_month_paternity?, parse: :to_i do
     calculator.pay_day_in_month = day
   end
 
-  next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
-  next_node :paternity_leave_and_pay
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :paternity_leave_and_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if leave_type == 'adoption'
+      :adoption_leave_and_pay
+    else
+      :paternity_leave_and_pay
+    end
+  end
 end
 
 ## QP18
