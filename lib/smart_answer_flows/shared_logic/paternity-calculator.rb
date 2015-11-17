@@ -429,11 +429,26 @@ multiple_choice :monthly_pay_paternity? do
 
   save_input_as :monthly_pay_method
 
-  next_node_if(:specific_date_each_month_paternity?, responded_with('specific_date_each_month'))
-  next_node_if(:days_of_the_week_paternity?, responded_with('last_working_day_of_the_month'))
-  next_node_if(:day_of_the_month_paternity?, responded_with('a_certain_week_day_each_month'))
-  next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
-  next_node :paternity_leave_and_pay
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :day_of_the_month_paternity?,
+    :days_of_the_week_paternity?,
+    :paternity_leave_and_pay,
+    :specific_date_each_month_paternity?
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    if response == 'specific_date_each_month'
+      :specific_date_each_month_paternity?
+    elsif response == 'last_working_day_of_the_month'
+      :days_of_the_week_paternity?
+    elsif response == 'a_certain_week_day_each_month'
+      :day_of_the_month_paternity?
+    elsif leave_type == 'adoption'
+      :adoption_leave_and_pay
+    else
+      :paternity_leave_and_pay
+    end
+  end
 end
 
 ## QP17
