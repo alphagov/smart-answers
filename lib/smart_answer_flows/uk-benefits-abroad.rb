@@ -34,9 +34,7 @@ module SmartAnswer
         end
 
         calculate :already_abroad_text_two do |response|
-          if already_abroad
-            PhraseList.new(:already_abroad_text_two)
-          end
+          PhraseList.new(:already_abroad_text_two) if already_abroad
         end
 
         next_node :which_benefit?
