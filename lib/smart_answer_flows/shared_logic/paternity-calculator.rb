@@ -239,8 +239,17 @@ multiple_choice :employee_still_employed_on_birth_date? do
   option :no
   save_input_as :employed_dob
 
-  next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no') & responded_with('no'))
-  next_node :employee_start_paternity?
+  permitted_next_nodes = [
+    :employee_start_paternity?,
+    :paternity_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    if has_contract == 'no' && response == 'no'
+      :paternity_not_entitled_to_leave_or_pay
+    else
+      :employee_start_paternity?
+    end
+  end
 end
 
 ## QP8
