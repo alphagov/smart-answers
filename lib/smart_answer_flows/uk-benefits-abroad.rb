@@ -29,6 +29,10 @@ module SmartAnswer
           response == 'already_abroad'
         end
 
+        calculate :going_abroad do
+          going_or_already_abroad == 'going_abroad'
+        end
+
         calculate :already_abroad_text_two do |response|
           if is_already_abroad
             PhraseList.new(:already_abroad_text_two)
@@ -61,10 +65,6 @@ module SmartAnswer
           else
             PhraseList.new(:"#{going_or_already_abroad}_how_long_question_title")
           end
-        end
-
-        next_node_calculation :going_abroad do
-          going_or_already_abroad == 'going_abroad'
         end
 
         next_node_calculation :already_abroad do
@@ -121,10 +121,6 @@ module SmartAnswer
 
         calculate :country_name do
           (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-        end
-
-        next_node_calculation :going_abroad do
-          going_or_already_abroad == 'going_abroad'
         end
 
         next_node_calculation :already_abroad do
@@ -368,10 +364,6 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node_calculation :going_abroad do
-          going_or_already_abroad == 'going_abroad'
-        end
-
         next_node_calculation :already_abroad do
           going_or_already_abroad == 'already_abroad'
         end
@@ -442,10 +434,6 @@ module SmartAnswer
       multiple_choice :working_for_uk_employer_ssp? do
         option :yes
         option :no
-
-        next_node_calculation :going_abroad do
-          going_or_already_abroad == 'going_abroad'
-        end
 
         next_node_calculation :already_abroad do
           going_or_already_abroad == 'already_abroad'
@@ -578,10 +566,6 @@ module SmartAnswer
       multiple_choice :db_claiming_benefits? do
         option :yes
         option :no
-
-        next_node_calculation :going_abroad do
-          going_or_already_abroad == 'going_abroad'
-        end
 
         next_node_calculation :already_abroad do
           going_or_already_abroad == 'already_abroad'
@@ -755,10 +739,6 @@ module SmartAnswer
         option :esa_under_a_year_other
         option :esa_more_than_a_year
 
-        next_node_calculation :going_abroad do
-          going_or_already_abroad == 'going_abroad'
-        end
-
         next_node_calculation :already_abroad do
           going_or_already_abroad == 'already_abroad'
         end
@@ -789,10 +769,6 @@ module SmartAnswer
       multiple_choice :db_how_long_abroad? do
         option :temporary
         option :permanent
-
-        next_node_calculation :going_abroad do
-          going_or_already_abroad == 'going_abroad'
-        end
 
         permitted_next_nodes = [
           :db_already_abroad_temporary_outcome,
