@@ -579,21 +579,34 @@ module SmartAnswer
         option :yes
         option :no
 
-        define_predicate :going_abroad do
+        next_node_calculation :going_abroad do
           going_or_already_abroad == 'going_abroad'
         end
 
-        define_predicate :already_abroad do
+        next_node_calculation :already_abroad do
           going_or_already_abroad == 'already_abroad'
         end
 
-        on_condition(going_abroad) do
-          next_node_if(:db_going_abroad_eea_outcome, responded_with('yes')) # A37 going_abroad
-          next_node(:db_going_abroad_other_outcome) # A36 going_abroad
-        end
-        on_condition(already_abroad) do
-          next_node_if(:db_already_abroad_eea_outcome, responded_with('yes')) # A36 already_abroad
-          next_node(:db_already_abroad_other_outcome) # A35 already_abroad
+        permitted_next_nodes = [
+          :db_already_abroad_eea_outcome,
+          :db_already_abroad_other_outcome,
+          :db_going_abroad_eea_outcome,
+          :db_going_abroad_other_outcome
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if going_abroad
+            if response == 'yes'
+              :db_going_abroad_eea_outcome # A37 going_abroad
+            else
+              :db_going_abroad_other_outcome # A36 going_abroad
+            end
+          elsif already_abroad
+            if response == 'yes'
+              :db_already_abroad_eea_outcome # A36 already_abroad
+            else
+              :db_already_abroad_other_outcome # A35 already_abroad
+            end
+          end
         end
       end
 
