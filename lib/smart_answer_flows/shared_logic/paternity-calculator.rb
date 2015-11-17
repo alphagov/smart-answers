@@ -287,9 +287,17 @@ multiple_choice :employee_paternity_length? do
     calculator.pay_end_date
   end
 
-  next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'yes') &
-    (variable_matches(:on_payroll, 'no') | variable_matches(:employed_dob, 'no')))
-  next_node :last_normal_payday_paternity?
+  permitted_next_nodes = [
+    :last_normal_payday_paternity?,
+    :paternity_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if has_contract == 'yes' && (on_payroll == 'no' || employed_dob == 'no')
+      :paternity_not_entitled_to_leave_or_pay
+    else
+      :last_normal_payday_paternity?
+    end
+  end
 end
 
 ## QP10
