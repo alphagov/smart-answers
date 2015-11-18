@@ -13,8 +13,7 @@ en-GB:
       # Q1
       basis_of_calculation?:
         title: "Is the holiday entitlement based on:"
-        hint: |
-          Check the employment contract if you’re not sure about the holiday entitlement.
+        hint: Check the employment contract if you’re not sure about the holiday entitlement.
         options:
           "days-worked-per-week": "days worked per week"
           "hours-worked-per-week": "hours worked per week"
