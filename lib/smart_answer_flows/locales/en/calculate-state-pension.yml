@@ -33,16 +33,14 @@ en-GB:
       ## Q3a Amount
       pay_reduced_ni_rate?:
         title: Have you ever opted to pay the reduced National Insurance rate for married women and widows (also known as the married woman’s stamp)?
-        hint: |
-          Opting to pay the reduced rate means you chose to pay a lower rate of National Insurance while you were employed or you chose not to pay Class 2 contributions while you were self-employed.
+        hint: Opting to pay the reduced rate means you chose to pay a lower rate of National Insurance while you were employed or you chose not to pay Class 2 contributions while you were self-employed.
         options:
           "yes": "Yes"
           "no": "No"
       ## Q4
       years_paid_ni?:
         title: How many years have you worked and paid National Insurance contributions from the age of 19?
-        hint: |
-          These are the years when you paid Class 1 with your wages, Class 2 if you were self employed or Class 3 if you paid voluntary contributions. %{carer_hint_for_women} Enter 0 if you haven’t paid National Insurance contributions. National Insurance credits will be automatically added for ages between 16 and 19 years old (if you’re eligible) - you don’t have to count them.
+        hint: These are the years when you paid Class 1 with your wages, Class 2 if you were self employed or Class 3 if you paid voluntary contributions. %{carer_hint_for_women} Enter 0 if you haven’t paid National Insurance contributions. National Insurance credits will be automatically added for ages between 16 and 19 years old (if you’re eligible) - you don’t have to count them.
         error_message: |
           Your answer has to match the number of years you actually worked and paid National Insurance.
           Based on your date of birth you can enter up to %{ni_years_to_date_from_dob} years. Don’t count years before you were 16.
@@ -51,8 +49,7 @@ en-GB:
       years_of_jsa?:
         title: "How many years from the age of 19 have you claimed unemployment, sickness or disability benefits?"
         hint: These are years you may have received credits towards your State Pension. Don’t count years you’ve entered already. Enter 0 if you’ve never claimed benefits. %{carer_hint_for_women_before_1962}
-        error_message: |
-          Please enter a number. Based on your previous answers you can enter up to %{ni_years_to_date_from_dob} years. If you got benefits for more years than you can enter, enter the maximum number you’re allowed.
+        error_message: Please enter a number. Based on your previous answers you can enter up to %{ni_years_to_date_from_dob} years. If you got benefits for more years than you can enter, enter the maximum number you’re allowed.
         suffix_label: years
       ## Q6
       received_child_benefit?:
