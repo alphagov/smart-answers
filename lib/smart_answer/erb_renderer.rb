@@ -31,7 +31,7 @@ module SmartAnswer
 
     def option_text(key)
       rendered_view
-      @view.options.fetch(key)
+      @view.options.fetch(key).html_safe
     end
 
     def erb_template_path

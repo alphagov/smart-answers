@@ -199,7 +199,7 @@ Hello world
       end
     end
 
-    test '#option_text raises KeyError if no option key does not exist' do
+    test '#option_text raises KeyError if option key does not exist' do
       erb_template = "<% options(option_one: 'option-one-text', option_two: 'option-two-text') %>"
 
       with_erb_template_file('template-name', erb_template) do |erb_template_directory|
@@ -220,6 +220,16 @@ Hello world
         e = assert_raises(KeyError) do
           renderer.option_text(:option_key)
         end
+      end
+    end
+
+    test '#option_text returns an HTML-safe string' do
+      erb_template = "<% options(option_one: 'html-unsafe-option-one-text') %>"
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert renderer.option_text(:option_one).html_safe?
       end
     end
 
