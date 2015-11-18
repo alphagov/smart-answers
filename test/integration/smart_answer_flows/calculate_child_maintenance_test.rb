@@ -31,7 +31,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
 
       should "ask do you get any of these benefits" do
         assert_current_node :gets_benefits?
-        assert_phrase_list :paying_or_receiving_hint, [:pay_hint]
+        assert_state_variable :paying_or_receiving_hint, "Enter the total number of children - including children that you have family based arrangements for. They will be included in the calculation and you'll need to supply information about them when arranging Child Maintenance."
       end
 
       context "answer yes" do

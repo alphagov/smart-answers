@@ -29,7 +29,11 @@ module SmartAnswer
         end
 
         precalculate :paying_or_receiving_hint do
-          PhraseList.new(:"#{paying_or_receiving}_hint")
+          if paying_or_receiving == "pay"
+            "Enter the total number of children - including children that you have family based arrangements for. They will be included in the calculation and you'll need to supply information about them when arranging Child Maintenance.".html_safe
+          else
+            "Enter children from 1 partner only and make a separate calculation for each partner."
+          end
         end
 
         calculate :number_of_children do |response|
@@ -47,7 +51,11 @@ module SmartAnswer
         option "no"
 
         precalculate :benefits_title do
-          PhraseList.new(:"#{paying_or_receiving}_benefits")
+          if paying_or_receiving == "pay"
+            "Do you get any of these benefits?"
+          else
+            "Does the parent paying child maintenance get any of these benefits?"
+          end
         end
 
         calculate :calculator do
@@ -72,7 +80,11 @@ module SmartAnswer
       money_question :gross_income_of_payee? do
 
         precalculate :income_title do
-          PhraseList.new(:"#{paying_or_receiving}_income")
+          if paying_or_receiving == "pay"
+            "What is your weekly gross income?"
+          else
+            "What is the weekly gross income of the parent paying child maintenance?"
+          end
         end
 
         next_node_calculation :rate_type do |response|
@@ -101,7 +113,11 @@ module SmartAnswer
       value_question :how_many_other_children_in_payees_household?, parse: Integer do
 
         precalculate :number_of_children_title do
-          PhraseList.new(:"#{paying_or_receiving}_number_of_children")
+          if paying_or_receiving == "pay"
+            "How many other children live in your household?"
+          else
+            "How many other children live in the household of the parent paying child maintenance?"
+          end
         end
 
         calculate :calculator do |response|
@@ -120,7 +136,11 @@ module SmartAnswer
         option 4
 
         precalculate :how_many_nights_title do
-          PhraseList.new(:"#{paying_or_receiving}_how_many_nights")
+          if paying_or_receiving == "pay"
+            "On average, how many nights a year do the children stay over with you?"
+          else
+            "On average, how many nights a year do the children stay over with the parent paying child maintenance?"
+          end
         end
 
         calculate :child_maintenance_payment do |response|
