@@ -1,15 +1,6 @@
 en-GB:
   flow:
     calculate-your-holiday-entitlement:
-      phrases:
-
-        your_employer: |
-          The employer:
-
-          * can include public and bank holidays as part of the statutory entitlement
-          * can give more paid holiday - this will be in the employment contract and is called 'contractual leave entitlement'
-          * must provide [holiday pay](/holiday-entitlement-rights/holiday-pay-the-basics "Holiday pay") during the statutory leave
-
       # Q1
       basis_of_calculation?:
         title: "Is the holiday entitlement based on:"
