@@ -1,7 +1,7 @@
 <% content_for :title do %>
-  What was the last normal payday on or before %{pay_day_offset}?
+  What was the last normal payday on or before <%= format_date(pay_day_offset) %>?
 <% end %>
 
 <% content_for :error_message do %>
-  You must enter a date on or before %{pay_day_offset}
+  You must enter a date on or before <%= format_date(pay_day_offset) %>
 <% end %>

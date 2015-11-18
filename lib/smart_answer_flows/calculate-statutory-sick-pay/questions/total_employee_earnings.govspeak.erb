@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between %{relevant_period_from} and %{relevant_period_to}.
+  Enter the total amount (before deductions like Income Tax and National Insurance) of your employee’s earnings on paydays between <%= format_date(relevant_period_from) %> and <%= format_date(relevant_period_to) %>.
 <% end %>
 
 <% content_for :body do %>

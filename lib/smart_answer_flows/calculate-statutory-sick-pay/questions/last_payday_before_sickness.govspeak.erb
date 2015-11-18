@@ -1,7 +1,7 @@
 <% content_for :title do %>
-  What was the last normal payday before %{sick_start_date_for_awe}?
+  What was the last normal payday before <%= format_date(sick_start_date_for_awe) %>?
 <% end %>
 
 <% content_for :error_message do %>
-  You must enter a date before %{sick_start_date_for_awe}
+  You must enter a date before <%= format_date(sick_start_date_for_awe) %>
 <% end %>
