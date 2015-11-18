@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  Number of years they’ve worked for you
+<% end %>
+
+<% content_for :hint do %>
+  Only count full years of service. For example, 3 years and 9 months count as 3 years.
+<% end %>
+
+<% content_for :suffix_label do %>
+  full years worked
+<% end %>
+
+<% content_for :error_message do %>
+  Please enter a number. Based on your previous answers this should be no greater than %{years_available}
+<% end %>
