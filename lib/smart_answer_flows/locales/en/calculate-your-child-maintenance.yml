@@ -2,11 +2,8 @@ en-GB:
   flow:
     calculate-your-child-maintenance:
       phrases:
-        pay_hint: |
-          Enter the total number of children - including children that you have family based arrangements for. They will be included in the calculation and you'll need to supply information about them when arranging Child Maintenance.
-
-        receive_hint: |
-          Enter children from 1 partner only and make a separate calculation for each partner.
+        pay_hint: Enter the total number of children - including children that you have family based arrangements for. They will be included in the calculation and you'll need to supply information about them when arranging Child Maintenance.
+        receive_hint: Enter children from 1 partner only and make a separate calculation for each partner.
         pay_benefits: Do you get any of these benefits?
         receive_benefits: Does the parent paying child maintenance get any of these benefits?
         pay_income: What is your weekly gross income?
@@ -30,8 +27,7 @@ en-GB:
           "1_child": "1"
           "2_children": "2"
           "3_children": "3 or more"
-        hint: |
-          %{paying_or_receiving_hint}
+        hint: "%{paying_or_receiving_hint}"
 
       ##Q3
       gets_benefits?:
