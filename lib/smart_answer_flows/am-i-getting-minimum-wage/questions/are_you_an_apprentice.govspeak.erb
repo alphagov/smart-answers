@@ -1,0 +1,14 @@
+<% content_for :title do %>
+  Are you an apprentice?
+<% end %>
+
+<% options(
+  "not_an_apprentice": "Not an apprentice",
+  "apprentice_under_19": "Apprentice under 19",
+  "apprentice_over_19_first_year": "Apprentice aged 19 and over in your first year",
+  "apprentice_over_19_second_year_onwards": "Apprentice 19 and over in your second year or onwards"
+) %>
+
+<% content_for :hint do %>
+  If you’re 19 or over and past your first year you don’t count as an apprentice for minimum wage purposes.
+<% end %>
