@@ -35,8 +35,6 @@ Accepted.
 
 ## Consequences
 
-It's easier for content designers to edit Smart Answer outcomes.
-
 The Smart Answers project is simpler now that there is one less way of authoring Smart Answers.
 
 Developers new to the Smart Answers project have one less thing to learn to get up to speed.
