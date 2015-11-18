@@ -12,8 +12,6 @@ Smartdown didn't match Ruby Smart Answers in terms of features. Adding support f
 
 The state of many of the Ruby Smart Answers would've made it hard to convert them to Smartdown without extensive refactoring.
 
-
-
 As at April 2015 there were:
 
 * 35 published (and 15 draft) Ruby Smart Answers
