@@ -25,8 +25,7 @@ en-GB:
           diplomatic: "For official diplomatic or government business (including transit through the UK)"
 
       staying_for_how_long?:
-        title: |
-         How long are you planning to %{study_or_work} in the UK for?
+        title: How long are you planning to %{study_or_work} in the UK for?
         options:
           "six_months_or_less": "6 months or less"
           "longer_than_six_months": "longer than 6 months"
