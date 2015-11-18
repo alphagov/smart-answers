@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  How many years have you received Carer’s Allowance?
+<% end %>
+
+<% content_for :hint do %>
+  Enter 0 if you didn’t get any. Don’t count any years you’ve entered in the previous questions. %{carer_hint_for_women_before_1962}
+<% end %>
+
+<% content_for :suffix_label do %>
+  years
+<% end %>
+
+<% content_for :error_message do %>
+  Please enter a number. Based on your previous answers you can enter up to %{ni_years_to_date_from_dob} years. If you got Carer’s Allowance for more years than you can enter, enter the maximum number you’re allowed.
+<% end %>
