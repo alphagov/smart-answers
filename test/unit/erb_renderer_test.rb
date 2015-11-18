@@ -199,7 +199,7 @@ Hello world
       end
     end
 
-    test '#option_text raises KeyError if no option key does not exist' do
+    test '#option_text raises KeyError if option key does not exist' do
       erb_template = "<% options(option_one: 'option-one-text', option_two: 'option-two-text') %>"
 
       with_erb_template_file('template-name', erb_template) do |erb_template_directory|
