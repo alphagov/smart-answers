@@ -1,0 +1,9 @@
+<% content_for :title do %>
+  On %{sick_start_date_for_awe} had you paid your employee at least 8 weeks of earnings?
+<% end %>
+
+<% options(
+  "eight_weeks_more": "Yes, paid at least 8 weeks earnings",
+  "eight_weeks_less": "No, paid less than 8 weeks earnings",
+  "before_payday": "No, employee is new and fell sick before their first payday"
+) %>
