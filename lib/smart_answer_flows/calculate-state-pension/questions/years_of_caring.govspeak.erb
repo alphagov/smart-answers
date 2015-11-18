@@ -1,0 +1,22 @@
+<% content_for :title do %>
+  From 6 April 2010 how many years did any of the following apply:
+<% end %>
+
+<% content_for :hint do %>
+  Enter 0 if none of these apply. Don’t count any years you’ve entered in the previous questions.
+<% end %>
+
+<% content_for :suffix_label do %>
+  years
+<% end %>
+
+<% content_for :body do %>
+  - you claimed Child Benefit for a child under 12
+  - you cared for someone sick or disabled for at least 20 hours a week
+  - you were a registered foster carer
+
+<% end %>
+
+<% content_for :error_message do %>
+  Please enter a number between 0 and <%= years_you_can_enter %>. If you got Child Benefit, cared for someone or were a foster carer for more years than you can enter, enter the maximum number you’re allowed.
+<% end %>

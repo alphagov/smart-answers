@@ -1,0 +1,28 @@
+<% content_for :title do %>
+  Before 6 April 2010 how many years did any of the following apply:
+<% end %>
+
+<% content_for :hint do %>
+  These are years when you were getting Home Responsibility Protection. Enter 0 if none of these apply. Don’t count any years you’ve entered in the previous questions. <%= carer_hint_for_women %>
+<% end %>
+
+<% content_for :suffix_label do %>
+  years
+<% end %>
+
+<% content_for :body do %>
+  - you claimed Child Benefit for a child under 16
+  - you cared for someone sick or disabled
+  - you worked as a registered foster carer (from 2003 to 2010)
+
+<% end %>
+
+<% content_for :error_message do %>
+  Please enter a whole number
+<% end %>
+<% content_for :error_too_many_years do %>
+  Please enter a number between 0 and <%= years_you_can_enter %>. If you got Child Benefit for more years than you can enter, enter the maximum number you’re allowed.
+<% end %>
+<% content_for :error_maximum_hrp_years do %>
+  Please enter a number up to 22. This is the maximum number of Home Responsibility Protection years possible.
+<% end %>
