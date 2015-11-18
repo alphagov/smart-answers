@@ -584,7 +584,7 @@ class CalculateStatePensionTest < ActiveSupport::TestCase
 
         should "tell not to count years before 2010 with reduced NI rate" do
           assert_current_node :years_of_jsa?
-          assert_phrase_list :carer_hint_for_women_before_1962, [:carers_allowance_women_ni_reduced_years_before_2010]
+          assert_state_variable :carer_hint_for_women_before_1962, "Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows."
         end
       end
     end # female

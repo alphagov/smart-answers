@@ -236,7 +236,7 @@ module SmartAnswer
         # part of a hint for questions 4, 7 and 9 that should only be displayed for women born before 1962
         precalculate :carer_hint_for_women do
           if gender == 'female' and (dob < Date.parse('1962-01-01'))
-            PhraseList.new(:carers_allowance_women_hint)
+            "Don’t count years when you opted for the reduced National Insurance rate for married women and widows."
           else
             ''
           end
@@ -246,7 +246,7 @@ module SmartAnswer
 
         calculate :carer_hint_for_women_before_1962 do
           if gender == 'female' and (dob < Date.parse('1962-01-01'))
-            PhraseList.new(:carers_allowance_women_ni_reduced_years_before_2010)
+            "Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows."
           else
             ''
           end
@@ -300,7 +300,7 @@ module SmartAnswer
 
         calculate :carer_hint_for_women_before_1962 do
           if gender == 'female' and (dob < Date.parse('1962-01-01'))
-            PhraseList.new(:carers_allowance_women_ni_reduced_years_before_2010)
+            "Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows."
           end
         end
 
