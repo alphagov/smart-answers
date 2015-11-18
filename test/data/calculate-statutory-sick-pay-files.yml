@@ -6,7 +6,7 @@ test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: b4251
 lib/smart_answer_flows/calculate-statutory-sick-pay/calculate_statutory_sick_pay.govspeak.erb: f91dc1d321c164a06271889100875600
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/_esa.govspeak.erb: 660031398fda690ed7b3e2186ba64060
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/already_getting_maternity.govspeak.erb: 258fd4422c4ae665c83d5ee1e061bbff
-lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/entitled_to_sick_pay.govspeak.erb: ed74ac72ff6fc4fb4f814bcb16d1d44d
+lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/entitled_to_sick_pay.govspeak.erb: eb78b429bca4ded3befcd1411edaa91c
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/maximum_entitlement_reached.govspeak.erb: eb12d5290c873df20fd23ff9eb06c273
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/must_be_sick_for_4_days.govspeak.erb: 17b34a7463bcbbf7e2a5c417ec5452f9
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/not_earned_enough.govspeak.erb: 1e5cd1c6d99b6bd3145578416d62e7c5
