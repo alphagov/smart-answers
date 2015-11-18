@@ -1,0 +1,17 @@
+<% content_for :title do %>
+  Which of these benefits do you get?
+<% end %>
+
+<% options(
+  "pension_credit": "Pension Credit",
+  "income_support": "Income Support",
+  "jsa": "Income based Jobseeker’s Allowance",
+  "esa": "Income-related Employment and Support Allowance (ESA)",
+  "child_tax_credit": "Child Tax Credit - only if your income is £16,010 or less",
+  "working_tax_credit": "Working Tax Credit - only if your income is £16,010 or less",
+  "universal_credit": "Universal Credit (and you earned £1,250 or less after tax in any assessment period in the last 12 months)"
+) %>
+
+<% content_for :hint do %>
+  Choose all that apply to you. If none apply just click ‘Next step’.
+<% end %>
