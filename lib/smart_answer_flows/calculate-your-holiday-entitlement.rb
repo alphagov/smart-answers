@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100143"
 
+      use_erb_templates_for_questions
+
       # Q1
       multiple_choice :basis_of_calculation? do
         option "days-worked-per-week"
