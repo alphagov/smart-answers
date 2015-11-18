@@ -36,8 +36,7 @@ en-GB:
 #Q6
       whats_the_highest_earners_income?:
         title: "What's the highest earner's yearly income?"
-        hint: |
-          Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Carer's Allowance.
+        hint: Add up your taxable income, eg earnings, pensions and any taxable benefits, eg Carer's Allowance.
         error_message: Please use numbers only, eg 9000
 #Q7
       paying_into_a_pension?:
