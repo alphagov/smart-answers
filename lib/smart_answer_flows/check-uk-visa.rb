@@ -8,6 +8,8 @@ module SmartAnswer
 
       additional_countries = UkbaCountry.all
 
+      use_erb_templates_for_questions
+
       # Q1
       country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: Calculators::UkVisaCalculator::EXCLUDE_COUNTRIES do
         next_node_calculation :calculator do
