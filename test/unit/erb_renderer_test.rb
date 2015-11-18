@@ -223,6 +223,16 @@ Hello world
       end
     end
 
+    test '#option_text returns an HTML-safe string' do
+      erb_template = "<% options(option_one: 'html-unsafe-option-one-text') %>"
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert renderer.option_text(:option_one).html_safe?
+      end
+    end
+
     private
 
     def content_for(key, template)
