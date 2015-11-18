@@ -19,6 +19,10 @@ As at April 2015 there were:
 
 ## Decision
 
+We will make Ruby Smart Answers as simple and accessible as possible, on the assumption that we'll have a high turnover of people working on it.
+
+We will standardise on Ruby Smart Answers to optimise for maintenance and Business As Usual throughput.
+
 We will take some of the learnings from Smartdown and use them to improve the Ruby Smart Answers.
 
 We will use ERB templates instead of [PhraseLists][phraselist-commit] to bring Ruby Smart Answer outcomes closer to Smartdown outcomes.
