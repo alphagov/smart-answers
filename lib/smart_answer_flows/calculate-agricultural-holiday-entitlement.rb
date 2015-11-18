@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100143"
 
+      use_erb_templates_for_questions
+
       calculator = Calculators::AgriculturalHolidayEntitlementCalculator.new()
 
       multiple_choice :work_the_same_number_of_days_each_week? do
