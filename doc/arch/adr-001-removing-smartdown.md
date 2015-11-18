@@ -35,7 +35,7 @@ Accepted.
 
 ## Consequences
 
-The Smart Answers project is simpler now that there is one less way of authoring Smart Answers.
+The Smart Answers application is simpler now that there is one less way of authoring Smart Answers.
 
 Developers new to the Smart Answers project have one less thing to learn to get up to speed.
 
