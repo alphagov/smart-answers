@@ -19,13 +19,13 @@ As at April 2015 there were:
 
 ## Decision
 
-Take some of the learnings from Smartdown and use them to improve the Ruby Smart Answers.
+We will take some of the learnings from Smartdown and use them to improve the Ruby Smart Answers.
 
-Use ERB templates instead of [PhraseLists][phraselist-commit] to bring Ruby Smart Answer outcomes closer to Smartdown outcomes.
+We will use ERB templates instead of [PhraseLists][phraselist-commit] to bring Ruby Smart Answer outcomes closer to Smartdown outcomes.
 
-Convert existing Smartdown Smart Answers to Ruby.
+We will convert existing Smartdown Smart Answers to Ruby.
 
-Remove Smartdown.
+We will remove Smartdown.
 
 ## Status
 
