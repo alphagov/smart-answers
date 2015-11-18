@@ -1,0 +1,13 @@
+<% content_for :title do %>
+  How many children are you %{paying_or_receiving_text} child maintenance for?
+<% end %>
+
+<% options(
+  "1_child": "1",
+  "2_children": "2",
+  "3_children": "3 or more"
+) %>
+
+<% content_for :hint do %>
+  %{paying_or_receiving_hint}
+<% end %>
