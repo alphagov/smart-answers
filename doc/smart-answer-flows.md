@@ -40,7 +40,7 @@ lib
 
 ### Defining next node rules
 
-There are three syntaxes for defining next node rules.
+There are two syntaxes for defining next node rules.
 
 #### Using `next_node` with a block
 
@@ -68,19 +68,6 @@ next_node(:red)
 The `responded_with` function actually returns a [predicate](http://en.wikipedia.org/wiki/Predicate_%28mathematical_logic%29) which will be invoked during processing. If the predicate returns `true` then the `:green` node will be next, otherwise the next rule will be evaluated. In this case the next rule says `:red` is the next node with no condition.
 
 See [Smart Answer predicates](smart-answers-predicates.md) for more detailed information about this style.
-
-#### DEPRECATED: Using Multiple Choice shortcut
-
-Again using the original example:
-
-```ruby
-multiple_choice :question do
-  option green: :green
-  option red: :red
-end
-```
-
-This is essentially some syntactic sugar on top of the predicate logic.
 
 ### Storing data for later use
 
