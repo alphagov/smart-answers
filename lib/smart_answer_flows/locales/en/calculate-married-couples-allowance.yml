@@ -1,7 +1,6 @@
 en-GB:
   flow:
     calculate-married-couples-allowance:
-      section_name: Money and tax
 #Q1
       were_you_or_your_partner_born_on_or_before_6_april_1935?:
         title: Were you or your partner born before 6 April 1935?
