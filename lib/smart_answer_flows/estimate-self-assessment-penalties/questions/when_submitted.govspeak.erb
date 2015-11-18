@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  When did you send your Self Assessment tax return?
+<% end %>
+
+<% content_for :hint do %>
+  If you sent it online, enter the date you submitted the return. If you sent it on paper, add 2 days to the date you posted it. If you haven’t sent it yet, enter the date you expect to send it.
+<% end %>
+
+<% content_for :error_message do %>
+  Please enter a date on or after %{start_of_next_tax_year_formatted}
+<% end %>
