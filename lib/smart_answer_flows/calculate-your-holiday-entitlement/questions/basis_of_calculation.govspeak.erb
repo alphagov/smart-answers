@@ -1,0 +1,16 @@
+<% content_for :title do %>
+  Is the holiday entitlement based on:
+<% end %>
+
+<% options(
+  "days-worked-per-week": "days worked per week",
+  "hours-worked-per-week": "hours worked per week",
+  "casual-or-irregular-hours": "casual or irregular hours",
+  "annualised-hours": "annualised hours",
+  "compressed-hours": "compressed hours",
+  "shift-worker": "shifts"
+) %>
+
+<% content_for :hint do %>
+  Check the employment contract if you’re not sure about the holiday entitlement.
+<% end %>
