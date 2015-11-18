@@ -98,6 +98,17 @@ module SmartAnswer::Calculators
           assert @calculator.valid_accommodation_usage?(7)
         end
       end
+
+      context 'for age for living wage' do
+        should 'not accept ages below 25' do
+          refute @calculator.valid_age_for_living_wage?(24)
+        end
+
+        should 'accept ages 25 or above' do
+          assert @calculator.valid_age_for_living_wage?(25)
+          assert @calculator.valid_age_for_living_wage?(26)
+        end
+      end
     end
 
     context '#any_overtime_hours_worked?' do
@@ -129,6 +140,26 @@ module SmartAnswer::Calculators
       should 'return false if date is earlier than 1st October 2010' do
         @calculator.date = Date.parse('2010-09-30')
         refute @calculator.apprentice_eligible_for_minimum_wage?
+      end
+    end
+
+    context '#eligible_for_living_wage?' do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      should 'return true if the age is 25 or over' do
+        %w(25 26).each do |age|
+          @calculator.age = age
+          assert @calculator.eligible_for_living_wage?
+        end
+      end
+
+      should 'return false if age is lower than 24 or nil' do
+        %w(nil 0 24).each do |age|
+          @calculator.age = age
+          assert !@calculator.eligible_for_living_wage?
+        end
       end
     end
 
@@ -998,6 +1029,26 @@ module SmartAnswer::Calculators
           overtime_hours: 8.0,
           overtime_hourly_rate: 0.0)
         assert_equal 14.29, calculator.total_hourly_rate
+      end
+    end
+
+    context '#living_wage_or_above?' do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      should 'returns false if the total_hourly_rate is less than 7.2' do
+        [nil, 0, 7.1999999].each do |hourly_rate|
+          @calculator.stubs(:total_hourly_rate).returns(hourly_rate)
+          assert !@calculator.living_wage_or_above?
+        end
+      end
+
+      should 'returns true  if the total_hourly_rate is 7.2 or above' do
+        [7.2, 7.2000001].each do |hourly_rate|
+          @calculator.stubs(:total_hourly_rate).returns(hourly_rate)
+          assert @calculator.living_wage_or_above?
+        end
       end
     end
   end

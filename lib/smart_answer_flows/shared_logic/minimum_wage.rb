@@ -2,6 +2,11 @@
 multiple_choice :what_would_you_like_to_check? do
   option "current_payment"
   option "past_payment"
+  option "current_payment_april_2016" if self.flow_name == 'am-i-getting-minimum-wage'
+
+  calculate :calculator do |response|
+    Calculators::MinimumWageCalculator.new(what_to_check: response)
+  end
 
   calculate :accommodation_charge do
     nil
@@ -9,6 +14,7 @@ multiple_choice :what_would_you_like_to_check? do
 
   permitted_next_nodes = [
     :are_you_an_apprentice?,
+    :how_old_are_you?,
     :past_payment_date?
   ]
 
@@ -16,13 +22,11 @@ multiple_choice :what_would_you_like_to_check? do
     case response
     when 'current_payment'
       :are_you_an_apprentice?
+    when 'current_payment_april_2016'
+      :how_old_are_you?
     when 'past_payment'
       :past_payment_date?
     end
-  end
-
-  calculate :calculator do
-    Calculators::MinimumWageCalculator.new
   end
 end
 
@@ -98,8 +102,24 @@ end
 
 # Q3
 value_question :how_old_are_you?, parse: Integer do
+  precalculate :age_title do
+    if calculator.what_to_check == 'current_payment_april_2016'
+      PhraseList.new(:how_old_are_you_april_2016)
+    else
+      PhraseList.new(:how_old_are_you)
+    end
+  end
+
   validate do |response|
     calculator.valid_age?(response)
+  end
+
+  validate :valid_age_for_living_wage? do |response|
+    if calculator.what_to_check == 'current_payment_april_2016'
+      calculator.valid_age_for_living_wage?(response)
+    else
+      true
+    end
   end
 
   permitted_next_nodes = [
