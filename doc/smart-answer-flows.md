@@ -44,10 +44,14 @@ There are two syntaxes for defining next node rules.
 
 #### Using `next_node` with a block
 
-This is the preferred syntax. A current disadvantage is that these flows can't be visualised, although we're planning to fix that.
+This is the preferred syntax.
 
 ```ruby
-next_node do |response|
+permitted_next_nodes = [
+  :green,
+  :red
+]
+next_node(permitted: permitted_next_nodes) do |response|
   if response == 'green'
     :green # Go to the :green node
   else
