@@ -17,7 +17,7 @@ class QuestionPresenter < NodePresenter
         template_directory: @node.template_directory.join('questions'),
         template_name: @node.filesystem_friendly_name,
         locals: @state.to_hash,
-        helpers: helpers
+        helpers: [SmartAnswer::FormattingHelper] + helpers
       )
     else
       @renderer ||= SmartAnswer::I18nRenderer.new(
