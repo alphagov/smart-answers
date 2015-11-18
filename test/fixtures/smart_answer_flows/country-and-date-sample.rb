@@ -4,6 +4,8 @@ module SmartAnswer
       name 'country-and-date-sample'
       status :draft
 
+      use_erb_templates_for_questions
+
       country_select :which_country_do_you_live_in?, exclude_countries: %w(afghanistan united-kingdom) do
         save_input_as :country
         next_node :what_date_did_you_move_there?

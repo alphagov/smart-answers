@@ -4,7 +4,7 @@ class CheckboxQuestionPresenter < QuestionPresenter
       if value == SmartAnswer::Question::Checkbox::NONE_OPTION
         value.to_s
       else
-        translate_option(value)
+        render_option(value)
       end
     end
   end

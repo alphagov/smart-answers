@@ -1,8 +1,0 @@
-en-GB:
-  flow:
-    smart-answers-controller-sample-with-money-question:
-      how_much?:
-        title: "How much?"
-      money_question_with_suffix_label?:
-        title: "Money question with suffix label"
-        suffix_label: "money-question-suffix-label"

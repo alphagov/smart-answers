@@ -35,17 +35,18 @@ class FlowRegistrationPresenter
 
   NODE_PRESENTER_METHODS = [:title, :body, :hint]
 
+  module MethodMissingHelper
+    def method_missing(method, *args, &block)
+      MethodMissingObject.new(method, parent_method = nil, blank_to_s = true)
+    end
+  end
+
   def indexable_content
     HTMLEntities.new.decode(
       text = @flow.questions.inject([start_node.body]) { |acc, node|
-        pres = QuestionPresenter.new(@i18n_prefix, node)
+        pres = QuestionPresenter.new(@i18n_prefix, node, nil, helpers: [MethodMissingHelper])
         acc.concat(NODE_PRESENTER_METHODS.map { |method|
-          begin
-            pres.send(method)
-          rescue I18n::MissingInterpolationArgument
-            # We can't do much about this, so we ignore these text nodes
-            nil
-          end
+          pres.send(method)
         })
       }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
     )

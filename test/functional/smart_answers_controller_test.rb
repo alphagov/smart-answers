@@ -1,26 +1,21 @@
 require_relative '../test_helper'
-require_relative '../helpers/i18n_test_helper'
 require_relative '../helpers/fixture_flows_helper'
 require_relative '../fixtures/smart_answer_flows/smart-answers-controller-sample'
 require_relative 'smart_answers_controller_test_helper'
 require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerTest < ActionController::TestCase
-  include I18nTestHelper
   include FixtureFlowsHelper
   include SmartAnswersControllerTestHelper
   include GdsApi::TestHelpers::ContentApi
 
   def setup
     stub_content_api_default_artefact
-
     setup_fixture_flows
-    use_additional_translation_file(fixture_file('smart_answer_flows/locales/en/smart-answers-controller-sample.yml'))
   end
 
   def teardown
     teardown_fixture_flows
-    reset_translation_files
   end
 
   context "GET /<slug>" do

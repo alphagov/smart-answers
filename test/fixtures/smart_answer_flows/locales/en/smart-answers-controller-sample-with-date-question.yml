@@ -1,5 +1,0 @@
-en-GB:
-  flow:
-    smart-answers-controller-sample-with-date-question:
-      when?:
-        title: "When?"

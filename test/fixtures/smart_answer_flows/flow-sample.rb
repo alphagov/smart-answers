@@ -5,6 +5,8 @@ module SmartAnswer
       satisfies_need 4242
       content_id "f26e566e-2557-4921-b944-9373c32255f1"
 
+      use_erb_templates_for_questions
+
       multiple_choice :hotter_or_colder? do
         option :hotter
         option :colder

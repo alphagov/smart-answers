@@ -1,8 +1,0 @@
-en-GB:
-  flow:
-    graph:
-      q1?:
-        title: "What is the answer to q1?"
-
-      q2?:
-        title: "What is the answer to q2?"

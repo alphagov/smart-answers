@@ -188,6 +188,41 @@ Hello world
       assert_equal 'single-line-of-content-for-key', renderer.single_line_of_content_for(:key)
     end
 
+    test '#option_text returns option text for specified key' do
+      erb_template = "<% options(option_one: 'option-one-text', option_two: 'option-two-text') %>"
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert_equal 'option-one-text', renderer.option_text(:option_one)
+        assert_equal 'option-two-text', renderer.option_text(:option_two)
+      end
+    end
+
+    test '#option_text raises KeyError if no option key does not exist' do
+      erb_template = "<% options(option_one: 'option-one-text', option_two: 'option-two-text') %>"
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        e = assert_raises(KeyError) do
+          renderer.option_text(:option_three)
+        end
+      end
+    end
+
+    test '#option_text raises KeyError if no options defined in template' do
+      erb_template = ''
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        e = assert_raises(KeyError) do
+          renderer.option_text(:option_key)
+        end
+      end
+    end
+
     private
 
     def content_for(key, template)
