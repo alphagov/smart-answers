@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100865"
 
+      use_erb_templates_for_questions
+
       calculator = Calculators::StatePensionTopupCalculator.new
 
       #Q1
