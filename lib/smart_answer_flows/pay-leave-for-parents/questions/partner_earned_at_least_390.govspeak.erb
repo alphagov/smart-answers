@@ -1,0 +1,12 @@
+<% content_for :title do %>
+  Did the mother’s partner earn (or will they have earned) a total of £390 or more in any 13 weeks between %{earnings_employment_start_date} and %{earnings_employment_end_date}?
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
+
+<% content_for :post_body do %>
+  The 13 weeks don’t need to be in a row.
+<% end %>
