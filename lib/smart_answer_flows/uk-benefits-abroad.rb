@@ -18,11 +18,19 @@ module SmartAnswer
         save_input_as :going_or_already_abroad
 
         calculate :country_question_title do
-          PhraseList.new(:"#{going_or_already_abroad}_country_question_title")
+          if going_or_already_abroad == "going_abroad"
+            PhraseList.new(:going_abroad_country_question_title)
+          else
+            PhraseList.new(:already_abroad_country_question_title)
+          end
         end
 
         calculate :why_abroad_question_title do
-          PhraseList.new(:"why_#{going_or_already_abroad}_title")
+          if going_or_already_abroad == "going_abroad"
+            PhraseList.new(:why_going_abroad_title)
+          else
+            PhraseList.new(:why_already_abroad_title)
+          end
         end
 
         calculate :going_abroad do
@@ -59,9 +67,13 @@ module SmartAnswer
 
         calculate :how_long_question_titles do
           if benefit == "disability_benefits"
-            PhraseList.new(:"#{benefit}_how_long_question_title")
+            PhraseList.new(:disability_benefits_how_long_question_title)
           else
-            PhraseList.new(:"#{going_or_already_abroad}_how_long_question_title")
+            if going_or_already_abroad == "going_abroad"
+              PhraseList.new(:going_abroad_how_long_question_title)
+            else
+              PhraseList.new(:already_abroad_how_long_question_title)
+            end
           end
         end
 
