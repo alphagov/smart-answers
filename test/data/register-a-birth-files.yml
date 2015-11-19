@@ -7,8 +7,8 @@ lib/smart_answer_flows/register-a-birth/outcomes/homeoffice_result.govspeak.erb:
 lib/smart_answer_flows/register-a-birth/outcomes/no_birth_certificate_result.govspeak.erb: 174d68aa0d7cf3922a9e6a1867676359
 lib/smart_answer_flows/register-a-birth/outcomes/no_embassy_result.govspeak.erb: ed56d500311fbe441649c92193f0e631
 lib/smart_answer_flows/register-a-birth/outcomes/no_registration_result.govspeak.erb: 7b60252b078e6aec6f5759e894ce4ffb
-lib/smart_answer_flows/register-a-birth/outcomes/north_korea_result.govspeak.erb: e8d30537b7850252f3da8aff38524fe4
-lib/smart_answer_flows/register-a-birth/outcomes/oru_result.govspeak.erb: e73c19d531e316eae513e4861b32daaf
+lib/smart_answer_flows/register-a-birth/outcomes/north_korea_result.govspeak.erb: 0d33d1741fb92edac74032ffedfbe7a5
+lib/smart_answer_flows/register-a-birth/outcomes/oru_result.govspeak.erb: 8f5c81b570028c19f0271b8026895b1a
 lib/smart_answer_flows/register-a-birth/questions/childs_date_of_birth.govspeak.erb: e911daf1dc69ce85db372dc4ea3bdd50
 lib/smart_answer_flows/register-a-birth/questions/country_of_birth.govspeak.erb: 31c306c928e71eee86c60352f51ccf83
 lib/smart_answer_flows/register-a-birth/questions/have_you_adopted_the_child.govspeak.erb: 3a9d66656446a508c7232b26778dfa23
@@ -17,10 +17,10 @@ lib/smart_answer_flows/register-a-birth/questions/where_are_you_now.govspeak.erb
 lib/smart_answer_flows/register-a-birth/questions/which_country.govspeak.erb: 913b5637a2814cbd529affffc55b1f72
 lib/smart_answer_flows/register-a-birth/questions/who_has_british_nationality.govspeak.erb: 3e482183d55ccc5f7548d5a5d4034375
 lib/smart_answer_flows/register-a-birth/register_a_birth.govspeak.erb: 05cf2d9426fc91f395fc524fdfdac800
+lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 2f521bae99c2f48b49d07bcb283a8063
 lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.erb: bdd3818dfd2b9d6396daf6f60fd887a0
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
 lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
-lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
 lib/data/registrations.yml: 2eb5c61678f21bd9cc06af67c230279f
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
 lib/smart_answer/calculators/registrations_data_query.rb: cbb0fad828d74606eb708d3442cf4ca5
