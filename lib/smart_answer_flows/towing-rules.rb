@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "101014"
 
+      use_erb_templates_for_questions
+
       ## Cars and light vehicles
       ##
       ## Q1
