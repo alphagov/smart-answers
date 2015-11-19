@@ -1,6 +1,5 @@
 ---
-lib/smart_answer_flows/landlord-immigration-check.rb: 87dac21e11e809d059e577cd987c8fda
-lib/smart_answer_flows/locales/en/landlord-immigration-check.yml: 590064bf90819fb8cc0484d7c46d0261
+lib/smart_answer_flows/landlord-immigration-check.rb: 5127978675df03eb975beba049aff565
 test/data/landlord-immigration-check-questions-and-responses.yml: 6d59147e57d28d1c398bc7e178d1f2ac
 test/data/landlord-immigration-check-responses-and-expected-results.yml: 329e7752e670f0ee92bc1c671ba478a7
 lib/smart_answer_flows/landlord-immigration-check/landlord_immigration_check.govspeak.erb: eaf7437d3d26c946b1e7e7b283d1cf0e
@@ -18,4 +17,18 @@ lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_check_not_nee
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_check_not_needed_when_hostel_refuge.govspeak.erb: 6c068528a1a1c08d957d6446d03c6c7e
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_check_not_needed_when_mobile_home.govspeak.erb: 76921608102f56db3c0a2e7de007a989
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_check_not_needed_when_under_18.govspeak.erb: 31a94b4f17d48afac83ba42eab361cab
+lib/smart_answer_flows/landlord-immigration-check/questions/has_asylum_card.govspeak.erb: da15f9bb156eed4ff866cfba4072620b
+lib/smart_answer_flows/landlord-immigration-check/questions/has_certificate.govspeak.erb: c670d7bc733232a394b4caa93a6aefb9
+lib/smart_answer_flows/landlord-immigration-check/questions/has_documents.govspeak.erb: ea1250a0013c28b4a7cbcb0337219e16
+lib/smart_answer_flows/landlord-immigration-check/questions/has_other_documents.govspeak.erb: 2157c66688127c990cc2964dd0e09f86
+lib/smart_answer_flows/landlord-immigration-check/questions/has_residence_card_or_eu_eea_swiss_family_member.govspeak.erb: 566627594105a24069451ab40f540846
+lib/smart_answer_flows/landlord-immigration-check/questions/has_uk_passport.govspeak.erb: 294e10196ecf02efcc75eea4fd8c966c
+lib/smart_answer_flows/landlord-immigration-check/questions/immigration_application.govspeak.erb: c03287c66e6560432c56f1dea2e3dcba
+lib/smart_answer_flows/landlord-immigration-check/questions/main_home.govspeak.erb: a07e7746a4dc03a24fda4bbe09a4bbc6
+lib/smart_answer_flows/landlord-immigration-check/questions/property.govspeak.erb: 2423dcd0c89463fb2b0038e44cf61205
+lib/smart_answer_flows/landlord-immigration-check/questions/property_type.govspeak.erb: 3710f90d225ea768560ea884bbd64a5b
+lib/smart_answer_flows/landlord-immigration-check/questions/right_to_abode.govspeak.erb: d6c17a9e66d43ea52439973177eccdb5
+lib/smart_answer_flows/landlord-immigration-check/questions/tenant_country.govspeak.erb: a28062a1e9cb019d012fb962524130ee
+lib/smart_answer_flows/landlord-immigration-check/questions/tenant_over_18.govspeak.erb: c4a270709e77da5aff8c4e50aa56e905
+lib/smart_answer_flows/landlord-immigration-check/questions/time_limited_to_remain.govspeak.erb: 035351becd17423c4de8d75eda23cf32
 lib/smart_answer/calculators/landlord_immigration_check_calculator.rb: ece61292e6e20bdfb86ef479108d019b

@@ -1,0 +1,14 @@
+<% content_for :title do %>
+  Does the person have any of the following:
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
+
+<% content_for :body do %>
+  - a current passport endorsed to show that the person can stay in the UK
+  - a current Biometric Residence Permit issued by the Home Office to the person showing that they can currently stay in the UK
+  - an Immigration Status Document issued by the Home Office with an endorsement showing the person can currently stay in the UK
+<% end %>
