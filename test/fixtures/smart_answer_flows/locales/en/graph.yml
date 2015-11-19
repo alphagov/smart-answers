@@ -1,0 +1,11 @@
+en-GB:
+  flow:
+    graph:
+      q1?:
+        title: "What is the answer to q1?"
+
+      q2?:
+        title: "What is the answer to q2?"
+
+      q_with_interpolation?:
+        title: "Question with %{interpolation}?"
