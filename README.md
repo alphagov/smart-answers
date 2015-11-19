@@ -34,6 +34,10 @@ This is a Ruby on Rails application that both contains and serves the Smart Answ
 
 **NOTE.** This application doesn't use a database.
 
+### Dependencies
+
+* [alphagov/static](https://github.com/alphagov/static): provides static assets (JS/CSS) and the GOV.UK templates.
+
 ## Table of Contents
 
 * Types of Smart Answer
