@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "101003"
 
+      use_erb_templates_for_questions
+
       country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
       reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
       translator_query = SmartAnswer::Calculators::TranslatorLinks.new
