@@ -1,6 +1,5 @@
 ---
-lib/smart_answer_flows/pay-leave-for-parents.rb: 1c29ac285bf104fbda7c7592a590aae1
-lib/smart_answer_flows/locales/en/pay-leave-for-parents.yml: 4fbf50de17ab9c2082b335519cce6b69
+lib/smart_answer_flows/pay-leave-for-parents.rb: 5d2ab51e7adafaf3a1056c92a8071db7
 test/data/pay-leave-for-parents-questions-and-responses.yml: 6aae67d1b585e8445878fb2994bac8d1
 test/data/pay-leave-for-parents-responses-and-expected-results.yml: 2cdd65aad00267bdf9a534e22858f03d
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_additional_pat_leave.govspeak.erb: dcede84d936f876a3c91c1457c3afc01
@@ -86,4 +85,21 @@ lib/smart_answer_flows/pay-leave-for-parents/outcomes/outcome_pat_leave_pat_pay.
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/outcome_pat_pay.govspeak.erb: c354ee0e3d54e8cc40d45a90ea1aacbb
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/outcome_single_birth_nothing.govspeak.erb: d444d8ddacbcbeecb6e350cd393cc67d
 lib/smart_answer_flows/pay-leave-for-parents/pay_leave_for_parents.govspeak.erb: 6984406ad04b09786c33363f0acd2828
+lib/smart_answer_flows/pay-leave-for-parents/questions/due_date.govspeak.erb: 4bfc71ca2e5babb2e008a4ad8ce3d649
+lib/smart_answer_flows/pay-leave-for-parents/questions/employment_status_of_mother.govspeak.erb: 4ef747b24eb7a3b55545fa2186297a89
+lib/smart_answer_flows/pay-leave-for-parents/questions/employment_status_of_partner.govspeak.erb: a34db0d45e962f3aefa61fab29529a68
+lib/smart_answer_flows/pay-leave-for-parents/questions/mother_earned_at_least_390.govspeak.erb: 362fc637d5c22b5c81e9425f475fc1e0
+lib/smart_answer_flows/pay-leave-for-parents/questions/mother_earned_more_than_lower_earnings_limit.govspeak.erb: e17b6211ba6b9057fb595f5f11b5d136
+lib/smart_answer_flows/pay-leave-for-parents/questions/mother_salary.govspeak.erb: 172ab4c697664b5ae6ec06a398c2d54f
+lib/smart_answer_flows/pay-leave-for-parents/questions/mother_started_working_before_continuity_start_date.govspeak.erb: 450fa64bc206961f4b0d6fc971266418
+lib/smart_answer_flows/pay-leave-for-parents/questions/mother_still_working_on_continuity_end_date.govspeak.erb: f3501b4f78d5d6328fca42c3fa8712e7
+lib/smart_answer_flows/pay-leave-for-parents/questions/mother_worked_at_least_26_weeks.govspeak.erb: 1a969b48258e959f27f6682f245df549
+lib/smart_answer_flows/pay-leave-for-parents/questions/partner_earned_at_least_390.govspeak.erb: 1a649dc3e064d1aa22d0e07668c1250e
+lib/smart_answer_flows/pay-leave-for-parents/questions/partner_earned_more_than_lower_earnings_limit.govspeak.erb: 5920b4364d87a8e3611c920fb3da7406
+lib/smart_answer_flows/pay-leave-for-parents/questions/partner_salary.govspeak.erb: d2167d1d0dcf296c0fa7732508840a02
+lib/smart_answer_flows/pay-leave-for-parents/questions/partner_started_working_before_continuity_start_date.govspeak.erb: d6341e33862b34afbab6a8a83635542e
+lib/smart_answer_flows/pay-leave-for-parents/questions/partner_still_working_on_continuity_end_date.govspeak.erb: 9d8efd0ed5cf4c98f6188c0b2c865288
+lib/smart_answer_flows/pay-leave-for-parents/questions/partner_worked_at_least_26_weeks.govspeak.erb: 19c5bc831888e6e7cd6ddccd7a1c574a
+lib/smart_answer_flows/pay-leave-for-parents/questions/salary_1_66_weeks.govspeak.erb: b194a5efbd3165bc22cf344893f0e725
+lib/smart_answer_flows/pay-leave-for-parents/questions/two_carers.govspeak.erb: bb7640d6d75c7882c1bf1d7feb90a8ac
 lib/smart_answer/calculators/pay_leave_for_parents_calculator.rb: 74cb2b9c91a28b3171ad6408174763c7
