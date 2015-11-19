@@ -80,9 +80,9 @@ lib
     * `<anything-else>`: No validation.
   * Response (depends on the `parse` option):
     * `Integer`: Integer.
-    * `:to_i`: Integer.
+    * `:to_i`: Integer (Non-numeric input returns 0).
     * `Float`: Float.
-    * `:to_f`: Float.
+    * `:to_f`: Float (Non-numeric input returns 0.0).
     * `<anything-else>`: String containing the user input.
 
 ### Defining next node rules
