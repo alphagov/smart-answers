@@ -40,8 +40,7 @@ en-GB:
           income_support: "Income Support"
 # Q8 going_abroad and Q7 already_abroad
       working_for_a_uk_employer?:
-        title: |
-          Are you working for a UK employer and paying Class 1 National Insurance Contributions?
+        title: Are you working for a UK employer and paying Class 1 National Insurance Contributions?
         body: |
           If you're unsure you can read our [National Insurance Guide](/national-insurance/how-much-national-insurance-you-pay).
         options:
@@ -58,8 +57,7 @@ en-GB:
 
 # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
       employer_paying_ni?:
-        title: |
-          Is your employer paying National Insurance contributions for you?
+        title: Is your employer paying National Insurance contributions for you?
         options:
           "yes": "Yes"
           "no": "No"
@@ -93,10 +91,7 @@ en-GB:
           crown_servant: A Crown servant
           cross_border_worker: A cross-border worker
           none_of_the_above: None of the above
-        hint: |
-          A Crown servant is someone who works for the UK government.
-
-          A cross-border worker is someone who regularly travels to or from another country to work.
+        hint: A Crown servant is someone who works for the UK government. A cross-border worker is someone who regularly travels to or from another country to work.
 
 # Q19 going_abroad and Q18 already_abroad
       tax_credits_children?:
@@ -136,22 +131,19 @@ en-GB:
 
 # Q30 going_abroad and Q29 already_abroad
       db_claiming_benefits?:
-        title: |
-          Are you or a family member getting State Pension, Industrial Injuries Benefit, ESA (contributory) or bereavement benefits?
+        title: Are you or a family member getting State Pension, Industrial Injuries Benefit, ESA (contributory) or bereavement benefits?
         options:
           "yes": "Yes"
           "no": "No"
 # Q33 going_abroad
       is_claiming_benefits?:
-        title: |
-          Are you travelling abroad with a partner who is getting Income Support with one of the following:
+        title: "Are you travelling abroad with a partner who is getting Income Support with one of the following:"
         body: |
           - [Pensioner premium](/income-support/what-youll-get)
           - [Higher Pensioner premium](/income-support/what-youll-get)
           - [Disability premium](/disability-premiums-income-support/eligibility)
           - [Severe Disability premium](/disability-premiums-income-support/eligibility)
-        hint: |
-          Your partner must be getting the premium, not you.
+        hint: Your partner must be getting the premium, not you.
         options:
           "yes": "Yes"
           "no": "No"
@@ -167,16 +159,14 @@ en-GB:
 
 # Q35 going_abroad
       is_abroad_for_treatment?:
-        title: |
-          Are you going abroad to get medical treatment for the illness or disability that prevents you from working?
+        title: Are you going abroad to get medical treatment for the illness or disability that prevents you from working?
         options:
           "yes": "Yes"
           "no": "No"
 
 # Q36 going_abroad
       is_work_or_sick_pay?:
-        title: |
-          Have you been unable to work or received Statutory Sick Pay for one of the following:
+        title: "Have you been unable to work or received Statutory Sick Pay for one of the following:"
         body: |
           - 364 days
           - 196 days if you're terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)
@@ -198,8 +188,7 @@ en-GB:
 # Going abroad questions
 # Going abroad Q3 going_abroad
       jsa_how_long_abroad?:
-        title: |
-          If you're claiming JSA, how long are you going abroad for?
+        title: If you're claiming JSA, how long are you going abroad for?
         body: |
           *[JSA]: Jobseeker's Allowance
         options:
