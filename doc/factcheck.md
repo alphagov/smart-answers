@@ -15,3 +15,24 @@ This script will create and configure an app on Heroku, push the __current branc
 Once deployed you'll need to use the standard `git push` mechanism to deploy your changes.
 
     ./startup_heroku.sh
+
+## Historical v2 workflow
+
+__This is for reference only. This method is no longer used.__
+
+The original method of fact checking changes to a Smart Answer was to:
+
+* Copy the Smart Answer flow and associated YAML file and name them with a "-v2" suffix (see [PR #1587][pr-1587] for an example).
+
+* Set the status of the v2 Smart Answer flow to `:draft`. This allowed it to be viewed in the preview environment but not in the production environment.
+
+* Make the necessary changes the v2 copy of the Smart Answer.
+
+* Ask the relevant parties to review the changes to the v2 copy deployed to preview.
+
+* Replace the original Smart Answer with the v2 copy once we received the OK from the people fact-checking the changes (see [PR #1599][pr-1599] for an example).
+
+The main downside of this approach was that we lost the history of the changes being made in the v2 "branch" when they were copied over the original Smart Answer.
+
+[pr-1587]: https://github.com/alphagov/smart-answers/pull/1587/
+[pr-1599]: https://github.com/alphagov/smart-answers/pull/1599/
