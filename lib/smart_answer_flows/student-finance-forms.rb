@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100982"
 
+      use_erb_templates_for_questions
+
       multiple_choice :type_of_student? do
         option 'uk-full-time'
         option 'uk-part-time'
