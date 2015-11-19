@@ -65,13 +65,12 @@ See [development using the GDS development virtual machine](developing-using-vm.
 * [Testing](doc/testing.md)
 * [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
 
+### Debugging
+
+* [Viewing landing pages and outcomes as Govspeak](doc/viewing-templates-as-govspeak.md)
+* [Viewing state of a Smart Answer](doc/viewing-state.md)
+* [Visualising flows](doc/visualising-flows.md)
+
 ## Licence
 
 [MIT License](./LICENSE.md)
-
-## Table of Contents
-
-* Debugging
-  * [Viewing landing pages and outcomes as Govspeak](doc/viewing-templates-as-govspeak.md)
-  * [Viewing state of a Smart Answer](doc/viewing-state.md)
-  * [Visualising flows](doc/visualising-flows.md)
