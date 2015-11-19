@@ -48,18 +48,20 @@ See [development using the GDS development virtual machine](developing-using-vm.
 
     $ bundle exec rake
 
+### Process
+
+* [Archiving a Smart Answer](doc/archiving.md)
+* [Continuous integration](doc/continuous-integration.md)
+* [Deploying changes for Factcheck](doc/factcheck.md)
+* [Deploying](doc/deploying.md)
+* [Merging pull requests from the content team](doc/merging-content-prs.md)
+
 ## Licence
 
 [MIT License](./LICENSE.md)
 
 ## Table of Contents
 
-* Process
-  * [Archiving a Smart Answer](doc/archiving.md)
-  * [Continuous integration](doc/continuous-integration.md)
-  * [Deploying changes for Factcheck](doc/factcheck.md)
-  * [Deploying](doc/deploying.md)
-  * [Merging pull requests from the content team](doc/merging-content-prs.md)
 * Development
   * Adding [content-ids](doc/content-ids.md) to Smart Answers.
   * [Developing using the VM](doc/developing-using-vm.md)
