@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100990"
 
+      use_erb_templates_for_questions
+
       ## Q1
       multiple_choice :what_type_of_leave? do
         save_input_as :leave_type
