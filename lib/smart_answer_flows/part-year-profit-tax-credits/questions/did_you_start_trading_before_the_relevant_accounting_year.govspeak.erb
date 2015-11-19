@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Did you start trading before %{accounting_year_begins_on}?
+  Did you start trading before <%= format_date(accounting_year_begins_on) %>?
 <% end %>
 
 <% options(

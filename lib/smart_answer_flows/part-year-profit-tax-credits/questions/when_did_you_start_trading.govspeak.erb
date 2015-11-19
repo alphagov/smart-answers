@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :hint do %>
-  This date must be before %{award_period_ends_on}.
+  This date must be before <%= format_date(award_period_ends_on) %>.
 <% end %>
 
 <% content_for :error_message do %>

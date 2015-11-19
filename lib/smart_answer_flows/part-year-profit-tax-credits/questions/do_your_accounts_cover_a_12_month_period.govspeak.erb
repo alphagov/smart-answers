@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Do your accounts cover the 12 month period up to %{accounting_year_ends_on}?
+  Do your accounts cover the 12 month period up to <%= format_date(accounting_year_ends_on) %>?
 <% end %>
 
 <% options(

@@ -3,11 +3,11 @@
 <% end %>
 
 <% content_for :hint do %>
-  This date must be between %{tax_year_begins_on} and %{tax_year_ends_on}, which is the start and end dates of the tax year that your tax credit award ends in.
+  This date must be between <%= format_date(tax_year_begins_on) %> and <%= format_date(tax_year_ends_on) %>, which is the start and end dates of the tax year that your tax credit award ends in.
 <% end %>
 
 <% content_for :not_in_tax_year_error do %>
-  The date must be between %{tax_year_begins_on} and %{tax_year_ends_on}.
+  The date must be between <%= format_date(tax_year_begins_on) %> and <%= format_date(tax_year_ends_on) %>.
 <% end %>
 <% content_for :error_message do %>
   You need to enter a date to continue.
