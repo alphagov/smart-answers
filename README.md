@@ -8,6 +8,12 @@ Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/sma
 
 ![Student Finance Forms screenshot](./doc/assets/govuk-student-finance-forms.png)
 
+## Live examples
+
+* [Look up Meursing code](https://www.gov.uk/additional-commodity-code)
+* [Maternity and paternity calculator for employers](https://www.gov.uk/maternity-paternity-calculator)
+* [Towing: licence and age requirements](https://www.gov.uk/towing-rules)
+
 ## Table of Contents
 
 * Types of Smart Answer
