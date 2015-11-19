@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Did the mother’s partner start their current or most recent job before %{continuity_start_date}?
+  Did the mother’s partner start their current or most recent job before <%= format_date(continuity_start_date) %>?
 <% end %>
 
 <% options(
