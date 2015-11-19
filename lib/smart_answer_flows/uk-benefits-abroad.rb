@@ -19,17 +19,17 @@ module SmartAnswer
 
         calculate :country_question_title do
           if going_or_already_abroad == "going_abroad"
-            PhraseList.new(:going_abroad_country_question_title)
+            "Which country are you moving to?"
           else
-            PhraseList.new(:already_abroad_country_question_title)
+            "Which country are you living in?"
           end
         end
 
         calculate :why_abroad_question_title do
           if going_or_already_abroad == "going_abroad"
-            PhraseList.new(:why_going_abroad_title)
+            "Why are you going abroad?"
           else
-            PhraseList.new(:why_already_abroad_title)
+            "Why have you gone abroad?"
           end
         end
 
@@ -42,7 +42,7 @@ module SmartAnswer
         end
 
         calculate :already_abroad_text_two do |response|
-          PhraseList.new(:already_abroad_text_two) if already_abroad
+          " or permanently" if already_abroad
         end
 
         next_node :which_benefit?
@@ -67,12 +67,12 @@ module SmartAnswer
 
         calculate :how_long_question_titles do
           if benefit == "disability_benefits"
-            PhraseList.new(:disability_benefits_how_long_question_title)
+            "How long will you be abroad for?"
           else
             if going_or_already_abroad == "going_abroad"
-              PhraseList.new(:going_abroad_how_long_question_title)
+              "How long are you going abroad for?"
             else
-              PhraseList.new(:already_abroad_how_long_question_title)
+              "How long will you be living abroad for?"
             end
           end
         end
