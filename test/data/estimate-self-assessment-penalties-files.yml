@@ -1,9 +1,13 @@
 ---
-lib/smart_answer_flows/estimate-self-assessment-penalties.rb: c47d2f6098e596060052001c45035e96
-lib/smart_answer_flows/locales/en/estimate-self-assessment-penalties.yml: 97c0cf1ea0ce03f9012ff60ec5a02559
+lib/smart_answer_flows/estimate-self-assessment-penalties.rb: 11840aff04537a4055845b7c38e910d7
 test/data/estimate-self-assessment-penalties-questions-and-responses.yml: 186d93854ea5dc9321408e14dcc8d61f
 test/data/estimate-self-assessment-penalties-responses-and-expected-results.yml: 4da19a0a153e226139199a1b393de4e9
 lib/smart_answer_flows/estimate-self-assessment-penalties/estimate_self_assessment_penalties.govspeak.erb: d35eaf0334a9e871fa14294682fb7322
 lib/smart_answer_flows/estimate-self-assessment-penalties/outcomes/filed_and_paid_on_time.govspeak.erb: c7c2b164d05b3f757bc9ee9439aa560a
 lib/smart_answer_flows/estimate-self-assessment-penalties/outcomes/late.govspeak.erb: 8d41e6cf1ef1df7446cf655ef69f5321
+lib/smart_answer_flows/estimate-self-assessment-penalties/questions/how_much_tax.govspeak.erb: 03ab00ce650ed9912c038268c15adf4e
+lib/smart_answer_flows/estimate-self-assessment-penalties/questions/how_submitted.govspeak.erb: c3fffa8a0386144630fae76250114191
+lib/smart_answer_flows/estimate-self-assessment-penalties/questions/when_paid.govspeak.erb: 85df11ceb680641a5609a8f1293aadb3
+lib/smart_answer_flows/estimate-self-assessment-penalties/questions/when_submitted.govspeak.erb: a8b6dd429dd5e35db172200fe9940657
+lib/smart_answer_flows/estimate-self-assessment-penalties/questions/which_year.govspeak.erb: f935ce15559590ca785df0c6730b764e
 lib/smart_answer/calculators/self_assessment_penalties.rb: 194f3f08f7430a27011e0f9466b3003c
