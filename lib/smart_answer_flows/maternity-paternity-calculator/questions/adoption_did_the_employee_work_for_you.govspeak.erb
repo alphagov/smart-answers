@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Did the employee work for you on or before %{employment_start}?
+  Did the employee work for you on or before <%= format_date(employment_start) %>?
 <% end %>
 
 <% options(
