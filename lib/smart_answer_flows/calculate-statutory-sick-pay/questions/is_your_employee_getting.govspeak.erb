@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  Is your employee getting any of the following?
+<% end %>
+
+<% options(
+  "statutory_maternity_pay": "Statutory Maternity Pay",
+  "maternity_allowance": "Maternity Allowance",
+  "statutory_paternity_pay": "Statutory Paternity Pay",
+  "statutory_adoption_pay": "Statutory Adoption Pay",
+  "additional_statutory_paternity_pay": "Additional Statutory Paternity Pay"
+) %>
+
+<% content_for :hint do %>
+  If none apply just click ‘Next step’
+<% end %>
