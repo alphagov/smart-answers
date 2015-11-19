@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100133"
 
+      use_erb_templates_for_questions
+
       #Q1
       multiple_choice :when_does_your_course_start? do
         option :"2015-2016"
