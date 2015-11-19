@@ -56,19 +56,21 @@ See [development using the GDS development virtual machine](developing-using-vm.
 * [Deploying](doc/deploying.md)
 * [Merging pull requests from the content team](doc/merging-content-prs.md)
 
+### Development
+
+* Adding [content-ids](doc/content-ids.md) to Smart Answers.
+* [Developing using the VM](doc/developing-using-vm.md)
+* [Issues and Todo](https://github.com/alphagov/smart-answers/issues)
+* [Rubocop](doc/rubocop.md)
+* [Testing](doc/testing.md)
+* [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
+
 ## Licence
 
 [MIT License](./LICENSE.md)
 
 ## Table of Contents
 
-* Development
-  * Adding [content-ids](doc/content-ids.md) to Smart Answers.
-  * [Developing using the VM](doc/developing-using-vm.md)
-  * [Issues and Todo](https://github.com/alphagov/smart-answers/issues)
-  * [Rubocop](doc/rubocop.md)
-  * [Testing](doc/testing.md)
-  * [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
 * Debugging
   * [Viewing landing pages and outcomes as Govspeak](doc/viewing-templates-as-govspeak.md)
   * [Viewing state of a Smart Answer](doc/viewing-state.md)
