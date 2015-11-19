@@ -51,8 +51,7 @@ en-GB:
       # Q4
       how_often_do_you_get_paid?:
         title: How often do you pay the worker?
-        hint: |
-          You pay the worker every
+        hint: You pay the worker every
         suffix_label: days
         error_message: Please enter a number between 1 and 31.
         body: |
@@ -60,8 +59,7 @@ en-GB:
       # Q4 Past
       how_often_did_you_get_paid?:
         title: How often did you pay the worker?
-        hint: |
-          You pay the worker every
+        hint: You pay the worker every
         suffix_label: days
         body: |
           This is the pay period.
@@ -69,16 +67,14 @@ en-GB:
       # Q5
       how_many_hours_do_you_work?:
         title: "How many hours does the worker work during the pay period?"
-        hint: |
-          Don’t include any overtime or other extra hours the worker might work.
+        hint: Don’t include any overtime or other extra hours the worker might work.
         suffix_label: hours
         error_message: Please enter a number
         error_hours: Please enter the number of hours the worker actually works during the pay period.
       # Q5 Past
       how_many_hours_did_you_work?:
         title: "How many hours did the worker work during the pay period?"
-        hint: |
-          Don’t include any overtime or other extra hours the worker worked.
+        hint: Don’t include any overtime or other extra hours the worker worked.
         suffix_label: hours
         error_message: Please enter a number
         error_hours: Please enter the number of hours the worker actually worked during the pay period.
