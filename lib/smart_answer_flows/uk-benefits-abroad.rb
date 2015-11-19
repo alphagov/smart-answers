@@ -9,23 +9,7 @@ module SmartAnswer
       exclude_countries = %w(british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten)
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
-      going_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'going_abroad', nil, 'going abroad')
-      already_abroad = SmartAnswer::Predicate::VariableMatches.new(:going_or_already_abroad, 'already_abroad', nil, 'already abroad')
-      responded_with_eea_country = SmartAnswer::Predicate::RespondedWith.new(
-        %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
-          finland france germany gibraltar greece hungary iceland ireland italy
-          latvia liechtenstein lithuania luxembourg malta netherlands norway
-          poland portugal romania slovakia slovenia spain sweden switzerland),
-        "EEA country"
-      )
       countries_of_former_yugoslavia = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
-      responded_with_former_yugoslavia = SmartAnswer::Predicate::RespondedWith.new(
-        countries_of_former_yugoslavia,
-        "former Yugoslavia"
-      )
-      social_security_countries_jsa = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(guernsey jersey new-zealand))
-      social_security_countries_iidb = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey))
-      social_security_countries_bereavement_benefits = responded_with_former_yugoslavia | SmartAnswer::Predicate::RespondedWith.new(%w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa))
 
       # Q1
       multiple_choice :going_or_already_abroad? do
@@ -41,14 +25,16 @@ module SmartAnswer
           PhraseList.new(:"why_#{going_or_already_abroad}_title")
         end
 
-        calculate :is_already_abroad do |response|
-          response == 'already_abroad'
+        calculate :going_abroad do
+          going_or_already_abroad == 'going_abroad'
+        end
+
+        calculate :already_abroad do
+          going_or_already_abroad == 'already_abroad'
         end
 
         calculate :already_abroad_text_two do |response|
-          if is_already_abroad
-            PhraseList.new(:already_abroad_text_two)
-          end
+          PhraseList.new(:already_abroad_text_two) if already_abroad
         end
 
         next_node :which_benefit?
@@ -79,21 +65,46 @@ module SmartAnswer
           end
         end
 
-        next_node_if(:which_country?, responded_with(%w{winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits}))
-        next_node_if(:iidb_already_claiming?, responded_with('iidb'))
-        next_node_if(:esa_how_long_abroad?, responded_with('esa'))
-        next_node_if(:db_how_long_abroad?, responded_with('disability_benefits'))
-        next_node_if(:eligible_for_tax_credits?, responded_with('tax_credits'))
-
-        on_condition(going_abroad) do
-          next_node_if(:jsa_how_long_abroad?, responded_with('jsa')) # Q3 going_abroad
-          next_node_if(:pension_going_abroad_outcome, responded_with('pension')) # A2 going_abroad
-          next_node_if(:is_how_long_abroad?, responded_with('income_support')) # Q32 going_abroad
-        end
-        on_condition(already_abroad) do
-          next_node_if(:which_country?, responded_with('jsa'))
-          next_node_if(:pension_already_abroad_outcome, responded_with('pension')) # A2 already_abroad
-          next_node_if(:is_already_abroad_outcome, responded_with('income_support')) #A40 already_abroad
+        permitted_next_nodes = [
+          :db_how_long_abroad?,
+          :eligible_for_tax_credits?,
+          :esa_how_long_abroad?,
+          :iidb_already_claiming?,
+          :is_already_abroad_outcome,
+          :is_how_long_abroad?,
+          :jsa_how_long_abroad?,
+          :pension_already_abroad_outcome,
+          :pension_going_abroad_outcome,
+          :which_country?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if %w{winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits}.include?(response)
+            :which_country?
+          elsif response == 'iidb'
+            :iidb_already_claiming?
+          elsif response == 'esa'
+            :esa_how_long_abroad?
+          elsif response == 'disability_benefits'
+            :db_how_long_abroad?
+          elsif response == 'tax_credits'
+            :eligible_for_tax_credits?
+          elsif going_abroad
+            if response == 'jsa'
+              :jsa_how_long_abroad? # Q3 going_abroad
+            elsif response == 'pension'
+              :pension_going_abroad_outcome # A2 going_abroad
+            elsif response == 'income_support'
+              :is_how_long_abroad? # Q32 going_abroad
+            end
+          elsif already_abroad
+            if response == 'jsa'
+              :which_country?
+            elsif response == 'pension'
+              :pension_already_abroad_outcome # A2 already_abroad
+            elsif response == 'income_support'
+              :is_already_abroad_outcome #A40 already_abroad
+            end
+          end
         end
       end
 
@@ -106,98 +117,196 @@ module SmartAnswer
           (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
         end
 
-      #jsa
-        on_condition(variable_matches(:benefit, 'jsa')) do
-          on_condition(already_abroad) do
-            next_node_if(:jsa_eea_already_abroad_outcome, responded_with_eea_country) # A3 already_abroad
-            next_node_if(:jsa_social_security_already_abroad_outcome, social_security_countries_jsa) # A4 already_abroad
-          end
+        next_node_calculation :responded_with_eea_country do |response|
+          %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
+             finland france germany gibraltar greece hungary iceland ireland italy
+             latvia liechtenstein lithuania luxembourg malta netherlands norway
+             poland portugal romania slovakia slovenia spain sweden switzerland).include?(response)
+        end
 
-          on_condition(going_abroad) do
-            next_node_if(:jsa_eea_going_abroad_outcome, responded_with_eea_country) # A5 going_abroad
-            next_node_if(:jsa_social_security_going_abroad_outcome, social_security_countries_jsa) # A6 going_abroad
-          end
-          next_node(:jsa_not_entitled_outcome) # A7 going_abroad and A5 already_abroad
+        next_node_calculation :responded_with_former_yugoslavia do |response|
+          countries_of_former_yugoslavia.include?(response)
         end
-      #maternity
-        on_condition(variable_matches(:benefit, 'maternity_benefits')) do
-          next_node_if(:working_for_a_uk_employer?, responded_with_eea_country) # Q8 going_abroad and Q7 already_abroad
-          next_node(:employer_paying_ni?) # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
+
+        next_node_calculation :social_security_countries_jsa do |response|
+          (countries_of_former_yugoslavia + %w(guernsey jersey new-zealand)).include?(response)
         end
-      #wfp
-        on_condition(variable_matches(:benefit, 'winter_fuel_payment')) do
-          on_condition(responded_with_eea_country) do
-            next_node_if(:wfp_going_abroad_outcome, going_abroad) # A9 going_abroad
-            next_node(:wfp_eea_eligible_outcome) # A7 already_abroad
-          end
-          next_node(:wfp_not_eligible_outcome) # A8 going_abroad and A6 already_abroad
+
+        next_node_calculation :social_security_countries_iidb do |response|
+          (countries_of_former_yugoslavia +
+          %w(barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey)).include?(response)
         end
-      #child benefit
-        on_condition(variable_matches(:benefit, 'child_benefit')) do
-          next_node_if(:do_either_of_the_following_apply?, responded_with_eea_country) # Q13 going_abroad and Q12 already_abroad
-          on_condition(responded_with_former_yugoslavia) do
-            next_node_if(:child_benefit_fy_going_abroad_outcome, going_abroad) # A14 going_abroad
-            next_node(:child_benefit_fy_already_abroad_outcome) # A12 already_abroad
-          end
-          next_node_if(:child_benefit_ss_outcome, responded_with(%w(barbados canada guernsey israel jersey mauritius new-zealand))) # A15 going_abroad and A13 already_abroad
-          next_node_if(:child_benefit_jtu_outcome, responded_with(%w(jamaica turkey usa))) # A14 already_abroad
-          next_node(:child_benefit_not_entitled_outcome) # A18 going_abroad and A16 already_abroad
+
+        next_node_calculation :social_security_countries_bereavement_benefits do |response|
+          (countries_of_former_yugoslavia +
+          %w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa)).include?(response)
         end
-      #iidb
-        on_condition(variable_matches(:benefit, 'iidb')) do
-          on_condition(going_abroad) do
-            next_node_if(:iidb_going_abroad_eea_outcome, responded_with_eea_country) # A32 going_abroad
-            next_node_if(:iidb_going_abroad_ss_outcome, social_security_countries_iidb) # A33 going_abroad
-            next_node(:iidb_going_abroad_other_outcome) # A34 going_abroad
-          end
-          on_condition(already_abroad) do
-            next_node_if(:iidb_already_abroad_eea_outcome, responded_with_eea_country) # A31 already_abroad
-            next_node_if(:iidb_already_abroad_ss_outcome, social_security_countries_iidb) # A32 already_abroad
-            next_node(:iidb_already_abroad_other_outcome) # A33 already_abroad
-          end
-        end
-      #disability benefits
-        on_condition(variable_matches(:benefit, 'disability_benefits')) do
-          next_node_if(:db_claiming_benefits?, responded_with_eea_country) # Q30 going_abroad and Q29 already_abroad
-          next_node_if(:db_going_abroad_other_outcome, going_abroad) # A36 going_abroad
-          next_node(:db_already_abroad_other_outcome) # A35 already_abroad
-        end
-      #ssp
-        on_condition(variable_matches(:benefit, 'ssp')) do
-          next_node_if(:working_for_uk_employer_ssp?, responded_with_eea_country) # Q15 going_abroad and Q14 already_abroad
-          next_node(:employer_paying_ni?) # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
-        end
-      #tax credits
-        on_condition(variable_matches(:benefit, 'tax_credits')) do
-          next_node_if(:tax_credits_currently_claiming?, responded_with_eea_country) # Q20 already_abroad
-          next_node(:tax_credits_unlikely_outcome) # A21 already_abroad and A23 going_abroad
-        end
-      #esa
-        on_condition(variable_matches(:benefit, 'esa')) do
-          on_condition(going_abroad) do
-            next_node_if(:esa_going_abroad_eea_outcome, responded_with_eea_country) # A29 going_abroad
-            next_node_if(:esa_going_abroad_eea_outcome, responded_with_former_yugoslavia)
-            next_node_if(:esa_going_abroad_eea_outcome, responded_with(%w(barbados guernsey israel jersey jamaica turkey usa)))
-            next_node(:esa_going_abroad_other_outcome) # A30 going_abroad
-          end
-          on_condition(already_abroad) do
-            next_node_if(:esa_already_abroad_eea_outcome, responded_with_eea_country) # A27 already_abroad
-            next_node_if(:esa_already_abroad_ss_outcome, responded_with_former_yugoslavia) # A28 already_abroad
-            next_node_if(:esa_already_abroad_ss_outcome, responded_with(%w(barbados jersey guernsey jamaica turkey usa)))
-            next_node(:esa_already_abroad_other_outcome) # A29 already_abroad
-          end
-        end
-      #bereavement_benefits
-        on_condition(variable_matches(:benefit, 'bereavement_benefits')) do
-          on_condition(going_abroad) do
-            next_node_if(:bb_going_abroad_eea_outcome, responded_with_eea_country) # A39 going_abroad
-            next_node_if(:bb_going_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A40 going_abroad
-            next_node(:bb_going_abroad_other_outcome) # A38 going_abroad
-          end
-          on_condition(already_abroad) do
-            next_node_if(:bb_already_abroad_eea_outcome, responded_with_eea_country) # A37 already_abroad
-            next_node_if(:bb_already_abroad_ss_outcome, social_security_countries_bereavement_benefits) # A38 already_abroad
-            next_node(:bb_already_abroad_other_outcome) # A39 already_abroad
+
+        permitted_next_nodes = [
+          :bb_already_abroad_eea_outcome,
+          :bb_already_abroad_other_outcome,
+          :bb_already_abroad_ss_outcome,
+          :bb_going_abroad_eea_outcome,
+          :bb_going_abroad_other_outcome,
+          :bb_going_abroad_ss_outcome,
+          :child_benefit_fy_already_abroad_outcome,
+          :child_benefit_fy_going_abroad_outcome,
+          :child_benefit_jtu_outcome,
+          :child_benefit_not_entitled_outcome,
+          :child_benefit_ss_outcome,
+          :db_already_abroad_other_outcome,
+          :db_claiming_benefits?,
+          :db_going_abroad_other_outcome,
+          :do_either_of_the_following_apply?,
+          :employer_paying_ni?,
+          :esa_already_abroad_eea_outcome,
+          :esa_already_abroad_other_outcome,
+          :esa_already_abroad_ss_outcome,
+          :esa_going_abroad_eea_outcome,
+          :esa_going_abroad_other_outcome,
+          :iidb_already_abroad_eea_outcome,
+          :iidb_already_abroad_other_outcome,
+          :iidb_already_abroad_ss_outcome,
+          :iidb_going_abroad_eea_outcome,
+          :iidb_going_abroad_other_outcome,
+          :iidb_going_abroad_ss_outcome,
+          :jsa_eea_already_abroad_outcome,
+          :jsa_eea_going_abroad_outcome,
+          :jsa_not_entitled_outcome,
+          :jsa_social_security_already_abroad_outcome,
+          :jsa_social_security_going_abroad_outcome,
+          :tax_credits_currently_claiming?,
+          :tax_credits_unlikely_outcome,
+          :wfp_eea_eligible_outcome,
+          :wfp_going_abroad_outcome,
+          :wfp_not_eligible_outcome,
+          :working_for_a_uk_employer?,
+          :working_for_uk_employer_ssp?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case benefit
+          when 'jsa'
+            if already_abroad && responded_with_eea_country
+              :jsa_eea_already_abroad_outcome # A3 already_abroad
+            elsif already_abroad && social_security_countries_jsa
+              :jsa_social_security_already_abroad_outcome # A4 already_abroad
+            elsif going_abroad && responded_with_eea_country
+              :jsa_eea_going_abroad_outcome # A5 going_abroad
+            elsif going_abroad && social_security_countries_jsa
+              :jsa_social_security_going_abroad_outcome # A6 going_abroad
+            else
+              :jsa_not_entitled_outcome # A7 going_abroad and A5 already_abroad
+            end
+          when 'maternity_benefits'
+            if responded_with_eea_country
+              :working_for_a_uk_employer? # Q8 going_abroad and Q7 already_abroad
+            else
+              :employer_paying_ni? # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
+            end
+          when 'winter_fuel_payment'
+            if responded_with_eea_country
+              if going_abroad
+                :wfp_going_abroad_outcome # A9 going_abroad
+              else
+                :wfp_eea_eligible_outcome # A7 already_abroad
+              end
+            else
+              :wfp_not_eligible_outcome # A8 going_abroad and A6 already_abroad
+            end
+          when 'child_benefit'
+            if responded_with_eea_country
+              :do_either_of_the_following_apply? # Q13 going_abroad and Q12 already_abroad
+            elsif responded_with_former_yugoslavia
+              if going_abroad
+                :child_benefit_fy_going_abroad_outcome # A14 going_abroad
+              else
+                :child_benefit_fy_already_abroad_outcome # A12 already_abroad
+              end
+            elsif %w(barbados canada guernsey israel jersey mauritius new-zealand).include?(response)
+              :child_benefit_ss_outcome # A15 going_abroad and A13 already_abroad
+            elsif %w(jamaica turkey usa).include?(response)
+              :child_benefit_jtu_outcome # A14 already_abroad
+            else
+              :child_benefit_not_entitled_outcome # A18 going_abroad and A16 already_abroad
+            end
+          when 'iidb'
+            if going_abroad
+              if responded_with_eea_country
+                :iidb_going_abroad_eea_outcome # A32 going_abroad
+              elsif social_security_countries_iidb
+                :iidb_going_abroad_ss_outcome # A33 going_abroad
+              else
+                :iidb_going_abroad_other_outcome # A34 going_abroad
+              end
+            elsif already_abroad
+              if responded_with_eea_country
+                :iidb_already_abroad_eea_outcome # A31 already_abroad
+              elsif social_security_countries_iidb
+                :iidb_already_abroad_ss_outcome # A32 already_abroad
+              else
+                :iidb_already_abroad_other_outcome # A33 already_abroad
+              end
+            end
+          when 'disability_benefits'
+            if responded_with_eea_country
+              :db_claiming_benefits? # Q30 going_abroad and Q29 already_abroad
+            elsif going_abroad
+              :db_going_abroad_other_outcome # A36 going_abroad
+            else
+              :db_already_abroad_other_outcome # A35 already_abroad
+            end
+          when 'ssp'
+            if responded_with_eea_country
+              :working_for_uk_employer_ssp? # Q15 going_abroad and Q14 already_abroad
+            else
+              :employer_paying_ni? # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
+            end
+          when 'tax_credits'
+            if responded_with_eea_country
+              :tax_credits_currently_claiming? # Q20 already_abroad
+            else
+              :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
+            end
+          when 'esa'
+            if going_abroad
+              if responded_with_eea_country
+                :esa_going_abroad_eea_outcome # A29 going_abroad
+              elsif responded_with_former_yugoslavia
+                :esa_going_abroad_eea_outcome
+              elsif %w(barbados guernsey israel jersey jamaica turkey usa).include?(response)
+                :esa_going_abroad_eea_outcome
+              else
+                :esa_going_abroad_other_outcome # A30 going_abroad
+              end
+            elsif already_abroad
+              if responded_with_eea_country
+                :esa_already_abroad_eea_outcome # A27 already_abroad
+              elsif responded_with_former_yugoslavia
+                :esa_already_abroad_ss_outcome # A28 already_abroad
+              elsif %w(barbados jersey guernsey jamaica turkey usa).include?(response)
+                :esa_already_abroad_ss_outcome
+              else
+                :esa_already_abroad_other_outcome # A29 already_abroad
+              end
+            end
+          when 'bereavement_benefits'
+            if going_abroad
+              if responded_with_eea_country
+                :bb_going_abroad_eea_outcome # A39 going_abroad
+              elsif social_security_countries_bereavement_benefits
+                :bb_going_abroad_ss_outcome # A40 going_abroad
+              else
+                :bb_going_abroad_other_outcome # A38 going_abroad
+              end
+            elsif already_abroad
+              if responded_with_eea_country
+                :bb_already_abroad_eea_outcome # A37 already_abroad
+              elsif social_security_countries_bereavement_benefits
+                :bb_already_abroad_ss_outcome # A38 already_abroad
+              else
+                :bb_already_abroad_other_outcome # A39 already_abroad
+              end
+            end
           end
         end
       end
@@ -245,26 +354,47 @@ module SmartAnswer
         option :yes
         option :no
 
-        #SSP benefits
-        on_condition(variable_matches(:benefit, 'ssp')) do
-          on_condition(going_abroad) do
-            next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A19 going_abroad
-            next_node(:ssp_going_abroad_not_entitled_outcome) # A20 going_abroad
-          end
-          on_condition(already_abroad) do
-            next_node_if(:ssp_already_abroad_entitled_outcome, responded_with('yes')) # A17 already_abroad
-            next_node(:ssp_already_abroad_not_entitled_outcome) # A18 already_abroad
+        permitted_next_nodes = [
+          :eligible_for_smp?,
+          :maternity_benefits_not_entitled_outcome,
+          :maternity_benefits_social_security_already_abroad_outcome,
+          :maternity_benefits_social_security_going_abroad_outcome,
+          :ssp_already_abroad_entitled_outcome,
+          :ssp_already_abroad_not_entitled_outcome,
+          :ssp_going_abroad_entitled_outcome,
+          :ssp_going_abroad_not_entitled_outcome
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          # SSP benefits
+          if benefit == 'ssp'
+            if going_abroad
+              if response == 'yes'
+                :ssp_going_abroad_entitled_outcome # A19 going_abroad
+              else
+                :ssp_going_abroad_not_entitled_outcome # A20 going_abroad
+              end
+            elsif already_abroad
+              if response == 'yes'
+                :ssp_already_abroad_entitled_outcome # A17 already_abroad
+              else
+                :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
+              end
+            end
+          else
+            #not SSP benefits
+            if response == 'yes'
+              :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
+            elsif (countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey)).include?(country)
+              if already_abroad
+                :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
+              else
+                :maternity_benefits_social_security_going_abroad_outcome # A12 going_abroad
+              end
+            else
+              :maternity_benefits_not_entitled_outcome # A13 going_abroad and A11 already_abroad
+            end
           end
         end
-        #not SSP benefits
-        next_node_if(:eligible_for_smp?, responded_with('yes')) # Q9 going_abroad and Q8 already_abroad
-        on_condition(variable_matches(:country, countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey))) do
-          on_condition(already_abroad) do
-            next_node(:maternity_benefits_social_security_already_abroad_outcome) # A10 already_abroad
-          end
-          next_node_if(:maternity_benefits_social_security_going_abroad_outcome) # A12 going_abroad
-        end
-        next_node(:maternity_benefits_not_entitled_outcome) # A13 going_abroad and A11 already_abroad
       end
 
       # Q13 going_abroad and Q12 already_abroad
@@ -291,13 +421,26 @@ module SmartAnswer
         option :yes
         option :no
 
-        on_condition(going_abroad) do
-          next_node_if(:ssp_going_abroad_entitled_outcome, responded_with('yes')) # A19 going_abroad
-          next_node(:ssp_going_abroad_not_entitled_outcome) # A20 going_abroad
-        end
-        on_condition(already_abroad) do
-          next_node_if(:ssp_already_abroad_entitled_outcome, responded_with('yes')) # A17 already_abroad
-          next_node(:ssp_already_abroad_not_entitled_outcome) # A18 already_abroad
+        permitted_next_nodes = [
+          :ssp_already_abroad_entitled_outcome,
+          :ssp_already_abroad_not_entitled_outcome,
+          :ssp_going_abroad_entitled_outcome,
+          :ssp_going_abroad_not_entitled_outcome
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if going_abroad
+            if response == 'yes'
+              :ssp_going_abroad_entitled_outcome # A19 going_abroad
+            else
+              :ssp_going_abroad_not_entitled_outcome # A20 going_abroad
+            end
+          elsif already_abroad
+            if response == 'yes'
+              :ssp_already_abroad_entitled_outcome # A17 already_abroad
+            else
+              :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
+            end
+          end
         end
       end
 
@@ -406,13 +549,26 @@ module SmartAnswer
         option :yes
         option :no
 
-        on_condition(going_abroad) do
-          next_node_if(:db_going_abroad_eea_outcome, responded_with('yes')) # A37 going_abroad
-          next_node(:db_going_abroad_other_outcome) # A36 going_abroad
-        end
-        on_condition(already_abroad) do
-          next_node_if(:db_already_abroad_eea_outcome, responded_with('yes')) # A36 already_abroad
-          next_node(:db_already_abroad_other_outcome) # A35 already_abroad
+        permitted_next_nodes = [
+          :db_already_abroad_eea_outcome,
+          :db_already_abroad_other_outcome,
+          :db_going_abroad_eea_outcome,
+          :db_going_abroad_other_outcome
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if going_abroad
+            if response == 'yes'
+              :db_going_abroad_eea_outcome # A37 going_abroad
+            else
+              :db_going_abroad_other_outcome # A36 going_abroad
+            end
+          elsif already_abroad
+            if response == 'yes'
+              :db_already_abroad_eea_outcome # A36 already_abroad
+            else
+              :db_already_abroad_other_outcome # A35 already_abroad
+            end
+          end
         end
       end
 
@@ -520,9 +676,21 @@ module SmartAnswer
 
         save_input_as :how_long_abroad_jsa
 
-        next_node_if(:jsa_less_than_a_year_medical_outcome, responded_with("less_than_a_year_medical")) # A3 going_abroad
-        next_node_if(:jsa_less_than_a_year_other_outcome, responded_with("less_than_a_year_other")) # A4 going_abroad
-        next_node_if(:which_country?, responded_with("more_than_a_year"))
+        permitted_next_nodes = [
+          :jsa_less_than_a_year_medical_outcome,
+          :jsa_less_than_a_year_other_outcome,
+          :which_country?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'less_than_a_year_medical'
+            :jsa_less_than_a_year_medical_outcome # A3 going_abroad
+          when 'less_than_a_year_other'
+            :jsa_less_than_a_year_other_outcome # A4 going_abroad
+          when 'more_than_a_year'
+            :which_country?
+          end
+        end
       end
       # Going abroad Q18 (tax credits) and Q17 already_abroad
       multiple_choice :tax_credits_how_long_abroad? do
@@ -549,15 +717,26 @@ module SmartAnswer
         option :esa_under_a_year_other
         option :esa_more_than_a_year
 
-        on_condition(going_abroad) do
-          next_node_if(:esa_going_abroad_under_a_year_medical_outcome, responded_with('esa_under_a_year_medical')) # A27 going_abroad
-          next_node_if(:esa_going_abroad_under_a_year_other_outcome, responded_with('esa_under_a_year_other')) # A28 going_abroad
+        permitted_next_nodes = [
+          :esa_already_abroad_under_a_year_medical_outcome,
+          :esa_already_abroad_under_a_year_other_outcome,
+          :esa_going_abroad_under_a_year_medical_outcome,
+          :esa_going_abroad_under_a_year_other_outcome,
+          :which_country?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if going_abroad && response == 'esa_under_a_year_medical'
+            :esa_going_abroad_under_a_year_medical_outcome # A27 going_abroad
+          elsif going_abroad && response == 'esa_under_a_year_other'
+            :esa_going_abroad_under_a_year_other_outcome # A28 going_abroad
+          elsif already_abroad && response == 'esa_under_a_year_medical'
+            :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
+          elsif already_abroad && response == 'esa_under_a_year_other'
+            :esa_already_abroad_under_a_year_other_outcome # A26 already_abroad
+          else
+            :which_country?
+          end
         end
-        on_condition(already_abroad) do
-          next_node_if(:esa_already_abroad_under_a_year_medical_outcome, responded_with('esa_under_a_year_medical')) # A25 already_abroad
-          next_node_if(:esa_already_abroad_under_a_year_other_outcome, responded_with('esa_under_a_year_other')) # A26 already_abroad
-        end
-        next_node(:which_country?)
       end
 
       # Going abroad Q28 going_abroad (Disability Benefits) and Q27 already_abroad
@@ -565,9 +744,20 @@ module SmartAnswer
         option :temporary
         option :permanent
 
-        next_node_if(:which_country?, responded_with('permanent')) # Q25
-        next_node_if(:db_going_abroad_temporary_outcome, going_abroad) # A35 going_abroad
-        next_node(:db_already_abroad_temporary_outcome) # A34 already_abroad
+        permitted_next_nodes = [
+          :db_already_abroad_temporary_outcome,
+          :db_going_abroad_temporary_outcome,
+          :which_country?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'permanent'
+            :which_country? # Q25
+          elsif going_abroad
+            :db_going_abroad_temporary_outcome # A35 going_abroad
+          else
+            :db_already_abroad_temporary_outcome # A34 already_abroad
+          end
+        end
       end
 
       # Going abroad Q32 going_abroad (Income Support)
