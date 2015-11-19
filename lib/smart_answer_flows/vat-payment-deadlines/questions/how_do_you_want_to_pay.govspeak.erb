@@ -1,0 +1,13 @@
+<% content_for :title do %>
+  How do you want to pay?
+<% end %>
+
+<% options(
+  "direct-debit": "Direct debit",
+  "online-telephone-banking": "Online or telephone banking (Faster Payments)",
+  "online-debit-credit-card": "Online debit or credit card (BillPay)",
+  "bacs-direct-credit": "Bacs direct credit",
+  "bank-giro": "Bank Giro",
+  "chaps": "CHAPS",
+  "cheque": "Cheque"
+) %>
