@@ -1,6 +1,5 @@
 ---
-lib/smart_answer_flows/register-a-birth.rb: 730dba55e2cc3353cf3982277702d68c
-lib/smart_answer_flows/locales/en/register-a-birth.yml: 30bf7c48f1cd56a55142f3844b348633
+lib/smart_answer_flows/register-a-birth.rb: 25c95aa072f64e367c03b4c2bbfce5fd
 test/data/register-a-birth-questions-and-responses.yml: c59cb1d0c11f3ad29f905b632f7c58bb
 test/data/register-a-birth-responses-and-expected-results.yml: 3ac4372034c86d8cc87665db59ff11d5
 lib/smart_answer_flows/register-a-birth/outcomes/commonwealth_result.govspeak.erb: a7c70e3191f23f7e747cb45587e4825f
@@ -10,6 +9,13 @@ lib/smart_answer_flows/register-a-birth/outcomes/no_embassy_result.govspeak.erb:
 lib/smart_answer_flows/register-a-birth/outcomes/no_registration_result.govspeak.erb: 7b60252b078e6aec6f5759e894ce4ffb
 lib/smart_answer_flows/register-a-birth/outcomes/north_korea_result.govspeak.erb: e8d30537b7850252f3da8aff38524fe4
 lib/smart_answer_flows/register-a-birth/outcomes/oru_result.govspeak.erb: cbec43e5a7d99f4e4c8894dc595b8dea
+lib/smart_answer_flows/register-a-birth/questions/childs_date_of_birth.govspeak.erb: e911daf1dc69ce85db372dc4ea3bdd50
+lib/smart_answer_flows/register-a-birth/questions/country_of_birth.govspeak.erb: 31c306c928e71eee86c60352f51ccf83
+lib/smart_answer_flows/register-a-birth/questions/have_you_adopted_the_child.govspeak.erb: 3a9d66656446a508c7232b26778dfa23
+lib/smart_answer_flows/register-a-birth/questions/married_couple_or_civil_partnership.govspeak.erb: a2dba2ba31c300f55b1588bfbec4deb9
+lib/smart_answer_flows/register-a-birth/questions/where_are_you_now.govspeak.erb: ad17b2c0caf3785c34b0656af5543309
+lib/smart_answer_flows/register-a-birth/questions/which_country.govspeak.erb: 913b5637a2814cbd529affffc55b1f72
+lib/smart_answer_flows/register-a-birth/questions/who_has_british_nationality.govspeak.erb: 3e482183d55ccc5f7548d5a5d4034375
 lib/smart_answer_flows/register-a-birth/register_a_birth.govspeak.erb: 05cf2d9426fc91f395fc524fdfdac800
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
 lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
