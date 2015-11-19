@@ -1,6 +1,5 @@
 ---
-lib/smart_answer_flows/uk-benefits-abroad.rb: d7fb35d59cc32581358008761f530743
-lib/smart_answer_flows/locales/en/uk-benefits-abroad.yml: 3883941cbccbef17e1d93a456777bc08
+lib/smart_answer_flows/uk-benefits-abroad.rb: 035b9292bb0d9cb4352ca3f5ef754519
 test/data/uk-benefits-abroad-questions-and-responses.yml: 279454ec0916c13ac09ed5a90ad58777
 test/data/uk-benefits-abroad-responses-and-expected-results.yml: dbf714c4de3ed03f81c868c354aa9c81
 lib/smart_answer_flows/uk-benefits-abroad/outcomes/_tax_credits_already_abroad_helpline.govspeak.erb: d79b1b09c2fe01c66cdda028a7679b8b
@@ -72,4 +71,28 @@ lib/smart_answer_flows/uk-benefits-abroad/outcomes/tax_credits_unlikely_outcome.
 lib/smart_answer_flows/uk-benefits-abroad/outcomes/wfp_eea_eligible_outcome.govspeak.erb: 1a5e3a180f7952388fd4e0ee20cb38f1
 lib/smart_answer_flows/uk-benefits-abroad/outcomes/wfp_going_abroad_outcome.govspeak.erb: f1d113905a298592ccb21fadb3a6570a
 lib/smart_answer_flows/uk-benefits-abroad/outcomes/wfp_not_eligible_outcome.govspeak.erb: 155aa980f3d8c23f6afacf1eea45adcb
+lib/smart_answer_flows/uk-benefits-abroad/questions/db_claiming_benefits.govspeak.erb: fa4bd1975463c13bd4a69ac04044f2dd
+lib/smart_answer_flows/uk-benefits-abroad/questions/db_how_long_abroad.govspeak.erb: bf3a67acf756a9ed6b8b8dbf1097c21b
+lib/smart_answer_flows/uk-benefits-abroad/questions/do_either_of_the_following_apply.govspeak.erb: 90bee1d05b13335e979d9aff8b11127a
+lib/smart_answer_flows/uk-benefits-abroad/questions/eligible_for_smp.govspeak.erb: 4d5361ac102bb94d1bb618430f0a0683
+lib/smart_answer_flows/uk-benefits-abroad/questions/eligible_for_tax_credits.govspeak.erb: 8fa0384fda217a6fccd31633f4e6f18c
+lib/smart_answer_flows/uk-benefits-abroad/questions/employer_paying_ni.govspeak.erb: 466df71cc013f20814551bdab736402a
+lib/smart_answer_flows/uk-benefits-abroad/questions/esa_how_long_abroad.govspeak.erb: c94a7631a27221b11b7bc9c8b4f777b0
+lib/smart_answer_flows/uk-benefits-abroad/questions/going_or_already_abroad.govspeak.erb: 2a0776cfad40926fdb89b524fead79a9
+lib/smart_answer_flows/uk-benefits-abroad/questions/iidb_already_claiming.govspeak.erb: d1e78d8e8d18cbab5c263b3dc6646319
+lib/smart_answer_flows/uk-benefits-abroad/questions/is_abroad_for_treatment.govspeak.erb: 16025e9e97ed830fb7d6860299719f62
+lib/smart_answer_flows/uk-benefits-abroad/questions/is_any_of_the_following_apply.govspeak.erb: 0f5036e6290c5a56b59e82099b358457
+lib/smart_answer_flows/uk-benefits-abroad/questions/is_claiming_benefits.govspeak.erb: c9c356ca12baba36eed3f1966e4def8e
+lib/smart_answer_flows/uk-benefits-abroad/questions/is_either_of_the_following.govspeak.erb: fc7e6cfe8cdfc2efb81badd21c180fec
+lib/smart_answer_flows/uk-benefits-abroad/questions/is_how_long_abroad.govspeak.erb: 370e0431a76ce65473a1e45d717da114
+lib/smart_answer_flows/uk-benefits-abroad/questions/is_work_or_sick_pay.govspeak.erb: 46c0f74b75bdc20a90188af27ff04fb3
+lib/smart_answer_flows/uk-benefits-abroad/questions/jsa_how_long_abroad.govspeak.erb: c2dd0e4515fc21df9ecc271d00c43149
+lib/smart_answer_flows/uk-benefits-abroad/questions/tax_credits_children.govspeak.erb: 6ad03b8f74c1b68fb4121521e1df5ee2
+lib/smart_answer_flows/uk-benefits-abroad/questions/tax_credits_currently_claiming.govspeak.erb: 085fc61d088cf22326fcbff08f823e0a
+lib/smart_answer_flows/uk-benefits-abroad/questions/tax_credits_how_long_abroad.govspeak.erb: 86184ae80997ee9ed914562c4a929346
+lib/smart_answer_flows/uk-benefits-abroad/questions/tax_credits_why_going_abroad.govspeak.erb: a9686787f9ddd04fe676352ceff03cbd
+lib/smart_answer_flows/uk-benefits-abroad/questions/which_benefit.govspeak.erb: a9b598ca0de3404184c6e3e0b88d5470
+lib/smart_answer_flows/uk-benefits-abroad/questions/which_country.govspeak.erb: f29a4a18c6596d303cc1d6d474bfd093
+lib/smart_answer_flows/uk-benefits-abroad/questions/working_for_a_uk_employer.govspeak.erb: 8367cff3d1d36a843d6d966a547d179b
+lib/smart_answer_flows/uk-benefits-abroad/questions/working_for_uk_employer_ssp.govspeak.erb: 15e9162bb80fe215af169d0e39dd53d0
 lib/smart_answer_flows/uk-benefits-abroad/uk_benefits_abroad.govspeak.erb: 289ed7bd184696294095c760f24ffb0d

@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100490"
 
+      use_erb_templates_for_questions
+
       exclude_countries = %w(british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten)
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
@@ -18,11 +20,19 @@ module SmartAnswer
         save_input_as :going_or_already_abroad
 
         calculate :country_question_title do
-          PhraseList.new(:"#{going_or_already_abroad}_country_question_title")
+          if going_or_already_abroad == "going_abroad"
+            "Which country are you moving to?"
+          else
+            "Which country are you living in?"
+          end
         end
 
         calculate :why_abroad_question_title do
-          PhraseList.new(:"why_#{going_or_already_abroad}_title")
+          if going_or_already_abroad == "going_abroad"
+            "Why are you going abroad?"
+          else
+            "Why have you gone abroad?"
+          end
         end
 
         calculate :going_abroad do
@@ -34,7 +44,7 @@ module SmartAnswer
         end
 
         calculate :already_abroad_text_two do |response|
-          PhraseList.new(:already_abroad_text_two) if already_abroad
+          " or permanently" if already_abroad
         end
 
         next_node :which_benefit?
@@ -59,9 +69,13 @@ module SmartAnswer
 
         calculate :how_long_question_titles do
           if benefit == "disability_benefits"
-            PhraseList.new(:"#{benefit}_how_long_question_title")
+            "How long will you be abroad for?"
           else
-            PhraseList.new(:"#{going_or_already_abroad}_how_long_question_title")
+            if going_or_already_abroad == "going_abroad"
+              "How long are you going abroad for?"
+            else
+              "How long will you be living abroad for?"
+            end
           end
         end
 
