@@ -42,6 +42,10 @@ This is a Ruby on Rails application that both contains and serves the Smart Answ
 
 See [development using the GDS development virtual machine](developing-using-vm.md).
 
+### Running the test suite
+
+    $ bundle exec rake
+
 ## Table of Contents
 
 * Types of Smart Answer
