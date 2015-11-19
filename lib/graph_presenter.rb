@@ -1,6 +1,7 @@
 class GraphPresenter
   def initialize(flow)
     @flow = flow
+    @i18n_prefix = "flow.#{@flow.name}"
   end
 
   def labels
@@ -81,7 +82,7 @@ private
   end
 
   def node_title(node)
-    presenter = QuestionPresenter.new(nil, node, nil, helpers: [MethodMissingHelper])
+    presenter = QuestionPresenter.new(@i18n_prefix, node, {}, helpers: [MethodMissingHelper])
     presenter.title
   end
 
