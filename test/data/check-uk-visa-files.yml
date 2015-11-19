@@ -1,6 +1,5 @@
 ---
-lib/smart_answer_flows/check-uk-visa.rb: 7ed52bd414ee52d3de7f15984c8bf66d
-lib/smart_answer_flows/locales/en/check-uk-visa.yml: 337132111ec8fab07f683f0fb6a192f9
+lib/smart_answer_flows/check-uk-visa.rb: 539c1acdc0b0c6513d8db1cf34ee397e
 test/data/check-uk-visa-questions-and-responses.yml: 1c812e8d00a9dc8525848e643f1ae0e0
 test/data/check-uk-visa-responses-and-expected-results.yml: cfca31e5840cb6d0068cde0ec0a0ae0c
 lib/smart_answer_flows/check-uk-visa/check_uk_visa.govspeak.erb: a442b4ddd169b26a401c70d145e5b44e
@@ -30,5 +29,10 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_visit_waiver.govspeak.erb:
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_m.govspeak.erb: 2a2021fec2f3a63d873bb1f48206349d
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_n.govspeak.erb: da229fbf8796faffab862bee3ed2b9a0
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_y.govspeak.erb: a1caae0e095e58717119356bf52e2a2a
+lib/smart_answer_flows/check-uk-visa/questions/israeli_document_type.govspeak.erb: 6e6ea79788922c6e4a76f87cac040193
+lib/smart_answer_flows/check-uk-visa/questions/passing_through_uk_border_control.govspeak.erb: 06c6cc3553ff2ce5b62364f3430e9394
+lib/smart_answer_flows/check-uk-visa/questions/purpose_of_visit.govspeak.erb: b778204d9ab13cc9163e1224c22dc5f1
+lib/smart_answer_flows/check-uk-visa/questions/staying_for_how_long.govspeak.erb: 3d00e24db2c951d6853808b7c1c33ed4
+lib/smart_answer_flows/check-uk-visa/questions/what_passport_do_you_have.govspeak.erb: 692063f5d077c6b581ea9ad3efdfd57c
 app/models/ukba_country.rb: 78a94d29eeb009b14e0c5d35ff397683
 lib/data/ukba_additional_countries.yml: 5e84d01caf6b2841d0ea9f03f0f4974c
