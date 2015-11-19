@@ -1,0 +1,12 @@
+<% content_for :title do %>
+  Do your accounts cover the 12 month period up to %{accounting_year_ends_on}?
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
+
+<% content_for :error_message do %>
+  You need to select yes or no to continue.
+<% end %>

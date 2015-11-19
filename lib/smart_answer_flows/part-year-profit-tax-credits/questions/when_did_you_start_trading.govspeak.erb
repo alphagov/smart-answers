@@ -1,0 +1,14 @@
+<% content_for :title do %>
+  When did you start trading?
+<% end %>
+
+<% content_for :hint do %>
+  This date must be before %{award_period_ends_on}.
+<% end %>
+
+<% content_for :error_message do %>
+  You need to enter a date to continue.
+<% end %>
+<% content_for :invalid_start_trading_date do %>
+  The start trading date must be before the date your Tax Credits award ends.
+<% end %>

@@ -1,0 +1,12 @@
+<% content_for :title do %>
+  Did you start trading before %{accounting_year_begins_on}?
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
+
+<% content_for :error_message do %>
+  You need to select yes or no to continue.
+<% end %>
