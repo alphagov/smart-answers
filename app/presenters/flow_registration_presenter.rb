@@ -46,7 +46,12 @@ class FlowRegistrationPresenter
       text = @flow.questions.inject([start_node.body]) { |acc, node|
         pres = QuestionPresenter.new(@i18n_prefix, node, nil, helpers: [MethodMissingHelper])
         acc.concat(NODE_PRESENTER_METHODS.map { |method|
-          pres.send(method)
+          begin
+            pres.send(method)
+          rescue I18n::MissingInterpolationArgument
+            # We can't do much about this, so we ignore these text nodes
+            nil
+          end
         })
       }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
     )
