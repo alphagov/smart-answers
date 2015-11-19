@@ -1,6 +1,5 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: 3359eaadd82cac821f2f71b8334dfb54
-lib/smart_answer_flows/locales/en/marriage-abroad.yml: e8225cc9c281e31a884d41cb7c4482bf
+lib/smart_answer_flows/marriage-abroad.rb: 8aa5c189664e06916e904ba2722f6f3d
 test/data/marriage-abroad-questions-and-responses.yml: eabbd09ca91fab72a9a520d1087fb35e
 test/data/marriage-abroad-responses-and-expected-results.yml: 839cce0363e0c51ba4ab9fb1722fc59f
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
@@ -116,6 +115,11 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage.govspeak.erb
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage_malta.govspeak.erb: 6d0e1f7c4739820fd626deb23910ab2b
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage_not_possible.govspeak.erb: 800f400fb97200d114f5e8b80531a4d5
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_switzerland.govspeak.erb: ae488f93abb99a8f79865d7eb76d1f72
+lib/smart_answer_flows/marriage-abroad/questions/country_of_ceremony.govspeak.erb: 719ab4aed5ee84c7ed03585be9eb3b19
+lib/smart_answer_flows/marriage-abroad/questions/legal_residency.govspeak.erb: d3e36a7836c5d5040c3cf6d216263cd3
+lib/smart_answer_flows/marriage-abroad/questions/marriage_or_pacs.govspeak.erb: a51aecfac697188f90ca9efefcb2e0ea
+lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.govspeak.erb: 40d0c99a5be50f0625c6562f06fe4afd
+lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: f8569c0fef74864a92536e8181fa23e6
 lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: b69ed89bee92f2361f86e7509fc27ebf
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
