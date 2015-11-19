@@ -4,6 +4,10 @@
 
 Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
+## Screenshots
+
+![Student Finance Forms screenshot](./doc/assets/govuk-student-finance-forms.png)
+
 ## Table of Contents
 
 * Types of Smart Answer
