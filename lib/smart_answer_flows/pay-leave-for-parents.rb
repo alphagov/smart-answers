@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "101018"
 
+      use_erb_templates_for_questions
+
       multiple_choice :two_carers do
         option "yes"
         option "no"
