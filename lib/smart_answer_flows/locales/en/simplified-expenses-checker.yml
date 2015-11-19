@@ -32,8 +32,7 @@ en-GB:
           "no": "No"
 #Q5
       how_much_expect_to_claim?:
-        title: |
-          How much do you expect to claim as business expenses for running and maintaining your car, van or motorcycle over the tax year?
+        title: How much do you expect to claim as business expenses for running and maintaining your car, van or motorcycle over the tax year?
         hint: Only include the business proportion of costs for your main vehicle, eg fuel, servicing, repairs and insurance.
 #Q6
       is_vehicle_green?:
@@ -48,8 +47,7 @@ en-GB:
 #Q8
       vehicle_business_use_time?:
         title: How much of your driving time do you expect to be for business use?
-        suffix_label: |
-          % of the time
+        suffix_label: "% of the time"
         error_message: "The maximum you can enter is 100%."
 #Q9
       drive_business_miles_car_van?:
@@ -73,4 +71,3 @@ en-GB:
       people_live_on_premises?:
         title: How many people normally live on the business premises?
         hint: Include children and non-paying guests. Don't include paying guests or anyone using the premises as part of your business. Give an average if there are more people at certain times of the year.
-
