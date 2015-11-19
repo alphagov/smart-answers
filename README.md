@@ -46,6 +46,10 @@ See [development using the GDS development virtual machine](developing-using-vm.
 
     $ bundle exec rake
 
+## Licence
+
+[MIT License](./LICENSE.md)
+
 ## Table of Contents
 
 * Types of Smart Answer
