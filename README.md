@@ -28,6 +28,12 @@ Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/sma
 
 * **Node**: Questions and Outcomes are Nodes.
 
+## Technical documentation
+
+This is a Ruby on Rails application that both contains and serves the Smart Answers stored in this repository. Smart Answers are presented to public users.
+
+**NOTE.** This application doesn't use a database.
+
 ## Table of Contents
 
 * Types of Smart Answer
