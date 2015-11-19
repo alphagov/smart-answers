@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  Who has British nationality?
+<% end %>
+
+<% options(
+  "mother": "Mother only",
+  "father": "Father only",
+  "mother_and_father": "Mother and father",
+  "neither": "Neither"
+) %>
+
+<% content_for :body do %>
+  If the British parent was born abroad, they may be a British citizen ‘by descent’. This means they may not be allowed to pass on their British nationality to a child also born abroad. [Check if the parent is a British citizen](/check-british-citizen).
+
+<% end %>
