@@ -14,6 +14,20 @@ Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/sma
 * [Maternity and paternity calculator for employers](https://www.gov.uk/maternity-paternity-calculator)
 * [Towing: licence and age requirements](https://www.gov.uk/towing-rules)
 
+## Nomenclature
+
+* **Smart Answer**: The flow, questions and outcomes.
+
+* **Landing page**: The page containing the "Start now" button that describes the Smart Answer.
+
+* **Flow**: Ruby code describing the questions, outcomes and rules for navigating between them.
+
+* **Question**: An individual question that's asked in order to help the user arrive at the answer to the overall flow question.
+
+* **Outcome**: ERB template containing the answer(s) to the overall flow question, based on the user's responses to the individual questions.
+
+* **Node**: Questions and Outcomes are Nodes.
+
 ## Table of Contents
 
 * Types of Smart Answer
