@@ -52,23 +52,6 @@ module SmartAnswer
       end
     end
 
-    context 'when rendering did_you_start_trading_before_the_relevant_accounting_year? question' do
-      setup do
-        question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_year?)
-        @state = SmartAnswer::State.new(question)
-        @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
-      end
-
-      should 'have options with labels' do
-        assert_equal({ 'yes' => 'Yes', 'no' => 'No' }, values_vs_labels(@presenter.options))
-      end
-
-      should 'have a default error message' do
-        @state.error = 'error-message'
-        assert_equal 'You need to select yes or no to continue.', @presenter.error
-      end
-    end
-
     context 'when rendering do_your_accounts_cover_a_12_month_period? question' do
       setup do
         question = @flow.node(:do_your_accounts_cover_a_12_month_period?)
@@ -115,15 +98,23 @@ module SmartAnswer
     context 'when rendering did_you_start_trading_before_the_relevant_accounting_year? question' do
       setup do
         question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_year?)
-        state = SmartAnswer::State.new(question)
-        state.accounting_year_begins_on = Date.parse('2015-04-06')
-        presenter = QuestionPresenter.new(@i18n_prefix, question, state)
-        @title = presenter.title
+        @state = SmartAnswer::State.new(question)
+        @state.accounting_year_begins_on = Date.parse('2015-04-06')
+        @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
+      end
+
+      should 'have options with labels' do
+        assert_equal({ 'yes' => 'Yes', 'no' => 'No' }, values_vs_labels(@presenter.options))
+      end
+
+      should 'have a default error message' do
+        @state.error = 'error-message'
+        assert_equal 'You need to select yes or no to continue.', @presenter.error
       end
 
       should 'display title with interpolated accounting_year_begins_on' do
         expected = "Did you start trading before  6 April 2015?"
-        assert_equal expected, @title
+        assert_equal expected, @presenter.title
       end
     end
 
