@@ -1,0 +1,9 @@
+<% content_for :title do %>
+  What is your partner’s nationality?
+<% end %>
+
+<% options(
+  "partner_british": "British",
+  "partner_local": "%{country_name_partner_residence}",
+  "partner_other": "National of another country"
+) %>
