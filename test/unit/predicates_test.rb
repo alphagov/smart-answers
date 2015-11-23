@@ -113,21 +113,6 @@ module SmartAnswer
         end
       end
 
-      context "RespondedWith predicate" do
-        setup do
-          @predicate = RespondedWith.new(%w{a b c})
-        end
-
-        should "check whether the response was one of the permitted options" do
-          assert @predicate.call(@state, 'a')
-          refute @predicate.call(@state, 'd')
-        end
-
-        should "make label from the alternation of options" do
-          assert_equal "a | b | c", @predicate.label
-        end
-      end
-
       context "VariableMatches predicate" do
         setup do
           @predicate = VariableMatches.new(:my_var, %w{a b})

@@ -95,10 +95,6 @@ module SmartAnswer
         @predicate_stack.pop
       end
 
-      def responded_with(acceptable_responses)
-        SmartAnswer::Predicate::RespondedWith.new(acceptable_responses)
-      end
-
       def variable_matches(variable_name, acceptable_responses)
         SmartAnswer::Predicate::VariableMatches.new(variable_name, acceptable_responses)
       end
