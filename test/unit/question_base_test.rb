@@ -153,10 +153,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
       next_node_calculation :blah do
         "blah"
       end
-      next_node_if(:done) {
-        complementary_colour == :green
-      }
-      next_node(:shouldnt_go_here)
+      next_node(permitted: [:done]) do
+        :done if complementary_colour == :green
+      end
     end
     initial_state = SmartAnswer::State.new(q.name)
     new_state = q.transition(initial_state, :red)
@@ -251,7 +250,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
     question_name = :example
     responses = [:blue, :red]
     q = SmartAnswer::Question::Base.new(nil, question_name) {
-      next_node_if(:skipped) { false }
+      next_node(permitted: [:skipped]) do
+        :skipped if false
+      end
     }
     initial_state = SmartAnswer::State.new(q.name)
     initial_state.responses << responses[0]
