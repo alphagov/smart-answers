@@ -5,8 +5,8 @@ test/data/register-a-death-responses-and-expected-results.yml: a69c595900ab2d852
 lib/smart_answer_flows/register-a-death/outcomes/_footnote_oru_variants.govspeak.erb: 30e012cdde5aa7f4de5856a5db47a54c
 lib/smart_answer_flows/register-a-death/outcomes/commonwealth_result.govspeak.erb: f343aa2ce9258acca94c986109618ca4
 lib/smart_answer_flows/register-a-death/outcomes/no_embassy_result.govspeak.erb: fabd0de7b88ffeb54783f87cfd4a3582
-lib/smart_answer_flows/register-a-death/outcomes/north_korea_result.govspeak.erb: d21f96d5816ca222f381a2bca6ced918
-lib/smart_answer_flows/register-a-death/outcomes/oru_result.govspeak.erb: 897de72bc4ec3f2570a58d44fa76051f
+lib/smart_answer_flows/register-a-death/outcomes/north_korea_result.govspeak.erb: 92d3b20642942bc0bab482616dd659a6
+lib/smart_answer_flows/register-a-death/outcomes/oru_result.govspeak.erb: 31677abfc07a52b58e6dd339df15d09b
 lib/smart_answer_flows/register-a-death/outcomes/uk_result.govspeak.erb: 662da9367c5992191471f8722b3c2636
 lib/smart_answer_flows/register-a-death/questions/did_the_person_die_at_home_hospital.govspeak.erb: 3405db8cb8b24782fc49981c2fce12e7
 lib/smart_answer_flows/register-a-death/questions/was_death_expected.govspeak.erb: 132d4a52801b619af05519a69f2767dd
@@ -15,10 +15,10 @@ lib/smart_answer_flows/register-a-death/questions/where_did_the_death_happen.gov
 lib/smart_answer_flows/register-a-death/questions/which_country.govspeak.erb: e816742682e96117df80d67faff13fc8
 lib/smart_answer_flows/register-a-death/questions/which_country_are_you_in_now.govspeak.erb: 9c9399d1588c7d5e01ebf1bf5efa31a1
 lib/smart_answer_flows/register-a-death/register_a_death.govspeak.erb: 1820ba3a5f3ed47816c7f151217be439
+lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 2f521bae99c2f48b49d07bcb283a8063
+lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.erb: bdd3818dfd2b9d6396daf6f60fd887a0
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
 lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
-lib/smart_answer_flows/data_partials/_button.erb: bdd3818dfd2b9d6396daf6f60fd887a0
-lib/smart_answer_flows/data_partials/_overseas_passports_embassies.erb: 2f521bae99c2f48b49d07bcb283a8063
 test/fixtures/worldwide/italy_organisations.json: dc5feb424edeeb12835be916605caf46
 lib/smart_answer/calculators/registrations_data_query.rb: cbb0fad828d74606eb708d3442cf4ca5
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
