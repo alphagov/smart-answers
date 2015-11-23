@@ -72,10 +72,6 @@ module SmartAnswer
         @predicates.has_key?(method)
       end
 
-      def method_missing(method, *args, &block)
-        @predicates.fetch(method)
-      end
-
       def parse_input(raw_input)
         raw_input
       end
