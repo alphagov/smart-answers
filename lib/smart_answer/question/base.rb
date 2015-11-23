@@ -109,16 +109,6 @@ module SmartAnswer
         end
       end
 
-      def normalize_predicates(predicates)
-        predicates.map do |predicate|
-          if predicate.is_a?(SmartAnswer::Predicate::Base)
-            predicate
-          else
-            SmartAnswer::Predicate::Callable.new(nil, predicate)
-          end
-        end
-      end
-
       def next_node_from_function_chain(current_state, input)
         found = @next_node_function_chain.find do |(_, predicates)|
           predicates.all? do |predicate|
