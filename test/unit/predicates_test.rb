@@ -74,44 +74,6 @@ module SmartAnswer
           assert_equal "custom label", (p1.and(p2, "custom label")).label
         end
       end
-
-      context "Callable predicate" do
-        should "take a label as its first argument" do
-          example_label = "my label"
-          assert_equal example_label, Callable.new(example_label).label
-        end
-
-        should "take a block" do
-          call_count = 0
-          predicate = Callable.new { call_count += 1 }
-          predicate.call(@state, nil)
-          assert_equal 1, call_count
-        end
-
-        context "take a lambda" do
-          should "accept a lambda with arity of 1" do
-            call_count = 0
-            predicate = Callable.new("label", ->(_) { call_count += 1 })
-            predicate.call(@state, nil)
-            assert_equal 1, call_count
-          end
-
-          should "accept a lambda with arity of 0" do
-            call_count = 0
-            predicate = Callable.new("label", -> { call_count += 1 })
-            predicate.call(@state, nil)
-            assert_equal 1, call_count
-          end
-        end
-
-        should "evaluate its callable in the context of the given state" do
-          @state.calls_received = []
-          predicate = Callable.new(nil, ->(response) { calls_received << response; calls_received.size == 1 })
-          assert predicate.call(@state, 'response1')
-          refute predicate.call(@state, 'response2')
-          assert_equal ['response1', 'response2'], @state.calls_received
-        end
-      end
     end
   end
 end
