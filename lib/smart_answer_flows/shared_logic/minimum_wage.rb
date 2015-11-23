@@ -14,13 +14,16 @@ multiple_choice :what_would_you_like_to_check? do
 
   permitted_next_nodes = [
     :are_you_an_apprentice?,
+    :how_old_are_you?,
     :past_payment_date?
   ]
 
   next_node(permitted: permitted_next_nodes) do |response|
     case response
-    when 'current_payment', 'current_payment_april_2016'
+    when 'current_payment'
       :are_you_an_apprentice?
+    when 'current_payment_april_2016'
+      :how_old_are_you?
     when 'past_payment'
       :past_payment_date?
     end
@@ -109,6 +112,14 @@ value_question :how_old_are_you?, parse: Integer do
 
   validate do |response|
     calculator.valid_age?(response)
+  end
+
+  validate :valid_age_for_living_wage? do |response|
+    if calculator.what_to_check == 'current_payment_april_2016'
+      calculator.valid_age_for_living_wage?(response)
+    else
+      true
+    end
   end
 
   permitted_next_nodes = [

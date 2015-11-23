@@ -98,6 +98,17 @@ module SmartAnswer::Calculators
           assert @calculator.valid_accommodation_usage?(7)
         end
       end
+
+      context 'for age for living wage' do
+        should 'not accept ages below 25' do
+          refute @calculator.valid_age_for_living_wage?(24)
+        end
+
+        should 'accept ages 25 or above' do
+          assert @calculator.valid_age_for_living_wage?(25)
+          assert @calculator.valid_age_for_living_wage?(26)
+        end
+      end
     end
 
     context '#any_overtime_hours_worked?' do
