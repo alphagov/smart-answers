@@ -10,7 +10,6 @@ module SmartAnswer
         @next_node_function_chain ||= []
         @default_next_node_function ||= lambda {|_|}
         @permitted_next_nodes = []
-        @predicates = {}
         @uses_erb_template = options[:use_erb_template]
         super
       end
@@ -66,10 +65,6 @@ module SmartAnswer
           new_state = calculation.evaluate(new_state, input)
         end
         new_state
-      end
-
-      def respond_to_missing?(method, include_private = false)
-        @predicates.has_key?(method)
       end
 
       def parse_input(raw_input)
