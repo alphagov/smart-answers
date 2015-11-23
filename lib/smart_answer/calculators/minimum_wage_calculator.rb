@@ -1,25 +1,27 @@
 module SmartAnswer::Calculators
   class MinimumWageCalculator
 
-    attr_accessor :overtime_hours, :overtime_hourly_rate, :accommodation_cost
+    attr_accessor :age, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice,
+      :overtime_hours, :overtime_hourly_rate, :accommodation_cost
 
-    attr_accessor :age, :date, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice
-
-    def date=(date)
-      @date = date
-      @minimum_wage_data = minimum_wage_data_for_date(@date)
-    end
+    attr_reader :check, :date
 
     def initialize(params = {})
       @age = params[:age]
       @date = (params[:date].nil? ? Date.today : params[:date])
       @basic_hours = params[:basic_hours].to_f
       @basic_pay = params[:basic_pay].to_f
+      @check = params[:check]
       @is_apprentice = params[:is_apprentice]
       @pay_frequency = params[:pay_frequency] || 7
       @overtime_hours = params[:overtime_hours].to_i || 0
       @overtime_hourly_rate = 0
       @accommodation_cost = 0
+      @minimum_wage_data = minimum_wage_data_for_date(@date)
+    end
+
+    def date=(date)
+      @date = date
       @minimum_wage_data = minimum_wage_data_for_date(@date)
     end
 
@@ -122,6 +124,10 @@ module SmartAnswer::Calculators
       minimum_hourly_rate <= total_hourly_rate
     end
 
+    def living_wage_or_above?
+      national_living_wage_rate <= total_hourly_rate.to_f
+    end
+
     def accommodation_adjustment(charge, number_of_nights)
       charge = charge.to_f
       number_of_nights = number_of_nights.to_i
@@ -156,8 +162,16 @@ module SmartAnswer::Calculators
       @minimum_wage_data[:accommodation_rate]
     end
 
+    def national_living_wage_rate
+      7.2
+    end
+
     def apprentice_eligible_for_minimum_wage?
       date >= Date.parse('2010-10-01')
+    end
+
+    def eligible_for_living_wage?
+      age.to_i >= 25
     end
 
     def under_school_leaving_age?
