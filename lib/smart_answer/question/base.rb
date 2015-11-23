@@ -30,12 +30,6 @@ module SmartAnswer
         end
       end
 
-      def next_node_if(next_node, *predicates, &block)
-        predicates << block if block_given?
-        @next_node_function_chain << [next_node, normalize_predicates(@predicate_stack + predicates)]
-        @permitted_next_nodes << next_node
-      end
-
       def validate(message = nil, &block)
         @validations << [message, block]
       end
