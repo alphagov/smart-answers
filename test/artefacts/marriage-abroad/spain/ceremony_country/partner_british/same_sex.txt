@@ -15,7 +15,7 @@ $D
 $D
 
 $D
-[Download 'Marital status certificate' (PDF, 145KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/472727/Marital_Status_for_Marriage_Pack.pdf)
+[Download 'Marital status certificate' (PDF, 145KB)](https://www.gov.uk/government/publications/marital-status-example)
 $D
 
 ^Document requirements vary across Spain - check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re getting married to find out what you’ll need.^
@@ -26,11 +26,7 @@ You must apply for all certificates at least 3 months before you get married.
 
 ## Getting a certificate of no impediment
 
-Download and the complete the CNI application pack - it contains a list of the documents you’ll need.
-
-$D
-[Download 'CNI application pack' (PDF, 464KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/472720/Certificate_of_No_Impediment_Application_Pack.pdf)
-$D
+Download and complete the [CNI application pack](/government/publications/certificate-of-no-impediment-application-pack) - it contains a list of the documents you’ll need.
 
 You must sign the notice of marriage and affirmation in front of a local [notary public](http://www.notaries-directory.eu/) in Spain before you send your application to the consulate.
 
@@ -44,11 +40,7 @@ It takes 10 working days after payment for the consulate to process your applica
 
 ##Getting a marital status certificate
 
-Download and complete the marital status certificate application pack - it contains a list of the documents you’ll need.
-
-$D
-[Download 'Marital status certificate application pack' (PDF, 424KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/472727/Marital_Status_for_Marriage_Pack.pdf)
-$D
+Download and complete the [marital status certificate application pack](/government/publications/marital-status-certificate-for-marriage-application-pack) - it contains a list of the documents you’ll need.
 
 You must sign the affirmation in the application pack in front of a local [notary public](http://www.notaries-directory.eu/) in Spain before you send your application to the consulate.
 
@@ -96,4 +88,3 @@ You normally have to pay fees for consular services in the local currency - thes
 You can pay by credit card (Visa, Visa Electron or MasterCard), but not by personal cheque.
 
 *[CNI]:certificate of no impediment
-
