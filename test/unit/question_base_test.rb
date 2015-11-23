@@ -262,31 +262,4 @@ class QuestionBaseTest < ActiveSupport::TestCase
     expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}"
     assert_equal expected_message, error.message
   end
-
-  test "can define a predicate on a node" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      define_predicate(:response_red?) { |response| response == 'red' }
-      define_predicate(:color_red?) { color == 'red' }
-    }
-
-    assert q.response_red?.is_a?(SmartAnswer::Predicate::Callable)
-    assert q.color_red?.is_a?(SmartAnswer::Predicate::Callable)
-
-    state = SmartAnswer::State.new(q.name)
-    state.color = nil
-    assert q.response_red?.call(state, "red")
-    refute q.response_red?.call(state, "green")
-
-    refute q.color_red?.call(state, "")
-    state.color = 'red'
-    assert q.color_red?.call(state, "")
-  end
-
-  test "may not define a predicate for a method which already exists" do
-    assert_raises RuntimeError, /method define_predicate already defined/ do
-      SmartAnswer::Question::Base.new(nil, :example) {
-        define_predicate(:define_predicate) {}
-      }
-    end
-  end
 end

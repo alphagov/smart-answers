@@ -95,11 +95,6 @@ module SmartAnswer
         @predicate_stack.pop
       end
 
-      def define_predicate(identifier, label = nil, &block)
-        raise "method #{identifier} already defined" if self.class.method_defined?(identifier)
-        @predicates[identifier] = SmartAnswer::Predicate::Callable.new(label || identifier.to_s, &block)
-      end
-
       def respond_to_missing?(method, include_private = false)
         @predicates.has_key?(method)
       end
