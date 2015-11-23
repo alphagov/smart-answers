@@ -34,10 +34,6 @@ module SmartAnswer
         input.split(',').reject {|v| v == NONE_OPTION }
       end
 
-      def response_has_all_of(required_responses)
-        SmartAnswer::Predicate::ResponseHasAllOf.new(required_responses)
-      end
-
       def response_is_only(accepted_response)
         ->(response) { response.split(",") == [accepted_response] }
       end

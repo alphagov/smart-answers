@@ -128,31 +128,6 @@ module SmartAnswer
         end
       end
 
-      context "ResponseHasAllOf predicate" do
-        should "return true if all responses met" do
-          predicate = ResponseHasAllOf.new(%w{red green})
-          refute predicate.call(@state, '')
-          refute predicate.call(@state, 'red')
-          refute predicate.call(@state, 'blue')
-          refute predicate.call(@state, 'green')
-          refute predicate.call(@state, 'red,blue')
-          assert predicate.call(@state, 'red,green')
-          refute predicate.call(@state, 'blue,green')
-          assert predicate.call(@state, 'red,blue,green')
-        end
-
-        should "always be true if empty requirements" do
-          predicate = ResponseHasAllOf.new([])
-          assert predicate.call(@state, '')
-          assert predicate.call(@state, 'red')
-        end
-
-        should "make label from options" do
-          predicate = ResponseHasAllOf.new(%w{red green})
-          assert_equal "red & green", predicate.label
-        end
-      end
-
       context "VariableMatches predicate" do
         setup do
           @predicate = VariableMatches.new(:my_var, %w{a b})
