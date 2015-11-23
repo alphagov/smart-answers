@@ -102,10 +102,6 @@ module SmartAnswer
       should "define response_has_all_of" do
         assert @question.response_has_all_of([]).is_a?(SmartAnswer::Predicate::ResponseHasAllOf)
       end
-
-      should "define response_is_one_of" do
-        assert @question.response_is_one_of([]).is_a?(SmartAnswer::Predicate::ResponseIsOneOf)
-      end
     end
   end
 end

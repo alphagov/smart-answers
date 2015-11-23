@@ -153,23 +153,6 @@ module SmartAnswer
         end
       end
 
-      context "ResponseIsOneOf predicate" do
-        setup do
-          @predicate = ResponseIsOneOf.new(%w{a b c})
-        end
-
-        should "splits the response on comma and indicates if any of the options present" do
-          assert @predicate.call(@state, 'a,b,c')
-          assert @predicate.call(@state, 'a,c,d')
-          assert @predicate.call(@state, 'a')
-          refute @predicate.call(@state, 'd,e,f')
-        end
-
-        should "make label from options" do
-          assert_equal "a | b | c", @predicate.label
-        end
-      end
-
       context "VariableMatches predicate" do
         setup do
           @predicate = VariableMatches.new(:my_var, %w{a b})
