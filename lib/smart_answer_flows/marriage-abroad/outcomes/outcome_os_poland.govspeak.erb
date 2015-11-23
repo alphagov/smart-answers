@@ -44,13 +44,13 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
 
-    ###Get a locally-issued CNI
+    ### Get a locally-issued CNI
 
     If the local registry office in Poland doesn’t accept UK-issued CNIs, you must make an appointment at the British embassy in Warsaw to get a locally-issued CNI.
 
     [Make an appointment at the embassy in Warsaw.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-warsaw/certificate-of-no-impediment/slot_picker)
 
-    ###Legalisation and translation
+    ### Legalisation and translation
 
     You must check with the local authorities in <%= country_name_lowercase_prefix %> to see if your UK-issued CNI needs to be:
 
@@ -79,11 +79,11 @@
                   country_name_lowercase_prefix: country_name_lowercase_prefix
                 } -%>
 
-     ### Posting notice in front of a notary public
+     ### Get your documents witnessed in front of a notary public
 
      Download an [‘Affidavit/Affirmation’](/government/publications/affidavitaffirmation-form-poland) form and a [‘Notice of Marriage’](/government/publications/notice-of-marriage-form-poland) form and take them with you to a notary public.
 
-     ###Posting notice at the embassy
+     ### Get your documents witnessed at the embassy
 
      <%= render partial: 'contact_method.govspeak.erb',
                 locals: {
@@ -98,7 +98,7 @@
      You’ll need to provide supporting documents, including:
 
      - your passport
-     - proof of residence, such as a residence certificate - check with the <%= embassy_or_consulate_ceremony_country %> or notary public to find out what you need
+     - proof of residence, eg flight tickets - check with the <%= embassy_or_consulate_ceremony_country %> or notary public to find out what you need
      - equivalent documents for your partner
 
      <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
@@ -117,7 +117,15 @@
   <% if resident_of == 'ceremony_country' %>
     The embassy or notary public can take your oath or affirmation and witness your notice of marriage. The notary public may charge 2 separate fees for this.
 
-    If you give notice at a notary public, you must post the signed forms to the British embassy in Warsaw afterwards.
+    If you got your documents witnessed at a notary public, you must post the signed forms to the British embassy in Warsaw afterwards.
+
+    There’s an additional fee for this - you must complete a [payment form](/government/publications/credit-card-payment-authorisation-form-poland) and email it to the embassy in Warsaw.
+
+    $C
+    <mailto:Warsaw_consularmail@fco.gov.uk>
+    $C
+
+    The embassy will contact you to confirm that the payment was accepted.
 
     $A
     Consular section
@@ -128,7 +136,7 @@
     Poland
     $A
 
-    The embassy will display your notice of marriage publicly for 7 days. They’ll then send all of your documentation to the British embassy or consulate, who will issue your CNI (as long as nobody has registered an objection).
+    The embassy will display your notice of marriage publicly for 7 days.
 
     There’s an additional fee for this - you must complete a [payment form](/government/publications/credit-card-payment-authorisation-form-poland) and email it to the embassy in Warsaw.
 
@@ -153,9 +161,9 @@
     <% end %>
   <% end %>
 
-  If you’re getting married in a registry office, you must give them your CNI at least 2 months before your wedding. If you’re getting married in a church, you can do this 2 days before the wedding.
+  If you’re getting married in a registry office, you must give them your CNI at least one day before your wedding. If you’re getting married in a church, you can do this 2 days before the wedding.
 
-  You may be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
+  You will be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
 
   <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
