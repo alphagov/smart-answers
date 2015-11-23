@@ -10,7 +10,6 @@ module SmartAnswer
         @next_node_function_chain ||= []
         @default_next_node_function ||= lambda {|_|}
         @permitted_next_nodes = []
-        @predicate_stack = []
         @predicates = {}
         @uses_erb_template = options[:use_erb_template]
         super
@@ -73,26 +72,6 @@ module SmartAnswer
           new_state = calculation.evaluate(new_state, input)
         end
         new_state
-      end
-
-      # Within an #on_condition block, all #next_node and #next_node_if
-      # clauses must additionally satisfy the given predicate. Nesting of
-      # #on_condition blocks is permitted.
-      #
-      # Example:
-      #
-      # on_condition(->(r) {r == 'tourism'}) do
-      #   next_node_if(:outcome_visit_waiver) { %w(oman qatar united-arab-emirates).include?(passport_country) }
-      #   next_node_if(:outcome_taiwan_exception) { %w(taiwan).include?(passport_country) }
-      #   next_node_if(:outcome_school_n) do
-      #     country_group_non_visa_national.include?(passport_country) or country_group_ukot.include?(passport_country))
-      #   end
-      #   next_node(:outcome_general_y)
-      # end
-      def on_condition(predicate, &block)
-        @predicate_stack << predicate
-        instance_eval(&block)
-        @predicate_stack.pop
       end
 
       def respond_to_missing?(method, include_private = false)
