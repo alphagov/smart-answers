@@ -1,10 +1,10 @@
 ---
 lib/smart_answer_flows/am-i-getting-minimum-wage.rb: 09d171f02c640624e59c6e520a10d4c4
-test/data/am-i-getting-minimum-wage-questions-and-responses.yml: ddadb3fc5fc1d82d77f53fbc90752d89
-test/data/am-i-getting-minimum-wage-responses-and-expected-results.yml: 3f047b0007e3432a77ea4e896ea763ea
-lib/smart_answer_flows/am-i-getting-minimum-wage/am_i_getting_minimum_wage.govspeak.erb: 28fb978cb4744e739d38bc1927f31d9e
-lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_above.govspeak.erb: 97968331edd4f54487a156f5f41b11a9
-lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_below.govspeak.erb: e2de59b12ab10ec87a936c23a57880e5
+test/data/am-i-getting-minimum-wage-questions-and-responses.yml: 9448744e58e3e268ba6911a58c3a1e6e
+test/data/am-i-getting-minimum-wage-responses-and-expected-results.yml: 6c1ea54772d646a89828c51a08fef64e
+lib/smart_answer_flows/am-i-getting-minimum-wage/am_i_getting_minimum_wage.govspeak.erb: e3bad2e005bb806999594e9f87f5e5ae
+lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_above.govspeak.erb: 9b82c9fc163ecff3b9d55e6352afbddd
+lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_below.govspeak.erb: c5df501d4653304260fb0a95111ff111
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/does_not_apply_to_historical_apprentices.govspeak.erb: bd846fa5585f32e995c74bb714f6d600
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/past_payment_above.govspeak.erb: 83b499f49b224ef3faf022f3f5df0ac1
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/past_payment_below.govspeak.erb: b53b6378246a28ae3b8706d54d09bd75
@@ -21,7 +21,7 @@ lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_much_are_you_paid
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_much_were_you_paid_during_pay_period.govspeak.erb: c6abaebfaae248fd3693ba2e1beab5d3
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_often_did_you_get_paid.govspeak.erb: 868f39331c513af521803a73a44d61ad
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_often_do_you_get_paid.govspeak.erb: 7c8cfebb76f688bfb03c3625cd413a24
-lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_old_are_you.govspeak.erb: b4c4a36d67bd08b14cdd58505736eadc
+lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_old_are_you.govspeak.erb: 63448299e27159f03d1d91b90aff86c1
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_old_were_you.govspeak.erb: bfd909f04f6d523614226a0f9b8e7ea5
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/is_provided_with_accommodation.govspeak.erb: 083f1e522ae617d0aacf6851479ef28c
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/past_accommodation_charge.govspeak.erb: 9278d1a8b2bf2d3979fb744902c8e9ef
@@ -31,8 +31,8 @@ lib/smart_answer_flows/am-i-getting-minimum-wage/questions/was_provided_with_acc
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/were_you_an_apprentice.govspeak.erb: 301ea07f6a6ad55cbaaefd8d3ad3c181
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/what_is_overtime_pay_per_hour.govspeak.erb: d9083c3da82c3f5754f7bdd9394e7d4f
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/what_was_overtime_pay_per_hour.govspeak.erb: 38abdccc0f2f10e6e56837336f4143bb
-lib/smart_answer_flows/am-i-getting-minimum-wage/questions/what_would_you_like_to_check.govspeak.erb: 55a3048f9ec7b6fbad1678fc41d62ffc
-lib/smart_answer_flows/shared/minimum_wage/_acas_information.govspeak.erb: 0d2f7c4d01e3c928701e7d649663707e
-lib/smart_answer_flows/shared_logic/minimum_wage.rb: caec9c44ba15d41e0ddf494aafca3da0
-lib/smart_answer/calculators/minimum_wage_calculator.rb: cab354bb2fc0f660d6c6aef70b9fabc5
+lib/smart_answer_flows/am-i-getting-minimum-wage/questions/what_would_you_like_to_check.govspeak.erb: c3ae31e57b1f5d78a30c08ed6e22f245
+lib/smart_answer_flows/shared/minimum_wage/_acas_information.govspeak.erb: 582cdf982fa5619072ddd883bf4c1555
+lib/smart_answer_flows/shared_logic/minimum_wage.rb: 85a5e367015caa1dc19e297a6041c1b6
+lib/smart_answer/calculators/minimum_wage_calculator.rb: 721f27ae7e3366e4227688213590e00b
 lib/data/minimum_wage_data.yml: ff0204584fe4e0672370fda487121915
