@@ -33,10 +33,6 @@ module SmartAnswer
       def to_response(input)
         input.split(',').reject {|v| v == NONE_OPTION }
       end
-
-      def response_is_only(accepted_response)
-        ->(response) { response.split(",") == [accepted_response] }
-      end
     end
   end
 end
