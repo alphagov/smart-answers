@@ -217,9 +217,20 @@ multiple_choice :employee_on_payroll_paternity? do
     paternity_adoption ? ap_adoption_date_formatted : date_of_birth
   end
 
-  next_node_if(:employee_still_employed_on_birth_date?, responded_with('yes'))
-  next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no'))
-  next_node :employee_start_paternity?
+  permitted_next_nodes = [
+    :employee_start_paternity?,
+    :employee_still_employed_on_birth_date?,
+    :paternity_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    if response == 'yes'
+      :employee_still_employed_on_birth_date?
+    elsif has_contract == 'no'
+      :paternity_not_entitled_to_leave_or_pay
+    else
+      :employee_start_paternity?
+    end
+  end
 end
 
 ## QP7
@@ -228,8 +239,17 @@ multiple_choice :employee_still_employed_on_birth_date? do
   option :no
   save_input_as :employed_dob
 
-  next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'no') & responded_with('no'))
-  next_node :employee_start_paternity?
+  permitted_next_nodes = [
+    :employee_start_paternity?,
+    :paternity_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    if has_contract == 'no' && response == 'no'
+      :paternity_not_entitled_to_leave_or_pay
+    else
+      :employee_start_paternity?
+    end
+  end
 end
 
 ## QP8
@@ -267,9 +287,17 @@ multiple_choice :employee_paternity_length? do
     calculator.pay_end_date
   end
 
-  next_node_if(:paternity_not_entitled_to_leave_or_pay, variable_matches(:has_contract, 'yes') &
-    (variable_matches(:on_payroll, 'no') | variable_matches(:employed_dob, 'no')))
-  next_node :last_normal_payday_paternity?
+  permitted_next_nodes = [
+    :last_normal_payday_paternity?,
+    :paternity_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if has_contract == 'yes' && (on_payroll == 'no' || employed_dob == 'no')
+      :paternity_not_entitled_to_leave_or_pay
+    else
+      :last_normal_payday_paternity?
+    end
+  end
 end
 
 ## QP10
@@ -338,12 +366,21 @@ money_question :earnings_for_pay_period_paternity? do
     calculator
   end
 
-  define_predicate(:average_weekly_earnings_under_lower_earning_limit?) do
+  next_node_calculation(:average_weekly_earnings_under_lower_earning_limit) do
     calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
 
-  next_node_if(:paternity_leave_and_pay, average_weekly_earnings_under_lower_earning_limit?)
-  next_node :how_do_you_want_the_spp_calculated?
+  permitted_next_nodes = [
+    :how_do_you_want_the_spp_calculated?,
+    :paternity_leave_and_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if average_weekly_earnings_under_lower_earning_limit
+      :paternity_leave_and_pay
+    else
+      :how_do_you_want_the_spp_calculated?
+    end
+  end
 end
 
 ## QP14
@@ -353,9 +390,20 @@ multiple_choice :how_do_you_want_the_spp_calculated? do
 
   save_input_as :spp_calculation_method
 
-  next_node_if(:paternity_leave_and_pay, responded_with('weekly_starting'))
-  next_node_if(:monthly_pay_paternity?, variable_matches(:pay_pattern, 'monthly'))
-  next_node :next_pay_day_paternity?
+  permitted_next_nodes = [
+    :monthly_pay_paternity?,
+    :next_pay_day_paternity?,
+    :paternity_leave_and_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    if response == 'weekly_starting'
+      :paternity_leave_and_pay
+    elsif pay_pattern == 'monthly'
+      :monthly_pay_paternity?
+    else
+      :next_pay_day_paternity?
+    end
+  end
 end
 
 ## QP15 - Also shared with adoption calculator here onwards
@@ -381,11 +429,26 @@ multiple_choice :monthly_pay_paternity? do
 
   save_input_as :monthly_pay_method
 
-  next_node_if(:specific_date_each_month_paternity?, responded_with('specific_date_each_month'))
-  next_node_if(:days_of_the_week_paternity?, responded_with('last_working_day_of_the_month'))
-  next_node_if(:day_of_the_month_paternity?, responded_with('a_certain_week_day_each_month'))
-  next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
-  next_node :paternity_leave_and_pay
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :day_of_the_month_paternity?,
+    :days_of_the_week_paternity?,
+    :paternity_leave_and_pay,
+    :specific_date_each_month_paternity?
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    if response == 'specific_date_each_month'
+      :specific_date_each_month_paternity?
+    elsif response == 'last_working_day_of_the_month'
+      :days_of_the_week_paternity?
+    elsif response == 'a_certain_week_day_each_month'
+      :day_of_the_month_paternity?
+    elsif leave_type == 'adoption'
+      :adoption_leave_and_pay
+    else
+      :paternity_leave_and_pay
+    end
+  end
 end
 
 ## QP17
@@ -397,8 +460,17 @@ value_question :specific_date_each_month_paternity?, parse: :to_i do
     calculator.pay_day_in_month = day
   end
 
-  next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
-  next_node :paternity_leave_and_pay
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :paternity_leave_and_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if leave_type == 'adoption'
+      :adoption_leave_and_pay
+    else
+      :paternity_leave_and_pay
+    end
+  end
 end
 
 ## QP18
@@ -410,8 +482,17 @@ checkbox_question :days_of_the_week_paternity? do
     calculator.pay_day_in_week = response.split(",").sort.last.to_i
   end
 
-  next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
-  next_node :paternity_leave_and_pay
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :paternity_leave_and_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if leave_type == 'adoption'
+      :adoption_leave_and_pay
+    else
+      :paternity_leave_and_pay
+    end
+  end
 end
 
 ## QP19
@@ -444,8 +525,17 @@ multiple_choice :pay_date_options_paternity? do
     calculator.pay_week_in_month = response
   end
 
-  next_node_if(:adoption_leave_and_pay, variable_matches(:leave_type, 'adoption'))
-  next_node :paternity_leave_and_pay
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :paternity_leave_and_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if leave_type == 'adoption'
+      :adoption_leave_and_pay
+    else
+      :paternity_leave_and_pay
+    end
+  end
 end
 
 # Paternity outcomes
