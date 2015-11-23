@@ -123,4 +123,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 2f521bae99c2f48b49d07bcb283a8063
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: b69ed89bee92f2361f86e7509fc27ebf
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
-lib/smart_answer/calculators/registrations_data_query.rb: cbb0fad828d74606eb708d3442cf4ca5
+lib/smart_answer/calculators/registrations_data_query.rb: 563c5db7d7272bc07bd636a92b40f3ce
