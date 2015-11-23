@@ -2,6 +2,7 @@
 :what_would_you_like_to_check?:
 - current_payment
 - past_payment
+- current_payment_april_2016
 :past_payment_date?:
 - '2014-10-01'
 - '2013-10-01'
