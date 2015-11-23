@@ -24,7 +24,8 @@ module SmartAnswer
           @permitted_next_nodes += permitted
           @default_next_node_function = block
         elsif next_node
-          next_node_if(next_node)
+          @permitted_next_nodes = [next_node]
+          @default_next_node_function = proc { next_node }
         else
           raise ArgumentError
         end
