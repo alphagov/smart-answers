@@ -112,29 +112,6 @@ module SmartAnswer
           assert_equal ['response1', 'response2'], @state.calls_received
         end
       end
-
-      context "VariableMatches predicate" do
-        setup do
-          @predicate = VariableMatches.new(:my_var, %w{a b})
-        end
-
-        should "tests if the named variable matches any of the values" do
-          @state.my_var = 'a'
-          assert @predicate.call(@state, '')
-          @state.my_var = 'c'
-          refute @predicate.call(@state, '')
-        end
-
-        should "make label from options" do
-          assert_equal "my_var == { a | b }", @predicate.label
-        end
-
-        should "generate nice label when combining" do
-          p1 = VariableMatches.new(:a, 1, "one")
-          p2 = VariableMatches.new(:a, 2, "two")
-          assert_equal "a == one | two", (p1 | p2).label
-        end
-      end
     end
   end
 end
