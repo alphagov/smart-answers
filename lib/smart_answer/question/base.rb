@@ -1,13 +1,11 @@
 module SmartAnswer
   module Question
     class Base < Node
-      attr_reader :next_node_function_chain
       class NextNodeUndefined < StandardError; end
 
       def initialize(flow, name, options = {}, &block)
         @save_input_as = nil
         @validations ||= []
-        @next_node_function_chain ||= []
         @default_next_node_function ||= lambda {|_|}
         @permitted_next_nodes = []
         @uses_erb_template = options[:use_erb_template]
@@ -39,7 +37,7 @@ module SmartAnswer
 
       def next_node_for(current_state, input)
         validate!(current_state, input)
-        next_node = next_node_from_function_chain(current_state, input) || next_node_from_default_function(current_state, input)
+        next_node = next_node_from_default_function(current_state, input)
         responses_and_input = current_state.responses + [input]
         raise NextNodeUndefined.new("Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}") unless next_node
         unless @permitted_next_nodes.include?(next_node)
@@ -98,15 +96,6 @@ module SmartAnswer
             end
           end
         end
-      end
-
-      def next_node_from_function_chain(current_state, input)
-        found = @next_node_function_chain.find do |(_, predicates)|
-          predicates.all? do |predicate|
-            predicate.call(current_state, input)
-          end
-        end
-        found && found.first
       end
 
       def next_node_from_default_function(current_state, input)
