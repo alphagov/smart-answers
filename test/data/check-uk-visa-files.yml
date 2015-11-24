@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/check-uk-visa.rb: 539c1acdc0b0c6513d8db1cf34ee397e
+lib/smart_answer_flows/check-uk-visa.rb: abbbcebfff0163ce8279cfc634716d24
 test/data/check-uk-visa-questions-and-responses.yml: 1c812e8d00a9dc8525848e643f1ae0e0
-test/data/check-uk-visa-responses-and-expected-results.yml: cfca31e5840cb6d0068cde0ec0a0ae0c
+test/data/check-uk-visa-responses-and-expected-results.yml: db29eb80b3205754f015032719de9774
 lib/smart_answer_flows/check-uk-visa/check_uk_visa.govspeak.erb: a442b4ddd169b26a401c70d145e5b44e
 lib/smart_answer_flows/check-uk-visa/outcomes/_b1_b2_visa_exception.govspeak.erb: 410e39d565d0a5caed2d1b8c20c1ca77
 lib/smart_answer_flows/check-uk-visa/outcomes/_stateless_or_refugee.govspeak.erb: a14d7807087e4f05e9fada8ac755ee2e
@@ -23,8 +23,8 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_leaving_airport.go
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_leaving_airport_datv.govspeak.erb: 1d0ce7899e540d7a21023613cfab48e7
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_not_leaving_airport.govspeak.erb: 3ea6330e57bb70c6fa07ef0c949f24ab
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_refugee_not_leaving_airport.govspeak.erb: a344b0c62367eac3e00d048563b636dd
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan.govspeak.erb: c4114ee6b11429d3b5664a15a96dbcf9
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_venezuala.govspeak.erb: bd9788e28961700fcaf7cd8ea43411b7
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan.govspeak.erb: f08df194085f5fb41077a7e0815dcb5c
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_venezuela.govspeak.erb: bd9788e28961700fcaf7cd8ea43411b7
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_visit_waiver.govspeak.erb: 7a56f0a6b714bb114cb3f966497d9b4e
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_m.govspeak.erb: 2a2021fec2f3a63d873bb1f48206349d
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_n.govspeak.erb: da229fbf8796faffab862bee3ed2b9a0
