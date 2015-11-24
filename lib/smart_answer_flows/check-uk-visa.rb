@@ -144,16 +144,18 @@ module SmartAnswer
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.passing_through_uk_border_control_answer = response
 
-          next :outcome_transit_taiwan if calculator.passport_country_is_taiwan?
-
           if calculator.passing_through_uk_border_control?
-            if calculator.passport_country_in_visa_national_list?
+            if calculator.passport_country_is_taiwan?
+              :outcome_transit_taiwan
+            elsif calculator.passport_country_in_visa_national_list?
               :outcome_transit_leaving_airport
             elsif calculator.passport_country_in_datv_list?
               :outcome_transit_leaving_airport_datv
             end
           else
-            if calculator.passport_country_is_venezuela?
+            if calculator.passport_country_is_taiwan?
+              :outcome_transit_taiwan
+            elsif calculator.passport_country_is_venezuela?
               :outcome_transit_venezuela
             elsif calculator.applicant_is_stateless_or_a_refugee?
               :outcome_transit_refugee_not_leaving_airport
