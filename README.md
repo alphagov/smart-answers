@@ -18,15 +18,13 @@ Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/sma
 
 * **Smart Answer**: The flow, questions and outcomes.
 
-* **Landing page**: The page containing the "Start now" button that describes the Smart Answer.
+* **Flow**: Defines the questions, outcomes and the rules for navigating between them.
 
-* **Flow**: Ruby code describing the questions, outcomes and rules for navigating between them.
+* **Landing page**: Contains a description of the Smart Answer and the "Start now" button that leads to the first question.
 
-* **Question**: An individual question that's asked in order to help the user arrive at the answer to the overall flow question.
+* **Question page**: Contains an individual question that's asked in order to help arrive at at an outcome.
 
-* **Outcome**: ERB template containing the answer(s) to the overall flow question, based on the user's responses to the individual questions.
-
-* **Node**: Questions and Outcomes are Nodes.
+* **Outcome page**: Contains the result of the Smart Answer based on responses to individual questions.
 
 ## Technical documentation
 
