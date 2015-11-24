@@ -1182,7 +1182,7 @@
   - venezuela
   - transit
   - 'no'
-  :next_node: :outcome_transit_venezuala
+  :next_node: :outcome_transit_venezuela
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
