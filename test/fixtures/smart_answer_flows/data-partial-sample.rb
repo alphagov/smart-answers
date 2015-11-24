@@ -4,6 +4,8 @@ module SmartAnswer
       name 'data-partial-sample'
       status :draft
 
+      use_erb_templates_for_questions
+
       multiple_choice :what_are_you_testing? do
         option :data_partial_with_scalar
         option :data_partial_with_array

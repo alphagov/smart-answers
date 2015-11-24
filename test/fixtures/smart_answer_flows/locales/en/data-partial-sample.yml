@@ -1,8 +1,0 @@
-en-GB:
-  flow:
-    data-partial-sample:
-      what_are_you_testing?:
-        title: "What are you testing?"
-        options:
-          data_partial_with_scalar: 'Data partial with scalar'
-          data_partial_with_array: 'Data partial with array'

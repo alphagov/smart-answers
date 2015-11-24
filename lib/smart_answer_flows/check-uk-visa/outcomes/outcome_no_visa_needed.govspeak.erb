@@ -3,9 +3,13 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if %w(croatia).include?(passport_country) %>
+  <% if calculator.passport_country_is_croatia? %>
+
     However, you may need a [registration certificate](/croatian-national) if you want to stay and work.
-  <% elsif purpose_of_visit_answer == 'study' %>
+
+  <% elsif calculator.study_visit? %>
+
     However, you should bring documents with you to show at the border. See the relevant [student visa](/browse/visas-immigration/study-visas) guide to see what documents to bring.
+
   <% end %>
 <% end %>

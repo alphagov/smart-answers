@@ -7,6 +7,8 @@ module SmartAnswer
       status :published
       satisfies_need "100233"
 
+      use_erb_templates_for_questions
+
       # Q1
       multiple_choice :how_much_starch_glucose? do
         option 0
@@ -16,6 +18,10 @@ module SmartAnswer
         option 75
 
         save_input_as :starch_glucose_weight
+
+        calculate :milk_protein_weight do
+          nil
+        end
 
         permitted_next_nodes = [
           :how_much_sucrose_1?,

@@ -1,9 +1,0 @@
-en-GB:
-  flow:
-    precalculation-sample:
-      how_much_wood_would_a_woodchuck_chuck_if_a_woodchuck_could_chuck_wood?:
-        title: "How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
-        label: "Amount:"
-      how_many_woodchucks_do_you_have?:
-        title: "How many woodchucks do you have?"
-        label: "Amount:"

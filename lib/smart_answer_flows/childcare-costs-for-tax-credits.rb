@@ -6,10 +6,16 @@ module SmartAnswer
       status :published
       satisfies_need "100422"
 
+      use_erb_templates_for_questions
+
       #Q1
       multiple_choice :currently_claiming? do
         option :yes
         option :no
+
+        calculate :cost_change_4_weeks do
+          nil
+        end
 
         permitted_next_nodes = [
           :have_costs_changed?,

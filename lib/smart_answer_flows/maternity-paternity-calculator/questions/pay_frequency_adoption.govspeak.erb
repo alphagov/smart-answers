@@ -1,0 +1,14 @@
+<% content_for :title do %>
+  How often do you pay the employee?
+<% end %>
+
+<% options(
+  "weekly": "Weekly",
+  "every_2_weeks": "Every 2 weeks",
+  "every_4_weeks": "Every 4 weeks",
+  "monthly": "Monthly"
+) %>
+
+<% content_for :hint do %>
+  If they’re paid irregularly choose ‘weekly’.
+<% end %>

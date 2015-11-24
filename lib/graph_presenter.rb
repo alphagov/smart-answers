@@ -1,6 +1,7 @@
 class GraphPresenter
   def initialize(flow)
     @flow = flow
+    @i18n_prefix = "flow.#{@flow.name}"
   end
 
   def labels
@@ -74,34 +75,15 @@ private
     end * "\n"
   end
 
-  def allow_missing_interpolations(&block)
-    old = I18n.config.missing_interpolation_argument_handler
-    I18n.config.missing_interpolation_argument_handler = ->(key) { "((#{key}))" }
-    block.call
-  ensure
-    I18n.config.missing_interpolation_argument_handler = old
-  end
-
-  def i18n_prefix(node)
-    "flow.#{@flow.name}.#{node.name}"
+  module MethodMissingHelper
+    def method_missing(method, *args, &block)
+      MethodMissingObject.new(method)
+    end
   end
 
   def node_title(node)
-    allow_missing_interpolations do
-      I18n.translate!("#{i18n_prefix(node)}.title", {})
-    end
-  rescue I18n::MissingTranslationData
-    ""
-  end
-
-  def translate_option(node, option)
-    allow_missing_interpolations do
-      begin
-        I18n.translate!("flow.#{@flow.name}.options.#{option}")
-      rescue I18n::MissingTranslationData
-        I18n.translate("#{i18n_prefix(node)}.options.#{option}")
-      end
-    end
+    presenter = QuestionPresenter.new(@i18n_prefix, node, {}, helpers: [MethodMissingHelper])
+    presenter.title
   end
 
   def presenter

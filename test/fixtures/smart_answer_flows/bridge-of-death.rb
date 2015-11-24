@@ -4,6 +4,8 @@ module SmartAnswer
       name 'bridge-of-death'
       status :draft
 
+      use_erb_templates_for_questions
+
       value_question :what_is_your_name? do
         save_input_as :your_name
         next_node :what_is_your_quest?

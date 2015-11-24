@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100143"
 
+      use_erb_templates_for_questions
+
       # Q1
       multiple_choice :basis_of_calculation? do
         option "days-worked-per-week"
@@ -15,6 +17,16 @@ module SmartAnswer
         option "compressed-hours"
         option "shift-worker"
         save_input_as :calculation_basis
+
+        calculate :leaving_date do
+          nil
+        end
+        calculate :leave_year_start_date do
+          nil
+        end
+        calculate :start_date do
+          nil
+        end
 
         permitted_next_nodes = [
           :calculation_period?,

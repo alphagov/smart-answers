@@ -1,0 +1,28 @@
+<% content_for :title do %>
+  What are your circumstances?
+<% end %>
+
+<% options(
+  "benefits": "You’re getting benefits",
+  "property": "You own your property",
+  "permission": "You rent privately but have permission from the owner to make energy saving improvements (eg upgrade the boiler)",
+  "social_housing": "You’re a social housing tenant",
+  "none": "none"
+) %>
+
+<% content_for :hint do %>
+  Choose all that apply to you. If none apply just click ‘Next step’.
+<% end %>
+
+<% content_for :error_perm_prop_house do %>
+  You can't rent privately, be a social housing tenant and own your property
+<% end %>
+<% content_for :error_prop_house do %>
+  You can't be a social housing tenant and own your property
+<% end %>
+<% content_for :error_perm_prop do %>
+  You can't rent privately and own your property
+<% end %>
+<% content_for :error_perm_house do %>
+  You can't rent privately and be a social housing tenant
+<% end %>

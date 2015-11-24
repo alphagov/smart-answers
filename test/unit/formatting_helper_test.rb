@@ -6,10 +6,12 @@ module SmartAnswer
 
     test "#format_money doesn't add pence for amounts in whole pounds" do
       assert_equal '£1', format_money('1.00')
+      assert_equal '£1', format_money(Money.new('1.00'))
     end
 
     test "#format_money adds pence for amounts that aren't whole pounds" do
       assert_equal '£1.23', format_money('1.23')
+      assert_equal '£1.23', format_money(Money.new('1.23'))
     end
 
     test '#format_date returns the date formatted using "%e %B %Y"' do

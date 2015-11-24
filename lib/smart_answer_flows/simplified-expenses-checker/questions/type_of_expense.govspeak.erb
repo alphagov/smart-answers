@@ -1,0 +1,18 @@
+<% content_for :title do %>
+  Do you have any of these expenses as part of your business?
+<% end %>
+
+<% options(
+  "car_or_van": "Car or van (business use)",
+  "motorcycle": "Motorcycle (business use)",
+  "using_home_for_business": "Working from home (the main purpose of the building is your home)",
+  "live_on_business_premises": "Living on your business premises (the main purpose of the building where you live is your business, eg a B&amp;B, and you're likely to pay business rates instead of council tax)"
+) %>
+
+<% content_for :hint do %>
+  If you don't have any of these expenses go to 'Next step'.
+<% end %>
+
+<% content_for :error_message do %>
+  You can’t choose both ‘working from home’ or ‘living on your business premises’ Please choose one.
+<% end %>

@@ -10,7 +10,6 @@ Read more in [a blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-
 
 * Types of Smart Answer
   * [Ruby](doc/smart-answer-flows.md)
-  * [Smartdown](doc/smartdown-flows.md) (__DEPRECATED__)
 * Process
   * [Archiving a Smart Answer](doc/archiving.md)
   * [Continuous integration](doc/continuous-integration.md)

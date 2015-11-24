@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  Was your employee off sick within the previous 8 weeks for 4 or more days (including non-working days, weekends and holidays)?
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
+
+<% content_for :body do %>
+  These are called ‘linked Periods of Incapacity for Work (PIW)’. Check if an employee’s [PIW links to a previous one.](/government/publications/statutory-sick-pay-tables-for-linking-periods-of-incapacity-for-work)
+
+  *[PIW]: Period of Incapacity for Work
+
+<% end %>

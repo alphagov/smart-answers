@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100220"
 
+      use_erb_templates_for_questions
+
       arrested_calc = SmartAnswer::Calculators::ArrestedAbroad.new
       prisoner_packs = arrested_calc.data
       exclude_countries = %w(holy-see british-antarctic-territory)

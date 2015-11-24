@@ -1,7 +1,0 @@
-en-GB:
-  flow:
-    custom-errors-sample:
-      how_many_things_do_you_own?:
-        title: "How many things do you own?"
-        label: "Things"
-        custom_error: "Sorry, but that is not a number. Please try again."

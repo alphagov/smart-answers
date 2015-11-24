@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100119"
 
+      use_erb_templates_for_questions
+
       #Q1 - new or existing business
       multiple_choice :claimed_expenses_for_current_business? do
         option :yes
@@ -19,6 +21,37 @@ module SmartAnswer
 
         calculate :is_existing_business do
           !is_new_business
+        end
+
+        calculate :capital_allowance_claimed do
+          nil
+        end
+        calculate :simple_vehicle_costs do
+          nil
+        end
+        calculate :simple_motorcycle_costs do
+          nil
+        end
+        calculate :vehicle_costs do
+          nil
+        end
+        calculate :green_vehicle_write_off do
+          nil
+        end
+        calculate :dirty_vehicle_write_off do
+          nil
+        end
+        calculate :simple_business_costs do
+          nil
+        end
+        calculate :is_over_limit do
+          nil
+        end
+        calculate :home_costs do
+          nil
+        end
+        calculate :simple_home_costs do
+          nil
         end
 
         next_node :type_of_expense?

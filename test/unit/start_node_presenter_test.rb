@@ -21,32 +21,14 @@ module SmartAnswer
       StartNodePresenter.new('i18n-prefix', start_node)
     end
 
-    test '#title returns content rendered for title block with govspeak processing disabled' do
-      @renderer.stubs(:content_for).with(:title, html: false).returns('title-text')
+    test '#title returns single line of content rendered for title block' do
+      @renderer.stubs(:single_line_of_content_for).with(:title).returns('title-text')
 
       assert_equal 'title-text', @presenter.title
     end
 
-    test '#title removes trailing newline from rendered content' do
-      @renderer.stubs(:content_for).returns("title-text\n")
-
-      assert_equal 'title-text', @presenter.title
-    end
-
-    test '#title falls back to humanized node name if not title available in ERB template' do
-      @renderer.stubs(:content_for).returns(nil)
-
-      assert_equal 'Start node name', @presenter.title
-    end
-
-    test '#meta_description returns content rendered for meta_description block with govspeak processing disabled' do
-      @renderer.stubs(:content_for).with(:meta_description, html: false).returns('meta-description-text')
-
-      assert_equal 'meta-description-text', @presenter.meta_description
-    end
-
-    test '#meta_description removes trailing newline from rendered content' do
-      @renderer.stubs(:content_for).returns("meta-description-text\n")
+    test '#meta_description returns single line of content rendered for meta_description block' do
+      @renderer.stubs(:single_line_of_content_for).with(:meta_description).returns('meta-description-text')
 
       assert_equal 'meta-description-text', @presenter.meta_description
     end

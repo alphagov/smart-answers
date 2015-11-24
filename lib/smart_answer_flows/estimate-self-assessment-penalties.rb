@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100615"
 
+      use_erb_templates_for_questions
+
       calculator_dates = {
         online_filing_deadline: {
           "2011-12": Date.new(2013, 1, 31),

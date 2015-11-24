@@ -1,0 +1,14 @@
+<% content_for :title do %>
+  What’s the employment status of the mother’s partner?
+<% end %>
+
+<% options(
+  "employee": "Employee",
+  "worker": "Worker or agency worker",
+  "self-employed": "Self-employed",
+  "unemployed": "Unemployed"
+) %>
+
+<% content_for :post_body do %>
+  Read about [employment statuses](/employment-status) if you aren’t sure which one applies.
+<% end %>

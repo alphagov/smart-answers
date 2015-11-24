@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100131"
 
+      use_erb_templates_for_questions
+
       data_query = Calculators::PassportAndEmbassyDataQuery.new
 
       exclude_countries = %w(holy-see british-antarctic-territory)
@@ -21,6 +23,16 @@ module SmartAnswer
           end
           raise InvalidResponse unless loc
           loc
+        end
+
+        calculate :birth_location do
+          nil
+        end
+        calculate :embassy_address do
+          nil
+        end
+        calculate :send_colour_photocopy_bulletpoint do
+          nil
         end
 
         next_node_calculation :ineligible_country do |response|

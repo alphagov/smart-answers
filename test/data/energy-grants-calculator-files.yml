@@ -1,6 +1,5 @@
 ---
-lib/smart_answer_flows/energy-grants-calculator.rb: 55d04a36d23b1777fd5ff0d1c7777fa4
-lib/smart_answer_flows/locales/en/energy-grants-calculator.yml: dd640cd1e93bbdac129b3863552cb554
+lib/smart_answer_flows/energy-grants-calculator.rb: 7b38e8cee0f1bb8f1d9dfb0b3b47f1d6
 test/data/energy-grants-calculator-questions-and-responses.yml: e725aa49320518369f4fdc601cd217b2
 test/data/energy-grants-calculator-responses-and-expected-results.yml: 8b1d6c6350f162a2d4efbc65362b5ae8
 lib/smart_answer_flows/energy-grants-calculator/energy_grants_calculator.govspeak.erb: 7df3ca7bdc65c932d84c51b4bd742bc2
@@ -39,3 +38,15 @@ lib/smart_answer_flows/energy-grants-calculator/outcomes/outcome_bills_and_measu
 lib/smart_answer_flows/energy-grants-calculator/outcomes/outcome_help_with_bills.govspeak.erb: 1e18aabae5f79308e322db36f1a3e6fd
 lib/smart_answer_flows/energy-grants-calculator/outcomes/outcome_measures_help_green_deal.govspeak.erb: 29afbae25825266453fc585834a5374c
 lib/smart_answer_flows/energy-grants-calculator/outcomes/outcome_no_green_deal_no_energy_measures.govspeak.erb: 8d03675ba90fbb24d405af0276f0ed20
+lib/smart_answer_flows/energy-grants-calculator/questions/date_of_birth.govspeak.erb: 71e6ed0f9e16513ec58653d3950100c1
+lib/smart_answer_flows/energy-grants-calculator/questions/disabled_or_have_children.govspeak.erb: f15bbb68d872afbb8d33e3bda7a27b12
+lib/smart_answer_flows/energy-grants-calculator/questions/home_features_historic.govspeak.erb: c712c20462b503f7c3831523b5a06e3d
+lib/smart_answer_flows/energy-grants-calculator/questions/home_features_modern.govspeak.erb: b4003fb74236ac5ee1ce106e6794003f
+lib/smart_answer_flows/energy-grants-calculator/questions/home_features_older.govspeak.erb: d3c66afad1aff97d58f6df1232e71065
+lib/smart_answer_flows/energy-grants-calculator/questions/type_of_flat.govspeak.erb: ac23cbea3e6649a1ab2ac4d0d2ef1e9e
+lib/smart_answer_flows/energy-grants-calculator/questions/type_of_property.govspeak.erb: 63d04c23c9659e8df11af83e01d06943
+lib/smart_answer_flows/energy-grants-calculator/questions/what_are_you_looking_for.govspeak.erb: 48d3acc7d306fc883963b2db16850ba9
+lib/smart_answer_flows/energy-grants-calculator/questions/what_are_your_circumstances.govspeak.erb: d7e77ef28e198c36c96459696495ae86
+lib/smart_answer_flows/energy-grants-calculator/questions/what_are_your_circumstances_without_bills_help.govspeak.erb: 6ae854b097a4d15979f199d18dbb1799
+lib/smart_answer_flows/energy-grants-calculator/questions/when_property_built.govspeak.erb: 263b4fbc03875cc1f84cbe9f514e76ef
+lib/smart_answer_flows/energy-grants-calculator/questions/which_benefits.govspeak.erb: a0508f489796a83add8babb487e8fae4

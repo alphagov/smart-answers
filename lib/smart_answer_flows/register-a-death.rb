@@ -6,10 +6,11 @@ module SmartAnswer
       status :published
       satisfies_need "101006"
 
+      use_erb_templates_for_questions
+
       country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
       reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
       translator_query = SmartAnswer::Calculators::TranslatorLinks.new
-      country_has_no_embassy = SmartAnswer::Predicate::RespondedWith.new(%w(iran syria yemen))
       exclude_countries = %w(holy-see british-antarctic-territory)
 
       # Q1
@@ -72,9 +73,28 @@ module SmartAnswer
           current_location_name_lowercase_prefix
         end
 
-        next_node_if(:commonwealth_result, reg_data_query.responded_with_commonwealth_country?)
-        next_node_if(:no_embassy_result, country_has_no_embassy)
-        next_node(:where_are_you_now?)
+        next_node_calculation :country_has_no_embassy do |response|
+          %w(iran syria yemen).include?(response)
+        end
+
+        next_node_calculation :responded_with_commonwealth_country do |response|
+          Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(response)
+        end
+
+        permitted_next_nodes = [
+          :commonwealth_result,
+          :no_embassy_result,
+          :where_are_you_now?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if responded_with_commonwealth_country
+            :commonwealth_result
+          elsif country_has_no_embassy
+            :no_embassy_result
+          else
+            :where_are_you_now?
+          end
+        end
       end
 
       # Q5
@@ -91,16 +111,24 @@ module SmartAnswer
           response == 'in_the_uk'
         end
 
-        define_predicate(:died_in_north_korea) {
+        next_node_calculation(:died_in_north_korea) {
           country_of_death == 'north-korea'
         }
 
-        on_condition(responded_with('same_country')) do
-          next_node_if(:north_korea_result, died_in_north_korea)
+        permitted_next_nodes = [
+          :north_korea_result,
+          :oru_result,
+          :which_country_are_you_in_now?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'same_country' && died_in_north_korea
+            :north_korea_result
+          elsif response == 'another_country'
+            :which_country_are_you_in_now?
+          else
+            :oru_result
+          end
         end
-
-        next_node_if(:which_country_are_you_in_now?, responded_with('another_country'))
-        next_node(:oru_result)
       end
 
       # Q6
@@ -113,12 +141,21 @@ module SmartAnswer
           country_name_query.definitive_article(current_location)
         end
 
-        define_predicate(:currently_in_north_korea) {
+        next_node_calculation(:currently_in_north_korea) {
           response == 'north-korea'
         }
 
-        next_node_if(:north_korea_result, currently_in_north_korea)
-        next_node(:oru_result)
+        permitted_next_nodes = [
+          :north_korea_result,
+          :oru_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if currently_in_north_korea
+            :north_korea_result
+          else
+            :oru_result
+          end
+        end
       end
 
       outcome :commonwealth_result

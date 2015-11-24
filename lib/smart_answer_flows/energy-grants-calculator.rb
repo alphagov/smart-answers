@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100259"
 
+      use_erb_templates_for_questions
+
       # Q1
       multiple_choice :what_are_you_looking_for? do
         option :help_with_fuel_bill
@@ -13,6 +15,22 @@ module SmartAnswer
         option :help_boiler_measure
         option :all_help
         save_input_as :which_help
+
+        calculate :flat_type do
+          nil
+        end
+        calculate :may_qualify_for_affordable_warmth_obligation do
+          nil
+        end
+        calculate :incomesupp_jobseekers_1 do
+          nil
+        end
+        calculate :incomesupp_jobseekers_2 do
+          nil
+        end
+        calculate :age_variant do
+          nil
+        end
 
         calculate :bills_help do |response|
           %w(help_with_fuel_bill).include?(response) ? :bills_help : nil

@@ -8,6 +8,8 @@ module SmartAnswer
       status :published
       satisfies_need "100245"
 
+      use_erb_templates_for_questions
+
       # Q1
       multiple_choice :which_calculation? do
         save_input_as :relevant_calculation
@@ -15,6 +17,16 @@ module SmartAnswer
         option :age
         option :amount
         option :bus_pass
+
+        calculate :pays_reduced_ni_rate do
+          nil
+        end
+        calculate :lived_or_worked_abroad do
+          nil
+        end
+        calculate :years_of_work_entered do
+          nil
+        end
 
         calculate :weekly_state_pension_rate do
           SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.weekly_rate
@@ -87,18 +99,6 @@ module SmartAnswer
           calculator.ni_years_to_date_from_dob
         end
 
-        next_node_calculation :calc do |response|
-          Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
-        end
-
-        next_node_calculation(:near_pension_date) do
-          calc.before_state_pension_date? and calc.within_four_months_one_day_from_state_pension?
-        end
-
-        next_node_calculation(:under_20_years_old) do
-          calc.under_20_years_old?
-        end
-
         validate { |response| response <= Date.today }
 
         permitted_next_nodes = [
@@ -106,7 +106,11 @@ module SmartAnswer
           :near_state_pension_age,
           :age_result
         ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+          near_pension_date = calc.before_state_pension_date? && calc.within_four_months_one_day_from_state_pension?
+          under_20_years_old = calc.under_20_years_old?
+
           if under_20_years_old
             :too_young
           elsif near_pension_date
@@ -164,30 +168,6 @@ module SmartAnswer
 
         validate { |response| response <= Date.today }
 
-        next_node_calculation :calc do |response|
-          Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
-        end
-
-        next_node_calculation(:before_state_pension_date) do
-          calc.before_state_pension_date?
-        end
-
-        next_node_calculation(:under_20_years_old) do
-          calc.under_20_years_old?
-        end
-
-        next_node_calculation(:woman_and_born_in_date_range) do
-          calc.woman_born_in_married_stamp_era?
-        end
-
-        next_node_calculation(:over_55) do
-          calc.over_55?
-        end
-
-        next_node_calculation(:new_state_pension) do
-          !(calc.state_pension_date < Date.parse('6 April 2016'))
-        end
-
         permitted_next_nodes = [
           :over55_result,
           :pay_reduced_ni_rate?,
@@ -195,7 +175,14 @@ module SmartAnswer
           :years_paid_ni?,
           :reached_state_pension_age
         ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calc = Calculators::StatePensionAmountCalculator.new(gender: gender, dob: response)
+          before_state_pension_date = calc.before_state_pension_date?
+          under_20_years_old = calc.under_20_years_old?
+          woman_and_born_in_date_range = calc.woman_born_in_married_stamp_era?
+          over_55 = calc.over_55?
+          new_state_pension = !(calc.state_pension_date < Date.parse('6 April 2016'))
+
           if new_state_pension && over_55
             :over55_result
           elsif woman_and_born_in_date_range
@@ -249,7 +236,7 @@ module SmartAnswer
         # part of a hint for questions 4, 7 and 9 that should only be displayed for women born before 1962
         precalculate :carer_hint_for_women do
           if gender == 'female' and (dob < Date.parse('1962-01-01'))
-            PhraseList.new(:carers_allowance_women_hint)
+            "Don’t count years when you opted for the reduced National Insurance rate for married women and widows."
           else
             ''
           end
@@ -259,7 +246,7 @@ module SmartAnswer
 
         calculate :carer_hint_for_women_before_1962 do
           if gender == 'female' and (dob < Date.parse('1962-01-01'))
-            PhraseList.new(:carers_allowance_women_ni_reduced_years_before_2010)
+            "Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows."
           else
             ''
           end
@@ -313,7 +300,7 @@ module SmartAnswer
 
         calculate :carer_hint_for_women_before_1962 do
           if gender == 'female' and (dob < Date.parse('1962-01-01'))
-            PhraseList.new(:carers_allowance_women_ni_reduced_years_before_2010)
+            "Don’t count years before April 2010 when you opted for the reduced National Insurance rate for married women and widows."
           end
         end
 

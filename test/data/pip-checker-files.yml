@@ -1,6 +1,5 @@
 ---
-lib/smart_answer_flows/pip-checker.rb: bcba0a60b1f8117feac575868214f7a0
-lib/smart_answer_flows/locales/en/pip-checker.yml: 726e0dd42e3505341c9bfc7e4888d4a5
+lib/smart_answer_flows/pip-checker.rb: f93fb1a36a65cfe6322c39e54c33140c
 test/data/pip-checker-questions-and-responses.yml: a4ce5f8dc606f2676c56f10409e3685b
 test/data/pip-checker-responses-and-expected-results.yml: a2c772b69a493d1844cfa32681057796
 lib/smart_answer_flows/pip-checker/outcomes/_scheme_postcodes.govspeak.erb: c8c884fbd4111d7cc3b015cb2be57b5a
@@ -11,4 +10,6 @@ lib/smart_answer_flows/pip-checker/outcomes/result_5.govspeak.erb: c7e71ce80dd7a
 lib/smart_answer_flows/pip-checker/outcomes/result_6.govspeak.erb: 9e8654af8d344aace18e6b84f6751589
 lib/smart_answer_flows/pip-checker/outcomes/result_7.govspeak.erb: 53cd87bc874587ef711f0b2792dfbfff
 lib/smart_answer_flows/pip-checker/pip_checker.govspeak.erb: a8d0f09aca643eff7e143a7c34fc5fd4
+lib/smart_answer_flows/pip-checker/questions/are_you_getting_dla.govspeak.erb: 85458e011e65c45cbf7900a83028f878
+lib/smart_answer_flows/pip-checker/questions/what_is_your_dob.govspeak.erb: 8a7f608d4b124caed3c17cdbbd6fa58b
 lib/smart_answer/calculators/pip_dates.rb: 773342998eae28adbbc7403a24e9548c

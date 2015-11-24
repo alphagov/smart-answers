@@ -101,12 +101,21 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
     calculator.format_date_day to_saturday
   end
 
-  define_predicate(:no_contract_not_on_payroll?) do |response|
+  next_node_calculation(:no_contract_not_on_payroll) do |response|
     employee_has_contract_adoption == 'no' && response == 'no'
   end
 
-  next_node_if(:adoption_not_entitled_to_leave_or_pay, no_contract_not_on_payroll?)
-  next_node :adoption_date_leave_starts?
+  permitted_next_nodes = [
+    :adoption_date_leave_starts?,
+    :adoption_not_entitled_to_leave_or_pay
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if no_contract_not_on_payroll
+      :adoption_not_entitled_to_leave_or_pay
+    else
+      :adoption_date_leave_starts?
+    end
+  end
 end
 
 ## QA6
@@ -137,12 +146,21 @@ date_question :adoption_date_leave_starts? do
     calculator.format_date calculator.a_notice_leave
   end
 
-  define_predicate(:has_contract_not_on_payroll?) do
+  next_node_calculation(:has_contract_not_on_payroll) do
     employee_has_contract_adoption == 'yes' && on_payroll == 'no'
   end
 
-  next_node_if(:adoption_leave_and_pay, has_contract_not_on_payroll?)
-  next_node :last_normal_payday_adoption?
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :last_normal_payday_adoption?
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if has_contract_not_on_payroll
+      :adoption_leave_and_pay
+    else
+      :last_normal_payday_adoption?
+    end
+  end
 end
 
 # QA7
@@ -204,9 +222,9 @@ end
 ## QA10
 money_question :earnings_for_pay_period_adoption? do
 
- calculate :lower_earning_limit do
-   sprintf("%.2f", calculator.lower_earning_limit)
- end
+  calculate :lower_earning_limit do
+    sprintf("%.2f", calculator.lower_earning_limit)
+  end
 
   calculate :average_weekly_earnings do
     sprintf("%.2f", calculator.average_weekly_earnings)
@@ -221,12 +239,21 @@ money_question :earnings_for_pay_period_adoption? do
     calculator
   end
 
-  define_predicate(:average_weekly_earnings_under_lower_earning_limit?) do
+  next_node_calculation(:average_weekly_earnings_under_lower_earning_limit) do
     calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
 
-  next_node_if(:adoption_leave_and_pay, average_weekly_earnings_under_lower_earning_limit?)
-  next_node :how_do_you_want_the_sap_calculated?
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :how_do_you_want_the_sap_calculated?
+  ]
+  next_node(permitted: permitted_next_nodes) do
+    if average_weekly_earnings_under_lower_earning_limit
+      :adoption_leave_and_pay
+    else
+      :how_do_you_want_the_sap_calculated?
+    end
+  end
 end
 
 ## QA11
@@ -236,9 +263,20 @@ multiple_choice :how_do_you_want_the_sap_calculated? do
 
   save_input_as :sap_calculation_method
 
-  next_node_if(:adoption_leave_and_pay, responded_with('weekly_starting'))
-  next_node_if(:monthly_pay_paternity?, variable_matches(:pay_pattern, 'monthly')) ## Shared with paternity calculator
-  next_node :next_pay_day_paternity? ## Shared with paternity calculator
+  permitted_next_nodes = [
+    :adoption_leave_and_pay,
+    :monthly_pay_paternity?,
+    :next_pay_day_paternity?
+  ]
+  next_node(permitted: permitted_next_nodes) do |response|
+    if response == 'weekly_starting'
+      :adoption_leave_and_pay
+    elsif pay_pattern == 'monthly'
+      :monthly_pay_paternity?
+    else
+      :next_pay_day_paternity?
+    end
+  end
 end
 
 outcome :adoption_leave_and_pay do

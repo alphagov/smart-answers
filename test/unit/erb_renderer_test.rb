@@ -130,6 +130,26 @@ Hello world
       end
     end
 
+    test '#content_for returns an HTML-safe string when passed through Govspeak' do
+      erb_template = content_for(:key, 'html-unsafe-string')
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert renderer.content_for(:key).html_safe?
+      end
+    end
+
+    test '#content_for returns an HTML-safe string when not passed through Govspeak' do
+      erb_template = content_for(:key, 'html-unsafe-string')
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert renderer.content_for(:key, html: false).html_safe?
+      end
+    end
+
     test '#content_for returns the same content when called multiple times' do
       erb_template = content_for(:key, 'body-content')
 
@@ -138,6 +158,78 @@ Hello world
 
         assert_equal "<p>body-content</p>\n", renderer.content_for(:key)
         assert_equal "<p>body-content</p>\n", renderer.content_for(:key)
+      end
+    end
+
+    test '#single_line_of_content_for removes trailing newline' do
+      erb_template = content_for(:key, "single-line-of-content-for-key\n")
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert_equal 'single-line-of-content-for-key', renderer.single_line_of_content_for(:key)
+      end
+    end
+
+    test '#single_line_of_content_for returns an HTML-safe string' do
+      erb_template = content_for(:key, 'html-unsafe-string')
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert renderer.single_line_of_content_for(:key).html_safe?
+      end
+    end
+
+    test '#single_line_of_content_for disables HTML rendering' do
+      erb_template = content_for(:key, 'single-line-of-content-for-key')
+      renderer = ErbRenderer.new(template_directory: nil, template_name: nil)
+      renderer.stubs(:content_for).with(:key, html: false).returns('single-line-of-content-for-key')
+      assert_equal 'single-line-of-content-for-key', renderer.single_line_of_content_for(:key)
+    end
+
+    test '#option_text returns option text for specified key' do
+      erb_template = "<% options(option_one: 'option-one-text', option_two: 'option-two-text') %>"
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert_equal 'option-one-text', renderer.option_text(:option_one)
+        assert_equal 'option-two-text', renderer.option_text(:option_two)
+      end
+    end
+
+    test '#option_text raises KeyError if option key does not exist' do
+      erb_template = "<% options(option_one: 'option-one-text', option_two: 'option-two-text') %>"
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        e = assert_raises(KeyError) do
+          renderer.option_text(:option_three)
+        end
+      end
+    end
+
+    test '#option_text raises KeyError if no options defined in template' do
+      erb_template = ''
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        e = assert_raises(KeyError) do
+          renderer.option_text(:option_key)
+        end
+      end
+    end
+
+    test '#option_text returns an HTML-safe string' do
+      erb_template = "<% options(option_one: 'html-unsafe-option-one-text') %>"
+
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        assert renderer.option_text(:option_one).html_safe?
       end
     end
 

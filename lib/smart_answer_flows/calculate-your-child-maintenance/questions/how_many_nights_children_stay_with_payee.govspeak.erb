@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  <%= how_many_nights_title %>
+<% end %>
+
+<% options(
+  "0": "Less than 52 (less than once a week)",
+  "1": "52 to 103 (1 to 2 nights a week)",
+  "2": "104 to 155 (2 to 3 nights a week)",
+  "3": "156 to 174 (approx. 3 nights a week)",
+  "4": "175 or more (more than 3 nights a week)"
+) %>

@@ -1,0 +1,22 @@
+<% content_for :title do %>
+  How much milk fat does the product contain?
+<% end %>
+
+<% options(
+  "0": "0 - 1.49",
+  "1": "1.5 - 2.99",
+  "3": "3 - 5.99",
+  "6": "6 - 8.99",
+  "9": "9 - 11.99",
+  "12": "12 - 17.99",
+  "18": "18 - 25.99",
+  "26": "26 - 39.99",
+  "40": "40 - 54.99",
+  "55": "55 - 69.99",
+  "70": "70 - 84.99",
+  "85": "85 or more"
+) %>
+
+<% content_for :hint do %>
+  The values represent % by weight
+<% end %>

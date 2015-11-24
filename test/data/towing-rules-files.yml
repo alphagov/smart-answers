@@ -1,6 +1,5 @@
 ---
-lib/smart_answer_flows/towing-rules.rb: e2fec908824ffbab77853aa57b9893e5
-lib/smart_answer_flows/locales/en/towing-rules.yml: 3c95f8e64ea39d727386928e8becc8f5
+lib/smart_answer_flows/towing-rules.rb: c5550c3baeacccbd1d87bb775bfc86ee
 test/data/towing-rules-questions-and-responses.yml: 17c522939af1e14522972c8281466143
 test/data/towing-rules-responses-and-expected-results.yml: 36f51dce9501d1ee9e960d7ce2139298
 lib/smart_answer_flows/towing-rules/outcomes/apply_for_provisional_bus.govspeak.erb: 7e9f6d62486894f8537e09ea07b07a43
@@ -25,4 +24,21 @@ lib/smart_answer_flows/towing-rules/outcomes/not_old_enough_bus.govspeak.erb: f7
 lib/smart_answer_flows/towing-rules/outcomes/not_old_enough_lv.govspeak.erb: 5a94374e913caa7597ebc530c32ad421
 lib/smart_answer_flows/towing-rules/outcomes/not_old_enough_minibus.govspeak.erb: d85ab81444e874f4549adeba688f73e6
 lib/smart_answer_flows/towing-rules/outcomes/too_young_msv.govspeak.erb: cea2cd5ded9e75435518dcd67cda65b0
+lib/smart_answer_flows/towing-rules/questions/bus_licenceholder.govspeak.erb: 000bf09ea8f39fa1b3a3d9502fc06e5b
+lib/smart_answer_flows/towing-rules/questions/car_licence_before_jan_1997.govspeak.erb: 55cbedc07bd951a309c86d57f3db652c
+lib/smart_answer_flows/towing-rules/questions/date_licence_was_issued.govspeak.erb: 90931fe0abfd7a8b5459bcbbee9558a8
+lib/smart_answer_flows/towing-rules/questions/date_licence_was_issued_msv.govspeak.erb: d5191665dab7f6258d6ba0751150c121
+lib/smart_answer_flows/towing-rules/questions/do_you_have_lv_or_bus_towing_entitlement.govspeak.erb: 5f890d04281a02ebdbe0876aef07401f
+lib/smart_answer_flows/towing-rules/questions/existing_large_vehicle_licence.govspeak.erb: 202398217b0ecab3c15eecc05121377b
+lib/smart_answer_flows/towing-rules/questions/existing_large_vehicle_towing_entitlements.govspeak.erb: 6ab6321b13c611b5ec673306b6b5aefb
+lib/smart_answer_flows/towing-rules/questions/existing_towing_entitlements.govspeak.erb: 8c44b57c196f86904d2d32fa3522e016
+lib/smart_answer_flows/towing-rules/questions/full_minibus_licence.govspeak.erb: 699ba4ae62b5a7ecf6d7e3b240173f13
+lib/smart_answer_flows/towing-rules/questions/how_long_entitlements.govspeak.erb: 67350fb55c0bb9358f1d082d31b1d2cd
+lib/smart_answer_flows/towing-rules/questions/how_old_are_you_bus.govspeak.erb: ca5962f1aee9ae73b09d3fb177ff4916
+lib/smart_answer_flows/towing-rules/questions/how_old_are_you_lv.govspeak.erb: ca5962f1aee9ae73b09d3fb177ff4916
+lib/smart_answer_flows/towing-rules/questions/how_old_are_you_minibus.govspeak.erb: ca5962f1aee9ae73b09d3fb177ff4916
+lib/smart_answer_flows/towing-rules/questions/how_old_are_you_msv.govspeak.erb: ca5962f1aee9ae73b09d3fb177ff4916
+lib/smart_answer_flows/towing-rules/questions/how_old_are_you_msv_2.govspeak.erb: a8a3db03d4691aff0dce48043629acc5
+lib/smart_answer_flows/towing-rules/questions/medium_sized_vehicle_licenceholder.govspeak.erb: 095d820f653504cc53abe87ff65b912b
+lib/smart_answer_flows/towing-rules/questions/towing_vehicle_type.govspeak.erb: a7819a41ea3de67acf574811a3e80756
 lib/smart_answer_flows/towing-rules/towing_rules.govspeak.erb: d48bec315e82adf8e068fa2b20d748c2

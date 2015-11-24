@@ -1,0 +1,13 @@
+<% content_for :title do %>
+  Enter the end date for this linked period of sickness.
+<% end %>
+
+<% content_for :must_be_valid_period_of_incapacity_for_work do %>
+  The linked period of sickness must be at least 4 calendar days long.
+<% end %>
+<% content_for :must_be_within_eight_weeks do %>
+  You need to enter a date within 8 weeks of the current period of sickness or it isn't a linked period of sickness.
+<% end %>
+<% content_for :must_be_at_least_1_day_before_first_sick_day do %>
+  You need to enter a date at least 1 day before the start of the current period of sickness or it isn't a separate linked period of sickness.
+<% end %>

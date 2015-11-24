@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100221"
 
+      use_erb_templates_for_questions
+
       exclude_countries = %w(holy-see british-antarctic-territory)
 
       multiple_choice :where_was_the_passport_lost_or_stolen? do
@@ -42,8 +44,17 @@ module SmartAnswer
 
         end
 
-        next_node_if(:contact_the_embassy_canada, responded_with('canada'))
-        next_node :contact_the_embassy
+        permitted_next_nodes = [
+          :contact_the_embassy,
+          :contact_the_embassy_canada
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'canada'
+            :contact_the_embassy_canada
+          else
+            :contact_the_embassy
+          end
+        end
       end
 
       outcome :contact_the_embassy

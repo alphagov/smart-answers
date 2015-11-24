@@ -6,7 +6,7 @@ Your employee is entitled to SSP for 38 days out of 41 working days taken off si
 
 Week ending | SSP amount
 -|-
-6 April 2013|£0.00
+6 April 2013|£0
 13 April 2013|£57.80
 20 April 2013|£86.70
 27 April 2013|£86.70

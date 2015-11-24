@@ -1,6 +1,5 @@
 ---
-lib/smart_answer_flows/state-pension-through-partner.rb: 56b1c10c0fa72ec69689a3311ef2a814
-lib/smart_answer_flows/locales/en/state-pension-through-partner.yml: dfdbbb39e4d2582046a61a98e9c4ba1c
+lib/smart_answer_flows/state-pension-through-partner.rb: 2ab7edfc0a911e8fbd870d2eee03d046
 test/data/state-pension-through-partner-questions-and-responses.yml: 256f0f1136d388a674a0732173da6c1a
 test/data/state-pension-through-partner-responses-and-expected-results.yml: fcf56e5687c592c8693f62f529bc939e
 lib/smart_answer_flows/state-pension-through-partner/outcomes/_increase_retirement_income.govspeak.erb: 2391bf6e80d1aa4d0d4258030b4f4e00
@@ -13,5 +12,9 @@ lib/smart_answer_flows/state-pension-through-partner/outcomes/impossibility_to_i
 lib/smart_answer_flows/state-pension-through-partner/outcomes/married_woman_and_state_pension_outcome.govspeak.erb: 3bac717478181c284be2c91a98a222b3
 lib/smart_answer_flows/state-pension-through-partner/outcomes/married_woman_no_state_pension_outcome.govspeak.erb: dbad81e6c8fd6dd637eaccbfe26c879d
 lib/smart_answer_flows/state-pension-through-partner/outcomes/widow_and_old_pension_outcome.govspeak.erb: 9a71f07507d6a0a45130b46fb329602d
+lib/smart_answer_flows/state-pension-through-partner/questions/what_is_your_gender.govspeak.erb: c349baf18577431bd5f5ccf31e4b76bb
+lib/smart_answer_flows/state-pension-through-partner/questions/what_is_your_marital_status.govspeak.erb: 86b0f4cdedffd735114360c21248ff05
+lib/smart_answer_flows/state-pension-through-partner/questions/when_will_you_reach_pension_age.govspeak.erb: 91c30ae0ee8202f5725fcf71f476babf
+lib/smart_answer_flows/state-pension-through-partner/questions/when_will_your_partner_reach_pension_age.govspeak.erb: d2f06f49adaa0f29f0c3ae9438dd55c7
 lib/smart_answer_flows/state-pension-through-partner/state_pension_through_partner.govspeak.erb: a88c54040e00a71034f75b10a5077137
 lib/data/rates/state_pension.yml: 7e97e88500fb698038c49332b48b82bf

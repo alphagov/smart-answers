@@ -208,7 +208,7 @@
   Copy of a birth registration certificate | £65
 
   <%= render partial: '../../shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
-  <%= render partial: '../../data_partials/button.erb', locals: { button_data: button_data } %>
+  <%= render partial: '../../shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: button_data } %>
 
   <% if country_of_birth == 'venezuela' && same_country %>
 
@@ -218,7 +218,7 @@
 
     Staff at the embassy will check your application and send it to the Overseas Registration Unit in the UK.
 
-    <%= render partial: '../../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+    <%= render partial: '../../shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
   <% else %>
 
     ##4. Send your registration
