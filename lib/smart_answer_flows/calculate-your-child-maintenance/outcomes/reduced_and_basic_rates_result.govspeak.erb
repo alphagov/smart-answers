@@ -6,6 +6,8 @@
   end %>
   Based on your answers the child maintenance payment is the <%= rate_type_formatted %> rate of £<%= child_maintenance_payment %> per week.
 
+  The calculator gives an estimate. The exact amount the Child Maintenance Service calculates might be different.<% if paying_or_receiving == 'receive' %> For example, if the paying parent supports other children, the amount you receive may be less than this.<% end %>
+
   This is the total weekly amount, not the amount per child.
 
   Depending on how child maintenance is arranged, fees may be added to this amount.
@@ -25,7 +27,6 @@
     You may also have to pay an enforcement charge if you don’t make your full payments on time.
   <% end %>
 
-  The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
   Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
 <% end %>
