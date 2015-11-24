@@ -138,6 +138,7 @@ module SmartAnswer
           :outcome_transit_not_leaving_airport,
           :outcome_transit_refugee_not_leaving_airport,
           :outcome_transit_taiwan,
+          :outcome_transit_taiwan_through_border_control,
           :outcome_transit_venezuela,
           :outcome_visit_waiver
         ]
@@ -146,7 +147,7 @@ module SmartAnswer
 
           if calculator.passing_through_uk_border_control?
             if calculator.passport_country_is_taiwan?
-              :outcome_transit_taiwan
+              :outcome_transit_taiwan_through_border_control
             elsif calculator.passport_country_in_visa_national_list?
               :outcome_transit_leaving_airport
             elsif calculator.passport_country_in_datv_list?
@@ -243,6 +244,7 @@ module SmartAnswer
       outcome :outcome_transit_not_leaving_airport
       outcome :outcome_transit_refugee_not_leaving_airport
       outcome :outcome_transit_taiwan
+      outcome :outcome_transit_taiwan_through_border_control
       outcome :outcome_transit_venezuela
       outcome :outcome_visit_waiver
       outcome :outcome_work_m
