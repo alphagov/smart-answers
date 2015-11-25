@@ -87,11 +87,7 @@ lib
 
 ### Defining next node rules
 
-There are two syntaxes for defining next node rules.
-
 #### Using `next_node` with a block
-
-This is the preferred syntax.
 
 ```ruby
 permitted_next_nodes = [
