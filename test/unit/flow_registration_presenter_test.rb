@@ -3,7 +3,7 @@ require_relative "../helpers/fixture_flows_helper"
 
 require File.expand_path('../../fixtures/smart_answer_flows/flow-sample', __FILE__)
 
-class FlowRegistrationPresenterWithErbRendererTest < ActiveSupport::TestCase
+class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   include FixtureFlowsHelper
 
   def setup
