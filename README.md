@@ -48,6 +48,7 @@ See [development using the GDS development virtual machine](doc/developing-using
 
 ### Process
 
+* [Creating a new Smart Answer](doc/creating-a-new-smart-answer.md)
 * [Archiving a Smart Answer](doc/archiving.md)
 * [Continuous integration](doc/continuous-integration.md)
 * [Deploying changes for Factcheck](doc/factcheck.md)
