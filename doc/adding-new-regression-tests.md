@@ -40,7 +40,7 @@
 
       * Code in node-level blocks (e.g. in `value_question`, `date_question`, `multiple_choice` & `outcome` blocks) will always be executed at *flow-definition-time*, and so coverage of these lines is of **no** significance when assessing test coverage of the flow logic.
 
-      * Code in blocks inside node-level blocks (e.g. in `precalculate`, `next_node_calculation`, `validate` & `define_predicate` blocks) will be executed at *flow-execution-time*, and so coverage of these lines is of significance when assessing test coverage of the flow logic.
+      * Code in blocks inside node-level blocks (e.g. in `precalculate`, `next_node_calculation` & `validate` blocks) will be executed at *flow-execution-time*, and so coverage of these lines is of significance when assessing test coverage of the flow logic.
 
       * Coverage of code in ancillary classes (e.g. calculators) should also be considered at this point.
 
