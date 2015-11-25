@@ -356,13 +356,12 @@ outcome :savoury_tooth
 
   test "change default renderer for questions" do
     flow = SmartAnswer::Flow.new do
-      use_i18n_templates_for_questions
       value_question :question_one?
-      use_erb_templates_for_questions
+      use_i18n_templates_for_questions
       value_question :question_two?
     end
     question_one, question_two = *flow.questions
-    refute question_one.use_erb_template?
-    assert question_two.use_erb_template?
+    assert question_one.use_erb_template?
+    refute question_two.use_erb_template?
   end
 end

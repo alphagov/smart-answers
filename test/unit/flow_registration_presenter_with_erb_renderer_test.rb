@@ -8,9 +8,7 @@ class FlowRegistrationPresenterWithErbRendererTest < ActiveSupport::TestCase
 
   def setup
     setup_fixture_flows
-    @flow = SmartAnswer::FlowSampleFlow.new
-    @flow.use_erb_templates_for_questions
-    @flow.define
+    @flow = SmartAnswer::FlowSampleFlow.build
     @presenter = FlowRegistrationPresenter.new(@flow)
   end
 

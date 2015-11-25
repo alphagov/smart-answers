@@ -8,9 +8,7 @@ module SmartAnswer
 
     setup do
       setup_fixture_flows
-      @flow = SmartAnswer::GraphFlow.new
-      @flow.use_erb_templates_for_questions
-      @flow.define
+      @flow = SmartAnswer::GraphFlow.build
       @presenter = GraphPresenter.new(@flow)
     end
 
