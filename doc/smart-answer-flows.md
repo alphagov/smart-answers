@@ -156,14 +156,6 @@ The flow below illustrates the data available to the different Question node met
         # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
       end
 
-      define_predicate :q2_named_predicate do |response|
-        # response                       => 'q2_option'
-        # responses                      => ['q1_option']
-        # q1_calculated_answer           => 'q1-calculated-answer'
-        # q2_precalculated_answer        => 'q2-precalculated-answer'
-        # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
-      end
-
       next_node do |response|
         # response                       => 'q2_option'
         # responses                      => ['q1_option']
