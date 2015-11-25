@@ -1,0 +1,90 @@
+<% content_for :title do %>
+  Marriage in Germany
+
+<% end %>
+
+<% content_for :body do %>
+  <% if resident_of == 'uk' %>
+    <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+
+    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+
+    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
+
+    <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
+
+    <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+
+    ###Translation
+
+    Check with the local authorities in <%= country_name_lowercase_prefix %> if you need to get your UK-issued CNI translated.
+
+    [Find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
+
+    You should also check with the local authorities if you need to provide [legalised](/get-document-legalised) and translated copies of any other documents.
+
+    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+
+    <% if partner_nationality != 'partner_british' %>
+      <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+    <% end -%>
+
+  <% else %>
+    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+
+    <% if resident_of == 'ceremony_country' %>
+      <%= render partial: 'get_legal_advice.govspeak.erb' %>
+    <% else %>
+      <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+                locals: {
+                  country_name_lowercase_prefix: country_name_lowercase_prefix,
+                  ceremony_country: ceremony_country
+                } %>
+    <% end %>
+
+    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+
+    You don’t need a certificate of no impediment (CNI) to prove you’re allowed to marry if you’re a British national resident outside of the UK. However, you’ll need to apply for an exemption (‘Befreiung von der Beibringung des Ehefähigkeitszeugnisses’).
+
+    The local registry office (‘Standesamt’) where you’re getting married should tell you what to do.
+
+    If the Standesamt does ask you for a CNI (‘Ehefähigkeitszeugnis’), refer them to the relevant part of the [German Civil Code](http://www.gesetze-im-internet.de/bgb/__1309.html) (‘Bürgerliches Gesetzbuch’). This is published on the Stuttgart Higher Regional Court (‘Oberlandesgericht’) website, but it applies to the whole of Germany.
+
+    Check with the Higher Regional Court where you’re getting married if they don’t accept this.
+
+    <% if resident_of == 'ceremony_country' %>
+      ^You don't need to stay in the country while your notice is posted.^
+    <% end %>
+
+    <% if partner_nationality != 'partner_british' %>
+      <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+    <% end -%>
+
+  <% end %>
+
+  <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
+  <%= render partial: 'link_to_consular_fees.govspeak.erb',
+             locals: {
+               country_name_lowercase_prefix: country_name_lowercase_prefix,
+               ceremony_country: ceremony_country
+             } %>
+  <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
+
+  *[CNI]:certificate of no impediment
+<% end %>
