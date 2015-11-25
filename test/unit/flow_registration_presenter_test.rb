@@ -14,7 +14,9 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
     load_path = fixture_file('smart_answer_flows')
     SmartAnswer::FlowRegistry.instance.stubs(:load_path).returns(load_path)
 
-    @flow = SmartAnswer::FlowSampleFlow.build
+    @flow = SmartAnswer::FlowSampleFlow.new
+    @flow.use_i18n_templates_for_questions
+    @flow.define
     @presenter = FlowRegistrationPresenter.new(@flow)
   end
 

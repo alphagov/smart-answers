@@ -14,6 +14,7 @@ module SmartAnswer
     def initialize(&block)
       @nodes = []
       @state = nil
+      @use_erb_templates_for_questions = true
       instance_eval(&block) if block_given?
     end
 
@@ -50,6 +51,10 @@ module SmartAnswer
 
     def use_erb_templates_for_questions
       @use_erb_templates_for_questions = true
+    end
+
+    def use_i18n_templates_for_questions
+      @use_erb_templates_for_questions = false
     end
 
     def multiple_choice(name, options = {}, &block)

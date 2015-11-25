@@ -10,7 +10,9 @@ module SmartAnswer
     setup do
       use_additional_translation_file(fixture_file('smart_answer_flows/locales/en/graph.yml'))
 
-      @flow = SmartAnswer::GraphFlow.build
+      @flow = SmartAnswer::GraphFlow.new
+      @flow.use_i18n_templates_for_questions
+      @flow.define
       @presenter = GraphPresenter.new(@flow)
     end
 
