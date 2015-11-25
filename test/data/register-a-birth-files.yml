@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/register-a-birth.rb: 25c95aa072f64e367c03b4c2bbfce5fd
+lib/smart_answer_flows/register-a-birth.rb: 730dba55e2cc3353cf3982277702d68c
 test/data/register-a-birth-questions-and-responses.yml: c59cb1d0c11f3ad29f905b632f7c58bb
 test/data/register-a-birth-responses-and-expected-results.yml: 3ac4372034c86d8cc87665db59ff11d5
 lib/smart_answer_flows/register-a-birth/outcomes/commonwealth_result.govspeak.erb: a7c70e3191f23f7e747cb45587e4825f

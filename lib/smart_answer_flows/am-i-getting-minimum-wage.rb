@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100145"
 
-      use_erb_templates_for_questions
-
       use_shared_logic "minimum_wage"
     end
   end

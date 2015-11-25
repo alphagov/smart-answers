@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100624"
 
-      use_erb_templates_for_questions
-
       date_question :when_does_your_vat_accounting_period_end? do
         default_day { -1 }
         next_node :how_do_you_want_to_pay?

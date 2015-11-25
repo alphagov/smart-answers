@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100988"
 
-      use_erb_templates_for_questions
-
       # The case & if blocks in this file are organised to be read in the same order
       # as the flow chart rather than to minimise repetition.
 

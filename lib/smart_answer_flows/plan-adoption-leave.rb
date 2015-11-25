@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "101018"
 
-      use_erb_templates_for_questions
-
       date_question :child_match_date? do
         save_input_as :match_date
 

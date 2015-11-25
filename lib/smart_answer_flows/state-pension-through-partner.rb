@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100578"
 
-      use_erb_templates_for_questions
-
       ### This will need updating before 6th April 2016 ###
       # Q1
       multiple_choice :what_is_your_marital_status? do
