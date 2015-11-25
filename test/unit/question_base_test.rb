@@ -153,10 +153,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
       next_node_calculation :blah do
         "blah"
       end
-      next_node_if(:done) {
-        complementary_colour == :green
-      }
-      next_node(:shouldnt_go_here)
+      next_node(permitted: [:done]) do
+        :done if complementary_colour == :green
+      end
     end
     initial_state = SmartAnswer::State.new(q.name)
     new_state = q.transition(initial_state, :red)
@@ -165,93 +164,13 @@ class QuestionBaseTest < ActiveSupport::TestCase
     assert_equal :done, new_state.current_node
   end
 
-  test "conditional next node can be specified using next_node_if passing a block" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node_if(:bar) { true }
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    assert_equal :bar, q.next_node_for(initial_state, :red)
-  end
-
-  test "conditional next node can be specified using next_node_if passing a predicate" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node_if(:bar, ->(_) {true})
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    assert_equal :bar, q.next_node_for(initial_state, :red)
-  end
-
-  test "conditional next node can be specified using next_node_if passing a list of predicates all of which must be true" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node_if(:bar, ->(_) {true}, ->(_) {false})
-      next_node_if(:baz, ->(_) {true})
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    assert_equal :baz, q.next_node_for(initial_state, :red)
-  end
-
-  test "conditional next nodes are evaluated in order" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node_if(:skipped) { false }
-      next_node_if(:first) { true }
-      next_node_if(:second) { true }
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    assert_equal :first, q.next_node_for(initial_state, :red)
-  end
-
-  test "conditional block is passed input and can refer to state" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node_if(:is_red) do |input|
-        color == input
-      end
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    initial_state.color = :red
-    assert_equal :is_red, q.next_node_for(initial_state, :red)
-  end
-
-  test "next_node block used as fallback" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node_if(:skipped) { false }
-      next_node(permitted: [:next]) { :next }
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    assert_equal :next, q.next_node_for(initial_state, :red)
-  end
-
-  test "conditional next_node used if triggered ignoring fallback" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node_if(:next) { true }
-      next_node(permitted: [:ignored]) { :ignored }
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    assert_equal :next, q.next_node_for(initial_state, :red)
-  end
-
-  test "next_node value used as fallback" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node_if(:skipped) { false }
-      next_node(:next)
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    assert_equal :next, q.next_node_for(initial_state, :red)
-  end
-
-  test "next_node value ignored if conditional fires" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node_if(:next) { true }
-      next_node(:ignored)
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    assert_equal :next, q.next_node_for(initial_state, :red)
-  end
-
   test "error if no conditional transitions found and no fallback" do
     question_name = :example
     responses = [:blue, :red]
     q = SmartAnswer::Question::Base.new(nil, question_name) {
-      next_node_if(:skipped) { false }
+      next_node(permitted: [:skipped]) do
+        :skipped if false
+      end
     }
     initial_state = SmartAnswer::State.new(q.name)
     initial_state.responses << responses[0]
@@ -260,32 +179,5 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
     expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}"
     assert_equal expected_message, error.message
-  end
-
-  test "can define a predicate on a node" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      define_predicate(:response_red?) { |response| response == 'red' }
-      define_predicate(:color_red?) { color == 'red' }
-    }
-
-    assert q.response_red?.is_a?(SmartAnswer::Predicate::Callable)
-    assert q.color_red?.is_a?(SmartAnswer::Predicate::Callable)
-
-    state = SmartAnswer::State.new(q.name)
-    state.color = nil
-    assert q.response_red?.call(state, "red")
-    refute q.response_red?.call(state, "green")
-
-    refute q.color_red?.call(state, "")
-    state.color = 'red'
-    assert q.color_red?.call(state, "")
-  end
-
-  test "may not define a predicate for a method which already exists" do
-    assert_raises RuntimeError, /method define_predicate already defined/ do
-      SmartAnswer::Question::Base.new(nil, :example) {
-        define_predicate(:define_predicate) {}
-      }
-    end
   end
 end
