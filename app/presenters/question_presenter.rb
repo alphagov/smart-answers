@@ -38,11 +38,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def hint
-    if use_erb_template?
-      @renderer.single_line_of_content_for(:hint)
-    else
-      translate!('hint')
-    end
+    @renderer.single_line_of_content_for(:hint)
   end
 
   def label
