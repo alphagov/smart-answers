@@ -23,11 +23,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def title
-    if use_erb_template?
-      @renderer.single_line_of_content_for(:title)
-    else
-      translate!('title', rescue_exception: false)
-    end
+    @renderer.single_line_of_content_for(:title)
   end
 
   def error
